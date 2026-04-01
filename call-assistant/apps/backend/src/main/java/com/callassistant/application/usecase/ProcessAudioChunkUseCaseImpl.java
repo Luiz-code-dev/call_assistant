@@ -19,8 +19,12 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.Sinks;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -35,7 +39,12 @@ public class ProcessAudioChunkUseCaseImpl implements ProcessAudioChunkUseCase {
     private final Optional<CopilotPort> copilotPort;
     private final SessionEventPublisher eventPublisher;
 
+    private static final long COPILOT_THROTTLE_MS = 5_000;
+    private static final int CONTEXT_WINDOW_SIZE = 8;
+
     private final ConcurrentHashMap<String, Sinks.Many<AudioChunk>> audioSinks = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, AtomicLong> lastCopilotCall = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, Deque<String>> recentTranscripts = new ConcurrentHashMap<>();
 
     @Override
     public Mono<Void> execute(String sessionId, AudioChunk chunk) {
@@ -85,15 +94,41 @@ public class ProcessAudioChunkUseCaseImpl implements ProcessAudioChunkUseCase {
         if (sink != null) {
             sink.tryEmitComplete();
         }
+        lastCopilotCall.remove(sessionId);
+        recentTranscripts.remove(sessionId);
+    }
+
+    private String addToContextWindow(String sessionId, String text) {
+        var window = recentTranscripts.computeIfAbsent(sessionId, id -> new ArrayDeque<>());
+        window.addLast(text);
+        while (window.size() > CONTEXT_WINDOW_SIZE) {
+            window.pollFirst();
+        }
+        return window.stream().collect(Collectors.joining(" "));
+    }
+
+    private boolean shouldCallCopilot(String sessionId) {
+        var now = System.currentTimeMillis();
+        var last = lastCopilotCall.computeIfAbsent(sessionId, id -> new AtomicLong(0));
+        if (now - last.get() >= COPILOT_THROTTLE_MS) {
+            last.set(now);
+            return true;
+        }
+        return false;
     }
 
     private Mono<Void> translateAndSuggest(String sessionId, Transcript saved, Session session, String ctx) {
         var config = session.getConfig();
         var src = config.sourceLanguage();
         var tgt = config.targetLanguage();
+        var context = addToContextWindow(sessionId, saved.getText());
+
+        if (!shouldCallCopilot(sessionId)) {
+            return fallbackTranslate(sessionId, saved, src, tgt, ctx);
+        }
 
         return copilotPort
-                .map(cp -> cp.suggest(sessionId, saved.getText(), config)
+                .map(cp -> cp.suggest(sessionId, context, config)
                         .flatMap(suggestion -> {
                             eventPublisher.emitSuggestion(sessionId, suggestion);
                             var translation = Translation.create(

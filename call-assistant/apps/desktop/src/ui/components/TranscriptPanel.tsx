@@ -7,8 +7,42 @@ interface TranscriptPanelProps {
   translations: Map<string, Translation>;
 }
 
+interface TranscriptGroup {
+  key: string;
+  speaker: string;
+  texts: string[];
+  translationTexts: string[];
+  isFinal: boolean;
+}
+
+function groupTranscripts(
+  transcripts: Transcript[],
+  translations: Map<string, Translation>
+): TranscriptGroup[] {
+  const groups: TranscriptGroup[] = [];
+  for (const t of transcripts) {
+    const tl = translations.get(t.id);
+    const last = groups[groups.length - 1];
+    if (last && last.speaker === t.speaker) {
+      last.texts.push(t.text);
+      if (tl) last.translationTexts.push(tl.targetText);
+      last.isFinal = t.isFinal;
+    } else {
+      groups.push({
+        key: t.id,
+        speaker: t.speaker,
+        texts: [t.text],
+        translationTexts: tl ? [tl.targetText] : [],
+        isFinal: t.isFinal,
+      });
+    }
+  }
+  return groups;
+}
+
 export function TranscriptPanel({ transcripts, translations }: TranscriptPanelProps) {
   const bottomRef = useRef<HTMLDivElement>(null);
+  const groups = groupTranscripts(transcripts, translations);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -24,7 +58,7 @@ export function TranscriptPanel({ transcripts, translations }: TranscriptPanelPr
       </div>
 
       <div className="flex-1 overflow-y-auto px-5 py-5 space-y-6">
-        {transcripts.length === 0 && (
+        {groups.length === 0 && (
           <div className="flex flex-col items-center justify-center h-full gap-3 text-white/20">
             <Mic size={32} strokeWidth={1.2} />
             <p className="text-base">Aguardando fala…</p>
@@ -32,12 +66,9 @@ export function TranscriptPanel({ transcripts, translations }: TranscriptPanelPr
           </div>
         )}
 
-        {transcripts.map((t) => {
-          const translation = translations.get(t.id);
-          return (
-            <TranscriptEntry key={t.id} transcript={t} translation={translation} />
-          );
-        })}
+        {groups.map((g) => (
+          <TranscriptGroupEntry key={g.key} group={g} />
+        ))}
 
         <div ref={bottomRef} />
       </div>
@@ -45,13 +76,14 @@ export function TranscriptPanel({ transcripts, translations }: TranscriptPanelPr
   );
 }
 
-interface TranscriptEntryProps {
-  transcript: Transcript;
-  translation?: Translation;
+interface TranscriptGroupEntryProps {
+  group: TranscriptGroup;
 }
 
-function TranscriptEntry({ transcript, translation }: TranscriptEntryProps) {
-  const isLocal = transcript.speaker === "LOCAL";
+function TranscriptGroupEntry({ group }: TranscriptGroupEntryProps) {
+  const isLocal = group.speaker === "LOCAL";
+  const fullText = group.texts.join(" ");
+  const fullTranslation = group.translationTexts.join(" ");
 
   return (
     <div className={`flex flex-col gap-2.5 ${isLocal ? "items-start" : "items-end"}`}>
@@ -65,12 +97,12 @@ function TranscriptEntry({ transcript, translation }: TranscriptEntryProps) {
             isLocal
               ? "bg-[#1e1e2e] border border-white/12 text-white rounded-tl-sm"
               : "bg-blue-600 text-white rounded-tr-sm"
-          } ${!transcript.isFinal ? "opacity-50 italic" : ""}`}
+          } ${!group.isFinal ? "opacity-50 italic" : ""}`}
         >
-          <p className="text-base leading-relaxed font-medium">{transcript.text}</p>
+          <p className="text-base leading-relaxed font-medium">{fullText}</p>
         </div>
 
-        {translation && (
+        {fullTranslation && (
           <div
             className={`flex items-start gap-2 px-1 select-text cursor-text max-w-full ${
               isLocal ? "flex-row" : "flex-row-reverse"
@@ -79,9 +111,7 @@ function TranscriptEntry({ transcript, translation }: TranscriptEntryProps) {
             <span className="mt-px shrink-0 text-[10px] font-bold text-white/30 bg-white/8 border border-white/12 rounded px-1.5 py-0.5 uppercase tracking-wider">
               PT
             </span>
-            <p className="text-sm text-white/60 leading-relaxed">
-              {translation.targetText}
-            </p>
+            <p className="text-sm text-white/60 leading-relaxed">{fullTranslation}</p>
           </div>
         )}
       </div>
