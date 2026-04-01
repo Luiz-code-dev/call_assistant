@@ -81,6 +81,7 @@ public class WsServerEventFactory implements SessionEventPublisher {
                         "sessionId", suggestion.sessionId(),
                         "contextSummary", suggestion.contextSummary(),
                         "suggestions", suggestion.suggestions(),
+                        "suggestionTranslations", suggestion.suggestionTranslations(),
                         "createdAt", suggestion.createdAt().toString()
                 ))
         ));

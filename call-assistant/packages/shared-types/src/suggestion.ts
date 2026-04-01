@@ -7,5 +7,6 @@ export interface ResponseSuggestion {
   readonly sessionId: SessionId;
   readonly contextSummary: string;
   readonly suggestions: readonly string[];
+  readonly suggestionTranslations: readonly string[];
   readonly createdAt: string;
 }

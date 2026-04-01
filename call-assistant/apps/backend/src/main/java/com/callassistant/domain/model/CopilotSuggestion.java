@@ -9,14 +9,17 @@ public record CopilotSuggestion(
         String sessionId,
         String contextSummary,
         List<String> suggestions,
+        List<String> suggestionTranslations,
         Instant createdAt
 ) {
-    public static CopilotSuggestion create(String sessionId, String contextSummary, List<String> suggestions) {
+    public static CopilotSuggestion create(String sessionId, String contextSummary,
+            List<String> suggestions, List<String> suggestionTranslations) {
         return new CopilotSuggestion(
                 UUID.randomUUID().toString(),
                 sessionId,
                 contextSummary,
                 List.copyOf(suggestions),
+                List.copyOf(suggestionTranslations),
                 Instant.now()
         );
     }

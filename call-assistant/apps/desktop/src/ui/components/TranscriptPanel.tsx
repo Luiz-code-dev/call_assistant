@@ -16,18 +16,19 @@ export function TranscriptPanel({ transcripts, translations }: TranscriptPanelPr
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/10">
-        <Mic size={12} className="text-white/30" />
-        <span className="text-xs font-semibold tracking-widest text-white/30 uppercase">
-          Transcrição
+      <div className="flex items-center gap-2 px-5 py-3 border-b border-white/10">
+        <Mic size={13} className="text-white/40" />
+        <span className="text-xs font-semibold tracking-widest text-white/40 uppercase">
+          Conversa
         </span>
       </div>
 
-      <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
+      <div className="flex-1 overflow-y-auto px-5 py-5 space-y-6">
         {transcripts.length === 0 && (
-          <div className="flex flex-col items-center justify-center h-full gap-3 text-white/20 mt-16">
-            <Mic size={28} strokeWidth={1.5} />
-            <p className="text-sm">Aguardando fala…</p>
+          <div className="flex flex-col items-center justify-center h-full gap-3 text-white/20">
+            <Mic size={32} strokeWidth={1.2} />
+            <p className="text-base">Aguardando fala…</p>
+            <p className="text-sm text-white/15">O áudio aparecerá aqui em tempo real</p>
           </div>
         )}
 
@@ -53,38 +54,37 @@ function TranscriptEntry({ transcript, translation }: TranscriptEntryProps) {
   const isLocal = transcript.speaker === "LOCAL";
 
   return (
-    <div className={`flex flex-col gap-2 ${isLocal ? "items-end" : "items-start"}`}>
-      <div className={`max-w-[88%] flex flex-col gap-1.5 ${isLocal ? "items-end" : "items-start"}`}>
+    <div className={`flex flex-col gap-2.5 ${isLocal ? "items-start" : "items-end"}`}>
+      <div className="text-[11px] font-medium text-white/30 px-1">
+        {isLocal ? "Entrevistador" : "Você"}
+      </div>
+
+      <div className={`max-w-[90%] flex flex-col gap-2 ${isLocal ? "items-start" : "items-end"}`}>
         <div
-          className={`rounded-2xl px-4 py-2.5 select-text cursor-text ${
+          className={`rounded-2xl px-5 py-3 select-text cursor-text ${
             isLocal
-              ? "bg-blue-600 text-white rounded-br-md"
-              : "bg-white/12 text-white rounded-bl-md"
+              ? "bg-[#1e1e2e] border border-white/12 text-white rounded-tl-sm"
+              : "bg-blue-600 text-white rounded-tr-sm"
           } ${!transcript.isFinal ? "opacity-50 italic" : ""}`}
         >
-          <p className="text-sm leading-relaxed font-medium">{transcript.text}</p>
+          <p className="text-base leading-relaxed font-medium">{transcript.text}</p>
         </div>
 
         {translation && (
           <div
-            className={`flex items-start gap-1.5 px-1 select-text cursor-text ${
-              isLocal ? "flex-row-reverse" : "flex-row"
+            className={`flex items-start gap-2 px-1 select-text cursor-text max-w-full ${
+              isLocal ? "flex-row" : "flex-row-reverse"
             }`}
           >
-            <span className="mt-0.5 text-[10px] font-semibold text-white/25 uppercase tracking-wider shrink-0">
+            <span className="mt-px shrink-0 text-[10px] font-bold text-white/30 bg-white/8 border border-white/12 rounded px-1.5 py-0.5 uppercase tracking-wider">
               PT
             </span>
-            <p className="text-sm text-white/55 leading-snug">
+            <p className="text-sm text-white/60 leading-relaxed">
               {translation.targetText}
             </p>
           </div>
         )}
       </div>
-
-      <span className="text-[10px] text-white/20 px-1">
-        {isLocal ? "Você" : "Remoto"}
-        {transcript.confidence > 0 && ` · ${Math.round(transcript.confidence * 100)}%`}
-      </span>
     </div>
   );
 }

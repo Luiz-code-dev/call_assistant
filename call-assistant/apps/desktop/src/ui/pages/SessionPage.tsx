@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { Mic, PhoneOff, X, ArrowRight, Sparkles } from "lucide-react";
 import { useSessionStore } from "../../application/store/sessionStore";
 import type { Session } from "@call-assistant/shared-types";
@@ -16,6 +16,27 @@ export function SessionPage() {
   const { clear: clearCopilot } = useCopilotStore();
   const [showPreCall, setShowPreCall] = useState(false);
   const [showCopilot, setShowCopilot] = useState(true);
+  const [copilotWidth, setCopilotWidth] = useState(320);
+  const isDragging = useRef(false);
+
+  const onResizeStart = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    isDragging.current = true;
+    const startX = e.clientX;
+    const startWidth = copilotWidth;
+    const onMove = (ev: MouseEvent) => {
+      if (!isDragging.current) return;
+      const delta = startX - ev.clientX;
+      setCopilotWidth(Math.min(600, Math.max(240, startWidth + delta)));
+    };
+    const onUp = () => {
+      isDragging.current = false;
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseup", onUp);
+    };
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseup", onUp);
+  }, [copilotWidth]);
 
   useTranscription(session?.id ?? null);
   useAudioBridge(session?.id ?? null);
@@ -76,7 +97,15 @@ export function SessionPage() {
         </div>
 
         {showCopilot && (
-          <div className="w-80 shrink-0 rounded-xl border border-white/10 bg-white/5 overflow-hidden flex flex-col">
+          <div
+            className="shrink-0 rounded-xl border border-white/10 bg-white/5 overflow-hidden flex flex-col relative"
+            style={{ width: copilotWidth }}
+          >
+            <div
+              onMouseDown={onResizeStart}
+              className="absolute left-0 top-0 bottom-0 w-1.5 cursor-col-resize hover:bg-blue-500/40 transition-colors z-10 rounded-l-xl"
+              title="Arraste para redimensionar"
+            />
             <div className="flex items-center justify-between px-3 py-2 border-b border-white/8">
               <div className="flex items-center gap-1.5 text-white/50">
                 <Sparkles size={12} />

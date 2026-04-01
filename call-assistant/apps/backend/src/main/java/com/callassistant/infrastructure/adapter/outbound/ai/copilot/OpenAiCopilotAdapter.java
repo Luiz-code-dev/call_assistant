@@ -50,17 +50,22 @@ public class OpenAiCopilotAdapter implements CopilotPort {
         var targetLang = config.targetLanguage().getCode();
 
         var systemPrompt = """
-                You are a real-time call assistant. Given a transcript snippet, you must:
+                You are a real-time call assistant for a Brazilian user attending an English interview.
+                Given a transcript snippet, you must:
                 1. Translate it from %s to %s.
-                2. Suggest 3 possible replies the user could give, written in %s.
+                2. Suggest 3 possible replies the user could give, written in English.
+                3. For each reply, also provide a Portuguese (Brazil) translation so the user understands what they would be saying.
                 %s
                 Respond in EXACTLY this format (no extra text before or after):
-                <translation>
+                <pt-br translation of transcript>
                 RESPOSTAS SUGERIDAS:
-                1. Curta: <short reply>
-                2. Profissional: <professional reply>
-                3. Detalhada: <detailed reply>
-                """.formatted(sourceLang, targetLang, targetLang,
+                1. Curta: <short reply in English>
+                   PT: <Portuguese translation of short reply>
+                2. Profissional: <professional reply in English>
+                   PT: <Portuguese translation of professional reply>
+                3. Detalhada: <detailed reply in English>
+                   PT: <Portuguese translation of detailed reply>
+                """.formatted(sourceLang, targetLang,
                 context.isBlank() ? "" : "Call context: " + context);
 
         var messages = List.of(
@@ -99,19 +104,32 @@ public class OpenAiCopilotAdapter implements CopilotPort {
     private Mono<CopilotSuggestion> parseOutputText(String sessionId, String text) {
         var markerIdx = text.indexOf(SUGGESTIONS_MARKER);
         if (markerIdx < 0) {
-            return Mono.just(CopilotSuggestion.create(sessionId, text.strip(), List.of()));
+            return Mono.just(CopilotSuggestion.create(sessionId, text.strip(), List.of(), List.of()));
         }
         var translation = text.substring(0, markerIdx).strip();
         var suggestionsBlock = text.substring(markerIdx + SUGGESTIONS_MARKER.length());
         var suggestions = new ArrayList<String>();
+        var suggestionTranslations = new ArrayList<String>();
+        String pendingEn = null;
         for (var line : suggestionsBlock.split("\n")) {
             var trimmed = line.strip();
             if (trimmed.matches("^\\d+\\..*")) {
-                var content = trimmed.replaceFirst("^\\d+\\.\\s*[^:]+:\\s*", "").strip();
-                if (!content.isBlank()) suggestions.add(content);
+                if (pendingEn != null) {
+                    suggestions.add(pendingEn);
+                    suggestionTranslations.add("");
+                }
+                pendingEn = trimmed.replaceFirst("^\\d+\\.\\s*[^:]+:\\s*", "").strip();
+            } else if (trimmed.startsWith("PT:") && pendingEn != null) {
+                suggestions.add(pendingEn);
+                suggestionTranslations.add(trimmed.replaceFirst("^PT:\\s*", "").strip());
+                pendingEn = null;
             }
         }
-        return Mono.just(CopilotSuggestion.create(sessionId, translation, suggestions));
+        if (pendingEn != null) {
+            suggestions.add(pendingEn);
+            suggestionTranslations.add("");
+        }
+        return Mono.just(CopilotSuggestion.create(sessionId, translation, suggestions, suggestionTranslations));
     }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
