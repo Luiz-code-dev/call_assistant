@@ -1,0 +1,79 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+*.class
+target/
+
+# Turbo
+.turbo/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+*.env
+
+# Local secrets — never commit
+application-local.yml
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Java
+*.jar
+*.war
+*.ear
+*.class
+*.iml
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+hs_err_pid*
+
+# Rust
+/target/
+Cargo.lock
+**/*.rs.bk
+*.pdb
+
+# Electron
+apps/desktop/release/
+apps/desktop/.electron-vendors.cache.json
+
+# Test coverage
+coverage/
+*.lcov
+.nyc_output/
+
+# TypeScript
+*.tsbuildinfo
+
+# Docker
+.docker/
+infra/docker/data/
+
+# Gradle (future use)
+.gradle/

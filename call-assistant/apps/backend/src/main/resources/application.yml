@@ -1,0 +1,71 @@
+spring:
+  application:
+    name: call-assistant-backend
+  config:
+    import: optional:classpath:application-local.yml
+
+  r2dbc:
+    url: r2dbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:callassistant}
+    username: ${DB_USER:callassistant}
+    password: ${DB_PASSWORD:callassistant}
+    pool:
+      initial-size: 5
+      max-size: 20
+      max-idle-time: 30m
+
+  flyway:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:callassistant}
+    user: ${DB_USER:callassistant}
+    password: ${DB_PASSWORD:callassistant}
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      timeout: 2000ms
+
+server:
+  port: ${SERVER_PORT:8080}
+  shutdown: graceful
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: when-authorized
+  tracing:
+    sampling:
+      probability: ${TRACING_SAMPLING_PROBABILITY:0.0}
+  otlp:
+    tracing:
+      endpoint: ${OTEL_EXPORTER_OTLP_ENDPOINT:http://localhost:4318}/v1/traces
+
+callassistant:
+  ai:
+    openai:
+      base-url: https://api.openai.com/v1
+      api-key: ${OPENAI_API_KEY:}
+      transcription-model: gpt-4o-mini-transcribe
+      translation-model: gpt-4.1-mini
+      tts-model: tts-1
+      copilot-prompt-id: ${OPENAI_COPILOT_PROMPT_ID:}
+      copilot-prompt-version: "1"
+    stt:
+      provider: whisper
+    translation:
+      provider: openai
+    tts:
+      provider: openai
+    copilot:
+      provider: openai
+
+logging:
+  level:
+    com.callassistant: DEBUG
+    org.springframework.r2dbc: INFO

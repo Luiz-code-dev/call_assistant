@@ -1,0 +1,27 @@
+{
+  "name": "call-assistant",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Real-time call assistant with transcription, translation and response suggestions",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check",
+    "clean": "turbo run clean && rimraf node_modules",
+    "infra:up": "docker compose -f infra/docker/docker-compose.yml up -d",
+    "infra:down": "docker compose -f infra/docker/docker-compose.yml down",
+    "infra:logs": "docker compose -f infra/docker/docker-compose.yml logs -f"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.0",
+    "rimraf": "^6.0.0",
+    "typescript": "^5.7.0"
+  },
+  "packageManager": "pnpm@9.15.0"
+}

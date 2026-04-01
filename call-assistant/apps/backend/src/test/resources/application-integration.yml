@@ -1,0 +1,29 @@
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/callassistant
+    username: callassistant
+    password: callassistant
+
+  flyway:
+    url: jdbc:postgresql://localhost:5432/callassistant
+    user: callassistant
+    password: callassistant
+    enabled: true
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  security:
+    enabled: false
+
+management:
+  tracing:
+    enabled: false
+
+logging:
+  level:
+    com.callassistant: DEBUG
+    org.flywaydb: WARN
+    io.r2dbc: DEBUG

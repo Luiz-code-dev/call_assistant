@@ -1,0 +1,214 @@
+openapi: 3.1.0
+info:
+  title: Call Assistant API
+  version: 0.1.0
+  description: Backend REST API for the Call Assistant real-time desktop application.
+
+servers:
+  - url: http://localhost:8080/api/v1
+    description: Local development
+
+paths:
+  /sessions:
+    post:
+      summary: Start a new session
+      operationId: createSession
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSessionRequest'
+      responses:
+        '201':
+          description: Session created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /sessions/{id}:
+    get:
+      summary: Get session by ID
+      operationId: getSession
+      parameters:
+        - $ref: '#/components/parameters/SessionId'
+      responses:
+        '200':
+          description: Session found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /sessions/{id}/stop:
+    patch:
+      summary: Stop a session
+      operationId: stopSession
+      parameters:
+        - $ref: '#/components/parameters/SessionId'
+      responses:
+        '200':
+          description: Session stopped
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /sessions/{id}/transcripts:
+    get:
+      summary: List transcripts for a session
+      operationId: getTranscripts
+      parameters:
+        - $ref: '#/components/parameters/SessionId'
+      responses:
+        '200':
+          description: List of transcripts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TranscriptResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+components:
+  parameters:
+    SessionId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  schemas:
+    CreateSessionRequest:
+      type: object
+      required: [config]
+      properties:
+        config:
+          $ref: '#/components/schemas/SessionConfig'
+
+    SessionConfig:
+      type: object
+      required: [sourceLanguage, targetLanguage]
+      properties:
+        sourceLanguage:
+          type: string
+          example: en-US
+        targetLanguage:
+          type: string
+          example: pt-BR
+        enableTts:
+          type: boolean
+          default: false
+        enableSuggestions:
+          type: boolean
+          default: false
+
+    SessionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [ACTIVE, PAUSED, ENDED]
+        config:
+          $ref: '#/components/schemas/SessionConfig'
+        startedAt:
+          type: string
+          format: date-time
+        endedAt:
+          type: string
+          format: date-time
+          nullable: true
+
+    TranscriptResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        sessionId:
+          type: string
+          format: uuid
+        text:
+          type: string
+        speaker:
+          type: string
+          enum: [LOCAL, REMOTE]
+        language:
+          type: string
+        confidence:
+          type: number
+          format: double
+        isFinal:
+          type: boolean
+        startMs:
+          type: integer
+          format: int64
+        endMs:
+          type: integer
+          format: int64
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+
+    ErrorResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+        error:
+          type: string
+        message:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+
+  responses:
+    BadRequest:
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+websocketEvents:
+  description: |
+    WebSocket endpoint: ws://localhost:8080/ws/sessions/{sessionId}/stream
+
+    Server → Client events (JSON, newline-delimited):
+      { "type": "TRANSCRIPT_PARTIAL", "sessionId": "...", "ts": 0, "payload": { "transcript": {...} } }
+      { "type": "TRANSCRIPT_FINAL",   "sessionId": "...", "ts": 0, "payload": { "transcript": {...} } }
+      { "type": "TRANSLATION_READY",  "sessionId": "...", "ts": 0, "payload": { "translation": {...} } }
+      { "type": "SESSION_STATUS_CHANGED", "sessionId": "...", "ts": 0, "payload": { "status": "ENDED" } }
+      { "type": "ERROR",              "sessionId": "...", "ts": 0, "payload": { "message": "..." } }
+
+    Client → Server commands:
+      { "type": "AUDIO_CHUNK", "sessionId": "...", "payload": { "data": "<base64>", "ts": 0 } }
+      { "type": "CONTROL",     "sessionId": "...", "payload": { "action": "PAUSE" | "RESUME" | "STOP" } }

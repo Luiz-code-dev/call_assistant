@@ -1,0 +1,12 @@
+spring:
+  security:
+    enabled: false
+
+management:
+  tracing:
+    enabled: false
+
+logging:
+  level:
+    com.callassistant: DEBUG
+    org.flywaydb: WARN
