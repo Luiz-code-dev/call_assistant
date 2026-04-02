@@ -5,7 +5,8 @@ import type {
   Transcript,
 } from "@call-assistant/shared-types";
 
-const BASE_URL = "http://localhost:8080/api/v1";
+const BACKEND_ORIGIN = import.meta.env.VITE_BACKEND_URL ?? "http://localhost:8080";
+const BASE_URL = `${BACKEND_ORIGIN}/api/v1`;
 
 const http = ky.create({ prefixUrl: BASE_URL, timeout: 10000 });
 

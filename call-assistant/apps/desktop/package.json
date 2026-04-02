@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "node scripts/dev.js",
     "build": "electron-vite build",
+    "pack": "electron-vite build && electron-builder --win --publish never",
     "preview": "electron-vite preview",
     "type-check": "tsc --noEmit",
     "lint": "eslint . --ext .ts,.tsx",
@@ -14,6 +15,28 @@
   "dependencies": {
     "@call-assistant/shared-types": "workspace:*",
     "electron-updater": "^6.3.9"
+  },
+  "build": {
+    "appId": "com.callassistant",
+    "productName": "Call Assistant",
+    "copyright": "Copyright © 2025 Luiz Eduardo da Silva Dias Melo",
+    "directories": { "output": "dist" },
+    "files": ["out/**/*"],
+    "extraResources": [
+      {
+        "from": "../../services/audio-engine/target/release/audio-engine.exe",
+        "to": "sidecar/audio-engine.exe"
+      }
+    ],
+    "win": {
+      "target": [{ "target": "nsis", "arch": ["x64"] }],
+      "artifactName": "CallAssistant-Setup-${version}.exe"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "deleteAppDataOnUninstall": true
+    }
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config-prettier": "^2.0.0",
@@ -29,6 +52,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "electron": "^33.3.0",
+    "electron-builder": "^24.13.3",
     "electron-vite": "^3.0.0",
     "eslint": "^8.57.0",
     "ky": "^1.7.2",

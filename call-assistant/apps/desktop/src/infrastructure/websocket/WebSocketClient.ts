@@ -39,7 +39,10 @@ export class WebSocketClient {
   private openConnection(): void {
     if (!this.sessionId) return;
 
-    const url = `ws://localhost:8080/ws/sessions/${this.sessionId}/stream`;
+    const origin = (import.meta.env.VITE_BACKEND_URL ?? "http://localhost:8080")
+      .replace(/^https/, "wss")
+      .replace(/^http/, "ws");
+    const url = `${origin}/ws/sessions/${this.sessionId}/stream`;
     this.ws = new WebSocket(url);
 
     this.ws.onopen = () => {
