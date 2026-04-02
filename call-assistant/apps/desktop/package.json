@@ -14,14 +14,19 @@
   },
   "dependencies": {
     "@call-assistant/shared-types": "workspace:*",
-    "electron-updater": "^6.3.9"
+    "electron-updater": "^6.3.9",
+    "fs-extra": "^11.3.4"
   },
   "build": {
     "appId": "com.callassistant",
     "productName": "Call Assistant",
     "copyright": "Copyright © 2025 Luiz Eduardo da Silva Dias Melo",
-    "directories": { "output": "dist" },
-    "files": ["out/**/*"],
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "out/**/*"
+    ],
     "extraResources": [
       {
         "from": "../../services/audio-engine/target/release/audio-engine.exe",
@@ -34,11 +39,19 @@
       "repo": "call_assistant"
     },
     "win": {
-      "target": [{ "target": "nsis", "arch": ["x64"] }],
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
       "artifactName": "CallAssistant-Setup-${version}.exe"
     },
     "nsis": {
       "oneClick": false,
+      "unicode": true,
       "allowToChangeInstallationDirectory": true,
       "allowElevation": true,
       "perMachine": false,

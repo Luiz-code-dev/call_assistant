@@ -9,7 +9,7 @@ export default defineConfig({
         entry: resolve("electron/main/index.ts"),
       },
     },
-    plugins: [externalizeDepsPlugin()],
+    plugins: [externalizeDepsPlugin({ exclude: ["electron-updater", "fs-extra"] })],
     resolve: {
       alias: {
         "@main": resolve("electron/main"),
