@@ -7,12 +7,15 @@ interface TranscriptPanelProps {
   translations: Map<string, Translation>;
 }
 
+const PARAGRAPH_BREAK_MS = 5_000;
+
 interface TranscriptGroup {
   key: string;
   speaker: string;
   texts: string[];
   translationTexts: string[];
   isFinal: boolean;
+  lastCreatedAt: string;
 }
 
 function groupTranscripts(
@@ -23,10 +26,15 @@ function groupTranscripts(
   for (const t of transcripts) {
     const tl = translations.get(t.id);
     const last = groups[groups.length - 1];
-    if (last && last.speaker === t.speaker) {
+    const gap = last
+      ? new Date(t.createdAt).getTime() - new Date(last.lastCreatedAt).getTime()
+      : Infinity;
+    const sameSpeaker = last?.speaker === t.speaker;
+    if (last && sameSpeaker && gap < PARAGRAPH_BREAK_MS) {
       last.texts.push(t.text);
       if (tl) last.translationTexts.push(tl.targetText);
       last.isFinal = t.isFinal;
+      last.lastCreatedAt = t.createdAt;
     } else {
       groups.push({
         key: t.id,
@@ -34,6 +42,7 @@ function groupTranscripts(
         texts: [t.text],
         translationTexts: tl ? [tl.targetText] : [],
         isFinal: t.isFinal,
+        lastCreatedAt: t.createdAt,
       });
     }
   }
