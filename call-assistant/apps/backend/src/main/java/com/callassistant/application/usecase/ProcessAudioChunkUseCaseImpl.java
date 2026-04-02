@@ -19,12 +19,9 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.Sinks;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -39,12 +36,13 @@ public class ProcessAudioChunkUseCaseImpl implements ProcessAudioChunkUseCase {
     private final Optional<CopilotPort> copilotPort;
     private final SessionEventPublisher eventPublisher;
 
-    private static final long COPILOT_THROTTLE_MS = 5_000;
-    private static final int CONTEXT_WINDOW_SIZE = 8;
+    private static final long COPILOT_THROTTLE_MS  = 5_000;
+    private static final long PARAGRAPH_BREAK_MS   = 5_000;
 
-    private final ConcurrentHashMap<String, Sinks.Many<AudioChunk>> audioSinks = new ConcurrentHashMap<>();
-    private final ConcurrentHashMap<String, AtomicLong> lastCopilotCall = new ConcurrentHashMap<>();
-    private final ConcurrentHashMap<String, Deque<String>> recentTranscripts = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, Sinks.Many<AudioChunk>> audioSinks       = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, AtomicLong>             lastCopilotCall  = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, AtomicLong>             lastTranscriptTs = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, StringBuilder>          paragraphBuffers = new ConcurrentHashMap<>();
 
     @Override
     public Mono<Void> execute(String sessionId, AudioChunk chunk) {
@@ -95,16 +93,25 @@ public class ProcessAudioChunkUseCaseImpl implements ProcessAudioChunkUseCase {
             sink.tryEmitComplete();
         }
         lastCopilotCall.remove(sessionId);
-        recentTranscripts.remove(sessionId);
+        lastTranscriptTs.remove(sessionId);
+        paragraphBuffers.remove(sessionId);
     }
 
-    private String addToContextWindow(String sessionId, String text) {
-        var window = recentTranscripts.computeIfAbsent(sessionId, id -> new ArrayDeque<>());
-        window.addLast(text);
-        while (window.size() > CONTEXT_WINDOW_SIZE) {
-            window.pollFirst();
+    private String addToParagraphBuffer(String sessionId, String text) {
+        var now = System.currentTimeMillis();
+        var lastTs = lastTranscriptTs.computeIfAbsent(sessionId, id -> new AtomicLong(0));
+        var gap = now - lastTs.get();
+        lastTs.set(now);
+
+        var buf = paragraphBuffers.computeIfAbsent(sessionId, id -> new StringBuilder());
+        if (gap > PARAGRAPH_BREAK_MS && !buf.isEmpty()) {
+            buf.setLength(0);
+            lastCopilotCall.computeIfAbsent(sessionId, id -> new AtomicLong(0)).set(0);
+            log.debug("Paragraph break detected ({}ms) — resetting buffer and throttle, sessionId={}", gap, sessionId);
         }
-        return window.stream().collect(Collectors.joining(" "));
+        if (!buf.isEmpty()) buf.append(" ");
+        buf.append(text);
+        return buf.toString();
     }
 
     private boolean shouldCallCopilot(String sessionId) {
@@ -121,7 +128,7 @@ public class ProcessAudioChunkUseCaseImpl implements ProcessAudioChunkUseCase {
         var config = session.getConfig();
         var src = config.sourceLanguage();
         var tgt = config.targetLanguage();
-        var context = addToContextWindow(sessionId, saved.getText());
+        var context = addToParagraphBuffer(sessionId, saved.getText());
 
         if (!shouldCallCopilot(sessionId)) {
             return fallbackTranslate(sessionId, saved, src, tgt, ctx);

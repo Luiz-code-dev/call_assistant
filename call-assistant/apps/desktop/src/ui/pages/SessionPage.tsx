@@ -16,6 +16,7 @@ export function SessionPage() {
   const { clear: clearCopilot } = useCopilotStore();
   const [showPreCall, setShowPreCall] = useState(false);
   const [showCopilot, setShowCopilot] = useState(true);
+  const [speakerLabel, setSpeakerLabel] = useState("Entrevistador");
   const [copilotWidth, setCopilotWidth] = useState(320);
   const isDragging = useRef(false);
 
@@ -50,8 +51,9 @@ export function SessionPage() {
 
   const handleStartClick = () => setShowPreCall(true);
 
-  const handlePreCallConfirm = (meetingContext: string) => {
+  const handlePreCallConfirm = (meetingContext: string, label: string) => {
     setShowPreCall(false);
+    setSpeakerLabel(label.trim() || "Entrevistador");
     startSession({
       sourceLanguage: "en-US",
       targetLanguage: "pt-BR",
@@ -93,7 +95,7 @@ export function SessionPage() {
 
       <main className="flex-1 overflow-hidden p-4 flex gap-3">
         <div className="flex-1 rounded-xl border border-white/10 bg-white/5 overflow-hidden min-w-0">
-          <TranscriptPanel transcripts={transcripts} translations={translations} />
+          <TranscriptPanel transcripts={transcripts} translations={translations} speakerLabel={speakerLabel} />
         </div>
 
         {showCopilot && (
@@ -205,17 +207,33 @@ function StatusBar({ session }: StatusBarProps) {
   );
 }
 
+const SPEAKER_PRESETS = ["Entrevistador", "Cliente", "Colega", "Amigo"];
+
 interface PreCallModalProps {
-  onConfirm: (meetingContext: string) => void;
+  onConfirm: (meetingContext: string, speakerLabel: string) => void;
   onCancel: () => void;
 }
 
 function PreCallModal({ onConfirm, onCancel }: PreCallModalProps) {
   const [context, setContext] = useState("");
+  const [label, setLabel] = useState("Entrevistador");
+  const [customLabel, setCustomLabel] = useState("");
+  const isCustom = !SPEAKER_PRESETS.includes(label);
+
+  const effectiveLabel = isCustom ? customLabel : label;
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Escape") onCancel();
-    if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) onConfirm(context);
+    if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) onConfirm(context, effectiveLabel);
+  };
+
+  const selectPreset = (p: string) => {
+    setLabel(p);
+    setCustomLabel("");
+  };
+
+  const selectCustom = () => {
+    setLabel("_custom");
   };
 
   return (
@@ -223,8 +241,8 @@ function PreCallModal({ onConfirm, onCancel }: PreCallModalProps) {
       <div className="w-full max-w-lg mx-4 bg-[#1a1a1a] border border-white/10 rounded-2xl shadow-2xl overflow-hidden">
         <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
           <div>
-            <h2 className="text-sm font-semibold text-white">Contexto da Reunião</h2>
-            <p className="text-xs text-white/40 mt-0.5">A IA usará esse contexto para traduzir e sugerir respostas</p>
+            <h2 className="text-sm font-semibold text-white">Configurar Sessão</h2>
+            <p className="text-xs text-white/40 mt-0.5">A IA usará essas informações para traduzir e sugerir respostas</p>
           </div>
           <button
             onClick={onCancel}
@@ -234,16 +252,60 @@ function PreCallModal({ onConfirm, onCancel }: PreCallModalProps) {
           </button>
         </div>
 
-        <div className="px-5 py-4">
+        <div className="px-5 pt-4 pb-2">
+          <label className="text-xs font-semibold uppercase tracking-wider text-white/30 mb-2 block">
+            Quem está falando com você?
+          </label>
+          <div className="flex flex-wrap gap-2 mb-2">
+            {SPEAKER_PRESETS.map((p) => (
+              <button
+                key={p}
+                onClick={() => selectPreset(p)}
+                className={`px-3 py-1 rounded-full text-xs font-medium border transition-all ${
+                  label === p
+                    ? "bg-blue-600/80 border-blue-500 text-white"
+                    : "bg-white/5 border-white/10 text-white/50 hover:text-white hover:bg-white/10"
+                }`}
+              >
+                {p}
+              </button>
+            ))}
+            <button
+              onClick={selectCustom}
+              className={`px-3 py-1 rounded-full text-xs font-medium border transition-all ${
+                isCustom
+                  ? "bg-blue-600/80 border-blue-500 text-white"
+                  : "bg-white/5 border-white/10 text-white/50 hover:text-white hover:bg-white/10"
+              }`}
+            >
+              Outro...
+            </button>
+          </div>
+          {isCustom && (
+            <input
+              autoFocus
+              type="text"
+              value={customLabel}
+              onChange={(e) => setCustomLabel(e.target.value)}
+              placeholder="Ex: João, Recruiter da Amazon..."
+              className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder-white/20 focus:outline-none focus:border-blue-500/60 transition-colors mb-2"
+            />
+          )}
+        </div>
+
+        <div className="px-5 py-3">
+          <label className="text-xs font-semibold uppercase tracking-wider text-white/30 mb-2 block">
+            Contexto da reunião <span className="normal-case font-normal text-white/20">(opcional)</span>
+          </label>
           <textarea
-            autoFocus
+            autoFocus={!isCustom}
             value={context}
             onChange={(e) => setContext(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder={
-              "Exemplo:\n• Sistema financeiro, integração com API bancária\n• Cliente: Banco XYZ — reunião de alinhamento de sprint\n• Termos técnicos: endpoint, payload, webhook"
+              "Exemplo:\n• Entrevista técnica para vaga de Java Fullstack\n• Termos: microsserviços, Kafka, Spring Boot"
             }
-            className="w-full h-36 px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder-white/20 resize-none focus:outline-none focus:border-blue-500/60 focus:bg-white/8 transition-colors"
+            className="w-full h-28 px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder-white/20 resize-none focus:outline-none focus:border-blue-500/60 focus:bg-white/8 transition-colors"
           />
           <p className="text-xs text-white/25 mt-1.5">Ctrl+Enter para iniciar · Esc para cancelar</p>
         </div>
@@ -256,7 +318,7 @@ function PreCallModal({ onConfirm, onCancel }: PreCallModalProps) {
             Pular
           </button>
           <button
-            onClick={() => onConfirm(context)}
+            onClick={() => onConfirm(context, effectiveLabel)}
             className="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-blue-600/80 hover:bg-blue-600 text-white text-sm font-medium transition-colors"
           >
             Iniciar Sessão

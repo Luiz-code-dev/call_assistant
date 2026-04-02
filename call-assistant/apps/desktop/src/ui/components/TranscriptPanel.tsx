@@ -5,6 +5,7 @@ import type { Transcript, Translation } from "@call-assistant/shared-types";
 interface TranscriptPanelProps {
   transcripts: Transcript[];
   translations: Map<string, Translation>;
+  speakerLabel?: string;
 }
 
 const PARAGRAPH_BREAK_MS = 5_000;
@@ -49,7 +50,7 @@ function groupTranscripts(
   return groups;
 }
 
-export function TranscriptPanel({ transcripts, translations }: TranscriptPanelProps) {
+export function TranscriptPanel({ transcripts, translations, speakerLabel = "Entrevistador" }: TranscriptPanelProps) {
   const bottomRef = useRef<HTMLDivElement>(null);
   const groups = groupTranscripts(transcripts, translations);
 
@@ -76,7 +77,7 @@ export function TranscriptPanel({ transcripts, translations }: TranscriptPanelPr
         )}
 
         {groups.map((g) => (
-          <TranscriptGroupEntry key={g.key} group={g} />
+          <TranscriptGroupEntry key={g.key} group={g} speakerLabel={speakerLabel} />
         ))}
 
         <div ref={bottomRef} />
@@ -87,9 +88,10 @@ export function TranscriptPanel({ transcripts, translations }: TranscriptPanelPr
 
 interface TranscriptGroupEntryProps {
   group: TranscriptGroup;
+  speakerLabel: string;
 }
 
-function TranscriptGroupEntry({ group }: TranscriptGroupEntryProps) {
+function TranscriptGroupEntry({ group, speakerLabel }: TranscriptGroupEntryProps) {
   const isLocal = group.speaker === "LOCAL";
   const fullText = group.texts.join(" ");
   const fullTranslation = group.translationTexts.join(" ");
@@ -97,7 +99,7 @@ function TranscriptGroupEntry({ group }: TranscriptGroupEntryProps) {
   return (
     <div className={`flex flex-col gap-2.5 ${isLocal ? "items-start" : "items-end"}`}>
       <div className="text-[11px] font-medium text-white/30 px-1">
-        {isLocal ? "Entrevistador" : "Você"}
+        {isLocal ? speakerLabel : "Você"}
       </div>
 
       <div className={`max-w-[90%] flex flex-col gap-2 ${isLocal ? "items-start" : "items-end"}`}>

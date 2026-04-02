@@ -22,6 +22,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
@@ -49,7 +50,7 @@ public class WhisperSpeechToTextAdapter implements SpeechToTextPort {
     public Flux<Transcript> transcribe(String sessionId, Flux<AudioChunk> audioStream, Language language) {
         log.info("STT stream started — sessionId={}, language={}", sessionId, language.getCode());
         return audioStream
-                .buffer(30)
+                .bufferTimeout(10, Duration.ofSeconds(2))
                 .flatMap(chunks -> callWhisperApi(sessionId, mergeChunks(chunks), language))
                 .doOnError(e -> log.error("STT error — sessionId={}", sessionId, e));
     }
