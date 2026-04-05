@@ -4,8 +4,7 @@ FROM base AS deps
 RUN apk add --no-cache libc6-compat openssl
 WORKDIR /app
 COPY package.json package-lock.json* ./
-COPY prisma ./prisma
-RUN npm ci
+RUN npm ci --ignore-scripts
 
 FROM base AS builder
 RUN apk add --no-cache openssl
