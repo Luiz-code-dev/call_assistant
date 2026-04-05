@@ -1,1 +1,29 @@
 /.idea
+
+# Dependencies
+**/node_modules/
+
+# Next.js
+**/.next/
+**/out/
+
+# Build outputs
+**/dist/
+**/build/
+
+# Environment files
+**/.env
+**/.env.local
+**/.env.production
+
+# Prisma SQLite
+**/prisma/*.db
+**/prisma/*.db-journal
+
+# Logs
+**/npm-debug.log*
+**/*.log
+
+# OS
+.DS_Store
+Thumbs.db
