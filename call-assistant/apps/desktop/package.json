@@ -49,6 +49,12 @@
       ],
       "artifactName": "CallAssistant-Setup-${version}.exe"
     },
+    "protocols": [
+      {
+        "name": "Call Assistant Auth",
+        "schemes": ["callassistant"]
+      }
+    ],
     "nsis": {
       "oneClick": false,
       "unicode": true,

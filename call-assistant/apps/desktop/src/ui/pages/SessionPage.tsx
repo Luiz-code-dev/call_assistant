@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from "react";
-import { Mic, PhoneOff, X, ArrowRight, Sparkles } from "lucide-react";
+import { Mic, PhoneOff, X, ArrowRight, Sparkles, LogOut } from "lucide-react";
 import { useSessionStore } from "../../application/store/sessionStore";
 import type { Session } from "@call-assistant/shared-types";
 import { useTranscriptStore } from "../../application/store/transcriptStore";
@@ -8,6 +8,8 @@ import { useAudioBridge } from "../../application/hooks/useAudioBridge";
 import { TranscriptPanel } from "../components/TranscriptPanel";
 import { CopilotPanel } from "../components/CopilotPanel";
 import { useCopilotStore } from "../../application/store/copilotStore";
+import { useAuthStore } from "../../application/store/authStore";
+import { useCredits } from "../../application/hooks/useCredits";
 
 export function SessionPage() {
   const { session, isConnecting, error, startSession, stopSession, clearError } =
@@ -142,6 +144,39 @@ export function SessionPage() {
   );
 }
 
+const WEB_APP_URL = import.meta.env.VITE_WEB_APP_URL ?? "https://call-assistant.com.br";
+
+function CreditsStatusBar() {
+  const { balance } = useCredits();
+  if (!balance) return null;
+  const isLow = balance.balance < 20;
+  return (
+    <>
+      <span>·</span>
+      <span className={isLow ? "text-amber-400" : "text-violet-400/60"}>
+        {balance.balance} créditos{isLow ? " ⚠" : ""}
+      </span>
+      {balance.plan && balance.plan !== "free" && (
+        <>
+          <span>·</span>
+          <span className="capitalize">{balance.plan}</span>
+        </>
+      )}
+      {isLow && (
+        <>
+          <span>·</span>
+          <button
+            className="text-violet-400 hover:text-violet-300 underline underline-offset-2"
+            onClick={() => window.open(`${WEB_APP_URL}/pricing#credits`, "_blank")}
+          >
+            Recarregar
+          </button>
+        </>
+      )}
+    </>
+  );
+}
+
 interface HeaderProps {
   isActive: boolean;
   isConnecting: boolean;
@@ -150,6 +185,7 @@ interface HeaderProps {
 }
 
 function Header({ isActive, isConnecting, onStart, onStop }: HeaderProps) {
+  const logout = useAuthStore((s) => s.logout);
   return (
     <header className="flex items-center justify-between px-5 py-3 border-b border-white/10 app-drag-region">
       <div className="flex items-center gap-2">
@@ -180,6 +216,15 @@ function Header({ isActive, isConnecting, onStart, onStop }: HeaderProps) {
             {isConnecting ? "Connecting..." : "Start Session"}
           </button>
         )}
+
+        <button
+          onClick={logout}
+          disabled={isActive}
+          title="Sair da conta"
+          className="p-1.5 rounded-lg text-white/20 hover:text-white/60 hover:bg-white/8 transition-colors disabled:opacity-0 disabled:pointer-events-none"
+        >
+          <LogOut size={14} />
+        </button>
       </div>
     </header>
   );
@@ -203,6 +248,7 @@ function StatusBar({ session }: StatusBarProps) {
       ) : (
         <span>No active session</span>
       )}
+      <CreditsStatusBar />
     </footer>
   );
 }

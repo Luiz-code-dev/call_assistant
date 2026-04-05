@@ -14,6 +14,10 @@ declare global {
         play: (audioBase64: string, mimeType: string) => Promise<void>;
         onPlayAudio: (callback: (payload: { audioBase64: string }) => void) => () => void;
       };
+      auth: {
+        openBrowserLogin: () => Promise<void>;
+        onTokenReceived: (callback: (payload: { token: string }) => void) => () => void;
+      };
     };
   }
 }

@@ -20,4 +20,12 @@ contextBridge.exposeInMainWorld("electronAPI", {
       return () => ipcRenderer.removeAllListeners("ipc:tts:play-audio");
     },
   },
+  auth: {
+    openBrowserLogin: () =>
+      ipcRenderer.invoke("ipc:auth:open-browser-login"),
+    onTokenReceived: (callback: (payload: { token: string }) => void) => {
+      ipcRenderer.on("ipc:auth:token-received", (_event, payload) => callback(payload));
+      return () => ipcRenderer.removeAllListeners("ipc:auth:token-received");
+    },
+  },
 });

@@ -1,5 +1,8 @@
+import { useAuthStore } from "./application/store/authStore";
+import { LoginPage } from "./ui/pages/LoginPage";
 import { SessionPage } from "./ui/pages/SessionPage";
 
 export function App() {
-  return <SessionPage />;
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
+  return isAuthenticated ? <SessionPage /> : <LoginPage />;
 }
