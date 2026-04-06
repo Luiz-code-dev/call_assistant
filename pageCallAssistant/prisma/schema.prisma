@@ -8,16 +8,28 @@ datasource db {
 }
 
 model User {
-  id                  String    @id @default(cuid())
+  id                  String              @id @default(cuid())
   name                String
-  email               String    @unique
+  email               String              @unique
   password            String
-  plan                String    @default("free")
-  credits             Int       @default(50)
-  emailVerified       Boolean   @default(false)
+  plan                String              @default("free")
+  credits             Int                 @default(50)
+  emailVerified       Boolean             @default(false)
   verificationToken   String?
   verificationExpiry  DateTime?
-  acceptedTerms       Boolean   @default(false)
-  createdAt           DateTime  @default(now())
-  updatedAt           DateTime  @updatedAt
+  acceptedTerms       Boolean             @default(false)
+  createdAt           DateTime            @default(now())
+  updatedAt           DateTime            @updatedAt
+  transactions        CreditTransaction[]
+}
+
+model CreditTransaction {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  type        String
+  amount      Int
+  source      String
+  description String
+  createdAt   DateTime @default(now())
 }

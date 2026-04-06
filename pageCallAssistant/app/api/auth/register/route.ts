@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
     const verificationToken = randomBytes(32).toString("hex");
     const verificationExpiry = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24h
 
-    await db.user.create({
+    const user = await db.user.create({
       data: {
         name,
         email: email.toLowerCase(),
@@ -38,6 +38,16 @@ export async function POST(req: NextRequest) {
         emailVerified: false,
         credits: 50,
         plan: "free",
+      },
+    });
+
+    await (db as any).creditTransaction.create({
+      data: {
+        userId: user.id,
+        type: "credit",
+        amount: 50,
+        source: "trial",
+        description: "Créditos trial",
       },
     });
 
