@@ -1,4 +1,4 @@
-# Next.js production build - wallet migration v2
+# Next.js production build - wallet migration v3
 FROM node:20-alpine AS base
 
 FROM base AS deps
