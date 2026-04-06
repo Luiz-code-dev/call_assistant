@@ -40,7 +40,10 @@ export async function GET(req: NextRequest) {
     });
 
     const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3001";
-    const response = NextResponse.redirect(`${appUrl}/dashboard?verified=1`);
+    const isDesktopCallback = req.cookies.get("desktop_callback")?.value === "1";
+    const redirectTo = isDesktopCallback ? `${appUrl}/auth/desktop` : `${appUrl}/dashboard?verified=1`;
+    const response = NextResponse.redirect(redirectTo);
+    response.cookies.delete("desktop_callback");
     response.cookies.set("token", sessionToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",

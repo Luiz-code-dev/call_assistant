@@ -114,7 +114,7 @@ export default function LoginPage() {
         <CardFooter className="justify-center">
           <p className="text-sm text-muted-foreground">
             Não tem conta?{" "}
-            <Link href="/register" className="text-violet-400 hover:text-violet-300">
+            <Link href={isDesktop ? "/register?callback=desktop" : "/register"} className="text-violet-400 hover:text-violet-300">
               Criar conta grátis
             </Link>
           </p>

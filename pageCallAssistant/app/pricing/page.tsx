@@ -87,7 +87,8 @@ export default function PricingPage() {
 
   async function handleSubscribe(plan: typeof plans[0]) {
     if (!plan.stripePrice) {
-      window.location.href = plan.href || "/register";
+      if (plan.href) { window.location.href = plan.href; return; }
+      toast.error("Sistema de pagamento não configurado. Tente novamente em instantes.");
       return;
     }
     setLoadingPlan(plan.id);

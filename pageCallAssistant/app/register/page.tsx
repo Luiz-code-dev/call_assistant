@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -19,6 +20,8 @@ export default function RegisterPage() {
   const [acceptedPrivacy, setAcceptedPrivacy] = useState(false);
   const [loading, setLoading] = useState(false);
   const [pendingVerification, setPendingVerification] = useState(false);
+  const searchParams = useSearchParams();
+  const isDesktop = searchParams.get("callback") === "desktop";
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -33,6 +36,9 @@ export default function RegisterPage() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Erro ao criar conta");
+      if (isDesktop) {
+        document.cookie = "desktop_callback=1; path=/; max-age=3600; samesite=lax";
+      }
       setPendingVerification(true);
     } catch (err: unknown) {
       toast.error(err instanceof Error ? err.message : "Erro ao criar conta");
