@@ -38,7 +38,7 @@ public class ProcessAudioChunkUseCaseImpl implements ProcessAudioChunkUseCase {
     private final SessionEventPublisher eventPublisher;
     private final Optional<WalletPort> walletPort;
 
-    private static final long COPILOT_THROTTLE_MS  = 5_000;
+    private static final long COPILOT_THROTTLE_MS  = 3_000;
     private static final long PARAGRAPH_BREAK_MS   = 5_000;
 
     private final ConcurrentHashMap<String, Sinks.Many<AudioChunk>> audioSinks       = new ConcurrentHashMap<>();
@@ -137,7 +137,7 @@ public class ProcessAudioChunkUseCaseImpl implements ProcessAudioChunkUseCase {
         }
 
         return copilotPort
-                .map(cp -> cp.suggest(sessionId, context, config)
+                .map(cp -> cp.suggest(sessionId, saved.getText(), config)
                         .flatMap(suggestion -> {
                             eventPublisher.emitSuggestion(sessionId, suggestion);
                             walletPort.ifPresent(wp ->
