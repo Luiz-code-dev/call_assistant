@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Navbar } from "@/components/Navbar";
+import { getSession } from "@/lib/auth";
 import {
   Mic2, Zap, Globe, Brain, Shield, Download,
   CheckCircle2, ArrowRight, Star, ChevronRight,
@@ -61,7 +62,9 @@ const testimonials = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const session = await getSession();
+  const isLoggedIn = !!session;
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -87,16 +90,16 @@ export default function Home() {
 
         <div className="animate-fade-in flex flex-col items-center gap-4 sm:flex-row">
           <Button variant="gradient" size="xl" asChild>
-            <Link href="/register">
-              Começar grátis
+            <Link href={isLoggedIn ? "/dashboard" : "/register"}>
+              {isLoggedIn ? "Ir para o Dashboard" : "Começar grátis"}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
           <Button variant="outline" size="xl" asChild>
-            <Link href="#download">
+            <a href="#download">
               <Download className="mr-2 h-5 w-5" />
               Baixar app
-            </Link>
+            </a>
           </Button>
         </div>
 

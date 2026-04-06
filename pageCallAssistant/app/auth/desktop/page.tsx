@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Mic2, Loader2, CheckCircle2, ExternalLink } from "lucide-react";
+import { Loader2, CheckCircle2, ExternalLink } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function DesktopAuthPage() {
@@ -37,9 +38,9 @@ export default function DesktopAuthPage() {
     <div className="flex min-h-screen flex-col items-center justify-center bg-background px-6 text-center">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(139,92,246,0.1),transparent)]" />
 
-      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 mb-6">
+      <Link href="/dashboard" className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 mb-6 hover:opacity-80 transition-opacity" title="Ir para o Dashboard">
         <span className="text-2xl font-bold text-white">S</span>
-      </div>
+      </Link>
 
       {status === "loading" && (
         <>

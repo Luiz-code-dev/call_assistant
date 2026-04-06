@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
+import { db } from "@/lib/db";
+import { sendThankYouEmail } from "@/lib/email";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2024-06-20",
@@ -31,6 +33,18 @@ export async function POST(req: NextRequest) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ sessionId: session.id, metadata: session.metadata }),
       });
+      try {
+        const email = session.customer_email ?? "";
+        const userId = session.metadata?.userId ?? "";
+        const credits = Number(session.metadata?.credits ?? 0);
+        const plan = session.metadata?.plan ?? "credits";
+        if (email && userId) {
+          const user = await db.user.findUnique({ where: { id: userId }, select: { name: true } });
+          await sendThankYouEmail(email, user?.name ?? "", plan, credits);
+        }
+      } catch (emailErr) {
+        console.error("Thank-you email error:", emailErr);
+      }
       break;
     }
     case "invoice.payment_succeeded": {

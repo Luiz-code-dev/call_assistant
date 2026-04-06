@@ -6,10 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Navbar } from "@/components/Navbar";
-import { CheckCircle2, Zap, ArrowRight, Loader2 } from "lucide-react";
+import { CheckCircle2, Zap, ArrowRight, Loader2, Lock } from "lucide-react";
 import { toast } from "sonner";
 
 interface Props {
+  userPlan: string | null;
   stripePriceBasic: string | null;
   stripePricePremium: string | null;
   stripePriceCredits5: string | null;
@@ -19,6 +20,7 @@ interface Props {
 }
 
 export default function PricingPageClient({
+  userPlan,
   stripePriceBasic,
   stripePricePremium,
   stripePriceCredits5,
@@ -26,6 +28,7 @@ export default function PricingPageClient({
   stripePriceCredits25,
   stripePriceCredits50,
 }: Props) {
+  const canTopUp = userPlan === "basic" || userPlan === "premium";
   const plans = [
     {
       id: "free",
@@ -232,37 +235,58 @@ export default function PricingPageClient({
               <Badge variant="purple" className="mb-3">Top-up credits</Badge>
               <h2 className="text-3xl font-bold">Need more? Add credits</h2>
               <p className="mt-2 text-muted-foreground">
-                One-time purchases, starting at $5. Credits never expire.
+                One-time purchases, starting at $5. Créditos adicionais nunca expiram.
               </p>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
-              {creditPacks.map((pack) => (
-                <Card key={pack.priceId} className="border-border/50 bg-card hover:border-violet-500/20 transition-all">
-                  <CardContent className="flex flex-col gap-3 p-5">
-                    <div>
-                      <p className="text-2xl font-bold">{pack.price}</p>
-                      <div className="flex items-center gap-1 mt-1">
-                        <Zap className="h-3.5 w-3.5 text-violet-400" />
-                        <span className="text-sm text-muted-foreground">{pack.credits} credits</span>
+
+            {canTopUp ? (
+              <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+                {creditPacks.map((pack) => (
+                  <Card key={pack.priceId} className="border-border/50 bg-card hover:border-violet-500/20 transition-all">
+                    <CardContent className="flex flex-col gap-3 p-5">
+                      <div>
+                        <p className="text-2xl font-bold">{pack.price}</p>
+                        <div className="flex items-center gap-1 mt-1">
+                          <Zap className="h-3.5 w-3.5 text-violet-400" />
+                          <span className="text-sm text-muted-foreground">{pack.credits} credits</span>
+                        </div>
                       </div>
-                    </div>
-                    <Button
-                      variant="gradient"
-                      size="sm"
-                      className="w-full"
-                      onClick={() => handleBuyCredits(pack)}
-                      disabled={loadingPlan === `credits_${pack.credits}`}
-                    >
-                      {loadingPlan === `credits_${pack.credits}` ? (
-                        <Loader2 className="h-4 w-4 animate-spin" />
-                      ) : (
-                        `Buy ${pack.price}`
-                      )}
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                      <Button
+                        variant="gradient"
+                        size="sm"
+                        className="w-full"
+                        onClick={() => handleBuyCredits(pack)}
+                        disabled={loadingPlan === `credits_${pack.credits}`}
+                      >
+                        {loadingPlan === `credits_${pack.credits}` ? (
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                        ) : (
+                          `Buy ${pack.price}`
+                        )}
+                      </Button>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            ) : (
+              <div className="rounded-xl border border-violet-500/20 bg-violet-500/5 p-8 text-center">
+                <Lock className="mx-auto mb-3 h-8 w-8 text-violet-400/60" />
+                <h3 className="mb-2 font-semibold">
+                  {userPlan === null ? "Faça login para adicionar créditos" : "Disponível apenas para assinantes"}
+                </h3>
+                <p className="mb-4 text-sm text-muted-foreground">
+                  {userPlan === null
+                    ? "Entre na sua conta ou crie uma gratuitamente."
+                    : "Recargas avulsas estão disponíveis para assinantes dos planos Basic ou Premium."}
+                </p>
+                <Button variant="gradient" size="sm" asChild>
+                  <Link href={userPlan === null ? "/login?redirect=/pricing" : "/pricing"}>
+                    {userPlan === null ? "Entrar" : "Assinar Basic — $15/mo"}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            )}
           </div>
 
           {/* FAQ */}
