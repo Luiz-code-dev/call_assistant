@@ -56,10 +56,10 @@ export default function UsagePageClient({
   stripePriceCredits50,
 }: Props) {
   const TOP_UPS = [
-    { label: "$5",  credits: 50,  priceId: stripePriceCredits5  ?? "credits_5"  },
-    { label: "$10", credits: 150, priceId: stripePriceCredits10 ?? "credits_10" },
-    { label: "$25", credits: 400, priceId: stripePriceCredits25 ?? "credits_25" },
-    { label: "$50", credits: 900, priceId: stripePriceCredits50 ?? "credits_50" },
+    { label: "$5",  credits: 50,  priceId: stripePriceCredits5  ?? null },
+    { label: "$10", credits: 150, priceId: stripePriceCredits10 ?? null },
+    { label: "$25", credits: 400, priceId: stripePriceCredits25 ?? null },
+    { label: "$50", credits: 900, priceId: stripePriceCredits50 ?? null },
   ];
 
   const searchParams = useSearchParams();
@@ -109,6 +109,10 @@ export default function UsagePageClient({
   }, []);
 
   async function handleTopUp(pack: typeof TOP_UPS[0]) {
+    if (!pack.priceId) {
+      toast.error("Pagamento não configurado. Configure as variáveis Stripe no Railway.");
+      return;
+    }
     setBuying(pack.priceId);
     try {
       const res = await fetch("/api/billing/credits", {

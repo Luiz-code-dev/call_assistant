@@ -1,9 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
+import { jwtVerify } from "jose";
+
+const secret = new TextEncoder().encode(
+  process.env.JWT_SECRET || "dev-secret-change-in-production"
+);
 
 const protectedRoutes = ["/dashboard", "/settings", "/auth/desktop", "/usage"];
 const authRoutes = ["/login", "/register"];
 
-export function middleware(req: NextRequest) {
+export async function middleware(req: NextRequest) {
   const host = req.headers.get("host") ?? "";
   const proto = req.headers.get("x-forwarded-proto") ?? "https";
 
@@ -14,17 +19,29 @@ export function middleware(req: NextRequest) {
     return NextResponse.redirect(url.toString(), 301);
   }
 
-  const token = req.cookies.get("token")?.value;
+  const rawToken = req.cookies.get("token")?.value;
   const { pathname } = req.nextUrl;
 
   const isProtected = protectedRoutes.some((r) => pathname.startsWith(r));
   const isAuthRoute = authRoutes.some((r) => pathname.startsWith(r));
 
-  if (isProtected && !token) {
-    return NextResponse.redirect(new URL("/login", req.url));
+  let validToken = false;
+  if (rawToken) {
+    try {
+      await jwtVerify(rawToken, secret);
+      validToken = true;
+    } catch {
+      validToken = false;
+    }
   }
 
-  if (isAuthRoute && token) {
+  if (isProtected && !validToken) {
+    const res = NextResponse.redirect(new URL("/login", req.url));
+    if (rawToken) res.cookies.delete("token");
+    return res;
+  }
+
+  if (isAuthRoute && validToken) {
     return NextResponse.redirect(new URL("/dashboard", req.url));
   }
 

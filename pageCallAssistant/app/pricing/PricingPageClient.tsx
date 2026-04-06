@@ -93,10 +93,10 @@ export default function PricingPageClient({
   ];
 
   const creditPacks = [
-    { credits: 50,  price: "$5",  priceId: stripePriceCredits5  ?? "credits_5"  },
-    { credits: 150, price: "$10", priceId: stripePriceCredits10 ?? "credits_10" },
-    { credits: 400, price: "$25", priceId: stripePriceCredits25 ?? "credits_25" },
-    { credits: 900, price: "$50", priceId: stripePriceCredits50 ?? "credits_50" },
+    { credits: 50,  price: "$5",  priceId: stripePriceCredits5  ?? null },
+    { credits: 150, price: "$10", priceId: stripePriceCredits10 ?? null },
+    { credits: 400, price: "$25", priceId: stripePriceCredits25 ?? null },
+    { credits: 900, price: "$50", priceId: stripePriceCredits50 ?? null },
   ];
 
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
@@ -128,6 +128,10 @@ export default function PricingPageClient({
   }
 
   async function handleBuyCredits(pack: typeof creditPacks[0]) {
+    if (!pack.priceId) {
+      toast.error("Pagamento não configurado. Configure as variáveis Stripe no servidor.");
+      return;
+    }
     setLoadingPlan(`credits_${pack.credits}`);
     try {
       const res = await fetch("/api/billing/credits", {
