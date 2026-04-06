@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
-      payment_method_types: ["card"],
+      automatic_payment_methods: { enabled: true },
       customer_email: payload.email,
       line_items: [{ price: priceId, quantity: 1 }],
       success_url: `${appUrl}/usage?credits=success&amount=${credits ?? 0}`,
