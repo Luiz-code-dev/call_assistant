@@ -198,7 +198,7 @@ export default function DashboardPage() {
               </p>
             </div>
             <Button variant="gradient" asChild>
-              <a href="/CallAssistant-Setup-0.1.0.exe" download>
+              <a href="https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.0/CallAssistant-Setup-0.1.0.exe" target="_blank" rel="noopener noreferrer">
                 <Download className="mr-2 h-4 w-4" />
                 Baixar .exe
               </a>

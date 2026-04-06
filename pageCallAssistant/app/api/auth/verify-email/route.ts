@@ -47,6 +47,7 @@ export async function GET(req: NextRequest) {
       sameSite: "lax",
       maxAge: 60 * 60 * 24 * 7,
       path: "/",
+      domain: process.env.NODE_ENV === "production" ? ".call-assistant.com.br" : undefined,
     });
 
     return response;
