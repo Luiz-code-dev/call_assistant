@@ -5,6 +5,15 @@ export async function GET(req: NextRequest) {
   const proto = req.headers.get("x-forwarded-proto") ?? "https";
   const baseUrl = `${proto}://${host}`;
   const response = NextResponse.redirect(`${baseUrl}/login`);
-  response.cookies.delete("token");
+  const isProd = process.env.NODE_ENV === "production";
+  response.cookies.set("token", "", {
+    httpOnly: true,
+    secure: isProd,
+    sameSite: "lax",
+    maxAge: 0,
+    expires: new Date(0),
+    path: "/",
+    domain: isProd ? ".call-assistant.com.br" : undefined,
+  });
   return response;
 }
