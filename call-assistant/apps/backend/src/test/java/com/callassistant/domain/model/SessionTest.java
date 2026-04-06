@@ -18,7 +18,7 @@ class SessionTest {
     @Test
     @DisplayName("create should produce ACTIVE session with SessionStartedEvent")
     void createShouldProduceActiveSession() {
-        var session = Session.create(defaultConfig());
+        var session = Session.create(defaultConfig(), null);
 
         assertThat(session.getStatus()).isEqualTo(SessionStatus.ACTIVE);
         assertThat(session.getId()).isNotBlank();
@@ -33,7 +33,7 @@ class SessionTest {
     @Test
     @DisplayName("end should set status to ENDED and produce SessionEndedEvent")
     void endShouldSetStatusEnded() {
-        var session = Session.create(defaultConfig());
+        var session = Session.create(defaultConfig(), null);
         session.pullDomainEvents();
 
         session.end();
@@ -49,7 +49,7 @@ class SessionTest {
     @Test
     @DisplayName("end on already ENDED session should throw")
     void endOnEndedShouldThrow() {
-        var session = Session.create(defaultConfig());
+        var session = Session.create(defaultConfig(), null);
         session.end();
 
         assertThatThrownBy(session::end)
@@ -60,7 +60,7 @@ class SessionTest {
     @Test
     @DisplayName("pause then resume should restore ACTIVE status")
     void pauseAndResumeShouldWork() {
-        var session = Session.create(defaultConfig());
+        var session = Session.create(defaultConfig(), null);
 
         session.pause();
         assertThat(session.getStatus()).isEqualTo(SessionStatus.PAUSED);
@@ -72,7 +72,7 @@ class SessionTest {
     @Test
     @DisplayName("pullDomainEvents should clear internal list")
     void pullDomainEventsShouldClear() {
-        var session = Session.create(defaultConfig());
+        var session = Session.create(defaultConfig(), null);
 
         assertThat(session.pullDomainEvents()).hasSize(1);
         assertThat(session.pullDomainEvents()).isEmpty();
