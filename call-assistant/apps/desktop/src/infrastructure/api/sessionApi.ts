@@ -4,7 +4,7 @@ import type {
   Session,
   Transcript,
 } from "@call-assistant/shared-types";
-import { useAuthStore } from "../application/store/authStore";
+import { useAuthStore } from "../../application/store/authStore";
 
 const BACKEND_ORIGIN = import.meta.env.VITE_BACKEND_URL ?? "http://localhost:8080";
 const BASE_URL = `${BACKEND_ORIGIN}/api/v1`;
