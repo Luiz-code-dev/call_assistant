@@ -25,7 +25,7 @@ public class StartSessionUseCaseImpl implements StartSessionUseCase {
     public Mono<SessionResponse> execute(CreateSessionRequest request) {
         return Mono.fromCallable(() -> {
                     var config = SessionMapper.toDomain(request.config());
-                    return Session.create(config);
+                    return Session.create(config, request.userId());
                 })
                 .flatMap(session -> sessionRepository.save(session)
                         .flatMap(saved -> publishEvents(saved)

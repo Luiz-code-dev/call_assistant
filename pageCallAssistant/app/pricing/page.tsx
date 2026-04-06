@@ -9,7 +9,8 @@ import { Navbar } from "@/components/Navbar";
 import { CheckCircle2, Zap, ArrowRight, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 
-const plans = [
+export default function PricingPage() {
+  const plans = [
   {
     id: "free",
     name: "Free",
@@ -73,16 +74,15 @@ const plans = [
     stripePrice: process.env.NEXT_PUBLIC_STRIPE_PRICE_PREMIUM || null,
     highlighted: true,
   },
-];
+  ];
 
-const creditPacks = [
-  { credits: 50,  price: "$5",  priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_5  || "credits_5"  },
-  { credits: 150, price: "$10", priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_10 || "credits_10" },
-  { credits: 400, price: "$25", priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_25 || "credits_25" },
-  { credits: 900, price: "$50", priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_50 || "credits_50" },
-];
+  const creditPacks = [
+    { credits: 50,  price: "$5",  priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_5  || "credits_5"  },
+    { credits: 150, price: "$10", priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_10 || "credits_10" },
+    { credits: 400, price: "$25", priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_25 || "credits_25" },
+    { credits: 900, price: "$50", priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_50 || "credits_50" },
+  ];
 
-export default function PricingPage() {
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
 
   async function handleSubscribe(plan: typeof plans[0]) {

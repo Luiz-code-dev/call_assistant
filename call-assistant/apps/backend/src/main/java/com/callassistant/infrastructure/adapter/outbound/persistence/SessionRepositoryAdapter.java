@@ -48,6 +48,7 @@ public class SessionRepositoryAdapter implements SessionRepository {
                 session.getConfig().enableTts(),
                 session.getConfig().enableSuggestions(),
                 session.getConfig().meetingContext(),
+                session.getUserId(),
                 session.getStartedAt(),
                 session.getEndedAt()
         );
@@ -65,6 +66,7 @@ public class SessionRepositoryAdapter implements SessionRepository {
                 entity.id(),
                 SessionStatus.valueOf(entity.status()),
                 config,
+                entity.userId(),
                 entity.startedAt(),
                 entity.endedAt()
         );

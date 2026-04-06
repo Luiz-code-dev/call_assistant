@@ -14,6 +14,7 @@ public record SessionEntity(
         boolean enableTts,
         boolean enableSuggestions,
         String meetingContext,
+        String userId,
         Instant startedAt,
         Instant endedAt
 ) {}

@@ -2,6 +2,7 @@ import { create } from "zustand";
 import type { Session, SessionConfig } from "@call-assistant/shared-types";
 import { sessionApi } from "../../infrastructure/api/sessionApi";
 import { wsClient } from "../../infrastructure/websocket/WebSocketClient";
+import { useAuthStore } from "./authStore";
 
 interface SessionState {
   session: Session | null;
@@ -20,7 +21,8 @@ export const useSessionStore = create<SessionState>((set, get) => ({
   startSession: async (config: SessionConfig) => {
     set({ isConnecting: true, error: null });
     try {
-      const session = await sessionApi.create({ config });
+      const userId = useAuthStore.getState().user?.sub;
+      const session = await sessionApi.create({ config, userId });
       wsClient.connect(session.id);
       set({ session, isConnecting: false });
 

@@ -16,22 +16,25 @@ public class Session {
     private final String id;
     private SessionStatus status;
     private final SessionConfig config;
+    private final String userId;
     private final Instant startedAt;
     private Instant endedAt;
     private final List<Object> domainEvents = new ArrayList<>();
 
-    private Session(String id, SessionStatus status, SessionConfig config, Instant startedAt) {
+    private Session(String id, SessionStatus status, SessionConfig config, String userId, Instant startedAt) {
         this.id = id;
         this.status = status;
         this.config = config;
+        this.userId = userId;
         this.startedAt = startedAt;
     }
 
-    public static Session create(SessionConfig config) {
+    public static Session create(SessionConfig config, String userId) {
         var session = new Session(
                 UUID.randomUUID().toString(),
                 SessionStatus.ACTIVE,
                 config,
+                userId,
                 Instant.now()
         );
         session.domainEvents.add(new SessionStartedEvent(session.id, Instant.now()));
@@ -39,8 +42,8 @@ public class Session {
     }
 
     public static Session reconstitute(String id, SessionStatus status, SessionConfig config,
-                                       Instant startedAt, Instant endedAt) {
-        var session = new Session(id, status, config, startedAt);
+                                       String userId, Instant startedAt, Instant endedAt) {
+        var session = new Session(id, status, config, userId, startedAt);
         session.endedAt = endedAt;
         return session;
     }
@@ -83,6 +86,7 @@ public class Session {
     public String getId() { return id; }
     public SessionStatus getStatus() { return status; }
     public SessionConfig getConfig() { return config; }
+    public String getUserId() { return userId; }
     public Instant getStartedAt() { return startedAt; }
     public Instant getEndedAt() { return endedAt; }
 }

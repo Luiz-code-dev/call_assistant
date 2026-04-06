@@ -64,6 +64,9 @@ callassistant:
       provider: openai
     copilot:
       provider: openai
+  wallet:
+    web-app-url: ${WEB_APP_URL:https://www.call-assistant.com.br}
+    internal-secret: ${INTERNAL_API_SECRET:change-me}
 
 logging:
   level:

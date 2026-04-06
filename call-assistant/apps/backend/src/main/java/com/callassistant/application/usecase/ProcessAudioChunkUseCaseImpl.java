@@ -12,6 +12,7 @@ import com.callassistant.domain.port.outbound.SpeechToTextPort;
 import com.callassistant.domain.port.outbound.TranscriptRepository;
 import com.callassistant.domain.port.outbound.TranslationPort;
 import com.callassistant.domain.port.outbound.TranslationRepository;
+import com.callassistant.domain.port.outbound.WalletPort;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,7 @@ public class ProcessAudioChunkUseCaseImpl implements ProcessAudioChunkUseCase {
     private final TranslationPort translationPort;
     private final Optional<CopilotPort> copilotPort;
     private final SessionEventPublisher eventPublisher;
+    private final Optional<WalletPort> walletPort;
 
     private static final long COPILOT_THROTTLE_MS  = 5_000;
     private static final long PARAGRAPH_BREAK_MS   = 5_000;
@@ -138,6 +140,10 @@ public class ProcessAudioChunkUseCaseImpl implements ProcessAudioChunkUseCase {
                 .map(cp -> cp.suggest(sessionId, context, config)
                         .flatMap(suggestion -> {
                             eventPublisher.emitSuggestion(sessionId, suggestion);
+                            walletPort.ifPresent(wp ->
+                                    wp.deductCredits(session.getUserId(), 1, "usage",
+                                            "Copilot response — session " + sessionId)
+                                            .subscribe());
                             var translation = Translation.create(
                                     saved.getSessionId(), saved.getId(),
                                     saved.getText(), suggestion.contextSummary(),

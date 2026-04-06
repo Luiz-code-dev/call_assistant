@@ -42,14 +42,13 @@ const PLAN_INFO: Record<string, { label: string; price: string; allocation: numb
   premium: { label: "Premium", price: "$30/mo",  allocation: 1000, color: "text-indigo-400" },
 };
 
-const TOP_UPS = [
-  { label: "$5",  credits: 50,  priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_5  || "credits_5"  },
-  { label: "$10", credits: 150, priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_10 || "credits_10" },
-  { label: "$25", credits: 400, priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_25 || "credits_25" },
-  { label: "$50", credits: 900, priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_50 || "credits_50" },
-];
-
 export default function UsagePage() {
+  const TOP_UPS = [
+    { label: "$5",  credits: 50,  priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_5  || "credits_5"  },
+    { label: "$10", credits: 150, priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_10 || "credits_10" },
+    { label: "$25", credits: 400, priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_25 || "credits_25" },
+    { label: "$50", credits: 900, priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_50 || "credits_50" },
+  ];
   const searchParams = useSearchParams();
   const [wallet, setWallet] = useState<WalletBalance | null>(null);
   const [transactions, setTransactions] = useState<CreditTransaction[]>([]);

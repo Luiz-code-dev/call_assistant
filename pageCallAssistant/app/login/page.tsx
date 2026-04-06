@@ -17,6 +17,7 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const searchParams = useSearchParams();
   const isDesktop = searchParams.get("callback") === "desktop";
+  const redirectTo = searchParams.get("redirect") || (isDesktop ? "/auth/desktop" : "/dashboard");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -30,7 +31,7 @@ export default function LoginPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Erro ao fazer login");
       toast.success("Login realizado com sucesso!");
-      window.location.href = isDesktop ? "/auth/desktop" : "/dashboard";
+      window.location.href = redirectTo;
     } catch (err: unknown) {
       toast.error(err instanceof Error ? err.message : "Erro ao fazer login");
     } finally {
