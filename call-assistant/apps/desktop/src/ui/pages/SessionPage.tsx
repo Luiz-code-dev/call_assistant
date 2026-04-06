@@ -190,7 +190,7 @@ function Header({ isActive, isConnecting, onStart, onStop }: HeaderProps) {
     <header className="flex items-center justify-between px-5 py-3 border-b border-white/10 app-drag-region">
       <div className="flex items-center gap-2">
         <div className={`w-2 h-2 rounded-full ${isActive ? "bg-green-400 animate-pulse" : "bg-white/20"}`} />
-        <span className="text-sm font-medium text-white/70">Call Assistant</span>
+        <span className="text-sm font-medium text-white/70">SpeakFlow</span>
       </div>
 
       <div className="flex items-center gap-2 app-no-drag">

@@ -46,7 +46,7 @@ export default function VerifyEmailPage() {
         <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-indigo-600">
           <Mic2 className="h-5 w-5 text-white" />
         </div>
-        <span className="text-xl font-semibold">Call Assistant</span>
+        <span className="text-xl font-semibold">SpeakFlow</span>
       </Link>
 
       <div className="w-full max-w-sm rounded-2xl border border-border/50 bg-card/80 p-8 text-center backdrop-blur">

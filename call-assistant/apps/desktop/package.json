@@ -1,5 +1,5 @@
 {
-  "name": "@call-assistant/desktop",
+  "name": "@speakflow/desktop",
   "version": "0.1.0",
   "private": true,
   "main": "./out/main/index.js",
@@ -18,8 +18,8 @@
     "fs-extra": "^11.3.4"
   },
   "build": {
-    "appId": "com.callassistant",
-    "productName": "Call Assistant",
+    "appId": "com.speakflow",
+    "productName": "SpeakFlow",
     "copyright": "Copyright © 2025 Luiz Eduardo da Silva Dias Melo",
     "directories": {
       "output": "dist"
@@ -47,11 +47,11 @@
           ]
         }
       ],
-      "artifactName": "CallAssistant-Setup-${version}.exe"
+      "artifactName": "SpeakFlow-Setup-${version}.exe"
     },
     "protocols": [
       {
-        "name": "Call Assistant Auth",
+        "name": "SpeakFlow Auth",
         "schemes": ["callassistant"]
       }
     ],
@@ -63,7 +63,7 @@
       "perMachine": false,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "Call Assistant",
+      "shortcutName": "SpeakFlow",
       "installerIcon": null,
       "deleteAppDataOnUninstall": true,
       "license": "resources/license.txt"

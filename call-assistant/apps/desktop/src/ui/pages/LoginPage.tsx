@@ -40,13 +40,13 @@ export function LoginPage() {
     <div className="flex min-h-screen flex-col items-center justify-center bg-[#0a0a0f] px-6 text-center">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(139,92,246,0.12),transparent)]" />
 
-      <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-600 mb-6 shadow-lg shadow-violet-500/25">
-        <Mic2 className="h-8 w-8 text-white" />
+      <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 mb-6 shadow-lg shadow-blue-500/25">
+        <span className="text-2xl font-bold text-white">S</span>
       </div>
 
-      <h1 className="text-3xl font-bold text-white mb-2">Call Assistant</h1>
+      <h1 className="text-3xl font-bold text-white mb-2">SpeakFlow</h1>
       <p className="text-sm text-zinc-400 mb-10 max-w-xs">
-        Real-time transcription, translation and intelligent suggestions for your calls
+        Entenda em tempo real. Responda com confiança.
       </p>
 
       {exchanging ? (

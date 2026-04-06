@@ -43,17 +43,17 @@ export default function LoginPage() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(139,92,246,0.1),transparent)]" />
 
       <Link href="/" className="mb-8 flex items-center gap-2">
-        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-indigo-600">
-          <Mic2 className="h-5 w-5 text-white" />
+        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600">
+          <span className="text-base font-bold text-white">S</span>
         </div>
-        <span className="text-xl font-semibold">Call Assistant</span>
+        <span className="text-xl font-semibold">SpeakFlow</span>
       </Link>
 
       {isDesktop && (
         <div className="mb-4 flex items-center gap-2 rounded-xl border border-violet-500/30 bg-violet-500/10 px-4 py-3">
           <Monitor className="h-4 w-4 shrink-0 text-violet-400" />
           <p className="text-sm text-violet-300">
-            Após o login, você será redirecionado de volta para o <strong>Call Assistant</strong>.
+            Após o login, você será redirecionado de volta para o <strong>SpeakFlow</strong>.
           </p>
         </div>
       )}

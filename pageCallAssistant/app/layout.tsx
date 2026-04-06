@@ -13,25 +13,25 @@ const APP_URL =
 export const metadata: Metadata = {
   metadataBase: new URL(APP_URL),
   title: {
-    default: "Call Assistant — Copiloto de chamadas em tempo real",
-    template: "%s | Call Assistant",
+    default: "SpeakFlow — Entenda em tempo real. Responda com confiança.",
+    template: "%s | SpeakFlow",
   },
   description:
     "Transcrição, tradução e sugestões inteligentes durante suas entrevistas e reuniões. Em tempo real, no seu Windows.",
-  keywords: ["call assistant", "transcrição em tempo real", "tradução", "IA", "entrevista", "copilot", "reunião"],
-  authors: [{ name: "Call Assistant" }],
+  keywords: ["speakflow", "transcrição em tempo real", "tradução", "IA", "entrevista", "copilot", "reunião"],
+  authors: [{ name: "SpeakFlow" }],
   openGraph: {
     type: "website",
     locale: "pt_BR",
     url: APP_URL,
-    siteName: "Call Assistant",
-    title: "Call Assistant — Copiloto de chamadas em tempo real",
+    siteName: "SpeakFlow",
+    title: "SpeakFlow — Entenda em tempo real. Responda com confiança.",
     description:
       "Transcrição, tradução e sugestões inteligentes durante suas entrevistas e reuniões. Em tempo real, no seu Windows.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Call Assistant — Copiloto de chamadas em tempo real",
+    title: "SpeakFlow — Entenda em tempo real. Responda com confiança.",
     description: "Transcrição, tradução e sugestões inteligentes em tempo real.",
   },
   robots: {

@@ -1,4 +1,4 @@
-# DOCUMENTAÇÃO DE ARQUITETURA — CALL ASSISTANT
+# DOCUMENTAÇÃO DE ARQUITETURA — SPEAKFLOW
 
 **Versão:** 1.0.0  
 **Autor:** Luiz Eduardo da Silva Dias Melo  
@@ -8,7 +8,7 @@
 
 ## 1. VISÃO GERAL DO SISTEMA
 
-O **Call Assistant** é uma aplicação desktop de múltiplas camadas que opera
+O **SpeakFlow** é uma aplicação desktop de múltiplas camadas que opera
 inteiramente na máquina do usuário, integrando-se a APIs de Inteligência
 Artificial para processar áudio em tempo real.
 
@@ -438,4 +438,4 @@ PT: Sim, posso.
 ---
 
 *© 2026 Luiz Eduardo da Silva Dias Melo. Todos os direitos reservados.*  
-*Documento de arquitetura — Call Assistant v1.0.0*
+*Documento de arquitetura — SpeakFlow v1.0.0*

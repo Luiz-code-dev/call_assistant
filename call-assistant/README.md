@@ -1,8 +1,8 @@
 <div align="center">
 
-# 🎙️ Call Assistant
+# 🎙️ SpeakFlow
 
-### Assistente de Chamadas em Tempo Real com Inteligência Artificial
+### Entenda em tempo real. Responda com confiança.
 
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](./LICENSE)
 [![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://openjdk.org/projects/jdk/21/)
@@ -17,10 +17,10 @@
 
 ## 📌 Sobre o Produto
 
-**Call Assistant** é uma aplicação desktop inovadora que atua como assistente inteligente em tempo real durante entrevistas, reuniões e chamadas em inglês. Desenvolvido especialmente para profissionais brasileiros que necessitam de suporte bilíngue em conversações em inglês, o sistema captura o áudio da chamada, transcreve, traduz e sugere respostas contextuais automaticamente — tudo em tempo real.
+**SpeakFlow** é uma aplicação desktop inovadora que atua como assistente inteligente em tempo real durante entrevistas, reuniões e chamadas em inglês. Desenvolvido especialmente para profissionais brasileiros que necessitam de suporte bilíngue em conversações em inglês, o sistema captura o áudio da chamada, transcreve, traduz e sugere respostas contextuais automaticamente — tudo em tempo real.
 
 > **Não existe nenhum produto equivalente disponível no mercado brasileiro.**
-> O Call Assistant combina, em uma única aplicação de desktop nativa, captura de áudio do sistema, transcrição por IA, tradução contextual e sugestão de respostas — sem dependência de extensões de browser, sem plugins de terceiros, e sem latência perceptível.
+> O SpeakFlow combina, em uma única aplicação de desktop nativa, captura de áudio do sistema, transcrição por IA, tradução contextual e sugestão de respostas — sem dependência de extensões de browser, sem plugins de terceiros, e sem latência perceptível.
 
 ### ✨ Diferenciais únicos
 
@@ -212,7 +212,7 @@ pnpm --filter @call-assistant/desktop dev
 
 ## 🖥️ Como usar
 
-1. **Abra o Call Assistant**
+1. **Abra o SpeakFlow**
 2. Clique em **Start Session**
 3. No modal de contexto, descreva o assunto da reunião (opcional, melhora as sugestões)
 4. Inicie sua chamada em inglês em qualquer aplicativo
@@ -260,7 +260,7 @@ Para licenciamento comercial, parcerias ou autorizações, entre em contato com 
 
 <div align="center">
 
-**Call Assistant** — Desenvolvido com 🧠 e ☕ por **Luiz Eduardo da Silva Dias Melo**
+**SpeakFlow** — Desenvolvido com 🧠 e ☕ por **Luiz Eduardo da Silva Dias Melo**
 
 *Engenheiro de Software · Especialista em Inteligência Artificial · Brasil · 2026*
 

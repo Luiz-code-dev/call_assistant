@@ -6,7 +6,7 @@
 
 | Campo | Valor |
 |---|---|
-| **Nome do Software** | Call Assistant |
+| **Nome do Software** | SpeakFlow |
 | **Versão** | 1.0.0 |
 | **Tipo** | Aplicação Desktop com Inteligência Artificial |
 | **Data de Criação** | 31 de março de 2026 |
@@ -30,7 +30,7 @@
 ## DECLARAÇÃO
 
 Eu, **Luiz Eduardo da Silva Dias Melo**, portador do CPF nº **046.245.655-25**,
-na qualidade de único e exclusivo autor do software denominado **Call Assistant**,
+na qualidade de único e exclusivo autor do software denominado **SpeakFlow**,
 DECLARO para os devidos fins de direito que:
 
 1. **Concebi, arquitetei e desenvolvi integralmente** o presente software,

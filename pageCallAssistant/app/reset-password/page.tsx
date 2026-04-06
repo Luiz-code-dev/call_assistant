@@ -58,7 +58,7 @@ export default function ResetPasswordPage() {
         <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-indigo-600">
           <Mic2 className="h-5 w-5 text-white" />
         </div>
-        <span className="text-xl font-semibold">Call Assistant</span>
+        <span className="text-xl font-semibold">SpeakFlow</span>
       </Link>
 
       <Card className="w-full max-w-sm border-border/50 bg-card/80 backdrop-blur">

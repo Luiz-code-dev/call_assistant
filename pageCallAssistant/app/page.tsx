@@ -113,7 +113,7 @@ export default function Home() {
                 <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
                 <div className="h-3 w-3 rounded-full bg-green-500/80" />
               </div>
-              <div className="flex-1 text-center text-xs text-muted-foreground">Call Assistant</div>
+              <div className="flex-1 text-center text-xs text-muted-foreground">SpeakFlow</div>
             </div>
             <div className="grid h-64 grid-cols-2 gap-3 p-4">
               <div className="rounded-lg border border-border/50 bg-background/50 p-3">
@@ -277,9 +277,9 @@ export default function Home() {
               </Link>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <a href="https://github.com/luiz-code-dev/call-assistant/releases/latest/download/CallAssistant-Setup.exe" download>
+              <a href="https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.0/SpeakFlow-Setup-0.1.0.exe">
                 <Download className="mr-2 h-4 w-4" />
-                Baixar CallAssistant-Setup.exe
+                Baixar SpeakFlow-Setup-0.1.0.exe
               </a>
             </Button>
           </div>
@@ -293,13 +293,13 @@ export default function Home() {
       <footer className="border-t border-border/50 px-6 py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 md:flex-row">
           <div className="flex items-center gap-2">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600">
-              <Mic2 className="h-3.5 w-3.5 text-white" />
+            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600">
+              <span className="text-xs font-bold text-white">S</span>
             </div>
-            <span className="text-sm font-medium">Call Assistant</span>
+            <span className="text-sm font-medium">SpeakFlow</span>
           </div>
           <p className="text-xs text-muted-foreground">
-            © 2025 Call Assistant. Todos os direitos reservados.
+            © 2025 SpeakFlow. Todos os direitos reservados.
           </p>
           <div className="flex gap-4">
             <Link href="/pricing" className="text-xs text-muted-foreground hover:text-foreground">Preços</Link>

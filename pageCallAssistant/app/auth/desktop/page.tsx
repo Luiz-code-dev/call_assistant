@@ -37,8 +37,8 @@ export default function DesktopAuthPage() {
     <div className="flex min-h-screen flex-col items-center justify-center bg-background px-6 text-center">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(139,92,246,0.1),transparent)]" />
 
-      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-600 mb-6">
-        <Mic2 className="h-8 w-8 text-white" />
+      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 mb-6">
+        <span className="text-2xl font-bold text-white">S</span>
       </div>
 
       {status === "loading" && (
@@ -55,7 +55,7 @@ export default function DesktopAuthPage() {
           <h1 className="text-2xl font-bold mb-2">Login realizado!</h1>
           <p className="text-muted-foreground mb-6 max-w-sm">
             {status === "opening"
-              ? "Abrindo o Call Assistant..."
+              ? "Abrindo o SpeakFlow..."
               : "Clique no botão abaixo para abrir o app desktop."}
           </p>
           <Button
@@ -69,7 +69,7 @@ export default function DesktopAuthPage() {
             ) : (
               <ExternalLink className="mr-2 h-4 w-4" />
             )}
-            {status === "opening" ? "Abrindo..." : "Abrir Call Assistant"}
+            {status === "opening" ? "Abrindo..." : "Abrir SpeakFlow"}
           </Button>
           <p className="mt-4 text-xs text-muted-foreground">
             O app não abriu?{" "}

@@ -11,7 +11,7 @@ export default function TermsPage() {
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600">
             <Mic2 className="h-4 w-4 text-white" />
           </div>
-          <span className="font-semibold">Call Assistant</span>
+          <span className="font-semibold">SpeakFlow</span>
         </Link>
 
         <h1 className="mb-2 text-3xl font-bold">Termos de Uso</h1>
@@ -20,15 +20,15 @@ export default function TermsPage() {
         <div className="prose prose-invert max-w-none space-y-6 text-muted-foreground">
           <section>
             <h2 className="text-xl font-semibold text-foreground">1. Aceitação dos termos</h2>
-            <p>Ao criar uma conta e utilizar o Call Assistant, você concorda com estes Termos de Uso. Se não concordar, não utilize o serviço.</p>
+            <p>Ao criar uma conta e utilizar o SpeakFlow, você concorda com estes Termos de Uso. Se não concordar, não utilize o serviço.</p>
           </section>
           <section>
             <h2 className="text-xl font-semibold text-foreground">2. Descrição do serviço</h2>
-            <p>O Call Assistant é um aplicativo para Windows que fornece transcrição em tempo real, tradução e sugestões de resposta durante chamadas e reuniões online, utilizando inteligência artificial.</p>
+            <p>O SpeakFlow é um aplicativo para Windows que fornece transcrição em tempo real, tradução e sugestões de resposta durante chamadas e reuniões online, utilizando inteligência artificial.</p>
           </section>
           <section>
             <h2 className="text-xl font-semibold text-foreground">3. Uso aceitável</h2>
-            <p>Você concorda em utilizar o serviço apenas para fins legais e conforme estes termos. É proibido usar o Call Assistant para gravar conversas sem o consentimento dos participantes, conforme a legislação aplicável.</p>
+            <p>Você concorda em utilizar o serviço apenas para fins legais e conforme estes termos. É proibido usar o SpeakFlow para gravar conversas sem o consentimento dos participantes, conforme a legislação aplicável.</p>
           </section>
           <section>
             <h2 className="text-xl font-semibold text-foreground">4. Créditos e pagamentos</h2>
@@ -36,7 +36,7 @@ export default function TermsPage() {
           </section>
           <section>
             <h2 className="text-xl font-semibold text-foreground">5. Limitação de responsabilidade</h2>
-            <p>O Call Assistant é fornecido "no estado em que se encontra". Não garantimos precisão absoluta nas transcrições ou sugestões geradas por IA. O usuário é responsável pelo uso das informações fornecidas.</p>
+            <p>O SpeakFlow é fornecido "no estado em que se encontra". Não garantimos precisão absoluta nas transcrições ou sugestões geradas por IA. O usuário é responsável pelo uso das informações fornecidas.</p>
           </section>
           <section>
             <h2 className="text-xl font-semibold text-foreground">6. Contato</h2>

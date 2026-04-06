@@ -11,7 +11,7 @@ export default function PrivacyPage() {
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600">
             <Mic2 className="h-4 w-4 text-white" />
           </div>
-          <span className="font-semibold">Call Assistant</span>
+          <span className="font-semibold">SpeakFlow</span>
         </Link>
 
         <h1 className="mb-2 text-3xl font-bold">Política de Privacidade</h1>

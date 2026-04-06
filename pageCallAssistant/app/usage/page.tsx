@@ -150,7 +150,7 @@ export default function UsagePage() {
                 <Mic2 className="h-4 w-4 text-white" />
               </div>
             </Link>
-            <span className="font-semibold">Call Assistant</span>
+            <span className="font-semibold">SpeakFlow</span>
             <span className="text-border">/</span>
             <span className="text-muted-foreground">Usage</span>
           </div>

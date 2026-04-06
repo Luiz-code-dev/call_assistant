@@ -101,10 +101,10 @@ export default function DashboardPage() {
       <header className="border-b border-border/50 bg-card/50 px-6 py-4">
         <div className="mx-auto flex max-w-5xl items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600">
-              <Mic2 className="h-4 w-4 text-white" />
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600">
+              <span className="text-sm font-bold text-white">S</span>
             </div>
-            <span className="font-semibold">Call Assistant</span>
+            <span className="font-semibold">SpeakFlow</span>
           </Link>
           <div className="flex items-center gap-3">
             <Button variant="ghost" size="sm" asChild>
@@ -194,11 +194,11 @@ export default function DashboardPage() {
             <div>
               <h3 className="font-semibold">Baixar o app desktop</h3>
               <p className="text-sm text-muted-foreground">
-                Instale o Call Assistant no seu Windows e comece agora
+                Instale o SpeakFlow no seu Windows e comece agora
               </p>
             </div>
             <Button variant="gradient" asChild>
-              <a href="https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.0/CallAssistant-Setup-0.1.0.exe" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.0/SpeakFlow-Setup-0.1.0.exe" target="_blank" rel="noopener noreferrer">
                 <Download className="mr-2 h-4 w-4" />
                 Baixar .exe
               </a>
