@@ -1,9 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET() {
-  const response = NextResponse.redirect(
-    new URL("/", process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000")
-  );
+export async function GET(req: NextRequest) {
+  const host = req.headers.get("host") ?? "www.call-assistant.com.br";
+  const proto = req.headers.get("x-forwarded-proto") ?? "https";
+  const baseUrl = `${proto}://${host}`;
+  const response = NextResponse.redirect(`${baseUrl}/login`);
   response.cookies.delete("token");
   return response;
 }
