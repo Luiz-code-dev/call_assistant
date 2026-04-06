@@ -1,7 +1,7 @@
 import { app, BrowserWindow, shell } from "electron";
 
 const PROTOCOL = "callassistant";
-const WEB_APP_URL = process.env["VITE_WEB_APP_URL"] || "https://call-assistant.com.br";
+const WEB_APP_URL = process.env["VITE_WEB_APP_URL"] || "https://www.call-assistant.com.br";
 
 export function registerDeepLinkProtocol(): void {
   if (process.defaultApp) {
