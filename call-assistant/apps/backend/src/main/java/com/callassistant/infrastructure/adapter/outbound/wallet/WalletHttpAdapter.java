@@ -1,5 +1,6 @@
 package com.callassistant.infrastructure.adapter.outbound.wallet;
 
+import com.callassistant.application.usecase.InsufficientCreditsException;
 import com.callassistant.domain.port.outbound.WalletPort;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -44,7 +45,7 @@ public class WalletHttpAdapter implements WalletPort {
                 .onStatus(status -> status.value() == 402, response ->
                         response.bodyToMono(String.class)
                                 .doOnNext(body -> log.warn("Insufficient credits for userId={}: {}", userId, body))
-                                .then(Mono.empty()))
+                                .flatMap(body -> Mono.error(new InsufficientCreditsException(userId))))
                 .onStatus(status -> !status.is2xxSuccessful() && status.value() != 402, response ->
                         response.bodyToMono(String.class)
                                 .doOnNext(body -> log.error("Wallet deduct error for userId={}: {} — {}", userId, response.statusCode(), body))
@@ -52,6 +53,7 @@ public class WalletHttpAdapter implements WalletPort {
                 .bodyToMono(Void.class)
                 .doOnSuccess(v -> log.debug("Deducted {} credit(s) for userId={}", amount, userId))
                 .onErrorResume(e -> {
+                    if (e instanceof InsufficientCreditsException) return Mono.error(e);
                     log.error("Failed to deduct credits for userId={}: {}", userId, e.getMessage());
                     return Mono.empty();
                 });

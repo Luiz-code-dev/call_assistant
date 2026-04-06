@@ -21,6 +21,7 @@ import reactor.core.publisher.Mono;
 import reactor.core.publisher.Sinks;
 
 import java.util.Optional;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -45,6 +46,7 @@ public class ProcessAudioChunkUseCaseImpl implements ProcessAudioChunkUseCase {
     private final ConcurrentHashMap<String, AtomicLong>             lastCopilotCall  = new ConcurrentHashMap<>();
     private final ConcurrentHashMap<String, AtomicLong>             lastTranscriptTs = new ConcurrentHashMap<>();
     private final ConcurrentHashMap<String, StringBuilder>          paragraphBuffers = new ConcurrentHashMap<>();
+    private final Set<String>                                        exhaustedUserIds = ConcurrentHashMap.newKeySet();
 
     @Override
     public Mono<Void> execute(String sessionId, AudioChunk chunk) {
@@ -99,6 +101,10 @@ public class ProcessAudioChunkUseCaseImpl implements ProcessAudioChunkUseCase {
         paragraphBuffers.remove(sessionId);
     }
 
+    public void clearExhaustedUser(String userId) {
+        exhaustedUserIds.remove(userId);
+    }
+
     private String addToParagraphBuffer(String sessionId, String text) {
         var now = System.currentTimeMillis();
         var lastTs = lastTranscriptTs.computeIfAbsent(sessionId, id -> new AtomicLong(0));
@@ -132,7 +138,10 @@ public class ProcessAudioChunkUseCaseImpl implements ProcessAudioChunkUseCase {
         var tgt = config.targetLanguage();
         var context = addToParagraphBuffer(sessionId, saved.getText());
 
-        if (!shouldCallCopilot(sessionId)) {
+        if (!shouldCallCopilot(sessionId) || exhaustedUserIds.contains(session.getUserId())) {
+            if (exhaustedUserIds.contains(session.getUserId())) {
+                log.debug("Skipping copilot — credits exhausted for userId={}", session.getUserId());
+            }
             return fallbackTranslate(sessionId, saved, src, tgt, ctx);
         }
 
@@ -140,17 +149,29 @@ public class ProcessAudioChunkUseCaseImpl implements ProcessAudioChunkUseCase {
                 .map(cp -> cp.suggest(sessionId, saved.getText(), config)
                         .flatMap(suggestion -> {
                             eventPublisher.emitSuggestion(sessionId, suggestion);
-                            walletPort.ifPresent(wp ->
-                                    wp.deductCredits(session.getUserId(), 1, "usage",
+                            Mono<Void> deduct = walletPort
+                                    .map(wp -> wp.deductCredits(session.getUserId(), 1, "usage",
                                             "Copilot response — session " + sessionId)
-                                            .subscribe());
+                                            .onErrorResume(InsufficientCreditsException.class, e -> {
+                                                exhaustedUserIds.add(session.getUserId());
+                                                eventPublisher.emitCreditsExhausted(sessionId);
+                                                log.warn("Credits exhausted — userId={}, session={}",
+                                                        session.getUserId(), sessionId);
+                                                return Mono.empty();
+                                            })
+                                            .onErrorResume(e -> {
+                                                log.error("Wallet deduct error — userId={}: {}",
+                                                        session.getUserId(), e.getMessage());
+                                                return Mono.empty();
+                                            }))
+                                    .orElse(Mono.empty());
                             var translation = Translation.create(
                                     saved.getSessionId(), saved.getId(),
                                     saved.getText(), suggestion.contextSummary(),
                                     src, tgt);
-                            return translationRepository.save(translation)
+                            return deduct.then(translationRepository.save(translation)
                                     .doOnNext(t -> eventPublisher.emitTranslation(sessionId, t))
-                                    .then();
+                                    .then());
                         })
                         .switchIfEmpty(fallbackTranslate(sessionId, saved, src, tgt, ctx))
                         .onErrorResume(e -> {

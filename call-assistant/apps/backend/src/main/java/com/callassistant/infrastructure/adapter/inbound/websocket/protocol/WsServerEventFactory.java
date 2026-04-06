@@ -115,6 +115,18 @@ public class WsServerEventFactory implements SessionEventPublisher {
         );
     }
 
+    @Override
+    public void emitCreditsExhausted(String sessionId) {
+        var sink = sinks.get(sessionId);
+        if (sink == null) return;
+        sink.tryEmitNext(Map.of(
+                "type", "CREDITS_EXHAUSTED",
+                "sessionId", sessionId,
+                "ts", Instant.now().toEpochMilli(),
+                "payload", Map.of("message", "Cr\u00e9ditos esgotados. Recarregue para continuar.")
+        ));
+    }
+
     private Object buildPayload(DomainEvent event) {
         var status = switch (event) {
             case SessionStartedEvent e -> "ACTIVE";
