@@ -186,12 +186,25 @@ interface HeaderProps {
 
 function Header({ isActive, isConnecting, onStart, onStop }: HeaderProps) {
   const logout = useAuthStore((s) => s.logout);
+  const user = useAuthStore((s) => s.user);
+  const initials = user?.name
+    ? user.name.split(" ").map((w) => w[0]).slice(0, 2).join("").toUpperCase()
+    : "?";
   return (
     <header className="flex items-center justify-between px-5 py-3 border-b border-white/10 app-drag-region">
       <div className="flex items-center gap-2">
         <div className={`w-2 h-2 rounded-full ${isActive ? "bg-green-400 animate-pulse" : "bg-white/20"}`} />
         <span className="text-sm font-medium text-white/70">SpeakFlow</span>
       </div>
+
+      {user && (
+        <div className="flex items-center gap-2 text-xs text-white/40 app-no-drag">
+          <div className="w-6 h-6 rounded-full bg-violet-600/60 flex items-center justify-center text-[10px] font-semibold text-white/80">
+            {initials}
+          </div>
+          <span className="max-w-[140px] truncate">{user.name || user.email}</span>
+        </div>
+      )}
 
       <div className="flex items-center gap-2 app-no-drag">
         {isActive ? (
