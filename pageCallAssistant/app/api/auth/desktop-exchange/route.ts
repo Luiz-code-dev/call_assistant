@@ -1,6 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify, SignJWT } from "jose";
 
+const CORS_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
+export async function OPTIONS() {
+  return new NextResponse(null, { status: 204, headers: CORS_HEADERS });
+}
+
 const secret = new TextEncoder().encode(
   process.env.JWT_SECRET || "dev-secret-change-in-production"
 );
@@ -43,8 +53,8 @@ export async function POST(req: NextRequest) {
       .setExpirationTime("30d")
       .sign(secret);
 
-    return NextResponse.json({ token: sessionToken });
+    return NextResponse.json({ token: sessionToken }, { headers: CORS_HEADERS });
   } catch {
-    return NextResponse.json({ message: "Internal server error" }, { status: 500 });
+    return NextResponse.json({ message: "Internal server error" }, { status: 500, headers: CORS_HEADERS });
   }
 }
