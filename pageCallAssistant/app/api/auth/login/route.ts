@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { db } from "@/lib/db";
-import { signToken } from "@/lib/auth";
+import { signToken, getCookieDomain } from "@/lib/auth";
 
 export async function POST(req: NextRequest) {
   try {
@@ -36,13 +36,14 @@ export async function POST(req: NextRequest) {
     });
 
     const response = NextResponse.json({ user: { id: user.id, name: user.name, email: user.email, plan: user.plan } });
+    const host = req.headers.get("host") ?? "";
     response.cookies.set("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
       maxAge: 60 * 60 * 24 * 7,
       path: "/",
-      domain: process.env.COOKIE_DOMAIN || undefined,
+      domain: getCookieDomain(host),
     });
 
     return response;

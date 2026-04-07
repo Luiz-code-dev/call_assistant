@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getCookieDomain } from "@/lib/auth";
 
 export async function GET(req: NextRequest) {
   const host = req.headers.get("host") ?? "www.speakf.com.br";
@@ -13,7 +14,7 @@ export async function GET(req: NextRequest) {
     maxAge: 0,
     expires: new Date(0),
     path: "/",
-    domain: process.env.COOKIE_DOMAIN || undefined,
+    domain: getCookieDomain(host),
   });
   return response;
 }

@@ -2,7 +2,7 @@ export const dynamic = "force-dynamic";
 
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
-import { signToken } from "@/lib/auth";
+import { signToken, getCookieDomain } from "@/lib/auth";
 
 export async function GET(req: NextRequest) {
   try {
@@ -44,13 +44,14 @@ export async function GET(req: NextRequest) {
     const redirectTo = isDesktopCallback ? `${appUrl}/auth/desktop` : `${appUrl}/dashboard?verified=1`;
     const response = NextResponse.redirect(redirectTo);
     response.cookies.delete("desktop_callback");
+    const host = req.headers.get("host") ?? "";
     response.cookies.set("token", sessionToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
       maxAge: 60 * 60 * 24 * 7,
       path: "/",
-      domain: process.env.COOKIE_DOMAIN || undefined,
+      domain: getCookieDomain(host),
     });
 
     return response;

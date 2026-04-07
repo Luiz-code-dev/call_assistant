@@ -37,3 +37,8 @@ export async function getSession(): Promise<JWTPayload | null> {
   if (!token) return null;
   return verifyToken(token);
 }
+
+export function getCookieDomain(host: string): string | undefined {
+  if (host.includes("speakf.com.br")) return ".speakf.com.br";
+  return undefined;
+}
