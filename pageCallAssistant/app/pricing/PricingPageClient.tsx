@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -8,7 +8,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Navbar } from "@/components/Navbar";
 import { CheckCircle2, Zap, ArrowRight, Loader2, Lock } from "lucide-react";
 import { toast } from "sonner";
-import { createSubscription, createCreditsCheckout } from "@/app/actions/billing";
 
 interface Props {
   sessionUser: { id: string; name: string; email: string; plan: string } | null;
@@ -106,7 +105,6 @@ export default function PricingPageClient({
   ];
 
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
-  const [isPending, startTransition] = useTransition();
 
   function handleSubscribe(plan: typeof plans[0]) {
     if (!plan.stripePrice) {
@@ -115,22 +113,8 @@ export default function PricingPageClient({
       return;
     }
     setLoadingPlan(plan.id);
-    startTransition(async () => {
-      try {
-        const result = await createSubscription(plan.stripePrice!, plan.id as "basic" | "premium");
-        if (result.ok) {
-          window.location.href = result.url;
-        } else if ("redirect" in result) {
-          window.location.href = result.redirect;
-        } else {
-          toast.error(result.error);
-        }
-      } catch (err: unknown) {
-        toast.error(err instanceof Error ? err.message : "Erro ao iniciar pagamento");
-      } finally {
-        setLoadingPlan(null);
-      }
-    });
+    const params = new URLSearchParams({ priceId: plan.stripePrice, type: "subscription", plan: plan.id });
+    window.location.href = `/api/billing/checkout?${params.toString()}`;
   }
 
   function handleBuyCredits(pack: typeof creditPacks[0]) {
@@ -139,22 +123,8 @@ export default function PricingPageClient({
       return;
     }
     setLoadingPlan(`credits_${pack.credits}`);
-    startTransition(async () => {
-      try {
-        const result = await createCreditsCheckout(pack.priceId!, pack.credits);
-        if (result.ok) {
-          window.location.href = result.url;
-        } else if ("redirect" in result) {
-          window.location.href = result.redirect;
-        } else {
-          toast.error(result.error);
-        }
-      } catch (err: unknown) {
-        toast.error(err instanceof Error ? err.message : "Erro ao iniciar pagamento");
-      } finally {
-        setLoadingPlan(null);
-      }
-    });
+    const params = new URLSearchParams({ priceId: pack.priceId, type: "credits", credits: String(pack.credits) });
+    window.location.href = `/api/billing/checkout?${params.toString()}`;
   }
 
   return (

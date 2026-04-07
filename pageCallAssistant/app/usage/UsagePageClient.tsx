@@ -107,7 +107,7 @@ export default function UsagePageClient({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  async function handleTopUp(pack: typeof TOP_UPS[0]) {
+  function handleTopUp(pack: typeof TOP_UPS[0]) {
     if (!userPlan) {
       window.location.href = "/login?redirect=/usage";
       return;
@@ -121,24 +121,8 @@ export default function UsagePageClient({
       return;
     }
     setBuying(pack.priceId);
-    try {
-      const res = await fetch("/api/billing/credits", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify({ priceId: pack.priceId, credits: pack.credits }),
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        if (res.status === 401) { window.location.href = "/login?redirect=/usage"; return; }
-        throw new Error(data.message);
-      }
-      window.location.href = data.url;
-    } catch (err: unknown) {
-      toast.error(err instanceof Error ? err.message : "Payment error");
-    } finally {
-      setBuying(null);
-    }
+    const params = new URLSearchParams({ priceId: pack.priceId, type: "credits", credits: String(pack.credits) });
+    window.location.href = `/api/billing/checkout?${params.toString()}`;
   }
 
   async function handleRefresh() {
