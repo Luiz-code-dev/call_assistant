@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -105,6 +106,24 @@ export default function PricingPageClient({
   ];
 
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const error = searchParams.get("error");
+    const checkout = searchParams.get("checkout");
+    if (checkout === "canceled") toast.info("Checkout cancelado.");
+    if (!error) return;
+    const msgs: Record<string, string> = {
+      missing_price: "Preço Stripe não configurado. Verifique NEXT_PUBLIC_STRIPE_PRICE_* no Railway.",
+      subscription_required: "Recargas disponíveis para assinantes Basic ou Premium.",
+      payments_not_configured: "STRIPE_SECRET_KEY não configurado no Railway.",
+      checkout_failed: "Stripe não retornou URL de checkout. Verifique os Price IDs.",
+      stripe_error: "Erro no Stripe — Price ID inválido ou chave incorreta.",
+      invalid_type: "Tipo de checkout inválido.",
+      not_authenticated: "Sessão expirada. Faça login novamente.",
+    };
+    toast.error(msgs[error] ?? `Erro de checkout: ${error}`);
+  }, [searchParams]);
 
   function handleSubscribe(plan: typeof plans[0]) {
     if (!plan.stripePrice) {

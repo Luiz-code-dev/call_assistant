@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
   const session = rawToken ? await verifyToken(rawToken) : null;
 
   if (!session) {
-    return appRedirect("/login?redirect=/pricing");
+    return appRedirect("/pricing?error=not_authenticated");
   }
 
   const { searchParams } = req.nextUrl;
@@ -23,10 +23,6 @@ export async function GET(req: NextRequest) {
 
   if (!priceId) {
     return appRedirect("/pricing?error=missing_price");
-  }
-
-  if (type === "credits" && (!session.plan || session.plan === "free")) {
-    return appRedirect("/pricing?error=subscription_required");
   }
 
   if (!process.env.STRIPE_SECRET_KEY) {
