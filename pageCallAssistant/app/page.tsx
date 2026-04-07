@@ -6,6 +6,7 @@ import { getSession } from "@/lib/auth";
 import {
   Mic2, Zap, Globe, Brain, Shield, Download,
   CheckCircle2, ArrowRight, Star, ChevronRight,
+  AlertTriangle, TrendingUp,
 } from "lucide-react";
 
 const features = [
@@ -65,9 +66,12 @@ const testimonials = [
 export default async function Home() {
   const session = await getSession();
   const isLoggedIn = !!session;
+  const sessionUser = session
+    ? { id: session.sub, name: session.name, email: session.email, plan: session.plan }
+    : null;
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      <Navbar initialUser={sessionUser} />
 
       {/* Hero */}
       <section className="hero-gradient relative flex min-h-screen flex-col items-center justify-center px-6 pt-24 text-center">
@@ -119,14 +123,14 @@ export default async function Home() {
               </div>
               <div className="flex-1 text-center text-xs text-muted-foreground">SpeakFlow</div>
               <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                <span className="text-foreground/70 font-medium">João S.</span>
+                <span className="text-border">|</span>
                 <span className="flex items-center gap-1">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-400" />
                   Sessão ativa
                 </span>
                 <span className="text-border">|</span>
                 <span>EN → PT</span>
-                <span className="text-border">|</span>
-                <span className="text-violet-400">47 créditos</span>
               </div>
             </div>
 
@@ -182,22 +186,124 @@ export default async function Home() {
                 <div className="flex-1 space-y-2 overflow-hidden">
                   <div className="rounded-lg border border-violet-500/30 bg-violet-500/10 px-3 py-2 text-xs cursor-pointer hover:bg-violet-500/20 transition-colors">
                     <div className="flex items-center justify-between mb-1">
-                      <span className="font-semibold text-violet-400">⚡ Curta</span>
-                      <span className="text-muted-foreground/50 text-[10px]">clique para copiar</span>
+                      <span className="font-semibold text-violet-400">⚡ Short</span>
+                      <span className="text-muted-foreground/50 text-[10px]">click to copy</span>
                     </div>
-                    <p className="text-foreground/90 leading-relaxed">Lidei bem com prazos usando Kanban e priorizando tarefas críticas. Entrego consistentemente no prazo.</p>
+                    <p className="text-foreground/90 leading-relaxed">I handled pressure well using Kanban, prioritizing critical tasks and delivering consistently on time.</p>
+                    <p className="mt-1 text-[10px] text-muted-foreground/50 italic">PT: Lidei bem com pressão usando Kanban, priorizando tarefas críticas.</p>
                   </div>
                   <div className="rounded-lg border border-border/30 bg-secondary/80 px-3 py-2 text-xs cursor-pointer hover:bg-secondary transition-colors">
-                    <span className="font-semibold text-cyan-400">💼 Profissional</span>
-                    <p className="mt-1 text-muted-foreground leading-relaxed">Em situações de alta pressão, priorizo comunicação clara com o time e uso metodologias ágeis para reorganizar o escopo sem comprometer a qualidade.</p>
+                    <span className="font-semibold text-cyan-400">💼 Professional</span>
+                    <p className="mt-1 text-muted-foreground leading-relaxed">Under pressure, I prioritize clear communication and use agile methods to reorganize scope without compromising quality.</p>
+                    <p className="mt-1 text-[10px] text-muted-foreground/50 italic">PT: Priorizo comunicação clara e uso metodologias ágeis para reorganizar o escopo.</p>
                   </div>
                   <div className="rounded-lg border border-border/30 bg-secondary/50 px-3 py-2 text-xs cursor-pointer hover:bg-secondary/80 transition-colors">
-                    <span className="font-semibold text-emerald-400">📋 Detalhada</span>
-                    <p className="mt-1 text-muted-foreground leading-relaxed">Tenho experiência com sprints de 2 semanas e daily stand-ups. Quando surgem bloqueios, escalo rapidamente e proponho soluções alternativas ao PO.</p>
+                    <span className="font-semibold text-emerald-400">📋 Detailed</span>
+                    <p className="mt-1 text-muted-foreground leading-relaxed">I work with 2-week sprints and daily stand-ups. When blockers arise, I escalate quickly and propose alternative solutions to the PO.</p>
+                    <p className="mt-1 text-[10px] text-muted-foreground/50 italic">PT: Trabalho com sprints de 2 semanas. Quando surgem bloqueios, escalo rapidamente.</p>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why SpeakFlow */}
+      <section id="why" className="border-t border-border/50 bg-card/20 px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-16 text-center">
+            <Badge variant="purple" className="mb-4">Por que o SpeakFlow?</Badge>
+            <h2 className="mb-6 text-4xl font-bold md:text-5xl">
+              O inglês nunca mais vai{" "}
+              <span className="gradient-text">te travar</span>
+            </h2>
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+              SpeakFlow foi criado para um momento específico: quando você sabe o que responder,
+              mas o idioma bloqueia tudo na hora mais importante.
+            </p>
+          </div>
+
+          {/* Pain points */}
+          <div className="mb-16 grid gap-6 md:grid-cols-3">
+            <div className="rounded-xl border border-red-500/20 bg-red-500/5 p-6">
+              <AlertTriangle className="mb-4 h-8 w-8 text-red-400" />
+              <h3 className="mb-2 font-semibold">Entrevistas técnicas em inglês</h3>
+              <p className="text-sm text-muted-foreground">
+                O recrutador faz a pergunta. Você entende, sabe a resposta — mas a formulação
+                em inglês trava. O silêncio dura 4 segundos e a vaga vai embora.
+              </p>
+            </div>
+            <div className="rounded-xl border border-orange-500/20 bg-orange-500/5 p-6">
+              <AlertTriangle className="mb-4 h-8 w-8 text-orange-400" />
+              <h3 className="mb-2 font-semibold">Reuniões com times globais</h3>
+              <p className="text-sm text-muted-foreground">
+                Sotaques variados, jargões técnicos, ritmo acelerado. Você capta 60% do que é
+                dito — e os 40% perdidos tomam decisões sem a sua contribuição.
+              </p>
+            </div>
+            <div className="rounded-xl border border-yellow-500/20 bg-yellow-500/5 p-6">
+              <AlertTriangle className="mb-4 h-8 w-8 text-yellow-400" />
+              <h3 className="mb-2 font-semibold">Calls de alto impacto</h3>
+              <p className="text-sm text-muted-foreground">
+                Apresentação para cliente americano, negociação com parceiro europeu.
+                Um momento de hesitação ou mal-entendido pode custar o contrato.
+              </p>
+            </div>
+          </div>
+
+          {/* Stats */}
+          <div className="mb-16 grid grid-cols-2 gap-6 rounded-2xl border border-border/50 bg-card p-8 md:grid-cols-4">
+            {[
+              { value: "73%", label: "das vagas sênior em TI exigem inglês" },
+              { value: "+61%", label: "de salário com inglês fluente" },
+              { value: "3 seg", label: "para formular uma resposta sob pressão" },
+              { value: "<2 seg", label: "de latência do SpeakFlow" },
+            ].map((stat) => (
+              <div key={stat.value} className="text-center">
+                <p className="text-3xl font-bold gradient-text">{stat.value}</p>
+                <p className="mt-1 text-xs text-muted-foreground">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* How it works */}
+          <div className="mb-12">
+            <h3 className="mb-8 text-center text-2xl font-bold">Como o SpeakFlow muda o jogo</h3>
+            <div className="grid gap-4 md:grid-cols-4">
+              {[
+                { step: "1", icon: Mic2,         title: "Eles falam",       desc: "O entrevistador ou colega fala em inglês, normalmente, sem pausas" },
+                { step: "2", icon: Globe,        title: "Você entende",     desc: "SpeakFlow transcreve e traduz para PT em menos de 2 segundos" },
+                { step: "3", icon: Brain,        title: "Copilot sugere",   desc: "3 respostas prontas em inglês: curta, profissional e detalhada" },
+                { step: "4", icon: CheckCircle2, title: "Você responde",    desc: "Fala com confiança, sem hesitar, sem travar — na hora certa" },
+              ].map((item) => (
+                <div key={item.step} className="flex flex-col items-center gap-3 rounded-xl border border-border/30 bg-card/50 p-5 text-center">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-violet-500/20 text-sm font-bold text-violet-400">
+                    {item.step}
+                  </div>
+                  <item.icon className="h-5 w-5 text-violet-400" />
+                  <h4 className="font-semibold">{item.title}</h4>
+                  <p className="text-xs text-muted-foreground">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Emotional CTA */}
+          <div className="rounded-2xl border border-violet-500/30 bg-violet-500/5 p-8 text-center">
+            <h3 className="mb-3 text-2xl font-bold">
+              Você já perdeu uma oportunidade por causa do inglês?
+            </h3>
+            <p className="mb-6 mx-auto max-w-xl text-muted-foreground">
+              Com o SpeakFlow, isso fica no passado. 50 créditos grátis para testar agora —
+              sem cartão de crédito, sem compromisso.
+            </p>
+            <Button variant="gradient" size="lg" asChild>
+              <Link href={isLoggedIn ? "/dashboard" : "/register"}>
+                {isLoggedIn ? "Ir para o Dashboard" : "Experimentar grátis agora"}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

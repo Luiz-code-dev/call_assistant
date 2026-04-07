@@ -12,15 +12,22 @@ interface AuthUser {
   plan: string;
 }
 
-export function Navbar() {
-  const [user, setUser] = useState<AuthUser | null | undefined>(undefined);
+interface NavbarProps {
+  initialUser?: AuthUser | null;
+}
+
+export function Navbar({ initialUser }: NavbarProps = {}) {
+  const [user, setUser] = useState<AuthUser | null | undefined>(
+    initialUser !== undefined ? initialUser : undefined
+  );
 
   useEffect(() => {
+    if (initialUser !== undefined) return;
     fetch("/api/auth/me")
       .then((r) => (r.ok ? r.json() : null))
       .then((data) => setUser(data ?? null))
       .catch(() => setUser(null));
-  }, []);
+  }, [initialUser]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -8,8 +8,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Navbar } from "@/components/Navbar";
 import { CheckCircle2, Zap, ArrowRight, Loader2, Lock } from "lucide-react";
 import { toast } from "sonner";
+import { createSubscription, createCreditsCheckout } from "@/app/actions/billing";
 
 interface Props {
+  sessionUser: { id: string; name: string; email: string; plan: string } | null;
   userPlan: string | null;
   stripePriceBasic: string | null;
   stripePricePremium: string | null;
@@ -20,6 +22,7 @@ interface Props {
 }
 
 export default function PricingPageClient({
+  sessionUser,
   userPlan,
   stripePriceBasic,
   stripePricePremium,
@@ -103,71 +106,46 @@ export default function PricingPageClient({
   ];
 
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
+  const [isPending, startTransition] = useTransition();
 
-  async function handleSubscribe(plan: typeof plans[0]) {
-    if (!userPlan) {
-      window.location.href = `/login?redirect=/pricing`;
-      return;
-    }
+  function handleSubscribe(plan: typeof plans[0]) {
     if (!plan.stripePrice) {
       if (plan.href) { window.location.href = plan.href; return; }
       toast.error("Sistema de pagamento não configurado. Tente novamente em instantes.");
       return;
     }
     setLoadingPlan(plan.id);
-    try {
-      const res = await fetch("/api/billing/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify({ priceId: plan.stripePrice }),
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        if (res.status === 401) { window.location.href = `/login?redirect=/pricing`; return; }
-        throw new Error(data.message);
+    startTransition(async () => {
+      try {
+        await createSubscription(plan.stripePrice!);
+      } catch (err: unknown) {
+        toast.error(err instanceof Error ? err.message : "Erro ao iniciar pagamento");
+      } finally {
+        setLoadingPlan(null);
       }
-      window.location.href = data.url;
-    } catch (err: unknown) {
-      toast.error(err instanceof Error ? err.message : "Erro ao iniciar pagamento");
-    } finally {
-      setLoadingPlan(null);
-    }
+    });
   }
 
-  async function handleBuyCredits(pack: typeof creditPacks[0]) {
-    if (!userPlan) {
-      window.location.href = `/login?redirect=/pricing`;
-      return;
-    }
+  function handleBuyCredits(pack: typeof creditPacks[0]) {
     if (!pack.priceId) {
       toast.error("Pagamento não configurado. Configure as variáveis Stripe no servidor.");
       return;
     }
     setLoadingPlan(`credits_${pack.credits}`);
-    try {
-      const res = await fetch("/api/billing/credits", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify({ priceId: pack.priceId, credits: pack.credits }),
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        if (res.status === 401) { window.location.href = `/login?redirect=/pricing`; return; }
-        throw new Error(data.message);
+    startTransition(async () => {
+      try {
+        await createCreditsCheckout(pack.priceId!, pack.credits);
+      } catch (err: unknown) {
+        toast.error(err instanceof Error ? err.message : "Erro ao iniciar pagamento");
+      } finally {
+        setLoadingPlan(null);
       }
-      window.location.href = data.url;
-    } catch (err: unknown) {
-      toast.error(err instanceof Error ? err.message : "Erro ao iniciar pagamento");
-    } finally {
-      setLoadingPlan(null);
-    }
+    });
   }
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      <Navbar initialUser={sessionUser} />
       <div className="px-6 pt-32 pb-24">
         <div className="mx-auto max-w-5xl">
           {/* Header */}
