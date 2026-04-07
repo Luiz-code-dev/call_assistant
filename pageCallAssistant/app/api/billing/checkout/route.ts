@@ -1,12 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
-import { getSession } from "@/lib/auth";
+import { verifyToken } from "@/lib/auth";
+
+function appRedirect(path: string): NextResponse {
+  const base = process.env.NEXT_PUBLIC_APP_URL || "https://www.speakf.com.br";
+  return NextResponse.redirect(`${base}${path}`);
+}
 
 export async function GET(req: NextRequest) {
-  const session = await getSession();
+  const rawToken = req.cookies.get("token")?.value;
+  const session = rawToken ? await verifyToken(rawToken) : null;
 
   if (!session) {
-    return NextResponse.redirect(new URL("/login?redirect=/pricing", req.url));
+    return appRedirect("/login?redirect=/pricing");
   }
 
   const { searchParams } = req.nextUrl;
@@ -16,15 +22,15 @@ export async function GET(req: NextRequest) {
   const credits = searchParams.get("credits");
 
   if (!priceId) {
-    return NextResponse.redirect(new URL("/pricing?error=missing_price", req.url));
+    return appRedirect("/pricing?error=missing_price");
   }
 
   if (type === "credits" && (!session.plan || session.plan === "free")) {
-    return NextResponse.redirect(new URL("/pricing?error=subscription_required", req.url));
+    return appRedirect("/pricing?error=subscription_required");
   }
 
   if (!process.env.STRIPE_SECRET_KEY) {
-    return NextResponse.redirect(new URL("/pricing?error=payments_not_configured", req.url));
+    return appRedirect("/pricing?error=payments_not_configured");
   }
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, { apiVersion: "2024-06-20" });
@@ -42,7 +48,7 @@ export async function GET(req: NextRequest) {
         metadata: { userId: session.sub, type: "subscription", plan: plan ?? "" },
       });
       if (!checkoutSession.url) {
-        return NextResponse.redirect(new URL("/pricing?error=checkout_failed", req.url));
+        return appRedirect("/pricing?error=checkout_failed");
       }
       return NextResponse.redirect(checkoutSession.url);
     }
@@ -58,14 +64,14 @@ export async function GET(req: NextRequest) {
         metadata: { userId: session.sub, type: "credits", amount: credits ?? "0", source: "topup" },
       });
       if (!checkoutSession.url) {
-        return NextResponse.redirect(new URL("/pricing?error=checkout_failed", req.url));
+        return appRedirect("/pricing?error=checkout_failed");
       }
       return NextResponse.redirect(checkoutSession.url);
     }
 
-    return NextResponse.redirect(new URL("/pricing?error=invalid_type", req.url));
+    return appRedirect("/pricing?error=invalid_type");
   } catch (err: unknown) {
     console.error("[billing/checkout] Stripe error:", err);
-    return NextResponse.redirect(new URL("/pricing?error=stripe_error", req.url));
+    return appRedirect("/pricing?error=stripe_error");
   }
 }
