@@ -7,14 +7,15 @@ export async function GET(req: NextRequest) {
   const baseUrl = `${proto}://${host}`;
   const response = NextResponse.redirect(`${baseUrl}/login`);
   const isProd = process.env.NODE_ENV === "production";
-  response.cookies.set("token", "", {
+  const cookieOpts = {
     httpOnly: true,
     secure: isProd,
-    sameSite: "lax",
+    sameSite: "lax" as const,
     maxAge: 0,
     expires: new Date(0),
     path: "/",
-    domain: getCookieDomain(host),
-  });
+  };
+  response.cookies.set("token", "", cookieOpts);
+  response.cookies.set("token", "", { ...cookieOpts, domain: getCookieDomain(host) });
   return response;
 }
