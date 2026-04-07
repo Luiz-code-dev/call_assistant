@@ -8,59 +8,75 @@ type ActionResult =
   | { ok: false; redirect: string }
   | { ok: false; error: string };
 
-export async function createSubscription(priceId: string): Promise<ActionResult> {
+function getStripe(): Stripe {
+  const secretKey = process.env.STRIPE_SECRET_KEY;
+  if (!secretKey) throw new Error("Pagamentos não configurados no servidor.");
+  return new Stripe(secretKey, { apiVersion: "2024-06-20" });
+}
+
+function getAppUrl(): string {
+  return process.env.APP_URL || process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+}
+
+export async function createSubscription(
+  priceId: string,
+  plan: "basic" | "premium"
+): Promise<ActionResult> {
   const session = await getSession();
   if (!session) {
     return { ok: false, redirect: "/login?redirect=/pricing" };
   }
 
-  if (!process.env.STRIPE_SECRET_KEY) {
-    return { ok: false, error: "Pagamentos não configurados no servidor." };
-  }
-
   try {
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: "2024-06-20",
-    });
-    const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-    const stripeSession = await stripe.checkout.sessions.create({
+    const stripe = getStripe();
+    const appUrl = getAppUrl();
+    const checkoutSession = await stripe.checkout.sessions.create({
       mode: "subscription",
       customer_email: session.email,
+      client_reference_id: session.sub,
       line_items: [{ price: priceId, quantity: 1 }],
       success_url: `${appUrl}/dashboard?checkout=success`,
       cancel_url: `${appUrl}/pricing?checkout=canceled`,
-      metadata: { userId: session.sub, plan: session.plan },
+      metadata: { userId: session.sub, type: "subscription", plan },
     });
-    return { ok: true, url: stripeSession.url! };
+    if (!checkoutSession.url) {
+      return { ok: false, error: "Não foi possível iniciar o checkout." };
+    }
+    return { ok: true, url: checkoutSession.url };
   } catch (err: unknown) {
     return { ok: false, error: err instanceof Error ? err.message : String(err) };
   }
 }
 
-export async function createCreditsCheckout(priceId: string, credits: number): Promise<ActionResult> {
+export async function createCreditsCheckout(
+  priceId: string,
+  credits: number
+): Promise<ActionResult> {
   const session = await getSession();
   if (!session) {
     return { ok: false, redirect: "/login?redirect=/pricing" };
   }
 
-  if (!process.env.STRIPE_SECRET_KEY) {
-    return { ok: false, error: "Pagamentos não configurados no servidor." };
+  if (!session.plan || session.plan === "free") {
+    return { ok: false, error: "Recarga disponível apenas para assinantes Basic ou Premium." };
   }
 
   try {
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: "2024-06-20",
-    });
-    const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-    const stripeSession = await stripe.checkout.sessions.create({
+    const stripe = getStripe();
+    const appUrl = getAppUrl();
+    const checkoutSession = await stripe.checkout.sessions.create({
       mode: "payment",
       customer_email: session.email,
+      client_reference_id: session.sub,
       line_items: [{ price: priceId, quantity: 1 }],
       success_url: `${appUrl}/usage?credits=success&amount=${credits}`,
       cancel_url: `${appUrl}/pricing?checkout=canceled`,
-      metadata: { userId: session.sub, credits: String(credits) },
+      metadata: { userId: session.sub, type: "credits", amount: String(credits), source: "topup" },
     });
-    return { ok: true, url: stripeSession.url! };
+    if (!checkoutSession.url) {
+      return { ok: false, error: "Não foi possível iniciar o checkout." };
+    }
+    return { ok: true, url: checkoutSession.url };
   } catch (err: unknown) {
     return { ok: false, error: err instanceof Error ? err.message : String(err) };
   }

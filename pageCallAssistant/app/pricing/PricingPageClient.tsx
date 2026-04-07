@@ -117,7 +117,7 @@ export default function PricingPageClient({
     setLoadingPlan(plan.id);
     startTransition(async () => {
       try {
-        const result = await createSubscription(plan.stripePrice!);
+        const result = await createSubscription(plan.stripePrice!, plan.id as "basic" | "premium");
         if (result.ok) {
           window.location.href = result.url;
         } else if ("redirect" in result) {
