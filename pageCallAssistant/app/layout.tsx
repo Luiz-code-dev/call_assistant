@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 const APP_URL =
   process.env.NEXT_PUBLIC_APP_URL?.startsWith("http")
     ? process.env.NEXT_PUBLIC_APP_URL
-    : "https://call-assistant.com.br";
+    : "https://speakf.com.br";
 
 export const metadata: Metadata = {
   metadataBase: new URL(APP_URL),

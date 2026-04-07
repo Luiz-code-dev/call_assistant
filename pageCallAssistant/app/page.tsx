@@ -71,7 +71,7 @@ export default async function Home() {
 
       {/* Hero */}
       <section className="hero-gradient relative flex min-h-screen flex-col items-center justify-center px-6 pt-24 text-center">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(139,92,246,0.15),transparent)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(139,92,246,0.15),transparent)]" />
 
         <Badge variant="purple" className="mb-6 animate-fade-in">
           <Zap className="mr-1 h-3 w-3" />
@@ -108,8 +108,9 @@ export default async function Home() {
         </p>
 
         {/* App preview mockup */}
-        <div className="mt-16 w-full max-w-4xl animate-fade-in">
+        <div className="mt-16 w-full max-w-5xl animate-fade-in">
           <div className="rounded-xl border border-border/50 bg-card/50 p-1 shadow-2xl shadow-violet-500/10 backdrop-blur">
+            {/* Title bar */}
             <div className="flex items-center gap-2 rounded-t-lg border-b border-border/50 bg-card px-4 py-3">
               <div className="flex gap-1.5">
                 <div className="h-3 w-3 rounded-full bg-red-500/80" />
@@ -117,39 +118,82 @@ export default async function Home() {
                 <div className="h-3 w-3 rounded-full bg-green-500/80" />
               </div>
               <div className="flex-1 text-center text-xs text-muted-foreground">SpeakFlow</div>
+              <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                <span className="flex items-center gap-1">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-400" />
+                  Sessão ativa
+                </span>
+                <span className="text-border">|</span>
+                <span>EN → PT</span>
+                <span className="text-border">|</span>
+                <span className="text-violet-400">47 créditos</span>
+              </div>
             </div>
-            <div className="grid h-64 grid-cols-2 gap-3 p-4">
-              <div className="rounded-lg border border-border/50 bg-background/50 p-3">
-                <div className="mb-2 flex items-center gap-2">
+
+            {/* Main content */}
+            <div className="grid grid-cols-2 gap-3 p-4" style={{height: "320px"}}>
+
+              {/* Left: Conversa */}
+              <div className="flex flex-col rounded-lg border border-border/50 bg-background/50 p-3 overflow-hidden">
+                <div className="mb-3 flex items-center gap-2">
                   <Mic2 className="h-3 w-3 text-violet-400" />
-                  <span className="text-xs font-medium text-muted-foreground">CONVERSA</span>
+                  <span className="text-xs font-semibold tracking-wider text-muted-foreground">CONVERSA</span>
+                  <span className="ml-auto rounded-full bg-green-500/10 px-2 py-0.5 text-xs text-green-400">● AO VIVO</span>
                 </div>
-                <div className="space-y-2">
-                  <div className="rounded-lg bg-violet-500/10 px-3 py-2 text-xs text-foreground">
-                    Can you tell me about your experience with React?
+                <div className="flex-1 space-y-2 overflow-hidden">
+                  {/* Fala 1 */}
+                  <div className="space-y-1">
+                    <div className="rounded-lg bg-violet-500/10 px-3 py-2 text-xs text-foreground leading-relaxed">
+                      What's your biggest achievement in your last role?
+                    </div>
+                    <div className="ml-3 rounded-lg bg-secondary px-3 py-1.5 text-xs text-muted-foreground">
+                      🌐 PT: Qual foi sua maior conquista no último emprego?
+                    </div>
                   </div>
-                  <div className="ml-4 rounded-lg bg-secondary px-3 py-2 text-xs text-muted-foreground">
-                    PT: Pode me falar sobre sua experiência com React?
+                  {/* Fala 2 */}
+                  <div className="space-y-1">
+                    <div className="rounded-lg bg-violet-500/10 px-3 py-2 text-xs text-foreground leading-relaxed">
+                      How do you handle pressure and tight deadlines?
+                    </div>
+                    <div className="ml-3 rounded-lg bg-secondary px-3 py-1.5 text-xs text-muted-foreground">
+                      🌐 PT: Como você lida com pressão e prazos apertados?
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                    <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-green-400" />
-                    Aguardando fala...
+                  {/* Fala 3 em andamento */}
+                  <div className="space-y-1">
+                    <div className="rounded-lg bg-violet-500/15 px-3 py-2 text-xs text-foreground/70 italic">
+                      Can you describe your experience with agile...
+                    </div>
+                    <div className="flex items-center gap-1.5 ml-3 text-xs text-muted-foreground/60">
+                      <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-green-400" />
+                      Transcrevendo...
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="rounded-lg border border-border/50 bg-background/50 p-3">
-                <div className="mb-2 flex items-center gap-2">
+
+              {/* Right: Copilot */}
+              <div className="flex flex-col rounded-lg border border-border/50 bg-background/50 p-3 overflow-hidden">
+                <div className="mb-3 flex items-center gap-2">
                   <Brain className="h-3 w-3 text-violet-400" />
-                  <span className="text-xs font-medium text-muted-foreground">COPILOT</span>
+                  <span className="text-xs font-semibold tracking-wider text-muted-foreground">COPILOT</span>
+                  <span className="ml-auto text-xs text-muted-foreground/50">3 sugestões</span>
                 </div>
-                <div className="space-y-1.5">
-                  <div className="rounded bg-violet-500/10 px-2 py-1.5 text-xs">
-                    <span className="font-medium text-violet-400">Curta:</span>
-                    <p className="mt-0.5 text-muted-foreground">Tenho 5 anos com React e hooks...</p>
+                <div className="flex-1 space-y-2 overflow-hidden">
+                  <div className="rounded-lg border border-violet-500/30 bg-violet-500/10 px-3 py-2 text-xs cursor-pointer hover:bg-violet-500/20 transition-colors">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="font-semibold text-violet-400">⚡ Curta</span>
+                      <span className="text-muted-foreground/50 text-[10px]">clique para copiar</span>
+                    </div>
+                    <p className="text-foreground/90 leading-relaxed">Lidei bem com prazos usando Kanban e priorizando tarefas críticas. Entrego consistentemente no prazo.</p>
                   </div>
-                  <div className="rounded bg-secondary px-2 py-1.5 text-xs">
-                    <span className="font-medium text-muted-foreground">Profissional:</span>
-                    <p className="mt-0.5 text-muted-foreground">Trabalho com React desde 2019...</p>
+                  <div className="rounded-lg border border-border/30 bg-secondary/80 px-3 py-2 text-xs cursor-pointer hover:bg-secondary transition-colors">
+                    <span className="font-semibold text-cyan-400">💼 Profissional</span>
+                    <p className="mt-1 text-muted-foreground leading-relaxed">Em situações de alta pressão, priorizo comunicação clara com o time e uso metodologias ágeis para reorganizar o escopo sem comprometer a qualidade.</p>
+                  </div>
+                  <div className="rounded-lg border border-border/30 bg-secondary/50 px-3 py-2 text-xs cursor-pointer hover:bg-secondary/80 transition-colors">
+                    <span className="font-semibold text-emerald-400">📋 Detalhada</span>
+                    <p className="mt-1 text-muted-foreground leading-relaxed">Tenho experiência com sprints de 2 semanas e daily stand-ups. Quando surgem bloqueios, escalo rapidamente e proponho soluções alternativas ao PO.</p>
                   </div>
                 </div>
               </div>

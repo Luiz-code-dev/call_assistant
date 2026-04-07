@@ -40,7 +40,7 @@ export default function TermsPage() {
           </section>
           <section>
             <h2 className="text-xl font-semibold text-foreground">6. Contato</h2>
-            <p>Para dúvidas sobre estes termos, entre em contato pelo e-mail: <a href="mailto:contato@call-assistant.com.br" className="text-violet-400 hover:text-violet-300">contato@call-assistant.com.br</a></p>
+            <p>Para dúvidas sobre estes termos, entre em contato pelo e-mail: <a href="mailto:contato@speakf.com.br" className="text-violet-400 hover:text-violet-300">contato@speakf.com.br</a></p>
           </section>
         </div>
 

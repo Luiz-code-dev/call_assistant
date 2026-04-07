@@ -40,7 +40,7 @@ export async function sendThankYouEmail(email: string, name: string, plan: strin
         </a>
         <p style="color:#52525b;font-size:12px;margin-top:28px">Boa sorte nas suas próximas reuniões! Qualquer dúvida, estamos aqui.<br/>Equipe SpeakFlow</p>
         <hr style="border:none;border-top:1px solid #27272a;margin:24px 0"/>
-        <p style="color:#3f3f46;font-size:11px">SpeakFlow · call-assistant.com.br</p>
+        <p style="color:#3f3f46;font-size:11px">SpeakFlow · speakf.com.br</p>
       </div>
     `,
   });
@@ -73,7 +73,7 @@ export async function sendVerificationEmail(email: string, name: string, token: 
         </a>
         <p style="color:#52525b;font-size:12px;margin-top:24px">Link válido por 24 horas. Se você não criou uma conta, ignore este e-mail.</p>
         <hr style="border:none;border-top:1px solid #27272a;margin:24px 0" />
-        <p style="color:#3f3f46;font-size:11px">SpeakFlow · call-assistant.com.br</p>
+        <p style="color:#3f3f46;font-size:11px">SpeakFlow · speakf.com.br</p>
       </div>
     `,
   });

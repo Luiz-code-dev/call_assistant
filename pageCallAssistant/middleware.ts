@@ -12,10 +12,10 @@ export async function middleware(req: NextRequest) {
   const host = req.headers.get("host") ?? "";
   const proto = req.headers.get("x-forwarded-proto") ?? "https";
 
-  if (host === "call-assistant.com.br" || proto === "http") {
+  if (host === "speakf.com.br" || proto === "http") {
     const url = new URL(req.url);
     url.protocol = "https:";
-    url.host = "www.call-assistant.com.br";
+    url.host = "www.speakf.com.br";
     return NextResponse.redirect(url.toString(), 301);
   }
 

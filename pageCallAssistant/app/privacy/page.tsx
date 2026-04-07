@@ -55,7 +55,7 @@ export default function PrivacyPage() {
           </section>
           <section>
             <h2 className="text-xl font-semibold text-foreground">7. Contato</h2>
-            <p>Para questões sobre privacidade: <a href="mailto:privacidade@call-assistant.com.br" className="text-violet-400 hover:text-violet-300">privacidade@call-assistant.com.br</a></p>
+            <p>Para questões sobre privacidade: <a href="mailto:privacidade@speakf.com.br" className="text-violet-400 hover:text-violet-300">privacidade@speakf.com.br</a></p>
           </section>
         </div>
 

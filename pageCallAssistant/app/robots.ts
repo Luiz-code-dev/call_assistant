@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const base = process.env.NEXT_PUBLIC_APP_URL || "https://www.call-assistant.com.br";
+  const base = process.env.NEXT_PUBLIC_APP_URL || "https://www.speakf.com.br";
   return {
     rules: [
       {
