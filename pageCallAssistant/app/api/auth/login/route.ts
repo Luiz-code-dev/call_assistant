@@ -35,11 +35,17 @@ export async function POST(req: NextRequest) {
       plan: user.plan,
     });
 
-    const response = NextResponse.json({ user: { id: user.id, name: user.name, email: user.email, plan: user.plan } });
     const host = req.headers.get("host") ?? "";
+    const isProd = process.env.NODE_ENV === "production";
+    const response = NextResponse.json({ user: { id: user.id, name: user.name, email: user.email, plan: user.plan } });
+
+    const deleteOpts = { httpOnly: true, secure: isProd, sameSite: "lax" as const, maxAge: 0, expires: new Date(0), path: "/" };
+    response.cookies.set("token", "", deleteOpts);
+    response.cookies.set("token", "", { ...deleteOpts, domain: getCookieDomain(host) });
+
     response.cookies.set("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: isProd,
       sameSite: "lax",
       maxAge: 60 * 60 * 24 * 7,
       path: "/",

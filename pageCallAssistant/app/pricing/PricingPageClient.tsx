@@ -117,7 +117,14 @@ export default function PricingPageClient({
     setLoadingPlan(plan.id);
     startTransition(async () => {
       try {
-        await createSubscription(plan.stripePrice!);
+        const result = await createSubscription(plan.stripePrice!);
+        if (result.ok) {
+          window.location.href = result.url;
+        } else if ("redirect" in result) {
+          window.location.href = result.redirect;
+        } else {
+          toast.error(result.error);
+        }
       } catch (err: unknown) {
         toast.error(err instanceof Error ? err.message : "Erro ao iniciar pagamento");
       } finally {
@@ -134,7 +141,14 @@ export default function PricingPageClient({
     setLoadingPlan(`credits_${pack.credits}`);
     startTransition(async () => {
       try {
-        await createCreditsCheckout(pack.priceId!, pack.credits);
+        const result = await createCreditsCheckout(pack.priceId!, pack.credits);
+        if (result.ok) {
+          window.location.href = result.url;
+        } else if ("redirect" in result) {
+          window.location.href = result.redirect;
+        } else {
+          toast.error(result.error);
+        }
       } catch (err: unknown) {
         toast.error(err instanceof Error ? err.message : "Erro ao iniciar pagamento");
       } finally {
