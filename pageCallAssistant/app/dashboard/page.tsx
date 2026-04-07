@@ -58,24 +58,24 @@ export default function DashboardPage() {
 
   useEffect(() => {
     async function load() {
+      // 1) Always load user data from Next.js API (never depends on Spring Boot)
       try {
-        const [walletData, txData, meData] = await Promise.all([
+        const meData = await fetch("/api/auth/me").then((r) => r.json());
+        if (meData?.name) setUserName(meData.name);
+        if (meData?.plan) setPlan(meData.plan);
+      } catch { /* ignore */ }
+
+      // 2) Load wallet data from Spring Boot backend (may be unavailable)
+      try {
+        const [walletData, txData] = await Promise.all([
           api.wallet.balance() as Promise<WalletBalance>,
           api.wallet.transactions() as Promise<TransactionsResponse>,
-          fetch("/api/auth/me").then((r) => r.json()),
         ]);
         setWallet(walletData);
         setTransactions(txData.content ?? []);
-        if (meData?.name) setUserName(meData.name);
-        if (meData?.plan) setPlan(meData.plan);
       } catch {
-        // Use fallback demo data when backend is not connected
-        setWallet({ balance: 30, bonusBalance: 0, trialBalance: 30 });
-        setTransactions([
-          { id: "1", userId: "", type: "credit", amount: 50, source: "trial", description: "Créditos trial", createdAt: new Date().toISOString() },
-          { id: "2", userId: "", type: "debit", amount: -12, source: "usage", description: "Sessão — entrevista técnica", createdAt: new Date().toISOString() },
-          { id: "3", userId: "", type: "debit", amount: -8, source: "usage", description: "Sessão — reunião comercial", createdAt: new Date().toISOString() },
-        ]);
+        setWallet({ balance: 0, bonusBalance: 0, trialBalance: 0 });
+        setTransactions([]);
       } finally {
         setLoading(false);
       }

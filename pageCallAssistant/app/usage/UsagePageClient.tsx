@@ -37,6 +37,7 @@ interface TransactionsResponse {
 }
 
 interface Props {
+  userPlan: string | null;
   stripePriceCredits5: string | null;
   stripePriceCredits10: string | null;
   stripePriceCredits25: string | null;
@@ -50,11 +51,13 @@ const PLAN_INFO: Record<string, { label: string; price: string; allocation: numb
 };
 
 export default function UsagePageClient({
+  userPlan,
   stripePriceCredits5,
   stripePriceCredits10,
   stripePriceCredits25,
   stripePriceCredits50,
 }: Props) {
+  const canTopUp = userPlan === "basic" || userPlan === "premium";
   const TOP_UPS = [
     { label: "$5",  credits: 50,  priceId: stripePriceCredits5  ?? null },
     { label: "$10", credits: 150, priceId: stripePriceCredits10 ?? null },
@@ -86,12 +89,8 @@ export default function UsagePageClient({
       setTransactions(txData.content ?? []);
       if (meData?.plan) setPlan(meData.plan);
     } catch {
-      setWallet({ balance: 30, bonusBalance: 0, trialBalance: 30, monthlyAllocation: 50, usedThisCycle: 20, plan: "free" });
-      setTransactions([
-        { id: "1", type: "credit", amount: 50,  source: "trial",     description: "Trial credits on sign-up", createdAt: new Date(Date.now() - 86400000 * 3).toISOString() },
-        { id: "2", type: "debit",  amount: -12, source: "usage",     description: "Session — technical interview",  createdAt: new Date(Date.now() - 86400000 * 2).toISOString() },
-        { id: "3", type: "debit",  amount: -8,  source: "usage",     description: "Session — sales call",           createdAt: new Date(Date.now() - 86400000).toISOString()     },
-      ]);
+      setWallet({ balance: 0, bonusBalance: 0, trialBalance: 0, monthlyAllocation: 50, usedThisCycle: 0, plan: userPlan ?? "free" });
+      setTransactions([]);
     } finally {
       setLoading(false);
       setRefreshing(false);
@@ -109,6 +108,14 @@ export default function UsagePageClient({
   }, []);
 
   async function handleTopUp(pack: typeof TOP_UPS[0]) {
+    if (!userPlan) {
+      window.location.href = "/login?redirect=/usage";
+      return;
+    }
+    if (!canTopUp) {
+      toast.error("Recargas disponíveis apenas para assinantes Basic ou Premium.");
+      return;
+    }
     if (!pack.priceId) {
       toast.error("Pagamento não configurado. Configure as variáveis Stripe no Railway.");
       return;
@@ -118,6 +125,7 @@ export default function UsagePageClient({
       const res = await fetch("/api/billing/credits", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify({ priceId: pack.priceId, credits: pack.credits }),
       });
       const data = await res.json();
@@ -290,43 +298,64 @@ export default function UsagePageClient({
           </CardContent>
         </Card>
 
-        <Card className="border-violet-500/20 bg-violet-500/5">
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <div>
-                <CardTitle className="flex items-center gap-2">
-                  <Zap className="h-4 w-4 text-violet-400" />
-                  Add credits
-                </CardTitle>
-                <CardDescription className="mt-1">
-                  One-time top-up. Credits never expire. Available starting at $5.
-                </CardDescription>
+        {canTopUp ? (
+          <Card className="border-violet-500/20 bg-violet-500/5">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle className="flex items-center gap-2">
+                    <Zap className="h-4 w-4 text-violet-400" />
+                    Add credits
+                  </CardTitle>
+                  <CardDescription className="mt-1">
+                    One-time top-up. Credits never expire. Available starting at $5.
+                  </CardDescription>
+                </div>
+                <CreditCard className="h-5 w-5 text-violet-400/50" />
               </div>
-              <CreditCard className="h-5 w-5 text-violet-400/50" />
-            </div>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-              {TOP_UPS.map((pack) => (
-                <button
-                  key={pack.priceId}
-                  onClick={() => handleTopUp(pack)}
-                  disabled={!!buying}
-                  className="group flex flex-col items-center gap-1 rounded-xl border border-violet-500/20 bg-background/50 p-4 text-center transition hover:border-violet-500/50 hover:bg-violet-500/10 disabled:opacity-50"
-                >
-                  {buying === pack.priceId ? (
-                    <Loader2 className="h-5 w-5 animate-spin text-violet-400" />
-                  ) : (
-                    <span className="text-xl font-bold">{pack.label}</span>
-                  )}
-                  <span className="text-xs text-muted-foreground group-hover:text-violet-300 transition">
-                    {pack.credits} credits
-                  </span>
-                </button>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {TOP_UPS.map((pack) => (
+                  <button
+                    key={pack.priceId}
+                    onClick={() => handleTopUp(pack)}
+                    disabled={!!buying}
+                    className="group flex flex-col items-center gap-1 rounded-xl border border-violet-500/20 bg-background/50 p-4 text-center transition hover:border-violet-500/50 hover:bg-violet-500/10 disabled:opacity-50"
+                  >
+                    {buying === pack.priceId ? (
+                      <Loader2 className="h-5 w-5 animate-spin text-violet-400" />
+                    ) : (
+                      <span className="text-xl font-bold">{pack.label}</span>
+                    )}
+                    <span className="text-xs text-muted-foreground group-hover:text-violet-300 transition">
+                      {pack.credits} credits
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        ) : (
+          <Card className="border-violet-500/20 bg-violet-500/5">
+            <CardContent className="flex flex-col items-center gap-3 py-8 text-center">
+              <Zap className="h-8 w-8 text-violet-400/50" />
+              <p className="font-semibold">
+                {userPlan === null ? "Faça login para adicionar créditos" : "Disponível apenas para assinantes"}
+              </p>
+              <p className="text-sm text-muted-foreground">
+                {userPlan === null
+                  ? "Entre na sua conta para gerenciar créditos."
+                  : "Recargas avulsas estão disponíveis nos planos Basic e Premium."}
+              </p>
+              <Button variant="gradient" size="sm" asChild>
+                <Link href={userPlan === null ? "/login?redirect=/usage" : "/pricing"}>
+                  {userPlan === null ? "Entrar" : "Ver planos"}
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
+        )}
 
         <Card className="border-border/50">
           <CardHeader>

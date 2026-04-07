@@ -105,6 +105,10 @@ export default function PricingPageClient({
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
 
   async function handleSubscribe(plan: typeof plans[0]) {
+    if (!userPlan) {
+      window.location.href = `/login?redirect=/pricing`;
+      return;
+    }
     if (!plan.stripePrice) {
       if (plan.href) { window.location.href = plan.href; return; }
       toast.error("Sistema de pagamento não configurado. Tente novamente em instantes.");
@@ -115,6 +119,7 @@ export default function PricingPageClient({
       const res = await fetch("/api/billing/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify({ priceId: plan.stripePrice }),
       });
       const data = await res.json();
@@ -131,6 +136,10 @@ export default function PricingPageClient({
   }
 
   async function handleBuyCredits(pack: typeof creditPacks[0]) {
+    if (!userPlan) {
+      window.location.href = `/login?redirect=/pricing`;
+      return;
+    }
     if (!pack.priceId) {
       toast.error("Pagamento não configurado. Configure as variáveis Stripe no servidor.");
       return;
@@ -140,6 +149,7 @@ export default function PricingPageClient({
       const res = await fetch("/api/billing/credits", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify({ priceId: pack.priceId, credits: pack.credits }),
       });
       const data = await res.json();
