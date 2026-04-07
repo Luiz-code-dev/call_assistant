@@ -13,7 +13,7 @@ export async function GET(req: NextRequest) {
     maxAge: 0,
     expires: new Date(0),
     path: "/",
-    domain: isProd ? ".speakf.com.br" : undefined,
+    domain: process.env.COOKIE_DOMAIN || undefined,
   });
   return response;
 }
