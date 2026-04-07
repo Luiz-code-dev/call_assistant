@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Mic2, Globe, Loader2 } from "lucide-react";
 import { useAuthStore } from "../../application/store/authStore";
 
-const WEB_APP_URL = import.meta.env.VITE_WEB_APP_URL ?? "https://www.call-assistant.com.br";
+const WEB_APP_URL = import.meta.env.VITE_WEB_APP_URL ?? "https://www.speakf.com.br";
 
 export function LoginPage() {
   const { openBrowserLogin, setToken, isAuthenticated } = useAuthStore();
