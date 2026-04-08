@@ -133,9 +133,10 @@ export default function PricingPageClient({
     }
     setLoadingPlan(plan.id);
     try {
+      const sfToken = typeof window !== "undefined" ? sessionStorage.getItem("sf_token") : null;
       const res = await fetch("/api/billing/checkout", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...(sfToken ? { Authorization: `Bearer ${sfToken}` } : {}) },
         body: JSON.stringify({ priceId: plan.stripePrice, type: "subscription", plan: plan.id }),
       });
       const data = await res.json();
@@ -158,9 +159,10 @@ export default function PricingPageClient({
     }
     setLoadingPlan(`credits_${pack.credits}`);
     try {
+      const sfToken = typeof window !== "undefined" ? sessionStorage.getItem("sf_token") : null;
       const res = await fetch("/api/billing/checkout", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...(sfToken ? { Authorization: `Bearer ${sfToken}` } : {}) },
         body: JSON.stringify({ priceId: pack.priceId, type: "credits", credits: String(pack.credits) }),
       });
       const data = await res.json();

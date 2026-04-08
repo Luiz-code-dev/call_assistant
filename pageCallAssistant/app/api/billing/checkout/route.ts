@@ -8,7 +8,9 @@ function appRedirect(path: string): NextResponse {
 }
 
 export async function POST(req: NextRequest) {
-  const rawToken = req.cookies.get("token")?.value;
+  const authHeader = req.headers.get("authorization");
+  const bearerToken = authHeader?.startsWith("Bearer ") ? authHeader.slice(7) : null;
+  const rawToken = bearerToken ?? req.cookies.get("token")?.value;
 
   console.log("CHECKOUT_DEBUG", {
     host: req.headers.get("host"),

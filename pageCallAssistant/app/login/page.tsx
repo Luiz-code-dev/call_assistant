@@ -30,6 +30,7 @@ export default function LoginPage() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Erro ao fazer login");
+      if (data.token) sessionStorage.setItem("sf_token", data.token);
       toast.success("Login realizado com sucesso!");
       window.location.href = redirectTo;
     } catch (err: unknown) {

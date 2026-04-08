@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
       userId: user.id,
     });
 
-    const response = NextResponse.json({ user: { id: user.id, name: user.name, email: user.email, plan: user.plan } });
+    const response = NextResponse.json({ user: { id: user.id, name: user.name, email: user.email, plan: user.plan }, token });
 
     const deleteOpts = { httpOnly: true, secure: isProd, sameSite: "lax" as const, maxAge: 0, expires: new Date(0), path: "/" };
     response.cookies.set("token", "", deleteOpts);

@@ -122,9 +122,10 @@ export default function UsagePageClient({
     }
     setBuying(pack.priceId);
     try {
+      const sfToken = typeof window !== "undefined" ? sessionStorage.getItem("sf_token") : null;
       const res = await fetch("/api/billing/checkout", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...(sfToken ? { Authorization: `Bearer ${sfToken}` } : {}) },
         body: JSON.stringify({ priceId: pack.priceId, type: "credits", credits: String(pack.credits) }),
       });
       const data = await res.json();
