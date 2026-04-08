@@ -99,7 +99,7 @@ export default function UsagePageClient({
     const creditsOk = searchParams.get("credits");
     const amount = searchParams.get("amount");
     if (creditsOk === "success") {
-      toast.success(`${amount ? `+${amount} credits` : "Credits"} added to your account!`);
+      toast.success(`${amount ? `+${amount}` : ""} créditos adicionados à sua conta!`);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -154,10 +154,9 @@ export default function UsagePageClient({
   const planInfo = PLAN_INFO[plan] ?? PLAN_INFO.free;
   const balance = wallet?.balance ?? 0;
   const allocation = wallet?.monthlyAllocation ?? planInfo.allocation;
-  const used = wallet?.usedThisCycle ?? (allocation - balance);
+  const used = wallet?.usedThisCycle ?? 0;
   const topUpBalance = wallet?.bonusBalance ?? 0;
   const usedPct = allocation > 0 ? Math.min(100, (used / allocation) * 100) : 0;
-  const remainingPct = 100 - usedPct;
 
   return (
     <div className="min-h-screen bg-background">
@@ -171,7 +170,7 @@ export default function UsagePageClient({
             </Link>
             <span className="font-semibold">SpeakFlow</span>
             <span className="text-border">/</span>
-            <span className="text-muted-foreground">Usage</span>
+            <span className="text-muted-foreground">Uso</span>
           </div>
           <div className="flex items-center gap-2">
             <Button variant="ghost" size="sm" onClick={handleRefresh} disabled={refreshing}>
@@ -195,13 +194,13 @@ export default function UsagePageClient({
 
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold">Usage & Credits</h1>
-            <p className="text-sm text-muted-foreground mt-1">Monitor your credit consumption and top up anytime.</p>
+            <h1 className="text-2xl font-bold">Uso & Créditos</h1>
+            <p className="text-sm text-muted-foreground mt-1">Monitore seu consumo de créditos e recarregue quando precisar.</p>
           </div>
           <Button variant="outline" size="sm" asChild>
             <Link href="/dashboard">
               <ArrowLeft className="mr-1.5 h-3.5 w-3.5" />
-              Dashboard
+              Painel
             </Link>
           </Button>
         </div>
@@ -209,7 +208,7 @@ export default function UsagePageClient({
         <div className="grid gap-4 md:grid-cols-3">
           <Card className="border-border/50 bg-card">
             <CardHeader className="pb-2">
-              <CardDescription>Current plan</CardDescription>
+              <CardDescription>Plano atual</CardDescription>
               <div className="flex items-center justify-between">
                 <CardTitle className="text-xl">{planInfo.label}</CardTitle>
                 <Badge variant="outline" className={planInfo.color}>{planInfo.price}</Badge>
@@ -218,7 +217,7 @@ export default function UsagePageClient({
             <CardContent>
               <Button variant="gradient" size="sm" className="w-full" asChild>
                 <Link href="/pricing">
-                  Upgrade plan
+                  Fazer upgrade
                   <ArrowUpRight className="ml-1.5 h-3.5 w-3.5" />
                 </Link>
               </Button>
@@ -227,20 +226,20 @@ export default function UsagePageClient({
 
           <Card className="border-border/50 bg-card">
             <CardHeader className="pb-2">
-              <CardDescription>Total balance</CardDescription>
+              <CardDescription>Saldo total</CardDescription>
               <CardTitle className="text-3xl font-bold tabular-nums">
-                {balance.toLocaleString()}
-                <span className="ml-1.5 text-base font-normal text-muted-foreground">credits</span>
+                {balance.toLocaleString("pt-BR")}
+                <span className="ml-1.5 text-base font-normal text-muted-foreground">créditos</span>
               </CardTitle>
             </CardHeader>
             <CardContent className="text-xs text-muted-foreground space-y-1">
               <div className="flex justify-between">
-                <span>Monthly allocation</span>
+                <span>Alocação do plano</span>
                 <span className="font-medium text-foreground">{allocation}</span>
               </div>
               {topUpBalance > 0 && (
                 <div className="flex justify-between">
-                  <span>Top-up credits</span>
+                  <span>Créditos extras</span>
                   <span className="font-medium text-emerald-400">+{topUpBalance}</span>
                 </div>
               )}
@@ -249,15 +248,15 @@ export default function UsagePageClient({
 
           <Card className="border-border/50 bg-card">
             <CardHeader className="pb-2">
-              <CardDescription>Used this cycle</CardDescription>
+              <CardDescription>Utilizado no ciclo</CardDescription>
               <CardTitle className="text-3xl font-bold tabular-nums">
-                {used.toLocaleString()}
+                {used.toLocaleString("pt-BR")}
                 <span className="ml-1.5 text-base font-normal text-muted-foreground">/ {allocation}</span>
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-xs text-muted-foreground mb-1.5">
-                {remainingPct.toFixed(0)}% remaining ({(allocation - used)} credits)
+                {balance.toLocaleString("pt-BR")} créditos disponíveis
               </p>
               <Progress value={usedPct} className="h-2" />
             </CardContent>
@@ -266,36 +265,36 @@ export default function UsagePageClient({
 
         <Card className="border-border/50">
           <CardHeader>
-            <CardTitle className="text-sm font-medium">Credit breakdown — current cycle</CardTitle>
+            <CardTitle className="text-sm font-medium">Distribuição de créditos — ciclo atual</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex h-4 w-full overflow-hidden rounded-full bg-secondary">
               <div
                 className="bg-violet-500 transition-all"
                 style={{ width: `${usedPct}%` }}
-                title={`${used} used`}
+                title={`${used} utilizado`}
               />
               {topUpBalance > 0 && (
                 <div
                   className="bg-emerald-500/70 transition-all"
                   style={{ width: `${Math.min(20, (topUpBalance / (allocation + topUpBalance)) * 100)}%` }}
-                  title={`${topUpBalance} top-up`}
+                  title={`${topUpBalance} recarga`}
                 />
               )}
             </div>
             <div className="flex flex-wrap gap-4 text-xs text-muted-foreground">
               <div className="flex items-center gap-1.5">
                 <span className="inline-block h-2.5 w-2.5 rounded-sm bg-violet-500" />
-                Used — {used} credits
+                Utilizado — {used.toLocaleString("pt-BR")} créditos
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="inline-block h-2.5 w-2.5 rounded-sm bg-secondary border border-border" />
-                Remaining — {Math.max(0, allocation - used)} credits
+                Disponível — {balance.toLocaleString("pt-BR")} créditos
               </div>
               {topUpBalance > 0 && (
                 <div className="flex items-center gap-1.5">
                   <span className="inline-block h-2.5 w-2.5 rounded-sm bg-emerald-500/70" />
-                  Top-up — {topUpBalance} credits
+                  Recarga — {topUpBalance.toLocaleString("pt-BR")} créditos
                 </div>
               )}
             </div>
@@ -309,7 +308,7 @@ export default function UsagePageClient({
                 <div>
                   <CardTitle className="flex items-center gap-2">
                     <Zap className="h-4 w-4 text-violet-400" />
-                    Add credits
+                    Adicionar créditos
                   </CardTitle>
                   <CardDescription className="mt-1">
                     Compra única, sem assinatura. Créditos não expiram.
@@ -363,12 +362,12 @@ export default function UsagePageClient({
 
         <Card className="border-border/50">
           <CardHeader>
-            <CardTitle className="text-base">Credit history</CardTitle>
-            <CardDescription>All credit events on your account</CardDescription>
+            <CardTitle className="text-base">Histórico de créditos</CardTitle>
+            <CardDescription>Todos os eventos de crédito da sua conta</CardDescription>
           </CardHeader>
           <CardContent>
             {transactions.length === 0 ? (
-              <p className="py-8 text-center text-sm text-muted-foreground">No transactions yet.</p>
+              <p className="py-8 text-center text-sm text-muted-foreground">Nenhuma transação ainda.</p>
             ) : (
               <div className="divide-y divide-border/50">
                 {transactions.map((tx) => (

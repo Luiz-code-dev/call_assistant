@@ -16,16 +16,33 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ message: "Token inválido" }, { status: 401 });
     }
 
-    const user = await db.user.findUnique({
-      where: { id: payload.sub },
-      select: { credits: true },
-    });
+    const PLAN_CREDITS: Record<string, number> = { free: 50, basic: 500, premium: 1000 };
+
+    const [user, usedResult] = await Promise.all([
+      db.user.findUnique({
+        where: { id: payload.sub },
+        select: { credits: true, plan: true },
+      }),
+      (db as any).creditTransaction.aggregate({
+        where: { userId: payload.sub, type: "debit" },
+        _sum: { amount: true },
+      }),
+    ]);
 
     if (!user) {
       return NextResponse.json({ message: "Usuário não encontrado" }, { status: 404 });
     }
 
-    return NextResponse.json({ balance: user.credits, bonusBalance: 0, trialBalance: 0 });
+    const monthlyAllocation = PLAN_CREDITS[user.plan] ?? 50;
+    const usedThisCycle = usedResult._sum.amount ?? 0;
+
+    return NextResponse.json({
+      balance: user.credits,
+      bonusBalance: 0,
+      trialBalance: 0,
+      monthlyAllocation,
+      usedThisCycle,
+    });
   } catch {
     return NextResponse.json({ message: "Erro interno do servidor" }, { status: 500 });
   }

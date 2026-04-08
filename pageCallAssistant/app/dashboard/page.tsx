@@ -17,6 +17,8 @@ interface WalletBalance {
   balance: number;
   bonusBalance: number;
   trialBalance: number;
+  monthlyAllocation?: number;
+  usedThisCycle?: number;
 }
 
 const PLAN_CREDITS: Record<string, number> = {
@@ -80,8 +82,8 @@ export default function DashboardPage() {
   }, []);
 
   const balance = wallet?.balance ?? 0;
-  const totalCredits = PLAN_CREDITS[plan] ?? 50;
-  const used = Math.max(0, totalCredits - balance);
+  const totalCredits = wallet?.monthlyAllocation ?? PLAN_CREDITS[plan] ?? 50;
+  const used = wallet?.usedThisCycle ?? Math.max(0, totalCredits - balance);
   const percentUsed = totalCredits > 0 ? Math.min((used / totalCredits) * 100, 100) : 0;
   const firstName = userName ? userName.split(" ")[0] : "";
 
