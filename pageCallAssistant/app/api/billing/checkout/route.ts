@@ -7,7 +7,7 @@ function appRedirect(path: string): NextResponse {
   return NextResponse.redirect(`${base}${path}`);
 }
 
-export async function GET(req: NextRequest) {
+export async function POST(req: NextRequest) {
   const rawToken = req.cookies.get("token")?.value;
 
   console.log("CHECKOUT_DEBUG", {
@@ -28,21 +28,21 @@ export async function GET(req: NextRequest) {
   });
 
   if (!session) {
-    return appRedirect("/pricing?error=not_authenticated");
+    return NextResponse.json({ error: "not_authenticated" }, { status: 401 });
   }
 
-  const { searchParams } = req.nextUrl;
-  const priceId = searchParams.get("priceId");
-  const type = searchParams.get("type") || "subscription";
-  const plan = searchParams.get("plan") as "basic" | "premium" | null;
-  const credits = searchParams.get("credits");
+  const body = await req.json().catch(() => ({}));
+  const priceId: string | null = body.priceId ?? null;
+  const type: string = body.type ?? "subscription";
+  const plan: "basic" | "premium" | null = body.plan ?? null;
+  const credits: string | null = body.credits ? String(body.credits) : null;
 
   if (!priceId) {
-    return appRedirect("/pricing?error=missing_price");
+    return NextResponse.json({ error: "missing_price" }, { status: 400 });
   }
 
   if (!process.env.STRIPE_SECRET_KEY) {
-    return appRedirect("/pricing?error=payments_not_configured");
+    return NextResponse.json({ error: "payments_not_configured" }, { status: 500 });
   }
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, { apiVersion: "2024-06-20" });
@@ -60,9 +60,9 @@ export async function GET(req: NextRequest) {
         metadata: { userId: session.sub, type: "subscription", plan: plan ?? "" },
       });
       if (!checkoutSession.url) {
-        return appRedirect("/pricing?error=checkout_failed");
+        return NextResponse.json({ error: "checkout_failed" }, { status: 500 });
       }
-      return NextResponse.redirect(checkoutSession.url);
+      return NextResponse.json({ url: checkoutSession.url });
     }
 
     if (type === "credits") {
@@ -76,14 +76,14 @@ export async function GET(req: NextRequest) {
         metadata: { userId: session.sub, type: "credits", amount: credits ?? "0", source: "topup" },
       });
       if (!checkoutSession.url) {
-        return appRedirect("/pricing?error=checkout_failed");
+        return NextResponse.json({ error: "checkout_failed" }, { status: 500 });
       }
-      return NextResponse.redirect(checkoutSession.url);
+      return NextResponse.json({ url: checkoutSession.url });
     }
 
-    return appRedirect("/pricing?error=invalid_type");
+    return NextResponse.json({ error: "invalid_type" }, { status: 400 });
   } catch (err: unknown) {
     console.error("[billing/checkout] Stripe error:", err);
-    return appRedirect("/pricing?error=stripe_error");
+    return NextResponse.json({ error: "stripe_error", detail: err instanceof Error ? err.message : String(err) }, { status: 500 });
   }
 }

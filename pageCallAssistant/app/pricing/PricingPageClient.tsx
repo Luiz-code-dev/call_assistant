@@ -125,25 +125,67 @@ export default function PricingPageClient({
     toast.error(msgs[error] ?? `Erro de checkout: ${error}`);
   }, [searchParams]);
 
-  function handleSubscribe(plan: typeof plans[0]) {
+  async function handleSubscribe(plan: typeof plans[0]) {
     if (!plan.stripePrice) {
       if (plan.href) { window.location.href = plan.href; return; }
-      toast.error("Sistema de pagamento não configurado. Tente novamente em instantes.");
+      toast.error("Sistema de pagamento não configurado. Verifique NEXT_PUBLIC_STRIPE_PRICE_* no Railway.");
       return;
     }
     setLoadingPlan(plan.id);
-    const params = new URLSearchParams({ priceId: plan.stripePrice, type: "subscription", plan: plan.id });
-    window.location.href = `/api/billing/checkout?${params.toString()}`;
+    try {
+      const res = await fetch("/api/billing/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ priceId: plan.stripePrice, type: "subscription", plan: plan.id }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.url) {
+        toast.error(errorMsg(data.error) + (data.detail ? ` (${data.detail})` : ""));
+        return;
+      }
+      window.location.href = data.url;
+    } catch {
+      toast.error("Erro de rede ao iniciar checkout. Tente novamente.");
+    } finally {
+      setLoadingPlan(null);
+    }
   }
 
-  function handleBuyCredits(pack: typeof creditPacks[0]) {
+  async function handleBuyCredits(pack: typeof creditPacks[0]) {
     if (!pack.priceId) {
       toast.error("Pagamento não configurado. Configure as variáveis Stripe no servidor.");
       return;
     }
     setLoadingPlan(`credits_${pack.credits}`);
-    const params = new URLSearchParams({ priceId: pack.priceId, type: "credits", credits: String(pack.credits) });
-    window.location.href = `/api/billing/checkout?${params.toString()}`;
+    try {
+      const res = await fetch("/api/billing/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ priceId: pack.priceId, type: "credits", credits: String(pack.credits) }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.url) {
+        toast.error(errorMsg(data.error) + (data.detail ? ` (${data.detail})` : ""));
+        return;
+      }
+      window.location.href = data.url;
+    } catch {
+      toast.error("Erro de rede ao iniciar checkout. Tente novamente.");
+    } finally {
+      setLoadingPlan(null);
+    }
+  }
+
+  function errorMsg(code: string): string {
+    const msgs: Record<string, string> = {
+      not_authenticated: "Sessão expirada. Faça login novamente.",
+      missing_price: "Price ID não configurado no Railway.",
+      payments_not_configured: "STRIPE_SECRET_KEY não configurado no Railway.",
+      checkout_failed: "Stripe não retornou URL. Verifique os Price IDs.",
+      stripe_error: "Erro no Stripe:",
+      invalid_type: "Tipo inválido.",
+    };
+    return msgs[code] ?? `Erro: ${code}`;
   }
 
   return (

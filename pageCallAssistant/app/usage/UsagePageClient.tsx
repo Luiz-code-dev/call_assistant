@@ -107,7 +107,7 @@ export default function UsagePageClient({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  function handleTopUp(pack: typeof TOP_UPS[0]) {
+  async function handleTopUp(pack: typeof TOP_UPS[0]) {
     if (!userPlan) {
       window.location.href = "/login?redirect=/usage";
       return;
@@ -121,8 +121,23 @@ export default function UsagePageClient({
       return;
     }
     setBuying(pack.priceId);
-    const params = new URLSearchParams({ priceId: pack.priceId, type: "credits", credits: String(pack.credits) });
-    window.location.href = `/api/billing/checkout?${params.toString()}`;
+    try {
+      const res = await fetch("/api/billing/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ priceId: pack.priceId, type: "credits", credits: String(pack.credits) }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.url) {
+        toast.error(data.error === "not_authenticated" ? "Sessão expirada. Faça login novamente." : `Erro no checkout: ${data.error ?? "desconhecido"}${data.detail ? ` (${data.detail})` : ""}`);
+        return;
+      }
+      window.location.href = data.url;
+    } catch {
+      toast.error("Erro de rede ao iniciar checkout. Tente novamente.");
+    } finally {
+      setBuying(null);
+    }
   }
 
   async function handleRefresh() {
