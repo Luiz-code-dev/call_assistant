@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,9 +15,29 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [refreshing, setRefreshing] = useState(true);
   const searchParams = useSearchParams();
   const isDesktop = searchParams.get("callback") === "desktop";
   const redirectTo = searchParams.get("redirect") || (isDesktop ? "/auth/desktop" : "/dashboard");
+
+  useEffect(() => {
+    const sfToken = sessionStorage.getItem("sf_token");
+    if (!sfToken) { setRefreshing(false); return; }
+    fetch("/api/auth/refresh", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${sfToken}` },
+    })
+      .then((res) => {
+        if (res.ok) {
+          window.location.href = redirectTo;
+        } else {
+          sessionStorage.removeItem("sf_token");
+          setRefreshing(false);
+        }
+      })
+      .catch(() => { setRefreshing(false); });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -38,6 +58,14 @@ export default function LoginPage() {
     } finally {
       setLoading(false);
     }
+  }
+
+  if (refreshing) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background">
+        <Loader2 className="h-8 w-8 animate-spin text-violet-400" />
+      </div>
+    );
   }
 
   return (

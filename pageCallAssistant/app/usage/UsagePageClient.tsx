@@ -177,8 +177,15 @@ export default function UsagePageClient({
             <Button variant="ghost" size="sm" onClick={handleRefresh} disabled={refreshing}>
               <RefreshCw className={`h-4 w-4 ${refreshing ? "animate-spin" : ""}`} />
             </Button>
-            <Button variant="ghost" size="sm" asChild>
-              <Link href="/api/auth/logout"><LogOut className="h-4 w-4" /></Link>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => {
+                sessionStorage.removeItem("sf_token");
+                window.location.href = "/api/auth/logout";
+              }}
+            >
+              <LogOut className="h-4 w-4" />
             </Button>
           </div>
         </div>

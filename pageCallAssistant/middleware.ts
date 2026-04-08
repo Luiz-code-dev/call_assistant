@@ -36,7 +36,9 @@ export async function middleware(req: NextRequest) {
   }
 
   if (isProtected && !validToken) {
-    const res = NextResponse.redirect(new URL("/login", req.url));
+    const loginUrl = new URL("/login", req.url);
+    loginUrl.searchParams.set("redirect", pathname);
+    const res = NextResponse.redirect(loginUrl);
     if (rawToken) res.cookies.delete("token");
     return res;
   }

@@ -12,7 +12,6 @@ import {
 import { SupportChat } from "@/components/SupportChat";
 import { useSearchParams } from "next/navigation";
 import { toast } from "sonner";
-import { api } from "@/lib/api";
 
 interface WalletBalance {
   balance: number;
@@ -57,15 +56,20 @@ export default function DashboardPage() {
 
   useEffect(() => {
     async function load() {
+      const sfToken = typeof window !== "undefined" ? sessionStorage.getItem("sf_token") : null;
+      const authHeaders: HeadersInit = sfToken ? { Authorization: `Bearer ${sfToken}` } : {};
+
       try {
-        const meData = await fetch("/api/auth/me").then((r) => r.json());
+        const meData = await fetch("/api/auth/me", { headers: authHeaders }).then((r) => r.json());
         if (meData?.name) setUserName(meData.name);
         if (meData?.plan) setPlan(meData.plan);
       } catch { /* ignore */ }
 
       try {
-        const walletData = await api.wallet.balance() as WalletBalance;
-        setWallet(walletData);
+        const walletRes = await fetch("/api/wallet/balance", { headers: authHeaders });
+        const walletData: WalletBalance = await walletRes.json();
+        if (walletRes.ok) setWallet(walletData);
+        else setWallet({ balance: 0, bonusBalance: 0, trialBalance: 0 });
       } catch {
         setWallet({ balance: 0, bonusBalance: 0, trialBalance: 0 });
       } finally {
