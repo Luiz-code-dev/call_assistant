@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
       const userId = session.metadata?.userId ?? "";
       const type = session.metadata?.type ?? "";
       const plan = session.metadata?.plan ?? "";
-      const topupCredits = Number(session.metadata?.credits ?? 0);
+      const topupCredits = Number(session.metadata?.amount ?? session.metadata?.credits ?? 0);
       const email = session.customer_email ?? "";
 
       if (!userId) {
