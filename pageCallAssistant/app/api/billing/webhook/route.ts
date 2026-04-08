@@ -23,46 +23,86 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: "Assinatura inválida" }, { status: 400 });
   }
 
-  const backendUrl = process.env.BACKEND_URL || "http://localhost:8080";
+  const PLAN_CREDITS: Record<string, number> = { basic: 500, premium: 1000 };
 
   switch (event.type) {
     case "checkout.session.completed": {
       const session = event.data.object as Stripe.Checkout.Session;
-      await fetch(`${backendUrl}/api/billing/webhook/checkout-completed`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ sessionId: session.id, metadata: session.metadata }),
-      });
+      const userId = session.metadata?.userId ?? "";
+      const type = session.metadata?.type ?? "";
+      const plan = session.metadata?.plan ?? "";
+      const topupCredits = Number(session.metadata?.credits ?? 0);
+      const email = session.customer_email ?? "";
+
+      if (!userId) {
+        console.error("[webhook] checkout.session.completed — missing userId in metadata", session.id);
+        break;
+      }
+
       try {
-        const email = session.customer_email ?? "";
-        const userId = session.metadata?.userId ?? "";
-        const credits = Number(session.metadata?.credits ?? 0);
-        const plan = session.metadata?.plan ?? "credits";
+        if (type === "subscription" && plan && PLAN_CREDITS[plan] !== undefined) {
+          const planCredits = PLAN_CREDITS[plan];
+          await db.$transaction([
+            db.user.update({
+              where: { id: userId },
+              data: { plan, credits: planCredits },
+            }),
+            (db as any).creditTransaction.create({
+              data: {
+                userId,
+                type: "credit",
+                amount: planCredits,
+                source: "plan",
+                description: `Plano ${plan} ativado`,
+              },
+            }),
+          ]);
+          console.log(`[webhook] Plano ${plan} ativado para userId=${userId}`);
+        } else if (type === "credits" && topupCredits > 0) {
+          await db.$transaction([
+            db.user.update({
+              where: { id: userId },
+              data: { credits: { increment: topupCredits } },
+            }),
+            (db as any).creditTransaction.create({
+              data: {
+                userId,
+                type: "credit",
+                amount: topupCredits,
+                source: "purchase",
+                description: `Recarga de ${topupCredits} créditos`,
+              },
+            }),
+          ]);
+          console.log(`[webhook] +${topupCredits} créditos creditados para userId=${userId}`);
+        }
+      } catch (dbErr) {
+        console.error("[webhook] Erro ao atualizar banco:", dbErr);
+        return NextResponse.json({ error: "db_error" }, { status: 500 });
+      }
+
+      try {
         if (email && userId) {
           const user = await db.user.findUnique({ where: { id: userId }, select: { name: true } });
-          await sendThankYouEmail(email, user?.name ?? "", plan, credits);
+          await sendThankYouEmail(email, user?.name ?? "", plan || "credits", topupCredits);
         }
       } catch (emailErr) {
-        console.error("Thank-you email error:", emailErr);
+        console.error("[webhook] Erro ao enviar e-mail:", emailErr);
       }
-      break;
-    }
-    case "invoice.payment_succeeded": {
-      const invoice = event.data.object as Stripe.Invoice;
-      await fetch(`${backendUrl}/api/billing/webhook/payment-succeeded`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ invoiceId: invoice.id, subscriptionId: invoice.subscription }),
-      });
       break;
     }
     case "customer.subscription.deleted": {
       const sub = event.data.object as Stripe.Subscription;
-      await fetch(`${backendUrl}/api/billing/webhook/subscription-canceled`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ subscriptionId: sub.id }),
-      });
+      const customerId = sub.customer as string;
+      try {
+        await db.user.updateMany({
+          where: { stripeCustomerId: customerId } as any,
+          data: { plan: "free" },
+        });
+        console.log(`[webhook] Assinatura cancelada para customerId=${customerId}`);
+      } catch (dbErr) {
+        console.error("[webhook] Erro ao cancelar assinatura:", dbErr);
+      }
       break;
     }
   }
