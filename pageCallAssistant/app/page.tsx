@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Navbar } from "@/components/Navbar";
+import { SupportChat } from "@/components/SupportChat";
 import { getSession } from "@/lib/auth";
 import {
   Mic2, Zap, Globe, Brain, Shield, Download,
@@ -441,6 +442,8 @@ export default async function Home() {
           </p>
         </div>
       </section>
+
+      <SupportChat />
 
       {/* Footer */}
       <footer className="border-t border-border/50 px-6 py-10">

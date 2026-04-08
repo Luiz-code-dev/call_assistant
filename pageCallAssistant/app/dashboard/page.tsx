@@ -10,6 +10,7 @@ import {
   Mic2, Zap, CreditCard, ArrowUpRight, Download,
   LogOut, Settings, TrendingUp, Clock, Star, Loader2,
 } from "lucide-react";
+import { SupportChat } from "@/components/SupportChat";
 import { useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import { api } from "@/lib/api";
@@ -233,6 +234,7 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
       </main>
+      <SupportChat />
     </div>
   );
 }
