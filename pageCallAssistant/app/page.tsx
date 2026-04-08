@@ -139,13 +139,13 @@ export default async function Home() {
             <div className="grid grid-cols-2 gap-3 p-4" style={{height: "320px"}}>
 
               {/* Left: Conversa */}
-              <div className="flex flex-col rounded-lg border border-border/50 bg-background/50 p-3 overflow-hidden">
+              <div className="flex flex-col rounded-lg border border-border/50 bg-background/50 p-3 overflow-hidden" style={{userSelect:"text"}}>
                 <div className="mb-3 flex items-center gap-2">
                   <Mic2 className="h-3 w-3 text-violet-400" />
                   <span className="text-xs font-semibold tracking-wider text-muted-foreground">CONVERSA</span>
                   <span className="ml-auto rounded-full bg-green-500/10 px-2 py-0.5 text-xs text-green-400">● AO VIVO</span>
                 </div>
-                <div className="flex-1 space-y-2 overflow-hidden">
+                <div className="flex-1 space-y-2 overflow-y-auto pr-1">
                   {/* Fala 1 */}
                   <div className="space-y-1">
                     <div className="rounded-lg bg-violet-500/10 px-3 py-2 text-xs text-foreground leading-relaxed">
@@ -178,13 +178,13 @@ export default async function Home() {
               </div>
 
               {/* Right: Copilot */}
-              <div className="flex flex-col rounded-lg border border-border/50 bg-background/50 p-3 overflow-hidden">
+              <div className="flex flex-col rounded-lg border border-border/50 bg-background/50 p-3 overflow-hidden" style={{userSelect:"text"}}>
                 <div className="mb-3 flex items-center gap-2">
                   <Brain className="h-3 w-3 text-violet-400" />
                   <span className="text-xs font-semibold tracking-wider text-muted-foreground">COPILOT</span>
                   <span className="ml-auto text-xs text-muted-foreground/50">3 sugestões</span>
                 </div>
-                <div className="flex-1 space-y-2 overflow-hidden">
+                <div className="flex-1 space-y-2 overflow-y-auto pr-1">
                   <div className="rounded-lg border border-violet-500/30 bg-violet-500/10 px-3 py-2 text-xs cursor-pointer hover:bg-violet-500/20 transition-colors">
                     <div className="flex items-center justify-between mb-1">
                       <span className="font-semibold text-violet-400">⚡ Short</span>

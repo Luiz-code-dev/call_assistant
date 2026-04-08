@@ -113,13 +113,16 @@ export default function LoginPage() {
             </Button>
           </form>
         </CardContent>
-        <CardFooter className="justify-center">
+        <CardFooter className="flex flex-col gap-3 items-center">
           <p className="text-sm text-muted-foreground">
             Não tem conta?{" "}
             <Link href={isDesktop ? "/register?callback=desktop" : "/register"} className="text-violet-400 hover:text-violet-300">
               Criar conta grátis
             </Link>
           </p>
+          <Link href="/" className="text-xs text-muted-foreground hover:text-foreground flex items-center gap-1 transition-colors">
+            ← Voltar ao início
+          </Link>
         </CardFooter>
       </Card>
     </div>
