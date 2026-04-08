@@ -2,7 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { verifyToken } from "@/lib/auth";
 
 export async function GET(req: NextRequest) {
-  const token = req.cookies.get("token")?.value;
+  const authHeader = req.headers.get("authorization");
+  const bearer = authHeader?.startsWith("Bearer ") ? authHeader.slice(7) : null;
+  const token = bearer ?? req.cookies.get("token")?.value;
   if (!token) {
     return NextResponse.json({ message: "Não autorizado" }, { status: 401 });
   }

@@ -22,12 +22,14 @@ export function Navbar({ initialUser }: NavbarProps = {}) {
   );
 
   useEffect(() => {
-    if (initialUser !== undefined) return;
-    fetch("/api/auth/me")
+    const sfToken = typeof window !== "undefined" ? sessionStorage.getItem("sf_token") : null;
+    fetch("/api/auth/me", {
+      headers: sfToken ? { Authorization: `Bearer ${sfToken}` } : {},
+    })
       .then((r) => (r.ok ? r.json() : null))
       .then((data) => setUser(data ?? null))
       .catch(() => setUser(null));
-  }, [initialUser]);
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
