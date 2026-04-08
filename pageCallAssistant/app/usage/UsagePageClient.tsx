@@ -45,9 +45,9 @@ interface Props {
 }
 
 const PLAN_INFO: Record<string, { label: string; price: string; allocation: number; color: string }> = {
-  free:    { label: "Free",    price: "$0/mo",   allocation: 50,   color: "text-zinc-400"   },
-  basic:   { label: "Basic",   price: "$15/mo",  allocation: 500,  color: "text-violet-400" },
-  premium: { label: "Premium", price: "$30/mo",  allocation: 1000, color: "text-indigo-400" },
+  free:    { label: "Gratuito", price: "Grátis",          allocation: 50,   color: "text-zinc-400"   },
+  basic:   { label: "Básico",   price: "R$ 74,90/mês",  allocation: 500,  color: "text-violet-400" },
+  premium: { label: "Premium",  price: "R$ 149,90/mês", allocation: 1000, color: "text-indigo-400" },
 };
 
 export default function UsagePageClient({
@@ -59,10 +59,7 @@ export default function UsagePageClient({
 }: Props) {
   const canTopUp = userPlan === "basic" || userPlan === "premium";
   const TOP_UPS = [
-    { label: "$5",  credits: 50,  priceId: stripePriceCredits5  ?? null },
-    { label: "$10", credits: 150, priceId: stripePriceCredits10 ?? null },
-    { label: "$25", credits: 400, priceId: stripePriceCredits25 ?? null },
-    { label: "$50", credits: 900, priceId: stripePriceCredits50 ?? null },
+    { label: "R$ 24,90", credits: 50, priceId: stripePriceCredits5 ?? null },
   ];
 
   const searchParams = useSearchParams();
@@ -308,7 +305,7 @@ export default function UsagePageClient({
                     Add credits
                   </CardTitle>
                   <CardDescription className="mt-1">
-                    One-time top-up. Credits never expire. Available starting at $5.
+                    Compra única, sem assinatura. Créditos não expiram.
                   </CardDescription>
                 </div>
                 <CreditCard className="h-5 w-5 text-violet-400/50" />

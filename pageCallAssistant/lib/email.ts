@@ -11,7 +11,7 @@ export async function sendThankYouEmail(email: string, name: string, plan: strin
     return;
   }
 
-  const planLabel = plan === "basic" ? "Basic ($15/mês)" : plan === "premium" ? "Premium ($30/mês)" : `${credits} créditos adicionais`;
+  const planLabel = plan === "basic" ? "Básico (R$ 74,90/mês)" : plan === "premium" ? "Premium (R$ 149,90/mês)" : `${credits} créditos adicionais`;
   const firstName = name?.split(" ")[0] || "usuário";
 
   await resend.emails.send({

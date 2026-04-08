@@ -371,9 +371,9 @@ export default async function Home() {
           </p>
           <div className="grid gap-4 md:grid-cols-3">
             {[
-              { name: "Free", price: "Grátis", credits: "50 créditos", highlight: false },
-              { name: "Basic", price: "$15/mês", credits: "500 créditos/mês", highlight: true },
-              { name: "Premium", price: "$30/mês", credits: "1.000 créditos/mês", highlight: false },
+              { name: "Gratuito", price: "Grátis", credits: "50 créditos", highlight: false },
+              { name: "Básico", price: "R$ 74,90/mês", credits: "500 créditos/mês", highlight: true },
+              { name: "Premium", price: "R$ 149,90/mês", credits: "1.000 créditos/mês", highlight: false },
             ].map((plan) => (
               <div
                 key={plan.name}

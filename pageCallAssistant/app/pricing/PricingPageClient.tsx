@@ -35,63 +35,63 @@ export default function PricingPageClient({
   const plans = [
     {
       id: "free",
-      name: "Free",
-      priceLabel: "$0",
+      name: "Gratuito",
+      priceLabel: "Grátis",
       period: "",
       credits: 50,
-      description: "Try before you commit",
+      description: "Comece sem compromisso",
       features: [
-        "50 credits on sign-up",
-        "Real-time transcription",
-        "Automatic translation",
-        "Copilot suggestions",
-        "Windows desktop app",
+        "50 créditos ao criar conta",
+        "Transcrição em tempo real",
+        "Tradução automática",
+        "Sugestões do Copilot",
+        "App desktop Windows",
       ],
-      cta: "Get started free",
+      cta: "Começar grátis",
       href: "/register",
       stripePrice: null,
       highlighted: false,
     },
     {
       id: "basic",
-      name: "Basic",
-      priceLabel: "$15",
-      period: "/mo",
+      name: "Básico",
+      priceLabel: "R$ 74,90",
+      period: "/mês",
       credits: 500,
-      description: "For regular professional use",
+      description: "Para uso profissional regular",
       features: [
-        "500 credits / month",
-        "Auto monthly renewal",
-        "Real-time transcription",
-        "Automatic translation",
-        "Copilot suggestions",
-        "Top-up credits anytime",
-        "Email support",
+        "500 créditos / mês",
+        "Renovação mensal automática",
+        "Transcrição em tempo real",
+        "Tradução automática",
+        "Sugestões do Copilot",
+        "Recarga de créditos avulsa",
+        "Suporte por e-mail",
       ],
-      cta: "Subscribe — $15/mo",
+      cta: "Assinar — R$ 74,90/mês",
       href: null,
       stripePrice: stripePriceBasic,
       highlighted: false,
-      badge: "Most popular",
+      badge: "Mais popular",
     },
     {
       id: "premium",
       name: "Premium",
-      priceLabel: "$30",
-      period: "/mo",
+      priceLabel: "R$ 149,90",
+      period: "/mês",
       credits: 1000,
-      description: "For heavy use and power users",
+      description: "Para uso intenso e power users",
       features: [
-        "1,000 credits / month",
-        "Auto monthly renewal",
-        "Real-time transcription",
-        "Automatic translation",
-        "Copilot suggestions",
-        "Top-up credits anytime",
-        "Priority support",
-        "Full session history",
+        "1.000 créditos / mês",
+        "Renovação mensal automática",
+        "Transcrição em tempo real",
+        "Tradução automática",
+        "Sugestões do Copilot",
+        "Recarga de créditos avulsa",
+        "Suporte prioritário",
+        "Histórico completo de sessões",
       ],
-      cta: "Subscribe — $30/mo",
+      cta: "Assinar — R$ 149,90/mês",
       href: null,
       stripePrice: stripePricePremium,
       highlighted: true,
@@ -99,10 +99,7 @@ export default function PricingPageClient({
   ];
 
   const creditPacks = [
-    { credits: 50,  price: "$5",  priceId: stripePriceCredits5  ?? null },
-    { credits: 150, price: "$10", priceId: stripePriceCredits10 ?? null },
-    { credits: 400, price: "$25", priceId: stripePriceCredits25 ?? null },
-    { credits: 900, price: "$50", priceId: stripePriceCredits50 ?? null },
+    { credits: 50, price: "R$ 24,90", priceId: stripePriceCredits5 ?? null },
   ];
 
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
@@ -203,7 +200,7 @@ export default function PricingPageClient({
               <span className="gradient-text">no surprises</span>
             </h1>
             <p className="mx-auto max-w-xl text-lg text-muted-foreground">
-              Start free. Upgrade when ready. Pay only for what you use. Prices in USD.
+              Comece grátis. Faça upgrade quando quiser. Pague só pelo que usar. Preços em BRL.
             </p>
           </div>
 
@@ -234,7 +231,7 @@ export default function PricingPageClient({
                   <p className="text-sm text-muted-foreground">{plan.description}</p>
                   <div className="flex items-center gap-1.5 rounded-lg bg-secondary/50 px-3 py-2">
                     <Zap className="h-3.5 w-3.5 text-violet-400" />
-                    <span className="text-sm font-medium">{plan.credits.toLocaleString()} credits{plan.period ? "/mo" : " one-time"}</span>
+                    <span className="text-sm font-medium">{plan.credits.toLocaleString()} créditos{plan.period ? "/mês" : " inicial"}</span>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -267,10 +264,10 @@ export default function PricingPageClient({
           {/* Credit Packs */}
           <div id="credits">
             <div className="mb-8 text-center">
-              <Badge variant="purple" className="mb-3">Top-up credits</Badge>
-              <h2 className="text-3xl font-bold">Need more? Add credits</h2>
+              <Badge variant="purple" className="mb-3">Recarga de créditos</Badge>
+              <h2 className="text-3xl font-bold">Precisa de mais? Adicione créditos</h2>
               <p className="mt-2 text-muted-foreground">
-                One-time purchases, starting at $5. Créditos adicionais nunca expiram.
+                Compra única, sem assinatura. Créditos adicionais nunca expiram.
               </p>
             </div>
 
@@ -296,7 +293,7 @@ export default function PricingPageClient({
                         {loadingPlan === `credits_${pack.credits}` ? (
                           <Loader2 className="h-4 w-4 animate-spin" />
                         ) : (
-                          `Buy ${pack.price}`
+                          `Comprar ${pack.price}`
                         )}
                       </Button>
                     </CardContent>
@@ -316,7 +313,7 @@ export default function PricingPageClient({
                 </p>
                 <Button variant="gradient" size="sm" asChild>
                   <Link href={userPlan === null ? "/login?redirect=/pricing" : "/pricing"}>
-                    {userPlan === null ? "Entrar" : "Assinar Basic — $15/mo"}
+                    {userPlan === null ? "Entrar" : "Assinar Básico — R$ 74,90/mês"}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
@@ -326,24 +323,24 @@ export default function PricingPageClient({
 
           {/* FAQ */}
           <div className="mt-20">
-            <h2 className="mb-8 text-center text-3xl font-bold">Frequently asked questions</h2>
+            <h2 className="mb-8 text-center text-3xl font-bold">Perguntas frequentes</h2>
             <div className="grid gap-4 md:grid-cols-2">
               {[
                 {
-                  q: "What is a credit?",
-                  a: "Each credit represents one unit of AI usage. Transcription, translation, and Copilot suggestions each consume credits based on the length of the audio processed.",
+                  q: "O que é um crédito?",
+                  a: "Cada crédito representa uma unidade de uso de IA. Transcrição, tradução e sugestões do Copilot consomem créditos conforme a duração do áudio processado.",
                 },
                 {
-                  q: "Do credits expire?",
-                  a: "Monthly plan credits reset each billing cycle. Top-up credits never expire and roll over month to month.",
+                  q: "Os créditos expiram?",
+                  a: "Créditos do plano mensal renovam a cada ciclo. Créditos de recarga avulsa nunca expiram e acumulam mês a mês.",
                 },
                 {
-                  q: "Can I cancel anytime?",
-                  a: "Yes, cancel anytime with no penalty. Your plan stays active until the end of the current billing period.",
+                  q: "Posso cancelar a qualquer momento?",
+                  a: "Sim, cancele sem multa. Seu plano permanece ativo até o fim do período de faturamento atual.",
                 },
                 {
-                  q: "How does the free trial work?",
-                  a: "Create an account and receive 50 credits instantly, no credit card required. Upgrade whenever you're ready.",
+                  q: "Como funciona o período gratuito?",
+                  a: "Crie uma conta e receba 50 créditos na hora, sem cartão de crédito. Faça upgrade quando estiver pronto.",
                 },
               ].map((item) => (
                 <div key={item.q} className="rounded-xl border border-border/50 bg-card p-5">

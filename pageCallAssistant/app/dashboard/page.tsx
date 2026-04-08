@@ -33,9 +33,9 @@ const PLAN_CREDITS: Record<string, number> = {
 };
 
 const PLAN_LABELS: Record<string, string> = {
-  free: "Free",
-  basic: "Basic — $15/mo",
-  premium: "Premium — $30/mo",
+  free: "Gratuito",
+  basic: "Básico — R$ 74,90/mês",
+  premium: "Premium — R$ 149,90/mês",
 };
 
 export default function DashboardPage() {
