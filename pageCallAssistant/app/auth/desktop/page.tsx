@@ -12,7 +12,11 @@ export default function DesktopAuthPage() {
   useEffect(() => {
     async function generateToken() {
       try {
-        const res = await fetch("/api/auth/desktop-token", { method: "POST" });
+        const sfToken = typeof window !== "undefined" ? sessionStorage.getItem("sf_token") : null;
+        const res = await fetch("/api/auth/desktop-token", {
+          method: "POST",
+          headers: { ...(sfToken ? { Authorization: `Bearer ${sfToken}` } : {}) },
+        });
         const data = await res.json();
         if (!res.ok) throw new Error(data.message);
         const link = `callassistant://auth?token=${encodeURIComponent(data.token)}`;

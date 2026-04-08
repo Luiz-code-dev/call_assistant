@@ -8,7 +8,17 @@ const secret = new TextEncoder().encode(
 
 export async function POST(req: NextRequest) {
   try {
-    const sessionToken = req.cookies.get("token")?.value;
+    // Accept cookie OR Authorization Bearer (fallback when CDN strips cookies)
+    const authHeader = req.headers.get("authorization");
+    const bearerToken = authHeader?.startsWith("Bearer ") ? authHeader.slice(7) : null;
+    const sessionToken = bearerToken ?? req.cookies.get("token")?.value;
+
+    console.log("DESKTOP_TOKEN_DEBUG", {
+      hasCookie: !!req.cookies.get("token")?.value,
+      hasBearer: !!bearerToken,
+      hasJwtSecret: !!process.env.JWT_SECRET,
+    });
+
     if (!sessionToken) {
       return NextResponse.json({ message: "Não autorizado" }, { status: 401 });
     }
@@ -18,16 +28,17 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: "Token inválido" }, { status: 401 });
     }
 
+    // Generate 30-day desktop session token directly — no exchange step needed
     const desktopToken = await new SignJWT({
       sub: payload.sub,
       email: payload.email,
       name: payload.name,
       plan: payload.plan,
-      type: "desktop",
+      type: "desktop-session",
     })
       .setProtectedHeader({ alg: "HS256" })
       .setIssuedAt()
-      .setExpirationTime("5m")
+      .setExpirationTime("30d")
       .sign(secret);
 
     return NextResponse.json({ token: desktopToken });
