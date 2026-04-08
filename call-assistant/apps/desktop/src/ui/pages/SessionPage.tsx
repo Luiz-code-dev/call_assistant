@@ -55,13 +55,18 @@ export function SessionPage() {
 
   const handlePreCallConfirm = (meetingContext: string, label: string) => {
     setShowPreCall(false);
-    setSpeakerLabel(label.trim() || "Entrevistador");
+    const effectiveLabel = label.trim() || "Pessoa";
+    setSpeakerLabel(effectiveLabel);
+    const contextWithLabel = [
+      `Talking to: ${effectiveLabel}`,
+      meetingContext.trim(),
+    ].filter(Boolean).join(". ");
     startSession({
       sourceLanguage: "en-US",
       targetLanguage: "pt-BR",
       enableTts: false,
       enableSuggestions: false,
-      meetingContext: meetingContext.trim() || undefined,
+      meetingContext: contextWithLabel || undefined,
     });
   };
 
@@ -266,7 +271,7 @@ function StatusBar({ session }: StatusBarProps) {
   );
 }
 
-const SPEAKER_PRESETS = ["Entrevistador", "Cliente", "Colega", "Amigo"];
+const SPEAKER_PRESETS = ["Cliente", "Colega", "Amigo", "Entrevistador"];
 
 interface PreCallModalProps {
   onConfirm: (meetingContext: string, speakerLabel: string) => void;
@@ -275,7 +280,7 @@ interface PreCallModalProps {
 
 function PreCallModal({ onConfirm, onCancel }: PreCallModalProps) {
   const [context, setContext] = useState("");
-  const [label, setLabel] = useState("Entrevistador");
+  const [label, setLabel] = useState("Cliente");
   const [customLabel, setCustomLabel] = useState("");
   const isCustom = !SPEAKER_PRESETS.includes(label);
 

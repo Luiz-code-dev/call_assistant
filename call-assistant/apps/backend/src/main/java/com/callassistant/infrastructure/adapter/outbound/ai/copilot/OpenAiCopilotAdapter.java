@@ -49,11 +49,16 @@ public class OpenAiCopilotAdapter implements CopilotPort {
         var sourceLang = config.sourceLanguage().getCode();
         var targetLang = config.targetLanguage().getCode();
 
+        var contextLine = context.isBlank()
+                ? "This is a general conversation. Keep replies natural and conversational."
+                : "Conversation context: " + context;
+
         var systemPrompt = """
-                You are a real-time call assistant for a Brazilian user attending an English interview.
+                You are a real-time call assistant for a Brazilian user having a conversation in English.
                 Given a transcript snippet, you must:
                 1. Translate it from %s to %s.
                 2. Suggest 3 possible replies the user could give, written in English.
+                   IMPORTANT: Adapt the tone and style to match the conversation context below. Do NOT default to formal or interview-style replies unless the context explicitly mentions an interview.
                 3. For each reply, also provide a Portuguese (Brazil) translation so the user understands what they would be saying.
                 %s
                 Respond in EXACTLY this format (no extra text before or after):
@@ -65,8 +70,7 @@ public class OpenAiCopilotAdapter implements CopilotPort {
                    PT: <Portuguese translation of professional reply>
                 3. Detalhada: <detailed reply in English>
                    PT: <Portuguese translation of detailed reply>
-                """.formatted(sourceLang, targetLang,
-                context.isBlank() ? "" : "Call context: " + context);
+                """.formatted(sourceLang, targetLang, contextLine);
 
         var messages = List.of(
                 Map.of("role", "system", "content", systemPrompt),
