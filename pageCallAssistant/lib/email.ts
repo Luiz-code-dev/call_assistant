@@ -56,7 +56,7 @@ export async function sendSupportEmail(
     return;
   }
 
-  await resend.emails.send({
+  const { error: sendError } = await resend.emails.send({
     from: FROM_EMAIL,
     to: "luiz.melo@cdsolutions.com.br",
     replyTo: email,
@@ -87,6 +87,11 @@ export async function sendSupportEmail(
       </div>
     `,
   });
+
+  if (sendError) {
+    console.error("[sendSupportEmail] Resend error:", sendError);
+    throw new Error(sendError.message);
+  }
 }
 
 export async function sendVerificationEmail(email: string, name: string, token: string) {
