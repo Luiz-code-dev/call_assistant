@@ -6,7 +6,6 @@ import {
   registerDeepLinkProtocol,
   registerDeepLinkHandlers,
 } from "./deeplink/DeepLinkHandler";
-
 // Must be called before app ready
 registerDeepLinkProtocol();
 
@@ -16,10 +15,26 @@ if (!gotLock) {
   app.quit();
 }
 
+// Restore window when a second instance tries to launch
+app.on("second-instance", () => {
+  const win = BrowserWindow.getAllWindows()[0];
+  if (win) {
+    if (win.isMinimized()) win.restore();
+    win.show();
+    win.focus();
+  }
+});
+
 app.whenReady().then(() => {
-  app.setAppUserModelId("com.callassistant");
+  app.setAppUserModelId("com.speakflow");
 
   const mainWindow = createMainWindow();
+
+  // Fallback: force-show window if renderer never fires ready-to-show
+  setTimeout(() => {
+    if (!mainWindow.isVisible()) mainWindow.show();
+  }, 5000);
+
   registerIpcHandlers(mainWindow);
   registerDeepLinkHandlers(mainWindow);
 

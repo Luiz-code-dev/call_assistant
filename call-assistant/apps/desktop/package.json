@@ -39,6 +39,8 @@
       "repo": "call_assistant"
     },
     "win": {
+      "icon": "resources/icon.ico",
+      "requestedExecutionLevel": "asInvoker",
       "target": [
         {
           "target": "nsis",
@@ -60,11 +62,12 @@
       "unicode": true,
       "allowToChangeInstallationDirectory": true,
       "allowElevation": true,
-      "perMachine": false,
+      "perMachine": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
       "shortcutName": "SpeakFlow",
-      "installerIcon": null,
+      "installerIcon": "resources/icon.ico",
+      "uninstallerIcon": "resources/icon.ico",
       "deleteAppDataOnUninstall": true,
       "license": "resources/license.txt"
     }

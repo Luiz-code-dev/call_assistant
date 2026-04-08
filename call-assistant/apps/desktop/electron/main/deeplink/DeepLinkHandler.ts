@@ -32,7 +32,12 @@ export function handleDeepLink(
     if (parsed.hostname === "auth") {
       const token = parsed.searchParams.get("token");
       if (token) {
-        mainWindow.webContents.send("ipc:auth:token-received", { token });
+        const send = () => mainWindow.webContents.send("ipc:auth:token-received", { token });
+        if (mainWindow.webContents.isLoading()) {
+          mainWindow.webContents.once("did-finish-load", send);
+        } else {
+          send();
+        }
         mainWindow.focus();
       }
     }

@@ -2,8 +2,8 @@ import { autoUpdater } from "electron-updater";
 import { BrowserWindow, dialog } from "electron";
 
 export function initAutoUpdater(mainWindow: BrowserWindow): void {
-  autoUpdater.autoDownload = true;
-  autoUpdater.autoInstallOnAppQuit = true;
+  autoUpdater.autoDownload = false;
+  autoUpdater.autoInstallOnAppQuit = false;
 
   autoUpdater.on("update-available", (info) => {
     mainWindow.webContents.send("update:available", info.version);
