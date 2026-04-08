@@ -12,7 +12,7 @@ import {
   Check,
 } from "lucide-react";
 
-const WHATSAPP = "5511999999999"; // TODO: atualizar com o número real
+const WHATSAPP = "+5571984514211"; // TODO: atualizar com o número real
 
 const FAQS = [
   {
