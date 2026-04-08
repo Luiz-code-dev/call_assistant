@@ -26,7 +26,13 @@ export async function verifyToken(token: string): Promise<JWTPayload | null> {
   try {
     const { payload } = await jwtVerify(token, secret);
     return payload as unknown as JWTPayload;
-  } catch {
+  } catch (error) {
+    console.error("JWT_VERIFY_FAILED", {
+      message: error instanceof Error ? error.message : String(error),
+      tokenPreview: token.slice(0, 20),
+      hasJwtSecret: !!process.env.JWT_SECRET,
+      jwtSecretLength: process.env.JWT_SECRET?.length,
+    });
     return null;
   }
 }

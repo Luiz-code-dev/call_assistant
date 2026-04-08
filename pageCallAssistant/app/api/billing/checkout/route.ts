@@ -9,7 +9,23 @@ function appRedirect(path: string): NextResponse {
 
 export async function GET(req: NextRequest) {
   const rawToken = req.cookies.get("token")?.value;
+
+  console.log("CHECKOUT_DEBUG", {
+    host: req.headers.get("host"),
+    cookieHeaderPresent: !!req.headers.get("cookie"),
+    hasRawToken: !!rawToken,
+    tokenPreview: rawToken ? rawToken.slice(0, 20) : null,
+    hasJwtSecret: !!process.env.JWT_SECRET,
+    jwtSecretLength: process.env.JWT_SECRET?.length,
+  });
+
   const session = rawToken ? await verifyToken(rawToken) : null;
+
+  console.log("CHECKOUT_SESSION_RESULT", {
+    hasSession: !!session,
+    sub: session?.sub ?? null,
+    email: session?.email ?? null,
+  });
 
   if (!session) {
     return appRedirect("/pricing?error=not_authenticated");

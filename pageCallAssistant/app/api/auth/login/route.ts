@@ -37,6 +37,16 @@ export async function POST(req: NextRequest) {
 
     const host = req.headers.get("host") ?? "";
     const isProd = process.env.NODE_ENV === "production";
+
+    console.log("LOGIN_DEBUG", {
+      host,
+      cookieDomain: getCookieDomain(host),
+      hasJwtSecret: !!process.env.JWT_SECRET,
+      jwtSecretLength: process.env.JWT_SECRET?.length,
+      tokenPreview: token.slice(0, 20),
+      userId: user.id,
+    });
+
     const response = NextResponse.json({ user: { id: user.id, name: user.name, email: user.email, plan: user.plan } });
 
     const deleteOpts = { httpOnly: true, secure: isProd, sameSite: "lax" as const, maxAge: 0, expires: new Date(0), path: "/" };
