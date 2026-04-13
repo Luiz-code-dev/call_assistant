@@ -50,6 +50,21 @@ const FAQS = [
     q: "O que é o Copilot?",
     a: "O Copilot analisa a conversa em tempo real e sugere 3 respostas contextualizadas (curta, profissional e detalhada) para você escolher a mais adequada.",
   },
+  {
+    id: "tools",
+    q: "O que são as Ferramentas de IA?",
+    a: "São 3 ferramentas para praticar inglês fora das calls:\n\n✍️ Melhorar Resposta — cole um texto em inglês e receba uma versão mais profissional, com nota e dicas.\n\n💬 Gerar Resposta — descreva a situação em português e receba 3 respostas prontas em inglês.\n\n🎤 Treino de Entrevista — simule uma entrevista técnica com IA personalizada para sua vaga e stack.\n\nDisponível nos planos Básico e Premium. Cada uso consome 2 créditos.",
+  },
+  {
+    id: "interview",
+    q: "Como funciona o Treino de Entrevista?",
+    a: "1. Acesse Dashboard → Treino de Entrevista\n2. Configure a vaga, nível (Júnior/Pleno/Sênior) e tipo (técnica/comportamental)\n3. Informe as tecnologias (ex: Java, React, AWS)\n4. Ative o áudio se quiser ouvir as perguntas em inglês\n5. Responda as 8 perguntas em inglês\n6. Receba nota, feedback e sugestão de melhoria por resposta\n\nCusto: 2 créditos/resposta · Básico: 3 sessões/dia · Premium: ilimitado",
+  },
+  {
+    id: "tools-plan",
+    q: "O plano Gratuito tem acesso às Ferramentas de IA?",
+    a: "Não. As Ferramentas de IA (Melhorar Resposta, Gerar Resposta e Treino de Entrevista) são exclusivas dos planos Básico (R$ 74,90/mês) e Premium (R$ 149,90/mês).\n\nO plano Básico tem limites diários por ferramenta. O Premium é ilimitado.\n\nAcesse /pricing para ver os planos e fazer upgrade.",
+  },
 ];
 
 type Screen = "home" | "answer" | "contact" | "form" | "sent";

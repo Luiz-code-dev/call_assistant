@@ -44,8 +44,9 @@ export function Navbar({ initialUser }: NavbarProps = {}) {
         {!user && (
           <nav className="hidden items-center gap-6 md:flex">
             <Link href="/#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Recursos</Link>
+            <Link href="/#ferramentas" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Ferramentas IA</Link>
             <Link href="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Preços</Link>
-            <Link href="/#download" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Download</Link>
+            <Link href="/guia" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Guia</Link>
           </nav>
         )}
 

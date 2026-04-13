@@ -7,7 +7,7 @@ import { getSession } from "@/lib/auth";
 import {
   Mic2, Zap, Globe, Brain, Shield, Download,
   CheckCircle2, ArrowRight, Star, ChevronRight,
-  AlertTriangle, TrendingUp,
+  AlertTriangle, TrendingUp, Wand2, MessageSquarePlus, BookOpen, Sparkles,
 } from "lucide-react";
 
 const features = [
@@ -336,6 +336,87 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* AI Tools Section */}
+      <section id="ferramentas" className="border-t border-border/50 bg-card/30 px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-16 text-center">
+            <Badge variant="purple" className="mb-4">
+              <Sparkles className="mr-1 h-3 w-3" />
+              Novidade
+            </Badge>
+            <h2 className="mb-4 text-4xl font-bold">
+              Pratique inglês todos os dias —{" "}
+              <span className="gradient-text">sem sair da plataforma</span>
+            </h2>
+            <p className="mx-auto max-w-2xl text-muted-foreground">
+              Além de te ajudar durante as calls, o SpeakFlow agora treina o seu inglês com IA.
+              Disponível nos planos Básico e Premium.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                icon: Wand2,
+                color: "violet",
+                title: "Melhorar Resposta",
+                description: "Cole qualquer texto em inglês e receba uma versão mais profissional e natural, com explicação e dicas de melhoria.",
+                badge: "✍️ Básico+",
+                example: '"I worked hard in the project..." → versão profissional pronta',
+              },
+              {
+                icon: MessageSquarePlus,
+                color: "cyan",
+                title: "Gerar Resposta",
+                description: "Descreva a situação em português e receba 3 versões prontas em inglês: curta, profissional e detalhada.",
+                badge: "💬 Básico+",
+                example: '"Meu manager perguntou sobre microservices" → resposta pronta',
+              },
+              {
+                icon: Mic2,
+                color: "emerald",
+                title: "Treino de Entrevista",
+                description: "Simule entrevistas técnicas em inglês com IA. Configure a vaga, o nível e a stack. Feedback em português após cada resposta.",
+                badge: "🎤 Básico+",
+                example: "Java Sênior · Técnica → 8 perguntas personalizadas + áudio",
+              },
+            ].map((tool) => (
+              <div
+                key={tool.title}
+                className="card-gradient group rounded-xl border border-border/50 p-6 transition-all hover:border-violet-500/30 hover:glow-purple"
+              >
+                <div className="mb-4 flex items-center justify-between">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-violet-500/10">
+                    <tool.icon className="h-5 w-5 text-violet-400" />
+                  </div>
+                  <span className="rounded-full border border-border/50 px-2.5 py-1 text-xs text-muted-foreground">{tool.badge}</span>
+                </div>
+                <h3 className="mb-2 font-semibold">{tool.title}</h3>
+                <p className="mb-4 text-sm text-muted-foreground">{tool.description}</p>
+                <div className="rounded-lg bg-secondary/50 px-3 py-2 text-xs text-muted-foreground italic">
+                  {tool.example}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <Button variant="gradient" size="lg" asChild>
+              <Link href={isLoggedIn ? "/tools" : "/register"}>
+                {isLoggedIn ? "Acessar Ferramentas" : "Experimentar grátis"}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button variant="outline" size="lg" asChild>
+              <Link href="/guia">
+                <BookOpen className="mr-2 h-4 w-4" />
+                Ver guia completo
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section className="border-y border-border/50 bg-card/30 px-6 py-24">
         <div className="mx-auto max-w-6xl">
@@ -459,6 +540,7 @@ export default async function Home() {
           </p>
           <div className="flex gap-4">
             <Link href="/pricing" className="text-xs text-muted-foreground hover:text-foreground">Preços</Link>
+            <Link href="/guia" className="text-xs text-muted-foreground hover:text-foreground">Guia</Link>
             <Link href="/login" className="text-xs text-muted-foreground hover:text-foreground">Login</Link>
             <Link href="/register" className="text-xs text-muted-foreground hover:text-foreground">Cadastro</Link>
           </div>
