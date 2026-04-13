@@ -8,19 +8,24 @@ datasource db {
 }
 
 model User {
-  id                  String              @id @default(cuid())
-  name                String
-  email               String              @unique
-  password            String
-  plan                String              @default("free")
-  credits             Int                 @default(50)
-  emailVerified       Boolean             @default(false)
-  verificationToken   String?
-  verificationExpiry  DateTime?
-  acceptedTerms       Boolean             @default(false)
-  createdAt           DateTime            @default(now())
-  updatedAt           DateTime            @updatedAt
-  transactions        CreditTransaction[]
+  id                   String              @id @default(cuid())
+  name                 String
+  email                String              @unique
+  password             String
+  plan                 String              @default("free")
+  credits              Int                 @default(50)
+  emailVerified        Boolean             @default(false)
+  verificationToken    String?
+  verificationExpiry   DateTime?
+  acceptedTerms        Boolean             @default(false)
+  stripeCustomerId     String?
+  stripeSubscriptionId String?
+  subscriptionStatus   String?
+  planRenewsAt         DateTime?
+  createdAt            DateTime            @default(now())
+  updatedAt            DateTime            @updatedAt
+  transactions         CreditTransaction[]
+  sessions             CallSession[]
 }
 
 model CreditTransaction {
@@ -32,4 +37,18 @@ model CreditTransaction {
   source      String
   description String
   createdAt   DateTime @default(now())
+}
+
+model CallSession {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  startedAt   DateTime  @default(now())
+  endedAt     DateTime?
+  duration    Int?
+  creditsUsed Int       @default(0)
+  language    String?
+  transcript  String?
+  summary     String?
+  createdAt   DateTime  @default(now())
 }

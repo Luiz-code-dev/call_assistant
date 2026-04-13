@@ -25,6 +25,20 @@ export async function POST(req: NextRequest) {
 
   const PLAN_CREDITS: Record<string, number> = { basic: 500, premium: 1000 };
 
+  async function findUserIdByCustomer(customerId: string): Promise<string | null> {
+    const byStripeId = await db.user.findFirst({ where: { stripeCustomerId: customerId } as any, select: { id: true } });
+    if (byStripeId) return byStripeId.id;
+    try {
+      const customer = await stripe.customers.retrieve(customerId);
+      const email = !customer.deleted ? (customer as Stripe.Customer).email : null;
+      if (email) {
+        const byEmail = await db.user.findFirst({ where: { email }, select: { id: true } });
+        return byEmail?.id ?? null;
+      }
+    } catch {}
+    return null;
+  }
+
   switch (event.type) {
     case "checkout.session.completed": {
       const session = event.data.object as Stripe.Checkout.Session;
@@ -33,6 +47,8 @@ export async function POST(req: NextRequest) {
       const plan = session.metadata?.plan ?? "";
       const topupCredits = Number(session.metadata?.amount ?? session.metadata?.credits ?? 0);
       const email = session.customer_email ?? "";
+      const stripeCustomerId = session.customer as string | null;
+      const stripeSubscriptionId = session.subscription as string | null;
 
       if (!userId) {
         console.error("[webhook] checkout.session.completed — missing userId in metadata", session.id);
@@ -42,10 +58,24 @@ export async function POST(req: NextRequest) {
       try {
         if (type === "subscription" && plan && PLAN_CREDITS[plan] !== undefined) {
           const planCredits = PLAN_CREDITS[plan];
+          let planRenewsAt: Date | null = null;
+          if (stripeSubscriptionId) {
+            try {
+              const sub = await stripe.subscriptions.retrieve(stripeSubscriptionId);
+              planRenewsAt = new Date(sub.current_period_end * 1000);
+            } catch {}
+          }
           await db.$transaction([
             db.user.update({
               where: { id: userId },
-              data: { plan, credits: planCredits },
+              data: {
+                plan,
+                credits: planCredits,
+                ...(stripeCustomerId ? { stripeCustomerId } : {}),
+                ...(stripeSubscriptionId ? { stripeSubscriptionId } : {}),
+                subscriptionStatus: "active",
+                ...(planRenewsAt ? { planRenewsAt } : {}),
+              } as any,
             }),
             (db as any).creditTransaction.create({
               data: {
@@ -62,7 +92,10 @@ export async function POST(req: NextRequest) {
           await db.$transaction([
             db.user.update({
               where: { id: userId },
-              data: { credits: { increment: topupCredits } },
+              data: {
+                credits: { increment: topupCredits },
+                ...(stripeCustomerId ? { stripeCustomerId } : {}),
+              } as any,
             }),
             (db as any).creditTransaction.create({
               data: {
@@ -91,21 +124,62 @@ export async function POST(req: NextRequest) {
       }
       break;
     }
+
+    case "customer.subscription.updated": {
+      const sub = event.data.object as Stripe.Subscription;
+      const customerId = sub.customer as string;
+      const userId = await findUserIdByCustomer(customerId);
+      if (!userId) { console.warn("[webhook] subscription.updated — usuário não encontrado"); break; }
+      try {
+        await db.user.update({
+          where: { id: userId },
+          data: {
+            subscriptionStatus: sub.status,
+            planRenewsAt: new Date(sub.current_period_end * 1000),
+            stripeSubscriptionId: sub.id,
+            stripeCustomerId: customerId,
+          } as any,
+        });
+        console.log(`[webhook] Assinatura atualizada — status=${sub.status} userId=${userId}`);
+      } catch (dbErr) {
+        console.error("[webhook] Erro ao atualizar assinatura:", dbErr);
+      }
+      break;
+    }
+
+    case "invoice.payment_failed": {
+      const invoice = event.data.object as Stripe.Invoice;
+      const customerId = invoice.customer as string;
+      const userId = await findUserIdByCustomer(customerId);
+      if (!userId) { console.warn("[webhook] invoice.payment_failed — usuário não encontrado"); break; }
+      try {
+        await db.user.update({
+          where: { id: userId },
+          data: { subscriptionStatus: "past_due" } as any,
+        });
+        console.log(`[webhook] Pagamento falhou — userId=${userId}`);
+      } catch (dbErr) {
+        console.error("[webhook] Erro ao marcar past_due:", dbErr);
+      }
+      break;
+    }
+
     case "customer.subscription.deleted": {
       const sub = event.data.object as Stripe.Subscription;
       const customerId = sub.customer as string;
+      const userId = await findUserIdByCustomer(customerId);
+      if (!userId) { console.warn("[webhook] subscription.deleted — usuário não encontrado"); break; }
       try {
-        const customer = await stripe.customers.retrieve(customerId);
-        const email = !customer.deleted ? (customer as Stripe.Customer).email : null;
-        if (email) {
-          await db.user.updateMany({
-            where: { email },
-            data: { plan: "free" },
-          });
-          console.log(`[webhook] Plano resetado para free — email=${email}`);
-        } else {
-          console.warn(`[webhook] customer.subscription.deleted — email não encontrado para customerId=${customerId}`);
-        }
+        await db.user.update({
+          where: { id: userId },
+          data: {
+            plan: "free",
+            subscriptionStatus: "canceled",
+            stripeSubscriptionId: null,
+            planRenewsAt: null,
+          } as any,
+        });
+        console.log(`[webhook] Plano resetado para free — userId=${userId}`);
       } catch (dbErr) {
         console.error("[webhook] Erro ao resetar plano:", dbErr);
       }
