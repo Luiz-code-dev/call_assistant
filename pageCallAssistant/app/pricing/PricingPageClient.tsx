@@ -49,6 +49,11 @@ export default function PricingPageClient({
         "Sugestões do Copilot",
         "App desktop Windows",
       ],
+      lockedFeatures: [
+        "Melhorar Resposta (IA)",
+        "Gerar Resposta (IA)",
+        "Treino de Entrevista (IA)",
+      ],
       cta: "Começar grátis",
       href: "/register",
       stripePrice: null,
@@ -69,6 +74,9 @@ export default function PricingPageClient({
         "Sugestões do Copilot",
         "Recarga de créditos avulsa",
         "Suporte por e-mail",
+        "✍️ Melhorar Resposta — 5x/dia",
+        "💬 Gerar Resposta — 5x/dia",
+        "🎤 Treino de Entrevista — 3x/dia",
       ],
       cta: "Assinar — R$ 74,90/mês",
       href: null,
@@ -92,6 +100,9 @@ export default function PricingPageClient({
         "Recarga de créditos avulsa",
         "Suporte prioritário",
         "Histórico completo de sessões",
+        "✍️ Melhorar Resposta — ilimitado",
+        "💬 Gerar Resposta — ilimitado",
+        "🎤 Treino de Entrevista — ilimitado",
       ],
       cta: "Assinar — R$ 149,90/mês",
       href: null,
@@ -264,6 +275,12 @@ export default function PricingPageClient({
                       <li key={feature} className="flex items-start gap-2 text-sm">
                         <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-violet-400" />
                         {feature}
+                      </li>
+                    ))}
+                    {"lockedFeatures" in plan && (plan as { lockedFeatures?: string[] }).lockedFeatures?.map((feature) => (
+                      <li key={feature} className="flex items-start gap-2 text-sm text-muted-foreground/40">
+                        <Lock className="mt-0.5 h-4 w-4 shrink-0" />
+                        <span className="line-through">{feature}</span>
                       </li>
                     ))}
                   </ul>
