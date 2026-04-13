@@ -147,6 +147,48 @@ export async function POST(req: NextRequest) {
       break;
     }
 
+    case "invoice.payment_succeeded": {
+      const invoice = event.data.object as Stripe.Invoice;
+      const customerId = invoice.customer as string;
+      const subscriptionId = invoice.subscription as string | null;
+      if (!subscriptionId) break;
+      const billingReason = (invoice as any).billing_reason as string | null;
+      if (billingReason !== "subscription_cycle" && billingReason !== "subscription_update") break;
+      const userId = await findUserIdByCustomer(customerId);
+      if (!userId) { console.warn("[webhook] invoice.payment_succeeded — usuário não encontrado"); break; }
+      try {
+        const sub = await stripe.subscriptions.retrieve(subscriptionId);
+        const planRenewsAt = new Date(sub.current_period_end * 1000);
+        const user = await db.user.findUnique({ where: { id: userId }, select: { plan: true } });
+        const planCredits = user?.plan ? PLAN_CREDITS[user.plan] : null;
+        if (planCredits !== undefined && planCredits !== null) {
+          await db.$transaction([
+            db.user.update({
+              where: { id: userId },
+              data: {
+                credits: planCredits,
+                subscriptionStatus: "active",
+                planRenewsAt,
+              } as any,
+            }),
+            (db as any).creditTransaction.create({
+              data: {
+                userId,
+                type: "credit",
+                amount: planCredits,
+                source: "plan",
+                description: `Renovação mensal — ${planCredits} créditos`,
+              },
+            }),
+          ]);
+          console.log(`[webhook] Renovação: +${planCredits} créditos para userId=${userId}, próxima em ${planRenewsAt.toISOString()}`);
+        }
+      } catch (dbErr) {
+        console.error("[webhook] Erro ao processar renovação:", dbErr);
+      }
+      break;
+    }
+
     case "invoice.payment_failed": {
       const invoice = event.data.object as Stripe.Invoice;
       const customerId = invoice.customer as string;
