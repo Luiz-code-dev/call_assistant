@@ -101,7 +101,9 @@ export default function PricingPageClient({
   ];
 
   const creditPacks = [
-    { credits: 50, price: "R$ 24,90", priceId: stripePriceCredits5 ?? null },
+    { credits: 50,  price: "R$ 24,90",  priceId: stripePriceCredits5  ?? null },
+    { credits: 150, price: "R$ 49,90",  priceId: stripePriceCredits10 ?? null },
+    { credits: 400, price: "R$ 119,90", priceId: stripePriceCredits25 ?? null },
   ];
 
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);

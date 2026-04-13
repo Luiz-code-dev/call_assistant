@@ -59,7 +59,9 @@ export default function UsagePageClient({
 }: Props) {
   const canTopUp = userPlan === "basic" || userPlan === "premium";
   const TOP_UPS = [
-    { label: "R$ 24,90", credits: 50, priceId: stripePriceCredits5 ?? null },
+    { label: "R$ 24,90",  credits: 50,  priceId: stripePriceCredits5  ?? null },
+    { label: "R$ 49,90",  credits: 150, priceId: stripePriceCredits10 ?? null },
+    { label: "R$ 119,90", credits: 400, priceId: stripePriceCredits25 ?? null },
   ];
 
   const searchParams = useSearchParams();
