@@ -8,6 +8,7 @@ import { Progress } from "@/components/ui/progress";
 import {
   Mic2, Zap, CreditCard, ArrowUpRight, Download,
   LogOut, Settings, TrendingUp, Loader2, CheckCircle2, Crown, Sparkles,
+  Wand2, MessageSquarePlus, Lock,
 } from "lucide-react";
 import { SupportChat } from "@/components/SupportChat";
 import { useSearchParams } from "next/navigation";
@@ -265,6 +266,70 @@ export default function DashboardPage() {
             </Card>
           </Link>
         </div>
+
+        {/* AI Tools section */}
+        {(plan === "basic" || plan === "premium") ? (
+          <div className="mb-6">
+            <div className="mb-3 flex items-center justify-between">
+              <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Ferramentas de IA</h2>
+              <Link href="/tools" className="text-xs text-violet-400 hover:text-violet-300 transition-colors">Ver todas →</Link>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-3">
+              <Link href="/tools/improve">
+                <Card className="h-full cursor-pointer border-border/50 bg-card/80 transition-all hover:border-violet-500/40 hover:bg-violet-500/5 hover:shadow-lg">
+                  <CardContent className="flex items-center gap-3 p-4">
+                    <div className="rounded-xl bg-violet-500/15 p-2.5 shrink-0">
+                      <Wand2 className="h-4 w-4 text-violet-400" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold">Melhorar Resposta</p>
+                      <p className="text-xs text-muted-foreground">Aprimore seu inglês</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/tools/generate">
+                <Card className="h-full cursor-pointer border-border/50 bg-card/80 transition-all hover:border-cyan-500/40 hover:bg-cyan-500/5 hover:shadow-lg">
+                  <CardContent className="flex items-center gap-3 p-4">
+                    <div className="rounded-xl bg-cyan-500/15 p-2.5 shrink-0">
+                      <MessageSquarePlus className="h-4 w-4 text-cyan-400" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold">Gerar Resposta</p>
+                      <p className="text-xs text-muted-foreground">3 versões prontas</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/tools/interview">
+                <Card className="h-full cursor-pointer border-border/50 bg-card/80 transition-all hover:border-emerald-500/40 hover:bg-emerald-500/5 hover:shadow-lg">
+                  <CardContent className="flex items-center gap-3 p-4">
+                    <div className="rounded-xl bg-emerald-500/15 p-2.5 shrink-0">
+                      <Mic2 className="h-4 w-4 text-emerald-400" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold">Treino de Entrevista</p>
+                      <p className="text-xs text-muted-foreground">Pratique com IA</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <div className="mb-6 rounded-xl border border-violet-500/20 bg-violet-500/5 p-5 flex items-center gap-4">
+            <div className="rounded-xl bg-violet-500/10 p-2.5 shrink-0">
+              <Lock className="h-5 w-5 text-violet-400/60" />
+            </div>
+            <div className="flex-1">
+              <p className="text-sm font-semibold">Ferramentas de IA — Básico e Premium</p>
+              <p className="text-xs text-muted-foreground">Melhorar respostas, gerar textos e treinar entrevistas com IA.</p>
+            </div>
+            <Button variant="gradient" size="sm" asChild>
+              <Link href="/pricing">Fazer upgrade</Link>
+            </Button>
+          </div>
+        )}
 
         {/* CTA banner */}
         <Card className="border-violet-500/20 bg-gradient-to-r from-violet-500/10 via-indigo-500/5 to-transparent">

@@ -26,6 +26,7 @@ model User {
   updatedAt            DateTime            @updatedAt
   transactions         CreditTransaction[]
   sessions             CallSession[]
+  toolUsages           ToolUsage[]
 }
 
 model CreditTransaction {
@@ -51,4 +52,12 @@ model CallSession {
   transcript  String?
   summary     String?
   createdAt   DateTime  @default(now())
+}
+
+model ToolUsage {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  tool      String
+  createdAt DateTime @default(now())
 }
