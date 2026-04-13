@@ -23,7 +23,7 @@ const FAQS = [
   {
     id: "credits",
     q: "Como funcionam os créditos?",
-    a: "Créditos são consumidos por transcrição, tradução e Copilot. Gratuito: 50 créditos. Básico: 500/mês. Premium: 1.000/mês. Recarga avulsa: 50 créditos por R$ 24,90.",
+    a: "Créditos são consumidos por transcrição, tradução e Copilot. Gratuito: 50 créditos. Básico: 500/mês. Premium: 1.000/mês. Recargas avulsas: 50 por R$ 24,90 · 150 por R$ 49,90 · 400 por R$ 119,90.",
   },
   {
     id: "login",
@@ -38,7 +38,7 @@ const FAQS = [
   {
     id: "pricing",
     q: "Quais são os planos?",
-    a: "• Gratuito: Grátis — 50 créditos\n• Básico: R$ 74,90/mês — 500 créditos\n• Premium: R$ 149,90/mês — 1.000 créditos\n• Recarga avulsa: R$ 24,90 — 50 créditos",
+    a: "• Gratuito: Grátis — 50 créditos\n• Básico: R$ 74,90/mês — 500 créditos\n• Premium: R$ 149,90/mês — 1.000 créditos\n\nRecargas avulsas:\n• R$ 24,90 — 50 créditos\n• R$ 49,90 — 150 créditos\n• R$ 119,90 — 400 créditos",
   },
   {
     id: "cancel",
