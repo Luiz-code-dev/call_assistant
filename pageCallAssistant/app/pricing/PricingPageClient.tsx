@@ -32,6 +32,8 @@ export default function PricingPageClient({
   stripePriceCredits50,
 }: Props) {
   const canTopUp = userPlan === "basic" || userPlan === "premium";
+  const PLAN_RANK: Record<string, number> = { free: 0, basic: 1, premium: 2 };
+  const currentRank = userPlan ? (PLAN_RANK[userPlan] ?? 0) : -1;
   const plans = [
     {
       id: "free",
@@ -123,6 +125,18 @@ export default function PricingPageClient({
   }, [searchParams]);
 
   async function handleSubscribe(plan: typeof plans[0]) {
+    if (userPlan !== null && plan.id === "free") {
+      toast.info("O plano gratuito já está incluído na sua conta.");
+      return;
+    }
+    if (plan.id === userPlan) {
+      toast.info("Você já assina este plano.");
+      return;
+    }
+    if (userPlan !== null && (PLAN_RANK[plan.id] ?? 0) < currentRank) {
+      toast.error("Para fazer downgrade, cancele seu plano atual pelo portal do Stripe.");
+      return;
+    }
     if (!plan.stripePrice) {
       if (plan.href) { window.location.href = plan.href; return; }
       toast.error("Sistema de pagamento não configurado. Verifique NEXT_PUBLIC_STRIPE_PRICE_* no Railway.");
@@ -183,6 +197,8 @@ export default function PricingPageClient({
       checkout_failed: "Stripe não retornou URL. Verifique os Price IDs.",
       stripe_error: "Erro no Stripe:",
       invalid_type: "Tipo inválido.",
+      already_subscribed_or_downgrade: "Você já assina este plano ou não é possível fazer downgrade aqui.",
+      already_purchased_this_month: "Você já comprou este pacote este mês.",
     };
     return msgs[code] ?? `Erro: ${code}`;
   }
@@ -194,10 +210,10 @@ export default function PricingPageClient({
         <div className="mx-auto max-w-5xl">
           {/* Header */}
           <div className="mb-16 text-center">
-            <Badge variant="purple" className="mb-4">Pricing</Badge>
+            <Badge variant="purple" className="mb-4">Planos</Badge>
             <h1 className="mb-4 text-5xl font-bold">
-              Simple, transparent,{" "}
-              <span className="gradient-text">no surprises</span>
+              Simples, transparente,{" "}
+              <span className="gradient-text">sem surpresas</span>
             </h1>
             <p className="mx-auto max-w-xl text-lg text-muted-foreground">
               Comece grátis. Faça upgrade quando quiser. Pague só pelo que usar. Preços em BRL.
@@ -210,16 +226,22 @@ export default function PricingPageClient({
               <Card
                 key={plan.id}
                 className={`relative border-border/50 transition-all ${
-                  plan.highlighted
+                  plan.id === userPlan
+                    ? "border-emerald-500/40 bg-emerald-500/5"
+                    : plan.highlighted
                     ? "border-violet-500/50 bg-violet-500/5 shadow-lg shadow-violet-500/10"
                     : "bg-card hover:border-violet-500/20"
                 }`}
               >
-                {plan.badge && (
+                {plan.id === userPlan ? (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <Badge className="bg-emerald-600 text-white border-0">Plano atual</Badge>
+                  </div>
+                ) : plan.badge ? (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                     <Badge variant="purple">{plan.badge}</Badge>
                   </div>
-                )}
+                ) : null}
                 <CardHeader>
                   <p className="text-sm text-muted-foreground">{plan.name}</p>
                   <CardTitle className="flex items-end gap-1">
@@ -243,19 +265,41 @@ export default function PricingPageClient({
                       </li>
                     ))}
                   </ul>
-                  <Button
-                    variant={plan.highlighted ? "gradient" : "outline"}
-                    className="w-full"
-                    onClick={() => handleSubscribe(plan)}
-                    disabled={loadingPlan === plan.id}
-                  >
-                    {loadingPlan === plan.id ? (
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    ) : (
-                      <ArrowRight className="mr-2 h-4 w-4" />
-                    )}
-                    {loadingPlan === plan.id ? "Aguarde..." : plan.cta}
-                  </Button>
+                  {(() => {
+                    const isCurrent = plan.id === userPlan;
+                    const isDowngrade = userPlan !== null && plan.id !== "free" && (PLAN_RANK[plan.id] ?? 0) < currentRank;
+                    const isFreeBlocked = plan.id === "free" && userPlan !== null;
+                    const isBlocked = isCurrent || isDowngrade || isFreeBlocked;
+                    return (
+                      <Button
+                        variant={isCurrent ? "outline" : plan.highlighted ? "gradient" : "outline"}
+                        className={`w-full ${
+                          isCurrent ? "border-emerald-500/40 text-emerald-400 cursor-default" : ""
+                        }`}
+                        onClick={() => handleSubscribe(plan)}
+                        disabled={loadingPlan === plan.id || isBlocked}
+                      >
+                        {loadingPlan === plan.id ? (
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        ) : isCurrent ? (
+                          <CheckCircle2 className="mr-2 h-4 w-4" />
+                        ) : isBlocked ? (
+                          <Lock className="mr-2 h-4 w-4" />
+                        ) : (
+                          <ArrowRight className="mr-2 h-4 w-4" />
+                        )}
+                        {loadingPlan === plan.id
+                          ? "Aguarde..."
+                          : isCurrent
+                          ? "Plano atual"
+                          : isFreeBlocked
+                          ? "Incluso na sua conta"
+                          : isDowngrade
+                          ? "Downgrade — contate suporte"
+                          : plan.cta}
+                      </Button>
+                    );
+                  })()}
                 </CardContent>
               </Card>
             ))}
@@ -280,7 +324,7 @@ export default function PricingPageClient({
                         <p className="text-2xl font-bold">{pack.price}</p>
                         <div className="flex items-center gap-1 mt-1">
                           <Zap className="h-3.5 w-3.5 text-violet-400" />
-                          <span className="text-sm text-muted-foreground">{pack.credits} credits</span>
+                          <span className="text-sm text-muted-foreground">{pack.credits} créditos</span>
                         </div>
                       </div>
                       <Button

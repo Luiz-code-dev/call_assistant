@@ -53,6 +53,18 @@ export async function POST(req: NextRequest) {
 
   try {
     if (type === "subscription") {
+      if (plan) {
+        const PLAN_RANK: Record<string, number> = { free: 0, basic: 1, premium: 2 };
+        const dbUser = await db.user.findUnique({ where: { id: session.sub }, select: { plan: true } });
+        if (dbUser) {
+          const currentRank = PLAN_RANK[dbUser.plan] ?? 0;
+          const targetRank = PLAN_RANK[plan] ?? 0;
+          if (targetRank <= currentRank) {
+            return NextResponse.json({ error: "already_subscribed_or_downgrade" }, { status: 409 });
+          }
+        }
+      }
+
       const checkoutSession = await stripe.checkout.sessions.create({
         mode: "subscription",
         customer_email: session.email,
