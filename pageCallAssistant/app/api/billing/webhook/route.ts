@@ -95,13 +95,19 @@ export async function POST(req: NextRequest) {
       const sub = event.data.object as Stripe.Subscription;
       const customerId = sub.customer as string;
       try {
-        await db.user.updateMany({
-          where: { stripeCustomerId: customerId } as any,
-          data: { plan: "free" },
-        });
-        console.log(`[webhook] Assinatura cancelada para customerId=${customerId}`);
+        const customer = await stripe.customers.retrieve(customerId);
+        const email = !customer.deleted ? (customer as Stripe.Customer).email : null;
+        if (email) {
+          await db.user.updateMany({
+            where: { email },
+            data: { plan: "free" },
+          });
+          console.log(`[webhook] Plano resetado para free — email=${email}`);
+        } else {
+          console.warn(`[webhook] customer.subscription.deleted — email não encontrado para customerId=${customerId}`);
+        }
       } catch (dbErr) {
-        console.error("[webhook] Erro ao cancelar assinatura:", dbErr);
+        console.error("[webhook] Erro ao resetar plano:", dbErr);
       }
       break;
     }
