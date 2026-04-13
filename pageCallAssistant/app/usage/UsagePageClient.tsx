@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import {
   Mic2, LogOut, ArrowLeft, Zap, TrendingDown, TrendingUp,
-  Loader2, CreditCard, RefreshCw, ArrowUpRight,
+  Loader2, CreditCard, RefreshCw, ArrowUpRight, CheckCircle2,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -117,6 +117,10 @@ export default function UsagePageClient({
       toast.error("Pagamento não configurado. Configure as variáveis Stripe no Railway.");
       return;
     }
+    if (purchasedThisMonth.has(pack.credits)) {
+      toast.error("Você já comprou este pacote este mês. Escolha outro pacote.");
+      return;
+    }
     setBuying(pack.priceId);
     try {
       const sfToken = typeof window !== "undefined" ? sessionStorage.getItem("sf_token") : null;
@@ -127,7 +131,11 @@ export default function UsagePageClient({
       });
       const data = await res.json();
       if (!res.ok || !data.url) {
-        toast.error(data.error === "not_authenticated" ? "Sessão expirada. Faça login novamente." : `Erro no checkout: ${data.error ?? "desconhecido"}${data.detail ? ` (${data.detail})` : ""}`);
+        const msg =
+          data.error === "not_authenticated" ? "Sessão expirada. Faça login novamente."
+          : data.error === "already_purchased_this_month" ? "Você já comprou este pacote este mês. Escolha outro pacote."
+          : `Erro no checkout: ${data.error ?? "desconhecido"}${data.detail ? ` (${data.detail})` : ""}`;
+        toast.error(msg);
         return;
       }
       window.location.href = data.url;
@@ -157,6 +165,15 @@ export default function UsagePageClient({
   const used = wallet?.usedThisCycle ?? 0;
   const topUpBalance = wallet?.bonusBalance ?? 0;
   const usedPct = allocation > 0 ? Math.min(100, (used / allocation) * 100) : 0;
+
+  const startOfMonth = new Date();
+  startOfMonth.setDate(1);
+  startOfMonth.setHours(0, 0, 0, 0);
+  const purchasedThisMonth = new Set(
+    transactions
+      .filter(tx => tx.type === "credit" && tx.source === "purchase" && new Date(tx.createdAt) >= startOfMonth)
+      .map(tx => tx.amount)
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -323,17 +340,28 @@ export default function UsagePageClient({
                   <button
                     key={pack.priceId}
                     onClick={() => handleTopUp(pack)}
-                    disabled={!!buying}
-                    className="group flex flex-col items-center gap-1 rounded-xl border border-violet-500/20 bg-background/50 p-4 text-center transition hover:border-violet-500/50 hover:bg-violet-500/10 disabled:opacity-50"
+                    disabled={!!buying || purchasedThisMonth.has(pack.credits)}
+                    className={`group flex flex-col items-center gap-1 rounded-xl border p-4 text-center transition ${
+                      purchasedThisMonth.has(pack.credits)
+                        ? "border-emerald-500/20 bg-emerald-500/5 cursor-not-allowed"
+                        : "border-violet-500/20 bg-background/50 hover:border-violet-500/50 hover:bg-violet-500/10 disabled:opacity-50"
+                    }`}
                   >
                     {buying === pack.priceId ? (
                       <Loader2 className="h-5 w-5 animate-spin text-violet-400" />
                     ) : (
-                      <span className="text-xl font-bold">{pack.label}</span>
+                      <span className={`text-xl font-bold ${purchasedThisMonth.has(pack.credits) ? "text-muted-foreground" : ""}`}>
+                        {pack.label}
+                      </span>
                     )}
-                    <span className="text-xs text-muted-foreground group-hover:text-violet-300 transition">
-                      {pack.credits} credits
+                    <span className="text-xs text-muted-foreground transition">
+                      {pack.credits} créditos
                     </span>
+                    {purchasedThisMonth.has(pack.credits) && (
+                      <span className="mt-1 flex items-center gap-1 text-xs font-medium text-emerald-400">
+                        <CheckCircle2 className="h-3 w-3" /> Comprado este mês
+                      </span>
+                    )}
                   </button>
                 ))}
               </div>

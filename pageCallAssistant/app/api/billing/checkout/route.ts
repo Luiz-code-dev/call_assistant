@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { verifyToken } from "@/lib/auth";
+import { db } from "@/lib/db";
 
 function appRedirect(path: string): NextResponse {
   const base = process.env.NEXT_PUBLIC_APP_URL || "https://www.speakf.com.br";
@@ -68,6 +69,25 @@ export async function POST(req: NextRequest) {
     }
 
     if (type === "credits") {
+      const creditsAmount = Number(credits ?? 0);
+      if (creditsAmount > 0) {
+        const startOfMonth = new Date();
+        startOfMonth.setDate(1);
+        startOfMonth.setHours(0, 0, 0, 0);
+        const existing = await (db as any).creditTransaction.findFirst({
+          where: {
+            userId: session.sub,
+            type: "credit",
+            source: "purchase",
+            amount: creditsAmount,
+            createdAt: { gte: startOfMonth },
+          },
+        });
+        if (existing) {
+          return NextResponse.json({ error: "already_purchased_this_month" }, { status: 409 });
+        }
+      }
+
       const checkoutSession = await stripe.checkout.sessions.create({
         mode: "payment",
         customer_email: session.email,
