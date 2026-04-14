@@ -7,7 +7,7 @@ import { getSession } from "@/lib/auth";
 import {
   BookOpen, Mic2, Globe, Brain, Wand2, MessageSquarePlus,
   CheckCircle2, ArrowRight, Download, Zap, Star, Volume2,
-  Settings, Play, Send, RotateCcw, ChevronRight,
+  Settings, Play, Send, RotateCcw, ChevronRight, Instagram,
 } from "lucide-react";
 
 export default async function GuiaPage() {
@@ -420,10 +420,21 @@ export default async function GuiaPage() {
 
       <SupportChat />
 
-      <footer className="border-t border-border/50 px-6 py-8 text-center">
-        <p className="text-xs text-muted-foreground">
-          © 2025 SpeakFlow · <Link href="/" className="hover:text-foreground">Início</Link> · <Link href="/pricing" className="hover:text-foreground">Preços</Link>
-        </p>
+      <footer className="border-t border-border/50 px-6 py-8">
+        <div className="mx-auto flex max-w-3xl flex-col items-center justify-between gap-3 sm:flex-row">
+          <p className="text-xs text-muted-foreground">
+            © 2025 SpeakFlow · <Link href="/" className="hover:text-foreground">Início</Link> · <Link href="/pricing" className="hover:text-foreground">Preços</Link>
+          </p>
+          <a
+            href="https://www.instagram.com/speakflowofficial?igsh=ZmljYW5keDR4dWt1&utm_source=qr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-pink-400 transition-colors"
+          >
+            <Instagram className="h-3.5 w-3.5" />
+            @speakflowofficial
+          </a>
+        </div>
       </footer>
     </div>
   );

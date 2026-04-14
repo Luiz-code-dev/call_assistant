@@ -7,7 +7,7 @@ import { getSession } from "@/lib/auth";
 import {
   Mic2, Zap, Globe, Brain, Shield, Download,
   CheckCircle2, ArrowRight, Star, ChevronRight,
-  AlertTriangle, TrendingUp, Wand2, MessageSquarePlus, BookOpen, Sparkles,
+  AlertTriangle, TrendingUp, Wand2, MessageSquarePlus, BookOpen, Sparkles, Instagram,
 } from "lucide-react";
 
 const features = [
@@ -538,11 +538,20 @@ export default async function Home() {
           <p className="text-xs text-muted-foreground">
             © 2025 SpeakFlow. Todos os direitos reservados.
           </p>
-          <div className="flex gap-4">
+          <div className="flex items-center gap-4">
             <Link href="/pricing" className="text-xs text-muted-foreground hover:text-foreground">Preços</Link>
             <Link href="/guia" className="text-xs text-muted-foreground hover:text-foreground">Guia</Link>
             <Link href="/login" className="text-xs text-muted-foreground hover:text-foreground">Login</Link>
             <Link href="/register" className="text-xs text-muted-foreground hover:text-foreground">Cadastro</Link>
+            <a
+              href="https://www.instagram.com/speakflowofficial?igsh=ZmljYW5keDR4dWt1&utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-pink-400 transition-colors"
+              title="@speakflowofficial no Instagram"
+            >
+              <Instagram className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </footer>

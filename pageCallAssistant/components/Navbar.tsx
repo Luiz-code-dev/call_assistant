@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { LayoutDashboard, LogOut } from "lucide-react";
+import { LayoutDashboard, LogOut, Instagram } from "lucide-react";
 
 interface AuthUser {
   id: string;
@@ -47,6 +47,15 @@ export function Navbar({ initialUser }: NavbarProps = {}) {
             <Link href="/#ferramentas" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Ferramentas IA</Link>
             <Link href="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Preços</Link>
             <Link href="/guia" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Guia</Link>
+            <a
+              href="https://www.instagram.com/speakflowofficial?igsh=ZmljYW5keDR4dWt1&utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-pink-400 transition-colors"
+              title="@speakflowofficial"
+            >
+              <Instagram className="h-4 w-4" />
+            </a>
           </nav>
         )}
 
