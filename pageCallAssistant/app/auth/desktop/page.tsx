@@ -114,14 +114,12 @@ export default function DesktopAuthPage() {
       )}
 
       <div className="mt-8 pt-6 border-t border-border/40">
-        <Button
-          variant="ghost"
-          size="sm"
-          className="text-xs text-muted-foreground hover:text-foreground"
-          onClick={() => router.push("/dashboard")}
+        <a
+          href="/dashboard"
+          className="text-xs text-muted-foreground hover:text-foreground transition-colors underline-offset-4 hover:underline"
         >
           Ir para o Dashboard →
-        </Button>
+        </a>
       </div>
     </div>
   );
