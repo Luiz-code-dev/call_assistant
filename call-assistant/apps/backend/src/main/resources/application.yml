@@ -51,7 +51,7 @@ callassistant:
     openai:
       base-url: https://api.openai.com/v1
       api-key: ${OPENAI_API_KEY:}
-      transcription-model: gpt-4o-mini-transcribe
+      transcription-model: whisper-1
       translation-model: gpt-4.1-mini
       tts-model: tts-1
       copilot-prompt-id: ${OPENAI_COPILOT_PROMPT_ID:}
