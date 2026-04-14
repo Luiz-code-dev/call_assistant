@@ -44,6 +44,10 @@ export async function middleware(req: NextRequest) {
   }
 
   if (isAuthRoute && validToken) {
+    const callback = req.nextUrl.searchParams.get("callback");
+    if (callback === "desktop") {
+      return NextResponse.redirect(new URL("/auth/desktop", req.url));
+    }
     return NextResponse.redirect(new URL("/dashboard", req.url));
   }
 

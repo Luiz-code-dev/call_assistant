@@ -112,6 +112,17 @@ export default function DesktopAuthPage() {
           </Button>
         </>
       )}
+
+      <div className="mt-8 pt-6 border-t border-border/40">
+        <Button
+          variant="ghost"
+          size="sm"
+          className="text-xs text-muted-foreground hover:text-foreground"
+          onClick={() => router.push("/dashboard")}
+        >
+          Ir para o Dashboard →
+        </Button>
+      </div>
     </div>
   );
 }
