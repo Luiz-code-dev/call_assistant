@@ -24,6 +24,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -36,6 +37,12 @@ public class WhisperSpeechToTextAdapter implements SpeechToTextPort {
     private static final short CHANNELS = 1;
     private static final short BITS_PER_SAMPLE = 16;
 
+    // Silence trimming: 50ms window, RMS threshold ~1% of full scale
+    private static final int    SILENCE_WINDOW_SAMPLES  = 800;
+    private static final double SILENCE_RMS_THRESHOLD   = 300.0;
+    // Minimum 0.5s of speech after trim to bother calling Whisper
+    private static final int    MIN_SPEECH_BYTES        = SAMPLE_RATE * 2 / 2; // 0.5s
+
     private final WebClient openAiWebClient;
     private final OpenAiProperties openAiProperties;
 
@@ -46,17 +53,47 @@ public class WhisperSpeechToTextAdapter implements SpeechToTextPort {
         this.openAiProperties = openAiProperties;
     }
 
+    private static final String TRANSCRIPTION_PROMPT =
+            "Java, Spring Boot, microservices, enterprise, framework, API, database, " +
+            "technical interview, software developer, Kubernetes, Docker, React, Angular, " +
+            "TypeScript, Python, AWS, Azure, backend, frontend, agile, sprint, pull request, " +
+            "What specific, Could you describe, How did you, Tell me about";
+
     @Override
     public Flux<Transcript> transcribe(String sessionId, Flux<AudioChunk> audioStream, Language language) {
         log.info("STT stream started — sessionId={}, language={}", sessionId, language.getCode());
         return audioStream
-                .bufferTimeout(10, Duration.ofSeconds(2))
+                .bufferTimeout(500, Duration.ofSeconds(5))
                 .flatMap(chunks -> callWhisperApi(sessionId, mergeChunks(chunks), language))
                 .doOnError(e -> log.error("STT error — sessionId={}", sessionId, e));
     }
 
+    /** Removes trailing silence windows from raw PCM-16 LE mono data. */
+    private byte[] trimTrailingSilence(byte[] pcmData) {
+        int windowBytes = SILENCE_WINDOW_SAMPLES * 2;
+        int lastActive  = 0;
+        for (int i = 0; i + windowBytes <= pcmData.length; i += windowBytes) {
+            long sumSq = 0;
+            for (int j = i; j < i + windowBytes - 1; j += 2) {
+                short s = (short) ((pcmData[j + 1] << 8) | (pcmData[j] & 0xFF));
+                sumSq += (long) s * s;
+            }
+            double rms = Math.sqrt((double) sumSq / SILENCE_WINDOW_SAMPLES);
+            if (rms > SILENCE_RMS_THRESHOLD) {
+                lastActive = i + windowBytes;
+            }
+        }
+        return lastActive == 0 ? new byte[0] : Arrays.copyOf(pcmData, lastActive);
+    }
+
     private Flux<Transcript> callWhisperApi(String sessionId, byte[] pcmData, Language language) {
-        return Mono.fromCallable(() -> wrapPcmAsWav(pcmData))
+        var trimmed = trimTrailingSilence(pcmData);
+        if (trimmed.length < MIN_SPEECH_BYTES) {
+            log.debug("Skipping silent/short buffer ({}B after trim) — sessionId={}", trimmed.length, sessionId);
+            return Flux.empty();
+        }
+        log.debug("Buffer trimmed {}B -> {}B — sessionId={}", pcmData.length, trimmed.length, sessionId);
+        return Mono.fromCallable(() -> wrapPcmAsWav(trimmed))
                 .flatMap(wav -> {
                     log.debug("Sending {}B WAV to Whisper — sessionId={}", wav.length, sessionId);
 
@@ -64,6 +101,8 @@ public class WhisperSpeechToTextAdapter implements SpeechToTextPort {
                     body.part("model", openAiProperties.getTranscriptionModel());
                     body.part("language", language.getCode().split("-")[0]);
                     body.part("response_format", "json");
+                    body.part("temperature", "0");
+                    body.part("prompt", TRANSCRIPTION_PROMPT);
                     body.part("file", new NamedByteArrayResource("audio.wav", wav))
                             .contentType(MediaType.parseMediaType("audio/wav"));
 
