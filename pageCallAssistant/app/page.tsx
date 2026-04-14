@@ -512,14 +512,14 @@ export default async function Home() {
               </Link>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <a href="https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.0/SpeakFlow-Setup-0.1.0.exe">
+              <a href="https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.1/SpeakFlow-Setup-0.1.1.exe">
                 <Download className="mr-2 h-4 w-4" />
-                Baixar SpeakFlow-Setup-0.1.0.exe
+                Baixar SpeakFlow-Setup-0.1.1.exe
               </a>
             </Button>
           </div>
           <p className="mt-4 text-xs text-muted-foreground">
-            Windows 10/11 64-bit • Versão 0.1.0 • 80 MB
+            Windows 10/11 64-bit • Versão 0.1.1 • 80 MB
           </p>
         </div>
       </section>
