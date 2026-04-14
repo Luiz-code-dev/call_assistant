@@ -146,7 +146,7 @@ public class ProcessAudioChunkUseCaseImpl implements ProcessAudioChunkUseCase {
         }
 
         return copilotPort
-                .map(cp -> cp.suggest(sessionId, saved.getText(), config)
+                .map(cp -> cp.suggest(sessionId, context, config)
                         .flatMap(suggestion -> {
                             eventPublisher.emitSuggestion(sessionId, suggestion);
                             Mono<Void> deduct = walletPort
