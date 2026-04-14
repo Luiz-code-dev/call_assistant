@@ -1,6 +1,7 @@
 [build]
 builder = "dockerfile"
 dockerfilePath = "Dockerfile"
+watchPatterns = ["apps/backend/**", "apps/backend/Dockerfile"]
 
 [deploy]
 startCommand = "java -jar app.jar"
