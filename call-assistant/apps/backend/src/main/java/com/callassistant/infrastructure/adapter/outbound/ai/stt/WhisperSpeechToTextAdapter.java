@@ -63,6 +63,19 @@ public class WhisperSpeechToTextAdapter implements SpeechToTextPort {
     // Repetition detection: discard chunk if any 3-word sequence repeats more than this many times
     private static final int MAX_NGRAM_REPEATS = 3;
 
+    // Known Whisper hallucination phrases (YouTube-style content injected by the model)
+    private static final List<String> HALLUCINATION_PHRASES = List.of(
+            "thank you for watching",
+            "like share and subscribe",
+            "subscribe to my channel",
+            "see you in the next video",
+            "don't forget to subscribe",
+            "leave a comment below",
+            "hit the like button",
+            "turn on notifications",
+            "smash the like button"
+    );
+
     @Override
     public Flux<Transcript> transcribe(String sessionId, Flux<AudioChunk> audioStream, Language language) {
         log.info("STT stream started — sessionId={}, language={}", sessionId, language.getCode());
@@ -119,9 +132,15 @@ public class WhisperSpeechToTextAdapter implements SpeechToTextPort {
                 })
                 .filter(r -> r.text() != null && !r.text().isBlank())
                 .filter(r -> {
-                    if (isHallucinatedRepetition(r.text())) {
+                    var t = r.text().trim();
+                    if (isHallucinatedRepetition(t)) {
                         log.warn("Discarding hallucinated repetition — sessionId={}, text='{}'...",
-                                sessionId, r.text().trim().substring(0, Math.min(60, r.text().trim().length())));
+                                sessionId, t.substring(0, Math.min(60, t.length())));
+                        return false;
+                    }
+                    if (isHallucinatedContent(t)) {
+                        log.warn("Discarding YouTube-style hallucination — sessionId={}, text='{}'...",
+                                sessionId, t.substring(0, Math.min(60, t.length())));
                         return false;
                     }
                     return true;
@@ -139,6 +158,14 @@ public class WhisperSpeechToTextAdapter implements SpeechToTextPort {
                     log.error("Whisper API error — sessionId={}", sessionId, e);
                     return Flux.empty();
                 });
+    }
+
+    /**
+     * Detects YouTube-style hallucinations injected by Whisper from its training data.
+     */
+    private static boolean isHallucinatedContent(String text) {
+        var lower = text.toLowerCase();
+        return HALLUCINATION_PHRASES.stream().anyMatch(lower::contains);
     }
 
     /**

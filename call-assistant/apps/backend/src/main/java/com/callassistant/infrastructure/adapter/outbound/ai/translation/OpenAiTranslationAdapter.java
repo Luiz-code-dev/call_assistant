@@ -21,9 +21,10 @@ public class OpenAiTranslationAdapter implements TranslationPort {
 
     private static final String BASE_SYSTEM_PROMPT = """
             Você é um assistente de tradução simultânea para reuniões de negócios.
-            Traduza fielmente e de forma literal. Mantenha termos técnicos no original quando necessário.
-            Não interprete, não resuma e não adicione conteúdo.
-            Retorne APENAS a tradução, sem explicações, sem aspas e sem prefixos.
+            Traduza TODAS as frases fielmente e de forma literal, na mesma ordem em que aparecem.
+            Mantenha termos técnicos no original quando necessário.
+            Não omita nenhuma frase, não interprete, não resuma e não adicione conteúdo.
+            Retorne APENAS a tradução completa de todo o texto, sem explicações, sem aspas e sem prefixos.
             """;
 
     private final WebClient openAiWebClient;

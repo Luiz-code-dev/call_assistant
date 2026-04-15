@@ -45,13 +45,18 @@ function speakText(text: string) {
   window.speechSynthesis.cancel();
   const utter = new SpeechSynthesisUtterance(text);
   utter.lang = "en-US";
-  utter.rate = 0.95;
-  utter.pitch = 1;
+  utter.rate = 0.80;
+  utter.pitch = 0.92;
+  utter.volume = 1;
   const voices = window.speechSynthesis.getVoices();
-  const enVoice = voices.find(
-    (v) => v.lang.startsWith("en") && (v.name.includes("Google") || v.name.includes("Natural") || v.name.includes("Female"))
-  ) ?? voices.find((v) => v.lang.startsWith("en")) ?? null;
-  if (enVoice) utter.voice = enVoice;
+  const preferred =
+    voices.find((v) => v.lang === "en-US" && v.name.includes("Google")) ??
+    voices.find((v) => v.lang === "en-US" && (v.name.includes("Natural") || v.name.includes("Premium") || v.name.includes("Enhanced"))) ??
+    voices.find((v) => v.lang === "en-US" && v.name.match(/Jenny|Aria|Guy|Davis/i)) ??
+    voices.find((v) => v.lang === "en-US") ??
+    voices.find((v) => v.lang.startsWith("en")) ??
+    null;
+  if (preferred) utter.voice = preferred;
   window.speechSynthesis.speak(utter);
 }
 
@@ -77,11 +82,13 @@ export default function InterviewClient({ userPlan, credits: initialCredits }: P
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  // Pre-load voices
+  // Pre-load voices — also listen for async load (Chrome fires voiceschanged)
   useEffect(() => {
-    if (typeof window !== "undefined" && window.speechSynthesis) {
-      window.speechSynthesis.getVoices();
-    }
+    if (typeof window === "undefined" || !window.speechSynthesis) return;
+    window.speechSynthesis.getVoices();
+    const onVoicesChanged = () => window.speechSynthesis.getVoices();
+    window.speechSynthesis.addEventListener("voiceschanged", onVoicesChanged);
+    return () => window.speechSynthesis.removeEventListener("voiceschanged", onVoicesChanged);
   }, []);
 
   const callAPI = useCallback(async (
