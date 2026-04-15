@@ -56,9 +56,9 @@ public class WhisperSpeechToTextAdapter implements SpeechToTextPort {
     }
 
     private static final String TRANSCRIPTION_PROMPT =
-            "Java, Spring Boot, microservices, enterprise, framework, API, database, " +
-            "technical interview, software developer, Kubernetes, Docker, React, Angular, " +
-            "TypeScript, Python, AWS, Azure, backend, frontend, agile, sprint, pull request";
+            "technical interview, software developer, Java, Spring Boot, microservices, " +
+            "Kubernetes, Docker, AWS, Azure, agile, sprint, pull request, chargeback, " +
+            "SpeakFlow, backend, frontend";
 
     // Repetition detection: discard chunk if any 3-word sequence repeats more than this many times
     private static final int MAX_NGRAM_REPEATS = 3;
