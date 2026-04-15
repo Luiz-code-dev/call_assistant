@@ -64,6 +64,7 @@ callassistant:
       provider: openai
     copilot:
       provider: openai
+      python-service-url: ${COPILOT_SERVICE_URL:http://localhost:8080}
   wallet:
     web-app-url: ${WEB_APP_URL:https://www.speakf.com.br}
     internal-secret: ${INTERNAL_API_SECRET:change-me}
