@@ -25,7 +25,9 @@ import java.nio.ByteOrder;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Slf4j
@@ -56,8 +58,10 @@ public class WhisperSpeechToTextAdapter implements SpeechToTextPort {
     private static final String TRANSCRIPTION_PROMPT =
             "Java, Spring Boot, microservices, enterprise, framework, API, database, " +
             "technical interview, software developer, Kubernetes, Docker, React, Angular, " +
-            "TypeScript, Python, AWS, Azure, backend, frontend, agile, sprint, pull request, " +
-            "What specific, Could you describe, How did you, Tell me about";
+            "TypeScript, Python, AWS, Azure, backend, frontend, agile, sprint, pull request";
+
+    // Repetition detection: discard chunk if any 3-word sequence repeats more than this many times
+    private static final int MAX_NGRAM_REPEATS = 3;
 
     @Override
     public Flux<Transcript> transcribe(String sessionId, Flux<AudioChunk> audioStream, Language language) {
@@ -101,7 +105,7 @@ public class WhisperSpeechToTextAdapter implements SpeechToTextPort {
                     body.part("model", openAiProperties.getTranscriptionModel());
                     body.part("language", language.getCode().split("-")[0]);
                     body.part("response_format", "json");
-                    body.part("temperature", "0");
+                    body.part("temperature", "0.2");
                     body.part("prompt", TRANSCRIPTION_PROMPT);
                     body.part("file", new NamedByteArrayResource("audio.wav", wav))
                             .contentType(MediaType.parseMediaType("audio/wav"));
@@ -114,6 +118,14 @@ public class WhisperSpeechToTextAdapter implements SpeechToTextPort {
                             .bodyToMono(WhisperResponse.class);
                 })
                 .filter(r -> r.text() != null && !r.text().isBlank())
+                .filter(r -> {
+                    if (isHallucinatedRepetition(r.text())) {
+                        log.warn("Discarding hallucinated repetition — sessionId={}, text='{}'...",
+                                sessionId, r.text().trim().substring(0, Math.min(60, r.text().trim().length())));
+                        return false;
+                    }
+                    return true;
+                })
                 .map(r -> {
                     var ts = System.currentTimeMillis();
                     log.info("Transcribed — sessionId={}, text={}", sessionId, r.text().trim());
@@ -127,6 +139,23 @@ public class WhisperSpeechToTextAdapter implements SpeechToTextPort {
                     log.error("Whisper API error — sessionId={}", sessionId, e);
                     return Flux.empty();
                 });
+    }
+
+    /**
+     * Detects Whisper hallucination loops by checking if any 3-word n-gram
+     * repeats more than MAX_NGRAM_REPEATS times in the transcription.
+     */
+    private static boolean isHallucinatedRepetition(String text) {
+        String[] words = text.trim().split("\\s+");
+        if (words.length < MAX_NGRAM_REPEATS * 3 + 1) {
+            return false;
+        }
+        Map<String, Integer> counts = new LinkedHashMap<>();
+        for (int i = 0; i <= words.length - 3; i++) {
+            String gram = words[i] + " " + words[i + 1] + " " + words[i + 2];
+            counts.merge(gram, 1, Integer::sum);
+        }
+        return counts.values().stream().mapToInt(v -> v).max().orElse(0) > MAX_NGRAM_REPEATS;
     }
 
     private byte[] mergeChunks(List<AudioChunk> chunks) {
