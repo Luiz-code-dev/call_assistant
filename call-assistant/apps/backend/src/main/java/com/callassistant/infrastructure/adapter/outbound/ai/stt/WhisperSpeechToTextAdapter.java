@@ -67,7 +67,7 @@ public class WhisperSpeechToTextAdapter implements SpeechToTextPort {
     public Flux<Transcript> transcribe(String sessionId, Flux<AudioChunk> audioStream, Language language) {
         log.info("STT stream started — sessionId={}, language={}", sessionId, language.getCode());
         return audioStream
-                .bufferTimeout(500, Duration.ofSeconds(5))
+                .bufferTimeout(500, Duration.ofSeconds(3))
                 .flatMap(chunks -> callWhisperApi(sessionId, mergeChunks(chunks), language))
                 .doOnError(e -> log.error("STT error — sessionId={}", sessionId, e));
     }

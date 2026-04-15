@@ -145,11 +145,15 @@ public class ProcessAudioChunkUseCaseImpl implements ProcessAudioChunkUseCase {
             return fallbackTranslate(sessionId, saved, src, tgt, ctx);
         }
 
-        return copilotPort
-                .map(cp -> cp.suggest(sessionId, context, config)
+        // Translation emits immediately — user does not wait for copilot
+        Mono<Void> translateNow = fallbackTranslate(sessionId, saved, src, tgt, ctx);
+
+        // Copilot runs in the background and pushes suggestion when ready
+        copilotPort.ifPresent(cp ->
+                cp.suggest(sessionId, context, config)
                         .flatMap(suggestion -> {
                             eventPublisher.emitSuggestion(sessionId, suggestion);
-                            Mono<Void> deduct = walletPort
+                            return walletPort
                                     .map(wp -> wp.deductCredits(session.getUserId(), 1, "usage",
                                             "Copilot response — session " + sessionId)
                                             .onErrorResume(InsufficientCreditsException.class, e -> {
@@ -165,20 +169,15 @@ public class ProcessAudioChunkUseCaseImpl implements ProcessAudioChunkUseCase {
                                                 return Mono.empty();
                                             }))
                                     .orElse(Mono.empty());
-                            var translation = Translation.create(
-                                    saved.getSessionId(), saved.getId(),
-                                    saved.getText(), suggestion.contextSummary(),
-                                    src, tgt);
-                            return deduct.then(translationRepository.save(translation)
-                                    .doOnNext(t -> eventPublisher.emitTranslation(sessionId, t))
-                                    .then());
                         })
-                        .switchIfEmpty(fallbackTranslate(sessionId, saved, src, tgt, ctx))
                         .onErrorResume(e -> {
-                            log.warn("Copilot failed, falling back to translation — {}", e.getMessage());
-                            return fallbackTranslate(sessionId, saved, src, tgt, ctx);
-                        }))
-                .orElseGet(() -> fallbackTranslate(sessionId, saved, src, tgt, ctx));
+                            log.warn("Copilot background error — sessionId={}: {}", sessionId, e.getMessage());
+                            return Mono.empty();
+                        })
+                        .subscribe()
+        );
+
+        return translateNow;
     }
 
     private Mono<Void> fallbackTranslate(String sessionId, Transcript saved,
