@@ -8,10 +8,24 @@ export async function GET(req: NextRequest) {
 
   const { searchParams } = new URL(req.url);
   const challengeId = searchParams.get("challengeId");
+  const mine = searchParams.get("mine") === "true";
   if (!challengeId) return NextResponse.json({ error: "challengeId obrigatório." }, { status: 400 });
 
+  if (mine) {
+    const submissions = await db.submission.findMany({
+      where: { challengeId, userId: session.sub },
+      include: {
+        evaluation: {
+          select: { totalScore: true, fluencyScore: true, contentScore: true, clarityScore: true, feedback: true, improvedResponse: true, tip: true },
+        },
+      },
+      orderBy: { createdAt: "desc" },
+    });
+    return NextResponse.json(submissions);
+  }
+
   const submissions = await db.submission.findMany({
-    where: { challengeId, isPublic: true },
+    where: { challengeId, isPublic: true, isSelected: true },
     include: {
       user: { select: { id: true, name: true, avatarUrl: true } },
       evaluation: {
@@ -40,10 +54,9 @@ export async function POST(req: NextRequest) {
   if (content.trim().length > 3000)
     return NextResponse.json({ error: "Resposta muito longa (máx. 3000 caracteres)." }, { status: 400 });
 
-  const [member, challenge, existing] = await Promise.all([
+  const [member, challenge] = await Promise.all([
     db.circleMember.findUnique({ where: { circleId_userId: { circleId, userId: session.sub } } }),
     db.challenge.findUnique({ where: { id: challengeId } }),
-    db.submission.findUnique({ where: { userId_challengeId: { userId: session.sub, challengeId } } }),
   ]);
 
   if (!member || member.status !== "active")
@@ -51,7 +64,11 @@ export async function POST(req: NextRequest) {
   if (!challenge) return NextResponse.json({ error: "Desafio não encontrado." }, { status: 404 });
   if (new Date() > challenge.endsAt)
     return NextResponse.json({ error: "O período de submissão encerrou." }, { status: 410 });
-  if (existing) return NextResponse.json({ error: "Você já enviou uma resposta para este desafio." }, { status: 409 });
+
+  await db.submission.updateMany({
+    where: { userId: session.sub, challengeId },
+    data: { isSelected: false },
+  });
 
   const submission = await db.submission.create({
     data: {
@@ -60,6 +77,7 @@ export async function POST(req: NextRequest) {
       circleId,
       content: content.trim(),
       isPublic: isPublic !== false,
+      isSelected: true,
     },
   });
 

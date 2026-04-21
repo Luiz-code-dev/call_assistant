@@ -24,10 +24,9 @@ export async function POST(req: NextRequest) {
   if (audio.size > 25 * 1024 * 1024)
     return NextResponse.json({ error: "Áudio muito grande (máx. 25 MB)." }, { status: 413 });
 
-  const [member, challenge, existing] = await Promise.all([
+  const [member, challenge] = await Promise.all([
     db.circleMember.findUnique({ where: { circleId_userId: { circleId, userId: session.sub } } }),
     db.challenge.findUnique({ where: { id: challengeId } }),
-    db.submission.findUnique({ where: { userId_challengeId: { userId: session.sub, challengeId } } }),
   ]);
 
   if (!member || member.status !== "active")
@@ -35,7 +34,6 @@ export async function POST(req: NextRequest) {
   if (!challenge) return NextResponse.json({ error: "Desafio não encontrado." }, { status: 404 });
   if (new Date() > challenge.endsAt)
     return NextResponse.json({ error: "O período de submissão encerrou." }, { status: 410 });
-  if (existing) return NextResponse.json({ error: "Você já enviou uma resposta para este desafio." }, { status: 409 });
 
   try {
     const openai = getOpenAI();
@@ -51,12 +49,18 @@ export async function POST(req: NextRequest) {
     if (!content)
       return NextResponse.json({ error: "Não foi possível transcrever o áudio. Tente novamente." }, { status: 422 });
 
+    await db.submission.updateMany({
+      where: { userId: session.sub, challengeId },
+      data: { isSelected: false },
+    });
+
     const submission = await db.submission.create({
       data: {
         userId: session.sub,
         challengeId,
         circleId,
         content,
+        isSelected: true,
         isPublic: true,
       },
     });

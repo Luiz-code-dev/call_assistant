@@ -10,7 +10,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 
 interface Evaluation { fluencyScore: number; contentScore: number; clarityScore: number; totalScore: number; feedback: string; improvedResponse: string; tip: string }
-interface Submission { id: string; content: string; isPublic: boolean; evaluation?: Evaluation | null; user: { id: string; name: string; avatarUrl?: string | null } }
+interface MySubmission { id: string; content: string; isPublic: boolean; isSelected: boolean; createdAt: string; evaluation?: Evaluation | null }
+interface FeedItem { id: string; content: string; evaluation?: { totalScore: number } | null; user: { id: string; name: string; avatarUrl?: string | null } }
 interface Challenge { id: string; title: string; prompt: string; type: string; startsAt: string; endsAt: string; _count: { submissions: number } }
 
 function Avatar({ name, avatarUrl }: { name: string; avatarUrl?: string | null }) {
@@ -35,11 +36,12 @@ function ScoreBar({ label, score }: { label: string; score: number }) {
 export default function ChallengePage() {
   const { circleId, challengeId } = useParams<{ circleId: string; challengeId: string }>();
   const [challenge, setChallenge] = useState<Challenge | null>(null);
-  const [mySubmission, setMySubmission] = useState<Submission | null>(null);
-  const [feed, setFeed] = useState<Submission[]>([]);
+  const [mySubmissions, setMySubmissions] = useState<MySubmission[]>([]);
+  const [feed, setFeed] = useState<FeedItem[]>([]);
   const [content, setContent] = useState("");
   const [submitting, setSubmitting] = useState(false);
-  const [evaluating, setEvaluating] = useState(false);
+  const [evaluating, setEvaluating] = useState<string | null>(null);
+  const [selecting, setSelecting] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [recording, setRecording] = useState(false);
@@ -94,20 +96,17 @@ export default function ChallengePage() {
   };
 
   const load = useCallback(async () => {
-    const [chRes, feedRes] = await Promise.all([
+    const [chRes, feedRes, mineRes] = await Promise.all([
       fetch(`/api/network/challenges?circleId=${circleId}`),
       fetch(`/api/network/submissions?challengeId=${challengeId}`),
+      fetch(`/api/network/submissions?challengeId=${challengeId}&mine=true`),
     ]);
     if (chRes.ok) {
       const list: Challenge[] = await chRes.json();
       setChallenge(list.find((c) => c.id === challengeId) ?? null);
     }
-    if (feedRes.ok) {
-      const all: Submission[] = await feedRes.json();
-      const me = await fetch("/api/auth/me").then((r) => r.json()).catch(() => null);
-      setMySubmission(all.find((s) => s.user.id === me?.id) ?? null);
-      setFeed(all.filter((s) => s.user.id !== me?.id));
-    }
+    if (mineRes.ok) setMySubmissions(await mineRes.json());
+    if (feedRes.ok) setFeed(await feedRes.json());
     setLoading(false);
   }, [circleId, challengeId]);
 
@@ -127,13 +126,24 @@ export default function ChallengePage() {
     setSubmitting(false);
   };
 
-  const evaluate = async () => {
-    if (!mySubmission) return;
-    setEvaluating(true);
-    const r = await fetch(`/api/network/submissions/${mySubmission.id}/evaluate`, { method: "POST" });
+  const evaluate = async (submissionId: string) => {
+    setEvaluating(submissionId);
+    const r = await fetch(`/api/network/submissions/${submissionId}/evaluate`, { method: "POST" });
     if (r.ok) { toast.success("Avaliação concluída!"); await load(); }
     else { const d = await r.json(); toast.error(d.error ?? "Erro na avaliação."); }
-    setEvaluating(false);
+    setEvaluating(null);
+  };
+
+  const selectAttempt = async (submissionId: string) => {
+    setSelecting(submissionId);
+    const r = await fetch(`/api/network/submissions/${submissionId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "select" }),
+    });
+    if (r.ok) { await load(); }
+    else toast.error("Erro ao selecionar tentativa.");
+    setSelecting(null);
   };
 
   const isExpired = challenge ? new Date() > new Date(challenge.endsAt) : false;
@@ -163,12 +173,14 @@ export default function ChallengePage() {
         <CardContent><p className="text-sm leading-relaxed">{challenge.prompt}</p></CardContent>
       </Card>
 
-      {!mySubmission && !isExpired && (
+      {!isExpired && (
         <Card className="border-violet-500/30 bg-violet-500/5">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm flex items-center gap-2">
-              Sua resposta
-              {challenge.type === "spoken" && <span className="text-xs px-2 py-0.5 rounded-full bg-red-500/20 text-red-400 border border-red-500/20 flex items-center gap-1"><Mic className="h-3 w-3" />Resposta por voz</span>}
+              {mySubmissions.length > 0 ? (
+                <><span>Nova tentativa</span><span className="text-xs px-2 py-0.5 rounded-full bg-violet-500/20 text-violet-300">#{mySubmissions.length + 1}</span></>
+              ) : "Sua resposta"}
+              {challenge.type === "spoken" && <span className="text-xs px-2 py-0.5 rounded-full bg-red-500/20 text-red-400 border border-red-500/20 flex items-center gap-1"><Mic className="h-3 w-3" />Voz</span>}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -206,7 +218,7 @@ export default function ChallengePage() {
                         <button onClick={() => { setAudioBlob(null); setRecSeconds(0); }} className="text-sm text-muted-foreground hover:text-foreground">Regravar</button>
                         <button onClick={() => transcribeAudio(audioBlob)} disabled={transcribing} className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-violet-600 to-indigo-600 px-5 py-2 text-sm font-semibold text-white disabled:opacity-50">
                           {transcribing ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
-                          {transcribing ? "Transcrevendo..." : "Enviar áudio"}
+                          {transcribing ? "Transcrevendo..." : "Enviar tentativa"}
                         </button>
                       </div>
                     </>
@@ -225,7 +237,7 @@ export default function ChallengePage() {
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-muted-foreground">{content.length}/3000</span>
                   <Button type="submit" size="sm" disabled={submitting || !content.trim()} className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 border-0">
-                    {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : <><Send className="h-4 w-4 mr-1.5" />Enviar</>}
+                    {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : <><Send className="h-4 w-4 mr-1.5" />Enviar tentativa</>}
                   </Button>
                 </div>
               </form>
@@ -234,49 +246,80 @@ export default function ChallengePage() {
         </Card>
       )}
 
-      {mySubmission && (
-        <Card className={`border-2 ${mySubmission.evaluation ? "border-violet-500/40" : "border-border/50"}`}>
-          <CardHeader className="pb-2">
-            <div className="flex items-center justify-between">
-              <CardTitle className="text-sm">Minha resposta</CardTitle>
-              {!mySubmission.evaluation && (
-                <Button size="sm" onClick={evaluate} disabled={evaluating} variant="outline">
-                  {evaluating ? <Loader2 className="h-4 w-4 animate-spin" /> : <><Star className="h-3.5 w-3.5 mr-1" />Avaliar com IA</>}
-                </Button>
-              )}
-              {mySubmission.evaluation && (
-                <div className="flex items-center gap-1.5">
-                  <span className="text-2xl font-bold text-violet-400">{mySubmission.evaluation.totalScore}</span>
-                  <span className="text-xs text-muted-foreground">/10</span>
-                </div>
-              )}
-            </div>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <p className="text-sm bg-muted/30 rounded-lg p-3 whitespace-pre-wrap">{mySubmission.content}</p>
-            {mySubmission.evaluation && (
-              <div className="space-y-4">
-                <div className="grid grid-cols-3 gap-3">
-                  <ScoreBar label="Fluência" score={mySubmission.evaluation.fluencyScore} />
-                  <ScoreBar label="Conteúdo" score={mySubmission.evaluation.contentScore} />
-                  <ScoreBar label="Clareza" score={mySubmission.evaluation.clarityScore} />
-                </div>
-                <div className="rounded-lg border border-border/50 bg-card p-3 space-y-2">
-                  <p className="text-xs font-medium text-muted-foreground">Feedback</p>
-                  <p className="text-sm">{mySubmission.evaluation.feedback}</p>
-                </div>
-                <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-3 space-y-2">
-                  <p className="text-xs font-medium text-emerald-400">Resposta melhorada</p>
-                  <p className="text-sm">{mySubmission.evaluation.improvedResponse}</p>
-                </div>
-                <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 p-3">
-                  <p className="text-xs font-medium text-amber-400 mb-1">Dica</p>
-                  <p className="text-sm">{mySubmission.evaluation.tip}</p>
-                </div>
-              </div>
-            )}
-          </CardContent>
-        </Card>
+      {mySubmissions.length > 0 && (
+        <div className="space-y-3">
+          <h3 className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+            Minhas tentativas
+            <span className="text-xs px-1.5 py-0.5 rounded-full bg-muted text-muted-foreground">{mySubmissions.length}</span>
+            {!isExpired && <span className="text-xs text-violet-400">— selecione a melhor para receber a nota</span>}
+          </h3>
+          {mySubmissions.map((s, idx) => {
+            const attemptNum = mySubmissions.length - idx;
+            const isEval = evaluating === s.id;
+            const isSel = selecting === s.id;
+            return (
+              <Card key={s.id} className={`border-2 transition-all ${
+                s.isSelected ? "border-violet-500/50 bg-violet-500/5" : "border-border/30"
+              }`}>
+                <CardHeader className="pb-2">
+                  <div className="flex items-center justify-between gap-2 flex-wrap">
+                    <div className="flex items-center gap-2">
+                      <CardTitle className="text-sm">Tentativa #{attemptNum}</CardTitle>
+                      <span className="text-xs text-muted-foreground">{new Date(s.createdAt).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })}</span>
+                      {s.isSelected && <span className="text-xs px-2 py-0.5 rounded-full bg-violet-500/20 text-violet-300 font-medium">✓ Selecionada para nota</span>}
+                      {s.evaluation && <div className="flex items-center gap-1"><Star className="h-3.5 w-3.5 text-violet-400" /><span className="text-sm font-bold text-violet-400">{s.evaluation.totalScore}/10</span></div>}
+                    </div>
+                    <div className="flex items-center gap-2 shrink-0">
+                      {!s.isSelected && (
+                        <Button size="sm" variant="outline" onClick={() => selectAttempt(s.id)} disabled={isSel}
+                          className="h-7 px-2 text-xs border-violet-500/30 text-violet-400 hover:bg-violet-500/10">
+                          {isSel ? <Loader2 className="h-3 w-3 animate-spin" /> : "Usar esta"}
+                        </Button>
+                      )}
+                      {s.isSelected && !s.evaluation && (
+                        <Button size="sm" onClick={() => evaluate(s.id)} disabled={isEval} variant="outline"
+                          className="h-7 px-2 text-xs">
+                          {isEval ? <Loader2 className="h-3 w-3 animate-spin" /> : <><Star className="h-3 w-3 mr-1" />Avaliar com IA</>}
+                        </Button>
+                      )}
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className={`text-sm bg-muted/30 rounded-lg p-3 whitespace-pre-wrap ${
+                    expandedId === s.id ? "" : "line-clamp-3"
+                  }`}>{s.content}</p>
+                  {s.content.length > 200 && (
+                    <button onClick={() => setExpandedId(expandedId === s.id ? null : s.id)} className="text-xs text-violet-400 flex items-center gap-1">
+                      {expandedId === s.id ? <><ChevronUp className="h-3 w-3" />Recolher</> : <><ChevronDown className="h-3 w-3" />Ver completo</>}
+                    </button>
+                  )}
+                  {s.evaluation && (
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-3 gap-3">
+                        <ScoreBar label="Fluência" score={s.evaluation.fluencyScore} />
+                        <ScoreBar label="Conteúdo" score={s.evaluation.contentScore} />
+                        <ScoreBar label="Clareza" score={s.evaluation.clarityScore} />
+                      </div>
+                      <div className="rounded-lg border border-border/50 bg-card p-3 space-y-2">
+                        <p className="text-xs font-medium text-muted-foreground">Feedback</p>
+                        <p className="text-sm">{s.evaluation.feedback}</p>
+                      </div>
+                      <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-3 space-y-2">
+                        <p className="text-xs font-medium text-emerald-400">Resposta melhorada</p>
+                        <p className="text-sm">{s.evaluation.improvedResponse}</p>
+                      </div>
+                      <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 p-3">
+                        <p className="text-xs font-medium text-amber-400 mb-1">Dica</p>
+                        <p className="text-sm">{s.evaluation.tip}</p>
+                      </div>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
       )}
 
       {feed.length > 0 && (

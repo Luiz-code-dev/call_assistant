@@ -1,71 +1,96 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import {
   ArrowLeft, Link2, Copy, Trash2, UserPlus, CheckCircle2,
-  XCircle, Loader2, RefreshCw, Shield, Crown,
+  XCircle, Loader2, RefreshCw, Shield, Users, Mail, UserX,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 
-interface PendingMember {
+interface Member {
   id: string; role: string; status: string; joinedAt: string;
   user: { id: string; name: string; email: string; avatarUrl?: string | null };
 }
+interface UserSuggestion {
+  id: string; name: string; email: string; avatarUrl?: string | null;
+  username?: string | null; memberStatus?: string | null;
+}
 
-function Avatar({ name, avatarUrl }: { name: string; avatarUrl?: string | null }) {
+function Avatar({ name, avatarUrl, size = "md" }: { name: string; avatarUrl?: string | null; size?: "sm" | "md" }) {
   const initials = name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
   const colors = ["from-violet-600 to-indigo-600","from-emerald-500 to-teal-600","from-rose-500 to-pink-600","from-amber-500 to-orange-600"];
   const color = colors[name.charCodeAt(0) % colors.length];
-  if (avatarUrl) return <img src={avatarUrl} alt={name} className="h-9 w-9 rounded-full object-cover ring-2 ring-border shrink-0" />;
-  return <div className={`h-9 w-9 rounded-full bg-gradient-to-br ${color} flex items-center justify-center text-white font-semibold text-xs shrink-0`}>{initials}</div>;
+  const cls = size === "sm" ? "h-7 w-7 text-[10px]" : "h-9 w-9 text-xs";
+  if (avatarUrl) return <img src={avatarUrl} alt={name} className={`${cls} rounded-full object-cover ring-2 ring-border shrink-0`} />;
+  return <div className={`${cls} rounded-full bg-gradient-to-br ${color} flex items-center justify-center text-white font-semibold shrink-0`}>{initials}</div>;
 }
 
 export default function ManagePage() {
   const { circleId } = useParams<{ circleId: string }>();
-  const [pending, setPending] = useState<PendingMember[]>([]);
-  const [inviteUrl, setInviteUrl] = useState("");
-  const [query, setQuery] = useState("");
-  const [loadingPending, setLoadingPending] = useState(true);
+  const [pending, setPending]       = useState<Member[]>([]);
+  const [invited, setInvited]       = useState<Member[]>([]);
+  const [active, setActive]         = useState<Member[]>([]);
+  const [inviteUrl, setInviteUrl]   = useState("");
+  const [query, setQuery]           = useState("");
+  const [suggestions, setSuggestions] = useState<UserSuggestion[]>([]);
+  const [showSugg, setShowSugg]     = useState(false);
+  const [searching, setSearching]   = useState(false);
+  const [loadingAll, setLoadingAll] = useState(true);
   const [generatingLink, setGeneratingLink] = useState(false);
-  const [addingEmail, setAddingEmail] = useState(false);
-  const [processingId, setProcessingId] = useState<string | null>(null);
+  const [addingEmail, setAddingEmail]       = useState(false);
+  const [processingId, setProcessingId]     = useState<string | null>(null);
+  const searchTimer = useRef<NodeJS.Timeout | null>(null);
+  const suggRef = useRef<HTMLDivElement>(null);
 
-  const loadPending = useCallback(async () => {
-    setLoadingPending(true);
-    const r = await fetch(`/api/network/circles/${circleId}/members?status=pending`);
-    if (r.ok) setPending(await r.json());
-    setLoadingPending(false);
+  const loadAll = useCallback(async () => {
+    setLoadingAll(true);
+    const [rPending, rInvited, rActive] = await Promise.all([
+      fetch(`/api/network/circles/${circleId}/members?status=pending`),
+      fetch(`/api/network/circles/${circleId}/members?status=invited`),
+      fetch(`/api/network/circles/${circleId}/members?status=active`),
+    ]);
+    if (rPending.ok) setPending(await rPending.json());
+    if (rInvited.ok) setInvited(await rInvited.json());
+    if (rActive.ok)  setActive(await rActive.json());
+    setLoadingAll(false);
   }, [circleId]);
 
-  useEffect(() => { loadPending(); }, [loadPending]);
+  useEffect(() => { loadAll(); }, [loadAll]);
 
-  const approve = async (memberId: string) => {
-    setProcessingId(memberId);
-    const r = await fetch(`/api/network/circles/${circleId}/members/${memberId}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ action: "approve" }),
-    });
-    if (r.ok) { toast.success("Membro aprovado!"); await loadPending(); }
-    else toast.error("Erro ao aprovar.");
-    setProcessingId(null);
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (suggRef.current && !suggRef.current.contains(e.target as Node)) setShowSugg(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  const onQueryChange = (val: string) => {
+    setQuery(val);
+    if (searchTimer.current) clearTimeout(searchTimer.current);
+    if (val.trim().length < 2) { setSuggestions([]); setShowSugg(false); return; }
+    searchTimer.current = setTimeout(async () => {
+      setSearching(true);
+      const r = await fetch(`/api/network/users/search?q=${encodeURIComponent(val)}&circleId=${circleId}`);
+      if (r.ok) { setSuggestions(await r.json()); setShowSugg(true); }
+      setSearching(false);
+    }, 300);
   };
 
-  const reject = async (memberId: string) => {
+  const memberAction = async (memberId: string, action: string, successMsg: string) => {
     setProcessingId(memberId);
     const r = await fetch(`/api/network/circles/${circleId}/members/${memberId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ action: "reject" }),
+      body: JSON.stringify({ action }),
     });
-    if (r.ok) { toast.success("Solicitação rejeitada."); await loadPending(); }
-    else toast.error("Erro ao rejeitar.");
+    if (r.ok) { toast.success(successMsg); await loadAll(); }
+    else { const d = await r.json(); toast.error(d.error ?? "Erro ao processar."); }
     setProcessingId(null);
   };
 
@@ -84,24 +109,29 @@ export default function ManagePage() {
     else toast.error("Erro ao revogar.");
   };
 
-  const copyLink = () => {
-    navigator.clipboard.writeText(inviteUrl);
-    toast.success("Link copiado!");
-  };
-
-  const addByQuery = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!query.trim()) return;
+  const addByQuery = async (q: string) => {
+    if (!q.trim()) return;
     setAddingEmail(true);
+    setShowSugg(false);
     const r = await fetch(`/api/network/circles/${circleId}/members`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query: query.trim() }),
+      body: JSON.stringify({ query: q.trim() }),
     });
     const d = await r.json();
-    if (r.ok) { toast.success(`${d.user?.name ?? query} adicionado ao Circle!`); setQuery(""); }
-    else toast.error(d.error ?? "Erro ao adicionar.");
+    if (r.ok) {
+      toast.success(`Convite enviado para ${d.name ?? q}!`);
+      setQuery("");
+      setSuggestions([]);
+      await loadAll();
+    } else toast.error(d.error ?? "Erro ao convidar.");
     setAddingEmail(false);
+  };
+
+  const statusBadge = (status: string) => {
+    if (status === "invited") return <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-blue-500/20 text-blue-400">Convite enviado</span>;
+    if (status === "active")  return <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400">Membro</span>;
+    return null;
   };
 
   return (
@@ -114,24 +144,22 @@ export default function ManagePage() {
         </div>
       </div>
 
-      {/* Pending */}
+      {/* Solicitações pendentes (join request) */}
       <Card className="border-border/50">
         <CardHeader className="pb-3">
           <div className="flex items-center justify-between">
             <CardTitle className="text-sm flex items-center gap-2">
               <Shield className="h-4 w-4 text-amber-400" />
               Solicitações pendentes
-              {pending.length > 0 && (
-                <span className="ml-1 flex h-5 w-5 items-center justify-center rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold">{pending.length}</span>
-              )}
+              {pending.length > 0 && <span className="flex h-5 w-5 items-center justify-center rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold">{pending.length}</span>}
             </CardTitle>
-            <button onClick={loadPending} className="text-muted-foreground hover:text-foreground transition-colors">
-              <RefreshCw className={`h-3.5 w-3.5 ${loadingPending ? "animate-spin" : ""}`} />
+            <button onClick={loadAll} className="text-muted-foreground hover:text-foreground transition-colors">
+              <RefreshCw className={`h-3.5 w-3.5 ${loadingAll ? "animate-spin" : ""}`} />
             </button>
           </div>
         </CardHeader>
         <CardContent>
-          {loadingPending ? (
+          {loadingAll ? (
             <div className="h-12 rounded-lg bg-card/50 animate-pulse" />
           ) : pending.length === 0 ? (
             <p className="text-sm text-muted-foreground text-center py-4">Nenhuma solicitação pendente.</p>
@@ -142,18 +170,95 @@ export default function ManagePage() {
                   <Avatar name={m.user.name} avatarUrl={m.user.avatarUrl} />
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium truncate">{m.user.name}</p>
-                    <p className="text-xs text-muted-foreground">{m.user.email}</p>
+                    <p className="text-xs text-muted-foreground truncate">{m.user.email}</p>
                   </div>
                   <div className="flex gap-2 shrink-0">
-                    <Button size="sm" onClick={() => approve(m.id)} disabled={processingId === m.id}
+                    <Button size="sm" onClick={() => memberAction(m.id, "approve", "Membro aprovado!")} disabled={processingId === m.id}
                       className="h-7 px-2 bg-emerald-600 hover:bg-emerald-500 border-0 text-xs">
                       {processingId === m.id ? <Loader2 className="h-3 w-3 animate-spin" /> : <><CheckCircle2 className="h-3 w-3 mr-1" />Aprovar</>}
                     </Button>
-                    <Button size="sm" variant="outline" onClick={() => reject(m.id)} disabled={processingId === m.id}
+                    <Button size="sm" variant="outline" onClick={() => memberAction(m.id, "reject", "Solicitação rejeitada.")} disabled={processingId === m.id}
                       className="h-7 px-2 border-red-500/30 text-red-400 hover:bg-red-500/10 text-xs">
                       <XCircle className="h-3 w-3 mr-1" />Rejeitar
                     </Button>
                   </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Convites enviados por e-mail */}
+      <Card className="border-border/50">
+        <CardHeader className="pb-3">
+          <CardTitle className="text-sm flex items-center gap-2">
+            <Mail className="h-4 w-4 text-blue-400" />
+            Convites enviados
+            {invited.length > 0 && <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-500/20 text-blue-400 text-xs font-bold">{invited.length}</span>}
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          {loadingAll ? (
+            <div className="h-12 rounded-lg bg-card/50 animate-pulse" />
+          ) : invited.length === 0 ? (
+            <p className="text-sm text-muted-foreground text-center py-4">Nenhum convite pendente de resposta.</p>
+          ) : (
+            <div className="space-y-3">
+              {invited.map((m) => (
+                <div key={m.id} className="flex items-center gap-3 rounded-lg border border-blue-500/20 bg-blue-500/5 p-3">
+                  <Avatar name={m.user.name} avatarUrl={m.user.avatarUrl} />
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-medium truncate">{m.user.name}</p>
+                    <p className="text-xs text-muted-foreground truncate">{m.user.email}</p>
+                    <p className="text-xs text-blue-400 mt-0.5">Aguardando resposta</p>
+                  </div>
+                  <Button size="sm" variant="outline" onClick={() => memberAction(m.id, "remove", "Convite cancelado.")} disabled={processingId === m.id}
+                    className="h-7 px-2 border-red-500/30 text-red-400 hover:bg-red-500/10 text-xs shrink-0">
+                    {processingId === m.id ? <Loader2 className="h-3 w-3 animate-spin" /> : <><XCircle className="h-3 w-3 mr-1" />Cancelar</>}
+                  </Button>
+                </div>
+              ))}
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Membros ativos */}
+      <Card className="border-border/50">
+        <CardHeader className="pb-3">
+          <CardTitle className="text-sm flex items-center gap-2">
+            <Users className="h-4 w-4 text-violet-400" />
+            Membros ativos
+            {active.length > 0 && <span className="text-xs text-muted-foreground font-normal">({active.length})</span>}
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          {loadingAll ? (
+            <div className="space-y-2">{[1,2,3].map(i => <div key={i} className="h-12 rounded-lg bg-card/50 animate-pulse" />)}</div>
+          ) : active.length === 0 ? (
+            <p className="text-sm text-muted-foreground text-center py-4">Nenhum membro ainda.</p>
+          ) : (
+            <div className="space-y-2">
+              {active.map((m) => (
+                <div key={m.id} className="flex items-center gap-3 rounded-lg border border-border/40 p-2.5">
+                  <Avatar name={m.user.name} avatarUrl={m.user.avatarUrl} size="sm" />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2">
+                      <p className="text-sm font-medium truncate">{m.user.name}</p>
+                      <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-muted text-muted-foreground capitalize shrink-0">{m.role}</span>
+                    </div>
+                    <p className="text-xs text-muted-foreground truncate">{m.user.email}</p>
+                  </div>
+                  {m.role !== "owner" && (
+                    <button onClick={() => {
+                      if (!confirm(`Remover ${m.user.name} do Circle?`)) return;
+                      memberAction(m.id, "remove", `${m.user.name} removido.`);
+                    }} disabled={processingId === m.id}
+                      className="shrink-0 p-1.5 rounded-md text-muted-foreground hover:text-red-400 hover:bg-red-500/10 transition-colors disabled:opacity-50">
+                      {processingId === m.id ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <UserX className="h-3.5 w-3.5" />}
+                    </button>
+                  )}
                 </div>
               ))}
             </div>
@@ -177,7 +282,7 @@ export default function ManagePage() {
             <div className="space-y-2">
               <div className="flex gap-2">
                 <Input value={inviteUrl} readOnly className="text-xs font-mono bg-muted/50" />
-                <Button size="sm" onClick={copyLink} variant="outline" className="shrink-0">
+                <Button size="sm" onClick={() => { navigator.clipboard.writeText(inviteUrl); toast.success("Link copiado!"); }} variant="outline" className="shrink-0">
                   <Copy className="h-3.5 w-3.5" />
                 </Button>
               </div>
@@ -193,31 +298,57 @@ export default function ManagePage() {
         </CardContent>
       </Card>
 
-      {/* Add by email */}
+      {/* Convidar por e-mail com autocomplete */}
       <Card className="border-border/50">
         <CardHeader className="pb-3">
           <CardTitle className="text-sm flex items-center gap-2">
             <UserPlus className="h-4 w-4 text-indigo-400" />
-            Adicionar membro por e-mail
+            Convidar por e-mail ou nome
           </CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-xs text-muted-foreground mb-3">
-            Busque por <strong>@username</strong> ou <strong>e-mail</strong>. O usuário precisa ter conta no SpeakFlow.
+            Digite o nome, <strong>@username</strong> ou <strong>e-mail</strong> do usuário. O usuário precisa ter conta no SpeakFlow.
           </p>
-          <form onSubmit={addByQuery} className="flex gap-2">
-            <div className="flex-1">
-              <Label htmlFor="query" className="sr-only">Username ou e-mail</Label>
-              <Input
-                id="query" type="text" value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="@luizmelo ou email@exemplo.com"
-              />
+          <div ref={suggRef} className="relative">
+            <div className="flex gap-2">
+              <div className="flex-1 relative">
+                <Input
+                  type="text" value={query}
+                  onChange={(e) => onQueryChange(e.target.value)}
+                  onFocus={() => suggestions.length > 0 && setShowSugg(true)}
+                  placeholder="Nome, @username ou email@exemplo.com"
+                  autoComplete="off"
+                />
+                {searching && <Loader2 className="absolute right-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 animate-spin text-muted-foreground" />}
+              </div>
+              <Button size="sm" disabled={addingEmail || !query.trim()} onClick={() => addByQuery(query)}
+                className="shrink-0 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 border-0">
+                {addingEmail ? <Loader2 className="h-4 w-4 animate-spin" /> : <><UserPlus className="h-4 w-4 mr-1.5" />Convidar</>}
+              </Button>
             </div>
-            <Button type="submit" size="sm" disabled={addingEmail || !query.trim()} className="shrink-0 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 border-0">
-              {addingEmail ? <Loader2 className="h-4 w-4 animate-spin" /> : <><UserPlus className="h-4 w-4 mr-1.5" />Adicionar</>}
-            </Button>
-          </form>
+            {showSugg && suggestions.length > 0 && (
+              <div className="absolute z-30 mt-1 w-full rounded-xl border border-border/50 bg-card shadow-xl overflow-hidden">
+                {suggestions.map((u) => (
+                  <button key={u.id} onMouseDown={(e) => e.preventDefault()}
+                    onClick={() => {
+                      if (u.memberStatus === "active") { toast.error("Usuário já é membro."); return; }
+                      if (u.memberStatus === "invited") { toast.error("Convite já enviado."); return; }
+                      addByQuery(u.email);
+                    }}
+                    className="w-full flex items-center gap-3 px-3 py-2.5 hover:bg-muted/50 transition-colors text-left">
+                    <Avatar name={u.name} avatarUrl={u.avatarUrl} size="sm" />
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium truncate">{u.name}</p>
+                      <p className="text-xs text-muted-foreground truncate">{u.email}</p>
+                    </div>
+                    {u.memberStatus && statusBadge(u.memberStatus)}
+                    {!u.memberStatus && <span className="text-xs text-violet-400 shrink-0">Convidar</span>}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </CardContent>
       </Card>
 

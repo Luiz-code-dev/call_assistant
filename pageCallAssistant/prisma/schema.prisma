@@ -119,12 +119,11 @@ model Submission {
   circleId    String
   content     String
   isPublic    Boolean               @default(true)
+  isSelected  Boolean               @default(true)
   createdAt   DateTime              @default(now())
   user        User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
   challenge   Challenge             @relation(fields: [challengeId], references: [id], onDelete: Cascade)
   evaluation  SubmissionEvaluation?
-
-  @@unique([userId, challengeId])
 }
 
 model PushSubscription {
@@ -159,4 +158,14 @@ model SubmissionEvaluation {
   tip              String
   createdAt        DateTime   @default(now())
   submission       Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+}
+
+model SupportMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  message   String
+  read      Boolean  @default(false)
+  emailSent Boolean  @default(false)
+  createdAt DateTime @default(now())
 }

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sendSupportEmail } from "@/lib/email";
+import { db } from "@/lib/db";
 
 export async function POST(req: NextRequest) {
   try {
@@ -10,7 +11,25 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "missing_fields" }, { status: 400 });
     }
 
-    await sendSupportEmail(name.trim(), email.trim(), question.trim());
+    const n = name.trim();
+    const e = email.trim();
+    const q = question.trim();
+
+    const saved = await db.supportMessage.create({
+      data: { name: n, email: e, message: q },
+    }).catch((dbErr: unknown) => {
+      console.error("[support/contact] DB save failed:", dbErr);
+      return null;
+    });
+
+    const emailSent = await sendSupportEmail(n, e, q);
+
+    if (saved && emailSent) {
+      await db.supportMessage.update({
+        where: { id: saved.id },
+        data: { emailSent: true },
+      }).catch(() => {});
+    }
 
     return NextResponse.json({ ok: true });
   } catch (err) {
