@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { getNetworkSession } from "../../../../_auth";
+import { sendCircleRemovalEmail } from "@/lib/email";
 
 export async function PATCH(
   req: NextRequest,
@@ -33,10 +34,16 @@ export async function PATCH(
   if (action === "reject" || action === "remove") {
     if (target.userId === session.sub)
       return NextResponse.json({ error: "Não pode remover a si mesmo." }, { status: 400 });
-    const circle = await db.circle.findUnique({ where: { id: params.id } });
+    const [circle, removedUser] = await Promise.all([
+      db.circle.findUnique({ where: { id: params.id }, select: { name: true, ownerId: true } }),
+      db.user.findUnique({ where: { id: target.userId }, select: { name: true, email: true } }),
+    ]);
     if (circle?.ownerId === target.userId)
       return NextResponse.json({ error: "Owner não pode ser removido." }, { status: 400 });
     await db.circleMember.update({ where: { id: params.memberId }, data: { status: "removed" } });
+    if (action === "remove" && removedUser && circle) {
+      sendCircleRemovalEmail(removedUser.email, removedUser.name, circle.name).catch(() => {});
+    }
     return NextResponse.json({ ok: true });
   }
 

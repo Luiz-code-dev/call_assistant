@@ -33,11 +33,13 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   });
   if (existing?.status === "active")
     return NextResponse.json({ error: "Você já é membro." }, { status: 409 });
+  if (existing?.status === "removed")
+    return NextResponse.json({ error: "Você foi removido deste Circle e não pode reingressar sem convite do administrador." }, { status: 403 });
 
   if (existing) {
     await db.circleMember.update({
       where: { id: existing.id },
-      data: { status: "active", joinedAt: new Date() },
+      data: { status: circle.visibility === "private" ? "pending" : "active", joinedAt: new Date() },
     });
   } else {
     await db.circleMember.create({

@@ -159,6 +159,57 @@ export async function sendCircleInviteEmail(
   });
 }
 
+export async function sendCircleRemovalEmail(
+  removedEmail: string,
+  removedName: string,
+  circleName: string
+): Promise<void> {
+  const firstName = removedName.split(" ")[0];
+  const circlesUrl = `${APP_URL}/network/circles`;
+
+  if (!resend) {
+    console.log(`[DEV] Circle removal email to ${removedEmail}: circle=${circleName}`);
+    return;
+  }
+
+  await resend.emails.send({
+    from: FROM_EMAIL,
+    to: removedEmail,
+    subject: `Sua participação no Circle "${circleName}" foi encerrada`,
+    html: `
+      <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:32px 24px;background:#09090b;color:#fafafa;border-radius:12px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:28px">
+          <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#4f46e5);display:flex;align-items:center;justify-content:center">
+            <span style="color:#fff;font-size:18px">🎙</span>
+          </div>
+          <span style="font-weight:700;font-size:20px">SpeakFlow</span>
+        </div>
+        <h1 style="font-size:22px;font-weight:800;margin:0 0 8px">Olá, ${firstName}</h1>
+        <p style="color:#a1a1aa;margin:0 0 20px;font-size:15px;line-height:1.6">
+          Informamos que sua participação no Circle
+          <strong style="color:#a78bfa">${circleName}</strong> foi encerrada pelo administrador do grupo.
+        </p>
+        <div style="background:#18181b;border:1px solid #27272a;border-radius:10px;padding:20px;margin-bottom:24px">
+          <p style="margin:0 0 12px;font-size:13px;color:#71717a;text-transform:uppercase;letter-spacing:.05em">Próximos passos</p>
+          <ul style="margin:0;padding:0 0 0 16px;color:#a1a1aa;font-size:14px;line-height:2">
+            <li>Você pode explorar e entrar em outros Circles disponíveis</li>
+            <li>Crie seu próprio Circle para praticar com quem você quiser</li>
+            <li>Continue praticando inglês com todos os outros recursos do SpeakFlow</li>
+          </ul>
+        </div>
+        <a href="${circlesUrl}" style="display:inline-block;padding:13px 32px;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px">
+          Explorar outros Circles →
+        </a>
+        <p style="color:#52525b;font-size:12px;margin-top:24px">
+          Se tiver dúvidas, entre em contato com o suporte pelo chat do SpeakFlow.
+        </p>
+        <hr style="border:none;border-top:1px solid #27272a;margin:24px 0"/>
+        <p style="color:#3f3f46;font-size:11px">SpeakFlow Network · speakf.com.br</p>
+      </div>
+    `,
+  }).catch((err) => console.error("[sendCircleRemovalEmail]", err));
+}
+
 export async function sendVerificationEmail(email: string, name: string, token: string) {
   const link = `${APP_URL}/verify-email?token=${token}`;
 
