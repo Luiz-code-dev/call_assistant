@@ -46,18 +46,18 @@ export default function NetworkHomePage() {
 
   return (
     <div className="space-y-8">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-3xl font-bold bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">
             SpeakFlow Network
           </h1>
           <p className="text-muted-foreground mt-1">Sua comunidade de prática profissional em inglês</p>
         </div>
-        <div className="flex gap-2">
-          <Button variant="outline" size="sm" asChild>
+        <div className="flex gap-2 sm:shrink-0">
+          <Button variant="outline" size="sm" className="flex-1 sm:flex-none" asChild>
             <Link href="/network/circles"><Users className="h-4 w-4 mr-1.5" />Descobrir Circles</Link>
           </Button>
-          <Button size="sm" className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 border-0" asChild>
+          <Button size="sm" className="flex-1 sm:flex-none bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 border-0" asChild>
             <Link href="/network/circles?create=true"><Plus className="h-4 w-4 mr-1.5" />Criar Circle</Link>
           </Button>
         </div>

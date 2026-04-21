@@ -1,4 +1,4 @@
-const CACHE = "speakflow-network-v1";
+const CACHE = "speakflow-network-v3";
 
 self.addEventListener("install", (event) => {
   self.skipWaiting();

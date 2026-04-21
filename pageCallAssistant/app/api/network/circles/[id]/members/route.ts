@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
+import { randomUUID } from "crypto";
 import { db } from "@/lib/db";
 import { getNetworkSession } from "../../../_auth";
+import { sendCircleInviteEmail } from "@/lib/email";
 
 export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
   const session = await getNetworkSession(req);
@@ -60,17 +62,32 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   if (existing) {
     if (existing.status === "active")
       return NextResponse.json({ error: "Usuário já é membro ativo." }, { status: 409 });
-    const updated = await db.circleMember.update({
-      where: { id: existing.id },
-      data: { status: "active", role: "member" },
-      include: { user: { select: { id: true, name: true, email: true, avatarUrl: true } } },
-    });
-    return NextResponse.json(updated, { status: 200 });
+    if (existing.status === "invited")
+      return NextResponse.json({ error: "Convite já enviado. Aguardando resposta." }, { status: 409 });
   }
 
-  const newMember = await db.circleMember.create({
-    data: { circleId: params.id, userId: targetUser.id, role: "member", status: "active" },
-    include: { user: { select: { id: true, name: true, email: true, avatarUrl: true } } },
-  });
-  return NextResponse.json(newMember, { status: 201 });
+  const invitor = await db.user.findUnique({ where: { id: session.sub }, select: { name: true } });
+  const inviteToken = randomUUID();
+
+  if (existing) {
+    await db.circleMember.update({
+      where: { id: existing.id },
+      data: { status: "invited", inviteToken },
+    });
+  } else {
+    await db.circleMember.create({
+      data: { circleId: params.id, userId: targetUser.id, role: "member", status: "invited", inviteToken },
+    });
+  }
+
+  await sendCircleInviteEmail(
+    targetUser.email,
+    targetUser.name,
+    invitor?.name ?? "Alguém",
+    circle.name,
+    circle.description,
+    inviteToken
+  );
+
+  return NextResponse.json({ invited: true, name: targetUser.name, email: targetUser.email }, { status: 201 });
 }

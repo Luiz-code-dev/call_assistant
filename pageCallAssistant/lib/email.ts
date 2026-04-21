@@ -94,6 +94,64 @@ export async function sendSupportEmail(
   }
 }
 
+export async function sendCircleInviteEmail(
+  inviteeEmail: string,
+  inviteeName: string,
+  inviterName: string,
+  circleName: string,
+  circleDescription: string | null | undefined,
+  inviteToken: string
+) {
+  const acceptLink = `${APP_URL}/network/invite/${inviteToken}`;
+  const firstName = inviteeName.split(" ")[0];
+
+  if (!resend) {
+    console.log(`[DEV] Circle invite email to ${inviteeEmail}: ${acceptLink}`);
+    return;
+  }
+
+  await resend.emails.send({
+    from: FROM_EMAIL,
+    to: inviteeEmail,
+    subject: `${inviterName} te convidou para o Circle "${circleName}" no SpeakFlow`,
+    html: `
+      <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:32px 24px;background:#09090b;color:#fafafa;border-radius:12px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:28px">
+          <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#4f46e5);display:flex;align-items:center;justify-content:center">
+            <span style="color:#fff;font-size:18px">🎙</span>
+          </div>
+          <span style="font-weight:700;font-size:20px">SpeakFlow</span>
+        </div>
+        <h1 style="font-size:22px;font-weight:800;margin:0 0 6px">Olá, ${firstName}!</h1>
+        <p style="color:#a1a1aa;margin:0 0 24px;font-size:15px">
+          <strong style="color:#fafafa">${inviterName}</strong> te convidou para participar do Circle
+          <strong style="color:#a78bfa">${circleName}</strong> no SpeakFlow Network.
+        </p>
+        ${circleDescription ? `
+        <div style="background:#18181b;border:1px solid #27272a;border-radius:10px;padding:16px;margin-bottom:24px">
+          <p style="margin:0;font-size:14px;color:#a1a1aa;line-height:1.5">${circleDescription}</p>
+        </div>` : ""}
+        <div style="margin-bottom:24px">
+          <p style="margin:0 0 8px;font-size:13px;color:#71717a">O que você vai encontrar:</p>
+          <ul style="margin:0;padding:0 0 0 16px;color:#a1a1aa;font-size:14px;line-height:1.8">
+            <li>Desafios práticos de comunicação em inglês</li>
+            <li>Avaliação com IA (fluência, clareza e conteúdo)</li>
+            <li>Ranking e evolução com a comunidade</li>
+          </ul>
+        </div>
+        <a href="${acceptLink}" style="display:inline-block;padding:13px 32px;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px">
+          Aceitar convite →
+        </a>
+        <p style="color:#52525b;font-size:12px;margin-top:24px">
+          Se não quiser participar, basta ignorar este e-mail.<br/>Este convite é pessoal e não pode ser compartilhado.
+        </p>
+        <hr style="border:none;border-top:1px solid #27272a;margin:24px 0"/>
+        <p style="color:#3f3f46;font-size:11px">SpeakFlow Network · speakf.com.br</p>
+      </div>
+    `,
+  });
+}
+
 export async function sendVerificationEmail(email: string, name: string, token: string) {
   const link = `${APP_URL}/verify-email?token=${token}`;
 

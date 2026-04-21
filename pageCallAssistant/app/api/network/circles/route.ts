@@ -64,8 +64,15 @@ export async function POST(req: NextRequest) {
 
   const user = await db.user.findUnique({ where: { id: session.sub }, select: { plan: true } });
   if (!user) return NextResponse.json({ error: "user_not_found" }, { status: 404 });
+
   if (user.plan === "free")
-    return NextResponse.json({ error: "Crie um Circle com o plano Básico ou superior." }, { status: 403 });
+    return NextResponse.json({ error: "Apenas planos Básico ou Premium podem criar Circles.", code: "plan_required" }, { status: 403 });
+
+  if (user.plan === "basic") {
+    const owned = await db.circle.count({ where: { ownerId: session.sub } });
+    if (owned >= 1)
+      return NextResponse.json({ error: "Plano Básico permite criar apenas 1 Circle. Faça upgrade para Premium.", code: "circle_limit" }, { status: 403 });
+  }
 
   const body = await req.json().catch(() => ({}));
   const { name, description, focus, level, visibility, maxMembers } = body;

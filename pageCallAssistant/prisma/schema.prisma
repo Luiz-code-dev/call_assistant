@@ -30,6 +30,7 @@ model User {
   sessions             CallSession[]
   toolUsages           ToolUsage[]
   circleMembers        CircleMember[]
+  badges               UserBadge[]
   submissions          Submission[]
 }
 
@@ -83,14 +84,15 @@ model Circle {
 }
 
 model CircleMember {
-  id       String   @id @default(cuid())
-  circleId String
-  userId   String
-  role     String   @default("member")
-  status   String   @default("active")
-  joinedAt DateTime @default(now())
-  circle   Circle   @relation(fields: [circleId], references: [id], onDelete: Cascade)
-  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id          String   @id @default(cuid())
+  circleId    String
+  userId      String
+  role        String   @default("member")
+  status      String   @default("active")
+  inviteToken String?  @unique
+  joinedAt    DateTime @default(now())
+  circle      Circle   @relation(fields: [circleId], references: [id], onDelete: Cascade)
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([circleId, userId])
 }
@@ -122,6 +124,16 @@ model Submission {
   evaluation  SubmissionEvaluation?
 
   @@unique([userId, challengeId])
+}
+
+model UserBadge {
+  id        String   @id @default(cuid())
+  userId    String
+  slug      String
+  earnedAt  DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, slug])
 }
 
 model SubmissionEvaluation {
