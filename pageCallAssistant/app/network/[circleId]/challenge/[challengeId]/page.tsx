@@ -3,7 +3,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Send, Loader2, Star, Zap, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowLeft, Send, Loader2, Star, Zap, ChevronDown, ChevronUp, Mic, MicOff, Square, Volume2 } from "lucide-react";
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
@@ -41,6 +42,56 @@ export default function ChallengePage() {
   const [evaluating, setEvaluating] = useState(false);
   const [loading, setLoading] = useState(true);
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [recording, setRecording] = useState(false);
+  const [audioBlob, setAudioBlob] = useState<Blob | null>(null);
+  const [transcribing, setTranscribing] = useState(false);
+  const [transcribed, setTranscribed] = useState("");
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const chunksRef = useRef<Blob[]>([]);
+  const [recSeconds, setRecSeconds] = useState(0);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const startRecording = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      chunksRef.current = [];
+      const mr = new MediaRecorder(stream);
+      mr.ondataavailable = (e) => { if (e.data.size > 0) chunksRef.current.push(e.data); };
+      mr.onstop = () => {
+        const blob = new Blob(chunksRef.current, { type: "audio/webm" });
+        setAudioBlob(blob);
+        stream.getTracks().forEach((t) => t.stop());
+      };
+      mr.start(100);
+      mediaRecorderRef.current = mr;
+      setRecording(true);
+      setRecSeconds(0);
+      timerRef.current = setInterval(() => setRecSeconds((s) => s + 1), 1000);
+    } catch { toast.error("Permita acesso ao microfone."); }
+  };
+
+  const stopRecording = () => {
+    mediaRecorderRef.current?.stop();
+    setRecording(false);
+    if (timerRef.current) clearInterval(timerRef.current);
+  };
+
+  const transcribeAudio = async (blob: Blob) => {
+    setTranscribing(true);
+    const fd = new FormData();
+    fd.append("audio", blob, "recording.webm");
+    fd.append("challengeId", challengeId);
+    fd.append("circleId", circleId);
+    const r = await fetch("/api/network/submissions/audio", { method: "POST", body: fd });
+    if (r.ok) {
+      const d = await r.json();
+      setTranscribed(d.transcription ?? "");
+      toast.success("Áudio transcrito e enviado!");
+      await load();
+      setAudioBlob(null);
+    } else { const d = await r.json(); toast.error(d.error ?? "Erro ao transcrever áudio."); }
+    setTranscribing(false);
+  };
 
   const load = useCallback(async () => {
     const [chRes, feedRes] = await Promise.all([
@@ -114,22 +165,71 @@ export default function ChallengePage() {
 
       {!mySubmission && !isExpired && (
         <Card className="border-violet-500/30 bg-violet-500/5">
-          <CardHeader className="pb-2"><CardTitle className="text-sm">Sua resposta</CardTitle></CardHeader>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm flex items-center gap-2">
+              Sua resposta
+              {challenge.type === "spoken" && <span className="text-xs px-2 py-0.5 rounded-full bg-red-500/20 text-red-400 border border-red-500/20 flex items-center gap-1"><Mic className="h-3 w-3" />Resposta por voz</span>}
+            </CardTitle>
+          </CardHeader>
           <CardContent>
-            <form onSubmit={submit} className="space-y-3">
-              <textarea
-                value={content} onChange={(e) => setContent(e.target.value)}
-                placeholder="Escreva sua resposta em inglês..."
-                maxLength={3000} rows={5}
-                className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-violet-500/50 placeholder:text-muted-foreground"
-              />
-              <div className="flex items-center justify-between">
-                <span className="text-xs text-muted-foreground">{content.length}/3000</span>
-                <Button type="submit" size="sm" disabled={submitting || !content.trim()} className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 border-0">
-                  {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : <><Send className="h-4 w-4 mr-1.5" />Enviar</>}
-                </Button>
+            {challenge.type === "spoken" ? (
+              <div className="space-y-4">
+                <div className="rounded-xl bg-card border border-border/50 p-4 text-center space-y-4">
+                  {!recording && !audioBlob && (
+                    <>
+                      <p className="text-sm text-muted-foreground">Grave sua resposta em inglês. O áudio será transcrito automaticamente com IA.</p>
+                      <button onClick={startRecording} className="mx-auto flex items-center gap-2 rounded-full bg-gradient-to-r from-red-600 to-rose-600 px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition">
+                        <Mic className="h-5 w-5" />Iniciar gravação
+                      </button>
+                    </>
+                  )}
+                  {recording && (
+                    <>
+                      <div className="flex items-center justify-center gap-3">
+                        <span className="relative flex h-3 w-3"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" /><span className="relative inline-flex rounded-full h-3 w-3 bg-red-500" /></span>
+                        <span className="text-red-400 font-mono font-bold">{String(Math.floor(recSeconds/60)).padStart(2,"0")}:{String(recSeconds%60).padStart(2,"0")}</span>
+                        <span className="text-sm text-muted-foreground">Gravando...</span>
+                      </div>
+                      <button onClick={stopRecording} className="mx-auto flex items-center gap-2 rounded-full bg-muted px-6 py-3 text-sm font-semibold hover:bg-muted/70 transition">
+                        <Square className="h-5 w-5" />Parar gravação
+                      </button>
+                    </>
+                  )}
+                  {audioBlob && !recording && (
+                    <>
+                      <div className="flex items-center justify-center gap-2 text-emerald-400">
+                        <Volume2 className="h-4 w-4" />
+                        <span className="text-sm font-medium">Gravação pronta ({recSeconds}s)</span>
+                      </div>
+                      <audio controls src={URL.createObjectURL(audioBlob)} className="w-full" />
+                      <div className="flex gap-3 justify-center">
+                        <button onClick={() => { setAudioBlob(null); setRecSeconds(0); }} className="text-sm text-muted-foreground hover:text-foreground">Regravar</button>
+                        <button onClick={() => transcribeAudio(audioBlob)} disabled={transcribing} className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-violet-600 to-indigo-600 px-5 py-2 text-sm font-semibold text-white disabled:opacity-50">
+                          {transcribing ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
+                          {transcribing ? "Transcrevendo..." : "Enviar áudio"}
+                        </button>
+                      </div>
+                    </>
+                  )}
+                </div>
+                {transcribed && <p className="text-xs text-muted-foreground bg-muted/30 rounded-lg p-3"><strong>Transcrição:</strong> {transcribed}</p>}
               </div>
-            </form>
+            ) : (
+              <form onSubmit={submit} className="space-y-3">
+                <textarea
+                  value={content} onChange={(e) => setContent(e.target.value)}
+                  placeholder="Escreva sua resposta em inglês..."
+                  maxLength={3000} rows={5}
+                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-violet-500/50 placeholder:text-muted-foreground"
+                />
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-muted-foreground">{content.length}/3000</span>
+                  <Button type="submit" size="sm" disabled={submitting || !content.trim()} className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 border-0">
+                    {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : <><Send className="h-4 w-4 mr-1.5" />Enviar</>}
+                  </Button>
+                </div>
+              </form>
+            )}
           </CardContent>
         </Card>
       )}

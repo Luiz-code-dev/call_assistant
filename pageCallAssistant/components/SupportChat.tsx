@@ -65,6 +65,16 @@ const FAQS = [
     q: "O plano Gratuito tem acesso às Ferramentas de IA?",
     a: "Não. As Ferramentas de IA (Melhorar Resposta, Gerar Resposta e Treino de Entrevista) são exclusivas dos planos Básico (R$ 74,90/mês) e Premium (R$ 149,90/mês).\n\nO plano Básico tem limites diários por ferramenta. O Premium é ilimitado.\n\nAcesse /pricing para ver os planos e fazer upgrade.",
   },
+  {
+    id: "network",
+    q: "O que é o SpeakFlow Network?",
+    a: "O Network é a comunidade de prática do SpeakFlow. Você entra em Circles (grupos temáticos), participa de desafios de comunicação em inglês e recebe avaliação automática por IA.\n\nCada submissão é avaliada em:\n• Fluência · Conteúdo · Clareza (0–100)\n• Feedback personalizado + versão melhorada\n• Ranking ao vivo no Circle\n\nVoce também ganha selos de experiência conforme evolui.\n\nAcesse /network para começar.",
+  },
+  {
+    id: "network-plan",
+    q: "Quem pode criar ou entrar em Circles?",
+    a: "• Gratuito — pode participar de até 2 Circles. Não pode criar.\n• Básico (R$ 74,90/mês) — pode criar 1 Circle + entrar em quantos quiser.\n• Premium (R$ 149,90/mês) — Circles ilimitados para criar e participar.\n\nPara convidar alguém: busque pelo @username ou e-mail do usuário no painel Gerenciar do Circle. A pessoa receberá um e-mail com o convite.",
+  },
 ];
 
 type Screen = "home" | "answer" | "contact" | "form" | "sent";

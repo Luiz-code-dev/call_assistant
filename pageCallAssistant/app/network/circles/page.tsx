@@ -10,8 +10,32 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { toast } from "sonner";
 import Link from "next/link";
 
-const FOCUS_OPTIONS = ["Technical Interviews", "Leadership", "Product Management", "Data Science", "Frontend", "Backend", "DevOps", "Soft Skills"];
-const LEVEL_OPTIONS = ["Júnior", "Pleno", "Sênior", "Lead / Principal", "Todos"];
+const FOCUS_GROUPS: Record<string, string[]> = {
+  "💼 Carreira & Negócios": [
+    "Reuniões de Negócios", "Liderança & Gestão", "Vendas & Negociação",
+    "Empreendedorismo", "Finanças & Investimentos", "Marketing & Comunicação",
+    "RH & Recrutamento", "Apresentações Públicas",
+  ],
+  "💻 Tecnologia": [
+    "Entrevistas Técnicas", "Frontend & Design", "Backend & Arquitetura",
+    "Data Science & IA", "DevOps & Cloud", "Produto & UX", "Soft Skills Tech",
+  ],
+  "✈️ Cotidiano & Viagem": [
+    "Viagem & Turismo", "Vida no Exterior", "Compras & Serviços",
+    "Saúde & Bem-estar", "Casa & Família", "Gastronomia & Restaurantes",
+    "Conversa do Dia a Dia",
+  ],
+  "🎓 Educação & Cultura": [
+    "Ciências & Pesquisa", "Educação & Ensino", "Cultura & Arte",
+    "Esportes & Fitness", "Tecnologia no Geral",
+  ],
+  "🏥 Profissões Específicas": [
+    "Medicina & Saúde", "Engenharia", "Direito & Advocacia",
+    "Arquitetura & Design", "Comunicação & Mídia", "Psicologia & Coaching",
+  ],
+};
+const FOCUS_OPTIONS = Object.values(FOCUS_GROUPS).flat();
+const LEVEL_OPTIONS = ["Iniciante (A1-A2)", "Intermediário (B1-B2)", "Avançado (C1-C2)", "Todos os níveis"];
 
 interface Circle {
   id: string; name: string; description?: string; focus: string; level: string;
@@ -29,7 +53,7 @@ function CirclesContent() {
   const [search, setSearch] = useState("");
   const [focusFilter, setFocusFilter] = useState("");
   const [showCreate, setShowCreate] = useState(searchParams.get("create") === "true");
-  const [form, setForm] = useState({ name: "", description: "", focus: "", level: "Todos", visibility: "public", maxMembers: "20" });
+  const [form, setForm] = useState({ name: "", description: "", focus: "", level: "Todos os níveis", visibility: "public", maxMembers: "20" });
   const [creating, setCreating] = useState(false);
 
   const load = () => {
@@ -88,8 +112,12 @@ function CirclesContent() {
               <div className="space-y-2"><Label>Nome *</Label><Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Ex: Senior Devs BR" maxLength={80} /></div>
               <div className="space-y-2"><Label>Foco *</Label>
                 <select value={form.focus} onChange={(e) => setForm({ ...form, focus: e.target.value })} className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm">
-                  <option value="">Selecione...</option>
-                  {FOCUS_OPTIONS.map((f) => <option key={f} value={f}>{f}</option>)}
+                  <option value="">Selecione uma área...</option>
+                  {Object.entries(FOCUS_GROUPS).map(([group, opts]) => (
+                    <optgroup key={group} label={group}>
+                      {opts.map((f) => <option key={f} value={f}>{f}</option>)}
+                    </optgroup>
+                  ))}
                 </select>
               </div>
               <div className="space-y-2"><Label>Nível</Label>
@@ -118,14 +146,14 @@ function CirclesContent() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input className="pl-9" placeholder="Buscar Circles..." value={search} onChange={(e) => setSearch(e.target.value)} />
         </div>
-        <div className="flex gap-2 flex-wrap">
-          {FOCUS_OPTIONS.map((f) => (
-            <button key={f} onClick={() => setFocusFilter(focusFilter === f ? "" : f)}
-              className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${focusFilter === f ? "border-violet-500 bg-violet-500/20 text-violet-300" : "border-border/50 text-muted-foreground hover:border-border"}`}>
-              {f}
-            </button>
+        <select value={focusFilter} onChange={(e) => setFocusFilter(e.target.value)} className="rounded-md border border-input bg-background px-3 py-2 text-sm text-muted-foreground min-w-48">
+          <option value="">Todas as áreas</option>
+          {Object.entries(FOCUS_GROUPS).map(([group, opts]) => (
+            <optgroup key={group} label={group}>
+              {opts.map((f) => <option key={f} value={f}>{f}</option>)}
+            </optgroup>
           ))}
-        </div>
+        </select>
       </div>
 
       {loading ? (

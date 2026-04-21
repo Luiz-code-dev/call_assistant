@@ -7,7 +7,7 @@ import { getSession } from "@/lib/auth";
 import {
   BookOpen, Mic2, Globe, Brain, Wand2, MessageSquarePlus,
   CheckCircle2, ArrowRight, Download, Zap, Star, Volume2,
-  Settings, Play, Send, RotateCcw, ChevronRight, Instagram,
+  Settings, Play, Send, RotateCcw, ChevronRight, Instagram, Users, Trophy, Medal,
 } from "lucide-react";
 
 export default async function GuiaPage() {
@@ -36,7 +36,7 @@ export default async function GuiaPage() {
             Do primeiro acesso às ferramentas de IA — um guia prático e direto ao ponto.
           </p>
           <div className="flex flex-wrap justify-center gap-3 text-sm text-muted-foreground">
-            {["Primeiros passos", "App desktop", "Ferramentas de IA", "Créditos e planos"].map((t) => (
+            {["Primeiros passos", "App desktop", "Ferramentas de IA", "Créditos e planos", "Network & Circles"].map((t) => (
               <span key={t} className="rounded-full border border-border/50 px-3 py-1">{t}</span>
             ))}
           </div>
@@ -60,6 +60,7 @@ export default async function GuiaPage() {
                 { n: "5", label: "Ferramenta: Treino de Entrevista", href: "#entrevista" },
                 { n: "6", label: "Créditos: como funcionam e como recarregar", href: "#creditos" },
                 { n: "7", label: "Planos e diferenças", href: "#planos" },
+                { n: "8", label: "SpeakFlow Network — Circles e Desafios", href: "#network" },
               ].map((item) => (
                 <li key={item.n}>
                   <a href={item.href} className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
@@ -415,6 +416,93 @@ export default async function GuiaPage() {
             )}
           </div>
         </div>
+
+        {/* Section 8 — Network */}
+        <section id="network" className="scroll-mt-24">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-violet-500/15">
+              <Users className="h-5 w-5 text-violet-400" />
+            </div>
+            <div>
+              <p className="text-xs font-medium text-violet-400 uppercase tracking-wide">Seção 8</p>
+              <h2 className="text-2xl font-bold">SpeakFlow Network — Circles e Desafios</h2>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-violet-500/20 bg-violet-500/5 p-5 mb-6">
+            <p className="text-sm leading-relaxed">
+              O <strong>SpeakFlow Network</strong> é a comunidade de prática do SpeakFlow. Reúna-se em <strong>Circles</strong> com outros profissionais, participe de desafios reais de comunicação em inglês e receba feedback automático da IA.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-semibold mb-3 flex items-center gap-2"><Users className="h-4 w-4 text-violet-400" />O que são Circles?</h3>
+              <p className="text-sm text-muted-foreground mb-3">Circles são grupos de prática com foco e nível definidos (ex: "Reuniões de negócios — Intermediário"). Cada Circle tem:</p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                {["Desafios periódicos de comunicação (escritos ou falados)", "Feed de respostas dos membros", "Ranking ao vivo com score da IA", "Selos de experiência por evolução"].map(item => (
+                  <li key={item} className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 shrink-0" />{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-3 flex items-center gap-2"><Zap className="h-4 w-4 text-violet-400" />Como participar de um desafio?</h3>
+              <ol className="space-y-2 text-sm text-muted-foreground list-none">
+                {[
+                  "Acesse /network → Circles → entre em um Circle público ou aceite um convite",
+                  "Veja o desafio ativo do Circle (ex: 'Descreva uma situação de liderança em inglês')",
+                  "Envie sua resposta em inglês (texto ou áudio)",
+                  "A IA avalia fluência, conteúdo e clareza (0–100 cada)",
+                  "Receba feedback + versão melhorada + dica prática",
+                  "Veja sua posição no ranking do Circle",
+                ].map((step, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-violet-500/15 text-xs font-bold text-violet-400">{i + 1}</span>
+                    {step}
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-3 flex items-center gap-2"><Trophy className="h-4 w-4 text-amber-400" />Selos de experiência</h3>
+              <p className="text-sm text-muted-foreground mb-3">Você ganha selos conforme evolui no Network. Os selos aparecem no seu perfil e demonstram seu nível para outros membros:</p>
+              <div className="grid grid-cols-2 gap-2 text-sm">
+                {[
+                  { emoji: "🎯", label: "Primeira Entrega", desc: "Enviou sua 1ª resposta" },
+                  { emoji: "🔥", label: "Consistente", desc: "5+ submissões" },
+                  { emoji: "⭐", label: "Top Performer", desc: "Score médio > 80" },
+                  { emoji: "🏆", label: "Streak 7 dias", desc: "7 dias seguidos praticando" },
+                ].map(b => (
+                  <div key={b.label} className="rounded-xl border border-border/50 bg-card p-3">
+                    <p className="text-lg mb-1">{b.emoji}</p>
+                    <p className="font-medium text-xs">{b.label}</p>
+                    <p className="text-xs text-muted-foreground">{b.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-border/50 bg-card p-4">
+              <h3 className="font-semibold mb-3 text-sm">Limites por plano</h3>
+              <div className="space-y-2 text-sm">
+                <div className="flex items-start gap-2"><span className="text-muted-foreground w-24 shrink-0">Gratuito</span><span>Participar de até 2 Circles · Não pode criar</span></div>
+                <div className="flex items-start gap-2"><span className="text-violet-400 w-24 shrink-0">Básico</span><span>Criar 1 Circle · Participar de quantos quiser</span></div>
+                <div className="flex items-start gap-2"><span className="text-amber-400 w-24 shrink-0">Premium</span><span>Criar Circles ilimitados · Participar ilimitado</span></div>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <Link href="/network" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity">
+                <Users className="h-4 w-4" /> Acessar o Network
+              </Link>
+              <Link href="/pricing" className="inline-flex items-center gap-2 rounded-xl border border-border/50 px-5 py-2.5 text-sm font-medium hover:border-violet-500/40 transition-colors">
+                Ver planos <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
 
       </div>
 

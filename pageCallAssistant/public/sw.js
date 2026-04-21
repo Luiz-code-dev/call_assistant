@@ -1,4 +1,4 @@
-const CACHE = "speakflow-network-v3";
+const CACHE = "speakflow-network-v4";
 
 self.addEventListener("install", (event) => {
   self.skipWaiting();
@@ -16,6 +16,36 @@ self.addEventListener("activate", (event) => {
     )
   );
   self.clients.claim();
+});
+
+self.addEventListener("push", (event) => {
+  const data = event.data ? event.data.json() : {};
+  const title = data.title || "SpeakFlow Network";
+  const body  = data.body  || "Novo desafio disponível no seu Circle!";
+  const icon  = "/icon.svg";
+  const url   = data.url   || "/network";
+
+  event.waitUntil(
+    self.registration.showNotification(title, {
+      body,
+      icon,
+      badge: icon,
+      data: { url },
+      vibrate: [200, 100, 200],
+    })
+  );
+});
+
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  const url = event.notification.data?.url || "/network";
+  event.waitUntil(
+    clients.matchAll({ type: "window", includeUncontrolled: true }).then((list) => {
+      const found = list.find((c) => c.url.includes("/network"));
+      if (found) return found.focus();
+      return clients.openWindow(url);
+    })
+  );
 });
 
 self.addEventListener("fetch", (event) => {

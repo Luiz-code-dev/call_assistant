@@ -7,7 +7,7 @@ import { getSession } from "@/lib/auth";
 import {
   Mic2, Zap, Globe, Brain, Shield, Download,
   CheckCircle2, ArrowRight, Star, ChevronRight,
-  AlertTriangle, TrendingUp, Wand2, MessageSquarePlus, BookOpen, Sparkles, Instagram,
+  AlertTriangle, TrendingUp, Wand2, MessageSquarePlus, BookOpen, Sparkles, Instagram, Users,
 } from "lucide-react";
 
 const features = [
@@ -40,6 +40,11 @@ const features = [
     icon: Download,
     title: "App nativo Windows",
     description: "Instalador simples. Funciona em segundo plano, sem impactar a performance do sistema.",
+  },
+  {
+    icon: Users,
+    title: "SpeakFlow Network",
+    description: "Entre em Circles de prática, participe de desafios em inglês e receba avaliação com IA. Ranking, selos e comunidade.",
   },
 ];
 
@@ -413,6 +418,78 @@ export default async function Home() {
                 Ver guia completo
               </Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Network Section */}
+      <section id="network" className="border-t border-border/50 px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-12 lg:grid-cols-2 items-center">
+            <div>
+              <Badge variant="purple" className="mb-4">
+                <Users className="mr-1 h-3 w-3" />
+                Novidade — SpeakFlow Network
+              </Badge>
+              <h2 className="text-4xl font-bold mb-4">
+                Pratique em comunidade.{" "}
+                <span className="gradient-text">Evolua com IA.</span>
+              </h2>
+              <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
+                Entre em <strong className="text-foreground">Circles</strong> com outros profissionais, participe de desafios reais de comunicação em inglês e receba avaliação automática com scores de fluência, conteúdo e clareza.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {[
+                  { icon: "🎯", text: "Desafios periódicos de comunicação em inglês" },
+                  { icon: "🤖", text: "Avaliação por IA — fluência, conteúdo e clareza (0–100)" },
+                  { icon: "🏆", text: "Ranking ao vivo com os membros do Circle" },
+                  { icon: "🎖️", text: "Selos de experiência que demonstram seu nível" },
+                  { icon: "✉️", text: "Convites por e-mail — adicione pessoas pelo @username" },
+                ].map(item => (
+                  <li key={item.text} className="flex items-start gap-3 text-sm">
+                    <span className="text-base shrink-0">{item.icon}</span>
+                    <span className="text-muted-foreground">{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-3">
+                <Button variant="gradient" asChild>
+                  <Link href={isLoggedIn ? "/network" : "/register"}>
+                    <Users className="mr-2 h-4 w-4" />
+                    {isLoggedIn ? "Acessar o Network" : "Criar conta grátis"}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button variant="outline" asChild>
+                  <Link href="/guia#network">Saiba mais</Link>
+                </Button>
+              </div>
+            </div>
+            <div className="space-y-3">
+              <div className="rounded-2xl border border-violet-500/30 bg-violet-500/5 p-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center text-white font-bold text-sm">B</div>
+                  <div><p className="font-semibold text-sm">Business English Circle</p><p className="text-xs text-muted-foreground">Reuniões de negócios · Intermediário · 18/20 membros</p></div>
+                </div>
+                <div className="rounded-xl bg-card border border-border/50 p-3 mb-2">
+                  <p className="text-xs text-muted-foreground mb-1">🎯 Desafio ativo</p>
+                  <p className="text-sm font-medium">"Descreva um conflito que você resolveu na sua equipe"</p>
+                </div>
+                <div className="flex gap-2 text-xs">
+                  <span className="rounded-full bg-emerald-500/15 text-emerald-400 px-2 py-1">Fluência 87</span>
+                  <span className="rounded-full bg-violet-500/15 text-violet-400 px-2 py-1">Conteúdo 91</span>
+                  <span className="rounded-full bg-blue-500/15 text-blue-400 px-2 py-1">Clareza 84</span>
+                </div>
+              </div>
+              <div className="grid grid-cols-3 gap-2 text-center text-xs">
+                {[["Gratuito", "2 Circles", "text-muted-foreground"], ["Básico", "Criar 1 Circle", "text-violet-400"], ["Premium", "Ilimitado", "text-amber-400"]].map(([plan, desc, cls]) => (
+                  <div key={plan} className="rounded-xl border border-border/50 bg-card p-3">
+                    <p className={`font-semibold mb-1 ${cls}`}>{plan}</p>
+                    <p className="text-muted-foreground">{desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

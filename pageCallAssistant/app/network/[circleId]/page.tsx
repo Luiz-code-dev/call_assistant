@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { Users, Trophy, Zap, ArrowLeft, LogOut, Crown, Shield, Loader2, Clock, Settings } from "lucide-react";
+import { Users, Trophy, Zap, ArrowLeft, LogOut, Crown, Shield, Loader2, Clock, Settings, Plus, X, Mic } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
@@ -38,6 +38,29 @@ export default function CircleDetailPage() {
   const [loading, setLoading] = useState(true);
   const [leaving, setLeaving] = useState(false);
   const [tab, setTab] = useState<"feed" | "members" | "ranking">("feed");
+  const [showCreate, setShowCreate] = useState(false);
+  const [creating, setCreating] = useState(false);
+  const [newCh, setNewCh] = useState({ title: "", prompt: "", type: "written", startsAt: "", endsAt: "", isRecurring: false });
+
+  const createChallenge = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newCh.title.trim() || !newCh.prompt.trim() || !newCh.startsAt || !newCh.endsAt) return;
+    setCreating(true);
+    const r = await fetch("/api/network/challenges", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ circleId, ...newCh }),
+    });
+    if (r.ok) {
+      toast.success("Desafio criado!");
+      setShowCreate(false);
+      setNewCh({ title: "", prompt: "", type: "written", startsAt: "", endsAt: "", isRecurring: false });
+      await load();
+    } else { const d = await r.json(); toast.error(d.error ?? "Erro ao criar desafio."); }
+    setCreating(false);
+  };
+
+  const isOwnerOrMod = ["owner", "moderator"].includes(circle?.myRole ?? "");
 
   const load = useCallback(async () => {
     const [cRes, chRes] = await Promise.all([
@@ -119,13 +142,20 @@ export default function CircleDetailPage() {
         </Card>
       )}
 
-      <div className="flex gap-1 border-b border-border/50">
+      <div className="flex items-center gap-1 border-b border-border/50">
+        <div className="flex-1 flex gap-1">
         {(["feed", "members", "ranking"] as const).map((t) => (
           <button key={t} onClick={() => setTab(t)}
             className={`px-4 py-2 text-sm font-medium capitalize transition-colors border-b-2 -mb-px ${tab === t ? "border-violet-500 text-violet-400" : "border-transparent text-muted-foreground hover:text-foreground"}`}>
             {t === "feed" ? "Desafios" : t === "members" ? "Membros" : "Ranking"}
           </button>
         ))}
+        </div>
+        {tab === "feed" && isOwnerOrMod && (
+          <button onClick={() => setShowCreate(true)} className="flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-xs text-violet-400 hover:bg-violet-500/10 transition-colors shrink-0">
+            <Plus className="h-3.5 w-3.5" />Criar desafio
+          </button>
+        )}
       </div>
 
       {tab === "feed" && (
@@ -134,8 +164,10 @@ export default function CircleDetailPage() {
             <div className="text-center py-12 text-muted-foreground">
               <Zap className="h-10 w-10 mx-auto mb-3 opacity-20" />
               <p>Nenhum desafio ainda.</p>
-              {["owner","moderator"].includes(circle.myRole ?? "") && (
-                <p className="text-xs mt-1">Como moderador, você pode criar desafios.</p>
+              {isOwnerOrMod && (
+                <button onClick={() => setShowCreate(true)} className="mt-3 inline-flex items-center gap-1.5 rounded-lg bg-violet-500/15 px-4 py-2 text-sm text-violet-400 hover:bg-violet-500/25 transition-colors">
+                  <Plus className="h-4 w-4" />Criar primeiro desafio
+                </button>
               )}
             </div>
           ) : challenges.map((ch) => (
@@ -175,6 +207,56 @@ export default function CircleDetailPage() {
       )}
 
       {tab === "ranking" && <RankingTab circleId={circleId} />}
+      {showCreate && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+          <div className="w-full max-w-lg rounded-2xl border border-border/50 bg-card shadow-2xl">
+            <div className="flex items-center justify-between p-5 border-b border-border/50">
+              <h2 className="font-semibold">Criar desafio</h2>
+              <button onClick={() => setShowCreate(false)} className="text-muted-foreground hover:text-foreground"><X className="h-4 w-4" /></button>
+            </div>
+            <form onSubmit={createChallenge} className="p-5 space-y-4">
+              <div>
+                <label className="text-xs font-medium text-muted-foreground">Título *</label>
+                <input value={newCh.title} onChange={e => setNewCh(p => ({ ...p, title: e.target.value }))} placeholder="Ex: Apresente seu projeto em 60 segundos" maxLength={120} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500/50" />
+              </div>
+              <div>
+                <label className="text-xs font-medium text-muted-foreground">Contexto / Prompt *</label>
+                <textarea value={newCh.prompt} onChange={e => setNewCh(p => ({ ...p, prompt: e.target.value }))} placeholder="Descreva a situação que o membro deve responder em inglês..." rows={4} maxLength={2000} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm resize-none outline-none focus:ring-2 focus:ring-violet-500/50" />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="text-xs font-medium text-muted-foreground">Tipo de resposta</label>
+                  <select value={newCh.type} onChange={e => setNewCh(p => ({ ...p, type: e.target.value }))} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500/50">
+                    <option value="written">✍️ Texto escrito</option>
+                    <option value="spoken">🎤 Áudio (fala)</option>
+                  </select>
+                </div>
+                <div className="flex items-end gap-2 pb-2">
+                  <input type="checkbox" id="recurring" checked={newCh.isRecurring} onChange={e => setNewCh(p => ({ ...p, isRecurring: e.target.checked }))} className="rounded" />
+                  <label htmlFor="recurring" className="text-sm text-muted-foreground">Repetir semanalmente</label>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="text-xs font-medium text-muted-foreground">Início *</label>
+                  <input type="datetime-local" value={newCh.startsAt} onChange={e => setNewCh(p => ({ ...p, startsAt: e.target.value }))} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500/50" />
+                </div>
+                <div>
+                  <label className="text-xs font-medium text-muted-foreground">Encerramento *</label>
+                  <input type="datetime-local" value={newCh.endsAt} onChange={e => setNewCh(p => ({ ...p, endsAt: e.target.value }))} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500/50" />
+                </div>
+              </div>
+              <div className="flex justify-end gap-2 pt-1">
+                <button type="button" onClick={() => setShowCreate(false)} className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground">Cancelar</button>
+                <button type="submit" disabled={creating || !newCh.title.trim() || !newCh.prompt.trim() || !newCh.startsAt || !newCh.endsAt} className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-violet-600 to-indigo-600 px-5 py-2 text-sm font-medium text-white disabled:opacity-50">
+                  {creating ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
+                  {creating ? "Criando..." : "Criar desafio"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
