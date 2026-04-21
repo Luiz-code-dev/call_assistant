@@ -8,7 +8,7 @@ import { Progress } from "@/components/ui/progress";
 import {
   Mic2, Zap, CreditCard, ArrowUpRight, Download,
   LogOut, Settings, TrendingUp, Loader2, CheckCircle2, Crown, Sparkles,
-  Wand2, MessageSquarePlus, Lock,
+  Wand2, MessageSquarePlus, Lock, Users,
 } from "lucide-react";
 import { SupportChat } from "@/components/SupportChat";
 import { useSearchParams } from "next/navigation";
@@ -207,6 +207,24 @@ export default function DashboardPage() {
             </CardContent>
           </Card>
         </div>
+
+        {/* Network Banner */}
+        <Link href="/network">
+          <Card className="mb-6 cursor-pointer border-violet-500/30 bg-gradient-to-r from-violet-500/10 via-indigo-500/5 to-transparent hover:border-violet-500/50 transition-all hover:shadow-lg">
+            <CardContent className="flex items-center gap-4 p-5">
+              <div className="rounded-xl bg-violet-500/20 p-3 shrink-0">
+                <Users className="h-6 w-6 text-violet-400" />
+              </div>
+              <div className="flex-1">
+                <p className="font-semibold">SpeakFlow Network</p>
+                <p className="text-sm text-muted-foreground">
+                  Circles de prática profissional · Desafios semanais · Ranking · Feedback com IA
+                </p>
+              </div>
+              <ArrowUpRight className="h-4 w-4 text-violet-400 shrink-0" />
+            </CardContent>
+          </Card>
+        </Link>
 
         {/* Quick actions */}
         <div className="mb-6 grid gap-3 sm:grid-cols-2 md:grid-cols-4">

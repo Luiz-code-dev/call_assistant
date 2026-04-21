@@ -12,6 +12,7 @@ import { toast } from "sonner";
 export default function SettingsPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [avatarUrl, setAvatarUrl] = useState("");
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
@@ -21,6 +22,7 @@ export default function SettingsPage() {
       .then((data) => {
         if (data?.name) setName(data.name);
         if (data?.email) setEmail(data.email);
+        if (data?.avatarUrl) setAvatarUrl(data.avatarUrl);
       })
       .catch(() => {})
       .finally(() => setLoading(false));
@@ -30,8 +32,13 @@ export default function SettingsPage() {
     e.preventDefault();
     setSaving(true);
     try {
-      await new Promise((r) => setTimeout(r, 500));
-      toast.success("Configurações salvas!");
+      const r = await fetch("/api/auth/profile", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, avatarUrl }),
+      });
+      if (r.ok) toast.success("Configurações salvas!");
+      else { const d = await r.json(); toast.error(d.error ?? "Erro ao salvar."); }
     } finally {
       setSaving(false);
     }
@@ -99,6 +106,18 @@ export default function SettingsPage() {
                     className="opacity-60"
                   />
                   <p className="text-xs text-muted-foreground">O e-mail não pode ser alterado.</p>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="avatarUrl">URL da foto de perfil</Label>
+                  <Input
+                    id="avatarUrl"
+                    type="url"
+                    value={avatarUrl}
+                    onChange={(e) => setAvatarUrl(e.target.value)}
+                    placeholder="https://..."
+                  />
+                  <p className="text-xs text-muted-foreground">Opcional. Usada no SpeakFlow Network. Cole a URL da sua foto (LinkedIn, GitHub, etc.).</p>
+                  {avatarUrl && <img src={avatarUrl} alt="Preview" className="h-16 w-16 rounded-full object-cover border border-border" onError={(e) => (e.currentTarget.style.display = "none")} />}
                 </div>
                 <Button type="submit" variant="gradient" size="sm" disabled={saving}>
                   {saving ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Save className="mr-2 h-4 w-4" />}

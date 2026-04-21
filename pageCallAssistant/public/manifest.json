@@ -1,0 +1,41 @@
+{
+  "name": "SpeakFlow Network",
+  "short_name": "SF Network",
+  "description": "Circles de prática profissional em inglês — desafios, ranking e feedback com IA",
+  "start_url": "/network",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#7c3aed",
+  "background_color": "#0f0f10",
+  "lang": "pt-BR",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Meus Circles",
+      "short_name": "Circles",
+      "url": "/network",
+      "icons": [{ "src": "/icon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Descobrir",
+      "short_name": "Descobrir",
+      "url": "/network/circles",
+      "icons": [{ "src": "/icon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Progresso",
+      "short_name": "Progresso",
+      "url": "/network/progress",
+      "icons": [{ "src": "/icon.svg", "sizes": "any" }]
+    }
+  ]
+}

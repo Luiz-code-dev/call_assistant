@@ -17,7 +17,7 @@ export async function GET(req: NextRequest) {
 
   const user = await db.user.findUnique({
     where: { id: payload.sub },
-    select: { id: true, name: true, email: true, plan: true },
+    select: { id: true, name: true, username: true, email: true, plan: true, avatarUrl: true },
   });
 
   if (!user) {
@@ -28,6 +28,8 @@ export async function GET(req: NextRequest) {
     id: user.id,
     email: user.email,
     name: user.name,
+    username: user.username ?? null,
     plan: user.plan,
+    avatarUrl: user.avatarUrl ?? null,
   });
 }

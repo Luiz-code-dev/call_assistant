@@ -10,6 +10,7 @@ datasource db {
 model User {
   id                   String              @id @default(cuid())
   name                 String
+  username             String?             @unique
   email                String              @unique
   password             String
   plan                 String              @default("free")
@@ -22,11 +23,14 @@ model User {
   stripeSubscriptionId String?
   subscriptionStatus   String?
   planRenewsAt         DateTime?
+  avatarUrl            String?
   createdAt            DateTime            @default(now())
   updatedAt            DateTime            @updatedAt
   transactions         CreditTransaction[]
   sessions             CallSession[]
   toolUsages           ToolUsage[]
+  circleMembers        CircleMember[]
+  submissions          Submission[]
 }
 
 model CreditTransaction {
@@ -60,4 +64,76 @@ model ToolUsage {
   user      User     @relation(fields: [userId], references: [id])
   tool      String
   createdAt DateTime @default(now())
+}
+
+model Circle {
+  id          String         @id @default(cuid())
+  ownerId     String
+  name        String
+  description String?
+  focus       String
+  level       String         @default("Todos")
+  visibility  String         @default("public")
+  maxMembers  Int            @default(20)
+  inviteToken String?        @unique
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  members     CircleMember[]
+  challenges  Challenge[]
+}
+
+model CircleMember {
+  id       String   @id @default(cuid())
+  circleId String
+  userId   String
+  role     String   @default("member")
+  status   String   @default("active")
+  joinedAt DateTime @default(now())
+  circle   Circle   @relation(fields: [circleId], references: [id], onDelete: Cascade)
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([circleId, userId])
+}
+
+model Challenge {
+  id          String       @id @default(cuid())
+  circleId    String
+  title       String
+  prompt      String
+  type        String       @default("written")
+  startsAt    DateTime
+  endsAt      DateTime
+  isRecurring Boolean      @default(false)
+  createdAt   DateTime     @default(now())
+  circle      Circle       @relation(fields: [circleId], references: [id], onDelete: Cascade)
+  submissions Submission[]
+}
+
+model Submission {
+  id          String                @id @default(cuid())
+  userId      String
+  challengeId String
+  circleId    String
+  content     String
+  isPublic    Boolean               @default(true)
+  createdAt   DateTime              @default(now())
+  user        User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  challenge   Challenge             @relation(fields: [challengeId], references: [id], onDelete: Cascade)
+  evaluation  SubmissionEvaluation?
+
+  @@unique([userId, challengeId])
+}
+
+model SubmissionEvaluation {
+  id               String     @id @default(cuid())
+  submissionId     String     @unique
+  fluencyScore     Int
+  contentScore     Int
+  clarityScore     Int
+  totalScore       Int
+  feedback         String
+  improvedResponse String
+  tip              String
+  createdAt        DateTime   @default(now())
+  submission       Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
 }

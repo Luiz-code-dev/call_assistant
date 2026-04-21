@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import { randomBytes } from "crypto";
 import { db } from "@/lib/db";
 import { sendVerificationEmail } from "@/lib/email";
+import { generateUniqueUsername } from "@/lib/username";
 
 export async function POST(req: NextRequest) {
   try {
@@ -26,10 +27,12 @@ export async function POST(req: NextRequest) {
     const hashedPassword = await bcrypt.hash(password, 12);
     const verificationToken = randomBytes(32).toString("hex");
     const verificationExpiry = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24h
+    const username = await generateUniqueUsername(name);
 
     const user = await db.user.create({
       data: {
         name,
+        username,
         email: email.toLowerCase(),
         password: hashedPassword,
         verificationToken,
