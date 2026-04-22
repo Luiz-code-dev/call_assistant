@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Navbar } from "@/components/Navbar";
 import { SupportChat } from "@/components/SupportChat";
+import { CookieManagerButton } from "@/components/CookieConsent";
 import { getSession } from "@/lib/auth";
 import {
   Mic2, Zap, Globe, Brain, Shield, Download,
@@ -618,6 +619,9 @@ export default async function Home() {
           <div className="flex items-center gap-4">
             <Link href="/pricing" className="text-xs text-muted-foreground hover:text-foreground">Preços</Link>
             <Link href="/guia" className="text-xs text-muted-foreground hover:text-foreground">Guia</Link>
+            <Link href="/privacy" className="text-xs text-muted-foreground hover:text-foreground">Privacidade</Link>
+            <Link href="/terms" className="text-xs text-muted-foreground hover:text-foreground">Termos</Link>
+            <CookieManagerButton />
             <Link href="/login" className="text-xs text-muted-foreground hover:text-foreground">Login</Link>
             <Link href="/register" className="text-xs text-muted-foreground hover:text-foreground">Cadastro</Link>
             <a

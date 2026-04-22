@@ -138,6 +138,10 @@ export default function PricingPageClient({
   }, [searchParams]);
 
   async function handleSubscribe(plan: typeof plans[0]) {
+    if (!sessionUser && plan.stripePrice) {
+      window.location.href = `/login?redirect=/pricing`;
+      return;
+    }
     if (userPlan !== null && plan.id === "free") {
       toast.info("O plano gratuito já está incluído na sua conta.");
       return;
