@@ -487,9 +487,13 @@ export default async function GuiaPage() {
             <div className="rounded-xl border border-border/50 bg-card p-4">
               <h3 className="font-semibold mb-3 text-sm">Limites por plano</h3>
               <div className="space-y-2 text-sm">
-                <div className="flex items-start gap-2"><span className="text-muted-foreground w-24 shrink-0">Gratuito</span><span>Participar de até 2 Circles · Não pode criar</span></div>
-                <div className="flex items-start gap-2"><span className="text-violet-400 w-24 shrink-0">Básico</span><span>Criar 1 Circle · Participar de quantos quiser</span></div>
-                <div className="flex items-start gap-2"><span className="text-amber-400 w-24 shrink-0">Premium</span><span>Criar Circles ilimitados · Participar ilimitado</span></div>
+                <div className="flex items-start gap-2"><span className="text-muted-foreground w-24 shrink-0">Gratuito</span><span>Participar de até 2 Circles · Não pode criar · Sem certificado</span></div>
+                <div className="flex items-start gap-2"><span className="text-violet-400 w-24 shrink-0">Básico</span><span>Criar 1 Circle · Participar de quantos quiser · Sem certificado</span></div>
+                <div className="flex items-start gap-2"><span className="text-amber-400 w-24 shrink-0">Premium</span><span>Criar Circles ilimitados · Participar ilimitado · <strong>Avaliação CEFR + Certificado de Proficiência</strong></span></div>
+                <div className="mt-3 rounded-lg border border-amber-500/20 bg-amber-500/5 p-3">
+                  <p className="text-xs text-amber-400 font-medium mb-1">🏆 Certificado de Proficiência SpeakFlow</p>
+                  <p className="text-xs text-muted-foreground">Exclusivo Premium. A IA analisa suas respostas e determina seu nível CEFR (A1–C2). Se atingir B1 ou superior, você pode gerar e imprimir um certificado oficial SpeakFlow — válido para LinkedIn e portfólio.</p>
+                </div>
               </div>
             </div>
 

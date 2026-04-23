@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Trophy, Zap, TrendingUp, ArrowLeft, Star } from "lucide-react";
+import { Trophy, Zap, TrendingUp, ArrowLeft, Star, Award, Loader2, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -17,19 +17,41 @@ interface Submission {
 
 interface Circle { id: string; name: string; myRole: string }
 
+interface ProficiencyAssessment {
+  id: string; level: string; levelLabel: string; confidence: string;
+  fluencyAvg: number; contentAvg: number; clarityAvg: number; totalAvg: number;
+  strengths: string[]; improvements: string[]; overallFeedback: string;
+  submissionsUsed: number; isEligible: boolean; createdAt: string;
+}
+
+const LEVEL_COLORS: Record<string, string> = {
+  A1: "text-gray-400 border-gray-500/30 bg-gray-500/10",
+  A2: "text-amber-400 border-amber-500/30 bg-amber-500/10",
+  B1: "text-emerald-400 border-emerald-500/30 bg-emerald-500/10",
+  B2: "text-blue-400 border-blue-500/30 bg-blue-500/10",
+  C1: "text-violet-400 border-violet-500/30 bg-violet-500/10",
+  C2: "text-pink-400 border-pink-500/30 bg-pink-500/10",
+};
+
 export default function ProgressPage() {
   const [submissions, setSubmissions] = useState<Submission[]>([]);
   const [circles, setCircles] = useState<Circle[]>([]);
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState<string | null>(null);
+  const [assessment, setAssessment] = useState<ProficiencyAssessment | null>(null);
+  const [assessing, setAssessing] = useState(false);
+  const [userPlan, setUserPlan] = useState<string | null>(null);
 
   useEffect(() => {
     Promise.all([
       fetch("/api/auth/me").then((r) => r.json()),
       fetch("/api/network/circles?filter=mine").then((r) => r.json()),
+      fetch("/api/network/proficiency").then((r) => r.json()).catch(() => null),
     ])
-      .then(async ([me, myCircles]) => {
+      .then(async ([me, myCircles, assessData]) => {
+        if (assessData?.id) setAssessment({ ...assessData, strengths: assessData.strengths ?? [], improvements: assessData.improvements ?? [] });
         setUserId(me.id);
+        setUserPlan(me.plan ?? null);
         const circs: Circle[] = Array.isArray(myCircles) ? myCircles : [];
         setCircles(circs);
         const allSubs: Submission[] = [];
@@ -61,6 +83,17 @@ export default function ProgressPage() {
   const avgScore = evaluated.length > 0 ? (totalScore / evaluated.length).toFixed(1) : "—";
   const streak = calcStreak(submissions);
 
+  const requestAssessment = async () => {
+    setAssessing(true);
+    try {
+      const r = await fetch("/api/network/proficiency", { method: "POST" });
+      const data = await r.json();
+      if (!r.ok) { alert(data.error ?? "Erro ao solicitar avaliação."); return; }
+      setAssessment({ ...data, strengths: data.strengths ?? [], improvements: data.improvements ?? [] });
+    } catch { alert("Erro ao solicitar avaliação."); }
+    finally { setAssessing(false); }
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-3">
@@ -77,6 +110,65 @@ export default function ProgressPage() {
         <StatCard icon={<TrendingUp className="h-5 w-5 text-emerald-400" />} label="Score médio" value={String(avgScore)} />
         <StatCard icon={<Trophy className="h-5 w-5 text-orange-400" />} label="Streak (dias)" value={String(streak)} />
       </div>
+
+      {/* CEFR Proficiency Card */}
+      <Card className="border-border/50">
+        <CardHeader className="pb-2">
+          <CardTitle className="text-sm flex items-center gap-2">
+            <Award className="h-4 w-4 text-violet-400" />
+            Nível de Proficiência em Inglês
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          {assessment ? (
+            <div className="space-y-4">
+              <div className="flex items-center gap-4">
+                <div className={`px-4 py-2 rounded-xl border text-2xl font-bold ${LEVEL_COLORS[assessment.level] ?? LEVEL_COLORS.B1}`}>
+                  {assessment.level}
+                </div>
+                <div>
+                  <p className="font-semibold">{assessment.levelLabel}</p>
+                  <p className="text-xs text-muted-foreground">Avaliado em {new Date(assessment.createdAt).toLocaleDateString("pt-BR")} · {assessment.submissionsUsed} respostas</p>
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">{assessment.overallFeedback}</p>
+              <div className="flex gap-2 flex-wrap">
+                {assessment.isEligible && userPlan === "premium" && (
+                  <Link href="/network/certificate">
+                    <Button size="sm" className="gap-1.5 bg-gradient-to-r from-violet-600 to-indigo-600 text-white h-8 text-xs">
+                      <Award className="h-3.5 w-3.5" />Ver Certificado
+                    </Button>
+                  </Link>
+                )}
+                {userPlan !== "premium" && (
+                  <Link href="/pricing">
+                    <Button size="sm" variant="outline" className="gap-1.5 h-8 text-xs border-amber-500/30 text-amber-400 hover:bg-amber-500/10">
+                      🔒 Certificado — Premium
+                    </Button>
+                  </Link>
+                )}
+                <Button size="sm" variant="outline" onClick={requestAssessment} disabled={assessing} className="h-8 text-xs gap-1.5">
+                  {assessing ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <ChevronRight className="h-3.5 w-3.5" />}
+                  {assessing ? "Avaliando..." : "Nova Avaliação"}
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <div className="space-y-3">
+              <p className="text-sm text-muted-foreground">
+                {evaluated.length < 3
+                  ? `Complete pelo menos 3 avaliações para solicitar sua análise de proficiência CEFR. (${evaluated.length}/3)`
+                  : "Solicite sua avaliação de proficiência CEFR (A1–C2) gerada por IA com base nas suas respostas."}
+              </p>
+              <Button size="sm" onClick={requestAssessment} disabled={assessing || evaluated.length < 3}
+                className="gap-1.5 bg-gradient-to-r from-violet-600 to-indigo-600 text-white h-8 text-xs">
+                {assessing ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Award className="h-3.5 w-3.5" />}
+                {assessing ? "Avaliando..." : "Solicitar Avaliação"}
+              </Button>
+            </div>
+          )}
+        </CardContent>
+      </Card>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {evaluated.length > 0 && (

@@ -75,6 +75,11 @@ const FAQS = [
     q: "Quem pode criar ou entrar em Circles?",
     a: "• Gratuito — pode participar de até 2 Circles. Não pode criar.\n• Básico (R$ 74,90/mês) — pode criar 1 Circle + entrar em quantos quiser.\n• Premium (R$ 149,90/mês) — Circles ilimitados para criar e participar.\n\nPara convidar alguém: busque pelo @username ou e-mail do usuário no painel Gerenciar do Circle. A pessoa receberá um e-mail com o convite.",
   },
+  {
+    id: "certificate",
+    q: "Como funciona o Certificado de Proficiência?",
+    a: "🏆 O Certificado de Proficiência SpeakFlow é exclusivo do plano Premium.\n\nComo funciona:\n1. Complete pelo menos 3 desafios avaliados pela IA no Network\n2. Acesse Meu Progresso → clique em 'Solicitar Avaliação'\n3. A IA analisa suas respostas e determina seu nível CEFR (A1, A2, B1, B2, C1 ou C2)\n4. Se atingir B1 ou superior, o botão 'Ver Certificado' é liberado\n5. Gere e imprima seu certificado oficial SpeakFlow\n\nO certificado inclui: nome completo, nível CEFR, scores de fluência/conteúdo/clareza, data de emissão e código de verificação.\n\nÉ ideal para adicionar ao LinkedIn e portfólio profissional.\n\n🔒 Disponível apenas no plano Premium (R$ 149,90/mês). Acesse /pricing para fazer upgrade.",
+  },
 ];
 
 type Screen = "home" | "answer" | "contact" | "form" | "sent";

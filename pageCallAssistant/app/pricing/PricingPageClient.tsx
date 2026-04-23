@@ -103,6 +103,7 @@ export default function PricingPageClient({
         "✍️ Melhorar Resposta — ilimitado",
         "💬 Gerar Resposta — ilimitado",
         "🎤 Treino de Entrevista — ilimitado",
+        "🏆 Avaliação CEFR + Certificado de Proficiência",
       ],
       cta: "Assinar — R$ 149,90/mês",
       href: null,
