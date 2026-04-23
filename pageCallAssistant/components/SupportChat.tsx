@@ -14,7 +14,21 @@ import {
 
 const WHATSAPP = "+5571984514211"; // TODO: atualizar com o número real
 
-const FAQS = [
+interface FaqCta {
+  label: string;
+  href: string;
+  variant?: "primary" | "secondary";
+}
+
+interface FAQ {
+  id: string;
+  q: string;
+  a: string;
+  ctaLoggedIn?: FaqCta;
+  ctaLoggedOut?: FaqCta;
+}
+
+const FAQS: FAQ[] = [
   {
     id: "install",
     q: "Como instalar o SpeakFlow?",
@@ -78,17 +92,13 @@ const FAQS = [
   {
     id: "certificate",
     q: "Como funciona o Certificado de Proficiência?",
-    a: "🏆 O Certificado de Proficiência SpeakFlow é exclusivo do plano Premium.\n\nComo funciona:\n1. Complete pelo menos 3 desafios avaliados pela IA no Network\n2. Acesse Meu Progresso → clique em 'Solicitar Avaliação'\n3. A IA analisa suas respostas e determina seu nível CEFR (A1, A2, B1, B2, C1 ou C2)\n4. Se atingir B1 ou superior, o botão 'Ver Certificado' é liberado\n5. Gere e imprima seu certificado oficial SpeakFlow\n\nO certificado inclui: nome completo, nível CEFR, scores de fluência/conteúdo/clareza, data de emissão e código de verificação.\n\nÉ ideal para adicionar ao LinkedIn e portfólio profissional.\n\n🔒 Disponível apenas no plano Premium (R$ 149,90/mês). Acesse /pricing para fazer upgrade.",
+    a: "🏆 O Certificado de Proficiência SpeakFlow é exclusivo do plano Premium.\n\nComo funciona:\n1. Complete pelo menos 3 desafios avaliados pela IA no Network\n2. Acesse Meu Progresso → clique em 'Solicitar Avaliação'\n3. A IA analisa suas respostas e determina seu nível CEFR (A1, A2, B1, B2, C1 ou C2)\n4. Se atingir B1 ou superior, o botão 'Ver Certificado' é liberado\n5. Gere e imprima seu certificado oficial SpeakFlow\n\nO certificado inclui: nome completo, nível CEFR, scores de fluência/conteúdo/clareza, data de emissão e código de verificação.\n\nÉ ideal para adicionar ao LinkedIn e portfólio profissional.",
+    ctaLoggedIn: { label: "🏆 Fazer Upgrade Premium", href: "/pricing", variant: "primary" },
+    ctaLoggedOut: { label: "🏆 Criar conta e ver planos", href: "/register", variant: "primary" },
   },
 ];
 
 type Screen = "home" | "answer" | "contact" | "form" | "sent";
-
-interface FAQ {
-  id: string;
-  q: string;
-  a: string;
-}
 
 export function SupportChat() {
   const [open, setOpen] = useState(false);
@@ -97,6 +107,7 @@ export function SupportChat() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sending, setSending] = useState(false);
   const [formError, setFormError] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     if (!open) return;
@@ -107,6 +118,7 @@ export function SupportChat() {
       .then((r) => (r.ok ? r.json() : null))
       .then((data) => {
         if (data) {
+          setIsLoggedIn(true);
           setForm((f) => ({
             ...f,
             name: f.name || data.name || "",
@@ -255,6 +267,22 @@ export function SupportChat() {
                 <div className="rounded-xl bg-secondary/60 border border-border/30 p-3 text-sm whitespace-pre-line leading-relaxed">
                   {activeFaq.a}
                 </div>
+                {(activeFaq.ctaLoggedIn || activeFaq.ctaLoggedOut) && (() => {
+                  const cta = isLoggedIn ? activeFaq.ctaLoggedIn : activeFaq.ctaLoggedOut;
+                  if (!cta) return null;
+                  return (
+                    <a
+                      href={cta.href}
+                      className={`block w-full text-center rounded-xl py-2.5 text-sm font-semibold transition-all ${
+                        cta.variant === "primary"
+                          ? "bg-gradient-to-r from-violet-600 to-indigo-600 text-white hover:opacity-90"
+                          : "border border-border/50 hover:bg-secondary/50"
+                      }`}
+                    >
+                      {cta.label}
+                    </a>
+                  );
+                })()}
                 <p className="text-xs text-muted-foreground">
                   Isso respondeu sua dúvida?
                 </p>
