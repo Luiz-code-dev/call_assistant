@@ -91,8 +91,10 @@ public class OpenAiCopilotAdapter implements CopilotPort {
                 .retrieve()
                 .onStatus(status -> !status.is2xxSuccessful(), response ->
                         response.bodyToMono(String.class)
-                                .doOnNext(body -> log.error("Copilot API {} error — body: {}", response.statusCode(), body))
-                                .then(Mono.error(new RuntimeException("Copilot API error: " + response.statusCode()))))
+                                .flatMap(body -> {
+                                    log.error("Copilot API {} error — body: {}", response.statusCode(), body);
+                                    return Mono.<Throwable>error(new RuntimeException("Copilot API error: " + response.statusCode()));
+                                }))
                 .bodyToMono(ChatResponse.class)
                 .mapNotNull(ChatResponse::contentSafely)
                 .filter(text -> !text.isBlank())

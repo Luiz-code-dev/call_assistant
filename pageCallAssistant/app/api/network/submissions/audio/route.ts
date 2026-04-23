@@ -6,6 +6,29 @@ import { getOpenAI } from "@/lib/openai";
 export const runtime = "nodejs";
 export const maxDuration = 60;
 
+function isWhisperHallucination(text: string): boolean {
+  if (text.length < 4) return true;
+  // Símbolos típicos de alucinação do Whisper
+  if (/[◆♪♫♩♬✦◉]/.test(text)) return true;
+  // Caracteres repetidos 4+ vezes seguidas (ex: "ỹỹỹỹỹ", "aaaaaaa")
+  if (/(.)\1{3,}/.test(text)) return true;
+  // Diversidade muito baixa de caracteres únicos (< 5% do total)
+  const stripped = text.replace(/\s/g, "");
+  if (stripped.length > 15 && new Set(stripped).size / stripped.length < 0.05) return true;
+  // Frases de alucinação conhecidas do Whisper
+  const hallucinations = [
+    "thank you for watching",
+    "thanks for watching",
+    "subtitles by",
+    "transcribed by",
+    "www.",
+    "http",
+  ];
+  const lower = text.toLowerCase();
+  if (hallucinations.some((h) => lower.includes(h))) return true;
+  return false;
+}
+
 export async function POST(req: NextRequest) {
   const session = await getNetworkSession(req);
   if (!session) return NextResponse.json({ error: "not_authenticated" }, { status: 401 });
@@ -48,6 +71,9 @@ export async function POST(req: NextRequest) {
     const content = transcription.text?.trim();
     if (!content)
       return NextResponse.json({ error: "Não foi possível transcrever o áudio. Tente novamente." }, { status: 422 });
+
+    if (isWhisperHallucination(content))
+      return NextResponse.json({ error: "Não conseguimos transcrever o áudio corretamente. Grave novamente em um ambiente mais silencioso e fale claramente em inglês." }, { status: 422 });
 
     await db.submission.updateMany({
       where: { userId: session.sub, challengeId },

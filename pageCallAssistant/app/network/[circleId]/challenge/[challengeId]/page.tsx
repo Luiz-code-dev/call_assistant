@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Send, Loader2, Star, Zap, ChevronDown, ChevronUp, Mic, MicOff, Square, Volume2 } from "lucide-react";
+import { ArrowLeft, Send, Loader2, Star, Zap, ChevronDown, ChevronUp, Mic, MicOff, Square, Volume2, Trash2 } from "lucide-react";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -42,6 +42,7 @@ export default function ChallengePage() {
   const [submitting, setSubmitting] = useState(false);
   const [evaluating, setEvaluating] = useState<string | null>(null);
   const [selecting, setSelecting] = useState<string | null>(null);
+  const [deleting, setDeleting] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [recording, setRecording] = useState(false);
@@ -79,6 +80,10 @@ export default function ChallengePage() {
   };
 
   const transcribeAudio = async (blob: Blob) => {
+    if (recSeconds < 3) {
+      toast.error("Gravação muito curta. Fale por pelo menos 3 segundos em inglês.");
+      return;
+    }
     setTranscribing(true);
     const fd = new FormData();
     fd.append("audio", blob, "recording.webm");
@@ -144,6 +149,15 @@ export default function ChallengePage() {
     if (r.ok) { await load(); }
     else toast.error("Erro ao selecionar tentativa.");
     setSelecting(null);
+  };
+
+  const deleteAttempt = async (submissionId: string) => {
+    if (!confirm("Apagar esta tentativa? Esta ação não pode ser desfeita.")) return;
+    setDeleting(submissionId);
+    const r = await fetch(`/api/network/submissions/${submissionId}`, { method: "DELETE" });
+    if (r.ok) { toast.success("Tentativa apagada."); await load(); }
+    else toast.error("Erro ao apagar tentativa.");
+    setDeleting(null);
   };
 
   const isExpired = challenge ? new Date() > new Date(challenge.endsAt) : false;
@@ -282,6 +296,10 @@ export default function ChallengePage() {
                           {isEval ? <Loader2 className="h-3 w-3 animate-spin" /> : <><Star className="h-3 w-3 mr-1" />Avaliar com IA</>}
                         </Button>
                       )}
+                      <Button size="sm" variant="ghost" onClick={() => deleteAttempt(s.id)} disabled={deleting === s.id}
+                        className="h-7 w-7 p-0 text-muted-foreground hover:text-red-400 hover:bg-red-500/10">
+                        {deleting === s.id ? <Loader2 className="h-3 w-3 animate-spin" /> : <Trash2 className="h-3 w-3" />}
+                      </Button>
                     </div>
                   </div>
                 </CardHeader>
