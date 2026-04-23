@@ -2,7 +2,33 @@
 
 ## Visão Geral
 
-Para que um investidor possa instalar e usar o SpeakFlow, são necessárias duas partes:
+O SpeakFlow possui dois produtos demonstráveis:
+
+1. **Plataforma Web** — já em produção no Railway, acesso direto via browser
+2. **App Desktop** — requer backend + instalador `.exe`
+
+---
+
+## PARTE A — Plataforma Web (acesso imediato)
+
+A plataforma web está disponível em produção. Para demonstrar:
+
+1. Acesse a URL de produção (Railway)
+2. Crie uma conta ou use uma conta de demonstração
+3. Mostre o fluxo: Dashboard → Ferramentas de IA → Network → Progresso → Certificado
+
+**Funcionalidades demonstráveis no browser:**
+- Ferramentas de IA (Melhorar Resposta, Gerar Resposta, Treino de Entrevista)
+- SpeakFlow Network: criar Circle, publicar desafio, avaliar resposta
+- Avaliação CEFR e Certificado de Proficiência (Premium)
+- Spark — chatbot de suporte
+- Tabela de planos e checkout Stripe (modo teste)
+
+---
+
+## PARTE B — App Desktop (requer setup)
+
+Para que um investidor possa instalar e usar o SpeakFlow desktop, são necessárias duas partes:
 1. **Backend na nuvem** — você faz o deploy uma vez (Railway.app, gratuito para demo)
 2. **Instalador `.exe`** — você gera e envia para o investidor instalar no Windows
 

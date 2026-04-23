@@ -247,6 +247,100 @@ pnpm --filter @call-assistant/desktop dev
 
 ---
 
+## 🌐 SpeakFlow Web Platform
+
+Além do app desktop, o ecossistema SpeakFlow inclui uma **plataforma web completa** — `pageCallAssistant/` — responsável por autenticação, planos, ferramentas de IA e a comunidade de prática.
+
+```
+pageCallAssistant/          # Next.js 14 (App Router) — plataforma SaaS
+├── app/
+│   ├── api/                # API Routes (auth, billing, network, tools, wallet, support)
+│   ├── dashboard/          # Dashboard do usuário + créditos
+│   ├── tools/              # Ferramentas de IA (Melhorar, Gerar, Treino de Entrevista)
+│   ├── network/            # SpeakFlow Network (Circles, Challenges, Progresso, Certificado)
+│   ├── pricing/            # Página de planos e checkout Stripe
+│   ├── settings/           # Configurações de conta
+│   └── guia/               # Documentação interativa para o usuário
+├── components/             # Navbar, SupportChat (Spark), UI components
+├── lib/                    # auth, db (Prisma), openai, email, planGuard
+└── prisma/                 # Schema PostgreSQL + migrations
+```
+
+### Funcionalidades da plataforma web
+
+| Módulo | Descrição | Plano |
+|---|---|---|
+| **Autenticação** | JWT + bcrypt, verificação de e-mail, reset de senha | Todos |
+| **Créditos & Planos** | Free (50cr) · Basic R$74,90 (500cr/mês) · Premium R$149,90 (1000cr/mês) | — |
+| **Stripe** | Assinaturas recorrentes + pacotes de créditos avulsos + webhook | — |
+| **Melhorar Resposta** | Reescreve texto em inglês com nota e feedback da IA | Basic/Premium |
+| **Gerar Resposta** | Gera 3 respostas EN a partir de contexto em PT | Basic/Premium |
+| **Treino de Entrevista** | Simulação de entrevista técnica com IA (8 perguntas, áudio TTS) | Basic/Premium |
+| **SpeakFlow Network** | Circles de prática, desafios escritos/falados, feed, ranking, selos | Todos |
+| **Desafio em Áudio** | Grava resposta via microfone, transcreve com Whisper, avalia com IA | Todos |
+| **Avaliação CEFR** | IA determina nível A1–C2 com base nas submissões avaliadas | Todos |
+| **Certificado** | Certificado oficial SpeakFlow imprimível (nível B1+) | **Premium** |
+| **Spark (chatbot)** | Suporte 24h via chat in-app com FAQs dinâmicos e CTAs | Todos |
+| **Push Notifications** | Notificações web para novos desafios | Todos |
+
+### Stack da plataforma web
+
+| Camada | Tecnologia |
+|---|---|
+| Framework | Next.js 14 (App Router + Server Components) |
+| Estilização | TailwindCSS 3 + shadcn/ui (Radix UI) |
+| ORM | Prisma 5 + PostgreSQL |
+| Auth | JWT (jose) + bcryptjs |
+| IA | OpenAI GPT-4o-mini (tools, eval, CEFR) + Whisper (áudio) |
+| Pagamentos | Stripe (subscriptions + one-time payments) |
+| E-mail | Resend (verificação, convites, suporte) |
+| Deploy | Railway (Docker multistage) |
+
+### Variáveis de ambiente (web)
+
+Veja `pageCallAssistant/.env.example` para a lista completa. Principais:
+
+```bash
+DATABASE_URL=postgresql://...
+JWT_SECRET=...
+OPENAI_API_KEY=sk-...
+STRIPE_SECRET_KEY=sk_live_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+RESEND_API_KEY=re_...
+NEXT_PUBLIC_APP_URL=https://speakflow.com.br
+```
+
+### Executar a plataforma web localmente
+
+```bash
+cd pageCallAssistant
+npm install
+npx prisma migrate dev
+npm run dev
+```
+
+Acesse: http://localhost:3000
+
+### Deploy (Railway)
+
+```bash
+# A cada push na branch main, Railway detecta o Dockerfile e faz deploy automático
+# A migration é executada automaticamente no start:
+#   prisma migrate deploy && next start
+```
+
+---
+
+## 🗂️ Architecture Decision Records
+
+| ADR | Decisão |
+|---|---|
+| [ADR-001](./docs/adr/ADR-001-hexagonal-architecture.md) | Arquitetura Hexagonal no backend |
+| [ADR-002](./docs/adr/ADR-002-reactive-stack.md) | Stack reativo com WebFlux + R2DBC |
+| [ADR-003](./docs/adr/ADR-003-rust-audio-sidecar.md) | Sidecar Rust para captura de áudio (WASAPI) |
+
+---
+
 ## 📄 Licença
 
 **PROPRIETÁRIO — TODOS OS DIREITOS RESERVADOS**

@@ -1,16 +1,21 @@
 # DOCUMENTAÇÃO DE ARQUITETURA — SPEAKFLOW
 
-**Versão:** 1.0.0  
+**Versão:** 2.0.0  
 **Autor:** Luiz Eduardo da Silva Dias Melo  
-**Data:** 31 de março de 2026
+**Data:** 23 de abril de 2026
 
 ---
 
 ## 1. VISÃO GERAL DO SISTEMA
 
-O **SpeakFlow** é uma aplicação desktop de múltiplas camadas que opera
-inteiramente na máquina do usuário, integrando-se a APIs de Inteligência
-Artificial para processar áudio em tempo real.
+O **SpeakFlow** é um ecossistema de múltiplos produtos para profissionais brasileiros que precisam se comunicar com fluência em inglês.
+
+**Componentes do ecossistema:**
+
+| Componente | Stack | Descrição |
+|---|---|---|
+| **App Desktop** | Electron 34 + Java 21 + Rust | Assistente em tempo real durante calls (WASAPI + Whisper + GPT) |
+| **Plataforma Web** | Next.js 14 + Prisma + PostgreSQL | SaaS: autenticação, planos, ferramentas de IA, Network, Certificado CEFR |
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -437,5 +442,149 @@ PT: Sim, posso.
 
 ---
 
+---
+
+## 9. PLATAFORMA WEB — ARQUITETURA
+
+**Localização:** `pageCallAssistant/`  
+**Stack:** Next.js 14 (App Router), TypeScript, Prisma 5, PostgreSQL, OpenAI, Stripe, Resend  
+**Deploy:** Railway (Docker multistage)
+
+### 9.1 Visão Geral
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                     SPEAKFLOW WEB PLATFORM                              │
+│                                                                         │
+│  ┌──────────────────────────────────────────────────────────────────┐  │
+│  │                  NEXT.JS 14 APP ROUTER                           │  │
+│  │                                                                  │  │
+│  │  Server Components ──► API Routes ──► Prisma ORM                │  │
+│  │  (SSR / RSC)            (Edge-ready)    (PostgreSQL)             │  │
+│  └──────────────────────────────────────────────────────────────────┘  │
+│           │                    │                    │                   │
+│           ▼                    ▼                    ▼                   │
+│     OpenAI API           Stripe API           Resend API               │
+│  GPT-4o-mini + Whisper   Checkout/Webhook    E-mail transacional        │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+### 9.2 Módulos e Responsabilidades
+
+| Módulo | Rota | Responsabilidade |
+|---|---|---|
+| Auth | `/api/auth/*` | JWT (jose), bcrypt, verificação e-mail, reset senha |
+| Billing | `/api/billing/*` | Stripe checkout, webhook, portal do cliente |
+| Tools | `/api/tools/*` | Melhorar Resposta, Gerar Resposta, Treino de Entrevista |
+| Network | `/api/network/*` | Circles, Challenges, Submissões, Leaderboard, Push |
+| Proficiency | `/api/network/proficiency` | Avaliação CEFR (A1–C2) + Certificado Premium |
+| Wallet | `/api/wallet/*` | Saldo e histórico de créditos |
+| Support | `/api/support/*` | Formulário de contato (Spark chatbot) |
+
+### 9.3 Sistema de Créditos e Planos
+
+```
+┌──────────┬──────────────────┬──────────────────────────────────────┐
+│ Plano    │ Créditos         │ Limites de ferramentas               │
+├──────────┼──────────────────┼──────────────────────────────────────┤
+│ Gratuito │ 50 (criação)     │ Sem acesso às Ferramentas de IA      │
+│ Básico   │ 500/mês          │ Melhorar 5x/dia · Gerar 5x/dia       │
+│          │                  │ Entrevista 3x/dia                    │
+│ Premium  │ 1.000/mês        │ Tudo ilimitado + Certificado CEFR    │
+└──────────┴──────────────────┴──────────────────────────────────────┘
+```
+
+Guarda implementado em `lib/planGuard.ts` — verifica plano e decrementa créditos atomicamente.
+
+### 9.4 SpeakFlow Network — Fluxo de Avaliação
+
+```
+Usuário submete resposta (texto ou áudio)
+        │
+        ├── [áudio] → POST /api/network/submissions/audio
+        │                   │
+        │             Whisper transcribe
+        │             Anti-hallucination filter
+        │                   │
+        └── [texto] → POST /api/network/submissions
+                            │
+                      Submission salva no DB
+                            │
+                      POST /api/network/submissions/[id]/evaluate
+                            │
+                      GPT-4o-mini avalia:
+                      fluency · content · clarity (0–10 cada)
+                      feedback + improved response + tip
+                            │
+                      SubmissionEvaluation salva no DB
+                            │
+                      Badges concedidos (se critérios atingidos)
+                            │
+                      Leaderboard atualizado
+```
+
+### 9.5 Avaliação CEFR e Certificado de Proficiência
+
+```
+POST /api/network/proficiency
+        │
+        ├── Verifica plano do usuário (isPremium)
+        ├── Busca últimas 20 submissões avaliadas (isSelected=true)
+        ├── Requer mínimo 3 avaliações
+        │
+        ▼
+OpenAI GPT-4o-mini
+(prompt especialista CEFR: A1/A2/B1/B2/C1/C2)
+        │
+        ▼
+JSON: { level, levelLabel, confidence, reasoning,
+        strengths[], improvements[], overallFeedback, isEligible }
+        │
+        ├── isEligible = isPremium && aiSaidEligible && level >= B1
+        │
+        ▼
+ProficiencyAssessment salvo no DB
+        │
+        ├── isEligible=true  → /network/certificate (PDF imprimível)
+        └── isEligible=false → feedback sem certificado
+```
+
+### 9.6 Schema do Banco de Dados (Web Platform)
+
+```sql
+-- Tabelas principais gerenciadas pelo Prisma
+User                   -- plano, créditos, Stripe IDs, avatar
+CreditTransaction      -- histórico de movimentação de créditos
+CallSession            -- sessões do app desktop
+ToolUsage              -- uso das ferramentas de IA por dia
+Circle                 -- grupos de prática (focus, level, visibility)
+CircleMember           -- membros com role e inviteToken
+Challenge              -- desafios periódicos (written | spoken)
+Submission             -- respostas dos usuários
+SubmissionEvaluation   -- scores de IA (fluency/content/clarity)
+ProficiencyAssessment  -- avaliação CEFR + isEligible (certificado)
+UserBadge              -- selos conquistados
+PushSubscription       -- Web Push por dispositivo
+SupportMessage         -- mensagens do Spark
+```
+
+### 9.7 Deploy — Pipeline Railway
+
+```
+Git push → GitHub → Railway webhook
+        │
+        ▼
+Dockerfile (multistage)
+├── Stage deps:    npm ci
+├── Stage builder: prisma generate + next build
+└── Stage runner:  Alpine mínimo, porta 3000
+        │
+        ▼
+CMD: prisma migrate deploy && next start
+(migration automática a cada deploy)
+```
+
+---
+
 *© 2026 Luiz Eduardo da Silva Dias Melo. Todos os direitos reservados.*  
-*Documento de arquitetura — SpeakFlow v1.0.0*
+*Documento de arquitetura — SpeakFlow v2.0.0*
