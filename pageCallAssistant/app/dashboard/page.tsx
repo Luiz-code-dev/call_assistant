@@ -9,10 +9,8 @@ import {
   Mic2, Zap, CreditCard, ArrowUpRight, Download,
   LogOut, Settings, TrendingUp, Loader2, CheckCircle2, Crown, Sparkles,
   Wand2, MessageSquarePlus, Lock, Users, Radio, Smartphone, MessageSquare,
-  Mic,
 } from "lucide-react";
 import { SupportChat } from "@/components/SupportChat";
-import { SpeakyMascot } from "@/components/SpeakyMascot";
 import { useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 
@@ -268,11 +266,6 @@ export default function DashboardPage() {
                   <div className="flex items-center gap-1.5 text-xs font-semibold text-red-400">
                     Abrir SpeakFlow Live <ArrowUpRight className="h-3.5 w-3.5" />
                   </div>
-                </div>
-
-                {/* Right — Speaky mascot */}
-                <div className="hidden sm:flex w-44 shrink-0 items-end justify-center bg-zinc-950/40 border-l border-red-500/20 pb-4">
-                  <SpeakyMascot />
                 </div>
 
               </div>

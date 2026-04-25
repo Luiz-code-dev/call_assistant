@@ -9,7 +9,9 @@ import {
   Mic2, Zap, Globe, Brain, Shield, Download,
   CheckCircle2, ArrowRight, Star, ChevronRight,
   AlertTriangle, TrendingUp, Wand2, MessageSquarePlus, BookOpen, Sparkles, Instagram, Users,
+  Radio, Mic, Smartphone, MessageSquare,
 } from "lucide-react";
+import { SpeakyMascot } from "@/components/SpeakyMascot";
 
 const features = [
   {
@@ -490,6 +492,80 @@ export default async function Home() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SpeakFlow Live Section */}
+      <section id="live" className="border-t border-border/50 bg-gradient-to-br from-red-500/5 via-background to-violet-500/5 px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-12 lg:grid-cols-2 items-center">
+
+            {/* Left — mascot */}
+            <div className="flex flex-col items-center justify-center">
+              <SpeakyMascot width={380} height={214} bubbleText="✨ Novidade!
+Use na palma da sua mão!" />
+            </div>
+
+            {/* Right — description */}
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1 mb-5">
+                <Radio className="h-3.5 w-3.5 text-red-400" />
+                <span className="text-xs font-bold text-red-400 tracking-wide">NOVO — SpeakFlow Live</span>
+              </div>
+              <h2 className="text-4xl font-bold mb-4">
+                Seu copiloto na{" "}
+                <span className="gradient-text">palma da mão</span>
+              </h2>
+              <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
+                Instale o SpeakFlow direto na tela inicial do seu celular — como um app nativo, sem precisar de app store. Abra antes da sua call e tenha sugestões de resposta em inglês chegando em tempo real, enquanto a conversa acontece.
+              </p>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-3">
+                  <div className="mt-0.5 rounded-lg bg-emerald-500/10 p-1.5 shrink-0">
+                    <Smartphone className="h-4 w-4 text-emerald-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold">Instala como app — sem app store</p>
+                    <p className="text-xs text-muted-foreground">Abra o site no celular, toque em &ldquo;Adicionar à tela inicial&rdquo; e pronto.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="mt-0.5 rounded-lg bg-red-500/10 p-1.5 shrink-0">
+                    <Mic className="h-4 w-4 text-red-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold">Captura e traduz em tempo real</p>
+                    <p className="text-xs text-muted-foreground">O microfone captura a conversa e a tradução aparece em segundos.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="mt-0.5 rounded-lg bg-violet-500/10 p-1.5 shrink-0">
+                    <Zap className="h-4 w-4 text-violet-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold">3 sugestões com IA — Curta, Profissional, Detalhada</p>
+                    <p className="text-xs text-muted-foreground">Escolha a resposta certa para o momento certo, em inglês, pronta para falar.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="mt-0.5 rounded-lg bg-cyan-500/10 p-1.5 shrink-0">
+                    <MessageSquare className="h-4 w-4 text-cyan-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold">Contexto personalizado</p>
+                    <p className="text-xs text-muted-foreground">Descreva sua call antes de começar. A IA entende o cenário e gera sugestões muito mais precisas.</p>
+                  </div>
+                </li>
+              </ul>
+              <Button variant="gradient" size="lg" asChild>
+                <a href={isLoggedIn ? "/live" : "/register"}>
+                  <Radio className="mr-2 h-4 w-4" />
+                  {isLoggedIn ? "Abrir SpeakFlow Live" : "Experimentar agora"}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
             </div>
           </div>
         </div>
