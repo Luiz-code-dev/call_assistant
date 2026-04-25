@@ -251,7 +251,7 @@ export default function DashboardPage() {
                       Instale na tela inicial do celular — sem precisar de app store
                     </li>
                     <li className="flex items-center gap-2 text-xs text-muted-foreground">
-                      <Mic className="h-3.5 w-3.5 text-red-400 shrink-0" />
+                      <Mic2 className="h-3.5 w-3.5 text-red-400 shrink-0" />
                       Captura e traduz a conversa em tempo real
                     </li>
                     <li className="flex items-center gap-2 text-xs text-muted-foreground">
