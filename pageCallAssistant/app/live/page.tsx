@@ -277,6 +277,10 @@ export default function LivePage() {
       if (err === "not-allowed") {
         toast.error("Permissão de microfone negada. Permita nas configurações do browser.");
         setIsRecording(false); isRecordingRef.current = false;
+      } else if (err && err !== "no-speech" && err !== "aborted") {
+        // iOS/Safari may throw other errors — fall back to MediaRecorder
+        recognitionRef.current = null;
+        startMediaRecorder();
       }
     };
     rec.onend = () => { if (isRecordingRef.current) rec.start(); };
@@ -342,19 +346,15 @@ export default function LivePage() {
   // ── Session end ──
   const handleEnd = useCallback(async () => {
     stopRecording();
-    const t = tokenRef.current;
-    if (t) {
-      await fetch("/api/live/session/end", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${t}` },
-        body: JSON.stringify({ session_id: sessionId.current }),
-      }).catch(() => {});
-    }
+    await authFetch("/api/live/session/end", {
+      method: "POST",
+      body: JSON.stringify({ session_id: sessionId.current }),
+    }).catch(() => {});
     setPhase("setup");
     setTurns([]);
     setInterimText("");
     sessionId.current = Date.now().toString();
-  }, [stopRecording]);
+  }, [stopRecording, authFetch]);
 
   // ── Copy helper ──
   const copyText = (text: string, id: string) => {
@@ -529,22 +529,42 @@ export default function LivePage() {
 
       {/* ── Turns list ── */}
       <div className="flex-1 overflow-y-auto px-4 py-4 space-y-5">
-        {turns.length === 0 && !isProcessing && !isRecording && (
+        {turns.length === 0 && !isProcessing && (
           <div className="flex flex-col items-center justify-center h-full gap-4 text-center py-12">
-            <div className="rounded-full bg-violet-500/10 border border-violet-500/20 p-6">
-              <Radio className="h-10 w-10 text-violet-400/60" />
-            </div>
-            <div className="space-y-1">
-              <p className="text-sm font-medium">Sessão iniciada · {focus}</p>
-              <p className="text-xs text-muted-foreground">
-                Pressione o microfone para capturar o áudio da conversa
-              </p>
-            </div>
-            <div className="rounded-lg border border-border/50 bg-card/50 px-4 py-2">
-              <p className="text-xs text-muted-foreground">
-                🧠 Contexto acumulado via IA · Memória ativa por toda a sessão
-              </p>
-            </div>
+            {isRecording ? (
+              <>
+                <div className="flex items-end justify-center gap-1 h-12">
+                  {[0.3, 0.7, 1, 0.6, 0.9, 0.4, 0.8].map((h, i) => (
+                    <div
+                      key={i}
+                      className="w-1.5 rounded-full bg-red-400 animate-bounce"
+                      style={{ height: `${h * 40}px`, animationDelay: `${i * 0.08}s`, animationDuration: "0.6s" }}
+                    />
+                  ))}
+                </div>
+                <div className="space-y-1">
+                  <p className="text-sm font-medium text-red-400">Ouvindo a conversa...</p>
+                  <p className="text-xs text-muted-foreground">Aguardando fala detectada</p>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="rounded-full bg-violet-500/10 border border-violet-500/20 p-6">
+                  <Radio className="h-10 w-10 text-violet-400/60" />
+                </div>
+                <div className="space-y-1">
+                  <p className="text-sm font-medium">Sessão iniciada · {focus}</p>
+                  <p className="text-xs text-muted-foreground">
+                    Pressione o microfone para capturar o áudio da conversa
+                  </p>
+                </div>
+                <div className="rounded-lg border border-border/50 bg-card/50 px-4 py-2">
+                  <p className="text-xs text-muted-foreground">
+                    🧠 Contexto acumulado via IA · Memória ativa por toda a sessão
+                  </p>
+                </div>
+              </>
+            )}
           </div>
         )}
 
