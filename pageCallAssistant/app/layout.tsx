@@ -4,7 +4,6 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 import CookieConsent from "@/components/CookieConsent";
-import { SpeakyWalk } from "@/components/SpeakyWalk";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -71,7 +70,6 @@ export default function RootLayout({
         <Toaster />
         <ServiceWorkerRegister />
         <CookieConsent />
-        <SpeakyWalk />
       </body>
     </html>
   );
