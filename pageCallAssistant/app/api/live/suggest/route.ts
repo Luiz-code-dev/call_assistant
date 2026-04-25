@@ -1,11 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import OpenAI from "openai";
+import { getOpenAI } from "@/lib/openai";
 import { getToolSession } from "@/app/api/tools/_auth";
 import { checkToolAccess, consumeToolCredits, CREDITS_PER_USE } from "@/lib/planGuard";
 
 export const runtime = "nodejs";
-
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 async function suggestViaOpenAI(
   transcript: string,
@@ -32,7 +30,7 @@ Responda EXCLUSIVAMENTE em JSON válido neste formato:
   "suggestion_translations": ["...", "...", "..."]
 }`;
 
-  const completion = await openai.chat.completions.create({
+  const completion = await getOpenAI().chat.completions.create({
     model: "gpt-4o-mini",
     temperature: 0.7,
     max_tokens: 600,
