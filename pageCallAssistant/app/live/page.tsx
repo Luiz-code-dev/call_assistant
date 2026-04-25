@@ -105,6 +105,9 @@ export default function LivePage() {
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
   const isRecordingRef = useRef(false);
+  const wasRecordingRef = useRef(false);
+  const phaseRef = useRef<"setup" | "live">("setup");
+  const hasSpeechAPIRef = useRef(false);
   const turnsEndRef = useRef<HTMLDivElement>(null);
   const focusRef = useRef(focus);
   const levelRef = useRef(level);
@@ -118,6 +121,7 @@ export default function LivePage() {
   useEffect(() => { sourceLangRef.current = sourceLang; }, [sourceLang]);
   useEffect(() => { customContextRef.current = customContext; }, [customContext]);
   useEffect(() => { tokenRef.current = token; }, [token]);
+  useEffect(() => { phaseRef.current = phase; }, [phase]);
 
   // ── Auth headers helper (Bearer when available, falls back to httpOnly cookie) ──
   const authFetch = useCallback(
@@ -289,13 +293,14 @@ export default function LivePage() {
       if (err === "not-allowed") {
         toast.error("Permissão de microfone negada. Permita nas configurações do browser.");
         setIsRecording(false); isRecordingRef.current = false;
-      } else if (err && err !== "no-speech" && err !== "aborted") {
-        // iOS/Safari may throw other errors — fall back to MediaRecorder
+        wasRecordingRef.current = false;
+      } else if (err && err !== "no-speech" && err !== "aborted" && document.visibilityState === "visible") {
+        // iOS/Safari may throw other errors — fall back to MediaRecorder (only if visible)
         recognitionRef.current = null;
         startMediaRecorder();
       }
     };
-    rec.onend = () => { if (isRecordingRef.current) rec.start(); };
+    rec.onend = () => { if (isRecordingRef.current && document.visibilityState === "visible") rec.start(); };
     rec.start();
     recognitionRef.current = rec;
   }, [processTranscript]);
@@ -329,6 +334,46 @@ export default function LivePage() {
       setIsRecording(false); isRecordingRef.current = false;
     }
   }, [processAudio]);
+
+  // ── Resume recording on app returning from background ──
+  useEffect(() => {
+    hasSpeechAPIRef.current = hasSpeechAPI;
+  }, [hasSpeechAPI]);
+
+  useEffect(() => {
+    const onHide = () => {
+      wasRecordingRef.current = isRecordingRef.current;
+    };
+    const onShow = () => {
+      if (!wasRecordingRef.current || phaseRef.current !== "live") return;
+      // Clean up any broken stream state
+      recognitionRef.current?.stop();
+      recognitionRef.current = null;
+      if (mediaRecorderRef.current && mediaRecorderRef.current.state !== "inactive") {
+        mediaRecorderRef.current.stop();
+      }
+      mediaRecorderRef.current = null;
+      setIsRecording(false);
+      isRecordingRef.current = false;
+      setInterimText("");
+      // Restart after a short delay so the browser settles
+      setTimeout(() => {
+        if (wasRecordingRef.current && phaseRef.current === "live") {
+          setIsRecording(true);
+          isRecordingRef.current = true;
+          if (hasSpeechAPIRef.current) startSpeechRecognition();
+          else startMediaRecorder();
+          toast.info("Sessão retomada automaticamente.", { duration: 2000 });
+        }
+      }, 700);
+    };
+    const handler = () => {
+      if (document.visibilityState === "hidden") onHide();
+      else onShow();
+    };
+    document.addEventListener("visibilitychange", handler);
+    return () => document.removeEventListener("visibilitychange", handler);
+  }, [startSpeechRecognition, startMediaRecorder]);
 
   // ── Start / Stop ──
   const startRecording = useCallback(async () => {
