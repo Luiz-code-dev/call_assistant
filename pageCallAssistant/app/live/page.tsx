@@ -58,6 +58,7 @@ interface Turn {
   translation: string;
   suggestions: string[];
   suggestion_translations: string[];
+  pending?: boolean;
 }
 
 interface ISpeechRecognitionEvent {
@@ -183,6 +184,10 @@ export default function LivePage() {
   // ── Core: process transcript text (SpeechRecognition path) ──
   const processTranscript = useCallback(async (transcript: string) => {
     if (!transcript.trim()) return;
+    const turnId = Date.now().toString();
+    const pendingTurn: Turn = { id: turnId, transcript: transcript.trim(), translation: "", suggestions: [], suggestion_translations: [], pending: true };
+    setTurns(prev => [...prev, pendingTurn]);
+    setExpandedCards(prev => ({ ...prev, [turnId]: 0 }));
     setIsProcessing(true);
     try {
       const res = await authFetch("/api/live/suggest", {
@@ -197,26 +202,29 @@ export default function LivePage() {
       });
       const data = await res.json();
       if (!res.ok) {
+        setTurns(prev => prev.filter(t => t.id !== turnId));
         if (res.status === 402 || res.status === 403) { toast.error(data.error || "Créditos insuficientes."); return; }
         toast.error(data.error || "Erro ao processar.");
         return;
       }
-      const turn: Turn = {
-        id: Date.now().toString(),
-        transcript: data.transcript,
-        translation: data.translation,
-        suggestions: data.suggestions,
-        suggestion_translations: data.suggestion_translations,
-      };
-      setTurns(prev => [...prev, turn]);
-      setExpandedCards(prev => ({ ...prev, [turn.id]: 0 }));
+      setTurns(prev => prev.map(t => t.id === turnId ? {
+        ...t, translation: data.translation, suggestions: data.suggestions,
+        suggestion_translations: data.suggestion_translations, pending: false,
+      } : t));
       if (data.creditsUsed) setCredits(prev => prev !== null ? Math.max(0, prev - data.creditsUsed) : null);
-    } catch { toast.error("Erro de conexão. Verifique sua internet."); }
+    } catch {
+      setTurns(prev => prev.filter(t => t.id !== turnId));
+      toast.error("Erro de conexão. Verifique sua internet.");
+    }
     finally { setIsProcessing(false); }
   }, [authFetch]);
 
   // ── Core: process audio blob (MediaRecorder fallback) ──
   const processAudio = useCallback(async (blob: Blob) => {
+    const turnId = Date.now().toString();
+    const pendingTurn: Turn = { id: turnId, transcript: "Transcrevendo áudio...", translation: "", suggestions: [], suggestion_translations: [], pending: true };
+    setTurns(prev => [...prev, pendingTurn]);
+    setExpandedCards(prev => ({ ...prev, [turnId]: 0 }));
     setIsProcessing(true);
     try {
       const form = new FormData();
@@ -231,22 +239,21 @@ export default function LivePage() {
       });
       const data = await res.json();
       if (!res.ok) {
+        setTurns(prev => prev.filter(t => t.id !== turnId));
         if (res.status === 422) { toast.warning(data.error); return; }
         if (res.status === 402 || res.status === 403) { toast.error(data.error || "Créditos insuficientes."); return; }
         toast.error(data.error || "Erro ao processar.");
         return;
       }
-      const turn: Turn = {
-        id: Date.now().toString(),
-        transcript: data.transcript,
-        translation: data.translation,
-        suggestions: data.suggestions,
-        suggestion_translations: data.suggestion_translations,
-      };
-      setTurns(prev => [...prev, turn]);
-      setExpandedCards(prev => ({ ...prev, [turn.id]: 0 }));
+      setTurns(prev => prev.map(t => t.id === turnId ? {
+        ...t, transcript: data.transcript, translation: data.translation,
+        suggestions: data.suggestions, suggestion_translations: data.suggestion_translations, pending: false,
+      } : t));
       if (data.creditsUsed) setCredits(prev => prev !== null ? Math.max(0, prev - data.creditsUsed) : null);
-    } catch { toast.error("Erro de conexão. Verifique sua internet."); }
+    } catch {
+      setTurns(prev => prev.filter(t => t.id !== turnId));
+      toast.error("Erro de conexão. Verifique sua internet.");
+    }
     finally { setIsProcessing(false); }
   }, [authFetch]);
 
@@ -584,8 +591,16 @@ export default function LivePage() {
                 )}
               </div>
 
+              {/* Pending skeleton */}
+              {turn.pending && (
+                <div className="rounded-xl border border-violet-500/20 bg-violet-500/5 px-4 py-3 flex items-center gap-2.5">
+                  <Loader2 className="h-4 w-4 animate-spin text-violet-400 shrink-0" />
+                  <p className="text-xs text-violet-300">Gerando sugestões com IA...</p>
+                </div>
+              )}
+
               {/* Suggestions */}
-              {turn.suggestions.length > 0 && (
+              {!turn.pending && turn.suggestions.length > 0 && (
                 <div className="space-y-1.5">
                   {/* Primary / expanded card */}
                   <div className={`rounded-xl border px-4 py-3 ${CARD_BORDER[expanded]}`}>
