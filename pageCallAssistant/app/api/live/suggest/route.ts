@@ -36,9 +36,12 @@ export async function POST(req: NextRequest) {
   const meeting_context = [focus, level].filter(Boolean).join(" · ");
 
   try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15_000);
     const res = await fetch(`${copilotUrl}/copilot/suggest`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      signal: controller.signal,
       body: JSON.stringify({
         session_id: `live_${session.sub}_${session_id}`,
         transcript: transcript.trim(),
@@ -47,6 +50,8 @@ export async function POST(req: NextRequest) {
         target_lang: "pt-BR",
       }),
     });
+
+    clearTimeout(timeout);
 
     if (!res.ok) {
       const errText = await res.text().catch(() => "");
