@@ -41,6 +41,8 @@ export function SpeakyWalk() {
 
   if (!active) return null;
 
+  const handleError = () => setActive(false);
+
   return (
     /* Outer: horizontal walk */
     <div
@@ -74,6 +76,7 @@ export function SpeakyWalk() {
           width={96}
           height={96}
           draggable={false}
+          onError={handleError}
           className="animate-speaky-bob"
           style={{
             objectFit: "contain",
