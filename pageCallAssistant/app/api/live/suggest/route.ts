@@ -1,8 +1,61 @@
 import { NextRequest, NextResponse } from "next/server";
+import OpenAI from "openai";
 import { getToolSession } from "@/app/api/tools/_auth";
 import { checkToolAccess, consumeToolCredits, CREDITS_PER_USE } from "@/lib/planGuard";
 
 export const runtime = "nodejs";
+
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+async function suggestViaOpenAI(
+  transcript: string,
+  meetingContext: string,
+  sourceLang: string,
+): Promise<{ translation: string; suggestions: string[]; suggestion_translations: string[] }> {
+  const isEnglish = sourceLang.startsWith("en");
+  const translateFrom = isEnglish ? "inglês" : "português";
+  const translateTo   = isEnglish ? "português" : "inglês";
+
+  const systemPrompt = `Você é um copiloto de comunicação em tempo real.
+Contexto da conversa: ${meetingContext || "Conversa geral"}.
+Idioma captado: ${sourceLang}.
+
+Sua tarefa:
+1. Traduza o trecho do ${translateFrom} para ${translateTo}.
+2. Gere exatamente 3 sugestões de resposta em ${isEnglish ? "inglês" : "português"}: Curta, Profissional, Detalhada.
+3. Traduza cada sugestão para ${isEnglish ? "português" : "inglês"}.
+
+Responda EXCLUSIVAMENTE em JSON válido neste formato:
+{
+  "translation": "...",
+  "suggestions": ["...", "...", "..."],
+  "suggestion_translations": ["...", "...", "..."]
+}`;
+
+  const completion = await openai.chat.completions.create({
+    model: "gpt-4o-mini",
+    temperature: 0.7,
+    max_tokens: 600,
+    messages: [
+      { role: "system", content: systemPrompt },
+      { role: "user", content: transcript },
+    ],
+    response_format: { type: "json_object" },
+  });
+
+  const raw = completion.choices[0]?.message?.content ?? "{}";
+  const parsed = JSON.parse(raw) as {
+    translation?: string;
+    suggestions?: string[];
+    suggestion_translations?: string[];
+  };
+
+  return {
+    translation: parsed.translation ?? "",
+    suggestions: parsed.suggestions ?? [],
+    suggestion_translations: parsed.suggestion_translations ?? [],
+  };
+}
 
 export async function POST(req: NextRequest) {
   const session = await getToolSession(req);
@@ -28,42 +81,44 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: access.reason, userPlan: access.userPlan }, { status: 403 });
   }
 
-  const copilotUrl = process.env.COPILOT_SERVICE_URL;
-  if (!copilotUrl) {
-    return NextResponse.json({ error: "Serviço de IA indisponível." }, { status: 503 });
-  }
-
-  const meeting_context = [focus, level].filter(Boolean).join(" · ");
+  const meetingContext = [focus, level].filter(Boolean).join(" · ");
+  const lang = source_lang || "en-US";
 
   try {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 15_000);
-    const res = await fetch(`${copilotUrl}/copilot/suggest`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      signal: controller.signal,
-      body: JSON.stringify({
-        session_id: `live_${session.sub}_${session_id}`,
-        transcript: transcript.trim(),
-        meeting_context,
-        source_lang: source_lang || "en-US",
-        target_lang: "pt-BR",
-      }),
-    });
+    let data: { translation: string; suggestions: string[]; suggestion_translations: string[] };
 
-    clearTimeout(timeout);
-
-    if (!res.ok) {
-      const errText = await res.text().catch(() => "");
-      console.error("[api/live/suggest] copilot error:", res.status, errText);
-      throw new Error(`Copilot service error: ${res.status}`);
+    const copilotUrl = process.env.COPILOT_SERVICE_URL;
+    if (copilotUrl) {
+      // Optional: proxy to Python AgentScope service (session memory)
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 12_000);
+      try {
+        const res = await fetch(`${copilotUrl}/copilot/suggest`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          signal: controller.signal,
+          body: JSON.stringify({
+            session_id: `live_${session.sub}_${session_id}`,
+            transcript: transcript.trim(),
+            meeting_context: meetingContext,
+            source_lang: lang,
+            target_lang: "pt-BR",
+          }),
+        });
+        clearTimeout(timeout);
+        if (res.ok) {
+          data = await res.json() as typeof data;
+        } else {
+          throw new Error(`copilot ${res.status}`);
+        }
+      } catch {
+        // Python service unavailable — fall through to OpenAI
+        data = await suggestViaOpenAI(transcript.trim(), meetingContext, lang);
+      }
+    } else {
+      // No Python service configured — use OpenAI directly
+      data = await suggestViaOpenAI(transcript.trim(), meetingContext, lang);
     }
-
-    const data = await res.json() as {
-      translation?: string;
-      suggestions?: string[];
-      suggestion_translations?: string[];
-    };
 
     await consumeToolCredits(session.sub, "live");
 
