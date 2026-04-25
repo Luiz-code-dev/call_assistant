@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import {
-  Mic2, Zap, CreditCard, ArrowUpRight, Download,
+  Mic, Mic2, Zap, CreditCard, ArrowUpRight, Download,
   LogOut, Settings, TrendingUp, Loader2, CheckCircle2, Crown, Sparkles,
-  Wand2, MessageSquarePlus, Lock, Users, Radio,
+  Wand2, MessageSquarePlus, Lock, Users, Radio, Smartphone, MessageSquare,
 } from "lucide-react";
 import { SupportChat } from "@/components/SupportChat";
 import { useSearchParams } from "next/navigation";
@@ -229,21 +229,79 @@ export default function DashboardPage() {
 
         {/* SpeakFlow Live banner */}
         <Link href="/live">
-          <Card className="mb-6 cursor-pointer border-red-500/30 bg-gradient-to-r from-red-500/10 via-violet-500/5 to-transparent hover:border-red-500/50 transition-all hover:shadow-lg">
-            <CardContent className="flex items-center gap-4 p-5">
-              <div className="rounded-xl bg-red-500/20 p-3 shrink-0">
-                <Radio className="h-6 w-6 text-red-400" />
-              </div>
-              <div className="flex-1">
-                <div className="flex items-center gap-2">
-                  <p className="font-semibold">SpeakFlow Live</p>
-                  <span className="rounded-full bg-red-500/10 border border-red-500/30 px-1.5 py-0.5 text-[10px] font-bold text-red-400 tracking-wider">NOVO</span>
+          <Card className="mb-6 cursor-pointer border-red-500/30 bg-gradient-to-br from-red-500/10 via-violet-500/5 to-transparent hover:border-red-500/50 transition-all hover:shadow-lg overflow-hidden">
+            <CardContent className="p-0">
+              <div className="flex flex-col sm:flex-row">
+
+                {/* Left — description */}
+                <div className="flex-1 p-5">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="rounded-lg bg-red-500/20 p-2 shrink-0">
+                      <Radio className="h-5 w-5 text-red-400" />
+                    </div>
+                    <p className="font-bold text-base">SpeakFlow Live</p>
+                    <span className="rounded-full bg-red-500/10 border border-red-500/30 px-1.5 py-0.5 text-[10px] font-bold text-red-400 tracking-wider">NOVO</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                    Copiloto de conversação em tempo real na palma da sua mão. Instale como app no celular e receba sugestões de resposta em inglês na hora.
+                  </p>
+                  <ul className="space-y-2 mb-4">
+                    <li className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <Smartphone className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                      Instale na tela inicial do celular — sem precisar de app store
+                    </li>
+                    <li className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <Mic className="h-3.5 w-3.5 text-red-400 shrink-0" />
+                      Captura e traduz a conversa em tempo real
+                    </li>
+                    <li className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <Zap className="h-3.5 w-3.5 text-violet-400 shrink-0" />
+                      3 sugestões de resposta com IA — Curta, Profissional e Detalhada
+                    </li>
+                    <li className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <MessageSquare className="h-3.5 w-3.5 text-cyan-400 shrink-0" />
+                      Contexto personalizado: descreva sua call e a IA entende o cenário
+                    </li>
+                  </ul>
+                  <div className="flex items-center gap-1.5 text-xs font-semibold text-red-400">
+                    Abrir SpeakFlow Live <ArrowUpRight className="h-3.5 w-3.5" />
+                  </div>
                 </div>
-                <p className="text-sm text-muted-foreground">
-                  Copiloto em tempo real · Tradução + sugestões de resposta com IA · PWA
-                </p>
+
+                {/* Right — UI mockup */}
+                <div className="hidden sm:flex w-52 shrink-0 flex-col bg-zinc-950/60 border-l border-red-500/20 p-3 gap-2">
+                  <div className="flex items-center gap-1.5 mb-0.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse" />
+                    <span className="text-[9px] font-bold text-red-400 tracking-widest">LIVE</span>
+                    <span className="ml-auto text-[9px] text-muted-foreground">⚡ 849</span>
+                  </div>
+                  <div className="rounded-lg bg-card/60 border border-border/40 p-2">
+                    <p className="text-[8px] text-foreground leading-tight">I told my dad if he could ask them to take me with them...</p>
+                    <p className="text-[7px] text-muted-foreground mt-1">PT· Eu disse ao meu pai se ele poderia pedir para que me levassem...</p>
+                  </div>
+                  <div className="rounded-lg border border-emerald-500/40 bg-emerald-500/5 p-2">
+                    <p className="text-[7px] font-bold text-emerald-400 mb-1">CURTA</p>
+                    <p className="text-[8px] text-foreground font-medium">That&#39;s a great idea!</p>
+                    <p className="text-[7px] text-muted-foreground">Isso é uma ótima ideia!</p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-1.5">
+                    <div className="rounded-lg border border-violet-500/40 bg-violet-500/5 p-1.5">
+                      <p className="text-[6px] font-bold text-violet-400 mb-0.5">PROFISSIONAL</p>
+                      <p className="text-[7px] text-foreground leading-tight">I think being an interpreter...</p>
+                    </div>
+                    <div className="rounded-lg border border-cyan-500/40 bg-cyan-500/5 p-1.5">
+                      <p className="text-[6px] font-bold text-cyan-400 mb-0.5">DETALHADA</p>
+                      <p className="text-[7px] text-foreground leading-tight">It&#39;s interesting that your dad...</p>
+                    </div>
+                  </div>
+                  <div className="flex justify-center mt-1">
+                    <div className="h-8 w-8 rounded-full bg-violet-600/80 border border-violet-400/30 flex items-center justify-center shadow-lg shadow-violet-500/20">
+                      <Mic className="h-3.5 w-3.5 text-white" />
+                    </div>
+                  </div>
+                </div>
+
               </div>
-              <ArrowUpRight className="h-4 w-4 text-red-400 shrink-0" />
             </CardContent>
           </Card>
         </Link>
