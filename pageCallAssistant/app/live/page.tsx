@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import {
   Mic, MicOff, Square, Loader2, Zap, Copy,
-  CheckCircle2, Globe, ArrowLeft, Radio,
+  CheckCircle2, Globe, ArrowLeft, Radio, MessageSquare,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -88,6 +88,7 @@ export default function LivePage() {
   const [focus, setFocus] = useState("");
   const [level, setLevel] = useState("Todos os níveis");
   const [sourceLang, setSourceLang] = useState("en-US");
+  const [customContext, setCustomContext] = useState("");
   const [hasSpeechAPI, setHasSpeechAPI] = useState(false);
 
   // Live session
@@ -108,12 +109,14 @@ export default function LivePage() {
   const focusRef = useRef(focus);
   const levelRef = useRef(level);
   const sourceLangRef = useRef(sourceLang);
+  const customContextRef = useRef(customContext);
   const tokenRef = useRef(token);
 
   // Keep refs in sync (avoid stale closures in callbacks)
   useEffect(() => { focusRef.current = focus; }, [focus]);
   useEffect(() => { levelRef.current = level; }, [level]);
   useEffect(() => { sourceLangRef.current = sourceLang; }, [sourceLang]);
+  useEffect(() => { customContextRef.current = customContext; }, [customContext]);
   useEffect(() => { tokenRef.current = token; }, [token]);
 
   // ── Auth headers helper (Bearer when available, falls back to httpOnly cookie) ──
@@ -198,6 +201,7 @@ export default function LivePage() {
           focus: focusRef.current,
           level: levelRef.current,
           source_lang: sourceLangRef.current,
+          custom_context: customContextRef.current,
         }),
       });
       const data = await res.json();
@@ -233,6 +237,7 @@ export default function LivePage() {
       form.append("focus", focusRef.current);
       form.append("level", levelRef.current);
       form.append("source_lang", sourceLangRef.current);
+      form.append("custom_context", customContextRef.current);
       const res = await authFetch("/api/live/process", {
         method: "POST",
         body: form,
@@ -424,6 +429,25 @@ export default function LivePage() {
                 >
                   {LEVEL_OPTIONS.map(l => <option key={l} value={l}>{l}</option>)}
                 </select>
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-sm font-medium flex items-center gap-1.5">
+                  <MessageSquare className="h-3.5 w-3.5 text-muted-foreground" />
+                  Contexto da call
+                  <span className="ml-auto text-xs font-normal text-muted-foreground">opcional</span>
+                </label>
+                <textarea
+                  value={customContext}
+                  onChange={e => setCustomContext(e.target.value)}
+                  placeholder='Ex: "Entrevista técnica para vaga de sênior na XYZ" ou "Reunião de vendas com cliente dos EUA"'
+                  rows={3}
+                  maxLength={500}
+                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/50 resize-none placeholder:text-muted-foreground/50"
+                />
+                {customContext.length > 0 && (
+                  <p className="text-[10px] text-muted-foreground text-right">{customContext.length}/500</p>
+                )}
               </div>
 
               <div className="space-y-1.5">

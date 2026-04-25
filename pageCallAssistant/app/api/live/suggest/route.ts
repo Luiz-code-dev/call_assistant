@@ -62,12 +62,13 @@ export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null);
   if (!body) return NextResponse.json({ error: "Corpo inválido." }, { status: 400 });
 
-  const { session_id, transcript, focus, level, source_lang } = body as {
+  const { session_id, transcript, focus, level, source_lang, custom_context } = body as {
     session_id?: string;
     transcript?: string;
     focus?: string;
     level?: string;
     source_lang?: string;
+    custom_context?: string;
   };
 
   if (!session_id || !transcript?.trim()) {
@@ -79,7 +80,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: access.reason, userPlan: access.userPlan }, { status: 403 });
   }
 
-  const meetingContext = [focus, level].filter(Boolean).join(" · ");
+  const baseContext = [focus, level].filter(Boolean).join(" · ");
+  const meetingContext = custom_context?.trim()
+    ? `${baseContext}${baseContext ? " · " : ""}Detalhes: ${custom_context.trim()}`
+    : baseContext;
   const lang = source_lang || "en-US";
 
   try {

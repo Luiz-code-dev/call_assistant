@@ -75,6 +75,7 @@ export async function POST(req: NextRequest) {
   const focus = (formData.get("focus") as string | null) ?? "";
   const level = (formData.get("level") as string | null) ?? "";
   const source_lang = (formData.get("source_lang") as string | null) || "en-US";
+  const custom_context = (formData.get("custom_context") as string | null) ?? "";
 
   if (!audio || !session_id) {
     return NextResponse.json({ error: "audio e session_id são obrigatórios." }, { status: 400 });
@@ -112,7 +113,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Áudio não reconhecido. Fale mais próximo do microfone." }, { status: 422 });
     }
 
-    const meeting_context = [focus, level].filter(Boolean).join(" · ");
+    const baseContext = [focus, level].filter(Boolean).join(" · ");
+    const meeting_context = custom_context.trim()
+      ? `${baseContext}${baseContext ? " · " : ""}Detalhes: ${custom_context.trim()}`
+      : baseContext;
     const isEnglish = source_lang.startsWith("en");
 
     // 2 — Get suggestions (Python service optional, OpenAI as primary/fallback)
