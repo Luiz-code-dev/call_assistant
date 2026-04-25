@@ -200,6 +200,7 @@ export default function UsagePageClient({
               size="sm"
               onClick={() => {
                 sessionStorage.removeItem("sf_token");
+                localStorage.removeItem("sf_token");
                 window.location.href = "/api/auth/logout";
               }}
             >

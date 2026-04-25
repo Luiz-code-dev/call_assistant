@@ -117,8 +117,9 @@ export default function LivePage() {
 
   // ── Init ──
   useEffect(() => {
-    const sfToken = sessionStorage.getItem("sf_token");
+    const sfToken = sessionStorage.getItem("sf_token") ?? localStorage.getItem("sf_token");
     if (!sfToken) { window.location.href = "/login?redirect=/live"; return; }
+    if (!sessionStorage.getItem("sf_token")) sessionStorage.setItem("sf_token", sfToken);
     setToken(sfToken);
     tokenRef.current = sfToken;
 

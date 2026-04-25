@@ -76,6 +76,7 @@ export function Navbar({ initialUser }: NavbarProps = {}) {
                 size="sm"
                 onClick={() => {
                   sessionStorage.removeItem("sf_token");
+                  localStorage.removeItem("sf_token");
                   window.location.href = "/api/auth/logout";
                 }}
               >

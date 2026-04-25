@@ -21,8 +21,9 @@ export default function LoginPage() {
   const redirectTo = searchParams.get("redirect") || (isDesktop ? "/auth/desktop" : "/dashboard");
 
   useEffect(() => {
-    const sfToken = sessionStorage.getItem("sf_token");
+    const sfToken = sessionStorage.getItem("sf_token") ?? localStorage.getItem("sf_token");
     if (!sfToken) { setRefreshing(false); return; }
+    if (!sessionStorage.getItem("sf_token")) sessionStorage.setItem("sf_token", sfToken);
     fetch("/api/auth/refresh", {
       method: "POST",
       headers: { Authorization: `Bearer ${sfToken}` },
@@ -32,6 +33,7 @@ export default function LoginPage() {
           window.location.href = redirectTo;
         } else {
           sessionStorage.removeItem("sf_token");
+          localStorage.removeItem("sf_token");
           setRefreshing(false);
         }
       })
@@ -50,7 +52,10 @@ export default function LoginPage() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Erro ao fazer login");
-      if (data.token) sessionStorage.setItem("sf_token", data.token);
+      if (data.token) {
+        sessionStorage.setItem("sf_token", data.token);
+        localStorage.setItem("sf_token", data.token);
+      }
       toast.success("Login realizado com sucesso!");
       window.location.href = redirectTo;
     } catch (err: unknown) {
