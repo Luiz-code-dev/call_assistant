@@ -115,11 +115,26 @@ export default function LivePage() {
   useEffect(() => { sourceLangRef.current = sourceLang; }, [sourceLang]);
   useEffect(() => { tokenRef.current = token; }, [token]);
 
+  // ── Auth headers helper (Bearer when available, falls back to httpOnly cookie) ──
+  const authFetch = useCallback(
+    (url: string, options: RequestInit = {}): Promise<Response> => {
+      const t = tokenRef.current;
+      const isFormData = options.body instanceof FormData;
+      const baseHeaders: HeadersInit = isFormData ? {} : { "Content-Type": "application/json" };
+      if (t) (baseHeaders as Record<string, string>)["Authorization"] = `Bearer ${t}`;
+      return fetch(url, {
+        credentials: "include",
+        ...options,
+        headers: { ...baseHeaders, ...(options.headers ?? {}) },
+      });
+    },
+    []
+  );
+
   // ── Init ──
   useEffect(() => {
-    const sfToken = sessionStorage.getItem("sf_token") ?? localStorage.getItem("sf_token");
-    if (!sfToken) { window.location.href = "/login?redirect=/live"; return; }
-    if (!sessionStorage.getItem("sf_token")) sessionStorage.setItem("sf_token", sfToken);
+    const sfToken = sessionStorage.getItem("sf_token") ?? localStorage.getItem("sf_token") ?? "";
+    if (sfToken && !sessionStorage.getItem("sf_token")) sessionStorage.setItem("sf_token", sfToken);
     setToken(sfToken);
     tokenRef.current = sfToken;
 
@@ -127,21 +142,21 @@ export default function LivePage() {
 
     const savedFocus = localStorage.getItem("sf_live_focus") || "";
     const savedLevel = localStorage.getItem("sf_live_level") || "Todos os níveis";
-    const savedLang = localStorage.getItem("sf_live_lang") || "en-US";
+    const savedLang  = localStorage.getItem("sf_live_lang")  || "en-US";
     if (savedFocus) { setFocus(savedFocus); focusRef.current = savedFocus; }
     if (savedLevel) { setLevel(savedLevel); levelRef.current = savedLevel; }
-    if (savedLang) { setSourceLang(savedLang); sourceLangRef.current = savedLang; }
+    if (savedLang)  { setSourceLang(savedLang); sourceLangRef.current = savedLang; }
   }, []);
 
   // ── Fetch credits ──
-  const fetchCredits = useCallback(async (sfToken: string) => {
+  const fetchCredits = useCallback(async () => {
     try {
-      const res = await fetch("/api/wallet/balance", { headers: { Authorization: `Bearer ${sfToken}` } });
+      const res = await authFetch("/api/wallet/balance");
       if (res.ok) { const d = await res.json(); setCredits(d.balance ?? null); }
     } catch { /* ignore */ }
-  }, []);
+  }, [authFetch]);
 
-  useEffect(() => { if (token) fetchCredits(token); }, [token, fetchCredits]);
+  useEffect(() => { fetchCredits(); }, [fetchCredits]);
 
   // ── Auto-scroll ──
   useEffect(() => {
@@ -154,25 +169,24 @@ export default function LivePage() {
       recognitionRef.current?.abort();
       if (mediaRecorderRef.current?.state !== "inactive") mediaRecorderRef.current?.stop();
       const t = tokenRef.current;
-      if (t) {
-        fetch("/api/live/session/end", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Authorization: `Bearer ${t}` },
-          body: JSON.stringify({ session_id: sessionId.current }),
-        }).catch(() => {});
-      }
+      const headers: HeadersInit = { "Content-Type": "application/json" };
+      if (t) (headers as Record<string, string>)["Authorization"] = `Bearer ${t}`;
+      fetch("/api/live/session/end", {
+        method: "POST",
+        credentials: "include",
+        headers,
+        body: JSON.stringify({ session_id: sessionId.current }),
+      }).catch(() => {});
     };
   }, []);
 
   // ── Core: process transcript text (SpeechRecognition path) ──
   const processTranscript = useCallback(async (transcript: string) => {
-    const t = tokenRef.current;
-    if (!transcript.trim() || !t) return;
+    if (!transcript.trim()) return;
     setIsProcessing(true);
     try {
-      const res = await fetch("/api/live/suggest", {
+      const res = await authFetch("/api/live/suggest", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${t}` },
         body: JSON.stringify({
           session_id: sessionId.current,
           transcript: transcript.trim(),
@@ -199,12 +213,10 @@ export default function LivePage() {
       if (data.creditsUsed) setCredits(prev => prev !== null ? Math.max(0, prev - data.creditsUsed) : null);
     } catch { toast.error("Erro de conexão. Verifique sua internet."); }
     finally { setIsProcessing(false); }
-  }, []);
+  }, [authFetch]);
 
   // ── Core: process audio blob (MediaRecorder fallback) ──
   const processAudio = useCallback(async (blob: Blob) => {
-    const t = tokenRef.current;
-    if (!t) return;
     setIsProcessing(true);
     try {
       const form = new FormData();
@@ -213,9 +225,8 @@ export default function LivePage() {
       form.append("focus", focusRef.current);
       form.append("level", levelRef.current);
       form.append("source_lang", sourceLangRef.current);
-      const res = await fetch("/api/live/process", {
+      const res = await authFetch("/api/live/process", {
         method: "POST",
-        headers: { Authorization: `Bearer ${t}` },
         body: form,
       });
       const data = await res.json();
@@ -237,7 +248,7 @@ export default function LivePage() {
       if (data.creditsUsed) setCredits(prev => prev !== null ? Math.max(0, prev - data.creditsUsed) : null);
     } catch { toast.error("Erro de conexão. Verifique sua internet."); }
     finally { setIsProcessing(false); }
-  }, []);
+  }, [authFetch]);
 
   // ── SpeechRecognition (continuous, auto-send on final) ──
   const startSpeechRecognition = useCallback(() => {
