@@ -39,7 +39,12 @@ export function SpeakyMascot({ width = 110, height = 62, bubbleText = "✨ Speak
           animationData={animationData}
           loop
           autoplay
-          style={{ width, height }}
+          style={{
+            width,
+            height,
+            maskImage: "radial-gradient(ellipse 82% 82% at 50% 55%, black 45%, transparent 100%)",
+            WebkitMaskImage: "radial-gradient(ellipse 82% 82% at 50% 55%, black 45%, transparent 100%)",
+          }}
         />
       ) : (
         <div style={{ width, height }} />
