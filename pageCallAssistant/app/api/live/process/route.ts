@@ -1,10 +1,48 @@
 import { NextRequest, NextResponse } from "next/server";
+import type OpenAI from "openai";
 import { getToolSession } from "@/app/api/tools/_auth";
 import { checkToolAccess, consumeToolCredits, CREDITS_PER_USE } from "@/lib/planGuard";
 import { getOpenAI } from "@/lib/openai";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
+
+async function suggestViaOpenAI(
+  openai: OpenAI,
+  transcript: string,
+  meetingContext: string,
+  isEnglish: boolean,
+): Promise<{ translation: string; suggestions: string[]; suggestion_translations: string[] }> {
+  const translateFrom = isEnglish ? "inglês" : "português";
+  const translateTo   = isEnglish ? "português" : "inglês";
+  const systemPrompt = `Você é um copiloto de comunicação em tempo real.
+Contexto: ${meetingContext || "Conversa geral"}.
+Sua tarefa:
+1. Traduza do ${translateFrom} para o ${translateTo}.
+2. Gere exatamente 3 sugestões de resposta em ${isEnglish ? "inglês" : "português"}: Curta, Profissional, Detalhada.
+3. Traduza cada sugestão para ${isEnglish ? "português" : "inglês"}.
+Responda EXCLUSIVAMENTE em JSON:
+{"translation":"...","suggestions":["...","...","..."],"suggestion_translations":["...","...","..."]}`;
+
+  const completion = await openai.chat.completions.create({
+    model: "gpt-4o-mini",
+    temperature: 0.7,
+    max_tokens: 600,
+    messages: [
+      { role: "system", content: systemPrompt },
+      { role: "user", content: transcript },
+    ],
+    response_format: { type: "json_object" },
+  });
+  const parsed = JSON.parse(completion.choices[0]?.message?.content ?? "{}") as {
+    translation?: string; suggestions?: string[]; suggestion_translations?: string[];
+  };
+  return {
+    translation: parsed.translation ?? "",
+    suggestions: parsed.suggestions ?? [],
+    suggestion_translations: parsed.suggestion_translations ?? [],
+  };
+}
 
 function isWhisperHallucination(text: string): boolean {
   if (text.length < 4) return true;
@@ -53,13 +91,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: access.reason, userPlan: access.userPlan }, { status: 403 });
   }
 
-  const copilotUrl = process.env.COPILOT_SERVICE_URL;
-  if (!copilotUrl) {
-    return NextResponse.json({ error: "Serviço de IA indisponível." }, { status: 503 });
-  }
-
   try {
     const openai = getOpenAI();
+
+    // 1 — Transcribe audio via Whisper
     const transcription = await openai.audio.transcriptions.create({
       file: new File(
         [await audio.arrayBuffer()],
@@ -78,36 +113,48 @@ export async function POST(req: NextRequest) {
     }
 
     const meeting_context = [focus, level].filter(Boolean).join(" · ");
+    const isEnglish = source_lang.startsWith("en");
 
-    const res = await fetch(`${copilotUrl}/copilot/suggest`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        session_id: `live_${session.sub}_${session_id}`,
-        transcript,
-        meeting_context,
-        source_lang,
-        target_lang: "pt-BR",
-      }),
-    });
+    // 2 — Get suggestions (Python service optional, OpenAI as primary/fallback)
+    let suggestionData: { translation: string; suggestions: string[]; suggestion_translations: string[] };
 
-    if (!res.ok) {
-      throw new Error(`Copilot service error: ${res.status}`);
+    const copilotUrl = process.env.COPILOT_SERVICE_URL;
+    if (copilotUrl) {
+      try {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 12_000);
+        const res = await fetch(`${copilotUrl}/copilot/suggest`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          signal: controller.signal,
+          body: JSON.stringify({
+            session_id: `live_${session.sub}_${session_id}`,
+            transcript,
+            meeting_context,
+            source_lang,
+            target_lang: "pt-BR",
+          }),
+        });
+        clearTimeout(timeout);
+        if (res.ok) {
+          suggestionData = await res.json() as typeof suggestionData;
+        } else {
+          throw new Error(`copilot ${res.status}`);
+        }
+      } catch {
+        suggestionData = await suggestViaOpenAI(openai, transcript, meeting_context, isEnglish);
+      }
+    } else {
+      suggestionData = await suggestViaOpenAI(openai, transcript, meeting_context, isEnglish);
     }
-
-    const data = await res.json() as {
-      translation?: string;
-      suggestions?: string[];
-      suggestion_translations?: string[];
-    };
 
     await consumeToolCredits(session.sub, "live");
 
     return NextResponse.json({
       transcript,
-      translation: data.translation ?? "",
-      suggestions: data.suggestions ?? [],
-      suggestion_translations: data.suggestion_translations ?? [],
+      translation: suggestionData.translation ?? "",
+      suggestions: suggestionData.suggestions ?? [],
+      suggestion_translations: suggestionData.suggestion_translations ?? [],
       creditsUsed: CREDITS_PER_USE,
     });
   } catch (err) {
