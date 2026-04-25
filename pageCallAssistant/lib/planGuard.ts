@@ -1,6 +1,6 @@
 import { db } from "@/lib/db";
 
-export type ToolName = "improve" | "generate" | "interview" | "meeting" | "practice" | "network";
+export type ToolName = "improve" | "generate" | "interview" | "meeting" | "practice" | "network" | "live";
 
 /** Custo em créditos por uso de qualquer ferramenta de IA */
 export const CREDITS_PER_USE = 2;
@@ -23,6 +23,7 @@ const TOOL_CONFIG: Record<
   meeting:   { minPlan: "premium", dailyLimit: { premium: Infinity } },
   practice:  { minPlan: "basic",   dailyLimit: { basic: 1,  premium: Infinity } },
   network:   { minPlan: "basic",   dailyLimit: { basic: 3,  premium: Infinity } },
+  live:      { minPlan: "basic",   dailyLimit: { basic: 10, premium: Infinity } },
 };
 
 export interface AccessResult {

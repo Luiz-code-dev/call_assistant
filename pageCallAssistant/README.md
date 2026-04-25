@@ -14,11 +14,13 @@ pageCallAssistant/
 │   ├── api/
 │   │   ├── auth/           # login, register, me, logout, verify-email, forgot/reset-password
 │   │   ├── billing/        # Stripe checkout, webhook, portal
+│   │   ├── live/           # SpeakFlow Live — suggest, process (Whisper), session/end
 │   │   ├── network/        # circles, challenges, submissions, leaderboard, proficiency, push
 │   │   ├── tools/          # improve, generate, interview
 │   │   ├── wallet/         # créditos (balance, transactions, topup)
 │   │   └── support/        # formulário de contato
 │   ├── dashboard/          # Dashboard principal do usuário
+│   ├── live/               # SpeakFlow Live — PWA fullscreen (setup + sessão ao vivo)
 │   ├── tools/
 │   │   ├── improve/        # Melhorar Resposta
 │   │   ├── generate/       # Gerar Resposta
@@ -84,6 +86,7 @@ pageCallAssistant/
 | Melhorar Resposta | ❌ | 5x/dia | Ilimitado |
 | Gerar Resposta | ❌ | 5x/dia | Ilimitado |
 | Treino de Entrevista | ❌ | 3 sessões/dia | Ilimitado |
+| **SpeakFlow Live** | ❌ | **10 sugestões/dia** | **Ilimitado** |
 | Criar Circles | ❌ | 1 Circle | Ilimitado |
 | Participar de Circles | Até 2 | Ilimitado | Ilimitado |
 | Avaliação CEFR | ✅ (ver nível) | ✅ (ver nível) | ✅ |
@@ -123,6 +126,16 @@ pageCallAssistant/
 | POST | `/api/tools/improve` | Melhora texto em inglês | 2 créditos |
 | POST | `/api/tools/generate` | Gera resposta EN a partir de contexto PT | 2 créditos |
 | POST | `/api/tools/interview` | Pergunta de entrevista personalizada | 2 créditos |
+
+### SpeakFlow Live (`/api/live`)
+
+| Método | Rota | Descrição | Custo |
+|---|---|---|---|
+| POST | `/api/live/suggest` | Transcrição (texto) → AgentScope → 3 sugestões | 2 créditos |
+| POST | `/api/live/process` | Áudio (blob) → Whisper → AgentScope → 3 sugestões | 2 créditos |
+| POST | `/api/live/session/end` | Limpa memória de sessão no AgentScope | — |
+
+> As rotas `/api/live/*` fazem proxy para o serviço Python `copilot-ai` (Railway interno: `innovative-peace`). O `session_id` é prefixado com `live_{userId}_` para isolar sessões Live das sessões do app desktop.
 
 ### Network (`/api/network`)
 
@@ -257,6 +270,7 @@ NEXT_PUBLIC_STRIPE_PRICE_CREDITS_10
 NEXT_PUBLIC_STRIPE_PRICE_CREDITS_25
 RESEND_API_KEY
 NEXT_PUBLIC_APP_URL
+COPILOT_SERVICE_URL   # Railway interno: http://innovative-peace.railway.internal:8080
 ```
 
 ---
@@ -265,10 +279,53 @@ NEXT_PUBLIC_APP_URL
 
 - Senhas: `bcryptjs` (salt rounds 10)
 - Auth: JWT signed com `HS256` via `jose`, expiry 7d
-- Middleware: valida token em todas as rotas `/dashboard`, `/tools`, `/network`, `/settings`, `/usage`
+- Middleware: valida token em todas as rotas `/dashboard`, `/tools`, `/network`, `/settings`, `/usage`, `/live`
 - Plan guard: `lib/planGuard.ts` verifica plano antes de consumir créditos
 - Stripe: webhook validado com `STRIPE_WEBHOOK_SECRET`
 - Whisper: anti-hallucination filter server-side + client-side min 3s
+
+---
+
+## Serviço Python — copilot-ai (SpeakFlow Live)
+
+O serviço `copilot-ai` é uma API FastAPI separada, rodando no Railway (`innovative-peace`), responsável por toda a lógica de IA do SpeakFlow Live.
+
+```
+call-assistant/services/copilot-ai/
+├── src/api/
+│   ├── main.py                  # FastAPI app + inicialização do modelo OpenAI
+│   └── routers/
+│       └── copilot_router.py    # POST /copilot/suggest, POST /copilot/session/end
+├── src/application/use_cases/
+│   └── suggest_use_case.py      # Orquestração: valida → chama adapter
+├── src/infrastructure/agentscope/
+│   ├── agentscope_copilot_adapter.py  # Constrói prompt, parseia resposta estruturada
+│   ├── speakflow_agent.py             # SpeakFlowCopilotAgent (InMemoryMemory)
+│   └── session_registry.py            # Gerencia ciclo de vida de agentes por sessão
+requirements.txt   # fastapi, uvicorn, agentscope, pydantic, python-dotenv
+Dockerfile
+railway.toml
+```
+
+**Contrato da API:**
+
+```http
+POST /copilot/suggest
+{
+  "session_id": "live_{userId}_{sessionId}",
+  "transcript": "The project deadline was moved to Friday",
+  "meeting_context": "Reuniões de Negócios · Intermediário (B1-B2)",
+  "source_lang": "en-US",
+  "target_lang": "pt-BR"
+}
+
+→ { "translation": "...", "suggestions": [...], "suggestion_translations": [...] }
+
+POST /copilot/session/end
+{ "session_id": "live_{userId}_{sessionId}" }
+```
+
+A memória de cada sessão é mantida via `InMemoryMemory` do AgentScope — acumulando contexto durante toda a sessão e sendo limpa ao encerrar.
 
 ---
 

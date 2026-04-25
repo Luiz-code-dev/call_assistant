@@ -8,7 +8,7 @@ import { Progress } from "@/components/ui/progress";
 import {
   Mic2, Zap, CreditCard, ArrowUpRight, Download,
   LogOut, Settings, TrendingUp, Loader2, CheckCircle2, Crown, Sparkles,
-  Wand2, MessageSquarePlus, Lock, Users,
+  Wand2, MessageSquarePlus, Lock, Users, Radio,
 } from "lucide-react";
 import { SupportChat } from "@/components/SupportChat";
 import { useSearchParams } from "next/navigation";
@@ -222,6 +222,27 @@ export default function DashboardPage() {
                 </p>
               </div>
               <ArrowUpRight className="h-4 w-4 text-violet-400 shrink-0" />
+            </CardContent>
+          </Card>
+        </Link>
+
+        {/* SpeakFlow Live banner */}
+        <Link href="/live">
+          <Card className="mb-6 cursor-pointer border-red-500/30 bg-gradient-to-r from-red-500/10 via-violet-500/5 to-transparent hover:border-red-500/50 transition-all hover:shadow-lg">
+            <CardContent className="flex items-center gap-4 p-5">
+              <div className="rounded-xl bg-red-500/20 p-3 shrink-0">
+                <Radio className="h-6 w-6 text-red-400" />
+              </div>
+              <div className="flex-1">
+                <div className="flex items-center gap-2">
+                  <p className="font-semibold">SpeakFlow Live</p>
+                  <span className="rounded-full bg-red-500/10 border border-red-500/30 px-1.5 py-0.5 text-[10px] font-bold text-red-400 tracking-wider">NOVO</span>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Copiloto em tempo real · Tradução + sugestões de resposta com IA · PWA
+                </p>
+              </div>
+              <ArrowUpRight className="h-4 w-4 text-red-400 shrink-0" />
             </CardContent>
           </Card>
         </Link>

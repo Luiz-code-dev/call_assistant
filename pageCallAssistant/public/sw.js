@@ -1,10 +1,10 @@
-const CACHE = "speakflow-network-v4";
+const CACHE = "speakflow-network-v5";
 
 self.addEventListener("install", (event) => {
   self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE).then((cache) =>
-      cache.addAll(["/network", "/network/circles", "/manifest.json", "/icon.svg"])
+      cache.addAll(["/network", "/network/circles", "/live", "/manifest.json", "/icon.svg"])
     )
   );
 });

@@ -37,7 +37,7 @@ const FAQS: FAQ[] = [
   {
     id: "credits",
     q: "Como funcionam os créditos?",
-    a: "Créditos são consumidos por transcrição, tradução e Copilot. Gratuito: 50 créditos. Básico: 500/mês. Premium: 1.000/mês. Recargas avulsas: 50 por R$ 24,90 · 150 por R$ 49,90 · 400 por R$ 119,90.",
+    a: "Créditos são consumidos por transcrição, tradução, Copilot e SpeakFlow Live. Gratuito: 50 créditos. Básico: 500/mês. Premium: 1.000/mês. Recargas avulsas: 50 por R$ 24,90 · 150 por R$ 49,90 · 400 por R$ 119,90.",
   },
   {
     id: "login",
@@ -78,6 +78,20 @@ const FAQS: FAQ[] = [
     id: "tools-plan",
     q: "O plano Gratuito tem acesso às Ferramentas de IA?",
     a: "Não. As Ferramentas de IA (Melhorar Resposta, Gerar Resposta e Treino de Entrevista) são exclusivas dos planos Básico (R$ 74,90/mês) e Premium (R$ 149,90/mês).\n\nO plano Básico tem limites diários por ferramenta. O Premium é ilimitado.\n\nAcesse /pricing para ver os planos e fazer upgrade.",
+  },
+  {
+    id: "live",
+    q: "O que é o SpeakFlow Live?",
+    a: "O SpeakFlow Live é um copiloto em tempo real que roda no seu celular ou navegador (PWA instalável).\n\nComo funciona:\n• Você abre o Live durante uma conversa\n• Aperta o microfone para capturar o áudio\n• A IA transcreve, traduz e gera 3 sugestões de resposta instantaneamente:\n  ⚡ Curta · 💼 Profissional · 📋 Detalhada\n• Cada sugestão vem com tradução em português\n\nDiferente do app desktop (que captura o áudio do sistema), o Live usa o microfone do dispositivo — ideal para uso no celular.\n\nAcesse /live pelo Dashboard ou instale o PWA pelo \"Adicionar à tela inicial\".",
+    ctaLoggedIn: { label: "Abrir SpeakFlow Live →", href: "/live", variant: "primary" },
+    ctaLoggedOut: { label: "Criar conta grátis →", href: "/register", variant: "primary" },
+  },
+  {
+    id: "live-plan",
+    q: "SpeakFlow Live funciona no plano Gratuito?",
+    a: "Não. O SpeakFlow Live requer o plano Básico (R$ 74,90/mês) ou Premium (R$ 149,90/mês).\n\nLimites:\n• Básico — 10 sugestões ao vivo por dia (2 créditos cada)\n• Premium — ilimitado\n\nO plano Gratuito não tem acesso ao Live. Faça upgrade em /pricing.",
+    ctaLoggedIn: { label: "Ver planos e fazer upgrade →", href: "/pricing", variant: "primary" },
+    ctaLoggedOut: { label: "Ver planos →", href: "/pricing", variant: "primary" },
   },
   {
     id: "network",

@@ -7,7 +7,7 @@ import { getSession } from "@/lib/auth";
 import {
   BookOpen, Mic2, Globe, Brain, Wand2, MessageSquarePlus,
   CheckCircle2, ArrowRight, Download, Zap, Star, Volume2,
-  Settings, Play, Send, RotateCcw, ChevronRight, Instagram, Users, Trophy, Medal,
+  Settings, Play, Send, RotateCcw, ChevronRight, Instagram, Users, Trophy, Medal, Radio,
 } from "lucide-react";
 
 export default async function GuiaPage() {
@@ -36,7 +36,7 @@ export default async function GuiaPage() {
             Do primeiro acesso às ferramentas de IA — um guia prático e direto ao ponto.
           </p>
           <div className="flex flex-wrap justify-center gap-3 text-sm text-muted-foreground">
-            {["Primeiros passos", "App desktop", "Ferramentas de IA", "Créditos e planos", "Network & Circles"].map((t) => (
+            {["Primeiros passos", "App desktop", "Ferramentas de IA", "Créditos e planos", "Network & Circles", "SpeakFlow Live"].map((t) => (
               <span key={t} className="rounded-full border border-border/50 px-3 py-1">{t}</span>
             ))}
           </div>
@@ -61,6 +61,7 @@ export default async function GuiaPage() {
                 { n: "6", label: "Créditos: como funcionam e como recarregar", href: "#creditos" },
                 { n: "7", label: "Planos e diferenças", href: "#planos" },
                 { n: "8", label: "SpeakFlow Network — Circles e Desafios", href: "#network" },
+                { n: "9", label: "SpeakFlow Live — Copiloto em tempo real (PWA)", href: "#live" },
               ].map((item) => (
                 <li key={item.n}>
                   <a href={item.href} className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
@@ -322,6 +323,7 @@ export default async function GuiaPage() {
                   ["Melhorar Resposta", "2 créditos"],
                   ["Gerar Resposta", "2 créditos"],
                   ["Treino de Entrevista (por resposta)", "2 créditos"],
+                  ["SpeakFlow Live (sugestão ao vivo)", "2 créditos"],
                 ].map(([acao, custo]) => (
                   <div key={acao} className="flex items-center justify-between px-4 py-3 text-sm">
                     <span className="text-muted-foreground">{acao}</span>
@@ -360,12 +362,12 @@ export default async function GuiaPage() {
                 },
                 {
                   name: "Básico", price: "R$ 74,90/mês", highlight: true,
-                  features: ["500 créditos/mês", "Tudo do Gratuito", "Melhorar Resposta (5x/dia)", "Gerar Resposta (5x/dia)", "Treino de Entrevista (3x/dia)"],
+                  features: ["500 créditos/mês", "Tudo do Gratuito", "Melhorar Resposta (5x/dia)", "Gerar Resposta (5x/dia)", "Treino de Entrevista (3x/dia)", "📡 SpeakFlow Live — 10 sugestões/dia"],
                   noAccess: [],
                 },
                 {
                   name: "Premium", price: "R$ 149,90/mês", highlight: false,
-                  features: ["1.000 créditos/mês", "Tudo do Básico", "Ferramentas de IA ilimitadas", "IA avançada", "Suporte VIP 24h"],
+                  features: ["1.000 créditos/mês", "Tudo do Básico", "Ferramentas de IA ilimitadas", "📡 SpeakFlow Live — ilimitado", "IA avançada", "Suporte VIP 24h"],
                   noAccess: [],
                 },
               ].map((plan) => (
@@ -505,6 +507,95 @@ export default async function GuiaPage() {
                 Ver planos <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
+          </div>
+        </section>
+
+        {/* Section 9 — Live */}
+        <section id="live" className="scroll-mt-24">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-red-500/15">
+              <Radio className="h-5 w-5 text-red-400" />
+            </div>
+            <div>
+              <p className="text-xs font-medium text-red-400 uppercase tracking-wide">Seção 9 · Novo</p>
+              <h2 className="text-2xl font-bold">SpeakFlow Live — Copiloto em Tempo Real</h2>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-red-500/20 bg-red-500/5 p-5 mb-6">
+            <p className="text-sm leading-relaxed">
+              O <strong>SpeakFlow Live</strong> é um PWA instalável no celular ou computador que captura o áudio do seu microfone durante conversas, transcreve em tempo real, traduz e sugere 3 respostas prontas com IA — tudo sem sair da tela.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-semibold mb-3">Como funciona?</h3>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {[
+                  { icon: Mic2, title: "Captura pelo microfone", desc: "Usa o mic do celular ou computador — não precisa do app desktop" },
+                  { icon: Globe, title: "Transcrição instantânea", desc: "Reconhecimento de voz nativo do browser (Chrome/Android) ou Whisper como fallback" },
+                  { icon: Brain, title: "IA com memória de sessão", desc: "O AgentScope lembra o contexto acumulado durante toda a sessão" },
+                  { icon: MessageSquarePlus, title: "3 sugestões de resposta", desc: "Curta, Profissional e Detalhada — em inglês + tradução em português" },
+                ].map((item) => (
+                  <div key={item.title} className="flex items-start gap-3 rounded-xl border border-border/50 bg-card p-4">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-500/10">
+                      <item.icon className="h-4 w-4 text-red-400" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold">{item.title}</p>
+                      <p className="text-xs text-muted-foreground mt-0.5">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-3">Como usar?</h3>
+              <ol className="space-y-2 text-sm text-muted-foreground">
+                {[
+                  "Acesse /live pelo Dashboard ou instale o PWA na tela inicial do celular",
+                  "Selecione a área da conversa (Reuniões, Entrevistas, Medicina, etc.) e seu nível",
+                  "Escolha o idioma que será captado (inglês, espanhol, francês...)",
+                  "Clique em 'Iniciar Sessão Live'",
+                  "Pressione o microfone durante a conversa — fale ou coloque o celular próximo ao áudio",
+                  "Veja a transcrição, tradução e as 3 sugestões aparecerem automaticamente",
+                  "Clique na sugestão para expandir e copiar o texto para usar na conversa",
+                  "Ao terminar, clique em 'Encerrar' — a memória da sessão é limpa",
+                ].map((step, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red-500/15 text-xs font-bold text-red-400">{i + 1}</span>
+                    {step}
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-4">
+              <p className="text-sm font-semibold text-amber-300 mb-1">💡 Diferença do app desktop</p>
+              <p className="text-sm text-muted-foreground">
+                O app desktop captura o áudio do sistema (o que toca pelo computador). O SpeakFlow Live captura pelo microfone — ideal para quem usa celular, tablet ou está em ambiente sem o app desktop instalado.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-border/50 bg-card p-4">
+              <h3 className="font-semibold text-sm mb-2">Compatibilidade</h3>
+              <div className="space-y-1.5 text-sm text-muted-foreground">
+                <p>✅ <strong>Chrome / Edge (Android, Windows, Mac)</strong> — reconhecimento de voz instantâneo</p>
+                <p>✅ <strong>Safari (iOS 17+)</strong> — modo gravação com Whisper como transcritor</p>
+                <p>✅ <strong>Instalável como app</strong> — via "Adicionar à tela inicial" no celular</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+              <Zap className="h-3 w-3 text-red-400" />
+              <span>Custo: 2 créditos por sugestão gerada · Básico: 10x/dia · Premium: ilimitado</span>
+            </div>
+
+            <Link href="/live" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-red-600 to-violet-600 px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity">
+              <Radio className="h-4 w-4" /> Abrir SpeakFlow Live
+            </Link>
           </div>
         </section>
 
