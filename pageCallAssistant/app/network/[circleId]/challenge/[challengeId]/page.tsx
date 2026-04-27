@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Send, Loader2, Star, Zap, ChevronDown, ChevronUp, Mic, MicOff, Square, Volume2, Trash2 } from "lucide-react";
-import { useRef } from "react";
+import { ArrowLeft, Send, Loader2, Star, Zap, ChevronDown, ChevronUp, Mic, Square, Volume2, Trash2, CheckCircle2, XCircle, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
@@ -13,6 +12,9 @@ interface Evaluation { fluencyScore: number; contentScore: number; clarityScore:
 interface MySubmission { id: string; content: string; isPublic: boolean; isSelected: boolean; createdAt: string; evaluation?: Evaluation | null }
 interface FeedItem { id: string; content: string; evaluation?: { totalScore: number } | null; user: { id: string; name: string; avatarUrl?: string | null } }
 interface Challenge { id: string; title: string; prompt: string; type: string; startsAt: string; endsAt: string; _count: { submissions: number } }
+interface QuizQ { id: string; question: string; options: string[] }
+interface QuizResult { score: number; correct: number; total: number; results: { questionId: string; correct: boolean; correctText: string; selectedText: string }[] }
+type QuizPhase = "idle" | "loading" | "answering" | "submitting" | "done"
 
 function Avatar({ name, avatarUrl }: { name: string; avatarUrl?: string | null }) {
   const initials = name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
@@ -53,6 +55,15 @@ export default function ChallengePage() {
   const chunksRef = useRef<Blob[]>([]);
   const [recSeconds, setRecSeconds] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  // Quiz state
+  const [quizPhase, setQuizPhase] = useState<QuizPhase>("idle");
+  const [quizQuestions, setQuizQuestions] = useState<QuizQ[]>([]);
+  const [currentQIdx, setCurrentQIdx] = useState(0);
+  const [selectedOpt, setSelectedOpt] = useState<string | null>(null);
+  const [quizAnswers, setQuizAnswers] = useState<{ questionId: string; selectedText: string }[]>([]);
+  const [timeLeft, setTimeLeft] = useState(60);
+  const [quizResult, setQuizResult] = useState<QuizResult | null>(null);
+  const qTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const startRecording = async () => {
     try {
@@ -162,6 +173,80 @@ export default function ChallengePage() {
 
   const isExpired = challenge ? new Date() > new Date(challenge.endsAt) : false;
 
+  // ── Quiz logic ──
+  const startQuiz = async () => {
+    setQuizPhase("loading");
+    const r = await fetch(`/api/network/challenges/${challengeId}/quiz`);
+    if (r.ok) {
+      const data = await r.json();
+      setQuizQuestions(data.questions);
+      setCurrentQIdx(0);
+      setSelectedOpt(null);
+      setQuizAnswers([]);
+      setTimeLeft(60);
+      setQuizPhase("answering");
+    } else {
+      const d = await r.json();
+      toast.error(d.error ?? "Erro ao carregar quiz.");
+      setQuizPhase("idle");
+    }
+  };
+
+  // Submits whatever answers have been collected (called on last question OR on timeout)
+  const submitQuiz = useCallback((ans: { questionId: string; selectedText: string }[]) => {
+    if (qTimerRef.current) clearTimeout(qTimerRef.current);
+    setQuizPhase("submitting");
+    fetch(`/api/network/challenges/${challengeId}/quiz`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ answers: ans, circleId }),
+    }).then(async (r) => {
+      if (r.ok) {
+        const data = await r.json();
+        setQuizResult(data);
+        setQuizPhase("done");
+        load();
+      } else {
+        const d = await r.json();
+        toast.error(d.error ?? "Erro ao enviar quiz.");
+        setQuizPhase("idle");
+      }
+    });
+  }, [challengeId, circleId, load]);
+
+  const advanceQuiz = useCallback((ans: { questionId: string; selectedText: string }[]) => {
+    const next = currentQIdx + 1;
+    if (next < quizQuestions.length) {
+      setCurrentQIdx(next);
+      setSelectedOpt(null);
+      setTimeLeft(60);
+    } else {
+      submitQuiz(ans);
+    }
+  }, [currentQIdx, quizQuestions.length, submitQuiz]);
+
+  const handleAnswer = useCallback((optText: string) => {
+    if (quizPhase !== "answering" || selectedOpt !== null) return;
+    if (qTimerRef.current) clearTimeout(qTimerRef.current);
+    setSelectedOpt(optText);
+    const currentQ = quizQuestions[currentQIdx];
+    const newAnswers = [...quizAnswers, { questionId: currentQ.id, selectedText: optText }];
+    setQuizAnswers(newAnswers);
+    setTimeout(() => advanceQuiz(newAnswers), 900);
+  }, [quizPhase, selectedOpt, quizQuestions, currentQIdx, quizAnswers, advanceQuiz]);
+
+  // Timer — when it reaches 0 the quiz ends immediately with current score
+  useEffect(() => {
+    if (quizPhase !== "answering" || selectedOpt !== null) return;
+    if (timeLeft <= 0) {
+      toast.error("⏱ Tempo esgotado! O desafio foi encerrado.");
+      submitQuiz(quizAnswers);
+      return;
+    }
+    qTimerRef.current = setTimeout(() => setTimeLeft(t => t - 1), 1000);
+    return () => { if (qTimerRef.current) clearTimeout(qTimerRef.current); };
+  }, [quizPhase, timeLeft, selectedOpt, quizAnswers, submitQuiz]);
+
   if (loading) return (
     <div className="space-y-4">
       <div className="h-8 w-48 rounded bg-card/50 animate-pulse" />
@@ -187,7 +272,103 @@ export default function ChallengePage() {
         <CardContent><p className="text-sm leading-relaxed">{challenge.prompt}</p></CardContent>
       </Card>
 
-      {!isExpired && (
+      {!isExpired && challenge.type === "quiz" && mySubmissions.length === 0 && (
+        <Card className="border-violet-500/30 bg-violet-500/5">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm flex items-center gap-2">
+              <Clock className="h-4 w-4 text-violet-400" />
+              Quiz — {quizQuestions.length || "?"} perguntas · 1 min cada · 0,5 pts por acerto
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            {/* idle */}
+            {quizPhase === "idle" && (
+              <div className="text-center py-6 space-y-3">
+                <p className="text-sm text-muted-foreground">Você terá <strong>1 minuto por pergunta</strong>. As perguntas não podem ser copiadas. Responda com atenção!</p>
+                <button onClick={startQuiz} className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 px-8 py-3 text-sm font-semibold text-white hover:opacity-90 transition">
+                  Iniciar Quiz
+                </button>
+              </div>
+            )}
+            {/* loading */}
+            {quizPhase === "loading" && (
+              <div className="flex justify-center py-8"><Loader2 className="h-6 w-6 animate-spin text-violet-400" /></div>
+            )}
+            {/* answering */}
+            {quizPhase === "answering" && quizQuestions[currentQIdx] && (() => {
+              const q = quizQuestions[currentQIdx];
+              const timerPct = (timeLeft / 60) * 100;
+              const timerColor = timeLeft > 30 ? "bg-emerald-500" : timeLeft > 10 ? "bg-amber-500" : "bg-red-500";
+              return (
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between text-xs text-muted-foreground">
+                    <span>Pergunta {currentQIdx + 1} de {quizQuestions.length}</span>
+                    <span className={`font-mono font-bold ${timeLeft <= 10 ? "text-red-400" : "text-foreground"}`}>
+                      <Clock className="inline h-3 w-3 mr-1" />{timeLeft}s
+                    </span>
+                  </div>
+                  {/* Timer bar */}
+                  <div className="h-1.5 w-full rounded-full bg-muted overflow-hidden">
+                    <div className={`h-full rounded-full transition-all duration-1000 ${timerColor}`} style={{ width: `${timerPct}%` }} />
+                  </div>
+                  {/* Question — no-copy */}
+                  <p className="text-base font-medium leading-snug select-none" style={{ WebkitUserSelect: "none", userSelect: "none" }}>{q.question}</p>
+                  {/* Options */}
+                  <div className="space-y-2">
+                    {q.options.map((opt, oi) => (
+                      <button
+                        key={oi}
+                        onClick={() => handleAnswer(opt)}
+                        disabled={selectedOpt !== null}
+                        className={`w-full text-left rounded-xl border px-4 py-3 text-sm transition-all
+                          ${ selectedOpt === opt
+                              ? "border-violet-500 bg-violet-500/20 text-violet-200"
+                              : selectedOpt !== null
+                              ? "border-border/30 bg-muted/30 text-muted-foreground cursor-not-allowed"
+                              : "border-border/50 bg-card hover:border-violet-500/50 hover:bg-violet-500/5 cursor-pointer"
+                          }`}
+                        style={{ WebkitUserSelect: "none", userSelect: "none" }}
+                      >
+                        <span className="font-semibold mr-2 text-muted-foreground">{["A","B","C","D"][oi]}.</span>{opt}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              );
+            })()}
+            {/* submitting */}
+            {quizPhase === "submitting" && (
+              <div className="flex flex-col items-center gap-2 py-8">
+                <Loader2 className="h-6 w-6 animate-spin text-violet-400" />
+                <p className="text-sm text-muted-foreground">Calculando resultado...</p>
+              </div>
+            )}
+            {/* done */}
+            {quizPhase === "done" && quizResult && (
+              <div className="space-y-4">
+                <div className="text-center py-4">
+                  <p className="text-3xl font-bold gradient-text">{quizResult.score.toFixed(1)} pts</p>
+                  <p className="text-sm text-muted-foreground mt-1">{quizResult.correct} de {quizResult.total} acertos · 0,5 pts cada</p>
+                </div>
+                <div className="space-y-2">
+                  {quizResult.results.map((r, i) => (
+                    <div key={r.questionId} className={`flex items-start gap-3 rounded-lg p-3 border ${ r.correct ? "border-emerald-500/30 bg-emerald-500/5" : "border-red-500/20 bg-red-500/5" }`}>
+                      {r.correct ? <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" /> : <XCircle className="h-4 w-4 text-red-400 shrink-0 mt-0.5" />}
+                      <div className="min-w-0">
+                        <p className="text-xs font-medium text-foreground/80 mb-1 select-none" style={{ WebkitUserSelect: "none", userSelect: "none" }}>{quizQuestions[i]?.question}</p>
+                        {!r.correct && r.selectedText && <p className="text-[11px] text-red-400">Sua resposta: {r.selectedText}</p>}
+                        {!r.correct && <p className="text-[11px] text-emerald-400">Correta: {r.correctText}</p>}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      )}
+
+      {!isExpired && challenge.type !== "quiz" && (
         <Card className="border-violet-500/30 bg-violet-500/5">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm flex items-center gap-2">
@@ -260,7 +441,7 @@ export default function ChallengePage() {
         </Card>
       )}
 
-      {mySubmissions.length > 0 && (
+      {mySubmissions.length > 0 && challenge.type !== "quiz" && (
         <div className="space-y-3">
           <h3 className="text-sm font-medium text-muted-foreground flex items-center gap-2">
             Minhas tentativas
@@ -340,33 +521,66 @@ export default function ChallengePage() {
         </div>
       )}
 
+      {mySubmissions.length > 0 && challenge.type === "quiz" && (() => {
+        const s = mySubmissions[0];
+        let quizData: { score?: number; correct?: number; total?: number } = {};
+        try { quizData = JSON.parse(s.content); } catch {}
+        return (
+          <Card className="border-emerald-500/30 bg-emerald-500/5">
+            <CardContent className="p-5 space-y-3">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="h-5 w-5 text-emerald-400" />
+                <span className="font-semibold text-sm">Quiz concluído</span>
+                <span className="text-xs text-muted-foreground">{new Date(s.createdAt).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })}</span>
+              </div>
+              <div className="flex items-baseline gap-2">
+                <span className="text-3xl font-bold gradient-text">{quizData.score?.toFixed(1) ?? "0.0"} pts</span>
+                <span className="text-sm text-muted-foreground">{quizData.correct ?? 0} de {quizData.total ?? 0} acertos · 0,5 pts cada</span>
+              </div>
+              {s.evaluation && (
+                <p className="text-xs text-muted-foreground bg-muted/30 rounded-lg p-3">{s.evaluation.feedback}</p>
+              )}
+            </CardContent>
+          </Card>
+        );
+      })()}
+
       {feed.length > 0 && (
         <div className="space-y-3">
           <h3 className="text-sm font-medium text-muted-foreground">Respostas dos membros ({feed.length})</h3>
-          {feed.map((s) => (
-            <Card key={s.id} className="border-border/50">
-              <CardContent className="p-4 space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Avatar name={s.user.name} avatarUrl={s.user.avatarUrl} />
-                    <span className="text-sm font-medium">{s.user.name}</span>
-                  </div>
-                  {s.evaluation && (
-                    <div className="flex items-center gap-1">
-                      <Star className="h-3.5 w-3.5 text-violet-400" />
-                      <span className="text-sm font-bold text-violet-400">{s.evaluation.totalScore}/10</span>
+          {feed.map((s) => {
+            const isQuiz = challenge.type === "quiz";
+            let quizData: { score?: number; correct?: number; total?: number } = {};
+            if (isQuiz) { try { quizData = JSON.parse(s.content); } catch {} }
+            return (
+              <Card key={s.id} className="border-border/50">
+                <CardContent className="p-4 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Avatar name={s.user.name} avatarUrl={s.user.avatarUrl} />
+                      <span className="text-sm font-medium">{s.user.name}</span>
                     </div>
+                    {isQuiz ? (
+                      <span className="text-sm font-bold text-violet-400">{quizData.score?.toFixed(1) ?? "—"} pts <span className="text-xs font-normal text-muted-foreground">({quizData.correct}/{quizData.total} acertos)</span></span>
+                    ) : s.evaluation && (
+                      <div className="flex items-center gap-1">
+                        <Star className="h-3.5 w-3.5 text-violet-400" />
+                        <span className="text-sm font-bold text-violet-400">{s.evaluation.totalScore}/10</span>
+                      </div>
+                    )}
+                  </div>
+                  {!isQuiz && (
+                    <button className="w-full text-left" onClick={() => setExpandedId(expandedId === s.id ? null : s.id)}>
+                      <p className={`text-sm ${expandedId === s.id ? "" : "line-clamp-3"}`}>{s.content}</p>
+                      <span className="text-xs text-violet-400 flex items-center gap-1 mt-1">
+                        {expandedId === s.id ? <><ChevronUp className="h-3 w-3" />Recolher</> : <><ChevronDown className="h-3 w-3" />Ver completo</>}
+                      </span>
+                    </button>
                   )}
-                </div>
-                <button className="w-full text-left" onClick={() => setExpandedId(expandedId === s.id ? null : s.id)}>
-                  <p className={`text-sm ${expandedId === s.id ? "" : "line-clamp-3"}`}>{s.content}</p>
-                  <span className="text-xs text-violet-400 flex items-center gap-1 mt-1">
-                    {expandedId === s.id ? <><ChevronUp className="h-3 w-3" />Recolher</> : <><ChevronDown className="h-3 w-3" />Ver completo</>}
-                  </span>
-                </button>
-              </CardContent>
-            </Card>
-          ))}
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       )}
     </div>

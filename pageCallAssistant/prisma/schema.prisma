@@ -110,7 +110,8 @@ model Challenge {
   isRecurring Boolean      @default(false)
   createdAt   DateTime     @default(now())
   circle      Circle       @relation(fields: [circleId], references: [id], onDelete: Cascade)
-  submissions Submission[]
+  submissions   Submission[]
+  quizQuestions QuizQuestion[]
 }
 
 model Submission {
@@ -125,6 +126,16 @@ model Submission {
   user        User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
   challenge   Challenge             @relation(fields: [challengeId], references: [id], onDelete: Cascade)
   evaluation  SubmissionEvaluation?
+}
+
+model QuizQuestion {
+  id           String    @id @default(cuid())
+  challengeId  String
+  question     String
+  options      String
+  correctIndex Int
+  orderIndex   Int       @default(0)
+  challenge    Challenge @relation(fields: [challengeId], references: [id], onDelete: Cascade)
 }
 
 model PushSubscription {

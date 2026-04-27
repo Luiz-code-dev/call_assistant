@@ -41,20 +41,47 @@ export default function CircleDetailPage() {
   const [showCreate, setShowCreate] = useState(false);
   const [creating, setCreating] = useState(false);
   const [newCh, setNewCh] = useState({ title: "", prompt: "", type: "written", startsAt: "", endsAt: "", isRecurring: false });
+  const [quizQs, setQuizQs] = useState<{ question: string; options: [string, string, string, string]; correctIndex: number }[]>(
+    [{ question: "", options: ["", "", "", ""], correctIndex: 0 }]
+  );
+
+  const addQuizQ = () => {
+    if (quizQs.length >= 20) return;
+    setQuizQs(p => [...p, { question: "", options: ["", "", "", ""], correctIndex: 0 }]);
+  };
+  const removeQuizQ = (i: number) => setQuizQs(p => p.filter((_, idx) => idx !== i));
+  const updateQuizQ = (qi: number, field: "question" | "correctIndex", val: string | number) =>
+    setQuizQs(p => p.map((q, i) => i === qi ? { ...q, [field]: val } : q));
+  const updateQuizOpt = (qi: number, oi: number, val: string) =>
+    setQuizQs(p => p.map((q, i) => {
+      if (i !== qi) return q;
+      const opts = [...q.options] as [string, string, string, string];
+      opts[oi] = val;
+      return { ...q, options: opts };
+    }));
 
   const createChallenge = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newCh.title.trim() || !newCh.prompt.trim() || !newCh.startsAt || !newCh.endsAt) return;
+    if (!newCh.title.trim() || !newCh.startsAt || !newCh.endsAt) return;
+    if (newCh.type !== "quiz" && !newCh.prompt.trim()) { toast.error("O prompt é obrigatório."); return; }
+    if (newCh.type === "quiz") {
+      if (quizQs.some(q => !q.question.trim() || q.options.some(o => !o.trim())))
+        { toast.error("Preencha todas as perguntas e opções."); return; }
+    }
     setCreating(true);
     const r = await fetch("/api/network/challenges", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ circleId, ...newCh }),
+      body: JSON.stringify({
+        circleId, ...newCh,
+        questions: newCh.type === "quiz" ? quizQs : undefined,
+      }),
     });
     if (r.ok) {
       toast.success("Desafio criado!");
       setShowCreate(false);
       setNewCh({ title: "", prompt: "", type: "written", startsAt: "", endsAt: "", isRecurring: false });
+      setQuizQs([{ question: "", options: ["", "", "", ""], correctIndex: 0 }]);
       await load();
     } else { const d = await r.json(); toast.error(d.error ?? "Erro ao criar desafio."); }
     setCreating(false);
@@ -219,16 +246,51 @@ export default function CircleDetailPage() {
                 <label className="text-xs font-medium text-muted-foreground">Título *</label>
                 <input value={newCh.title} onChange={e => setNewCh(p => ({ ...p, title: e.target.value }))} placeholder="Ex: Apresente seu projeto em 60 segundos" maxLength={120} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500/50" />
               </div>
-              <div>
-                <label className="text-xs font-medium text-muted-foreground">Contexto / Prompt *</label>
-                <textarea value={newCh.prompt} onChange={e => setNewCh(p => ({ ...p, prompt: e.target.value }))} placeholder="Descreva a situação que o membro deve responder em inglês..." rows={4} maxLength={2000} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm resize-none outline-none focus:ring-2 focus:ring-violet-500/50" />
-              </div>
+              {newCh.type !== "quiz" && (
+                <div>
+                  <label className="text-xs font-medium text-muted-foreground">Contexto / Prompt *</label>
+                  <textarea value={newCh.prompt} onChange={e => setNewCh(p => ({ ...p, prompt: e.target.value }))} placeholder="Descreva a situação que o membro deve responder em inglês..." rows={4} maxLength={2000} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm resize-none outline-none focus:ring-2 focus:ring-violet-500/50" />
+                </div>
+              )}
+              {newCh.type === "quiz" && (
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <label className="text-xs font-medium text-muted-foreground">Perguntas do Quiz ({quizQs.length}/20)</label>
+                    <button type="button" onClick={addQuizQ} className="flex items-center gap-1 text-xs text-violet-400 hover:text-violet-300">
+                      <Plus className="h-3 w-3" /> Adicionar pergunta
+                    </button>
+                  </div>
+                  <div className="max-h-64 overflow-y-auto space-y-3 pr-1">
+                    {quizQs.map((q, qi) => (
+                      <div key={qi} className="rounded-lg border border-border/50 bg-background/50 p-3 space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[11px] font-semibold text-violet-400">Pergunta {qi + 1}</span>
+                          {quizQs.length > 1 && (
+                            <button type="button" onClick={() => removeQuizQ(qi)} className="text-muted-foreground hover:text-red-400"><X className="h-3 w-3" /></button>
+                          )}
+                        </div>
+                        <input value={q.question} onChange={e => updateQuizQ(qi, "question", e.target.value)} placeholder="Pergunta em inglês..." maxLength={500} className="w-full rounded border border-input bg-background px-2 py-1.5 text-xs outline-none focus:ring-1 focus:ring-violet-500/50" />
+                        <div className="space-y-1.5">
+                          {q.options.map((opt, oi) => (
+                            <div key={oi} className="flex items-center gap-2">
+                              <input type="radio" name={`correct-${qi}`} checked={q.correctIndex === oi} onChange={() => updateQuizQ(qi, "correctIndex", oi)} className="accent-violet-500 shrink-0" />
+                              <input value={opt} onChange={e => updateQuizOpt(qi, oi, e.target.value)} placeholder={`Opção ${["A","B","C","D"][oi]}`} maxLength={200} className="flex-1 rounded border border-input bg-background px-2 py-1 text-xs outline-none focus:ring-1 focus:ring-violet-500/50" />
+                            </div>
+                          ))}
+                        </div>
+                        <p className="text-[10px] text-muted-foreground">Marque o radio da opção correta.</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="text-xs font-medium text-muted-foreground">Tipo de resposta</label>
                   <select value={newCh.type} onChange={e => setNewCh(p => ({ ...p, type: e.target.value }))} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500/50">
                     <option value="written">✍️ Texto escrito</option>
                     <option value="spoken">🎤 Áudio (fala)</option>
+                    <option value="quiz">📝 Quiz (múltipla escolha)</option>
                   </select>
                 </div>
                 <div className="flex items-end gap-2 pb-2">
