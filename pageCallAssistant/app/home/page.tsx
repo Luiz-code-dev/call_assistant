@@ -37,13 +37,13 @@ const quickActions = [
   { label: "Meu Progresso", description: "Veja sua evolução e conquistas", href: "/usage", gradient: "from-pink-500 to-rose-500", Icon: TrendingUp },
 ];
 
-const mockAchievements: Achievement[] = [
-  { id: "1", emoji: "🔥", name: "Sequência de 7 dias", unlocked: true },
-  { id: "2", emoji: "🎯", name: "Primeiro quiz perfeito", unlocked: true },
-  { id: "3", emoji: "💬", name: "50 sessões de speaking", unlocked: true },
-  { id: "4", emoji: "⭐", name: "Nota 10 em sessão", unlocked: false },
-  { id: "5", emoji: "🏆", name: "Top 10 do Circle", unlocked: false },
-  { id: "6", emoji: "📚", name: "100 palavras novas", unlocked: false },
+const BADGE_DEFS: Achievement[] = [
+  { id: "live-first",      emoji: "🎤", name: "1ª sessão Live",       unlocked: false },
+  { id: "live-10",         emoji: "🔥", name: "10 sessões Live",     unlocked: false },
+  { id: "live-50",         emoji: "💬", name: "50 sessões Live",     unlocked: false },
+  { id: "challenge-first", emoji: "🎯", name: "Primeiro desafio",    unlocked: false },
+  { id: "high-scorer",     emoji: "⭐",        name: "Score 90+ num desafio", unlocked: false },
+  { id: "tool-user",       emoji: "🔧", name: "Ferramentas usadas",  unlocked: false },
 ];
 
 const allTips = [
@@ -187,9 +187,12 @@ function UserMenu({ user }: { user: UserData }) {
             </Link>
           </div>
           <div className="border-t border-zinc-800 py-1">
-            <a href="/api/auth/logout" className="flex items-center gap-3 px-4 py-2.5 text-sm text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-colors">
+            <button
+              onClick={() => { window.location.href = "/api/auth/logout"; }}
+              className="flex w-full items-center gap-3 px-4 py-2.5 text-sm text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-colors"
+            >
               <LogOut className="size-4" /> Sair
-            </a>
+            </button>
           </div>
         </div>
       )}
@@ -357,13 +360,18 @@ function RecentActivitySection() {
   );
 }
 
-function AchievementsSection() {
+function AchievementsSection({ earnedSlugs }: { earnedSlugs: string[] }) {
+  const badges = BADGE_DEFS.map((b) => ({ ...b, unlocked: earnedSlugs.includes(b.id) }));
+  const hasAny = badges.some((b) => b.unlocked);
   return (
     <section className="px-4 pb-6">
-      <div className="flex items-center gap-2 mb-4"><Trophy className="size-5 text-amber-400" /><h2 className="text-lg font-semibold text-white">Suas medalhas</h2></div>
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-2"><Trophy className="size-5 text-amber-400" /><h2 className="text-lg font-semibold text-white">Suas medalhas</h2></div>
+        {!hasAny && <span className="text-xs text-zinc-500">Complete atividades para desbloquear</span>}
+      </div>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
-        {mockAchievements.map((a) => (
-          <div key={a.id} className={`flex items-center gap-2 rounded-xl border px-3 py-2.5 ${a.unlocked ? "border-zinc-700 bg-zinc-800/50" : "border-zinc-800 bg-zinc-900/30 opacity-50"}`}>
+        {badges.map((a) => (
+          <div key={a.id} className={`flex items-center gap-2 rounded-xl border px-3 py-2.5 ${a.unlocked ? "border-zinc-700 bg-zinc-800/50" : "border-zinc-800 bg-zinc-900/30 opacity-40"}`}>
             {a.unlocked ? <span className="text-base shrink-0">{a.emoji}</span> : <Lock className="size-3.5 text-zinc-600 shrink-0" />}
             <span className={`text-xs font-medium leading-tight ${a.unlocked ? "text-white" : "text-zinc-600"}`}>{a.name}</span>
           </div>
@@ -421,6 +429,7 @@ export default function HomePage() {
   const [circles, setCircles] = useState<CircleData[]>([]);
   const [loadingUser, setLoadingUser] = useState(true);
   const [loadingCircles, setLoadingCircles] = useState(true);
+  const [earnedSlugs, setEarnedSlugs] = useState<string[]>([]);
 
   useEffect(() => {
     fetch("/api/auth/me")
@@ -433,6 +442,12 @@ export default function HomePage() {
     fetch("/api/network/circles?filter=mine")
       .then(async (r) => { if (r.ok) setCircles(await r.json()); })
       .finally(() => setLoadingCircles(false));
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/auth/stats")
+      .then(async (r) => { if (r.ok) { const d = await r.json(); setEarnedSlugs(d.earnedSlugs ?? []); } })
+      .catch(() => {});
   }, []);
 
   if (loadingUser) return (
@@ -456,7 +471,7 @@ export default function HomePage() {
         <QuickActionsSection />
         <CircleSection circles={circles} loading={loadingCircles} />
         <RecentActivitySection />
-        <AchievementsSection />
+        <AchievementsSection earnedSlugs={earnedSlugs} />
         <DailyTipCard />
       </main>
       <BottomNavigation />

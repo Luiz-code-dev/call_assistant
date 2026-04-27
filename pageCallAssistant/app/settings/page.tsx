@@ -62,9 +62,11 @@ export default function SettingsPage() {
             </div>
             <span className="font-semibold">SpeakFlow</span>
           </Link>
-          <Button variant="ghost" size="sm" asChild>
-            <Link href="/api/auth/logout"><LogOut className="h-4 w-4" /></Link>
-          </Button>
+          <a href="/api/auth/logout">
+            <Button variant="ghost" size="sm">
+              <LogOut className="h-4 w-4" />
+            </Button>
+          </a>
         </div>
       </header>
 
