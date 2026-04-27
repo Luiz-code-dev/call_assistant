@@ -5,7 +5,7 @@ const secret = new TextEncoder().encode(
   process.env.JWT_SECRET || "dev-secret-change-in-production"
 );
 
-const protectedRoutes = ["/dashboard", "/settings", "/usage", "/tools", "/live"];
+const protectedRoutes = ["/dashboard", "/settings", "/usage", "/tools", "/live", "/home"];
 const authRoutes = ["/login", "/register"];
 
 export async function middleware(req: NextRequest) {
@@ -48,7 +48,11 @@ export async function middleware(req: NextRequest) {
     if (callback === "desktop") {
       return NextResponse.redirect(new URL("/auth/desktop", req.url));
     }
-    return NextResponse.redirect(new URL("/dashboard", req.url));
+    return NextResponse.redirect(new URL("/home", req.url));
+  }
+
+  if (pathname === "/" && validToken) {
+    return NextResponse.redirect(new URL("/home", req.url));
   }
 
   return NextResponse.next();

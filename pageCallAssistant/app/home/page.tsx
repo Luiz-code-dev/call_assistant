@@ -1,0 +1,452 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
+import {
+  Mic2, Zap, Users, Trophy, TrendingUp, Clock,
+  ChevronRight, Bell, Wrench, Lock, Lightbulb,
+  Home, User,
+} from "lucide-react";
+
+// ==================== TYPES ====================
+
+interface UserData {
+  id: string;
+  name: string;
+  avatarUrl: string | null;
+  plan: string;
+}
+
+interface CircleData {
+  id: string;
+  name: string;
+  focus: string;
+  _count: { members: number };
+  challenges: { id: string; title: string; endsAt: string }[];
+}
+
+interface Achievement {
+  id: string;
+  emoji: string;
+  name: string;
+  unlocked: boolean;
+}
+
+// ==================== STATIC DATA ====================
+
+const motivationalPhrases = [
+  "Cada conversa é um passo a mais em direção à fluência.",
+  "O segredo é praticar um pouco todos os dias.",
+  "Errar faz parte do aprendizado. Continue praticando!",
+  "Sua dedicação está fazendo a diferença.",
+  "Fluência é construída uma palavra de cada vez.",
+];
+
+const quickActions = [
+  {
+    icon: <Mic2 className="size-5" />,
+    label: "SpeakFlow Live",
+    description: "Pratique speaking com IA em tempo real",
+    href: "/live",
+    gradient: "from-violet-600 to-indigo-600",
+  },
+  {
+    icon: <Zap className="size-5" />,
+    label: "Desafios",
+    description: "Responda os quizzes do seu Circle",
+    href: "/network",
+    gradient: "from-amber-500 to-orange-500",
+  },
+  {
+    icon: <Wrench className="size-5" />,
+    label: "Ferramentas",
+    description: "Melhore textos e simule entrevistas",
+    href: "/tools",
+    gradient: "from-emerald-500 to-teal-500",
+  },
+  {
+    icon: <TrendingUp className="size-5" />,
+    label: "Meu Progresso",
+    description: "Veja sua evolução e conquistas",
+    href: "/usage",
+    gradient: "from-pink-500 to-rose-500",
+  },
+];
+
+const mockAchievements: Achievement[] = [
+  { id: "1", emoji: "🔥", name: "Sequência de 7 dias", unlocked: true },
+  { id: "2", emoji: "🎯", name: "Primeiro quiz perfeito", unlocked: true },
+  { id: "3", emoji: "💬", name: "50 sessões de speaking", unlocked: true },
+  { id: "4", emoji: "⭐", name: "Nota 10 em sessão", unlocked: false },
+  { id: "5", emoji: "🏆", name: "Top 10 do Circle", unlocked: false },
+  { id: "6", emoji: "📚", name: "100 palavras novas", unlocked: false },
+];
+
+const dailyTips = [
+  { tip: "Use 'actually' para corrigir uma informação com naturalidade.", example: "Actually, the meeting is at 3pm." },
+  { tip: "Prefira 'I'd like to' no lugar de 'I want to' em contextos formais.", example: "I'd like to schedule a follow-up call." },
+  { tip: "'Could you elaborate on that?' é uma forma educada de pedir mais detalhes.", example: "Could you elaborate on the timeline?" },
+  { tip: "Use 'I appreciate' para agradecer de forma mais profissional.", example: "I appreciate your feedback on this." },
+  { tip: "'Let me clarify' demonstra assertividade sem soar agressivo.", example: "Let me clarify what I meant earlier." },
+  { tip: "Prefira 'reach out' a 'contact' em contextos de networking.", example: "Feel free to reach out anytime." },
+  { tip: "'Moving forward' é perfeito para introduzir um próximo passo.", example: "Moving forward, let's focus on delivery." },
+];
+
+// ==================== HELPERS ====================
+
+function getInitials(name: string) {
+  return name.split(" ").map((n) => n[0]).slice(0, 2).join("").toUpperCase();
+}
+
+function getTodayTip() {
+  const idx = new Date().getDay();
+  return dailyTips[idx % dailyTips.length];
+}
+
+// ==================== COMPONENTS ====================
+
+function HeaderSkeleton() {
+  return (
+    <header className="sticky top-0 z-50 border-b border-zinc-800/50 bg-[#09090b]/80 backdrop-blur-xl">
+      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
+        <Link href="/home" className="flex items-center gap-2">
+          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600">
+            <span className="text-xs font-bold text-white">S</span>
+          </div>
+          <span className="text-lg font-medium text-zinc-400 tracking-tight">SpeakFlow</span>
+        </Link>
+        <div className="flex items-center gap-3">
+          <Skeleton className="h-8 w-8 rounded-full bg-zinc-800" />
+          <Skeleton className="h-8 w-8 rounded-full bg-zinc-800" />
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function AppHeader({ user }: { user: UserData }) {
+  return (
+    <header className="sticky top-0 z-50 border-b border-zinc-800/50 bg-[#09090b]/80 backdrop-blur-xl">
+      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
+        <Link href="/home" className="flex items-center gap-2">
+          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 shadow-lg shadow-blue-500/25">
+            <span className="text-xs font-bold text-white">S</span>
+          </div>
+          <span className="text-lg font-medium text-zinc-400 tracking-tight">SpeakFlow</span>
+        </Link>
+        <div className="flex items-center gap-3">
+          <Button variant="ghost" size="icon" className="relative text-zinc-400 hover:text-white hover:bg-zinc-800/50">
+            <Bell className="size-5" />
+          </Button>
+          <Avatar className="size-8 ring-2 ring-zinc-700">
+            <AvatarImage src={user.avatarUrl ?? ""} alt={user.name} />
+            <AvatarFallback className="bg-gradient-to-br from-violet-600 to-indigo-600 text-white text-xs">
+              {getInitials(user.name)}
+            </AvatarFallback>
+          </Avatar>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function HeroGreeting({ userName }: { userName: string }) {
+  const [phrase] = useState(() => motivationalPhrases[Math.floor(Math.random() * motivationalPhrases.length)]);
+  return (
+    <section className="relative overflow-hidden px-4 py-8">
+      <div className="absolute -left-20 -top-20 size-64 animate-pulse rounded-full bg-gradient-to-br from-violet-600/20 to-indigo-600/20 blur-3xl" />
+      <div className="absolute -right-20 top-0 size-48 animate-pulse rounded-full bg-gradient-to-br from-indigo-600/15 to-violet-600/15 blur-3xl delay-1000" />
+      <div className="relative">
+        <h1 className="text-2xl font-bold text-white sm:text-3xl">Olá, {userName.split(" ")[0]} 👋</h1>
+        <p className="mt-2 text-zinc-400">{phrase}</p>
+      </div>
+    </section>
+  );
+}
+
+function QuickActionsSection() {
+  return (
+    <section className="px-4 pb-6">
+      <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible lg:grid-cols-4">
+        {quickActions.map((action) => (
+          <Link
+            key={action.label}
+            href={action.href}
+            className="group flex min-w-[200px] flex-1 items-center gap-4 rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-700 hover:bg-zinc-800/50 hover:shadow-lg hover:shadow-violet-500/5 sm:min-w-0"
+          >
+            <div className={`flex size-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${action.gradient} text-white shadow-lg`}>
+              {action.icon}
+            </div>
+            <div className="flex-1 min-w-0">
+              <h3 className="font-semibold text-white">{action.label}</h3>
+              <p className="text-xs text-zinc-400 truncate">{action.description}</p>
+            </div>
+            <ChevronRight className="size-4 text-zinc-600 transition-colors group-hover:text-zinc-400 shrink-0" />
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function CircleSection({ circles, loading }: { circles: CircleData[]; loading: boolean }) {
+  if (loading) {
+    return (
+      <section className="px-4 pb-6">
+        <div className="flex items-center gap-2 mb-4">
+          <Users className="size-5 text-violet-400" />
+          <h2 className="text-lg font-semibold text-white">Comunidade</h2>
+        </div>
+        <Skeleton className="h-28 w-full rounded-xl bg-zinc-800" />
+      </section>
+    );
+  }
+
+  if (!circles.length) {
+    return (
+      <section className="px-4 pb-6">
+        <div className="flex items-center gap-2 mb-4">
+          <Users className="size-5 text-violet-400" />
+          <h2 className="text-lg font-semibold text-white">Comunidade</h2>
+        </div>
+        <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-zinc-700 bg-zinc-900/30 p-8 text-center">
+          <div className="mb-3 flex size-12 items-center justify-center rounded-full bg-zinc-800">
+            <Users className="size-6 text-zinc-500" />
+          </div>
+          <p className="text-zinc-400 mb-4 text-sm">Você ainda não faz parte de um Circle</p>
+          <Button asChild className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white hover:from-violet-700 hover:to-indigo-700">
+            <Link href="/network/circles">Encontrar um Circle</Link>
+          </Button>
+        </div>
+      </section>
+    );
+  }
+
+  const circle = circles[0];
+  const hasActiveChallenge = circle.challenges.length > 0;
+
+  return (
+    <section className="px-4 pb-6">
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-2">
+          <Users className="size-5 text-violet-400" />
+          <h2 className="text-lg font-semibold text-white">Comunidade</h2>
+        </div>
+        {circles.length > 1 && (
+          <Link href="/network" className="text-sm text-violet-400 hover:text-violet-300 transition-colors">
+            Ver todos ({circles.length})
+          </Link>
+        )}
+      </div>
+      <Link
+        href={`/network/${circle.id}`}
+        className="group block rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-700 hover:bg-zinc-800/50 hover:shadow-lg"
+      >
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 flex-wrap">
+              <h3 className="font-semibold text-white truncate">{circle.name}</h3>
+              <Badge variant="secondary" className="bg-violet-500/10 text-violet-400 border-violet-500/20 shrink-0">
+                {circle.focus}
+              </Badge>
+            </div>
+            {hasActiveChallenge ? (
+              <div className="mt-2 flex items-center gap-2">
+                <span className="relative flex size-2">
+                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
+                </span>
+                <span className="text-sm text-emerald-400">Desafio ativo</span>
+              </div>
+            ) : (
+              <p className="mt-2 text-sm text-zinc-500">Nenhum desafio ativo no momento</p>
+            )}
+            <div className="mt-3 flex items-center gap-4 text-sm text-zinc-400">
+              <span className="flex items-center gap-1">
+                <Users className="size-4" />
+                {circle._count.members} membros
+              </span>
+            </div>
+          </div>
+          <Button size="sm" className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white hover:from-violet-700 hover:to-indigo-700 shrink-0">
+            Ver Circle
+          </Button>
+        </div>
+      </Link>
+    </section>
+  );
+}
+
+function RecentActivitySection() {
+  return (
+    <section className="px-4 pb-6">
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-2">
+          <Clock className="size-5 text-violet-400" />
+          <h2 className="text-lg font-semibold text-white">Atividade Recente</h2>
+        </div>
+        <Link href="/usage" className="text-sm text-violet-400 hover:text-violet-300 transition-colors">
+          Ver tudo
+        </Link>
+      </div>
+      <div className="space-y-3">
+        {[
+          { label: "Última sessão Live", value: "Hoje", sub: "Abra o Live para começar a praticar", href: "/live" },
+          { label: "Progresso", value: "Dashboard", sub: "Veja suas estatísticas detalhadas", href: "/usage" },
+        ].map((item) => (
+          <Link
+            key={item.label}
+            href={item.href}
+            className="group flex items-center gap-4 rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-700 hover:bg-zinc-800/50"
+          >
+            <div className="flex-1 min-w-0">
+              <p className="text-xs text-zinc-500 mb-1">{item.label}</p>
+              <p className="text-white font-medium truncate">{item.sub}</p>
+            </div>
+            <ChevronRight className="size-4 text-zinc-600 transition-colors group-hover:text-zinc-400 shrink-0" />
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function AchievementsSection() {
+  return (
+    <section className="px-4 pb-6">
+      <div className="flex items-center gap-2 mb-4">
+        <Trophy className="size-5 text-amber-400" />
+        <h2 className="text-lg font-semibold text-white">Suas medalhas</h2>
+      </div>
+      <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+        {mockAchievements.map((a) => (
+          <div
+            key={a.id}
+            className={`flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 transition-all ${
+              a.unlocked ? "border-zinc-700 bg-zinc-800/50 shadow-lg shadow-violet-500/5" : "border-zinc-800 bg-zinc-900/30 opacity-50"
+            }`}
+          >
+            {a.unlocked ? (
+              <span className="text-lg">{a.emoji}</span>
+            ) : (
+              <Lock className="size-4 text-zinc-500" />
+            )}
+            <span className={`text-sm font-medium whitespace-nowrap ${a.unlocked ? "text-white" : "text-zinc-500"}`}>
+              {a.name}
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function DailyTipCard() {
+  const tip = getTodayTip();
+  return (
+    <section className="px-4 pb-24 sm:pb-8">
+      <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-4">
+        <div className="flex items-start gap-3">
+          <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-amber-500/10">
+            <Lightbulb className="size-4 text-amber-400" />
+          </div>
+          <div>
+            <h3 className="font-semibold text-amber-400 mb-1">Dica do Dia</h3>
+            <p className="text-sm text-zinc-300">{tip.tip}</p>
+            <p className="mt-2 text-sm text-zinc-400 italic">Ex: &ldquo;{tip.example}&rdquo;</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function BottomNavigation() {
+  const navItems = [
+    { icon: Home, label: "Home", href: "/home", active: true },
+    { icon: Mic2, label: "Live", href: "/live", active: false },
+    { icon: Users, label: "Network", href: "/network", active: false },
+    { icon: Wrench, label: "Tools", href: "/tools", active: false },
+    { icon: User, label: "Perfil", href: "/settings", active: false },
+  ];
+  return (
+    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-zinc-800/50 bg-[#09090b]/90 backdrop-blur-xl sm:hidden">
+      <div className="flex items-center justify-around py-2">
+        {navItems.map((item) => (
+          <Link
+            key={item.label}
+            href={item.href}
+            className={`flex flex-col items-center gap-1 px-4 py-2 transition-colors ${item.active ? "text-violet-400" : "text-zinc-500"}`}
+          >
+            <item.icon className={`size-5 ${item.active ? "fill-violet-400/20" : ""}`} />
+            {item.active && <span className="text-xs font-medium">{item.label}</span>}
+          </Link>
+        ))}
+      </div>
+    </nav>
+  );
+}
+
+// ==================== MAIN PAGE ====================
+
+export default function HomePage() {
+  const router = useRouter();
+  const [user, setUser] = useState<UserData | null>(null);
+  const [circles, setCircles] = useState<CircleData[]>([]);
+  const [loadingUser, setLoadingUser] = useState(true);
+  const [loadingCircles, setLoadingCircles] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/auth/me")
+      .then(async (r) => {
+        if (r.status === 401) { router.replace("/login"); return; }
+        const data = await r.json();
+        setUser(data);
+      })
+      .catch(() => router.replace("/login"))
+      .finally(() => setLoadingUser(false));
+  }, [router]);
+
+  useEffect(() => {
+    fetch("/api/network/circles?filter=mine")
+      .then(async (r) => { if (r.ok) setCircles(await r.json()); })
+      .finally(() => setLoadingCircles(false));
+  }, []);
+
+  if (loadingUser) {
+    return (
+      <div className="min-h-screen bg-[#09090b]">
+        <HeaderSkeleton />
+        <main className="mx-auto max-w-5xl px-4 pt-8 space-y-6">
+          <Skeleton className="h-16 w-64 bg-zinc-800" />
+          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+            {[1,2,3,4].map(i => <Skeleton key={i} className="h-20 rounded-xl bg-zinc-800" />)}
+          </div>
+          <Skeleton className="h-28 rounded-xl bg-zinc-800" />
+        </main>
+      </div>
+    );
+  }
+
+  if (!user) return null;
+
+  return (
+    <div className="min-h-screen bg-[#09090b]">
+      <AppHeader user={user} />
+      <main className="mx-auto max-w-5xl">
+        <HeroGreeting userName={user.name} />
+        <QuickActionsSection />
+        <CircleSection circles={circles} loading={loadingCircles} />
+        <RecentActivitySection />
+        <AchievementsSection />
+        <DailyTipCard />
+      </main>
+      <BottomNavigation />
+    </div>
+  );
+}

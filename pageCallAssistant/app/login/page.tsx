@@ -18,7 +18,7 @@ export default function LoginPage() {
   const [refreshing, setRefreshing] = useState(true);
   const searchParams = useSearchParams();
   const isDesktop = searchParams.get("callback") === "desktop";
-  const redirectTo = searchParams.get("redirect") || (isDesktop ? "/auth/desktop" : "/dashboard");
+  const redirectTo = searchParams.get("redirect") || (isDesktop ? "/auth/desktop" : "/home");
 
   useEffect(() => {
     const sfToken = sessionStorage.getItem("sf_token") ?? localStorage.getItem("sf_token");
