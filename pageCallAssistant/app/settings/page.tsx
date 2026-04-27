@@ -56,7 +56,7 @@ export default function SettingsPage() {
     <div className="min-h-screen bg-background">
       <header className="border-b border-border/50 bg-card/50 px-6 py-4">
         <div className="mx-auto flex max-w-3xl items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/home" className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600">
               <Mic2 className="h-4 w-4 text-white" />
             </div>
@@ -71,7 +71,7 @@ export default function SettingsPage() {
       <main className="mx-auto max-w-3xl px-6 py-10">
         <div className="mb-6 flex items-center gap-3">
           <Button variant="ghost" size="sm" asChild>
-            <Link href="/dashboard"><ArrowLeft className="h-4 w-4" /></Link>
+            <Link href="/home"><ArrowLeft className="h-4 w-4" /></Link>
           </Button>
           <div>
             <h1 className="text-2xl font-bold">Configurações</h1>

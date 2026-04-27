@@ -164,9 +164,10 @@ export default function UsagePageClient({
   const planInfo = PLAN_INFO[plan] ?? PLAN_INFO.free;
   const balance = wallet?.balance ?? 0;
   const allocation = wallet?.monthlyAllocation ?? planInfo.allocation;
-  const used = wallet?.usedThisCycle ?? 0;
+  const rawUsed = wallet?.usedThisCycle ?? 0;
+  const used = rawUsed >= 0 ? rawUsed : Math.max(0, allocation - balance);
   const topUpBalance = wallet?.bonusBalance ?? 0;
-  const usedPct = allocation > 0 ? Math.min(100, (used / allocation) * 100) : 0;
+  const usedPct = allocation > 0 ? Math.min(100, Math.max(0, (used / allocation) * 100)) : 0;
 
   const startOfMonth = new Date();
   startOfMonth.setDate(1);
@@ -182,7 +183,7 @@ export default function UsagePageClient({
       <header className="border-b border-border/50 bg-card/50 px-6 py-4">
         <div className="mx-auto flex max-w-4xl items-center justify-between">
           <div className="flex items-center gap-3">
-            <Link href="/dashboard">
+            <Link href="/home">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600">
                 <Mic2 className="h-4 w-4 text-white" />
               </div>
@@ -218,9 +219,9 @@ export default function UsagePageClient({
             <p className="text-sm text-muted-foreground mt-1">Monitore seu consumo de créditos e recarregue quando precisar.</p>
           </div>
           <Button variant="outline" size="sm" asChild>
-            <Link href="/dashboard">
+            <Link href="/home">
               <ArrowLeft className="mr-1.5 h-3.5 w-3.5" />
-              Painel
+              Início
             </Link>
           </Button>
         </div>

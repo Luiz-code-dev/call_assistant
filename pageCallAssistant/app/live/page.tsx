@@ -546,9 +546,9 @@ export default function LivePage() {
             Iniciar Sessão Live
           </Button>
 
-          <Link href="/dashboard" className="block text-center text-xs text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="/home" className="block text-center text-xs text-muted-foreground hover:text-foreground transition-colors">
             <ArrowLeft className="inline h-3 w-3 mr-1" />
-            Voltar ao Dashboard
+            Voltar ao Início
           </Link>
         </div>
       </div>

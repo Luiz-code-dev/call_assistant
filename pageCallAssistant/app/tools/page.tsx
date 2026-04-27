@@ -64,7 +64,7 @@ export default async function ToolsPage() {
       <header className="border-b border-border/50 bg-card/50 px-6 py-4">
         <div className="mx-auto flex max-w-4xl items-center justify-between">
           <div className="flex items-center gap-3">
-            <Link href="/dashboard">
+            <Link href="/home">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600">
                 <Mic2 className="h-4 w-4 text-white" />
               </div>
@@ -79,8 +79,8 @@ export default async function ToolsPage() {
               <Zap className="h-3.5 w-3.5 text-violet-400" />
               <span className="text-sm font-medium">{user.credits} créditos</span>
             </div>
-            <Link href="/dashboard">
-              <Button variant="outline" size="sm">Dashboard</Button>
+            <Link href="/home">
+              <Button variant="outline" size="sm">Início</Button>
             </Link>
           </div>
         </div>
