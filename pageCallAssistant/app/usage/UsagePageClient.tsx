@@ -235,12 +235,19 @@ export default function UsagePageClient({
               </div>
             </CardHeader>
             <CardContent>
-              <Button variant="gradient" size="sm" className="w-full" asChild>
-                <Link href="/pricing">
-                  Fazer upgrade
-                  <ArrowUpRight className="ml-1.5 h-3.5 w-3.5" />
+              {userPlan === "premium" ? (
+                <Link href="/pricing" className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors inline-flex items-center gap-1">
+                  Gerenciar assinatura
+                  <ArrowUpRight className="h-3 w-3" />
                 </Link>
-              </Button>
+              ) : (
+                <Button variant="gradient" size="sm" className="w-full" asChild>
+                  <Link href="/pricing">
+                    Fazer upgrade
+                    <ArrowUpRight className="ml-1.5 h-3.5 w-3.5" />
+                  </Link>
+                </Button>
+              )}
             </CardContent>
           </Card>
 
