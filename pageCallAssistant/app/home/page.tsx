@@ -188,7 +188,7 @@ function UserMenu({ user }: { user: UserData }) {
           </div>
           <div className="border-t border-zinc-800 py-1">
             <button
-              onClick={() => { window.location.href = "/api/auth/logout"; }}
+              onClick={() => { sessionStorage.removeItem("sf_token"); localStorage.removeItem("sf_token"); window.location.href = "/api/auth/logout"; }}
               className="flex w-full items-center gap-3 px-4 py-2.5 text-sm text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-colors"
             >
               <LogOut className="size-4" /> Sair

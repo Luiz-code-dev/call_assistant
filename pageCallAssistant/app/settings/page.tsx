@@ -62,11 +62,12 @@ export default function SettingsPage() {
             </div>
             <span className="font-semibold">SpeakFlow</span>
           </Link>
-          <a href="/api/auth/logout">
-            <Button variant="ghost" size="sm">
-              <LogOut className="h-4 w-4" />
-            </Button>
-          </a>
+          <button
+            onClick={() => { sessionStorage.removeItem("sf_token"); localStorage.removeItem("sf_token"); window.location.href = "/api/auth/logout"; }}
+            className="inline-flex items-center justify-center rounded-md text-sm font-medium text-muted-foreground hover:text-foreground h-8 w-8"
+          >
+            <LogOut className="h-4 w-4" />
+          </button>
         </div>
       </header>
 
