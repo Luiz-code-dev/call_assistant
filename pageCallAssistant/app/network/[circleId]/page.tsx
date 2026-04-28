@@ -102,6 +102,8 @@ export default function CircleDetailPage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         circleId, ...newCh,
+        startsAt: new Date(newCh.startsAt).toISOString(),
+        endsAt: new Date(newCh.endsAt).toISOString(),
         questions: newCh.type === "quiz" ? quizQs : undefined,
       }),
     });
@@ -331,7 +333,7 @@ export default function CircleDetailPage() {
                   </div>
                 </div>
               )}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="space-y-3">
                 <div>
                   <label className="text-xs font-medium text-muted-foreground">Tipo de resposta</label>
                   <select value={newCh.type} onChange={e => setNewCh(p => ({ ...p, type: e.target.value }))} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500/50">
@@ -340,19 +342,19 @@ export default function CircleDetailPage() {
                     <option value="quiz">📝 Quiz (múltipla escolha)</option>
                   </select>
                 </div>
-                <div className="flex items-end gap-2 pb-2">
-                  <input type="checkbox" id="recurring" checked={newCh.isRecurring} onChange={e => setNewCh(p => ({ ...p, isRecurring: e.target.checked }))} className="rounded" />
+                <div className="flex items-center gap-2.5 py-1">
+                  <input type="checkbox" id="recurring" checked={newCh.isRecurring} onChange={e => setNewCh(p => ({ ...p, isRecurring: e.target.checked }))} className="rounded h-4 w-4" />
                   <label htmlFor="recurring" className="text-sm text-muted-foreground">Repetir semanalmente</label>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="text-xs font-medium text-muted-foreground">Início *</label>
-                  <input type="datetime-local" value={newCh.startsAt} onChange={e => setNewCh(p => ({ ...p, startsAt: e.target.value }))} style={{ colorScheme: "dark" }} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500/50" />
+                  <input type="datetime-local" value={newCh.startsAt} onChange={e => setNewCh(p => ({ ...p, startsAt: e.target.value }))} style={{ colorScheme: "dark" }} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-violet-500/50" />
                 </div>
                 <div>
                   <label className="text-xs font-medium text-muted-foreground">Encerramento *</label>
-                  <input type="datetime-local" value={newCh.endsAt} onChange={e => setNewCh(p => ({ ...p, endsAt: e.target.value }))} style={{ colorScheme: "dark" }} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500/50" />
+                  <input type="datetime-local" value={newCh.endsAt} onChange={e => setNewCh(p => ({ ...p, endsAt: e.target.value }))} style={{ colorScheme: "dark" }} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-violet-500/50" />
                 </div>
               </div>
               <div className="flex justify-end gap-2 pt-1">
