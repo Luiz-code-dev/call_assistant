@@ -176,18 +176,27 @@ export default function ChallengePage() {
   // ── Quiz logic ──
   const startQuiz = async () => {
     setQuizPhase("loading");
-    const r = await fetch(`/api/network/challenges/${challengeId}/quiz`);
-    if (r.ok) {
+    try {
+      const r = await fetch(`/api/network/challenges/${challengeId}/quiz`);
       const data = await r.json();
+      if (!r.ok) {
+        toast.error(data.error ?? "Erro ao carregar quiz.");
+        setQuizPhase("idle");
+        return;
+      }
+      if (!data.questions?.length) {
+        toast.error("Este quiz não possui perguntas. Peça ao admin para recriar o desafio.");
+        setQuizPhase("idle");
+        return;
+      }
       setQuizQuestions(data.questions);
       setCurrentQIdx(0);
       setSelectedOpt(null);
       setQuizAnswers([]);
       setTimeLeft(60);
       setQuizPhase("answering");
-    } else {
-      const d = await r.json();
-      toast.error(d.error ?? "Erro ao carregar quiz.");
+    } catch {
+      toast.error("Erro de rede ao carregar quiz.");
       setQuizPhase("idle");
     }
   };
@@ -523,11 +532,11 @@ export default function ChallengePage() {
 
       {mySubmissions.length > 0 && challenge.type === "quiz" && (() => {
         const s = mySubmissions[0];
-        let quizData: { score?: number; correct?: number; total?: number } = {};
+        let quizData: { score?: number; correct?: number; total?: number; results?: { question: string; correct: boolean; correctText: string; selectedText: string }[] } = {};
         try { quizData = JSON.parse(s.content); } catch {}
         return (
           <Card className="border-emerald-500/30 bg-emerald-500/5">
-            <CardContent className="p-5 space-y-3">
+            <CardContent className="p-5 space-y-4">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="h-5 w-5 text-emerald-400" />
                 <span className="font-semibold text-sm">Quiz concluído</span>
@@ -539,6 +548,21 @@ export default function ChallengePage() {
               </div>
               {s.evaluation && (
                 <p className="text-xs text-muted-foreground bg-muted/30 rounded-lg p-3">{s.evaluation.feedback}</p>
+              )}
+              {quizData.results && quizData.results.length > 0 && (
+                <div className="space-y-2 pt-1 border-t border-border/30">
+                  <p className="text-xs font-medium text-muted-foreground">Detalhes por pergunta</p>
+                  {quizData.results.map((r, i) => (
+                    <div key={i} className={`flex items-start gap-3 rounded-lg p-3 border ${r.correct ? "border-emerald-500/30 bg-emerald-500/5" : "border-red-500/20 bg-red-500/5"}`}>
+                      {r.correct ? <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" /> : <XCircle className="h-4 w-4 text-red-400 shrink-0 mt-0.5" />}
+                      <div className="min-w-0">
+                        <p className="text-xs font-medium text-foreground/80 mb-1">{r.question}</p>
+                        {!r.correct && r.selectedText && <p className="text-[11px] text-red-400">Sua resposta: {r.selectedText}</p>}
+                        {!r.correct && <p className="text-[11px] text-emerald-400">Correta: {r.correctText}</p>}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               )}
             </CardContent>
           </Card>

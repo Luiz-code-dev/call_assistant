@@ -21,6 +21,10 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
   if (!member || member.status !== "active")
     return NextResponse.json({ error: "Acesso restrito a membros." }, { status: 403 });
 
+  if (challenge.quizQuestions.length === 0) {
+    return NextResponse.json({ error: "Este quiz não possui perguntas. Delete o desafio e recrie-o." }, { status: 422 });
+  }
+
   const questions = challenge.quizQuestions.map((q) => ({
     id: q.id,
     question: q.question,
@@ -85,7 +89,18 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   const score = correctCount * 0.5; // 0.5 pts each
   const scoreOn10 = total > 0 ? Math.round((correctCount / total) * 10) : 0;
 
-  const content = JSON.stringify({ type: "quiz", score, correct: correctCount, total });
+  const content = JSON.stringify({
+    type: "quiz",
+    score,
+    correct: correctCount,
+    total,
+    results: results.map((r) => ({
+      question: r.question,
+      correct: r.correct,
+      correctText: r.correctText,
+      selectedText: r.selectedText,
+    })),
+  });
 
   const submission = await db.submission.create({
     data: { userId: session.sub, challengeId: params.id, circleId, content, isPublic: true, isSelected: true },

@@ -41,6 +41,7 @@ export default function CircleDetailPage() {
   const [showCreate, setShowCreate] = useState(false);
   const [creating, setCreating] = useState(false);
   const [generatingQuiz, setGeneratingQuiz] = useState(false);
+  const [deletingCh, setDeletingCh] = useState<string | null>(null);
   const [newCh, setNewCh] = useState({ title: "", prompt: "", type: "written", startsAt: "", endsAt: "", isRecurring: false });
   const [quizQs, setQuizQs] = useState<{ question: string; options: [string, string, string, string]; correctIndex: number }[]>(
     [{ question: "", options: ["", "", "", ""], correctIndex: 0 }]
@@ -60,6 +61,15 @@ export default function CircleDetailPage() {
       opts[oi] = val;
       return { ...q, options: opts };
     }));
+
+  const deleteChallenge = async (id: string) => {
+    if (!confirm("Excluir este desafio? Todas as respostas serão apagadas.")) return;
+    setDeletingCh(id);
+    const r = await fetch(`/api/network/challenges/${id}`, { method: "DELETE" });
+    if (r.ok) { toast.success("Desafio excluído."); setChallenges((p) => p.filter((c) => c.id !== id)); }
+    else { const d = await r.json().catch(() => ({})); toast.error(d.error ?? "Erro ao excluir."); }
+    setDeletingCh(null);
+  };
 
   const generateQuiz = async () => {
     if (!newCh.title.trim()) { toast.error("Adicione um título antes de gerar."); return; }
@@ -216,20 +226,32 @@ export default function CircleDetailPage() {
               )}
             </div>
           ) : challenges.map((ch) => (
-            <Link key={ch.id} href={`/network/${circleId}/challenge/${ch.id}`}>
-              <Card className={`border-border/50 hover:border-violet-500/30 transition-all cursor-pointer ${ch.isActive ? "bg-emerald-500/3" : ""}`}>
-                <CardContent className="p-4 flex items-center justify-between gap-4">
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      {ch.isActive && <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-medium">Ativo</span>}
-                      {ch.hasSubmitted && <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-violet-500/20 text-violet-400 font-medium">Respondido</span>}
+            <div key={ch.id} className="relative group">
+              <Link href={`/network/${circleId}/challenge/${ch.id}`}>
+                <Card className={`border-border/50 hover:border-violet-500/30 transition-all cursor-pointer ${ch.isActive ? "bg-emerald-500/3" : ""}`}>
+                  <CardContent className="p-4 flex items-center justify-between gap-4">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1">
+                        {ch.isActive && <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-medium">Ativo</span>}
+                        {ch.hasSubmitted && <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-violet-500/20 text-violet-400 font-medium">Respondido</span>}
+                      </div>
+                      <h4 className="font-medium text-sm truncate">{ch.title}</h4>
+                      <p className="text-xs text-muted-foreground mt-0.5">{ch._count.submissions} respostas · encerra {new Date(ch.endsAt).toLocaleDateString("pt-BR")}</p>
                     </div>
-                    <h4 className="font-medium text-sm truncate">{ch.title}</h4>
-                    <p className="text-xs text-muted-foreground mt-0.5">{ch._count.submissions} respostas · encerra {new Date(ch.endsAt).toLocaleDateString("pt-BR")}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
+                  </CardContent>
+                </Card>
+              </Link>
+              {isOwnerOrMod && (
+                <button
+                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); deleteChallenge(ch.id); }}
+                  disabled={deletingCh === ch.id}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 p-1.5 rounded-md text-muted-foreground hover:text-red-400 hover:bg-red-500/10 transition-all disabled:opacity-50"
+                  title="Excluir desafio"
+                >
+                  {deletingCh === ch.id ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <X className="h-3.5 w-3.5" />}
+                </button>
+              )}
+            </div>
           ))}
         </div>
       )}
@@ -326,11 +348,11 @@ export default function CircleDetailPage() {
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="text-xs font-medium text-muted-foreground">Início *</label>
-                  <input type="datetime-local" value={newCh.startsAt} onChange={e => setNewCh(p => ({ ...p, startsAt: e.target.value }))} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500/50" />
+                  <input type="datetime-local" value={newCh.startsAt} onChange={e => setNewCh(p => ({ ...p, startsAt: e.target.value }))} style={{ colorScheme: "dark" }} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500/50" />
                 </div>
                 <div>
                   <label className="text-xs font-medium text-muted-foreground">Encerramento *</label>
-                  <input type="datetime-local" value={newCh.endsAt} onChange={e => setNewCh(p => ({ ...p, endsAt: e.target.value }))} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500/50" />
+                  <input type="datetime-local" value={newCh.endsAt} onChange={e => setNewCh(p => ({ ...p, endsAt: e.target.value }))} style={{ colorScheme: "dark" }} className="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500/50" />
                 </div>
               </div>
               <div className="flex justify-end gap-2 pt-1">
