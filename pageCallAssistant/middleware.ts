@@ -5,7 +5,7 @@ const secret = new TextEncoder().encode(
   process.env.JWT_SECRET || "dev-secret-change-in-production"
 );
 
-const protectedRoutes = ["/dashboard", "/settings", "/usage", "/tools", "/live", "/home"];
+const protectedRoutes = ["/dashboard", "/settings", "/usage", "/tools", "/live", "/home", "/progress"];
 const authRoutes = ["/login", "/register"];
 
 export async function middleware(req: NextRequest) {

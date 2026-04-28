@@ -34,7 +34,7 @@ const quickActions = [
   { label: "SpeakFlow Live", description: "Pratique speaking com IA em tempo real", href: "/live", gradient: "from-violet-600 to-indigo-600", Icon: Mic2 },
   { label: "Desafios", description: "Responda os quizzes do seu Circle", href: "/network", gradient: "from-amber-500 to-orange-500", Icon: Zap },
   { label: "Ferramentas", description: "Melhore textos e simule entrevistas", href: "/tools", gradient: "from-emerald-500 to-teal-500", Icon: Wrench },
-  { label: "Meu Progresso", description: "Veja sua evolução e conquistas", href: "/usage", gradient: "from-pink-500 to-rose-500", Icon: TrendingUp },
+  { label: "Meu Progresso", description: "Veja sua evolução e conquistas", href: "/progress", gradient: "from-pink-500 to-rose-500", Icon: TrendingUp },
 ];
 
 const BADGE_DEFS: Achievement[] = [
