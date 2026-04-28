@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { Users, Trophy, Zap, ArrowLeft, LogOut, Crown, Shield, Loader2, Clock, Settings, Plus, X, Mic } from "lucide-react";
+import { Users, Trophy, Zap, ArrowLeft, LogOut, Crown, Shield, Loader2, Clock, Settings, Plus, X, Mic, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
@@ -40,6 +40,7 @@ export default function CircleDetailPage() {
   const [tab, setTab] = useState<"feed" | "members" | "ranking">("feed");
   const [showCreate, setShowCreate] = useState(false);
   const [creating, setCreating] = useState(false);
+  const [generatingQuiz, setGeneratingQuiz] = useState(false);
   const [newCh, setNewCh] = useState({ title: "", prompt: "", type: "written", startsAt: "", endsAt: "", isRecurring: false });
   const [quizQs, setQuizQs] = useState<{ question: string; options: [string, string, string, string]; correctIndex: number }[]>(
     [{ question: "", options: ["", "", "", ""], correctIndex: 0 }]
@@ -59,6 +60,23 @@ export default function CircleDetailPage() {
       opts[oi] = val;
       return { ...q, options: opts };
     }));
+
+  const generateQuiz = async () => {
+    if (!newCh.title.trim()) { toast.error("Adicione um título antes de gerar."); return; }
+    setGeneratingQuiz(true);
+    try {
+      const r = await fetch("/api/network/challenges/generate-quiz", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: newCh.title, focus: circle?.focus ?? "Business English", level: circle?.level ?? "Todos", count: 5 }),
+      });
+      const d = await r.json();
+      if (!r.ok) { toast.error(d.error ?? "Erro ao gerar quiz."); return; }
+      setQuizQs(d.questions);
+      toast.success(`${d.questions.length} perguntas geradas com IA!`);
+    } catch { toast.error("Erro de rede ao gerar quiz."); }
+    finally { setGeneratingQuiz(false); }
+  };
 
   const createChallenge = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -235,8 +253,8 @@ export default function CircleDetailPage() {
 
       {tab === "ranking" && <RankingTab circleId={circleId} />}
       {showCreate && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-          <div className="w-full max-w-lg rounded-2xl border border-border/50 bg-card shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:p-4 bg-black/60 backdrop-blur-sm">
+          <div className="w-full sm:max-w-lg max-h-[92vh] overflow-y-auto rounded-t-2xl sm:rounded-2xl border border-border/50 bg-card shadow-2xl">
             <div className="flex items-center justify-between p-5 border-b border-border/50">
               <h2 className="font-semibold">Criar desafio</h2>
               <button onClick={() => setShowCreate(false)} className="text-muted-foreground hover:text-foreground"><X className="h-4 w-4" /></button>
@@ -254,11 +272,18 @@ export default function CircleDetailPage() {
               )}
               {newCh.type === "quiz" && (
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between gap-2 flex-wrap">
                     <label className="text-xs font-medium text-muted-foreground">Perguntas do Quiz ({quizQs.length}/20)</label>
-                    <button type="button" onClick={addQuizQ} className="flex items-center gap-1 text-xs text-violet-400 hover:text-violet-300">
-                      <Plus className="h-3 w-3" /> Adicionar pergunta
-                    </button>
+                    <div className="flex items-center gap-2">
+                      <button type="button" onClick={generateQuiz} disabled={generatingQuiz || !newCh.title.trim()}
+                        className="flex items-center gap-1 rounded-lg bg-violet-500/15 px-2.5 py-1 text-xs text-violet-400 hover:bg-violet-500/25 disabled:opacity-40 transition-colors">
+                        {generatingQuiz ? <Loader2 className="h-3 w-3 animate-spin" /> : <Sparkles className="h-3 w-3" />}
+                        {generatingQuiz ? "Gerando..." : "Gerar com IA"}
+                      </button>
+                      <button type="button" onClick={addQuizQ} className="flex items-center gap-1 text-xs text-zinc-400 hover:text-zinc-200">
+                        <Plus className="h-3 w-3" /> Adicionar
+                      </button>
+                    </div>
                   </div>
                   <div className="max-h-64 overflow-y-auto space-y-3 pr-1">
                     {quizQs.map((q, qi) => (
@@ -310,7 +335,7 @@ export default function CircleDetailPage() {
               </div>
               <div className="flex justify-end gap-2 pt-1">
                 <button type="button" onClick={() => setShowCreate(false)} className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground">Cancelar</button>
-                <button type="submit" disabled={creating || !newCh.title.trim() || !newCh.prompt.trim() || !newCh.startsAt || !newCh.endsAt} className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-violet-600 to-indigo-600 px-5 py-2 text-sm font-medium text-white disabled:opacity-50">
+                <button type="submit" disabled={creating || !newCh.title.trim() || (newCh.type !== "quiz" && !newCh.prompt.trim()) || !newCh.startsAt || !newCh.endsAt} className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-violet-600 to-indigo-600 px-5 py-2 text-sm font-medium text-white disabled:opacity-50">
                   {creating ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
                   {creating ? "Criando..." : "Criar desafio"}
                 </button>

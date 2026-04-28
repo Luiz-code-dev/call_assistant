@@ -221,9 +221,26 @@ function HeaderSkeleton() {
 
 function AppHeader({ user, circles }: { user: UserData; circles: CircleData[] }) {
   const [notifOpen, setNotifOpen] = useState(false);
+  const [readIds, setReadIds] = useState<Set<string>>(new Set());
+  useEffect(() => {
+    try { setReadIds(new Set(JSON.parse(localStorage.getItem("sf_notif_read") ?? "[]"))); } catch {}
+  }, []);
   const notifications = buildNotifications(circles);
-  const hasNotifs = notifications.length > 0;
+  const hasUnread = notifications.some((n) => !readIds.has(n.id));
   const notifRef = useRef<HTMLDivElement>(null);
+
+  const openNotif = () => {
+    setNotifOpen((v) => {
+      if (!v) {
+        const allIds = notifications.map((n) => n.id);
+        const next = new Set(Array.from(readIds).concat(allIds));
+        setReadIds(next);
+        try { localStorage.setItem("sf_notif_read", JSON.stringify(Array.from(next))); } catch {}
+      }
+      return !v;
+    });
+  };
+
   useClickOutside(notifRef, () => setNotifOpen(false));
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-800/50 bg-[#09090b]/80 backdrop-blur-xl">
@@ -236,9 +253,9 @@ function AppHeader({ user, circles }: { user: UserData; circles: CircleData[] })
         </Link>
         <div className="flex items-center gap-3">
           <div ref={notifRef} className="relative">
-            <Button variant="ghost" size="icon" onClick={() => setNotifOpen((v) => !v)} className="relative text-zinc-400 hover:text-white hover:bg-zinc-800/50">
+            <Button variant="ghost" size="icon" onClick={openNotif} className="relative text-zinc-400 hover:text-white hover:bg-zinc-800/50">
               <Bell className="size-5" />
-              {hasNotifs && (
+              {hasUnread && (
                 <span className="absolute right-1.5 top-1.5 flex size-2">
                   <span className="absolute inline-flex size-full animate-ping rounded-full bg-violet-400 opacity-75" />
                   <span className="relative inline-flex size-2 rounded-full bg-violet-500" />

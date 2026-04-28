@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -41,6 +42,9 @@ const PLAN_FEATURES: Record<string, string[]> = {
 };
 
 export default function DashboardPage() {
+  const router = useRouter();
+  useEffect(() => { router.replace("/home"); }, [router]);
+
   const [wallet, setWallet] = useState<WalletBalance | null>(null);
   const [plan, setPlan] = useState("free");
   const [userName, setUserName] = useState("");
