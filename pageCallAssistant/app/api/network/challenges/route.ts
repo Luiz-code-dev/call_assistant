@@ -86,29 +86,34 @@ export async function POST(req: NextRequest) {
     ? (prompt?.trim() || `Quiz com ${questions.length} perguntas`).slice(0, 2000)
     : prompt.trim().slice(0, 2000);
 
-  const challenge = await db.challenge.create({
-    data: {
-      circleId,
-      title: title.trim().slice(0, 120),
-      prompt: promptText,
-      type: resolvedType,
-      startsAt: start,
-      endsAt: end,
-      isRecurring: !!isRecurring,
-    },
-  });
-
-  if (resolvedType === "quiz" && questions?.length) {
-    await db.quizQuestion.createMany({
-      data: questions.slice(0, 20).map((q: { question: string; options: string[]; correctIndex: number }, i: number) => ({
-        challengeId: challenge.id,
-        question: q.question.trim().slice(0, 500),
-        options: JSON.stringify(q.options.map((o: string) => o.trim().slice(0, 200))),
-        correctIndex: q.correctIndex,
-        orderIndex: i,
-      })),
+  try {
+    const challenge = await db.challenge.create({
+      data: {
+        circleId,
+        title: title.trim().slice(0, 120),
+        prompt: promptText,
+        type: resolvedType,
+        startsAt: start,
+        endsAt: end,
+        isRecurring: !!isRecurring,
+      },
     });
-  }
 
-  return NextResponse.json(challenge, { status: 201 });
+    if (resolvedType === "quiz" && questions?.length) {
+      await db.quizQuestion.createMany({
+        data: questions.slice(0, 20).map((q: { question: string; options: string[]; correctIndex: number }, i: number) => ({
+          challengeId: challenge.id,
+          question: q.question.trim().slice(0, 500),
+          options: JSON.stringify(q.options.map((o: string) => o.trim().slice(0, 200))),
+          correctIndex: q.correctIndex,
+          orderIndex: i,
+        })),
+      });
+    }
+
+    return NextResponse.json(challenge, { status: 201 });
+  } catch (err) {
+    console.error("POST /api/network/challenges error:", err);
+    return NextResponse.json({ error: "Erro interno ao criar desafio.", detail: String(err) }, { status: 500 });
+  }
 }
