@@ -15,6 +15,12 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
   if (!challenge) return NextResponse.json({ error: "Desafio não encontrado." }, { status: 404 });
   if (challenge.type !== "quiz") return NextResponse.json({ error: "Este desafio não é um quiz." }, { status: 400 });
 
+  const now = new Date();
+  if (now < challenge.startsAt)
+    return NextResponse.json({ error: "Este desafio ainda não iniciou." }, { status: 425 });
+  if (now > challenge.endsAt)
+    return NextResponse.json({ error: "O período deste desafio encerrou." }, { status: 410 });
+
   const member = await db.circleMember.findUnique({
     where: { circleId_userId: { circleId: challenge.circleId, userId: session.sub } },
   });
@@ -56,6 +62,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   });
   if (!challenge) return NextResponse.json({ error: "Desafio não encontrado." }, { status: 404 });
   if (challenge.type !== "quiz") return NextResponse.json({ error: "Este desafio não é um quiz." }, { status: 400 });
+  if (new Date() < challenge.startsAt) return NextResponse.json({ error: "Este desafio ainda não iniciou." }, { status: 425 });
   if (new Date() > challenge.endsAt) return NextResponse.json({ error: "O período de submissão encerrou." }, { status: 410 });
 
   const member = await db.circleMember.findUnique({

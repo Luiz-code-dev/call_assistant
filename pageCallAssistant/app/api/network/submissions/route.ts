@@ -62,6 +62,8 @@ export async function POST(req: NextRequest) {
   if (!member || member.status !== "active")
     return NextResponse.json({ error: "Você não é membro deste Circle." }, { status: 403 });
   if (!challenge) return NextResponse.json({ error: "Desafio não encontrado." }, { status: 404 });
+  if (new Date() < challenge.startsAt)
+    return NextResponse.json({ error: "Este desafio ainda não iniciou." }, { status: 425 });
   if (new Date() > challenge.endsAt)
     return NextResponse.json({ error: "O período de submissão encerrou." }, { status: 410 });
 
