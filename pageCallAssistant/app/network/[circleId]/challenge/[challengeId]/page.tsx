@@ -7,6 +7,7 @@ import { ArrowLeft, Send, Loader2, Star, Zap, ChevronDown, ChevronUp, Mic, Squar
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
+import { BadgeCelebration, type BadgeDef } from "@/components/BadgeCelebration";
 
 interface Evaluation { fluencyScore: number; contentScore: number; clarityScore: number; totalScore: number; feedback: string; improvedResponse: string; tip: string }
 interface MySubmission { id: string; content: string; isPublic: boolean; isSelected: boolean; createdAt: string; evaluation?: Evaluation | null }
@@ -64,6 +65,7 @@ export default function ChallengePage() {
   const [timeLeft, setTimeLeft] = useState(60);
   const [quizResult, setQuizResult] = useState<QuizResult | null>(null);
   const qTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const [newBadges, setNewBadges] = useState<BadgeDef[]>([]);
 
   const startRecording = async () => {
     try {
@@ -137,16 +139,25 @@ export default function ChallengePage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ challengeId, circleId, content: content.trim() }),
     });
-    if (r.ok) { toast.success("Resposta enviada!"); await load(); setContent(""); }
-    else { const d = await r.json(); toast.error(d.error ?? "Erro ao enviar."); }
+    if (r.ok) {
+      const d = await r.json();
+      toast.success("Resposta enviada!");
+      if (d.newBadges?.length) setNewBadges(d.newBadges);
+      await load();
+      setContent("");
+    } else { const d = await r.json(); toast.error(d.error ?? "Erro ao enviar."); }
     setSubmitting(false);
   };
 
   const evaluate = async (submissionId: string) => {
     setEvaluating(submissionId);
     const r = await fetch(`/api/network/submissions/${submissionId}/evaluate`, { method: "POST" });
-    if (r.ok) { toast.success("Avaliação concluída!"); await load(); }
-    else { const d = await r.json(); toast.error(d.error ?? "Erro na avaliação."); }
+    if (r.ok) {
+      const d = await r.json();
+      toast.success("Avaliação concluída!");
+      if (d.newBadges?.length) setNewBadges(d.newBadges);
+      await load();
+    } else { const d = await r.json(); toast.error(d.error ?? "Erro na avaliação."); }
     setEvaluating(null);
   };
 
@@ -215,6 +226,7 @@ export default function ChallengePage() {
         const data = await r.json();
         setQuizResult(data);
         setQuizPhase("done");
+        if (data.newBadges?.length) setNewBadges(data.newBadges);
         load();
       } else {
         const d = await r.json();
@@ -622,6 +634,10 @@ export default function ChallengePage() {
             );
           })}
         </div>
+      )}
+
+      {newBadges.length > 0 && (
+        <BadgeCelebration badges={newBadges} onDone={() => setNewBadges([])} />
       )}
     </div>
   );

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { getNetworkSession } from "../../../_auth";
+import { checkAndAwardBadges } from "@/lib/badges";
 
 // GET /api/network/challenges/[id]/quiz
 // Returns questions with options but WITHOUT correctIndex
@@ -126,5 +127,11 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
     },
   });
 
-  return NextResponse.json({ score, correct: correctCount, total, results }, { status: 201 });
+  const newBadges = await checkAndAwardBadges(session.sub, "quiz", {
+    quizCorrect: correctCount,
+    quizTotal: total,
+    quizScoreOn10: scoreOn10,
+  }).catch(() => []);
+
+  return NextResponse.json({ score, correct: correctCount, total, results, newBadges }, { status: 201 });
 }

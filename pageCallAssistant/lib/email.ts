@@ -242,3 +242,55 @@ export async function sendVerificationEmail(email: string, name: string, token: 
     `,
   });
 }
+
+export async function sendBadgeEmail(
+  email: string,
+  name: string,
+  badges: { slug: string; emoji: string; name: string; description: string }[]
+) {
+  if (!resend) {
+    console.log(`[DEV] Badge email would be sent to ${email}:`, badges.map((b) => b.name).join(", "));
+    return;
+  }
+
+  const firstName = name?.split(" ")[0] || "usuário";
+  const badgeRows = badges
+    .map(
+      (b) => `
+      <div style="display:flex;align-items:center;gap:12px;background:#18181b;border:1px solid #27272a;border-radius:10px;padding:16px;margin-bottom:10px">
+        <span style="font-size:32px">${b.emoji}</span>
+        <div>
+          <p style="margin:0;font-size:15px;font-weight:700;color:#fafafa">${b.name}</p>
+          <p style="margin:4px 0 0;font-size:13px;color:#a1a1aa">${b.description}</p>
+        </div>
+      </div>`
+    )
+    .join("");
+
+  await resend.emails.send({
+    from: FROM_EMAIL,
+    to: email,
+    subject: `🏅 ${badges.length === 1 ? `Nova conquista: ${badges[0].name}` : `${badges.length} novas conquistas desbloqueadas!`} — SpeakFlow`,
+    html: `
+      <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:32px 24px;background:#09090b;color:#fafafa;border-radius:12px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:28px">
+          <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#4f46e5);display:flex;align-items:center;justify-content:center">
+            <span style="color:#fff;font-weight:bold;font-size:18px">S</span>
+          </div>
+          <span style="font-weight:700;font-size:20px">SpeakFlow</span>
+        </div>
+        <h1 style="font-size:22px;font-weight:800;margin:0 0 6px">Parabéns, ${firstName}! 🎉</h1>
+        <p style="color:#a1a1aa;margin:0 0 20px;font-size:15px">
+          Você desbloqueou ${badges.length === 1 ? "uma nova conquista" : `${badges.length} novas conquistas`} no SpeakFlow Network!
+        </p>
+        ${badgeRows}
+        <a href="${APP_URL}/progress" style="display:inline-block;margin-top:12px;padding:12px 28px;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px">
+          Ver meu progresso →
+        </a>
+        <p style="color:#52525b;font-size:12px;margin-top:28px">Continue praticando para desbloquear mais conquistas!<br/>Equipe SpeakFlow</p>
+        <hr style="border:none;border-top:1px solid #27272a;margin:24px 0"/>
+        <p style="color:#3f3f46;font-size:11px">SpeakFlow · speakf.com.br</p>
+      </div>
+    `,
+  });
+}

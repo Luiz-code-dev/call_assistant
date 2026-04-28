@@ -4,6 +4,7 @@ import { db } from "@/lib/db";
 import { getNetworkSession } from "../../../_auth";
 import { checkToolAccess, consumeToolCredits } from "@/lib/planGuard";
 import { getOpenAI } from "@/lib/openai";
+import { checkAndAwardBadges } from "@/lib/badges";
 
 const EVAL_SYSTEM_PROMPT = `You are a professional English communication evaluator for a career development platform.
 Evaluate the submitted response based on 3 criteria, each scored 0-10:
@@ -76,7 +77,10 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
       data: { submissionId: submission.id, ...aiResult },
     });
     await consumeToolCredits(session.sub, "network");
-    return NextResponse.json(evaluation, { status: 201 });
+    const newBadges = await checkAndAwardBadges(session.sub, "evaluation", {
+      evalScore: aiResult.totalScore,
+    }).catch(() => []);
+    return NextResponse.json({ ...evaluation, newBadges }, { status: 201 });
   } catch (dbErr) {
     if (dbErr instanceof Prisma.PrismaClientKnownRequestError && dbErr.code === "P2002") {
       const existing = await db.submissionEvaluation.findUnique({ where: { submissionId: submission.id } });
