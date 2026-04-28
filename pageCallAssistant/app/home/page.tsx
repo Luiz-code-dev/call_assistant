@@ -10,7 +10,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import {
   Mic2, Zap, Users, Trophy, TrendingUp, Clock,
   ChevronRight, Bell, Wrench, Lock, Lightbulb,
-  Home, Settings, CreditCard, X, LogOut,
+  Home, Settings, CreditCard, X, LogOut, MessageSquare,
 } from "lucide-react";
 
 interface UserData { id: string; name: string; avatarUrl: string | null; plan: string; }
@@ -185,6 +185,12 @@ function UserMenu({ user }: { user: UserData }) {
             <Link href="/usage" onClick={() => setOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors">
               <CreditCard className="size-4" /> Uso e Créditos
             </Link>
+            <Link href="/progress" onClick={() => setOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors">
+              <TrendingUp className="size-4" /> Meu Progresso
+            </Link>
+            <Link href="/support" onClick={() => setOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors">
+              <MessageSquare className="size-4" /> Suporte
+            </Link>
           </div>
           <div className="border-t border-zinc-800 py-1">
             <button
@@ -357,12 +363,12 @@ function RecentActivitySection() {
     <section className="px-4 pb-6">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2"><Clock className="size-5 text-violet-400" /><h2 className="text-lg font-semibold text-white">Atividade Recente</h2></div>
-        <Link href="/usage" className="text-sm text-violet-400 hover:text-violet-300">Ver tudo</Link>
+        <Link href="/progress" className="text-sm text-violet-400 hover:text-violet-300">Ver tudo</Link>
       </div>
       <div className="space-y-3">
         {[
           { label: "Última sessão Live", sub: "Abra o Live para começar a praticar", href: "/live" },
-          { label: "Progresso", sub: "Veja suas estatísticas detalhadas", href: "/usage" },
+          { label: "Progresso", sub: "Veja suas estatísticas detalhadas", href: "/progress" },
         ].map((item) => (
           <Link key={item.label} href={item.href} className="group flex items-center gap-4 rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 transition-all hover:-translate-y-0.5 hover:border-zinc-700 hover:bg-zinc-800/50">
             <div className="flex-1 min-w-0">
