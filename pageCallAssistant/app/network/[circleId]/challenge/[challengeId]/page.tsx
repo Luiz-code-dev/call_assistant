@@ -11,7 +11,7 @@ import { toast } from "sonner";
 interface Evaluation { fluencyScore: number; contentScore: number; clarityScore: number; totalScore: number; feedback: string; improvedResponse: string; tip: string }
 interface MySubmission { id: string; content: string; isPublic: boolean; isSelected: boolean; createdAt: string; evaluation?: Evaluation | null }
 interface FeedItem { id: string; content: string; evaluation?: { totalScore: number } | null; user: { id: string; name: string; avatarUrl?: string | null } }
-interface Challenge { id: string; title: string; prompt: string; type: string; startsAt: string; endsAt: string; _count: { submissions: number } }
+interface Challenge { id: string; title: string; prompt: string; type: string; startsAt: string; endsAt: string; isActive: boolean; _count: { submissions: number } }
 interface QuizQ { id: string; question: string; options: string[] }
 interface QuizResult { score: number; correct: number; total: number; results: { questionId: string; correct: boolean; correctText: string; selectedText: string }[] }
 type QuizPhase = "idle" | "loading" | "answering" | "submitting" | "done"
@@ -172,6 +172,7 @@ export default function ChallengePage() {
   };
 
   const isExpired = challenge ? new Date() > new Date(challenge.endsAt) : false;
+  const isStarted = challenge ? new Date() >= new Date(challenge.startsAt) : false;
 
   // ── Quiz logic ──
   const startQuiz = async () => {
@@ -281,7 +282,22 @@ export default function ChallengePage() {
         <CardContent><p className="text-sm leading-relaxed">{challenge.prompt}</p></CardContent>
       </Card>
 
-      {!isExpired && challenge.type === "quiz" && mySubmissions.length === 0 && (
+      {!isStarted && (
+        <Card className="border-amber-500/30 bg-amber-500/5">
+          <CardContent className="p-5 flex items-center gap-3">
+            <Clock className="h-5 w-5 text-amber-400 shrink-0" />
+            <div>
+              <p className="text-sm font-medium text-amber-300">Desafio ainda não iniciou</p>
+              <p className="text-xs text-muted-foreground mt-0.5">
+                Disponível a partir de {new Date(challenge.startsAt).toLocaleDateString("pt-BR")} às{" "}
+                {new Date(challenge.startsAt).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
+      {isStarted && !isExpired && challenge.type === "quiz" && mySubmissions.length === 0 && (
         <Card className="border-violet-500/30 bg-violet-500/5">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm flex items-center gap-2">
@@ -377,7 +393,7 @@ export default function ChallengePage() {
         </Card>
       )}
 
-      {!isExpired && challenge.type !== "quiz" && (
+      {isStarted && !isExpired && challenge.type !== "quiz" && (
         <Card className="border-violet-500/30 bg-violet-500/5">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm flex items-center gap-2">

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { getNetworkSession } from "../_auth";
+import { sendPushToCircleMembers } from "@/lib/webpush";
 
 export async function GET(req: NextRequest) {
   const session = await getNetworkSession(req);
@@ -110,6 +111,23 @@ export async function POST(req: NextRequest) {
         })),
       });
     }
+
+    // Fire-and-forget: notify circle members about new challenge
+    const circleName = await db.circle.findUnique({
+      where: { id: circleId },
+      select: { name: true },
+    }).then((c) => c?.name ?? "seu Circle");
+
+    const startsNow = start <= new Date();
+    const notifBody = startsNow
+      ? `"${challenge.title}" está disponível agora!`
+      : `"${challenge.title}" começa ${start.toLocaleDateString("pt-BR")} às ${start.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}`;
+
+    sendPushToCircleMembers(circleId, session.sub, {
+      title: `Novo desafio em ${circleName} 🎯`,
+      body: notifBody,
+      url: `/network/${circleId}`,
+    }).catch(console.error);
 
     return NextResponse.json(challenge, { status: 201 });
   } catch (err) {
