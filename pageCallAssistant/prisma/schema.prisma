@@ -37,6 +37,10 @@ model User {
   proficiencyAssessments ProficiencyAssessment[]
   dailyStreak          DailyStreak?
   spinHistory          SpinHistory[]
+  friendsRequested     Friendship[]  @relation("FriendshipRequester")
+  friendsReceived      Friendship[]  @relation("FriendshipAddressee")
+  messagesSent         Message[]     @relation("MessageSender")
+  messagesReceived     Message[]     @relation("MessageReceiver")
 }
 
 model CreditTransaction {
@@ -110,9 +114,10 @@ model Challenge {
   type        String       @default("written")
   startsAt    DateTime
   endsAt      DateTime
-  isRecurring Boolean      @default(false)
-  createdAt   DateTime     @default(now())
-  circle      Circle       @relation(fields: [circleId], references: [id], onDelete: Cascade)
+  isRecurring   Boolean      @default(false)
+  winnerAwarded Boolean      @default(false)
+  createdAt     DateTime     @default(now())
+  circle        Circle       @relation(fields: [circleId], references: [id], onDelete: Cascade)
   submissions   Submission[]
   quizQuestions QuizQuestion[]
 }
@@ -213,6 +218,35 @@ model SpinHistory {
   isPremium  Boolean  @default(false)
   spunAt     DateTime @default(now())
   user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Friendship {
+  id          String   @id @default(cuid())
+  requesterId String
+  addresseeId String
+  status      String   @default("pending")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  requester   User     @relation("FriendshipRequester", fields: [requesterId], references: [id], onDelete: Cascade)
+  addressee   User     @relation("FriendshipAddressee", fields: [addresseeId], references: [id], onDelete: Cascade)
+
+  @@unique([requesterId, addresseeId])
+  @@index([addresseeId, status])
+}
+
+model Message {
+  id         String   @id @default(cuid())
+  senderId   String
+  receiverId String
+  content    String
+  iv         String
+  isRead     Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  sender     User     @relation("MessageSender", fields: [senderId], references: [id], onDelete: Cascade)
+  receiver   User     @relation("MessageReceiver", fields: [receiverId], references: [id], onDelete: Cascade)
+
+  @@index([senderId, receiverId])
+  @@index([receiverId, isRead])
 }
 
 model SupportMessage {

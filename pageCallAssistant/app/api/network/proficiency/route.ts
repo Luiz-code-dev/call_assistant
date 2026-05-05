@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { getNetworkSession } from "../_auth";
 import { getOpenAI } from "@/lib/openai";
+import { sendPushToUsers } from "@/lib/webpush";
 
 const CEFR_EXPERT_PROMPT = `You are a certified CEFR (Common European Framework of Reference for Languages) English proficiency assessor specialized in evaluating spoken and written English samples from Brazilian professionals.
 
@@ -111,6 +112,8 @@ Feedback: ${e.feedback}
       isEligible: boolean;
     };
 
+    const isEligible = isPremium && result.isEligible === true;
+
     const assessment = await db.proficiencyAssessment.create({
       data: {
         userId: session.sub,
@@ -126,11 +129,40 @@ Feedback: ${e.feedback}
         improvements: JSON.stringify(result.improvements ?? []),
         overallFeedback: result.overallFeedback ?? "",
         submissionsUsed: evaluated.length,
-        isEligible: isPremium && result.isEligible === true,
+        isEligible,
       },
     });
 
-    return NextResponse.json(assessment, { status: 201 });
+    const ELIGIBLE_LEVELS = ["B1", "B2", "C1", "C2"];
+    const isFirstEligible = isEligible &&
+      ELIGIBLE_LEVELS.includes(result.level ?? "") &&
+      (await db.proficiencyAssessment.count({
+        where: { userId: session.sub, isEligible: true, id: { not: assessment.id } },
+      })) === 0;
+
+    let fluencyCredits = 0;
+    if (isFirstEligible) {
+      fluencyCredits = 200;
+      await db.$transaction([
+        db.user.update({ where: { id: session.sub }, data: { credits: { increment: fluencyCredits } } }),
+        db.creditTransaction.create({
+          data: {
+            userId: session.sub,
+            type: "earn",
+            amount: fluencyCredits,
+            source: "fluency_achievement",
+            description: `🎓 Nível de fluência ${result.level} (${result.levelLabel}) alcançado!`,
+          },
+        }),
+      ]);
+      await sendPushToUsers([session.sub], {
+        title: "🎓 Parabéns! Fluência atingida!",
+        body: `Você alcançou o nível ${result.level} ${result.levelLabel} — +${fluencyCredits} créditos adicionados!`,
+        url: "/network/progress",
+      }).catch(console.error);
+    }
+
+    return NextResponse.json({ ...assessment, fluencyCredits }, { status: 201 });
   } catch (err) {
     console.error("[proficiency/assess]", err);
     return NextResponse.json({ error: "Erro ao processar avaliação. Tente novamente." }, { status: 500 });
