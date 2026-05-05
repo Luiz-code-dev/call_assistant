@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import {
   ArrowLeft, Send, Lock, Globe, Sparkles, BookOpen,
@@ -243,7 +243,9 @@ function GrammarPanel({ result, onAccept, onDismiss }: {
 }
 
 export default function ChatPage() {
-  const { userId } = useParams<{ userId: string }>();
+  const params = useParams();
+  const router = useRouter();
+  const userId = params.userId as string;
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
@@ -326,9 +328,9 @@ export default function ChatPage() {
     <div className="flex flex-col bg-background" style={{ height: '100dvh' }}>
       {/* Header */}
       <header className="flex items-center gap-3 px-4 border-b border-border/50 bg-card/80 backdrop-blur sticky top-0 z-10" style={{ paddingTop: 'calc(0.75rem + env(safe-area-inset-top, 0px))', paddingBottom: '0.75rem' }}>
-        <Link href="/friends" className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
+        <button onClick={() => router.back()} className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
           <ArrowLeft className="h-5 w-5" />
-        </Link>
+        </button>
         <Link href={`/profile/${userId}`} className="flex items-center gap-3 flex-1 min-w-0 hover:opacity-80 transition-opacity">
           {friend && <Avatar name={friend.name} avatarUrl={friend.avatarUrl} size="sm" />}
           <div className="flex-1 min-w-0">
