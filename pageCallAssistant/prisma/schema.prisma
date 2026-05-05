@@ -34,6 +34,8 @@ model User {
   pushSubs             PushSubscription[]
   submissions          Submission[]
   proficiencyAssessments ProficiencyAssessment[]
+  dailyStreak          DailyStreak?
+  spinHistory          SpinHistory[]
 }
 
 model CreditTransaction {
@@ -190,6 +192,26 @@ model ProficiencyAssessment {
   isEligible      Boolean  @default(false)
   createdAt       DateTime @default(now())
   user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model DailyStreak {
+  id               String  @id @default(cuid())
+  userId           String  @unique
+  currentStreak    Int     @default(0)
+  longestStreak    Int     @default(0)
+  lastActivityDate String?
+  lastSpinDate     String?
+  user             User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model SpinHistory {
+  id         String   @id @default(cuid())
+  userId     String
+  credits    Int
+  prizeLabel String
+  isPremium  Boolean  @default(false)
+  spunAt     DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model SupportMessage {

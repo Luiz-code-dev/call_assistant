@@ -11,6 +11,7 @@ import {
   Mic2, Zap, Users, Trophy, TrendingUp, Clock,
   ChevronRight, Bell, Wrench, Lock, Lightbulb,
   Home, Settings, CreditCard, X, LogOut, MessageSquare,
+  Flame,
 } from "lucide-react";
 
 interface UserData { id: string; name: string; avatarUrl: string | null; plan: string; }
@@ -404,6 +405,74 @@ function AchievementsSection({ earnedSlugs }: { earnedSlugs: string[] }) {
   );
 }
 
+function SpinCard() {
+  const [spin, setSpin] = useState<{ canSpin: boolean; currentStreak: number; isPremiumSpin: boolean } | null>(null);
+  useEffect(() => {
+    fetch("/api/spin")
+      .then((r) => r.json())
+      .then(setSpin)
+      .catch(() => {});
+  }, []);
+
+  if (!spin) return null;
+  const daysToNext = spin.currentStreak > 0 ? 10 - (spin.currentStreak % 10) : 10;
+  const isPremium = spin.isPremiumSpin;
+
+  return (
+    <section className="px-4 pb-6">
+      <Link href="/spin" className="group block">
+        <div className={`relative overflow-hidden rounded-xl border p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg
+          ${ isPremium
+            ? "border-amber-500/40 bg-gradient-to-r from-amber-950/60 to-orange-950/60 hover:border-amber-500/60 hover:shadow-amber-500/20"
+            : "border-violet-500/30 bg-gradient-to-r from-violet-950/60 to-indigo-950/60 hover:border-violet-500/50 hover:shadow-violet-500/20"
+          }`}>
+          {/* Bg glow */}
+          <div className={`absolute inset-0 opacity-10 ${ isPremium ? "bg-amber-400" : "bg-violet-400" }`} />
+
+          <div className="relative flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className={`flex size-12 items-center justify-center rounded-xl text-2xl shadow-lg
+                ${ isPremium ? "bg-amber-500/20" : "bg-violet-500/20" }`}>
+                {isPremium ? "🔥" : "🎰"}
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <p className="font-bold text-white">
+                    {isPremium ? "Giro Premium disponível!" : "Giro da Sorte"}
+                  </p>
+                  {spin.canSpin && (
+                    <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full
+                      ${ isPremium ? "bg-amber-500 text-white" : "bg-violet-500 text-white" }`}>
+                      HOJE
+                    </span>
+                  )}
+                </div>
+                <p className="text-xs text-zinc-400">
+                  {isPremium
+                    ? "Prêmios em dobro! Gire agora 🎉"
+                    : spin.canSpin
+                      ? "Gire e ganhe até 100 créditos grátis!"
+                      : `${spin.currentStreak} dias seguidos · ${daysToNext}d para Giro Premium`
+                  }
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col items-end gap-1 shrink-0">
+              <div className="flex items-center gap-1">
+                <Flame className={`size-3.5 ${ spin.currentStreak >= 3 ? "text-orange-400" : "text-zinc-600" }`} />
+                <span className={`text-sm font-black ${ spin.currentStreak >= 3 ? "text-orange-400" : "text-zinc-500" }`}>
+                  {spin.currentStreak}
+                </span>
+              </div>
+              <ChevronRight className="size-4 text-zinc-600 group-hover:text-zinc-400 transition-colors" />
+            </div>
+          </div>
+        </div>
+      </Link>
+    </section>
+  );
+}
+
 function DailyTipCard() {
   const [tip, setTip] = useState<{ tip: string; example: string } | null>(null);
   useEffect(() => { setTip(getDailyTip()); }, []);
@@ -492,6 +561,7 @@ export default function HomePage() {
       <main className="mx-auto max-w-5xl">
         <HeroGreeting userName={user.name} />
         <QuickActionsSection />
+        <SpinCard />
         <CircleSection circles={circles} loading={loadingCircles} />
         <RecentActivitySection />
         <AchievementsSection earnedSlugs={earnedSlugs} />

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { getNetworkSession } from "../_auth";
 import { checkAndAwardBadges } from "@/lib/badges";
+import { registerActivity } from "@/lib/streak";
 
 export async function GET(req: NextRequest) {
   const session = await getNetworkSession(req);
@@ -84,6 +85,7 @@ export async function POST(req: NextRequest) {
     },
   });
 
+  await registerActivity(session.sub).catch(() => {});
   const newBadges = await checkAndAwardBadges(session.sub, "submission").catch(() => []);
 
   return NextResponse.json({ ...submission, newBadges }, { status: 201 });

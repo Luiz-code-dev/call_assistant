@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getOpenAI } from "@/lib/openai";
 import { getToolSession } from "@/app/api/tools/_auth";
 import { checkToolAccess, consumeToolCredits, CREDITS_PER_USE } from "@/lib/planGuard";
+import { registerActivity } from "@/lib/streak";
 
 export const runtime = "nodejs";
 
@@ -123,6 +124,7 @@ export async function POST(req: NextRequest) {
     }
 
     await consumeToolCredits(session.sub, "live");
+    registerActivity(session.sub).catch(() => {});
 
     return NextResponse.json({
       transcript: transcript.trim(),
