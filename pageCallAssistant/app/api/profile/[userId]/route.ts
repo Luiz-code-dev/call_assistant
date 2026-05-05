@@ -42,7 +42,7 @@ export async function GET(req: NextRequest, { params }: { params: { userId: stri
     // Run all extra queries with individual fallbacks so a missing table never crashes the profile
     const safe = <T>(p: Promise<T>, fallback: T): Promise<T> => p.catch(() => fallback);
 
-    const [postsCount, friendsCount, friendsList, proficiency, challenges, posts] = await Promise.all([
+    const [postsCount, friendsCount, friendsList, proficiency, challenges, badges, posts] = await Promise.all([
       safe(db2.post.count({ where: { userId } }), 0),
       db2.friendship.count({
         where: { status: "accepted", OR: [{ requesterId: userId }, { addresseeId: userId }] },
@@ -63,7 +63,7 @@ export async function GET(req: NextRequest, { params }: { params: { userId: stri
         db2.proficiencyAssessment.findFirst({
           where: { userId },
           orderBy: { createdAt: "desc" },
-          select: { level: true, cefrLevel: true, createdAt: true, overallFeedback: true },
+          select: { level: true, levelLabel: true, totalAvg: true, createdAt: true, overallFeedback: true },
         }),
         null
       ),
@@ -74,8 +74,16 @@ export async function GET(req: NextRequest, { params }: { params: { userId: stri
           take: 6,
           include: {
             challenge: { select: { title: true } },
-            evaluation: { select: { fluencyScore: true, contentScore: true, clarityScore: true, cefrLevel: true } },
+            evaluation: { select: { fluencyScore: true, contentScore: true, clarityScore: true, totalScore: true } },
           },
+        }),
+        []
+      ),
+      safe(
+        db2.userBadge.findMany({
+          where: { userId },
+          orderBy: { earnedAt: "desc" },
+          select: { slug: true, earnedAt: true },
         }),
         []
       ),
@@ -105,6 +113,7 @@ export async function GET(req: NextRequest, { params }: { params: { userId: stri
       friends,
       proficiency: proficiency ?? null,
       challenges: (challenges as Array<{ evaluation: object | null }>).filter((c) => c.evaluation !== null),
+      badges,
     });
   } catch (err) {
     console.error("[profile] unexpected error:", err);

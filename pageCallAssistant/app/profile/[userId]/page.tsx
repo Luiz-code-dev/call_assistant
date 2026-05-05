@@ -34,15 +34,17 @@ interface FriendUser {
 }
 
 interface Proficiency {
-  level: string; cefrLevel: string; createdAt: string; overallFeedback: string;
+  level: string; levelLabel: string; totalAvg: number; createdAt: string; overallFeedback: string;
 }
 
 interface ChallengeSnap {
   id: string;
   challenge: { title: string };
-  evaluation: { fluencyScore: number; contentScore: number; clarityScore: number; cefrLevel: string };
+  evaluation: { fluencyScore: number; contentScore: number; clarityScore: number; totalScore: number };
   createdAt: string;
 }
+
+interface BadgeSnap { slug: string; earnedAt: string; }
 
 interface ProfileData {
   user: UserProfile;
@@ -53,6 +55,7 @@ interface ProfileData {
   friends: FriendUser[] | null;
   proficiency: Proficiency | null;
   challenges: ChallengeSnap[];
+  badges: BadgeSnap[];
 }
 
 function authHeaders(): Record<string, string> {
@@ -83,7 +86,19 @@ function PlanBadge({ plan }: { plan: string }) {
   return null;
 }
 
-function cefrColor(level: string) {
+const BADGE_META: Record<string, { label: string; emoji: string; color: string }> = {
+  first_post:     { label: "Primeiro Post",      emoji: "📝", color: "bg-blue-500/15 border-blue-500/30 text-blue-300" },
+  first_friend:   { label: "Primeiro Amigo",     emoji: "🤝", color: "bg-emerald-500/15 border-emerald-500/30 text-emerald-300" },
+  first_chat:     { label: "Primeiro Chat",      emoji: "💬", color: "bg-violet-500/15 border-violet-500/30 text-violet-300" },
+  first_challenge:{ label: "Primeiro Desafio",   emoji: "🏆", color: "bg-amber-500/15 border-amber-500/30 text-amber-300" },
+  streak_7:       { label: "7 dias seguidos",    emoji: "🔥", color: "bg-orange-500/15 border-orange-500/30 text-orange-300" },
+  streak_30:      { label: "30 dias seguidos",   emoji: "⚡", color: "bg-yellow-500/15 border-yellow-500/30 text-yellow-300" },
+  level_b1:       { label: "Nível B1",           emoji: "🌱", color: "bg-teal-500/15 border-teal-500/30 text-teal-300" },
+  level_b2:       { label: "Nível B2",           emoji: "🌿", color: "bg-teal-600/15 border-teal-600/30 text-teal-200" },
+  level_c1:       { label: "Nível C1",           emoji: "🌟", color: "bg-violet-500/15 border-violet-500/30 text-violet-300" },
+};
+
+function levelColor(level: string) {
   const map: Record<string, string> = {
     A1: "bg-slate-500/20 text-slate-300 border-slate-500/30",
     A2: "bg-blue-500/20 text-blue-300 border-blue-500/30",
@@ -247,9 +262,10 @@ export default function ProfilePage() {
 
           {/* Proficiency */}
           {data.proficiency && (
-            <div className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold ${cefrColor(data.proficiency.cefrLevel)}`}>
+            <div className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold ${levelColor(data.proficiency.level)}`}>
               <Star className="h-3.5 w-3.5" />
-              Nível {data.proficiency.cefrLevel} — {data.proficiency.level}
+              Nível {data.proficiency.level} — {data.proficiency.levelLabel}
+              <span className="opacity-60 font-normal">· {Math.round(data.proficiency.totalAvg)}%</span>
             </div>
           )}
 
@@ -268,6 +284,26 @@ export default function ProfilePage() {
           </div>
         </div>
 
+        {/* Badges (conquistas) */}
+        {data.badges.length > 0 && (
+          <div className="mt-6 space-y-3">
+            <div className="flex items-center gap-2 px-1">
+              <BadgeCheck className="h-4 w-4 text-violet-400" />
+              <p className="font-semibold text-sm">Conquistas</p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {data.badges.map((b) => {
+                const meta = BADGE_META[b.slug] ?? { label: b.slug, emoji: "🏅", color: "bg-white/10 border-white/20 text-white" };
+                return (
+                  <span key={b.slug} className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold ${meta.color}`}>
+                    {meta.emoji} {meta.label}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
         {/* Challenges section */}
         {data.challenges.length > 0 && (
           <div className="mt-6 space-y-3">
@@ -276,25 +312,17 @@ export default function ProfilePage() {
               <p className="font-semibold text-sm">Desafios concluídos</p>
             </div>
             <div className="space-y-2">
-              {data.challenges.map((c) => {
-                const avg = Math.round((c.evaluation.fluencyScore + c.evaluation.contentScore + c.evaluation.clarityScore) / 3);
-                return (
-                  <div key={c.id} className="rounded-xl border border-white/8 bg-white/5 backdrop-blur px-4 py-3 flex items-center justify-between gap-3">
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium truncate">{c.challenge.title}</p>
-                      <p className="text-[11px] text-muted-foreground mt-0.5">
-                        Fluência {c.evaluation.fluencyScore} · Conteúdo {c.evaluation.contentScore} · Clareza {c.evaluation.clarityScore}
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-2 shrink-0">
-                      <span className={`rounded-full border px-2 py-0.5 text-[10px] font-bold ${cefrColor(c.evaluation.cefrLevel)}`}>
-                        {c.evaluation.cefrLevel}
-                      </span>
-                      <span className="text-sm font-bold text-amber-400">{avg}%</span>
-                    </div>
+              {data.challenges.map((c) => (
+                <div key={c.id} className="rounded-xl border border-white/8 bg-white/5 backdrop-blur px-4 py-3 flex items-center justify-between gap-3">
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-medium truncate">{c.challenge.title}</p>
+                    <p className="text-[11px] text-muted-foreground mt-0.5">
+                      Fluência {c.evaluation.fluencyScore} · Conteúdo {c.evaluation.contentScore} · Clareza {c.evaluation.clarityScore}
+                    </p>
                   </div>
-                );
-              })}
+                  <span className="text-sm font-bold text-amber-400 shrink-0">{c.evaluation.totalScore}%</span>
+                </div>
+              ))}
             </div>
           </div>
         )}
