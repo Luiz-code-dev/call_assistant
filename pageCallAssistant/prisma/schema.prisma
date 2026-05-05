@@ -48,6 +48,7 @@ model User {
   statusText           String?   @db.VarChar(150)
   statusEmoji          String?   @db.VarChar(8)
   statusExpires        DateTime?
+  statusMediaUrl       String?   @db.Text
 }
 
 model CreditTransaction {

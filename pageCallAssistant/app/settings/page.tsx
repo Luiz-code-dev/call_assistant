@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,6 +11,7 @@ import { Mic2, LogOut, ArrowLeft, Loader2, Save } from "lucide-react";
 import { toast } from "sonner";
 
 export default function SettingsPage() {
+  const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [avatarUrl, setAvatarUrl] = useState("");
@@ -58,12 +60,12 @@ export default function SettingsPage() {
     <div className="min-h-screen bg-background">
       <header className="border-b border-border/50 bg-card/50 px-6 py-4">
         <div className="mx-auto flex max-w-3xl items-center justify-between">
-          <Link href="/home" className="flex items-center gap-2">
+          <button onClick={() => router.back()} className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600">
               <Mic2 className="h-4 w-4 text-white" />
             </div>
             <span className="font-semibold">SpeakFlow</span>
-          </Link>
+          </button>
           <button
             onClick={() => { sessionStorage.removeItem("sf_token"); localStorage.removeItem("sf_token"); window.location.href = "/api/auth/logout"; }}
             className="inline-flex items-center justify-center rounded-md text-sm font-medium text-muted-foreground hover:text-foreground h-8 w-8"
@@ -75,8 +77,8 @@ export default function SettingsPage() {
 
       <main className="mx-auto max-w-3xl px-6 py-10">
         <div className="mb-6 flex items-center gap-3">
-          <Button variant="ghost" size="sm" asChild>
-            <Link href="/home"><ArrowLeft className="h-4 w-4" /></Link>
+          <Button variant="ghost" size="sm" onClick={() => router.back()}>
+            <ArrowLeft className="h-4 w-4" />
           </Button>
           <div>
             <h1 className="text-2xl font-bold">Configurações</h1>

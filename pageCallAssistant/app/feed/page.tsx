@@ -6,14 +6,14 @@ import {
   Heart, MessageCircle, Share2, Send, Image as ImageIcon,
   MoreHorizontal, Trash2, X, ChevronDown, Loader2, Globe,
   ArrowLeft, UserPlus, Sparkles, TrendingUp, Users,
-  Clock, Compass, Check,
+  Clock, Compass, Check, Plus, Camera, Video, PlayCircle,
 } from "lucide-react";
 import { toast } from "sonner";
 
 /* ─── Types ─────────────────────────────────────────────── */
 interface UserSnap { id: string; name: string; username?: string | null; avatarUrl?: string | null; }
 interface FriendSnap { id: string; friend: UserSnap; }
-interface StatusData { id: string; name: string; avatarUrl?: string | null; username?: string | null; statusText: string; statusEmoji?: string | null; statusExpires: string; }
+interface StatusData { id: string; name: string; avatarUrl?: string | null; username?: string | null; statusText?: string | null; statusEmoji?: string | null; statusExpires: string; statusMediaUrl?: string | null; }
 interface SuggestionData { id: string; name: string; username?: string | null; avatarUrl?: string | null; _count: { posts: number; }; }
 interface CommentData { id: string; content: string; createdAt: string; user: UserSnap; }
 interface PostData {
@@ -360,129 +360,322 @@ function PostCard({ post, myId, onDelete, isStranger }: { post: PostData; myId: 
   );
 }
 
-/* ─── Friend Statuses (24h) ──────────────────────────────── */
-function FriendStatuses() {
-  const [statuses, setStatuses] = useState<StatusData[]>([]);
-  const [myStatus, setMyStatus] = useState<{ statusText: string; statusEmoji?: string | null; statusExpires: string } | null>(null);
-  const [showSetStatus, setShowSetStatus] = useState(false);
-  const [inputText, setInputText] = useState("");
-  const [inputEmoji, setInputEmoji] = useState("");
+/* ─── View Status Modal ──────────────────────────────────── */
+function ViewStatusModal({ status, onClose }: { status: StatusData; onClose: () => void }) {
+  const isVideo = status.statusMediaUrl?.startsWith("data:video") || status.statusMediaUrl?.match(/\.(mp4|webm|ogg)(\?|$)/i);
+  const timeLeft = (exp: string) => {
+    const h = Math.max(0, Math.floor((new Date(exp).getTime() - Date.now()) / 3600000));
+    const m = Math.max(0, Math.floor(((new Date(exp).getTime() - Date.now()) % 3600000) / 60000));
+    return h > 0 ? `${h}h restantes` : `${m}m restantes`;
+  };
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm" onClick={onClose}>
+      <div className="relative w-full max-w-sm mx-4 rounded-2xl overflow-hidden border border-white/10 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-center gap-3 px-4 py-3 bg-zinc-900/90 backdrop-blur">
+          <Avatar name={status.name} avatarUrl={status.avatarUrl} size="sm" />
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-semibold truncate">{status.name}</p>
+            <p className="text-[11px] text-amber-400">{timeLeft(status.statusExpires)}</p>
+          </div>
+          <button onClick={onClose} className="text-muted-foreground hover:text-foreground transition-colors"><X className="h-5 w-5" /></button>
+        </div>
+        {status.statusMediaUrl && (
+          isVideo
+            ? <video src={status.statusMediaUrl} autoPlay loop playsInline className="w-full max-h-72 object-cover bg-black" />
+            : <img src={status.statusMediaUrl} alt="status" className="w-full max-h-72 object-cover" />
+        )}
+        {(status.statusText || status.statusEmoji) && (
+          <div className="px-4 py-3 bg-zinc-900/90">
+            <p className="text-sm leading-relaxed">
+              {status.statusEmoji && <span className="mr-1.5 text-base">{status.statusEmoji}</span>}
+              {status.statusText}
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/* ─── Create Status Modal ────────────────────────────────── */
+function CreateStatusModal({ me, current, onClose, onSaved }: {
+  me: UserSnap | null;
+  current: StatusData | null;
+  onClose: () => void;
+  onSaved: (s: StatusData) => void;
+}) {
+  const [mode, setMode] = useState<"text" | "photo" | "video">("text");
+  const [text, setText] = useState(current?.statusText ?? "");
+  const [emoji, setEmoji] = useState(current?.statusEmoji ?? "");
+  const [mediaUrl, setMediaUrl] = useState(current?.statusMediaUrl ?? "");
   const [saving, setSaving] = useState(false);
+  const [recording, setRecording] = useState(false);
+  const [countdown, setCountdown] = useState(10);
+  const [streamActive, setStreamActive] = useState(false);
+  const videoPreviewRef = useRef<HTMLVideoElement>(null);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const chunksRef = useRef<BlobPart[]>([]);
+  const streamRef = useRef<MediaStream | null>(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => () => {
+    streamRef.current?.getTracks().forEach((t) => t.stop());
+    if (timerRef.current) clearInterval(timerRef.current);
+  }, []);
+
+  async function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (file.size > 3 * 1024 * 1024) { toast.error("Arquivo muito grande (máx 3 MB)"); return; }
+    const reader = new FileReader();
+    reader.onload = (ev) => setMediaUrl(ev.target?.result as string);
+    reader.readAsDataURL(file);
+  }
+
+  async function startCamera() {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: { width: 320, height: 240 }, audio: true });
+      streamRef.current = stream;
+      if (videoPreviewRef.current) { videoPreviewRef.current.srcObject = stream; videoPreviewRef.current.play(); }
+      setStreamActive(true);
+    } catch { toast.error("Não foi possível acessar a câmera."); }
+  }
+
+  function startRecording() {
+    if (!streamRef.current) return;
+    chunksRef.current = [];
+    const mr = new MediaRecorder(streamRef.current, { videoBitsPerSecond: 250000 });
+    mediaRecorderRef.current = mr;
+    mr.ondataavailable = (e) => { if (e.data.size > 0) chunksRef.current.push(e.data); };
+    mr.onstop = () => {
+      const blob = new Blob(chunksRef.current, { type: "video/webm" });
+      const reader = new FileReader();
+      reader.onload = (e) => setMediaUrl(e.target?.result as string);
+      reader.readAsDataURL(blob);
+      streamRef.current?.getTracks().forEach((t) => t.stop());
+      setStreamActive(false);
+    };
+    mr.start(100);
+    setRecording(true);
+    setCountdown(10);
+    let c = 10;
+    timerRef.current = setInterval(() => {
+      c--;
+      setCountdown(c);
+      if (c <= 0) { clearInterval(timerRef.current!); mr.stop(); setRecording(false); }
+    }, 1000);
+  }
+
+  function stopRecording() {
+    if (timerRef.current) clearInterval(timerRef.current);
+    mediaRecorderRef.current?.stop();
+    setRecording(false);
+  }
+
+  async function save() {
+    if (!text.trim() && !emoji.trim() && !mediaUrl)
+      return toast.error("Adicione texto ou mídia ao status.");
+    setSaving(true);
+    const res = await fetch("/api/status", {
+      method: "POST", headers: authHeaders(),
+      body: JSON.stringify({ statusText: text || null, statusEmoji: emoji || null, statusMediaUrl: mediaUrl || null }),
+    });
+    if (res.ok) {
+      const d = await res.json();
+      const now = new Date();
+      const statusData: StatusData = {
+        id: me?.id ?? "", name: me?.name ?? "", avatarUrl: me?.avatarUrl,
+        statusText: text || null, statusEmoji: emoji || null, statusMediaUrl: mediaUrl || null,
+        statusExpires: d.statusExpires ?? new Date(now.getTime() + 86400000).toISOString(),
+      };
+      onSaved(statusData);
+      toast.success("Status publicado por 24h! ✨");
+    } else toast.error("Erro ao salvar status.");
+    setSaving(false);
+  }
+
+  async function clearStatus() {
+    await fetch("/api/status", { method: "POST", headers: authHeaders(), body: JSON.stringify({ clear: true }) });
+    onSaved({ id: "", name: "", statusText: null, statusEmoji: null, statusMediaUrl: null, statusExpires: "" });
+    toast.success("Status removido.");
+  }
+
+  const tabCls = (m: "text" | "photo" | "video") =>
+    `flex-1 flex items-center justify-center gap-1.5 py-2 text-xs font-semibold rounded-lg transition-colors ${mode === m ? "bg-violet-600 text-white" : "text-muted-foreground hover:text-foreground"}`;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/80 backdrop-blur-sm" onClick={onClose}>
+      <div className="w-full max-w-sm mx-auto sm:mx-4 rounded-t-3xl sm:rounded-2xl border border-white/10 bg-zinc-900 shadow-2xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-center justify-between px-4 py-3 border-b border-white/8">
+          <p className="font-semibold text-sm">Novo status (24h)</p>
+          <button onClick={onClose}><X className="h-5 w-5 text-muted-foreground hover:text-foreground" /></button>
+        </div>
+
+        {/* Tabs */}
+        <div className="flex gap-1 p-3 pb-0">
+          <button className={tabCls("text")} onClick={() => setMode("text")}><Clock className="h-3.5 w-3.5" /> Texto</button>
+          <button className={tabCls("photo")} onClick={() => setMode("photo")}><ImageIcon className="h-3.5 w-3.5" /> Foto</button>
+          <button className={tabCls("video")} onClick={() => setMode("video")}><Video className="h-3.5 w-3.5" /> Vídeo</button>
+        </div>
+
+        <div className="p-4 space-y-3">
+          {/* Emoji + text (shown in text mode and as caption in photo/video) */}
+          <div className="flex gap-2">
+            <input value={emoji} onChange={(e) => setEmoji(e.target.value)} placeholder="😊" maxLength={2}
+              className="w-12 rounded-xl border border-border bg-zinc-800 px-2 py-2 text-center text-base outline-none focus:ring-2 focus:ring-violet-500/40" />
+            <input value={text} onChange={(e) => setText(e.target.value.slice(0, 150))} placeholder="O que está acontecendo?" maxLength={150}
+              className="flex-1 rounded-xl border border-border bg-zinc-800 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500/40" />
+          </div>
+
+          {/* Photo mode */}
+          {mode === "photo" && (
+            <div className="space-y-2">
+              <label className="flex items-center justify-center gap-2 cursor-pointer rounded-xl border-2 border-dashed border-white/15 bg-white/3 hover:border-violet-500/40 hover:bg-violet-500/5 p-4 transition-colors">
+                <Camera className="h-4 w-4 text-muted-foreground" />
+                <span className="text-sm text-muted-foreground">Escolher foto (máx 3 MB)</span>
+                <input type="file" accept="image/*" className="hidden" onChange={handleFile} />
+              </label>
+              {mediaUrl && mediaUrl.startsWith("data:image") && (
+                <div className="relative">
+                  <img src={mediaUrl} alt="preview" className="w-full h-40 object-cover rounded-xl" />
+                  <button onClick={() => setMediaUrl("")} className="absolute top-2 right-2 rounded-full bg-black/60 p-1"><X className="h-3.5 w-3.5" /></button>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Video mode */}
+          {mode === "video" && (
+            <div className="space-y-2">
+              {!mediaUrl && (
+                <div className="space-y-2">
+                  <div className="relative rounded-xl overflow-hidden bg-black aspect-video flex items-center justify-center">
+                    <video ref={videoPreviewRef} muted playsInline className="w-full h-full object-cover" />
+                    {!streamActive && !recording && (
+                      <button onClick={startCamera} className="absolute flex flex-col items-center gap-2 text-white">
+                        <Camera className="h-10 w-10 opacity-60" />
+                        <span className="text-xs opacity-60">Ativar câmera</span>
+                      </button>
+                    )}
+                    {recording && (
+                      <div className="absolute top-2 left-2 flex items-center gap-1.5 rounded-full bg-red-600/90 px-2.5 py-1">
+                        <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
+                        <span className="text-xs text-white font-semibold">{countdown}s</span>
+                      </div>
+                    )}
+                  </div>
+                  {streamActive && !recording && (
+                    <button onClick={startRecording} className="w-full rounded-xl bg-red-600 hover:bg-red-500 text-white text-sm font-semibold py-2.5 transition-colors">
+                      ⏺ Gravar 10 segundos
+                    </button>
+                  )}
+                  {recording && (
+                    <button onClick={stopRecording} className="w-full rounded-xl border border-red-500 text-red-400 text-sm font-semibold py-2.5 transition-colors">
+                      ⏹ Parar gravação
+                    </button>
+                  )}
+                </div>
+              )}
+              {mediaUrl && (
+                <div className="relative">
+                  <video src={mediaUrl} controls playsInline className="w-full rounded-xl max-h-48 bg-black" />
+                  <button onClick={() => setMediaUrl("")} className="absolute top-2 right-2 rounded-full bg-black/60 p-1"><X className="h-3.5 w-3.5" /></button>
+                </div>
+              )}
+            </div>
+          )}
+
+          <div className="flex gap-2 pt-1">
+            <button onClick={save} disabled={saving || (!text.trim() && !emoji.trim() && !mediaUrl)}
+              className="flex-1 rounded-xl bg-violet-600 hover:bg-violet-500 disabled:opacity-40 text-white text-sm font-semibold py-2.5 transition-colors">
+              {saving ? "Publicando..." : "Publicar status"}
+            </button>
+            {current && (
+              <button onClick={clearStatus} className="rounded-xl border border-rose-500/40 text-rose-400 hover:bg-rose-500/10 px-4 text-sm transition-colors">
+                Remover
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── Stories Strip ──────────────────────────────────────── */
+function StoriesStrip({ me }: { me: UserSnap | null }) {
+  const [statuses, setStatuses] = useState<StatusData[]>([]);
+  const [myStatus, setMyStatus] = useState<StatusData | null>(null);
+  const [showCreate, setShowCreate] = useState(false);
+  const [viewing, setViewing] = useState<StatusData | null>(null);
 
   useEffect(() => {
     fetch("/api/friends/statuses", { headers: authHeaders() })
       .then((r) => r.ok ? r.json() : []).then(setStatuses).catch(() => {});
     fetch("/api/status", { headers: authHeaders() })
       .then((r) => r.ok ? r.json() : null)
-      .then((d) => { if (d?.statusText) setMyStatus(d); })
+      .then((d) => { if (d?.statusText || d?.statusMediaUrl) setMyStatus(d); })
       .catch(() => {});
   }, []);
 
-  async function saveStatus() {
-    if (!inputText.trim() && !inputEmoji.trim()) return;
-    setSaving(true);
-    const res = await fetch("/api/status", {
-      method: "POST", headers: authHeaders(),
-      body: JSON.stringify({ statusText: inputText, statusEmoji: inputEmoji }),
-    });
-    if (res.ok) {
-      const d = await res.json();
-      setMyStatus({ statusText: inputText, statusEmoji: inputEmoji, statusExpires: d.statusExpires });
-      setShowSetStatus(false); setInputText(""); setInputEmoji("");
-      toast.success("Status definido por 24h!");
-    }
-    setSaving(false);
-  }
+  const hasActivity = myStatus || statuses.length > 0;
 
-  async function clearStatus() {
-    await fetch("/api/status", { method: "POST", headers: authHeaders(), body: JSON.stringify({ clear: true }) });
-    setMyStatus(null);
-    toast.success("Status removido.");
-  }
-
-  const timeLeft = (exp: string) => {
-    const h = Math.max(0, Math.floor((new Date(exp).getTime() - Date.now()) / 3600000));
-    return h > 0 ? `${h}h` : "<1h";
-  };
-
-  if (statuses.length === 0 && !myStatus && !showSetStatus) {
-    return (
-      <button
-        onClick={() => setShowSetStatus(true)}
-        className="w-full flex items-center gap-2 rounded-xl border border-dashed border-white/15 bg-white/3 px-3 py-2.5 text-xs text-muted-foreground hover:text-violet-400 hover:border-violet-500/30 transition-colors"
-      >
-        <Clock className="h-3.5 w-3.5 shrink-0" /> Definir seu status (24h)
-      </button>
-    );
-  }
+  if (!hasActivity && !me) return null;
 
   return (
-    <div className="rounded-2xl border border-white/8 bg-white/5 backdrop-blur overflow-hidden">
-      <div className="flex items-center justify-between px-4 pt-3 pb-2">
-        <div className="flex items-center gap-2">
-          <Clock className="h-3.5 w-3.5 text-amber-400" />
-          <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Status (24h)</p>
+    <>
+      <div className="rounded-2xl border border-white/8 bg-white/5 backdrop-blur overflow-hidden">
+        <div className="flex gap-5 px-4 py-4 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
+          {/* My story */}
+          <button onClick={() => setShowCreate(true)} className="flex flex-col items-center gap-2 shrink-0 group">
+            <div className={`relative rounded-full ${myStatus ? "ring-2 ring-amber-400 ring-offset-2 ring-offset-zinc-900" : "ring-2 ring-dashed ring-white/20"} transition-all group-hover:scale-105`}>
+              <Avatar name={me?.name ?? "Eu"} avatarUrl={me?.avatarUrl} size="md" />
+              {!myStatus && (
+                <span className="absolute -bottom-0.5 -right-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-violet-600 border-2 border-zinc-900 text-white">
+                  <Plus className="h-3 w-3" />
+                </span>
+              )}
+              {myStatus?.statusMediaUrl && (
+                <span className="absolute -bottom-0.5 -right-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-amber-500 border-2 border-zinc-900">
+                  {myStatus.statusMediaUrl.startsWith("data:video") ? <PlayCircle className="h-3 w-3 text-white" /> : <ImageIcon className="h-3 w-3 text-white" />}
+                </span>
+              )}
+            </div>
+            <span className="text-[10px] text-muted-foreground leading-none">{myStatus ? "Meu status" : "Adicionar"}</span>
+          </button>
+
+          {/* Friend stories */}
+          {statuses.map((s) => (
+            <button key={s.id} onClick={() => setViewing(s)} className="flex flex-col items-center gap-2 shrink-0 group">
+              <div className="relative rounded-full ring-2 ring-amber-400 ring-offset-2 ring-offset-zinc-900 transition-all group-hover:scale-105">
+                <Avatar name={s.name} avatarUrl={s.avatarUrl} size="md" />
+                {s.statusEmoji && (
+                  <span className="absolute -bottom-0.5 -right-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-zinc-800 border border-white/10 text-sm leading-none">{s.statusEmoji}</span>
+                )}
+              </div>
+              <span className="text-[10px] text-muted-foreground leading-none max-w-[48px] truncate">{s.name.split(" ")[0]}</span>
+            </button>
+          ))}
+
+          {statuses.length === 0 && !myStatus && (
+            <div className="flex items-center gap-2 text-xs text-muted-foreground px-2">
+              <Clock className="h-4 w-4 text-amber-400" />
+              Seus amigos aparecerão aqui quando publicarem um status
+            </div>
+          )}
         </div>
       </div>
 
-      {/* My status */}
-      {myStatus ? (
-        <div className="px-4 pb-2 flex items-center gap-2">
-          <div className="flex-1 rounded-xl border border-amber-500/20 bg-amber-500/5 px-3 py-2">
-            <p className="text-xs leading-snug">
-              {myStatus.statusEmoji && <span className="mr-1">{myStatus.statusEmoji}</span>}
-              <span>{myStatus.statusText}</span>
-              <span className="ml-2 text-muted-foreground text-[10px]">· {timeLeft(myStatus.statusExpires)}</span>
-            </p>
-          </div>
-          <button onClick={clearStatus} className="text-muted-foreground hover:text-rose-400 transition-colors"><X className="h-3.5 w-3.5" /></button>
-        </div>
-      ) : (
-        <button onClick={() => setShowSetStatus(true)} className="mx-4 mb-2 flex items-center gap-1.5 text-xs text-muted-foreground hover:text-amber-400 transition-colors">
-          + Definir meu status
-        </button>
+      {showCreate && (
+        <CreateStatusModal
+          me={me}
+          current={myStatus}
+          onClose={() => setShowCreate(false)}
+          onSaved={(s) => { setMyStatus(s.statusExpires ? s : null); setShowCreate(false); }}
+        />
       )}
-
-      {/* Set status form */}
-      {showSetStatus && (
-        <div className="px-4 pb-3 space-y-2">
-          <div className="flex gap-2">
-            <input value={inputEmoji} onChange={(e) => setInputEmoji(e.target.value)} placeholder="😊" maxLength={2}
-              className="w-12 rounded-lg border border-border bg-input px-2 py-1.5 text-sm outline-none text-center focus:ring-2 focus:ring-violet-500/40" />
-            <input value={inputText} onChange={(e) => setInputText(e.target.value)} placeholder="O que está fazendo?" maxLength={150}
-              className="flex-1 rounded-lg border border-border bg-input px-3 py-1.5 text-sm outline-none focus:ring-2 focus:ring-violet-500/40" />
-          </div>
-          <div className="flex gap-2">
-            <button onClick={saveStatus} disabled={saving || (!inputText.trim() && !inputEmoji.trim())}
-              className="flex-1 rounded-lg bg-violet-600 hover:bg-violet-500 disabled:opacity-40 text-white text-xs font-semibold py-1.5 transition-colors">
-              {saving ? "Salvando..." : "Publicar (24h)"}
-            </button>
-            <button onClick={() => setShowSetStatus(false)} className="rounded-lg border border-border px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"><X className="h-3.5 w-3.5" /></button>
-          </div>
-        </div>
-      )}
-
-      {/* Friends statuses */}
-      {statuses.length > 0 && (
-        <div className="pb-2 space-y-0.5">
-          {statuses.slice(0, 5).map((s) => (
-            <Link key={s.id} href={`/profile/${s.id}`} className="flex items-center gap-3 px-4 py-2 hover:bg-white/5 transition-colors">
-              <div className="relative shrink-0">
-                <Avatar name={s.name} avatarUrl={s.avatarUrl} size="sm" />
-                <span className="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-amber-400 text-[8px]">
-                  {s.statusEmoji ?? "💬"}
-                </span>
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-xs font-semibold truncate">{s.name.split(" ")[0]}</p>
-                <p className="text-[11px] text-muted-foreground truncate">{s.statusText}</p>
-              </div>
-              <span className="text-[10px] text-muted-foreground shrink-0">{timeLeft(s.statusExpires)}</span>
-            </Link>
-          ))}
-        </div>
-      )}
-    </div>
+      {viewing && <ViewStatusModal status={viewing} onClose={() => setViewing(null)} />}
+    </>
   );
 }
 
@@ -668,9 +861,6 @@ function Sidebar({ me }: { me: UserSnap | null }) {
         )}
       </div>
 
-      {/* Friend statuses */}
-      <FriendStatuses />
-
       {/* Friend suggestions */}
       <FriendSuggestions />
 
@@ -797,6 +987,8 @@ export default function FeedPage() {
 
           {/* Feed column */}
           <div className="flex-1 min-w-0 space-y-4">
+            <StoriesStrip me={me} />
+
             {tab === "friends" && <CreatePost me={me} onCreated={onPostCreated} />}
 
             {tab === "discover" && (
@@ -827,7 +1019,7 @@ export default function FeedPage() {
             ) : posts.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-24 text-center gap-4">
                 <div className="h-20 w-20 rounded-full bg-gradient-to-br from-violet-600/20 to-indigo-600/20 border border-violet-500/20 flex items-center justify-center text-3xl">
-                  {tab === "discover" ? "�" : "�👋"}
+                  {tab === "discover" ? "�" : "��"}
                 </div>
                 <div>
                   <p className="font-semibold text-foreground">

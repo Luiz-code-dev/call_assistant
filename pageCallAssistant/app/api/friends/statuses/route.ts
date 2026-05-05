@@ -28,11 +28,11 @@ export async function GET(req: NextRequest) {
     where: {
       id: { in: friendIds },
       statusExpires: { gt: now },
-      statusText: { not: null },
+      OR: [{ statusText: { not: null } }, { statusMediaUrl: { not: null } }],
     },
     select: {
       id: true, name: true, avatarUrl: true, username: true,
-      statusText: true, statusEmoji: true, statusExpires: true,
+      statusText: true, statusEmoji: true, statusExpires: true, statusMediaUrl: true,
     },
   }).catch(() => []);
 

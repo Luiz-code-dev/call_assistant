@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const user = await (db as any).user.findUnique({
     where: { id: session.sub },
-    select: { statusText: true, statusEmoji: true, statusExpires: true },
+    select: { statusText: true, statusEmoji: true, statusExpires: true, statusMediaUrl: true },
   }).catch(() => null);
 
   if (!user) return NextResponse.json({ status: null });
@@ -17,7 +17,7 @@ export async function GET(req: NextRequest) {
   const active = user.statusExpires && new Date(user.statusExpires) > new Date();
   return NextResponse.json(
     active
-      ? { statusText: user.statusText, statusEmoji: user.statusEmoji, statusExpires: user.statusExpires }
+      ? { statusText: user.statusText, statusEmoji: user.statusEmoji, statusExpires: user.statusExpires, statusMediaUrl: user.statusMediaUrl }
       : { status: null }
   );
 }
@@ -26,18 +26,18 @@ export async function POST(req: NextRequest) {
   const session = await getNetworkSession(req);
   if (!session) return NextResponse.json({ error: "not_authenticated" }, { status: 401 });
 
-  const { statusText, statusEmoji, clear } = await req.json();
+  const { statusText, statusEmoji, statusMediaUrl, clear } = await req.json();
 
   if (clear) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     await (db as any).user.update({
       where: { id: session.sub },
-      data: { statusText: null, statusEmoji: null, statusExpires: null },
+      data: { statusText: null, statusEmoji: null, statusExpires: null, statusMediaUrl: null },
     }).catch(() => null);
     return NextResponse.json({ ok: true });
   }
 
-  if (!statusText?.trim() && !statusEmoji?.trim())
+  if (!statusText?.trim() && !statusEmoji?.trim() && !statusMediaUrl)
     return NextResponse.json({ error: "empty_status" }, { status: 400 });
   if (statusText && statusText.length > 150)
     return NextResponse.json({ error: "too_long" }, { status: 400 });
@@ -50,6 +50,7 @@ export async function POST(req: NextRequest) {
     data: {
       statusText: statusText?.trim() ?? null,
       statusEmoji: statusEmoji?.trim() ?? null,
+      statusMediaUrl: statusMediaUrl ?? null,
       statusExpires,
     },
   }).catch(() => null);
