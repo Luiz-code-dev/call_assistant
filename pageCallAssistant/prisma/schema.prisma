@@ -45,6 +45,9 @@ model User {
   posts                Post[]
   postLikes            PostLike[]
   postComments         PostComment[]
+  statusText           String?   @db.VarChar(150)
+  statusEmoji          String?   @db.VarChar(8)
+  statusExpires        DateTime?
 }
 
 model CreditTransaction {

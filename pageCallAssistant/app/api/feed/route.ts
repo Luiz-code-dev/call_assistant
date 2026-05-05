@@ -8,25 +8,32 @@ export async function GET(req: NextRequest) {
 
   const { searchParams } = new URL(req.url);
   const cursor = searchParams.get("cursor") ?? undefined;
+  const tab = searchParams.get("tab") ?? "friends";
   const take = 12;
 
-  // Get accepted friend IDs
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const friendships = await (db as any).friendship.findMany({
-    where: {
-      OR: [{ requesterId: session.sub }, { addresseeId: session.sub }],
-      status: "accepted",
-    },
-    select: { requesterId: true, addresseeId: true },
-  });
-  const friendIds: string[] = friendships.map((f: { requesterId: string; addresseeId: string }) =>
-    f.requesterId === session.sub ? f.addresseeId : f.requesterId
-  );
-  const authorIds = Array.from(new Set([session.sub, ...friendIds]));
+  let whereClause: any;
+
+  if (tab === "discover") {
+    whereClause = {};
+  } else {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const friendships = await (db as any).friendship.findMany({
+      where: {
+        OR: [{ requesterId: session.sub }, { addresseeId: session.sub }],
+        status: "accepted",
+      },
+      select: { requesterId: true, addresseeId: true },
+    });
+    const friendIds: string[] = friendships.map((f: { requesterId: string; addresseeId: string }) =>
+      f.requesterId === session.sub ? f.addresseeId : f.requesterId
+    );
+    whereClause = { userId: { in: Array.from(new Set([session.sub, ...friendIds])) } };
+  }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const posts = await (db as any).post.findMany({
-    where: { userId: { in: authorIds } },
+    where: whereClause,
     orderBy: { createdAt: "desc" },
     take: take + 1,
     ...(cursor ? { cursor: { id: cursor }, skip: 1 } : {}),

@@ -6,12 +6,15 @@ import {
   Heart, MessageCircle, Share2, Send, Image as ImageIcon,
   MoreHorizontal, Trash2, X, ChevronDown, Loader2, Globe,
   ArrowLeft, UserPlus, Sparkles, TrendingUp, Users,
+  Clock, Compass, Check,
 } from "lucide-react";
 import { toast } from "sonner";
 
 /* ─── Types ─────────────────────────────────────────────── */
 interface UserSnap { id: string; name: string; username?: string | null; avatarUrl?: string | null; }
 interface FriendSnap { id: string; friend: UserSnap; }
+interface StatusData { id: string; name: string; avatarUrl?: string | null; username?: string | null; statusText: string; statusEmoji?: string | null; statusExpires: string; }
+interface SuggestionData { id: string; name: string; username?: string | null; avatarUrl?: string | null; _count: { posts: number; }; }
 interface CommentData { id: string; content: string; createdAt: string; user: UserSnap; }
 interface PostData {
   id: string; content?: string | null; imageUrl?: string | null; createdAt: string;
@@ -160,7 +163,7 @@ function CommentRow({ c }: { c: CommentData }) {
 }
 
 /* ─── Post Card ──────────────────────────────────────────── */
-function PostCard({ post, myId, onDelete }: { post: PostData; myId: string | null; onDelete: (id: string) => void }) {
+function PostCard({ post, myId, onDelete, isStranger }: { post: PostData; myId: string | null; onDelete: (id: string) => void; isStranger?: boolean }) {
   const [liked, setLiked] = useState(post.likedByMe);
   const [likeCount, setLikeCount] = useState(post._count.likes);
   const [comments, setComments] = useState<CommentData[]>(post.comments);
@@ -171,6 +174,15 @@ function PostCard({ post, myId, onDelete }: { post: PostData; myId: string | nul
   const [submittingComment, setSubmittingComment] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [imageOpen, setImageOpen] = useState(false);
+  const [addedFriend, setAddedFriend] = useState(false);
+
+  async function sendFriendRequest(userId: string) {
+    const res = await fetch("/api/friends/request", {
+      method: "POST", headers: authHeaders(), body: JSON.stringify({ addresseeId: userId }),
+    });
+    if (res.ok) { setAddedFriend(true); toast.success("Solicitação enviada!"); }
+    else toast.error("Erro ao enviar solicitação.");
+  }
 
   async function toggleLike() {
     const wasLiked = liked;
@@ -234,20 +246,31 @@ function PostCard({ post, myId, onDelete }: { post: PostData; myId: string | nul
             <p className="text-[11px] text-muted-foreground">{timeAgo(post.createdAt)}</p>
           </div>
         </Link>
-        {isOwn && (
-          <div className="relative">
-            <button onClick={() => setShowMenu((v) => !v)} className="rounded-full p-1.5 text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
-              <MoreHorizontal className="h-4 w-4" />
+        <div className="flex items-center gap-2">
+          {isStranger && !isOwn && (
+            <button
+              onClick={() => sendFriendRequest(post.user.id)}
+              disabled={addedFriend}
+              className="flex items-center gap-1.5 rounded-xl border border-violet-500/40 bg-violet-500/10 hover:bg-violet-500/20 px-2.5 py-1 text-xs font-medium text-violet-400 disabled:opacity-60 transition-colors"
+            >
+              {addedFriend ? <><Check className="h-3 w-3" /> Enviado</> : <><UserPlus className="h-3 w-3" /> Adicionar</>}
             </button>
-            {showMenu && (
-              <div className="absolute right-0 top-8 z-20 rounded-xl border border-border/50 bg-card shadow-2xl py-1 min-w-[120px]">
-                <button onClick={deletePost} className="flex w-full items-center gap-2 px-3 py-2 text-sm text-rose-400 hover:bg-muted transition-colors">
-                  <Trash2 className="h-3.5 w-3.5" /> Apagar
-                </button>
-              </div>
-            )}
-          </div>
-        )}
+          )}
+          {isOwn && (
+            <div className="relative">
+              <button onClick={() => setShowMenu((v) => !v)} className="rounded-full p-1.5 text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
+                <MoreHorizontal className="h-4 w-4" />
+              </button>
+              {showMenu && (
+                <div className="absolute right-0 top-8 z-20 rounded-xl border border-border/50 bg-card shadow-2xl py-1 min-w-[120px]">
+                  <button onClick={deletePost} className="flex w-full items-center gap-2 px-3 py-2 text-sm text-rose-400 hover:bg-muted transition-colors">
+                    <Trash2 className="h-3.5 w-3.5" /> Apagar
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Content */}
@@ -334,6 +357,182 @@ function PostCard({ post, myId, onDelete }: { post: PostData; myId: string | nul
         </div>
       )}
     </article>
+  );
+}
+
+/* ─── Friend Statuses (24h) ──────────────────────────────── */
+function FriendStatuses() {
+  const [statuses, setStatuses] = useState<StatusData[]>([]);
+  const [myStatus, setMyStatus] = useState<{ statusText: string; statusEmoji?: string | null; statusExpires: string } | null>(null);
+  const [showSetStatus, setShowSetStatus] = useState(false);
+  const [inputText, setInputText] = useState("");
+  const [inputEmoji, setInputEmoji] = useState("");
+  const [saving, setSaving] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/friends/statuses", { headers: authHeaders() })
+      .then((r) => r.ok ? r.json() : []).then(setStatuses).catch(() => {});
+    fetch("/api/status", { headers: authHeaders() })
+      .then((r) => r.ok ? r.json() : null)
+      .then((d) => { if (d?.statusText) setMyStatus(d); })
+      .catch(() => {});
+  }, []);
+
+  async function saveStatus() {
+    if (!inputText.trim() && !inputEmoji.trim()) return;
+    setSaving(true);
+    const res = await fetch("/api/status", {
+      method: "POST", headers: authHeaders(),
+      body: JSON.stringify({ statusText: inputText, statusEmoji: inputEmoji }),
+    });
+    if (res.ok) {
+      const d = await res.json();
+      setMyStatus({ statusText: inputText, statusEmoji: inputEmoji, statusExpires: d.statusExpires });
+      setShowSetStatus(false); setInputText(""); setInputEmoji("");
+      toast.success("Status definido por 24h!");
+    }
+    setSaving(false);
+  }
+
+  async function clearStatus() {
+    await fetch("/api/status", { method: "POST", headers: authHeaders(), body: JSON.stringify({ clear: true }) });
+    setMyStatus(null);
+    toast.success("Status removido.");
+  }
+
+  const timeLeft = (exp: string) => {
+    const h = Math.max(0, Math.floor((new Date(exp).getTime() - Date.now()) / 3600000));
+    return h > 0 ? `${h}h` : "<1h";
+  };
+
+  if (statuses.length === 0 && !myStatus && !showSetStatus) {
+    return (
+      <button
+        onClick={() => setShowSetStatus(true)}
+        className="w-full flex items-center gap-2 rounded-xl border border-dashed border-white/15 bg-white/3 px-3 py-2.5 text-xs text-muted-foreground hover:text-violet-400 hover:border-violet-500/30 transition-colors"
+      >
+        <Clock className="h-3.5 w-3.5 shrink-0" /> Definir seu status (24h)
+      </button>
+    );
+  }
+
+  return (
+    <div className="rounded-2xl border border-white/8 bg-white/5 backdrop-blur overflow-hidden">
+      <div className="flex items-center justify-between px-4 pt-3 pb-2">
+        <div className="flex items-center gap-2">
+          <Clock className="h-3.5 w-3.5 text-amber-400" />
+          <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Status (24h)</p>
+        </div>
+      </div>
+
+      {/* My status */}
+      {myStatus ? (
+        <div className="px-4 pb-2 flex items-center gap-2">
+          <div className="flex-1 rounded-xl border border-amber-500/20 bg-amber-500/5 px-3 py-2">
+            <p className="text-xs leading-snug">
+              {myStatus.statusEmoji && <span className="mr-1">{myStatus.statusEmoji}</span>}
+              <span>{myStatus.statusText}</span>
+              <span className="ml-2 text-muted-foreground text-[10px]">· {timeLeft(myStatus.statusExpires)}</span>
+            </p>
+          </div>
+          <button onClick={clearStatus} className="text-muted-foreground hover:text-rose-400 transition-colors"><X className="h-3.5 w-3.5" /></button>
+        </div>
+      ) : (
+        <button onClick={() => setShowSetStatus(true)} className="mx-4 mb-2 flex items-center gap-1.5 text-xs text-muted-foreground hover:text-amber-400 transition-colors">
+          + Definir meu status
+        </button>
+      )}
+
+      {/* Set status form */}
+      {showSetStatus && (
+        <div className="px-4 pb-3 space-y-2">
+          <div className="flex gap-2">
+            <input value={inputEmoji} onChange={(e) => setInputEmoji(e.target.value)} placeholder="😊" maxLength={2}
+              className="w-12 rounded-lg border border-border bg-input px-2 py-1.5 text-sm outline-none text-center focus:ring-2 focus:ring-violet-500/40" />
+            <input value={inputText} onChange={(e) => setInputText(e.target.value)} placeholder="O que está fazendo?" maxLength={150}
+              className="flex-1 rounded-lg border border-border bg-input px-3 py-1.5 text-sm outline-none focus:ring-2 focus:ring-violet-500/40" />
+          </div>
+          <div className="flex gap-2">
+            <button onClick={saveStatus} disabled={saving || (!inputText.trim() && !inputEmoji.trim())}
+              className="flex-1 rounded-lg bg-violet-600 hover:bg-violet-500 disabled:opacity-40 text-white text-xs font-semibold py-1.5 transition-colors">
+              {saving ? "Salvando..." : "Publicar (24h)"}
+            </button>
+            <button onClick={() => setShowSetStatus(false)} className="rounded-lg border border-border px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"><X className="h-3.5 w-3.5" /></button>
+          </div>
+        </div>
+      )}
+
+      {/* Friends statuses */}
+      {statuses.length > 0 && (
+        <div className="pb-2 space-y-0.5">
+          {statuses.slice(0, 5).map((s) => (
+            <Link key={s.id} href={`/profile/${s.id}`} className="flex items-center gap-3 px-4 py-2 hover:bg-white/5 transition-colors">
+              <div className="relative shrink-0">
+                <Avatar name={s.name} avatarUrl={s.avatarUrl} size="sm" />
+                <span className="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-amber-400 text-[8px]">
+                  {s.statusEmoji ?? "💬"}
+                </span>
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-xs font-semibold truncate">{s.name.split(" ")[0]}</p>
+                <p className="text-[11px] text-muted-foreground truncate">{s.statusText}</p>
+              </div>
+              <span className="text-[10px] text-muted-foreground shrink-0">{timeLeft(s.statusExpires)}</span>
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ─── Friend Suggestions ─────────────────────────────────── */
+function FriendSuggestions() {
+  const [suggestions, setSuggestions] = useState<SuggestionData[]>([]);
+  const [sent, setSent] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    fetch("/api/feed/suggestions", { headers: authHeaders() })
+      .then((r) => r.ok ? r.json() : []).then(setSuggestions).catch(() => {});
+  }, []);
+
+  if (suggestions.length === 0) return null;
+
+  async function addFriend(id: string) {
+    const res = await fetch("/api/friends/request", {
+      method: "POST", headers: authHeaders(), body: JSON.stringify({ addresseeId: id }),
+    });
+    if (res.ok) { setSent((prev) => ({ ...prev, [id]: true })); toast.success("Solicitação enviada!"); }
+  }
+
+  return (
+    <div className="rounded-2xl border border-white/8 bg-white/5 backdrop-blur overflow-hidden">
+      <div className="flex items-center gap-2 px-4 pt-3 pb-2">
+        <UserPlus className="h-3.5 w-3.5 text-violet-400" />
+        <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Pessoas que você pode conhecer</p>
+      </div>
+      <div className="pb-2">
+        {suggestions.slice(0, 5).map((s) => (
+          <div key={s.id} className="flex items-center gap-3 px-4 py-2 hover:bg-white/5 transition-colors">
+            <Link href={`/profile/${s.id}`} className="shrink-0"><Avatar name={s.name} avatarUrl={s.avatarUrl} size="sm" /></Link>
+            <Link href={`/profile/${s.id}`} className="flex-1 min-w-0 hover:opacity-80 transition-opacity">
+              <p className="text-sm font-medium truncate">{s.name.split(" ").slice(0, 2).join(" ")}</p>
+              {s.username && <p className="text-[11px] text-muted-foreground truncate">@{s.username}</p>}
+            </Link>
+            <button
+              onClick={() => addFriend(s.id)}
+              disabled={sent[s.id]}
+              className="shrink-0 flex items-center gap-1 rounded-xl border border-violet-500/40 bg-violet-500/10 hover:bg-violet-500/20 px-2.5 py-1 text-xs font-medium text-violet-400 disabled:opacity-50 transition-colors"
+            >
+              {sent[s.id] ? <><Check className="h-3 w-3" /> Enviado</> : <><UserPlus className="h-3 w-3" /> Adicionar</>}
+            </button>
+          </div>
+        ))}
+        <Link href="/friends" className="flex items-center gap-2 px-4 pt-1 pb-2 text-xs text-muted-foreground hover:text-foreground transition-colors">
+          <Users className="h-3.5 w-3.5" /> Ver mais sugestões
+        </Link>
+      </div>
+    </div>
   );
 }
 
@@ -469,6 +668,12 @@ function Sidebar({ me }: { me: UserSnap | null }) {
         )}
       </div>
 
+      {/* Friend statuses */}
+      <FriendStatuses />
+
+      {/* Friend suggestions */}
+      <FriendSuggestions />
+
       {/* Quick links */}
       <div className="rounded-2xl border border-white/8 bg-white/5 backdrop-blur p-4 space-y-1">
         <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">Atalhos</p>
@@ -499,6 +704,7 @@ function Sidebar({ me }: { me: UserSnap | null }) {
 /* ─── Main Page ──────────────────────────────────────────── */
 export default function FeedPage() {
   const [me, setMe] = useState<UserSnap | null>(null);
+  const [tab, setTab] = useState<"friends" | "discover">("friends");
   const [posts, setPosts] = useState<PostData[]>([]);
   const [loading, setLoading] = useState(true);
   const [nextCursor, setNextCursor] = useState<string | null>(null);
@@ -512,8 +718,10 @@ export default function FeedPage() {
       .catch(() => {});
   }, []);
 
-  const loadPosts = useCallback(async (cursor?: string) => {
-    const url = cursor ? `/api/feed?cursor=${cursor}` : "/api/feed";
+  const loadPosts = useCallback(async (cursor?: string, currentTab?: string) => {
+    const t = currentTab ?? "friends";
+    const base = `/api/feed?tab=${t}`;
+    const url = cursor ? `${base}&cursor=${cursor}` : base;
     const res = await fetch(url, { headers: authHeaders() });
     if (!res.ok) return;
     const data = await res.json();
@@ -523,20 +731,22 @@ export default function FeedPage() {
 
   useEffect(() => {
     setLoading(true);
-    loadPosts().finally(() => setLoading(false));
-  }, [loadPosts]);
+    setPosts([]);
+    setNextCursor(null);
+    loadPosts(undefined, tab).finally(() => setLoading(false));
+  }, [loadPosts, tab]);
 
   useEffect(() => {
     if (!loaderRef.current || !nextCursor) return;
     const obs = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting && nextCursor && !loadingMore) {
         setLoadingMore(true);
-        loadPosts(nextCursor).finally(() => setLoadingMore(false));
+        loadPosts(nextCursor, tab).finally(() => setLoadingMore(false));
       }
     }, { threshold: 0.1 });
     obs.observe(loaderRef.current);
     return () => obs.disconnect();
-  }, [nextCursor, loadingMore, loadPosts]);
+  }, [nextCursor, loadingMore, loadPosts, tab]);
 
   function onPostCreated(p: PostData) { setPosts((prev) => [p, ...prev]); }
   function onPostDeleted(id: string) { setPosts((prev) => prev.filter((p) => p.id !== id)); }
@@ -545,7 +755,6 @@ export default function FeedPage() {
     <div className="min-h-screen relative overflow-x-hidden"
       style={{ background: "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(124,58,237,0.15) 0%, transparent 60%), #09090b" }}>
 
-      {/* Decorative blobs */}
       <div className="pointer-events-none fixed -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-violet-600/5 blur-3xl" />
       <div className="pointer-events-none fixed -bottom-40 -right-40 w-[500px] h-[500px] rounded-full bg-indigo-600/5 blur-3xl" />
 
@@ -558,12 +767,28 @@ export default function FeedPage() {
             </Link>
             <div>
               <h1 className="font-bold text-base leading-tight bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-                Feed
+                SpeakFlow Social
               </h1>
-              <p className="text-[11px] text-muted-foreground">Posts dos seus amigos</p>
+              <p className="text-[11px] text-muted-foreground">Conecte, pratique e evolua</p>
             </div>
           </div>
           <MobileHeaderActions />
+        </div>
+
+        {/* Tabs */}
+        <div className="mx-auto max-w-5xl flex gap-1 mt-2.5">
+          <button
+            onClick={() => setTab("friends")}
+            className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${tab === "friends" ? "bg-violet-600 text-white" : "text-muted-foreground hover:text-foreground hover:bg-white/5"}`}
+          >
+            <Users className="h-3.5 w-3.5" /> Amigos
+          </button>
+          <button
+            onClick={() => setTab("discover")}
+            className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${tab === "discover" ? "bg-violet-600 text-white" : "text-muted-foreground hover:text-foreground hover:bg-white/5"}`}
+          >
+            <Compass className="h-3.5 w-3.5" /> Descobrir
+          </button>
         </div>
       </header>
 
@@ -572,7 +797,16 @@ export default function FeedPage() {
 
           {/* Feed column */}
           <div className="flex-1 min-w-0 space-y-4">
-            <CreatePost me={me} onCreated={onPostCreated} />
+            {tab === "friends" && <CreatePost me={me} onCreated={onPostCreated} />}
+
+            {tab === "discover" && (
+              <div className="rounded-2xl border border-indigo-500/20 bg-indigo-500/5 px-4 py-3 flex items-center gap-2.5">
+                <Compass className="h-4 w-4 text-indigo-400 shrink-0" />
+                <p className="text-xs text-muted-foreground">
+                  Veja posts de toda a comunidade SpeakFlow. Adicione novos amigos e expanda sua rede!
+                </p>
+              </div>
+            )}
 
             {loading ? (
               <div className="space-y-4">
@@ -593,12 +827,16 @@ export default function FeedPage() {
             ) : posts.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-24 text-center gap-4">
                 <div className="h-20 w-20 rounded-full bg-gradient-to-br from-violet-600/20 to-indigo-600/20 border border-violet-500/20 flex items-center justify-center text-3xl">
-                  👋
+                  {tab === "discover" ? "�" : "�👋"}
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground">Nenhuma postagem ainda</p>
+                  <p className="font-semibold text-foreground">
+                    {tab === "discover" ? "Nenhum post público ainda" : "Nenhuma postagem ainda"}
+                  </p>
                   <p className="text-sm text-muted-foreground mt-1 max-w-xs">
-                    Adicione amigos para ver as postagens deles aqui, ou seja o primeiro a publicar!
+                    {tab === "discover"
+                      ? "Seja o primeiro a publicar e apareça no feed de descoberta!"
+                      : "Adicione amigos para ver as postagens deles aqui, ou seja o primeiro a publicar!"}
                   </p>
                 </div>
                 <Link href="/friends" className="flex items-center gap-1.5 rounded-xl bg-violet-600 hover:bg-violet-500 px-4 py-2 text-sm font-semibold text-white transition-colors">
@@ -607,7 +845,13 @@ export default function FeedPage() {
               </div>
             ) : (
               posts.map((p) => (
-                <PostCard key={p.id} post={p} myId={me?.id ?? null} onDelete={onPostDeleted} />
+                <PostCard
+                  key={p.id}
+                  post={p}
+                  myId={me?.id ?? null}
+                  onDelete={onPostDeleted}
+                  isStranger={tab === "discover" && p.user.id !== me?.id}
+                />
               ))
             )}
 

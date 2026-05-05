@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import {
   Mic2, Zap, Users, Star, CheckCircle2, Globe, ArrowRight, Brain, Shield, Monitor,
   MessageSquare, Target, Sparkles, Download, Smartphone, Award, Send, PenTool,
-  ChevronRight, Instagram,
+  ChevronRight, Instagram, Heart, UserPlus, Clock,
 } from "lucide-react";
 import { SupportChat } from "@/components/SupportChat";
 import { CookieManagerButton } from "@/components/CookieConsent";
@@ -455,6 +455,137 @@ function NetworkSection({ isLoggedIn }: { isLoggedIn: boolean }) {
   );
 }
 
+// ==================== SOCIAL FEED ====================
+
+function SocialSection({ isLoggedIn }: { isLoggedIn: boolean }) {
+  return (
+    <section id="social" className="relative py-24 sm:py-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection>
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1.5 text-xs font-semibold text-violet-400 mb-6">
+              <Heart className="h-3.5 w-3.5" /> Rede Social
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+              Aprenda junto com sua
+              <span className="bg-gradient-to-r from-rose-400 to-pink-500 bg-clip-text text-transparent"> rede de amigos</span>
+            </h2>
+            <p className="mt-6 text-lg text-zinc-400 max-w-2xl mx-auto">
+              O SpeakFlow vai além das ferramentas de IA — é uma comunidade viva de quem pratica inglês todo dia.
+            </p>
+          </div>
+        </AnimatedSection>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+          {/* Feature list */}
+          <AnimatedSection>
+            <div className="space-y-6">
+              {[
+                {
+                  icon: <Send className="h-5 w-5" />,
+                  gradient: "from-rose-500 to-pink-600",
+                  title: "Feed de Amigos",
+                  desc: "Publique textos e fotos sobre sua prática, curta e comente as postagens dos seus amigos. Motivação coletiva acelerada.",
+                },
+                {
+                  icon: <Globe className="h-5 w-5" />,
+                  gradient: "from-indigo-500 to-blue-600",
+                  title: "Descobrir — feed público",
+                  desc: "Veja posts de toda a comunidade SpeakFlow, mesmo de quem você ainda não segue. Encontre novos amigos pelo conteúdo que publicam.",
+                },
+                {
+                  icon: <Clock className="h-5 w-5" />,
+                  gradient: "from-amber-500 to-orange-600",
+                  title: "Status de 24 horas",
+                  desc: "Compartilhe o que está fazendo com seus amigos: estudando vocabulário, numa reunião em inglês ou comemorando uma conquista. Expira em 24h.",
+                },
+                {
+                  icon: <UserPlus className="h-5 w-5" />,
+                  gradient: "from-emerald-500 to-teal-600",
+                  title: "Chat criptografado + Grammar AI",
+                  desc: "Converse em inglês com seus amigos num chat privado. A IA analisa sua gramática, aponta erros e mostra seu nível CEFR em tempo real.",
+                },
+              ].map((f, i) => (
+                <AnimatedSection key={f.title} delay={i * 80}>
+                  <div className="flex gap-4">
+                    <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${f.gradient} text-white shadow-lg`}>
+                      {f.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white mb-1">{f.title}</h3>
+                      <p className="text-sm text-zinc-400 leading-relaxed">{f.desc}</p>
+                    </div>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </AnimatedSection>
+
+          {/* Visual mockup */}
+          <AnimatedSection delay={150}>
+            <div className="relative">
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-rose-500/20 to-pink-500/10 blur-2xl" />
+              <div className="relative rounded-3xl border border-white/10 bg-zinc-900/80 backdrop-blur p-6 space-y-4">
+                {/* Status bar */}
+                <div className="flex items-center gap-3 rounded-xl border border-amber-500/20 bg-amber-500/5 px-3 py-2">
+                  <div className="h-8 w-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-xs font-bold text-white">AM</div>
+                  <div className="flex-1">
+                    <p className="text-xs font-semibold text-white">Ana Martins</p>
+                    <p className="text-[11px] text-zinc-400">🎤 Praticando vocabulário de reuniões · 6h restantes</p>
+                  </div>
+                </div>
+
+                {/* Post mockup */}
+                <div className="rounded-xl border border-white/8 bg-white/5 p-4 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="h-8 w-8 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-xs font-bold text-white">RL</div>
+                      <div>
+                        <p className="text-xs font-semibold text-white">Rafael Lima</p>
+                        <p className="text-[10px] text-zinc-500">2h atrás</p>
+                      </div>
+                    </div>
+                    <span className="text-[10px] rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-400 px-2 py-0.5">+ Adicionar</span>
+                  </div>
+                  <p className="text-xs text-zinc-300 leading-relaxed">
+                    "Just nailed my technical interview in English! The SpeakFlow copilot helped me stay calm and structure my answers perfectly. 🎯"
+                  </p>
+                  <div className="flex items-center gap-4 pt-1">
+                    <span className="flex items-center gap-1 text-[11px] text-rose-400"><Heart className="h-3.5 w-3.5 fill-rose-400" /> 14</span>
+                    <span className="flex items-center gap-1 text-[11px] text-zinc-500"><MessageSquare className="h-3.5 w-3.5" /> 3 comentários</span>
+                  </div>
+                </div>
+
+                {/* Suggestion */}
+                <div className="flex items-center gap-3 rounded-xl border border-white/8 bg-white/4 px-3 py-2">
+                  <div className="h-8 w-8 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center text-xs font-bold text-white">CS</div>
+                  <div className="flex-1">
+                    <p className="text-xs font-semibold text-white">Camila S.</p>
+                    <p className="text-[10px] text-zinc-500">Pessoa que você pode conhecer · 4 posts</p>
+                  </div>
+                  <button className="text-[10px] rounded-lg border border-violet-500/40 bg-violet-500/10 text-violet-400 px-2.5 py-1">
+                    + Adicionar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+
+        <AnimatedSection>
+          <div className="text-center">
+            <Link href={isLoggedIn ? "/feed" : "/register"}>
+              <Button className="bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-400 hover:to-pink-500 text-white border-0 shadow-lg shadow-rose-500/25 px-8">
+                {isLoggedIn ? "Abrir o Feed" : "Criar conta grátis"} <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
 // ==================== TESTIMONIALS ====================
 
 function TestimonialsSection() {
@@ -638,6 +769,7 @@ export function LandingClient({ isLoggedIn }: { isLoggedIn: boolean }) {
       <FeaturesSection />
       <AIToolsSection isLoggedIn={isLoggedIn} />
       <NetworkSection isLoggedIn={isLoggedIn} />
+      <SocialSection isLoggedIn={isLoggedIn} />
       <TestimonialsSection />
       <PricingSection isLoggedIn={isLoggedIn} />
       <DownloadSection isLoggedIn={isLoggedIn} />
