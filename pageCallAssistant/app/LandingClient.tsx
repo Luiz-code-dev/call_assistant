@@ -496,9 +496,9 @@ function TestimonialsSection() {
 
 function PricingSection({ isLoggedIn }: { isLoggedIn: boolean }) {
   const plans = [
-    { name: "Gratuito", price: "Grátis", period: "", credits: "50 créditos", features: ["50 créditos ao criar conta","Transcrição em tempo real","Tradução automática","Copilot de sugestões","App desktop Windows"], cta: "Começar grátis", highlighted: false },
-    { name: "Básico", price: "R$ 74,90", period: "/mês", credits: "500 créditos/mês", features: ["Tudo do Gratuito","📡 SpeakFlow Live — 10 sugestões/dia","✍️ Ferramentas de prática IA","🏅 SpeakFlow Network — criar Circles","🎤 Treino de entrevista","Suporte por e-mail"], cta: "Assinar Básico", highlighted: true, badge: "POPULAR" },
-    { name: "Premium", price: "R$ 149,90", period: "/mês", credits: "1.000 créditos/mês", features: ["Tudo do Básico","📡 SpeakFlow Live — ilimitado","🏅 Circles ilimitados no Network","✍️ Ferramentas IA ilimitadas","🏆 Avaliação CEFR + Certificado","Suporte prioritário"], cta: "Assinar Premium", highlighted: false },
+    { name: "Gratuito", price: "Grátis", period: "", credits: "50 créditos", features: ["50 créditos ao criar conta","Transcrição em tempo real","Tradução automática","Copilot de sugestões","📡 SpeakFlow Live (via créditos)","🎰 Giro da Sorte — 1×/dia"], cta: "Começar grátis", highlighted: false },
+    { name: "Básico", price: "R$ 74,90", period: "/mês", credits: "500 créditos/mês", features: ["Tudo do Gratuito","📡 SpeakFlow Live — uso por créditos","✍️ Ferramentas de prática IA","🏅 SpeakFlow Network — criar Circles","🎤 Treino de entrevista","🎰 Giro 10 dias → Premium","Suporte por e-mail"], cta: "Assinar Básico", highlighted: true, badge: "POPULAR" },
+    { name: "Premium", price: "R$ 149,90", period: "/mês", credits: "1.000 créditos/mês", features: ["Tudo do Básico","📡 SpeakFlow Live — ilimitado","🏅 Circles ilimitados no Network","✍️ Ferramentas IA ilimitadas","🎰 Giro Premium — prêmios dobrados","🏆 Avaliação CEFR + Certificado","Suporte prioritário"], cta: "Assinar Premium", highlighted: false },
   ];
   return (
     <section id="precos" className="relative py-24 sm:py-32">

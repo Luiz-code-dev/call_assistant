@@ -15,7 +15,7 @@ const PLAN_RANK: Record<string, number> = { free: 0, basic: 1, premium: 2 };
  */
 const TOOL_CONFIG: Record<
   ToolName,
-  { minPlan: "basic" | "premium"; dailyLimit: Partial<Record<string, number>> }
+  { minPlan: "free" | "basic" | "premium"; dailyLimit: Partial<Record<string, number>> }
 > = {
   improve:   { minPlan: "basic",   dailyLimit: { basic: 5,  premium: Infinity } },
   generate:  { minPlan: "basic",   dailyLimit: { basic: 5,  premium: Infinity } },
@@ -23,7 +23,7 @@ const TOOL_CONFIG: Record<
   meeting:   { minPlan: "premium", dailyLimit: { premium: Infinity } },
   practice:  { minPlan: "basic",   dailyLimit: { basic: 1,  premium: Infinity } },
   network:   { minPlan: "basic",   dailyLimit: { basic: 3,  premium: Infinity } },
-  live:      { minPlan: "basic",   dailyLimit: { basic: 10, premium: Infinity } },
+  live:      { minPlan: "free",    dailyLimit: {} },
 };
 
 export interface AccessResult {

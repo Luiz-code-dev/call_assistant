@@ -4,6 +4,18 @@ import { randomBytes } from "crypto";
 import { db } from "@/lib/db";
 import { sendVerificationEmail } from "@/lib/email";
 import { generateUniqueUsername } from "@/lib/username";
+import { isDisposableEmail } from "@/lib/disposableEmails";
+
+const IP_REGISTRATION_LIMIT = 3;
+const IP_WINDOW_MS = 24 * 60 * 60 * 1000; // 24h
+
+function getClientIp(req: NextRequest): string {
+  return (
+    req.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
+    req.headers.get("x-real-ip") ||
+    "unknown"
+  );
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -17,6 +29,29 @@ export async function POST(req: NextRequest) {
     }
     if (!acceptedTerms) {
       return NextResponse.json({ message: "Você precisa aceitar os termos de uso" }, { status: 400 });
+    }
+
+    // 1. Block disposable / temporary email providers
+    if (isDisposableEmail(email)) {
+      return NextResponse.json(
+        { message: "E-mails temporários não são permitidos. Use um e-mail permanente." },
+        { status: 400 }
+      );
+    }
+
+    // 2. IP-based rate limiting — max 3 accounts per IP per 24h
+    const clientIp = getClientIp(req);
+    if (clientIp !== "unknown") {
+      const since = new Date(Date.now() - IP_WINDOW_MS);
+      const ipCount = await db.user.count({
+        where: { registrationIp: clientIp, createdAt: { gte: since } },
+      });
+      if (ipCount >= IP_REGISTRATION_LIMIT) {
+        return NextResponse.json(
+          { message: "Muitas contas criadas deste dispositivo. Tente novamente amanhã ou entre em contato com o suporte." },
+          { status: 429 }
+        );
+      }
     }
 
     const existing = await db.user.findUnique({ where: { email: email.toLowerCase() } });
@@ -41,6 +76,7 @@ export async function POST(req: NextRequest) {
         emailVerified: false,
         credits: 50,
         plan: "free",
+        registrationIp: clientIp,
       },
     });
 

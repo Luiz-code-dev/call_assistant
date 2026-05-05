@@ -36,7 +36,7 @@ export default async function GuiaPage() {
             Do primeiro acesso às ferramentas de IA — um guia prático e direto ao ponto.
           </p>
           <div className="flex flex-wrap justify-center gap-3 text-sm text-muted-foreground">
-            {["Primeiros passos", "App desktop", "Ferramentas de IA", "Créditos e planos", "Network & Circles", "SpeakFlow Live"].map((t) => (
+            {["Primeiros passos", "App desktop", "Ferramentas de IA", "Créditos e planos", "Network & Circles", "SpeakFlow Live", "Gamificação & Prêmios"].map((t) => (
               <span key={t} className="rounded-full border border-border/50 px-3 py-1">{t}</span>
             ))}
           </div>
@@ -62,6 +62,7 @@ export default async function GuiaPage() {
                 { n: "7", label: "Planos e diferenças", href: "#planos" },
                 { n: "8", label: "SpeakFlow Network — Circles e Desafios", href: "#network" },
                 { n: "9", label: "SpeakFlow Live — Copiloto em tempo real (PWA)", href: "#live" },
+                { n: "10", label: "Gamificação — Giro da Sorte, Sequência e Conquistas", href: "#gamificacao" },
               ].map((item) => (
                 <li key={item.n}>
                   <a href={item.href} className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
@@ -595,6 +596,82 @@ export default async function GuiaPage() {
 
             <Link href="/live" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-red-600 to-violet-600 px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity">
               <Radio className="h-4 w-4" /> Abrir SpeakFlow Live
+            </Link>
+          </div>
+        </section>
+
+        {/* Section 10 — Gamificação */}
+        <section id="gamificacao" className="scroll-mt-24">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-500/15 text-sm font-bold text-amber-400">10</div>
+            <h2 className="text-2xl font-bold">Gamificação — Giro da Sorte, Sequência e Conquistas</h2>
+          </div>
+          <div className="space-y-6">
+            <p className="text-muted-foreground leading-relaxed">
+              O SpeakFlow recompensa você por usar a plataforma todo dia. Quanto mais você praticar, mais créditos e conquistas você acumula — sem pagar nada a mais.
+            </p>
+
+            {/* Giro da Sorte */}
+            <div className="rounded-xl border border-amber-500/25 bg-amber-500/5 p-5 space-y-4">
+              <h3 className="font-semibold flex items-center gap-2">
+                <span className="text-xl">🎰</span> Giro da Sorte
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Uma vez por dia, você pode girar a roleta e ganhar créditos de gratuito. Disponivel em <strong className="text-white">/spin</strong> ou pelo card na tela inicial.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {[
+                  { emoji: "🎯", title: "1× por dia", desc: "Gire diariamente e acumule de 2 a 100 créditos" },
+                  { emoji: "🔥", title: "10 dias seguidos", desc: "Complete uma sequência e ative o Giro Premium com prêmios em dobro!" },
+                  { emoji: "💰", title: "Prêmios", desc: "2, 5, 10, 25, 50 ou 100 créditos — quanto mais raro, maior o prêmio" },
+                  { emoji: "💥", title: "Sequência quebra", desc: "Se pular um dia a sequência volta para zero — sem segunda chance" },
+                ].map((item) => (
+                  <div key={item.title} className="flex items-start gap-3 rounded-lg border border-border/50 bg-card p-3">
+                    <span className="text-base">{item.emoji}</span>
+                    <div>
+                      <p className="text-sm font-semibold">{item.title}</p>
+                      <p className="text-xs text-muted-foreground mt-0.5">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Conquistas */}
+            <div className="rounded-xl border border-violet-500/25 bg-violet-500/5 p-5 space-y-4">
+              <h3 className="font-semibold flex items-center gap-2">
+                <span className="text-xl">🏅</span> Conquistas (Badges)
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Complete ações na plataforma para desbloquear conquistas. Elas aparecem no seu perfil de progresso.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-2">
+                {[
+                  { emoji: "🎤", name: "1ª Sessão Live", desc: "Complete sua primeira sessão no SpeakFlow Live" },
+                  { emoji: "🔥", name: "10 Sessões Live", desc: "Alcance 10 sessões ao vivo" },
+                  { emoji: "💬", name: "50 Sessões Live", desc: "Veterano do Live com 50 sessões" },
+                  { emoji: "🎯", name: "Primeiro Desafio", desc: "Envie sua primeira resposta num Circle" },
+                  { emoji: "⭐", name: "Nota Alta", desc: "Conquiste score 9+ numa avaliação" },
+                  { emoji: "🧠", name: "Quiz Perfeito", desc: "Acerte 100% das questões num quiz" },
+                  { emoji: "🔧", name: "Ferramenteiro", desc: "Use qualquer ferramenta de IA do SpeakFlow" },
+                ].map((b) => (
+                  <div key={b.name} className="flex items-center gap-2 rounded-lg border border-border/50 bg-card px-3 py-2">
+                    <span className="text-base">{b.emoji}</span>
+                    <div>
+                      <p className="text-xs font-semibold">{b.name}</p>
+                      <p className="text-[11px] text-muted-foreground">{b.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-yellow-500/20 bg-yellow-500/5 p-4 text-sm text-muted-foreground">
+              💡 <strong>Dica:</strong> Pratique desafios no Circle, use o Live ou as ferramentas todo dia para manter sua sequência ativa e ganhar o Giro Premium!
+            </div>
+
+            <Link href="/spin" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity">
+              <Trophy className="h-4 w-4" /> Acessar meu Giro da Sorte
             </Link>
           </div>
         </section>

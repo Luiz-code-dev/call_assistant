@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Users, Zap, ChevronRight, Clock, Plus, Trophy } from "lucide-react";
+import { Users, Zap, ChevronRight, Clock, Plus, Trophy, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -62,6 +62,20 @@ export default function NetworkHomePage() {
           </Button>
         </div>
       </div>
+
+      {/* Giro da Sorte reminder */}
+      <Link href="/spin">
+        <div className="flex items-center justify-between rounded-xl border border-violet-500/25 bg-gradient-to-r from-violet-950/50 to-indigo-950/50 px-4 py-3 hover:border-violet-500/50 transition-colors">
+          <div className="flex items-center gap-3">
+            <span className="text-xl">🎰</span>
+            <div>
+              <p className="text-sm font-semibold text-white">Giro da Sorte — ganhe créditos todo dia!</p>
+              <p className="text-xs text-zinc-400">Complete desafios para manter sua sequência e desbloquear o Giro Premium 🔥</p>
+            </div>
+          </div>
+          <ChevronRight className="size-4 text-zinc-500 shrink-0" />
+        </div>
+      </Link>
 
       {pendingChallenges.length > 0 && (
         <Card className="border-violet-500/30 bg-violet-500/5">

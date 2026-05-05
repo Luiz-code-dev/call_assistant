@@ -407,16 +407,20 @@ function AchievementsSection({ earnedSlugs }: { earnedSlugs: string[] }) {
 
 function SpinCard() {
   const [spin, setSpin] = useState<{ canSpin: boolean; currentStreak: number; isPremiumSpin: boolean } | null>(null);
+  const [tried, setTried] = useState(false);
   useEffect(() => {
     fetch("/api/spin")
       .then((r) => r.json())
       .then(setSpin)
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => setTried(true));
   }, []);
 
-  if (!spin) return null;
-  const daysToNext = spin.currentStreak > 0 ? 10 - (spin.currentStreak % 10) : 10;
-  const isPremium = spin.isPremiumSpin;
+  if (!tried) return null;
+  const canSpin = spin?.canSpin ?? true;
+  const currentStreak = spin?.currentStreak ?? 0;
+  const daysToNext = currentStreak > 0 ? 10 - (currentStreak % 10) : 10;
+  const isPremium = spin?.isPremiumSpin ?? false;
 
   return (
     <section className="px-4 pb-6">
@@ -440,7 +444,7 @@ function SpinCard() {
                   <p className="font-bold text-white">
                     {isPremium ? "Giro Premium disponível!" : "Giro da Sorte"}
                   </p>
-                  {spin.canSpin && (
+                  {canSpin && (
                     <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full
                       ${ isPremium ? "bg-amber-500 text-white" : "bg-violet-500 text-white" }`}>
                       HOJE
@@ -450,18 +454,18 @@ function SpinCard() {
                 <p className="text-xs text-zinc-400">
                   {isPremium
                     ? "Prêmios em dobro! Gire agora 🎉"
-                    : spin.canSpin
+                    : canSpin
                       ? "Gire e ganhe até 100 créditos grátis!"
-                      : `${spin.currentStreak} dias seguidos · ${daysToNext}d para Giro Premium`
+                      : `${currentStreak} dias seguidos · ${daysToNext}d para Giro Premium`
                   }
                 </p>
               </div>
             </div>
             <div className="flex flex-col items-end gap-1 shrink-0">
               <div className="flex items-center gap-1">
-                <Flame className={`size-3.5 ${ spin.currentStreak >= 3 ? "text-orange-400" : "text-zinc-600" }`} />
-                <span className={`text-sm font-black ${ spin.currentStreak >= 3 ? "text-orange-400" : "text-zinc-500" }`}>
-                  {spin.currentStreak}
+                <Flame className={`size-3.5 ${ currentStreak >= 3 ? "text-orange-400" : "text-zinc-600" }`} />
+                <span className={`text-sm font-black ${ currentStreak >= 3 ? "text-orange-400" : "text-zinc-500" }`}>
+                  {currentStreak}
                 </span>
               </div>
               <ChevronRight className="size-4 text-zinc-600 group-hover:text-zinc-400 transition-colors" />
