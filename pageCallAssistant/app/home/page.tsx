@@ -11,7 +11,7 @@ import {
   Mic2, Zap, Users, Trophy, TrendingUp, Clock,
   ChevronRight, Bell, Wrench, Lock, Lightbulb,
   Home, Settings, CreditCard, X, LogOut, MessageSquare,
-  Flame, Heart,
+  Flame, Heart, Newspaper,
 } from "lucide-react";
 
 interface UserData { id: string; name: string; avatarUrl: string | null; plan: string; }
@@ -34,6 +34,7 @@ const motivationalPhrases = [
 const quickActions = [
   { label: "SpeakFlow Live", description: "Pratique speaking com IA em tempo real", href: "/live", gradient: "from-violet-600 to-indigo-600", Icon: Mic2 },
   { label: "Desafios", description: "Responda os quizzes do seu Circle", href: "/network", gradient: "from-amber-500 to-orange-500", Icon: Zap },
+  { label: "Feed de Amigos", description: "Posts, fotos e curtidas dos amigos", href: "/feed", gradient: "from-sky-500 to-blue-600", Icon: Newspaper },
   { label: "Amigos & Chat", description: "Chat criptografado com IA integrada", href: "/friends", gradient: "from-rose-500 to-pink-600", Icon: Heart },
   { label: "Ferramentas", description: "Melhore textos e simule entrevistas", href: "/tools", gradient: "from-emerald-500 to-teal-500", Icon: Wrench },
   { label: "Meu Progresso", description: "Veja sua evolução e conquistas", href: "/progress", gradient: "from-pink-500 to-rose-500", Icon: TrendingUp },
@@ -517,7 +518,7 @@ function BottomNavigation() {
 
   const items = [
     { Icon: Home, label: "Home", href: "/home", active: true, badge: 0 },
-    { Icon: Mic2, label: "Live", href: "/live", active: false, badge: 0 },
+    { Icon: Newspaper, label: "Feed", href: "/feed", active: false, badge: 0 },
     { Icon: Users, label: "Network", href: "/network", active: false, badge: 0 },
     { Icon: Heart, label: "Amigos", href: "/friends", active: false, badge: pendingFriends },
     { Icon: Wrench, label: "Tools", href: "/tools", active: false, badge: 0 },

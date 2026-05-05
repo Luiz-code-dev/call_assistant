@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Mic2, Users, Trophy, TrendingUp, Bell, BellOff, Heart } from "lucide-react";
+import { Mic2, Users, Trophy, TrendingUp, Bell, BellOff, Heart, Newspaper } from "lucide-react";
 import { PWAInstallBanner } from "@/components/PWAInstallBanner";
 
 function usePendingFriends() {
@@ -87,6 +87,10 @@ export default function NetworkLayout({ children }: { children: React.ReactNode 
             <Link href="/network/progress" className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
               <Trophy className="h-4 w-4" />
               <span className="hidden sm:inline">Progresso</span>
+            </Link>
+            <Link href="/feed" className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
+              <Newspaper className="h-4 w-4" />
+              <span className="hidden sm:inline">Feed</span>
             </Link>
             <Link href="/friends" className="relative flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
               <Heart className="h-4 w-4" />
