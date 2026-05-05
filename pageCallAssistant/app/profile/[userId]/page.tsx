@@ -196,9 +196,15 @@ export default function ProfilePage() {
           </div>
 
           {/* Bio */}
-          {user.bio && (
+          {user.bio ? (
             <p className="text-sm text-foreground/80 leading-relaxed">{user.bio}</p>
-          )}
+          ) : isOwnProfile ? (
+            <Link href="/settings"
+              className="flex items-center gap-2 rounded-xl border border-dashed border-white/20 bg-white/3 hover:bg-white/6 px-3 py-2.5 text-xs text-muted-foreground hover:text-foreground transition-colors">
+              <span className="text-base">✏️</span>
+              <span>Adicione uma bio para se apresentar — <strong className="text-violet-400">clique aqui</strong></span>
+            </Link>
+          ) : null}
 
           {/* Joined */}
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">

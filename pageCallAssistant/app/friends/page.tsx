@@ -266,13 +266,13 @@ export default function FriendsPage() {
                 const unread = unreadMap[f.friend.id] ?? 0;
                 return (
                   <div key={f.id} className="flex items-center justify-between rounded-xl border border-white/8 bg-white/5 hover:bg-white/8 hover:border-violet-500/30 p-3 transition-all">
-                    <div className="flex items-center gap-3">
+                    <Link href={`/profile/${f.friend.id}`} className="flex items-center gap-3 hover:opacity-80 transition-opacity">
                       <Avatar name={f.friend.name} avatarUrl={f.friend.avatarUrl} size="md" />
                       <div>
                         <p className="text-sm font-semibold">{f.friend.name}</p>
                         {f.friend.username && <p className="text-xs text-muted-foreground">@{f.friend.username}</p>}
                       </div>
-                    </div>
+                    </Link>
                     <div className="flex items-center gap-2">
                       <Link href={`/messages/${f.friend.id}`}
                         className="relative flex items-center gap-1.5 rounded-xl bg-violet-600 hover:bg-violet-500 px-3 py-2 text-xs font-semibold text-white transition-colors">

@@ -5,12 +5,13 @@ import Link from "next/link";
 import {
   Heart, MessageCircle, Share2, Send, Image as ImageIcon,
   MoreHorizontal, Trash2, X, ChevronDown, Loader2, Globe,
-  ArrowLeft, UserPlus, Sparkles, TrendingUp,
+  ArrowLeft, UserPlus, Sparkles, TrendingUp, Users,
 } from "lucide-react";
 import { toast } from "sonner";
 
 /* ─── Types ─────────────────────────────────────────────── */
 interface UserSnap { id: string; name: string; username?: string | null; avatarUrl?: string | null; }
+interface FriendSnap { id: string; friend: UserSnap; }
 interface CommentData { id: string; content: string; createdAt: string; user: UserSnap; }
 interface PostData {
   id: string; content?: string | null; imageUrl?: string | null; createdAt: string;
@@ -336,20 +337,137 @@ function PostCard({ post, myId, onDelete }: { post: PostData; myId: string | nul
   );
 }
 
+/* ─── Mobile Header Actions ──────────────────────────────── */
+function MobileHeaderActions() {
+  const [unreadTotal, setUnreadTotal] = useState(0);
+  const [me, setMe] = useState<UserSnap | null>(null);
+
+  useEffect(() => {
+    fetch("/api/auth/me", { headers: authHeaders() })
+      .then((r) => r.ok ? r.json() : null).then((d) => { if (d) setMe(d); }).catch(() => {});
+
+    const fetchUnread = () =>
+      fetch("/api/messages/unread-per-sender", { headers: authHeaders() })
+        .then((r) => r.ok ? r.json() : {})
+        .then((m: Record<string, number>) => setUnreadTotal(Object.values(m).reduce((a, b) => a + b, 0)))
+        .catch(() => {});
+    fetchUnread();
+    const id = setInterval(fetchUnread, 10_000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <div className="flex items-center gap-2">
+      <Link href="/friends" className="relative p-2 rounded-xl hover:bg-white/8 text-muted-foreground hover:text-foreground transition-colors">
+        <MessageCircle className="h-5 w-5" />
+        {unreadTotal > 0 && (
+          <span className="absolute top-0.5 right-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-rose-500 px-1 text-[9px] font-bold text-white">
+            {unreadTotal > 9 ? "9+" : unreadTotal}
+          </span>
+        )}
+      </Link>
+      {me && (
+        <Link href={`/profile/${me.id}`}>
+          <Avatar name={me.name} avatarUrl={me.avatarUrl} size="sm" />
+        </Link>
+      )}
+    </div>
+  );
+}
+
 /* ─── Sidebar ────────────────────────────────────────────── */
 function Sidebar({ me }: { me: UserSnap | null }) {
+  const [friends, setFriends] = useState<FriendSnap[]>([]);
+  const [unreadMap, setUnreadMap] = useState<Record<string, number>>({});
+
+  useEffect(() => {
+    fetch("/api/friends", { headers: authHeaders() })
+      .then((r) => r.ok ? r.json() : [])
+      .then((data: Array<{ id: string; status: string; friend: UserSnap }>) =>
+        setFriends(data.filter((f) => f.status === "accepted"))
+      ).catch(() => {});
+
+    const fetchUnread = () =>
+      fetch("/api/messages/unread-per-sender", { headers: authHeaders() })
+        .then((r) => r.ok ? r.json() : {})
+        .then(setUnreadMap).catch(() => {});
+    fetchUnread();
+    const id = setInterval(fetchUnread, 10_000);
+    return () => clearInterval(id);
+  }, []);
+
+  const totalUnread = Object.values(unreadMap).reduce((a, b) => a + b, 0);
+
   return (
     <aside className="hidden lg:flex flex-col gap-4 w-72 shrink-0">
       {/* Profile card */}
       {me && (
-        <div className="rounded-2xl border border-white/8 bg-white/5 backdrop-blur p-4 flex items-center gap-3">
+        <Link href={`/profile/${me.id}`} className="rounded-2xl border border-white/8 bg-white/5 backdrop-blur p-4 flex items-center gap-3 hover:bg-white/8 transition-colors">
           <Avatar name={me.name} avatarUrl={me.avatarUrl} size="lg" />
           <div className="flex-1 min-w-0">
             <p className="font-semibold text-sm truncate">{me.name}</p>
-            {me.username && <p className="text-xs text-muted-foreground">@{me.username}</p>}
+            {me.username
+              ? <p className="text-xs text-muted-foreground">@{me.username}</p>
+              : <p className="text-xs text-violet-400">Ver meu perfil →</p>
+            }
           </div>
-        </div>
+        </Link>
       )}
+
+      {/* Conversas (DMs) */}
+      <div className="rounded-2xl border border-white/8 bg-white/5 backdrop-blur overflow-hidden">
+        <div className="flex items-center justify-between px-4 pt-3 pb-2">
+          <div className="flex items-center gap-2">
+            <MessageCircle className="h-3.5 w-3.5 text-violet-400" />
+            <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Conversas</p>
+          </div>
+          {totalUnread > 0 && (
+            <span className="flex h-4 min-w-4 items-center justify-center rounded-full bg-rose-500 px-1 text-[9px] font-bold text-white">
+              {totalUnread > 9 ? "9+" : totalUnread}
+            </span>
+          )}
+        </div>
+        {friends.length === 0 ? (
+          <div className="px-4 pb-3">
+            <Link href="/friends" className="text-xs text-muted-foreground hover:text-violet-400 transition-colors">
+              + Adicionar amigos para conversar
+            </Link>
+          </div>
+        ) : (
+          <div className="pb-1">
+            {friends.slice(0, 6).map((f) => {
+              const unread = unreadMap[f.friend.id] ?? 0;
+              return (
+                <Link key={f.id} href={`/messages/${f.friend.id}`}
+                  className="flex items-center gap-3 px-4 py-2.5 hover:bg-white/5 transition-colors relative">
+                  <div className="relative shrink-0">
+                    <Avatar name={f.friend.name} avatarUrl={f.friend.avatarUrl} size="sm" />
+                    {unread > 0 && (
+                      <span className="absolute -top-0.5 -right-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-rose-500 text-[8px] font-bold text-white">
+                        {unread > 9 ? "9+" : unread}
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className={`text-sm truncate ${unread > 0 ? "font-semibold text-foreground" : "text-muted-foreground"}`}>
+                      {f.friend.name.split(" ")[0]}
+                    </p>
+                  </div>
+                  {unread > 0 && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-violet-400 shrink-0" />
+                  )}
+                </Link>
+              );
+            })}
+            {friends.length > 6 && (
+              <Link href="/friends" className="flex items-center gap-2 px-4 py-2 text-xs text-muted-foreground hover:text-foreground transition-colors">
+                <Users className="h-3.5 w-3.5" />
+                Ver todos os {friends.length} amigos
+              </Link>
+            )}
+          </div>
+        )}
+      </div>
 
       {/* Quick links */}
       <div className="rounded-2xl border border-white/8 bg-white/5 backdrop-blur p-4 space-y-1">
@@ -445,7 +563,7 @@ export default function FeedPage() {
               <p className="text-[11px] text-muted-foreground">Posts dos seus amigos</p>
             </div>
           </div>
-          {me && <Avatar name={me.name} avatarUrl={me.avatarUrl} size="sm" />}
+          <MobileHeaderActions />
         </div>
       </header>
 

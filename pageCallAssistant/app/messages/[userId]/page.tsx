@@ -329,17 +329,19 @@ export default function ChatPage() {
         <Link href="/friends" className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
           <ArrowLeft className="h-5 w-5" />
         </Link>
-        {friend && <Avatar name={friend.name} avatarUrl={friend.avatarUrl} size="sm" />}
-        <div className="flex-1 min-w-0">
-          <p className="font-semibold text-sm truncate">{friend?.name ?? "Chat"}</p>
-          <p className="text-xs text-muted-foreground flex items-center gap-1.5">
-            <Lock className="h-3 w-3" /><span>AES-256-GCM</span>
-            <span className="opacity-40">·</span>
-            <Globe className="h-3 w-3 text-blue-400" /><span className="text-blue-400">Tradução</span>
-            <span className="opacity-40">·</span>
-            <Sparkles className="h-3 w-3 text-violet-400" /><span className="text-violet-400">Grammar AI</span>
-          </p>
-        </div>
+        <Link href={`/profile/${userId}`} className="flex items-center gap-3 flex-1 min-w-0 hover:opacity-80 transition-opacity">
+          {friend && <Avatar name={friend.name} avatarUrl={friend.avatarUrl} size="sm" />}
+          <div className="flex-1 min-w-0">
+            <p className="font-semibold text-sm truncate">{friend?.name ?? "Chat"}</p>
+            <p className="text-xs text-muted-foreground flex items-center gap-1.5">
+              <Lock className="h-3 w-3" /><span>AES-256-GCM</span>
+              <span className="opacity-40">·</span>
+              <Globe className="h-3 w-3 text-blue-400" /><span className="text-blue-400">Tradução</span>
+              <span className="opacity-40">·</span>
+              <Sparkles className="h-3 w-3 text-violet-400" /><span className="text-violet-400">Grammar AI</span>
+            </p>
+          </div>
+        </Link>
       </header>
 
       {/* Messages */}
