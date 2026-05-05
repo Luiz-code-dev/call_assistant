@@ -524,7 +524,7 @@ function BottomNavigation() {
     { Icon: Wrench, label: "Tools", href: "/tools", active: false, badge: 0 },
   ];
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-zinc-800/50 bg-[#09090b]/90 backdrop-blur-xl sm:hidden">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-zinc-800/50 bg-[#09090b]/90 backdrop-blur-xl sm:hidden" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
       <div className="flex items-center justify-around py-2">
         {items.map((item) => (
           <Link key={item.label} href={item.href} className={`relative flex flex-col items-center gap-1 px-3 py-2 transition-colors ${item.active ? "text-violet-400" : "text-zinc-500"}`}>

@@ -323,7 +323,7 @@ export default function ChatPage() {
   );
 
   return (
-    <div className="flex flex-col h-screen bg-background">
+    <div className="flex flex-col bg-background" style={{ height: '100dvh' }}>
       {/* Header */}
       <header className="flex items-center gap-3 px-4 py-3 border-b border-border/50 bg-card/80 backdrop-blur sticky top-0 z-10">
         <Link href="/friends" className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
@@ -343,7 +343,7 @@ export default function ChatPage() {
       </header>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto py-4">
+      <div className="flex-1 overflow-y-auto overscroll-none py-4">
         <div className="max-w-2xl mx-auto px-4 space-y-3">
           {messages.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-24 text-center text-muted-foreground gap-3">
@@ -372,7 +372,7 @@ export default function ChatPage() {
       )}
 
       {/* Input area */}
-      <div className="px-4 py-3 border-t border-border/50 bg-card/80 backdrop-blur">
+      <div className="px-4 pt-3 border-t border-border/50 bg-card/80 backdrop-blur" style={{ paddingBottom: 'calc(0.75rem + env(safe-area-inset-bottom, 0px))' }}>
         <div className="max-w-2xl mx-auto space-y-2">
           {/* Toolbar */}
           <div className="flex items-center gap-2">

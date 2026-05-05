@@ -1,9 +1,17 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 import CookieConsent from "@/components/CookieConsent";
+
+export const viewport: Viewport = {
+  themeColor: "#09090b",
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  minimumScale: 1,
+};
 
 const inter = Inter({ subsets: ["latin"] });
 
