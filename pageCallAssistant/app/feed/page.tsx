@@ -5,7 +5,7 @@ import Link from "next/link";
 import {
   Heart, MessageCircle, Share2, Send, Image as ImageIcon,
   MoreHorizontal, Trash2, X, ChevronDown, Loader2, Globe,
-  ArrowLeft,
+  ArrowLeft, UserPlus, Sparkles, TrendingUp,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -79,7 +79,7 @@ function CreatePost({ me, onCreated }: { me: UserSnap | null; onCreated: (p: Pos
   }
 
   return (
-    <div className="rounded-2xl border border-border/50 bg-card p-4 space-y-3">
+    <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 space-y-3">
       <div className="flex gap-3">
         {me && <Avatar name={me.name} avatarUrl={me.avatarUrl} size="md" />}
         <textarea
@@ -223,7 +223,7 @@ function PostCard({ post, myId, onDelete }: { post: PostData; myId: string | nul
   const isOwn = myId === post.user.id;
 
   return (
-    <article id={post.id} className="rounded-2xl border border-border/40 bg-card overflow-hidden">
+    <article id={post.id} className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden transition-shadow hover:shadow-lg hover:shadow-violet-500/5">
       {/* Header */}
       <div className="flex items-center justify-between px-4 pt-4 pb-2">
         <div className="flex items-center gap-3">
@@ -303,14 +303,14 @@ function PostCard({ post, myId, onDelete }: { post: PostData; myId: string | nul
             </>
           )}
           {/* Comment input */}
-          <div className="flex gap-2 mt-2">
+          <div className="flex items-center gap-2 mt-2">
             <textarea
               value={commentInput}
               onChange={(e) => setCommentInput(e.target.value)}
               onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); submitComment(); }}}
               placeholder="Adicione um comentário..."
               rows={1}
-              className="flex-1 resize-none rounded-xl border border-border bg-input px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500/40 max-h-24"
+              className="flex-1 resize-none rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500/40 max-h-24"
             />
             <button
               onClick={submitComment}
@@ -333,6 +333,48 @@ function PostCard({ post, myId, onDelete }: { post: PostData; myId: string | nul
         </div>
       )}
     </article>
+  );
+}
+
+/* ─── Sidebar ────────────────────────────────────────────── */
+function Sidebar({ me }: { me: UserSnap | null }) {
+  return (
+    <aside className="hidden lg:flex flex-col gap-4 w-72 shrink-0">
+      {/* Profile card */}
+      {me && (
+        <div className="rounded-2xl border border-white/8 bg-white/5 backdrop-blur p-4 flex items-center gap-3">
+          <Avatar name={me.name} avatarUrl={me.avatarUrl} size="lg" />
+          <div className="flex-1 min-w-0">
+            <p className="font-semibold text-sm truncate">{me.name}</p>
+            {me.username && <p className="text-xs text-muted-foreground">@{me.username}</p>}
+          </div>
+        </div>
+      )}
+
+      {/* Quick links */}
+      <div className="rounded-2xl border border-white/8 bg-white/5 backdrop-blur p-4 space-y-1">
+        <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">Atalhos</p>
+        <Link href="/friends" className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-white/5 transition-colors">
+          <UserPlus className="h-4 w-4 text-rose-400" /> Amigos & solicitações
+        </Link>
+        <Link href="/live" className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-white/5 transition-colors">
+          <Sparkles className="h-4 w-4 text-violet-400" /> SpeakFlow Live
+        </Link>
+        <Link href="/network" className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-white/5 transition-colors">
+          <TrendingUp className="h-4 w-4 text-emerald-400" /> Meu progresso
+        </Link>
+      </div>
+
+      {/* Tip card */}
+      <div className="rounded-2xl border border-violet-500/20 bg-gradient-to-br from-violet-500/10 to-indigo-500/5 p-4 space-y-2">
+        <p className="text-xs font-semibold text-violet-300">💡 Dica de hoje</p>
+        <p className="text-xs text-muted-foreground leading-relaxed">
+          Poste uma frase em inglês no feed e peça para seus amigos corrigirem nos comentários. Aprendizado social funciona!
+        </p>
+      </div>
+
+      <p className="text-[10px] text-muted-foreground/40 px-2">SpeakFlow · speakf.com.br</p>
+    </aside>
   );
 }
 
@@ -366,7 +408,6 @@ export default function FeedPage() {
     loadPosts().finally(() => setLoading(false));
   }, [loadPosts]);
 
-  // Infinite scroll
   useEffect(() => {
     if (!loaderRef.current || !nextCursor) return;
     const obs = new IntersectionObserver((entries) => {
@@ -379,25 +420,28 @@ export default function FeedPage() {
     return () => obs.disconnect();
   }, [nextCursor, loadingMore, loadPosts]);
 
-  function onPostCreated(p: PostData) {
-    setPosts((prev) => [p, ...prev]);
-  }
-
-  function onPostDeleted(id: string) {
-    setPosts((prev) => prev.filter((p) => p.id !== id));
-  }
+  function onPostCreated(p: PostData) { setPosts((prev) => [p, ...prev]); }
+  function onPostDeleted(id: string) { setPosts((prev) => prev.filter((p) => p.id !== id)); }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen relative overflow-x-hidden"
+      style={{ background: "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(124,58,237,0.15) 0%, transparent 60%), #09090b" }}>
+
+      {/* Decorative blobs */}
+      <div className="pointer-events-none fixed -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-violet-600/5 blur-3xl" />
+      <div className="pointer-events-none fixed -bottom-40 -right-40 w-[500px] h-[500px] rounded-full bg-indigo-600/5 blur-3xl" />
+
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-border/50 bg-card/80 backdrop-blur px-4 py-3">
-        <div className="mx-auto flex max-w-lg items-center justify-between">
+      <header className="sticky top-0 z-40 border-b border-white/8 bg-[#09090b]/70 backdrop-blur-xl px-4 py-3">
+        <div className="mx-auto flex max-w-5xl items-center justify-between">
           <div className="flex items-center gap-3">
             <Link href="/home" className="text-muted-foreground hover:text-foreground transition-colors">
               <ArrowLeft className="h-5 w-5" />
             </Link>
             <div>
-              <h1 className="font-bold text-base leading-tight">Feed</h1>
+              <h1 className="font-bold text-base leading-tight bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+                Feed
+              </h1>
               <p className="text-[11px] text-muted-foreground">Posts dos seus amigos</p>
             </div>
           </div>
@@ -405,46 +449,57 @@ export default function FeedPage() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-lg px-4 py-6 space-y-4">
-        {/* Create post */}
-        <CreatePost me={me} onCreated={onPostCreated} />
+      <main className="mx-auto max-w-5xl px-4 py-6">
+        <div className="flex gap-6 items-start">
 
-        {/* Feed */}
-        {loading ? (
-          <div className="space-y-4">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="rounded-2xl border border-border/40 bg-card p-4 space-y-3 animate-pulse">
-                <div className="flex gap-3 items-center">
-                  <div className="h-9 w-9 rounded-full bg-muted" />
-                  <div className="space-y-1.5 flex-1">
-                    <div className="h-3 bg-muted rounded w-1/3" />
-                    <div className="h-2.5 bg-muted rounded w-1/4" />
+          {/* Feed column */}
+          <div className="flex-1 min-w-0 space-y-4">
+            <CreatePost me={me} onCreated={onPostCreated} />
+
+            {loading ? (
+              <div className="space-y-4">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="rounded-2xl border border-white/8 bg-white/4 p-4 space-y-3 animate-pulse">
+                    <div className="flex gap-3 items-center">
+                      <div className="h-9 w-9 rounded-full bg-white/10" />
+                      <div className="space-y-1.5 flex-1">
+                        <div className="h-3 bg-white/10 rounded w-1/3" />
+                        <div className="h-2.5 bg-white/10 rounded w-1/4" />
+                      </div>
+                    </div>
+                    <div className="h-3 bg-white/10 rounded w-3/4" />
+                    <div className="h-52 bg-white/10 rounded-xl" />
                   </div>
-                </div>
-                <div className="h-3 bg-muted rounded w-3/4" />
-                <div className="h-3 bg-muted rounded w-1/2" />
-                <div className="h-48 bg-muted rounded-xl" />
+                ))}
               </div>
-            ))}
-          </div>
-        ) : posts.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-20 text-center text-muted-foreground gap-3">
-            <div className="text-4xl">👋</div>
-            <p className="font-medium">Nenhuma postagem ainda</p>
-            <p className="text-sm max-w-xs">Adicione amigos para ver as postagens deles aqui, ou seja o primeiro a publicar!</p>
-            <Link href="/friends" className="mt-2 text-sm text-violet-400 hover:text-violet-300">
-              Encontrar amigos →
-            </Link>
-          </div>
-        ) : (
-          posts.map((p) => (
-            <PostCard key={p.id} post={p} myId={me?.id ?? null} onDelete={onPostDeleted} />
-          ))
-        )}
+            ) : posts.length === 0 ? (
+              <div className="flex flex-col items-center justify-center py-24 text-center gap-4">
+                <div className="h-20 w-20 rounded-full bg-gradient-to-br from-violet-600/20 to-indigo-600/20 border border-violet-500/20 flex items-center justify-center text-3xl">
+                  👋
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">Nenhuma postagem ainda</p>
+                  <p className="text-sm text-muted-foreground mt-1 max-w-xs">
+                    Adicione amigos para ver as postagens deles aqui, ou seja o primeiro a publicar!
+                  </p>
+                </div>
+                <Link href="/friends" className="flex items-center gap-1.5 rounded-xl bg-violet-600 hover:bg-violet-500 px-4 py-2 text-sm font-semibold text-white transition-colors">
+                  <UserPlus className="h-4 w-4" /> Encontrar amigos
+                </Link>
+              </div>
+            ) : (
+              posts.map((p) => (
+                <PostCard key={p.id} post={p} myId={me?.id ?? null} onDelete={onPostDeleted} />
+              ))
+            )}
 
-        {/* Infinite scroll trigger */}
-        <div ref={loaderRef} className="py-4 flex justify-center">
-          {loadingMore && <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />}
+            <div ref={loaderRef} className="py-4 flex justify-center">
+              {loadingMore && <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />}
+            </div>
+          </div>
+
+          {/* Sidebar */}
+          <Sidebar me={me} />
         </div>
       </main>
     </div>
