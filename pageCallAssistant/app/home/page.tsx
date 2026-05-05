@@ -211,7 +211,7 @@ function UserMenu({ user }: { user: UserData }) {
 
 function HeaderSkeleton() {
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-800/50 bg-[#09090b]/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-zinc-800/50 bg-[#09090b]/80 backdrop-blur-xl" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
         <Link href="/home" className="flex items-center gap-2">
           <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600">
@@ -252,7 +252,7 @@ function AppHeader({ user, circles }: { user: UserData; circles: CircleData[] })
 
   useClickOutside(notifRef, () => setNotifOpen(false));
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-800/50 bg-[#09090b]/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-zinc-800/50 bg-[#09090b]/80 backdrop-blur-xl" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
         <Link href="/home" className="flex items-center gap-2">
           <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 shadow-lg shadow-blue-500/25">

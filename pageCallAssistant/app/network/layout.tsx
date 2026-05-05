@@ -67,7 +67,7 @@ export default function NetworkLayout({ children }: { children: React.ReactNode 
     <div className="min-h-screen bg-background">
       <PWAInstallBanner />
       <PushPermissionBanner />
-      <header className="sticky top-0 z-40 border-b border-border/50 bg-card/80 backdrop-blur px-4 py-3">
+      <header className="sticky top-0 z-40 border-b border-border/50 bg-card/80 backdrop-blur px-4" style={{ paddingTop: 'calc(0.75rem + env(safe-area-inset-top, 0px))', paddingBottom: '0.75rem' }}>
         <div className="mx-auto flex max-w-6xl items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600">

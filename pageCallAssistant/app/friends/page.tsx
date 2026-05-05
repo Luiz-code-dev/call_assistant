@@ -128,7 +128,7 @@ export default function FriendsPage() {
       <div className="pointer-events-none fixed -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-violet-600/5 blur-3xl" />
 
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-white/8 bg-[#09090b]/70 backdrop-blur-xl px-4 py-3">
+      <header className="sticky top-0 z-40 border-b border-white/8 bg-[#09090b]/70 backdrop-blur-xl px-4" style={{ paddingTop: 'calc(0.75rem + env(safe-area-inset-top, 0px))', paddingBottom: '0.75rem' }}>
         <div className="mx-auto flex max-w-2xl items-center gap-3">
           <Link href="/home" className="text-muted-foreground hover:text-foreground transition-colors">
             <ArrowLeft className="h-5 w-5" />

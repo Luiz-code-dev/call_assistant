@@ -325,7 +325,7 @@ export default function ChatPage() {
   return (
     <div className="flex flex-col bg-background" style={{ height: '100dvh' }}>
       {/* Header */}
-      <header className="flex items-center gap-3 px-4 py-3 border-b border-border/50 bg-card/80 backdrop-blur sticky top-0 z-10">
+      <header className="flex items-center gap-3 px-4 border-b border-border/50 bg-card/80 backdrop-blur sticky top-0 z-10" style={{ paddingTop: 'calc(0.75rem + env(safe-area-inset-top, 0px))', paddingBottom: '0.75rem' }}>
         <Link href="/friends" className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
           <ArrowLeft className="h-5 w-5" />
         </Link>
