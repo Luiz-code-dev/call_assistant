@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Users, Zap, ChevronRight, Clock, Plus, Trophy, Flame } from "lucide-react";
+import { Users, Zap, ChevronRight, Clock, Plus, Trophy, Flame, MessageCircle, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -71,6 +71,23 @@ export default function NetworkHomePage() {
             <div>
               <p className="text-sm font-semibold text-white">Giro da Sorte — ganhe créditos todo dia!</p>
               <p className="text-xs text-zinc-400">Complete desafios para manter sua sequência e desbloquear o Giro Premium 🔥</p>
+            </div>
+          </div>
+          <ChevronRight className="size-4 text-zinc-500 shrink-0" />
+        </div>
+      </Link>
+
+      {/* Friends & Chat banner */}
+      <Link href="/friends">
+        <div className="flex items-center justify-between rounded-xl border border-rose-500/25 bg-gradient-to-r from-rose-950/40 to-pink-950/30 px-4 py-3 hover:border-rose-500/50 transition-colors">
+          <div className="flex items-center gap-3">
+            <div className="flex -space-x-1">
+              <Heart className="size-5 text-rose-400" />
+              <MessageCircle className="size-5 text-pink-300" />
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-white">Amigos & Chat com IA 🔐</p>
+              <p className="text-xs text-zinc-400">Pratique inglês com amigos — tradução, grammar check e CEFR por mensagem</p>
             </div>
           </div>
           <ChevronRight className="size-4 text-zinc-500 shrink-0" />

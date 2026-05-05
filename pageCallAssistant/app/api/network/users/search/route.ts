@@ -10,7 +10,7 @@ export async function GET(req: NextRequest) {
   const q = searchParams.get("q")?.trim().toLowerCase().replace(/^@/, "");
   const circleId = searchParams.get("circleId");
 
-  if (!q || q.length < 2)
+  if (!q || q.length < 1)
     return NextResponse.json([]);
 
   const users = await db.user.findMany({

@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
-import { Users, UserPlus, Check, X, MessageCircle, Search, Trash2, Clock } from "lucide-react";
+import { Users, UserPlus, Check, X, MessageCircle, Search, Trash2, Clock, Loader2, Globe, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
@@ -44,8 +44,11 @@ export default function FriendsPage() {
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<SearchUser[]>([]);
+  const [showSugg, setShowSugg] = useState(false);
   const [searching, setSearching] = useState(false);
   const [sending, setSending] = useState<string | null>(null);
+  const searchTimer = useRef<NodeJS.Timeout | null>(null);
+  const suggRef = useRef<HTMLDivElement>(null);
 
   const loadFriends = useCallback(async () => {
     const res = await fetch("/api/friends", { headers: authHeaders() });
@@ -56,15 +59,24 @@ export default function FriendsPage() {
   useEffect(() => { loadFriends(); }, [loadFriends]);
 
   useEffect(() => {
-    if (query.length < 2) { setResults([]); return; }
-    const t = setTimeout(async () => {
+    const handler = (e: MouseEvent) => {
+      if (suggRef.current && !suggRef.current.contains(e.target as Node)) setShowSugg(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  function onQueryChange(val: string) {
+    setQuery(val);
+    if (searchTimer.current) clearTimeout(searchTimer.current);
+    if (val.trim().length < 1) { setResults([]); setShowSugg(false); return; }
+    searchTimer.current = setTimeout(async () => {
       setSearching(true);
-      const res = await fetch(`/api/network/users/search?q=${encodeURIComponent(query)}`, { headers: authHeaders() });
-      if (res.ok) setResults(await res.json());
+      const res = await fetch(`/api/network/users/search?q=${encodeURIComponent(val.trim())}`, { headers: authHeaders() });
+      if (res.ok) { setResults(await res.json()); setShowSugg(true); }
       setSearching(false);
-    }, 300);
-    return () => clearTimeout(t);
-  }, [query]);
+    }, 250);
+  }
 
   async function sendRequest(userId: string) {
     setSending(userId);
@@ -74,9 +86,10 @@ export default function FriendsPage() {
       body: JSON.stringify({ userId }),
     });
     if (res.ok) {
-      toast.success("Solicitação enviada!");
+      toast.success("Solicitação enviada! 🎉");
       setQuery("");
       setResults([]);
+      setShowSugg(false);
       loadFriends();
     } else {
       const d = await res.json();
@@ -121,48 +134,79 @@ export default function FriendsPage() {
 
       <div className="mx-auto max-w-3xl px-4 py-8 space-y-8">
 
-        {/* Search */}
+        {/* Feature highlight */}
+        <div className="rounded-xl border border-violet-500/20 bg-gradient-to-r from-violet-500/10 to-indigo-500/5 px-4 py-3 flex flex-wrap items-center gap-4 text-sm">
+          <div className="flex items-center gap-2 text-violet-300">
+            <MessageCircle className="h-4 w-4 shrink-0" />
+            <span><strong>Chat criptografado</strong> com amigos</span>
+          </div>
+          <div className="h-4 w-px bg-border/50 hidden sm:block" />
+          <div className="flex items-center gap-2 text-blue-300">
+            <Globe className="h-4 w-4 shrink-0" />
+            <span>Tradução instantânea nas mensagens</span>
+          </div>
+          <div className="h-4 w-px bg-border/50 hidden sm:block" />
+          <div className="flex items-center gap-2 text-emerald-300">
+            <Sparkles className="h-4 w-4 shrink-0" />
+            <span>Grammar check + CEFR por mensagem</span>
+          </div>
+        </div>
+
+        {/* Search with autocomplete dropdown */}
         <Card className="border-border/50">
           <CardHeader className="pb-3">
             <CardTitle className="text-base flex items-center gap-2">
               <UserPlus className="h-4 w-4 text-violet-400" /> Adicionar amigo
             </CardTitle>
+            <p className="text-xs text-muted-foreground">Digite o nome, <strong>@username</strong> ou <strong>e-mail</strong>. Sugestões aparecem enquanto você digita.</p>
           </CardHeader>
-          <CardContent className="space-y-3">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <input
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Buscar por nome, @username ou e-mail..."
-                className="w-full rounded-lg border border-border bg-input pl-9 pr-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-violet-500/40"
-              />
-            </div>
-            {searching && <p className="text-xs text-muted-foreground">Buscando...</p>}
-            {results.length > 0 && (
-              <div className="space-y-2">
-                {results.map((u) => (
-                  <div key={u.id} className="flex items-center justify-between rounded-lg border border-border/50 bg-card p-3">
-                    <div className="flex items-center gap-3">
-                      <Avatar name={u.name} avatarUrl={u.avatarUrl} size={8} />
-                      <div>
-                        <p className="text-sm font-medium">{u.name}</p>
-                        {u.username && <p className="text-xs text-muted-foreground">@{u.username}</p>}
-                      </div>
-                    </div>
-                    <Button
-                      size="sm"
+          <CardContent>
+            <div ref={suggRef} className="relative">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+                <input
+                  value={query}
+                  onChange={(e) => onQueryChange(e.target.value)}
+                  onFocus={() => results.length > 0 && setShowSugg(true)}
+                  placeholder="Nome, @username ou email..."
+                  autoComplete="off"
+                  className="w-full rounded-lg border border-border bg-input pl-9 pr-10 py-2.5 text-sm outline-none focus:ring-2 focus:ring-violet-500/40"
+                />
+                {searching && (
+                  <Loader2 className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 animate-spin text-muted-foreground" />
+                )}
+              </div>
+
+              {/* Autocomplete dropdown */}
+              {showSugg && results.length > 0 && (
+                <div className="absolute z-30 mt-1 w-full rounded-xl border border-border/50 bg-card shadow-2xl overflow-hidden">
+                  {results.map((u) => (
+                    <button
+                      key={u.id}
+                      onMouseDown={(e) => e.preventDefault()}
                       onClick={() => sendRequest(u.id)}
                       disabled={sending === u.id}
-                      className="bg-violet-600 hover:bg-violet-500 text-white border-0"
+                      className="w-full flex items-center gap-3 px-3 py-2.5 hover:bg-muted/60 transition-colors text-left disabled:opacity-60"
                     >
-                      <UserPlus className="h-3.5 w-3.5 mr-1" />
-                      {sending === u.id ? "Enviando..." : "Adicionar"}
-                    </Button>
-                  </div>
-                ))}
-              </div>
-            )}
+                      <Avatar name={u.name} avatarUrl={u.avatarUrl} size={8} />
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium truncate">{u.name}</p>
+                        {u.username && (
+                          <p className="text-xs text-muted-foreground">@{u.username}</p>
+                        )}
+                      </div>
+                      {sending === u.id ? (
+                        <Loader2 className="h-3.5 w-3.5 animate-spin text-violet-400 shrink-0" />
+                      ) : (
+                        <span className="text-xs text-violet-400 shrink-0 flex items-center gap-1">
+                          <UserPlus className="h-3 w-3" />Adicionar
+                        </span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </CardContent>
         </Card>
 
