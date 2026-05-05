@@ -16,7 +16,6 @@ async function awardChallengeWinners() {
   const expired = await db.challenge.findMany({
     where: {
       endsAt: { gte: fiveMinAgo, lte: now },
-      // @ts-expect-error – regenerated after prisma generate in prod
       winnerAwarded: false,
     },
     select: { id: true, title: true, circleId: true },
@@ -45,7 +44,6 @@ async function awardChallengeWinners() {
           description: `🏆 Melhor colocado no desafio "${ch.title}"`,
         },
       }),
-      // @ts-expect-error – regenerated after prisma generate in prod
       db.challenge.update({ where: { id: ch.id }, data: { winnerAwarded: true } }),
     ]);
 
