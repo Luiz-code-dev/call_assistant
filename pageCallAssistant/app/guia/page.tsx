@@ -63,6 +63,9 @@ export default async function GuiaPage() {
                 { n: "8", label: "SpeakFlow Network — Circles e Desafios", href: "#network" },
                 { n: "9", label: "SpeakFlow Live — Copiloto em tempo real (PWA)", href: "#live" },
                 { n: "10", label: "Gamificação — Giro da Sorte, Sequência e Conquistas", href: "#gamificacao" },
+                { n: "11", label: "Amigos & Chat criptografado", href: "#chat" },
+                { n: "12", label: "Feed de Amigos — posts e comunidade", href: "#feed" },
+                { n: "13", label: "Perfil — conquistas, nível e desafios", href: "#perfil" },
               ].map((item) => (
                 <li key={item.n}>
                   <a href={item.href} className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
@@ -673,6 +676,104 @@ export default async function GuiaPage() {
             <Link href="/spin" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity">
               <Trophy className="h-4 w-4" /> Acessar meu Giro da Sorte
             </Link>
+          </div>
+        </section>
+
+        {/* Section 11 — Chat */}
+        <section id="chat" className="scroll-mt-24">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-violet-500/15 text-sm font-bold text-violet-400">11</div>
+            <h2 className="text-2xl font-bold">Amigos &amp; Chat criptografado</h2>
+          </div>
+          <div className="space-y-4">
+            <p className="text-muted-foreground leading-relaxed">
+              O SpeakFlow tem um chat privado com criptografia <strong>AES-256-GCM</strong> entre amigos, com IA integrada para ajudar na prática do inglês.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                { icon: MessageSquarePlus, title: "Chat criptografado", desc: "Mensagens protegidas com AES-256-GCM — nenhum terceiro consegue ler" },
+                { icon: Globe, title: "Tradução automática", desc: "Clique em qualquer mensagem para ver a tradução instantânea com IA" },
+                { icon: Brain, title: "Grammar AI + CEFR", desc: "Analisa sua gramática, aponta erros e classifica o nível da mensagem" },
+                { icon: Users, title: "Amigos", desc: "Adicione amigos por nome, @username ou e-mail" },
+              ].map(({ icon: Icon, title, desc }) => (
+                <div key={title} className="flex items-start gap-3 rounded-xl border border-border/50 bg-card p-4">
+                  <Icon className="h-5 w-5 text-violet-400 shrink-0 mt-0.5" />
+                  <div><p className="font-medium text-sm">{title}</p><p className="text-xs text-muted-foreground mt-1">{desc}</p></div>
+                </div>
+              ))}
+            </div>
+            <div className="rounded-xl border border-border/50 bg-card p-5 space-y-2">
+              <h3 className="font-semibold text-sm">Como usar:</h3>
+              <ol className="space-y-1.5">
+                {["Acesse Dashboard → Amigos &amp; Chat","Busque um amigo por nome, @username ou e-mail","Envie a solicitação e aguarde a aceitação","Clique em \"Chat\" e comece a conversar em inglês","Use a Tradução e Grammar AI para aprender enquanto escreve"].map((s, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-violet-400" />{s}
+                  </li>
+                ))}
+              </ol>
+            </div>
+            {isLoggedIn && <Link href="/friends" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"><MessageSquarePlus className="h-4 w-4" /> Abrir Amigos &amp; Chat</Link>}
+          </div>
+        </section>
+
+        {/* Section 12 — Feed */}
+        <section id="feed" className="scroll-mt-24">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-violet-500/15 text-sm font-bold text-violet-400">12</div>
+            <h2 className="text-2xl font-bold">Feed de Amigos</h2>
+          </div>
+          <div className="space-y-4">
+            <p className="text-muted-foreground leading-relaxed">
+              O Feed é a rede social do SpeakFlow — compartilhe sua jornada, veja a evolução dos amigos e fique motivado praticando junto.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                { emoji: "📸", title: "Posts com imagem", desc: "Publique texto e fotos sobre sua prática" },
+                { emoji: "❤️", title: "Curtidas e comentários", desc: "Interaja com os posts dos seus amigos" },
+                { emoji: "👥", title: "Perfis", desc: "Veja conquistas, nível e desafios dos amigos" },
+                { emoji: "💬", title: "Acesso ao chat", desc: "Inicie um chat direto pelo feed ou pelo perfil" },
+              ].map((item) => (
+                <div key={item.title} className="flex items-start gap-3 rounded-xl border border-border/50 bg-card p-4">
+                  <span className="text-xl mt-0.5">{item.emoji}</span>
+                  <div><p className="font-medium text-sm">{item.title}</p><p className="text-xs text-muted-foreground mt-1">{item.desc}</p></div>
+                </div>
+              ))}
+            </div>
+            {isLoggedIn && <Link href="/feed" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"><Send className="h-4 w-4" /> Abrir Feed</Link>}
+          </div>
+        </section>
+
+        {/* Section 13 — Perfil */}
+        <section id="perfil" className="scroll-mt-24">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-violet-500/15 text-sm font-bold text-violet-400">13</div>
+            <h2 className="text-2xl font-bold">Perfil — conquistas, nível e desafios</h2>
+          </div>
+          <div className="space-y-4">
+            <p className="text-muted-foreground leading-relaxed">
+              Seu perfil é o resumo da sua evolução no SpeakFlow. Amigos podem ver sua jornada e se inspirar.
+            </p>
+            <div className="rounded-xl border border-border/50 bg-card p-5 space-y-3">
+              <h3 className="font-semibold text-sm">O que aparece no perfil:</h3>
+              <ul className="space-y-2">
+                {[
+                  "📸 Foto, nome, bio e plano",
+                  "🏅 Conquistas (badges) desbloqueadas",
+                  "🎯 Nível de proficiência CEFR com score médio",
+                  "🏆 Desafios concluídos com nota de fluência, conteúdo e clareza",
+                  "📝 Posts publicados no Feed",
+                  "👥 Lista de amigos (visível apenas entre amigos)",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-violet-400" />{item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-xl border border-yellow-500/20 bg-yellow-500/5 p-4 text-sm text-muted-foreground">
+              💡 <strong>Dica:</strong> Acesse Configurações (/settings) para adicionar uma bio e atualizar sua foto de perfil.
+            </div>
+            {isLoggedIn && <Link href="/settings" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"><Medal className="h-4 w-4" /> Editar meu perfil</Link>}
           </div>
         </section>
 

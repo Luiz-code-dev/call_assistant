@@ -11,7 +11,7 @@ import {
   Mic2, Zap, Users, Trophy, TrendingUp, Clock,
   ChevronRight, Bell, Wrench, Lock, Lightbulb,
   Home, Settings, CreditCard, X, LogOut, MessageSquare,
-  Flame, Heart, Newspaper, Download, UserCircle,
+  Flame, Heart, Newspaper, Download, UserCircle, Smartphone, Share, Monitor,
 } from "lucide-react";
 
 interface UserData { id: string; name: string; avatarUrl: string | null; plan: string; }
@@ -71,6 +71,8 @@ const allTips = [
   { tip: "'Deliverable' é a palavra certa para o que você entrega ao cliente ou ao time.", example: "The main deliverable for this sprint is the API documentation." },
   { tip: "Use 'bandwidth' metaforicamente para falar sobre capacidade disponível de uma pessoa.", example: "Do you have the bandwidth to take on this task this week?" },
 ];
+
+const DESKTOP_APP_URL = "https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.1/SpeakFlow-Setup-0.1.1.exe";
 
 const PLAN_LABELS: Record<string, string> = { free: "Gratuito", basic: "Básico", premium: "Premium" };
 const PLAN_COLORS: Record<string, string> = {
@@ -220,12 +222,21 @@ function UserMenu({ user }: { user: UserData }) {
             </Link>
           </div>
           <div className="border-t border-zinc-800 py-1">
+            <a
+              href={DESKTOP_APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-3 px-4 py-2.5 text-sm text-violet-400 hover:bg-violet-500/10 hover:text-violet-300 transition-colors"
+            >
+              <Download className="size-4" /> Baixar App Desktop
+            </a>
             {canInstall && (
               <button
                 onClick={installApp}
-                className="flex w-full items-center gap-3 px-4 py-2.5 text-sm text-violet-400 hover:bg-violet-500/10 hover:text-violet-300 transition-colors"
+                className="flex w-full items-center gap-3 px-4 py-2.5 text-sm text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors"
               >
-                <Download className="size-4" /> Instalar App
+                <Smartphone className="size-4" /> Instalar como PWA
               </button>
             )}
             <button
@@ -511,6 +522,82 @@ function SpinCard() {
   );
 }
 
+function InstallAppBanner() {
+  const [pwaMode, setPwaMode] = useState<"none" | "prompt" | "ios">("none");
+  const [dismissed, setDismissed] = useState(false);
+  const [isStandalone, setIsStandalone] = useState(false);
+
+  useEffect(() => {
+    try { if (localStorage.getItem("sf_install_dismissed") === "1") { setDismissed(true); return; } } catch {}
+    const standalone = window.matchMedia("(display-mode: standalone)").matches
+      || ("standalone" in navigator && (navigator as { standalone?: boolean }).standalone === true);
+    setIsStandalone(standalone);
+    if (standalone) return;
+
+    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) && !/crios/i.test(navigator.userAgent);
+    if (isIOS) { setPwaMode("ios"); return; }
+    if (window.__pwaInstallPrompt) { setPwaMode("prompt"); return; }
+    const handler = () => setPwaMode("prompt");
+    window.addEventListener("pwaInstallReady", handler);
+    return () => window.removeEventListener("pwaInstallReady", handler);
+  }, []);
+
+  function dismiss() {
+    setDismissed(true);
+    try { localStorage.setItem("sf_install_dismissed", "1"); } catch {}
+  }
+
+  async function installPwa() {
+    const prompt = window.__pwaInstallPrompt;
+    if (!prompt) return;
+    await prompt.prompt();
+    const { outcome } = await prompt.userChoice;
+    if (outcome === "accepted") window.__pwaInstallPrompt = undefined;
+  }
+
+  if (dismissed || isStandalone) return null;
+
+  return (
+    <section className="px-4 pb-4">
+      <div className="relative flex items-start gap-3 rounded-xl border border-violet-500/30 bg-gradient-to-r from-violet-600/10 to-indigo-600/10 p-4">
+        <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-indigo-600 shadow-lg shadow-violet-500/25">
+          <Monitor className="size-5 text-white" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="font-semibold text-white text-sm">App Desktop SpeakFlow</p>
+          <p className="text-xs text-zinc-400 mt-0.5 mb-3">Copiloto em tempo real para calls em inglês — Windows 10/11 · Versão 0.1.1</p>
+          <div className="flex flex-wrap gap-2">
+            <a
+              href={DESKTOP_APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-violet-600 hover:bg-violet-500 active:bg-violet-700 px-3 py-1.5 text-xs font-semibold text-white transition-colors"
+            >
+              <Download className="size-3.5" /> Baixar .exe
+            </a>
+            {pwaMode === "prompt" && (
+              <button
+                onClick={installPwa}
+                className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 px-3 py-1.5 text-xs font-semibold text-zinc-300 transition-colors"
+              >
+                <Smartphone className="size-3.5" /> Instalar como app
+              </button>
+            )}
+            {pwaMode === "ios" && (
+              <span className="inline-flex items-center gap-1 rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-xs text-zinc-400">
+                <Share className="size-3.5" /> Compartilhar → Adicionar à Tela de Início
+              </span>
+            )}
+          </div>
+        </div>
+        <button onClick={dismiss} className="shrink-0 text-zinc-500 hover:text-white transition-colors mt-0.5">
+          <X className="size-4" />
+        </button>
+      </div>
+    </section>
+  );
+}
+
 function DailyTipCard() {
   const [tip, setTip] = useState<{ tip: string; example: string } | null>(null);
   useEffect(() => { setTip(getDailyTip()); }, []);
@@ -620,6 +707,7 @@ export default function HomePage() {
       <main className="mx-auto max-w-5xl">
         <HeroGreeting userName={user.name} />
         <QuickActionsSection />
+        <InstallAppBanner />
         <SpinCard />
         <CircleSection circles={circles} loading={loadingCircles} />
         <RecentActivitySection />
