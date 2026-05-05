@@ -11,7 +11,7 @@ import {
   Mic2, Zap, Users, Trophy, TrendingUp, Clock,
   ChevronRight, Bell, Wrench, Lock, Lightbulb,
   Home, Settings, CreditCard, X, LogOut, MessageSquare,
-  Flame, Heart, Newspaper,
+  Flame, Heart, Newspaper, Download, UserCircle,
 } from "lucide-react";
 
 interface UserData { id: string; name: string; avatarUrl: string | null; plan: string; }
@@ -158,8 +158,29 @@ function NotificationPanel({ notifications, onClose }: { notifications: Notifica
 
 function UserMenu({ user }: { user: UserData }) {
   const [open, setOpen] = useState(false);
+  const [canInstall, setCanInstall] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   useClickOutside(ref, () => setOpen(false));
+
+  useEffect(() => {
+    if (window.__pwaInstallPrompt) setCanInstall(true);
+    const handler = () => setCanInstall(true);
+    window.addEventListener("pwaInstallReady", handler);
+    return () => window.removeEventListener("pwaInstallReady", handler);
+  }, []);
+
+  async function installApp() {
+    const prompt = window.__pwaInstallPrompt;
+    if (!prompt) return;
+    await prompt.prompt();
+    const { outcome } = await prompt.userChoice;
+    if (outcome === "accepted") {
+      setCanInstall(false);
+      window.__pwaInstallPrompt = undefined;
+    }
+    setOpen(false);
+  }
+
   return (
     <div ref={ref} className="relative">
       <button onClick={() => setOpen((v) => !v)} className="flex items-center gap-2 group">
@@ -182,6 +203,9 @@ function UserMenu({ user }: { user: UserData }) {
             </span>
           </div>
           <div className="py-1">
+            <Link href={`/profile/${user.id}`} onClick={() => setOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors">
+              <UserCircle className="size-4" /> Meu Perfil
+            </Link>
             <Link href="/settings" onClick={() => setOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors">
               <Settings className="size-4" /> Configurações
             </Link>
@@ -196,6 +220,14 @@ function UserMenu({ user }: { user: UserData }) {
             </Link>
           </div>
           <div className="border-t border-zinc-800 py-1">
+            {canInstall && (
+              <button
+                onClick={installApp}
+                className="flex w-full items-center gap-3 px-4 py-2.5 text-sm text-violet-400 hover:bg-violet-500/10 hover:text-violet-300 transition-colors"
+              >
+                <Download className="size-4" /> Instalar App
+              </button>
+            )}
             <button
               onClick={() => { sessionStorage.removeItem("sf_token"); localStorage.removeItem("sf_token"); window.location.href = "/api/auth/logout"; }}
               className="flex w-full items-center gap-3 px-4 py-2.5 text-sm text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-colors"

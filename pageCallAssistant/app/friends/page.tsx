@@ -161,7 +161,7 @@ export default function FriendsPage() {
         </div>
 
         {/* Add friend search */}
-        <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5 space-y-3">
+        <div className="relative z-10 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5 space-y-3">
           <div className="flex items-center gap-2">
             <UserPlus className="h-4 w-4 text-violet-400" />
             <p className="font-semibold text-sm">Adicionar amigo</p>
@@ -181,7 +181,7 @@ export default function FriendsPage() {
               {searching && <Loader2 className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 animate-spin text-muted-foreground" />}
             </div>
             {showSugg && results.length > 0 && (
-              <div className="absolute z-30 mt-1 w-full rounded-xl border border-white/10 bg-[#13131a] shadow-2xl overflow-hidden">
+              <div className="absolute z-50 mt-1 w-full rounded-xl border border-white/10 bg-[#13131a] shadow-2xl overflow-hidden">
                 {results.map((u) => (
                   <button
                     key={u.id}
