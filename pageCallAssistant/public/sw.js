@@ -1,4 +1,4 @@
-const CACHE = "speakflow-v6";
+const CACHE = "speakflow-v7";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -57,13 +57,32 @@ self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
   if (event.request.url.includes("/api/")) return;
 
+  // Navigation requests (HTML pages): always try network, never serve stale HTML
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      fetch(event.request).catch(() =>
+        caches.match(event.request).then(
+          (cached) => cached || caches.match("/home") || new Response("Offline", { status: 503, headers: { "Content-Type": "text/plain" } })
+        )
+      )
+    );
+    return;
+  }
+
+  // Static assets: network-first with cache fallback
   event.respondWith(
     fetch(event.request)
       .then((res) => {
-        const clone = res.clone();
-        caches.open(CACHE).then((cache) => cache.put(event.request, clone));
+        if (res.ok) {
+          const clone = res.clone();
+          caches.open(CACHE).then((cache) => cache.put(event.request, clone));
+        }
         return res;
       })
-      .catch(() => caches.match(event.request))
+      .catch(() =>
+        caches.match(event.request).then(
+          (cached) => cached || new Response("", { status: 408, statusText: "Offline" })
+        )
+      )
   );
 });
