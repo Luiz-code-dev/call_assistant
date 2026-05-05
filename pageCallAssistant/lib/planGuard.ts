@@ -23,7 +23,7 @@ const TOOL_CONFIG: Record<
   meeting:   { minPlan: "premium", dailyLimit: { premium: Infinity } },
   practice:  { minPlan: "basic",   dailyLimit: { basic: 1,  premium: Infinity } },
   network:   { minPlan: "basic",   dailyLimit: { basic: 3,  premium: Infinity } },
-  live:      { minPlan: "free",    dailyLimit: {} },
+  live:      { minPlan: "free",    dailyLimit: { free: Infinity, basic: Infinity, premium: Infinity } },
 };
 
 export interface AccessResult {
