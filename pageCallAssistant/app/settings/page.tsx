@@ -13,6 +13,7 @@ export default function SettingsPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [avatarUrl, setAvatarUrl] = useState("");
+  const [bio, setBio] = useState("");
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
@@ -23,6 +24,7 @@ export default function SettingsPage() {
         if (data?.name) setName(data.name);
         if (data?.email) setEmail(data.email);
         if (data?.avatarUrl) setAvatarUrl(data.avatarUrl);
+        if (data?.bio) setBio(data.bio);
       })
       .catch(() => {})
       .finally(() => setLoading(false));
@@ -35,7 +37,7 @@ export default function SettingsPage() {
       const r = await fetch("/api/auth/profile", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, avatarUrl }),
+        body: JSON.stringify({ name, avatarUrl, bio }),
       });
       if (r.ok) toast.success("Configurações salvas!");
       else { const d = await r.json(); toast.error(d.error ?? "Erro ao salvar."); }
@@ -109,6 +111,18 @@ export default function SettingsPage() {
                     className="opacity-60"
                   />
                   <p className="text-xs text-muted-foreground">O e-mail não pode ser alterado.</p>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="bio">Bio <span className="text-muted-foreground text-xs font-normal">({bio.length}/300)</span></Label>
+                  <textarea
+                    id="bio"
+                    value={bio}
+                    onChange={(e) => setBio(e.target.value.slice(0, 300))}
+                    placeholder="Conte um pouco sobre você..."
+                    rows={3}
+                    className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500/40 resize-none"
+                  />
+                  <p className="text-xs text-muted-foreground">Aparece no seu perfil público. Máx. 300 caracteres.</p>
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="avatarUrl">URL da foto de perfil</Label>

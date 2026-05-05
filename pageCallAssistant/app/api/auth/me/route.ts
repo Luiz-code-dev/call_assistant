@@ -15,10 +15,8 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ message: "Token inválido" }, { status: 401 });
   }
 
-  const user = await db.user.findUnique({
-    where: { id: payload.sub },
-    select: { id: true, name: true, username: true, email: true, plan: true, avatarUrl: true },
-  });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const user = await (db as any).user.findUnique({ where: { id: payload.sub } });
 
   if (!user) {
     return NextResponse.json({ message: "Usuário não encontrado" }, { status: 404 });
@@ -31,5 +29,6 @@ export async function GET(req: NextRequest) {
     username: user.username ?? null,
     plan: user.plan,
     avatarUrl: user.avatarUrl ?? null,
+    bio: user.bio ?? null,
   });
 }

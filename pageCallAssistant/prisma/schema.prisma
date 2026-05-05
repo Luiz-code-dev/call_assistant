@@ -24,6 +24,7 @@ model User {
   subscriptionStatus   String?
   planRenewsAt         DateTime?
   avatarUrl            String?
+  bio                  String?             @db.Text
   registrationIp       String?
   createdAt            DateTime            @default(now())
   updatedAt            DateTime            @updatedAt

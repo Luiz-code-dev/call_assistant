@@ -9,11 +9,12 @@ export async function PATCH(req: NextRequest) {
   if (!payload) return NextResponse.json({ error: "token_invalid" }, { status: 401 });
 
   const body = await req.json().catch(() => ({}));
-  const { name, avatarUrl } = body;
+  const { name, avatarUrl, bio } = body;
 
   const data: Record<string, string | null> = {};
   if (typeof name === "string" && name.trim()) data.name = name.trim().slice(0, 80);
   if (typeof avatarUrl === "string") data.avatarUrl = avatarUrl.trim() || null;
+  if (typeof bio === "string") data.bio = bio.trim().slice(0, 300) || null;
 
   if (Object.keys(data).length === 0)
     return NextResponse.json({ error: "Nenhum campo para atualizar." }, { status: 400 });

@@ -226,13 +226,13 @@ function PostCard({ post, myId, onDelete }: { post: PostData; myId: string | nul
     <article id={post.id} className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden transition-shadow hover:shadow-lg hover:shadow-violet-500/5">
       {/* Header */}
       <div className="flex items-center justify-between px-4 pt-4 pb-2">
-        <div className="flex items-center gap-3">
+        <Link href={`/profile/${post.user.id}`} className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <Avatar name={post.user.name} avatarUrl={post.user.avatarUrl} size="md" />
           <div>
             <p className="text-sm font-semibold leading-tight">{post.user.name}</p>
             <p className="text-[11px] text-muted-foreground">{timeAgo(post.createdAt)}</p>
           </div>
-        </div>
+        </Link>
         {isOwn && (
           <div className="relative">
             <button onClick={() => setShowMenu((v) => !v)} className="rounded-full p-1.5 text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
