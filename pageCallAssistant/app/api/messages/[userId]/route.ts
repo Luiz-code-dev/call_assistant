@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { getNetworkSession } from "@/app/api/network/_auth";
 import { encryptMessage, decryptMessage, conversationKey } from "@/lib/encryption";
+import { sendPushToUsers } from "@/lib/webpush";
 
 async function areFriends(userA: string, userB: string): Promise<boolean> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -79,6 +80,13 @@ export async function POST(req: NextRequest, { params }: { params: { userId: str
   const msg = await (db as any).message.create({
     data: { senderId: session.sub, receiverId: params.userId, content: encrypted, iv },
   });
+
+  // Push notification to receiver
+  sendPushToUsers([params.userId], {
+    title: `💬 ${session.name}`,
+    body: content.trim().length > 80 ? content.trim().slice(0, 77) + "..." : content.trim(),
+    url: `/messages/${session.sub}`,
+  }).catch(console.error);
 
   return NextResponse.json({
     id: msg.id,
