@@ -3,10 +3,11 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import {
   ArrowLeft, MessageCircle, UserPlus, UserCheck, Clock,
   Grid3x3, Heart, MessageSquare, CalendarDays, BadgeCheck,
-  Loader2, ImageIcon,
+  Loader2, ImageIcon, X, Trophy, Star, Users,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -28,12 +29,30 @@ interface PostSnap {
   _count: { likes: number; comments: number };
 }
 
+interface FriendUser {
+  id: string; name: string; username?: string | null; avatarUrl?: string | null;
+}
+
+interface Proficiency {
+  level: string; cefrLevel: string; createdAt: string; overallFeedback: string;
+}
+
+interface ChallengeSnap {
+  id: string;
+  challenge: { title: string };
+  evaluation: { fluencyScore: number; contentScore: number; clarityScore: number; cefrLevel: string };
+  createdAt: string;
+}
+
 interface ProfileData {
   user: UserProfile;
   friendshipStatus: "pending" | "accepted" | null;
   isOwnProfile: boolean;
   stats: { postsCount: number; friendsCount: number };
   posts: PostSnap[];
+  friends: FriendUser[] | null;
+  proficiency: Proficiency | null;
+  challenges: ChallengeSnap[];
 }
 
 function authHeaders(): Record<string, string> {
@@ -64,8 +83,21 @@ function PlanBadge({ plan }: { plan: string }) {
   return null;
 }
 
+function cefrColor(level: string) {
+  const map: Record<string, string> = {
+    A1: "bg-slate-500/20 text-slate-300 border-slate-500/30",
+    A2: "bg-blue-500/20 text-blue-300 border-blue-500/30",
+    B1: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+    B2: "bg-teal-500/20 text-teal-300 border-teal-500/30",
+    C1: "bg-violet-500/20 text-violet-300 border-violet-500/30",
+    C2: "bg-amber-500/20 text-amber-300 border-amber-500/30",
+  };
+  return map[level] ?? "bg-white/10 text-white border-white/20";
+}
+
 export default function ProfilePage() {
   const params = useParams();
+  const router = useRouter();
   const userId = params.userId as string;
 
   const [data, setData] = useState<ProfileData | null>(null);
@@ -73,6 +105,7 @@ export default function ProfilePage() {
   const [error, setError] = useState<string | null>(null);
   const [acting, setActing] = useState(false);
   const [selectedPost, setSelectedPost] = useState<PostSnap | null>(null);
+  const [showFriends, setShowFriends] = useState(false);
 
   const load = useCallback(async () => {
     const res = await fetch(`/api/profile/${userId}`, { headers: authHeaders() });
@@ -131,9 +164,9 @@ export default function ProfilePage() {
       <header className="sticky top-0 z-40 border-b border-white/8 bg-[#09090b]/70 backdrop-blur-xl px-4"
         style={{ paddingTop: 'calc(0.75rem + env(safe-area-inset-top, 0px))', paddingBottom: '0.75rem' }}>
         <div className="mx-auto flex max-w-2xl items-center justify-between">
-          <Link href="/friends" className="text-muted-foreground hover:text-foreground transition-colors">
+          <button onClick={() => router.back()} className="text-muted-foreground hover:text-foreground transition-colors">
             <ArrowLeft className="h-5 w-5" />
-          </Link>
+          </button>
           <span className="font-semibold text-sm">{user.username ? `@${user.username}` : user.name}</span>
           <div className="w-5" />
         </div>
@@ -212,18 +245,59 @@ export default function ProfilePage() {
             Membro desde {formatDate(user.createdAt)}
           </div>
 
+          {/* Proficiency */}
+          {data.proficiency && (
+            <div className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold ${cefrColor(data.proficiency.cefrLevel)}`}>
+              <Star className="h-3.5 w-3.5" />
+              Nível {data.proficiency.cefrLevel} — {data.proficiency.level}
+            </div>
+          )}
+
           {/* Stats */}
           <div className="flex gap-6 pt-1 border-t border-white/8">
             <div className="text-center">
               <p className="font-bold text-base">{stats.postsCount}</p>
               <p className="text-[11px] text-muted-foreground">Posts</p>
             </div>
-            <div className="text-center">
+            <button
+              onClick={() => data.friends !== null && setShowFriends(true)}
+              className={`text-center ${data.friends !== null ? "hover:opacity-70 cursor-pointer" : "cursor-default"} transition-opacity`}>
               <p className="font-bold text-base">{stats.friendsCount}</p>
               <p className="text-[11px] text-muted-foreground">Amigos</p>
-            </div>
+            </button>
           </div>
         </div>
+
+        {/* Challenges section */}
+        {data.challenges.length > 0 && (
+          <div className="mt-6 space-y-3">
+            <div className="flex items-center gap-2 px-1">
+              <Trophy className="h-4 w-4 text-amber-400" />
+              <p className="font-semibold text-sm">Desafios concluídos</p>
+            </div>
+            <div className="space-y-2">
+              {data.challenges.map((c) => {
+                const avg = Math.round((c.evaluation.fluencyScore + c.evaluation.contentScore + c.evaluation.clarityScore) / 3);
+                return (
+                  <div key={c.id} className="rounded-xl border border-white/8 bg-white/5 backdrop-blur px-4 py-3 flex items-center justify-between gap-3">
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium truncate">{c.challenge.title}</p>
+                      <p className="text-[11px] text-muted-foreground mt-0.5">
+                        Fluência {c.evaluation.fluencyScore} · Conteúdo {c.evaluation.contentScore} · Clareza {c.evaluation.clarityScore}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <span className={`rounded-full border px-2 py-0.5 text-[10px] font-bold ${cefrColor(c.evaluation.cefrLevel)}`}>
+                        {c.evaluation.cefrLevel}
+                      </span>
+                      <span className="text-sm font-bold text-amber-400">{avg}%</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
 
         {/* Posts section */}
         <div className="mt-6 space-y-3">
@@ -271,6 +345,41 @@ export default function ProfilePage() {
           )}
         </div>
       </main>
+
+      {/* Friends modal */}
+      {showFriends && data.friends !== null && (
+        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-end sm:items-center justify-center p-4"
+          onClick={() => setShowFriends(false)}>
+          <div className="w-full max-w-sm rounded-2xl border border-white/10 bg-[#13131a] overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between px-5 py-4 border-b border-white/8">
+              <div className="flex items-center gap-2">
+                <Users className="h-4 w-4 text-violet-400" />
+                <span className="font-semibold text-sm">Amigos de {user.name.split(" ")[0]}</span>
+              </div>
+              <button onClick={() => setShowFriends(false)} className="text-muted-foreground hover:text-foreground transition-colors">
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+            <div className="max-h-80 overflow-y-auto">
+              {data.friends.length === 0 ? (
+                <p className="text-center text-sm text-muted-foreground py-10">Nenhum amigo ainda.</p>
+              ) : (
+                data.friends.map((f) => (
+                  <Link key={f.id} href={`/profile/${f.id}`} onClick={() => setShowFriends(false)}
+                    className="flex items-center gap-3 px-5 py-3 hover:bg-white/5 transition-colors">
+                    <Avatar name={f.name} avatarUrl={f.avatarUrl} size="sm" />
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium truncate">{f.name}</p>
+                      {f.username && <p className="text-xs text-muted-foreground">@{f.username}</p>}
+                    </div>
+                  </Link>
+                ))
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Post lightbox */}
       {selectedPost && (
