@@ -294,3 +294,49 @@ export async function sendBadgeEmail(
     `,
   });
 }
+
+export async function sendFriendRequestEmail(
+  toEmail: string,
+  toName: string,
+  fromName: string
+) {
+  const firstName = toName?.split(" ")[0] || "usuário";
+  if (!resend) {
+    console.log(`[DEV] Friend request email: ${fromName} → ${toEmail}`);
+    return;
+  }
+  await resend.emails.send({
+    from: FROM_EMAIL,
+    to: toEmail,
+    subject: `👥 ${fromName} quer ser seu amigo no SpeakFlow!`,
+    html: `
+      <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:32px 24px;background:#09090b;color:#fafafa;border-radius:12px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:28px">
+          <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#4f46e5);display:flex;align-items:center;justify-content:center">
+            <span style="color:#fff;font-weight:bold;font-size:18px">S</span>
+          </div>
+          <span style="font-weight:700;font-size:20px">SpeakFlow</span>
+        </div>
+        <h1 style="font-size:22px;font-weight:800;margin:0 0 6px">Olá, ${firstName}! 👋</h1>
+        <p style="color:#a1a1aa;margin:0 0 24px;font-size:15px">
+          <strong style="color:#fafafa">${fromName}</strong> enviou uma solicitação de amizade para você no SpeakFlow.
+        </p>
+        <div style="background:#18181b;border:1px solid #27272a;border-radius:12px;padding:20px;margin-bottom:24px">
+          <p style="margin:0 0 8px;font-size:13px;color:#a1a1aa">Com amigos no SpeakFlow você pode:</p>
+          <ul style="margin:0;padding-left:18px;color:#d4d4d8;font-size:13px;line-height:1.8">
+            <li>💬 Chat criptografado (AES-256-GCM)</li>
+            <li>🌍 Tradução instantânea nas mensagens</li>
+            <li>✍️ Grammar check com IA por mensagem</li>
+            <li>🎯 Ver nível CEFR de cada mensagem</li>
+          </ul>
+        </div>
+        <a href="${APP_URL}/friends" style="display:inline-block;padding:14px 32px;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px">
+          Ver solicitação →
+        </a>
+        <p style="color:#52525b;font-size:12px;margin-top:28px">Acesse SpeakFlow para aceitar ou recusar.<br/>Equipe SpeakFlow</p>
+        <hr style="border:none;border-top:1px solid #27272a;margin:24px 0"/>
+        <p style="color:#3f3f46;font-size:11px">SpeakFlow · speakf.com.br</p>
+      </div>
+    `,
+  }).catch((err: unknown) => console.error("[sendFriendRequestEmail]", err));
+}

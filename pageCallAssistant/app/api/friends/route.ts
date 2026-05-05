@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { getNetworkSession } from "@/app/api/network/_auth";
 import { sendPushToUsers } from "@/lib/webpush";
+import { sendFriendRequestEmail } from "@/lib/email";
 
 export async function GET(req: NextRequest) {
   const session = await getNetworkSession(req);
@@ -48,7 +49,7 @@ export async function POST(req: NextRequest) {
 
   const target = await db.user.findUnique({
     where: { id: userId },
-    select: { id: true, name: true },
+    select: { id: true, name: true, email: true },
   });
   if (!target) return NextResponse.json({ error: "user_not_found" }, { status: 404 });
 
@@ -71,11 +72,15 @@ export async function POST(req: NextRequest) {
     },
   });
 
-  await sendPushToUsers([userId], {
-    title: "👥 Nova solicitação de amizade",
-    body: `${friendship.requester.name} quer ser seu amigo no SpeakFlow!`,
-    url: "/friends",
-  }).catch(console.error);
+  const requesterName = friendship.requester.name;
+  await Promise.allSettled([
+    sendPushToUsers([userId], {
+      title: "👥 Nova solicitação de amizade",
+      body: `${requesterName} quer ser seu amigo no SpeakFlow!`,
+      url: "/friends",
+    }),
+    sendFriendRequestEmail(target.email, target.name, requesterName),
+  ]);
 
   return NextResponse.json(friendship, { status: 201 });
 }

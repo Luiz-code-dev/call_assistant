@@ -17,6 +17,13 @@ interface Message {
   createdAt: string;
 }
 
+interface UserProfile {
+  id: string;
+  name: string;
+  username?: string | null;
+  avatarUrl?: string | null;
+}
+
 interface GrammarResult {
   hasErrors: boolean;
   corrected: string;
@@ -34,13 +41,13 @@ function authHeaders(): Record<string, string> {
   return { "Content-Type": "application/json", ...(t ? { Authorization: `Bearer ${t}` } : {}) };
 }
 
-function meId(): string | null {
-  if (typeof window === "undefined") return null;
-  try {
-    const t = sessionStorage.getItem("sf_token");
-    if (!t) return null;
-    return JSON.parse(atob(t.split(".")[1])).sub ?? null;
-  } catch { return null; }
+function Avatar({ name, avatarUrl, size = "md" }: { name: string; avatarUrl?: string | null; size?: "sm" | "md" }) {
+  const initials = name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
+  const colors = ["from-violet-600 to-indigo-600", "from-emerald-500 to-teal-600", "from-rose-500 to-pink-600", "from-amber-500 to-orange-600"];
+  const color = colors[name.charCodeAt(0) % colors.length];
+  const cls = size === "sm" ? "h-7 w-7 text-[10px]" : "h-9 w-9 text-xs";
+  if (avatarUrl) return <img src={avatarUrl} alt={name} className={`${cls} rounded-full object-cover ring-2 ring-border shrink-0`} />;
+  return <div className={`${cls} rounded-full bg-gradient-to-br ${color} flex items-center justify-center text-white font-semibold shrink-0`}>{initials}</div>;
 }
 
 const CEFR_COLORS: Record<string, string> = {
@@ -48,7 +55,7 @@ const CEFR_COLORS: Record<string, string> = {
   B2: "bg-violet-500", C1: "bg-amber-500", C2: "bg-rose-500",
 };
 
-function MessageBubble({ m, isMe }: { m: Message; isMe: boolean }) {
+function MessageBubble({ m, isMe, friendProfile }: { m: Message; isMe: boolean; friendProfile: UserProfile | null }) {
   const [translation, setTranslation] = useState<string | null>(null);
   const [showTranslation, setShowTranslation] = useState(false);
   const [loadingTranslate, setLoadingTranslate] = useState(false);
@@ -97,17 +104,30 @@ function MessageBubble({ m, isMe }: { m: Message; isMe: boolean }) {
   }
 
   return (
-    <div className={`flex ${isMe ? "justify-end" : "justify-start"} group`}>
-      <div className={`max-w-[82%] space-y-1`}>
+    <div className={`flex ${isMe ? "justify-end" : "justify-start"} gap-2 group`}>
+      {/* Avatar for received messages */}
+      {!isMe && (
+        <div className="shrink-0 self-end">
+          {friendProfile ? (
+            <Avatar name={friendProfile.name} avatarUrl={friendProfile.avatarUrl} size="sm" />
+          ) : (
+            <div className="h-7 w-7 rounded-full bg-muted" />
+          )}
+        </div>
+      )}
+      <div className="max-w-[75%] space-y-1">
+        {/* Sender name for received messages */}
+        {!isMe && friendProfile && (
+          <p className="text-[11px] text-muted-foreground px-1 font-medium">{friendProfile.name.split(" ")[0]}</p>
+        )}
         {/* Bubble */}
         <div className={`rounded-2xl px-4 py-2.5 text-sm leading-relaxed
           ${isMe ? "bg-violet-600 text-white rounded-br-sm" : "bg-card border border-border/50 text-foreground rounded-bl-sm"}`}>
           <p>{m.content}</p>
-          <div className={`flex items-center justify-between mt-1.5 gap-2`}>
+          <div className="flex items-center justify-between mt-1.5 gap-2">
             <span className={`text-[10px] ${isMe ? "text-violet-200/70" : "text-muted-foreground"}`}>
               {new Date(m.createdAt).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}
             </span>
-            {/* CEFR badge inline */}
             {cefr && (
               <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full text-white ${CEFR_COLORS[cefr.level] ?? "bg-zinc-500"}`}>
                 {cefr.level}
@@ -227,28 +247,30 @@ export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
-  const [friendName, setFriendName] = useState<string>("");
+  const [friend, setFriend] = useState<UserProfile | null>(null);
+  const [me, setMe] = useState<UserProfile | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [myId, setMyId] = useState<string | null>(null);
   const [grammarResult, setGrammarResult] = useState<GrammarResult | null>(null);
   const [checkingGrammar, setCheckingGrammar] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const pollRef = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => { setMyId(meId()); }, []);
+  useEffect(() => {
+    fetch("/api/auth/me", { headers: authHeaders() })
+      .then((r) => r.ok ? r.json() : null)
+      .then((d) => { if (d) setMe(d); })
+      .catch(() => {});
+    fetch(`/api/users/${userId}`, { headers: authHeaders() })
+      .then((r) => r.ok ? r.json() : null)
+      .then((d) => { if (d) setFriend(d); })
+      .catch(() => {});
+  }, [userId]);
 
   const loadMessages = useCallback(async () => {
     const res = await fetch(`/api/messages/${userId}`, { headers: authHeaders() });
     if (res.status === 403) { setError("Vocês não são amigos. Adicione primeiro em /friends."); return; }
-    if (res.ok) {
-      const data: Message[] = await res.json();
-      setMessages(data);
-      if (data.length === 0 && !friendName) {
-        const u = await fetch(`/api/network/users/search?q=${userId}`, { headers: authHeaders() });
-        if (u.ok) { const users = await u.json(); if (users[0]) setFriendName(users[0].name); }
-      }
-    }
-  }, [userId, friendName]);
+    if (res.ok) setMessages(await res.json());
+  }, [userId]);
 
   useEffect(() => {
     loadMessages();
@@ -304,43 +326,43 @@ export default function ChatPage() {
     <div className="flex flex-col h-screen bg-background">
       {/* Header */}
       <header className="flex items-center gap-3 px-4 py-3 border-b border-border/50 bg-card/80 backdrop-blur sticky top-0 z-10">
-        <Link href="/friends" className="text-muted-foreground hover:text-foreground transition-colors">
+        <Link href="/friends" className="text-muted-foreground hover:text-foreground transition-colors shrink-0">
           <ArrowLeft className="h-5 w-5" />
         </Link>
+        {friend && <Avatar name={friend.name} avatarUrl={friend.avatarUrl} size="sm" />}
         <div className="flex-1 min-w-0">
-          <p className="font-semibold text-sm truncate">{friendName || "Chat"}</p>
+          <p className="font-semibold text-sm truncate">{friend?.name ?? "Chat"}</p>
           <p className="text-xs text-muted-foreground flex items-center gap-1.5">
-            <Lock className="h-3 w-3" />
-            <span>AES-256-GCM</span>
+            <Lock className="h-3 w-3" /><span>AES-256-GCM</span>
             <span className="opacity-40">·</span>
-            <Globe className="h-3 w-3 text-blue-400" />
-            <span className="text-blue-400">Tradução</span>
+            <Globe className="h-3 w-3 text-blue-400" /><span className="text-blue-400">Tradução</span>
             <span className="opacity-40">·</span>
-            <Sparkles className="h-3 w-3 text-violet-400" />
-            <span className="text-violet-400">Grammar AI</span>
+            <Sparkles className="h-3 w-3 text-violet-400" /><span className="text-violet-400">Grammar AI</span>
           </p>
         </div>
       </header>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
-        {messages.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-full text-center text-muted-foreground gap-3 py-20">
-            <div className="flex gap-2 text-2xl">🔐💬🌍</div>
-            <p className="text-sm font-medium">Nenhuma mensagem ainda</p>
-            <p className="text-xs max-w-xs">Escreva em inglês! Você pode traduzir, checar gramática e ver o nível CEFR de qualquer mensagem 🎯</p>
-          </div>
-        ) : (
-          messages.map((m) => (
-            <MessageBubble key={m.id} m={m} isMe={m.senderId === myId} />
-          ))
-        )}
-        <div ref={bottomRef} />
+      <div className="flex-1 overflow-y-auto py-4">
+        <div className="max-w-2xl mx-auto px-4 space-y-3">
+          {messages.length === 0 ? (
+            <div className="flex flex-col items-center justify-center py-24 text-center text-muted-foreground gap-3">
+              <div className="flex gap-2 text-2xl">🔐💬🌍</div>
+              <p className="text-sm font-medium">Nenhuma mensagem ainda</p>
+              <p className="text-xs max-w-xs">Escreva em inglês! Você pode traduzir, checar gramática e ver o nível CEFR de qualquer mensagem 🎯</p>
+            </div>
+          ) : (
+            messages.map((m) => (
+              <MessageBubble key={m.id} m={m} isMe={m.senderId === me?.id} friendProfile={friend} />
+            ))
+          )}
+          <div ref={bottomRef} />
+        </div>
       </div>
 
       {/* Grammar result */}
       {grammarResult && (
-        <div className="px-4 pb-2 max-w-3xl mx-auto w-full">
+        <div className="px-4 pb-2 max-w-2xl mx-auto w-full">
           <GrammarPanel
             result={grammarResult}
             onAccept={(text) => { setInput(text); setGrammarResult(null); }}
@@ -351,7 +373,7 @@ export default function ChatPage() {
 
       {/* Input area */}
       <div className="px-4 py-3 border-t border-border/50 bg-card/80 backdrop-blur">
-        <div className="max-w-3xl mx-auto space-y-2">
+        <div className="max-w-2xl mx-auto space-y-2">
           {/* Toolbar */}
           <div className="flex items-center gap-2">
             <button
