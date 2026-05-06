@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 import CookieConsent from "@/components/CookieConsent";
+import { BottomNav } from "@/components/BottomNav";
 
 export const viewport: Viewport = {
   themeColor: "#09090b",
@@ -78,6 +79,7 @@ export default function RootLayout({
         <Toaster />
         <ServiceWorkerRegister />
         <CookieConsent />
+        <BottomNav />
       </body>
     </html>
   );

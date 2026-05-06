@@ -618,48 +618,6 @@ function DailyTipCard() {
   );
 }
 
-function BottomNavigation() {
-  const [pendingFriends, setPendingFriends] = useState(0);
-
-  useEffect(() => {
-    fetch("/api/friends/pending")
-      .then((r) => r.json())
-      .then((d) => setPendingFriends(d.count ?? 0))
-      .catch(() => {});
-    const id = setInterval(() => {
-      fetch("/api/friends/pending")
-        .then((r) => r.json())
-        .then((d) => setPendingFriends(d.count ?? 0))
-        .catch(() => {});
-    }, 30_000);
-    return () => clearInterval(id);
-  }, []);
-
-  const items = [
-    { Icon: Home, label: "Home", href: "/home", active: true, badge: 0 },
-    { Icon: Newspaper, label: "Feed", href: "/feed", active: false, badge: 0 },
-    { Icon: Users, label: "Network", href: "/network", active: false, badge: 0 },
-    { Icon: Heart, label: "Amigos", href: "/friends", active: false, badge: pendingFriends },
-    { Icon: Wrench, label: "Tools", href: "/tools", active: false, badge: 0 },
-  ];
-  return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-zinc-800/50 bg-[#09090b]/90 backdrop-blur-xl sm:hidden" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
-      <div className="flex items-center justify-around py-2">
-        {items.map((item) => (
-          <Link key={item.label} href={item.href} className={`relative flex flex-col items-center gap-1 px-3 py-2 transition-colors ${item.active ? "text-violet-400" : "text-zinc-500"}`}>
-            <item.Icon className="size-5" />
-            {item.badge > 0 && (
-              <span className="absolute -top-0.5 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-rose-500 text-[9px] font-bold text-white">
-                {item.badge > 9 ? "9+" : item.badge}
-              </span>
-            )}
-            <span className="text-[10px] font-medium">{item.label}</span>
-          </Link>
-        ))}
-      </div>
-    </nav>
-  );
-}
 
 export default function HomePage() {
   const router = useRouter();
@@ -714,7 +672,6 @@ export default function HomePage() {
         <AchievementsSection earnedSlugs={earnedSlugs} />
         <DailyTipCard />
       </main>
-      <BottomNavigation />
     </div>
   );
 }
