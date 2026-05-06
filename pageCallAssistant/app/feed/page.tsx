@@ -177,11 +177,19 @@ function PostCard({ post, myId, onDelete, isStranger }: { post: PostData; myId: 
   const [addedFriend, setAddedFriend] = useState(false);
 
   async function sendFriendRequest(userId: string) {
-    const res = await fetch("/api/friends/request", {
-      method: "POST", headers: authHeaders(), body: JSON.stringify({ addresseeId: userId }),
+    const res = await fetch("/api/friends", {
+      method: "POST", headers: authHeaders(), body: JSON.stringify({ userId }),
     });
-    if (res.ok) { setAddedFriend(true); toast.success("Solicitação enviada!"); }
-    else toast.error("Erro ao enviar solicitação.");
+    if (res.ok) {
+      setAddedFriend(true);
+      toast.success("Solicitação enviada! 🎉");
+    } else {
+      const d = await res.json().catch(() => ({}));
+      if (d.error === "already_exists")
+        toast.info(d.status === "accepted" ? "Vocês já são amigos." : "Solicitação já enviada.");
+      else
+        toast.error("Erro ao enviar solicitação.");
+    }
   }
 
   async function toggleLike() {
@@ -397,6 +405,12 @@ function ViewStatusModal({ status, onClose }: { status: StatusData; onClose: () 
   );
 }
 
+const STATUS_EMOJIS = [
+  "😊","🎯","🔥","💪","📚","🎤","🚀","🏆","✅","🎉",
+  "💡","⚡","🌟","🎓","💬","🌍","😴","☕","✈️","🎸",
+  "🏃","🤝","💼","🌱","📝","🎵","🧠","😅","🙌","❤️",
+];
+
 /* ─── Create Status Modal ────────────────────────────────── */
 function CreateStatusModal({ me, current, onClose, onSaved }: {
   me: UserSnap | null;
@@ -408,6 +422,7 @@ function CreateStatusModal({ me, current, onClose, onSaved }: {
   const [text, setText] = useState(current?.statusText ?? "");
   const [emoji, setEmoji] = useState(current?.statusEmoji ?? "");
   const [mediaUrl, setMediaUrl] = useState(current?.statusMediaUrl ?? "");
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [saving, setSaving] = useState(false);
   const [recording, setRecording] = useState(false);
   const [countdown, setCountdown] = useState(10);
@@ -519,10 +534,42 @@ function CreateStatusModal({ me, current, onClose, onSaved }: {
         </div>
 
         <div className="p-4 space-y-3">
-          {/* Emoji + text (shown in text mode and as caption in photo/video) */}
+          {/* Emoji picker + text */}
           <div className="flex gap-2">
-            <input value={emoji} onChange={(e) => setEmoji(e.target.value)} placeholder="😊" maxLength={2}
-              className="w-12 rounded-xl border border-border bg-zinc-800 px-2 py-2 text-center text-base outline-none focus:ring-2 focus:ring-violet-500/40" />
+            <div className="relative shrink-0">
+              <button
+                type="button"
+                onClick={() => setShowEmojiPicker((v) => !v)}
+                className="w-12 h-10 rounded-xl border border-border bg-zinc-800 flex items-center justify-center text-xl hover:bg-zinc-700 transition-colors"
+              >
+                {emoji || "😊"}
+              </button>
+              {showEmojiPicker && (
+                <div className="absolute top-full left-0 mt-1 z-30 rounded-2xl border border-white/10 bg-zinc-900 shadow-2xl p-2" style={{ width: 220 }}>
+                  <div className="grid grid-cols-6 gap-1">
+                    {STATUS_EMOJIS.map((e) => (
+                      <button
+                        key={e}
+                        type="button"
+                        onClick={() => { setEmoji(e); setShowEmojiPicker(false); }}
+                        className={`h-8 w-8 flex items-center justify-center text-lg rounded-lg transition-colors hover:bg-white/10 ${emoji === e ? "bg-violet-600/30 ring-1 ring-violet-500" : ""}`}
+                      >
+                        {e}
+                      </button>
+                    ))}
+                  </div>
+                  {emoji && (
+                    <button
+                      type="button"
+                      onClick={() => { setEmoji(""); setShowEmojiPicker(false); }}
+                      className="mt-1.5 w-full text-xs text-muted-foreground hover:text-rose-400 transition-colors py-1"
+                    >
+                      Remover emoji
+                    </button>
+                  )}
+                </div>
+              )}
+            </div>
             <input value={text} onChange={(e) => setText(e.target.value.slice(0, 150))} placeholder="O que está acontecendo?" maxLength={150}
               className="flex-1 rounded-xl border border-border bg-zinc-800 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500/40" />
           </div>
@@ -894,6 +941,7 @@ function Sidebar({ me }: { me: UserSnap | null }) {
 /* ─── Main Page ──────────────────────────────────────────── */
 export default function FeedPage() {
   const [me, setMe] = useState<UserSnap | null>(null);
+  const [friendIds, setFriendIds] = useState<Set<string>>(new Set());
   const [tab, setTab] = useState<"friends" | "discover">("friends");
   const [posts, setPosts] = useState<PostData[]>([]);
   const [loading, setLoading] = useState(true);
@@ -905,6 +953,12 @@ export default function FeedPage() {
     fetch("/api/auth/me", { headers: authHeaders() })
       .then((r) => r.ok ? r.json() : null)
       .then((d) => { if (d) setMe(d); })
+      .catch(() => {});
+    fetch("/api/friends", { headers: authHeaders() })
+      .then((r) => r.ok ? r.json() : [])
+      .then((data: Array<{ status: string; friend: UserSnap }>) => {
+        setFriendIds(new Set(data.filter((f) => f.status === "accepted").map((f) => f.friend.id)));
+      })
       .catch(() => {});
   }, []);
 
@@ -1042,7 +1096,7 @@ export default function FeedPage() {
                   post={p}
                   myId={me?.id ?? null}
                   onDelete={onPostDeleted}
-                  isStranger={tab === "discover" && p.user.id !== me?.id}
+                  isStranger={tab === "discover" && p.user.id !== me?.id && !friendIds.has(p.user.id)}
                 />
               ))
             )}
