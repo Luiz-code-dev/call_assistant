@@ -1,9 +1,9 @@
-const CACHE = "speakflow-v7";
+const CACHE = "speakflow-v8";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE).then((cache) =>
-      cache.addAll(["/network", "/network/circles", "/live", "/manifest.json", "/icon.svg"])
+      cache.addAll(["/home", "/feed", "/live", "/network", "/manifest.json", "/icon.svg"])
     )
   );
 });
@@ -28,7 +28,7 @@ self.addEventListener("push", (event) => {
   const title = data.title || "SpeakFlow Network";
   const body  = data.body  || "Novo desafio disponível no seu Circle!";
   const icon  = "/icon.svg";
-  const url   = data.url   || "/network";
+  const url   = data.url   || "/home";
 
   event.waitUntil(
     self.registration.showNotification(title, {
@@ -46,7 +46,7 @@ self.addEventListener("notificationclick", (event) => {
   const url = event.notification.data?.url || "/network";
   event.waitUntil(
     clients.matchAll({ type: "window", includeUncontrolled: true }).then((list) => {
-      const found = list.find((c) => c.url.includes("/network"));
+      const found = list.find((c) => c.url.includes(url));
       if (found) return found.focus();
       return clients.openWindow(url);
     })

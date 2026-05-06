@@ -1,8 +1,8 @@
 {
-  "name": "SpeakFlow Network",
-  "short_name": "SF Network",
-  "description": "Circles de prática profissional em inglês — desafios, ranking e feedback com IA",
-  "start_url": "/network",
+  "name": "SpeakFlow",
+  "short_name": "SpeakFlow",
+  "description": "Pratique inglês com IA, conecte-se com amigos e evolua no trabalho.",
+  "start_url": "/home",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
@@ -20,6 +20,13 @@
   ],
   "shortcuts": [
     {
+      "name": "Feed Social",
+      "short_name": "Feed",
+      "description": "Ver posts de amigos e da comunidade",
+      "url": "/feed",
+      "icons": [{ "src": "/icon.svg", "sizes": "any" }]
+    },
+    {
       "name": "SpeakFlow Live",
       "short_name": "Live",
       "description": "Copiloto em tempo real com IA",
@@ -33,15 +40,9 @@
       "icons": [{ "src": "/icon.svg", "sizes": "any" }]
     },
     {
-      "name": "Descobrir",
-      "short_name": "Descobrir",
-      "url": "/network/circles",
-      "icons": [{ "src": "/icon.svg", "sizes": "any" }]
-    },
-    {
-      "name": "Progresso",
-      "short_name": "Progresso",
-      "url": "/network/progress",
+      "name": "Amigos & Feed",
+      "short_name": "Amigos",
+      "url": "/friends",
       "icons": [{ "src": "/icon.svg", "sizes": "any" }]
     }
   ]

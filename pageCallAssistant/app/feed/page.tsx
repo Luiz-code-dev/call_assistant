@@ -520,12 +520,15 @@ function CreateStatusModal({ me, current, onClose, onSaved }: {
 
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/80 backdrop-blur-sm" onClick={onClose}>
-      <div className="w-full max-w-sm mx-auto sm:mx-4 rounded-t-3xl sm:rounded-2xl border border-white/10 bg-zinc-900 shadow-2xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
-        <div className="flex items-center justify-between px-4 py-3 border-b border-white/8">
+      <div className="w-full max-w-sm mx-auto sm:mx-4 rounded-t-3xl sm:rounded-2xl border border-white/10 bg-zinc-900 shadow-2xl flex flex-col" style={{ maxHeight: "90dvh" }} onClick={(e) => e.stopPropagation()}>
+        {/* Fixed header */}
+        <div className="flex items-center justify-between px-4 py-3 border-b border-white/8 shrink-0">
           <p className="font-semibold text-sm">Novo status (24h)</p>
           <button onClick={onClose}><X className="h-5 w-5 text-muted-foreground hover:text-foreground" /></button>
         </div>
 
+        {/* Scrollable body */}
+        <div className="overflow-y-auto flex-1">
         {/* Tabs */}
         <div className="flex gap-1 p-3 pb-0">
           <button className={tabCls("text")} onClick={() => setMode("text")}><Clock className="h-3.5 w-3.5" /> Texto</button>
@@ -644,6 +647,7 @@ function CreateStatusModal({ me, current, onClose, onSaved }: {
             )}
           </div>
         </div>
+        </div>{/* end scrollable body */}
       </div>
     </div>
   );

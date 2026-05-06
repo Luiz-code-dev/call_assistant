@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "SpeakFlow Network",
+    title: "SpeakFlow",
   },
   other: {
     "mobile-web-app-capable": "yes",
