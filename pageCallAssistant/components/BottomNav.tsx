@@ -5,11 +5,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Home, Newspaper, Users, Heart, Wrench } from "lucide-react";
 
-const PUBLIC_PREFIXES = ["/", "/pricing", "/guia", "/download", "/login", "/register", "/verify-email", "/reset-password", "/terms", "/privacy", "/robots", "/sitemap"];
+const EXCLUDED_PREFIXES = [
+  "/", "/pricing", "/guia", "/download", "/login", "/register",
+  "/verify-email", "/reset-password", "/terms", "/privacy", "/robots", "/sitemap",
+  // Pages with their own fixed bottom UI:
+  "/messages", "/live",
+];
 
-function isPublic(pathname: string) {
+function isExcluded(pathname: string) {
   if (pathname === "/") return true;
-  return PUBLIC_PREFIXES.slice(1).some((p) => pathname === p || pathname.startsWith(p + "/"));
+  return EXCLUDED_PREFIXES.slice(1).some((p) => pathname === p || pathname.startsWith(p + "/"));
 }
 
 export function BottomNav() {
@@ -29,7 +34,7 @@ export function BottomNav() {
     return () => clearInterval(id);
   }, []);
 
-  if (isPublic(pathname)) return null;
+  if (isExcluded(pathname)) return null;
 
   const items = [
     { icon: Home,      label: "Home",    href: "/home",    match: "/home" },

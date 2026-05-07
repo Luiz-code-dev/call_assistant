@@ -193,31 +193,39 @@ export default function CookieConsent() {
 
       {/* Banner (only when manager is closed) */}
       {!showManager && (
-        <div className="fixed bottom-4 left-4 right-4 z-50 mx-auto max-w-2xl rounded-2xl border border-border/60 bg-card/95 backdrop-blur-md shadow-2xl px-5 py-4">
-          <div className="flex items-start gap-3">
-            <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-violet-500/15">
-              <Cookie className="h-5 w-5 text-violet-400" />
+        <div className="fixed left-2 right-2 z-50 mx-auto max-w-2xl rounded-2xl border border-border/60 bg-card/95 backdrop-blur-md shadow-2xl sm:bottom-4 sm:left-4 sm:right-4" style={{ bottom: 'calc(4rem + env(safe-area-inset-bottom, 0px) + 0.5rem)' }}>
+          {/* Mobile compact version */}
+          <div className="flex items-center gap-2.5 px-3 py-2.5 sm:hidden">
+            <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-violet-500/15">
+              <Cookie className="h-4 w-4 text-violet-400" />
             </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-semibold mb-0.5">Este site usa cookies</p>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                Usamos cookies essenciais e opcionais para melhorar sua experiência, analisar o uso do site e personalizar conteúdo. Confira nossa{" "}
-                <a href="/privacy" className="text-violet-400 hover:text-violet-300 underline underline-offset-2">
-                  Política de Privacidade
-                </a>.
-              </p>
-            </div>
+            <p className="text-xs font-medium flex-1 leading-tight">Este site usa cookies</p>
+            <button onClick={acceptEssential} className="text-[11px] text-muted-foreground whitespace-nowrap px-2 py-1 rounded-lg hover:bg-white/5">
+              Recusar
+            </button>
+            <Button size="sm" className="text-[11px] h-7 px-3 bg-gradient-to-r from-violet-600 to-indigo-600 border-0" onClick={acceptAll}>
+              Aceitar
+            </Button>
           </div>
-          <div className="mt-4 flex flex-wrap gap-2 justify-end">
-            <Button variant="ghost" size="sm" className="text-xs text-muted-foreground h-8" onClick={acceptEssential}>
-              Só essenciais
-            </Button>
-            <Button variant="outline" size="sm" className="text-xs h-8" onClick={() => setShowManager(true)}>
-              Gerenciar
-            </Button>
-            <Button size="sm" className="text-xs h-8 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 border-0" onClick={acceptAll}>
-              Aceitar todos
-            </Button>
+          {/* Desktop full version */}
+          <div className="hidden sm:block px-5 py-4">
+            <div className="flex items-start gap-3">
+              <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-violet-500/15">
+                <Cookie className="h-5 w-5 text-violet-400" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-semibold mb-0.5">Este site usa cookies</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Usamos cookies essenciais e opcionais para melhorar sua experiência, analisar o uso do site e personalizar conteúdo. Confira nossa{" "}
+                  <a href="/privacy" className="text-violet-400 hover:text-violet-300 underline underline-offset-2">Política de Privacidade</a>.
+                </p>
+              </div>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-2 justify-end">
+              <Button variant="ghost" size="sm" className="text-xs text-muted-foreground h-8" onClick={acceptEssential}>Só essenciais</Button>
+              <Button variant="outline" size="sm" className="text-xs h-8" onClick={() => setShowManager(true)}>Gerenciar</Button>
+              <Button size="sm" className="text-xs h-8 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 border-0" onClick={acceptAll}>Aceitar todos</Button>
+            </div>
           </div>
         </div>
       )}
