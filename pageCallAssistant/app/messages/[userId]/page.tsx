@@ -256,16 +256,23 @@ export default function ChatPage() {
   const [checkingGrammar, setCheckingGrammar] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const pollRef = useRef<NodeJS.Timeout | null>(null);
-  const [chatHeight, setChatHeight] = useState<string>("100dvh");
+  const [vpStyle, setVpStyle] = useState<React.CSSProperties>({ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 });
 
   useEffect(() => {
     function update() {
-      const h = window.visualViewport?.height ?? window.innerHeight;
-      setChatHeight(`${h}px`);
+      const vv = window.visualViewport;
+      const h = vv?.height ?? window.innerHeight;
+      const t = vv?.offsetTop ?? 0;
+      setVpStyle({ position: 'fixed', top: t, left: 0, right: 0, height: h });
+      window.scrollTo(0, 0);
     }
     update();
     window.visualViewport?.addEventListener("resize", update);
-    return () => window.visualViewport?.removeEventListener("resize", update);
+    window.visualViewport?.addEventListener("scroll", update);
+    return () => {
+      window.visualViewport?.removeEventListener("resize", update);
+      window.visualViewport?.removeEventListener("scroll", update);
+    };
   }, []);
 
   useEffect(() => {
@@ -336,7 +343,7 @@ export default function ChatPage() {
   );
 
   return (
-    <div className="flex flex-col bg-background" style={{ height: chatHeight }}>
+    <div className="flex flex-col bg-background" style={vpStyle}>
       {/* Header */}
       <header className="flex items-center gap-3 px-4 border-b border-border/50 bg-card/80 backdrop-blur sticky top-0 z-10" style={{ paddingTop: 'calc(0.75rem + env(safe-area-inset-top, 0px))', paddingBottom: '0.75rem' }}>
         <button onClick={() => router.back()} className="text-muted-foreground hover:text-foreground transition-colors shrink-0">

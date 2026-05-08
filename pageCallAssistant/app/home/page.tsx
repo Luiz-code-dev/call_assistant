@@ -12,7 +12,7 @@ import {
   ChevronRight, Bell, Wrench, Lock, Lightbulb,
   Home, Settings, CreditCard, X, LogOut, MessageSquare,
   Flame, Heart, Newspaper, Download, UserCircle, Smartphone, Share, Monitor,
-  Volume2, VolumeX,
+  Volume2, VolumeX, Loader2,
 } from "lucide-react";
 
 interface UserData { id: string; name: string; avatarUrl: string | null; plan: string; }
@@ -619,53 +619,47 @@ function InstallAppBanner() {
 function DailyTipCard() {
   const [tip, setTip] = useState<{ tip: string; example: string } | null>(null);
   const [speaking, setSpeaking] = useState(false);
-  useEffect(() => { setTip(getDailyTip()); }, []);
+  const [loadingAudio, setLoadingAudio] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  useEffect(() => { setTip(getDailyTip()); return () => { if (audioRef.current) { audioRef.current.pause(); } }; }, []);
 
-  function bestVoice(lang: string) {
-    const voices = window.speechSynthesis.getVoices();
-    const prefix = lang.split("-")[0];
-    return (
-      voices.find((v) => v.lang === lang && (v.name.includes("Google") || v.name.includes("Microsoft"))) ||
-      voices.find((v) => v.lang === lang) ||
-      voices.find((v) => v.lang.startsWith(prefix) && (v.name.includes("Google") || v.name.includes("Microsoft"))) ||
-      voices.find((v) => v.lang.startsWith(prefix)) ||
-      null
-    );
+  function stopAudio() {
+    if (audioRef.current) { audioRef.current.pause(); audioRef.current.src = ""; audioRef.current = null; }
+    setSpeaking(false);
   }
 
-  function doSpeak() {
+  async function fetchAudio(text: string): Promise<Blob> {
+    const sfToken = sessionStorage.getItem("sf_token");
+    const res = await fetch("/api/tts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...(sfToken ? { Authorization: `Bearer ${sfToken}` } : {}) },
+      body: JSON.stringify({ text }),
+    });
+    if (!res.ok) throw new Error("tts_failed");
+    return res.blob();
+  }
+
+  function playBlob(blob: Blob, onEnd: () => void) {
+    const url = URL.createObjectURL(blob);
+    const audio = new Audio(url);
+    audioRef.current = audio;
+    audio.onended = () => { URL.revokeObjectURL(url); onEnd(); };
+    audio.onerror = () => { URL.revokeObjectURL(url); onEnd(); };
+    audio.play();
+  }
+
+  async function speak() {
     if (!tip) return;
-    window.speechSynthesis.cancel();
-
-    const uttPt = new SpeechSynthesisUtterance(tip.tip);
-    uttPt.lang = "pt-BR";
-    uttPt.rate = 1.05;
-    uttPt.pitch = 1;
-    const ptVoice = bestVoice("pt-BR");
-    if (ptVoice) uttPt.voice = ptVoice;
-
-    const uttEn = new SpeechSynthesisUtterance(tip.example);
-    uttEn.lang = "en-US";
-    uttEn.rate = 0.9;
-    uttEn.pitch = 1;
-    const enVoice = bestVoice("en-US");
-    if (enVoice) uttEn.voice = enVoice;
-    uttEn.onend = () => setSpeaking(false);
-    uttEn.onerror = () => setSpeaking(false);
-
-    window.speechSynthesis.speak(uttPt);
-    window.speechSynthesis.speak(uttEn);
-    setSpeaking(true);
-  }
-
-  function speak() {
-    if (!tip || !("speechSynthesis" in window)) return;
-    if (speaking) { window.speechSynthesis.cancel(); setSpeaking(false); return; }
-    const voices = window.speechSynthesis.getVoices();
-    if (voices.length === 0) {
-      window.speechSynthesis.onvoiceschanged = () => { window.speechSynthesis.onvoiceschanged = null; doSpeak(); };
-    } else {
-      doSpeak();
+    if (speaking || loadingAudio) { stopAudio(); setLoadingAudio(false); return; }
+    setLoadingAudio(true);
+    try {
+      const [ptBlob, enBlob] = await Promise.all([fetchAudio(tip.tip), fetchAudio(tip.example)]);
+      setLoadingAudio(false);
+      setSpeaking(true);
+      playBlob(ptBlob, () => playBlob(enBlob, () => setSpeaking(false)));
+    } catch {
+      setLoadingAudio(false);
+      setSpeaking(false);
     }
   }
 
@@ -680,12 +674,13 @@ function DailyTipCard() {
               <h3 className="font-semibold text-amber-400">Dica do Dia</h3>
               <button
                 onClick={speak}
-                title={speaking ? "Parar" : "Ouvir em inglês"}
+                disabled={loadingAudio}
+                title={speaking ? "Parar" : loadingAudio ? "Carregando..." : "Ouvir"}
                 className={`flex items-center justify-center size-7 rounded-lg transition-colors ${
                   speaking ? "bg-amber-500/20 text-amber-400" : "bg-amber-500/10 text-amber-500/60 hover:text-amber-400 hover:bg-amber-500/20"
                 }`}
               >
-                {speaking ? <VolumeX className="size-3.5" /> : <Volume2 className="size-3.5" />}
+                {loadingAudio ? <Loader2 className="size-3.5 animate-spin" /> : speaking ? <VolumeX className="size-3.5" /> : <Volume2 className="size-3.5" />}
               </button>
             </div>
             <p className="text-sm text-zinc-300">{tip.tip}</p>
