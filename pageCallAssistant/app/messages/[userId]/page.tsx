@@ -256,6 +256,17 @@ export default function ChatPage() {
   const [checkingGrammar, setCheckingGrammar] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const pollRef = useRef<NodeJS.Timeout | null>(null);
+  const [chatHeight, setChatHeight] = useState<string>("100dvh");
+
+  useEffect(() => {
+    function update() {
+      const h = window.visualViewport?.height ?? window.innerHeight;
+      setChatHeight(`${h}px`);
+    }
+    update();
+    window.visualViewport?.addEventListener("resize", update);
+    return () => window.visualViewport?.removeEventListener("resize", update);
+  }, []);
 
   useEffect(() => {
     fetch("/api/auth/me", { headers: authHeaders() })
@@ -325,7 +336,7 @@ export default function ChatPage() {
   );
 
   return (
-    <div className="flex flex-col bg-background" style={{ height: '100dvh' }}>
+    <div className="flex flex-col bg-background" style={{ height: chatHeight }}>
       {/* Header */}
       <header className="flex items-center gap-3 px-4 border-b border-border/50 bg-card/80 backdrop-blur sticky top-0 z-10" style={{ paddingTop: 'calc(0.75rem + env(safe-area-inset-top, 0px))', paddingBottom: '0.75rem' }}>
         <button onClick={() => router.back()} className="text-muted-foreground hover:text-foreground transition-colors shrink-0">

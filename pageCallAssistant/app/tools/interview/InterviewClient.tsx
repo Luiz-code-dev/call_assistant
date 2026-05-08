@@ -170,7 +170,7 @@ export default function InterviewClient({ userPlan, credits: initialCredits }: P
   return (
     <div className="flex h-screen flex-col bg-background">
       {/* Header */}
-      <header className="border-b border-border/50 bg-card/50 px-6 py-4 shrink-0">
+      <header className="border-b border-border/50 bg-card/50 px-6 shrink-0" style={{ paddingTop: 'calc(1rem + env(safe-area-inset-top, 0px))', paddingBottom: '1rem' }}>
         <div className="mx-auto flex max-w-3xl items-center justify-between">
           <div className="flex items-center gap-3">
             <Link href="/tools" onClick={() => window.speechSynthesis?.cancel()}

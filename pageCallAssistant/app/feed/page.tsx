@@ -288,11 +288,11 @@ function PostCard({ post, myId, onDelete, isStranger }: { post: PostData; myId: 
 
       {/* Image */}
       {post.imageUrl && (
-        <div className="cursor-zoom-in" onClick={() => setImageOpen(true)}>
+        <div className="cursor-zoom-in bg-zinc-950 rounded-xl overflow-hidden" onClick={() => setImageOpen(true)}>
           <img
             src={post.imageUrl}
             alt="post"
-            className="w-full max-h-[480px] object-cover"
+            className="w-full max-h-[480px] object-contain"
             loading="lazy"
           />
         </div>

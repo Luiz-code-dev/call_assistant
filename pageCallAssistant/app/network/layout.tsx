@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Mic2, Users, Trophy, TrendingUp, Bell, BellOff, Heart, Newspaper } from "lucide-react";
+import { Mic2, Users, Trophy, TrendingUp, Bell, BellOff, Heart, Newspaper, Home } from "lucide-react";
 import { PWAInstallBanner } from "@/components/PWAInstallBanner";
 
 function usePendingFriends() {
@@ -69,16 +69,20 @@ export default function NetworkLayout({ children }: { children: React.ReactNode 
       <PushPermissionBanner />
       <header className="sticky top-0 z-40 border-b border-border/50 bg-card/80 backdrop-blur px-4" style={{ paddingTop: 'calc(0.75rem + env(safe-area-inset-top, 0px))', paddingBottom: '0.75rem' }}>
         <div className="mx-auto flex max-w-6xl items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/home" className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600">
               <Mic2 className="h-4 w-4 text-white" />
             </div>
             <span className="font-semibold text-sm">SpeakFlow</span>
           </Link>
           <nav className="flex items-center gap-1">
+            <Link href="/home" className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
+              <Home className="h-4 w-4" />
+              <span className="hidden sm:inline">Início</span>
+            </Link>
             <Link href="/network" className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
               <TrendingUp className="h-4 w-4" />
-              <span className="hidden sm:inline">Home</span>
+              <span className="hidden sm:inline">Network</span>
             </Link>
             <Link href="/network/circles" className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
               <Users className="h-4 w-4" />

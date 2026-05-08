@@ -12,6 +12,7 @@ import {
   ChevronRight, Bell, Wrench, Lock, Lightbulb,
   Home, Settings, CreditCard, X, LogOut, MessageSquare,
   Flame, Heart, Newspaper, Download, UserCircle, Smartphone, Share, Monitor,
+  Volume2, VolumeX,
 } from "lucide-react";
 
 interface UserData { id: string; name: string; avatarUrl: string | null; plan: string; }
@@ -338,21 +339,38 @@ function HeroGreeting({ userName }: { userName: string }) {
 }
 
 function QuickActionsSection() {
+  const [unreadMessages, setUnreadMessages] = useState(0);
+  useEffect(() => {
+    const sfToken = sessionStorage.getItem("sf_token");
+    fetch("/api/messages/unread-per-sender", { headers: sfToken ? { Authorization: `Bearer ${sfToken}` } : {} })
+      .then((r) => r.ok ? r.json() : {})
+      .then((m: Record<string, number>) => setUnreadMessages(Object.values(m).reduce((a, b) => a + b, 0)))
+      .catch(() => {});
+  }, []);
+
   return (
     <section className="px-4 pb-6">
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {quickActions.map((action) => (
-          <Link key={action.label} href={action.href} className="group flex items-center gap-4 rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-700 hover:bg-zinc-800/50 hover:shadow-lg">
-            <div className={`flex size-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${action.gradient} text-white shadow-lg`}>
-              <action.Icon className="size-5" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <h3 className="font-semibold text-white">{action.label}</h3>
-              <p className="text-xs text-zinc-400 truncate">{action.description}</p>
-            </div>
-            <ChevronRight className="size-4 text-zinc-600 transition-colors group-hover:text-zinc-400 shrink-0" />
-          </Link>
-        ))}
+        {quickActions.map((action) => {
+          const badge = action.href === "/friends" ? unreadMessages : 0;
+          return (
+            <Link key={action.label} href={action.href} className="group relative flex items-center gap-4 rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-700 hover:bg-zinc-800/50 hover:shadow-lg">
+              {badge > 0 && (
+                <span className="absolute -top-2 -right-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-rose-500 px-1 text-[10px] font-bold text-white z-10">
+                  {badge > 99 ? "99+" : badge}
+                </span>
+              )}
+              <div className={`flex size-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${action.gradient} text-white shadow-lg`}>
+                <action.Icon className="size-5" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="font-semibold text-white">{action.label}</h3>
+                <p className="text-xs text-zinc-400 truncate">{action.description}</p>
+              </div>
+              <ChevronRight className="size-4 text-zinc-600 transition-colors group-hover:text-zinc-400 shrink-0" />
+            </Link>
+          );
+        })}
       </div>
     </section>
   );
@@ -600,15 +618,41 @@ function InstallAppBanner() {
 
 function DailyTipCard() {
   const [tip, setTip] = useState<{ tip: string; example: string } | null>(null);
+  const [speaking, setSpeaking] = useState(false);
   useEffect(() => { setTip(getDailyTip()); }, []);
+
+  function speak() {
+    if (!tip || !("speechSynthesis" in window)) return;
+    if (speaking) { window.speechSynthesis.cancel(); setSpeaking(false); return; }
+    const utt = new SpeechSynthesisUtterance(`${tip.tip}. Example: ${tip.example}`);
+    utt.lang = "en-US";
+    utt.rate = 0.9;
+    utt.onend = () => setSpeaking(false);
+    utt.onerror = () => setSpeaking(false);
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utt);
+    setSpeaking(true);
+  }
+
   if (!tip) return null;
   return (
     <section className="px-4 pb-24 sm:pb-8">
       <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-4">
         <div className="flex items-start gap-3">
           <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-amber-500/10"><Lightbulb className="size-4 text-amber-400" /></div>
-          <div>
-            <h3 className="font-semibold text-amber-400 mb-1">Dica do Dia</h3>
+          <div className="flex-1">
+            <div className="flex items-center justify-between mb-1">
+              <h3 className="font-semibold text-amber-400">Dica do Dia</h3>
+              <button
+                onClick={speak}
+                title={speaking ? "Parar" : "Ouvir em inglês"}
+                className={`flex items-center justify-center size-7 rounded-lg transition-colors ${
+                  speaking ? "bg-amber-500/20 text-amber-400" : "bg-amber-500/10 text-amber-500/60 hover:text-amber-400 hover:bg-amber-500/20"
+                }`}
+              >
+                {speaking ? <VolumeX className="size-3.5" /> : <Volume2 className="size-3.5" />}
+              </button>
+            </div>
             <p className="text-sm text-zinc-300">{tip.tip}</p>
             <p className="mt-2 text-sm text-zinc-400 italic">Ex: &ldquo;{tip.example}&rdquo;</p>
           </div>
