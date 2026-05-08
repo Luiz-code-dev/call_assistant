@@ -621,17 +621,52 @@ function DailyTipCard() {
   const [speaking, setSpeaking] = useState(false);
   useEffect(() => { setTip(getDailyTip()); }, []);
 
+  function bestVoice(lang: string) {
+    const voices = window.speechSynthesis.getVoices();
+    const prefix = lang.split("-")[0];
+    return (
+      voices.find((v) => v.lang === lang && (v.name.includes("Google") || v.name.includes("Microsoft"))) ||
+      voices.find((v) => v.lang === lang) ||
+      voices.find((v) => v.lang.startsWith(prefix) && (v.name.includes("Google") || v.name.includes("Microsoft"))) ||
+      voices.find((v) => v.lang.startsWith(prefix)) ||
+      null
+    );
+  }
+
+  function doSpeak() {
+    if (!tip) return;
+    window.speechSynthesis.cancel();
+
+    const uttPt = new SpeechSynthesisUtterance(tip.tip);
+    uttPt.lang = "pt-BR";
+    uttPt.rate = 1.05;
+    uttPt.pitch = 1;
+    const ptVoice = bestVoice("pt-BR");
+    if (ptVoice) uttPt.voice = ptVoice;
+
+    const uttEn = new SpeechSynthesisUtterance(tip.example);
+    uttEn.lang = "en-US";
+    uttEn.rate = 0.9;
+    uttEn.pitch = 1;
+    const enVoice = bestVoice("en-US");
+    if (enVoice) uttEn.voice = enVoice;
+    uttEn.onend = () => setSpeaking(false);
+    uttEn.onerror = () => setSpeaking(false);
+
+    window.speechSynthesis.speak(uttPt);
+    window.speechSynthesis.speak(uttEn);
+    setSpeaking(true);
+  }
+
   function speak() {
     if (!tip || !("speechSynthesis" in window)) return;
     if (speaking) { window.speechSynthesis.cancel(); setSpeaking(false); return; }
-    const utt = new SpeechSynthesisUtterance(`${tip.tip}. Example: ${tip.example}`);
-    utt.lang = "en-US";
-    utt.rate = 0.9;
-    utt.onend = () => setSpeaking(false);
-    utt.onerror = () => setSpeaking(false);
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(utt);
-    setSpeaking(true);
+    const voices = window.speechSynthesis.getVoices();
+    if (voices.length === 0) {
+      window.speechSynthesis.onvoiceschanged = () => { window.speechSynthesis.onvoiceschanged = null; doSpeak(); };
+    } else {
+      doSpeak();
+    }
   }
 
   if (!tip) return null;
