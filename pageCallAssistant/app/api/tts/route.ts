@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
 
   const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-  const { text } = await req.json().catch(() => ({}));
+  const { text, speed } = await req.json().catch(() => ({}));
   if (!text || typeof text !== "string" || text.length > 500)
     return NextResponse.json({ error: "invalid_text" }, { status: 400 });
 
@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
     model: "tts-1",
     voice: "nova",
     input: text,
-    speed: 1.0,
+    speed: typeof speed === "number" && speed >= 0.25 && speed <= 4.0 ? speed : 0.85,
   });
 
   const buffer = await response.arrayBuffer();

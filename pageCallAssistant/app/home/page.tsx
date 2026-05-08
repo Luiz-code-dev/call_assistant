@@ -628,12 +628,12 @@ function DailyTipCard() {
     setSpeaking(false);
   }
 
-  async function fetchAudio(text: string): Promise<Blob> {
+  async function fetchAudio(text: string, speed = 0.85): Promise<Blob> {
     const sfToken = sessionStorage.getItem("sf_token");
     const res = await fetch("/api/tts", {
       method: "POST",
       headers: { "Content-Type": "application/json", ...(sfToken ? { Authorization: `Bearer ${sfToken}` } : {}) },
-      body: JSON.stringify({ text }),
+      body: JSON.stringify({ text, speed }),
     });
     if (!res.ok) throw new Error("tts_failed");
     return res.blob();
@@ -653,7 +653,8 @@ function DailyTipCard() {
     if (speaking || loadingAudio) { stopAudio(); setLoadingAudio(false); return; }
     setLoadingAudio(true);
     try {
-      const [ptBlob, enBlob] = await Promise.all([fetchAudio(tip.tip), fetchAudio(tip.example)]);
+      const ptText = `Dica do Dia do SpeakFlow. ${tip.tip}. Exemplo:`;
+      const [ptBlob, enBlob] = await Promise.all([fetchAudio(ptText, 0.85), fetchAudio(tip.example, 0.78)]);
       setLoadingAudio(false);
       setSpeaking(true);
       playBlob(ptBlob, () => playBlob(enBlob, () => setSpeaking(false)));
