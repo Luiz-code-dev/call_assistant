@@ -5,6 +5,7 @@ import Link from "next/link";
 import {
   Mic, MicOff, Square, Loader2, Zap, Copy,
   CheckCircle2, Globe, ArrowLeft, Radio, MessageSquare,
+  Languages, Send, Volume2, X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -99,6 +100,14 @@ export default function LivePage() {
   const [interimText, setInterimText] = useState("");
   const [expandedCards, setExpandedCards] = useState<Record<string, number>>({});
   const [copiedId, setCopiedId] = useState<string | null>(null);
+
+  // Phrase helper
+  const [showPhrase, setShowPhrase] = useState(false);
+  const [phraseInput, setPhraseInput] = useState("");
+  const [phraseResult, setPhraseResult] = useState<string | null>(null);
+  const [phraseLoading, setPhraseLoading] = useState(false);
+  const [phraseAudioLoading, setPhraseAudioLoading] = useState(false);
+  const phraseAudioRef = useRef<HTMLAudioElement | null>(null);
 
   // Refs
   const recognitionRef = useRef<ISpeechRecognition | null>(null);
@@ -294,13 +303,15 @@ export default function LivePage() {
         toast.error("Permissão de microfone negada. Permita nas configurações do browser.");
         setIsRecording(false); isRecordingRef.current = false;
         wasRecordingRef.current = false;
-      } else if (err && err !== "no-speech" && err !== "aborted" && document.visibilityState === "visible") {
-        // iOS/Safari may throw other errors — fall back to MediaRecorder (only if visible)
-        recognitionRef.current = null;
-        startMediaRecorder();
+      }
+      // no-speech / aborted / network → onend will restart automatically
+    };
+    rec.onend = () => {
+      // Only restart if this is still the active instance (prevents stale restarts)
+      if (isRecordingRef.current && document.visibilityState === "visible" && recognitionRef.current === rec) {
+        try { rec.start(); } catch { /* ignore if already started */ }
       }
     };
-    rec.onend = () => { if (isRecordingRef.current && document.visibilityState === "visible") rec.start(); };
     rec.start();
     recognitionRef.current = rec;
   }, [processTranscript]);
@@ -412,6 +423,50 @@ export default function LivePage() {
     setInterimText("");
     sessionId.current = Date.now().toString();
   }, [stopRecording, authFetch]);
+
+  // ── Phrase translation helper ──
+  const translatePhrase = useCallback(async () => {
+    if (!phraseInput.trim() || phraseLoading) return;
+    setPhraseLoading(true);
+    setPhraseResult(null);
+    try {
+      const res = await authFetch("/api/live/phrase", {
+        method: "POST",
+        body: JSON.stringify({ text: phraseInput.trim() }),
+      });
+      const data = await res.json();
+      if (res.ok && data.english) setPhraseResult(data.english);
+      else toast.error("Não foi possível traduzir. Tente novamente.");
+    } catch {
+      toast.error("Erro de conexão.");
+    } finally {
+      setPhraseLoading(false);
+    }
+  }, [phraseInput, phraseLoading, authFetch]);
+
+  const playPhraseAudio = useCallback(async (text: string) => {
+    if (phraseAudioLoading) return;
+    if (phraseAudioRef.current) { phraseAudioRef.current.pause(); phraseAudioRef.current = null; }
+    setPhraseAudioLoading(true);
+    try {
+      const t = tokenRef.current;
+      const res = await fetch("/api/tts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", ...(t ? { Authorization: `Bearer ${t}` } : {}) },
+        body: JSON.stringify({ text, speed: 0.85 }),
+      });
+      if (!res.ok) { setPhraseAudioLoading(false); return; }
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const audio = new Audio(url);
+      phraseAudioRef.current = audio;
+      audio.onended = () => { URL.revokeObjectURL(url); setPhraseAudioLoading(false); };
+      audio.onerror = () => { URL.revokeObjectURL(url); setPhraseAudioLoading(false); };
+      audio.play();
+    } catch {
+      setPhraseAudioLoading(false);
+    }
+  }, [phraseAudioLoading]);
 
   // ── Copy helper ──
   const copyText = (text: string, id: string) => {
@@ -738,44 +793,105 @@ export default function LivePage() {
         <div ref={turnsEndRef} />
       </div>
 
-      {/* ── Bottom mic dock ── */}
-      <div className="shrink-0 border-t border-border/50 bg-card/90 backdrop-blur px-6 py-5">
-        <div className="flex flex-col items-center gap-3">
-          {isRecording && (
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
-              <span className="text-xs font-medium text-red-400">
-                {hasSpeechAPI ? `Ouvindo em ${langLabel}...` : "Gravando... (max 10s)"}
-              </span>
-            </div>
-          )}
-          {!isRecording && !isProcessing && turns.length > 0 && (
-            <p className="text-xs text-muted-foreground/50">
-              Toque para capturar o próximo trecho
-            </p>
-          )}
+      {/* ── Bottom dock ── */}
+      <div className="shrink-0 border-t border-border/50 bg-card/90 backdrop-blur">
 
-          {isRecording ? (
-            <button
-              onClick={stopRecording}
-              className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-red-500 bg-red-500/10 text-red-400 transition-all active:scale-95 hover:bg-red-500/20"
-              style={{ boxShadow: "0 0 0 10px rgba(239,68,68,0.08), 0 0 0 20px rgba(239,68,68,0.04)" }}
-            >
-              <MicOff className="h-7 w-7" />
-            </button>
-          ) : (
-            <button
-              onClick={startRecording}
-              disabled={isProcessing}
-              className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-violet-500 bg-violet-500/10 text-violet-400 transition-all active:scale-95 hover:bg-violet-500/20 disabled:opacity-40 disabled:cursor-not-allowed"
-              style={!isProcessing ? { boxShadow: "0 0 0 10px rgba(139,92,246,0.08)" } : undefined}
-            >
-              {isProcessing
-                ? <Loader2 className="h-7 w-7 animate-spin" />
-                : <Mic className="h-7 w-7" />
-              }
-            </button>
-          )}
+        {/* "Como falo isso?" panel */}
+        {showPhrase && (
+          <div className="px-4 pt-4 pb-3 border-b border-border/40 space-y-3">
+            <div className="flex items-center gap-2">
+              <input
+                value={phraseInput}
+                onChange={e => { setPhraseInput(e.target.value); setPhraseResult(null); }}
+                onKeyDown={e => { if (e.key === "Enter") translatePhrase(); }}
+                placeholder="O que quer dizer? (escreva em português)"
+                autoFocus
+                className="flex-1 rounded-lg border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500/50 placeholder:text-muted-foreground/50"
+              />
+              <button
+                onClick={translatePhrase}
+                disabled={!phraseInput.trim() || phraseLoading}
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-violet-600 text-white hover:bg-violet-500 disabled:opacity-40 transition-colors"
+              >
+                {phraseLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
+              </button>
+            </div>
+            {phraseResult && (
+              <div className="rounded-lg border border-emerald-500/30 bg-emerald-500/5 px-3 py-2.5 space-y-2">
+                <p className="text-sm font-semibold text-emerald-300 leading-relaxed">{phraseResult}</p>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => playPhraseAudio(phraseResult)}
+                    disabled={phraseAudioLoading}
+                    className="flex items-center gap-1.5 rounded-md border border-emerald-500/20 px-2.5 py-1.5 text-xs text-emerald-400 hover:bg-emerald-500/10 disabled:opacity-40 transition-colors"
+                  >
+                    {phraseAudioLoading ? <Loader2 className="h-3 w-3 animate-spin" /> : <Volume2 className="h-3 w-3" />}
+                    Ouvir pronúncia
+                  </button>
+                  <button
+                    onClick={() => { setShowPhrase(false); processTranscript(phraseResult); }}
+                    className="flex items-center gap-1.5 rounded-md border border-violet-500/20 px-2.5 py-1.5 text-xs text-violet-400 hover:bg-violet-500/10 transition-colors"
+                  >
+                    Usar na conversa
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Main dock row */}
+        <div className="flex items-center justify-between gap-4 px-6 py-4">
+          {/* "Como falo isso?" toggle */}
+          <button
+            onClick={() => { setShowPhrase(v => !v); setPhraseResult(null); setPhraseInput(""); }}
+            className={`flex flex-col items-center gap-1 transition-colors ${
+              showPhrase ? "text-violet-400" : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            <div className={`rounded-xl p-2 transition-colors ${
+              showPhrase ? "bg-violet-500/15" : "hover:bg-secondary/60"
+            }`}>
+              <Languages className="h-5 w-5" />
+            </div>
+            <span className="text-[10px] font-medium">Como falo?</span>
+          </button>
+
+          {/* Status + Mic (center) */}
+          <div className="flex flex-1 flex-col items-center gap-2">
+            {isRecording && (
+              <div className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
+                <span className="text-xs font-medium text-red-400">
+                  {hasSpeechAPI ? `Ouvindo em ${langLabel}...` : "Gravando... (max 10s)"}
+                </span>
+              </div>
+            )}
+            {!isRecording && !isProcessing && turns.length > 0 && (
+              <p className="text-xs text-muted-foreground/50">Toque para capturar</p>
+            )}
+            {isRecording ? (
+              <button
+                onClick={stopRecording}
+                className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-red-500 bg-red-500/10 text-red-400 transition-all active:scale-95 hover:bg-red-500/20"
+                style={{ boxShadow: "0 0 0 10px rgba(239,68,68,0.08), 0 0 0 20px rgba(239,68,68,0.04)" }}
+              >
+                <MicOff className="h-7 w-7" />
+              </button>
+            ) : (
+              <button
+                onClick={startRecording}
+                disabled={isProcessing}
+                className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-violet-500 bg-violet-500/10 text-violet-400 transition-all active:scale-95 hover:bg-violet-500/20 disabled:opacity-40 disabled:cursor-not-allowed"
+                style={!isProcessing ? { boxShadow: "0 0 0 10px rgba(139,92,246,0.08)" } : undefined}
+              >
+                {isProcessing ? <Loader2 className="h-7 w-7 animate-spin" /> : <Mic className="h-7 w-7" />}
+              </button>
+            )}
+          </div>
+
+          {/* Spacer to balance layout */}
+          <div className="w-14" />
         </div>
       </div>
     </div>
