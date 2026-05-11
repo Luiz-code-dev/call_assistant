@@ -6,6 +6,10 @@ import { sendVerificationEmail } from "@/lib/email";
 import { generateUniqueUsername } from "@/lib/username";
 import { isDisposableEmail } from "@/lib/disposableEmails";
 
+const PROMO_TOTAL = 300;
+const PROMO_CREDITS = 300;
+const DEFAULT_CREDITS = 50;
+
 const IP_REGISTRATION_LIMIT = 3;
 const IP_WINDOW_MS = 24 * 60 * 60 * 1000; // 24h
 
@@ -64,6 +68,13 @@ export async function POST(req: NextRequest) {
     const verificationExpiry = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24h
     const username = await generateUniqueUsername(name);
 
+    // Check launch promo eligibility (first PROMO_TOTAL users)
+    const promoClaimed = await (db as any).creditTransaction.count({
+      where: { source: "launch_promo" },
+    });
+    const isPromoEligible = promoClaimed < PROMO_TOTAL;
+    const initialCredits = isPromoEligible ? PROMO_CREDITS : DEFAULT_CREDITS;
+
     const user = await db.user.create({
       data: {
         name,
@@ -74,7 +85,7 @@ export async function POST(req: NextRequest) {
         verificationExpiry,
         acceptedTerms: true,
         emailVerified: false,
-        credits: 50,
+        credits: initialCredits,
         plan: "free",
         registrationIp: clientIp,
       },
@@ -84,9 +95,11 @@ export async function POST(req: NextRequest) {
       data: {
         userId: user.id,
         type: "credit",
-        amount: 50,
-        source: "trial",
-        description: "Créditos trial",
+        amount: initialCredits,
+        source: isPromoEligible ? "launch_promo" : "trial",
+        description: isPromoEligible
+          ? "🚀 Bônus de Lançamento — 300 créditos"
+          : "Créditos trial",
       },
     });
 

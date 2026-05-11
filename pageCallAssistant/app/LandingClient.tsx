@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import {
   Mic2, Zap, Users, Star, CheckCircle2, Globe, ArrowRight, Brain, Shield, Monitor,
   MessageSquare, Target, Sparkles, Download, Smartphone, Award, Send, PenTool,
-  ChevronRight, Instagram, Heart, UserPlus, Clock,
+  ChevronRight, Instagram, Heart, UserPlus, Clock, Flame, X,
 } from "lucide-react";
 import { SupportChat } from "@/components/SupportChat";
 import { CookieManagerButton } from "@/components/CookieConsent";
@@ -39,6 +39,55 @@ function AnimatedSection({ children, className = "", delay = 0 }: { children: Re
   );
 }
 
+// ==================== PROMO ====================
+
+const PROMO_TOTAL = 300;
+const PROMO_BAR_H = 44; // px — height of the fixed launch bar
+
+function LaunchPromoBar({
+  isLoggedIn, remaining, onDismiss,
+}: { isLoggedIn: boolean; remaining: number; onDismiss: () => void }) {
+  const pct = remaining / PROMO_TOTAL;
+  const countColor = pct <= 0.2 ? "text-red-300" : pct <= 0.5 ? "text-amber-300" : "text-violet-300";
+  return (
+    <div
+      className="fixed left-0 right-0 z-[60] flex items-center border-b border-violet-800/60"
+      style={{ top: 0, height: PROMO_BAR_H, background: "linear-gradient(90deg,#1e1b4b,#312e81,#1e3a5f)" }}
+    >
+      <div className="max-w-7xl mx-auto w-full px-4 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2.5 flex-1 min-w-0">
+          <Flame className="h-4 w-4 text-amber-400 animate-pulse shrink-0" />
+          <div className="flex items-center gap-2 flex-wrap min-w-0">
+            <span className="text-sm font-bold text-white whitespace-nowrap">Lançamento Exclusivo</span>
+            <span className="hidden sm:inline text-zinc-400 text-xs">·</span>
+            <span className="hidden sm:inline text-xs text-zinc-300 whitespace-nowrap">
+              Primeiros {PROMO_TOTAL} usuários ganham
+            </span>
+            <span className="text-sm font-bold text-violet-300 whitespace-nowrap">300 créditos grátis</span>
+            <div className="flex items-center gap-1.5 bg-white/10 rounded-full px-2.5 py-0.5 whitespace-nowrap">
+              <span className="h-1.5 w-1.5 rounded-full bg-red-400 animate-pulse" />
+              <span className={`text-xs font-bold tabular-nums ${countColor}`}>{remaining}</span>
+              <span className="text-xs text-zinc-400">vagas</span>
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 shrink-0">
+          {!isLoggedIn && (
+            <Link href="/register">
+              <button className="rounded-lg bg-violet-600 hover:bg-violet-500 px-3 py-1 text-xs font-semibold text-white whitespace-nowrap transition-colors">
+                Garantir vaga →
+              </button>
+            </Link>
+          )}
+          <button onClick={onDismiss} className="p-1 text-zinc-500 hover:text-zinc-300 transition-colors">
+            <X className="h-3.5 w-3.5" />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ==================== LOGO ====================
 
 function Logo() {
@@ -54,7 +103,7 @@ function Logo() {
 
 // ==================== HEADER ====================
 
-function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
+function Header({ isLoggedIn, topOffset = 0 }: { isLoggedIn: boolean; topOffset?: number }) {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -63,7 +112,10 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-zinc-950/90 backdrop-blur-xl border-b border-zinc-800/50" : "bg-transparent"}`}>
+    <header
+      className={`fixed left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-zinc-950/90 backdrop-blur-xl border-b border-zinc-800/50" : "bg-transparent"}`}
+      style={{ top: topOffset }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Logo />
@@ -94,7 +146,7 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
 
 // ==================== HERO ====================
 
-function HeroSection({ isLoggedIn }: { isLoggedIn: boolean }) {
+function HeroSection({ isLoggedIn, promoRemaining, promoOffset = 0 }: { isLoggedIn: boolean; promoRemaining?: number | null; promoOffset?: number }) {
   const [currentFala, setCurrentFala] = useState(0);
   const falas = [
     { en: "What's your biggest achievement in your last role?", pt: "Qual foi sua maior conquista no seu último cargo?" },
@@ -106,7 +158,10 @@ function HeroSection({ isLoggedIn }: { isLoggedIn: boolean }) {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-12">
+    <section
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pb-12"
+      style={{ paddingTop: `calc(5rem + ${promoOffset}px)` }}
+    >
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-violet-600/15 rounded-full blur-[150px] animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-indigo-600/15 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: "1s" }} />
@@ -121,6 +176,20 @@ function HeroSection({ isLoggedIn }: { isLoggedIn: boolean }) {
                 <Sparkles className="h-3.5 w-3.5 mr-2" />Powered by OpenAI Whisper + GPT-4
               </Badge>
             </AnimatedSection>
+            {promoRemaining !== null && promoRemaining !== undefined && promoRemaining > 0 && !isLoggedIn && (
+              <AnimatedSection delay={75}>
+                <div className="mb-5 inline-flex items-center gap-2.5 rounded-xl border border-amber-500/40 bg-gradient-to-r from-amber-500/10 to-orange-500/5 px-4 py-2.5 shadow-lg shadow-amber-500/5">
+                  <Flame className="h-4 w-4 text-amber-400 animate-pulse shrink-0" />
+                  <span className="text-sm text-amber-200">
+                    Apenas{" "}
+                    <span className="font-bold text-amber-300 tabular-nums">{promoRemaining}</span>{" "}
+                    vagas com{" "}
+                    <span className="font-bold text-white">300 créditos grátis</span>
+                  </span>
+                  <span className="text-amber-600 text-xs">→</span>
+                </div>
+              </AnimatedSection>
+            )}
             <AnimatedSection delay={100}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
                 <span className="text-white">Seu </span>
@@ -148,7 +217,12 @@ function HeroSection({ isLoggedIn }: { isLoggedIn: boolean }) {
               </div>
             </AnimatedSection>
             <AnimatedSection delay={400}>
-              <p className="mt-6 text-sm text-zinc-500">Sem cartão de crédito &bull; 50 créditos grátis para testar</p>
+              <p className="mt-6 text-sm text-zinc-500">
+                {promoRemaining && promoRemaining > 0 && !isLoggedIn
+                  ? <>🔥 Promoção ativa &bull; <span className="text-violet-400">{promoRemaining} vagas restantes</span> &bull; 300 créditos grátis</>
+                  : <>Sem cartão de crédito &bull; 50 créditos grátis para testar</>
+                }
+              </p>
             </AnimatedSection>
           </div>
 
@@ -760,11 +834,37 @@ function Footer() {
 // ==================== MAIN ====================
 
 export function LandingClient({ isLoggedIn }: { isLoggedIn: boolean }) {
+  const [promoRemaining, setPromoRemaining] = useState<number | null>(null);
+  const [promoDismissed, setPromoDismissed] = useState(false);
+
+  useEffect(() => {
+    if (sessionStorage.getItem("promo_bar_dismissed")) setPromoDismissed(true);
+    fetch("/api/promo/spots")
+      .then(r => r.json())
+      .then(d => setPromoRemaining(typeof d.remaining === "number" ? d.remaining : 0))
+      .catch(() => setPromoRemaining(0));
+  }, []);
+
+  const showPromoBar = !promoDismissed && !isLoggedIn && promoRemaining !== null && promoRemaining > 0;
+  const promoOffset = showPromoBar ? PROMO_BAR_H : 0;
+
+  function dismissPromoBar() {
+    setPromoDismissed(true);
+    sessionStorage.setItem("promo_bar_dismissed", "1");
+  }
+
   return (
     <main className="min-h-screen bg-[#09090b]">
       <SupportChat />
-      <Header isLoggedIn={isLoggedIn} />
-      <HeroSection isLoggedIn={isLoggedIn} />
+      {showPromoBar && (
+        <LaunchPromoBar
+          isLoggedIn={isLoggedIn}
+          remaining={promoRemaining!}
+          onDismiss={dismissPromoBar}
+        />
+      )}
+      <Header isLoggedIn={isLoggedIn} topOffset={promoOffset} />
+      <HeroSection isLoggedIn={isLoggedIn} promoOffset={promoOffset} promoRemaining={showPromoBar ? promoRemaining : null} />
       <WhySection isLoggedIn={isLoggedIn} />
       <FeaturesSection />
       <AIToolsSection isLoggedIn={isLoggedIn} />
