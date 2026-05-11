@@ -81,6 +81,15 @@ export async function POST(req: NextRequest) {
     }
 
     if (type === "credits") {
+      // Only basic/premium subscribers can buy additional credits
+      const dbUserForCredits = await db.user.findUnique({ where: { id: session.sub }, select: { plan: true } });
+      if (!dbUserForCredits || dbUserForCredits.plan === "free") {
+        return NextResponse.json(
+          { error: "subscription_required", message: "Recargas disponíveis apenas para assinantes Basic ou Premium." },
+          { status: 403 }
+        );
+      }
+
       const creditsAmount = Number(credits ?? 0);
       if (creditsAmount > 0) {
         const startOfMonth = new Date();

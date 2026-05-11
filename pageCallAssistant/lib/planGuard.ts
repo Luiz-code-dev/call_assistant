@@ -55,12 +55,38 @@ export async function checkToolAccess(
 
   // 1. Verifica plano mínimo
   if (userRank < minRank) {
-    const planLabel = config.minPlan === "premium" ? "Premium" : "Básico";
-    return {
-      allowed: false,
-      reason: `Esta ferramenta requer o plano ${planLabel} ou superior.`,
-      userPlan: user.plan,
-    };
+    // Exceção: usuários da promoção de lançamento têm acesso básico enquanto tiverem créditos
+    if (minRank <= PLAN_RANK["basic"]) {
+      const promoTx = await (db as any).creditTransaction.findFirst({
+        where: { userId, source: "launch_promo" },
+        select: { id: true },
+      });
+      if (promoTx) {
+        if (user.credits >= CREDITS_PER_USE) {
+          // Trata como basic — continua o fluxo normalmente
+        } else {
+          return {
+            allowed: false,
+            reason: "Seus créditos promocionais acabaram. Assine um plano para continuar usando.",
+            userPlan: user.plan,
+          };
+        }
+      } else {
+        const planLabel = config.minPlan === "premium" ? "Premium" : "Básico";
+        return {
+          allowed: false,
+          reason: `Esta ferramenta requer o plano ${planLabel} ou superior.`,
+          userPlan: user.plan,
+        };
+      }
+    } else {
+      // minPlan = premium — promoção não dá acesso premium
+      return {
+        allowed: false,
+        reason: "Esta ferramenta requer o plano Premium ou superior.",
+        userPlan: user.plan,
+      };
+    }
   }
 
   // 2. Verifica saldo de créditos
