@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { randomBytes } from "crypto";
 import { db } from "@/lib/db";
-import { sendVerificationEmail } from "@/lib/email";
+import { sendVerificationEmail, sendPromoWelcomeEmail } from "@/lib/email";
 import { generateUniqueUsername } from "@/lib/username";
 import { isDisposableEmail } from "@/lib/disposableEmails";
 
@@ -103,7 +103,16 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    await sendVerificationEmail(email, name, verificationToken);
+    const verifyLink = `${process.env.NEXT_PUBLIC_APP_URL || "https://speakf.com.br"}/verify-email?token=${verificationToken}`;
+
+    if (isPromoEligible) {
+      await Promise.allSettled([
+        sendVerificationEmail(email, name, verificationToken),
+        sendPromoWelcomeEmail(email, name, verifyLink),
+      ]);
+    } else {
+      await sendVerificationEmail(email, name, verificationToken);
+    }
 
     return NextResponse.json({
       message: "Conta criada! Verifique seu e-mail para ativar a conta.",

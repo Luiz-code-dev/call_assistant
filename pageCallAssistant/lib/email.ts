@@ -340,3 +340,90 @@ export async function sendFriendRequestEmail(
     `,
   }).catch((err: unknown) => console.error("[sendFriendRequestEmail]", err));
 }
+
+export async function sendPromoWelcomeEmail(email: string, name: string, verifyLink: string) {
+  if (!resend) {
+    console.log(`[DEV] Promo welcome email would be sent to ${email}`);
+    return;
+  }
+
+  const firstName = name?.split(" ")[0] || "usuário";
+
+  await resend.emails.send({
+    from: FROM_EMAIL,
+    to: email,
+    subject: "🚀 Parabéns! Você garantiu 300 créditos grátis — SpeakFlow",
+    html: `
+      <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:0;background:#09090b;color:#fafafa;border-radius:16px;overflow:hidden">
+
+        <!-- Header banner -->
+        <div style="background:linear-gradient(135deg,#4c1d95,#312e81,#1e3a5f);padding:36px 28px;text-align:center">
+          <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:20px">
+            <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#4f46e5);display:inline-flex;align-items:center;justify-content:center">
+              <span style="color:#fff;font-weight:bold;font-size:18px">S</span>
+            </div>
+            <span style="font-weight:700;font-size:20px;color:#fff">SpeakFlow</span>
+          </div>
+          <div style="font-size:48px;margin-bottom:12px">🚀</div>
+          <h1 style="font-size:26px;font-weight:800;margin:0 0 8px;color:#fff">Parabéns, ${firstName}!</h1>
+          <p style="color:#c4b5fd;margin:0;font-size:16px">Você é um dos primeiros 300 usuários do SpeakFlow</p>
+        </div>
+
+        <!-- Body -->
+        <div style="padding:32px 28px">
+
+          <!-- Credits box -->
+          <div style="background:linear-gradient(135deg,rgba(124,58,237,0.15),rgba(79,70,229,0.15));border:1px solid rgba(124,58,237,0.4);border-radius:12px;padding:24px;text-align:center;margin-bottom:28px">
+            <p style="color:#a1a1aa;font-size:13px;margin:0 0 8px;text-transform:uppercase;letter-spacing:0.05em">Você recebeu</p>
+            <p style="font-size:52px;font-weight:900;margin:0;color:#a78bfa;line-height:1">300</p>
+            <p style="font-size:18px;font-weight:700;color:#fff;margin:4px 0 0">créditos grátis</p>
+            <p style="color:#71717a;font-size:12px;margin:8px 0 0">Bônus exclusivo de lançamento · válido imediatamente após ativar sua conta</p>
+          </div>
+
+          <p style="color:#d4d4d8;font-size:15px;line-height:1.6;margin:0 0 20px">
+            Você chegou na hora certa! Como um dos primeiros membros, você ganhou <strong style="color:#a78bfa">6x mais créditos</strong> do que um cadastro normal — e pode usar em todas as ferramentas do SpeakFlow:
+          </p>
+
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px">
+            <div style="display:flex;align-items:center;gap:12px;background:#18181b;border-radius:10px;padding:14px 16px">
+              <span style="font-size:20px">🎙</span>
+              <div>
+                <p style="margin:0;font-size:14px;font-weight:700;color:#fafafa">SpeakFlow Live</p>
+                <p style="margin:2px 0 0;font-size:12px;color:#71717a">Pratique inglês em tempo real com IA</p>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;background:#18181b;border-radius:10px;padding:14px 16px">
+              <span style="font-size:20px">💼</span>
+              <div>
+                <p style="margin:0;font-size:14px;font-weight:700;color:#fafafa">Simulador de Entrevistas</p>
+                <p style="margin:2px 0 0;font-size:12px;color:#71717a">Prepare-se para entrevistas em inglês</p>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;background:#18181b;border-radius:10px;padding:14px 16px">
+              <span style="font-size:20px">✍️</span>
+              <div>
+                <p style="margin:0;font-size:14px;font-weight:700;color:#fafafa">Gerador & Corretor de Textos</p>
+                <p style="margin:2px 0 0;font-size:12px;color:#71717a">Escreva e melhore seus textos em inglês</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div style="text-align:center;margin-bottom:28px">
+            <a href="${verifyLink}" style="display:inline-block;padding:14px 36px;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;border-radius:10px;text-decoration:none;font-weight:700;font-size:16px;box-shadow:0 4px 24px rgba(124,58,237,0.4)">
+              Ativar minha conta e começar →
+            </a>
+            <p style="color:#52525b;font-size:12px;margin-top:12px">Confirme seu e-mail para liberar os 300 créditos. Link válido por 24 horas.</p>
+          </div>
+
+          <hr style="border:none;border-top:1px solid #27272a;margin:0 0 20px"/>
+          <p style="color:#52525b;font-size:12px;margin:0">Boas-vindas ao SpeakFlow! Estamos animados em ter você por aqui.<br/>— Equipe SpeakFlow</p>
+        </div>
+
+        <div style="background:#09090b;padding:16px 28px;border-top:1px solid #18181b">
+          <p style="color:#3f3f46;font-size:11px;margin:0">SpeakFlow · speakf.com.br</p>
+        </div>
+      </div>
+    `,
+  }).catch((err: unknown) => console.error("[sendPromoWelcomeEmail]", err));
+}
