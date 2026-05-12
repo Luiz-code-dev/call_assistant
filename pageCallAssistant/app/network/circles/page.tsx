@@ -37,6 +37,15 @@ const FOCUS_GROUPS: Record<string, string[]> = {
 const FOCUS_OPTIONS = Object.values(FOCUS_GROUPS).flat();
 const LEVEL_OPTIONS = ["Iniciante (A1-A2)", "Intermediário (B1-B2)", "Avançado (C1-C2)", "Todos os níveis"];
 
+const CURATED_CIRCLES = [
+  { emoji: "💼", name: "Business English — Tech", focus: "Reuniões de Negócios", level: "Intermediário (B1-B2)", desc: "Calls, alinhamentos e apresentações com stakeholders internacionais.", tag: "Profissional" },
+  { emoji: "🎯", name: "Tech Interviews BR", focus: "Entrevistas Técnicas", level: "Intermediário (B1-B2)", desc: "Prática de entrevistas técnicas em inglês para vagas internacionais.", tag: "Carreira" },
+  { emoji: "📊", name: "Product & UX Global", focus: "Produto & UX", level: "Todos os níveis", desc: "Discussões de produto, demos e feedbacks com times globais.", tag: "Produto" },
+  { emoji: "🤝", name: "Customer Success EN", focus: "Vendas & Negociação", level: "Todos os níveis", desc: "Atendimento, onboarding e renovação com clientes internacionais.", tag: "CS" },
+  { emoji: "✈️", name: "Life Abroad", focus: "Vida no Exterior", level: "Iniciante (A1-A2)", desc: "Situações do cotidiano: aeroporto, moradia, serviços e viagens.", tag: "Cotidiano" },
+  { emoji: "🧠", name: "Data & AI Professionals", focus: "Data Science & IA", level: "Avançado (C1-C2)", desc: "Inglês técnico para ML, dados, modelos e apresentações científicas.", tag: "Tech" },
+];
+
 interface Circle {
   id: string; name: string; description?: string; focus: string; level: string;
   visibility: string; maxMembers: number; isMember: boolean;
@@ -93,6 +102,12 @@ function CirclesContent() {
     } finally { setCreating(false); }
   };
 
+  function prefillAndCreate(c: typeof CURATED_CIRCLES[0]) {
+    setForm({ name: c.name, description: c.desc, focus: c.focus, level: c.level, visibility: "public", maxMembers: "30" });
+    setShowCreate(true);
+    setTimeout(() => document.getElementById("create-form-card")?.scrollIntoView({ behavior: "smooth" }), 100);
+  }
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -102,8 +117,36 @@ function CirclesContent() {
         </Button>
       </div>
 
+      {/* Circles Profissionais Sugeridos */}
+      {!showCreate && (
+        <div className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-4 space-y-3">
+          <div className="flex items-center justify-between">
+            <p className="text-sm font-semibold text-zinc-300">Circles profissionais sugeridos</p>
+            <span className="text-xs text-zinc-500">Clique para criar</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+            {CURATED_CIRCLES.map((c) => (
+              <button
+                key={c.name}
+                onClick={() => prefillAndCreate(c)}
+                className="flex items-start gap-3 rounded-lg border border-zinc-800 bg-zinc-900/50 hover:border-violet-500/40 hover:bg-violet-500/5 p-3 text-left transition-all group"
+              >
+                <span className="text-xl shrink-0 mt-0.5">{c.emoji}</span>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <p className="text-xs font-semibold text-zinc-200 group-hover:text-white transition-colors truncate">{c.name}</p>
+                    <span className="text-[10px] bg-violet-500/10 text-violet-400 rounded-full px-1.5 py-0.5 shrink-0">{c.tag}</span>
+                  </div>
+                  <p className="text-[11px] text-zinc-500 mt-0.5 leading-relaxed line-clamp-2">{c.desc}</p>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
       {showCreate && (
-        <Card className="border-violet-500/30 bg-violet-500/5">
+        <Card id="create-form-card" className="border-violet-500/30 bg-violet-500/5">
           <CardHeader className="pb-3">
             <div className="flex items-center justify-between"><CardTitle className="text-base">Criar novo Circle</CardTitle><Button variant="ghost" size="sm" onClick={() => setShowCreate(false)}><X className="h-4 w-4" /></Button></div>
           </CardHeader>

@@ -25,20 +25,20 @@ interface Achievement { id: string; emoji: string; name: string; unlocked: boole
 interface Notification { id: string; type: string; title: string; body: string; href?: string; }
 
 const motivationalPhrases = [
-  "Cada conversa é um passo a mais em direção à fluência.",
-  "O segredo é praticar um pouco todos os dias.",
-  "Errar faz parte do aprendizado. Continue praticando!",
-  "Sua dedicação está fazendo a diferença.",
-  "Fluência é construída uma palavra de cada vez.",
+  "Pronto para a próxima reunião internacional?",
+  "Sua comunicação profissional evolui a cada sessão.",
+  "Confiança se constrói praticando em situações reais.",
+  "Use o Live antes da sua próxima call importante.",
+  "Cada sessão é um passo rumo à fluência profissional.",
 ];
 
 const quickActions = [
-  { label: "SpeakFlow Live", description: "Pratique speaking com IA em tempo real", href: "/live", gradient: "from-violet-600 to-indigo-600", Icon: Mic2 },
-  { label: "Desafios", description: "Responda os quizzes do seu Circle", href: "/network", gradient: "from-amber-500 to-orange-500", Icon: Zap },
-  { label: "Feed de Amigos", description: "Posts, fotos e curtidas dos amigos", href: "/feed", gradient: "from-sky-500 to-blue-600", Icon: Newspaper },
+  { label: "SpeakFlow Live", description: "Copiloto em tempo real — reuniões, calls e entrevistas", href: "/live", gradient: "from-violet-600 to-indigo-600", Icon: Mic2 },
+  { label: "Preparação", description: "Ferramentas de IA para melhorar sua comunicação", href: "/tools", gradient: "from-emerald-500 to-teal-500", Icon: Wrench },
+  { label: "Circles", description: "Desafios de comunicação com profissionais", href: "/network", gradient: "from-amber-500 to-orange-500", Icon: Zap },
   { label: "Amigos & Chat", description: "Chat criptografado com IA integrada", href: "/friends", gradient: "from-rose-500 to-pink-600", Icon: Heart },
-  { label: "Ferramentas", description: "Melhore textos e simule entrevistas", href: "/tools", gradient: "from-emerald-500 to-teal-500", Icon: Wrench },
-  { label: "Meu Progresso", description: "Veja sua evolução e conquistas", href: "/progress", gradient: "from-pink-500 to-rose-500", Icon: TrendingUp },
+  { label: "Feed", description: "Posts e novidades da comunidade", href: "/feed", gradient: "from-sky-500 to-blue-600", Icon: Newspaper },
+  { label: "Meu Progresso", description: "Score de comunicação e conquistas", href: "/progress", gradient: "from-pink-500 to-rose-500", Icon: TrendingUp },
 ];
 
 const BADGE_DEFS: Achievement[] = [
@@ -348,10 +348,30 @@ function QuickActionsSection() {
       .catch(() => {});
   }, []);
 
+  const [liveAction, ...otherActions] = quickActions;
+
   return (
-    <section className="px-4 pb-6">
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {quickActions.map((action) => {
+    <section className="px-4 pb-6 space-y-3">
+      {/* Live — hero card */}
+      <Link href={liveAction.href} className="group relative flex items-center gap-4 rounded-2xl bg-gradient-to-r from-violet-600 to-indigo-600 p-5 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-violet-500/30 overflow-hidden">
+        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-r from-violet-500 to-indigo-500" />
+        <div className="absolute -right-8 -top-8 w-32 h-32 bg-white/5 rounded-full" />
+        <div className="relative flex size-12 shrink-0 items-center justify-center rounded-xl bg-white/20">
+          <Mic2 className="size-6 text-white" />
+        </div>
+        <div className="relative flex-1 min-w-0">
+          <div className="flex items-center gap-2">
+            <h3 className="font-bold text-white text-lg">{liveAction.label}</h3>
+            <span className="text-[10px] font-bold bg-white/20 text-white rounded-full px-2 py-0.5">PRINCIPAL</span>
+          </div>
+          <p className="text-sm text-white/70 mt-0.5">{liveAction.description}</p>
+        </div>
+        <ChevronRight className="relative size-5 text-white/60 group-hover:text-white transition-colors shrink-0" />
+      </Link>
+
+      {/* Ações secundárias */}
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        {otherActions.map((action) => {
           const badge = action.href === "/friends" ? unreadMessages : 0;
           return (
             <Link key={action.label} href={action.href} className="group relative flex items-center gap-4 rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-700 hover:bg-zinc-800/50 hover:shadow-lg">
@@ -464,78 +484,6 @@ function AchievementsSection({ earnedSlugs }: { earnedSlugs: string[] }) {
           </div>
         ))}
       </div>
-    </section>
-  );
-}
-
-function SpinCard() {
-  const [spin, setSpin] = useState<{ canSpin: boolean; currentStreak: number; isPremiumSpin: boolean } | null>(null);
-  const [tried, setTried] = useState(false);
-  useEffect(() => {
-    fetch("/api/spin")
-      .then((r) => r.json())
-      .then(setSpin)
-      .catch(() => {})
-      .finally(() => setTried(true));
-  }, []);
-
-  if (!tried) return null;
-  const canSpin = spin?.canSpin ?? true;
-  const currentStreak = spin?.currentStreak ?? 0;
-  const daysToNext = currentStreak > 0 ? 10 - (currentStreak % 10) : 10;
-  const isPremium = spin?.isPremiumSpin ?? false;
-
-  return (
-    <section className="px-4 pb-6">
-      <Link href="/spin" className="group block">
-        <div className={`relative overflow-hidden rounded-xl border p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg
-          ${ isPremium
-            ? "border-amber-500/40 bg-gradient-to-r from-amber-950/60 to-orange-950/60 hover:border-amber-500/60 hover:shadow-amber-500/20"
-            : "border-violet-500/30 bg-gradient-to-r from-violet-950/60 to-indigo-950/60 hover:border-violet-500/50 hover:shadow-violet-500/20"
-          }`}>
-          {/* Bg glow */}
-          <div className={`absolute inset-0 opacity-10 ${ isPremium ? "bg-amber-400" : "bg-violet-400" }`} />
-
-          <div className="relative flex items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className={`flex size-12 items-center justify-center rounded-xl text-2xl shadow-lg
-                ${ isPremium ? "bg-amber-500/20" : "bg-violet-500/20" }`}>
-                {isPremium ? "🔥" : "🎰"}
-              </div>
-              <div>
-                <div className="flex items-center gap-2">
-                  <p className="font-bold text-white">
-                    {isPremium ? "Giro Premium disponível!" : "Giro da Sorte"}
-                  </p>
-                  {canSpin && (
-                    <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full
-                      ${ isPremium ? "bg-amber-500 text-white" : "bg-violet-500 text-white" }`}>
-                      HOJE
-                    </span>
-                  )}
-                </div>
-                <p className="text-xs text-zinc-400">
-                  {isPremium
-                    ? "Prêmios em dobro! Gire agora 🎉"
-                    : canSpin
-                      ? "Gire e ganhe até 100 créditos grátis!"
-                      : `${currentStreak} dias seguidos · ${daysToNext}d para Giro Premium`
-                  }
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col items-end gap-1 shrink-0">
-              <div className="flex items-center gap-1">
-                <Flame className={`size-3.5 ${ currentStreak >= 3 ? "text-orange-400" : "text-zinc-600" }`} />
-                <span className={`text-sm font-black ${ currentStreak >= 3 ? "text-orange-400" : "text-zinc-500" }`}>
-                  {currentStreak}
-                </span>
-              </div>
-              <ChevronRight className="size-4 text-zinc-600 group-hover:text-zinc-400 transition-colors" />
-            </div>
-          </div>
-        </div>
-      </Link>
     </section>
   );
 }
@@ -703,6 +651,12 @@ export default function HomePage() {
   const [earnedSlugs, setEarnedSlugs] = useState<string[]>([]);
 
   useEffect(() => {
+    try {
+      if (!localStorage.getItem("sf_onboarding_done")) {
+        router.replace("/onboarding");
+        return;
+      }
+    } catch {}
     fetch("/api/auth/me")
       .then(async (r) => { if (r.status === 401) { router.replace("/login"); return; } setUser(await r.json()); })
       .catch(() => router.replace("/login"))
@@ -741,7 +695,6 @@ export default function HomePage() {
         <HeroGreeting userName={user.name} />
         <QuickActionsSection />
         <InstallAppBanner />
-        <SpinCard />
         <CircleSection circles={circles} loading={loadingCircles} />
         <RecentActivitySection />
         <AchievementsSection earnedSlugs={earnedSlugs} />

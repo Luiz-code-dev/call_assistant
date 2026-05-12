@@ -63,20 +63,6 @@ export default function NetworkHomePage() {
         </div>
       </div>
 
-      {/* Giro da Sorte reminder */}
-      <Link href="/spin">
-        <div className="flex items-center justify-between rounded-xl border border-violet-500/25 bg-gradient-to-r from-violet-950/50 to-indigo-950/50 px-4 py-3 hover:border-violet-500/50 transition-colors">
-          <div className="flex items-center gap-3">
-            <span className="text-xl">🎰</span>
-            <div>
-              <p className="text-sm font-semibold text-white">Giro da Sorte — ganhe créditos todo dia!</p>
-              <p className="text-xs text-zinc-400">Complete desafios para manter sua sequência e desbloquear o Giro Premium 🔥</p>
-            </div>
-          </div>
-          <ChevronRight className="size-4 text-zinc-500 shrink-0" />
-        </div>
-      </Link>
-
       {/* Friends & Chat banner */}
       <Link href="/friends">
         <div className="flex items-center justify-between rounded-xl border border-rose-500/25 bg-gradient-to-r from-rose-950/40 to-pink-950/30 px-4 py-3 hover:border-rose-500/50 transition-colors">

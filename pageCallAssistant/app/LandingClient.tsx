@@ -152,8 +152,9 @@ function Header({ isLoggedIn, topOffset = 0 }: { isLoggedIn: boolean; topOffset?
 function HeroSection({ isLoggedIn, promoRemaining, promoOffset = 0 }: { isLoggedIn: boolean; promoRemaining?: number | null; promoOffset?: number }) {
   const [currentFala, setCurrentFala] = useState(0);
   const falas = [
-    { en: "What's your biggest achievement in your last role?", pt: "Qual foi sua maior conquista no seu último cargo?" },
-    { en: "How do you handle pressure and tight deadlines?", pt: "Como você lida com pressão e prazos apertados?" },
+    { en: "Can you walk us through the technical architecture?", pt: "Pode nos explicar a arquitetura técnica?" },
+    { en: "What's the timeline for the international rollout?", pt: "Qual é o prazo para o lançamento internacional?" },
+    { en: "We need to align on the delivery scope for Q3.", pt: "Precisamos alinhar o escopo de entrega para o Q3." },
   ];
   useEffect(() => {
     const interval = setInterval(() => setCurrentFala((p) => (p + 1) % falas.length), 4000);
@@ -176,7 +177,7 @@ function HeroSection({ isLoggedIn, promoRemaining, promoOffset = 0 }: { isLogged
           <div className="text-center lg:text-left">
             <AnimatedSection>
               <Badge variant="outline" className="mb-6 px-4 py-1.5 border-violet-500/30 bg-violet-500/10 text-violet-300">
-                <Sparkles className="h-3.5 w-3.5 mr-2" />Powered by OpenAI Whisper + GPT-4
+                <Sparkles className="h-3.5 w-3.5 mr-2" />AI Communication Copilot · Powered by OpenAI
               </Badge>
             </AnimatedSection>
             {promoRemaining !== null && promoRemaining !== undefined && promoRemaining > 0 && !isLoggedIn && (
@@ -195,14 +196,14 @@ function HeroSection({ isLoggedIn, promoRemaining, promoOffset = 0 }: { isLogged
             )}
             <AnimatedSection delay={100}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-                <span className="text-white">Seu </span>
-                <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">copiloto inteligente</span>
-                <br /><span className="text-white">em tempo real</span>
+                <span className="text-white">Entenda e responda </span>
+                <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">com confiança</span>
+                <br /><span className="text-white">em qualquer situação internacional</span>
               </h1>
             </AnimatedSection>
             <AnimatedSection delay={200}>
               <p className="mt-6 text-lg text-zinc-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Transcrição, tradução e sugestões de resposta durante suas entrevistas e reuniões. Tudo acontece enquanto você fala — sem pausas, sem distrações.
+                IA de comunicação em tempo real. Tradução instantânea, transcrição e sugestões contextuais em reuniões, calls, entrevistas e qualquer conversa internacional.
               </p>
             </AnimatedSection>
             <AnimatedSection delay={300}>
@@ -234,7 +235,7 @@ function HeroSection({ isLoggedIn, promoRemaining, promoOffset = 0 }: { isLogged
               <div className="bg-zinc-900 rounded-xl border border-zinc-800 shadow-2xl shadow-black/50 overflow-hidden">
                 <div className="flex items-center gap-2 px-4 py-3 bg-zinc-900 border-b border-zinc-800">
                   <div className="flex gap-2"><div className="w-3 h-3 rounded-full bg-red-500" /><div className="w-3 h-3 rounded-full bg-yellow-500" /><div className="w-3 h-3 rounded-full bg-green-500" /></div>
-                  <div className="flex-1 text-center text-xs text-zinc-500">SpeakFlow — Entrevista Técnica</div>
+                  <div className="flex-1 text-center text-xs text-zinc-500">SpeakFlow Live · Reunião Internacional</div>
                 </div>
                 <div className="grid grid-cols-2 divide-x divide-zinc-800">
                   <div className="p-4">
@@ -289,18 +290,18 @@ function WhySection({ isLoggedIn }: { isLoggedIn: boolean }) {
         <AnimatedSection>
           <div className="text-center mb-20">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-              O inglês nunca mais<br />
-              <span className="bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">vai te travar</span>
+              Comunicação internacional<br />
+              <span className="bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">sem barreiras</span>
             </h2>
-            <p className="mt-6 text-lg text-zinc-400 max-w-3xl mx-auto">SpeakFlow foi criado para um momento específico: quando você sabe o que responder, mas o idioma bloqueia tudo na hora mais importante.</p>
+            <p className="mt-6 text-lg text-zinc-400 max-w-3xl mx-auto">SpeakFlow é a infraestrutura de comunicação que elimina a barreira do idioma em tempo real — reuniões, clientes, entrevistas e qualquer situação internacional.</p>
           </div>
         </AnimatedSection>
 
         <div className="grid md:grid-cols-3 gap-6 mb-20">
           {[
-            { color: "border-red-500/50 bg-red-500/5", title: "Entrevistas técnicas em inglês", desc: "O recrutador faz a pergunta. Você entende, sabe a resposta — mas a formulação em inglês trava. O silêncio dura 4 segundos e a vaga vai embora." },
-            { color: "border-orange-500/50 bg-orange-500/5", title: "Reuniões com times globais", desc: "Sotaques variados, jargões técnicos, ritmo acelerado. Você capta 60% do que é dito — e os 40% perdidos tomam decisões sem a sua contribuição." },
-            { color: "border-yellow-500/50 bg-yellow-500/5", title: "Calls de alto impacto", desc: "Apresentação para cliente americano, negociação com parceiro europeu. Um momento de hesitação ou mal-entendido pode custar o contrato." },
+            { color: "border-red-500/50 bg-red-500/5", title: "Reuniões com times globais", desc: "Sotaques variados, jargões técnicos, ritmo acelerado. Você capta 60% do que é dito — e os 40% perdidos tomam decisões sem a sua contribuição." },
+            { color: "border-orange-500/50 bg-orange-500/5", title: "Calls com clientes internacionais", desc: "Um momento de hesitação ou mal-entendido pode custar o contrato. Cada palavra importa quando o negócio está em jogo." },
+            { color: "border-yellow-500/50 bg-yellow-500/5", title: "Qualquer situação em inglês", desc: "Aeroporto, fornecedor, entrevista, suporte técnico. O bloqueio aparece sempre que mais importa — e o SpeakFlow elimina esse bloqueio em tempo real." },
           ].map((p, i) => (
             <AnimatedSection key={p.title} delay={i * 100}>
               <Card className={`${p.color} border h-full transition-all duration-300 hover:-translate-y-1`}>
@@ -312,7 +313,7 @@ function WhySection({ isLoggedIn }: { isLoggedIn: boolean }) {
 
         <AnimatedSection>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-            {[["73%","das vagas sênior em TI exigem inglês"],["+61%","de salário com inglês fluente"],["3 seg","para formular uma resposta sob pressão"],["<2 seg","de latência do SpeakFlow"]].map(([v,l]) => (
+            {[["73%","das vagas sênior em TI exigem inglês"],["+61%","de salário com inglês fluente"],["7 de 10","profissionais travam numa reunião internacional"],["<2 seg","de latência do SpeakFlow"]].map(([v,l]) => (
               <div key={v} className="text-center p-6 rounded-xl bg-zinc-900/50 border border-zinc-800">
                 <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">{v}</div>
                 <div className="mt-2 text-sm text-zinc-500">{l}</div>
@@ -324,7 +325,7 @@ function WhySection({ isLoggedIn }: { isLoggedIn: boolean }) {
         <AnimatedSection>
           <h3 className="text-2xl font-bold text-white text-center mb-12">Como funciona</h3>
           <div className="grid md:grid-cols-4 gap-6 mb-16">
-            {[["1","Eles falam","O entrevistador fala em inglês, normalmente, sem pausas"],["2","Você entende","SpeakFlow transcreve e traduz para PT em menos de 2 segundos"],["3","Copilot sugere","3 respostas prontas em inglês: curta, profissional e detalhada"],["4","Você responde","Fala com confiança, sem hesitar, sem travar — na hora certa"]].map(([n,t,d], i) => (
+            {[["1","Alguém fala","A outra pessoa fala normalmente em inglês, sem pausar"],["2","Você entende","SpeakFlow transcreve e traduz para PT em menos de 2 segundos"],["3","Copilot sugere","3 respostas contextuais: direta, profissional e detalhada"],["4","Você responde","Fala com confiança, sem hesitar, sem travar — na hora certa"]].map(([n,t,d], i) => (
               <div key={n} className="relative">
                 <div className="flex flex-col items-center text-center">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center text-white font-bold text-lg mb-4">{n}</div>
@@ -340,7 +341,7 @@ function WhySection({ isLoggedIn }: { isLoggedIn: boolean }) {
         <AnimatedSection>
           <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-violet-600/10 to-indigo-600/10 border border-violet-500/20">
             <p className="text-lg text-zinc-300 max-w-2xl mx-auto">
-              Você já perdeu uma oportunidade por causa do inglês? Com o SpeakFlow, isso fica no passado.{" "}
+              Deixe a barreira do idioma de lado e foque no que realmente importa: suas ideias, sua expertise, seus resultados.{" "}
               <span className="text-violet-400 font-medium">50 créditos grátis para testar agora</span> — sem cartão de crédito, sem compromisso.
             </p>
             <Link href={isLoggedIn ? "/home" : "/register"}>
@@ -413,10 +414,10 @@ function AIToolsSection({ isLoggedIn }: { isLoggedIn: boolean }) {
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4 px-4 py-1.5 border-violet-500/30 bg-violet-500/10 text-violet-300"><Sparkles className="h-3.5 w-3.5 mr-2" />Novidade</Badge>
             <h2 className="text-3xl sm:text-4xl font-bold text-white">
-              Pratique inglês todos os dias<br />
-              <span className="bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">sem sair da plataforma</span>
+              Prepare-se antes.<br />
+              <span className="bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">Performe melhor durante.</span>
             </h2>
-            <p className="mt-4 text-zinc-400 max-w-2xl mx-auto">Além de te ajudar durante as calls, o SpeakFlow agora treina o seu inglês com IA. Disponível nos planos Básico e Premium.</p>
+            <p className="mt-4 text-zinc-400 max-w-2xl mx-auto">Ferramentas de IA para que você chegue em cada reunião, call ou entrevista com mais segurança e clareza. Disponível nos planos Básico e Premium.</p>
           </div>
         </AnimatedSection>
         <div className="grid md:grid-cols-3 gap-6">
@@ -544,11 +545,11 @@ function SocialSection({ isLoggedIn }: { isLoggedIn: boolean }) {
               <Heart className="h-3.5 w-3.5" /> Rede Social
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-              Aprenda junto com sua
-              <span className="bg-gradient-to-r from-rose-400 to-pink-500 bg-clip-text text-transparent"> rede de amigos</span>
+              Evolua com profissionais
+              <span className="bg-gradient-to-r from-rose-400 to-pink-500 bg-clip-text text-transparent"> como você</span>
             </h2>
             <p className="mt-6 text-lg text-zinc-400 max-w-2xl mx-auto">
-              O SpeakFlow vai além das ferramentas de IA — é uma comunidade viva de quem pratica inglês todo dia.
+              O SpeakFlow conecta profissionais que precisam comunicar melhor internacionalmente — pratique, compartilhe e evolua em comunidade.
             </p>
           </div>
         </AnimatedSection>
@@ -851,14 +852,14 @@ function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="col-span-2 md:col-span-1">
             <Logo />
-            <p className="mt-4 text-sm text-zinc-500 max-w-xs">Seu copiloto inteligente para entrevistas e reuniões em inglês.</p>
+            <p className="mt-4 text-sm text-zinc-500 max-w-xs">IA de comunicação internacional em tempo real.</p>
             <a href="https://www.instagram.com/speakflowofficial?igsh=ZmljYW5keDR4dWt1&utm_source=qr" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-zinc-500 hover:text-white transition-colors">
               <Instagram className="h-5 w-5" /><span className="text-sm">@speakflowofficial</span>
             </a>
           </div>
           {[
             ["Produto", [["Preços","/pricing"],["Para Empresas","/for-teams"],["Guia","/guia"],["Download","#download"]]],
-            ["Legal", [["Privacidade","/privacy"],["Termos","/terms"]]],
+            ["Legal", [["Privacidade & LGPD","/privacidade"],["Termos","/terms"]]],
             ["Conta", [["Login","/login"],["Cadastro","/register"]]],
           ].map(([title, links]) => (
             <div key={String(title)}>

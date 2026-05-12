@@ -36,9 +36,9 @@ const PLAN_LABELS: Record<string, string> = {
 };
 
 const PLAN_FEATURES: Record<string, string[]> = {
-  free: ["50 créditos de boas-vindas", "Transcrição em tempo real", "Suporte básico"],
-  basic: ["500 créditos por ciclo", "Transcrição + Tradução simultânea", "Copilot de respostas com IA", "Suporte prioritário"],
-  premium: ["1.000 créditos por ciclo", "Todos os recursos do Básico", "IA avançada e personalizada", "Suporte VIP 24h"],
+  free: ["50 créditos de boas-vindas", "SpeakFlow Live — 10 sessões/dia", "Transcrição em tempo real", "Suporte básico"],
+  basic: ["500 créditos por ciclo", "SpeakFlow Live ilimitado", "Tradução + Copilot contextual", "Ferramentas de preparação com IA", "Suporte prioritário"],
+  premium: ["1.000 créditos por ciclo", "Todos os recursos do Básico", "IA avançada e personalizada", "Histórico de sessões", "Suporte VIP 24h"],
 };
 
 export default function DashboardPage() {

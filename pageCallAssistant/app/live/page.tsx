@@ -157,12 +157,14 @@ export default function LivePage() {
 
     setHasSpeechAPI("SpeechRecognition" in window || "webkitSpeechRecognition" in window);
 
-    const savedFocus = localStorage.getItem("sf_live_focus") || "";
-    const savedLevel = localStorage.getItem("sf_live_level") || "Todos os níveis";
-    const savedLang  = localStorage.getItem("sf_live_lang")  || "en-US";
-    if (savedFocus) { setFocus(savedFocus); focusRef.current = savedFocus; }
-    if (savedLevel) { setLevel(savedLevel); levelRef.current = savedLevel; }
-    if (savedLang)  { setSourceLang(savedLang); sourceLangRef.current = savedLang; }
+    const savedFocus   = localStorage.getItem("sf_live_focus")   || "";
+    const savedLevel   = localStorage.getItem("sf_live_level")   || "Todos os níveis";
+    const savedLang    = localStorage.getItem("sf_live_lang")    || "en-US";
+    const savedContext = localStorage.getItem("sf_live_context") || "";
+    if (savedFocus)   { setFocus(savedFocus);               focusRef.current = savedFocus; }
+    if (savedLevel)   { setLevel(savedLevel);               levelRef.current = savedLevel; }
+    if (savedLang)    { setSourceLang(savedLang);           sourceLangRef.current = savedLang; }
+    if (savedContext) { setCustomContext(savedContext);      customContextRef.current = savedContext; }
   }, []);
 
   // ── Fetch credits ──
@@ -408,6 +410,7 @@ export default function LivePage() {
     localStorage.setItem("sf_live_focus", focus);
     localStorage.setItem("sf_live_level", level);
     localStorage.setItem("sf_live_lang", sourceLang);
+    if (customContext) localStorage.setItem("sf_live_context", customContext);
     setPhase("live");
   };
 

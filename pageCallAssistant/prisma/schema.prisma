@@ -51,6 +51,7 @@ model User {
   statusMediaUrl       String?   @db.Text
   jobTitle             String?
   department           String?
+  b2bAccess            Boolean   @default(false)
   orgMemberships       OrgMember[]
   corpSubmissions      CorpChallengeSubmission[]
   certifications       CorporateCertification[]

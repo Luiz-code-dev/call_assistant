@@ -510,13 +510,13 @@ export default function ForTeamsPage() {
             <div className="w-6 h-6 rounded-md bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center">
               <span className="text-white font-black text-xs">S</span>
             </div>
-            <span className="text-sm text-zinc-400">SpeakFlow for Teams · speakf.com.br</span>
+            <span className="text-sm text-zinc-400">SpeakFlow for Teams · speakflow.ia.br</span>
           </div>
           <div className="flex items-center gap-5 text-xs text-zinc-600">
             <Link href="/" className="hover:text-zinc-400 transition-colors">Home</Link>
             <Link href="/pricing" className="hover:text-zinc-400 transition-colors">Planos individuais</Link>
             <Link href="/terms" className="hover:text-zinc-400 transition-colors">Termos</Link>
-            <Link href="/privacy" className="hover:text-zinc-400 transition-colors">Privacidade</Link>
+            <Link href="/privacidade" className="hover:text-zinc-400 transition-colors">Privacidade</Link>
           </div>
         </div>
       </footer>

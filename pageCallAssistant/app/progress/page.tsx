@@ -2,9 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, Trophy, Target, Zap, TrendingUp, Users, Star, BookOpen, Flame } from "lucide-react";
+import { ArrowLeft, Trophy, Target, Zap, TrendingUp, Users, Star, BookOpen } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 
 interface Stats {
   totalSubmissions: number;
@@ -30,14 +29,6 @@ interface CircleRank {
   role: string;
   rank: number | null;
   totalMembers: number | null;
-}
-
-interface SpinStatus {
-  canSpin: boolean;
-  currentStreak: number;
-  longestStreak: number;
-  isPremiumSpin: boolean;
-  history: { id: string; credits: number; prizeLabel: string; isPremium: boolean; spunAt: string }[];
 }
 
 interface ProgressData {
@@ -71,18 +62,13 @@ function typeLabel(type: string) {
 
 export default function ProgressPage() {
   const [data, setData] = useState<ProgressData | null>(null);
-  const [spin, setSpin] = useState<SpinStatus | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    Promise.all([
-      fetch("/api/progress").then((r) => r.json()),
-      fetch("/api/spin").then((r) => r.json()),
-    ]).then(([prog, sp]) => {
-      setData(prog);
-      setSpin(sp);
-      setLoading(false);
-    }).catch(() => setLoading(false));
+    fetch("/api/progress")
+      .then((r) => r.json())
+      .then((prog) => { setData(prog); setLoading(false); })
+      .catch(() => setLoading(false));
   }, []);
 
   if (loading) return (
@@ -107,9 +93,9 @@ export default function ProgressPage() {
       <div className="max-w-2xl mx-auto px-4 pt-6 space-y-6">
         {/* Header */}
         <div className="flex items-center gap-3">
-          <Button variant="ghost" size="sm" asChild>
-            <Link href="/home"><ArrowLeft className="h-4 w-4" /></Link>
-          </Button>
+          <Link href="/home" className="p-2 rounded-lg hover:bg-zinc-800 transition-colors">
+            <ArrowLeft className="h-4 w-4" />
+          </Link>
           <div>
             <h1 className="text-xl font-bold">Meu Progresso</h1>
             <p className="text-xs text-muted-foreground">Sua evolução nos desafios</p>
@@ -152,58 +138,6 @@ export default function ProgressPage() {
                   </div>
                 </Link>
               ))}
-            </CardContent>
-          </Card>
-        )}
-
-        {/* Spin / streak card */}
-        {spin && (
-          <Card className="border-border/50">
-            <div className="px-4 pt-4 pb-2 flex items-center justify-between">
-              <p className="text-sm font-semibold flex items-center gap-2">
-                <Flame className="h-4 w-4 text-orange-400" /> Giro da Sorte
-              </p>
-              <Button variant="ghost" size="sm" asChild>
-                <Link href="/spin" className="text-xs text-violet-400 hover:underline">
-                  {spin.canSpin ? "🎰 Girar agora" : "Ver histórico"} →
-                </Link>
-              </Button>
-            </div>
-            <CardContent className="pt-0 space-y-3">
-              <div className="grid grid-cols-3 gap-2 text-center">
-                <div className="rounded-lg bg-muted/20 py-2">
-                  <p className="text-lg font-black text-orange-400">{spin.currentStreak}</p>
-                  <p className="text-[10px] text-muted-foreground">dias seguidos</p>
-                </div>
-                <div className="rounded-lg bg-muted/20 py-2">
-                  <p className="text-lg font-black text-amber-400">{spin.longestStreak}</p>
-                  <p className="text-[10px] text-muted-foreground">recorde</p>
-                </div>
-                <div className="rounded-lg bg-muted/20 py-2">
-                  <p className="text-lg font-black text-violet-400">
-                    {spin.history.reduce((s, h) => s + h.credits, 0)}
-                  </p>
-                  <p className="text-[10px] text-muted-foreground">cr ganhos (7d)</p>
-                </div>
-              </div>
-              {spin.history.length > 0 && (
-                <div className="space-y-1.5">
-                  {spin.history.slice(0, 5).map((h, i) => (
-                    <div key={h.id + i} className="flex items-center justify-between text-xs">
-                      <div className="flex items-center gap-2">
-                        <span>{h.isPremium ? "🔥" : "🎰"}</span>
-                        <span className="text-muted-foreground">{new Date(h.spunAt).toLocaleDateString("pt-BR")}</span>
-                      </div>
-                      <span className="font-bold text-amber-400">+{h.credits} cr</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-              {spin.isPremiumSpin && (
-                <div className="rounded-lg bg-amber-500/10 border border-amber-500/20 p-2 text-center text-xs text-amber-400 font-semibold">
-                  🔥 Giro Premium disponível — prêmios em dobro!
-                </div>
-              )}
             </CardContent>
           </Card>
         )}
