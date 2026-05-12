@@ -83,9 +83,17 @@ const ROLES  = ["CEO / Diretoria", "RH / People & Culture", "T&D / Treinamento",
 const SIZES  = ["1–5", "6–15", "16–30", "31–100", "100+"];
 
 // ─── ROI Calculator ───────────────────────────────────────
+function pricePerUser(n: number): number {
+  if (n <= 10) return 100;
+  if (n <= 25) return 85;
+  if (n <= 50) return 70;
+  return 60;
+}
+
 function ROICalc() {
   const [users, setUsers] = useState(20);
-  const monthly     = users * 100;
+  const ppu         = pricePerUser(users);
+  const monthly     = users * ppu;
   const vsPremium   = users * 149.9;
   const saving      = Math.max(0, Math.round(vsPremium - monthly));
 
@@ -96,7 +104,12 @@ function ROICalc() {
       <div className="mb-6">
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm text-zinc-400">Colaboradores</span>
-          <span className="text-2xl font-bold text-white">{users}</span>
+          <div className="flex items-center gap-2">
+            <span className="text-xs px-2 py-0.5 rounded-full bg-violet-500/15 text-violet-400 border border-violet-500/20 font-medium">
+              {users <= 10 ? "5–10" : users <= 25 ? "11–25" : users <= 50 ? "26–50" : "50+"} pessoas · R$ {ppu}/user
+            </span>
+            <span className="text-2xl font-bold text-white">{users}</span>
+          </div>
         </div>
         <input type="range" min={5} max={200} step={5} value={users}
           onChange={e => setUsers(Number(e.target.value))}
@@ -107,7 +120,7 @@ function ROICalc() {
         <div className="bg-zinc-900/60 rounded-xl p-4 text-center">
           <p className="text-xs text-zinc-500 mb-1">Investimento/mês</p>
           <p className="text-xl font-black text-white">R$ {monthly.toLocaleString("pt-BR")}</p>
-          <p className="text-xs text-zinc-600 mt-0.5">R$ 100/usuário</p>
+          <p className="text-xs text-zinc-600 mt-0.5">R$ {ppu}/usuário/mês</p>
         </div>
         <div className="bg-zinc-900/60 rounded-xl p-4 text-center">
           <p className="text-xs text-zinc-500 mb-1">Equiv. Premium ind.</p>
