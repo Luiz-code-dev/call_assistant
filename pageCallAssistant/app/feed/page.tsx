@@ -7,6 +7,7 @@ import {
   MoreHorizontal, Trash2, X, ChevronDown, Loader2, Globe,
   ArrowLeft, UserPlus, Sparkles, TrendingUp, Users,
   Clock, Compass, Check, Plus, Camera, Video, PlayCircle,
+  Mic2, Trophy, Target,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -19,6 +20,8 @@ interface CommentData { id: string; content: string; createdAt: string; user: Us
 interface PostData {
   id: string; content?: string | null; imageUrl?: string | null; createdAt: string;
   likedByMe: boolean; user: UserSnap;
+  activityType?: string | null;
+  activityMeta?: Record<string, string | number> | null;
   _count: { likes: number; comments: number };
   comments: CommentData[];
 }
@@ -49,6 +52,16 @@ function Avatar({ name, avatarUrl, size = "md" }: { name: string; avatarUrl?: st
 
 /* ─── Create Post Card ───────────────────────────────────── */
 function CreatePost({ me, onCreated }: { me: UserSnap | null; onCreated: (p: PostData) => void }) {
+  const ACTIVITY_TYPES = [
+    { id: "POST",                label: "Post",         icon: "💬", placeholder: "Compartilhe algo sobre sua jornada de comunicação...",  metaLabel: null },
+    { id: "LIVE_SESSION",        label: "Sessão Live",  icon: "🎤", placeholder: "O que foi importante nesta sessão? Contexto, resultado...", metaLabel: "Área de foco (ex: Reuniões internacionais)" },
+    { id: "ACHIEVEMENT",         label: "Conquista",    icon: "🏆", placeholder: "Descreva sua conquista e o que ela representa...",          metaLabel: "Nome da conquista" },
+    { id: "CHALLENGE_COMPLETED", label: "Desafio",      icon: "🎯", placeholder: "Como foi o desafio? O que você aprendeu?",                   metaLabel: "Nome do desafio" },
+  ] as const;
+  type AT = typeof ACTIVITY_TYPES[number]["id"];
+  const [activityType, setActivityType] = useState<AT>("POST");
+  const [activityContext, setActivityContext] = useState("");
+  const currentType = ACTIVITY_TYPES.find(t => t.id === activityType)!;
   const [text, setText] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [showImageInput, setShowImageInput] = useState(false);
@@ -66,30 +79,65 @@ function CreatePost({ me, onCreated }: { me: UserSnap | null; onCreated: (p: Pos
   }
 
   async function submit() {
-    if (!text.trim() && !imageUrl) return;
+    if (!text.trim() && !imageUrl && activityType === "POST") return;
+    if (activityType !== "POST" && !text.trim()) { toast.error("Adicione uma descrição."); return; }
     setPosting(true);
+    const metaKey: Record<string, string> = { LIVE_SESSION: "focus", ACHIEVEMENT: "badge", CHALLENGE_COMPLETED: "challenge" };
+    const activityMeta = activityType !== "POST" && activityContext.trim()
+      ? { [metaKey[activityType]]: activityContext.trim() }
+      : null;
     const res = await fetch("/api/feed", {
       method: "POST",
       headers: authHeaders(),
-      body: JSON.stringify({ content: text.trim(), imageUrl }),
+      body: JSON.stringify({ content: text.trim(), imageUrl, activityType, activityMeta }),
     });
     if (res.ok) {
       const post = await res.json();
       onCreated(post);
       setText(""); setImageUrl(""); setPreview(null); setShowImageInput(false);
-      toast.success("Postagem publicada!");
+      setActivityType("POST"); setActivityContext("");
+      toast.success("Atividade publicada!");
     } else { toast.error("Erro ao publicar."); }
     setPosting(false);
   }
 
   return (
     <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 space-y-3">
+      {/* Activity type selector */}
+      <div className="flex gap-1.5 flex-wrap">
+        {ACTIVITY_TYPES.map((t) => (
+          <button
+            key={t.id}
+            onClick={() => { setActivityType(t.id); setActivityContext(""); }}
+            className={`flex items-center gap-1 rounded-xl px-2.5 py-1 text-xs font-semibold transition-colors ${
+              activityType === t.id
+                ? t.id === "LIVE_SESSION" ? "bg-violet-600 text-white"
+                  : t.id === "ACHIEVEMENT" ? "bg-amber-500 text-white"
+                  : t.id === "CHALLENGE_COMPLETED" ? "bg-emerald-600 text-white"
+                  : "bg-zinc-700 text-white"
+                : "bg-white/5 text-muted-foreground hover:text-foreground hover:bg-white/10"
+            }`}
+          >
+            <span>{t.icon}</span> {t.label}
+          </button>
+        ))}
+      </div>
+      {/* Extra context for non-POST */}
+      {activityType !== "POST" && currentType.metaLabel && (
+        <input
+          value={activityContext}
+          onChange={(e) => setActivityContext(e.target.value)}
+          placeholder={currentType.metaLabel}
+          maxLength={100}
+          className="w-full rounded-xl border border-border bg-input px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500/40 placeholder:text-muted-foreground/60"
+        />
+      )}
       <div className="flex gap-3">
         {me && <Avatar name={me.name} avatarUrl={me.avatarUrl} size="md" />}
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder="Compartilhe algo com seus amigos..."
+          placeholder={currentType.placeholder}
           rows={2}
           maxLength={2000}
           className="flex-1 resize-none bg-transparent text-sm outline-none placeholder:text-muted-foreground/60"
@@ -141,7 +189,7 @@ function CreatePost({ me, onCreated }: { me: UserSnap | null; onCreated: (p: Pos
           className="flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:from-violet-500 hover:to-indigo-500 disabled:opacity-40 transition-all"
         >
           {posting ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
-          Publicar
+          {activityType === "POST" ? "Publicar" : "Compartilhar"}
         </button>
       </div>
     </div>
@@ -243,8 +291,27 @@ function PostCard({ post, myId, onDelete, isStranger }: { post: PostData; myId: 
 
   const isOwn = myId === post.user.id;
 
+  const activityBanner = () => {
+    if (!post.activityType || post.activityType === "POST") return null;
+    const configs: Record<string, { label: string; icon: JSX.Element; cls: string; metaKey: string }> = {
+      LIVE_SESSION:        { label: "Sessão Live",       icon: <Mic2 className="h-3.5 w-3.5" />,   cls: "bg-violet-500/15 border-violet-500/20 text-violet-300", metaKey: "focus" },
+      ACHIEVEMENT:         { label: "Conquista",         icon: <Trophy className="h-3.5 w-3.5" />, cls: "bg-amber-500/15 border-amber-500/20 text-amber-300",   metaKey: "badge" },
+      CHALLENGE_COMPLETED: { label: "Desafio concluído", icon: <Target className="h-3.5 w-3.5" />, cls: "bg-emerald-500/15 border-emerald-500/20 text-emerald-300", metaKey: "challenge" },
+    };
+    const cfg = configs[post.activityType];
+    if (!cfg) return null;
+    const metaValue = post.activityMeta?.[cfg.metaKey];
+    return (
+      <div className={`flex items-center gap-2 px-4 py-2 border-b text-xs font-semibold ${cfg.cls}`}>
+        {cfg.icon} {cfg.label}
+        {metaValue && <span className="font-normal opacity-70">· {metaValue}</span>}
+      </div>
+    );
+  };
+
   return (
     <article id={post.id} className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden transition-shadow hover:shadow-lg hover:shadow-violet-500/5">
+      {activityBanner()}
       {/* Header */}
       <div className="flex items-center justify-between px-4 pt-4 pb-2">
         <Link href={`/profile/${post.user.id}`} className="flex items-center gap-3 hover:opacity-80 transition-opacity">
@@ -933,11 +1000,11 @@ function Sidebar({ me }: { me: UserSnap | null }) {
       <div className="rounded-2xl border border-violet-500/20 bg-gradient-to-br from-violet-500/10 to-indigo-500/5 p-4 space-y-2">
         <p className="text-xs font-semibold text-violet-300">💡 Dica de hoje</p>
         <p className="text-xs text-muted-foreground leading-relaxed">
-          Poste uma frase em inglês no feed e peça para seus amigos corrigirem nos comentários. Aprendizado social funciona!
+          Compartilhe sua sessão Live no feed — seus amigos vão ver o contexto e podem comentar sobre a prática.
         </p>
       </div>
 
-      <p className="text-[10px] text-muted-foreground/40 px-2">SpeakFlow · speakf.com.br</p>
+      <p className="text-[10px] text-muted-foreground/40 px-2">SpeakFlow · speakflow.ia.br</p>
     </aside>
   );
 }
@@ -947,6 +1014,7 @@ export default function FeedPage() {
   const [me, setMe] = useState<UserSnap | null>(null);
   const [friendIds, setFriendIds] = useState<Set<string>>(new Set());
   const [tab, setTab] = useState<"friends" | "discover">("friends");
+  const [activityFilter, setActivityFilter] = useState<string | null>(null);
   const [posts, setPosts] = useState<PostData[]>([]);
   const [loading, setLoading] = useState(true);
   const [nextCursor, setNextCursor] = useState<string | null>(null);
@@ -966,9 +1034,10 @@ export default function FeedPage() {
       .catch(() => {});
   }, []);
 
-  const loadPosts = useCallback(async (cursor?: string, currentTab?: string) => {
+  const loadPosts = useCallback(async (cursor?: string, currentTab?: string, filter?: string | null) => {
     const t = currentTab ?? "friends";
-    const base = `/api/feed?tab=${t}`;
+    let base = `/api/feed?tab=${t}`;
+    if (filter) base += `&activity=${filter}`;
     const url = cursor ? `${base}&cursor=${cursor}` : base;
     const res = await fetch(url, { headers: authHeaders() });
     if (!res.ok) return;
@@ -981,15 +1050,15 @@ export default function FeedPage() {
     setLoading(true);
     setPosts([]);
     setNextCursor(null);
-    loadPosts(undefined, tab).finally(() => setLoading(false));
-  }, [loadPosts, tab]);
+    loadPosts(undefined, tab, activityFilter).finally(() => setLoading(false));
+  }, [loadPosts, tab, activityFilter]);
 
   useEffect(() => {
     if (!loaderRef.current || !nextCursor) return;
     const obs = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting && nextCursor && !loadingMore) {
         setLoadingMore(true);
-        loadPosts(nextCursor, tab).finally(() => setLoadingMore(false));
+        loadPosts(nextCursor, tab, activityFilter).finally(() => setLoadingMore(false));
       }
     }, { threshold: 0.1 });
     obs.observe(loaderRef.current);
@@ -1015,28 +1084,29 @@ export default function FeedPage() {
             </Link>
             <div>
               <h1 className="font-bold text-base leading-tight bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-                SpeakFlow Social
+                Atividade da Comunidade
               </h1>
-              <p className="text-[11px] text-muted-foreground">Conecte, pratique e evolua</p>
+              <p className="text-[11px] text-muted-foreground">Sessões Live · Conquistas · Desafios · Posts</p>
             </div>
           </div>
           <MobileHeaderActions />
         </div>
 
         {/* Tabs */}
-        <div className="mx-auto max-w-5xl flex gap-1 mt-2.5">
-          <button
-            onClick={() => setTab("friends")}
-            className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${tab === "friends" ? "bg-violet-600 text-white" : "text-muted-foreground hover:text-foreground hover:bg-white/5"}`}
-          >
+        <div className="mx-auto max-w-5xl flex gap-1 mt-2.5 flex-wrap">
+          <button onClick={() => setTab("friends")} className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${tab === "friends" ? "bg-violet-600 text-white" : "text-muted-foreground hover:text-foreground hover:bg-white/5"}`}>
             <Users className="h-3.5 w-3.5" /> Amigos
           </button>
-          <button
-            onClick={() => setTab("discover")}
-            className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${tab === "discover" ? "bg-violet-600 text-white" : "text-muted-foreground hover:text-foreground hover:bg-white/5"}`}
-          >
+          <button onClick={() => setTab("discover")} className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${tab === "discover" ? "bg-violet-600 text-white" : "text-muted-foreground hover:text-foreground hover:bg-white/5"}`}>
             <Compass className="h-3.5 w-3.5" /> Descobrir
           </button>
+          <div className="w-px bg-white/10 mx-1 self-stretch" />
+          {[{id: null, label: "Tudo"}, {id: "LIVE_SESSION", label: "🎤 Live"}, {id: "ACHIEVEMENT", label: "🏆 Conquistas"}, {id: "CHALLENGE_COMPLETED", label: "🎯 Desafios"}, {id: "POST", label: "💬 Posts"}].map((f) => (
+            <button key={String(f.id)} onClick={() => setActivityFilter(f.id)}
+              className={`rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-colors ${activityFilter === f.id ? "bg-zinc-700 text-white" : "text-muted-foreground hover:text-foreground hover:bg-white/5"}`}>
+              {f.label}
+            </button>
+          ))}
         </div>
       </header>
 
@@ -1053,7 +1123,7 @@ export default function FeedPage() {
               <div className="rounded-2xl border border-indigo-500/20 bg-indigo-500/5 px-4 py-3 flex items-center gap-2.5">
                 <Compass className="h-4 w-4 text-indigo-400 shrink-0" />
                 <p className="text-xs text-muted-foreground">
-                  Veja posts de toda a comunidade SpeakFlow. Adicione novos amigos e expanda sua rede!
+                  Atividades de toda a comunidade — sessões Live, conquistas e desafios de comunicação internacional.
                 </p>
               </div>
             )}
@@ -1077,20 +1147,20 @@ export default function FeedPage() {
             ) : posts.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-24 text-center gap-4">
                 <div className="h-20 w-20 rounded-full bg-gradient-to-br from-violet-600/20 to-indigo-600/20 border border-violet-500/20 flex items-center justify-center text-3xl">
-                  {tab === "discover" ? "�" : "��"}
+                  {tab === "discover" ? "🌍" : "🎤"}
                 </div>
                 <div>
                   <p className="font-semibold text-foreground">
-                    {tab === "discover" ? "Nenhum post público ainda" : "Nenhuma postagem ainda"}
+                    {activityFilter ? "Nenhuma atividade deste tipo ainda" : tab === "discover" ? "Nenhuma atividade pública ainda" : "Nenhuma atividade ainda"}
                   </p>
                   <p className="text-sm text-muted-foreground mt-1 max-w-xs">
                     {tab === "discover"
-                      ? "Seja o primeiro a publicar e apareça no feed de descoberta!"
-                      : "Adicione amigos para ver as postagens deles aqui, ou seja o primeiro a publicar!"}
+                      ? "Inicie uma sessão Live e compartilhe sua evolução com a comunidade."
+                      : "Compartilhe uma sessão Live, conquista ou desafio para começar!"}
                   </p>
                 </div>
-                <Link href="/friends" className="flex items-center gap-1.5 rounded-xl bg-violet-600 hover:bg-violet-500 px-4 py-2 text-sm font-semibold text-white transition-colors">
-                  <UserPlus className="h-4 w-4" /> Encontrar amigos
+                <Link href="/live" className="flex items-center gap-1.5 rounded-xl bg-violet-600 hover:bg-violet-500 px-4 py-2 text-sm font-semibold text-white transition-colors">
+                  <Mic2 className="h-4 w-4" /> Iniciar sessão Live
                 </Link>
               </div>
             ) : (

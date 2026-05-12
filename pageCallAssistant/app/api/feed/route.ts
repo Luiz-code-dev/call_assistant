@@ -9,6 +9,7 @@ export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const cursor = searchParams.get("cursor") ?? undefined;
   const tab = searchParams.get("tab") ?? "friends";
+  const activityFilter = searchParams.get("activity") ?? null;
   const take = 12;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -29,6 +30,11 @@ export async function GET(req: NextRequest) {
       f.requesterId === session.sub ? f.addresseeId : f.requesterId
     );
     whereClause = { userId: { in: Array.from(new Set([session.sub, ...friendIds])) } };
+  }
+
+  const validTypes = ["POST", "LIVE_SESSION", "ACHIEVEMENT", "CHALLENGE_COMPLETED"];
+  if (activityFilter && validTypes.includes(activityFilter)) {
+    whereClause = { ...whereClause, activityType: activityFilter };
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -68,8 +74,11 @@ export async function POST(req: NextRequest) {
   const body = await req.json();
   const content = body.content?.trim() ?? "";
   const imageUrl = body.imageUrl?.trim() ?? "";
+  const validTypes = ["POST", "LIVE_SESSION", "ACHIEVEMENT", "CHALLENGE_COMPLETED"];
+  const activityType = validTypes.includes(body.activityType) ? body.activityType : "POST";
+  const activityMeta = body.activityMeta && typeof body.activityMeta === "object" ? body.activityMeta : null;
 
-  if (!content && !imageUrl)
+  if (!content && !imageUrl && activityType === "POST")
     return NextResponse.json({ error: "empty_post" }, { status: 400 });
 
   if (content.length > 2000)
@@ -81,6 +90,8 @@ export async function POST(req: NextRequest) {
       userId: session.sub,
       content: content || null,
       imageUrl: imageUrl || null,
+      activityType,
+      activityMeta,
     },
     include: {
       user: { select: { id: true, name: true, username: true, avatarUrl: true } },

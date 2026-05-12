@@ -86,6 +86,9 @@ export default function LivePage() {
 
   // Setup config
   const [phase, setPhase] = useState<"setup" | "live">("setup");
+  const [showSharePrompt, setShowSharePrompt] = useState(false);
+  const [shareText, setShareText] = useState("");
+  const [sharing, setSharing] = useState(false);
   const [focus, setFocus] = useState("");
   const [level, setLevel] = useState("Todos os níveis");
   const [sourceLang, setSourceLang] = useState("en-US");
@@ -414,6 +417,28 @@ export default function LivePage() {
     setPhase("live");
   };
 
+  // ── Share session to feed ──
+  const handleShareToFeed = useCallback(async () => {
+    if (!shareText.trim()) return;
+    setSharing(true);
+    try {
+      const sfToken = typeof window !== "undefined" ? sessionStorage.getItem("sf_token") : null;
+      await fetch("/api/feed", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", ...(sfToken ? { Authorization: `Bearer ${sfToken}` } : {}) },
+        body: JSON.stringify({
+          content: shareText.trim(),
+          activityType: "LIVE_SESSION",
+          activityMeta: focus ? { focus } : null,
+        }),
+      });
+      toast.success("Sessão compartilhada no feed!");
+    } catch { toast.error("Erro ao compartilhar."); }
+    setSharing(false);
+    setShowSharePrompt(false);
+    setShareText("");
+  }, [shareText, focus]);
+
   // ── Session end ──
   const handleEnd = useCallback(async () => {
     stopRecording();
@@ -421,6 +446,7 @@ export default function LivePage() {
       method: "POST",
       body: JSON.stringify({ session_id: sessionId.current }),
     }).catch(() => {});
+    setShowSharePrompt(true);
     setPhase("setup");
     setTurns([]);
     setInterimText("");
@@ -897,6 +923,49 @@ export default function LivePage() {
           <div className="w-14" />
         </div>
       </div>
+
+      {/* Share to feed modal */}
+      {showSharePrompt && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
+          <div className="w-full max-w-sm rounded-2xl border border-white/10 bg-zinc-900 p-6 space-y-4 shadow-2xl">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="text-lg">🎤</span>
+                <p className="font-semibold text-sm">Compartilhar sessão no feed?</p>
+              </div>
+              <button onClick={() => setShowSharePrompt(false)} className="text-muted-foreground hover:text-foreground transition-colors">
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+            {focus && (
+              <div className="rounded-xl bg-violet-500/10 border border-violet-500/20 px-3 py-2 text-xs text-violet-300">
+                Área: {focus}
+              </div>
+            )}
+            <textarea
+              value={shareText}
+              onChange={(e) => setShareText(e.target.value)}
+              placeholder="Como foi a sessão? Situação, aprendizado, contexto..."
+              rows={3}
+              maxLength={500}
+              className="w-full rounded-xl border border-border bg-zinc-800 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500/40 resize-none placeholder:text-muted-foreground/50"
+            />
+            <div className="flex gap-2">
+              <Button variant="outline" size="sm" className="flex-1" onClick={() => setShowSharePrompt(false)}>
+                Pular
+              </Button>
+              <Button
+                size="sm"
+                className="flex-1 bg-violet-600 hover:bg-violet-500 text-white"
+                onClick={handleShareToFeed}
+                disabled={!shareText.trim() || sharing}
+              >
+                {sharing ? <Loader2 className="h-4 w-4 animate-spin" /> : "Compartilhar"}
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
