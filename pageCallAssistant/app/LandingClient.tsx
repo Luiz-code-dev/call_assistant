@@ -705,9 +705,9 @@ function TestimonialsSection() {
 
 function PricingSection({ isLoggedIn }: { isLoggedIn: boolean }) {
   const plans = [
-    { name: "Gratuito", price: "Grátis", period: "", credits: "50 créditos", features: ["50 créditos ao criar conta","Transcrição em tempo real","Tradução automática","Copilot de sugestões","📡 SpeakFlow Live (via créditos)","🎰 Giro da Sorte — 1×/dia"], cta: "Começar grátis", highlighted: false },
-    { name: "Básico", price: "R$ 74,90", period: "/mês", credits: "500 créditos/mês", features: ["Tudo do Gratuito","📡 SpeakFlow Live — uso por créditos","✍️ Ferramentas de prática IA","🏅 SpeakFlow Network — criar Circles","🎤 Treino de entrevista","🎰 Giro 10 dias → Premium","Suporte por e-mail"], cta: "Assinar Básico", highlighted: true, badge: "POPULAR" },
-    { name: "Premium", price: "R$ 149,90", period: "/mês", credits: "1.000 créditos/mês", features: ["Tudo do Básico","📡 SpeakFlow Live — ilimitado","🏅 Circles ilimitados no Network","✍️ Ferramentas IA ilimitadas","🎰 Giro Premium — prêmios dobrados","🏆 Avaliação CEFR + Certificado","Suporte prioritário"], cta: "Assinar Premium", highlighted: false },
+    { name: "Gratuito", price: "Grátis", period: "", credits: "50 créditos", equiv: "≈ 3 sessões Live", features: ["50 créditos de boas-vindas","SpeakFlow Live — sessões básicas com IA","Transcrição em tempo real","Tradução automática","Sugestões do Copilot","App desktop Windows"], cta: "Começar grátis", highlighted: false },
+    { name: "Básico", price: "R$ 74,90", period: "/mês", credits: "500 créditos/mês", equiv: "≈ 30 sessões Live mensais", features: ["SpeakFlow Live — copiloto em reuniões e calls","Transcrição + tradução em tempo real","✍️ Melhorar Resposta — 5x/dia","💬 Gerar Resposta — 5x/dia","🎤 Treino de Entrevista — 3x/dia","Circles no Network","Suporte por e-mail"], cta: "Assinar Básico", highlighted: true, badge: "POPULAR" },
+    { name: "Premium", price: "R$ 149,90", period: "/mês", credits: "1.000 créditos/mês", equiv: "≈ 60 sessões Live mensais", features: ["🏆 Certificado CEFR de Proficiência","SpeakFlow Live ilimitado","✍️ Melhorar Resposta — ilimitado","💬 Gerar Resposta — ilimitado","� Treino de Entrevista — ilimitado","Histórico de sessões","Suporte prioritário"], cta: "Assinar Premium", highlighted: false },
   ];
   return (
     <section id="precos" className="relative py-24 sm:py-32">
@@ -732,6 +732,7 @@ function PricingSection({ isLoggedIn }: { isLoggedIn: boolean }) {
                     <h3 className="text-lg font-semibold text-white">{plan.name}</h3>
                     <div className="mt-4"><span className="text-4xl font-bold text-white">{plan.price}</span><span className="text-zinc-500 text-sm">{plan.period}</span></div>
                     <p className="mt-2 text-sm text-violet-400">{plan.credits}</p>
+                    {"equiv" in plan && plan.equiv && <p className="text-xs text-zinc-500 mt-0.5">{plan.equiv}</p>}
                   </div>
                   <ul className="space-y-3 mb-6">
                     {plan.features.map((f) => (
