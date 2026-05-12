@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import {
   Mic2, Zap, Users, Star, CheckCircle2, Globe, ArrowRight, Brain, Shield, Monitor,
   MessageSquare, Target, Sparkles, Download, Smartphone, Award, Send, PenTool,
-  ChevronRight, Instagram, Heart, UserPlus, Clock, Flame, X,
+  ChevronRight, Instagram, Heart, UserPlus, Clock, Flame, X, Building2,
 } from "lucide-react";
 import { SupportChat } from "@/components/SupportChat";
 import { CookieManagerButton } from "@/components/CookieConsent";
@@ -123,6 +123,9 @@ function Header({ isLoggedIn, topOffset = 0 }: { isLoggedIn: boolean; topOffset?
             {[["Por que SpeakFlow?","#porque"],["Recursos","#recursos"],["Network","#network"],["Preços","#precos"],["Download","#download"]].map(([label, href]) => (
               <a key={label} href={href} className="text-sm text-zinc-400 hover:text-white transition-colors">{label}</a>
             ))}
+            <Link href="/for-teams" className="text-sm font-semibold text-violet-400 hover:text-violet-300 transition-colors flex items-center gap-1">
+              <Building2 className="h-3.5 w-3.5" />Para Empresas
+            </Link>
           </nav>
           <div className="flex items-center gap-3">
             {isLoggedIn ? (
@@ -793,6 +796,52 @@ function DownloadSection({ isLoggedIn }: { isLoggedIn: boolean }) {
   );
 }
 
+// ==================== B2B SECTION ====================
+
+function B2BSection() {
+  return (
+    <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
+        <AnimatedSection>
+          <div className="rounded-2xl border border-violet-500/20 bg-gradient-to-br from-violet-900/20 via-zinc-900 to-indigo-900/20 p-8 md:p-12 text-center relative overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute top-0 left-1/3 w-64 h-64 bg-violet-600/10 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 right-1/3 w-48 h-48 bg-indigo-600/10 rounded-full blur-3xl" />
+            </div>
+            <div className="relative">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-sm font-medium mb-5">
+                <Building2 className="h-3.5 w-3.5" />
+                SpeakFlow for Teams
+              </div>
+              <h2 className="text-2xl md:text-4xl font-black text-white mb-4">
+                Sua empresa também precisa disso
+              </h2>
+              <p className="text-zinc-400 mb-4 max-w-xl mx-auto text-base leading-relaxed">
+                Uma licença corporativa de 20 usuários custa{" "}
+                <span className="text-white font-semibold">R$ 2.000/mês</span>{" "}
+                — o equivalente a <span className="text-white font-semibold">26 assinaturas Premium individuais</span>.
+                Com dashboard de analytics, desafios por função e certificação de equipe incluídos.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8">
+                <Link href="/for-teams">
+                  <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white border-0 shadow-xl shadow-violet-500/30 px-8">
+                    <Building2 className="mr-2 h-4 w-4" />Ver SpeakFlow for Teams
+                  </Button>
+                </Link>
+                <Link href="/for-teams#demo">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto border-zinc-700 bg-zinc-900/50 hover:bg-zinc-800 text-white px-8">
+                    Solicitar demonstração <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
 // ==================== FOOTER ====================
 
 function Footer() {
@@ -808,7 +857,7 @@ function Footer() {
             </a>
           </div>
           {[
-            ["Produto", [["Preços","/pricing"],["Guia","/guia"],["Download","#download"]]],
+            ["Produto", [["Preços","/pricing"],["Para Empresas","/for-teams"],["Guia","/guia"],["Download","#download"]]],
             ["Legal", [["Privacidade","/privacy"],["Termos","/terms"]]],
             ["Conta", [["Login","/login"],["Cadastro","/register"]]],
           ].map(([title, links]) => (
@@ -872,6 +921,7 @@ export function LandingClient({ isLoggedIn }: { isLoggedIn: boolean }) {
       <SocialSection isLoggedIn={isLoggedIn} />
       <TestimonialsSection />
       <PricingSection isLoggedIn={isLoggedIn} />
+      <B2BSection />
       <DownloadSection isLoggedIn={isLoggedIn} />
       <Footer />
     </main>
