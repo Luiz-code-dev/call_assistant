@@ -41,15 +41,15 @@ export default function PricingPageClient({
       priceLabel: "Grátis",
       period: "",
       credits: 50,
-      description: "Comece sem compromisso",
+      equiv: "≈ 3 sessões Live de 30 min",
+      description: "Experimente o copiloto de comunicação",
       features: [
-        "50 créditos ao criar conta",
+        "50 créditos de boas-vindas",
+        "SpeakFlow Live — sessões básicas com IA",
         "Transcrição em tempo real",
         "Tradução automática",
         "Sugestões do Copilot",
         "App desktop Windows",
-        "📡 SpeakFlow Live — créditos como throttle",
-        "🎰 Giro da Sorte — 1 giro grátis por dia",
       ],
       lockedFeatures: [
         "Melhorar Resposta (IA)",
@@ -67,20 +67,19 @@ export default function PricingPageClient({
       priceLabel: "R$ 74,90",
       period: "/mês",
       credits: 500,
+      equiv: "≈ 30 sessões Live mensais",
       description: "Para uso profissional regular",
       features: [
         "500 créditos / mês",
-        "Renovação mensal automática",
-        "Transcrição em tempo real",
-        "Tradução automática",
-        "Sugestões do Copilot",
-        "Recarga de créditos avulsa",
-        "Suporte por e-mail",
+        "SpeakFlow Live — copiloto em reuniões e calls",
+        "Transcrição + tradução em tempo real",
+        "Sugestões contextuais do Copilot",
         "✍️ Melhorar Resposta — 5x/dia",
         "💬 Gerar Resposta — 5x/dia",
         "🎤 Treino de Entrevista — 3x/dia",
-        "📡 SpeakFlow Live — uso por créditos",
-        "🎰 Giro da Sorte — sequência de 10 dias → Premium",
+        "Recarga de créditos avulsa",
+        "Suporte por e-mail",
+        "Renovação mensal automática",
       ],
       cta: "Assinar — R$ 74,90/mês",
       href: null,
@@ -94,22 +93,21 @@ export default function PricingPageClient({
       priceLabel: "R$ 149,90",
       period: "/mês",
       credits: 1000,
-      description: "Para uso intenso e power users",
+      equiv: "≈ 60 sessões Live mensais",
+      description: "Para quem se comunica internacionalmente com frequência",
       features: [
+        "🏆 Certificado CEFR de Proficiência",
         "1.000 créditos / mês",
-        "Renovação mensal automática",
-        "Transcrição em tempo real",
-        "Tradução automática",
-        "Sugestões do Copilot",
-        "Recarga de créditos avulsa",
-        "Suporte prioritário",
-        "Histórico completo de sessões",
+        "SpeakFlow Live ilimitado",
+        "Transcrição + tradução em tempo real",
+        "Sugestões avançadas do Copilot",
         "✍️ Melhorar Resposta — ilimitado",
         "💬 Gerar Resposta — ilimitado",
         "🎤 Treino de Entrevista — ilimitado",
-        "📡 SpeakFlow Live — ilimitado",
-        "🎰 Giro da Sorte Premium — prêmios dobrados sempre",
-        "🏆 Avaliação CEFR + Certificado de Proficiência",
+        "Histórico completo de sessões",
+        "Recarga de créditos avulsa",
+        "Suporte prioritário",
+        "Renovação mensal automática",
       ],
       cta: "Assinar — R$ 149,90/mês",
       href: null,
@@ -119,9 +117,9 @@ export default function PricingPageClient({
   ];
 
   const creditPacks = [
-    { credits: 50,  price: "R$ 24,90",  priceId: stripePriceCredits5  ?? null },
-    { credits: 150, price: "R$ 49,90",  priceId: stripePriceCredits10 ?? null },
-    { credits: 400, price: "R$ 119,90", priceId: stripePriceCredits25 ?? null },
+    { credits: 50,  price: "R$ 24,90",  equiv: "≈ 3 sessões extras",  priceId: stripePriceCredits5  ?? null },
+    { credits: 150, price: "R$ 49,90",  equiv: "≈ 10 sessões extras", priceId: stripePriceCredits10 ?? null },
+    { credits: 400, price: "R$ 119,90", equiv: "≈ 25 sessões extras", priceId: stripePriceCredits25 ?? null },
   ];
 
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
@@ -240,7 +238,7 @@ export default function PricingPageClient({
               <span className="gradient-text">sem surpresas</span>
             </h1>
             <p className="mx-auto max-w-xl text-lg text-muted-foreground">
-              Comece grátis. Faça upgrade quando quiser. Pague só pelo que usar. Preços em BRL.
+              Comece grátis. Faça upgrade conforme o seu volume de comunicação internacional. Cancele quando quiser. Preços em BRL.
             </p>
           </div>
 
@@ -275,9 +273,14 @@ export default function PricingPageClient({
                     )}
                   </CardTitle>
                   <p className="text-sm text-muted-foreground">{plan.description}</p>
-                  <div className="flex items-center gap-1.5 rounded-lg bg-secondary/50 px-3 py-2">
-                    <Zap className="h-3.5 w-3.5 text-violet-400" />
-                    <span className="text-sm font-medium">{plan.credits.toLocaleString()} créditos{plan.period ? "/mês" : " inicial"}</span>
+                  <div className="rounded-lg bg-secondary/50 px-3 py-2">
+                    <div className="flex items-center gap-1.5">
+                      <Zap className="h-3.5 w-3.5 text-violet-400 shrink-0" />
+                      <span className="text-sm font-medium">{plan.credits.toLocaleString()} créditos{plan.period ? "/mês" : " inicial"}</span>
+                    </div>
+                    {(plan as { equiv?: string }).equiv && (
+                      <p className="text-[11px] text-muted-foreground mt-0.5 pl-5">{(plan as { equiv?: string }).equiv}</p>
+                    )}
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -339,9 +342,9 @@ export default function PricingPageClient({
           <div id="credits">
             <div className="mb-8 text-center">
               <Badge variant="purple" className="mb-3">Recarga de créditos</Badge>
-              <h2 className="text-3xl font-bold">Precisa de mais? Adicione créditos</h2>
+              <h2 className="text-3xl font-bold">Adicione sessões extras</h2>
               <p className="mt-2 text-muted-foreground">
-                Compra única, sem assinatura. Créditos adicionais nunca expiram.
+                Compra única, sem assinatura. Créditos adicionais nunca expiram e acumulam com os do plano.
               </p>
             </div>
 
@@ -356,6 +359,9 @@ export default function PricingPageClient({
                           <Zap className="h-3.5 w-3.5 text-violet-400" />
                           <span className="text-sm text-muted-foreground">{pack.credits} créditos</span>
                         </div>
+                        {(pack as { equiv?: string }).equiv && (
+                          <p className="text-[11px] text-zinc-500 mt-1">{(pack as { equiv?: string }).equiv}</p>
+                        )}
                       </div>
                       <Button
                         variant="gradient"
@@ -401,8 +407,8 @@ export default function PricingPageClient({
             <div className="grid gap-4 md:grid-cols-2">
               {[
                 {
-                  q: "O que é um crédito?",
-                  a: "Cada crédito representa uma unidade de uso de IA. Transcrição, tradução e sugestões do Copilot consomem créditos conforme a duração do áudio processado.",
+                  q: "Quanto dura um crédito?",
+                  a: "Cada sessão do SpeakFlow Live consome ~20 créditos (~10 sugestões de IA). 50 créditos = ~3 sessões; 500 créditos = ~30 sessões mensais; 1.000 créditos = ~60 sessões. Créditos de recarga nunca expiram e acumulam com os do plano.",
                 },
                 {
                   q: "Os créditos expiram?",
