@@ -35,6 +35,7 @@ export default function CreateOrgPage() {
   const [name, setName] = useState("");
   const [industry, setIndustry] = useState("");
   const [domain, setDomain] = useState("");
+  const [cnpj, setCnpj] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -53,7 +54,7 @@ export default function CreateOrgPage() {
     try {
       const res = await authFetch("/api/org", {
         method: "POST",
-        body: JSON.stringify({ name, industry: industry || null, domain: domain || null }),
+        body: JSON.stringify({ name, industry: industry || null, domain: domain || null, cnpj: cnpj || null }),
       });
       const data = await res.json();
       if (!res.ok) { setError(data.error ?? "Erro ao criar organização."); return; }
@@ -119,6 +120,20 @@ export default function CreateOrgPage() {
                   <option key={i.value} value={i.value}>{i.label}</option>
                 ))}
               </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-zinc-300 mb-1.5">
+                CNPJ
+              </label>
+              <input
+                type="text"
+                value={cnpj}
+                onChange={e => setCnpj(e.target.value)}
+                placeholder="00.000.000/0001-00 (opcional, valida situação na Receita Federal)"
+                className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2.5 text-white placeholder-zinc-500 focus:outline-none focus:border-violet-500 transition-colors"
+              />
+              <p className="mt-1 text-xs text-zinc-500">Apenas empresas com CNPJ ativo na Receita Federal são aceitas</p>
             </div>
 
             <div>

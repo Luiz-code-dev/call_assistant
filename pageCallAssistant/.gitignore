@@ -1,5 +1,8 @@
-.env
-.env.local
+# local env files
+.env*.local
+
+# scripts locais (seeds, SQL sensível)
+scripts/
 .env.production
 .next/
 node_modules/
