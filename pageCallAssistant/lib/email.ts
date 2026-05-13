@@ -341,6 +341,69 @@ export async function sendFriendRequestEmail(
   }).catch((err: unknown) => console.error("[sendFriendRequestEmail]", err));
 }
 
+export async function sendOrgInviteEmail(
+  toEmail: string,
+  orgName: string,
+  inviterName: string,
+  role: string,
+  token: string,
+  expiresAt: Date
+) {
+  const inviteLink = `${APP_URL}/teams/invite/${token}`;
+  const roleLabel = role === "admin" ? "Administrador" : "Membro";
+  const expiryDate = expiresAt.toLocaleDateString("pt-BR");
+
+  if (!resend) {
+    console.log(`[DEV] Org invite email to ${toEmail}: ${inviteLink}`);
+    return;
+  }
+
+  await resend.emails.send({
+    from: FROM_EMAIL,
+    to: toEmail,
+    subject: `${inviterName} te convidou para ${orgName} no SpeakFlow for Teams`,
+    html: `
+      <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:0;background:#09090b;color:#fafafa;border-radius:16px;overflow:hidden">
+        <div style="background:linear-gradient(135deg,#4c1d95,#312e81);padding:36px 28px;text-align:center">
+          <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:20px">
+            <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#4f46e5);display:inline-flex;align-items:center;justify-content:center">
+              <span style="color:#fff;font-weight:bold;font-size:18px">S</span>
+            </div>
+            <span style="font-weight:700;font-size:20px;color:#fff">SpeakFlow</span>
+          </div>
+          <div style="font-size:44px;margin-bottom:12px">🏢</div>
+          <h1 style="font-size:22px;font-weight:800;margin:0 0 6px;color:#fff">Você foi convidado!</h1>
+          <p style="color:#c4b5fd;margin:0;font-size:15px">${inviterName} te convidou para <strong style="color:#fff">${orgName}</strong></p>
+        </div>
+        <div style="padding:32px 28px">
+          <div style="background:#18181b;border:1px solid #27272a;border-radius:12px;padding:20px;margin-bottom:24px">
+            <p style="margin:0 0 4px;font-size:13px;color:#a1a1aa">Organização</p>
+            <p style="margin:0 0 12px;font-size:16px;font-weight:700;color:#fff">${orgName}</p>
+            <p style="margin:0 0 4px;font-size:13px;color:#a1a1aa">Sua função</p>
+            <p style="margin:0 0 12px;font-size:15px;font-weight:600;color:#a78bfa">${roleLabel}</p>
+            <p style="margin:0 0 4px;font-size:13px;color:#a1a1aa">Convite expira em</p>
+            <p style="margin:0;font-size:14px;color:#71717a">${expiryDate}</p>
+          </div>
+          <p style="color:#a1a1aa;font-size:14px;line-height:1.6;margin:0 0 24px">
+            Ao aceitar, você terá acesso ao painel da equipe com sessões Live, desafios de comunicação e analytics de evolução.
+          </p>
+          <div style="text-align:center;margin-bottom:24px">
+            <a href="${inviteLink}" style="display:inline-block;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:14px 32px;border-radius:10px">
+              Aceitar convite →
+            </a>
+          </div>
+          <p style="color:#3f3f46;font-size:12px;text-align:center;margin:0">
+            Ou acesse: <a href="${inviteLink}" style="color:#7c3aed">${inviteLink}</a>
+          </p>
+        </div>
+        <div style="background:#09090b;padding:16px 28px;border-top:1px solid #18181b">
+          <p style="color:#3f3f46;font-size:11px;margin:0">SpeakFlow for Teams · speakflow.ia.br</p>
+        </div>
+      </div>
+    `,
+  }).catch((err: unknown) => console.error("[sendOrgInviteEmail]", err));
+}
+
 export async function sendPromoWelcomeEmail(email: string, name: string, verifyLink: string) {
   if (!resend) {
     console.log(`[DEV] Promo welcome email would be sent to ${email}`);

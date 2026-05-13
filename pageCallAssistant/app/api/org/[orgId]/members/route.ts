@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { getOrgSessionById, hasRole } from "@/lib/orgAuth";
+import { sendOrgInviteEmail } from "@/lib/email";
 
 type Ctx = { params: { orgId: string } };
 
@@ -47,6 +48,20 @@ export async function POST(req: NextRequest, { params }: Ctx) {
       expiresAt,
     },
   });
+
+  const [orgRecord, inviterUser] = await Promise.all([
+    (db as any).organization.findUnique({ where: { id: params.orgId }, select: { name: true } }),
+    (db as any).user.findUnique({ where: { id: org.userId }, select: { name: true } }).catch(() => null),
+  ]);
+
+  sendOrgInviteEmail(
+    email.toLowerCase(),
+    orgRecord?.name ?? "sua organização",
+    inviterUser?.name ?? "Um administrador",
+    role,
+    invite.token,
+    expiresAt,
+  ).catch(() => {});
 
   return NextResponse.json({ invite }, { status: 201 });
 }
