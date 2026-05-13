@@ -12,10 +12,10 @@ import {
   ChevronRight, Bell, Wrench, Lock, Lightbulb,
   Home, Settings, CreditCard, X, LogOut, MessageSquare,
   Flame, Heart, Newspaper, Download, UserCircle, Smartphone, Share, Monitor,
-  Volume2, VolumeX, Loader2,
+  Volume2, VolumeX, Loader2, Building2,
 } from "lucide-react";
 
-interface UserData { id: string; name: string; avatarUrl: string | null; plan: string; }
+interface UserData { id: string; name: string; avatarUrl: string | null; plan: string; b2bAccess?: boolean; orgCount?: number; }
 interface CircleData {
   id: string; name: string; focus: string;
   _count: { members: number };
@@ -338,7 +338,7 @@ function HeroGreeting({ userName }: { userName: string }) {
   );
 }
 
-function QuickActionsSection() {
+function QuickActionsSection({ user }: { user: UserData }) {
   const [unreadMessages, setUnreadMessages] = useState(0);
   useEffect(() => {
     const sfToken = sessionStorage.getItem("sf_token");
@@ -348,6 +348,7 @@ function QuickActionsSection() {
       .catch(() => {});
   }, []);
 
+  const showTeams = user.b2bAccess || (user.orgCount ?? 0) > 0;
   const [liveAction, ...otherActions] = quickActions;
 
   return (
@@ -371,6 +372,21 @@ function QuickActionsSection() {
 
       {/* Ações secundárias */}
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        {showTeams && (
+          <Link href="/teams" className="group relative flex items-center gap-4 rounded-xl border border-violet-500/30 bg-violet-500/5 p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-violet-500/50 hover:bg-violet-500/10 hover:shadow-lg sm:col-span-2">
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600 text-white shadow-lg">
+              <Building2 className="size-5" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2">
+                <h3 className="font-semibold text-white">Minha Empresa</h3>
+                <span className="text-[10px] font-bold bg-violet-500/20 text-violet-300 rounded-full px-2 py-0.5">FOR TEAMS</span>
+              </div>
+              <p className="text-xs text-zinc-400 truncate">Painel corporativo — membros, desafios e analytics</p>
+            </div>
+            <ChevronRight className="size-4 text-zinc-600 transition-colors group-hover:text-violet-400 shrink-0" />
+          </Link>
+        )}
         {otherActions.map((action) => {
           const badge = action.href === "/friends" ? unreadMessages : 0;
           return (
@@ -693,7 +709,7 @@ export default function HomePage() {
       <AppHeader user={user} circles={circles} />
       <main className="mx-auto max-w-5xl">
         <HeroGreeting userName={user.name} />
-        <QuickActionsSection />
+        <QuickActionsSection user={user} />
         <InstallAppBanner />
         <CircleSection circles={circles} loading={loadingCircles} />
         <RecentActivitySection />

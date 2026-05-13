@@ -16,7 +16,10 @@ export async function GET(req: NextRequest) {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const user = await (db as any).user.findUnique({ where: { id: payload.sub } });
+  const user = await (db as any).user.findUnique({
+    where: { id: payload.sub },
+    include: { _count: { select: { orgMemberships: true } } },
+  });
 
   if (!user) {
     return NextResponse.json({ message: "Usuário não encontrado" }, { status: 404 });
@@ -30,5 +33,7 @@ export async function GET(req: NextRequest) {
     plan: user.plan,
     avatarUrl: user.avatarUrl ?? null,
     bio: user.bio ?? null,
+    b2bAccess: user.b2bAccess ?? false,
+    orgCount: user._count?.orgMemberships ?? 0,
   });
 }
