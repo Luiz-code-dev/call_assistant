@@ -22,6 +22,7 @@ export default function RegisterPage() {
   const [pendingVerification, setPendingVerification] = useState(false);
   const searchParams = useSearchParams();
   const isDesktop = searchParams.get("callback") === "desktop";
+  const redirectAfter = searchParams.get("redirect");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -38,6 +39,9 @@ export default function RegisterPage() {
       if (!res.ok) throw new Error(data.message || "Erro ao criar conta");
       if (isDesktop) {
         document.cookie = "desktop_callback=1; path=/; max-age=3600; samesite=lax";
+      }
+      if (redirectAfter) {
+        localStorage.setItem("sf_post_verify_redirect", redirectAfter);
       }
       setPendingVerification(true);
     } catch (err: unknown) {

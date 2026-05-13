@@ -160,10 +160,19 @@ function DemoForm() {
   }
 
   if (sent) return (
-    <div className="text-center py-10">
-      <CheckCircle2 className="h-14 w-14 text-emerald-400 mx-auto mb-4" />
-      <h3 className="text-xl font-bold text-white mb-2">Mensagem enviada!</h3>
-      <p className="text-zinc-400 text-sm max-w-sm mx-auto">Nossa equipe comercial entrará em contato em até 24 horas úteis para agendar a demonstração.</p>
+    <div className="text-center py-10 space-y-5">
+      <CheckCircle2 className="h-14 w-14 text-emerald-400 mx-auto" />
+      <div>
+        <h3 className="text-xl font-bold text-white mb-2">Solicitação enviada!</h3>
+        <p className="text-zinc-400 text-sm max-w-sm mx-auto">Nossa equipe entrará em contato em até 24 horas úteis para agendar a demonstração.</p>
+      </div>
+      <div className="rounded-xl border border-violet-500/20 bg-violet-500/5 px-5 py-4 max-w-sm mx-auto text-left">
+        <p className="text-sm font-semibold text-white mb-1">Próximo passo: crie sua conta</p>
+        <p className="text-xs text-zinc-400 mb-3">Use o mesmo e-mail informado acima. Assim que aprovado, você terá acesso ao painel da sua empresa.</p>
+        <Link href="/register?redirect=/teams" className="inline-block w-full text-center py-2.5 bg-violet-600 hover:bg-violet-500 text-white rounded-lg text-sm font-semibold transition-colors">
+          Criar minha conta →
+        </Link>
+      </div>
     </div>
   );
 
@@ -243,7 +252,7 @@ export default function ForTeamsPage() {
             </span>
           </Link>
           <div className="flex items-center gap-3">
-            <Link href="/login" className="text-zinc-400 hover:text-white text-sm transition-colors hidden sm:block">Entrar</Link>
+            <Link href="/login?redirect=/teams" className="text-zinc-400 hover:text-white text-sm transition-colors hidden sm:block">Entrar</Link>
             <button onClick={scrollToForm}
               className="px-4 py-2 bg-violet-600 hover:bg-violet-500 text-white rounded-lg font-semibold text-sm transition-colors">
               Falar com comercial
@@ -287,9 +296,9 @@ export default function ForTeamsPage() {
                 Solicitar demonstração gratuita
                 <ArrowRight className="h-4 w-4" />
               </button>
-              <Link href="/register"
+              <Link href="/register?redirect=/teams"
                 className="w-full sm:w-auto px-8 py-4 border border-zinc-700 hover:border-zinc-500 text-zinc-300 hover:text-white rounded-xl font-semibold text-base transition-all text-center">
-                Criar conta grátis
+                Criar minha conta
               </Link>
             </div>
           </Reveal>

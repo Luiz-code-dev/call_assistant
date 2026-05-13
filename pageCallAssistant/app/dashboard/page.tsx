@@ -53,11 +53,19 @@ export default function DashboardPage() {
 
   useEffect(() => {
     const checkout = searchParams.get("checkout");
-    const credits = searchParams.get("credits");
+    const credits  = searchParams.get("credits");
+    const verified = searchParams.get("verified");
     if (checkout === "success") toast.success("Assinatura ativada com sucesso!");
     if (credits === "success") {
       const amount = searchParams.get("amount");
       toast.success(`${amount ?? ""} créditos adicionados à sua conta!`);
+    }
+    if (verified === "1") {
+      const postVerifyRedirect = localStorage.getItem("sf_post_verify_redirect");
+      if (postVerifyRedirect) {
+        localStorage.removeItem("sf_post_verify_redirect");
+        window.location.href = postVerifyRedirect;
+      }
     }
   }, [searchParams]);
 
