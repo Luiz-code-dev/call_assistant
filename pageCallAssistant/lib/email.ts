@@ -341,6 +341,67 @@ export async function sendFriendRequestEmail(
   }).catch((err: unknown) => console.error("[sendFriendRequestEmail]", err));
 }
 
+export async function sendB2BApprovalEmail(toEmail: string, name: string) {
+  const teamsLink = `${APP_URL}/teams/create`;
+  const firstName = name?.split(" ")[0] || "usuário";
+
+  if (!resend) {
+    console.log(`[DEV] B2B approval email to ${toEmail}: ${teamsLink}`);
+    return;
+  }
+
+  await resend.emails.send({
+    from: FROM_EMAIL,
+    to: toEmail,
+    subject: "✅ Sua conta corporativa foi aprovada — SpeakFlow for Teams",
+    html: `
+      <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:0;background:#09090b;color:#fafafa;border-radius:16px;overflow:hidden">
+        <div style="background:linear-gradient(135deg,#14532d,#166534,#1a3a5c);padding:36px 28px;text-align:center">
+          <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:20px">
+            <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#4f46e5);display:inline-flex;align-items:center;justify-content:center">
+              <span style="color:#fff;font-weight:bold;font-size:18px">S</span>
+            </div>
+            <span style="font-weight:700;font-size:20px;color:#fff">SpeakFlow</span>
+          </div>
+          <div style="font-size:48px;margin-bottom:12px">✅</div>
+          <h1 style="font-size:24px;font-weight:800;margin:0 0 6px;color:#fff">Conta aprovada, ${firstName}!</h1>
+          <p style="color:#86efac;margin:0;font-size:15px">Seu acesso ao SpeakFlow for Teams está ativo</p>
+        </div>
+        <div style="padding:32px 28px">
+          <p style="color:#d4d4d8;font-size:15px;line-height:1.6;margin:0 0 24px">
+            A sua conta corporativa foi aprovada pela equipe SpeakFlow. Você já pode criar o workspace da sua empresa, convidar colaboradores e começar a usar o copiloto de comunicação com IA em tempo real.
+          </p>
+          <div style="background:#18181b;border:1px solid #27272a;border-radius:12px;padding:20px;margin-bottom:24px">
+            <p style="margin:0 0 12px;font-size:13px;font-weight:600;color:#a78bfa;text-transform:uppercase;letter-spacing:0.05em">Próximos passos</p>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <span style="background:#7c3aed;color:#fff;font-size:11px;font-weight:700;width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">1</span>
+                <span style="font-size:14px;color:#d4d4d8">Crie o workspace da sua empresa</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px">
+                <span style="background:#7c3aed;color:#fff;font-size:11px;font-weight:700;width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">2</span>
+                <span style="font-size:14px;color:#d4d4d8">Convide colaboradores por e-mail</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px">
+                <span style="background:#7c3aed;color:#fff;font-size:11px;font-weight:700;width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">3</span>
+                <span style="font-size:14px;color:#d4d4d8">Configure desafios por função</span>
+              </div>
+            </div>
+          </div>
+          <div style="text-align:center">
+            <a href="${teamsLink}" style="display:inline-block;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:14px 32px;border-radius:10px">
+              Criar minha organização →
+            </a>
+          </div>
+        </div>
+        <div style="background:#09090b;padding:16px 28px;border-top:1px solid #18181b">
+          <p style="color:#3f3f46;font-size:11px;margin:0">SpeakFlow for Teams · speakflow.ia.br</p>
+        </div>
+      </div>
+    `,
+  }).catch((err: unknown) => console.error("[sendB2BApprovalEmail]", err));
+}
+
 export async function sendOrgInviteEmail(
   toEmail: string,
   orgName: string,
