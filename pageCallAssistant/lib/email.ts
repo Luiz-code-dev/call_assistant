@@ -364,21 +364,27 @@ export async function sendB2BApprovalEmail(toEmail: string, name: string) {
             A sua conta corporativa foi aprovada pela equipe SpeakFlow. Você já pode criar o workspace da sua empresa, convidar colaboradores e começar a usar o copiloto de comunicação com IA em tempo real.
           </p>
           <div style="background:#18181b;border:1px solid #27272a;border-radius:12px;padding:20px;margin-bottom:24px">
-            <p style="margin:0 0 12px;font-size:13px;font-weight:600;color:#a78bfa;text-transform:uppercase;letter-spacing:0.05em">Próximos passos</p>
-            <div style="display:flex;flex-direction:column;gap:10px">
-              <div style="display:flex;align-items:center;gap:10px">
-                <span style="background:#7c3aed;color:#fff;font-size:11px;font-weight:700;width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">1</span>
-                <span style="font-size:14px;color:#d4d4d8">Crie o workspace da sua empresa</span>
-              </div>
-              <div style="display:flex;align-items:center;gap:10px">
-                <span style="background:#7c3aed;color:#fff;font-size:11px;font-weight:700;width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">2</span>
-                <span style="font-size:14px;color:#d4d4d8">Convide colaboradores por e-mail</span>
-              </div>
-              <div style="display:flex;align-items:center;gap:10px">
-                <span style="background:#7c3aed;color:#fff;font-size:11px;font-weight:700;width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">3</span>
-                <span style="font-size:14px;color:#d4d4d8">Configure desafios por função</span>
-              </div>
-            </div>
+            <p style="margin:0 0 14px;font-size:13px;font-weight:600;color:#a78bfa;text-transform:uppercase;letter-spacing:0.05em">Próximos passos</p>
+            <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
+              <tr><td style="padding:6px 0">
+                <table cellpadding="0" cellspacing="0"><tr>
+                  <td style="width:26px;vertical-align:middle"><span style="display:inline-block;background:#7c3aed;color:#fff;font-size:11px;font-weight:700;width:20px;height:20px;border-radius:50%;text-align:center;line-height:20px">1</span></td>
+                  <td style="font-size:14px;color:#d4d4d8;padding-left:10px;vertical-align:middle">Crie o workspace da sua empresa</td>
+                </tr></table>
+              </td></tr>
+              <tr><td style="padding:6px 0">
+                <table cellpadding="0" cellspacing="0"><tr>
+                  <td style="width:26px;vertical-align:middle"><span style="display:inline-block;background:#7c3aed;color:#fff;font-size:11px;font-weight:700;width:20px;height:20px;border-radius:50%;text-align:center;line-height:20px">2</span></td>
+                  <td style="font-size:14px;color:#d4d4d8;padding-left:10px;vertical-align:middle">Convide colaboradores por e-mail</td>
+                </tr></table>
+              </td></tr>
+              <tr><td style="padding:6px 0">
+                <table cellpadding="0" cellspacing="0"><tr>
+                  <td style="width:26px;vertical-align:middle"><span style="display:inline-block;background:#7c3aed;color:#fff;font-size:11px;font-weight:700;width:20px;height:20px;border-radius:50%;text-align:center;line-height:20px">3</span></td>
+                  <td style="font-size:14px;color:#d4d4d8;padding-left:10px;vertical-align:middle">Configure desafios por função</td>
+                </tr></table>
+              </td></tr>
+            </table>
           </div>
           <div style="text-align:center">
             <a href="${teamsLink}" style="display:inline-block;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:14px 32px;border-radius:10px">
