@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { Users, UserPlus, Mail, MoreHorizontal, Loader2, Crown, Shield, User, Trash2, X, Send } from "lucide-react";
+import { Users, UserPlus, Mail, MoreHorizontal, Loader2, Crown, Shield, User, Trash2, X, Send, Pencil, ChevronDown, Building } from "lucide-react";
 import { toast } from "sonner";
 
 interface OrgMember {
@@ -40,6 +40,18 @@ function authFetch(url: string, opts: RequestInit = {}) {
   });
 }
 
+function MemberAvatar({ name, avatarUrl }: { name: string; avatarUrl: string | null }) {
+  const [broken, setBroken] = useState(false);
+  return (
+    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-600/30 to-indigo-600/30 flex items-center justify-center flex-shrink-0 overflow-hidden ring-2 ring-zinc-800">
+      {avatarUrl && !broken
+        ? <img src={avatarUrl} alt={name} className="w-full h-full object-cover" onError={() => setBroken(true)} />
+        : <span className="text-sm font-bold text-violet-300">{name[0]?.toUpperCase()}</span>
+      }
+    </div>
+  );
+}
+
 const ROLE_ICONS: Record<string, any> = { owner: Crown, admin: Shield, member: User };
 const ROLE_COLORS: Record<string, string> = {
   owner: "text-amber-400 bg-amber-400/10",
@@ -58,6 +70,16 @@ export default function MembersPage() {
   const [inviteEmail, setInviteEmail] = useState("");
   const [inviteRole, setInviteRole] = useState("member");
   const [inviting, setInviting] = useState(false);
+  const [editMember, setEditMember] = useState<OrgMember | null>(null);
+  const [editDept, setEditDept] = useState("");
+  const [editTitle, setEditTitle] = useState("");
+  const [saving, setSaving] = useState(false);
+
+  const DEPARTMENTS = [
+    "Comercial / Vendas", "Customer Success", "Suporte ao Cliente",
+    "Marketing", "Produto", "Tecnologia / TI", "RH / Pessoas",
+    "Financeiro", "Operações", "Jurídico", "Diretoria / C-Level", "Outro",
+  ];
 
   async function load() {
     const orgsRes = await authFetch("/api/org");
@@ -111,6 +133,24 @@ export default function MembersPage() {
     });
     if (res.ok) { toast.success("Função atualizada."); load(); }
     else toast.error("Erro ao atualizar função.");
+  }
+
+  function openEdit(member: OrgMember) {
+    setEditMember(member);
+    setEditDept(member.department ?? "");
+    setEditTitle(member.jobTitle ?? "");
+  }
+
+  async function handleSaveEdit() {
+    if (!editMember) return;
+    setSaving(true);
+    const res = await authFetch(`/api/org/${orgId}/members/${editMember.id}`, {
+      method: "PUT",
+      body: JSON.stringify({ department: editDept || null, jobTitle: editTitle || null }),
+    });
+    if (res.ok) { toast.success("Perfil atualizado."); setEditMember(null); load(); }
+    else toast.error("Erro ao salvar.");
+    setSaving(false);
   }
 
   if (loading) return (
@@ -184,17 +224,58 @@ export default function MembersPage() {
         </div>
       )}
 
+      {/* Modal editar setor/cargo */}
+      {editMember && (
+        <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
+          <div className="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-full max-w-sm">
+            <div className="flex items-center justify-between mb-5">
+              <h2 className="font-semibold text-white">Editar {editMember.user.name.split(" ")[0]}</h2>
+              <button onClick={() => setEditMember(null)} className="text-zinc-500 hover:text-white"><X className="h-4 w-4" /></button>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-xs font-medium text-zinc-400 mb-1.5">Setor / Departamento</label>
+                <div className="relative">
+                  <select
+                    value={editDept}
+                    onChange={e => setEditDept(e.target.value)}
+                    className="w-full appearance-none bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2.5 pr-9 text-white text-sm focus:outline-none focus:border-violet-500"
+                  >
+                    <option value="">Sem setor definido</option>
+                    {DEPARTMENTS.map(d => <option key={d} value={d}>{d}</option>)}
+                  </select>
+                  <ChevronDown className="absolute right-3 top-3 h-4 w-4 text-zinc-500 pointer-events-none" />
+                </div>
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-zinc-400 mb-1.5">Cargo / Título</label>
+                <input
+                  type="text"
+                  value={editTitle}
+                  onChange={e => setEditTitle(e.target.value)}
+                  placeholder="Ex: Gerente de Vendas"
+                  className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2.5 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-violet-500"
+                />
+              </div>
+              <button
+                onClick={handleSaveEdit}
+                disabled={saving}
+                className="w-full py-2.5 bg-violet-600 hover:bg-violet-500 disabled:opacity-50 text-white rounded-lg font-medium text-sm flex items-center justify-center gap-2"
+              >
+                {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
+                Salvar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="space-y-2">
         {members.map(member => {
           const RoleIcon = ROLE_ICONS[member.role] ?? User;
           return (
-            <div key={member.id} className="flex items-center gap-4 rounded-xl border border-zinc-800 bg-zinc-900/50 p-4">
-              <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center flex-shrink-0 overflow-hidden">
-                {member.user.avatarUrl
-                  ? <img src={member.user.avatarUrl} alt={member.user.name} className="w-full h-full object-cover" />
-                  : <span className="text-sm font-semibold text-zinc-400">{member.user.name[0]?.toUpperCase()}</span>
-                }
-              </div>
+            <div key={member.id} className="flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-900/50 p-4">
+              <MemberAvatar name={member.user.name} avatarUrl={member.user.avatarUrl} />
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="text-sm font-medium text-white">{member.user.name}</span>
@@ -202,22 +283,29 @@ export default function MembersPage() {
                     <RoleIcon className="h-2.5 w-2.5" />
                     {member.role === "owner" ? "Owner" : member.role === "admin" ? "Admin" : "Membro"}
                   </span>
+                  {member.department && (
+                    <span className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-400">
+                      <Building className="h-2.5 w-2.5" />{member.department}
+                    </span>
+                  )}
                 </div>
-                <p className="text-xs text-zinc-500 truncate">{member.user.email}</p>
-                {(member.jobTitle || member.teamMembers.length > 0) && (
-                  <p className="text-xs text-zinc-600 mt-0.5">
-                    {member.jobTitle && <span>{member.jobTitle}</span>}
-                    {member.teamMembers.length > 0 && <span className="ml-2">· {member.teamMembers.map(t => t.team.name).join(", ")}</span>}
-                  </p>
-                )}
+                <p className="text-xs text-zinc-500 truncate mt-0.5">{member.user.email}</p>
+                {member.jobTitle && <p className="text-xs text-zinc-600 mt-0.5">{member.jobTitle}</p>}
               </div>
               <div className="text-right flex-shrink-0">
                 <p className="text-sm font-bold text-violet-400">{member.commScore}</p>
-                <p className="text-xs text-zinc-600">score</p>
+                <p className="text-xs text-zinc-600">pts</p>
               </div>
-              {canManage && member.role !== "owner" && (
+              {canManage && (
                 <div className="flex items-center gap-1">
-                  {myRole === "owner" && (
+                  <button
+                    onClick={() => openEdit(member)}
+                    className="p-1.5 text-zinc-600 hover:text-violet-400 hover:bg-violet-400/10 rounded transition-colors"
+                    title="Editar setor/cargo"
+                  >
+                    <Pencil className="h-3.5 w-3.5" />
+                  </button>
+                  {myRole === "owner" && member.role !== "owner" && (
                     <select
                       value={member.role}
                       onChange={e => handleRoleChange(member.id, e.target.value)}
@@ -227,12 +315,14 @@ export default function MembersPage() {
                       <option value="member">Membro</option>
                     </select>
                   )}
-                  <button
-                    onClick={() => handleRemove(member.id, member.user.name)}
-                    className="p-1.5 text-zinc-600 hover:text-red-400 hover:bg-red-400/10 rounded transition-colors"
-                  >
-                    <Trash2 className="h-3.5 w-3.5" />
-                  </button>
+                  {member.role !== "owner" && (
+                    <button
+                      onClick={() => handleRemove(member.id, member.user.name)}
+                      className="p-1.5 text-zinc-600 hover:text-red-400 hover:bg-red-400/10 rounded transition-colors"
+                    >
+                      <Trash2 className="h-3.5 w-3.5" />
+                    </button>
+                  )}
                 </div>
               )}
             </div>

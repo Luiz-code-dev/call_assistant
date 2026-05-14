@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import {
   Users, Mic2, Target, Award, TrendingUp, Activity,
-  Loader2, RefreshCw, BarChart3, Flame, Trophy
+  Loader2, RefreshCw, BarChart3, Flame, Trophy,
+  ArrowRight, Building2, UserPlus, ChevronUp,
 } from "lucide-react";
+
+interface OrgInfo { id: string; name: string; slug: string; role: string; industry: string | null; logoUrl: string | null; plan: string; }
 
 interface Analytics {
   totalMembers: number;
@@ -33,26 +36,46 @@ function authFetch(url: string) {
   return fetch(url, { headers: { ...(token ? { Authorization: `Bearer ${token}` } : {}) } });
 }
 
-function StatCard({
-  label, value, icon: Icon, sub, color = "violet",
-}: {
-  label: string; value: string | number; icon: any; sub?: string; color?: string;
-}) {
-  const colors: Record<string, string> = {
-    violet: "from-violet-600/20 to-violet-600/5 border-violet-500/20 text-violet-400",
-    indigo: "from-indigo-600/20 to-indigo-600/5 border-indigo-500/20 text-indigo-400",
-    emerald: "from-emerald-600/20 to-emerald-600/5 border-emerald-500/20 text-emerald-400",
-    amber: "from-amber-600/20 to-amber-600/5 border-amber-500/20 text-amber-400",
-    sky: "from-sky-600/20 to-sky-600/5 border-sky-500/20 text-sky-400",
-  };
+function Avatar({ name, avatarUrl, size = "md" }: { name: string; avatarUrl: string | null; size?: "sm" | "md" | "lg" }) {
+  const [broken, setBroken] = useState(false);
+  const dim = size === "sm" ? "w-7 h-7 text-xs" : size === "lg" ? "w-12 h-12 text-base" : "w-9 h-9 text-sm";
   return (
-    <div className={`rounded-2xl border bg-gradient-to-br p-5 ${colors[color]}`}>
-      <div className="flex items-start justify-between mb-3">
-        <span className="text-xs font-medium text-zinc-400 uppercase tracking-wide">{label}</span>
-        <Icon className={`h-4 w-4 ${colors[color].split(" ").pop()}`} />
+    <div className={`${dim} rounded-full bg-gradient-to-br from-violet-600/40 to-indigo-600/40 flex items-center justify-center flex-shrink-0 overflow-hidden ring-2 ring-zinc-800`}>
+      {avatarUrl && !broken
+        ? <img src={avatarUrl} alt={name} className="w-full h-full object-cover" onError={() => setBroken(true)} />
+        : <span className="font-bold text-violet-300 leading-none">{name[0]?.toUpperCase()}</span>
+      }
+    </div>
+  );
+}
+
+function KpiCard({ label, value, icon: Icon, sub, color, trend }: {
+  label: string; value: string | number; icon: any; sub?: string; color: string; trend?: string;
+}) {
+  const palette: Record<string, { card: string; icon: string; val: string }> = {
+    violet: { card: "border-violet-500/20 bg-violet-500/5", icon: "bg-violet-500/15 text-violet-400", val: "text-violet-300" },
+    indigo: { card: "border-indigo-500/20 bg-indigo-500/5", icon: "bg-indigo-500/15 text-indigo-400", val: "text-indigo-300" },
+    emerald: { card: "border-emerald-500/20 bg-emerald-500/5", icon: "bg-emerald-500/15 text-emerald-400", val: "text-emerald-300" },
+    amber: { card: "border-amber-500/20 bg-amber-500/5", icon: "bg-amber-500/15 text-amber-400", val: "text-amber-300" },
+    sky: { card: "border-sky-500/20 bg-sky-500/5", icon: "bg-sky-500/15 text-sky-400", val: "text-sky-300" },
+    rose: { card: "border-rose-500/20 bg-rose-500/5", icon: "bg-rose-500/15 text-rose-400", val: "text-rose-300" },
+  };
+  const p = palette[color] ?? palette.violet;
+  return (
+    <div className={`rounded-2xl border p-5 ${p.card}`}>
+      <div className="flex items-center justify-between mb-4">
+        <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${p.icon}`}>
+          <Icon className="h-4 w-4" />
+        </div>
+        {trend && (
+          <span className="flex items-center gap-0.5 text-xs font-medium text-emerald-400">
+            <ChevronUp className="h-3 w-3" />{trend}
+          </span>
+        )}
       </div>
-      <p className="text-3xl font-bold text-white mb-1">{value}</p>
-      {sub && <p className="text-xs text-zinc-500">{sub}</p>}
+      <p className={`text-3xl font-black mb-1 ${p.val}`}>{value}</p>
+      <p className="text-xs font-medium text-white leading-tight">{label}</p>
+      {sub && <p className="text-xs text-zinc-500 mt-0.5">{sub}</p>}
     </div>
   );
 }
@@ -64,10 +87,13 @@ const CATEGORY_LABELS: Record<string, string> = {
   calls: "Calls",
 };
 
+const MEDAL = ["🥇", "🥈", "🥉"];
+
 export default function OrgDashboardPage() {
   const { slug } = useParams();
+  const router = useRouter();
   const [analytics, setAnalytics] = useState<Analytics | null>(null);
-  const [orgId, setOrgId] = useState<string>("");
+  const [org, setOrg] = useState<OrgInfo | null>(null);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
 
@@ -77,12 +103,11 @@ export default function OrgDashboardPage() {
     try {
       const orgsRes = await authFetch("/api/org");
       const orgs = await orgsRes.json();
-      const org = Array.isArray(orgs) ? orgs.find((o: any) => o.slug === slug) : null;
-      if (!org) return;
-      setOrgId(org.id);
-      const analyticsRes = await authFetch(`/api/org/${org.id}/analytics`);
-      const data = await analyticsRes.json();
-      setAnalytics(data);
+      const found = Array.isArray(orgs) ? orgs.find((o: any) => o.slug === slug) : null;
+      if (!found) return;
+      setOrg(found);
+      const analyticsRes = await authFetch(`/api/org/${found.id}/analytics`);
+      setAnalytics(await analyticsRes.json());
     } finally {
       setLoading(false);
       setRefreshing(false);
@@ -91,154 +116,184 @@ export default function OrgDashboardPage() {
 
   useEffect(() => { load(); }, [slug]);
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-64">
-        <Loader2 className="h-7 w-7 animate-spin text-violet-400" />
-      </div>
-    );
-  }
+  if (loading) return (
+    <div className="flex items-center justify-center h-64">
+      <Loader2 className="h-7 w-7 animate-spin text-violet-400" />
+    </div>
+  );
 
-  if (!analytics) {
-    return (
-      <div className="p-8 text-center text-zinc-500">Erro ao carregar analytics.</div>
-    );
-  }
+  if (!analytics || !org) return (
+    <div className="p-8 text-center text-zinc-500">Erro ao carregar dados.</div>
+  );
 
-  const engagementRate = analytics.totalMembers > 0
-    ? Math.round((analytics.activeThisWeek / analytics.totalMembers) * 100)
+  const engRate = analytics.totalMembers > 0
+    ? Math.round(((analytics.activeThisWeek ?? 0) / analytics.totalMembers) * 100)
     : 0;
 
+  const today = new Date().toLocaleDateString("pt-BR", { weekday: "long", day: "numeric", month: "long" });
+
   return (
-    <div className="p-6 md:p-8 max-w-6xl mx-auto">
-      <div className="flex items-center justify-between mb-8">
-        <div>
-          <h1 className="text-xl font-bold text-white mb-1">Dashboard</h1>
-          <p className="text-sm text-zinc-400">Visão geral da comunicação da sua equipe</p>
+    <div className="p-5 md:p-8 max-w-6xl mx-auto space-y-6">
+
+      {/* ── Header ── */}
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-violet-900/40 flex-shrink-0 overflow-hidden">
+            {org.logoUrl
+              ? <img src={org.logoUrl} alt={org.name} className="w-full h-full object-cover" onError={e => { (e.target as HTMLImageElement).style.display = "none"; }} />
+              : <Building2 className="h-6 w-6 text-white" />
+            }
+          </div>
+          <div>
+            <div className="flex items-center gap-2 flex-wrap">
+              <h1 className="text-xl font-black text-white">{org.name}</h1>
+              <span className="text-[10px] font-bold bg-violet-500/20 text-violet-300 rounded-full px-2 py-0.5 uppercase tracking-wide">FOR TEAMS</span>
+            </div>
+            <p className="text-xs text-zinc-500 capitalize mt-0.5">{today} · {org.industry ?? "Empresa"}</p>
+          </div>
         </div>
         <button
           onClick={() => load(false)}
           disabled={refreshing}
-          className="flex items-center gap-1.5 px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white rounded-lg text-sm transition-colors"
+          className="flex items-center gap-1.5 px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white rounded-lg text-xs font-medium transition-colors flex-shrink-0"
         >
-          <RefreshCw className={`h-3.5 w-3.5 ${refreshing ? "animate-spin" : ""}`} />
+          <RefreshCw className={`h-3 w-3 ${refreshing ? "animate-spin" : ""}`} />
           Atualizar
         </button>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <StatCard label="Membros" value={analytics.totalMembers} icon={Users} sub="na organização" color="violet" />
-        <StatCard label="Ativos esta semana" value={analytics.activeThisWeek} icon={Activity} sub={`${engagementRate}% engajamento`} color="emerald" />
-        <StatCard label="Sessões Live" value={analytics.totalLiveSessions} icon={Mic2} sub={`+${analytics.liveSessionsThisWeek} esta semana`} color="indigo" />
-        <StatCard label="Score médio" value={`${analytics.avgCommunicationScore}`} icon={BarChart3} sub="comunicação corporativa" color="sky" />
+      {/* ── KPIs principais ── */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <KpiCard label="Membros ativos" value={analytics.totalMembers} icon={Users} sub="na organização" color="violet" />
+        <KpiCard label="Engajamento semanal" value={`${engRate}%`} icon={Activity} sub={`${analytics.activeThisWeek} ativos`} color="emerald" trend={analytics.activeThisWeek > 0 ? `+${analytics.activeThisWeek}` : undefined} />
+        <KpiCard label="Sessões Live" value={analytics.totalLiveSessions} icon={Mic2} sub={`+${analytics.liveSessionsThisWeek} esta semana`} color="indigo" trend={analytics.liveSessionsThisWeek > 0 ? `+${analytics.liveSessionsThisWeek}` : undefined} />
+        <KpiCard label="Score médio" value={analytics.avgCommunicationScore} icon={BarChart3} sub="comunicação corporativa" color="sky" />
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <StatCard label="Desafios" value={analytics.totalChallenges} icon={Target} sub="criados" color="amber" />
-        <StatCard label="Submissões" value={analytics.totalSubmissions} icon={TrendingUp} sub={`+${analytics.submissionsThisWeek} esta semana`} color="violet" />
-        <StatCard label="Certificações" value={analytics.totalCertifications} icon={Award} sub="emitidas" color="amber" />
-        <StatCard label="Engajamento" value={`${engagementRate}%`} icon={Flame} sub="ativos vs total" color="emerald" />
+      {/* ── KPIs secundários ── */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <KpiCard label="Desafios criados" value={analytics.totalChallenges} icon={Target} color="amber" />
+        <KpiCard label="Submissões" value={analytics.totalSubmissions} icon={TrendingUp} sub={`+${analytics.submissionsThisWeek} esta semana`} color="violet" trend={analytics.submissionsThisWeek > 0 ? `+${analytics.submissionsThisWeek}` : undefined} />
+        <KpiCard label="Certificações" value={analytics.totalCertifications} icon={Award} sub="emitidas" color="amber" />
+        <KpiCard label="Membros sem setor" value={analytics.departmentBreakdown.find(d => d.department === "Sem setor")?.count ?? 0} icon={Flame} sub="definir setor em Membros" color="rose" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      {/* ── Ranking + Setores ── */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+
         {/* Ranking */}
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
-          <div className="flex items-center gap-2 mb-5">
-            <Trophy className="h-4 w-4 text-amber-400" />
-            <h2 className="text-sm font-semibold text-white">Ranking de Comunicação</h2>
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 overflow-hidden">
+          <div className="flex items-center justify-between px-5 py-4 border-b border-zinc-800">
+            <div className="flex items-center gap-2">
+              <Trophy className="h-4 w-4 text-amber-400" />
+              <h2 className="text-sm font-bold text-white">Ranking de Comunicação</h2>
+            </div>
+            <button onClick={() => router.push(`/teams/${slug}/members`)} className="flex items-center gap-1 text-xs text-zinc-500 hover:text-violet-400 transition-colors">
+              Ver todos <ArrowRight className="h-3 w-3" />
+            </button>
           </div>
-          {analytics.topMembers.length === 0 ? (
-            <p className="text-zinc-500 text-sm text-center py-6">Nenhum dado disponível ainda.</p>
-          ) : (
-            <div className="space-y-3">
-              {analytics.topMembers.slice(0, 7).map((m, i) => (
-                <div key={m.id} className="flex items-center gap-3">
-                  <span className={`w-6 text-center text-xs font-bold shrink-0 ${
-                    i === 0 ? "text-amber-400" : i === 1 ? "text-zinc-300" : i === 2 ? "text-orange-400" : "text-zinc-600"
-                  }`}>{i + 1}</span>
-                  <div className="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center flex-shrink-0 overflow-hidden">
-                    {m.avatarUrl
-                      ? <img src={m.avatarUrl} alt={m.name} className="w-full h-full object-cover" />
-                      : <span className="text-xs font-semibold text-zinc-400">{m.name[0]?.toUpperCase()}</span>
+          <div className="p-4 space-y-1">
+            {analytics.topMembers.length === 0 ? (
+              <div className="text-center py-8">
+                <UserPlus className="h-8 w-8 text-zinc-700 mx-auto mb-2" />
+                <p className="text-zinc-500 text-sm">Nenhum membro ainda.</p>
+                <button onClick={() => router.push(`/teams/${slug}/members`)} className="mt-2 text-xs text-violet-400 hover:text-violet-300">Convidar colaboradores →</button>
+              </div>
+            ) : (
+              analytics.topMembers.slice(0, 8).map((m, i) => (
+                <div key={m.id} className="flex items-center gap-3 px-2 py-2 rounded-xl hover:bg-zinc-800/50 transition-colors">
+                  <div className="w-6 text-center flex-shrink-0">
+                    {i < 3
+                      ? <span className="text-base leading-none">{MEDAL[i]}</span>
+                      : <span className="text-xs font-bold text-zinc-600">{i + 1}</span>
                     }
                   </div>
+                  <Avatar name={m.name} avatarUrl={m.avatarUrl} size="sm" />
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-white truncate">{m.name}</p>
+                    <p className="text-sm font-semibold text-white truncate leading-tight">{m.name}</p>
                     <p className="text-xs text-zinc-500 truncate">
-                      {m.department ?? m.team ?? m.jobTitle ?? "—"}
+                      {m.department || m.jobTitle || m.team || <span className="text-zinc-700 italic">Sem setor</span>}
                     </p>
                   </div>
-                  <div className="text-right shrink-0">
-                    <p className="text-sm font-bold text-violet-400">{m.commScore}</p>
-                    <p className="text-xs text-zinc-600">pts</p>
+                  <div className="flex-shrink-0 text-right">
+                    <span className="text-sm font-black text-violet-400">{m.commScore}</span>
+                    <span className="text-xs text-zinc-600 ml-0.5">pts</span>
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
+              ))
+            )}
+          </div>
         </div>
 
-        {/* Departamentos */}
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
-          <div className="flex items-center gap-2 mb-5">
-            <Users className="h-4 w-4 text-emerald-400" />
-            <h2 className="text-sm font-semibold text-white">Performance por Setor</h2>
-          </div>
-          {analytics.departmentBreakdown.length === 0 ? (
-            <p className="text-zinc-500 text-sm text-center py-6">Nenhum setor cadastrado ainda.</p>
-          ) : (
-            <div className="space-y-3">
-              {analytics.departmentBreakdown.map((d) => {
-                const maxScore = Math.max(...analytics.departmentBreakdown.map(x => x.avgScore), 1);
-                const pct = Math.round((d.avgScore / maxScore) * 100);
-                return (
-                  <div key={d.department}>
-                    <div className="flex items-center justify-between mb-1">
-                      <div className="flex items-center gap-2 min-w-0">
-                        <span className="text-sm text-zinc-300 truncate">{d.department}</span>
-                        <span className="text-xs text-zinc-600 shrink-0">{d.count} membro{d.count !== 1 ? "s" : ""}</span>
-                      </div>
-                      <span className="text-xs font-semibold text-emerald-400 shrink-0 ml-2">{d.avgScore} pts</span>
-                    </div>
-                    <div className="h-1.5 rounded-full bg-zinc-800">
-                      <div
-                        className="h-1.5 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 transition-all"
-                        style={{ width: `${pct}%` }}
-                      />
-                    </div>
-                  </div>
-                );
-              })}
+        {/* Performance por Setor */}
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 overflow-hidden">
+          <div className="flex items-center justify-between px-5 py-4 border-b border-zinc-800">
+            <div className="flex items-center gap-2">
+              <Users className="h-4 w-4 text-emerald-400" />
+              <h2 className="text-sm font-bold text-white">Performance por Setor</h2>
             </div>
-          )}
+            <span className="text-xs text-zinc-600">{analytics.departmentBreakdown.length} setores</span>
+          </div>
+          <div className="p-5">
+            {analytics.departmentBreakdown.length === 0 ? (
+              <div className="text-center py-8">
+                <p className="text-zinc-500 text-sm">Nenhum setor cadastrado.</p>
+                <p className="text-zinc-600 text-xs mt-1">Defina o setor de cada colaborador em <strong className="text-zinc-500">Membros</strong>.</p>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                {analytics.departmentBreakdown.filter(d => d.department !== "Sem setor").map((d) => {
+                  const maxScore = Math.max(...analytics.departmentBreakdown.filter(x => x.department !== "Sem setor").map(x => x.avgScore), 1);
+                  const pct = Math.round((d.avgScore / maxScore) * 100);
+                  return (
+                    <div key={d.department}>
+                      <div className="flex items-center justify-between mb-1.5">
+                        <div className="flex items-center gap-2 min-w-0">
+                          <span className="text-sm font-medium text-zinc-200 truncate">{d.department}</span>
+                          <span className="text-[10px] bg-zinc-800 text-zinc-500 rounded-full px-1.5 py-0.5 shrink-0">{d.count}p</span>
+                        </div>
+                        <span className="text-xs font-bold text-emerald-400 shrink-0 ml-3">{d.avgScore} pts</span>
+                      </div>
+                      <div className="h-2 rounded-full bg-zinc-800">
+                        <div className="h-2 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 transition-all" style={{ width: `${pct}%` }} />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* Uso do Live por Categoria */}
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
-        <div className="flex items-center gap-2 mb-5">
+      {/* ── Live por Categoria ── */}
+      <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 overflow-hidden">
+        <div className="px-5 py-4 border-b border-zinc-800 flex items-center gap-2">
           <Mic2 className="h-4 w-4 text-indigo-400" />
-          <h2 className="text-sm font-semibold text-white">Uso do Live por Categoria</h2>
+          <h2 className="text-sm font-bold text-white">Uso do Live por Categoria</h2>
+          <span className="text-xs text-zinc-600 ml-auto">{analytics.totalLiveSessions} sessões totais</span>
         </div>
         {analytics.categoryBreakdown.length === 0 ? (
-          <p className="text-zinc-500 text-sm text-center py-6">Nenhuma sessão registrada ainda.</p>
+          <div className="p-8 text-center">
+            <Mic2 className="h-8 w-8 text-zinc-700 mx-auto mb-2" />
+            <p className="text-zinc-500 text-sm">Nenhuma sessão Live registrada.</p>
+            <p className="text-zinc-600 text-xs mt-1">Os colaboradores precisam usar o SpeakFlow Live com a org vinculada.</p>
+          </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="p-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
             {analytics.categoryBreakdown.map((cat: any) => {
               const total = analytics.categoryBreakdown.reduce((s: number, c: any) => s + (c._count?.id ?? 0), 0);
               const pct = total > 0 ? Math.round(((cat._count?.id ?? 0) / total) * 100) : 0;
               return (
-                <div key={cat.category}>
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm text-zinc-300">{CATEGORY_LABELS[cat.category] ?? cat.category}</span>
-                    <span className="text-xs text-zinc-500">{cat._count?.id ?? 0} ({pct}%)</span>
+                <div key={cat.category} className="bg-zinc-800/40 rounded-xl p-3">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm font-medium text-zinc-200">{CATEGORY_LABELS[cat.category] ?? cat.category}</span>
+                    <span className="text-xs font-bold text-indigo-400">{pct}%</span>
                   </div>
-                  <div className="h-1.5 rounded-full bg-zinc-800">
-                    <div
-                      className="h-1.5 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 transition-all"
-                      style={{ width: `${pct}%` }}
-                    />
+                  <div className="h-1.5 rounded-full bg-zinc-700">
+                    <div className="h-1.5 rounded-full bg-gradient-to-r from-violet-500 to-indigo-400 transition-all" style={{ width: `${pct}%` }} />
                   </div>
+                  <p className="text-xs text-zinc-600 mt-1">{cat._count?.id ?? 0} sessões</p>
                 </div>
               );
             })}
