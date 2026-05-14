@@ -24,11 +24,20 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    if (resend && NOTIFY_EMAIL) {
+    let emailSent = false;
+    let emailError: string | null = null;
+
+    if (!resend) {
+      console.warn("[b2b-lead] RESEND_API_KEY não configurado — e-mail não enviado.");
+    } else if (!NOTIFY_EMAIL) {
+      console.warn("[b2b-lead] B2B_NOTIFY_EMAIL não configurado — e-mail não enviado.");
+    } else {
       const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://www.speakflow.ia.br";
       const approveUrl = `${APP_URL}/api/admin/b2b-approve?secret=${process.env.INTERNAL_API_SECRET}&email=${encodeURIComponent(email)}`;
 
-      await resend.emails.send({
+      console.log(`[b2b-lead] Enviando e-mail de ${FROM_EMAIL} para ${NOTIFY_EMAIL} ...`);
+
+      const result = await resend.emails.send({
         from: FROM_EMAIL,
         to: NOTIFY_EMAIL,
         subject: `🏢 Novo lead B2B: ${company} (${name})`,
@@ -52,10 +61,18 @@ export async function POST(req: NextRequest) {
             <p style="color:#3f3f46;font-size:11px;margin-top:20px">SpeakFlow · Notificação interna</p>
           </div>
         `,
-      }).catch((err) => console.error("[b2b-lead-notify]", err));
+      });
+
+      if (result.error) {
+        emailError = JSON.stringify(result.error);
+        console.error("[b2b-lead] Resend erro:", emailError);
+      } else {
+        emailSent = true;
+        console.log("[b2b-lead] E-mail enviado. ID:", result.data?.id);
+      }
     }
 
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true, emailSent, emailError });
   } catch (err) {
     console.error("[b2b-contact]", err);
     return NextResponse.json({ error: "Erro interno." }, { status: 500 });
