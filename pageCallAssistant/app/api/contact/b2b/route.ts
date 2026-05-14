@@ -48,13 +48,13 @@ export async function POST(req: NextRequest) {
             <table style="width:100%;border-collapse:collapse;font-size:14px">
               <tr style="border-bottom:1px solid #f3f4f6"><td style="color:#6b7280;padding:8px 0;width:130px;vertical-align:top">Empresa</td><td style="color:#111111;font-weight:bold;padding:8px 0">${company}</td></tr>
               <tr style="border-bottom:1px solid #f3f4f6"><td style="color:#6b7280;padding:8px 0;vertical-align:top">Nome</td><td style="color:#111111;padding:8px 0">${name}</td></tr>
-              <tr style="border-bottom:1px solid #f3f4f6"><td style="color:#6b7280;padding:8px 0;vertical-align:top">E-mail</td><td style="padding:8px 0"><a href="mailto:${email}?subject=SpeakFlow for Teams - ${encodeURIComponent(company)}" style="color:#7c3aed;font-weight:bold;text-decoration:none">${email}</a></td></tr>
+              <tr style="border-bottom:1px solid #f3f4f6"><td style="color:#6b7280;padding:8px 0;vertical-align:top">E-mail</td><td style="padding:8px 0"><a href="mailto:${email}?subject=SpeakFlow for Teams - ${company}" style="color:#7c3aed;font-weight:bold;text-decoration:none">${email}</a></td></tr>
               <tr style="border-bottom:1px solid #f3f4f6"><td style="color:#6b7280;padding:8px 0;vertical-align:top">Cargo</td><td style="color:#111111;padding:8px 0">${role ?? "—"}</td></tr>
               <tr style="border-bottom:1px solid #f3f4f6"><td style="color:#6b7280;padding:8px 0;vertical-align:top">Tamanho do time</td><td style="color:#111111;padding:8px 0">${teamSize ?? "—"}</td></tr>
               ${message ? `<tr><td style="color:#6b7280;padding:8px 0;vertical-align:top">Mensagem</td><td style="color:#374151;padding:8px 0">${message}</td></tr>` : ""}
             </table>
             <div style="margin-top:24px;text-align:center">
-              <a href="mailto:${email}?subject=SpeakFlow for Teams - Agendarmos uma conversa&body=Ola ${encodeURIComponent(name)}, recebi sua solicitacao de demo do SpeakFlow for Teams para a empresa ${encodeURIComponent(company)}. Quando teria disponibilidade para uma conversa rapida?"
+              <a href="mailto:${email}?subject=SpeakFlow for Teams - Agendarmos uma conversa&body=Ola ${name}, recebi sua solicitacao de demo do SpeakFlow for Teams para a empresa ${company}. Quando teria disponibilidade para uma conversa rapida?"
                 style="display:inline-block;background:#7c3aed;color:#fff;text-decoration:none;font-weight:bold;font-size:14px;padding:12px 28px;border-radius:8px">
                 Entrar em contato com ${name}
               </a>
