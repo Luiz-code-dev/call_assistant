@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { Target, Plus, Mic2, MessageSquare, Users2, Play, X, Loader2, Clock, CheckCircle2 } from "lucide-react";
+import { Target, Plus, Mic2, MessageSquare, Users2, Play, X, Loader2, Clock, CheckCircle2, Sparkles, Check } from "lucide-react";
 import { toast } from "sonner";
 
 interface Challenge {
@@ -63,6 +63,14 @@ export default function ChallengesPage() {
   });
   const [creating, setCreating] = useState(false);
 
+  const [showGenerate, setShowGenerate] = useState(false);
+  const [genForm, setGenForm] = useState({ sector: "", category: "sales", quantity: "3", context: "" });
+  const [generating, setGenerating] = useState(false);
+  const [generated, setGenerated] = useState<any[]>([]);
+  const [selectedGen, setSelectedGen] = useState<Set<number>>(new Set());
+  const [genDates, setGenDates] = useState({ startsAt: "", endsAt: "" });
+  const [creatingBatch, setCreatingBatch] = useState(false);
+
   async function load() {
     const orgsRes = await authFetch("/api/org");
     const orgs = await orgsRes.json();
@@ -94,6 +102,52 @@ export default function ChallengesPage() {
     setShowCreate(false);
     setForm({ title: "", description: "", type: "quick-response", category: "meetings", scenario: "", targetRole: "", startsAt: "", endsAt: "" });
     setCreating(false);
+    load();
+  }
+
+  async function handleGenerate(e: React.FormEvent) {
+    e.preventDefault();
+    if (!genForm.sector.trim()) { toast.error("Informe o setor."); return; }
+    setGenerating(true);
+    setGenerated([]);
+    setSelectedGen(new Set());
+    const res = await authFetch(`/api/org/${orgId}/challenges/generate`, {
+      method: "POST",
+      body: JSON.stringify(genForm),
+    });
+    const data = await res.json();
+    if (!res.ok) { toast.error(data.error ?? "Erro ao gerar."); setGenerating(false); return; }
+    setGenerated(data.challenges ?? []);
+    setSelectedGen(new Set((data.challenges ?? []).map((_: any, i: number) => i)));
+    setGenerating(false);
+  }
+
+  async function handleCreateBatch() {
+    if (!genDates.startsAt || !genDates.endsAt) { toast.error("Defina início e fim dos desafios."); return; }
+    if (selectedGen.size === 0) { toast.error("Selecione ao menos 1 desafio."); return; }
+    setCreatingBatch(true);
+    const toCreate = generated.filter((_, i) => selectedGen.has(i));
+    let ok = 0;
+    for (const ch of toCreate) {
+      const res = await authFetch(`/api/org/${orgId}/challenges`, {
+        method: "POST",
+        body: JSON.stringify({
+          title: ch.title,
+          description: ch.description,
+          type: ch.type ?? "scenario",
+          category: genForm.category,
+          scenario: ch.scenario ?? null,
+          targetRole: null,
+          startsAt: genDates.startsAt,
+          endsAt: genDates.endsAt,
+        }),
+      });
+      if (res.ok) ok++;
+    }
+    toast.success(`${ok} desafio${ok > 1 ? "s" : ""} criado${ok > 1 ? "s" : ""}!`);
+    setShowGenerate(false);
+    setGenerated([]);
+    setCreatingBatch(false);
     load();
   }
 
@@ -135,13 +189,22 @@ export default function ChallengesPage() {
           <p className="text-sm text-zinc-400">Pratique cenários reais com avaliação por IA</p>
         </div>
         {canManage && (
-          <button
-            onClick={() => setShowCreate(true)}
-            className="flex items-center gap-2 px-4 py-2 bg-violet-600 hover:bg-violet-500 text-white rounded-lg font-medium text-sm transition-colors"
-          >
-            <Plus className="h-4 w-4" />
-            Novo desafio
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setShowGenerate(true)}
+              className="flex items-center gap-2 px-4 py-2 bg-violet-600/20 hover:bg-violet-600/30 text-violet-300 border border-violet-500/30 rounded-lg font-medium text-sm transition-colors"
+            >
+              <Sparkles className="h-4 w-4" />
+              Gerar com IA
+            </button>
+            <button
+              onClick={() => setShowCreate(true)}
+              className="flex items-center gap-2 px-4 py-2 bg-violet-600 hover:bg-violet-500 text-white rounded-lg font-medium text-sm transition-colors"
+            >
+              <Plus className="h-4 w-4" />
+              Novo desafio
+            </button>
+          </div>
         )}
       </div>
 
@@ -242,6 +305,174 @@ export default function ChallengesPage() {
                 {submitting ? <><Loader2 className="h-4 w-4 animate-spin" />Avaliando...</> : "Enviar e avaliar com IA"}
               </button>
             </form>
+          </div>
+        </div>
+      )}
+
+      {showGenerate && (
+        <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
+          <div className="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-full max-w-xl max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between mb-5">
+              <div className="flex items-center gap-2">
+                <Sparkles className="h-4 w-4 text-violet-400" />
+                <h2 className="font-bold text-white">Gerar desafios com IA</h2>
+              </div>
+              <button onClick={() => { setShowGenerate(false); setGenerated([]); }} className="text-zinc-500 hover:text-white">
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            {generated.length === 0 ? (
+              <form onSubmit={handleGenerate} className="space-y-4">
+                <div>
+                  <label className="block text-sm text-zinc-400 mb-1">Setor da empresa *</label>
+                  <input
+                    required
+                    value={genForm.sector}
+                    onChange={e => setGenForm(f => ({ ...f, sector: e.target.value }))}
+                    placeholder="Ex: Vendas, Customer Success, RH, Financeiro..."
+                    className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2.5 text-white text-sm placeholder-zinc-500 focus:outline-none focus:border-violet-500"
+                  />
+                  <p className="text-xs text-zinc-600 mt-1">A IA vai gerar desafios específicos para esse setor</p>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-sm text-zinc-400 mb-1">Contexto / Categoria *</label>
+                    <select
+                      value={genForm.category}
+                      onChange={e => setGenForm(f => ({ ...f, category: e.target.value }))}
+                      className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-violet-500"
+                    >
+                      {Object.entries(CATEGORY_LABELS).map(([v, l]) => <option key={v} value={v}>{l}</option>)}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm text-zinc-400 mb-1">Quantidade</label>
+                    <select
+                      value={genForm.quantity}
+                      onChange={e => setGenForm(f => ({ ...f, quantity: e.target.value }))}
+                      className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-violet-500"
+                    >
+                      <option value="1">1 desafio</option>
+                      <option value="2">2 desafios</option>
+                      <option value="3">3 desafios</option>
+                      <option value="4">4 desafios</option>
+                      <option value="5">5 desafios</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm text-zinc-400 mb-1">Contexto adicional <span className="text-zinc-600">(opcional)</span></label>
+                  <textarea
+                    value={genForm.context}
+                    onChange={e => setGenForm(f => ({ ...f, context: e.target.value }))}
+                    rows={2}
+                    placeholder="Ex: empresa de software B2B, clientes internacionais, reuniões semanais em inglês..."
+                    className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2.5 text-white text-sm placeholder-zinc-500 resize-none focus:outline-none focus:border-violet-500"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  disabled={generating}
+                  className="w-full py-2.5 bg-violet-600 hover:bg-violet-500 disabled:opacity-50 text-white rounded-lg font-medium text-sm flex items-center justify-center gap-2"
+                >
+                  {generating
+                    ? <><Loader2 className="h-4 w-4 animate-spin" />Gerando com IA...</>
+                    : <><Sparkles className="h-4 w-4" />Gerar desafios</>
+                  }
+                </button>
+              </form>
+            ) : (
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <p className="text-sm text-zinc-400">{generated.length} desafios gerados — revise e selecione</p>
+                  <button
+                    onClick={() => setGenerated([])}
+                    className="text-xs text-zinc-500 hover:text-violet-400 transition-colors"
+                  >
+                    ← Gerar novamente
+                  </button>
+                </div>
+
+                <div className="space-y-3">
+                  {generated.map((ch, i) => {
+                    const sel = selectedGen.has(i);
+                    const cfg = TYPE_CONFIG[ch.type] ?? TYPE_CONFIG["scenario"];
+                    const TypeIcon = cfg.icon;
+                    return (
+                      <div
+                        key={i}
+                        onClick={() => {
+                          const next = new Set(selectedGen);
+                          sel ? next.delete(i) : next.add(i);
+                          setSelectedGen(next);
+                        }}
+                        className={`rounded-xl border p-4 cursor-pointer transition-all ${
+                          sel ? "border-violet-500/50 bg-violet-500/5" : "border-zinc-700 bg-zinc-800/30 opacity-50"
+                        }`}
+                      >
+                        <div className="flex items-start justify-between gap-3">
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2 mb-1.5">
+                              <span className={`inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-md font-medium ${cfg.color}`}>
+                                <TypeIcon className="h-3 w-3" />
+                                {cfg.label}
+                              </span>
+                            </div>
+                            <p className="text-sm font-semibold text-white mb-1">{ch.title}</p>
+                            <p className="text-xs text-zinc-400 line-clamp-2">{ch.description}</p>
+                            {ch.scenario && (
+                              <p className="text-xs text-zinc-500 mt-1 italic line-clamp-1">📍 {ch.scenario}</p>
+                            )}
+                          </div>
+                          <div className={`w-5 h-5 rounded-full border flex-shrink-0 flex items-center justify-center mt-0.5 ${
+                            sel ? "bg-violet-600 border-violet-600" : "border-zinc-600"
+                          }`}>
+                            {sel && <Check className="h-3 w-3 text-white" />}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="border-t border-zinc-800 pt-4 space-y-3">
+                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wide">Período dos desafios</p>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs text-zinc-500 mb-1">Início *</label>
+                      <input
+                        type="datetime-local"
+                        required
+                        value={genDates.startsAt}
+                        onChange={e => setGenDates(d => ({ ...d, startsAt: e.target.value }))}
+                        className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-violet-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs text-zinc-500 mb-1">Fim *</label>
+                      <input
+                        type="datetime-local"
+                        required
+                        value={genDates.endsAt}
+                        onChange={e => setGenDates(d => ({ ...d, endsAt: e.target.value }))}
+                        className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-violet-500"
+                      />
+                    </div>
+                  </div>
+                  <button
+                    onClick={handleCreateBatch}
+                    disabled={creatingBatch || selectedGen.size === 0}
+                    className="w-full py-2.5 bg-violet-600 hover:bg-violet-500 disabled:opacity-50 text-white rounded-lg font-medium text-sm flex items-center justify-center gap-2"
+                  >
+                    {creatingBatch
+                      ? <><Loader2 className="h-4 w-4 animate-spin" />Criando...</>
+                      : <><CheckCircle2 className="h-4 w-4" />Criar {selectedGen.size} desafio{selectedGen.size !== 1 ? "s" : ""} selecionado{selectedGen.size !== 1 ? "s" : ""}</>
+                    }
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}

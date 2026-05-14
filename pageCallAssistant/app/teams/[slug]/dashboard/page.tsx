@@ -5,7 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import {
   Users, Mic2, Target, Award, TrendingUp, Activity,
   Loader2, RefreshCw, BarChart3, Flame, Trophy,
-  ArrowRight, Building2, UserPlus, ChevronUp,
+  ArrowRight, Building2, UserPlus, ChevronUp, Radio, Globe,
 } from "lucide-react";
 
 interface OrgInfo { id: string; name: string; slug: string; role: string; industry: string | null; logoUrl: string | null; plan: string; }
@@ -266,6 +266,45 @@ export default function OrgDashboardPage() {
               </div>
             )}
           </div>
+        </div>
+      </div>
+
+      {/* ── Live CTA ── */}
+      <div className="rounded-2xl overflow-hidden border border-emerald-500/20 bg-gradient-to-br from-emerald-950/40 to-zinc-900/80">
+        <div className="px-5 py-4 border-b border-emerald-500/10 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Radio className="h-4 w-4 text-emerald-400 animate-pulse" />
+            <h2 className="text-sm font-bold text-white">Live Copilot — Reuniões com Clientes Estrangeiros</h2>
+          </div>
+          <span className="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-bold tracking-wider">TEMPO REAL</span>
+        </div>
+        <div className="p-5">
+          <p className="text-sm text-zinc-400 mb-5">
+            O colaborador usa o <strong className="text-white">SpeakFlow Live</strong> como um copiloto aberto ao lado da reunião — funciona no celular ou computador, <strong className="text-emerald-400">sem instalar nada</strong>.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
+            {[
+              { step: "1", icon: Globe, label: "Antes da reunião", desc: "Abre o Live, seleciona o idioma (inglês, espanhol...) e o contexto (vendas, suporte, CS...)" },
+              { step: "2", icon: Mic2, label: "Durante a call", desc: "Liga o microfone no Live. A IA escuta, transcreve e sugere frases em tempo real enquanto ele fala." },
+              { step: "3", icon: Radio, label: "Sugestões ao vivo", desc: "Recebe sugestões de vocabulário, como responder objeções e pronúncia — tudo sem pausar a conversa." },
+            ].map(({ step, icon: Icon, label, desc }) => (
+              <div key={step} className="bg-zinc-800/50 rounded-xl p-4 border border-zinc-700/50">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="w-5 h-5 rounded-full bg-emerald-600 text-white text-[10px] font-black flex items-center justify-center flex-shrink-0">{step}</span>
+                  <Icon className="h-3.5 w-3.5 text-emerald-400" />
+                  <span className="text-xs font-bold text-white">{label}</span>
+                </div>
+                <p className="text-xs text-zinc-500 leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+          <button
+            onClick={() => router.push("/live")}
+            className="flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg font-semibold text-sm transition-colors"
+          >
+            <Radio className="h-4 w-4" />
+            Abrir Live Copilot agora
+          </button>
         </div>
       </div>
 

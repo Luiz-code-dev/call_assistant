@@ -5,7 +5,7 @@ import { useParams, usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import {
   Building2, LayoutDashboard, Users, Target, BarChart3,
-  Settings, ChevronLeft, Loader2, Menu, X, Award, LogOut, Home
+  Settings, ChevronLeft, Loader2, Menu, X, Award, LogOut, Home, Radio
 } from "lucide-react";
 
 interface OrgBasic {
@@ -102,6 +102,17 @@ export default function OrgLayout({ children }: { children: React.ReactNode }) {
             </Link>
           );
         })}
+        <div className="pt-2 mt-1 border-t border-zinc-800/60">
+          <Link
+            href="/live"
+            onClick={() => setMobileOpen(false)}
+            className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-semibold transition-all bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 border border-emerald-500/20"
+          >
+            <Radio className="h-4 w-4 flex-shrink-0 animate-pulse" />
+            Live Copilot
+            <span className="ml-auto text-[10px] bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded font-bold tracking-wide">AO VIVO</span>
+          </Link>
+        </div>
       </nav>
       <div className="p-3 border-t border-zinc-800 space-y-0.5">
         <Link
