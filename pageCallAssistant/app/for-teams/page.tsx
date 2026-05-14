@@ -111,10 +111,10 @@ function ROICalc() {
             <span className="text-2xl font-bold text-white">{users}</span>
           </div>
         </div>
-        <input type="range" min={5} max={200} step={5} value={users}
+        <input type="range" min={5} max={50} step={1} value={users}
           onChange={e => setUsers(Number(e.target.value))}
           className="w-full accent-violet-500" />
-        <div className="flex justify-between text-xs text-zinc-600 mt-1"><span>5</span><span>200</span></div>
+        <div className="flex justify-between text-xs text-zinc-600 mt-1"><span>5</span><span>50+</span></div>
       </div>
       <div className="grid grid-cols-3 gap-3">
         <div className="bg-zinc-900/60 rounded-xl p-4 text-center">
