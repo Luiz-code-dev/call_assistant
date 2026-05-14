@@ -13,13 +13,19 @@ export async function PUT(req: NextRequest, { params }: Ctx) {
 
   const member = await (db as any).orgMember.findUnique({ where: { id: params.memberId } });
   if (!member || member.orgId !== params.orgId) return NextResponse.json({ error: "not_found" }, { status: 404 });
-  if (member.role === "owner") return NextResponse.json({ error: "Não é possível alterar o owner." }, { status: 403 });
+
+  const isSelf = member.userId === org.userId;
+  const isRoleChange = role !== undefined && role !== member.role;
+  const isProfileOnly = !isRoleChange && (jobTitle !== undefined || department !== undefined);
+
+  if (member.role === "owner" && isRoleChange) return NextResponse.json({ error: "Não é possível alterar o role do owner." }, { status: 403 });
+  if (member.role === "owner" && !isSelf && !isProfileOnly) return NextResponse.json({ error: "Não é possível alterar o owner." }, { status: 403 });
   if (role === "owner") return NextResponse.json({ error: "Não é possível promover a owner via API." }, { status: 403 });
 
   const updated = await (db as any).orgMember.update({
     where: { id: params.memberId },
     data: {
-      ...(role ? { role } : {}),
+      ...(isRoleChange ? { role } : {}),
       ...(jobTitle !== undefined ? { jobTitle } : {}),
       ...(department !== undefined ? { department } : {}),
     },

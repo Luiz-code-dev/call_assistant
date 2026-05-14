@@ -2,7 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { BarChart3, TrendingUp, Users, Mic2, Target, Loader2, Activity } from "lucide-react";
+import { BarChart3, TrendingUp, Users, Mic2, Target, Loader2, Activity, Award } from "lucide-react";
+import {
+  ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  BarChart, Bar, PieChart, Pie, Cell, Sector,
+} from "recharts";
 
 interface Analytics {
   totalMembers: number;
@@ -16,9 +20,12 @@ interface Analytics {
   avgCommunicationScore: number;
   topMembers: {
     id: string; userId: string; name: string;
-    avatarUrl: string | null; role: string; commScore: number; team: string | null;
+    avatarUrl: string | null; role: string; commScore: number;
+    team: string | null; department: string | null;
   }[];
   categoryBreakdown: { category: string; _count: { id: number } }[];
+  departmentBreakdown: { department: string; count: number; avgScore: number }[];
+  dailySeries: { date: string; sessions: number; submissions: number }[];
 }
 
 function authFetch(url: string) {
@@ -31,8 +38,35 @@ function authFetch(url: string) {
 const CATEGORY_LABELS: Record<string, string> = {
   meetings: "Reuniões", sales: "Vendas", support: "Suporte",
   onboarding: "Onboarding", presentations: "Apresentações",
-  "customer-success": "Customer Success", interviews: "Entrevistas", general: "Geral", calls: "Calls",
+  "customer-success": "CS", interviews: "Entrevistas", general: "Geral", calls: "Calls",
 };
+
+const CHART_COLORS = ["#7c3aed", "#6366f1", "#0ea5e9", "#10b981", "#f59e0b", "#f43f5e", "#a855f7", "#14b8a6"];
+
+const tooltipStyle = {
+  backgroundColor: "#18181b",
+  border: "1px solid #3f3f46",
+  borderRadius: 8,
+  color: "#e4e4e7",
+  fontSize: 12,
+};
+
+function Panel({ title, icon: Icon, iconColor, children, hint }: {
+  title: string; icon: any; iconColor: string; children: React.ReactNode; hint?: string;
+}) {
+  return (
+    <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 overflow-hidden">
+      <div className="flex items-center justify-between px-5 py-4 border-b border-zinc-800">
+        <div className="flex items-center gap-2">
+          <Icon className={`h-4 w-4 ${iconColor}`} />
+          <h2 className="text-sm font-bold text-white">{title}</h2>
+        </div>
+        {hint && <span className="text-xs text-zinc-600">{hint}</span>}
+      </div>
+      <div className="p-5">{children}</div>
+    </div>
+  );
+}
 
 export default function AnalyticsPage() {
   const { slug } = useParams();
@@ -60,148 +94,193 @@ export default function AnalyticsPage() {
   if (!analytics) return <div className="p-8 text-center text-zinc-500">Erro ao carregar analytics.</div>;
 
   const engRate = analytics.totalMembers > 0
-    ? Math.round((analytics.activeThisWeek / analytics.totalMembers) * 100)
-    : 0;
+    ? Math.round((analytics.activeThisWeek / analytics.totalMembers) * 100) : 0;
 
-  const totalCatSessions = analytics.categoryBreakdown.reduce((s: number, c: any) => s + (c._count?.id ?? 0), 0);
+  const catData = analytics.categoryBreakdown.map((c: any) => ({
+    name: CATEGORY_LABELS[c.category] ?? c.category,
+    value: c._count?.id ?? 0,
+  }));
+
+  const deptData = analytics.departmentBreakdown
+    .filter(d => d.department !== "Sem setor")
+    .map(d => ({ name: d.department, score: d.avgScore, membros: d.count }));
+
+  const memberData = [...analytics.topMembers]
+    .sort((a, b) => b.commScore - a.commScore)
+    .slice(0, 8)
+    .map(m => ({ name: m.name.split(" ")[0], score: m.commScore, dept: m.department ?? "—" }));
+
+  const hasActivity = analytics.dailySeries?.some(d => d.sessions > 0 || d.submissions > 0);
+
+  const shortDate = (iso: string) => {
+    const [, mm, dd] = iso.split("-");
+    return `${dd}/${mm}`;
+  };
 
   return (
-    <div className="p-6 md:p-8 max-w-5xl mx-auto">
-      <div className="mb-8">
-        <h1 className="text-xl font-bold text-white mb-1">Analytics</h1>
-        <p className="text-sm text-zinc-400">Evolução e engajamento da sua equipe</p>
+    <div className="p-5 md:p-8 max-w-6xl mx-auto space-y-6">
+      <div>
+        <h1 className="text-xl font-black text-white mb-1">Analytics</h1>
+        <p className="text-sm text-zinc-400">Evolução e engajamento da sua equipe — últimos 30 dias</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-5">
-          <div className="flex items-center gap-2 mb-4">
-            <Activity className="h-4 w-4 text-emerald-400" />
-            <span className="text-sm font-semibold text-white">Engajamento</span>
-          </div>
-          <div className="flex items-end gap-2 mb-2">
-            <span className="text-4xl font-bold text-white">{engRate}%</span>
-            <span className="text-zinc-500 text-sm mb-1">ativos esta semana</span>
-          </div>
-          <div className="h-2 rounded-full bg-zinc-800">
-            <div className="h-2 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-400 transition-all" style={{ width: `${engRate}%` }} />
-          </div>
-          <p className="text-xs text-zinc-600 mt-2">{analytics.activeThisWeek} de {analytics.totalMembers} membros</p>
-        </div>
-
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-5">
-          <div className="flex items-center gap-2 mb-4">
-            <BarChart3 className="h-4 w-4 text-sky-400" />
-            <span className="text-sm font-semibold text-white">Score médio</span>
-          </div>
-          <div className="flex items-end gap-2 mb-2">
-            <span className="text-4xl font-bold text-white">{analytics.avgCommunicationScore}</span>
-            <span className="text-zinc-500 text-sm mb-1">/ 100</span>
-          </div>
-          <div className="h-2 rounded-full bg-zinc-800">
-            <div className="h-2 rounded-full bg-gradient-to-r from-sky-600 to-sky-400" style={{ width: `${analytics.avgCommunicationScore}%` }} />
-          </div>
-          <p className="text-xs text-zinc-600 mt-2">Score de comunicação corporativa</p>
-        </div>
-
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-5">
-          <div className="flex items-center gap-2 mb-4">
-            <TrendingUp className="h-4 w-4 text-violet-400" />
-            <span className="text-sm font-semibold text-white">Prática semanal</span>
-          </div>
-          <div className="flex items-end gap-2 mb-2">
-            <span className="text-4xl font-bold text-white">{analytics.submissionsThisWeek + analytics.liveSessionsThisWeek}</span>
-            <span className="text-zinc-500 text-sm mb-1">atividades</span>
-          </div>
-          <div className="flex gap-3 text-xs text-zinc-500 mt-3">
-            <span className="flex items-center gap-1"><Mic2 className="h-3 w-3" />{analytics.liveSessionsThisWeek} live</span>
-            <span className="flex items-center gap-1"><Target className="h-3 w-3" />{analytics.submissionsThisWeek} desafios</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
-          <div className="flex items-center gap-2 mb-5">
-            <Mic2 className="h-4 w-4 text-indigo-400" />
-            <h2 className="text-sm font-semibold text-white">Sessões Live por Categoria</h2>
-          </div>
-          {analytics.categoryBreakdown.length === 0 ? (
-            <p className="text-zinc-500 text-sm text-center py-8">Nenhuma sessão registrada.</p>
-          ) : (
-            <div className="space-y-4">
-              {analytics.categoryBreakdown.map((cat: any) => {
-                const count = cat._count?.id ?? 0;
-                const pct = totalCatSessions > 0 ? Math.round((count / totalCatSessions) * 100) : 0;
-                return (
-                  <div key={cat.category}>
-                    <div className="flex justify-between mb-1.5">
-                      <span className="text-sm text-zinc-300">{CATEGORY_LABELS[cat.category] ?? cat.category}</span>
-                      <span className="text-xs text-zinc-500">{count} ({pct}%)</span>
-                    </div>
-                    <div className="h-2 rounded-full bg-zinc-800">
-                      <div className="h-2 rounded-full bg-gradient-to-r from-indigo-600 to-violet-600" style={{ width: `${pct}%` }} />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-        </div>
-
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
-          <div className="flex items-center gap-2 mb-5">
-            <Users className="h-4 w-4 text-violet-400" />
-            <h2 className="text-sm font-semibold text-white">Evolução Individual</h2>
-          </div>
-          {analytics.topMembers.length === 0 ? (
-            <p className="text-zinc-500 text-sm text-center py-8">Nenhum dado disponível.</p>
-          ) : (
-            <div className="space-y-3">
-              {analytics.topMembers.map((m, i) => {
-                const maxScore = Math.max(...analytics.topMembers.map(x => x.commScore), 1);
-                const pct = Math.round((m.commScore / maxScore) * 100);
-                return (
-                  <div key={m.id}>
-                    <div className="flex items-center gap-2 mb-1">
-                      <div className="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center flex-shrink-0 overflow-hidden">
-                        {m.avatarUrl
-                          ? <img src={m.avatarUrl} alt={m.name} className="w-full h-full object-cover" />
-                          : <span className="text-xs text-zinc-400">{m.name[0]}</span>
-                        }
-                      </div>
-                      <span className="text-sm text-zinc-300 flex-1 truncate">{m.name}</span>
-                      <span className="text-xs font-bold text-violet-400">{m.commScore} pts</span>
-                    </div>
-                    <div className="h-1.5 rounded-full bg-zinc-800 ml-8">
-                      <div
-                        className={`h-1.5 rounded-full bg-gradient-to-r ${
-                          i === 0 ? "from-amber-600 to-amber-400" : "from-violet-600 to-indigo-600"
-                        }`}
-                        style={{ width: `${pct}%` }}
-                      />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      {/* KPI row */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {[
-          { label: "Total de membros", value: analytics.totalMembers, icon: Users, color: "text-violet-400" },
-          { label: "Sessões Live", value: analytics.totalLiveSessions, icon: Mic2, color: "text-indigo-400" },
-          { label: "Submissões", value: analytics.totalSubmissions, icon: Target, color: "text-emerald-400" },
-          { label: "Certificações", value: analytics.totalCertifications, icon: BarChart3, color: "text-amber-400" },
-        ].map(({ label, value, icon: Icon, color }) => (
-          <div key={label} className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-4 text-center">
-            <Icon className={`h-5 w-5 ${color} mx-auto mb-2`} />
-            <p className="text-2xl font-bold text-white">{value}</p>
-            <p className="text-xs text-zinc-500 mt-0.5">{label}</p>
+          { label: "Membros", value: analytics.totalMembers, icon: Users, color: "text-violet-400", bg: "bg-violet-500/10" },
+          { label: "Sessões Live", value: analytics.totalLiveSessions, icon: Mic2, color: "text-indigo-400", bg: "bg-indigo-500/10" },
+          { label: "Submissões", value: analytics.totalSubmissions, icon: Target, color: "text-emerald-400", bg: "bg-emerald-500/10" },
+          { label: "Certificações", value: analytics.totalCertifications, icon: Award, color: "text-amber-400", bg: "bg-amber-500/10" },
+        ].map(({ label, value, icon: Icon, color, bg }) => (
+          <div key={label} className={`rounded-2xl border border-zinc-800 p-5 ${bg}`}>
+            <Icon className={`h-5 w-5 ${color} mb-3`} />
+            <p className={`text-3xl font-black ${color}`}>{value}</p>
+            <p className="text-xs font-medium text-white mt-0.5">{label}</p>
           </div>
         ))}
       </div>
+
+      {/* Line chart — atividade diária */}
+      <Panel title="Atividade Diária" icon={TrendingUp} iconColor="text-violet-400" hint="últimos 30 dias">
+        {!hasActivity ? (
+          <div className="flex flex-col items-center justify-center py-12 text-zinc-600">
+            <TrendingUp className="h-10 w-10 mb-3 opacity-30" />
+            <p className="text-sm">Nenhuma atividade registrada ainda.</p>
+          </div>
+        ) : (
+          <ResponsiveContainer width="100%" height={220}>
+            <LineChart data={analytics.dailySeries} margin={{ top: 4, right: 8, left: -20, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#27272a" />
+              <XAxis
+                dataKey="date"
+                tickFormatter={shortDate}
+                tick={{ fill: "#71717a", fontSize: 11 }}
+                interval={4}
+                axisLine={false}
+                tickLine={false}
+              />
+              <YAxis tick={{ fill: "#71717a", fontSize: 11 }} axisLine={false} tickLine={false} allowDecimals={false} />
+              <Tooltip
+                contentStyle={tooltipStyle}
+                labelFormatter={shortDate as any}
+                formatter={((v: any, name: string) => [v, name === "sessions" ? "Live" : "Submissões"]) as any}
+              />
+              <Legend
+                formatter={(v) => v === "sessions" ? "Sessões Live" : "Submissões"}
+                wrapperStyle={{ fontSize: 12, color: "#a1a1aa" }}
+              />
+              <Line type="monotone" dataKey="sessions" stroke="#7c3aed" strokeWidth={2} dot={false} activeDot={{ r: 4 }} />
+              <Line type="monotone" dataKey="submissions" stroke="#10b981" strokeWidth={2} dot={false} activeDot={{ r: 4 }} />
+            </LineChart>
+          </ResponsiveContainer>
+        )}
+      </Panel>
+
+      {/* Bar + Donut */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <Panel title="Sessões por Categoria" icon={Mic2} iconColor="text-indigo-400" hint={`${analytics.totalLiveSessions} total`}>
+          {catData.length === 0 ? (
+            <p className="text-zinc-500 text-sm text-center py-10">Nenhuma sessão registrada.</p>
+          ) : (
+            <ResponsiveContainer width="100%" height={220}>
+              <BarChart data={catData} margin={{ top: 4, right: 8, left: -20, bottom: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#27272a" vertical={false} />
+                <XAxis dataKey="name" tick={{ fill: "#71717a", fontSize: 11 }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fill: "#71717a", fontSize: 11 }} axisLine={false} tickLine={false} allowDecimals={false} />
+                <Tooltip contentStyle={tooltipStyle} formatter={(v: any) => [v, "sessões"]} />
+                <Bar dataKey="value" radius={[4, 4, 0, 0]} fill="#6366f1">
+                  {catData.map((_, i) => <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />)}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          )}
+        </Panel>
+
+        <Panel title="Distribuição por Setor" icon={Users} iconColor="text-emerald-400" hint={`${analytics.departmentBreakdown.filter(d => d.department !== "Sem setor").length} setores`}>
+          {deptData.length === 0 ? (
+            <p className="text-zinc-500 text-sm text-center py-10">Nenhum setor cadastrado.</p>
+          ) : (
+            <div className="flex items-center gap-4">
+              <ResponsiveContainer width="55%" height={200}>
+                <PieChart>
+                  <Pie
+                    data={deptData}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={55}
+                    outerRadius={80}
+                    dataKey="membros"
+                    paddingAngle={3}
+                  >
+                    {deptData.map((_, i) => <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />)}
+                  </Pie>
+                  <Tooltip contentStyle={tooltipStyle} formatter={(v: any) => [v, "membros"]} />
+                </PieChart>
+              </ResponsiveContainer>
+              <div className="flex-1 space-y-2">
+                {deptData.map((d, i) => (
+                  <div key={d.name} className="flex items-center gap-2">
+                    <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: CHART_COLORS[i % CHART_COLORS.length] }} />
+                    <span className="text-xs text-zinc-400 truncate flex-1">{d.name}</span>
+                    <span className="text-xs font-bold text-zinc-300">{d.membros}p</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </Panel>
+      </div>
+
+      {/* Ranking horizontal bar */}
+      <Panel title="Ranking de Comunicação" icon={BarChart3} iconColor="text-amber-400" hint="score por membro">
+        {memberData.length === 0 ? (
+          <p className="text-zinc-500 text-sm text-center py-10">Nenhum membro com dados ainda.</p>
+        ) : (
+          <ResponsiveContainer width="100%" height={Math.max(memberData.length * 40, 120)}>
+            <BarChart data={memberData} layout="vertical" margin={{ top: 0, right: 16, left: 8, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#27272a" horizontal={false} />
+              <XAxis type="number" tick={{ fill: "#71717a", fontSize: 11 }} axisLine={false} tickLine={false} domain={[0, 100]} />
+              <YAxis
+                type="category"
+                dataKey="name"
+                width={70}
+                tick={{ fill: "#a1a1aa", fontSize: 12 }}
+                axisLine={false}
+                tickLine={false}
+              />
+              <Tooltip
+                contentStyle={tooltipStyle}
+                formatter={((v: any, _: string, props: any) => [`${v} pts — ${props.payload.dept}`, "Score"]) as any}
+              />
+              <Bar dataKey="score" radius={[0, 6, 6, 0]} background={{ fill: "#27272a", radius: 6 }}>
+                {memberData.map((_, i) => (
+                  <Cell
+                    key={i}
+                    fill={i === 0 ? "#f59e0b" : i === 1 ? "#9ca3af" : i === 2 ? "#b45309" : "#7c3aed"}
+                  />
+                ))}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        )}
+      </Panel>
+
+      {/* Score por setor — bar */}
+      {deptData.length > 0 && (
+        <Panel title="Score Médio por Setor" icon={Activity} iconColor="text-sky-400" hint="média de comunicação">
+          <ResponsiveContainer width="100%" height={220}>
+            <BarChart data={deptData} margin={{ top: 4, right: 8, left: -20, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#27272a" vertical={false} />
+              <XAxis dataKey="name" tick={{ fill: "#71717a", fontSize: 11 }} axisLine={false} tickLine={false} />
+              <YAxis tick={{ fill: "#71717a", fontSize: 11 }} axisLine={false} tickLine={false} domain={[0, 100]} />
+              <Tooltip contentStyle={tooltipStyle} formatter={(v: any) => [`${v} pts`, "Score médio"]} />
+              <Bar dataKey="score" radius={[6, 6, 0, 0]}>
+                {deptData.map((_, i) => <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />)}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </Panel>
+      )}
     </div>
   );
 }

@@ -49,8 +49,8 @@ function Avatar({ name, avatarUrl, size = "md" }: { name: string; avatarUrl: str
   );
 }
 
-function KpiCard({ label, value, icon: Icon, sub, color, trend }: {
-  label: string; value: string | number; icon: any; sub?: string; color: string; trend?: string;
+function KpiCard({ label, value, icon: Icon, sub, color, trend, onClick }: {
+  label: string; value: string | number; icon: any; sub?: string; color: string; trend?: string; onClick?: () => void;
 }) {
   const palette: Record<string, { card: string; icon: string; val: string }> = {
     violet: { card: "border-violet-500/20 bg-violet-500/5", icon: "bg-violet-500/15 text-violet-400", val: "text-violet-300" },
@@ -62,7 +62,10 @@ function KpiCard({ label, value, icon: Icon, sub, color, trend }: {
   };
   const p = palette[color] ?? palette.violet;
   return (
-    <div className={`rounded-2xl border p-5 ${p.card}`}>
+    <div
+      onClick={onClick}
+      className={`rounded-2xl border p-5 ${p.card} ${onClick ? "cursor-pointer hover:brightness-110 transition-all" : ""}`}
+    >
       <div className="flex items-center justify-between mb-4">
         <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${p.icon}`}>
           <Icon className="h-4 w-4" />
@@ -164,18 +167,18 @@ export default function OrgDashboardPage() {
 
       {/* ── KPIs principais ── */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-        <KpiCard label="Membros ativos" value={analytics.totalMembers} icon={Users} sub="na organização" color="violet" />
-        <KpiCard label="Engajamento semanal" value={`${engRate}%`} icon={Activity} sub={`${analytics.activeThisWeek} ativos`} color="emerald" trend={analytics.activeThisWeek > 0 ? `+${analytics.activeThisWeek}` : undefined} />
-        <KpiCard label="Sessões Live" value={analytics.totalLiveSessions} icon={Mic2} sub={`+${analytics.liveSessionsThisWeek} esta semana`} color="indigo" trend={analytics.liveSessionsThisWeek > 0 ? `+${analytics.liveSessionsThisWeek}` : undefined} />
-        <KpiCard label="Score médio" value={analytics.avgCommunicationScore} icon={BarChart3} sub="comunicação corporativa" color="sky" />
+        <KpiCard label="Membros ativos" value={analytics.totalMembers} icon={Users} sub="na organização" color="violet" onClick={() => router.push(`/teams/${slug}/members`)} />
+        <KpiCard label="Engajamento semanal" value={`${engRate}%`} icon={Activity} sub={`${analytics.activeThisWeek} ativos`} color="emerald" trend={analytics.activeThisWeek > 0 ? `+${analytics.activeThisWeek}` : undefined} onClick={() => router.push(`/teams/${slug}/analytics`)} />
+        <KpiCard label="Sessões Live" value={analytics.totalLiveSessions} icon={Mic2} sub={`+${analytics.liveSessionsThisWeek} esta semana`} color="indigo" trend={analytics.liveSessionsThisWeek > 0 ? `+${analytics.liveSessionsThisWeek}` : undefined} onClick={() => router.push(`/teams/${slug}/analytics`)} />
+        <KpiCard label="Score médio" value={analytics.avgCommunicationScore} icon={BarChart3} sub="comunicação corporativa" color="sky" onClick={() => router.push(`/teams/${slug}/analytics`)} />
       </div>
 
       {/* ── KPIs secundários ── */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-        <KpiCard label="Desafios criados" value={analytics.totalChallenges} icon={Target} color="amber" />
-        <KpiCard label="Submissões" value={analytics.totalSubmissions} icon={TrendingUp} sub={`+${analytics.submissionsThisWeek} esta semana`} color="violet" trend={analytics.submissionsThisWeek > 0 ? `+${analytics.submissionsThisWeek}` : undefined} />
-        <KpiCard label="Certificações" value={analytics.totalCertifications} icon={Award} sub="emitidas" color="amber" />
-        <KpiCard label="Membros sem setor" value={analytics.departmentBreakdown.find(d => d.department === "Sem setor")?.count ?? 0} icon={Flame} sub="definir setor em Membros" color="rose" />
+        <KpiCard label="Desafios criados" value={analytics.totalChallenges} icon={Target} color="amber" onClick={() => router.push(`/teams/${slug}/challenges`)} />
+        <KpiCard label="Submissões" value={analytics.totalSubmissions} icon={TrendingUp} sub={`+${analytics.submissionsThisWeek} esta semana`} color="violet" trend={analytics.submissionsThisWeek > 0 ? `+${analytics.submissionsThisWeek}` : undefined} onClick={() => router.push(`/teams/${slug}/analytics`)} />
+        <KpiCard label="Certificações" value={analytics.totalCertifications} icon={Award} sub="emitidas" color="amber" onClick={() => router.push(`/teams/${slug}/certifications`)} />
+        <KpiCard label="Membros sem setor" value={analytics.departmentBreakdown.find(d => d.department === "Sem setor")?.count ?? 0} icon={Flame} sub="definir setor em Membros" color="rose" onClick={() => router.push(`/teams/${slug}/members`)} />
       </div>
 
       {/* ── Ranking + Setores ── */}

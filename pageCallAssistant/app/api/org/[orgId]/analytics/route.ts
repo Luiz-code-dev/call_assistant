@@ -14,6 +14,9 @@ export async function GET(_req: NextRequest, { params }: Ctx) {
   const now = new Date();
   const startOfWeek = new Date(now);
   startOfWeek.setDate(now.getDate() - 7);
+  const startOf30Days = new Date(now);
+  startOf30Days.setDate(now.getDate() - 29);
+  startOf30Days.setHours(0, 0, 0, 0);
   const startOfMonth = new Date(now);
   startOfMonth.setDate(1);
   startOfMonth.setHours(0, 0, 0, 0);
@@ -31,6 +34,8 @@ export async function GET(_req: NextRequest, { params }: Ctx) {
     weeklyActivity,
     categoryBreakdown,
     allMembers,
+    rawSessions30,
+    rawSubmissions30,
   ] = await Promise.all([
     (db as any).orgMember.count({ where: { orgId } }),
 
@@ -79,6 +84,18 @@ export async function GET(_req: NextRequest, { params }: Ctx) {
       where: { orgId },
       select: { department: true, commScore: true, jobTitle: true },
     }),
+
+    (db as any).orgLiveSession.findMany({
+      where: { orgId, createdAt: { gte: startOf30Days } },
+      select: { createdAt: true },
+      orderBy: { createdAt: "asc" },
+    }).catch(() => []),
+
+    (db as any).corpChallengeSubmission.findMany({
+      where: { orgId, createdAt: { gte: startOf30Days } },
+      select: { createdAt: true },
+      orderBy: { createdAt: "asc" },
+    }).catch(() => []),
   ]);
 
   const avgScore = topMembers.length > 0
@@ -100,6 +117,25 @@ export async function GET(_req: NextRequest, { params }: Ctx) {
       avgScore: count > 0 ? Math.round(totalScore / count) : 0,
     }))
     .sort((a, b) => b.avgScore - a.avgScore);
+
+  // Build daily series (last 30 days)
+  const fmt = (d: Date) => d.toISOString().slice(0, 10);
+  const dailyMap: Record<string, { date: string; sessions: number; submissions: number }> = {};
+  for (let i = 29; i >= 0; i--) {
+    const d = new Date(now);
+    d.setDate(now.getDate() - i);
+    const key = fmt(d);
+    dailyMap[key] = { date: key, sessions: 0, submissions: 0 };
+  }
+  for (const s of rawSessions30 as any[]) {
+    const key = fmt(new Date(s.createdAt));
+    if (dailyMap[key]) dailyMap[key].sessions++;
+  }
+  for (const s of rawSubmissions30 as any[]) {
+    const key = fmt(new Date(s.createdAt));
+    if (dailyMap[key]) dailyMap[key].submissions++;
+  }
+  const dailySeries = Object.values(dailyMap);
 
   return NextResponse.json({
     totalMembers,
@@ -125,5 +161,6 @@ export async function GET(_req: NextRequest, { params }: Ctx) {
     weeklyActivity,
     categoryBreakdown,
     departmentBreakdown,
+    dailySeries,
   });
 }

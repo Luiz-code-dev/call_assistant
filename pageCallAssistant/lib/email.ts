@@ -21,10 +21,8 @@ export async function sendThankYouEmail(email: string, name: string, plan: strin
     html: `
       <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:32px 24px;background:#09090b;color:#fafafa;border-radius:12px">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:28px">
-          <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#06b6d4,#2563eb);display:flex;align-items:center;justify-content:center">
-            <span style="color:#fff;font-weight:bold;font-size:18px">S</span>
-          </div>
-          <span style="font-weight:700;font-size:20px">SpeakFlow</span>
+          <img src="${APP_URL}/icon.svg" width="36" height="36" alt="" style="display:block;border-radius:9px" />
+          <span style="font-weight:800;font-size:20px;letter-spacing:-0.5px">SpeakFlow</span>
         </div>
         <h1 style="font-size:24px;font-weight:800;margin:0 0 8px">Parabéns, ${firstName}! 🚀</h1>
         <p style="color:#a1a1aa;margin:0 0 20px;font-size:15px">
@@ -274,10 +272,8 @@ export async function sendBadgeEmail(
     html: `
       <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:32px 24px;background:#09090b;color:#fafafa;border-radius:12px">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:28px">
-          <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#4f46e5);display:flex;align-items:center;justify-content:center">
-            <span style="color:#fff;font-weight:bold;font-size:18px">S</span>
-          </div>
-          <span style="font-weight:700;font-size:20px">SpeakFlow</span>
+          <img src="${APP_URL}/icon.svg" width="36" height="36" alt="" style="display:block;border-radius:9px" />
+          <span style="font-weight:800;font-size:20px;letter-spacing:-0.5px">SpeakFlow</span>
         </div>
         <h1 style="font-size:22px;font-weight:800;margin:0 0 6px">Parabéns, ${firstName}! 🎉</h1>
         <p style="color:#a1a1aa;margin:0 0 20px;font-size:15px">
@@ -312,10 +308,8 @@ export async function sendFriendRequestEmail(
     html: `
       <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:32px 24px;background:#09090b;color:#fafafa;border-radius:12px">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:28px">
-          <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#4f46e5);display:flex;align-items:center;justify-content:center">
-            <span style="color:#fff;font-weight:bold;font-size:18px">S</span>
-          </div>
-          <span style="font-weight:700;font-size:20px">SpeakFlow</span>
+          <img src="${APP_URL}/icon.svg" width="36" height="36" alt="" style="display:block;border-radius:9px" />
+          <span style="font-weight:800;font-size:20px;letter-spacing:-0.5px">SpeakFlow</span>
         </div>
         <h1 style="font-size:22px;font-weight:800;margin:0 0 6px">Olá, ${firstName}! 👋</h1>
         <p style="color:#a1a1aa;margin:0 0 24px;font-size:15px">
@@ -358,10 +352,8 @@ export async function sendB2BApprovalEmail(toEmail: string, name: string) {
       <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:0;background:#09090b;color:#fafafa;border-radius:16px;overflow:hidden">
         <div style="background:linear-gradient(135deg,#14532d,#166534,#1a3a5c);padding:36px 28px;text-align:center">
           <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:20px">
-            <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#4f46e5);display:inline-flex;align-items:center;justify-content:center">
-              <span style="color:#fff;font-weight:bold;font-size:18px">S</span>
-            </div>
-            <span style="font-weight:700;font-size:20px;color:#fff">SpeakFlow</span>
+            <img src="${APP_URL}/icon.svg" width="38" height="38" alt="" style="display:inline-block;border-radius:10px;vertical-align:middle" />
+            <span style="font-weight:800;font-size:21px;color:#fff;vertical-align:middle;letter-spacing:-0.5px">SpeakFlow</span>
           </div>
           <div style="font-size:48px;margin-bottom:12px">✅</div>
           <h1 style="font-size:24px;font-weight:800;margin:0 0 6px;color:#fff">Conta aprovada, ${firstName}!</h1>
@@ -427,10 +419,8 @@ export async function sendOrgInviteEmail(
       <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:0;background:#09090b;color:#fafafa;border-radius:16px;overflow:hidden">
         <div style="background:linear-gradient(135deg,#4c1d95,#312e81);padding:36px 28px;text-align:center">
           <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:20px">
-            <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#4f46e5);display:inline-flex;align-items:center;justify-content:center">
-              <span style="color:#fff;font-weight:bold;font-size:18px">S</span>
-            </div>
-            <span style="font-weight:700;font-size:20px;color:#fff">SpeakFlow</span>
+            <img src="${APP_URL}/icon.svg" width="38" height="38" alt="" style="display:inline-block;border-radius:10px;vertical-align:middle" />
+            <span style="font-weight:800;font-size:21px;color:#fff;vertical-align:middle;letter-spacing:-0.5px">SpeakFlow</span>
           </div>
           <div style="font-size:44px;margin-bottom:12px">🏢</div>
           <h1 style="font-size:22px;font-weight:800;margin:0 0 6px;color:#fff">Você foi convidado!</h1>
@@ -483,10 +473,8 @@ export async function sendPromoWelcomeEmail(email: string, name: string, verifyL
         <!-- Header banner -->
         <div style="background:linear-gradient(135deg,#4c1d95,#312e81,#1e3a5f);padding:36px 28px;text-align:center">
           <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:20px">
-            <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#4f46e5);display:inline-flex;align-items:center;justify-content:center">
-              <span style="color:#fff;font-weight:bold;font-size:18px">S</span>
-            </div>
-            <span style="font-weight:700;font-size:20px;color:#fff">SpeakFlow</span>
+            <img src="${APP_URL}/icon.svg" width="38" height="38" alt="" style="display:inline-block;border-radius:10px;vertical-align:middle" />
+            <span style="font-weight:800;font-size:21px;color:#fff;vertical-align:middle;letter-spacing:-0.5px">SpeakFlow</span>
           </div>
           <div style="font-size:48px;margin-bottom:12px">🚀</div>
           <h1 style="font-size:26px;font-weight:800;margin:0 0 8px;color:#fff">Parabéns, ${firstName}!</h1>

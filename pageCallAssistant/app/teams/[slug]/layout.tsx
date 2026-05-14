@@ -5,7 +5,7 @@ import { useParams, usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import {
   Building2, LayoutDashboard, Users, Target, BarChart3,
-  Settings, ChevronLeft, Loader2, Menu, X, Award
+  Settings, ChevronLeft, Loader2, Menu, X, Award, LogOut, Home
 } from "lucide-react";
 
 interface OrgBasic {
@@ -103,6 +103,26 @@ export default function OrgLayout({ children }: { children: React.ReactNode }) {
           );
         })}
       </nav>
+      <div className="p-3 border-t border-zinc-800 space-y-0.5">
+        <Link
+          href="/home"
+          className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-zinc-500 hover:text-white hover:bg-zinc-800 transition-all"
+        >
+          <Home className="h-4 w-4 flex-shrink-0" />
+          Meu painel
+        </Link>
+        <button
+          onClick={() => {
+            sessionStorage.removeItem("sf_token");
+            localStorage.removeItem("sf_token");
+            window.location.href = "/login";
+          }}
+          className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-zinc-500 hover:text-red-400 hover:bg-red-400/10 transition-all"
+        >
+          <LogOut className="h-4 w-4 flex-shrink-0" />
+          Sair
+        </button>
+      </div>
     </aside>
   );
 
