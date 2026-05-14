@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import {
   Mic, MicOff, Square, Loader2, Zap, Copy,
   CheckCircle2, Globe, ArrowLeft, Radio, MessageSquare,
@@ -83,6 +84,10 @@ export default function LivePage() {
   // Auth & credits
   const [token, setToken] = useState<string | null>(null);
   const [credits, setCredits] = useState<number | null>(null);
+  const [isCorpMember, setIsCorpMember] = useState(false);
+
+  const searchParams = useSearchParams();
+  const returnTo = searchParams.get("from") || "/home";
 
   // Setup config
   const [phase, setPhase] = useState<"setup" | "live">("setup");
@@ -159,6 +164,12 @@ export default function LivePage() {
     tokenRef.current = sfToken;
 
     setHasSpeechAPI("SpeechRecognition" in window || "webkitSpeechRecognition" in window);
+
+    // Check corporate membership
+    fetch("/api/org", { headers: sfToken ? { Authorization: `Bearer ${sfToken}` } : {} })
+      .then(r => r.ok ? r.json() : [])
+      .then((orgs: any[]) => { if (Array.isArray(orgs) && orgs.length > 0) setIsCorpMember(true); })
+      .catch(() => {});
 
     const savedFocus   = localStorage.getItem("sf_live_focus")   || "";
     const savedLevel   = localStorage.getItem("sf_live_level")   || "Todos os níveis";
@@ -593,14 +604,21 @@ export default function LivePage() {
                 </select>
               </div>
 
-              {credits !== null && (
+              {isCorpMember ? (
+                <div className="flex items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-2">
+                  <Zap className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                  <p className="text-xs text-emerald-300">
+                    <span className="font-semibold">Ilimitado</span> — Membro corporativo 🏢
+                  </p>
+                </div>
+              ) : credits !== null ? (
                 <div className="flex items-center gap-1.5 rounded-lg border border-border/50 bg-secondary/30 px-3 py-2">
                   <Zap className="h-3.5 w-3.5 text-violet-400 shrink-0" />
                   <p className="text-xs text-muted-foreground">
                     <span className="font-semibold text-foreground">{credits}</span> créditos · 2 por sugestão gerada
                   </p>
                 </div>
-              )}
+              ) : null}
             </CardContent>
           </Card>
 
@@ -630,9 +648,9 @@ export default function LivePage() {
             Iniciar Sessão Live
           </Button>
 
-          <Link href="/home" className="block text-center text-xs text-muted-foreground hover:text-foreground transition-colors">
+          <Link href={returnTo} className="block text-center text-xs text-muted-foreground hover:text-foreground transition-colors">
             <ArrowLeft className="inline h-3 w-3 mr-1" />
-            Voltar ao Início
+            Voltar
           </Link>
         </div>
       </div>

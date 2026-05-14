@@ -104,7 +104,7 @@ export default function OrgLayout({ children }: { children: React.ReactNode }) {
         })}
         <div className="pt-2 mt-1 border-t border-zinc-800/60">
           <Link
-            href="/live"
+            href={`/live?from=/teams/${slug}/dashboard`}
             onClick={() => setMobileOpen(false)}
             className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-semibold transition-all bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 border border-emerald-500/20"
           >

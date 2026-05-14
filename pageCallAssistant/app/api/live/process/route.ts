@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import type OpenAI from "openai";
 import { getToolSession } from "@/app/api/tools/_auth";
-import { checkToolAccess, consumeToolCredits, CREDITS_PER_USE } from "@/lib/planGuard";
+import { checkToolAccess, consumeToolCredits, isOrgMember, CREDITS_PER_USE } from "@/lib/planGuard";
 import { getOpenAI } from "@/lib/openai";
 
 export const runtime = "nodejs";
@@ -87,9 +87,13 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Áudio muito curto. Fale por mais tempo." }, { status: 422 });
   }
 
-  const access = await checkToolAccess(session.sub, "live");
-  if (!access.allowed) {
-    return NextResponse.json({ error: access.reason, userPlan: access.userPlan }, { status: 403 });
+  const orgMember = await isOrgMember(session.sub);
+
+  if (!orgMember) {
+    const access = await checkToolAccess(session.sub, "live");
+    if (!access.allowed) {
+      return NextResponse.json({ error: access.reason, userPlan: access.userPlan }, { status: 403 });
+    }
   }
 
   try {
@@ -152,14 +156,14 @@ export async function POST(req: NextRequest) {
       suggestionData = await suggestViaOpenAI(openai, transcript, meeting_context, isEnglish);
     }
 
-    await consumeToolCredits(session.sub, "live");
+    if (!orgMember) await consumeToolCredits(session.sub, "live");
 
     return NextResponse.json({
       transcript,
       translation: suggestionData.translation ?? "",
       suggestions: suggestionData.suggestions ?? [],
       suggestion_translations: suggestionData.suggestion_translations ?? [],
-      creditsUsed: CREDITS_PER_USE,
+      creditsUsed: orgMember ? 0 : CREDITS_PER_USE,
     });
   } catch (err) {
     console.error("[api/live/process]", err);

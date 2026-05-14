@@ -122,6 +122,15 @@ export async function checkToolAccess(
 }
 
 /**
+ * Verifica se o usuário é membro de alguma organização.
+ * Membros corporativos usam o Live sem consumir créditos.
+ */
+export async function isOrgMember(userId: string): Promise<boolean> {
+  const count = await (db as any).orgMember.count({ where: { userId } });
+  return count > 0;
+}
+
+/**
  * Debita créditos e registra o uso atomicamente.
  * Chamar SOMENTE após resposta bem-sucedida da IA.
  */

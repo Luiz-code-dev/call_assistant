@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getOpenAI } from "@/lib/openai";
 import { getToolSession } from "@/app/api/tools/_auth";
-import { checkToolAccess, consumeToolCredits, CREDITS_PER_USE } from "@/lib/planGuard";
+import { checkToolAccess, consumeToolCredits, isOrgMember, CREDITS_PER_USE } from "@/lib/planGuard";
 import { registerActivity } from "@/lib/streak";
 
 export const runtime = "nodejs";
@@ -76,9 +76,13 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "session_id e transcript são obrigatórios." }, { status: 400 });
   }
 
-  const access = await checkToolAccess(session.sub, "live");
-  if (!access.allowed) {
-    return NextResponse.json({ error: access.reason, userPlan: access.userPlan }, { status: 403 });
+  const orgMember = await isOrgMember(session.sub);
+
+  if (!orgMember) {
+    const access = await checkToolAccess(session.sub, "live");
+    if (!access.allowed) {
+      return NextResponse.json({ error: access.reason, userPlan: access.userPlan }, { status: 403 });
+    }
   }
 
   const baseContext = [focus, level].filter(Boolean).join(" · ");
@@ -123,7 +127,7 @@ export async function POST(req: NextRequest) {
       data = await suggestViaOpenAI(transcript.trim(), meetingContext, lang);
     }
 
-    await consumeToolCredits(session.sub, "live");
+    if (!orgMember) await consumeToolCredits(session.sub, "live");
     registerActivity(session.sub).catch(() => {});
 
     return NextResponse.json({
@@ -131,7 +135,7 @@ export async function POST(req: NextRequest) {
       translation: data.translation ?? "",
       suggestions: data.suggestions ?? [],
       suggestion_translations: data.suggestion_translations ?? [],
-      creditsUsed: CREDITS_PER_USE,
+      creditsUsed: orgMember ? 0 : CREDITS_PER_USE,
     });
   } catch (err) {
     console.error("[api/live/suggest]", err);

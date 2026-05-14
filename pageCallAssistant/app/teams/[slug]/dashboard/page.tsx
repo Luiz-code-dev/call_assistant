@@ -93,7 +93,8 @@ const CATEGORY_LABELS: Record<string, string> = {
 const MEDAL = ["🥇", "🥈", "🥉"];
 
 export default function OrgDashboardPage() {
-  const { slug } = useParams();
+  const params = useParams();
+  const slug = params.slug as string;
   const router = useRouter();
   const [analytics, setAnalytics] = useState<Analytics | null>(null);
   const [org, setOrg] = useState<OrgInfo | null>(null);
@@ -299,7 +300,7 @@ export default function OrgDashboardPage() {
             ))}
           </div>
           <button
-            onClick={() => router.push("/live")}
+            onClick={() => router.push(`/live?from=/teams/${slug}/dashboard`)}
             className="flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg font-semibold text-sm transition-colors"
           >
             <Radio className="h-4 w-4" />
