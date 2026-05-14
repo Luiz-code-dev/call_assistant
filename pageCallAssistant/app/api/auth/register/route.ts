@@ -103,6 +103,14 @@ export async function POST(req: NextRequest) {
       },
     });
 
+    // Auto-apply B2B pre-approval if admin already approved this email
+    const preApproval = await (db as any).supportMessage.findFirst({
+      where: { name: "__B2B_PRE_APPROVED__", email: email.toLowerCase() },
+    });
+    if (preApproval) {
+      await (db as any).user.update({ where: { id: user.id }, data: { b2bAccess: true } });
+    }
+
     const verifyLink = `${process.env.NEXT_PUBLIC_APP_URL || "https://speakf.com.br"}/verify-email?token=${verificationToken}`;
 
     if (isPromoEligible) {
