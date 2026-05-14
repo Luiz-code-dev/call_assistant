@@ -24,7 +24,9 @@ export async function POST(req: NextRequest, { params }: Ctx) {
   const session = await getSession();
   if (!session) return NextResponse.json({ error: "not_authenticated" }, { status: 401 });
 
-  const { action } = await req.json().catch(() => ({ action: "accept" }));
+  const body = await req.json().catch(() => ({}));
+  const action = body.action ?? "accept";
+  const department: string | null = body.department ?? null;
 
   const invite = await (db as any).orgInvite.findUnique({ where: { token: params.token } });
   if (!invite) return NextResponse.json({ error: "Convite não encontrado." }, { status: 404 });
@@ -53,7 +55,13 @@ export async function POST(req: NextRequest, { params }: Ctx) {
         orgId: invite.orgId,
         userId: session.sub,
         role: invite.role,
+        ...(department ? { department } : {}),
       },
+    });
+  } else if (department) {
+    await (db as any).orgMember.update({
+      where: { orgId_userId: { orgId: invite.orgId, userId: session.sub } },
+      data: { department },
     });
   }
 

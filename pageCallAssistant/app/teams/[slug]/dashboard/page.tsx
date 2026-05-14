@@ -19,9 +19,11 @@ interface Analytics {
   avgCommunicationScore: number;
   topMembers: {
     id: string; userId: string; name: string;
-    avatarUrl: string | null; role: string; commScore: number; team: string | null;
+    avatarUrl: string | null; role: string; commScore: number;
+    team: string | null; department: string | null; jobTitle: string | null;
   }[];
   categoryBreakdown: { category: string; _count: { id: number } }[];
+  departmentBreakdown: { department: string; count: number; avgScore: number }[];
 }
 
 function authFetch(url: string) {
@@ -138,7 +140,8 @@ export default function OrgDashboardPage() {
         <StatCard label="Engajamento" value={`${engagementRate}%`} icon={Flame} sub="ativos vs total" color="emerald" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        {/* Ranking */}
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
           <div className="flex items-center gap-2 mb-5">
             <Trophy className="h-4 w-4 text-amber-400" />
@@ -150,7 +153,7 @@ export default function OrgDashboardPage() {
             <div className="space-y-3">
               {analytics.topMembers.slice(0, 7).map((m, i) => (
                 <div key={m.id} className="flex items-center gap-3">
-                  <span className={`w-6 text-center text-xs font-bold ${
+                  <span className={`w-6 text-center text-xs font-bold shrink-0 ${
                     i === 0 ? "text-amber-400" : i === 1 ? "text-zinc-300" : i === 2 ? "text-orange-400" : "text-zinc-600"
                   }`}>{i + 1}</span>
                   <div className="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center flex-shrink-0 overflow-hidden">
@@ -161,9 +164,11 @@ export default function OrgDashboardPage() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-white truncate">{m.name}</p>
-                    {m.team && <p className="text-xs text-zinc-500">{m.team}</p>}
+                    <p className="text-xs text-zinc-500 truncate">
+                      {m.department ?? m.team ?? m.jobTitle ?? "—"}
+                    </p>
                   </div>
-                  <div className="text-right">
+                  <div className="text-right shrink-0">
                     <p className="text-sm font-bold text-violet-400">{m.commScore}</p>
                     <p className="text-xs text-zinc-600">pts</p>
                   </div>
@@ -173,27 +178,31 @@ export default function OrgDashboardPage() {
           )}
         </div>
 
+        {/* Departamentos */}
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
           <div className="flex items-center gap-2 mb-5">
-            <Mic2 className="h-4 w-4 text-indigo-400" />
-            <h2 className="text-sm font-semibold text-white">Uso do Live por Categoria</h2>
+            <Users className="h-4 w-4 text-emerald-400" />
+            <h2 className="text-sm font-semibold text-white">Performance por Setor</h2>
           </div>
-          {analytics.categoryBreakdown.length === 0 ? (
-            <p className="text-zinc-500 text-sm text-center py-6">Nenhuma sessão registrada ainda.</p>
+          {analytics.departmentBreakdown.length === 0 ? (
+            <p className="text-zinc-500 text-sm text-center py-6">Nenhum setor cadastrado ainda.</p>
           ) : (
             <div className="space-y-3">
-              {analytics.categoryBreakdown.map((cat: any) => {
-                const total = analytics.categoryBreakdown.reduce((s: number, c: any) => s + (c._count?.id ?? 0), 0);
-                const pct = total > 0 ? Math.round(((cat._count?.id ?? 0) / total) * 100) : 0;
+              {analytics.departmentBreakdown.map((d) => {
+                const maxScore = Math.max(...analytics.departmentBreakdown.map(x => x.avgScore), 1);
+                const pct = Math.round((d.avgScore / maxScore) * 100);
                 return (
-                  <div key={cat.category}>
+                  <div key={d.department}>
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm text-zinc-300">{CATEGORY_LABELS[cat.category] ?? cat.category}</span>
-                      <span className="text-xs text-zinc-500">{cat._count?.id ?? 0} sessões ({pct}%)</span>
+                      <div className="flex items-center gap-2 min-w-0">
+                        <span className="text-sm text-zinc-300 truncate">{d.department}</span>
+                        <span className="text-xs text-zinc-600 shrink-0">{d.count} membro{d.count !== 1 ? "s" : ""}</span>
+                      </div>
+                      <span className="text-xs font-semibold text-emerald-400 shrink-0 ml-2">{d.avgScore} pts</span>
                     </div>
                     <div className="h-1.5 rounded-full bg-zinc-800">
                       <div
-                        className="h-1.5 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 transition-all"
+                        className="h-1.5 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 transition-all"
                         style={{ width: `${pct}%` }}
                       />
                     </div>
@@ -203,6 +212,38 @@ export default function OrgDashboardPage() {
             </div>
           )}
         </div>
+      </div>
+
+      {/* Uso do Live por Categoria */}
+      <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
+        <div className="flex items-center gap-2 mb-5">
+          <Mic2 className="h-4 w-4 text-indigo-400" />
+          <h2 className="text-sm font-semibold text-white">Uso do Live por Categoria</h2>
+        </div>
+        {analytics.categoryBreakdown.length === 0 ? (
+          <p className="text-zinc-500 text-sm text-center py-6">Nenhuma sessão registrada ainda.</p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {analytics.categoryBreakdown.map((cat: any) => {
+              const total = analytics.categoryBreakdown.reduce((s: number, c: any) => s + (c._count?.id ?? 0), 0);
+              const pct = total > 0 ? Math.round(((cat._count?.id ?? 0) / total) * 100) : 0;
+              return (
+                <div key={cat.category}>
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-sm text-zinc-300">{CATEGORY_LABELS[cat.category] ?? cat.category}</span>
+                    <span className="text-xs text-zinc-500">{cat._count?.id ?? 0} ({pct}%)</span>
+                  </div>
+                  <div className="h-1.5 rounded-full bg-zinc-800">
+                    <div
+                      className="h-1.5 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 transition-all"
+                      style={{ width: `${pct}%` }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

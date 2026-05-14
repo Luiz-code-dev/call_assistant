@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,6 +23,12 @@ export default function RegisterPage() {
   const searchParams = useSearchParams();
   const isDesktop = searchParams.get("callback") === "desktop";
   const redirectAfter = searchParams.get("redirect");
+  const inviteToken = searchParams.get("invite");
+  const inviteEmail = searchParams.get("email");
+
+  useEffect(() => {
+    if (inviteEmail) setEmail(decodeURIComponent(inviteEmail));
+  }, [inviteEmail]);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -42,6 +48,10 @@ export default function RegisterPage() {
       }
       if (redirectAfter) {
         localStorage.setItem("sf_post_verify_redirect", redirectAfter);
+      }
+      if (inviteToken) {
+        localStorage.setItem("sf_pending_invite_token", inviteToken);
+        localStorage.setItem("sf_post_verify_redirect", `/teams/invite/${inviteToken}`);
       }
       setPendingVerification(true);
     } catch (err: unknown) {
