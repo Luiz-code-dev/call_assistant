@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { Resend } from "resend";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "force-dynamic"; // b2b lead notify
 
 const resend      = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 const FROM_EMAIL  = process.env.EMAIL_FROM || "SpeakFlow <onboarding@resend.dev>";
