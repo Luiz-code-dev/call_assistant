@@ -42,11 +42,12 @@ function authHeaders(): Record<string, string> {
 }
 
 function Avatar({ name, avatarUrl, size = "md" }: { name: string; avatarUrl?: string | null; size?: "sm" | "md" }) {
+  const [imgError, setImgError] = useState(false);
   const initials = name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
   const colors = ["from-violet-600 to-indigo-600", "from-emerald-500 to-teal-600", "from-rose-500 to-pink-600", "from-amber-500 to-orange-600"];
   const color = colors[name.charCodeAt(0) % colors.length];
   const cls = size === "sm" ? "h-7 w-7 text-[10px]" : "h-9 w-9 text-xs";
-  if (avatarUrl) return <img src={avatarUrl} alt={name} className={`${cls} rounded-full object-cover ring-2 ring-border shrink-0`} />;
+  if (avatarUrl && !imgError) return <img src={avatarUrl} alt={name} className={`${cls} rounded-full object-cover ring-2 ring-border shrink-0`} onError={() => setImgError(true)} />;
   return <div className={`${cls} rounded-full bg-gradient-to-br ${color} flex items-center justify-center text-white font-semibold shrink-0`}>{initials}</div>;
 }
 

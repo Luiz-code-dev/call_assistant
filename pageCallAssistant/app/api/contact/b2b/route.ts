@@ -36,6 +36,20 @@ export async function POST(req: NextRequest) {
       const seats = teamSize ? (parseInt(String(teamSize).replace(/\D.*/,"")) || 5) : 5;
       const approveUrl = `${APP_URL}/api/admin/b2b-approve?secret=${process.env.INTERNAL_API_SECRET}&email=${encodeURIComponent(email)}&seats=${seats}`;
 
+      const sizeStr = String(teamSize ?? "");
+      const rawNum = parseInt(sizeStr.replace(/\D.*/,"")) || 0;
+      let pricePerUser = "R$ 100";
+      let monthlyEst   = "";
+      if (sizeStr.includes("100+") || rawNum > 50) {
+        pricePerUser = "Custom"; monthlyEst = "Consulta comercial";
+      } else if (rawNum >= 26 || sizeStr.includes("31")) {
+        pricePerUser = "R$ 70"; monthlyEst = `R$ ${(rawNum * 70).toLocaleString("pt-BR")}/mês (estimado)`;
+      } else if (rawNum >= 11 || sizeStr.includes("16")) {
+        pricePerUser = "R$ 85"; monthlyEst = `R$ ${(rawNum * 85).toLocaleString("pt-BR")}/mês (estimado)`;
+      } else {
+        pricePerUser = "R$ 100"; monthlyEst = `R$ ${(rawNum * 100).toLocaleString("pt-BR")}/mês (estimado)`;
+      }
+
       console.log(`[b2b-lead] Enviando e-mail de ${FROM_EMAIL} para ${NOTIFY_EMAIL} ...`);
 
       const result = await resend.emails.send({
@@ -52,6 +66,8 @@ export async function POST(req: NextRequest) {
               <tr style="border-bottom:1px solid #f3f4f6"><td style="color:#6b7280;padding:8px 0;vertical-align:top">E-mail</td><td style="padding:8px 0"><a href="mailto:${email}?subject=SpeakFlow for Teams - ${company}" style="color:#7c3aed;font-weight:bold;text-decoration:none">${email}</a></td></tr>
               <tr style="border-bottom:1px solid #f3f4f6"><td style="color:#6b7280;padding:8px 0;vertical-align:top">Cargo</td><td style="color:#111111;padding:8px 0">${role ?? "—"}</td></tr>
               <tr style="border-bottom:1px solid #f3f4f6"><td style="color:#6b7280;padding:8px 0;vertical-align:top">Tamanho do time</td><td style="color:#111111;padding:8px 0">${teamSize ?? "—"}</td></tr>
+              <tr style="border-bottom:1px solid #f3f4f6;background:#faf5ff"><td style="color:#6b7280;padding:8px 0;vertical-align:top">Plano estimado</td><td style="color:#7c3aed;font-weight:bold;padding:8px 0">${pricePerUser}/usuário/mês</td></tr>
+              <tr style="border-bottom:1px solid #f3f4f6;background:#faf5ff"><td style="color:#6b7280;padding:8px 0;vertical-align:top">Receita estimada</td><td style="color:#059669;font-weight:bold;padding:8px 0">${monthlyEst}</td></tr>
               ${message ? `<tr><td style="color:#6b7280;padding:8px 0;vertical-align:top">Mensagem</td><td style="color:#374151;padding:8px 0">${message}</td></tr>` : ""}
             </table>
             <div style="margin-top:24px;text-align:center">

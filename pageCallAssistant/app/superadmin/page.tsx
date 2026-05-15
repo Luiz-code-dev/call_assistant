@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   Building2, Users, ShieldAlert, ShieldCheck, Edit2, Check, X,
-  RefreshCw, UserPlus, Loader2, LogOut, ChevronUp, ChevronDown,
+  RefreshCw, UserPlus, Loader2, LogOut, ChevronUp, ChevronDown, Download,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -140,6 +140,61 @@ export default function SuperAdminPage() {
 
   const overLimitOrgs = orgs.filter(o => o.memberCount > o.seatLimit);
 
+  function exportSuperAdminPDF() {
+    const now = new Date().toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" });
+    const totalMembers = orgs.reduce((s, o) => s + o.memberCount, 0);
+    const activeOrgs   = orgs.filter(o => o.isActive).length;
+    const totalSeats   = orgs.reduce((s, o) => s + o.seatLimit, 0);
+    const rows = [...orgs]
+      .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+      .map(o => {
+        const date = new Date(o.createdAt).toLocaleDateString("pt-BR");
+        const ppu  = o.seatLimit <= 10 ? 100 : o.seatLimit <= 25 ? 85 : 70;
+        const mrr  = o.seatLimit * ppu;
+        const status = o.isActive ? "Ativa" : "Suspensa";
+        return `<tr><td>${o.name}</td><td>${o.owner?.email ?? "—"}</td><td>${o.memberCount}/${o.seatLimit}</td><td>${status}</td><td>${date}</td><td>R$ ${ppu}/user</td><td>R$ ${mrr.toLocaleString("pt-BR")}</td></tr>`;
+      }).join("");
+    const totalMRR = orgs.reduce((s, o) => {
+      const ppu = o.seatLimit <= 10 ? 100 : o.seatLimit <= 25 ? 85 : 70;
+      return s + o.seatLimit * ppu;
+    }, 0);
+    const html = `<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"/><title>Relatório Super Admin</title>
+<style>
+  body{font-family:Arial,sans-serif;color:#111;padding:32px;max-width:1000px;margin:0 auto}
+  h1{font-size:22px;margin-bottom:4px} p.sub{color:#555;font-size:13px;margin-bottom:24px}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+  .kpi{border:1px solid #e5e7eb;border-radius:8px;padding:14px;text-align:center}
+  .kpi .val{font-size:26px;font-weight:900;color:#7c3aed}
+  .kpi .lbl{font-size:11px;color:#555;margin-top:4px}
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  th{background:#f3f4f6;text-align:left;padding:7px 9px;font-weight:600}
+  td{padding:7px 9px;border-bottom:1px solid #f3f4f6}
+  h2{font-size:14px;margin:20px 0 8px;border-bottom:2px solid #7c3aed;padding-bottom:5px}
+  .mrr{color:#059669;font-weight:900;font-size:20px}
+  footer{color:#999;font-size:11px;margin-top:28px;text-align:center}
+  @media print{body{padding:0}}
+</style></head><body>
+<h1>Relatório Super Admin — SpeakFlow</h1>
+<p class="sub">Gerado em ${now}</p>
+<div class="kpis">
+  <div class="kpi"><div class="val">${orgs.length}</div><div class="lbl">Total de Orgs</div></div>
+  <div class="kpi"><div class="val">${activeOrgs}</div><div class="lbl">Orgs Ativas</div></div>
+  <div class="kpi"><div class="val">${totalMembers}</div><div class="lbl">Membros Totais</div></div>
+  <div class="kpi"><div class="val">${totalSeats}</div><div class="lbl">Assentos Contratados</div></div>
+</div>
+<p>MRR Estimado: <span class="mrr">R$ ${totalMRR.toLocaleString("pt-BR")}/mês</span></p>
+<h2>Empresas Cadastradas</h2>
+<table><thead><tr><th>Empresa</th><th>Responsável</th><th>Membros/Assentos</th><th>Status</th><th>Cadastro</th><th>Plano</th><th>MRR</th></tr></thead><tbody>${rows}</tbody></table>
+<footer>SpeakFlow — Relatório confidencial gerado automaticamente</footer>
+</body></html>`;
+    const w = window.open("", "_blank");
+    if (!w) return;
+    w.document.write(html);
+    w.document.close();
+    w.focus();
+    setTimeout(() => w.print(), 500);
+  }
+
   return (
     <div className="min-h-screen bg-zinc-950 text-white p-6">
       <div className="max-w-7xl mx-auto space-y-6">
@@ -156,6 +211,9 @@ export default function SuperAdminPage() {
             </div>
           </div>
           <div className="flex gap-2">
+            <button onClick={exportSuperAdminPDF} className="flex items-center gap-1.5 rounded-lg border border-emerald-700/50 bg-emerald-900/20 px-3 py-1.5 text-sm text-emerald-400 hover:text-emerald-300 transition-colors">
+              <Download className="h-3.5 w-3.5" /> Exportar PDF
+            </button>
             <button onClick={load} className="flex items-center gap-1.5 rounded-lg border border-zinc-700 px-3 py-1.5 text-sm text-zinc-400 hover:text-white transition-colors">
               <RefreshCw className="h-3.5 w-3.5" /> Atualizar
             </button>

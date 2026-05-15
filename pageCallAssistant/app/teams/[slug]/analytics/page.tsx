@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { BarChart3, TrendingUp, Users, Mic2, Target, Loader2, Activity, Award } from "lucide-react";
+import { BarChart3, TrendingUp, Users, Mic2, Target, Loader2, Activity, Award, Download } from "lucide-react";
 import {
   ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
   BarChart, Bar, PieChart, Pie, Cell, Sector,
@@ -68,6 +68,50 @@ function Panel({ title, icon: Icon, iconColor, children, hint }: {
   );
 }
 
+function exportPDF(slug: string | string[], analytics: Analytics, engRate: number) {
+  const now = new Date().toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" });
+  const memberRows = [...analytics.topMembers]
+    .sort((a, b) => b.commScore - a.commScore)
+    .map((m, i) => `<tr><td>${i + 1}</td><td>${m.name}</td><td>${m.department ?? "—"}</td><td>${m.commScore}</td></tr>`)
+    .join("");
+  const html = `<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"/><title>Relatório ${slug}</title>
+<style>
+  body{font-family:Arial,sans-serif;color:#111;padding:32px;max-width:900px;margin:0 auto}
+  h1{font-size:22px;margin-bottom:4px} p.sub{color:#555;font-size:13px;margin-bottom:24px}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px}
+  .kpi{border:1px solid #e5e7eb;border-radius:8px;padding:16px;text-align:center}
+  .kpi .val{font-size:28px;font-weight:900;color:#7c3aed}
+  .kpi .lbl{font-size:12px;color:#555;margin-top:4px}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:24px}
+  th{background:#f3f4f6;text-align:left;padding:8px 10px;font-weight:600}
+  td{padding:8px 10px;border-bottom:1px solid #f3f4f6}
+  h2{font-size:15px;margin:24px 0 10px;border-bottom:2px solid #7c3aed;padding-bottom:6px}
+  footer{color:#999;font-size:11px;margin-top:32px;text-align:center}
+  @media print{body{padding:0}}
+</style></head><body>
+<h1>Relatório de Analytics — ${slug}</h1>
+<p class="sub">Gerado em ${now} · Últimos 30 dias</p>
+<div class="kpis">
+  <div class="kpi"><div class="val">${analytics.totalMembers}</div><div class="lbl">Membros</div></div>
+  <div class="kpi"><div class="val">${analytics.totalLiveSessions}</div><div class="lbl">Sessões Live</div></div>
+  <div class="kpi"><div class="val">${analytics.totalSubmissions}</div><div class="lbl">Submissões</div></div>
+  <div class="kpi"><div class="val">${analytics.totalCertifications}</div><div class="lbl">Certificações</div></div>
+</div>
+<table><tr><td><strong>Engajamento semanal</strong></td><td>${engRate}%</td><td><strong>Sessões esta semana</strong></td><td>${analytics.liveSessionsThisWeek}</td></tr>
+<tr><td><strong>Ativos esta semana</strong></td><td>${analytics.activeThisWeek}</td><td><strong>Submissões esta semana</strong></td><td>${analytics.submissionsThisWeek}</td></tr>
+<tr><td><strong>Score médio de comunicação</strong></td><td colspan="3">${analytics.avgCommunicationScore}</td></tr></table>
+<h2>Top Colaboradores por Score</h2>
+<table><thead><tr><th>#</th><th>Nome</th><th>Departamento</th><th>Score</th></tr></thead><tbody>${memberRows}</tbody></table>
+<footer>SpeakFlow for Teams · Relatório confidencial gerado automaticamente</footer>
+</body></html>`;
+  const w = window.open("", "_blank");
+  if (!w) return;
+  w.document.write(html);
+  w.document.close();
+  w.focus();
+  setTimeout(() => w.print(), 500);
+}
+
 export default function AnalyticsPage() {
   const { slug } = useParams();
   const [analytics, setAnalytics] = useState<Analytics | null>(null);
@@ -119,9 +163,17 @@ export default function AnalyticsPage() {
 
   return (
     <div className="p-5 md:p-8 max-w-6xl mx-auto space-y-6">
-      <div>
-        <h1 className="text-xl font-black text-white mb-1">Analytics</h1>
-        <p className="text-sm text-zinc-400">Evolução e engajamento da sua equipe — últimos 30 dias</p>
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h1 className="text-xl font-black text-white mb-1">Analytics</h1>
+          <p className="text-sm text-zinc-400">Evolução e engajamento da sua equipe — últimos 30 dias</p>
+        </div>
+        <button
+          onClick={() => exportPDF(slug, analytics, engRate)}
+          className="flex items-center gap-2 rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-zinc-300 hover:border-violet-500/50 hover:text-white transition-colors shrink-0"
+        >
+          <Download className="h-4 w-4" /> Exportar PDF
+        </button>
       </div>
 
       {/* KPI row */}
