@@ -45,9 +45,24 @@ export async function POST(req: NextRequest, { params }: Ctx) {
     return NextResponse.json({ ok: true, action: "rejected" });
   }
 
+  const organization = await (db as any).organization.findUnique({
+    where: { id: invite.orgId },
+    select: { seatLimit: true, isActive: true, _count: { select: { members: true } } },
+  });
+
+  if (!organization?.isActive) {
+    return NextResponse.json({ error: "Esta organização está suspensa. Entre em contato com o suporte." }, { status: 403 });
+  }
+
   const existingMember = await (db as any).orgMember.findUnique({
     where: { orgId_userId: { orgId: invite.orgId, userId: session.sub } },
   });
+
+  if (!existingMember && organization._count.members >= organization.seatLimit) {
+    return NextResponse.json({
+      error: `Limite de assentos atingido (${organization.seatLimit} membros). O administrador precisa aumentar o plano.`,
+    }, { status: 403 });
+  }
 
   if (!existingMember) {
     await (db as any).orgMember.create({

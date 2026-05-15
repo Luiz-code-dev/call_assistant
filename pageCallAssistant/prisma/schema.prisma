@@ -52,6 +52,8 @@ model User {
   jobTitle             String?
   department           String?
   b2bAccess            Boolean   @default(false)
+  b2bSeatLimit         Int       @default(5)
+  superAdmin           Boolean   @default(false)
   orgMemberships       OrgMember[]
   corpSubmissions      CorpChallengeSubmission[]
   certifications       CorporateCertification[]
@@ -335,6 +337,9 @@ model Organization {
   domain      String?
   industry    String?
   plan        String    @default("teams")
+  seatLimit   Int       @default(5)
+  isActive    Boolean   @default(true)
+  suspendedAt DateTime?
   cnpj        String?   @unique
   cnpjStatus  String?   @default("unverified")
   ownerId     String

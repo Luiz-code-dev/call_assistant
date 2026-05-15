@@ -51,6 +51,7 @@ export async function GET(req: NextRequest) {
   const secret = req.nextUrl.searchParams.get("secret");
   const email  = req.nextUrl.searchParams.get("email");
   const revoke = req.nextUrl.searchParams.get("revoke") === "1";
+  const seats  = Math.max(1, parseInt(req.nextUrl.searchParams.get("seats") ?? "5") || 5);
 
   if (!INTERNAL_SECRET || secret !== INTERNAL_SECRET) {
     return new NextResponse("<h2>Acesso negado.</h2>", { status: 403, headers: { "Content-Type": "text/html" } });
@@ -87,7 +88,7 @@ export async function GET(req: NextRequest) {
 
   await (db as any).user.update({
     where: { id: target.id },
-    data: { b2bAccess: !revoke },
+    data: { b2bAccess: !revoke, ...((!revoke) ? { b2bSeatLimit: seats } : {}) },
   });
 
   if (!revoke) {
@@ -98,7 +99,7 @@ export async function GET(req: NextRequest) {
     `<html><body style="font-family:sans-serif;padding:40px;max-width:500px;margin:auto">
       <h2 style="color:${revoke ? "#dc2626" : "#16a34a"}">${revoke ? "Acesso revogado" : "Acesso aprovado!"}</h2>
       <p>Usuario: <strong>${target.name}</strong> (${target.email})</p>
-      <p>${revoke ? "O acesso B2B foi removido." : "O usuario recebeu um e-mail de confirmacao e ja pode criar a organizacao."}</p>
+      <p>${revoke ? "O acesso B2B foi removido." : `Limite de assentos: <strong>${seats}</strong>. O usuario recebeu e-mail de confirmacao e ja pode criar a organizacao.`}</p>
     </body></html>`,
     { status: 200, headers: { "Content-Type": "text/html" } }
   );

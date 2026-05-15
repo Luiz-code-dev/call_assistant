@@ -33,7 +33,8 @@ export async function POST(req: NextRequest) {
       console.warn("[b2b-lead] B2B_NOTIFY_EMAIL não configurado — e-mail não enviado.");
     } else {
       const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://www.speakflow.ia.br";
-      const approveUrl = `${APP_URL}/api/admin/b2b-approve?secret=${process.env.INTERNAL_API_SECRET}&email=${encodeURIComponent(email)}`;
+      const seats = teamSize ? (parseInt(String(teamSize).replace(/\D.*/,"")) || 5) : 5;
+      const approveUrl = `${APP_URL}/api/admin/b2b-approve?secret=${process.env.INTERNAL_API_SECRET}&email=${encodeURIComponent(email)}&seats=${seats}`;
 
       console.log(`[b2b-lead] Enviando e-mail de ${FROM_EMAIL} para ${NOTIFY_EMAIL} ...`);
 

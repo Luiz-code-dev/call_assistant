@@ -25,6 +25,9 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ message: "Usuário não encontrado" }, { status: 404 });
   }
 
+  const rootEmail = (process.env.ROOT_ADMIN_EMAIL ?? "").toLowerCase().trim();
+  const isSuperAdmin = user.superAdmin === true || (!!rootEmail && user.email.toLowerCase() === rootEmail);
+
   return NextResponse.json({
     id: user.id,
     email: user.email,
@@ -35,5 +38,6 @@ export async function GET(req: NextRequest) {
     bio: user.bio ?? null,
     b2bAccess: user.b2bAccess ?? false,
     orgCount: user._count?.orgMemberships ?? 0,
+    superAdmin: isSuperAdmin,
   });
 }

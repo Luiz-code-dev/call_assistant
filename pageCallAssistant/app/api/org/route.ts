@@ -121,15 +121,21 @@ export async function POST(req: NextRequest) {
   const existing = await (db as any).organization.findUnique({ where: { slug } });
   if (existing) slug = `${slug}-${Date.now().toString(36)}`;
 
+  const ownerUser = await (db as any).user.findUnique({
+    where: { id: session.sub },
+    select: { b2bSeatLimit: true },
+  });
+
   const org = await (db as any).organization.create({
     data: {
-      name: cnpjRazao ? name.trim() : name.trim(),
+      name: name.trim(),
       slug,
       industry: industry ?? null,
       domain: domain ?? null,
       cnpj: cleanedCnpj,
       cnpjStatus,
       ownerId: session.sub,
+      seatLimit: ownerUser?.b2bSeatLimit ?? 5,
       members: {
         create: { userId: session.sub, role: "owner" },
       },
