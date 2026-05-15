@@ -12,10 +12,10 @@ import {
   ChevronRight, Bell, Wrench, Lock, Lightbulb,
   Home, Settings, CreditCard, X, LogOut, MessageSquare,
   Flame, Heart, Newspaper, Download, UserCircle, Smartphone, Share, Monitor,
-  Volume2, VolumeX, Loader2, Building2, ShieldCheck,
+  Volume2, VolumeX, Loader2, Building2, ShieldCheck, BarChart3,
 } from "lucide-react";
 
-interface UserData { id: string; name: string; avatarUrl: string | null; plan: string; b2bAccess?: boolean; orgCount?: number; superAdmin?: boolean; }
+interface UserData { id: string; name: string; avatarUrl: string | null; plan: string; b2bAccess?: boolean; orgCount?: number; superAdmin?: boolean; crmAccess?: boolean; }
 interface CircleData {
   id: string; name: string; focus: string;
   _count: { members: number };
@@ -222,6 +222,17 @@ function UserMenu({ user }: { user: UserData }) {
               <MessageSquare className="size-4" /> Suporte
             </Link>
           </div>
+          {user.crmAccess && (
+            <div className="border-t border-zinc-800 py-1">
+              <Link
+                href="/crm"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-3 px-4 py-2.5 text-sm text-emerald-400 hover:bg-emerald-500/10 hover:text-emerald-300 transition-colors"
+              >
+                <BarChart3 className="size-4" /> CRM & Growth
+              </Link>
+            </div>
+          )}
           {user.superAdmin && (
             <div className="border-t border-zinc-800 py-1">
               <Link

@@ -54,6 +54,7 @@ model User {
   b2bAccess            Boolean   @default(false)
   b2bSeatLimit         Int       @default(5)
   superAdmin           Boolean   @default(false)
+  crmAccess            Boolean   @default(false)
   orgMemberships       OrgMember[]
   corpSubmissions      CorpChallengeSubmission[]
   certifications       CorporateCertification[]
@@ -501,4 +502,42 @@ model OrgLiveSession {
   @@index([orgId])
   @@index([orgId, userId])
   @@index([orgId, createdAt])
+}
+
+model CrmLead {
+  id          String       @id @default(cuid())
+  name        String
+  email       String
+  phone       String?
+  company     String?
+  role        String?
+  teamSize    String?
+  origin      String       @default("manual")
+  status      String       @default("novo")
+  score       Int          @default(0)
+  notes       String?      @db.Text
+  lastContact DateTime?
+  assignedTo  String?
+  userId      String?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  activities  CrmActivity[]
+
+  @@index([status])
+  @@index([email])
+  @@index([createdAt])
+}
+
+model CrmActivity {
+  id        String   @id @default(cuid())
+  leadId    String
+  authorId  String
+  type      String   @default("note")
+  content   String   @db.Text
+  createdAt DateTime @default(now())
+
+  lead CrmLead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+
+  @@index([leadId])
 }

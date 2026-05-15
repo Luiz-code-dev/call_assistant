@@ -47,6 +47,8 @@ export default function SuperAdminPage() {
   const [saving, setSaving] = useState(false);
   const [newAdminEmail, setNewAdminEmail] = useState("");
   const [grantingAdmin, setGrantingAdmin] = useState(false);
+  const [crmEmail, setCrmEmail] = useState("");
+  const [grantingCrm, setGrantingCrm] = useState(false);
   const [rootEmail, setRootEmail] = useState("");
   const [sortBy, setSortBy] = useState<"name" | "members" | "seats" | "created">("created");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
@@ -116,6 +118,23 @@ export default function SuperAdminPage() {
       toast.error(d.error ?? "Erro.");
     }
     setGrantingAdmin(false);
+  }
+
+  async function handleGrantCrm(grant: boolean) {
+    if (!crmEmail.trim()) return;
+    setGrantingCrm(true);
+    const res = await authFetch("/api/superadmin/crm-access", {
+      method: "POST",
+      body: JSON.stringify({ email: crmEmail.trim(), grant }),
+    });
+    if (res.ok) {
+      toast.success(grant ? `${crmEmail} pode acessar o CRM.` : `Acesso CRM revogado de ${crmEmail}.`);
+      setCrmEmail("");
+    } else {
+      const d = await res.json().catch(() => ({}));
+      toast.error(d.error ?? "Erro.");
+    }
+    setGrantingCrm(false);
   }
 
   function toggleSort(col: typeof sortBy) {
@@ -402,6 +421,43 @@ export default function SuperAdminPage() {
               )}
             </div>
           )}
+        </div>
+
+        {/* CRM Access */}
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+          <div className="flex items-center gap-2 mb-4">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-600/20 border border-emerald-500/20">
+              <Download className="h-4 w-4 text-emerald-400" />
+            </div>
+            <div>
+              <h2 className="text-sm font-bold text-white">Equipe Comercial — CRM Access</h2>
+              <p className="text-xs text-zinc-500">Libere acesso ao CRM & Growth Center para membros do time</p>
+            </div>
+          </div>
+          <div className="flex gap-2">
+            <input
+              type="email"
+              value={crmEmail}
+              onChange={e => setCrmEmail(e.target.value)}
+              placeholder="email@empresa.com"
+              className="flex-1 rounded-xl border border-zinc-700 bg-zinc-800/50 px-3 py-2 text-sm text-white placeholder:text-zinc-500 focus:border-emerald-500 focus:outline-none"
+            />
+            <button
+              onClick={() => handleGrantCrm(true)}
+              disabled={grantingCrm || !crmEmail.trim()}
+              className="flex items-center gap-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 px-4 py-2 text-sm font-semibold text-white transition-colors"
+            >
+              {grantingCrm ? <Loader2 className="h-4 w-4 animate-spin" /> : <UserPlus className="h-4 w-4" />}
+              Liberar
+            </button>
+            <button
+              onClick={() => handleGrantCrm(false)}
+              disabled={grantingCrm || !crmEmail.trim()}
+              className="flex items-center gap-1.5 rounded-xl border border-zinc-700 hover:border-red-500/50 disabled:opacity-50 px-3 py-2 text-sm text-zinc-400 hover:text-red-400 transition-colors"
+            >
+              Revogar
+            </button>
+          </div>
         </div>
 
       </div>

@@ -39,5 +39,6 @@ export async function GET(req: NextRequest) {
     b2bAccess: user.b2bAccess ?? false,
     orgCount: user._count?.orgMemberships ?? 0,
     superAdmin: isSuperAdmin,
+    crmAccess: isSuperAdmin || user.crmAccess === true,
   });
 }
