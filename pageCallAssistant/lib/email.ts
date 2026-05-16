@@ -461,6 +461,84 @@ export async function sendOrgInviteEmail(
   }).catch((err: unknown) => console.error("[sendOrgInviteEmail]", err));
 }
 
+export async function sendCrmAccessEmail(
+  toEmail: string,
+  name: string,
+  grant: boolean
+) {
+  const firstName = name?.split(" ")[0] || "usuário";
+  const crmLink = `${APP_URL}/crm`;
+
+  if (!resend) {
+    console.log(`[DEV] CRM access email (${grant ? "grant" : "revoke"}) to ${toEmail}`);
+    return;
+  }
+
+  if (grant) {
+    await resend.emails.send({
+      from: FROM_EMAIL,
+      to: toEmail,
+      subject: "📊 Você agora tem acesso ao CRM & Growth Center — SpeakFlow",
+      html: `
+        <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:0;background:#09090b;color:#fafafa;border-radius:16px;overflow:hidden">
+          <div style="background:linear-gradient(135deg,#064e3b,#065f46,#1e3a5c);padding:36px 28px;text-align:center">
+            <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:20px">
+              <img src="${APP_URL}/icon.svg" width="38" height="38" alt="" style="display:inline-block;border-radius:10px;vertical-align:middle" />
+              <span style="font-weight:800;font-size:21px;color:#fff;vertical-align:middle;letter-spacing:-0.5px">SpeakFlow</span>
+            </div>
+            <div style="font-size:48px;margin-bottom:12px">📊</div>
+            <h1 style="font-size:24px;font-weight:800;margin:0 0 6px;color:#fff">Acesso liberado, ${firstName}!</h1>
+            <p style="color:#6ee7b7;margin:0;font-size:15px">Você agora faz parte da equipe comercial</p>
+          </div>
+          <div style="padding:32px 28px">
+            <p style="color:#d4d4d8;font-size:15px;line-height:1.6;margin:0 0 24px">
+              O administrador liberou seu acesso ao <strong style="color:#fff">CRM &amp; Growth Center</strong> do SpeakFlow. Você já pode acessar o painel comercial com leads, pipeline, analytics e muito mais.
+            </p>
+            <div style="background:#18181b;border:1px solid #27272a;border-radius:12px;padding:20px;margin-bottom:24px">
+              <p style="margin:0 0 12px;font-size:13px;font-weight:600;color:#34d399;text-transform:uppercase;letter-spacing:0.05em">O que você pode fazer agora</p>
+              <ul style="margin:0;padding-left:18px;color:#d4d4d8;font-size:14px;line-height:2">
+                <li>📋 Gerenciar e criar leads comerciais</li>
+                <li>🚀 Visualizar o pipeline de vendas (Kanban)</li>
+                <li>📈 Acompanhar métricas de crescimento e MRR</li>
+                <li>👥 Explorar usuários da plataforma por plano</li>
+              </ul>
+            </div>
+            <div style="text-align:center">
+              <a href="${crmLink}" style="display:inline-block;background:linear-gradient(135deg,#059669,#047857);color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:14px 32px;border-radius:10px">
+                Acessar CRM &amp; Growth Center →
+              </a>
+            </div>
+          </div>
+          <div style="background:#09090b;padding:16px 28px;border-top:1px solid #18181b">
+            <p style="color:#3f3f46;font-size:11px;margin:0">SpeakFlow · speakflow.ia.br</p>
+          </div>
+        </div>
+      `,
+    }).catch((err: unknown) => console.error("[sendCrmAccessEmail grant]", err));
+  } else {
+    await resend.emails.send({
+      from: FROM_EMAIL,
+      to: toEmail,
+      subject: "Acesso ao CRM removido — SpeakFlow",
+      html: `
+        <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:32px 24px;background:#09090b;color:#fafafa;border-radius:12px">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:28px">
+            <img src="${APP_URL}/icon.svg" width="36" height="36" alt="" style="display:block;border-radius:9px" />
+            <span style="font-weight:800;font-size:20px;letter-spacing:-0.5px">SpeakFlow</span>
+          </div>
+          <h1 style="font-size:22px;font-weight:800;margin:0 0 8px">Olá, ${firstName}</h1>
+          <p style="color:#a1a1aa;margin:0 0 20px;font-size:15px;line-height:1.6">
+            Seu acesso ao <strong style="color:#fafafa">CRM &amp; Growth Center</strong> foi removido pelo administrador. Se acredita que isso foi um engano, entre em contato com o suporte.
+          </p>
+          <p style="color:#52525b;font-size:12px;margin-top:28px">Equipe SpeakFlow</p>
+          <hr style="border:none;border-top:1px solid #27272a;margin:24px 0"/>
+          <p style="color:#3f3f46;font-size:11px">SpeakFlow · speakflow.ia.br</p>
+        </div>
+      `,
+    }).catch((err: unknown) => console.error("[sendCrmAccessEmail revoke]", err));
+  }
+}
+
 export async function sendPromoWelcomeEmail(email: string, name: string, verifyLink: string) {
   if (!resend) {
     console.log(`[DEV] Promo welcome email would be sent to ${email}`);
