@@ -7,7 +7,8 @@ import {
   Plus, Search, Filter, ChevronDown, X, Check, Loader2,
   RefreshCw, Edit2, Trash2, MessageSquare, Clock, ArrowRight,
   Briefcase, Mail, Phone, Tag, Star, Home, LogOut, Activity,
-  UserPlus, Zap, Globe, ChevronRight,
+  UserPlus, Zap, Globe, ChevronRight, Download, Upload, FileText,
+  CalendarCheck, ChevronUp,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -94,6 +95,11 @@ export default function CRMPage() {
   const [saving, setSaving] = useState(false);
   const [noteText, setNoteText] = useState("");
   const [addingNote, setAddingNote] = useState(false);
+  const [showImport, setShowImport] = useState(false);
+  const [importText, setImportText] = useState("");
+  const [importing, setImporting] = useState(false);
+  const [inlineStatusLead, setInlineStatusLead] = useState<string | null>(null);
+  const [markingContact, setMarkingContact] = useState(false);
 
   const loadStats = useCallback(async () => {
     const r = await authFetch("/api/crm/stats");
@@ -176,6 +182,50 @@ export default function CRMPage() {
     });
     if (r.ok) { toast.success(`Lead criado para ${u.name}`); loadStats(); }
     else toast.error("Erro ao criar lead");
+  }
+
+  function exportCSV() {
+    const header = ["Nome","Email","Telefone","Empresa","Cargo","Tamanho time","Origem","Status","Score","Último contato"];
+    const rows = leads.map(l => [
+      l.name, l.email, l.phone ?? "", l.company ?? "", l.role ?? "",
+      l.teamSize ?? "", l.origin, l.status, String(l.score),
+      l.lastContact ? new Date(l.lastContact).toLocaleDateString("pt-BR") : "",
+    ]);
+    const csv = [header, ...rows].map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(",")).join("\n");
+    const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a"); a.href = url; a.download = `leads_${new Date().toISOString().slice(0,10)}.csv`; a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  async function importCSV() {
+    const lines = importText.trim().split("\n").filter(Boolean);
+    if (lines.length === 0) { toast.error("Nenhuma linha para importar."); return; }
+    setImporting(true);
+    let ok = 0, fail = 0;
+    for (const line of lines) {
+      const cols = line.split(",").map(c => c.trim().replace(/^"|"$/g, ""));
+      const [name, email, phone, company, role] = cols;
+      if (!name || !email) { fail++; continue; }
+      const r = await authFetch("/api/crm/leads", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone, company, role, origin: "import" }),
+      });
+      if (r.ok) ok++; else fail++;
+    }
+    toast.success(`${ok} leads importados${fail > 0 ? ` · ${fail} com erro` : ""}.`);
+    setImportText(""); setShowImport(false); loadLeads(); loadStats();
+    setImporting(false);
+  }
+
+  async function markContactNow(leadId: string) {
+    setMarkingContact(true);
+    const r = await authFetch(`/api/crm/leads/${leadId}`, {
+      method: "PATCH", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ addNote: "Contato realizado.", lastContact: new Date().toISOString() }),
+    });
+    if (r.ok) { toast.success("Contato registrado!"); openLead({ id: leadId } as Lead); }
+    setMarkingContact(false);
   }
 
   function openNewLead() { setEditingLead(null); setForm({ ...EMPTY_FORM }); setShowLeadModal(true); }
@@ -335,15 +385,27 @@ export default function CRMPage() {
         {/* ── LEADS ─────────────────────────────────────────────── */}
         {tab === "leads" && (
           <>
-            <div className="flex items-center justify-between gap-4">
+            <div className="flex items-start justify-between gap-3 flex-wrap">
               <div>
                 <h1 className="text-2xl font-black text-white">Gestão de Leads</h1>
                 <p className="text-sm text-zinc-400 mt-0.5">{totalLeads} leads no total</p>
               </div>
-              <button onClick={openNewLead}
-                className="flex items-center gap-2 rounded-xl bg-violet-600 hover:bg-violet-500 px-4 py-2.5 text-sm font-semibold text-white transition-colors">
-                <Plus className="h-4 w-4" /> Novo Lead
-              </button>
+              <div className="flex items-center gap-2 flex-wrap">
+                <button onClick={exportCSV} disabled={leads.length === 0}
+                  title="Exportar CSV"
+                  className="flex items-center gap-1.5 rounded-xl border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-white hover:border-zinc-500 disabled:opacity-40 transition-colors">
+                  <Download className="h-3.5 w-3.5" /> Exportar
+                </button>
+                <button onClick={() => setShowImport(true)}
+                  title="Importar CSV"
+                  className="flex items-center gap-1.5 rounded-xl border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-white hover:border-zinc-500 transition-colors">
+                  <Upload className="h-3.5 w-3.5" /> Importar
+                </button>
+                <button onClick={openNewLead}
+                  className="flex items-center gap-2 rounded-xl bg-violet-600 hover:bg-violet-500 px-4 py-2 text-sm font-semibold text-white transition-colors">
+                  <Plus className="h-4 w-4" /> Novo Lead
+                </button>
+              </div>
             </div>
 
             {/* Filters */}
@@ -399,7 +461,26 @@ export default function CRMPage() {
                           <p className="text-zinc-300">{lead.company ?? "—"}</p>
                           <p className="text-xs text-zinc-500">{lead.role ?? ""}</p>
                         </td>
-                        <td className="px-3 py-3"><StatusBadge status={lead.status} /></td>
+                        <td className="px-3 py-3" onClick={e => e.stopPropagation()}>
+                          <div className="relative">
+                            <button onClick={() => setInlineStatusLead(inlineStatusLead === lead.id ? null : lead.id)}
+                              className="flex items-center gap-1">
+                              <StatusBadge status={lead.status} />
+                              <ChevronDown className="h-3 w-3 text-zinc-600" />
+                            </button>
+                            {inlineStatusLead === lead.id && (
+                              <div className="absolute left-0 top-full mt-1 z-20 w-36 rounded-xl border border-zinc-700 bg-zinc-900 shadow-xl overflow-hidden">
+                                {STATUSES.map(s => (
+                                  <button key={s.value} onClick={() => { updateStatus(lead.id, s.value); setInlineStatusLead(null); }}
+                                    className={`w-full text-left px-3 py-2 text-xs font-medium hover:bg-zinc-800 transition-colors
+                                      ${lead.status === s.value ? "text-white bg-zinc-800" : "text-zinc-400"}`}>
+                                    {s.label}
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        </td>
                         <td className="hidden md:table-cell px-3 py-3"><ScoreDots score={lead.score} /></td>
                         <td className="hidden md:table-cell px-3 py-3 text-xs text-zinc-500">
                           {lead.lastContact ? new Date(lead.lastContact).toLocaleDateString("pt-BR") : "—"}
@@ -561,7 +642,7 @@ export default function CRMPage() {
             </div>
 
             <div className="p-5 space-y-5 flex-1">
-              {/* Status row */}
+              {/* Status row + quick actions */}
               <div className="flex flex-wrap gap-2">
                 {STATUSES.map(s => (
                   <button key={s.value} onClick={() => updateStatus(selectedLead.id, s.value)}
@@ -570,6 +651,26 @@ export default function CRMPage() {
                     {s.label}
                   </button>
                 ))}
+              </div>
+              {/* Quick actions */}
+              <div className="flex gap-2">
+                <button onClick={() => markContactNow(selectedLead.id)} disabled={markingContact}
+                  className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-emerald-700/50 bg-emerald-900/20 px-3 py-2 text-xs font-semibold text-emerald-400 hover:bg-emerald-900/40 disabled:opacity-50 transition-colors">
+                  {markingContact ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <CalendarCheck className="h-3.5 w-3.5" />}
+                  Marcar contato agora
+                </button>
+                {selectedLead.phone && (
+                  <a href={`tel:${selectedLead.phone}`}
+                    className="flex items-center gap-1.5 rounded-xl border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-white transition-colors">
+                    <Phone className="h-3.5 w-3.5" /> Ligar
+                  </a>
+                )}
+                {selectedLead.email && (
+                  <a href={`mailto:${selectedLead.email}`}
+                    className="flex items-center gap-1.5 rounded-xl border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-400 hover:text-white transition-colors">
+                    <Mail className="h-3.5 w-3.5" /> E-mail
+                  </a>
+                )}
               </div>
 
               {/* Info grid */}
@@ -683,6 +784,48 @@ export default function CRMPage() {
                 className="flex items-center gap-2 rounded-xl bg-violet-600 hover:bg-violet-500 disabled:opacity-50 px-5 py-2.5 text-sm font-semibold text-white transition-colors">
                 {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Check className="h-4 w-4" />}
                 {editingLead ? "Salvar" : "Criar"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── IMPORT CSV MODAL ──────────────────────────────────── */}
+      {showImport && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setShowImport(false)} />
+          <div className="relative w-full max-w-lg rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl overflow-hidden">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-zinc-800">
+              <div className="flex items-center gap-2">
+                <FileText className="h-4 w-4 text-violet-400" />
+                <h2 className="font-bold text-white">Importar Leads via CSV</h2>
+              </div>
+              <button onClick={() => setShowImport(false)} className="text-zinc-500 hover:text-white"><X className="h-5 w-5" /></button>
+            </div>
+            <div className="p-5 space-y-4">
+              <div className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-4 text-xs text-zinc-400 space-y-1">
+                <p className="font-semibold text-zinc-300">Formato esperado (uma linha por lead):</p>
+                <code className="block text-emerald-400 font-mono">Nome, Email, Telefone, Empresa, Cargo</code>
+                <p className="text-zinc-500">Cabeçalho opcional. Linhas sem nome ou e-mail serão ignoradas.</p>
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-zinc-400 mb-1.5">Cole os dados aqui</label>
+                <textarea
+                  rows={8}
+                  value={importText}
+                  onChange={e => setImportText(e.target.value)}
+                  placeholder={"João Silva, joao@empresa.com, 11999990000, Acme Corp, CEO\nMaria Souza, maria@startup.com, , Startup XYZ, CTO"}
+                  className="w-full rounded-xl border border-zinc-700 bg-zinc-800/50 px-3 py-2.5 text-sm text-white placeholder:text-zinc-600 resize-none focus:border-violet-500 focus:outline-none font-mono"
+                />
+                <p className="text-xs text-zinc-600 mt-1">{importText.trim().split("\n").filter(Boolean).length} linhas detectadas</p>
+              </div>
+            </div>
+            <div className="flex justify-end gap-3 px-5 py-4 border-t border-zinc-800">
+              <button onClick={() => setShowImport(false)} className="rounded-xl border border-zinc-700 px-4 py-2.5 text-sm text-zinc-400 hover:text-white transition-colors">Cancelar</button>
+              <button onClick={importCSV} disabled={importing || !importText.trim()}
+                className="flex items-center gap-2 rounded-xl bg-violet-600 hover:bg-violet-500 disabled:opacity-50 px-5 py-2.5 text-sm font-semibold text-white transition-colors">
+                {importing ? <Loader2 className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4" />}
+                {importing ? "Importando..." : "Importar"}
               </button>
             </div>
           </div>
