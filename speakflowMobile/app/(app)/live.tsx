@@ -20,7 +20,7 @@ const LANGUAGES = [
   { code: "de-DE", label: "🇩🇪 Alemão" },
 ];
 
-const MAX_SEGMENT_MS  = 25000;  // safety ceiling — never more than 25s
+const MAX_SEGMENT_MS  = 12000;  // safety fallback when metering unavailable
 const MIN_SPEECH_MS   = 1500;   // ignore silence in first 1.5s (mic warmup + phantom spikes)
 const SILENCE_DB      = -50;    // dBFS below this = silence (mobile mic levels are typically -40 to -20)
 const SILENCE_MS      = 2500;   // 2.5s of continuous silence → process
@@ -48,8 +48,9 @@ export default function LiveScreen() {
 
   const [silenceLeft, setSilenceLeft] = useState<number | null>(null); // ms remaining to trigger
 
-  const audioRecorder = useAudioRecorder(RecordingPresets.HIGH_QUALITY);
+  const audioRecorder = useAudioRecorder({ ...RecordingPresets.HIGH_QUALITY, isMeteringEnabled: true });
   const recorderState = useAudioRecorderState(audioRecorder, 150);
+  const recorderStateRef = useRef(recorderState);
   const sessionIdRef = useRef<string>(`live_${Date.now()}`);
   const maxSegmentTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const silenceStartRef = useRef<number | null>(null);
@@ -57,11 +58,14 @@ export default function LiveScreen() {
   const scrollRef = useRef<ScrollView>(null);
   const autoRunning = useRef(false);
   const processingRef = useRef(false);  // guard against double-trigger
-  const spikeStartRef = useRef<number | null>(null); // tracks brief noise spikes
+  const spikeStartRef = useRef<number | null>(null);
+  const vadIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const clearTimers = useCallback(() => {
     if (maxSegmentTimerRef.current) { clearTimeout(maxSegmentTimerRef.current); maxSegmentTimerRef.current = null; }
+    if (vadIntervalRef.current) { clearInterval(vadIntervalRef.current); vadIntervalRef.current = null; }
     silenceStartRef.current = null;
+    spikeStartRef.current = null;
     setSilenceLeft(null);
   }, []);
 
@@ -141,6 +145,42 @@ export default function LiveScreen() {
     audioRecorder.record();
     // Safety: force-process after MAX_SEGMENT_MS even if no silence detected
     maxSegmentTimerRef.current = setTimeout(() => processAudio(), MAX_SEGMENT_MS);
+
+    // ── VAD: interval-based (NOT useEffect) so silence duration accumulates even when dBFS is stable ──
+    if (vadIntervalRef.current) clearInterval(vadIntervalRef.current);
+    vadIntervalRef.current = setInterval(() => {
+      if (!autoRunning.current || processingRef.current) return;
+      const db: number | undefined = recorderStateRef.current.metering;
+      if (db === undefined || db === null) return; // metering unavailable — rely on safety timer
+
+      const elapsed = Date.now() - recordStartRef.current;
+      if (elapsed < MIN_SPEECH_MS) return; // ignore first 1.5s
+
+      if (db < SILENCE_DB) {
+        spikeStartRef.current = null;
+        if (!silenceStartRef.current) silenceStartRef.current = Date.now();
+        const silenceDuration = Date.now() - silenceStartRef.current;
+        const remaining = Math.max(0, SILENCE_MS - silenceDuration);
+        setSilenceLeft(remaining);
+        if (silenceDuration >= SILENCE_MS) {
+          clearInterval(vadIntervalRef.current!);
+          vadIntervalRef.current = null;
+          processAudioRef.current();
+        }
+      } else {
+        if (silenceStartRef.current !== null) {
+          if (!spikeStartRef.current) spikeStartRef.current = Date.now();
+          if (Date.now() - spikeStartRef.current >= SPIKE_GRACE_MS) {
+            silenceStartRef.current = null;
+            setSilenceLeft(null);
+            spikeStartRef.current = null;
+          }
+        } else {
+          spikeStartRef.current = null;
+          setSilenceLeft(null);
+        }
+      }
+    }, 150);
   }, [audioRecorder, processAudio]);
 
   const startRecording = useCallback(async () => {
@@ -171,49 +211,11 @@ export default function LiveScreen() {
     sessionIdRef.current = `live_${Date.now()}`;
   }, [audioRecorder, clearTimers, recordState]);
 
-  // ── VAD: silence detection via metering ──
+  // keep recorderStateRef in sync so the VAD interval can read latest metering without stale closure
+  useEffect(() => { recorderStateRef.current = recorderState; });
+
   const processAudioRef = useRef(processAudio);
   useEffect(() => { processAudioRef.current = processAudio; });
-
-  useEffect(() => {
-    if (recordState !== "recording" || !autoRunning.current) {
-      silenceStartRef.current = null;
-      setSilenceLeft(null);
-      return;
-    }
-    const db: number | undefined = recorderState.metering;
-    if (db === undefined || db === null) return;
-
-    const elapsed = Date.now() - recordStartRef.current;
-    if (elapsed < MIN_SPEECH_MS) return; // too early
-
-    if (db < SILENCE_DB) {
-      // === SILENCE ===
-      spikeStartRef.current = null;
-      if (!silenceStartRef.current) silenceStartRef.current = Date.now();
-      const silenceDuration = Date.now() - silenceStartRef.current;
-      const remaining = Math.max(0, SILENCE_MS - silenceDuration);
-      setSilenceLeft(remaining);
-      if (silenceDuration >= SILENCE_MS) processAudioRef.current();
-    } else {
-      // === SOUND ===
-      if (silenceStartRef.current !== null) {
-        // Something loud — but is it sustained speech or a brief spike?
-        if (!spikeStartRef.current) spikeStartRef.current = Date.now();
-        const spikeDuration = Date.now() - spikeStartRef.current;
-        if (spikeDuration >= SPIKE_GRACE_MS) {
-          // Sustained speech — truly reset silence counter
-          silenceStartRef.current = null;
-          setSilenceLeft(null);
-          spikeStartRef.current = null;
-        }
-        // else: brief spike — keep silence counter running
-      } else {
-        spikeStartRef.current = null;
-        setSilenceLeft(null);
-      }
-    }
-  }, [recorderState.metering, recordState]);
 
   const handleTranslatePhrase = useCallback(async () => {
     if (!phraseText.trim() || phraseLoading) return;
