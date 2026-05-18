@@ -60,31 +60,42 @@ export async function sendSupportEmail(
       to: process.env.SUPPORT_EMAIL || "luiz.melo@cdsolutions.com.br",
       replyTo: email,
       subject: `[Suporte SpeakFlow] Mensagem de ${name}`,
-      html: `
-        <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:32px 24px;background:#09090b;color:#fafafa;border-radius:12px">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px">
-            <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#4f46e5);display:flex;align-items:center;justify-content:center">
-              <span style="color:#fff;font-weight:bold">✦</span>
-            </div>
-            <span style="font-weight:700;font-size:18px">Spark · SpeakFlow</span>
-          </div>
-          <h2 style="font-size:20px;font-weight:700;margin:0 0 16px;color:#a78bfa">📬 Nova mensagem de suporte</h2>
-          <table style="width:100%;border-collapse:collapse;margin-bottom:16px">
-            <tr>
-              <td style="padding:6px 0;color:#71717a;font-size:13px;width:70px;vertical-align:top">Nome</td>
-              <td style="padding:6px 0;font-size:14px">${name}</td>
-            </tr>
-            <tr>
-              <td style="padding:6px 0;color:#71717a;font-size:13px;vertical-align:top">E-mail</td>
-              <td style="padding:6px 0;font-size:14px"><a href="mailto:${email}" style="color:#818cf8;text-decoration:none">${email}</a></td>
-            </tr>
-          </table>
-          <hr style="border:none;border-top:1px solid #27272a;margin:16px 0" />
-          <p style="color:#71717a;font-size:12px;text-transform:uppercase;letter-spacing:.05em;margin:0 0 8px">Mensagem</p>
-          <p style="background:#18181b;border:1px solid #27272a;border-radius:8px;padding:14px;font-size:14px;margin:0;line-height:1.6">${question}</p>
-          <p style="margin-top:24px;font-size:11px;color:#3f3f46">Enviado pelo Spark — assistente de suporte SpeakFlow · speakf.com.br</p>
-        </div>
-      `,
+      text: `Nova mensagem de suporte — SpeakFlow\n\nNome: ${name}\nE-mail: ${email}\n\nMensagem:\n${question}\n\n---\nEnviado pelo app SpeakFlow`,
+      html: `<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><title>Suporte SpeakFlow</title></head>
+<body style="margin:0;padding:0;background-color:#f4f4f4;font-family:Arial,sans-serif">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f4f4;padding:24px 0">
+    <tr><td align="center">
+      <table width="520" cellpadding="0" cellspacing="0" style="background-color:#ffffff;border-radius:8px;border:1px solid #e0e0e0;overflow:hidden">
+        <tr>
+          <td style="background-color:#6d28d9;padding:20px 24px">
+            <span style="color:#ffffff;font-size:18px;font-weight:bold">SpeakFlow &mdash; Suporte</span>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:24px">
+            <h2 style="margin:0 0 16px;font-size:16px;color:#111111">Nova mensagem recebida</h2>
+            <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-bottom:20px">
+              <tr>
+                <td style="padding:8px 0;color:#555555;font-size:13px;width:80px;vertical-align:top;border-bottom:1px solid #eeeeee">Nome</td>
+                <td style="padding:8px 0;font-size:14px;color:#111111;border-bottom:1px solid #eeeeee">${name}</td>
+              </tr>
+              <tr>
+                <td style="padding:8px 0;color:#555555;font-size:13px;vertical-align:top;border-bottom:1px solid #eeeeee">E-mail</td>
+                <td style="padding:8px 0;font-size:14px;color:#111111;border-bottom:1px solid #eeeeee">${email}</td>
+              </tr>
+            </table>
+            <p style="margin:0 0 8px;font-size:12px;color:#888888;text-transform:uppercase;letter-spacing:0.05em">Mensagem</p>
+            <p style="margin:0;background-color:#f9f9f9;border:1px solid #e0e0e0;border-radius:6px;padding:14px;font-size:14px;color:#333333;line-height:1.6;white-space:pre-wrap">${question}</p>
+            <p style="margin-top:24px;font-size:11px;color:#aaaaaa">Enviado pelo app SpeakFlow</p>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`,
     });
 
     if (sendError) {
