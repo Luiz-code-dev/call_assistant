@@ -4,11 +4,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
 import { useAuthStore } from "@presentation/stores/authStore";
 
-const QUICK_ACTIONS = [
-  { emoji: "✍️", label: "Melhorar texto",  route: "/(app)/tools/improve"    as const },
-  { emoji: "💬", label: "Gerar resposta",  route: "/(app)/tools/generate"   as const },
-  { emoji: "🎯", label: "Entrevista",      route: "/(app)/tools/interview"  as const },
-  { emoji: "🎙️", label: "Live Assist",    route: "/(app)/live"             as const },
+const QUICK_ACTIONS: { emoji: string; label: string; route: string }[] = [
+  { emoji: "✍️", label: "Melhorar texto",  route: "/(app)/tools/improve"   },
+  { emoji: "💬", label: "Gerar resposta",  route: "/(app)/tools/generate"  },
+  { emoji: "🎯", label: "Entrevista",      route: "/(app)/tools/interview" },
+  { emoji: "🎙️", label: "Live Assist",    route: "/(app)/live"            },
+  { emoji: "📨", label: "Mensagens",       route: "/(app)/chat"            },
 ];
 
 export default function HomeScreen() {
@@ -80,7 +81,7 @@ export default function HomeScreen() {
             {QUICK_ACTIONS.map((action) => (
               <TouchableOpacity
                 key={action.route}
-                onPress={() => router.push(action.route)}
+                onPress={() => router.push(action.route as never)}
                 className="flex-1 min-w-[140px] bg-zinc-900 border border-zinc-800 rounded-2xl p-4 items-center gap-2"
                 activeOpacity={0.7}
               >

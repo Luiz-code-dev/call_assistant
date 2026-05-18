@@ -6,7 +6,7 @@ export const NotificationsApi = {
     return ApiClient.post<void>("/api/push/register-fcm", { fcmToken, platform });
   },
 
-  async unregisterToken(fcmToken: string): Promise<Result<void>> {
-    return ApiClient.post<void>("/api/push/unregister-fcm", { fcmToken });
+  async unregisterToken(): Promise<Result<void>> {
+    return ApiClient.delete<void>("/api/push/register-fcm");
   },
 };

@@ -41,10 +41,11 @@ export default function AppLayout() {
         name="tools/index"
         options={{
           tabBarIcon: ({ focused }) => (
-            <TabIcon emoji="🧰" label="Tools" focused={focused} />
+            <TabIcon emoji="🔧" label="Tools" focused={focused} />
           ),
         }}
       />
+      <Tabs.Screen name="chat" options={{ tabBarButton: () => null }} />
       <Tabs.Screen name="empresa" options={{ tabBarButton: () => null }} />
       <Tabs.Screen name="crm" options={{ tabBarButton: () => null }} />
       <Tabs.Screen name="admin" options={{ tabBarButton: () => null }} />

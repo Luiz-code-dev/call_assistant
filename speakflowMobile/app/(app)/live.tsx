@@ -84,6 +84,11 @@ export default function LiveScreen() {
       return;
     }
 
+    await AudioModule.setAudioModeAsync({
+      allowsRecording: true,
+      playsInSilentMode: true,
+    });
+
     setError(null);
     setCountdown(AUTO_STOP_SECONDS);
     setSessionState("recording");
