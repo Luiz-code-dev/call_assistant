@@ -7,15 +7,35 @@
     "noImplicitReturns": true,
     "exactOptionalPropertyTypes": false,
     "jsx": "react-native",
-    "lib": ["ES2019", "DOM"],
+    "lib": [
+      "ES2019",
+      "DOM"
+    ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@domain/*": ["src/domain/*"],
-      "@infrastructure/*": ["src/infrastructure/*"],
-      "@presentation/*": ["src/presentation/*"],
-      "@shared/*": ["src/shared/*"]
+      "@/*": [
+        "src/*"
+      ],
+      "@domain/*": [
+        "src/domain/*"
+      ],
+      "@infrastructure/*": [
+        "src/infrastructure/*"
+      ],
+      "@presentation/*": [
+        "src/presentation/*"
+      ],
+      "@shared/*": [
+        "src/shared/*"
+      ]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.d.ts", "expo-env.d.ts", "nativewind-env.d.ts"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.d.ts",
+    "expo-env.d.ts",
+    "nativewind-env.d.ts",
+    ".expo/types/**/*.ts"
+  ]
 }
