@@ -38,13 +38,16 @@ export default function AppLayout() {
         }}
       />
       <Tabs.Screen
-        name="tools"
+        name="tools/index"
         options={{
           tabBarIcon: ({ focused }) => (
             <TabIcon emoji="🧰" label="Ferramentas" focused={focused} />
           ),
         }}
       />
+      <Tabs.Screen name="tools/improve" options={{ href: null }} />
+      <Tabs.Screen name="tools/generate" options={{ href: null }} />
+      <Tabs.Screen name="tools/interview" options={{ href: null }} />
       <Tabs.Screen
         name="live"
         options={{

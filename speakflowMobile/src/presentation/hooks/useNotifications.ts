@@ -37,9 +37,10 @@ export function useNotifications() {
 
       if (finalStatus !== "granted") return;
 
-      const token = await Notifications.getExpoPushTokenAsync({
-        projectId: "REPLACE_WITH_EAS_PROJECT_ID",
-      });
+      const projectId = process.env.EXPO_PUBLIC_EAS_PROJECT_ID;
+      if (!projectId || projectId === "REPLACE_WITH_EAS_PROJECT_ID") return;
+
+      const token = await Notifications.getExpoPushTokenAsync({ projectId });
 
       if (!token.data) return;
 

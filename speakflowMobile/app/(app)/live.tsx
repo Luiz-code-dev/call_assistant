@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback } from "react";
 import { View, Text, TouchableOpacity, ScrollView, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Audio } from "expo-av";
+import { useAudioRecorder, AudioModule, RecordingPresets } from "expo-audio";
 import { useAuthStore } from "@presentation/stores/authStore";
 import { LiveApi, type LiveSuggestionResult } from "@infrastructure/api/LiveApi";
 
@@ -13,12 +13,12 @@ export default function LiveScreen() {
   const [suggestions, setSuggestions] = useState<LiveSuggestionResult[]>([]);
   const [error, setError] = useState<string | null>(null);
 
-  const recordingRef = useRef<Audio.Recording | null>(null);
+  const audioRecorder = useAudioRecorder(RecordingPresets.HIGH_QUALITY);
   const sessionIdRef = useRef<string>(`live_${Date.now()}`);
 
   const requestMicPermission = useCallback(async (): Promise<boolean> => {
-    const { status } = await Audio.requestPermissionsAsync();
-    if (status !== "granted") {
+    const status = await AudioModule.requestRecordingPermissionsAsync();
+    if (!status.granted) {
       Alert.alert(
         "Permissão necessária",
         "O SpeakFlow precisa de acesso ao microfone para o Live Assist.",
@@ -36,27 +36,16 @@ export default function LiveScreen() {
     setError(null);
     setSessionState("recording");
 
-    await Audio.setAudioModeAsync({
-      allowsRecordingIOS: true,
-      playsInSilentModeIOS: true,
-    });
-
-    const { recording } = await Audio.Recording.createAsync(
-      Audio.RecordingOptionsPresets.HIGH_QUALITY
-    );
-    recordingRef.current = recording;
+    await audioRecorder.record();
   }, [requestMicPermission]);
 
   const stopAndProcess = useCallback(async () => {
-    if (!recordingRef.current) return;
+    if (!audioRecorder.isRecording) return;
 
     setSessionState("processing");
 
-    await recordingRef.current.stopAndUnloadAsync();
-    const uri = recordingRef.current.getURI();
-    recordingRef.current = null;
-
-    await Audio.setAudioModeAsync({ allowsRecordingIOS: false });
+    await audioRecorder.stop();
+    const uri = audioRecorder.uri;
 
     if (!uri) {
       setError("Erro ao obter áudio gravado.");
