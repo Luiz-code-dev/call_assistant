@@ -12,7 +12,7 @@ import {
   ChevronRight, Bell, Wrench, Lock, Lightbulb,
   Home, Settings, CreditCard, X, LogOut, MessageSquare,
   Flame, Heart, Newspaper, Download, UserCircle, Smartphone, Share, Monitor,
-  Volume2, VolumeX, Loader2, Building2, ShieldCheck, BarChart3,
+  Volume2, VolumeX, Loader2, Building2, ShieldCheck, BarChart3, Send, CheckCircle2,
 } from "lucide-react";
 
 interface UserData { id: string; name: string; avatarUrl: string | null; plan: string; b2bAccess?: boolean; orgCount?: number; superAdmin?: boolean; crmAccess?: boolean; }
@@ -680,6 +680,90 @@ function DailyTipCard() {
 }
 
 
+const FEEDBACK_CATEGORIES = [
+  { value: "feature",     label: "Nova funcionalidade", emoji: "✨" },
+  { value: "bug",         label: "Bug / Erro",          emoji: "🐛" },
+  { value: "ux",          label: "Interface / UX",      emoji: "🎨" },
+  { value: "performance", label: "Performance",         emoji: "⚡" },
+  { value: "outro",       label: "Outro",               emoji: "💬" },
+];
+
+function SuggestionSection() {
+  const [category, setCategory] = useState("feature");
+  const [content, setContent] = useState("");
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+
+  async function submit() {
+    if (!content.trim()) return;
+    setSending(true);
+    try {
+      const sfToken = sessionStorage.getItem("sf_token") ?? "";
+      const res = await fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", ...(sfToken ? { Authorization: `Bearer ${sfToken}` } : {}) },
+        body: JSON.stringify({ category, content }),
+      });
+      if (res.ok) { setSent(true); setContent(""); }
+    } finally { setSending(false); }
+  }
+
+  return (
+    <section className="px-4 pb-8">
+      <div className="rounded-2xl border border-violet-500/20 bg-gradient-to-br from-violet-950/40 to-zinc-900/60 p-5">
+        <div className="flex items-center gap-2.5 mb-4">
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-violet-600/20 border border-violet-500/20">
+            <Lightbulb className="h-4 w-4 text-violet-400" />
+          </div>
+          <div>
+            <h3 className="text-sm font-bold text-white">Sugerir melhoria</h3>
+            <p className="text-xs text-zinc-500">Sua ideia pode virar a próxima feature do SpeakFlow</p>
+          </div>
+        </div>
+
+        {sent ? (
+          <div className="flex flex-col items-center justify-center gap-2 py-6">
+            <CheckCircle2 className="h-10 w-10 text-emerald-400" />
+            <p className="text-sm font-semibold text-white">Obrigado pelo feedback!</p>
+            <p className="text-xs text-zinc-500">Sua sugestão foi enviada para o time.</p>
+            <button onClick={() => setSent(false)} className="mt-2 text-xs text-violet-400 hover:text-violet-300 transition-colors">Enviar outra sugestão</button>
+          </div>
+        ) : (
+          <>
+            {/* Category chips */}
+            <div className="flex flex-wrap gap-1.5 mb-3">
+              {FEEDBACK_CATEGORIES.map(c => (
+                <button key={c.value} onClick={() => setCategory(c.value)}
+                  className={`flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-xs font-medium transition-colors
+                    ${category === c.value ? "bg-violet-600 text-white" : "border border-zinc-700 text-zinc-400 hover:text-white"}`}>
+                  <span>{c.emoji}</span> {c.label}
+                </button>
+              ))}
+            </div>
+
+            <textarea
+              rows={3}
+              value={content}
+              onChange={e => setContent(e.target.value)}
+              placeholder="Descreva sua ideia ou o problema que encontrou..."
+              maxLength={1000}
+              className="w-full rounded-xl border border-zinc-700 bg-zinc-800/50 px-3 py-2.5 text-sm text-white placeholder:text-zinc-500 resize-none focus:border-violet-500 focus:outline-none"
+            />
+            <div className="flex items-center justify-between mt-2">
+              <span className="text-xs text-zinc-600">{content.length}/1000</span>
+              <button onClick={submit} disabled={sending || !content.trim()}
+                className="flex items-center gap-1.5 rounded-xl bg-violet-600 hover:bg-violet-500 disabled:opacity-50 px-4 py-2 text-sm font-semibold text-white transition-colors">
+                {sending ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Send className="h-3.5 w-3.5" />}
+                Enviar
+              </button>
+            </div>
+          </>
+        )}
+      </div>
+    </section>
+  );
+}
+
 export default function HomePage() {
   const router = useRouter();
   const [user, setUser] = useState<UserData | null>(null);
@@ -737,6 +821,7 @@ export default function HomePage() {
         <RecentActivitySection />
         <AchievementsSection earnedSlugs={earnedSlugs} />
         <DailyTipCard />
+        <SuggestionSection />
       </main>
     </div>
   );

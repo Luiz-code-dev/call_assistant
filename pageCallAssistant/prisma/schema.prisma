@@ -59,6 +59,7 @@ model User {
   corpSubmissions      CorpChallengeSubmission[]
   certifications       CorporateCertification[]
   orgLiveSessions      OrgLiveSession[]
+  feedbacks            Feedback[]
 }
 
 model CreditTransaction {
@@ -540,4 +541,17 @@ model CrmActivity {
   lead CrmLead @relation(fields: [leadId], references: [id], onDelete: Cascade)
 
   @@index([leadId])
+}
+
+model Feedback {
+  id        String   @id @default(cuid())
+  userId    String
+  category  String   @default("feature")
+  content   String   @db.Text
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([createdAt])
 }

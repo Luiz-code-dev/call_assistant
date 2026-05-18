@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
   const access = await checkToolAccess(session.sub, "generate");
   if (!access.allowed) {
     return NextResponse.json(
-      { error: access.reason, userPlan: access.userPlan, dailyUsed: access.dailyUsed, dailyLimit: access.dailyLimit },
+      { error: access.reason, userPlan: access.userPlan },
       { status: 403 }
     );
   }
@@ -54,8 +54,6 @@ Generate ready-to-use English responses and return ONLY a valid JSON object with
       translation: result.translation ?? "",
       usage_tip:   result.usage_tip   ?? "",
       creditsUsed: CREDITS_PER_USE,
-      dailyUsed:   (access.dailyUsed ?? 0) + 1,
-      dailyLimit:  access.dailyLimit,
     });
   } catch (err) {
     console.error("[api/tools/generate]", err);

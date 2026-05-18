@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
   const access = await checkToolAccess(session.sub, "improve");
   if (!access.allowed) {
     return NextResponse.json(
-      { error: access.reason, userPlan: access.userPlan, dailyUsed: access.dailyUsed, dailyLimit: access.dailyLimit },
+      { error: access.reason, userPlan: access.userPlan },
       { status: 403 }
     );
   }
@@ -52,8 +52,6 @@ Analyze the user's English text and return ONLY a valid JSON object with these f
       explanation: result.explanation ?? "",
       tips:        result.tips        ?? [],
       creditsUsed: CREDITS_PER_USE,
-      dailyUsed:   (access.dailyUsed ?? 0) + 1,
-      dailyLimit:  access.dailyLimit,
     });
   } catch (err) {
     console.error("[api/tools/improve]", err);
