@@ -45,6 +45,7 @@ export default function AppLayout() {
           ),
         }}
       />
+      <Tabs.Screen name="empresa" options={{ tabBarButton: () => null }} />
       <Tabs.Screen name="crm" options={{ tabBarButton: () => null }} />
       <Tabs.Screen name="admin" options={{ tabBarButton: () => null }} />
       <Tabs.Screen name="tools/improve" options={{ tabBarButton: () => null }} />

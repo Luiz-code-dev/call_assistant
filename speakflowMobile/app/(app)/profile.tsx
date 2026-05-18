@@ -63,7 +63,7 @@ export default function ProfileScreen() {
         {user.b2bAccess && (
           <View className="px-5 mb-4">
             <TouchableOpacity
-              onPress={() => Linking.openURL(`${BASE_URL}/empresa`)}
+              onPress={() => router.push("/empresa" as any)}
               className="flex-row items-center gap-3 bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3.5"
               activeOpacity={0.7}
             >

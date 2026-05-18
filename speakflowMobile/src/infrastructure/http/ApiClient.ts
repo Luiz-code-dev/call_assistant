@@ -100,6 +100,10 @@ export class ApiClient {
     return ApiClient.request<T>("PATCH", path, { ...opts, body });
   }
 
+  static put<T>(path: string, body?: unknown, opts?: RequestOptions): Promise<Result<T>> {
+    return ApiClient.request<T>("PUT", path, { ...opts, body });
+  }
+
   static delete<T>(path: string, opts?: RequestOptions): Promise<Result<T>> {
     return ApiClient.request<T>("DELETE", path, opts);
   }
