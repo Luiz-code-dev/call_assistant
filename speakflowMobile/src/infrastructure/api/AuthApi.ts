@@ -30,7 +30,7 @@ export const AuthApi = {
   },
 
   async register(name: string, email: string, password: string): Promise<Result<void>> {
-    return ApiClient.post<void>("/api/auth/register", { name, email, password }, { skipAuth: true });
+    return ApiClient.post<void>("/api/auth/register", { name, email, password, acceptedTerms: true }, { skipAuth: true });
   },
 
   async getMe(): Promise<Result<User>> {

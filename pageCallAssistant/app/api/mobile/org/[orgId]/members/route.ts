@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { verifyToken } from "@/lib/auth";
 import { db } from "@/lib/db";
+import { sendOrgInviteEmail } from "@/lib/email";
 
 type Ctx = { params: { orgId: string } };
 
@@ -57,15 +58,32 @@ export async function POST(req: NextRequest, { params }: Ctx) {
   });
   if (existing) return NextResponse.json({ error: "Convite já enviado para este e-mail." }, { status: 409 });
 
+  const finalRole = ["admin", "member"].includes(role) ? role : "member";
+  const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+
   const invite = await (db as any).orgInvite.create({
     data: {
       orgId: params.orgId,
       email: email.toLowerCase(),
-      role: ["admin", "member"].includes(role) ? role : "member",
+      role: finalRole,
       invitedBy: payload.sub,
-      expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+      expiresAt,
     },
   });
+
+  const [orgRecord, inviterUser] = await Promise.all([
+    (db as any).organization.findUnique({ where: { id: params.orgId }, select: { name: true } }),
+    (db as any).user.findUnique({ where: { id: payload.sub }, select: { name: true } }).catch(() => null),
+  ]);
+
+  sendOrgInviteEmail(
+    email.toLowerCase(),
+    orgRecord?.name ?? "sua organização",
+    inviterUser?.name ?? "Um administrador",
+    finalRole,
+    invite.token,
+    expiresAt,
+  ).catch(() => {});
 
   return NextResponse.json({ invite }, { status: 201 });
 }
