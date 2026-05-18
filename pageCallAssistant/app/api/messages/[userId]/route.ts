@@ -3,6 +3,7 @@ import { db } from "@/lib/db";
 import { getNetworkSession } from "@/app/api/network/_auth";
 import { encryptMessage, decryptMessage, conversationKey } from "@/lib/encryption";
 import { sendPushToUsers } from "@/lib/webpush";
+import { sendExpoPushToUsers } from "@/lib/expoPush";
 
 async function areFriends(userA: string, userB: string): Promise<boolean> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -86,6 +87,11 @@ export async function POST(req: NextRequest, { params }: { params: { userId: str
     title: `💬 ${session.name}`,
     body: content.trim().length > 80 ? content.trim().slice(0, 77) + "..." : content.trim(),
     url: `/messages/${session.sub}`,
+  }).catch(console.error);
+  sendExpoPushToUsers([params.userId], {
+    title: `💬 ${session.name}`,
+    body: content.trim().length > 80 ? content.trim().slice(0, 77) + "..." : content.trim(),
+    data: { senderId: session.sub },
   }).catch(console.error);
 
   return NextResponse.json({

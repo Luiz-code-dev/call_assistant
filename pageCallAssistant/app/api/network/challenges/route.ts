@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { getNetworkSession } from "../_auth";
 import { sendPushToCircleMembers } from "@/lib/webpush";
+import { sendExpoPushToCircleMembers } from "@/lib/expoPush";
 
 export async function GET(req: NextRequest) {
   const session = await getNetworkSession(req);
@@ -127,6 +128,11 @@ export async function POST(req: NextRequest) {
       title: `Novo desafio em ${circleName} 🎯`,
       body: notifBody,
       url: `/network/${circleId}`,
+    }).catch(console.error);
+    sendExpoPushToCircleMembers(circleId, session.sub, {
+      title: `Novo desafio em ${circleName} 🎯`,
+      body: notifBody,
+      data: { circleId },
     }).catch(console.error);
 
     return NextResponse.json(challenge, { status: 201 });
