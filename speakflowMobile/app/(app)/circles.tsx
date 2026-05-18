@@ -11,10 +11,11 @@ interface Circle {
   id: string;
   name: string;
   description: string | null;
-  memberCount: number;
-  isPrivate: boolean;
+  _count: { members: number };
+  visibility: "public" | "private" | "invite";
   isMember: boolean;
-  category: string | null;
+  focus: string | null;
+  level: string | null;
   avatarUrl: string | null;
 }
 
@@ -24,7 +25,7 @@ export default function CirclesScreen() {
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["circles"],
     queryFn: async () => {
-      const result = await ApiClient.get<Circle[]>("/api/circles");
+      const result = await ApiClient.get<Circle[]>("/api/network/circles");
       if (!result.ok) return [];
       return result.data;
     },
@@ -99,7 +100,7 @@ export default function CirclesScreen() {
                 <Text className="text-white font-semibold text-sm flex-1" numberOfLines={1}>
                   {circle.name}
                 </Text>
-                {circle.isPrivate && (
+                {circle.visibility !== "public" && (
                   <Text className="text-xs text-zinc-500">🔒</Text>
                 )}
               </View>
@@ -112,10 +113,10 @@ export default function CirclesScreen() {
 
               <View className="flex-row items-center gap-3">
                 <Text className="text-zinc-600 text-xs">
-                  👤 {circle.memberCount} membros
+                  👤 {circle._count.members} membros
                 </Text>
-                {circle.category && (
-                  <Text className="text-zinc-600 text-xs"># {circle.category}</Text>
+                {circle.focus && (
+                  <Text className="text-zinc-600 text-xs"># {circle.focus}</Text>
                 )}
               </View>
             </View>

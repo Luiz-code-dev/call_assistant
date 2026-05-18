@@ -1,7 +1,9 @@
-import { View, Text, TouchableOpacity, Alert, ScrollView } from "react-native";
+import { View, Text, TouchableOpacity, Alert, ScrollView, Linking } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
 import { useAuthStore } from "@presentation/stores/authStore";
+
+const BASE_URL = process.env.EXPO_PUBLIC_API_URL ?? "https://speakflow.ia.br";
 
 export default function ProfileScreen() {
   const { user, logout } = useAuthStore();
@@ -93,14 +95,30 @@ export default function ProfileScreen() {
         {/* Settings */}
         <View className="px-5 gap-2">
           {[
-            { emoji: "🔔", label: "Notificações" },
-            { emoji: "🔒", label: "Privacidade e segurança" },
-            { emoji: "💳", label: "Plano e cobrança" },
-            { emoji: "💡", label: "Sugerir melhoria" },
-            { emoji: "📋", label: "Termos de uso" },
+            {
+              emoji: "🔔", label: "Notificações",
+              onPress: () => Linking.openSettings(),
+            },
+            {
+              emoji: "🔒", label: "Privacidade e segurança",
+              onPress: () => Linking.openURL(`${BASE_URL}/privacidade`),
+            },
+            {
+              emoji: "💳", label: "Plano e cobrança",
+              onPress: () => Linking.openURL(`${BASE_URL}/dashboard`),
+            },
+            {
+              emoji: "💡", label: "Sugerir melhoria",
+              onPress: () => Linking.openURL("mailto:contato@speakflow.ia.br?subject=Sugestão SpeakFlow"),
+            },
+            {
+              emoji: "📋", label: "Termos de uso",
+              onPress: () => Linking.openURL(`${BASE_URL}/termos`),
+            },
           ].map((item) => (
             <TouchableOpacity
               key={item.label}
+              onPress={item.onPress}
               className="flex-row items-center gap-3 bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3.5"
               activeOpacity={0.7}
             >
