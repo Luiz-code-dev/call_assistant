@@ -57,6 +57,39 @@ export default function ProfileScreen() {
           </View>
         </View>
 
+        {/* Admin / CRM section */}
+        {(user.crmAccess || user.superAdmin) && (
+          <View className="px-5 mb-4">
+            <Text className="text-zinc-500 text-xs font-semibold uppercase tracking-wider mb-2 px-1">
+              Administração
+            </Text>
+            <View className="gap-2">
+              {user.crmAccess && (
+                <TouchableOpacity
+                  onPress={() => router.push("/(app)/crm")}
+                  className="flex-row items-center gap-3 bg-violet-500/10 border border-violet-500/20 rounded-xl px-4 py-3.5"
+                  activeOpacity={0.7}
+                >
+                  <Text>📋</Text>
+                  <Text className="text-violet-300 flex-1 text-sm font-medium">CRM — Leads</Text>
+                  <Text className="text-violet-500">›</Text>
+                </TouchableOpacity>
+              )}
+              {user.superAdmin && (
+                <TouchableOpacity
+                  onPress={() => router.push("/(app)/admin")}
+                  className="flex-row items-center gap-3 bg-amber-500/10 border border-amber-500/20 rounded-xl px-4 py-3.5"
+                  activeOpacity={0.7}
+                >
+                  <Text>⚙️</Text>
+                  <Text className="text-amber-300 flex-1 text-sm font-medium">Painel Super Admin</Text>
+                  <Text className="text-amber-500">›</Text>
+                </TouchableOpacity>
+              )}
+            </View>
+          </View>
+        )}
+
         {/* Settings */}
         <View className="px-5 gap-2">
           {[

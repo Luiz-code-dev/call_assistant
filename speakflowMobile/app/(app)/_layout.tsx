@@ -45,9 +45,11 @@ export default function AppLayout() {
           ),
         }}
       />
-      <Tabs.Screen name="tools/improve" options={{ href: null }} />
-      <Tabs.Screen name="tools/generate" options={{ href: null }} />
-      <Tabs.Screen name="tools/interview" options={{ href: null }} />
+      <Tabs.Screen name="crm" options={{ tabBarButton: () => null }} />
+      <Tabs.Screen name="admin" options={{ tabBarButton: () => null }} />
+      <Tabs.Screen name="tools/improve" options={{ tabBarButton: () => null }} />
+      <Tabs.Screen name="tools/generate" options={{ tabBarButton: () => null }} />
+      <Tabs.Screen name="tools/interview" options={{ tabBarButton: () => null }} />
       <Tabs.Screen
         name="live"
         options={{
