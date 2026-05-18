@@ -59,6 +59,21 @@ export default function ProfileScreen() {
           </View>
         </View>
 
+        {/* Company access */}
+        {user.b2bAccess && (
+          <View className="px-5 mb-4">
+            <TouchableOpacity
+              onPress={() => Linking.openURL(`${BASE_URL}/empresa`)}
+              className="flex-row items-center gap-3 bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3.5"
+              activeOpacity={0.7}
+            >
+              <Text>🏢</Text>
+              <Text className="text-white flex-1 text-sm font-medium">Painel da Empresa</Text>
+              <Text className="text-zinc-600">›</Text>
+            </TouchableOpacity>
+          </View>
+        )}
+
         {/* Admin / CRM section */}
         {(user.crmAccess || user.superAdmin) && (
           <View className="px-5 mb-4">
