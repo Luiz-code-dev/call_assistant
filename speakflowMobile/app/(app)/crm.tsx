@@ -22,13 +22,13 @@ interface Lead {
   createdAt: string;
 }
 
-const STATUS_CONFIG: Record<LeadStatus, { label: string; color: string }> = {
-  new:       { label: "Novo",         color: "bg-blue-500/20 text-blue-400 border-blue-500/30" },
-  contacted: { label: "Contatado",    color: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30" },
-  qualified: { label: "Qualificado",  color: "bg-violet-500/20 text-violet-400 border-violet-500/30" },
-  proposal:  { label: "Proposta",     color: "bg-orange-500/20 text-orange-400 border-orange-500/30" },
-  won:       { label: "Ganho",        color: "bg-green-500/20 text-green-400 border-green-500/30" },
-  lost:      { label: "Perdido",      color: "bg-red-500/20 text-red-400 border-red-500/30" },
+const STATUS_CONFIG: Record<LeadStatus, { label: string; viewClass: string; textClass: string }> = {
+  new:       { label: "Novo",        viewClass: "bg-blue-500/20 border-blue-500/30",     textClass: "text-blue-400" },
+  contacted: { label: "Contatado",   viewClass: "bg-yellow-500/20 border-yellow-500/30", textClass: "text-yellow-400" },
+  qualified: { label: "Qualificado", viewClass: "bg-violet-500/20 border-violet-500/30", textClass: "text-violet-400" },
+  proposal:  { label: "Proposta",    viewClass: "bg-orange-500/20 border-orange-500/30", textClass: "text-orange-400" },
+  won:       { label: "Ganho",       viewClass: "bg-green-500/20 border-green-500/30",   textClass: "text-green-400" },
+  lost:      { label: "Perdido",     viewClass: "bg-red-500/20 border-red-500/30",       textClass: "text-red-400" },
 };
 
 async function fetchLeads(): Promise<Lead[]> {
@@ -123,8 +123,8 @@ export default function CrmScreen() {
                         <Text className="text-zinc-600 text-xs">🏢 {lead.company}</Text>
                       )}
                     </View>
-                    <View className={`border rounded-full px-2.5 py-0.5 ${cfg.color}`}>
-                      <Text className={`text-[11px] font-semibold ${cfg.color.split(" ")[1]}`}>
+                    <View className={`border rounded-full px-2.5 py-0.5 ${cfg.viewClass}`}>
+                      <Text className={`text-[11px] font-semibold ${cfg.textClass}`}>
                         {cfg.label}
                       </Text>
                     </View>

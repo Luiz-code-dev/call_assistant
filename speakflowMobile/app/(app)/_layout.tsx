@@ -41,7 +41,7 @@ export default function AppLayout() {
         name="tools/index"
         options={{
           tabBarIcon: ({ focused }) => (
-            <TabIcon emoji="🧰" label="Ferramentas" focused={focused} />
+            <TabIcon emoji="🧰" label="Tools" focused={focused} />
           ),
         }}
       />
