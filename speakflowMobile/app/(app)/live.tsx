@@ -77,8 +77,11 @@ export default function LiveScreen() {
     // Guard: minimum recording duration
     if (Date.now() - recordStartRef.current < MIN_RECORD_MS) {
       processingRef.current = false;
-      setError("Gravação muito curta. Tente novamente.");
       setRecordState("idle");
+      if (autoRunning.current) {
+        await new Promise((r) => setTimeout(r, 500));
+        if (autoRunning.current) startNextSegment();
+      }
       return;
     }
 
@@ -90,12 +93,16 @@ export default function LiveScreen() {
 
     const uri = audioRecorder.uri;
     if (!uri) {
-      setError("Arquivo de áudio não encontrado. Tente novamente.");
+      processingRef.current = false;
       setRecordState("idle");
+      if (autoRunning.current) {
+        await new Promise((r) => setTimeout(r, 800));
+        if (autoRunning.current) startNextSegment();
+      }
       return;
     }
 
-    const selectedLang = LANGUAGES.find((l) => l.code === sourceLang);
+    void LANGUAGES.find((l) => l.code === sourceLang);
     const result = await LiveApi.processAudio(uri, sessionIdRef.current, {
       sourceLang,
       customContext: context,
@@ -103,12 +110,13 @@ export default function LiveScreen() {
 
     if (!result.ok) {
       processingRef.current = false;
-      setError(result.error.message);
       if (autoRunning.current) {
+        // Auto mode: silently restart — errors are expected (e.g. silent audio, short segment)
         setRecordState("idle");
-        await new Promise((r) => setTimeout(r, 1500));
+        await new Promise((r) => setTimeout(r, 1000));
         if (autoRunning.current) startNextSegment();
       } else {
+        setError(result.error.message);
         setRecordState("idle");
       }
       return;

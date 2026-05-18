@@ -74,7 +74,13 @@ export default function CirclesScreen() {
   const [search, setSearch] = useState("");
   const [selected, setSelected] = useState<CircleDetail | null>(null);
   const [showCreate, setShowCreate] = useState(false);
-  const [detailView, setDetailView] = useState<"main" | "challenge">("main");
+  const [detailView, setDetailView] = useState<"main" | "challenge" | "quiz">("main");
+  const [quizChallenge, setQuizChallenge] = useState<{ id: string; title: string; circleId: string } | null>(null);
+  const [quizQuestions, setQuizQuestions] = useState<{ id: string; question: string; options: string[] }[]>([]);
+  const [quizAnswers, setQuizAnswers] = useState<Record<string, string>>({});
+  const [quizLoading, setQuizLoading] = useState(false);
+  const [quizSubmitting, setQuizSubmitting] = useState(false);
+  const [quizResult, setQuizResult] = useState<{ score: number; correct: number; total: number; results: { question: string; correct: boolean; correctText: string; selectedText: string }[] } | null>(null);
   const [form, setForm] = useState({ name: "", description: "", focus: "", level: "Todos os níveis", visibility: "public" });
   const [cf, setCf] = useState(BLANK_CHALLENGE());
   const [joiningId, setJoiningId] = useState<string | null>(null);
@@ -291,7 +297,7 @@ export default function CirclesScreen() {
         {selected && (
           <SafeAreaView className="flex-1 bg-background">
             <View className="flex-row items-center gap-3 px-5 pt-4 pb-3 border-b border-zinc-800">
-              <TouchableOpacity onPress={() => detailView === "challenge" ? setDetailView("main") : setSelected(null)}>
+              <TouchableOpacity onPress={() => (detailView === "challenge" || detailView === "quiz") ? setDetailView("main") : setSelected(null)}>
                 <Text className="text-zinc-400 text-lg">‹</Text>
               </TouchableOpacity>
               <View className="flex-1">
@@ -515,6 +521,103 @@ export default function CirclesScreen() {
               </ScrollView>
             )}
 
+            {/* ── Quiz taking view ── */}
+            {detailView === "quiz" && (
+              <ScrollView className="flex-1 px-5 pt-4" keyboardShouldPersistTaps="handled" contentContainerStyle={{ paddingBottom: 40, gap: 16 }}>
+                {quizLoading && (
+                  <View className="items-center py-12">
+                    <ActivityIndicator color="#7c3aed" size="large" />
+                    <Text className="text-zinc-400 text-sm mt-3">Carregando perguntas...</Text>
+                  </View>
+                )}
+
+                {!quizLoading && quizResult && (
+                  <View>
+                    <View className={`rounded-2xl p-5 mb-4 items-center border ${
+                      quizResult.correct === quizResult.total ? "bg-emerald-500/10 border-emerald-500/20" : "bg-primary/10 border-primary/20"
+                    }`}>
+                      <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-1">Resultado</Text>
+                      <Text className={`text-4xl font-bold mb-1 ${
+                        quizResult.correct === quizResult.total ? "text-emerald-400" : "text-primary"
+                      }`}>{quizResult.correct}/{quizResult.total}</Text>
+                      <Text className="text-zinc-300 text-sm">{quizResult.score.toFixed(1)} pontos</Text>
+                      {quizResult.correct === quizResult.total
+                        ? <Text className="text-emerald-400 text-sm mt-2">🎉 Perfeito!</Text>
+                        : <Text className="text-zinc-400 text-xs mt-2">Revise as questões erradas para melhorar</Text>
+                      }
+                    </View>
+                    {quizResult.results.map((r, i) => (
+                      <View key={i} className={`rounded-xl p-3 mb-2 border ${
+                        r.correct ? "bg-emerald-500/10 border-emerald-500/20" : "bg-red-500/10 border-red-500/20"
+                      }`}>
+                        <Text className="text-white text-xs font-semibold mb-1">{i + 1}. {r.question}</Text>
+                        {!r.correct && <Text className="text-red-400 text-xs">Sua resposta: {r.selectedText || "(sem resposta)"}</Text>}
+                        <Text className="text-emerald-400 text-xs">Correta: {r.correctText}</Text>
+                      </View>
+                    ))}
+                    <TouchableOpacity onPress={() => setDetailView("main")} className="bg-zinc-800 rounded-xl py-3 items-center mt-2">
+                      <Text className="text-white font-semibold">Voltar ao circle</Text>
+                    </TouchableOpacity>
+                  </View>
+                )}
+
+                {!quizLoading && !quizResult && quizQuestions.length > 0 && (
+                  <View>
+                    <View className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl px-4 py-2 mb-2">
+                      <Text className="text-emerald-400 text-xs font-semibold">📊 {quizChallenge?.title} · {quizQuestions.length} perguntas</Text>
+                    </View>
+                    {quizQuestions.map((q, qi) => (
+                      <View key={q.id} className="bg-zinc-900 border border-zinc-800 rounded-xl p-4 mb-3">
+                        <Text className="text-white text-sm font-semibold mb-3">{qi + 1}. {q.question}</Text>
+                        {q.options.map((opt, oi) => {
+                          const selected2 = quizAnswers[q.id] === opt;
+                          return (
+                            <TouchableOpacity key={oi} onPress={() => setQuizAnswers(a => ({ ...a, [q.id]: opt }))}
+                              className={`flex-row items-center gap-3 rounded-lg px-3 py-2.5 mb-1.5 border ${
+                                selected2 ? "bg-primary/20 border-primary/40" : "bg-zinc-800 border-zinc-700"
+                              }`}
+                            >
+                              <View className={`w-5 h-5 rounded-full border-2 items-center justify-center ${
+                                selected2 ? "border-primary bg-primary" : "border-zinc-600"
+                              }`}>
+                                {selected2 && <Text className="text-white text-[10px] font-bold">✓</Text>}
+                              </View>
+                              <Text className={`text-sm flex-1 ${ selected2 ? "text-white font-medium" : "text-zinc-300" }`}>{opt}</Text>
+                            </TouchableOpacity>
+                          );
+                        })}
+                      </View>
+                    ))}
+                    <TouchableOpacity
+                      onPress={async () => {
+                        if (Object.keys(quizAnswers).length < quizQuestions.length) {
+                          Alert.alert("Atenção", "Responda todas as perguntas antes de enviar.");
+                          return;
+                        }
+                        setQuizSubmitting(true);
+                        const answers = quizQuestions.map(q => ({ questionId: q.id, selectedText: quizAnswers[q.id] ?? "" }));
+                        const r = await ApiClient.post<{ score: number; correct: number; total: number; results: { question: string; correct: boolean; correctText: string; selectedText: string }[] }>(
+                          `/api/network/challenges/${quizChallenge!.id}/quiz`,
+                          { answers, circleId: quizChallenge!.circleId }
+                        );
+                        setQuizSubmitting(false);
+                        if (r.ok) setQuizResult(r.data);
+                        else Alert.alert("Erro", r.error?.message ?? "Erro ao enviar respostas.");
+                      }}
+                      disabled={quizSubmitting}
+                      className="bg-primary rounded-xl py-4 items-center disabled:opacity-50 mt-2"
+                      activeOpacity={0.8}
+                    >
+                      {quizSubmitting
+                        ? <ActivityIndicator color="#fff" />
+                        : <Text className="text-white font-bold text-base">Enviar respostas</Text>
+                      }
+                    </TouchableOpacity>
+                  </View>
+                )}
+              </ScrollView>
+            )}
+
             {/* ── Main detail view ── */}
             {detailView === "main" && (
             <ScrollView className="flex-1 px-5 pt-4" contentContainerStyle={{ paddingBottom: 40, gap: 16 }}>
@@ -546,12 +649,28 @@ export default function CirclesScreen() {
                     const ends = new Date(ch.endsAt).getTime();
                     const isActive = starts <= now && ends >= now;
                     const isUpcoming = starts > now;
+                    const canEnter = isActive && ch.type === "quiz";
                     return (
-                      <View key={ch.id} className={`rounded-2xl p-4 mb-2 border ${
-                        isActive ? "bg-emerald-500/10 border-emerald-500/20"
-                        : isUpcoming ? "bg-blue-500/10 border-blue-500/20"
-                        : "bg-zinc-900 border-zinc-800"
-                      }`}>
+                      <TouchableOpacity
+                        key={ch.id}
+                        activeOpacity={canEnter ? 0.7 : 1}
+                        onPress={canEnter ? async () => {
+                          setQuizChallenge({ id: ch.id, title: ch.title, circleId: selected.id });
+                          setQuizAnswers({});
+                          setQuizResult(null);
+                          setQuizLoading(true);
+                          setDetailView("quiz");
+                          const r = await ApiClient.get<{ questions: { id: string; question: string; options: string[] }[]; total: number }>(`/api/network/challenges/${ch.id}/quiz`);
+                          setQuizLoading(false);
+                          if (r.ok) setQuizQuestions(r.data.questions);
+                          else { Alert.alert("Erro", r.error?.message ?? "Erro ao carregar quiz."); setDetailView("main"); }
+                        } : undefined}
+                        className={`rounded-2xl p-4 mb-2 border ${
+                          isActive ? "bg-emerald-500/10 border-emerald-500/20"
+                          : isUpcoming ? "bg-blue-500/10 border-blue-500/20"
+                          : "bg-zinc-900 border-zinc-800"
+                        }`}
+                      >
                         <View className="flex-row items-center justify-between mb-1">
                           <Text className={`text-xs font-semibold uppercase tracking-wider ${
                             isActive ? "text-emerald-400" : isUpcoming ? "text-blue-400" : "text-zinc-600"
@@ -563,8 +682,11 @@ export default function CirclesScreen() {
                           </Text>
                         </View>
                         <Text className="text-white font-semibold text-sm">{ch.title}</Text>
-                        <Text className="text-zinc-500 text-xs mt-1">{ch._count.submissions} submissões</Text>
-                      </View>
+                        <View className="flex-row items-center justify-between mt-1">
+                          <Text className="text-zinc-500 text-xs">{ch._count.submissions} submissões</Text>
+                          {canEnter && <Text className="text-emerald-400 text-xs font-semibold">Fazer quiz ›</Text>}
+                        </View>
+                      </TouchableOpacity>
                     );
                   })}
                 </View>
