@@ -80,6 +80,7 @@ export default function CirclesScreen() {
   const [joiningId, setJoiningId] = useState<string | null>(null);
   const [loadingDetail, setLoadingDetail] = useState(false);
   const [inviteLoading, setInviteLoading] = useState(false);
+  const [generatingQuiz, setGeneratingQuiz] = useState(false);
 
   async function handleInvite(circleId: string) {
     setInviteLoading(true);
@@ -388,12 +389,34 @@ export default function CirclesScreen() {
                   <View>
                     <View className="flex-row items-center justify-between mb-2">
                       <Text className="text-zinc-400 text-xs uppercase tracking-wider">Perguntas ({cf.questions.length}/10)</Text>
-                      {cf.questions.length < 10 && (
-                        <TouchableOpacity onPress={() => setCf(f => ({ ...f, questions: [...f.questions, BLANK_QUESTION()] }))}
-                          className="bg-primary/10 border border-primary/20 rounded-lg px-3 py-1">
-                          <Text className="text-primary text-xs font-semibold">+ Pergunta</Text>
+                      <View className="flex-row gap-2">
+                        <TouchableOpacity
+                          onPress={async () => {
+                            if (!cf.title.trim()) { Alert.alert("Atenção", "Preencha o título antes de gerar."); return; }
+                            setGeneratingQuiz(true);
+                            const r = await ApiClient.post<{ questions: QuizQuestion[] }>(
+                              "/api/network/challenges/generate-quiz",
+                              { title: cf.title, focus: selected?.focus ?? "Business English", level: selected?.level ?? "Todos", count: 5 }
+                            );
+                            setGeneratingQuiz(false);
+                            if (r.ok) setCf(f => ({ ...f, questions: r.data.questions }));
+                            else Alert.alert("Erro", r.error?.message ?? "Erro ao gerar quiz.");
+                          }}
+                          disabled={generatingQuiz || !cf.title.trim()}
+                          className="bg-violet-500/10 border border-violet-500/30 rounded-lg px-3 py-1 flex-row items-center gap-1"
+                        >
+                          {generatingQuiz
+                            ? <ActivityIndicator size="small" color="#7c3aed" />
+                            : <Text className="text-violet-400 text-xs font-semibold">✨ Gerar com IA</Text>
+                          }
                         </TouchableOpacity>
-                      )}
+                        {cf.questions.length < 10 && (
+                          <TouchableOpacity onPress={() => setCf(f => ({ ...f, questions: [...f.questions, BLANK_QUESTION()] }))}
+                            className="bg-primary/10 border border-primary/20 rounded-lg px-3 py-1">
+                            <Text className="text-primary text-xs font-semibold">+ Pergunta</Text>
+                          </TouchableOpacity>
+                        )}
+                      </View>
                     </View>
                     {cf.questions.map((q, qi) => (
                       <View key={qi} className="bg-zinc-900 border border-zinc-800 rounded-xl p-3 mb-3">

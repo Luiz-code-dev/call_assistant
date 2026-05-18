@@ -22,8 +22,7 @@ const LANGUAGES = [
 
 const MAX_SEGMENT_MS  = 25000;  // safety ceiling — never more than 25s
 const MIN_SPEECH_MS   = 1500;   // ignore silence in first 1.5s (mic warmup + phantom spikes)
-const SILENCE_DB      = -45;    // dBFS below this = silence
-const SPEECH_DB       = -28;    // dBFS above this = real speech (not ambient noise)
+const SILENCE_DB      = -50;    // dBFS below this = silence (mobile mic levels are typically -40 to -20)
 const SILENCE_MS      = 2500;   // 2.5s of continuous silence → process
 const SPIKE_GRACE_MS  = 350;    // noise spike shorter than this doesn't reset silence counter
 const MIN_RECORD_MS   = 800;    // guard for accidental taps
@@ -58,7 +57,6 @@ export default function LiveScreen() {
   const scrollRef = useRef<ScrollView>(null);
   const autoRunning = useRef(false);
   const processingRef = useRef(false);  // guard against double-trigger
-  const hasSpeechRef = useRef(false);   // true once real speech (> SPEECH_DB) detected
   const spikeStartRef = useRef<number | null>(null); // tracks brief noise spikes
 
   const clearTimers = useCallback(() => {
@@ -133,7 +131,6 @@ export default function LiveScreen() {
   const startNextSegment = useCallback(async () => {
     if (!autoRunning.current) return;
     processingRef.current = false;
-    hasSpeechRef.current = false;
     spikeStartRef.current = null;
     silenceStartRef.current = null;
     setSilenceLeft(null);
@@ -154,6 +151,7 @@ export default function LiveScreen() {
     }
     autoRunning.current = true;
     processingRef.current = false;
+    spikeStartRef.current = null;
     setError(null);
     await startNextSegment();
   }, [startNextSegment]);
@@ -189,15 +187,9 @@ export default function LiveScreen() {
     const elapsed = Date.now() - recordStartRef.current;
     if (elapsed < MIN_SPEECH_MS) return; // too early
 
-    // Track real speech (above SPEECH_DB threshold)
-    if (db >= SPEECH_DB) {
-      hasSpeechRef.current = true;
-    }
-
     if (db < SILENCE_DB) {
       // === SILENCE ===
-      spikeStartRef.current = null; // no longer in a spike
-      if (!hasSpeechRef.current) return; // no real speech yet — ignore (just ambient noise)
+      spikeStartRef.current = null;
       if (!silenceStartRef.current) silenceStartRef.current = Date.now();
       const silenceDuration = Date.now() - silenceStartRef.current;
       const remaining = Math.max(0, SILENCE_MS - silenceDuration);
