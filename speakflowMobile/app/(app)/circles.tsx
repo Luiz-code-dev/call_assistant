@@ -54,7 +54,7 @@ interface Circle {
 
 interface CircleDetail extends Circle {
   members: { id: string; userId: string; role: string; user: { id: string; name: string; avatarUrl: string | null } }[];
-  challenges: { id: string; title: string; isActive: boolean; _count: { submissions: number } }[];
+  challenges: { id: string; title: string; type: string; startsAt: string; endsAt: string; _count: { submissions: number } }[];
 }
 
 const FOCUS_OPTIONS = [
@@ -536,14 +536,39 @@ export default function CirclesScreen() {
                 ))}
               </View>
 
-              {/* Active challenge */}
-              {selected.challenges.filter(c => c.isActive).map(ch => (
-                <View key={ch.id} className="bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-4">
-                  <Text className="text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-1">⚡ Desafio ativo</Text>
-                  <Text className="text-white font-semibold text-sm">{ch.title}</Text>
-                  <Text className="text-zinc-500 text-xs mt-1">{ch._count.submissions} submissões</Text>
+              {/* Challenges */}
+              {selected.challenges.length > 0 && (
+                <View>
+                  <Text className="text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2">⚡ Desafios</Text>
+                  {selected.challenges.map(ch => {
+                    const now = Date.now();
+                    const starts = new Date(ch.startsAt).getTime();
+                    const ends = new Date(ch.endsAt).getTime();
+                    const isActive = starts <= now && ends >= now;
+                    const isUpcoming = starts > now;
+                    return (
+                      <View key={ch.id} className={`rounded-2xl p-4 mb-2 border ${
+                        isActive ? "bg-emerald-500/10 border-emerald-500/20"
+                        : isUpcoming ? "bg-blue-500/10 border-blue-500/20"
+                        : "bg-zinc-900 border-zinc-800"
+                      }`}>
+                        <View className="flex-row items-center justify-between mb-1">
+                          <Text className={`text-xs font-semibold uppercase tracking-wider ${
+                            isActive ? "text-emerald-400" : isUpcoming ? "text-blue-400" : "text-zinc-600"
+                          }`}>
+                            {isActive ? "⚡ Ativo" : isUpcoming ? "🗓 Em breve" : "✓ Encerrado"}
+                          </Text>
+                          <Text className="text-zinc-600 text-[10px]">
+                            {ch.type === "quiz" ? "📊 Quiz" : ch.type === "spoken" ? "🎙️ Voz" : "✍️ Escrito"}
+                          </Text>
+                        </View>
+                        <Text className="text-white font-semibold text-sm">{ch.title}</Text>
+                        <Text className="text-zinc-500 text-xs mt-1">{ch._count.submissions} submissões</Text>
+                      </View>
+                    );
+                  })}
                 </View>
-              ))}
+              )}
 
               {/* Members */}
               {selected.members.length > 0 && (
