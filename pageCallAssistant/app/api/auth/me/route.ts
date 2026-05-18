@@ -34,6 +34,7 @@ export async function GET(req: NextRequest) {
     name: user.name,
     username: user.username ?? null,
     plan: user.plan,
+    credits: user.credits ?? 0,
     avatarUrl: user.avatarUrl ?? null,
     bio: user.bio ?? null,
     b2bAccess: user.b2bAccess ?? false,

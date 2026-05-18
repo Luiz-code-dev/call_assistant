@@ -55,6 +55,8 @@ model User {
   b2bSeatLimit         Int       @default(5)
   superAdmin           Boolean   @default(false)
   crmAccess            Boolean   @default(false)
+  fcmToken             String?   @db.Text
+  fcmPlatform          String?
   orgMemberships       OrgMember[]
   corpSubmissions      CorpChallengeSubmission[]
   certifications       CorporateCertification[]
