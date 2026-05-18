@@ -11,6 +11,39 @@ export interface LiveSuggestionResult {
 }
 
 export const LiveApi = {
+  async translatePhrase(text: string): Promise<Result<{ english: string }>> {
+    const token = await TokenStorage.get();
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/live/phrase`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+        body: JSON.stringify({ text }),
+      });
+      const data = await res.json() as { english?: string; error?: string };
+      if (!res.ok) return { ok: false, error: { message: data.error ?? "Erro ao traduzir.", statusCode: res.status } };
+      return { ok: true, data: { english: data.english ?? "" } };
+    } catch {
+      return { ok: false, error: { message: "Erro de conexão.", statusCode: 0 } };
+    }
+  },
+
+  async endSession(sessionId: string): Promise<void> {
+    const token = await TokenStorage.get();
+    try {
+      await fetch(`${API_BASE_URL}/api/live/session/end`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+        body: JSON.stringify({ session_id: sessionId }),
+      });
+    } catch { /* fire and forget */ }
+  },
+
   /**
    * Envia áudio gravado (Blob/File) para o endpoint Whisper → IA.
    * Fallback do MediaRecorder — funciona em iOS (sem Web Speech API).
