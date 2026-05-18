@@ -2,6 +2,7 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import {
   View, Text, TouchableOpacity, ScrollView,
   Alert, TextInput, Modal, ActivityIndicator,
+  KeyboardAvoidingView, Platform,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useAudioRecorder, AudioModule, RecordingPresets } from "expo-audio";
@@ -19,7 +20,7 @@ const LANGUAGES = [
   { code: "de-DE", label: "🇩🇪 Alemão" },
 ];
 
-const AUTO_STOP_SECONDS = 12;
+const AUTO_STOP_SECONDS = 30;
 const MIN_RECORD_MS = 800;
 
 export default function LiveScreen() {
@@ -106,12 +107,13 @@ export default function LiveScreen() {
       return;
     }
     await AudioModule.setAudioModeAsync({ allowsRecording: true, playsInSilentMode: true });
+    await audioRecorder.prepareToRecordAsync();
 
     setError(null);
     setCountdown(AUTO_STOP_SECONDS);
     recordStartRef.current = Date.now();
     setRecordState("recording");
-    await audioRecorder.record();
+    audioRecorder.record();
 
     let remaining = AUTO_STOP_SECONDS;
     countdownRef.current = setInterval(() => {
@@ -297,90 +299,106 @@ export default function LiveScreen() {
         )}
       </ScrollView>
 
-      {/* Error */}
-      {error && (
-        <View className="mx-4 mb-2 bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-2">
-          <Text className="text-red-400 text-xs">{error}</Text>
-        </View>
-      )}
-
-      {/* Phrase panel */}
-      {showPhrase && (
-        <View className="mx-4 mb-2 bg-zinc-900 border border-zinc-700 rounded-2xl p-3">
-          <View className="flex-row items-center gap-2 mb-2">
-            <TextInput
-              value={phraseText} onChangeText={(v) => { setPhraseText(v); setPhraseResult(null); }}
-              placeholder="O que quer dizer? (escreva em português)"
-              placeholderTextColor="#52525b" returnKeyType="send"
-              onSubmitEditing={handleTranslatePhrase}
-              className="flex-1 bg-zinc-800 border border-zinc-700 rounded-xl px-3 py-2 text-white text-sm"
-            />
-            <TouchableOpacity onPress={handleTranslatePhrase} disabled={!phraseText.trim() || phraseLoading}
-              className="w-9 h-9 bg-primary rounded-xl items-center justify-center disabled:opacity-40">
-              {phraseLoading ? <ActivityIndicator color="#fff" size="small" /> : <Text className="text-white text-sm">▶</Text>}
+      <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}>
+        {/* Error */}
+        {error && (
+          <View className="mx-4 mb-2 bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-2 flex-row items-center justify-between">
+            <Text className="text-red-400 text-xs flex-1">{error}</Text>
+            <TouchableOpacity onPress={() => setError(null)} className="ml-2">
+              <Text className="text-red-400 text-sm">✕</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => { setShowPhrase(false); setPhraseResult(null); setPhraseText(""); }}>
-              <Text className="text-zinc-500 text-lg">✕</Text>
-            </TouchableOpacity>
-          </View>
-          {phraseResult && (
-            <View className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl px-3 py-2">
-              <Text className="text-emerald-300 text-sm font-semibold">{phraseResult}</Text>
-            </View>
-          )}
-        </View>
-      )}
-
-      {/* Bottom dock */}
-      <View className="px-6 pb-6 pt-2 items-center">
-        {isRecording && (
-          <View className="w-full bg-zinc-800 rounded-full h-1.5 mb-3 overflow-hidden">
-            <View className="bg-red-500 h-full rounded-full" style={{ width: `${progressPct}%` }} />
           </View>
         )}
 
-        <View className="flex-row items-center gap-5">
-          {/* Phrase helper button */}
-          <TouchableOpacity onPress={() => setShowPhrase(!showPhrase)}
-            className={`w-12 h-12 rounded-full border items-center justify-center ${showPhrase ? "bg-primary/20 border-primary/40" : "bg-zinc-800 border-zinc-700"}`}>
-            <Text style={{ fontSize: 18 }}>🌐</Text>
-          </TouchableOpacity>
-
-          {/* Main mic button */}
-          <TouchableOpacity
-            onPress={isRecording ? processAudio : startRecording}
-            disabled={isProcessing}
-            activeOpacity={0.85}
-            className={`rounded-full w-20 h-20 items-center justify-center ${
-              isRecording ? "bg-red-500" : isProcessing ? "bg-zinc-700" : "bg-primary"
-            }`}
-          >
-            {isRecording ? (
-              <View className="items-center">
-                <Text style={{ fontSize: 20 }}>⏹</Text>
-                <Text className="text-white text-[11px] font-bold">{countdown}s</Text>
+        {/* Phrase panel */}
+        {showPhrase && (
+          <View className="mx-4 mb-2 bg-zinc-900 border border-zinc-700 rounded-2xl p-3">
+            <Text className="text-zinc-400 text-xs font-semibold mb-2">🌐 Como falo em inglês?</Text>
+            <View className="flex-row items-center gap-2 mb-2">
+              <TextInput
+                value={phraseText} onChangeText={(v) => { setPhraseText(v); setPhraseResult(null); }}
+                placeholder="Escreva em português..."
+                placeholderTextColor="#52525b" returnKeyType="send"
+                onSubmitEditing={handleTranslatePhrase}
+                autoFocus
+                className="flex-1 bg-zinc-800 border border-zinc-700 rounded-xl px-3 py-2.5 text-white text-sm"
+              />
+              <TouchableOpacity onPress={handleTranslatePhrase} disabled={!phraseText.trim() || phraseLoading}
+                className="w-10 h-10 bg-primary rounded-xl items-center justify-center">
+                {phraseLoading ? <ActivityIndicator color="#fff" size="small" /> : <Text className="text-white">▶</Text>}
+              </TouchableOpacity>
+            </View>
+            {phraseResult && (
+              <View className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl px-3 py-2">
+                <Text className="text-emerald-300 text-sm font-semibold leading-relaxed">{phraseResult}</Text>
               </View>
-            ) : isProcessing ? (
-              <ActivityIndicator color="#fff" />
-            ) : (
-              <Text style={{ fontSize: 28 }}>🎙️</Text>
             )}
-          </TouchableOpacity>
+          </View>
+        )}
 
-          {/* Clear turns button */}
-          <TouchableOpacity onPress={() => setTurns([])}
-            className="w-12 h-12 rounded-full bg-zinc-800 border border-zinc-700 items-center justify-center">
-            <Text style={{ fontSize: 18 }}>🗑️</Text>
-          </TouchableOpacity>
+        {/* Bottom dock */}
+        <View className="px-6 pb-6 pt-2">
+          {isRecording && (
+            <View className="w-full bg-zinc-800 rounded-full h-1.5 mb-4 overflow-hidden">
+              <View className="bg-red-500 h-full rounded-full" style={{ width: `${progressPct}%` }} />
+            </View>
+          )}
+
+          <View className="flex-row items-end justify-center gap-5">
+            {/* Phrase helper */}
+            <TouchableOpacity
+              onPress={() => {
+                setShowPhrase(!showPhrase);
+                setPhraseResult(null);
+                setPhraseText("");
+                if (!showPhrase) setError(null);
+              }}
+              className="items-center gap-1"
+            >
+              <View className={`w-12 h-12 rounded-full border items-center justify-center ${
+                showPhrase ? "bg-primary/20 border-primary/40" : "bg-zinc-800 border-zinc-700"
+              }`}>
+                <Text style={{ fontSize: 20 }}>🌐</Text>
+              </View>
+              <Text className={`text-[10px] ${showPhrase ? "text-primary" : "text-zinc-500"}`}>Como falo?</Text>
+            </TouchableOpacity>
+
+            {/* Main mic button */}
+            <TouchableOpacity
+              onPress={isRecording ? processAudio : startRecording}
+              disabled={isProcessing}
+              activeOpacity={0.85}
+              className="items-center gap-1"
+            >
+              <View className={`rounded-full w-20 h-20 items-center justify-center ${
+                isRecording ? "bg-red-500" : isProcessing ? "bg-zinc-700" : "bg-primary"
+              }`}>
+                {isRecording ? (
+                  <View className="items-center">
+                    <Text className="text-white text-lg font-bold">⏹</Text>
+                    <Text className="text-white text-[11px] font-bold">{countdown}s</Text>
+                  </View>
+                ) : isProcessing ? (
+                  <ActivityIndicator color="#fff" />
+                ) : (
+                  <Text style={{ fontSize: 28 }}>🎙️</Text>
+                )}
+              </View>
+              <Text className="text-zinc-400 text-[10px]">
+                {isRecording ? "Toque para parar" : isProcessing ? "Processando..." : "Gravar"}
+              </Text>
+            </TouchableOpacity>
+
+            {/* Clear */}
+            <TouchableOpacity onPress={() => setTurns([])} className="items-center gap-1">
+              <View className="w-12 h-12 rounded-full bg-zinc-800 border border-zinc-700 items-center justify-center">
+                <Text style={{ fontSize: 20 }}>🗑️</Text>
+              </View>
+              <Text className="text-zinc-500 text-[10px]">Limpar</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-
-        <Text className="text-xs text-zinc-600 mt-2 text-center">
-          {isRecording
-            ? `Para em ${countdown}s · toque ⏹ para parar`
-            : isProcessing ? "Processando..."
-            : "🎙️ gravar  ·  🌐 traduzir frase  ·  ■ encerrar sessão"}
-        </Text>
-      </View>
+      </KeyboardAvoidingView>
 
       <Modal visible={showLangPicker} transparent animationType="slide">
         <TouchableOpacity className="flex-1 bg-black/60" activeOpacity={1} onPress={() => setShowLangPicker(false)} />

@@ -1,4 +1,4 @@
-import { API_BASE_URL, REQUEST_TIMEOUT_MS } from "@shared/constants/config";
+import { API_BASE_URL } from "@shared/constants/config";
 import { TokenStorage } from "@infrastructure/storage/TokenStorage";
 import type { Result } from "@shared/types";
 
@@ -68,7 +68,7 @@ export const LiveApi = {
     formData.append("custom_context", opts.customContext ?? "");
 
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS + 5_000);
+    const timeout = setTimeout(() => controller.abort(), 40_000);
 
     try {
       const response = await fetch(`${API_BASE_URL}/api/live/process`, {
