@@ -71,6 +71,9 @@ export class ApiClient {
     } catch (err) {
       clearTimeout(timeout);
 
+      const errMsg = (err as Error)?.message ?? String(err);
+      console.error(`[ApiClient] fetch error → ${url}:`, errMsg);
+
       if ((err as Error).name === "AbortError") {
         return {
           ok: false,
@@ -81,7 +84,7 @@ export class ApiClient {
       return {
         ok: false,
         error: {
-          message: "Erro de conexão. Verifique sua internet.",
+          message: `Erro de conexão: ${errMsg}`,
           statusCode: 0,
         },
       };
