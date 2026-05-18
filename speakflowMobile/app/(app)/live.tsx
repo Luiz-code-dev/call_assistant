@@ -5,7 +5,7 @@ import {
   KeyboardAvoidingView, Platform,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useAudioRecorder, AudioModule, RecordingPresets } from "expo-audio";
+import { useAudioRecorder, useAudioRecorderState, AudioModule, RecordingPresets } from "expo-audio";
 import { useAuthStore } from "@presentation/stores/authStore";
 import { LiveApi, type LiveSuggestionResult } from "@infrastructure/api/LiveApi";
 
@@ -20,8 +20,13 @@ const LANGUAGES = [
   { code: "de-DE", label: "🇩🇪 Alemão" },
 ];
 
-const AUTO_STOP_SECONDS = 30;
-const MIN_RECORD_MS = 800;
+const MAX_SEGMENT_MS  = 25000;  // safety ceiling — never more than 25s
+const MIN_SPEECH_MS   = 1500;   // ignore silence in first 1.5s (mic warmup + phantom spikes)
+const SILENCE_DB      = -45;    // dBFS below this = silence
+const SPEECH_DB       = -28;    // dBFS above this = real speech (not ambient noise)
+const SILENCE_MS      = 2500;   // 2.5s of continuous silence → process
+const SPIKE_GRACE_MS  = 350;    // noise spike shorter than this doesn't reset silence counter
+const MIN_RECORD_MS   = 800;    // guard for accidental taps
 
 export default function LiveScreen() {
   const { user, refreshUser } = useAuthStore();
@@ -42,24 +47,35 @@ export default function LiveScreen() {
   const [phraseResult, setPhraseResult] = useState<string | null>(null);
   const [phraseLoading, setPhraseLoading] = useState(false);
 
-  const [countdown, setCountdown] = useState(AUTO_STOP_SECONDS);
+  const [silenceLeft, setSilenceLeft] = useState<number | null>(null); // ms remaining to trigger
 
   const audioRecorder = useAudioRecorder(RecordingPresets.HIGH_QUALITY);
+  const recorderState = useAudioRecorderState(audioRecorder, 150);
   const sessionIdRef = useRef<string>(`live_${Date.now()}`);
-  const countdownRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const maxSegmentTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const silenceStartRef = useRef<number | null>(null);
   const recordStartRef = useRef<number>(0);
   const scrollRef = useRef<ScrollView>(null);
+  const autoRunning = useRef(false);
+  const processingRef = useRef(false);  // guard against double-trigger
+  const hasSpeechRef = useRef(false);   // true once real speech (> SPEECH_DB) detected
+  const spikeStartRef = useRef<number | null>(null); // tracks brief noise spikes
 
-  const clearCountdown = useCallback(() => {
-    if (countdownRef.current) { clearInterval(countdownRef.current); countdownRef.current = null; }
+  const clearTimers = useCallback(() => {
+    if (maxSegmentTimerRef.current) { clearTimeout(maxSegmentTimerRef.current); maxSegmentTimerRef.current = null; }
+    silenceStartRef.current = null;
+    setSilenceLeft(null);
   }, []);
 
   const processAudio = useCallback(async () => {
-    clearCountdown();
+    if (processingRef.current) return;
+    processingRef.current = true;
+    clearTimers();
 
     // Guard: minimum recording duration
     if (Date.now() - recordStartRef.current < MIN_RECORD_MS) {
-      setError("Gravação muito curta. Segure o botão por pelo menos 1 segundo.");
+      processingRef.current = false;
+      setError("Gravação muito curta. Tente novamente.");
       setRecordState("idle");
       return;
     }
@@ -84,47 +100,68 @@ export default function LiveScreen() {
     });
 
     if (!result.ok) {
+      processingRef.current = false;
       setError(result.error.message);
-      setRecordState("idle");
+      if (autoRunning.current) {
+        setRecordState("idle");
+        await new Promise((r) => setTimeout(r, 1500));
+        if (autoRunning.current) startNextSegment();
+      } else {
+        setRecordState("idle");
+      }
       return;
     }
 
     setTurns((prev) => [...prev, result.data].slice(-20));
     refreshUser();
-    setRecordState("idle");
     setError(null);
     setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 150);
 
-    // suppress linter: selectedLang used for display only
+    processingRef.current = false;
+    if (autoRunning.current) {
+      setRecordState("idle");
+      await new Promise((r) => setTimeout(r, 300));
+      if (autoRunning.current) startNextSegment();
+    } else {
+      setRecordState("idle");
+    }
+
     void selectedLang;
-  }, [audioRecorder, clearCountdown, context, refreshUser, sourceLang]);
+  }, [audioRecorder, clearTimers, context, refreshUser, sourceLang]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Internal: starts one recording segment (no permission re-check after first)
+  const startNextSegment = useCallback(async () => {
+    if (!autoRunning.current) return;
+    processingRef.current = false;
+    hasSpeechRef.current = false;
+    spikeStartRef.current = null;
+    silenceStartRef.current = null;
+    setSilenceLeft(null);
+    await AudioModule.setAudioModeAsync({ allowsRecording: true, playsInSilentMode: true });
+    await audioRecorder.prepareToRecordAsync({ isMeteringEnabled: true });
+    recordStartRef.current = Date.now();
+    setRecordState("recording");
+    audioRecorder.record();
+    // Safety: force-process after MAX_SEGMENT_MS even if no silence detected
+    maxSegmentTimerRef.current = setTimeout(() => processAudio(), MAX_SEGMENT_MS);
+  }, [audioRecorder, processAudio]);
 
   const startRecording = useCallback(async () => {
-    if (recordState !== "idle") return;
     const status = await AudioModule.requestRecordingPermissionsAsync();
     if (!status.granted) {
       Alert.alert("Permissão necessária", "O SpeakFlow precisa do microfone para o Live Assist.");
       return;
     }
-    await AudioModule.setAudioModeAsync({ allowsRecording: true, playsInSilentMode: true });
-    await audioRecorder.prepareToRecordAsync();
-
+    autoRunning.current = true;
+    processingRef.current = false;
     setError(null);
-    setCountdown(AUTO_STOP_SECONDS);
-    recordStartRef.current = Date.now();
-    setRecordState("recording");
-    audioRecorder.record();
-
-    let remaining = AUTO_STOP_SECONDS;
-    countdownRef.current = setInterval(() => {
-      remaining -= 1;
-      setCountdown(remaining);
-      if (remaining <= 0) processAudio();
-    }, 1000);
-  }, [audioRecorder, processAudio, recordState]);
+    await startNextSegment();
+  }, [startNextSegment]);
 
   const handleEnd = useCallback(async () => {
-    clearCountdown();
+    autoRunning.current = false;
+    processingRef.current = false;
+    clearTimers();
     if (recordState === "recording") await audioRecorder.stop().catch(() => {});
     await LiveApi.endSession(sessionIdRef.current);
     setPhase("setup");
@@ -132,8 +169,59 @@ export default function LiveScreen() {
     setRecordState("idle");
     setError(null);
     setShowPhrase(false);
+    setSilenceLeft(null);
     sessionIdRef.current = `live_${Date.now()}`;
-  }, [audioRecorder, clearCountdown, recordState]);
+  }, [audioRecorder, clearTimers, recordState]);
+
+  // ── VAD: silence detection via metering ──
+  const processAudioRef = useRef(processAudio);
+  useEffect(() => { processAudioRef.current = processAudio; });
+
+  useEffect(() => {
+    if (recordState !== "recording" || !autoRunning.current) {
+      silenceStartRef.current = null;
+      setSilenceLeft(null);
+      return;
+    }
+    const db: number | undefined = recorderState.metering;
+    if (db === undefined || db === null) return;
+
+    const elapsed = Date.now() - recordStartRef.current;
+    if (elapsed < MIN_SPEECH_MS) return; // too early
+
+    // Track real speech (above SPEECH_DB threshold)
+    if (db >= SPEECH_DB) {
+      hasSpeechRef.current = true;
+    }
+
+    if (db < SILENCE_DB) {
+      // === SILENCE ===
+      spikeStartRef.current = null; // no longer in a spike
+      if (!hasSpeechRef.current) return; // no real speech yet — ignore (just ambient noise)
+      if (!silenceStartRef.current) silenceStartRef.current = Date.now();
+      const silenceDuration = Date.now() - silenceStartRef.current;
+      const remaining = Math.max(0, SILENCE_MS - silenceDuration);
+      setSilenceLeft(remaining);
+      if (silenceDuration >= SILENCE_MS) processAudioRef.current();
+    } else {
+      // === SOUND ===
+      if (silenceStartRef.current !== null) {
+        // Something loud — but is it sustained speech or a brief spike?
+        if (!spikeStartRef.current) spikeStartRef.current = Date.now();
+        const spikeDuration = Date.now() - spikeStartRef.current;
+        if (spikeDuration >= SPIKE_GRACE_MS) {
+          // Sustained speech — truly reset silence counter
+          silenceStartRef.current = null;
+          setSilenceLeft(null);
+          spikeStartRef.current = null;
+        }
+        // else: brief spike — keep silence counter running
+      } else {
+        spikeStartRef.current = null;
+        setSilenceLeft(null);
+      }
+    }
+  }, [recorderState.metering, recordState]);
 
   const handleTranslatePhrase = useCallback(async () => {
     if (!phraseText.trim() || phraseLoading) return;
@@ -145,12 +233,14 @@ export default function LiveScreen() {
     else setError(r.error.message);
   }, [phraseText, phraseLoading]);
 
-  useEffect(() => () => clearCountdown(), [clearCountdown]);
+  useEffect(() => () => clearTimers(), [clearTimers]);
 
   const selectedLang = LANGUAGES.find((l) => l.code === sourceLang) ?? LANGUAGES[0];
   const isRecording = recordState === "recording";
   const isProcessing = recordState === "processing";
-  const progressPct = isRecording ? ((AUTO_STOP_SECONDS - countdown) / AUTO_STOP_SECONDS) * 100 : 0;
+  const elapsedPct = isRecording
+    ? Math.min(100, ((Date.now() - recordStartRef.current) / MAX_SEGMENT_MS) * 100)
+    : 0;
 
   // ── SETUP PHASE ──
   if (phase === "setup") {
@@ -205,7 +295,7 @@ export default function LiveScreen() {
           </View>
 
           <TouchableOpacity
-            onPress={() => setPhase("live")}
+            onPress={async () => { setPhase("live"); await startRecording(); }}
             className="bg-primary rounded-xl py-4 items-center"
             activeOpacity={0.85}
           >
@@ -255,15 +345,25 @@ export default function LiveScreen() {
       <ScrollView ref={scrollRef} className="flex-1 px-4 pt-3" contentContainerStyle={{ paddingBottom: 160, gap: 12 }}>
         {turns.length === 0 && !isProcessing && (
           <View className="py-16 items-center">
-            <View className="bg-violet-500/10 border border-violet-500/20 rounded-full p-8 mb-4">
+            <View className={`rounded-full p-8 mb-4 ${
+              isRecording ? "bg-red-500/20 border-2 border-red-500/50" : "bg-violet-500/10 border border-violet-500/20"
+            }`}>
               <Text style={{ fontSize: 40 }}>🎙️</Text>
             </View>
-            <Text className="text-white font-semibold text-base mb-1">Sessão iniciada</Text>
+            <Text className="text-white font-semibold text-base mb-1">
+              {isRecording
+                ? (silenceLeft !== null ? `Silêncio detectado...` : "Captando áudio...")
+                : "Aguardando..."}
+            </Text>
             <Text className="text-zinc-500 text-sm text-center mb-3">
-              Pressione o microfone para capturar o áudio
+              {isRecording
+                ? (silenceLeft !== null
+                    ? `Processando em ${(silenceLeft / 1000).toFixed(1)}s`
+                    : "Fale — a IA processa ao detectar pausa")
+                : "Iniciando próximo segmento..."}
             </Text>
             <View className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2">
-              <Text className="text-zinc-500 text-xs">🧠 Contexto acumulado via IA · Memória ativa por toda a sessão</Text>
+              <Text className="text-zinc-500 text-xs">🧠 VAD automático · 2.5s silêncio → processa · Memória ativa</Text>
             </View>
           </View>
         )}
@@ -338,13 +438,32 @@ export default function LiveScreen() {
 
         {/* Bottom dock */}
         <View className="px-6 pb-6 pt-2">
-          {isRecording && (
-            <View className="w-full bg-zinc-800 rounded-full h-1.5 mb-4 overflow-hidden">
-              <View className="bg-red-500 h-full rounded-full" style={{ width: `${progressPct}%` }} />
-            </View>
-          )}
+          {/* Progress bar: fills slowly to max, turns amber when silence detected */}
+          <View className="w-full bg-zinc-800 rounded-full h-1.5 mb-4 overflow-hidden">
+            {isRecording ? (
+              <View
+                className={`h-full rounded-full ${silenceLeft !== null ? "bg-amber-400" : "bg-red-500"}`}
+                style={{ width: `${elapsedPct}%` }}
+              />
+            ) : isProcessing ? (
+              <View className="bg-violet-500 h-full rounded-full" style={{ width: "100%" }} />
+            ) : null}
+          </View>
 
-          <View className="flex-row items-end justify-center gap-5">
+          {/* Status label */}
+          <View className="items-center mb-3">
+            <Text className="text-xs font-semibold tracking-widest">
+              {isRecording && silenceLeft !== null
+                ? <Text className="text-amber-400">◉ SILÊNCIO — PROCESSANDO EM {(silenceLeft/1000).toFixed(1)}s</Text>
+                : isRecording
+                ? <Text className="text-red-400">● CAPTANDO ÁUDIO</Text>
+                : isProcessing
+                ? <Text className="text-violet-400">⏳ PROCESSANDO COM IA...</Text>
+                : <Text className="text-zinc-600">○ AGUARDANDO PRÓXIMO SEGMENTO</Text>}
+            </Text>
+          </View>
+
+          <View className="flex-row items-center justify-center gap-8">
             {/* Phrase helper */}
             <TouchableOpacity
               onPress={() => {
@@ -363,31 +482,14 @@ export default function LiveScreen() {
               <Text className={`text-[10px] ${showPhrase ? "text-primary" : "text-zinc-500"}`}>Como falo?</Text>
             </TouchableOpacity>
 
-            {/* Main mic button */}
-            <TouchableOpacity
-              onPress={isRecording ? processAudio : startRecording}
-              disabled={isProcessing}
-              activeOpacity={0.85}
-              className="items-center gap-1"
-            >
-              <View className={`rounded-full w-20 h-20 items-center justify-center ${
-                isRecording ? "bg-red-500" : isProcessing ? "bg-zinc-700" : "bg-primary"
-              }`}>
-                {isRecording ? (
-                  <View className="items-center">
-                    <Text className="text-white text-lg font-bold">⏹</Text>
-                    <Text className="text-white text-[11px] font-bold">{countdown}s</Text>
-                  </View>
-                ) : isProcessing ? (
-                  <ActivityIndicator color="#fff" />
-                ) : (
-                  <Text style={{ fontSize: 28 }}>🎙️</Text>
-                )}
-              </View>
-              <Text className="text-zinc-400 text-[10px]">
-                {isRecording ? "Toque para parar" : isProcessing ? "Processando..." : "Gravar"}
-              </Text>
-            </TouchableOpacity>
+            {/* Central status indicator (not a button) */}
+            <View className={`rounded-full w-20 h-20 items-center justify-center ${
+              isRecording ? "bg-red-500" : isProcessing ? "bg-violet-600" : "bg-zinc-800"
+            }`}>
+              {isProcessing
+                ? <ActivityIndicator color="#fff" size="large" />
+                : <Text style={{ fontSize: 32 }}>🎙️</Text>}
+            </View>
 
             {/* Clear */}
             <TouchableOpacity onPress={() => setTurns([])} className="items-center gap-1">

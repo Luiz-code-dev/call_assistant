@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {
   View, Text, ScrollView, TouchableOpacity, TextInput,
-  RefreshControl, Modal, Alert, ActivityIndicator, Switch,
+  RefreshControl, Modal, Alert, ActivityIndicator, Switch, Share,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
@@ -53,7 +53,7 @@ interface Circle {
 }
 
 interface CircleDetail extends Circle {
-  members: { userId: string; role: string; user: { id: string; name: string; avatarUrl: string | null } }[];
+  members: { id: string; userId: string; role: string; user: { id: string; name: string; avatarUrl: string | null } }[];
   challenges: { id: string; title: string; isActive: boolean; _count: { submissions: number } }[];
 }
 
@@ -74,11 +74,39 @@ export default function CirclesScreen() {
   const [search, setSearch] = useState("");
   const [selected, setSelected] = useState<CircleDetail | null>(null);
   const [showCreate, setShowCreate] = useState(false);
-  const [showCreateChallenge, setShowCreateChallenge] = useState(false);
+  const [detailView, setDetailView] = useState<"main" | "challenge">("main");
   const [form, setForm] = useState({ name: "", description: "", focus: "", level: "Todos os níveis", visibility: "public" });
   const [cf, setCf] = useState(BLANK_CHALLENGE());
   const [joiningId, setJoiningId] = useState<string | null>(null);
   const [loadingDetail, setLoadingDetail] = useState(false);
+  const [inviteLoading, setInviteLoading] = useState(false);
+
+  async function handleInvite(circleId: string) {
+    setInviteLoading(true);
+    const r = await ApiClient.post<{ url: string; circleName: string }>(
+      `/api/network/circles/${circleId}/invite`, {}
+    );
+    setInviteLoading(false);
+    if (r.ok) {
+      await Share.share({
+        message: `Entra no circle "${r.data.circleName}" no SpeakFlow! 👉 ${r.data.url}`,
+        url: r.data.url,
+      });
+    } else {
+      Alert.alert("Erro", "Não foi possível gerar o link de convite.");
+    }
+  }
+
+  async function handleRemoveMember(circleId: string, membershipId: string, memberName: string) {
+    Alert.alert("Remover membro", `Remover ${memberName} do circle?`, [
+      { text: "Cancelar", style: "cancel" },
+      { text: "Remover", style: "destructive", onPress: async () => {
+        const r = await ApiClient.patch(`/api/network/circles/${circleId}/members/${membershipId}`, { action: "remove" });
+        if (r.ok) { openDetail(selected!); }
+        else Alert.alert("Erro", "Não foi possível remover o membro.");
+      }},
+    ]);
+  }
 
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["circles"],
@@ -127,7 +155,7 @@ export default function CirclesScreen() {
       return r.data;
     },
     onSuccess: () => {
-      setShowCreateChallenge(false);
+      setDetailView("main");
       setCf(BLANK_CHALLENGE());
       openDetail(selected!);
       Alert.alert("Desafio criado!", "Os membros foram notificados.");
@@ -258,23 +286,40 @@ export default function CirclesScreen() {
       </ScrollView>
 
       {/* ── Modal: Circle Detail ── */}
-      <Modal visible={!!selected} animationType="slide" presentationStyle="pageSheet" onRequestClose={() => setSelected(null)}>
+      <Modal visible={!!selected} animationType="slide" presentationStyle="pageSheet" onRequestClose={() => { setSelected(null); setDetailView("main"); }}>
         {selected && (
           <SafeAreaView className="flex-1 bg-background">
             <View className="flex-row items-center gap-3 px-5 pt-4 pb-3 border-b border-zinc-800">
-              <TouchableOpacity onPress={() => setSelected(null)}>
+              <TouchableOpacity onPress={() => detailView === "challenge" ? setDetailView("main") : setSelected(null)}>
                 <Text className="text-zinc-400 text-lg">‹</Text>
               </TouchableOpacity>
               <View className="flex-1">
                 <Text className="text-white font-bold text-base" numberOfLines={1}>{selected.name}</Text>
                 <Text className="text-zinc-500 text-xs">{selected.focus} · {selected.level}</Text>
               </View>
-              {selected.myRole && ["owner", "moderator"].includes(selected.myRole) && (
-                <TouchableOpacity
-                  onPress={() => { setCf(BLANK_CHALLENGE()); setShowCreateChallenge(true); }}
-                  className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl px-3 py-1.5"
-                >
-                  <Text className="text-emerald-400 text-xs font-semibold">⚡ Desafio</Text>
+              {selected.myRole && ["owner", "moderator"].includes(selected.myRole) && detailView === "main" && (
+                <>
+                  <TouchableOpacity
+                    onPress={() => handleInvite(selected.id)}
+                    disabled={inviteLoading}
+                    className="bg-blue-500/10 border border-blue-500/20 rounded-xl px-3 py-1.5"
+                  >
+                    {inviteLoading
+                      ? <ActivityIndicator size="small" color="#60a5fa" />
+                      : <Text className="text-blue-400 text-xs font-semibold">🔗 Convidar</Text>
+                    }
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() => { setCf(BLANK_CHALLENGE()); setDetailView("challenge"); }}
+                    className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl px-3 py-1.5"
+                  >
+                    <Text className="text-emerald-400 text-xs font-semibold">⚡ Desafio</Text>
+                  </TouchableOpacity>
+                </>
+              )}
+              {detailView === "challenge" && (
+                <TouchableOpacity onPress={() => setDetailView("main")} className="border border-zinc-700 rounded-xl px-3 py-1.5">
+                  <Text className="text-zinc-400 text-xs font-semibold">✕ Cancelar</Text>
                 </TouchableOpacity>
               )}
               {selected.myRole ? (
@@ -296,6 +341,159 @@ export default function CirclesScreen() {
                 </TouchableOpacity>
               )}
             </View>
+            {/* ── Challenge creation form (inline, no nested modal) ── */}
+            {detailView === "challenge" && (
+              <ScrollView className="flex-1 px-5 pt-4" keyboardShouldPersistTaps="handled" contentContainerStyle={{ paddingBottom: 40, gap: 16 }}>
+                <View className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl px-4 py-2 mb-2">
+                  <Text className="text-emerald-400 text-xs font-semibold">⚡ Novo desafio para: {selected.name}</Text>
+                </View>
+
+                <View>
+                  <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-2">Título *</Text>
+                  <TextInput
+                    value={cf.title} onChangeText={(v) => setCf(f => ({ ...f, title: v }))}
+                    placeholder="Ex: Pitch de 60 segundos em inglês" placeholderTextColor="#52525b" maxLength={120}
+                    className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3.5 text-white text-sm"
+                  />
+                </View>
+
+                <View>
+                  <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-2">Tipo</Text>
+                  <View className="flex-row gap-2">
+                    {(["written", "spoken", "quiz"] as ChallengeType[]).map((t) => (
+                      <TouchableOpacity key={t} onPress={() => setCf(f => ({ ...f, type: t }))}
+                        className={`flex-1 py-2.5 rounded-xl border items-center ${cf.type === t ? "bg-primary/20 border-primary/40" : "bg-zinc-900 border-zinc-800"}`}>
+                        <Text className={`text-xs font-semibold ${cf.type === t ? "text-primary" : "text-zinc-400"}`}>
+                          {t === "written" ? "✍️ Escrito" : t === "spoken" ? "🎙️ Voz" : "📊 Quiz"}
+                        </Text>
+                      </TouchableOpacity>
+                    ))}
+                  </View>
+                </View>
+
+                {cf.type !== "quiz" && (
+                  <View>
+                    <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-2">Prompt / instrução *</Text>
+                    <TextInput
+                      value={cf.prompt} onChangeText={(v) => setCf(f => ({ ...f, prompt: v }))}
+                      placeholder="Descreva o que os membros devem fazer..." placeholderTextColor="#52525b"
+                      multiline numberOfLines={3} textAlignVertical="top" maxLength={2000}
+                      className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white text-sm"
+                      style={{ minHeight: 80 }}
+                    />
+                  </View>
+                )}
+
+                {cf.type === "quiz" && (
+                  <View>
+                    <View className="flex-row items-center justify-between mb-2">
+                      <Text className="text-zinc-400 text-xs uppercase tracking-wider">Perguntas ({cf.questions.length}/10)</Text>
+                      {cf.questions.length < 10 && (
+                        <TouchableOpacity onPress={() => setCf(f => ({ ...f, questions: [...f.questions, BLANK_QUESTION()] }))}
+                          className="bg-primary/10 border border-primary/20 rounded-lg px-3 py-1">
+                          <Text className="text-primary text-xs font-semibold">+ Pergunta</Text>
+                        </TouchableOpacity>
+                      )}
+                    </View>
+                    {cf.questions.map((q, qi) => (
+                      <View key={qi} className="bg-zinc-900 border border-zinc-800 rounded-xl p-3 mb-3">
+                        <View className="flex-row items-center justify-between mb-2">
+                          <Text className="text-zinc-400 text-xs font-semibold">Pergunta {qi + 1}</Text>
+                          <TouchableOpacity onPress={() => setCf(f => ({ ...f, questions: f.questions.filter((_, i) => i !== qi) }))}>
+                            <Text className="text-red-400 text-xs">remover</Text>
+                          </TouchableOpacity>
+                        </View>
+                        <TextInput
+                          value={q.question}
+                          onChangeText={(v) => setCf(f => { const qs = [...f.questions]; qs[qi] = { ...qs[qi], question: v }; return { ...f, questions: qs }; })}
+                          placeholder="Texto da pergunta..." placeholderTextColor="#52525b"
+                          className="bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-white text-xs mb-2"
+                        />
+                        {q.options.map((opt, oi) => (
+                          <TouchableOpacity key={oi}
+                            onPress={() => setCf(f => { const qs = [...f.questions]; qs[qi] = { ...qs[qi], correctIndex: oi }; return { ...f, questions: qs }; })}
+                            className={`flex-row items-center gap-2 mb-1.5 rounded-lg px-2 py-1 border ${q.correctIndex === oi ? "bg-emerald-500/10 border-emerald-500/30" : "bg-zinc-800 border-zinc-700"}`}
+                          >
+                            <View className={`w-4 h-4 rounded-full border items-center justify-center ${q.correctIndex === oi ? "border-emerald-400 bg-emerald-400" : "border-zinc-600"}`}>
+                              {q.correctIndex === oi && <Text className="text-white text-[8px] font-bold">✓</Text>}
+                            </View>
+                            <TextInput
+                              value={opt}
+                              onChangeText={(v) => setCf(f => { const qs = [...f.questions]; const opts = [...qs[qi].options] as [string,string,string,string]; opts[oi] = v; qs[qi] = { ...qs[qi], options: opts }; return { ...f, questions: qs }; })}
+                              placeholder={`Opção ${oi + 1}${q.correctIndex === oi ? " (correta)" : ""}`} placeholderTextColor="#52525b"
+                              className="flex-1 text-white text-xs"
+                            />
+                          </TouchableOpacity>
+                        ))}
+                        <Text className="text-zinc-600 text-[10px] mt-1">Toque no círculo para marcar a opção correta</Text>
+                      </View>
+                    ))}
+                    {cf.questions.length === 0 && (
+                      <TouchableOpacity onPress={() => setCf(f => ({ ...f, questions: [BLANK_QUESTION()] }))}
+                        className="bg-zinc-900 border border-dashed border-zinc-700 rounded-xl p-4 items-center">
+                        <Text className="text-zinc-500 text-sm">Toque para adicionar a primeira pergunta</Text>
+                      </TouchableOpacity>
+                    )}
+                  </View>
+                )}
+
+                <View>
+                  <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-2">Início</Text>
+                  <View className="flex-row gap-2">
+                    {(["now", "1h", "tomorrow"] as StartOffset[]).map((s) => (
+                      <TouchableOpacity key={s} onPress={() => setCf(f => ({ ...f, startOffset: s }))}
+                        className={`flex-1 py-2.5 rounded-xl border items-center ${cf.startOffset === s ? "bg-primary/20 border-primary/40" : "bg-zinc-900 border-zinc-800"}`}>
+                        <Text className={`text-xs font-semibold ${cf.startOffset === s ? "text-primary" : "text-zinc-400"}`}>
+                          {s === "now" ? "Agora" : s === "1h" ? "Em 1h" : "Amanhã"}
+                        </Text>
+                      </TouchableOpacity>
+                    ))}
+                  </View>
+                </View>
+
+                <View>
+                  <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-2">Duração</Text>
+                  <View className="flex-row gap-2">
+                    {(["1d", "3d", "7d", "14d"] as Duration[]).map((d) => (
+                      <TouchableOpacity key={d} onPress={() => setCf(f => ({ ...f, duration: d }))}
+                        className={`flex-1 py-2.5 rounded-xl border items-center ${cf.duration === d ? "bg-primary/20 border-primary/40" : "bg-zinc-900 border-zinc-800"}`}>
+                        <Text className={`text-xs font-semibold ${cf.duration === d ? "text-primary" : "text-zinc-400"}`}>
+                          {d === "1d" ? "1 dia" : d === "3d" ? "3 dias" : d === "7d" ? "7 dias" : "14 dias"}
+                        </Text>
+                      </TouchableOpacity>
+                    ))}
+                  </View>
+                </View>
+
+                <View className="flex-row items-center justify-between bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3">
+                  <View>
+                    <Text className="text-white text-sm font-medium">Recorrente</Text>
+                    <Text className="text-zinc-500 text-xs">Renova automaticamente ao expirar</Text>
+                  </View>
+                  <Switch
+                    value={cf.isRecurring}
+                    onValueChange={(v) => setCf(f => ({ ...f, isRecurring: v }))}
+                    trackColor={{ false: "#3f3f46", true: "#7c3aed" }}
+                    thumbColor="#ffffff"
+                  />
+                </View>
+
+                <TouchableOpacity
+                  onPress={() => createChallengeMutation.mutate()}
+                  disabled={createChallengeMutation.isPending}
+                  className="bg-primary rounded-xl py-4 items-center disabled:opacity-50 mt-2"
+                  activeOpacity={0.8}
+                >
+                  {createChallengeMutation.isPending
+                    ? <ActivityIndicator color="#fff" />
+                    : <Text className="text-white font-bold text-base">Criar Desafio ⚡</Text>
+                  }
+                </TouchableOpacity>
+              </ScrollView>
+            )}
+
+            {/* ── Main detail view ── */}
+            {detailView === "main" && (
             <ScrollView className="flex-1 px-5 pt-4" contentContainerStyle={{ paddingBottom: 40, gap: 16 }}>
               {selected.description && (
                 <Text className="text-zinc-400 text-sm leading-relaxed">{selected.description}</Text>
@@ -327,24 +525,37 @@ export default function CirclesScreen() {
               {/* Members */}
               {selected.members.length > 0 && (
                 <View>
-                  <Text className="text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-3">Membros</Text>
-                  {selected.members.slice(0, 12).map((m) => (
+                  <View className="flex-row items-center justify-between mb-3">
+                    <Text className="text-zinc-400 text-xs font-semibold uppercase tracking-wider">
+                      {selected.members.length} Membros
+                    </Text>
+                  </View>
+                  {selected.members.slice(0, 20).map((m) => (
                     <View key={m.userId} className="flex-row items-center gap-3 mb-2.5">
                       <View className="w-8 h-8 rounded-full bg-primary/20 items-center justify-center">
                         <Text className="text-white text-xs font-bold">{m.user.name.charAt(0)}</Text>
                       </View>
                       <Text className="text-white text-sm flex-1">{m.user.name}</Text>
                       {m.role !== "member" && (
-                        <Text className="text-xs text-amber-400 capitalize">{m.role}</Text>
+                        <Text className="text-xs text-amber-400 capitalize mr-2">{m.role}</Text>
+                      )}
+                      {selected.myRole && ["owner", "moderator"].includes(selected.myRole) && m.role !== "owner" && (
+                        <TouchableOpacity
+                          onPress={() => handleRemoveMember(selected.id, m.id, m.user.name)}
+                          className="bg-red-500/10 border border-red-500/20 rounded-lg px-2 py-1"
+                        >
+                          <Text className="text-red-400 text-[10px]">🗑</Text>
+                        </TouchableOpacity>
                       )}
                     </View>
                   ))}
-                  {selected.members.length > 12 && (
-                    <Text className="text-zinc-600 text-xs text-center mt-1">+{selected.members.length - 12} membros</Text>
+                  {selected.members.length > 20 && (
+                    <Text className="text-zinc-600 text-xs text-center mt-1">+{selected.members.length - 20} membros</Text>
                   )}
                 </View>
               )}
             </ScrollView>
+            )}
           </SafeAreaView>
         )}
       </Modal>
@@ -414,170 +625,6 @@ export default function CirclesScreen() {
               {createMutation.isPending
                 ? <ActivityIndicator color="#fff" />
                 : <Text className="text-white font-bold text-base">Criar Circle</Text>
-              }
-            </TouchableOpacity>
-          </ScrollView>
-        </SafeAreaView>
-      </Modal>
-
-      {/* ── Modal: Criar Desafio ── */}
-      <Modal visible={showCreateChallenge} animationType="slide" presentationStyle="pageSheet" onRequestClose={() => setShowCreateChallenge(false)}>
-        <SafeAreaView className="flex-1 bg-background">
-          <View className="flex-row items-center justify-between px-5 pt-4 pb-3 border-b border-zinc-800">
-            <View>
-              <Text className="text-xl font-bold text-white">⚡ Criar Desafio</Text>
-              <Text className="text-zinc-500 text-xs">{selected?.name}</Text>
-            </View>
-            <TouchableOpacity onPress={() => setShowCreateChallenge(false)}><Text className="text-zinc-400 text-lg">✕</Text></TouchableOpacity>
-          </View>
-
-          <ScrollView className="flex-1 px-5 pt-4" keyboardShouldPersistTaps="handled" contentContainerStyle={{ paddingBottom: 40, gap: 16 }}>
-            {/* Title */}
-            <View>
-              <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-2">Título *</Text>
-              <TextInput
-                value={cf.title} onChangeText={(v) => setCf(f => ({ ...f, title: v }))}
-                placeholder="Ex: Pitch de 60 segundos em inglês" placeholderTextColor="#52525b" maxLength={120}
-                className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3.5 text-white text-sm"
-              />
-            </View>
-
-            {/* Type */}
-            <View>
-              <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-2">Tipo</Text>
-              <View className="flex-row gap-2">
-                {(["written", "spoken", "quiz"] as ChallengeType[]).map((t) => (
-                  <TouchableOpacity key={t} onPress={() => setCf(f => ({ ...f, type: t }))}
-                    className={`flex-1 py-2.5 rounded-xl border items-center ${cf.type === t ? "bg-primary/20 border-primary/40" : "bg-zinc-900 border-zinc-800"}`}>
-                    <Text className={`text-xs font-semibold ${cf.type === t ? "text-primary" : "text-zinc-400"}`}>
-                      {t === "written" ? "✍️ Escrito" : t === "spoken" ? "🎙️ Voz" : "📊 Quiz"}
-                    </Text>
-                  </TouchableOpacity>
-                ))}
-              </View>
-            </View>
-
-            {/* Prompt (written/spoken) */}
-            {cf.type !== "quiz" && (
-              <View>
-                <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-2">Prompt / instrução *</Text>
-                <TextInput
-                  value={cf.prompt} onChangeText={(v) => setCf(f => ({ ...f, prompt: v }))}
-                  placeholder="Descreva o que os membros devem fazer..." placeholderTextColor="#52525b"
-                  multiline numberOfLines={3} textAlignVertical="top" maxLength={2000}
-                  className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white text-sm"
-                  style={{ minHeight: 80 }}
-                />
-              </View>
-            )}
-
-            {/* Quiz questions */}
-            {cf.type === "quiz" && (
-              <View>
-                <View className="flex-row items-center justify-between mb-2">
-                  <Text className="text-zinc-400 text-xs uppercase tracking-wider">Perguntas ({cf.questions.length}/10)</Text>
-                  {cf.questions.length < 10 && (
-                    <TouchableOpacity onPress={() => setCf(f => ({ ...f, questions: [...f.questions, BLANK_QUESTION()] }))}
-                      className="bg-primary/10 border border-primary/20 rounded-lg px-3 py-1">
-                      <Text className="text-primary text-xs font-semibold">+ Pergunta</Text>
-                    </TouchableOpacity>
-                  )}
-                </View>
-                {cf.questions.map((q, qi) => (
-                  <View key={qi} className="bg-zinc-900 border border-zinc-800 rounded-xl p-3 mb-3">
-                    <View className="flex-row items-center justify-between mb-2">
-                      <Text className="text-zinc-400 text-xs font-semibold">Pergunta {qi + 1}</Text>
-                      <TouchableOpacity onPress={() => setCf(f => ({ ...f, questions: f.questions.filter((_, i) => i !== qi) }))}>
-                        <Text className="text-red-400 text-xs">remover</Text>
-                      </TouchableOpacity>
-                    </View>
-                    <TextInput
-                      value={q.question}
-                      onChangeText={(v) => setCf(f => { const qs = [...f.questions]; qs[qi] = { ...qs[qi], question: v }; return { ...f, questions: qs }; })}
-                      placeholder="Texto da pergunta..." placeholderTextColor="#52525b"
-                      className="bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-white text-xs mb-2"
-                    />
-                    {q.options.map((opt, oi) => (
-                      <TouchableOpacity key={oi}
-                        onPress={() => setCf(f => { const qs = [...f.questions]; qs[qi] = { ...qs[qi], correctIndex: oi }; return { ...f, questions: qs }; })}
-                        className={`flex-row items-center gap-2 mb-1.5 rounded-lg px-2 py-1 border ${q.correctIndex === oi ? "bg-emerald-500/10 border-emerald-500/30" : "bg-zinc-800 border-zinc-700"}`}
-                      >
-                        <View className={`w-4 h-4 rounded-full border items-center justify-center ${q.correctIndex === oi ? "border-emerald-400 bg-emerald-400" : "border-zinc-600"}`}>
-                          {q.correctIndex === oi && <Text className="text-white text-[8px] font-bold">✓</Text>}
-                        </View>
-                        <TextInput
-                          value={opt}
-                          onChangeText={(v) => setCf(f => { const qs = [...f.questions]; const opts = [...qs[qi].options] as [string,string,string,string]; opts[oi] = v; qs[qi] = { ...qs[qi], options: opts }; return { ...f, questions: qs }; })}
-                          placeholder={`Opção ${oi + 1}${q.correctIndex === oi ? " (correta)" : ""}`} placeholderTextColor="#52525b"
-                          className="flex-1 text-white text-xs"
-                        />
-                      </TouchableOpacity>
-                    ))}
-                    <Text className="text-zinc-600 text-[10px] mt-1">Toque no círculo para marcar a opção correta</Text>
-                  </View>
-                ))}
-                {cf.questions.length === 0 && (
-                  <TouchableOpacity onPress={() => setCf(f => ({ ...f, questions: [BLANK_QUESTION()] }))}
-                    className="bg-zinc-900 border border-dashed border-zinc-700 rounded-xl p-4 items-center">
-                    <Text className="text-zinc-500 text-sm">Toque para adicionar a primeira pergunta</Text>
-                  </TouchableOpacity>
-                )}
-              </View>
-            )}
-
-            {/* Start */}
-            <View>
-              <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-2">Início</Text>
-              <View className="flex-row gap-2">
-                {(["now", "1h", "tomorrow"] as StartOffset[]).map((s) => (
-                  <TouchableOpacity key={s} onPress={() => setCf(f => ({ ...f, startOffset: s }))}
-                    className={`flex-1 py-2.5 rounded-xl border items-center ${cf.startOffset === s ? "bg-primary/20 border-primary/40" : "bg-zinc-900 border-zinc-800"}`}>
-                    <Text className={`text-xs font-semibold ${cf.startOffset === s ? "text-primary" : "text-zinc-400"}`}>
-                      {s === "now" ? "Agora" : s === "1h" ? "Em 1h" : "Amanhã"}
-                    </Text>
-                  </TouchableOpacity>
-                ))}
-              </View>
-            </View>
-
-            {/* Duration */}
-            <View>
-              <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-2">Duração</Text>
-              <View className="flex-row gap-2">
-                {(["1d", "3d", "7d", "14d"] as Duration[]).map((d) => (
-                  <TouchableOpacity key={d} onPress={() => setCf(f => ({ ...f, duration: d }))}
-                    className={`flex-1 py-2.5 rounded-xl border items-center ${cf.duration === d ? "bg-primary/20 border-primary/40" : "bg-zinc-900 border-zinc-800"}`}>
-                    <Text className={`text-xs font-semibold ${cf.duration === d ? "text-primary" : "text-zinc-400"}`}>
-                      {d === "1d" ? "1 dia" : d === "3d" ? "3 dias" : d === "7d" ? "7 dias" : "14 dias"}
-                    </Text>
-                  </TouchableOpacity>
-                ))}
-              </View>
-            </View>
-
-            {/* Recurring */}
-            <View className="flex-row items-center justify-between bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3">
-              <View>
-                <Text className="text-white text-sm font-medium">Recorrente</Text>
-                <Text className="text-zinc-500 text-xs">Renova automaticamente ao expirar</Text>
-              </View>
-              <Switch
-                value={cf.isRecurring}
-                onValueChange={(v) => setCf(f => ({ ...f, isRecurring: v }))}
-                trackColor={{ false: "#3f3f46", true: "#7c3aed" }}
-                thumbColor="#ffffff"
-              />
-            </View>
-
-            <TouchableOpacity
-              onPress={() => createChallengeMutation.mutate()}
-              disabled={createChallengeMutation.isPending}
-              className="bg-primary rounded-xl py-4 items-center disabled:opacity-50 mt-2"
-              activeOpacity={0.8}
-            >
-              {createChallengeMutation.isPending
-                ? <ActivityIndicator color="#fff" />
-                : <Text className="text-white font-bold text-base">Criar Desafio ⚡</Text>
               }
             </TouchableOpacity>
           </ScrollView>
