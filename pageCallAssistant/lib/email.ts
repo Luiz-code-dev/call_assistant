@@ -59,7 +59,7 @@ export async function sendSupportEmail(
       from: FROM_EMAIL,
       to: process.env.SUPPORT_EMAIL || "luiz.melo@cdsolutions.com.br",
       replyTo: email,
-      subject: `[Suporte SpeakFlow] Mensagem de ${name}`,
+      subject: `SpeakFlow Suporte: mensagem de ${name}`,
       text: `Nova mensagem de suporte — SpeakFlow\n\nNome: ${name}\nE-mail: ${email}\n\nMensagem:\n${question}\n\n---\nEnviado pelo app SpeakFlow`,
       html: `<!DOCTYPE html>
 <html lang="pt-BR">
