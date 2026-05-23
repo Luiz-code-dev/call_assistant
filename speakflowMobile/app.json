@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "SpeakFlow",
-    "slug": "speakflow",
+    "slug": "speakflow-l3lve6fjw-wtsoes-f60m",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -12,7 +12,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#09090b"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "br.com.speakflow.app",
@@ -20,7 +22,9 @@
       "infoPlist": {
         "NSMicrophoneUsageDescription": "O SpeakFlow usa o microfone para o Live Assist — copiloto de reuniões em tempo real.",
         "NSCameraUsageDescription": "Câmera necessária para foto de perfil.",
-        "UIBackgroundModes": ["audio"]
+        "UIBackgroundModes": [
+          "audio"
+        ]
       }
     },
     "android": {
@@ -29,8 +33,13 @@
         "backgroundColor": "#09090b"
       },
       "package": "br.com.speakflow.app",
-      "versionCode": 1,
-      "permissions": ["RECORD_AUDIO", "CAMERA"]
+      "versionCode": 2,
+      "permissions": [
+        "RECORD_AUDIO",
+        "CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -46,15 +55,20 @@
           "microphonePermission": "O SpeakFlow usa o microfone para o Live Assist em tempo real."
         }
       ],
-      ["expo-notifications", {}]
+      [
+        "expo-notifications",
+        {}
+      ]
     ],
     "experiments": {
       "typedRoutes": true
     },
     "extra": {
+      "router": {},
       "eas": {
-        "projectId": "REPLACE_WITH_EAS_PROJECT_ID"
+        "projectId": "b616375b-fbae-4a7b-b9cc-991bb9c0ec02"
       }
-    }
+    },
+    "owner": "codevelopsolutions"
   }
 }
