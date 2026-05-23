@@ -60,7 +60,12 @@ export async function POST(req: NextRequest) {
 
     const existing = await db.user.findUnique({ where: { email: email.toLowerCase() } });
     if (existing) {
-      return NextResponse.json({ message: "Este e-mail já está em uso" }, { status: 409 });
+      const tokenExpired = existing.verificationExpiry && existing.verificationExpiry < new Date();
+      if (!existing.emailVerified && tokenExpired) {
+        await db.user.delete({ where: { id: existing.id } });
+      } else {
+        return NextResponse.json({ message: "Este e-mail já está em uso" }, { status: 409 });
+      }
     }
 
     const hashedPassword = await bcrypt.hash(password, 12);

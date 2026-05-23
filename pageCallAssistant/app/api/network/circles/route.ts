@@ -58,20 +58,38 @@ export async function GET(req: NextRequest) {
   return NextResponse.json(circles.map((c) => ({ ...c, isMember: memberCircleIds.has(c.id) })));
 }
 
+const CIRCLE_FREE_LIMIT = 5;
+const CIRCLE_EXTRA_COST = 10;
+
 export async function POST(req: NextRequest) {
   const session = await getNetworkSession(req);
   if (!session) return NextResponse.json({ error: "not_authenticated" }, { status: 401 });
 
-  const user = await db.user.findUnique({ where: { id: session.sub }, select: { plan: true } });
+  const user = await db.user.findUnique({ where: { id: session.sub }, select: { plan: true, credits: true } });
   if (!user) return NextResponse.json({ error: "user_not_found" }, { status: 404 });
 
-  if (user.plan === "free")
+  const isPremium = user.plan === "premium";
+
+  const isPromo = user.plan === "free" && !!(await (db as any).creditTransaction.findFirst({
+    where: { userId: session.sub, source: "launch_promo" },
+  }));
+
+  const isBasicOrPromo = user.plan === "basic" || isPromo;
+
+  if (!isBasicOrPromo && !isPremium)
     return NextResponse.json({ error: "Apenas planos Básico ou Premium podem criar Circles.", code: "plan_required" }, { status: 403 });
 
-  if (user.plan === "basic") {
+  let chargeCredits = false;
+  if (!isPremium) {
     const owned = await db.circle.count({ where: { ownerId: session.sub } });
-    if (owned >= 1)
-      return NextResponse.json({ error: "Plano Básico permite criar apenas 1 Circle. Faça upgrade para Premium.", code: "circle_limit" }, { status: 403 });
+    if (owned >= CIRCLE_FREE_LIMIT) {
+      if (user.credits < CIRCLE_EXTRA_COST)
+        return NextResponse.json({
+          error: `Você atingiu o limite de ${CIRCLE_FREE_LIMIT} Circles gratuitos. Criar mais custa ${CIRCLE_EXTRA_COST} créditos, mas você não tem créditos suficientes.`,
+          code: "insufficient_credits",
+        }, { status: 403 });
+      chargeCredits = true;
+    }
   }
 
   const body = await req.json().catch(() => ({}));
@@ -92,6 +110,15 @@ export async function POST(req: NextRequest) {
       members: { create: { userId: session.sub, role: "owner", status: "active" } },
     },
   });
+
+  if (chargeCredits) {
+    await db.$transaction([
+      db.user.update({ where: { id: session.sub }, data: { credits: { decrement: CIRCLE_EXTRA_COST } } }),
+      (db as any).creditTransaction.create({
+        data: { userId: session.sub, type: "debit", amount: CIRCLE_EXTRA_COST, source: "circle_create", description: `Circle criado: ${circle.name}` },
+      }),
+    ]);
+  }
 
   return NextResponse.json(circle, { status: 201 });
 }
