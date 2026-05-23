@@ -11,6 +11,86 @@ export interface LiveSuggestionResult {
 }
 
 export const LiveApi = {
+
+  async transcribeAudio(
+    audioUri: string,
+    opts: { sourceLang?: string } = {}
+  ): Promise<Result<{ transcript: string }>> {
+    const token = await TokenStorage.get();
+    const formData = new FormData();
+    formData.append("audio", { uri: audioUri, type: "audio/m4a", name: "live.m4a" } as unknown as Blob);
+    formData.append("source_lang", opts.sourceLang ?? "en-US");
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30_000);
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/live/transcribe`, {
+        method: "POST",
+        headers: { ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+        body: formData,
+        signal: controller.signal,
+      });
+      clearTimeout(timeout);
+      if (!response.ok) {
+        const err = await response.json().catch(() => ({})) as Record<string, unknown>;
+        return { ok: false, error: { message: (err.error as string) ?? `Erro ${response.status}`, statusCode: response.status } };
+      }
+      const data = await response.json() as { transcript: string };
+      return { ok: true, data };
+    } catch (err) {
+      clearTimeout(timeout);
+      return { ok: false, error: { message: (err as Error).name === "AbortError" ? "Tempo limite esgotado." : "Erro de conexão.", statusCode: 0 } };
+    }
+  },
+
+  async getSuggestions(
+    transcript: string,
+    sessionId: string,
+    opts: { sourceLang?: string; customContext?: string } = {}
+  ): Promise<Result<Omit<LiveSuggestionResult, "transcript">>> {
+    const token = await TokenStorage.get();
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30_000);
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/live/suggest`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+        body: JSON.stringify({
+          session_id: sessionId,
+          transcript,
+          source_lang: opts.sourceLang ?? "en-US",
+          custom_context: opts.customContext ?? "",
+        }),
+        signal: controller.signal,
+      });
+      clearTimeout(timeout);
+      if (!response.ok) {
+        const err = await response.json().catch(() => ({})) as Record<string, unknown>;
+        return { ok: false, error: { message: (err.error as string) ?? `Erro ${response.status}`, statusCode: response.status } };
+      }
+      const data = await response.json() as {
+        translation: string;
+        suggestions: string[];
+        suggestion_translations: string[];
+        creditsUsed: number;
+      };
+      return {
+        ok: true,
+        data: {
+          translation: data.translation,
+          suggestions: data.suggestions ?? [],
+          suggestionTranslations: data.suggestion_translations ?? [],
+          creditsUsed: data.creditsUsed ?? 0,
+        },
+      };
+    } catch (err) {
+      clearTimeout(timeout);
+      return { ok: false, error: { message: (err as Error).name === "AbortError" ? "Tempo limite esgotado." : "Erro de conexão.", statusCode: 0 } };
+    }
+  },
+
   async translatePhrase(text: string): Promise<Result<{ english: string }>> {
     const token = await TokenStorage.get();
     try {

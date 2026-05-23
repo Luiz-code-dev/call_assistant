@@ -7,7 +7,17 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useAudioRecorder, useAudioRecorderState, AudioModule, RecordingPresets } from "expo-audio";
 import { useAuthStore } from "@presentation/stores/authStore";
-import { LiveApi, type LiveSuggestionResult } from "@infrastructure/api/LiveApi";
+import { LiveApi } from "@infrastructure/api/LiveApi";
+
+interface LiveTurn {
+  id: string;
+  transcript: string;
+  translation: string;
+  suggestions: string[];
+  suggestionTranslations: string[];
+  creditsUsed: number;
+  loadingSuggestions: boolean;
+}
 
 type Phase = "setup" | "live";
 type RecordState = "idle" | "recording" | "processing";
@@ -20,11 +30,11 @@ const LANGUAGES = [
   { code: "de-DE", label: "🇩🇪 Alemão" },
 ];
 
-const MAX_SEGMENT_MS  = 12000;  // safety fallback when metering unavailable
-const MIN_SPEECH_MS   = 1500;   // ignore silence in first 1.5s (mic warmup + phantom spikes)
-const SILENCE_DB      = -50;    // dBFS below this = silence (mobile mic levels are typically -40 to -20)
-const SILENCE_MS      = 2500;   // 2.5s of continuous silence → process
-const SPIKE_GRACE_MS  = 350;    // noise spike shorter than this doesn't reset silence counter
+const MAX_SEGMENT_MS  = 8000;   // safety fallback when metering unavailable
+const MIN_SPEECH_MS   = 800;    // ignore silence in first 0.8s (mic warmup)
+const SILENCE_DB      = -35;    // dBFS below this = silence (Android mic typically -40 to -20 for silence)
+const SILENCE_MS      = 1800;   // 1.8s of continuous silence → process
+const SPIKE_GRACE_MS  = 300;    // noise spike shorter than this doesn't reset silence counter
 const MIN_RECORD_MS   = 800;    // guard for accidental taps
 
 export default function LiveScreen() {
@@ -32,7 +42,7 @@ export default function LiveScreen() {
 
   const [phase, setPhase] = useState<Phase>("setup");
   const [recordState, setRecordState] = useState<RecordState>("idle");
-  const [turns, setTurns] = useState<LiveSuggestionResult[]>([]);
+  const [turns, setTurns] = useState<LiveTurn[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   // Setup config
@@ -58,6 +68,7 @@ export default function LiveScreen() {
   const scrollRef = useRef<ScrollView>(null);
   const autoRunning = useRef(false);
   const processingRef = useRef(false);  // guard against double-trigger
+  const startNextSegmentRef = useRef<() => void>(() => {});
   const spikeStartRef = useRef<number | null>(null);
   const vadIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -80,16 +91,14 @@ export default function LiveScreen() {
       setRecordState("idle");
       if (autoRunning.current) {
         await new Promise((r) => setTimeout(r, 500));
-        if (autoRunning.current) startNextSegment();
+        if (autoRunning.current) startNextSegmentRef.current();
       }
       return;
     }
 
     setRecordState("processing");
-
-    // Stop recording and wait for file to be flushed to disk
     await audioRecorder.stop();
-    await new Promise((r) => setTimeout(r, 500));
+    await new Promise((r) => setTimeout(r, 400));
 
     const uri = audioRecorder.uri;
     if (!uri) {
@@ -97,46 +106,64 @@ export default function LiveScreen() {
       setRecordState("idle");
       if (autoRunning.current) {
         await new Promise((r) => setTimeout(r, 800));
-        if (autoRunning.current) startNextSegment();
+        if (autoRunning.current) startNextSegmentRef.current();
       }
       return;
     }
 
-    void LANGUAGES.find((l) => l.code === sourceLang);
-    const result = await LiveApi.processAudio(uri, sessionIdRef.current, {
+    // ── FASE 1: Whisper → transcrição imediata (~1-2s) ──
+    const transcribeResult = await LiveApi.transcribeAudio(uri, { sourceLang });
+
+    if (!transcribeResult.ok) {
+      processingRef.current = false;
+      if (autoRunning.current) {
+        setRecordState("idle");
+        await new Promise((r) => setTimeout(r, 1000));
+        if (autoRunning.current) startNextSegmentRef.current();
+      } else {
+        setError(transcribeResult.error.message);
+        setRecordState("idle");
+      }
+      return;
+    }
+
+    const turnId = `turn_${Date.now()}`;
+    const transcript = transcribeResult.data.transcript;
+
+    // Mostra transcrição imediatamente — sugestões ainda carregando
+    setTurns((prev) => [...prev, {
+      id: turnId, transcript,
+      translation: "", suggestions: [], suggestionTranslations: [], creditsUsed: 0,
+      loadingSuggestions: true,
+    }].slice(-20));
+    setError(null);
+    setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 100);
+
+    // ── Reinicia gravação IMEDIATAMENTE — não espera sugestões ──
+    processingRef.current = false;
+    setRecordState("idle");
+    if (autoRunning.current) {
+      await new Promise((r) => setTimeout(r, 200));
+      if (autoRunning.current) startNextSegmentRef.current();
+    }
+
+    // ── FASE 2: GPT → sugestões em background (~1-2s) ──
+    const suggestResult = await LiveApi.getSuggestions(transcript, sessionIdRef.current, {
       sourceLang,
       customContext: context,
     });
 
-    if (!result.ok) {
-      processingRef.current = false;
-      if (autoRunning.current) {
-        // Auto mode: silently restart — errors are expected (e.g. silent audio, short segment)
-        setRecordState("idle");
-        await new Promise((r) => setTimeout(r, 1000));
-        if (autoRunning.current) startNextSegment();
-      } else {
-        setError(result.error.message);
-        setRecordState("idle");
-      }
-      return;
-    }
-
-    setTurns((prev) => [...prev, result.data].slice(-20));
-    refreshUser();
-    setError(null);
-    setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 150);
-
-    processingRef.current = false;
-    if (autoRunning.current) {
-      setRecordState("idle");
-      await new Promise((r) => setTimeout(r, 300));
-      if (autoRunning.current) startNextSegment();
+    if (suggestResult.ok) {
+      setTurns((prev) => prev.map((t) =>
+        t.id === turnId
+          ? { ...t, translation: suggestResult.data.translation, suggestions: suggestResult.data.suggestions, suggestionTranslations: suggestResult.data.suggestionTranslations, creditsUsed: suggestResult.data.creditsUsed, loadingSuggestions: false }
+          : t
+      ));
+      refreshUser();
+      setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 100);
     } else {
-      setRecordState("idle");
+      setTurns((prev) => prev.map((t) => t.id === turnId ? { ...t, loadingSuggestions: false } : t));
     }
-
-    void selectedLang;
   }, [audioRecorder, clearTimers, context, refreshUser, sourceLang]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Internal: starts one recording segment (no permission re-check after first)
@@ -147,12 +174,12 @@ export default function LiveScreen() {
     silenceStartRef.current = null;
     setSilenceLeft(null);
     await AudioModule.setAudioModeAsync({ allowsRecording: true, playsInSilentMode: true });
-    await audioRecorder.prepareToRecordAsync({ isMeteringEnabled: true });
+    await audioRecorder.prepareToRecordAsync({ ...RecordingPresets.HIGH_QUALITY, isMeteringEnabled: true });
     recordStartRef.current = Date.now();
     setRecordState("recording");
     audioRecorder.record();
     // Safety: force-process after MAX_SEGMENT_MS even if no silence detected
-    maxSegmentTimerRef.current = setTimeout(() => processAudio(), MAX_SEGMENT_MS);
+    maxSegmentTimerRef.current = setTimeout(() => processAudioRef.current(), MAX_SEGMENT_MS);
 
     // ── VAD: interval-based (NOT useEffect) so silence duration accumulates even when dBFS is stable ──
     if (vadIntervalRef.current) clearInterval(vadIntervalRef.current);
@@ -224,6 +251,7 @@ export default function LiveScreen() {
 
   const processAudioRef = useRef(processAudio);
   useEffect(() => { processAudioRef.current = processAudio; });
+  useEffect(() => { startNextSegmentRef.current = startNextSegment; });
 
   const handleTranslatePhrase = useCallback(async () => {
     if (!phraseText.trim() || phraseLoading) return;
@@ -372,21 +400,30 @@ export default function LiveScreen() {
 
         {turns.map((s, i) => (
           <View key={i} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4">
-            <View className="mb-3 pb-3 border-b border-zinc-800">
+            <View className={`${s.loadingSuggestions ? "mb-3" : "mb-3 pb-3 border-b border-zinc-800"}`}>
               <Text className="text-zinc-500 text-[10px] font-semibold uppercase tracking-wider mb-1">Transcrição</Text>
               <Text className="text-zinc-200 text-sm leading-relaxed">{s.transcript}</Text>
               {s.translation ? <Text className="text-zinc-500 text-xs mt-1 italic">🇧🇷 {s.translation}</Text> : null}
             </View>
-            <Text className="text-zinc-500 text-[10px] font-semibold uppercase tracking-wider mb-2">Sugestões</Text>
-            {s.suggestions.map((sug, j) => (
-              <View key={j} className="bg-zinc-800/50 border border-zinc-700/50 rounded-xl px-3 py-2.5 mb-2">
-                <Text className="text-white text-sm leading-relaxed">{sug}</Text>
-                {s.suggestionTranslations[j] && (
-                  <Text className="text-zinc-500 text-xs mt-1">{s.suggestionTranslations[j]}</Text>
-                )}
+            {s.loadingSuggestions ? (
+              <View className="flex-row items-center gap-2 pt-1">
+                <ActivityIndicator color="#7c3aed" size="small" />
+                <Text className="text-zinc-500 text-xs">Gerando sugestões...</Text>
               </View>
-            ))}
-            <Text className="text-zinc-600 text-[10px] text-right mt-1">⚡ {s.creditsUsed} créditos</Text>
+            ) : (
+              <>
+                <Text className="text-zinc-500 text-[10px] font-semibold uppercase tracking-wider mb-2">Sugestões</Text>
+                {s.suggestions.map((sug, j) => (
+                  <View key={j} className="bg-zinc-800/50 border border-zinc-700/50 rounded-xl px-3 py-2.5 mb-2">
+                    <Text className="text-white text-sm leading-relaxed">{sug}</Text>
+                    {s.suggestionTranslations[j] && (
+                      <Text className="text-zinc-500 text-xs mt-1">{s.suggestionTranslations[j]}</Text>
+                    )}
+                  </View>
+                ))}
+                {s.creditsUsed > 0 && <Text className="text-zinc-600 text-[10px] text-right mt-1">⚡ {s.creditsUsed} créditos</Text>}
+              </>
+            )}
           </View>
         ))}
 

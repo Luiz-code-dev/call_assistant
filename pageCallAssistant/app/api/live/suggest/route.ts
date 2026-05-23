@@ -98,7 +98,7 @@ export async function POST(req: NextRequest) {
     if (copilotUrl) {
       // Optional: proxy to Python AgentScope service (session memory)
       const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 12_000);
+      const timeout = setTimeout(() => controller.abort(), 5_000);
       try {
         const res = await fetch(`${copilotUrl}/copilot/suggest`, {
           method: "POST",

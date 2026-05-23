@@ -130,7 +130,7 @@ export async function POST(req: NextRequest) {
     if (copilotUrl) {
       try {
         const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 12_000);
+        const timeout = setTimeout(() => controller.abort(), 5_000);
         const res = await fetch(`${copilotUrl}/copilot/suggest`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
