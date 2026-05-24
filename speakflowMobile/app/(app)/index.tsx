@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { View, Text, ScrollView, TouchableOpacity, RefreshControl, Modal } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import * as SecureStore from "expo-secure-store";
 import { useAuthStore } from "@presentation/stores/authStore";
@@ -55,119 +56,134 @@ export default function HomeScreen() {
   }, [refreshUser]);
 
   const firstName = user?.name?.split(" ")[0] ?? "Usuário";
-  const creditPct = Math.min(100, ((user?.credits ?? 0) / 200) * 100);
+  const planLabel = user?.plan === "free" ? "Gratuito" : user?.plan === "basic" ? "Básico" : "Premium";
+  const planColors: Record<string, [string, string]> = {
+    free:    ["#27272a", "#18181b"],
+    basic:   ["#1e3a5f", "#0f2137"],
+    premium: ["#3b1f6e", "#1e0f3d"],
+  };
+  const planGradient = planColors[user?.plan ?? "free"];
 
   return (
-    <SafeAreaView className="flex-1 bg-background" edges={["top"]}>
-      <ScrollView
-        className="flex-1"
-        contentContainerStyle={{ paddingBottom: 24 }}
-        refreshControl={
-          <RefreshControl
-            refreshing={isLoading}
-            onRefresh={refreshUser}
-            tintColor="#7c3aed"
-          />
-        }
-      >
-        {/* Header */}
-        <View className="px-5 pt-4 pb-2 flex-row items-center justify-between">
-          <View>
-            <Text className="text-zinc-500 text-sm">Olá 👋</Text>
-            <Text className="text-white text-2xl font-bold">{firstName}</Text>
-          </View>
-          <View className="items-end">
-            <Text className="text-xs text-zinc-500 mb-1">Créditos</Text>
-            <View className="flex-row items-center gap-2">
-              <View className="w-20 h-2 bg-zinc-800 rounded-full overflow-hidden">
-                <View
-                  className="h-full bg-primary rounded-full"
-                  style={{ width: `${creditPct}%` }}
-                />
-              </View>
-              <Text className="text-white font-bold text-sm">{user?.credits ?? 0}</Text>
-            </View>
-          </View>
-        </View>
+    <View style={{ flex: 1, backgroundColor: "#09090b" }}>
+      {/* Background glow */}
+      <LinearGradient
+        colors={["rgba(124,58,237,0.18)", "transparent"]}
+        style={{ position: "absolute", top: 0, left: 0, right: 0, height: 280 }}
+      />
 
-        {/* Plan badge */}
-        {user && (
-          <View className="px-5 mb-5">
-            <View className="bg-zinc-800/50 border border-zinc-700 rounded-xl px-4 py-3 flex-row items-center justify-between">
-              <View>
-                <Text className="text-xs text-zinc-500">Plano atual</Text>
-                <Text className="text-white font-semibold capitalize mt-0.5">
-                  {user.plan === "free" ? "Gratuito" : user.plan === "basic" ? "Básico" : "Premium"}
-                </Text>
-              </View>
-              {user.plan !== "premium" && (
-                <TouchableOpacity className="bg-primary/20 border border-primary/30 rounded-lg px-3 py-1.5">
-                  <Text className="text-primary text-xs font-semibold">Fazer upgrade</Text>
+      <SafeAreaView style={{ flex: 1 }} edges={["top"]}>
+        <ScrollView
+          style={{ flex: 1 }}
+          contentContainerStyle={{ paddingBottom: 24 }}
+          refreshControl={
+            <RefreshControl refreshing={isLoading} onRefresh={refreshUser} tintColor="#7c3aed" />
+          }
+        >
+          {/* Header */}
+          <View style={{ paddingHorizontal: 20, paddingTop: 16, paddingBottom: 20, flexDirection: "row", alignItems: "flex-start", justifyContent: "space-between" }}>
+            <View>
+              <Text style={{ color: "#a1a1aa", fontSize: 13 }}>Olá 👋</Text>
+              <Text style={{ color: "#ffffff", fontSize: 26, fontWeight: "800", letterSpacing: -0.5 }}>{firstName}</Text>
+            </View>
+            {/* Credits pill */}
+            <LinearGradient
+              colors={["rgba(124,58,237,0.3)", "rgba(79,70,229,0.2)"]}
+              start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
+              style={{ borderRadius: 16, borderWidth: 1, borderColor: "rgba(124,58,237,0.4)", paddingHorizontal: 14, paddingVertical: 8, alignItems: "center", minWidth: 72 }}
+            >
+              <Text style={{ color: "#a78bfa", fontSize: 10, marginBottom: 2 }}>⚡ créditos</Text>
+              <Text style={{ color: "#ffffff", fontWeight: "800", fontSize: 18 }}>{user?.credits ?? 0}</Text>
+            </LinearGradient>
+          </View>
+
+          {/* Plan card */}
+          {user && (
+            <View style={{ paddingHorizontal: 20, marginBottom: 20 }}>
+              <LinearGradient
+                colors={planGradient}
+                start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
+                style={{ borderRadius: 16, borderWidth: 1, borderColor: user.plan === "premium" ? "rgba(167,139,250,0.25)" : "rgba(63,63,70,0.8)", paddingHorizontal: 16, paddingVertical: 12, flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}
+              >
+                <View>
+                  <Text style={{ color: "#71717a", fontSize: 11 }}>Plano atual</Text>
+                  <Text style={{ color: "#ffffff", fontWeight: "700", fontSize: 15, marginTop: 2 }}>{planLabel}</Text>
+                </View>
+                {user.plan !== "premium" && (
+                  <TouchableOpacity style={{ backgroundColor: "rgba(124,58,237,0.25)", borderWidth: 1, borderColor: "rgba(124,58,237,0.4)", borderRadius: 10, paddingHorizontal: 12, paddingVertical: 6 }}>
+                    <Text style={{ color: "#a78bfa", fontSize: 12, fontWeight: "600" }}>Upgrade ✦</Text>
+                  </TouchableOpacity>
+                )}
+              </LinearGradient>
+            </View>
+          )}
+
+          {/* Quick Actions */}
+          <View style={{ paddingHorizontal: 20, marginBottom: 24 }}>
+            <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
+              <Text style={{ color: "#ffffff", fontWeight: "700", fontSize: 15 }}>Acesso rápido</Text>
+              <TouchableOpacity onPress={openEdit} style={{ flexDirection: "row", alignItems: "center", backgroundColor: "#27272a", borderWidth: 1, borderColor: "#3f3f46", borderRadius: 10, paddingHorizontal: 10, paddingVertical: 5 }}>
+                <Text style={{ color: "#a1a1aa", fontSize: 11 }}>✏️ Editar</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 12 }}>
+              {visibleActions.map((action) => (
+                <TouchableOpacity
+                  key={action.id}
+                  onPress={() => router.push(action.route as never)}
+                  activeOpacity={0.7}
+                  style={{ flex: 1, minWidth: 140, borderRadius: 18, overflow: "hidden" }}
+                >
+                  <LinearGradient
+                    colors={["#1c1c1e", "#141416"]}
+                    style={{ borderRadius: 18, borderWidth: 1, borderColor: "#2d2d30", padding: 16, alignItems: "center", gap: 8 }}
+                  >
+                    <View style={{ width: 48, height: 48, borderRadius: 14, backgroundColor: "rgba(124,58,237,0.12)", alignItems: "center", justifyContent: "center", borderWidth: 1, borderColor: "rgba(124,58,237,0.15)" }}>
+                      <Text style={{ fontSize: 24 }}>{action.emoji}</Text>
+                    </View>
+                    <Text style={{ color: "#e4e4e7", fontSize: 12, fontWeight: "600", textAlign: "center" }}>{action.label}</Text>
+                  </LinearGradient>
                 </TouchableOpacity>
-              )}
+              ))}
             </View>
           </View>
-        )}
 
-        {/* Quick Actions */}
-        <View className="px-5 mb-6">
-          <View className="flex-row items-center justify-between mb-3">
-            <Text className="text-white font-bold text-base">Acesso rápido</Text>
-            <TouchableOpacity onPress={openEdit}
-              className="flex-row items-center gap-1 bg-zinc-800 border border-zinc-700 rounded-lg px-2.5 py-1">
-              <Text className="text-zinc-400 text-[11px]">✏️ Editar</Text>
+          {/* Live CTA */}
+          <View style={{ paddingHorizontal: 20, marginBottom: 20 }}>
+            <TouchableOpacity onPress={() => router.push("/(app)/live")} activeOpacity={0.85} style={{ borderRadius: 20, overflow: "hidden" }}>
+              <LinearGradient
+                colors={["#2d1060", "#1a0845", "#0f0630"]}
+                start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
+                style={{ borderRadius: 20, borderWidth: 1, borderColor: "rgba(139,92,246,0.4)", padding: 20 }}
+              >
+                <View style={{ flexDirection: "row", alignItems: "center", gap: 10, marginBottom: 8 }}>
+                  <View style={{ width: 36, height: 36, borderRadius: 10, backgroundColor: "rgba(124,58,237,0.3)", alignItems: "center", justifyContent: "center" }}>
+                    <Text style={{ fontSize: 18 }}>🎙️</Text>
+                  </View>
+                  <Text style={{ color: "#ffffff", fontWeight: "800", fontSize: 16, flex: 1 }}>SpeakFlow Live</Text>
+                  <View style={{ backgroundColor: "rgba(139,92,246,0.25)", borderWidth: 1, borderColor: "rgba(167,139,250,0.4)", borderRadius: 20, paddingHorizontal: 8, paddingVertical: 3 }}>
+                    <Text style={{ color: "#c4b5fd", fontSize: 9, fontWeight: "800" }}>TEMPO REAL</Text>
+                  </View>
+                </View>
+                <Text style={{ color: "#a1a1aa", fontSize: 13, lineHeight: 19 }}>
+                  Copiloto de IA para reuniões e calls em inglês. Transcrição + sugestões instantâneas.
+                </Text>
+                <Text style={{ color: "#7c3aed", fontSize: 12, fontWeight: "600", marginTop: 10 }}>Iniciar sessão →</Text>
+              </LinearGradient>
             </TouchableOpacity>
           </View>
-          <View className="flex-row flex-wrap gap-3">
-            {visibleActions.map((action) => (
-              <TouchableOpacity
-                key={action.id}
-                onPress={() => router.push(action.route as never)}
-                className="flex-1 min-w-[140px] bg-zinc-900 border border-zinc-800 rounded-2xl p-4 items-center gap-2"
-                activeOpacity={0.7}
-              >
-                <Text style={{ fontSize: 28 }}>{action.emoji}</Text>
-                <Text className="text-white text-xs font-semibold text-center">{action.label}</Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-        </View>
 
-        {/* Live CTA */}
-        <View className="px-5 mb-6">
-          <TouchableOpacity
-            onPress={() => router.push("/(app)/live")}
-            className="rounded-2xl overflow-hidden"
-            activeOpacity={0.85}
-          >
-            <View className="bg-gradient-to-br from-violet-900/60 to-violet-950/80 border border-violet-500/30 rounded-2xl p-5">
-              <View className="flex-row items-center gap-3 mb-2">
-                <Text style={{ fontSize: 24 }}>🎙️</Text>
-                <Text className="text-white font-bold text-base">SpeakFlow Live</Text>
-                <View className="bg-violet-500/20 border border-violet-400/30 rounded-full px-2 py-0.5">
-                  <Text className="text-violet-300 text-[10px] font-bold">NOVO</Text>
-                </View>
-              </View>
-              <Text className="text-zinc-400 text-sm">
-                Copiloto de reuniões em tempo real. Transcrição + sugestões com IA.
+          {/* Credits info */}
+          <View style={{ paddingHorizontal: 20 }}>
+            <View style={{ backgroundColor: "rgba(24,24,27,0.6)", borderWidth: 1, borderColor: "#27272a", borderRadius: 16, padding: 14 }}>
+              <Text style={{ color: "#71717a", fontSize: 12, textAlign: "center" }}>
+                Cada uso consome{" "}
+                <Text style={{ color: "#d4d4d8", fontWeight: "700" }}>2 créditos</Text>.{" "}
+                {user?.b2bAccess ? "Sua empresa te dá acesso ilimitado 🏢" : "Recarregue no seu perfil."}
               </Text>
             </View>
-          </TouchableOpacity>
-        </View>
-
-        {/* Credits info */}
-        <View className="px-5">
-          <View className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4">
-            <Text className="text-zinc-400 text-xs text-center">
-              Cada uso de ferramenta consome{" "}
-              <Text className="text-white font-semibold">2 créditos</Text>.{" "}
-              {user?.b2bAccess
-                ? "Sua empresa te dá acesso ilimitado 🏢"
-                : "Recarregue créditos no seu perfil."}
-            </Text>
           </View>
-        </View>
-      </ScrollView>
+        </ScrollView>
 
       {/* Edit Quick Actions Modal */}
       <Modal visible={showEdit} transparent animationType="slide" onRequestClose={() => setShowEdit(false)}>
@@ -205,6 +221,7 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </View>
       </Modal>
-    </SafeAreaView>
+      </SafeAreaView>
+    </View>
   );
 }

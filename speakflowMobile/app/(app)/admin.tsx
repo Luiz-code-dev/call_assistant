@@ -232,7 +232,7 @@ function ResetPasswordPanel() {
               {suggestions.map((u) => (
                 <TouchableOpacity
                   key={u.email}
-                  onPress={() => selectSuggestion(u)}
+                  onPressIn={() => selectSuggestion(u)}
                   className="px-4 py-3 border-b border-zinc-700/50 active:bg-zinc-700"
                 >
                   <Text className="text-white text-sm font-medium">{u.name}</Text>

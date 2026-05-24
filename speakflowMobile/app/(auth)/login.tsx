@@ -3,6 +3,7 @@ import {
   View, Text, TextInput, TouchableOpacity,
   KeyboardAvoidingView, Platform, ScrollView, ActivityIndicator,
 } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import { Link, router } from "expo-router";
 import { useAuth } from "@presentation/hooks/useAuth";
 
@@ -11,6 +12,8 @@ export default function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [emailFocused, setEmailFocused] = useState(false);
+  const [passFocused, setPassFocused] = useState(false);
 
   async function handleLogin() {
     clearError();
@@ -21,126 +24,153 @@ export default function LoginScreen() {
   }
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      className="flex-1 bg-background"
-    >
-      <ScrollView
-        contentContainerStyle={{ flexGrow: 1 }}
-        keyboardShouldPersistTaps="handled"
-      >
-        <View className="flex-1 px-6 pt-20 pb-10">
-          {/* Logo / header */}
-          <View className="mb-10">
-            <View className="w-14 h-14 rounded-2xl bg-primary/20 items-center justify-center mb-4">
-              <Text className="text-3xl">🎙️</Text>
-            </View>
-            <Text className="text-3xl font-bold text-white mb-1">Bem-vindo</Text>
-            <Text className="text-base text-zinc-400">Entre na sua conta SpeakFlow</Text>
-          </View>
+    <View style={{ flex: 1, backgroundColor: "#09090b" }}>
+      {/* Background glow */}
+      <LinearGradient
+        colors={["rgba(124,58,237,0.22)", "rgba(79,70,229,0.08)", "transparent"]}
+        style={{ position: "absolute", top: 0, left: 0, right: 0, height: 350 }}
+      />
 
-          {/* Pending verification banner */}
-          {pendingVerification && (
-            <View className="bg-amber-500/10 border border-amber-500/20 rounded-xl px-4 py-3 mb-5">
-              <Text className="text-amber-400 text-sm font-semibold mb-1">📧 Confirme seu e-mail</Text>
-              <Text className="text-amber-300/80 text-xs leading-relaxed">Verifique sua caixa de entrada e clique no link de ativação antes de entrar.</Text>
-            </View>
-          )}
+      <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{ flex: 1 }}>
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps="handled">
+          <View style={{ flex: 1, paddingHorizontal: 24, paddingTop: 72, paddingBottom: 40 }}>
 
-          {/* Error */}
-          {error && !pendingVerification && (
-            <View className="bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3 mb-5">
-              <Text className="text-red-400 text-sm">{error}</Text>
+            {/* Logo */}
+            <View style={{ marginBottom: 36 }}>
+              <LinearGradient
+                colors={["rgba(124,58,237,0.35)", "rgba(79,70,229,0.2)"]}
+                style={{ width: 64, height: 64, borderRadius: 20, alignItems: "center", justifyContent: "center", marginBottom: 20, borderWidth: 1, borderColor: "rgba(124,58,237,0.4)" }}
+              >
+                <Text style={{ fontSize: 32 }}>🎙️</Text>
+              </LinearGradient>
+              <Text style={{ color: "#ffffff", fontSize: 32, fontWeight: "800", letterSpacing: -0.5, marginBottom: 6 }}>Bem-vindo</Text>
+              <Text style={{ color: "#71717a", fontSize: 15 }}>Entre na sua conta SpeakFlow</Text>
             </View>
-          )}
 
-          {/* Fields */}
-          <View className="gap-4 mb-8">
-            <View>
-              <Text className="text-xs font-semibold text-zinc-400 mb-2 uppercase tracking-wider">
-                E-mail
-              </Text>
+            {/* Pending verification */}
+            {pendingVerification && (
+              <View style={{ backgroundColor: "rgba(245,158,11,0.1)", borderWidth: 1, borderColor: "rgba(245,158,11,0.2)", borderRadius: 14, padding: 14, marginBottom: 20 }}>
+                <Text style={{ color: "#fbbf24", fontSize: 13, fontWeight: "700", marginBottom: 4 }}>📧 Confirme seu e-mail</Text>
+                <Text style={{ color: "rgba(252,211,77,0.75)", fontSize: 12, lineHeight: 18 }}>Verifique sua caixa de entrada e clique no link de ativação antes de entrar.</Text>
+              </View>
+            )}
+
+            {/* Error */}
+            {error && !pendingVerification && (
+              <View style={{ backgroundColor: "rgba(239,68,68,0.1)", borderWidth: 1, borderColor: "rgba(239,68,68,0.2)", borderRadius: 14, padding: 14, marginBottom: 20 }}>
+                <Text style={{ color: "#f87171", fontSize: 13 }}>{error}</Text>
+              </View>
+            )}
+
+            {/* Email field */}
+            <View style={{ marginBottom: 16 }}>
+              <Text style={{ color: "#a1a1aa", fontSize: 11, fontWeight: "600", letterSpacing: 0.8, marginBottom: 8, textTransform: "uppercase" }}>E-mail</Text>
               <TextInput
                 value={email}
                 onChangeText={setEmail}
+                onFocus={() => setEmailFocused(true)}
+                onBlur={() => setEmailFocused(false)}
                 placeholder="seu@email.com"
-                placeholderTextColor="#52525b"
+                placeholderTextColor="#3f3f46"
                 keyboardType="email-address"
                 autoCapitalize="none"
                 autoComplete="email"
                 returnKeyType="next"
-                className="bg-zinc-800/50 border border-zinc-700 rounded-xl px-4 py-3.5 text-white text-base"
+                style={{
+                  backgroundColor: emailFocused ? "rgba(124,58,237,0.08)" : "rgba(24,24,27,0.8)",
+                  borderWidth: 1,
+                  borderColor: emailFocused ? "rgba(124,58,237,0.5)" : "#27272a",
+                  borderRadius: 14,
+                  paddingHorizontal: 16,
+                  paddingVertical: 14,
+                  color: "#ffffff",
+                  fontSize: 15,
+                }}
               />
             </View>
 
-            <View>
-              <Text className="text-xs font-semibold text-zinc-400 mb-2 uppercase tracking-wider">
-                Senha
-              </Text>
-              <View className="relative">
+            {/* Password field */}
+            <View style={{ marginBottom: 28 }}>
+              <Text style={{ color: "#a1a1aa", fontSize: 11, fontWeight: "600", letterSpacing: 0.8, marginBottom: 8, textTransform: "uppercase" }}>Senha</Text>
+              <View style={{ position: "relative" }}>
                 <TextInput
                   value={password}
                   onChangeText={setPassword}
+                  onFocus={() => setPassFocused(true)}
+                  onBlur={() => setPassFocused(false)}
                   placeholder="••••••••"
-                  placeholderTextColor="#52525b"
+                  placeholderTextColor="#3f3f46"
                   secureTextEntry={!showPassword}
                   autoComplete="password"
                   returnKeyType="done"
                   onSubmitEditing={handleLogin}
-                  className="bg-zinc-800/50 border border-zinc-700 rounded-xl px-4 py-3.5 text-white text-base pr-12"
+                  style={{
+                    backgroundColor: passFocused ? "rgba(124,58,237,0.08)" : "rgba(24,24,27,0.8)",
+                    borderWidth: 1,
+                    borderColor: passFocused ? "rgba(124,58,237,0.5)" : "#27272a",
+                    borderRadius: 14,
+                    paddingHorizontal: 16,
+                    paddingVertical: 14,
+                    paddingRight: 80,
+                    color: "#ffffff",
+                    fontSize: 15,
+                  }}
                 />
                 <TouchableOpacity
                   onPress={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-3.5"
+                  style={{ position: "absolute", right: 16, top: 14 }}
                 >
-                  <Text className="text-zinc-400 text-sm">
+                  <Text style={{ color: "#7c3aed", fontSize: 13, fontWeight: "600" }}>
                     {showPassword ? "Ocultar" : "Mostrar"}
                   </Text>
                 </TouchableOpacity>
               </View>
             </View>
-          </View>
 
-          {/* Login button */}
-          <TouchableOpacity
-            onPress={handleLogin}
-            disabled={submitting || !email || !password}
-            className="bg-primary rounded-xl py-4 items-center mb-4 disabled:opacity-50"
-            activeOpacity={0.8}
-          >
-            {submitting ? (
-              <ActivityIndicator color="#fff" />
-            ) : (
-              <Text className="text-white font-bold text-base">Entrar</Text>
-            )}
-          </TouchableOpacity>
-
-          {/* Forgot password */}
-          <TouchableOpacity
-            onPress={() => router.push("/(auth)/forgot-password")}
-            className="items-center mb-6"
-          >
-            <Text className="text-zinc-400 text-sm">Esqueceu a senha?</Text>
-          </TouchableOpacity>
-
-          {/* Divider */}
-          <View className="flex-row items-center mb-6">
-            <View className="flex-1 h-px bg-zinc-800" />
-            <Text className="text-zinc-600 text-xs mx-4">NÃO TEM CONTA?</Text>
-            <View className="flex-1 h-px bg-zinc-800" />
-          </View>
-
-          {/* Register link */}
-          <Link href="/(auth)/register" asChild>
+            {/* Login button */}
             <TouchableOpacity
-              className="border border-zinc-700 rounded-xl py-4 items-center"
-              activeOpacity={0.7}
+              onPress={handleLogin}
+              disabled={submitting || !email || !password}
+              activeOpacity={0.85}
+              style={{ borderRadius: 14, overflow: "hidden", marginBottom: 16, opacity: submitting || !email || !password ? 0.5 : 1 }}
             >
-              <Text className="text-zinc-300 font-semibold text-base">Criar conta gratuita</Text>
+              <LinearGradient
+                colors={["#7c3aed", "#4f46e5"]}
+                start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
+                style={{ paddingVertical: 16, alignItems: "center" }}
+              >
+                {submitting ? (
+                  <ActivityIndicator color="#fff" />
+                ) : (
+                  <Text style={{ color: "#ffffff", fontWeight: "800", fontSize: 16 }}>Entrar</Text>
+                )}
+              </LinearGradient>
             </TouchableOpacity>
-          </Link>
-        </View>
-      </ScrollView>
-    </KeyboardAvoidingView>
+
+            {/* Forgot password */}
+            <TouchableOpacity onPress={() => router.push("/(auth)/forgot-password")} style={{ alignItems: "center", marginBottom: 28 }}>
+              <Text style={{ color: "#71717a", fontSize: 13 }}>Esqueceu a senha?</Text>
+            </TouchableOpacity>
+
+            {/* Divider */}
+            <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 20 }}>
+              <View style={{ flex: 1, height: 1, backgroundColor: "#1f1f22" }} />
+              <Text style={{ color: "#3f3f46", fontSize: 11, marginHorizontal: 14, fontWeight: "600" }}>NÃO TEM CONTA?</Text>
+              <View style={{ flex: 1, height: 1, backgroundColor: "#1f1f22" }} />
+            </View>
+
+            {/* Register */}
+            <Link href="/(auth)/register" asChild>
+              <TouchableOpacity
+                activeOpacity={0.7}
+                style={{ borderWidth: 1, borderColor: "#2d2d30", borderRadius: 14, paddingVertical: 15, alignItems: "center", backgroundColor: "#111113" }}
+              >
+                <Text style={{ color: "#e4e4e7", fontWeight: "600", fontSize: 15 }}>Criar conta gratuita</Text>
+              </TouchableOpacity>
+            </Link>
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
+    </View>
   );
 }
