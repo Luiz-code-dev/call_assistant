@@ -31,6 +31,10 @@ Analyze each response sample for:
 4. **Task Achievement** — relevance, completeness, and appropriateness of response to the prompt
 5. **Lexical Sophistication** — professional/academic vocabulary, nuanced expression
 
+## Language Requirement
+
+IMPORTANT: Write ALL descriptive fields (reasoning, strengths, improvements, overallFeedback) in Brazilian Portuguese (PT-BR). Keep only the CEFR level codes (A1, A2, B1, B2, C1, C2) and levelLabel in English as they are international standards.
+
 ## Certificate Eligibility
 
 A learner is eligible for a SpeakFlow Proficiency Certificate if:
@@ -51,7 +55,7 @@ Respond with ONLY valid JSON, no extra text, no markdown:
   "reasoning": "The learner consistently demonstrates upper-intermediate competence through...",
   "strengths": ["Clear professional vocabulary", "Good use of complex sentence structures", "Effective use of discourse markers"],
   "improvements": ["Article usage (a/an/the) needs attention in academic contexts", "Occasional tense inconsistency in narratives"],
-  "overallFeedback": "You are performing at a solid B2 Upper-Intermediate level. Your English is effective for professional communication in international environments. Focus on perfecting article usage and verb tense consistency to progress toward C1.",
+  "overallFeedback": "Você está performando em um sólido nível B2 Intermediário-Superior. Seu inglês é eficaz para comunicação profissional em ambientes internacionais. Foque em aperfeiçoar o uso de artigos e consistência de tempos verbais para progredir ao C1.",
   "isEligible": true
 }`;
 

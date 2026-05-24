@@ -47,7 +47,7 @@ const DEPARTMENTS = [
   "Jurídico", "Diretoria / C-Level", "Outro",
 ];
 
-function KpiCard({ label, value, sub, color }: { label: string; value: string | number; sub?: string; color: string }) {
+function KpiCard({ label, value, sub, color, onPress }: { label: string; value: string | number; sub?: string; color: string; onPress?: () => void }) {
   const colors: Record<string, { bg: string; val: string }> = {
     violet: { bg: "border-violet-500/20 bg-violet-500/5", val: "text-violet-300" },
     indigo: { bg: "border-indigo-500/20 bg-indigo-500/5", val: "text-indigo-300" },
@@ -56,18 +56,23 @@ function KpiCard({ label, value, sub, color }: { label: string; value: string | 
     sky: { bg: "border-sky-500/20 bg-sky-500/5", val: "text-sky-300" },
   };
   const c = colors[color] ?? colors.violet;
-  return (
-    <View className={`flex-1 rounded-2xl border p-3.5 ${c.bg}`}>
+  const inner = (
+    <>
       <Text className={`text-2xl font-black mb-0.5 ${c.val}`}>{value}</Text>
       <Text className="text-white text-xs font-medium leading-tight">{label}</Text>
       {sub ? <Text className="text-zinc-600 text-[10px] mt-0.5">{sub}</Text> : null}
-    </View>
+      {onPress && <Text className="text-zinc-600 text-[9px] mt-1">→ ver</Text>}
+    </>
   );
+  if (onPress) return (
+    <TouchableOpacity onPress={onPress} activeOpacity={0.75} className={`flex-1 rounded-2xl border p-3.5 ${c.bg}`}>{inner}</TouchableOpacity>
+  );
+  return <View className={`flex-1 rounded-2xl border p-3.5 ${c.bg}`}>{inner}</View>;
 }
 
 export default function EmpresaScreen() {
   const queryClient = useQueryClient();
-  const [activeTab, setActiveTab] = useState<"dashboard" | "membros">("dashboard");
+  const [activeTab, setActiveTab] = useState<"dashboard" | "membros" | "para-mim">("para-mim");
 
   const [showInviteModal, setShowInviteModal] = useState(false);
   const [inviteEmail, setInviteEmail] = useState("");
@@ -227,14 +232,14 @@ export default function EmpresaScreen() {
 
         {/* Tabs */}
         <View className="flex-row bg-zinc-900 rounded-xl p-1">
-          {(["dashboard", "membros"] as const).map((tab) => (
+          {(["para-mim", "dashboard", "membros"] as const).map((tab) => (
             <TouchableOpacity
               key={tab}
               onPress={() => setActiveTab(tab)}
-              className={`flex-1 py-2 rounded-lg items-center ${activeTab === tab ? "bg-primary" : ""}`}
+              className={`flex-1 py-1.5 rounded-lg items-center ${activeTab === tab ? "bg-primary" : ""}`}
             >
-              <Text className={`text-xs font-semibold ${activeTab === tab ? "text-white" : "text-zinc-500"}`}>
-                {tab === "dashboard" ? "📊 Dashboard" : "👥 Membros"}
+              <Text className={`text-[10px] font-semibold ${activeTab === tab ? "text-white" : "text-zinc-500"}`}>
+                {tab === "dashboard" ? "📊 Dashboard" : tab === "membros" ? "👥 Membros" : "🎯 Para Mim"}
               </Text>
             </TouchableOpacity>
           ))}
@@ -254,7 +259,7 @@ export default function EmpresaScreen() {
             <>
               {/* KPIs row 1 */}
               <View className="flex-row gap-3 mb-3 mt-2">
-                <KpiCard label="Membros" value={analytics.totalMembers} sub={`${org.seatLimit} vagas`} color="violet" />
+                <KpiCard label="Membros" value={analytics.totalMembers} sub={`${org.seatLimit} vagas`} color="violet" onPress={() => setActiveTab("membros")} />
                 <KpiCard label="Engajamento" value={`${engRate}%`} sub={`${analytics.activeThisWeek} ativos/sem`} color="emerald" />
               </View>
               <View className="flex-row gap-3 mb-3">
@@ -361,6 +366,105 @@ export default function EmpresaScreen() {
               </View>
             </>
           ) : null}
+        </ScrollView>
+      )}
+
+      {/* ── PARA MIM TAB ── */}
+      {activeTab === "para-mim" && (
+        <ScrollView
+          className="flex-1 px-4"
+          contentContainerStyle={{ paddingBottom: 40, gap: 14 }}
+          refreshControl={<RefreshControl refreshing={false} onRefresh={refetchAll} tintColor="#7c3aed" />}
+        >
+          {/* Quick actions */}
+          <View className="mt-3">
+            <Text className="text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2">⚡ Praticar agora</Text>
+            <View className="flex-row gap-3">
+              <TouchableOpacity
+                onPress={() => router.push("/live" as any)}
+                className="flex-1 bg-emerald-500/10 border border-emerald-500/25 rounded-2xl p-4 items-center"
+                activeOpacity={0.75}
+              >
+                <Text className="text-2xl mb-1">🎙️</Text>
+                <Text className="text-emerald-300 font-bold text-sm">Live Assist</Text>
+                <Text className="text-zinc-500 text-[10px] text-center mt-0.5">Copiloto em reuniões</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => router.push("/circles" as any)}
+                className="flex-1 bg-violet-500/10 border border-violet-500/25 rounded-2xl p-4 items-center"
+                activeOpacity={0.75}
+              >
+                <Text className="text-2xl mb-1">👥</Text>
+                <Text className="text-violet-300 font-bold text-sm">Circles</Text>
+                <Text className="text-zinc-500 text-[10px] text-center mt-0.5">Desafios em grupo</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          {/* My score card */}
+          {analytics && (
+            <View className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4">
+              <Text className="text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-3">📊 Minha empresa</Text>
+              <View className="flex-row gap-3">
+                <View className="flex-1 bg-zinc-800 rounded-xl p-3 items-center">
+                  <Text className="text-violet-300 font-black text-xl">{analytics.avgCommunicationScore}</Text>
+                  <Text className="text-zinc-500 text-[10px] text-center mt-0.5">Score médio equipe</Text>
+                </View>
+                <View className="flex-1 bg-zinc-800 rounded-xl p-3 items-center">
+                  <Text className="text-emerald-300 font-black text-xl">{analytics.activeThisWeek}</Text>
+                  <Text className="text-zinc-500 text-[10px] text-center mt-0.5">Ativos esta semana</Text>
+                </View>
+                <View className="flex-1 bg-zinc-800 rounded-xl p-3 items-center">
+                  <Text className="text-amber-300 font-black text-xl">{analytics.totalCertifications}</Text>
+                  <Text className="text-zinc-500 text-[10px] text-center mt-0.5">Certificações</Text>
+                </View>
+              </View>
+            </View>
+          )}
+
+          {/* Org ranking */}
+          {analytics && analytics.topMembers.length > 0 && (
+            <View className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden">
+              <View className="px-4 py-3 border-b border-zinc-800">
+                <Text className="text-white font-bold text-sm">🏆 Ranking da empresa</Text>
+                <Text className="text-zinc-500 text-xs mt-0.5">Compare seu desempenho com a equipe</Text>
+              </View>
+              <View className="p-3 gap-1">
+                {analytics.topMembers.slice(0, 10).map((m, i) => (
+                  <View key={m.id} className="flex-row items-center py-2 px-1">
+                    <Text className="w-7 text-center text-sm">{i < 3 ? MEDAL[i] : `${i + 1}`}</Text>
+                    <View className="w-8 h-8 rounded-full bg-violet-500/20 items-center justify-center mx-2">
+                      <Text className="text-violet-300 text-xs font-bold">{m.name.charAt(0)}</Text>
+                    </View>
+                    <View className="flex-1">
+                      <Text className="text-white text-sm font-medium">{m.name}</Text>
+                      <Text className="text-zinc-600 text-[10px]">{m.department ?? m.jobTitle ?? "Sem setor"}</Text>
+                    </View>
+                    <Text className="text-violet-400 font-black text-sm">{m.commScore}</Text>
+                    <Text className="text-zinc-600 text-xs ml-0.5">pts</Text>
+                  </View>
+                ))}
+              </View>
+            </View>
+          )}
+
+          {/* How to improve guide */}
+          <View className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4">
+            <Text className="text-white font-bold text-sm mb-3">💡 Como aumentar seu score</Text>
+            {[
+              { icon: "🎙️", title: "Use o Live Assist", desc: "Cada sessão de Live Assist contribui para seu score de comunicação" },
+              { icon: "⚡", title: "Complete desafios", desc: "Faça quizzes e desafios escritos/voz nos Circles da empresa" },
+              { icon: "🎓", title: "Solicite avaliação CEFR", desc: "Após 3 desafios avaliados, solicite sua avaliação de proficiência em Circles → Meu Progresso" },
+            ].map((item, i) => (
+              <View key={i} className={`flex-row gap-3 items-start ${i < 2 ? "mb-3" : ""}`}>
+                <Text className="text-base mt-0.5">{item.icon}</Text>
+                <View className="flex-1">
+                  <Text className="text-white text-xs font-semibold">{item.title}</Text>
+                  <Text className="text-zinc-500 text-xs leading-relaxed mt-0.5">{item.desc}</Text>
+                </View>
+              </View>
+            ))}
+          </View>
         </ScrollView>
       )}
 

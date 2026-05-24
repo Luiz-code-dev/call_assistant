@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {
   View, Text, TextInput, TouchableOpacity,
-  ScrollView, ActivityIndicator, KeyboardAvoidingView, Platform,
+  ScrollView, ActivityIndicator, KeyboardAvoidingView, Platform, Share,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
@@ -108,9 +108,15 @@ export default function ImproveScreen() {
 
               {/* Improved */}
               <View className="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
-                <Text className="text-xs font-semibold text-zinc-400 mb-2 uppercase tracking-wider">
-                  Texto melhorado
-                </Text>
+                <View className="flex-row items-center justify-between mb-2">
+                  <Text className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">Texto melhorado</Text>
+                  <TouchableOpacity
+                    onPress={() => Share.share({ message: result.improved })}
+                    className="flex-row items-center gap-1 bg-zinc-800 border border-zinc-700 rounded-lg px-2.5 py-1"
+                  >
+                    <Text className="text-zinc-400 text-[10px]">🔗 Copiar / Compartilhar</Text>
+                  </TouchableOpacity>
+                </View>
                 <Text className="text-white text-sm leading-relaxed">{result.improved}</Text>
               </View>
 

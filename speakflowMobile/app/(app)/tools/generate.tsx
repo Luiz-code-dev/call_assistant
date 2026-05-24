@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {
   View, Text, TextInput, TouchableOpacity,
-  ScrollView, ActivityIndicator, KeyboardAvoidingView, Platform,
+  ScrollView, ActivityIndicator, KeyboardAvoidingView, Platform, Share,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
@@ -142,9 +142,13 @@ export default function GenerateScreen() {
 
               {/* Response card */}
               <View className="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
-                <Text className="text-white text-sm leading-relaxed">
-                  {responseMap[activeTab]}
-                </Text>
+                <Text className="text-white text-sm leading-relaxed">{responseMap[activeTab]}</Text>
+                <TouchableOpacity
+                  onPress={() => Share.share({ message: responseMap[activeTab] })}
+                  className="mt-3 flex-row items-center justify-center gap-1.5 bg-zinc-800 border border-zinc-700 rounded-lg py-2"
+                >
+                  <Text className="text-zinc-400 text-xs">🔗 Copiar / Compartilhar resposta</Text>
+                </TouchableOpacity>
               </View>
 
               {/* Translation */}

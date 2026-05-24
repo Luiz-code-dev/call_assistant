@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import {
   View, Text, TouchableOpacity, ScrollView, ActivityIndicator,
-  TextInput, KeyboardAvoidingView, Platform,
+  TextInput, KeyboardAvoidingView, Platform, Share,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
@@ -228,6 +228,22 @@ export default function InterviewScreen() {
                   <Text className="text-violet-400 font-bold text-sm mb-2">🏆 Avaliação Final</Text>
                   <Text className="text-zinc-200 text-sm leading-relaxed">{summary}</Text>
                   <Text className="text-zinc-600 text-xs mt-3">⚡ {totalCredits} créditos usados nessa sessão</Text>
+                  <View className="flex-row gap-2 mt-4">
+                    <TouchableOpacity
+                      onPress={() => Share.share({
+                        message: `Concluí uma entrevista simulada para ${setup.current.role} (${setup.current.level}) no SpeakFlow! 🎯\n\nAvaliação:\n${summary}\n\nPraticando inglês profissional com IA 🚀`,
+                      })}
+                      className="flex-1 bg-zinc-800 border border-zinc-700 rounded-xl py-2.5 items-center"
+                    >
+                      <Text className="text-zinc-300 text-xs font-semibold">🔗 Compartilhar</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      onPress={() => { setPhase("setup"); setMessages([]); setSummary(""); setTotalCredits(0); }}
+                      className="flex-1 bg-primary rounded-xl py-2.5 items-center"
+                    >
+                      <Text className="text-white text-xs font-semibold">↻ Nova entrevista</Text>
+                    </TouchableOpacity>
+                  </View>
                 </View>
               )}
             </ScrollView>

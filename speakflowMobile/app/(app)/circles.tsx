@@ -11,6 +11,23 @@ type ChallengeType = "written" | "spoken" | "quiz";
 type StartOffset = "now" | "1h" | "tomorrow";
 type Duration = "1d" | "3d" | "7d" | "14d";
 
+interface ProficiencyResult {
+  id: string; level: string; levelLabel: string; confidence: string;
+  overallFeedback: string; strengths: string[]; improvements: string[];
+  totalAvg: number; isEligible: boolean; submissionsUsed: number; createdAt: string;
+  fluencyCredits?: number;
+}
+
+interface MySubmission {
+  id: string; content: string; createdAt: string;
+  evaluation: { totalScore: number; fluencyScore: number; contentScore: number; clarityScore: number; feedback: string; tip: string; } | null;
+}
+
+interface RankingEntry {
+  userId: string; name: string; avatarUrl: string | null; role: string;
+  totalScore: number; avgScore: number; submissionCount: number; isMe: boolean; rank: number;
+}
+
 interface QuizQuestion {
   question: string;
   options: [string, string, string, string];
@@ -88,6 +105,16 @@ export default function CirclesScreen() {
   const [inviteLoading, setInviteLoading] = useState(false);
   const [generatingQuiz, setGeneratingQuiz] = useState(false);
   const [quizCount, setQuizCount] = useState(5);
+  const [circleTab, setCircleTab] = useState<"desafios" | "ranking" | "membros">("desafios");
+  const [rankingData, setRankingData] = useState<{ rankings: RankingEntry[] } | null>(null);
+  const [rankingLoading, setRankingLoading] = useState(false);
+  const [proficiency, setProficiency] = useState<ProficiencyResult | null | false>(false);
+  const [proficiencyLoading, setProficiencyLoading] = useState(false);
+  const [requestingProficiency, setRequestingProficiency] = useState(false);
+  const [showProgress, setShowProgress] = useState(false);
+  const [expandedChallenge, setExpandedChallenge] = useState<string | null>(null);
+  const [challengeSubmissions, setChallengeSubmissions] = useState<Record<string, MySubmission[]>>({});
+  const [submissionsLoading, setSubmissionsLoading] = useState<string | null>(null);
 
   async function handleInvite(circleId: string) {
     setInviteLoading(true);
@@ -173,10 +200,57 @@ export default function CirclesScreen() {
 
   async function openDetail(circle: Circle) {
     setLoadingDetail(true);
+    setCircleTab("desafios");
+    setRankingData(null);
     const r = await ApiClient.get<CircleDetail>(`/api/network/circles/${circle.id}`);
     setLoadingDetail(false);
     if (r.ok) setSelected(r.data);
     else setSelected({ ...circle, members: [], challenges: [] });
+  }
+
+  async function loadRanking(circleId: string) {
+    if (rankingLoading) return;
+    setRankingLoading(true);
+    const r = await ApiClient.get<{ rankings: RankingEntry[] }>(`/api/network/leaderboard/${circleId}`);
+    setRankingLoading(false);
+    if (r.ok) setRankingData(r.data);
+  }
+
+  async function loadProficiency() {
+    if (proficiencyLoading) return;
+    setProficiencyLoading(true);
+    const r = await ApiClient.get<ProficiencyResult | null>("/api/network/proficiency");
+    setProficiencyLoading(false);
+    if (r.ok) setProficiency(r.data ? parseProficiency(r.data) : null);
+  }
+
+  function parseProficiency(raw: ProficiencyResult): ProficiencyResult {
+    return {
+      ...raw,
+      strengths: typeof raw.strengths === "string" ? JSON.parse(raw.strengths) : (raw.strengths ?? []),
+      improvements: typeof raw.improvements === "string" ? JSON.parse(raw.improvements) : (raw.improvements ?? []),
+    };
+  }
+
+  async function requestProficiency() {
+    setRequestingProficiency(true);
+    const r = await ApiClient.post<ProficiencyResult>("/api/network/proficiency", {});
+    setRequestingProficiency(false);
+    if (r.ok) {
+      setProficiency(parseProficiency(r.data));
+      if (r.data.fluencyCredits) Alert.alert("🎓 Parabéns!", `Nível ${r.data.level} (${r.data.levelLabel})! +${r.data.fluencyCredits} créditos adicionados!`);
+      else Alert.alert("Avaliação concluída!", `Seu nível: ${r.data.level} — ${r.data.levelLabel}`);
+    } else {
+      Alert.alert("Erro", (r as any).error?.message ?? "Erro ao avaliar. Conclua pelo menos 3 desafios avaliados.");
+    }
+  }
+
+  async function loadChallengeSubmissions(challengeId: string) {
+    if (submissionsLoading === challengeId || challengeSubmissions[challengeId]) return;
+    setSubmissionsLoading(challengeId);
+    const r = await ApiClient.get<MySubmission[]>(`/api/network/submissions?challengeId=${challengeId}&mine=true`);
+    setSubmissionsLoading(null);
+    if (r.ok) setChallengeSubmissions(prev => ({ ...prev, [challengeId]: r.data }));
   }
 
   async function handleJoin(id: string) {
@@ -229,6 +303,106 @@ export default function CirclesScreen() {
           <Text className="text-primary text-sm font-semibold">+ Criar</Text>
         </TouchableOpacity>
       </View>
+
+      {/* ── Meu Progresso card ── */}
+      <TouchableOpacity
+        onPress={() => { setShowProgress(p => !p); if (proficiency === false) loadProficiency(); }}
+        className="mx-5 mb-3 bg-zinc-900 border border-zinc-800 rounded-2xl px-4 py-3"
+        activeOpacity={0.8}
+      >
+        <View className="flex-row items-center justify-between">
+          <View className="flex-row items-center gap-2">
+            <Text className="text-base">📈</Text>
+            <Text className="text-white font-semibold text-sm">Meu Progresso</Text>
+            {proficiency && typeof proficiency !== "boolean" && (
+              <View className={`px-2 py-0.5 rounded-full ${
+                proficiency.isEligible ? "bg-emerald-500/20 border border-emerald-500/30" : "bg-primary/20 border border-primary/30"
+              }`}>
+                <Text className={`text-xs font-bold ${proficiency.isEligible ? "text-emerald-400" : "text-primary"}`}>
+                  {proficiency.level}
+                </Text>
+              </View>
+            )}
+            {proficiency && typeof proficiency !== "boolean" && proficiency.isEligible && (
+              <Text className="text-xs">🎓</Text>
+            )}
+          </View>
+          <Text className="text-zinc-500 text-xs">{showProgress ? "▲" : "▼"}</Text>
+        </View>
+
+        {showProgress && (
+          <View className="mt-3">
+            {proficiencyLoading && <ActivityIndicator color="#7c3aed" size="small" />}
+            {!proficiencyLoading && proficiency === null && (
+              <View>
+                <Text className="text-zinc-400 text-xs mb-3">Complete pelo menos 3 desafios avaliados para solicitar avaliação de proficiência CEFR.</Text>
+                <TouchableOpacity
+                  onPress={requestProficiency} disabled={requestingProficiency}
+                  className="bg-primary/10 border border-primary/30 rounded-xl py-2.5 items-center"
+                >
+                  {requestingProficiency
+                    ? <ActivityIndicator size="small" color="#7c3aed" />
+                    : <Text className="text-primary text-xs font-semibold">✨ Avaliar meu inglês</Text>
+                  }
+                </TouchableOpacity>
+              </View>
+            )}
+            {!proficiencyLoading && proficiency && typeof proficiency !== "boolean" && (
+              <View className="gap-3">
+                <View className="flex-row items-center gap-3">
+                  <View className={`px-3 py-1.5 rounded-xl border ${
+                    proficiency.isEligible ? "bg-emerald-500/10 border-emerald-500/30" : "bg-primary/10 border-primary/30"
+                  }`}>
+                    <Text className={`font-bold text-lg ${proficiency.isEligible ? "text-emerald-400" : "text-primary"}`}>{proficiency.level}</Text>
+                    <Text className="text-zinc-400 text-[10px]">{proficiency.levelLabel}</Text>
+                  </View>
+                  <View className="flex-1">
+                    <Text className="text-white text-xs font-semibold">Score médio: {proficiency.totalAvg.toFixed(1)}/10</Text>
+                    <Text className="text-zinc-500 text-xs">{proficiency.submissionsUsed} submissões analisadas</Text>
+                    <Text className="text-zinc-600 text-[10px]">{new Date(proficiency.createdAt).toLocaleDateString("pt-BR")}</Text>
+                  </View>
+                  {proficiency.isEligible && (
+                    <View className="bg-emerald-500/10 border border-emerald-500/30 rounded-xl px-3 py-2 items-center">
+                      <Text className="text-lg">🎓</Text>
+                      <Text className="text-emerald-400 text-[10px] font-semibold">Certificado</Text>
+                    </View>
+                  )}
+                </View>
+                <Text className="text-zinc-400 text-xs leading-relaxed">{proficiency.overallFeedback}</Text>
+                {proficiency.strengths?.length > 0 && (
+                  <View className="bg-emerald-500/5 border border-emerald-500/20 rounded-xl p-3">
+                    <Text className="text-emerald-400 text-xs font-semibold mb-1">✅ Pontos fortes</Text>
+                    {proficiency.strengths.slice(0, 2).map((s, i) => <Text key={i} className="text-zinc-300 text-xs">• {s}</Text>)}
+                  </View>
+                )}
+                {proficiency.improvements?.length > 0 && (
+                  <View className="bg-amber-500/5 border border-amber-500/20 rounded-xl p-3">
+                    <Text className="text-amber-400 text-xs font-semibold mb-1">🎯 Melhorar</Text>
+                    {proficiency.improvements.slice(0, 2).map((s, i) => <Text key={i} className="text-zinc-300 text-xs">• {s}</Text>)}
+                  </View>
+                )}
+                <View className="flex-row gap-2">
+                  <TouchableOpacity
+                    onPress={requestProficiency} disabled={requestingProficiency}
+                    className="flex-1 bg-zinc-800 border border-zinc-700 rounded-xl py-2 items-center"
+                  >
+                    {requestingProficiency
+                      ? <ActivityIndicator size="small" color="#7c3aed" />
+                      : <Text className="text-zinc-400 text-xs">↻ Nova avaliação</Text>
+                    }
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() => Share.share({ message: `Atingi o nível ${proficiency.level} (${proficiency.levelLabel}) no SpeakFlow! 🎓\nScore médio: ${proficiency.totalAvg.toFixed(1)}/10\n${proficiency.isEligible ? "✅ Certificação CEFR desbloqueada" : "Praticando inglês profissional com IA"} 🚀` })}
+                    className="flex-1 bg-primary/10 border border-primary/30 rounded-xl py-2 items-center"
+                  >
+                    <Text className="text-primary text-xs">🔗 Compartilhar</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            )}
+          </View>
+        )}
+      </TouchableOpacity>
 
       <View className="px-5 mb-3">
         <TextInput
@@ -451,7 +625,9 @@ export default function CirclesScreen() {
                           value={q.question}
                           onChangeText={(v) => setCf(f => { const qs = [...f.questions]; qs[qi] = { ...qs[qi], question: v }; return { ...f, questions: qs }; })}
                           placeholder="Texto da pergunta..." placeholderTextColor="#52525b"
+                          multiline numberOfLines={3} textAlignVertical="top"
                           className="bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 text-white text-xs mb-2"
+                          style={{ minHeight: 60 }}
                         />
                         {q.options.map((opt, oi) => (
                           <TouchableOpacity key={oi}
@@ -560,6 +736,12 @@ export default function CirclesScreen() {
                         ? <Text className="text-emerald-400 text-sm mt-2">🎉 Perfeito!</Text>
                         : <Text className="text-zinc-400 text-xs mt-2">Revise as questões erradas para melhorar</Text>
                       }
+                      <TouchableOpacity
+                        onPress={() => Share.share({ message: `Fiz um quiz "${quizChallenge?.title}" no SpeakFlow e acertei ${quizResult.correct}/${quizResult.total} questões! 🎯\nPraticando inglês profissional com IA 🚀` })}
+                        className="mt-3 flex-row items-center gap-2 bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2"
+                      >
+                        <Text className="text-zinc-400 text-xs">🔗 Compartilhar resultado</Text>
+                      </TouchableOpacity>
                     </View>
                     {quizResult.results.map((r, i) => (
                       <View key={i} className={`rounded-xl p-3 mb-2 border ${
@@ -578,12 +760,23 @@ export default function CirclesScreen() {
 
                 {!quizLoading && !quizResult && quizQuestions.length > 0 && (
                   <View>
-                    <View className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl px-4 py-2 mb-2">
-                      <Text className="text-emerald-400 text-xs font-semibold">📊 {quizChallenge?.title} · {quizQuestions.length} perguntas</Text>
+                    <View className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl px-4 py-3 mb-3">
+                      <Text className="text-emerald-400 text-xs font-semibold mb-2">📊 {quizChallenge?.title}</Text>
+                      <View className="flex-row items-center justify-between mb-1.5">
+                        <Text className="text-zinc-400 text-xs">{Object.keys(quizAnswers).length} de {quizQuestions.length} respondidas</Text>
+                        <Text className="text-zinc-400 text-xs">{Math.round((Object.keys(quizAnswers).length / quizQuestions.length) * 100)}%</Text>
+                      </View>
+                      <View className="w-full bg-zinc-800 rounded-full h-1.5 overflow-hidden">
+                        <View className="bg-emerald-400 h-full rounded-full" style={{ width: `${Math.round((Object.keys(quizAnswers).length / quizQuestions.length) * 100)}%` }} />
+                      </View>
                     </View>
                     {quizQuestions.map((q, qi) => (
                       <View key={q.id} className="bg-zinc-900 border border-zinc-800 rounded-xl p-4 mb-3">
-                        <Text className="text-white text-sm font-semibold mb-3">{qi + 1}. {q.question}</Text>
+                        <View className="flex-row items-center justify-between mb-2">
+                          <Text className="text-zinc-500 text-xs font-semibold">Pergunta {qi + 1} / {quizQuestions.length}</Text>
+                          {quizAnswers[q.id] && <Text className="text-emerald-400 text-xs">✓ respondida</Text>}
+                        </View>
+                        <Text className="text-white text-sm font-semibold leading-relaxed mb-3">{q.question}</Text>
                         {q.options.map((opt, oi) => {
                           const selected2 = quizAnswers[q.id] === opt;
                           return (
@@ -635,13 +828,14 @@ export default function CirclesScreen() {
 
             {/* ── Main detail view ── */}
             {detailView === "main" && (
-            <ScrollView className="flex-1 px-5 pt-4" contentContainerStyle={{ paddingBottom: 40, gap: 16 }}>
+            <View className="flex-1">
+              {/* Description */}
               {selected.description && (
-                <Text className="text-zinc-400 text-sm leading-relaxed">{selected.description}</Text>
+                <Text className="text-zinc-400 text-sm leading-relaxed px-5 pt-3">{selected.description}</Text>
               )}
 
-              {/* Stats */}
-              <View className="flex-row gap-3">
+              {/* Stats strip */}
+              <View className="flex-row gap-3 px-5 pt-3 pb-3">
                 {[
                   { label: "Membros", value: `${selected._count.members}/${selected.maxMembers}` },
                   { label: "Visibilidade", value: selected.visibility === "public" ? "Público" : selected.visibility === "private" ? "Privado" : "Convite" },
@@ -654,92 +848,224 @@ export default function CirclesScreen() {
                 ))}
               </View>
 
-              {/* Challenges */}
-              {selected.challenges.length > 0 && (
-                <View>
-                  <Text className="text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2">⚡ Desafios</Text>
-                  {selected.challenges.map(ch => {
-                    const now = Date.now();
-                    const starts = new Date(ch.startsAt).getTime();
-                    const ends = new Date(ch.endsAt).getTime();
-                    const isActive = starts <= now && ends >= now;
-                    const isUpcoming = starts > now;
-                    const canEnter = isActive && ch.type === "quiz";
-                    return (
-                      <TouchableOpacity
-                        key={ch.id}
-                        activeOpacity={canEnter ? 0.7 : 1}
-                        onPress={canEnter ? async () => {
-                          setQuizChallenge({ id: ch.id, title: ch.title, circleId: selected.id });
-                          setQuizAnswers({});
-                          setQuizResult(null);
-                          setQuizLoading(true);
-                          setDetailView("quiz");
-                          const r = await ApiClient.get<{ questions: { id: string; question: string; options: string[] }[]; total: number }>(`/api/network/challenges/${ch.id}/quiz`);
-                          setQuizLoading(false);
-                          if (r.ok) setQuizQuestions(r.data.questions);
-                          else { Alert.alert("Erro", r.error?.message ?? "Erro ao carregar quiz."); setDetailView("main"); }
-                        } : undefined}
-                        className={`rounded-2xl p-4 mb-2 border ${
-                          isActive ? "bg-emerald-500/10 border-emerald-500/20"
-                          : isUpcoming ? "bg-blue-500/10 border-blue-500/20"
-                          : "bg-zinc-900 border-zinc-800"
-                        }`}
-                      >
-                        <View className="flex-row items-center justify-between mb-1">
-                          <Text className={`text-xs font-semibold uppercase tracking-wider ${
-                            isActive ? "text-emerald-400" : isUpcoming ? "text-blue-400" : "text-zinc-600"
-                          }`}>
-                            {isActive ? "⚡ Ativo" : isUpcoming ? "🗓 Em breve" : "✓ Encerrado"}
-                          </Text>
-                          <Text className="text-zinc-600 text-[10px]">
-                            {ch.type === "quiz" ? "📊 Quiz" : ch.type === "spoken" ? "🎙️ Voz" : "✍️ Escrito"}
-                          </Text>
-                        </View>
-                        <Text className="text-white font-semibold text-sm">{ch.title}</Text>
-                        <View className="flex-row items-center justify-between mt-1">
-                          <Text className="text-zinc-500 text-xs">{ch._count.submissions} submissões</Text>
-                          {canEnter && <Text className="text-emerald-400 text-xs font-semibold">Fazer quiz ›</Text>}
-                        </View>
-                      </TouchableOpacity>
-                    );
-                  })}
-                </View>
-              )}
+              {/* Tab bar */}
+              <View className="flex-row border-b border-zinc-800 px-5">
+                {([
+                  { key: "desafios", label: "⚡ Desafios" },
+                  { key: "ranking",  label: "🏆 Ranking"  },
+                  { key: "membros",  label: "👥 Membros"  },
+                ] as const).map(tab => (
+                  <TouchableOpacity
+                    key={tab.key}
+                    onPress={() => {
+                      setCircleTab(tab.key);
+                      if (tab.key === "ranking" && !rankingData && !rankingLoading) loadRanking(selected.id);
+                    }}
+                    className={`mr-6 pb-2.5 border-b-2 ${circleTab === tab.key ? "border-primary" : "border-transparent"}`}
+                  >
+                    <Text className={`text-xs font-semibold ${circleTab === tab.key ? "text-primary" : "text-zinc-500"}`}>{tab.label}</Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
 
-              {/* Members */}
-              {selected.members.length > 0 && (
-                <View>
-                  <View className="flex-row items-center justify-between mb-3">
-                    <Text className="text-zinc-400 text-xs font-semibold uppercase tracking-wider">
+              <ScrollView className="flex-1 px-5 pt-4" contentContainerStyle={{ paddingBottom: 40, gap: 12 }}>
+
+                {/* ── Tab: Desafios ── */}
+                {circleTab === "desafios" && (
+                  <>
+                    {selected.challenges.length === 0 && (
+                      <Text className="text-zinc-500 text-sm text-center py-10">Nenhum desafio ainda</Text>
+                    )}
+                    {selected.challenges.map(ch => {
+                      const now = Date.now();
+                      const starts = new Date(ch.startsAt).getTime();
+                      const ends = new Date(ch.endsAt).getTime();
+                      const isActive = starts <= now && ends >= now;
+                      const isUpcoming = starts > now;
+                      const canEnter = isActive && ch.type === "quiz";
+                      return (
+                        <TouchableOpacity
+                          key={ch.id}
+                          activeOpacity={canEnter ? 0.7 : 1}
+                          onPress={canEnter ? async () => {
+                            setQuizChallenge({ id: ch.id, title: ch.title, circleId: selected.id });
+                            setQuizAnswers({});
+                            setQuizResult(null);
+                            setQuizLoading(true);
+                            setDetailView("quiz");
+                            const r = await ApiClient.get<{ questions: { id: string; question: string; options: string[] }[]; total: number }>(`/api/network/challenges/${ch.id}/quiz`);
+                            setQuizLoading(false);
+                            if (r.ok) setQuizQuestions(r.data.questions);
+                            else { Alert.alert("Erro", r.error?.message ?? "Erro ao carregar quiz."); setDetailView("main"); }
+                          } : undefined}
+                          className={`rounded-2xl p-4 border ${
+                            isActive ? "bg-emerald-500/10 border-emerald-500/20"
+                            : isUpcoming ? "bg-blue-500/10 border-blue-500/20"
+                            : "bg-zinc-900 border-zinc-800"
+                          }`}
+                        >
+                          <View className="flex-row items-center justify-between mb-1">
+                            <Text className={`text-xs font-semibold uppercase tracking-wider ${
+                              isActive ? "text-emerald-400" : isUpcoming ? "text-blue-400" : "text-zinc-600"
+                            }`}>
+                              {isActive ? "⚡ Ativo" : isUpcoming ? "🗓 Em breve" : "✓ Encerrado"}
+                            </Text>
+                            <Text className="text-zinc-600 text-[10px]">
+                              {ch.type === "quiz" ? "📊 Quiz" : ch.type === "spoken" ? "🎙️ Voz" : "✍️ Escrito"}
+                            </Text>
+                          </View>
+                          <Text className="text-white font-semibold text-sm">{ch.title}</Text>
+                          <View className="flex-row items-center justify-between mt-1">
+                            <Text className="text-zinc-500 text-xs">{ch._count.submissions} submissões</Text>
+                            {canEnter && <Text className="text-emerald-400 text-xs font-semibold">Fazer quiz ›</Text>}
+                            {!canEnter && ch.type !== "quiz" && (
+                              <TouchableOpacity
+                                onPress={(e) => {
+                                  e.stopPropagation?.();
+                                  if (expandedChallenge === ch.id) { setExpandedChallenge(null); }
+                                  else { setExpandedChallenge(ch.id); loadChallengeSubmissions(ch.id); }
+                                }}
+                              >
+                                <Text className="text-zinc-500 text-xs">{expandedChallenge === ch.id ? "▲ ocultar" : "📋 minhas respostas"}</Text>
+                              </TouchableOpacity>
+                            )}
+                          </View>
+                          {/* Submission history */}
+                          {expandedChallenge === ch.id && (
+                            <View className="mt-3 border-t border-zinc-700 pt-3">
+                              {submissionsLoading === ch.id && <ActivityIndicator size="small" color="#7c3aed" />}
+                              {!submissionsLoading && (challengeSubmissions[ch.id] ?? []).length === 0 && (
+                                <Text className="text-zinc-600 text-xs">Nenhuma resposta enviada ainda.</Text>
+                              )}
+                              {(challengeSubmissions[ch.id] ?? []).map((sub) => (
+                                <View key={sub.id} className="mb-2">
+                                  <View className="flex-row items-center justify-between mb-1">
+                                    <Text className="text-zinc-500 text-[10px]">{new Date(sub.createdAt).toLocaleDateString("pt-BR")}</Text>
+                                    {sub.evaluation && (
+                                      <View className="flex-row gap-2">
+                                        <Text className="text-primary text-xs font-bold">{sub.evaluation.totalScore}/10</Text>
+                                        <Text className="text-zinc-600 text-[10px]">F:{sub.evaluation.fluencyScore} C:{sub.evaluation.contentScore}</Text>
+                                      </View>
+                                    )}
+                                  </View>
+                                  <Text className="text-zinc-400 text-xs leading-relaxed" numberOfLines={3}>{sub.content}</Text>
+                                  {sub.evaluation?.feedback && (
+                                    <Text className="text-zinc-600 text-[10px] mt-1 leading-relaxed">{sub.evaluation.feedback}</Text>
+                                  )}
+                                </View>
+                              ))}
+                            </View>
+                          )}
+                        </TouchableOpacity>
+                      );
+                    })}
+                  </>
+                )}
+
+                {/* ── Tab: Ranking ── */}
+                {circleTab === "ranking" && (
+                  <>
+                    {rankingLoading && (
+                      <View className="items-center py-12">
+                        <ActivityIndicator color="#7c3aed" size="large" />
+                        <Text className="text-zinc-500 text-sm mt-3">Carregando ranking...</Text>
+                      </View>
+                    )}
+                    {!rankingLoading && rankingData && (
+                      <>
+                        {/* My position highlight */}
+                        {(() => {
+                          const me = rankingData.rankings.find(r => r.isMe);
+                          if (!me) return null;
+                          return (
+                            <View className="bg-primary/10 border border-primary/30 rounded-2xl p-4">
+                              <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-2">Sua posição</Text>
+                              <View className="flex-row items-center justify-between">
+                                <View className="flex-row items-center gap-3">
+                                  <Text className="text-3xl font-bold text-white">#{me.rank}</Text>
+                                  <View>
+                                    <Text className="text-white font-semibold">{me.name}</Text>
+                                    <Text className="text-zinc-500 text-xs">{me.submissionCount} desafio{me.submissionCount !== 1 ? "s" : ""} feito{me.submissionCount !== 1 ? "s" : ""}</Text>
+                                  </View>
+                                </View>
+                                <View className="items-end">
+                                  <Text className="text-primary font-bold text-xl">{me.totalScore} pts</Text>
+                                  <Text className="text-zinc-500 text-xs">média {me.avgScore}/10</Text>
+                                </View>
+                              </View>
+                            </View>
+                          );
+                        })()}
+
+                        {/* Ranking list */}
+                        {rankingData.rankings.length === 0 && (
+                          <Text className="text-zinc-500 text-sm text-center py-8">Nenhuma submissão ainda. Seja o primeiro! 🚀</Text>
+                        )}
+                        {rankingData.rankings.map((entry) => (
+                          <View key={entry.userId} className={`flex-row items-center gap-3 rounded-xl p-3 border ${
+                            entry.isMe ? "bg-primary/10 border-primary/30" : "bg-zinc-900 border-zinc-800"
+                          }`}>
+                            <Text className="text-lg w-8 text-center font-bold">
+                              {entry.rank === 1 ? "🥇" : entry.rank === 2 ? "🥈" : entry.rank === 3 ? "🥉" : String(entry.rank)}
+                            </Text>
+                            <View className="w-8 h-8 rounded-full bg-primary/20 items-center justify-center">
+                              <Text className="text-white text-xs font-bold">{entry.name.charAt(0).toUpperCase()}</Text>
+                            </View>
+                            <View className="flex-1">
+                              <Text className={`text-sm font-semibold ${entry.isMe ? "text-primary" : "text-white"}`}>
+                                {entry.name}{entry.isMe ? " (você)" : ""}
+                              </Text>
+                              <Text className="text-zinc-600 text-xs">{entry.submissionCount} desafio{entry.submissionCount !== 1 ? "s" : ""}</Text>
+                            </View>
+                            <View className="items-end">
+                              <Text className="text-white font-bold text-sm">{entry.totalScore} pts</Text>
+                              <Text className="text-zinc-600 text-[10px]">avg {entry.avgScore}/10</Text>
+                            </View>
+                          </View>
+                        ))}
+                      </>
+                    )}
+                    {!rankingLoading && !rankingData && (
+                      <TouchableOpacity onPress={() => loadRanking(selected.id)} className="items-center py-10">
+                        <Text className="text-zinc-500 text-sm">Toque para tentar novamente</Text>
+                      </TouchableOpacity>
+                    )}
+                  </>
+                )}
+
+                {/* ── Tab: Membros ── */}
+                {circleTab === "membros" && (
+                  <>
+                    <Text className="text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-1">
                       {selected.members.length} Membros
                     </Text>
-                  </View>
-                  {selected.members.slice(0, 20).map((m) => (
-                    <View key={m.userId} className="flex-row items-center gap-3 mb-2.5">
-                      <View className="w-8 h-8 rounded-full bg-primary/20 items-center justify-center">
-                        <Text className="text-white text-xs font-bold">{m.user.name.charAt(0)}</Text>
+                    {selected.members.slice(0, 30).map((m) => (
+                      <View key={m.userId} className="flex-row items-center gap-3 bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2.5">
+                        <View className="w-9 h-9 rounded-full bg-primary/20 items-center justify-center">
+                          <Text className="text-white text-sm font-bold">{m.user.name.charAt(0).toUpperCase()}</Text>
+                        </View>
+                        <Text className="text-white text-sm flex-1">{m.user.name}</Text>
+                        {m.role !== "member" && (
+                          <Text className="text-xs text-amber-400 font-semibold capitalize px-2 py-0.5 bg-amber-500/10 rounded-md">{m.role}</Text>
+                        )}
+                        {selected.myRole && ["owner", "moderator"].includes(selected.myRole) && m.role !== "owner" && (
+                          <TouchableOpacity
+                            onPress={() => handleRemoveMember(selected.id, m.id, m.user.name)}
+                            className="bg-red-500/10 border border-red-500/20 rounded-lg px-2 py-1 ml-1"
+                          >
+                            <Text className="text-red-400 text-[10px]">🗑</Text>
+                          </TouchableOpacity>
+                        )}
                       </View>
-                      <Text className="text-white text-sm flex-1">{m.user.name}</Text>
-                      {m.role !== "member" && (
-                        <Text className="text-xs text-amber-400 capitalize mr-2">{m.role}</Text>
-                      )}
-                      {selected.myRole && ["owner", "moderator"].includes(selected.myRole) && m.role !== "owner" && (
-                        <TouchableOpacity
-                          onPress={() => handleRemoveMember(selected.id, m.id, m.user.name)}
-                          className="bg-red-500/10 border border-red-500/20 rounded-lg px-2 py-1"
-                        >
-                          <Text className="text-red-400 text-[10px]">🗑</Text>
-                        </TouchableOpacity>
-                      )}
-                    </View>
-                  ))}
-                  {selected.members.length > 20 && (
-                    <Text className="text-zinc-600 text-xs text-center mt-1">+{selected.members.length - 20} membros</Text>
-                  )}
-                </View>
-              )}
-            </ScrollView>
+                    ))}
+                    {selected.members.length > 30 && (
+                      <Text className="text-zinc-600 text-xs text-center mt-1">+{selected.members.length - 30} membros</Text>
+                    )}
+                  </>
+                )}
+
+              </ScrollView>
+            </View>
             )}
           </SafeAreaView>
         )}
