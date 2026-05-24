@@ -87,6 +87,7 @@ export default function CirclesScreen() {
   const [loadingDetail, setLoadingDetail] = useState(false);
   const [inviteLoading, setInviteLoading] = useState(false);
   const [generatingQuiz, setGeneratingQuiz] = useState(false);
+  const [quizCount, setQuizCount] = useState(5);
 
   async function handleInvite(circleId: string) {
     setInviteLoading(true);
@@ -147,7 +148,7 @@ export default function CirclesScreen() {
       if (!selected) throw new Error("Nenhum circle selecionado.");
       if (!cf.title.trim()) throw new Error("Título obrigatório.");
       if (cf.type !== "quiz" && !cf.prompt.trim()) throw new Error("Prompt obrigatório para desafios escritos/voz.");
-      if (cf.type === "quiz" && cf.questions.length < 1) throw new Error("Adicione ao menos 1 pergunta ao quiz.");
+      if (cf.type === "quiz" && cf.questions.length < 1) throw new Error("Adicione ao menos 1 pergunta ao quiz (use ✨ Gerar com IA).");
       for (const q of cf.questions) {
         if (!q.question.trim()) throw new Error("Todas as perguntas precisam de texto.");
         if (q.options.some((o) => !o.trim())) throw new Error("Todas as opções precisam ser preenchidas.");
@@ -362,6 +363,9 @@ export default function CirclesScreen() {
                     placeholder="Ex: Pitch de 60 segundos em inglês" placeholderTextColor="#52525b" maxLength={120}
                     className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3.5 text-white text-sm"
                   />
+                  {cf.type === "quiz" && (
+                    <Text className="text-zinc-500 text-xs mt-1.5">💡 A IA vai gerar as perguntas do quiz com base neste título</Text>
+                  )}
                 </View>
 
                 <View>
@@ -393,8 +397,19 @@ export default function CirclesScreen() {
 
                 {cf.type === "quiz" && (
                   <View>
+                    <View className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 mb-3">
+                      <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-2">Quantidade de perguntas</Text>
+                      <View className="flex-row gap-2">
+                        {[3, 5, 8, 10, 15].map(n => (
+                          <TouchableOpacity key={n} onPress={() => setQuizCount(n)}
+                            className={`flex-1 py-2 rounded-lg border items-center ${quizCount === n ? "bg-primary/20 border-primary/40" : "bg-zinc-800 border-zinc-700"}`}>
+                            <Text className={`text-xs font-bold ${quizCount === n ? "text-primary" : "text-zinc-400"}`}>{n}</Text>
+                          </TouchableOpacity>
+                        ))}
+                      </View>
+                    </View>
                     <View className="flex-row items-center justify-between mb-2">
-                      <Text className="text-zinc-400 text-xs uppercase tracking-wider">Perguntas ({cf.questions.length}/10)</Text>
+                      <Text className="text-zinc-400 text-xs uppercase tracking-wider">Perguntas ({cf.questions.length}/15)</Text>
                       <View className="flex-row gap-2">
                         <TouchableOpacity
                           onPress={async () => {
@@ -402,7 +417,7 @@ export default function CirclesScreen() {
                             setGeneratingQuiz(true);
                             const r = await ApiClient.post<{ questions: QuizQuestion[] }>(
                               "/api/network/challenges/generate-quiz",
-                              { title: cf.title, focus: selected?.focus ?? "Business English", level: selected?.level ?? "Todos", count: 5 }
+                              { title: cf.title, focus: selected?.focus ?? "Business English", level: selected?.level ?? "Todos", count: quizCount }
                             );
                             setGeneratingQuiz(false);
                             if (r.ok) setCf(f => ({ ...f, questions: r.data.questions }));
@@ -413,10 +428,10 @@ export default function CirclesScreen() {
                         >
                           {generatingQuiz
                             ? <ActivityIndicator size="small" color="#7c3aed" />
-                            : <Text className="text-violet-400 text-xs font-semibold">✨ Gerar com IA</Text>
+                            : <Text className="text-violet-400 text-xs font-semibold">✨ Gerar {quizCount} com IA</Text>
                           }
                         </TouchableOpacity>
-                        {cf.questions.length < 10 && (
+                        {cf.questions.length < 15 && (
                           <TouchableOpacity onPress={() => setCf(f => ({ ...f, questions: [...f.questions, BLANK_QUESTION()] }))}
                             className="bg-primary/10 border border-primary/20 rounded-lg px-3 py-1">
                             <Text className="text-primary text-xs font-semibold">+ Pergunta</Text>
@@ -454,7 +469,7 @@ export default function CirclesScreen() {
                             />
                           </TouchableOpacity>
                         ))}
-                        <Text className="text-zinc-600 text-[10px] mt-1">Toque no círculo para marcar a opção correta</Text>
+                        <Text className="text-zinc-600 text-[10px] mt-1">👆 Toque no círculo para definir a resposta correta</Text>
                       </View>
                     ))}
                     {cf.questions.length === 0 && (

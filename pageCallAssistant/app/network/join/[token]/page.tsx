@@ -110,6 +110,14 @@ export default function JoinPage() {
           >
             {joining ? <Loader2 className="h-5 w-5 animate-spin" /> : <><CheckCircle2 className="h-5 w-5 mr-2" />Entrar no Circle</>}
           </Button>
+          <div className="grid grid-cols-2 gap-2">
+            <Button variant="outline" size="sm" asChild className="text-sm">
+              <Link href={`/login?redirect=/network/join/${token}`}>Já tenho conta</Link>
+            </Button>
+            <Button variant="outline" size="sm" asChild className="text-sm border-violet-500/40 text-violet-300 hover:bg-violet-500/10">
+              <Link href={`/register?redirect=/network/join/${token}`}>Criar conta grátis</Link>
+            </Button>
+          </div>
           <Button variant="ghost" size="sm" asChild className="text-muted-foreground">
             <Link href="/network">Ver outros Circles</Link>
           </Button>

@@ -95,7 +95,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
 
   const correctCount = results.filter((r) => r.correct).length;
   const total = challenge.quizQuestions.length;
-  const score = correctCount * 0.5; // 0.5 pts each
+  const score = correctCount; // 1 pt per correct answer
   const scoreOn10 = total > 0 ? Math.round((correctCount / total) * 10) : 0;
 
   const content = JSON.stringify({

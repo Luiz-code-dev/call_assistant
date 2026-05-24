@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
   const { title, focus = "Business English", level = "Todos", count = 5 } = body;
   if (!title?.trim()) return NextResponse.json({ error: "Título obrigatório." }, { status: 400 });
 
-  const safeCount = Math.min(Math.max(Number(count) || 5, 3), 10);
+  const safeCount = Math.min(Math.max(Number(count) || 5, 3), 15);
 
   const prompt = `You are an English quiz creator for a professional English learning platform called SpeakFlow.
 Create exactly ${safeCount} multiple-choice questions in English based on this challenge topic:
@@ -47,7 +47,7 @@ Respond ONLY with valid JSON in this exact format (no markdown, no explanation):
       model: "gpt-4o-mini",
       messages: [{ role: "user", content: prompt }],
       temperature: 0.8,
-      max_tokens: 2000,
+      max_tokens: 4000,
       response_format: { type: "json_object" },
     });
 
