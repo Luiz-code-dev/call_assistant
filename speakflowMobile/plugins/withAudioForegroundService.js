@@ -1,9 +1,13 @@
 const { withAndroidManifest } = require("expo/config-plugins");
 
-const AUDIO_SERVICES = [
-  "expo.modules.audio.service.AudioControlsService",
-  "expo.modules.audio.service.AudioRecordingService",
-];
+// Both audio services use "microphone" type:
+// - AudioRecordingService: captures mic input for Live Assist
+// - AudioControlsService: manages the recording session notification/controls
+// The app does NOT play back media, so mediaPlayback type is not needed.
+const SERVICE_TYPES = {
+  "expo.modules.audio.service.AudioRecordingService": "microphone",
+  "expo.modules.audio.service.AudioControlsService": "microphone",
+};
 
 module.exports = function withAudioForegroundService(config) {
   return withAndroidManifest(config, (config) => {
@@ -14,10 +18,11 @@ module.exports = function withAudioForegroundService(config) {
 
     application.service = application.service.map((service) => {
       const name = service.$?.["android:name"];
-      if (AUDIO_SERVICES.includes(name)) {
+      const type = SERVICE_TYPES[name];
+      if (type) {
         service.$ = {
           ...service.$,
-          "android:foregroundServiceType": "microphone",
+          "android:foregroundServiceType": type,
         };
       }
       return service;
