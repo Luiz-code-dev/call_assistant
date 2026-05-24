@@ -119,10 +119,7 @@ export async function POST(req: NextRequest) {
     const verifyLink = `${process.env.NEXT_PUBLIC_APP_URL || "https://speakf.com.br"}/verify-email?token=${verificationToken}`;
 
     if (isPromoEligible) {
-      await Promise.allSettled([
-        sendVerificationEmail(email, name, verificationToken),
-        sendPromoWelcomeEmail(email, name, verifyLink),
-      ]);
+      await sendPromoWelcomeEmail(email, name, verifyLink);
     } else {
       await sendVerificationEmail(email, name, verificationToken);
     }

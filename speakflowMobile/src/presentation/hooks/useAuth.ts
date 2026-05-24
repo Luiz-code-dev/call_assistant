@@ -12,17 +12,21 @@ export function useAuth() {
   const { user, isLoading, isAuthenticated, setAuth, logout, refreshUser } = useAuthStore();
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [pendingVerification, setPendingVerification] = useState(false);
 
   const login = useCallback(
     async (email: string, password: string): Promise<boolean> => {
       setError(null);
+      setPendingVerification(false);
       setSubmitting(true);
       try {
         const result = await loginUseCase.execute({ email, password });
         if (!result.ok) {
+          setPendingVerification(result.error.statusCode === 403);
           setError(result.error.message);
           return false;
         }
+        setPendingVerification(false);
         const { user, tokens } = result.data;
         await setAuth(user, tokens.token);
         return true;
@@ -57,10 +61,11 @@ export function useAuth() {
     isAuthenticated,
     error,
     submitting,
+    pendingVerification,
     login,
     register,
     logout,
     refreshUser,
-    clearError: () => setError(null),
+    clearError: () => { setError(null); setPendingVerification(false); },
   };
 }

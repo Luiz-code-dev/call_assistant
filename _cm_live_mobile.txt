@@ -1,0 +1,7 @@
+perf: Live Assist mobile - pipeline 2 fases + VAD calibrado Android
+
+- LiveTurn com loadingSuggestions: mostra transcricao instantanea
+- Gravacao reinicia apos Whisper, nao espera GPT
+- getSuggestions atualiza card em background
+- VAD: SILENCE_DB -50->-35, SILENCE_MS 2500->1800ms, MAX_SEG 12s->8s
+- startNextSegmentRef elimina stale closure circular

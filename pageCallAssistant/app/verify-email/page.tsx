@@ -20,17 +20,18 @@ export default function VerifyEmailPage() {
     setStatus("loading");
     fetch(`/api/auth/verify-email?token=${token}`)
       .then(async (res) => {
-        if (res.redirected) {
-          window.location.href = res.url;
+        // API returns 302 on success (fetch follows redirect → res.redirected=true)
+        if (res.redirected || res.ok) {
+          setStatus("success");
+          // Try to open the mobile app automatically after a short delay
+          setTimeout(() => {
+            window.location.href = "speakflow://";
+          }, 800);
           return;
         }
-        const data = await res.json();
-        if (res.ok) {
-          setStatus("success");
-        } else {
-          setStatus("error");
-          setMessage(data.message || "Token inválido ou expirado.");
-        }
+        const data = await res.json().catch(() => ({}));
+        setStatus("error");
+        setMessage((data as any).message || "Token inválido ou expirado.");
       })
       .catch(() => {
         setStatus("error");
@@ -80,8 +81,23 @@ export default function VerifyEmailPage() {
         {status === "success" && (
           <>
             <CheckCircle2 className="mx-auto mb-4 h-12 w-12 text-emerald-400" />
-            <h1 className="text-xl font-bold">E-mail confirmado!</h1>
-            <p className="mt-2 text-sm text-muted-foreground">Sua conta está ativa. Redirecionando…</p>
+            <h1 className="text-xl font-bold">E-mail confirmado! 🎉</h1>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Sua conta está ativa. Abrindo o app automaticamente…
+            </p>
+            <Button
+              variant="gradient"
+              className="mt-6 w-full"
+              onClick={() => { window.location.href = "speakflow://"; }}
+            >
+              Abrir o SpeakFlow
+            </Button>
+            <p className="mt-3 text-center text-xs text-muted-foreground">
+              Prefere acessar na web?{" "}
+              <Link href="/dashboard" className="text-violet-400 underline hover:text-violet-300">
+                Ir para o dashboard
+              </Link>
+            </p>
           </>
         )}
 

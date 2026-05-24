@@ -18,6 +18,8 @@ model User {
   emailVerified        Boolean             @default(false)
   verificationToken    String?
   verificationExpiry   DateTime?
+  resetToken           String?
+  resetTokenExpiry     DateTime?
   acceptedTerms        Boolean             @default(false)
   stripeCustomerId     String?
   stripeSubscriptionId String?

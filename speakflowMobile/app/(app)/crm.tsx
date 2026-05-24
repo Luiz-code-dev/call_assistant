@@ -71,7 +71,7 @@ export default function CrmScreen() {
       </View>
 
       {/* Stats strip */}
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} className="px-5 mb-3" contentContainerStyle={{ gap: 8, paddingRight: 20 }}>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} className="px-5 mb-3" style={{ flexGrow: 0 }} contentContainerStyle={{ gap: 8, paddingRight: 20 }}>
         {(Object.keys(STATUS_CONFIG) as LeadStatus[]).map((s) => (
           <View key={s} className="bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 items-center min-w-[72px]">
             <Text className="text-white font-bold text-lg">{counts[s] ?? 0}</Text>

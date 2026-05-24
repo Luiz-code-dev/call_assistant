@@ -1,0 +1,8 @@
+perf: Live Assist - pipeline 2 fases + VAD Android + timeout reducao
+
+- Novo endpoint /api/live/transcribe (Whisper only, rapido)
+- Pipeline: Fase1=transcricao imediata, Fase2=sugestoes background
+  gravacao reinicia IMEDIATAMENTE apos transcricao (nao espera GPT)
+- Timeout Python copilot: 12s -> 5s (fallback rapido para OpenAI)
+- VAD Android: SILENCE_DB -50 -> -35, SILENCE_MS 2500 -> 1800ms
+- MAX_SEGMENT_MS: 12s -> 8s, MIN_SPEECH_MS: 1500 -> 800ms

@@ -7,7 +7,7 @@ import { Link, router } from "expo-router";
 import { useAuth } from "@presentation/hooks/useAuth";
 
 export default function LoginScreen() {
-  const { login, submitting, error, clearError } = useAuth();
+  const { login, submitting, error, clearError, pendingVerification } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -39,8 +39,16 @@ export default function LoginScreen() {
             <Text className="text-base text-zinc-400">Entre na sua conta SpeakFlow</Text>
           </View>
 
+          {/* Pending verification banner */}
+          {pendingVerification && (
+            <View className="bg-amber-500/10 border border-amber-500/20 rounded-xl px-4 py-3 mb-5">
+              <Text className="text-amber-400 text-sm font-semibold mb-1">📧 Confirme seu e-mail</Text>
+              <Text className="text-amber-300/80 text-xs leading-relaxed">Verifique sua caixa de entrada e clique no link de ativação antes de entrar.</Text>
+            </View>
+          )}
+
           {/* Error */}
-          {error && (
+          {error && !pendingVerification && (
             <View className="bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3 mb-5">
               <Text className="text-red-400 text-sm">{error}</Text>
             </View>

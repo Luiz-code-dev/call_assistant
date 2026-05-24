@@ -1,19 +1,54 @@
-import { useEffect } from "react";
-import { View, Text, ScrollView, TouchableOpacity, RefreshControl } from "react-native";
+import { useEffect, useState, useCallback } from "react";
+import { View, Text, ScrollView, TouchableOpacity, RefreshControl, Modal } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
+import * as SecureStore from "expo-secure-store";
 import { useAuthStore } from "@presentation/stores/authStore";
 
-const QUICK_ACTIONS: { emoji: string; label: string; route: string }[] = [
-  { emoji: "✍️", label: "Melhorar texto",  route: "/(app)/tools/improve"   },
-  { emoji: "💬", label: "Gerar resposta",  route: "/(app)/tools/generate"  },
-  { emoji: "🎯", label: "Entrevista",      route: "/(app)/tools/interview" },
-  { emoji: "🎙️", label: "Live Assist",    route: "/(app)/live"            },
-  { emoji: "📨", label: "Mensagens",       route: "/(app)/chat"            },
+const STORAGE_KEY = "sf_quick_actions_v1";
+
+const ALL_ACTIONS: { id: string; emoji: string; label: string; route: string }[] = [
+  { id: "improve",   emoji: "✍️",  label: "Melhorar texto",  route: "/(app)/tools/improve"   },
+  { id: "generate",  emoji: "💬",  label: "Gerar resposta",  route: "/(app)/tools/generate"  },
+  { id: "interview", emoji: "🎯",  label: "Entrevista",      route: "/(app)/tools/interview" },
+  { id: "live",      emoji: "🎙️", label: "Live Assist",     route: "/(app)/live"            },
+  { id: "messages",  emoji: "📨",  label: "Mensagens",       route: "/(app)/chat"            },
+  { id: "circles",   emoji: "⭕",  label: "Circles",         route: "/(app)/circles"         },
+  { id: "profile",   emoji: "👤",  label: "Perfil",          route: "/(app)/profile"         },
 ];
+
+const DEFAULT_IDS = ["improve", "generate", "interview", "live", "messages"];
 
 export default function HomeScreen() {
   const { user, refreshUser, isLoading } = useAuthStore();
+  const [visibleIds, setVisibleIds] = useState<string[]>(DEFAULT_IDS);
+  const [showEdit, setShowEdit] = useState(false);
+  const [draftIds, setDraftIds] = useState<string[]>(DEFAULT_IDS);
+
+  useEffect(() => {
+    SecureStore.getItemAsync(STORAGE_KEY).then((v) => {
+      if (v) {
+        try { const ids = JSON.parse(v) as string[]; setVisibleIds(ids); setDraftIds(ids); } catch { /* ignore */ }
+      }
+    });
+  }, []);
+
+  const openEdit = useCallback(() => { setDraftIds(visibleIds); setShowEdit(true); }, [visibleIds]);
+
+  const toggleDraft = useCallback((id: string) => {
+    setDraftIds((prev) =>
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+    );
+  }, []);
+
+  const saveEdit = useCallback(async () => {
+    const ids = draftIds.length === 0 ? DEFAULT_IDS : draftIds;
+    setVisibleIds(ids);
+    await SecureStore.setItemAsync(STORAGE_KEY, JSON.stringify(ids));
+    setShowEdit(false);
+  }, [draftIds]);
+
+  const visibleActions = ALL_ACTIONS.filter((a) => visibleIds.includes(a.id));
 
   useEffect(() => {
     refreshUser();
@@ -76,19 +111,23 @@ export default function HomeScreen() {
 
         {/* Quick Actions */}
         <View className="px-5 mb-6">
-          <Text className="text-white font-bold text-base mb-3">Acesso rápido</Text>
+          <View className="flex-row items-center justify-between mb-3">
+            <Text className="text-white font-bold text-base">Acesso rápido</Text>
+            <TouchableOpacity onPress={openEdit}
+              className="flex-row items-center gap-1 bg-zinc-800 border border-zinc-700 rounded-lg px-2.5 py-1">
+              <Text className="text-zinc-400 text-[11px]">✏️ Editar</Text>
+            </TouchableOpacity>
+          </View>
           <View className="flex-row flex-wrap gap-3">
-            {QUICK_ACTIONS.map((action) => (
+            {visibleActions.map((action) => (
               <TouchableOpacity
-                key={action.route}
+                key={action.id}
                 onPress={() => router.push(action.route as never)}
                 className="flex-1 min-w-[140px] bg-zinc-900 border border-zinc-800 rounded-2xl p-4 items-center gap-2"
                 activeOpacity={0.7}
               >
                 <Text style={{ fontSize: 28 }}>{action.emoji}</Text>
-                <Text className="text-white text-xs font-semibold text-center">
-                  {action.label}
-                </Text>
+                <Text className="text-white text-xs font-semibold text-center">{action.label}</Text>
               </TouchableOpacity>
             ))}
           </View>
@@ -129,6 +168,43 @@ export default function HomeScreen() {
           </View>
         </View>
       </ScrollView>
+
+      {/* Edit Quick Actions Modal */}
+      <Modal visible={showEdit} transparent animationType="slide" onRequestClose={() => setShowEdit(false)}>
+        <TouchableOpacity className="flex-1 bg-black/60" activeOpacity={1} onPress={() => setShowEdit(false)} />
+        <View className="bg-zinc-900 border-t border-zinc-800 rounded-t-3xl px-5 pt-5 pb-10">
+          <View className="flex-row items-center justify-between mb-4">
+            <Text className="text-white font-bold text-base">Personalizar atalhos</Text>
+            <TouchableOpacity onPress={() => setShowEdit(false)}>
+              <Text className="text-zinc-500">✕</Text>
+            </TouchableOpacity>
+          </View>
+          <Text className="text-zinc-500 text-xs mb-4">Selecione quais atalhos aparecem na tela inicial.</Text>
+
+          {ALL_ACTIONS.map((a) => {
+            const active = draftIds.includes(a.id);
+            return (
+              <TouchableOpacity key={a.id} onPress={() => toggleDraft(a.id)}
+                className={`flex-row items-center gap-3 py-3 px-3 rounded-xl mb-2 border ${
+                  active ? "bg-primary/10 border-primary/30" : "bg-zinc-800/50 border-zinc-700/50"
+                }`}>
+                <Text style={{ fontSize: 22 }}>{a.emoji}</Text>
+                <Text className={`flex-1 text-sm font-medium ${active ? "text-white" : "text-zinc-500"}`}>{a.label}</Text>
+                <View className={`w-5 h-5 rounded-full border-2 items-center justify-center ${
+                  active ? "bg-primary border-primary" : "border-zinc-600"
+                }`}>
+                  {active && <Text className="text-white text-[10px] font-bold">✓</Text>}
+                </View>
+              </TouchableOpacity>
+            );
+          })}
+
+          <TouchableOpacity onPress={saveEdit}
+            className="bg-primary rounded-2xl py-3.5 items-center mt-2">
+            <Text className="text-white font-semibold">Salvar</Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }

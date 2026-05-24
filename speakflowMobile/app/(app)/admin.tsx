@@ -1,4 +1,5 @@
-import { View, Text, TouchableOpacity, ScrollView, ActivityIndicator } from "react-native";
+import { useState } from "react";
+import { View, Text, TouchableOpacity, ScrollView, ActivityIndicator, TextInput, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
 import { useQuery } from "@tanstack/react-query";
@@ -94,6 +95,9 @@ export default function AdminScreen() {
           ) : null}
         </View>
 
+        {/* Reset user password */}
+        <ResetPasswordPanel />
+
         {/* Quick actions */}
         <View className="px-5 mb-5">
           <Text className="text-zinc-500 text-xs font-semibold uppercase tracking-wider mb-3">
@@ -144,6 +148,66 @@ export default function AdminScreen() {
         </View>
       </ScrollView>
     </SafeAreaView>
+  );
+}
+
+function ResetPasswordPanel() {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  async function handleReset() {
+    const trimmed = email.trim().toLowerCase();
+    if (!trimmed) return;
+    setLoading(true);
+    try {
+      const result = await ApiClient.post<{ message: string }>(
+        "/api/admin/reset-user-password",
+        { email: trimmed }
+      );
+      if (result.ok) {
+        Alert.alert("Enviado!", result.data.message);
+        setEmail("");
+      } else {
+        Alert.alert("Erro", result.error.message);
+      }
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <View className="px-5 mb-5">
+      <Text className="text-zinc-500 text-xs font-semibold uppercase tracking-wider mb-3">
+        🔑 Resetar Senha de Usuário
+      </Text>
+      <View className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 gap-3">
+        <Text className="text-zinc-400 text-xs">
+          Digite o e-mail do usuário para enviar um link de redefinição de senha.
+        </Text>
+        <TextInput
+          value={email}
+          onChangeText={setEmail}
+          placeholder="email@usuario.com"
+          placeholderTextColor="#52525b"
+          keyboardType="email-address"
+          autoCapitalize="none"
+          autoCorrect={false}
+          className="bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white text-sm"
+        />
+        <TouchableOpacity
+          onPress={handleReset}
+          disabled={loading || !email.trim()}
+          className="bg-violet-600 rounded-xl py-3 items-center disabled:opacity-50"
+          activeOpacity={0.8}
+        >
+          {loading ? (
+            <ActivityIndicator color="#fff" size="small" />
+          ) : (
+            <Text className="text-white font-semibold text-sm">Enviar link de redefinição</Text>
+          )}
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 }
 

@@ -240,7 +240,7 @@ export async function sendVerificationEmail(email: string, name: string, token: 
           <span style="font-weight:600;font-size:18px">SpeakFlow</span>
         </div>
         <h1 style="font-size:22px;font-weight:700;margin:0 0 8px">Olá, ${name}!</h1>
-        <p style="color:#a1a1aa;margin:0 0 24px">Confirme seu e-mail para ativar sua conta e receber 50 créditos grátis.</p>
+        <p style="color:#a1a1aa;margin:0 0 24px">Confirme seu e-mail para ativar sua conta e liberar seus créditos grátis.</p>
         <a href="${link}" style="display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;border-radius:8px;text-decoration:none;font-weight:600">
           Confirmar e-mail
         </a>
@@ -548,6 +548,39 @@ export async function sendCrmAccessEmail(
       `,
     }).catch((err: unknown) => console.error("[sendCrmAccessEmail revoke]", err));
   }
+}
+
+export async function sendPasswordResetEmail(email: string, name: string, resetLink: string) {
+  if (!resend) {
+    console.log(`[DEV] Password reset link for ${email}: ${resetLink}`);
+    return;
+  }
+
+  const firstName = name?.split(" ")[0] || "usuário";
+
+  await resend.emails.send({
+    from: FROM_EMAIL,
+    to: email,
+    subject: "Redefinir senha — SpeakFlow",
+    html: `
+      <div style="font-family:sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;background:#09090b;color:#fafafa;border-radius:12px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px">
+          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#4f46e5);display:flex;align-items:center;justify-content:center">
+            <span style="color:#fff;font-size:16px">🔑</span>
+          </div>
+          <span style="font-weight:600;font-size:18px">SpeakFlow</span>
+        </div>
+        <h1 style="font-size:22px;font-weight:700;margin:0 0 8px">Olá, ${firstName}!</h1>
+        <p style="color:#a1a1aa;margin:0 0 24px">Recebemos uma solicitação para redefinir a senha da sua conta. Clique no botão abaixo para criar uma nova senha.</p>
+        <a href="${resetLink}" style="display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;border-radius:8px;text-decoration:none;font-weight:600">
+          Redefinir minha senha
+        </a>
+        <p style="color:#52525b;font-size:12px;margin-top:24px">Link válido por 1 hora. Se você não solicitou a redefinição, ignore este e-mail — sua senha não será alterada.</p>
+        <hr style="border:none;border-top:1px solid #27272a;margin:24px 0" />
+        <p style="color:#3f3f46;font-size:11px">SpeakFlow · speakf.com.br</p>
+      </div>
+    `,
+  }).catch((err: unknown) => console.error("[sendPasswordResetEmail]", err));
 }
 
 export async function sendPromoWelcomeEmail(email: string, name: string, verifyLink: string) {
