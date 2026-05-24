@@ -18,8 +18,15 @@ export async function GET(req: NextRequest) {
 
   const { searchParams } = new URL(req.url);
   const limit = Math.min(parseInt(searchParams.get("limit") ?? "20"), 100);
+  const search = searchParams.get("search")?.toLowerCase().trim() ?? "";
 
   const users = await db.user.findMany({
+    where: search ? {
+      OR: [
+        { email: { contains: search, mode: "insensitive" } },
+        { name: { contains: search, mode: "insensitive" } },
+      ],
+    } : undefined,
     orderBy: { createdAt: "desc" },
     take: limit,
     select: {

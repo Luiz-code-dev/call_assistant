@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { View, Text, TouchableOpacity, ScrollView, ActivityIndicator, TextInput, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
@@ -153,12 +153,39 @@ export default function AdminScreen() {
 
 function ResetPasswordPanel() {
   const [email, setEmail] = useState("");
+  const [suggestions, setSuggestions] = useState<{ name: string; email: string }[]>([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [searching, setSearching] = useState(false);
   const [loading, setLoading] = useState(false);
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  function onChangeEmail(text: string) {
+    setEmail(text);
+    setShowSuggestions(true);
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    if (text.trim().length < 2) { setSuggestions([]); return; }
+    debounceRef.current = setTimeout(async () => {
+      setSearching(true);
+      const result = await ApiClient.get<{ users: { name: string; email: string }[] }>(
+        `/api/admin/users?search=${encodeURIComponent(text.trim())}&limit=6`
+      );
+      setSearching(false);
+      if (result.ok) setSuggestions(result.data.users);
+    }, 350);
+  }
+
+  function selectSuggestion(u: { name: string; email: string }) {
+    setEmail(u.email);
+    setSuggestions([]);
+    setShowSuggestions(false);
+  }
 
   async function handleReset() {
     const trimmed = email.trim().toLowerCase();
     if (!trimmed) return;
     setLoading(true);
+    setSuggestions([]);
+    setShowSuggestions(false);
     try {
       const result = await ApiClient.post<{ message: string }>(
         "/api/admin/reset-user-password",
@@ -184,16 +211,37 @@ function ResetPasswordPanel() {
         <Text className="text-zinc-400 text-xs">
           Digite o e-mail do usuário para enviar um link de redefinição de senha.
         </Text>
-        <TextInput
-          value={email}
-          onChangeText={setEmail}
-          placeholder="email@usuario.com"
-          placeholderTextColor="#52525b"
-          keyboardType="email-address"
-          autoCapitalize="none"
-          autoCorrect={false}
-          className="bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white text-sm"
-        />
+        <View>
+          <View className="flex-row items-center bg-zinc-800 border border-zinc-700 rounded-xl px-4">
+            <TextInput
+              value={email}
+              onChangeText={onChangeEmail}
+              onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+              onFocus={() => email.length >= 2 && setShowSuggestions(true)}
+              placeholder="email@usuario.com"
+              placeholderTextColor="#52525b"
+              keyboardType="email-address"
+              autoCapitalize="none"
+              autoCorrect={false}
+              className="flex-1 py-3 text-white text-sm"
+            />
+            {searching && <ActivityIndicator color="#7c3aed" size="small" />}
+          </View>
+          {showSuggestions && suggestions.length > 0 && (
+            <View className="bg-zinc-800 border border-zinc-700 rounded-xl mt-1 overflow-hidden">
+              {suggestions.map((u) => (
+                <TouchableOpacity
+                  key={u.email}
+                  onPress={() => selectSuggestion(u)}
+                  className="px-4 py-3 border-b border-zinc-700/50 active:bg-zinc-700"
+                >
+                  <Text className="text-white text-sm font-medium">{u.name}</Text>
+                  <Text className="text-zinc-400 text-xs">{u.email}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+          )}
+        </View>
         <TouchableOpacity
           onPress={handleReset}
           disabled={loading || !email.trim()}
