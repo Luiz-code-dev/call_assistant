@@ -48,6 +48,7 @@ export default function AppLayout() {
         }}
       />
       <Tabs.Screen name="chat" options={{ href: null }} />
+      <Tabs.Screen name="buddy" options={{ href: null }} />
       <Tabs.Screen name="empresa" options={{ href: null }} />
       <Tabs.Screen name="crm" options={{ href: null }} />
       <Tabs.Screen name="admin" options={{ href: null }} />

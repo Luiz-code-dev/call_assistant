@@ -13,6 +13,7 @@ const ALL_ACTIONS: { id: string; emoji: string; label: string; route: string }[]
   { id: "generate",  emoji: "💬",  label: "Gerar resposta",  route: "/(app)/tools/generate"  },
   { id: "interview", emoji: "🎯",  label: "Entrevista",      route: "/(app)/tools/interview" },
   { id: "live",      emoji: "🎙️", label: "Live Assist",     route: "/(app)/live"            },
+  { id: "buddy",     emoji: "🤖",  label: "Buddy",           route: "/(app)/buddy"           },
   { id: "messages",  emoji: "📨",  label: "Mensagens",       route: "/(app)/chat"            },
   { id: "circles",   emoji: "⭕",  label: "Circles",         route: "/(app)/circles"         },
   { id: "profile",   emoji: "👤",  label: "Perfil",          route: "/(app)/profile"         },

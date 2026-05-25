@@ -1,0 +1,16 @@
+export const BuddyTheme = {
+  bg:           "#0f0b1e",
+  bgCard:       "#1e1a33",
+  bgInput:      "#1a1630",
+  border:       "#2d2850",
+  borderStrong: "#3d3465",
+  purple:       "#4f46e5",
+  purpleLight:  "#a78bfa",
+  purpleText:   "#c4b5fd",
+  textPrimary:  "#e2dff5",
+  textSecondary:"#9b97b8",
+  textMuted:    "#4d4870",
+  green:        "#22c55e",
+  userBubble:   "#4f46e5",
+  buddyBubble:  "#1e1a33",
+} as const;
