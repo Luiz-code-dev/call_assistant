@@ -368,6 +368,11 @@ export default function BuddyScreen() {
         addMsg({ role: "assistant", content: "Parece que seus créditos acabaram 😅 Recarregue para continuar praticando." });
         return;
       }
+      if (!res.ok) {
+        const errText = await res.text().catch(() => "");
+        addMsg({ role: "assistant", content: `Erro ${res.status} do servidor. Detalhes: ${errText.slice(0, 120)}` });
+        return;
+      }
 
       const data = await res.json();
       if (data.reply) {
@@ -377,8 +382,8 @@ export default function BuddyScreen() {
           setCredits(data.creditsRemaining);
         }
       }
-    } catch {
-      addMsg({ role: "assistant", content: "Ops, tive um problema de conexão. Tenta novamente 😅" });
+    } catch (err) {
+      addMsg({ role: "assistant", content: `Erro de conexão: ${(err as Error).message ?? "desconhecido"}` });
     } finally {
       setLoading(false);
     }
