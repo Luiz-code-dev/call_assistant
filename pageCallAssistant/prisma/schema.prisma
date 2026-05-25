@@ -64,6 +64,7 @@ model User {
   certifications       CorporateCertification[]
   orgLiveSessions      OrgLiveSession[]
   feedbacks            Feedback[]
+  buddySessions        BuddySession[]
 }
 
 model CreditTransaction {
@@ -558,4 +559,32 @@ model Feedback {
 
   @@index([userId])
   @@index([createdAt])
+}
+
+model BuddySession {
+  id           String         @id @default(cuid())
+  userId       String
+  user         User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  language     String         @default("pt-BR")
+  topic        String?
+  title        String?
+  messageCount Int            @default(0)
+  wordsLearned Int            @default(0)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  messages     BuddyMessage[]
+
+  @@index([userId])
+  @@index([userId, createdAt])
+}
+
+model BuddyMessage {
+  id        String       @id @default(cuid())
+  sessionId String
+  session   BuddySession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  role      String
+  content   String       @db.Text
+  createdAt DateTime     @default(now())
+
+  @@index([sessionId])
 }

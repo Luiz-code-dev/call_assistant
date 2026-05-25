@@ -34,6 +34,7 @@ const motivationalPhrases = [
 
 const quickActions = [
   { label: "SpeakFlow Live", description: "Copiloto em tempo real — reuniões, calls e entrevistas", href: "/live", gradient: "from-violet-600 to-indigo-600", Icon: Mic2 },
+  { label: "Buddy", description: "Pratique inglês com seu amigo IA — sem medo de errar", href: "/chat", gradient: "from-fuchsia-500 to-violet-600", Icon: MessageSquare },
   { label: "Preparação", description: "Ferramentas de IA para melhorar sua comunicação", href: "/tools", gradient: "from-emerald-500 to-teal-500", Icon: Wrench },
   { label: "Circles", description: "Desafios de comunicação com profissionais", href: "/network", gradient: "from-amber-500 to-orange-500", Icon: Zap },
   { label: "Amigos & Chat", description: "Chat criptografado com IA integrada", href: "/friends", gradient: "from-rose-500 to-pink-600", Icon: Heart },
