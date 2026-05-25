@@ -5,8 +5,10 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useAudioRecorder, AudioModule, RecordingPresets } from "expo-audio";
 import { router } from "expo-router";
 import { useAuthStore } from "@presentation/stores/authStore";
+import { TokenStorage } from "@infrastructure/storage/TokenStorage";
 import { BuddyTheme as T } from "@shared/constants/BuddyTheme";
 
 // ─── Types ───────────────────────────────────────────────
@@ -286,6 +288,8 @@ export default function BuddyScreen() {
   const [history, setHistory] = useState<{ role: "user" | "assistant"; content: string }[]>([]);
   const [sessionId] = useState(() => genSessionId());
   const [credits, setCredits] = useState<number | null>(null);
+  const [micState, setMicState] = useState<"idle" | "recording" | "processing">("idle");
+  const audioRecorder = useAudioRecorder(RecordingPresets.HIGH_QUALITY);
   const scrollRef = useRef<ScrollView>(null);
 
   const scrollToBottom = useCallback(() => {
@@ -382,6 +386,48 @@ export default function BuddyScreen() {
 
   function handleChipPress(s: Suggestion) {
     sendMessage(`Me dê um exemplo de "${s.en}" em uma frase profissional`);
+  }
+
+  async function handleMicPress() {
+    if (micState === "recording") {
+      setMicState("processing");
+      await audioRecorder.stop();
+      await new Promise((r) => setTimeout(r, 400));
+      const uri = audioRecorder.uri;
+      if (!uri) { setMicState("idle"); return; }
+
+      try {
+        const token = await TokenStorage.get();
+        const apiBase = process.env.EXPO_PUBLIC_API_URL ?? "";
+        const formData = new FormData();
+        formData.append("audio", { uri, type: "audio/m4a", name: "buddy.m4a" } as unknown as Blob);
+        formData.append("source_lang", language === "en" ? "en-US" : "pt-BR");
+        const res = await fetch(`${apiBase}/api/live/transcribe`, {
+          method: "POST",
+          headers: token ? { Authorization: `Bearer ${token}` } : {},
+          body: formData,
+        });
+        if (res.ok) {
+          const data = await res.json() as { transcript?: string };
+          if (data.transcript?.trim()) {
+            setInput(data.transcript.trim());
+          }
+        }
+      } catch { /* silent fail */ } finally {
+        setMicState("idle");
+      }
+      return;
+    }
+
+    const status = await AudioModule.requestRecordingPermissionsAsync();
+    if (!status.granted) {
+      Alert.alert("Permissão necessária", "O Buddy precisa do microfone para te ouvir.");
+      return;
+    }
+    await AudioModule.setAudioModeAsync({ allowsRecording: true, playsInSilentMode: true });
+    await audioRecorder.prepareToRecordAsync(RecordingPresets.HIGH_QUALITY);
+    audioRecorder.record();
+    setMicState("recording");
   }
 
   function handleSend() {
@@ -513,16 +559,27 @@ export default function BuddyScreen() {
 
             {/* Row */}
             <View style={{ flexDirection: "row", alignItems: "flex-end", gap: 8 }}>
-              {/* Mic button (placeholder) */}
+              {/* Mic button */}
               <TouchableOpacity
+                onPress={handleMicPress}
+                disabled={micState === "processing" || sendDisabled}
+                activeOpacity={0.75}
                 style={{
                   width: 40, height: 40, borderRadius: 20,
-                  backgroundColor: T.bgCard,
-                  borderWidth: 0.5, borderColor: T.border,
+                  backgroundColor: micState === "recording" ? "#dc2626" : T.bgCard,
+                  borderWidth: micState === "recording" ? 1.5 : 0.5,
+                  borderColor: micState === "recording" ? "#ef4444" : T.border,
                   alignItems: "center", justifyContent: "center",
+                  opacity: micState === "processing" ? 0.5 : 1,
                 }}
               >
-                <Text style={{ fontSize: 18 }}>🎤</Text>
+                {micState === "processing" ? (
+                  <Text style={{ fontSize: 14 }}>⏳</Text>
+                ) : micState === "recording" ? (
+                  <Text style={{ fontSize: 18 }}>⏹</Text>
+                ) : (
+                  <Text style={{ fontSize: 18 }}>🎤</Text>
+                )}
               </TouchableOpacity>
 
               {/* Text input */}
