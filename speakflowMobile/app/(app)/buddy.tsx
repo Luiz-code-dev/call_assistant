@@ -10,6 +10,7 @@ import { router } from "expo-router";
 import { useAuthStore } from "@presentation/stores/authStore";
 import { TokenStorage } from "@infrastructure/storage/TokenStorage";
 import { BuddyTheme as T } from "@shared/constants/BuddyTheme";
+import { API_BASE_URL } from "@shared/constants/config";
 
 // ─── Types ───────────────────────────────────────────────
 interface Suggestion { pt: string; en: string }
@@ -346,8 +347,7 @@ export default function BuddyScreen() {
     setLoading(true);
 
     try {
-      const apiBase = process.env.EXPO_PUBLIC_API_URL ?? "";
-      const res = await fetch(`${apiBase}/api/chat/buddy`, {
+      const res = await fetch(`${API_BASE_URL}/api/chat/buddy`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify({
@@ -403,11 +403,10 @@ export default function BuddyScreen() {
 
       try {
         const token = await TokenStorage.get();
-        const apiBase = process.env.EXPO_PUBLIC_API_URL ?? "";
         const formData = new FormData();
         formData.append("audio", { uri, type: "audio/m4a", name: "buddy.m4a" } as unknown as Blob);
         formData.append("source_lang", language === "en" ? "en-US" : "pt-BR");
-        const res = await fetch(`${apiBase}/api/live/transcribe`, {
+        const res = await fetch(`${API_BASE_URL}/api/live/transcribe`, {
           method: "POST",
           headers: token ? { Authorization: `Bearer ${token}` } : {},
           body: formData,
