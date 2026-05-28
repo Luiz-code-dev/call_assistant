@@ -78,8 +78,7 @@ export async function POST(req: NextRequest) {
               <p style="color:#6b7280;font-size:12px;margin-top:8px">Ou clique em Responder — o email ja vai direto para o interessado.</p>
             </div>
             <div style="margin-top:16px;padding:14px;background:#f9fafb;border-left:4px solid #d1d5db;border-radius:4px">
-              <p style="color:#6b7280;font-size:12px;margin:0 0 4px"><strong>Apos fechar o contrato</strong>, clique no link abaixo para liberar o acesso B2B:</p>
-              <p style="color:#374151;font-size:11px;margin:0;word-break:break-all">${approveUrl}</p>
+              <p style="color:#6b7280;font-size:12px;margin:0">Apos fechar o contrato, acesse o painel <strong>/superadmin</strong> para liberar o acesso B2B desta empresa.</p>
             </div>
             <p style="color:#9ca3af;font-size:11px;margin-top:20px">SpeakFlow — Notificacao interna</p>
           </div>
