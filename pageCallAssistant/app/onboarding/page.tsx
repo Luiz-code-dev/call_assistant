@@ -48,9 +48,7 @@ export default function OnboardingPage() {
 
         {/* Logo */}
         <div className="flex items-center gap-2.5 mb-10">
-          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 shadow-lg shadow-blue-500/25">
-            <span className="text-lg font-bold text-white">S</span>
-          </div>
+          <img src="/icon.png" alt="SpeakFlow" className="h-8 w-8 rounded-xl" />
           <span className="text-xl font-medium text-zinc-400 tracking-tight">SpeakFlow</span>
         </div>
 
