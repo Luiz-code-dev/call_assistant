@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "forbidden" }, { status: 403 });
   }
 
-  const { email, revoke } = await req.json().catch(() => ({}));
+  const { email, revoke, seats } = await req.json().catch(() => ({}));
   if (!email) return NextResponse.json({ error: "email obrigatório." }, { status: 400 });
 
   const target = await (db as any).user.findFirst({
@@ -33,9 +33,10 @@ export async function POST(req: NextRequest) {
 
   if (!target) return NextResponse.json({ error: "Usuário não encontrado." }, { status: 404 });
 
+  const seatLimit = Math.max(1, parseInt(seats) || 16);
   await (db as any).user.update({
     where: { id: target.id },
-    data: { b2bAccess: !revoke },
+    data: { b2bAccess: !revoke, ...(!revoke ? { b2bSeatLimit: seatLimit } : {}) },
   });
 
   if (!revoke) {

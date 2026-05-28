@@ -49,6 +49,9 @@ export default function SuperAdminPage() {
   const [grantingAdmin, setGrantingAdmin] = useState(false);
   const [crmEmail, setCrmEmail] = useState("");
   const [grantingCrm, setGrantingCrm] = useState(false);
+  const [b2bEmail, setB2bEmail] = useState("");
+  const [b2bSeats, setB2bSeats] = useState("16");
+  const [grantingB2b, setGrantingB2b] = useState(false);
   const [rootEmail, setRootEmail] = useState("");
   const [sortBy, setSortBy] = useState<"name" | "members" | "seats" | "created">("created");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
@@ -118,6 +121,25 @@ export default function SuperAdminPage() {
       toast.error(d.error ?? "Erro.");
     }
     setGrantingAdmin(false);
+  }
+
+  async function handleGrantB2b(grant: boolean) {
+    if (!b2bEmail.trim()) return;
+    setGrantingB2b(true);
+    const res = await authFetch("/api/admin/b2b-approve", {
+      method: "POST",
+      body: JSON.stringify({ email: b2bEmail.trim(), revoke: !grant, seats: parseInt(b2bSeats) || 16 }),
+    });
+    if (res.ok) {
+      toast.success(grant
+        ? `Acesso B2B liberado para ${b2bEmail}. Email de boas-vindas enviado.`
+        : `Acesso B2B revogado de ${b2bEmail}.`);
+      setB2bEmail("");
+    } else {
+      const d = await res.json().catch(() => ({}));
+      toast.error(d.error ?? "Erro ao atualizar acesso B2B.");
+    }
+    setGrantingB2b(false);
   }
 
   async function handleGrantCrm(grant: boolean) {
@@ -421,6 +443,57 @@ export default function SuperAdminPage() {
               )}
             </div>
           )}
+        </div>
+
+        {/* B2B Access */}
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+          <div className="flex items-center gap-3 mb-1">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-violet-600/20 border border-violet-500/20">
+              <Building2 className="h-4 w-4 text-violet-400" />
+            </div>
+            <div>
+              <h2 className="text-sm font-bold text-white">Liberar Acesso B2B</h2>
+              <p className="text-xs text-zinc-500">Após fechar contrato — libera o responsável da empresa para criar a organização</p>
+            </div>
+          </div>
+          <p className="text-xs text-zinc-600 mb-4 pl-12">O usuário receberá email de confirmação e poderá acessar <strong className="text-zinc-400">/teams</strong> para criar a empresa.</p>
+          <div className="flex flex-col gap-2">
+            <div className="flex gap-2">
+              <input
+                type="email"
+                value={b2bEmail}
+                onChange={e => setB2bEmail(e.target.value)}
+                onKeyDown={e => e.key === "Enter" && handleGrantB2b(true)}
+                placeholder="email do responsável da empresa"
+                className="flex-1 rounded-xl border border-zinc-700 bg-zinc-800/50 px-3 py-2.5 text-sm text-white placeholder:text-zinc-500 focus:border-violet-500 focus:outline-none"
+              />
+              <input
+                type="number"
+                value={b2bSeats}
+                onChange={e => setB2bSeats(e.target.value)}
+                placeholder="assentos"
+                min={1}
+                className="w-24 rounded-xl border border-zinc-700 bg-zinc-800/50 px-3 py-2.5 text-sm text-white placeholder:text-zinc-500 focus:border-violet-500 focus:outline-none"
+              />
+            </div>
+            <div className="flex gap-2">
+              <button
+                onClick={() => handleGrantB2b(true)}
+                disabled={grantingB2b || !b2bEmail.trim()}
+                className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-violet-600 hover:bg-violet-500 disabled:opacity-50 px-4 py-2.5 text-sm font-semibold text-white transition-colors"
+              >
+                {grantingB2b ? <Loader2 className="h-4 w-4 animate-spin" /> : <UserPlus className="h-4 w-4" />}
+                Liberar acesso B2B
+              </button>
+              <button
+                onClick={() => handleGrantB2b(false)}
+                disabled={grantingB2b || !b2bEmail.trim()}
+                className="flex items-center justify-center gap-1.5 rounded-xl border border-zinc-700 hover:border-red-500/50 disabled:opacity-50 px-4 py-2.5 text-sm font-medium text-zinc-400 hover:text-red-400 transition-colors"
+              >
+                Revogar
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* CRM Access */}
