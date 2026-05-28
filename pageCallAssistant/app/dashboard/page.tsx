@@ -117,9 +117,7 @@ export default function DashboardPage() {
       <header className="border-b border-border/50 bg-card/50 px-6 py-4">
         <div className="mx-auto flex max-w-5xl items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600">
-              <span className="text-sm font-bold text-white">S</span>
-            </div>
+            <img src="/icon.png" alt="SpeakFlow" className="h-8 w-8 rounded-lg" />
             <span className="font-semibold">SpeakFlow</span>
           </Link>
           <div className="flex items-center gap-3">

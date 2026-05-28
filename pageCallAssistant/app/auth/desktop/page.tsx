@@ -56,10 +56,10 @@ export default function DesktopAuthPage() {
 
       <button
         onClick={() => router.push("/dashboard")}
-        className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 mb-6 hover:opacity-80 transition-opacity cursor-pointer"
+        className="mb-6 hover:opacity-80 transition-opacity cursor-pointer"
         title="Ir para o Dashboard"
       >
-        <span className="text-2xl font-bold text-white">S</span>
+        <img src="/icon.png" alt="SpeakFlow" className="h-16 w-16 rounded-2xl" />
       </button>
 
       {status === "loading" && (

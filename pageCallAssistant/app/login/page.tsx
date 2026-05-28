@@ -78,9 +78,7 @@ export default function LoginPage() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(139,92,246,0.1),transparent)]" />
 
       <Link href="/" className="mb-8 flex items-center gap-2">
-        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600">
-          <span className="text-base font-bold text-white">S</span>
-        </div>
+        <img src="/icon.png" alt="SpeakFlow" className="h-9 w-9 rounded-xl" />
         <span className="text-xl font-semibold">SpeakFlow</span>
       </Link>
 

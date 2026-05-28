@@ -527,9 +527,7 @@ export default function LivePage() {
           {/* Brand header */}
           <div className="text-center space-y-2">
             <div className="flex items-center justify-center gap-2 mb-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600">
-                <span className="text-base font-bold text-white">S</span>
-              </div>
+              <img src="/icon.png" alt="SpeakFlow" className="h-9 w-9 rounded-xl" />
               <span className="text-xl font-semibold">SpeakFlow</span>
               <span className="rounded-full bg-red-500/10 border border-red-500/30 px-2 py-0.5 text-[10px] font-bold text-red-400 tracking-widest">
                 LIVE
@@ -677,9 +675,7 @@ export default function LivePage() {
       {/* ── Header ── */}
       <header className="shrink-0 flex items-center justify-between border-b border-border/50 bg-card/80 backdrop-blur px-4 py-3">
         <div className="flex items-center gap-2 min-w-0">
-          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600">
-            <span className="text-xs font-bold text-white">S</span>
-          </div>
+          <img src="/icon.png" alt="SpeakFlow" className="h-7 w-7 rounded-lg shrink-0" />
           <div className="flex items-center gap-1.5 shrink-0">
             <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse" />
             <span className="text-xs font-bold text-red-400 tracking-widest">LIVE</span>
