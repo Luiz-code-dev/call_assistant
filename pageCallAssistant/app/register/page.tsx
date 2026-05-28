@@ -76,7 +76,7 @@ export default function RegisterPage() {
           <h1 className="text-xl font-bold">Confirme seu e-mail</h1>
           <p className="mt-2 text-sm text-muted-foreground">
             Enviamos um link para <span className="font-medium text-foreground">{email}</span>.
-            Clique no link para ativar sua conta e receber seus 50 créditos grátis.
+            Clique no link para ativar sua conta.
           </p>
           <p className="mt-4 text-xs text-muted-foreground">
             Não recebeu? Verifique a pasta de spam ou{" "}
@@ -97,11 +97,6 @@ export default function RegisterPage() {
         <img src="/icon.png" alt="SpeakFlow" className="h-9 w-9 rounded-xl" />
         <span className="text-xl font-semibold">SpeakFlow</span>
       </Link>
-
-      <Badge variant="success" className="mb-6">
-        <CheckCircle2 className="mr-1 h-3 w-3" />
-        50 créditos grátis ao criar sua conta
-      </Badge>
 
       <Card className="w-full max-w-sm border-border/50 bg-card/80 backdrop-blur">
         <CardHeader className="text-center">
