@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
-import { View, Text, ScrollView, TouchableOpacity, RefreshControl, Modal } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, RefreshControl, Modal, Platform } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
@@ -110,7 +110,7 @@ export default function HomeScreen() {
                   <Text style={{ color: "#71717a", fontSize: 11 }}>Plano atual</Text>
                   <Text style={{ color: "#ffffff", fontWeight: "700", fontSize: 15, marginTop: 2 }}>{planLabel}</Text>
                 </View>
-                {user.plan !== "premium" && (
+                {user.plan !== "premium" && Platform.OS !== "ios" && (
                   <TouchableOpacity style={{ backgroundColor: "rgba(124,58,237,0.25)", borderWidth: 1, borderColor: "rgba(124,58,237,0.4)", borderRadius: 10, paddingHorizontal: 12, paddingVertical: 6 }}>
                     <Text style={{ color: "#a78bfa", fontSize: 12, fontWeight: "600" }}>Upgrade ✦</Text>
                   </TouchableOpacity>

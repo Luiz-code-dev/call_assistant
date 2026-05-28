@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {
   View, Text, TouchableOpacity, Alert, ScrollView, Modal,
-  TextInput, ActivityIndicator, Linking,
+  TextInput, ActivityIndicator, Linking, Platform,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
@@ -174,7 +174,7 @@ export default function ProfileScreen() {
               </View>
             ))}
           </View>
-          {user.plan !== "premium" && (
+          {user.plan !== "premium" && Platform.OS !== "ios" && (
             <TouchableOpacity
               onPress={() => Linking.openURL(`${API_BASE_URL}/dashboard`).catch(() => {})}
               className="bg-primary rounded-xl py-4 items-center"
