@@ -35,9 +35,7 @@ export function Navbar({ initialUser }: NavbarProps = {}) {
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <Link href={user ? "/dashboard" : "/"} className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600">
-            <span className="text-sm font-bold text-white">S</span>
-          </div>
+          <img src="/icon.png" alt="SpeakFlow" className="h-8 w-8 rounded-lg" />
           <span className="text-lg font-semibold">SpeakFlow</span>
         </Link>
 
