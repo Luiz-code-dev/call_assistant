@@ -23,7 +23,7 @@ export default function PrivacidadePage() {
             <h1 className="text-3xl font-bold text-white">Privacidade & LGPD</h1>
           </div>
           <p className="text-zinc-400 leading-relaxed">
-            Última atualização: maio de 2025 &nbsp;·&nbsp; SpeakFlow — speakflow.ia.br
+            Última atualização: maio de 2026 &nbsp;·&nbsp; SpeakFlow — www.speakflow.ia.br
           </p>
         </div>
 
@@ -126,7 +126,7 @@ export default function PrivacidadePage() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
-          <span>© 2025 SpeakFlow — speakflow.ia.br</span>
+          <span>© 2026 SpeakFlow — www.speakflow.ia.br</span>
           <div className="flex gap-4">
             <Link href="/" className="hover:text-zinc-300 transition-colors">Início</Link>
             <Link href="/support" className="hover:text-zinc-300 transition-colors">Suporte</Link>
