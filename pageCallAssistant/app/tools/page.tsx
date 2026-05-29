@@ -20,7 +20,7 @@ export default async function ToolsPage() {
   if (!user) redirect("/login");
 
   const plan = user.plan;
-  const isBasicOrAbove = plan === "basic" || plan === "premium";
+  const hasCredits = user.credits >= 2;
   const isPremium = plan === "premium";
 
   const tools = [
@@ -30,9 +30,9 @@ export default async function ToolsPage() {
       title: "Melhorar Resposta",
       description: "Cole qualquer texto em inglês e receba uma versão melhorada, mais profissional e natural.",
       href: "/tools/improve",
-      available: isBasicOrAbove,
+      available: hasCredits,
       premium: false,
-      badge: "Básico+",
+      badge: "2 créditos",
       dailyLimit: isPremium ? "Ilimitado" : "5x por dia",
     },
     {
@@ -41,9 +41,9 @@ export default async function ToolsPage() {
       title: "Gerar Resposta",
       description: "Descreva a situação em português e receba 3 versões de resposta prontas em inglês.",
       href: "/tools/generate",
-      available: isBasicOrAbove,
+      available: hasCredits,
       premium: false,
-      badge: "Básico+",
+      badge: "2 créditos",
       dailyLimit: isPremium ? "Ilimitado" : "5x por dia",
     },
     {
@@ -52,9 +52,9 @@ export default async function ToolsPage() {
       title: "Treino de Entrevista",
       description: "Simule uma entrevista técnica em inglês com IA. Receba feedback e sugestões de melhoria.",
       href: "/tools/interview",
-      available: isBasicOrAbove,
+      available: hasCredits,
       premium: false,
-      badge: "Básico+",
+      badge: "2 créditos",
       dailyLimit: isPremium ? "Ilimitado" : "3x por dia",
     },
   ];
@@ -94,12 +94,12 @@ export default async function ToolsPage() {
           </p>
         </div>
 
-        {!isBasicOrAbove && (
-          <div className="mb-8 rounded-xl border border-violet-500/30 bg-violet-500/5 p-6 text-center">
-            <Lock className="mx-auto mb-3 h-8 w-8 text-violet-400/60" />
-            <h3 className="mb-1 font-semibold">Disponível nos planos Básico e Premium</h3>
+        {!hasCredits && (
+          <div className="mb-8 rounded-xl border border-amber-500/30 bg-amber-500/5 p-6 text-center">
+            <Lock className="mx-auto mb-3 h-8 w-8 text-amber-400/60" />
+            <h3 className="mb-1 font-semibold">Créditos insuficientes</h3>
             <p className="mb-4 text-sm text-muted-foreground">
-              Faça upgrade para acessar todas as ferramentas de IA e turbinar seu inglês profissional.
+              Você precisa de pelo menos 2 créditos para usar as ferramentas de IA.
             </p>
             <Button variant="gradient" size="sm" asChild>
               <Link href="/pricing">Ver planos <ArrowRight className="ml-1.5 h-3.5 w-3.5" /></Link>

@@ -14,10 +14,6 @@ export default async function InterviewPage() {
   });
   if (!user) redirect("/login");
 
-  if (user.plan !== "basic" && user.plan !== "premium") {
-    redirect("/pricing");
-  }
-
   return (
     <Suspense>
       <InterviewClient userPlan={user.plan} credits={user.credits} />

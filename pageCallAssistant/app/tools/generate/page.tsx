@@ -14,10 +14,6 @@ export default async function GeneratePage() {
   });
   if (!user) redirect("/login");
 
-  if (user.plan !== "basic" && user.plan !== "premium") {
-    redirect("/pricing");
-  }
-
   return (
     <Suspense>
       <GenerateClient userPlan={user.plan} credits={user.credits} />

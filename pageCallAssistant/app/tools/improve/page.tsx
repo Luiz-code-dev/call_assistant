@@ -14,10 +14,6 @@ export default async function ImprovePage() {
   });
   if (!user) redirect("/login");
 
-  if (user.plan !== "basic" && user.plan !== "premium") {
-    redirect("/pricing");
-  }
-
   return (
     <Suspense>
       <ImproveClient userPlan={user.plan} credits={user.credits} />
