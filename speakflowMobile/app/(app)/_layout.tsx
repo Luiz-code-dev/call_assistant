@@ -47,6 +47,7 @@ export default function AppLayout() {
           ),
         }}
       />
+      <Tabs.Screen name="onboarding" options={{ href: null }} />
       <Tabs.Screen name="chat" options={{ href: null }} />
       <Tabs.Screen name="buddy" options={{ href: null }} />
       <Tabs.Screen name="empresa" options={{ href: null }} />

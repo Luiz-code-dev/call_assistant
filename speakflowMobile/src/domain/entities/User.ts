@@ -10,6 +10,7 @@ export interface User {
   b2bAccess: boolean;
   crmAccess: boolean;
   superAdmin: boolean;
+  hasSeenOnboarding: boolean;
 }
 
 export interface AuthTokens {

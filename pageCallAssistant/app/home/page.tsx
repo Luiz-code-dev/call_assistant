@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import OnboardingModal from "@/components/OnboardingModal";
 import { useRouter } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -15,7 +16,7 @@ import {
   Volume2, VolumeX, Loader2, Building2, ShieldCheck, BarChart3, Send, CheckCircle2,
 } from "lucide-react";
 
-interface UserData { id: string; name: string; avatarUrl: string | null; plan: string; b2bAccess?: boolean; orgCount?: number; superAdmin?: boolean; crmAccess?: boolean; }
+interface UserData { id: string; name: string; avatarUrl: string | null; plan: string; credits: number; b2bAccess?: boolean; orgCount?: number; superAdmin?: boolean; crmAccess?: boolean; hasSeenOnboarding?: boolean; }
 interface CircleData {
   id: string; name: string; focus: string;
   _count: { members: number };
@@ -685,6 +686,69 @@ const FEEDBACK_CATEGORIES = [
   { value: "outro",       label: "Outro",               emoji: "💬" },
 ];
 
+const LEVEL_ACTIONS: Record<string, { label: string; desc: string; href: string; gradient: string; Icon: typeof Wrench }[]> = {
+  A1: [
+    { label: "Melhorar um texto", desc: "Cole qualquer texto e veja a IA aprimorar", href: "/tools/improve", gradient: "from-emerald-500 to-teal-500", Icon: Wrench },
+    { label: "Simular conversa", desc: "Pratique com o Buddy sem pressão", href: "/chat", gradient: "from-fuchsia-500 to-violet-600", Icon: MessageSquare },
+    { label: "Entrar em um Circle", desc: "Desafios semanais com profissionais", href: "/network", gradient: "from-amber-500 to-orange-500", Icon: Users },
+  ],
+  A2: [
+    { label: "Melhorar um texto", desc: "Cole qualquer texto e veja a IA aprimorar", href: "/tools/improve", gradient: "from-emerald-500 to-teal-500", Icon: Wrench },
+    { label: "Simular conversa", desc: "Pratique com o Buddy sem pressão", href: "/chat", gradient: "from-fuchsia-500 to-violet-600", Icon: MessageSquare },
+    { label: "Entrar em um Circle", desc: "Desafios semanais com profissionais", href: "/network", gradient: "from-amber-500 to-orange-500", Icon: Users },
+  ],
+  B1: [
+    { label: "Simular entrevista", desc: "Prepare-se com IA para entrevistas em inglês", href: "/tools/interview", gradient: "from-violet-600 to-indigo-600", Icon: Wrench },
+    { label: "Gerar resposta", desc: "Crie respostas profissionais com IA", href: "/tools/generate", gradient: "from-sky-500 to-blue-600", Icon: Zap },
+    { label: "Entrar em um Circle", desc: "Desafios semanais com profissionais", href: "/network", gradient: "from-amber-500 to-orange-500", Icon: Users },
+  ],
+  B2: [
+    { label: "Simular entrevista", desc: "Prepare-se com IA para entrevistas em inglês", href: "/tools/interview", gradient: "from-violet-600 to-indigo-600", Icon: Wrench },
+    { label: "SpeakFlow Live", desc: "Copiloto em tempo real nas suas calls", href: "/live", gradient: "from-violet-600 to-indigo-600", Icon: Mic2 },
+    { label: "Entrar em um Circle", desc: "Desafios semanais com profissionais", href: "/network", gradient: "from-amber-500 to-orange-500", Icon: Users },
+  ],
+  C1: [
+    { label: "SpeakFlow Live", desc: "Copiloto em tempo real nas suas calls", href: "/live", gradient: "from-violet-600 to-indigo-600", Icon: Mic2 },
+    { label: "Simular entrevista", desc: "Refine ao nível executivo com IA", href: "/tools/interview", gradient: "from-violet-600 to-indigo-600", Icon: Wrench },
+    { label: "Entrar em um Circle", desc: "Desafios avançados com profissionais", href: "/network", gradient: "from-amber-500 to-orange-500", Icon: Users },
+  ],
+};
+
+const DEFAULT_ACTIONS = [
+  { label: "Melhorar texto", desc: "Cole qualquer texto e veja a IA aprimorar", href: "/tools/improve", gradient: "from-emerald-500 to-teal-500", Icon: Wrench },
+  { label: "Simular entrevista", desc: "Prepare-se com IA", href: "/tools/interview", gradient: "from-violet-600 to-indigo-600", Icon: Wrench },
+  { label: "Entrar em um Circle", desc: "Desafios semanais", href: "/network", gradient: "from-amber-500 to-orange-500", Icon: Users },
+];
+
+function GetStartedSection() {
+  const [level, setLevel] = useState<string | null>(null);
+  useEffect(() => {
+    try { setLevel(localStorage.getItem("sf_onboarding_level")); } catch {}
+  }, []);
+  const actions = (level && LEVEL_ACTIONS[level]) ?? DEFAULT_ACTIONS;
+  return (
+    <section className="px-4 pb-6">
+      <div className="flex items-center gap-2 mb-4">
+        <Zap className="size-5 text-violet-400" />
+        <h2 className="text-lg font-semibold text-white">Por onde começar</h2>
+      </div>
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+        {actions.map((a) => (
+          <Link key={a.href} href={a.href} className="group flex items-start gap-3 rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 transition-all hover:-translate-y-0.5 hover:border-zinc-700 hover:shadow-lg">
+            <div className={`flex size-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${a.gradient} text-white shadow-md`}>
+              <a.Icon className="size-4" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-sm font-semibold text-white">{a.label}</p>
+              <p className="text-xs text-zinc-500 mt-0.5 leading-relaxed">{a.desc}</p>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function SuggestionSection() {
   const [category, setCategory] = useState("feature");
   const [content, setContent] = useState("");
@@ -768,16 +832,16 @@ export default function HomePage() {
   const [loadingUser, setLoadingUser] = useState(true);
   const [loadingCircles, setLoadingCircles] = useState(true);
   const [earnedSlugs, setEarnedSlugs] = useState<string[]>([]);
+  const [showOnboarding, setShowOnboarding] = useState(false);
 
   useEffect(() => {
-    try {
-      if (!localStorage.getItem("sf_onboarding_done")) {
-        router.replace("/onboarding");
-        return;
-      }
-    } catch {}
     fetch("/api/auth/me")
-      .then(async (r) => { if (r.status === 401) { router.replace("/login"); return; } setUser(await r.json()); })
+      .then(async (r) => {
+        if (r.status === 401) { router.replace("/login"); return; }
+        const data = await r.json();
+        setUser(data);
+        if (data.hasSeenOnboarding === false) setShowOnboarding(true);
+      })
       .catch(() => router.replace("/login"))
       .finally(() => setLoadingUser(false));
   }, [router]);
@@ -809,9 +873,17 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#09090b]">
+      {showOnboarding && (
+        <OnboardingModal
+          userName={user.name}
+          credits={user.credits}
+          onClose={() => setShowOnboarding(false)}
+        />
+      )}
       <AppHeader user={user} circles={circles} />
       <main className="mx-auto max-w-5xl">
         <HeroGreeting userName={user.name} />
+        <GetStartedSection />
         <QuickActionsSection user={user} />
         <InstallAppBanner />
         <CircleSection circles={circles} loading={loadingCircles} />

@@ -22,6 +22,7 @@ interface MeResponse {
   b2bAccess: boolean;
   crmAccess: boolean;
   superAdmin: boolean;
+  hasSeenOnboarding: boolean;
 }
 
 export const AuthApi = {
@@ -49,11 +50,16 @@ export const AuthApi = {
         b2bAccess: result.data.b2bAccess,
         crmAccess: result.data.crmAccess,
         superAdmin: result.data.superAdmin,
+        hasSeenOnboarding: result.data.hasSeenOnboarding ?? false,
       },
     };
   },
 
   async getMobileToken(): Promise<Result<{ token: string }>> {
     return ApiClient.post<{ token: string }>("/api/auth/desktop-token", {});
+  },
+
+  async onboardingComplete(): Promise<void> {
+    await ApiClient.patch("/api/auth/onboarding-complete", {});
   },
 };

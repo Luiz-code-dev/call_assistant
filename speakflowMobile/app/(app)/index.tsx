@@ -5,6 +5,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import * as SecureStore from "expo-secure-store";
 import { useAuthStore } from "@presentation/stores/authStore";
+import OnboardingScreen from "./onboarding";
 
 const STORAGE_KEY = "sf_quick_actions_v1";
 
@@ -26,6 +27,7 @@ export default function HomeScreen() {
   const [visibleIds, setVisibleIds] = useState<string[]>(DEFAULT_IDS);
   const [showEdit, setShowEdit] = useState(false);
   const [draftIds, setDraftIds] = useState<string[]>(DEFAULT_IDS);
+  const [showOnboarding, setShowOnboarding] = useState(false);
 
   useEffect(() => {
     SecureStore.getItemAsync(STORAGE_KEY).then((v) => {
@@ -56,6 +58,12 @@ export default function HomeScreen() {
     refreshUser();
   }, [refreshUser]);
 
+  useEffect(() => {
+    if (user && user.hasSeenOnboarding === false) {
+      setShowOnboarding(true);
+    }
+  }, [user?.hasSeenOnboarding]);
+
   const firstName = user?.name?.split(" ")[0] ?? "Usuário";
   const planLabel = user?.plan === "free" ? "Gratuito" : user?.plan === "basic" ? "Básico" : "Premium";
   const planColors: Record<string, [string, string]> = {
@@ -67,6 +75,13 @@ export default function HomeScreen() {
 
   return (
     <View style={{ flex: 1, backgroundColor: "#09090b" }}>
+      {showOnboarding && user && (
+        <OnboardingScreen
+          userName={user.name}
+          credits={user.credits}
+          onDone={() => setShowOnboarding(false)}
+        />
+      )}
       {/* Background glow */}
       <LinearGradient
         colors={["rgba(124,58,237,0.18)", "transparent"]}

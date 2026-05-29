@@ -41,5 +41,6 @@ export async function GET(req: NextRequest) {
     orgCount: user._count?.orgMemberships ?? 0,
     superAdmin: isSuperAdmin,
     crmAccess: isSuperAdmin || user.crmAccess === true,
+    hasSeenOnboarding: user.hasSeenOnboarding ?? false,
   });
 }
