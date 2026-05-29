@@ -277,7 +277,7 @@ function WelcomeState({ onStart }: { onStart: () => void }) {
 
 // ─── Main Screen ─────────────────────────────────────────
 export default function BuddyScreen() {
-  const { token } = useAuthStore();
+  useAuthStore(); // keep store subscribed
   const insets = useSafeAreaInsets();
   const [started, setStarted] = useState(false);
   const [messages, setMessages] = useState<ChatMsg[]>([]);
@@ -347,9 +347,12 @@ export default function BuddyScreen() {
     setLoading(true);
 
     try {
+      const authToken = await TokenStorage.get();
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 30_000);
       const res = await fetch(`${API_BASE_URL}/api/chat/buddy`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${authToken}` },
         body: JSON.stringify({
           message: userText,
           sessionId,
@@ -357,7 +360,9 @@ export default function BuddyScreen() {
           topic: topic ?? undefined,
           history: newHistory.slice(-20),
         }),
+        signal: controller.signal,
       });
+      clearTimeout(timeout);
 
       if (res.status === 429) {
         setPhase("limit");
@@ -382,8 +387,13 @@ export default function BuddyScreen() {
           setCredits(data.creditsRemaining);
         }
       }
-    } catch (err) {
-      addMsg({ role: "assistant", content: `Erro de conexão: ${(err as Error).message ?? "desconhecido"}` });
+    } catch (err: unknown) {
+      const msg = (err instanceof Error) ? err.message : "desconhecido";
+      if (msg.includes("abort") || msg.includes("Abort")) {
+        addMsg({ role: "assistant", content: "A requisição demorou demais (30s). Verifique sua conexão e tente novamente." });
+      } else {
+        addMsg({ role: "assistant", content: `Erro de conexão. Servidor: ${API_BASE_URL}\nDetalhe: ${msg}` });
+      }
     } finally {
       setLoading(false);
     }
