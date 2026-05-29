@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { Mic2, Loader2, CheckCircle2, XCircle, Mail } from "lucide-react";
+import { Loader2, CheckCircle2, XCircle, Mail, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function VerifyEmailPage() {
@@ -11,6 +11,11 @@ export default function VerifyEmailPage() {
   const token = searchParams.get("token");
   const [status, setStatus] = useState<"loading" | "success" | "error" | "pending">("pending");
   const [message, setMessage] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent));
+  }, []);
 
   useEffect(() => {
     if (!token) {
@@ -20,13 +25,14 @@ export default function VerifyEmailPage() {
     setStatus("loading");
     fetch(`/api/auth/verify-email?token=${token}`)
       .then(async (res) => {
-        // API returns 302 on success (fetch follows redirect → res.redirected=true)
         if (res.redirected || res.ok) {
           setStatus("success");
-          // Try to open the mobile app automatically after a short delay
+          // Redirect to dashboard after 2s for web users
           setTimeout(() => {
-            window.location.href = "speakflow://";
-          }, 800);
+            if (!/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+              window.location.href = "/dashboard";
+            }
+          }, 2000);
           return;
         }
         const data = await res.json().catch(() => ({}));
@@ -44,9 +50,7 @@ export default function VerifyEmailPage() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(139,92,246,0.1),transparent)]" />
 
       <Link href="/" className="mb-8 flex items-center gap-2">
-        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-indigo-600">
-          <Mic2 className="h-5 w-5 text-white" />
-        </div>
+        <img src="/icon.png" alt="SpeakFlow" className="h-9 w-9 rounded-xl" />
         <span className="text-xl font-semibold">SpeakFlow</span>
       </Link>
 
@@ -66,7 +70,7 @@ export default function VerifyEmailPage() {
             </div>
             <h1 className="text-xl font-bold">Confirme seu e-mail</h1>
             <p className="mt-2 text-sm text-muted-foreground">
-              Enviamos um link de confirmação para o seu e-mail. Clique no link para ativar sua conta e receber os 50 créditos grátis.
+              Enviamos um link de confirmação para o seu e-mail. Clique no link para ativar sua conta.
             </p>
             <p className="mt-4 text-xs text-muted-foreground">
               Não recebeu? Verifique a pasta de spam ou{" "}
@@ -83,21 +87,24 @@ export default function VerifyEmailPage() {
             <CheckCircle2 className="mx-auto mb-4 h-12 w-12 text-emerald-400" />
             <h1 className="text-xl font-bold">E-mail confirmado! 🎉</h1>
             <p className="mt-2 text-sm text-muted-foreground">
-              Sua conta está ativa. Abrindo o app automaticamente…
+              Sua conta está ativa. Redirecionando para o dashboard…
             </p>
             <Button
               variant="gradient"
               className="mt-6 w-full"
-              onClick={() => { window.location.href = "speakflow://"; }}
+              onClick={() => { window.location.href = "/dashboard"; }}
             >
-              Abrir o SpeakFlow
+              <ExternalLink className="mr-2 h-4 w-4" />
+              Acessar o SpeakFlow
             </Button>
-            <p className="mt-3 text-center text-xs text-muted-foreground">
-              Prefere acessar na web?{" "}
-              <Link href="/dashboard" className="text-violet-400 underline hover:text-violet-300">
-                Ir para o dashboard
-              </Link>
-            </p>
+            {isMobile && (
+              <button
+                onClick={() => { window.location.href = "speakflow://"; }}
+                className="mt-2 w-full text-xs text-violet-400 underline hover:text-violet-300"
+              >
+                Abrir no app móvel
+              </button>
+            )}
           </>
         )}
 
