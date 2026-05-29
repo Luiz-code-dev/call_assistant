@@ -35,6 +35,32 @@ export default function ProfileScreen() {
   const [modal, setModal] = useState<"plan" | "privacy" | "terms" | "suggest" | null>(null);
   const [suggestion, setSuggestion] = useState("");
   const [sending, setSending] = useState(false);
+  const [deletingAccount, setDeletingAccount] = useState(false);
+
+  function handleDeleteAccount() {
+    Alert.alert(
+      "Excluir conta",
+      "Tem certeza? Esta ação é permanente e todos os seus dados serão apagados.",
+      [
+        { text: "Cancelar", style: "cancel" },
+        {
+          text: "Excluir permanentemente",
+          style: "destructive",
+          onPress: async () => {
+            setDeletingAccount(true);
+            const result = await ApiClient.delete("/api/auth/account");
+            setDeletingAccount(false);
+            if (result.ok) {
+              await logout();
+              router.replace("/(auth)/login");
+            } else {
+              Alert.alert("Erro", "Não foi possível excluir a conta. Tente novamente.");
+            }
+          },
+        },
+      ]
+    );
+  }
 
   function handleLogout() {
     Alert.alert("Sair", "Deseja encerrar sua sessão?", [
@@ -94,10 +120,15 @@ export default function ProfileScreen() {
             <Text className="text-zinc-500 text-xs mt-1">
               {user.b2bAccess ? "Uso ilimitado pela empresa" : "2 créditos por uso de ferramenta"}
             </Text>
-            {!user.b2bAccess && (
+            {!user.b2bAccess && Platform.OS !== "ios" && (
               <TouchableOpacity onPress={() => setModal("plan")} className="mt-3 bg-primary/10 border border-primary/20 rounded-xl py-2 items-center">
                 <Text className="text-primary text-sm font-semibold">Ver planos →</Text>
               </TouchableOpacity>
+            )}
+            {!user.b2bAccess && Platform.OS === "ios" && (
+              <View className="mt-3 bg-zinc-800/50 rounded-xl py-2 px-3">
+                <Text className="text-zinc-500 text-xs text-center">Gerencie sua assinatura em speakflow.ia.br</Text>
+              </View>
             )}
           </View>
         </View>
@@ -230,6 +261,7 @@ export default function ProfileScreen() {
             {[
               { title: "Dados coletados", body: "Coletamos nome, e-mail, dados de uso das ferramentas e sessões Live para personalizar sua experiência." },
               { title: "Uso dos dados", body: "Seus dados são usados exclusivamente para entregar e melhorar os serviços SpeakFlow. Nunca vendemos dados a terceiros." },
+              { title: "IA de terceiros", body: "As ferramentas de IA enviam seus textos e entradas de voz para a OpenAI (ChatGPT / Whisper). A OpenAI não usa seus dados para treinar modelos. Consulte a política em openai.com/privacy." },
               { title: "Armazenamento", body: "Dados armazenados em servidores seguros na Railway (US/EU). Transcrições de sessões Live são processadas e descartadas em até 24h." },
               { title: "Seus direitos", body: "Você pode solicitar exclusão ou exportação dos seus dados a qualquer momento pelo e-mail privacidade@speakflow.ia.br." },
               { title: "Segurança", body: "Senhas criptografadas com bcrypt. Comunicação via HTTPS/TLS. Tokens JWT com expiração de 30 dias." },
@@ -240,6 +272,20 @@ export default function ProfileScreen() {
                 <Text className="text-zinc-400 text-sm leading-relaxed">{s.body}</Text>
               </View>
             ))}
+
+            <View className="mt-4 pt-4 border-t border-zinc-800">
+              <Text className="text-zinc-500 text-xs uppercase tracking-wider font-semibold mb-3">Zona de perigo</Text>
+              <TouchableOpacity
+                onPress={handleDeleteAccount}
+                disabled={deletingAccount}
+                style={{ flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 8, backgroundColor: "rgba(239,68,68,0.08)", borderWidth: 1, borderColor: "rgba(239,68,68,0.25)", borderRadius: 14, paddingVertical: 14 }}
+              >
+                {deletingAccount
+                  ? <ActivityIndicator color="#ef4444" size="small" />
+                  : <Text style={{ color: "#ef4444", fontSize: 14, fontWeight: "600" }}>🗑 Excluir minha conta</Text>
+                }
+              </TouchableOpacity>
+            </View>
           </ScrollView>
         </SafeAreaView>
       </Modal>
