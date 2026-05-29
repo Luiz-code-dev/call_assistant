@@ -837,7 +837,7 @@ export default function HomePage() {
   useEffect(() => {
     fetch("/api/auth/me")
       .then(async (r) => {
-        if (r.status === 401) { router.replace("/login"); return; }
+        if (!r.ok) { router.replace("/login"); return; }
         const data = await r.json();
         setUser(data);
         if (data.hasSeenOnboarding === false) setShowOnboarding(true);
