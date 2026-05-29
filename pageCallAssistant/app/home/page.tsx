@@ -725,7 +725,7 @@ function GetStartedSection() {
   useEffect(() => {
     try { setLevel(localStorage.getItem("sf_onboarding_level")); } catch {}
   }, []);
-  const actions = (level && LEVEL_ACTIONS[level]) ?? DEFAULT_ACTIONS;
+  const actions = (level ? LEVEL_ACTIONS[level] : null) ?? DEFAULT_ACTIONS;
   return (
     <section className="px-4 pb-6">
       <div className="flex items-center gap-2 mb-4">
