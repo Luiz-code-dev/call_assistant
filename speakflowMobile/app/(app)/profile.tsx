@@ -175,7 +175,9 @@ export default function ProfileScreen() {
         <View className="px-5 gap-2">
           <SettingRow emoji="🔔" label="Notificações" onPress={() => Linking.openSettings()} />
           <SettingRow emoji="🔒" label="Privacidade e segurança" onPress={() => setModal("privacy")} />
-          <SettingRow emoji="💳" label="Plano e cobrança" onPress={() => setModal("plan")} />
+          {Platform.OS !== "ios" && (
+            <SettingRow emoji="💳" label="Plano e cobrança" onPress={() => setModal("plan")} />
+          )}
           <SettingRow emoji="💡" label="Sugerir melhoria" onPress={() => setModal("suggest")} />
           <SettingRow emoji="📋" label="Termos de uso" onPress={() => setModal("terms")} />
 
