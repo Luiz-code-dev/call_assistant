@@ -8,6 +8,75 @@ import { router } from "expo-router";
 import { useAuthStore } from "@presentation/stores/authStore";
 import { ApiClient } from "@infrastructure/http/ApiClient";
 import { API_BASE_URL } from "@shared/constants/config";
+import { useIAP, type IAPSKU } from "../../src/hooks/useIAP";
+
+function IAPRow({ product, purchasing, onBuy }: {
+  product: { sku: IAPSKU; title: string; subtitle: string; localizedPrice: string };
+  purchasing: string | null;
+  onBuy: (sku: IAPSKU) => void;
+}) {
+  return (
+    <TouchableOpacity
+      onPress={() => onBuy(product.sku)}
+      disabled={!!purchasing}
+      style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", backgroundColor: "#18181b", borderWidth: 1, borderColor: "#3f3f46", borderRadius: 14, paddingHorizontal: 16, paddingVertical: 14, marginBottom: 10 }}
+      activeOpacity={0.7}
+    >
+      <View>
+        <Text style={{ color: "#fff", fontWeight: "700", fontSize: 15 }}>{product.title}</Text>
+        <Text style={{ color: "#71717a", fontSize: 12, marginTop: 2 }}>{product.subtitle}</Text>
+      </View>
+      {purchasing === product.sku
+        ? <ActivityIndicator color="#a78bfa" size="small" />
+        : <View style={{ backgroundColor: "rgba(124,58,237,0.2)", borderWidth: 1, borderColor: "rgba(124,58,237,0.4)", borderRadius: 10, paddingHorizontal: 12, paddingVertical: 6 }}>
+            <Text style={{ color: "#a78bfa", fontWeight: "700", fontSize: 13 }}>{product.localizedPrice || "Ver preço"}</Text>
+          </View>
+      }
+    </TouchableOpacity>
+  );
+}
+
+function IOSCreditPacks({ userPlan }: { userPlan: string }) {
+  const { connected, planProducts, packProducts, purchasing, purchaseError, buy } = useIAP();
+  const isSubscriber = userPlan === "basic" || userPlan === "premium";
+
+  return (
+    <>
+      {purchaseError ? (
+        <Text style={{ color: "#f87171", fontSize: 12, marginBottom: 12, textAlign: "center" }}>{purchaseError}</Text>
+      ) : null}
+
+      {/* Plans — always visible */}
+      <Text style={{ color: "#71717a", fontSize: 11, fontWeight: "600", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
+        {isSubscriber ? "Mudar plano" : "Assinar um plano"}
+      </Text>
+      {planProducts.map((p) => (
+        <IAPRow key={p.sku} product={p} purchasing={purchasing} onBuy={buy} />
+      ))}
+
+      {/* Credit packs — only for basic/premium */}
+      {isSubscriber && (
+        <>
+          <Text style={{ color: "#71717a", fontSize: 11, fontWeight: "600", textTransform: "uppercase", letterSpacing: 1, marginTop: 16, marginBottom: 8 }}>
+            Adicionar créditos (compra única)
+          </Text>
+          <Text style={{ color: "#52525b", fontSize: 11, marginBottom: 10 }}>
+            Créditos não expiram. Limite de 1 pacote por valor por mês.
+          </Text>
+          {packProducts.map((p) => (
+            <IAPRow key={p.sku} product={p} purchasing={purchasing} onBuy={buy} />
+          ))}
+        </>
+      )}
+
+      {!connected && (
+        <Text style={{ color: "#52525b", fontSize: 11, textAlign: "center", marginTop: 8 }}>
+          Conectando à App Store...
+        </Text>
+      )}
+    </>
+  );
+}
 
 const PLAN_LABEL: Record<string, string> = { free: "Gratuito", basic: "Básico", premium: "Premium" };
 const PLAN_FEATURES: Record<string, string[]> = {
@@ -99,11 +168,13 @@ export default function ProfileScreen() {
           <Text className="text-white text-xl font-bold">{user.name}</Text>
           <Text className="text-zinc-500 text-sm mt-0.5">{user.email}</Text>
           <View className="flex-row items-center gap-2 mt-2">
-            <View className="bg-primary/10 border border-primary/20 rounded-full px-3 py-1">
-              <Text className="text-primary text-xs font-semibold">
-                {PLAN_LABEL[user.plan] ?? user.plan}
-              </Text>
-            </View>
+            {Platform.OS !== "ios" && (
+              <View className="bg-primary/10 border border-primary/20 rounded-full px-3 py-1">
+                <Text className="text-primary text-xs font-semibold">
+                  {PLAN_LABEL[user.plan] ?? user.plan}
+                </Text>
+              </View>
+            )}
             {user.b2bAccess && (
               <View className="bg-amber-500/10 border border-amber-500/20 rounded-full px-3 py-1">
                 <Text className="text-amber-400 text-xs font-semibold">🏢 Corporativo</Text>
@@ -120,15 +191,10 @@ export default function ProfileScreen() {
             <Text className="text-zinc-500 text-xs mt-1">
               {user.b2bAccess ? "Uso ilimitado pela empresa" : "2 créditos por uso de ferramenta"}
             </Text>
-            {!user.b2bAccess && Platform.OS !== "ios" && (
+            {!user.b2bAccess && (
               <TouchableOpacity onPress={() => setModal("plan")} className="mt-3 bg-primary/10 border border-primary/20 rounded-xl py-2 items-center">
-                <Text className="text-primary text-sm font-semibold">Ver planos →</Text>
+                <Text className="text-primary text-sm font-semibold">Comprar créditos →</Text>
               </TouchableOpacity>
-            )}
-            {!user.b2bAccess && Platform.OS === "ios" && (
-              <View className="mt-3 bg-zinc-800/50 rounded-xl py-2 px-3">
-                <Text className="text-zinc-500 text-xs text-center">Gerencie sua assinatura em speakflow.ia.br</Text>
-              </View>
             )}
           </View>
         </View>
@@ -195,26 +261,37 @@ export default function ProfileScreen() {
             <Text className="text-xl font-bold text-white">Plano e Cobrança</Text>
             <TouchableOpacity onPress={() => setModal(null)}><Text className="text-zinc-400 text-lg">✕</Text></TouchableOpacity>
           </View>
-          <View className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 mb-4">
-            <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-1">Plano atual</Text>
-            <Text className="text-2xl font-bold text-white mb-1">{PLAN_LABEL[user.plan] ?? user.plan}</Text>
-            <Text className="text-zinc-400 text-sm mb-4">{user.credits} créditos disponíveis</Text>
-            <Text className="text-zinc-500 text-xs font-semibold uppercase tracking-wider mb-2">Incluso no seu plano</Text>
-            {(PLAN_FEATURES[user.plan] ?? []).map((f) => (
-              <View key={f} className="flex-row items-center gap-2 mb-1.5">
-                <Text className="text-emerald-400 text-xs">✓</Text>
-                <Text className="text-zinc-300 text-sm">{f}</Text>
+          {Platform.OS === "ios" ? (
+            <>
+              <Text style={{ color: "#71717a", fontSize: 11, marginBottom: 16 }}>
+                Seus créditos atuais: <Text style={{ color: "#fff", fontWeight: "700" }}>{user.credits}</Text>
+              </Text>
+              <IOSCreditPacks userPlan={user.plan} />
+            </>
+          ) : (
+            <>
+              <View className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 mb-4">
+                <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-1">Plano atual</Text>
+                <Text className="text-2xl font-bold text-white mb-1">{PLAN_LABEL[user.plan] ?? user.plan}</Text>
+                <Text className="text-zinc-400 text-sm mb-4">{user.credits} créditos disponíveis</Text>
+                <Text className="text-zinc-500 text-xs font-semibold uppercase tracking-wider mb-2">Incluso no seu plano</Text>
+                {(PLAN_FEATURES[user.plan] ?? []).map((f) => (
+                  <View key={f} className="flex-row items-center gap-2 mb-1.5">
+                    <Text className="text-emerald-400 text-xs">✓</Text>
+                    <Text className="text-zinc-300 text-sm">{f}</Text>
+                  </View>
+                ))}
               </View>
-            ))}
-          </View>
-          {user.plan !== "premium" && Platform.OS !== "ios" && (
-            <TouchableOpacity
-              onPress={() => Linking.openURL(`${API_BASE_URL}/dashboard`).catch(() => {})}
-              className="bg-primary rounded-xl py-4 items-center"
-              activeOpacity={0.8}
-            >
-              <Text className="text-white font-bold text-base">Fazer upgrade →</Text>
-            </TouchableOpacity>
+              {user.plan !== "premium" && (
+                <TouchableOpacity
+                  onPress={() => Linking.openURL(`${API_BASE_URL}/dashboard`).catch(() => {})}
+                  className="bg-primary rounded-xl py-4 items-center"
+                  activeOpacity={0.8}
+                >
+                  <Text className="text-white font-bold text-base">Fazer upgrade →</Text>
+                </TouchableOpacity>
+              )}
+            </>
           )}
         </View>
       </Modal>
