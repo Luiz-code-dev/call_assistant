@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
-import { useIAP as useIAPLib, ErrorCode } from "react-native-iap";
+import { useIAP as useIAPLib, ErrorCode, getAvailablePurchases } from "react-native-iap";
 import { Platform } from "react-native";
 import { ApiClient } from "@infrastructure/http/ApiClient";
 import { useAuthStore } from "@presentation/stores/authStore";
@@ -60,6 +60,7 @@ export function useIAP() {
   const [purchasing, setPurchasing] = useState<IAPSKU | null>(null);
   const [purchaseError, setPurchaseError] = useState<string | null>(null);
   const [products, setProducts] = useState<IAPProduct[]>(buildFallback());
+  const [restoring, setRestoring] = useState(false);
   const { refreshUser } = useAuthStore();
 
   const { connected, products: rawProducts, fetchProducts, requestPurchase, finishTransaction } = useIAPLib({
@@ -126,8 +127,32 @@ export function useIAP() {
     }
   }, [requestPurchase]);
 
+  const restore = useCallback(async () => {
+    setRestoring(true);
+    setPurchaseError(null);
+    try {
+      const purchases = await getAvailablePurchases();
+      if (purchases && purchases.length > 0) {
+        for (const purchase of purchases) {
+          const productId = (purchase as any).productId ?? (purchase as any).sku ?? "";
+          const txId = (purchase as any).transactionId ?? (purchase as any).id ?? "";
+          const isPack = PACK_SKUS.includes(productId as PackSKU);
+          try {
+            await ApiClient.post("/api/iap/apple", { transactionId: txId, productId, type: isPack ? "pack" : "plan" });
+            await finishTransaction({ purchase, isConsumable: isPack });
+          } catch (e) { console.warn("Restore grant error:", e); }
+        }
+        await refreshUser();
+      }
+    } catch (e: any) {
+      setPurchaseError(e?.message ?? "Erro ao restaurar compras");
+    } finally {
+      setRestoring(false);
+    }
+  }, [finishTransaction, refreshUser]);
+
   const planProducts = products.filter((p) => p.type === "plan");
   const packProducts = products.filter((p) => p.type === "pack");
 
-  return { connected, planProducts, packProducts, purchasing, purchaseError, buy };
+  return { connected, planProducts, packProducts, purchasing, purchaseError, buy, restore, restoring };
 }

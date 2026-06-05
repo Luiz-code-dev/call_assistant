@@ -10,6 +10,9 @@ import { ApiClient } from "@infrastructure/http/ApiClient";
 import { API_BASE_URL } from "@shared/constants/config";
 import { useIAP, type IAPSKU } from "../../src/hooks/useIAP";
 
+const EULA_URL = "https://www.speakflow.ia.br/termos";
+const PRIVACY_URL = "https://www.speakflow.ia.br/privacidade";
+
 function IAPRow({ product, purchasing, onBuy }: {
   product: { sku: IAPSKU; title: string; subtitle: string; localizedPrice: string };
   purchasing: string | null;
@@ -37,11 +40,11 @@ function IAPRow({ product, purchasing, onBuy }: {
 }
 
 function IOSCreditPacks({ userPlan }: { userPlan: string }) {
-  const { connected, planProducts, packProducts, purchasing, purchaseError, buy } = useIAP();
+  const { connected, planProducts, packProducts, purchasing, purchaseError, buy, restore, restoring } = useIAP();
   const isSubscriber = userPlan === "basic" || userPlan === "premium";
 
   return (
-    <>
+    <ScrollView showsVerticalScrollIndicator={false}>
       {purchaseError ? (
         <Text style={{ color: "#f87171", fontSize: 12, marginBottom: 12, textAlign: "center" }}>{purchaseError}</Text>
       ) : null}
@@ -54,27 +57,52 @@ function IOSCreditPacks({ userPlan }: { userPlan: string }) {
         <IAPRow key={p.sku} product={p} purchasing={purchasing} onBuy={buy} />
       ))}
 
-      {/* Credit packs — only for basic/premium */}
-      {isSubscriber && (
-        <>
-          <Text style={{ color: "#71717a", fontSize: 11, fontWeight: "600", textTransform: "uppercase", letterSpacing: 1, marginTop: 16, marginBottom: 8 }}>
-            Adicionar créditos (compra única)
-          </Text>
-          <Text style={{ color: "#52525b", fontSize: 11, marginBottom: 10 }}>
-            Créditos não expiram. Limite de 1 pacote por valor por mês.
-          </Text>
-          {packProducts.map((p) => (
-            <IAPRow key={p.sku} product={p} purchasing={purchasing} onBuy={buy} />
-          ))}
-        </>
+      {/* Credit packs — always visible, purchasable only for subscribers */}
+      <Text style={{ color: "#71717a", fontSize: 11, fontWeight: "600", textTransform: "uppercase", letterSpacing: 1, marginTop: 16, marginBottom: 6 }}>
+        Adicionar créditos (compra única)
+      </Text>
+      {!isSubscriber ? (
+        <Text style={{ color: "#f59e0b", fontSize: 11, marginBottom: 10 }}>
+          ⚠️ Disponível apenas para assinantes Básico ou Premium.
+        </Text>
+      ) : (
+        <Text style={{ color: "#52525b", fontSize: 11, marginBottom: 10 }}>
+          Créditos não expiram. Limite de 1 pacote por valor por mês.
+        </Text>
       )}
+      {packProducts.map((p) => (
+        <IAPRow key={p.sku} product={p} purchasing={purchasing} onBuy={isSubscriber ? buy : () => {}} />
+      ))}
+
+      {/* Restore purchases — required by Apple */}
+      <TouchableOpacity
+        onPress={restore}
+        disabled={restoring || !!purchasing}
+        style={{ marginTop: 20, paddingVertical: 12, alignItems: "center", borderWidth: 1, borderColor: "#3f3f46", borderRadius: 12 }}
+        activeOpacity={0.7}
+      >
+        <Text style={{ color: restoring ? "#52525b" : "#a78bfa", fontSize: 13, fontWeight: "600" }}>
+          {restoring ? "Restaurando..." : "Restaurar compras"}
+        </Text>
+      </TouchableOpacity>
+
+      {/* EULA & Privacy — required by Apple 3.1.2(c) */}
+      <View style={{ flexDirection: "row", justifyContent: "center", gap: 16, marginTop: 16, marginBottom: 8 }}>
+        <TouchableOpacity onPress={() => Linking.openURL(EULA_URL).catch(() => {})}>
+          <Text style={{ color: "#52525b", fontSize: 11, textDecorationLine: "underline" }}>Termos de Uso</Text>
+        </TouchableOpacity>
+        <Text style={{ color: "#3f3f46", fontSize: 11 }}>•</Text>
+        <TouchableOpacity onPress={() => Linking.openURL(PRIVACY_URL).catch(() => {})}>
+          <Text style={{ color: "#52525b", fontSize: 11, textDecorationLine: "underline" }}>Privacidade</Text>
+        </TouchableOpacity>
+      </View>
 
       {!connected && (
         <Text style={{ color: "#52525b", fontSize: 11, textAlign: "center", marginTop: 8 }}>
           Conectando à App Store...
         </Text>
       )}
-    </>
+    </ScrollView>
   );
 }
 
@@ -241,9 +269,7 @@ export default function ProfileScreen() {
         <View className="px-5 gap-2">
           <SettingRow emoji="🔔" label="Notificações" onPress={() => Linking.openSettings()} />
           <SettingRow emoji="🔒" label="Privacidade e segurança" onPress={() => setModal("privacy")} />
-          {Platform.OS !== "ios" && (
-            <SettingRow emoji="💳" label="Plano e cobrança" onPress={() => setModal("plan")} />
-          )}
+          <SettingRow emoji="💳" label="Plano e cobrança" onPress={() => setModal("plan")} />
           <SettingRow emoji="💡" label="Sugerir melhoria" onPress={() => setModal("suggest")} />
           <SettingRow emoji="📋" label="Termos de uso" onPress={() => setModal("terms")} />
 
