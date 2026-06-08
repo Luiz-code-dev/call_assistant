@@ -117,10 +117,17 @@ export function useIAP() {
     setPurchasing(sku);
     const isPack = PACK_SKUS.includes(sku as PackSKU);
     try {
-      await requestPurchase({
-        request: { apple: { sku }, google: { skus: [sku] } },
-        type: isPack ? "in-app" : "subs",
-      });
+      if (isPack) {
+        await requestPurchase({
+          request: { apple: { sku }, google: { skus: [sku] } },
+          type: "in-app",
+        });
+      } else {
+        await requestPurchase({
+          request: { apple: { sku }, google: { skus: [sku] } },
+          type: "subs",
+        });
+      }
     } catch (e: any) {
       setPurchaseError(e?.message ?? "Compra cancelada");
       setPurchasing(null);
