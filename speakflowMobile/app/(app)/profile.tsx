@@ -277,6 +277,17 @@ export default function ProfileScreen() {
             <Text>🚪</Text>
             <Text className="text-red-400 flex-1 text-sm font-medium">Sair da conta</Text>
           </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={handleDeleteAccount}
+            disabled={deletingAccount}
+            className="flex-row items-center gap-3 border border-red-800/30 bg-red-900/10 rounded-xl px-4 py-3.5"
+            activeOpacity={0.7}
+          >
+            <Text>🗑️</Text>
+            <Text className="text-red-600 flex-1 text-sm">Excluir minha conta</Text>
+            {deletingAccount && <ActivityIndicator size="small" color="#dc2626" />}
+          </TouchableOpacity>
         </View>
       </ScrollView>
 
