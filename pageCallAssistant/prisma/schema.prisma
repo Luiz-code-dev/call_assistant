@@ -136,6 +136,8 @@ model Challenge {
   circleId    String
   title       String
   prompt      String
+  scenario    String?
+  targetVocab String?
   type        String       @default("written")
   startsAt    DateTime
   endsAt      DateTime

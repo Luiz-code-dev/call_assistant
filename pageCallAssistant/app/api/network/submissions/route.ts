@@ -3,6 +3,8 @@ import { db } from "@/lib/db";
 import { getNetworkSession } from "../_auth";
 import { checkAndAwardBadges } from "@/lib/badges";
 import { registerActivity } from "@/lib/streak";
+import { awardParticipation } from "@/lib/challengeRewards";
+import { evaluateSubmission } from "@/lib/evaluateSubmission";
 
 export async function GET(req: NextRequest) {
   const session = await getNetworkSession(req);
@@ -69,6 +71,8 @@ export async function POST(req: NextRequest) {
   if (new Date() > challenge.endsAt)
     return NextResponse.json({ error: "O período de submissão encerrou." }, { status: 410 });
 
+  const priorCount = await db.submission.count({ where: { userId: session.sub, challengeId } });
+
   await db.submission.updateMany({
     where: { userId: session.sub, challengeId },
     data: { isSelected: false },
@@ -87,6 +91,10 @@ export async function POST(req: NextRequest) {
 
   await registerActivity(session.sub).catch(() => {});
   const newBadges = await checkAndAwardBadges(session.sub, "submission").catch(() => []);
+  const creditsEarned = await awardParticipation(session.sub, priorCount, challenge.title).catch(() => 0);
 
-  return NextResponse.json({ ...submission, newBadges }, { status: 201 });
+  // Auto-avaliação gratuita: feedback imediato da IA (best-effort, não bloqueia a submissão)
+  const evaluation = await evaluateSubmission(submission.id, session.sub, { charge: false }).catch(() => null);
+
+  return NextResponse.json({ ...submission, newBadges, creditsEarned, evaluation }, { status: 201 });
 }

@@ -51,7 +51,7 @@ export async function POST(req: NextRequest) {
   if (!session) return NextResponse.json({ error: "not_authenticated" }, { status: 401 });
 
   const body = await req.json().catch(() => ({}));
-  const { circleId, title, prompt, type, startsAt, endsAt, isRecurring, questions } = body;
+  const { circleId, title, prompt, scenario, targetVocab, type, startsAt, endsAt, isRecurring, questions } = body;
 
   if (!circleId || !title?.trim() || !startsAt || !endsAt)
     return NextResponse.json({ error: "Campos obrigatórios: circleId, title, startsAt, endsAt." }, { status: 400 });
@@ -88,12 +88,23 @@ export async function POST(req: NextRequest) {
     ? (prompt?.trim() || `Quiz com ${questions.length} perguntas`).slice(0, 2000)
     : prompt.trim().slice(0, 2000);
 
+  // Vocabulário-alvo: aceita array de palavras, persiste como JSON (máx. 5 itens)
+  const vocabList = Array.isArray(targetVocab)
+    ? targetVocab.map((w: unknown) => String(w).trim()).filter(Boolean).slice(0, 5)
+    : [];
+  const targetVocabJson = resolvedType !== "quiz" && vocabList.length > 0 ? JSON.stringify(vocabList) : null;
+  const scenarioText = resolvedType !== "quiz" && typeof scenario === "string" && scenario.trim()
+    ? scenario.trim().slice(0, 1000)
+    : null;
+
   try {
     const challenge = await db.challenge.create({
       data: {
         circleId,
         title: title.trim().slice(0, 120),
         prompt: promptText,
+        scenario: scenarioText,
+        targetVocab: targetVocabJson,
         type: resolvedType,
         startsAt: start,
         endsAt: end,

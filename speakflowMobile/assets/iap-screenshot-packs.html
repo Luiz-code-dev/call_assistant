@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 750px; height: 1334px; overflow: hidden;
+    background: #09090b;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    color: #fff;
+  }
+  .status { background: #09090b; height: 44px; display: flex; align-items: center; padding: 0 24px; justify-content: space-between; }
+  .status-time { font-size: 15px; font-weight: 600; }
+  .status-icons { font-size: 13px; letter-spacing: 2px; }
+  .header { background: #09090b; height: 56px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #27272a; position: relative; }
+  .header-title { font-size: 17px; font-weight: 700; }
+  .header-close { position: absolute; right: 20px; font-size: 18px; color: #71717a; }
+  .content { padding: 20px 24px; }
+  .plan-line { font-size: 13px; color: #71717a; margin-bottom: 20px; }
+  .plan-line .plan { color: #a78bfa; font-weight: 700; }
+  .plan-line .credits { color: #fff; font-weight: 700; }
+  .section-label { font-size: 11px; font-weight: 600; color: #71717a; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 6px; }
+  .section-note { font-size: 11px; color: #52525b; margin-bottom: 12px; }
+  .pack-card {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 20px; border-radius: 14px; margin-bottom: 10px;
+    background: #18181b; border: 1px solid #3f3f46;
+    position: relative;
+  }
+  .pack-card .info { flex: 1; }
+  .pack-card .name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .pack-card .sub { font-size: 12px; color: #71717a; }
+  .price-badge {
+    background: rgba(124,58,237,0.20); border: 1px solid rgba(124,58,237,0.40);
+    border-radius: 10px; padding: 6px 12px;
+    font-size: 13px; font-weight: 700; color: #a78bfa; white-space: nowrap;
+  }
+  .badge-popular { position: absolute; top: -10px; left: 12px; background: #065f46; color: #34d399; font-size: 9px; font-weight: 700; padding: 3px 8px; border-radius: 9px; }
+  .badge-best { position: absolute; top: -10px; left: 12px; background: #1e3a5f; color: #60a5fa; font-size: 9px; font-weight: 700; padding: 3px 8px; border-radius: 9px; }
+  .info-box {
+    background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.20);
+    border-radius: 12px; padding: 16px 20px; margin-top: 16px;
+  }
+  .info-box-title { font-size: 13px; color: #a78bfa; font-weight: 600; margin-bottom: 10px; }
+  .info-box-item { font-size: 11px; color: #71717a; margin-bottom: 6px; }
+  .logo { width: 28px; height: 28px; background: linear-gradient(135deg, #7c3aed, #4f46e5); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; }
+  .tabbar { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: #09090b; border-top: 1px solid #27272a; display: flex; align-items: center; justify-content: space-around; }
+  .tab { font-size: 22px; text-align: center; position: relative; }
+  .tab.active::after { content: ""; position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: 6px; height: 6px; border-radius: 50%; background: #7c3aed; }
+</style>
+</head>
+<body>
+  <div class="status">
+    <div class="logo"><span style="color:#fff">S</span></div>
+    <span class="status-time">9:41</span>
+    <span class="status-icons">●●●</span>
+  </div>
+  <div class="header">
+    <span class="header-title">Plano e Cobrança</span>
+    <span class="header-close">✕</span>
+  </div>
+  <div class="content">
+    <p class="plan-line">
+      Plano: <span class="plan">Básico</span>&nbsp;&nbsp;•&nbsp;&nbsp;Créditos: <span class="credits">500</span>
+    </p>
+
+    <p class="section-label">Adicionar créditos (compra única)</p>
+    <p class="section-note">Créditos não expiram. Limite de 1 pacote por valor por mês.</p>
+
+    <div class="pack-card">
+      <div class="info">
+        <div class="name">50 Créditos</div>
+        <div class="sub">Compra única, não expira</div>
+      </div>
+      <div class="price-badge">R$ 24,90</div>
+    </div>
+
+    <div class="pack-card">
+      <div class="badge-popular">MAIS POPULAR</div>
+      <div class="info">
+        <div class="name">150 Créditos</div>
+        <div class="sub">Compra única, não expira</div>
+      </div>
+      <div class="price-badge">R$ 49,90</div>
+    </div>
+
+    <div class="pack-card">
+      <div class="badge-best">MELHOR VALOR</div>
+      <div class="info">
+        <div class="name">400 Créditos</div>
+        <div class="sub">Compra única, não expira</div>
+      </div>
+      <div class="price-badge">R$ 119,90</div>
+    </div>
+
+    <div class="info-box">
+      <div class="info-box-title">⚡ Sobre os créditos</div>
+      <div class="info-box-item">• 2 créditos por uso de ferramenta de IA</div>
+      <div class="info-box-item">• Créditos do plano renovam todo mês</div>
+      <div class="info-box-item">• Créditos de pacotes nunca expiram</div>
+    </div>
+  </div>
+
+  <div class="tabbar">
+    <div class="tab">🏠</div>
+    <div class="tab">🔧</div>
+    <div class="tab">🎙</div>
+    <div class="tab">👥</div>
+    <div class="tab active">👤</div>
+  </div>
+</body>
+</html>

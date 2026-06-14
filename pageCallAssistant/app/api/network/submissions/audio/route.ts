@@ -2,6 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { getNetworkSession } from "../../_auth";
 import { getOpenAI } from "@/lib/openai";
+import { checkAndAwardBadges } from "@/lib/badges";
+import { registerActivity } from "@/lib/streak";
+import { awardParticipation } from "@/lib/challengeRewards";
+import { evaluateSubmission } from "@/lib/evaluateSubmission";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -75,6 +79,8 @@ export async function POST(req: NextRequest) {
     if (isWhisperHallucination(content))
       return NextResponse.json({ error: "Não conseguimos transcrever o áudio corretamente. Grave novamente em um ambiente mais silencioso e fale claramente em inglês." }, { status: 422 });
 
+    const priorCount = await db.submission.count({ where: { userId: session.sub, challengeId } });
+
     await db.submission.updateMany({
       where: { userId: session.sub, challengeId },
       data: { isSelected: false },
@@ -91,7 +97,14 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    return NextResponse.json({ ...submission, transcription: content }, { status: 201 });
+    await registerActivity(session.sub).catch(() => {});
+    const newBadges = await checkAndAwardBadges(session.sub, "submission").catch(() => []);
+    const creditsEarned = await awardParticipation(session.sub, priorCount, challenge.title).catch(() => 0);
+
+    // Auto-avaliação gratuita: feedback imediato da IA (best-effort)
+    const evaluation = await evaluateSubmission(submission.id, session.sub, { charge: false }).catch(() => null);
+
+    return NextResponse.json({ ...submission, transcription: content, newBadges, creditsEarned, evaluation }, { status: 201 });
   } catch (err) {
     console.error("[submissions/audio]", err);
     return NextResponse.json({ error: "Erro na transcrição. Verifique sua chave OpenAI." }, { status: 500 });

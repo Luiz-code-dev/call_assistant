@@ -1,0 +1,92 @@
+<svg width="640" height="920" viewBox="0 0 640 920" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#09090b"/>
+      <stop offset="100%" stop-color="#0f0f12"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="rgba(124,58,237,0.12)"/>
+      <stop offset="100%" stop-color="rgba(79,70,229,0.06)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="640" height="920" fill="url(#bg)"/>
+
+  <!-- Status bar -->
+  <rect x="0" y="0" width="640" height="44" fill="#09090b"/>
+  <text x="48" y="28" font-family="SF Pro Display, Arial" font-size="15" font-weight="600" fill="#ffffff">9:41</text>
+  <text x="560" y="28" font-family="SF Pro Display, Arial" font-size="13" fill="#ffffff">●●●</text>
+
+  <!-- Header bar -->
+  <rect x="0" y="44" width="640" height="56" fill="#09090b"/>
+  <text x="320" y="80" font-family="SF Pro Display, Arial" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">Plano e Cobrança</text>
+  <text x="600" y="80" font-family="SF Pro Display, Arial" font-size="22" fill="#71717a" text-anchor="middle">✕</text>
+
+  <!-- Divider -->
+  <rect x="0" y="100" width="640" height="1" fill="#27272a"/>
+
+  <!-- Credits current -->
+  <text x="32" y="136" font-family="SF Pro Display, Arial" font-size="12" fill="#71717a">Plano atual: </text>
+  <text x="122" y="136" font-family="SF Pro Display, Arial" font-size="12" font-weight="700" fill="#a78bfa">Básico</text>
+  <text x="200" y="136" font-family="SF Pro Display, Arial" font-size="12" fill="#71717a">   •   Créditos: </text>
+  <text x="308" y="136" font-family="SF Pro Display, Arial" font-size="12" font-weight="700" fill="#ffffff">500</text>
+
+  <!-- Section label: ADICIONAR CRÉDITOS -->
+  <text x="32" y="170" font-family="SF Pro Display, Arial" font-size="11" font-weight="600" fill="#71717a" letter-spacing="1">ADICIONAR CRÉDITOS (COMPRA ÚNICA)</text>
+
+  <!-- Subtitle -->
+  <text x="32" y="192" font-family="SF Pro Display, Arial" font-size="11" fill="#52525b">Créditos não expiram. Limite de 1 pacote por valor por mês.</text>
+
+  <!-- Pack card: 50 créditos -->
+  <rect x="24" y="208" width="592" height="76" rx="14" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="48" y="244" font-family="SF Pro Display, Arial" font-size="16" font-weight="700" fill="#ffffff">50 Créditos</text>
+  <text x="48" y="266" font-family="SF Pro Display, Arial" font-size="12" fill="#71717a">Compra única, não expira</text>
+  <rect x="498" y="223" width="100" height="34" rx="10" fill="rgba(124,58,237,0.20)" stroke="rgba(124,58,237,0.40)" stroke-width="1"/>
+  <text x="548" y="245" font-family="SF Pro Display, Arial" font-size="13" font-weight="700" fill="#a78bfa" text-anchor="middle">R$ 24,90</text>
+
+  <!-- Pack card: 150 créditos -->
+  <rect x="24" y="298" width="592" height="76" rx="14" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <!-- Best value badge -->
+  <rect x="24" y="290" width="76" height="18" rx="9" fill="#065f46"/>
+  <text x="62" y="302" font-family="SF Pro Display, Arial" font-size="9" font-weight="700" fill="#34d399" text-anchor="middle">MAIS POPULAR</text>
+  <text x="48" y="334" font-family="SF Pro Display, Arial" font-size="16" font-weight="700" fill="#ffffff">150 Créditos</text>
+  <text x="48" y="356" font-family="SF Pro Display, Arial" font-size="12" fill="#71717a">Compra única, não expira</text>
+  <rect x="498" y="313" width="100" height="34" rx="10" fill="rgba(124,58,237,0.20)" stroke="rgba(124,58,237,0.40)" stroke-width="1"/>
+  <text x="548" y="335" font-family="SF Pro Display, Arial" font-size="13" font-weight="700" fill="#a78bfa" text-anchor="middle">R$ 49,90</text>
+
+  <!-- Pack card: 400 créditos -->
+  <rect x="24" y="388" width="592" height="76" rx="14" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <!-- Best value badge -->
+  <rect x="24" y="380" width="68" height="18" rx="9" fill="#1e3a5f"/>
+  <text x="58" y="392" font-family="SF Pro Display, Arial" font-size="9" font-weight="700" fill="#60a5fa" text-anchor="middle">MELHOR</text>
+  <text x="48" y="424" font-family="SF Pro Display, Arial" font-size="16" font-weight="700" fill="#ffffff">400 Créditos</text>
+  <text x="48" y="446" font-family="SF Pro Display, Arial" font-size="12" fill="#71717a">Compra única, não expira</text>
+  <rect x="482" y="403" width="116" height="34" rx="10" fill="rgba(124,58,237,0.20)" stroke="rgba(124,58,237,0.40)" stroke-width="1"/>
+  <text x="540" y="425" font-family="SF Pro Display, Arial" font-size="13" font-weight="700" fill="#a78bfa" text-anchor="middle">R$ 119,90</text>
+
+  <!-- Info box -->
+  <rect x="24" y="486" width="592" height="100" rx="12" fill="rgba(124,58,237,0.08)" stroke="rgba(124,58,237,0.20)" stroke-width="1"/>
+  <text x="48" y="518" font-family="SF Pro Display, Arial" font-size="12" fill="#a78bfa" font-weight="600">⚡ Sobre os créditos</text>
+  <text x="48" y="540" font-family="SF Pro Display, Arial" font-size="11" fill="#71717a">• 2 créditos por uso de ferramenta de IA</text>
+  <text x="48" y="560" font-family="SF Pro Display, Arial" font-size="11" fill="#71717a">• Créditos do plano renovam todo mês</text>
+  <text x="48" y="580" font-family="SF Pro Display, Arial" font-size="11" fill="#71717a">• Créditos de pacotes nunca expiram</text>
+
+  <!-- Bottom tab bar -->
+  <rect x="0" y="840" width="640" height="80" fill="#09090b"/>
+  <rect x="0" y="840" width="640" height="1" fill="#27272a"/>
+  <text x="80" y="878" font-family="Arial" font-size="22" text-anchor="middle">🏠</text>
+  <text x="213" y="878" font-family="Arial" font-size="22" text-anchor="middle">🔧</text>
+  <text x="320" y="878" font-family="Arial" font-size="22" text-anchor="middle">🎙</text>
+  <text x="427" y="878" font-family="Arial" font-size="22" text-anchor="middle">👥</text>
+  <text x="560" y="878" font-family="Arial" font-size="22" text-anchor="middle">👤</text>
+  <circle cx="560" cy="895" r="3" fill="#7c3aed"/>
+
+  <!-- Logo -->
+  <rect x="24" y="56" width="28" height="28" rx="8" fill="url(#purpleGrad)"/>
+  <text x="38" y="75" font-family="Arial" font-size="14" text-anchor="middle" fill="#ffffff">S</text>
+</svg>

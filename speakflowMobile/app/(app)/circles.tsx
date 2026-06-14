@@ -9,6 +9,7 @@ import { useAudioRecorder, useAudioRecorderState, AudioModule, RecordingPresets 
 import { ApiClient } from "@infrastructure/http/ApiClient";
 import { API_BASE_URL } from "@shared/constants/config";
 import { TokenStorage } from "@infrastructure/storage/TokenStorage";
+import { useAuthStore } from "@presentation/stores/authStore";
 
 type ChallengeType = "written" | "spoken" | "quiz";
 type StartOffset = "now" | "1h" | "tomorrow";
@@ -74,7 +75,7 @@ interface Circle {
 
 interface CircleDetail extends Circle {
   members: { id: string; userId: string; role: string; user: { id: string; name: string; avatarUrl: string | null } }[];
-  challenges: { id: string; title: string; type: string; prompt: string; startsAt: string; endsAt: string; _count: { submissions: number } }[];
+  challenges: { id: string; title: string; type: string; prompt: string; scenario: string | null; targetVocab: string | null; startsAt: string; endsAt: string; _count: { submissions: number } }[];
 }
 
 const FOCUS_OPTIONS = [
@@ -85,12 +86,28 @@ const FOCUS_OPTIONS = [
 
 const BLANK_CHALLENGE = () => ({
   title: "", type: "written" as ChallengeType, prompt: "",
+  scenario: "", targetVocab: "",
   startOffset: "now" as StartOffset, duration: "7d" as Duration,
   isRecurring: false, questions: [] as QuizQuestion[],
 });
 
+function buildResultMessage(data: any): string {
+  const lines: string[] = [];
+  if (data?.creditsEarned > 0) lines.push(`🎁 +${data.creditsEarned} créditos por participar!`);
+  const ev = data?.evaluation;
+  if (ev) {
+    lines.push(`⭐ Nota: ${ev.totalScore}/10  (fluência ${ev.fluencyScore} · conteúdo ${ev.contentScore} · clareza ${ev.clarityScore})`);
+    if (ev.feedback) lines.push(`\n${ev.feedback}`);
+    if (ev.tip) lines.push(`\n💡 ${ev.tip}`);
+  } else {
+    lines.push("Sua resposta foi enviada. A avaliação da IA aparecerá em instantes.");
+  }
+  return lines.join("\n");
+}
+
 export default function CirclesScreen() {
   const qc = useQueryClient();
+  const refreshUser = useAuthStore((s) => s.refreshUser);
   const [search, setSearch] = useState("");
   const [selected, setSelected] = useState<CircleDetail | null>(null);
   const [showCreate, setShowCreate] = useState(false);
@@ -120,13 +137,13 @@ export default function CirclesScreen() {
   const [submissionsLoading, setSubmissionsLoading] = useState<string | null>(null);
 
   // ── Challenge participation (written + spoken) ──
-  const [answerChallenge, setAnswerChallenge] = useState<{ id: string; title: string; prompt: string; type: string; circleId: string } | null>(null);
+  const [answerChallenge, setAnswerChallenge] = useState<{ id: string; title: string; prompt: string; scenario: string | null; targetVocab: string | null; type: string; circleId: string } | null>(null);
   const [answerText, setAnswerText] = useState("");
   const [submittingAnswer, setSubmittingAnswer] = useState(false);
   const audioRecorder = useAudioRecorder({ ...RecordingPresets.HIGH_QUALITY });
   const recorderState = useAudioRecorderState(audioRecorder, 200);
 
-  function openAnswer(ch: { id: string; title: string; prompt: string; type: string }, circleId: string) {
+  function openAnswer(ch: { id: string; title: string; prompt: string; scenario: string | null; targetVocab: string | null; type: string }, circleId: string) {
     setAnswerChallenge({ ...ch, circleId });
     setAnswerText("");
   }
@@ -141,16 +158,17 @@ export default function CirclesScreen() {
   async function submitWritten() {
     if (!answerChallenge || !answerText.trim()) return;
     setSubmittingAnswer(true);
-    const r = await ApiClient.post("/api/network/submissions", {
+    const r = await ApiClient.post<any>("/api/network/submissions", {
       challengeId: answerChallenge.id,
       circleId: answerChallenge.circleId,
       content: answerText.trim(),
     });
     setSubmittingAnswer(false);
     if (r.ok) {
-      Alert.alert("Enviado!", "Sua resposta foi enviada. A IA vai avaliá-la em breve.");
+      Alert.alert("Resposta enviada! ✨", buildResultMessage(r.data));
       setChallengeSubmissions((prev) => { const c = { ...prev }; delete c[answerChallenge.id]; return c; });
       closeAnswer();
+      refreshUser().catch(() => {});
       if (selected) refreshDetail(selected.id);
     } else {
       Alert.alert("Erro", (r as any).error?.message ?? "Não foi possível enviar.");
@@ -197,9 +215,11 @@ export default function CirclesScreen() {
       const data = await response.json().catch(() => ({}));
       setSubmittingAnswer(false);
       if (response.ok) {
-        Alert.alert("Enviado!", `Transcrição: "${data.transcription ?? ""}"\n\nA IA vai avaliar em breve.`);
+        const transcript = data.transcription ? `🎙️ "${data.transcription}"\n\n` : "";
+        Alert.alert("Áudio enviado! ✨", transcript + buildResultMessage(data));
         setChallengeSubmissions((prev) => { const c = { ...prev }; delete c[answerChallenge.id]; return c; });
         closeAnswer();
+        refreshUser().catch(() => {});
         if (selected) refreshDetail(selected.id);
       } else {
         Alert.alert("Erro", data.error ?? "Não foi possível enviar o áudio.");
@@ -275,8 +295,11 @@ export default function CirclesScreen() {
         if (q.options.some((o) => !o.trim())) throw new Error("Todas as opções precisam ser preenchidas.");
       }
       const { startsAt, endsAt } = computeDates(cf.startOffset, cf.duration);
+      const vocabArr = cf.targetVocab.split(",").map((w) => w.trim()).filter(Boolean).slice(0, 5);
       const r = await ApiClient.post("/api/network/challenges", {
         circleId: selected.id, title: cf.title.trim(), prompt: cf.prompt.trim() || undefined,
+        scenario: cf.type !== "quiz" && cf.scenario.trim() ? cf.scenario.trim() : undefined,
+        targetVocab: cf.type !== "quiz" && vocabArr.length > 0 ? vocabArr : undefined,
         type: cf.type, startsAt: startsAt.toISOString(), endsAt: endsAt.toISOString(),
         isRecurring: cf.isRecurring, questions: cf.type === "quiz" ? cf.questions : undefined,
       });
@@ -656,16 +679,41 @@ export default function CirclesScreen() {
                 </View>
 
                 {cf.type !== "quiz" && (
-                  <View>
-                    <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-2">Prompt / instrução *</Text>
-                    <TextInput
-                      value={cf.prompt} onChangeText={(v) => setCf(f => ({ ...f, prompt: v }))}
-                      placeholder="Descreva o que os membros devem fazer..." placeholderTextColor="#52525b"
-                      multiline numberOfLines={3} textAlignVertical="top" maxLength={2000}
-                      className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white text-sm"
-                      style={{ minHeight: 80 }}
-                    />
-                  </View>
+                  <>
+                    <View>
+                      <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-2">Prompt / instrução *</Text>
+                      <TextInput
+                        value={cf.prompt} onChangeText={(v) => setCf(f => ({ ...f, prompt: v }))}
+                        placeholder="Descreva o que os membros devem fazer..." placeholderTextColor="#52525b"
+                        multiline numberOfLines={3} textAlignVertical="top" maxLength={2000}
+                        className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white text-sm"
+                        style={{ minHeight: 80 }}
+                      />
+                    </View>
+
+                    <View>
+                      <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-2">Cenário / situação real (opcional)</Text>
+                      <TextInput
+                        value={cf.scenario} onChangeText={(v) => setCf(f => ({ ...f, scenario: v }))}
+                        placeholder="Ex: Você recebeu um e-mail de um cliente irritado — responda acalmando ele." placeholderTextColor="#52525b"
+                        multiline numberOfLines={2} textAlignVertical="top" maxLength={1000}
+                        className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white text-sm"
+                        style={{ minHeight: 60 }}
+                      />
+                      <Text className="text-zinc-600 text-xs mt-1">💡 Dar um contexto real aumenta muito o engajamento.</Text>
+                    </View>
+
+                    <View>
+                      <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-2">Vocabulário-alvo (opcional)</Text>
+                      <TextInput
+                        value={cf.targetVocab} onChangeText={(v) => setCf(f => ({ ...f, targetVocab: v }))}
+                        placeholder="Ex: leverage, stakeholder, deadline" placeholderTextColor="#52525b"
+                        maxLength={200}
+                        className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white text-sm"
+                      />
+                      <Text className="text-zinc-600 text-xs mt-1">Separe por vírgula (máx. 5). A IA verifica se foram usadas.</Text>
+                    </View>
+                  </>
                 )}
 
                 {cf.type === "quiz" && (
@@ -1272,11 +1320,36 @@ export default function CirclesScreen() {
             <ScrollView className="flex-1 px-5 pt-4" keyboardShouldPersistTaps="handled" contentContainerStyle={{ paddingBottom: 40 }}>
               <Text className="text-white font-semibold text-lg mb-1">{answerChallenge.title}</Text>
               {answerChallenge.prompt ? (
-                <View className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 mb-5">
+                <View className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 mb-3">
                   <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-1">Instrução</Text>
                   <Text className="text-zinc-200 text-sm leading-relaxed">{answerChallenge.prompt}</Text>
                 </View>
               ) : null}
+
+              {answerChallenge.scenario ? (
+                <View className="bg-blue-500/10 border border-blue-500/20 rounded-xl px-4 py-3 mb-3">
+                  <Text className="text-blue-300 text-xs uppercase tracking-wider mb-1">🎬 Cenário</Text>
+                  <Text className="text-zinc-200 text-sm leading-relaxed">{answerChallenge.scenario}</Text>
+                </View>
+              ) : null}
+
+              {(() => {
+                let vocab: string[] = [];
+                try { if (answerChallenge.targetVocab) vocab = JSON.parse(answerChallenge.targetVocab); } catch { vocab = []; }
+                if (vocab.length === 0) return null;
+                return (
+                  <View className="bg-amber-500/10 border border-amber-500/20 rounded-xl px-4 py-3 mb-5">
+                    <Text className="text-amber-300 text-xs uppercase tracking-wider mb-2">🎯 Use estas palavras</Text>
+                    <View className="flex-row flex-wrap gap-2">
+                      {vocab.map((w) => (
+                        <View key={w} className="bg-amber-500/20 rounded-lg px-2.5 py-1">
+                          <Text className="text-amber-200 text-xs font-semibold">{w}</Text>
+                        </View>
+                      ))}
+                    </View>
+                  </View>
+                );
+              })()}
 
               {answerChallenge.type === "written" ? (
                 <>
