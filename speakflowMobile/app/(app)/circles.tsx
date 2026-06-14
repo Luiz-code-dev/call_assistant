@@ -5,7 +5,10 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useAudioRecorder, useAudioRecorderState, AudioModule, RecordingPresets } from "expo-audio";
 import { ApiClient } from "@infrastructure/http/ApiClient";
+import { API_BASE_URL } from "@shared/constants/config";
+import { TokenStorage } from "@infrastructure/storage/TokenStorage";
 
 type ChallengeType = "written" | "spoken" | "quiz";
 type StartOffset = "now" | "1h" | "tomorrow";
@@ -71,7 +74,7 @@ interface Circle {
 
 interface CircleDetail extends Circle {
   members: { id: string; userId: string; role: string; user: { id: string; name: string; avatarUrl: string | null } }[];
-  challenges: { id: string; title: string; type: string; startsAt: string; endsAt: string; _count: { submissions: number } }[];
+  challenges: { id: string; title: string; type: string; prompt: string; startsAt: string; endsAt: string; _count: { submissions: number } }[];
 }
 
 const FOCUS_OPTIONS = [
@@ -115,6 +118,97 @@ export default function CirclesScreen() {
   const [expandedChallenge, setExpandedChallenge] = useState<string | null>(null);
   const [challengeSubmissions, setChallengeSubmissions] = useState<Record<string, MySubmission[]>>({});
   const [submissionsLoading, setSubmissionsLoading] = useState<string | null>(null);
+
+  // ── Challenge participation (written + spoken) ──
+  const [answerChallenge, setAnswerChallenge] = useState<{ id: string; title: string; prompt: string; type: string; circleId: string } | null>(null);
+  const [answerText, setAnswerText] = useState("");
+  const [submittingAnswer, setSubmittingAnswer] = useState(false);
+  const audioRecorder = useAudioRecorder({ ...RecordingPresets.HIGH_QUALITY });
+  const recorderState = useAudioRecorderState(audioRecorder, 200);
+
+  function openAnswer(ch: { id: string; title: string; prompt: string; type: string }, circleId: string) {
+    setAnswerChallenge({ ...ch, circleId });
+    setAnswerText("");
+  }
+
+  function closeAnswer() {
+    if (recorderState.isRecording) audioRecorder.stop().catch(() => {});
+    setAnswerChallenge(null);
+    setAnswerText("");
+    setSubmittingAnswer(false);
+  }
+
+  async function submitWritten() {
+    if (!answerChallenge || !answerText.trim()) return;
+    setSubmittingAnswer(true);
+    const r = await ApiClient.post("/api/network/submissions", {
+      challengeId: answerChallenge.id,
+      circleId: answerChallenge.circleId,
+      content: answerText.trim(),
+    });
+    setSubmittingAnswer(false);
+    if (r.ok) {
+      Alert.alert("Enviado!", "Sua resposta foi enviada. A IA vai avaliá-la em breve.");
+      setChallengeSubmissions((prev) => { const c = { ...prev }; delete c[answerChallenge.id]; return c; });
+      closeAnswer();
+      if (selected) refreshDetail(selected.id);
+    } else {
+      Alert.alert("Erro", (r as any).error?.message ?? "Não foi possível enviar.");
+    }
+  }
+
+  async function toggleRecording() {
+    if (recorderState.isRecording) {
+      await submitAudio();
+      return;
+    }
+    const status = await AudioModule.requestRecordingPermissionsAsync();
+    if (!status.granted) {
+      Alert.alert("Permissão necessária", "O SpeakFlow precisa do microfone para gravar o desafio de voz.");
+      return;
+    }
+    await AudioModule.setAudioModeAsync({ allowsRecording: true, playsInSilentMode: true });
+    await audioRecorder.prepareToRecordAsync({ ...RecordingPresets.HIGH_QUALITY });
+    audioRecorder.record();
+  }
+
+  async function submitAudio() {
+    if (!answerChallenge) return;
+    setSubmittingAnswer(true);
+    await audioRecorder.stop();
+    await new Promise((r) => setTimeout(r, 400));
+    const uri = audioRecorder.uri;
+    if (!uri) {
+      setSubmittingAnswer(false);
+      Alert.alert("Erro", "Gravação não capturada. Tente novamente.");
+      return;
+    }
+    try {
+      const token = await TokenStorage.get();
+      const formData = new FormData();
+      formData.append("audio", { uri, type: "audio/m4a", name: "challenge.m4a" } as unknown as Blob);
+      formData.append("challengeId", answerChallenge.id);
+      formData.append("circleId", answerChallenge.circleId);
+      const response = await fetch(`${API_BASE_URL}/api/network/submissions/audio`, {
+        method: "POST",
+        headers: { ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+        body: formData,
+      });
+      const data = await response.json().catch(() => ({}));
+      setSubmittingAnswer(false);
+      if (response.ok) {
+        Alert.alert("Enviado!", `Transcrição: "${data.transcription ?? ""}"\n\nA IA vai avaliar em breve.`);
+        setChallengeSubmissions((prev) => { const c = { ...prev }; delete c[answerChallenge.id]; return c; });
+        closeAnswer();
+        if (selected) refreshDetail(selected.id);
+      } else {
+        Alert.alert("Erro", data.error ?? "Não foi possível enviar o áudio.");
+      }
+    } catch {
+      setSubmittingAnswer(false);
+      Alert.alert("Erro", "Falha no envio do áudio. Verifique sua conexão.");
+    }
+  }
 
   async function handleInvite(circleId: string) {
     setInviteLoading(true);
@@ -206,6 +300,11 @@ export default function CirclesScreen() {
     setLoadingDetail(false);
     if (r.ok) setSelected(r.data);
     else setSelected({ ...circle, members: [], challenges: [] });
+  }
+
+  async function refreshDetail(circleId: string) {
+    const r = await ApiClient.get<CircleDetail>(`/api/network/circles/${circleId}`);
+    if (r.ok) setSelected(r.data);
   }
 
   async function loadRanking(circleId: string) {
@@ -915,19 +1014,34 @@ export default function CirclesScreen() {
                             </Text>
                           </View>
                           <Text className="text-white font-semibold text-sm">{ch.title}</Text>
-                          <View className="flex-row items-center justify-between mt-1">
+                          {ch.prompt ? (
+                            <Text className="text-zinc-400 text-xs mt-1 leading-relaxed" numberOfLines={2}>{ch.prompt}</Text>
+                          ) : null}
+                          <View className="flex-row items-center justify-between mt-2">
                             <Text className="text-zinc-500 text-xs">{ch._count.submissions} submissões</Text>
                             {canEnter && <Text className="text-emerald-400 text-xs font-semibold">Fazer quiz ›</Text>}
-                            {!canEnter && ch.type !== "quiz" && (
-                              <TouchableOpacity
-                                onPress={(e) => {
-                                  e.stopPropagation?.();
-                                  if (expandedChallenge === ch.id) { setExpandedChallenge(null); }
-                                  else { setExpandedChallenge(ch.id); loadChallengeSubmissions(ch.id); }
-                                }}
-                              >
-                                <Text className="text-zinc-500 text-xs">{expandedChallenge === ch.id ? "▲ ocultar" : "📋 minhas respostas"}</Text>
-                              </TouchableOpacity>
+                            {ch.type !== "quiz" && (
+                              <View className="flex-row items-center gap-4">
+                                <TouchableOpacity
+                                  onPress={(e) => {
+                                    e.stopPropagation?.();
+                                    if (expandedChallenge === ch.id) { setExpandedChallenge(null); }
+                                    else { setExpandedChallenge(ch.id); loadChallengeSubmissions(ch.id); }
+                                  }}
+                                >
+                                  <Text className="text-zinc-500 text-xs">{expandedChallenge === ch.id ? "▲ ocultar" : "📋 minhas respostas"}</Text>
+                                </TouchableOpacity>
+                                {isActive && (
+                                  <TouchableOpacity
+                                    onPress={(e) => { e.stopPropagation?.(); openAnswer(ch, selected.id); }}
+                                    className="bg-primary/20 border border-primary/40 rounded-lg px-3 py-1.5"
+                                  >
+                                    <Text className="text-primary text-xs font-bold">
+                                      {ch.type === "spoken" ? "🎙️ Gravar ›" : "✍️ Responder ›"}
+                                    </Text>
+                                  </TouchableOpacity>
+                                )}
+                              </View>
                             )}
                           </View>
                           {/* Submission history */}
@@ -1140,6 +1254,92 @@ export default function CirclesScreen() {
             </TouchableOpacity>
           </ScrollView>
         </SafeAreaView>
+      </Modal>
+
+      {/* ── Modal: Responder Desafio (Escrito / Voz) ── */}
+      <Modal visible={!!answerChallenge} animationType="slide" presentationStyle="pageSheet" onRequestClose={closeAnswer}>
+        {answerChallenge && (
+          <SafeAreaView className="flex-1 bg-background">
+            <View className="flex-row items-center justify-between px-5 pt-4 pb-3 border-b border-zinc-800">
+              <Text className="text-white font-bold text-base flex-1" numberOfLines={1}>
+                {answerChallenge.type === "spoken" ? "🎙️ Desafio de Voz" : "✍️ Desafio Escrito"}
+              </Text>
+              <TouchableOpacity onPress={closeAnswer} disabled={submittingAnswer} className="border border-zinc-700 rounded-xl px-3 py-1.5">
+                <Text className="text-zinc-400 text-xs font-semibold">✕ Fechar</Text>
+              </TouchableOpacity>
+            </View>
+
+            <ScrollView className="flex-1 px-5 pt-4" keyboardShouldPersistTaps="handled" contentContainerStyle={{ paddingBottom: 40 }}>
+              <Text className="text-white font-semibold text-lg mb-1">{answerChallenge.title}</Text>
+              {answerChallenge.prompt ? (
+                <View className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 mb-5">
+                  <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-1">Instrução</Text>
+                  <Text className="text-zinc-200 text-sm leading-relaxed">{answerChallenge.prompt}</Text>
+                </View>
+              ) : null}
+
+              {answerChallenge.type === "written" ? (
+                <>
+                  <Text className="text-zinc-400 text-xs uppercase tracking-wider mb-2">Sua resposta (em inglês)</Text>
+                  <TextInput
+                    value={answerText}
+                    onChangeText={setAnswerText}
+                    placeholder="Escreva sua resposta aqui..."
+                    placeholderTextColor="#52525b"
+                    multiline
+                    numberOfLines={8}
+                    textAlignVertical="top"
+                    maxLength={3000}
+                    editable={!submittingAnswer}
+                    className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white text-sm"
+                    style={{ minHeight: 180 }}
+                  />
+                  <Text className="text-zinc-600 text-xs mt-1 text-right">{answerText.length}/3000</Text>
+                  <TouchableOpacity
+                    onPress={submitWritten}
+                    disabled={submittingAnswer || !answerText.trim()}
+                    className="bg-primary rounded-xl py-4 items-center mt-4 disabled:opacity-50"
+                    activeOpacity={0.8}
+                  >
+                    {submittingAnswer
+                      ? <ActivityIndicator color="#fff" />
+                      : <Text className="text-white font-bold text-base">Enviar resposta ✨</Text>}
+                  </TouchableOpacity>
+                </>
+              ) : (
+                <View className="items-center pt-4">
+                  <View className={`w-32 h-32 rounded-full items-center justify-center mb-6 ${recorderState.isRecording ? "bg-red-500/20 border-2 border-red-500" : "bg-primary/20 border-2 border-primary/40"}`}>
+                    <Text style={{ fontSize: 48 }}>{recorderState.isRecording ? "⏺️" : "🎙️"}</Text>
+                  </View>
+                  <Text className="text-zinc-400 text-sm mb-2 text-center">
+                    {submittingAnswer
+                      ? "Enviando e transcrevendo..."
+                      : recorderState.isRecording
+                        ? "Gravando... fale em inglês e toque para enviar."
+                        : "Toque no botão para gravar sua resposta em inglês."}
+                  </Text>
+                  {recorderState.isRecording && (
+                    <Text className="text-red-400 text-xs mb-4">
+                      {Math.floor((recorderState.durationMillis ?? 0) / 1000)}s
+                    </Text>
+                  )}
+                  <TouchableOpacity
+                    onPress={toggleRecording}
+                    disabled={submittingAnswer}
+                    className={`rounded-xl py-4 px-8 items-center mt-4 disabled:opacity-50 ${recorderState.isRecording ? "bg-red-500" : "bg-primary"}`}
+                    activeOpacity={0.8}
+                  >
+                    {submittingAnswer
+                      ? <ActivityIndicator color="#fff" />
+                      : <Text className="text-white font-bold text-base">
+                          {recorderState.isRecording ? "⏹ Parar e enviar" : "⏺ Começar a gravar"}
+                        </Text>}
+                  </TouchableOpacity>
+                </View>
+              )}
+            </ScrollView>
+          </SafeAreaView>
+        )}
       </Modal>
 
       {loadingDetail && (
