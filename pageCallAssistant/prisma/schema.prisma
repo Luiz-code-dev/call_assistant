@@ -66,6 +66,8 @@ model User {
   orgLiveSessions      OrgLiveSession[]
   feedbacks            Feedback[]
   buddySessions        BuddySession[]
+  circlePhrases        CirclePhrase[]
+  circlePhraseLikes    CirclePhraseLike[]
 }
 
 model CreditTransaction {
@@ -115,6 +117,34 @@ model Circle {
   updatedAt   DateTime       @updatedAt
   members     CircleMember[]
   challenges  Challenge[]
+  phrases     CirclePhrase[]
+}
+
+model CirclePhrase {
+  id          String             @id @default(cuid())
+  circleId    String
+  userId      String
+  text        String
+  translation String?
+  likeCount   Int                @default(0)
+  createdAt   DateTime           @default(now())
+  circle      Circle             @relation(fields: [circleId], references: [id], onDelete: Cascade)
+  user        User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  likes       CirclePhraseLike[]
+
+  @@index([circleId])
+}
+
+model CirclePhraseLike {
+  id        String       @id @default(cuid())
+  phraseId  String
+  userId    String
+  createdAt DateTime     @default(now())
+  phrase    CirclePhrase @relation(fields: [phraseId], references: [id], onDelete: Cascade)
+  user      User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([phraseId, userId])
+  @@index([phraseId])
 }
 
 model CircleMember {

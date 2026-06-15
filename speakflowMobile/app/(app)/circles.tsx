@@ -32,6 +32,12 @@ interface RankingEntry {
   totalScore: number; avgScore: number; submissionCount: number; isMe: boolean; rank: number;
 }
 
+interface Phrase {
+  id: string; text: string; translation: string | null; likeCount: number;
+  createdAt: string; likedByMe: boolean; isMine: boolean;
+  user: { id: string; name: string; avatarUrl: string | null };
+}
+
 interface QuizQuestion {
   question: string;
   options: [string, string, string, string];
@@ -125,9 +131,15 @@ export default function CirclesScreen() {
   const [inviteLoading, setInviteLoading] = useState(false);
   const [generatingQuiz, setGeneratingQuiz] = useState(false);
   const [quizCount, setQuizCount] = useState(5);
-  const [circleTab, setCircleTab] = useState<"desafios" | "ranking" | "membros">("desafios");
+  const [circleTab, setCircleTab] = useState<"desafios" | "mural" | "ranking" | "membros">("desafios");
+  const [phrases, setPhrases] = useState<Phrase[] | null>(null);
+  const [phrasesLoading, setPhrasesLoading] = useState(false);
+  const [newPhrase, setNewPhrase] = useState("");
+  const [newPhraseTranslation, setNewPhraseTranslation] = useState("");
+  const [postingPhrase, setPostingPhrase] = useState(false);
   const [rankingData, setRankingData] = useState<{ rankings: RankingEntry[] } | null>(null);
   const [rankingLoading, setRankingLoading] = useState(false);
+  const [rankingPeriod, setRankingPeriod] = useState<"all" | "weekly">("all");
   const [proficiency, setProficiency] = useState<ProficiencyResult | null | false>(false);
   const [proficiencyLoading, setProficiencyLoading] = useState(false);
   const [requestingProficiency, setRequestingProficiency] = useState(false);
@@ -319,6 +331,7 @@ export default function CirclesScreen() {
     setLoadingDetail(true);
     setCircleTab("desafios");
     setRankingData(null);
+    setPhrases(null);
     const r = await ApiClient.get<CircleDetail>(`/api/network/circles/${circle.id}`);
     setLoadingDetail(false);
     if (r.ok) setSelected(r.data);
@@ -330,12 +343,66 @@ export default function CirclesScreen() {
     if (r.ok) setSelected(r.data);
   }
 
-  async function loadRanking(circleId: string) {
-    if (rankingLoading) return;
+  async function loadRanking(circleId: string, period: "all" | "weekly" = rankingPeriod) {
     setRankingLoading(true);
-    const r = await ApiClient.get<{ rankings: RankingEntry[] }>(`/api/network/leaderboard/${circleId}`);
+    const r = await ApiClient.get<{ rankings: RankingEntry[] }>(`/api/network/leaderboard/${circleId}?period=${period}`);
     setRankingLoading(false);
     if (r.ok) setRankingData(r.data);
+  }
+
+  async function loadPhrases(circleId: string) {
+    setPhrasesLoading(true);
+    const r = await ApiClient.get<Phrase[]>(`/api/network/circles/${circleId}/phrases`);
+    setPhrasesLoading(false);
+    if (r.ok) setPhrases(r.data);
+    else setPhrases([]);
+  }
+
+  async function postPhrase() {
+    if (!selected || !newPhrase.trim() || postingPhrase) return;
+    setPostingPhrase(true);
+    const r = await ApiClient.post<Phrase>(`/api/network/circles/${selected.id}/phrases`, {
+      text: newPhrase.trim(),
+      translation: newPhraseTranslation.trim() || undefined,
+    });
+    setPostingPhrase(false);
+    if (r.ok) {
+      setPhrases((prev) => [r.data, ...(prev ?? [])]);
+      setNewPhrase("");
+      setNewPhraseTranslation("");
+    } else {
+      Alert.alert("Erro", (r as any).error?.message ?? "Não foi possível publicar.");
+    }
+  }
+
+  async function toggleLikePhrase(phraseId: string) {
+    setPhrases((prev) =>
+      (prev ?? []).map((p) =>
+        p.id === phraseId
+          ? { ...p, likedByMe: !p.likedByMe, likeCount: p.likeCount + (p.likedByMe ? -1 : 1) }
+          : p
+      )
+    );
+    const r = await ApiClient.post<{ likedByMe: boolean; likeCount: number }>(`/api/network/phrases/${phraseId}/like`, {});
+    if (r.ok) {
+      setPhrases((prev) =>
+        (prev ?? []).map((p) => (p.id === phraseId ? { ...p, likedByMe: r.data.likedByMe, likeCount: r.data.likeCount } : p))
+      );
+    }
+  }
+
+  function deletePhrase(phraseId: string) {
+    Alert.alert("Remover frase", "Tem certeza que deseja remover esta frase?", [
+      { text: "Cancelar", style: "cancel" },
+      {
+        text: "Remover", style: "destructive",
+        onPress: async () => {
+          const r = await ApiClient.delete(`/api/network/phrases/${phraseId}`);
+          if (r.ok) setPhrases((prev) => (prev ?? []).filter((p) => p.id !== phraseId));
+          else Alert.alert("Erro", "Não foi possível remover.");
+        },
+      },
+    ]);
   }
 
   async function loadProficiency() {
@@ -999,6 +1066,7 @@ export default function CirclesScreen() {
               <View className="flex-row border-b border-zinc-800 px-5">
                 {([
                   { key: "desafios", label: "⚡ Desafios" },
+                  { key: "mural",    label: "📌 Mural"    },
                   { key: "ranking",  label: "🏆 Ranking"  },
                   { key: "membros",  label: "👥 Membros"  },
                 ] as const).map(tab => (
@@ -1007,6 +1075,7 @@ export default function CirclesScreen() {
                     onPress={() => {
                       setCircleTab(tab.key);
                       if (tab.key === "ranking" && !rankingData && !rankingLoading) loadRanking(selected.id);
+                      if (tab.key === "mural" && phrases === null && !phrasesLoading) loadPhrases(selected.id);
                     }}
                     className={`mr-6 pb-2.5 border-b-2 ${circleTab === tab.key ? "border-primary" : "border-transparent"}`}
                   >
@@ -1124,9 +1193,100 @@ export default function CirclesScreen() {
                   </>
                 )}
 
+                {/* ── Tab: Mural de frases ── */}
+                {circleTab === "mural" && (
+                  <>
+                    {selected.isMember && (
+                      <View className="bg-zinc-900 border border-zinc-800 rounded-2xl p-3">
+                        <TextInput
+                          value={newPhrase}
+                          onChangeText={setNewPhrase}
+                          placeholder="Compartilhe uma frase ou expressão útil em inglês..."
+                          placeholderTextColor="#52525b"
+                          multiline
+                          maxLength={300}
+                          className="text-white text-sm"
+                          style={{ minHeight: 36 }}
+                        />
+                        <TextInput
+                          value={newPhraseTranslation}
+                          onChangeText={setNewPhraseTranslation}
+                          placeholder="Tradução / quando usar (opcional)"
+                          placeholderTextColor="#52525b"
+                          maxLength={300}
+                          className="text-zinc-300 text-xs border-t border-zinc-800 pt-2 mt-1"
+                        />
+                        <TouchableOpacity
+                          onPress={postPhrase}
+                          disabled={postingPhrase || !newPhrase.trim()}
+                          className="bg-primary rounded-xl py-2.5 items-center mt-3 disabled:opacity-50"
+                          activeOpacity={0.8}
+                        >
+                          {postingPhrase
+                            ? <ActivityIndicator color="#fff" size="small" />
+                            : <Text className="text-white font-bold text-xs">📌 Publicar no mural</Text>}
+                        </TouchableOpacity>
+                      </View>
+                    )}
+
+                    {phrasesLoading && (
+                      <View className="items-center py-10">
+                        <ActivityIndicator color="#7c3aed" size="large" />
+                      </View>
+                    )}
+
+                    {!phrasesLoading && phrases && phrases.length === 0 && (
+                      <Text className="text-zinc-500 text-sm text-center py-10">
+                        Nenhuma frase ainda. Seja o primeiro a compartilhar! 💬
+                      </Text>
+                    )}
+
+                    {!phrasesLoading && (phrases ?? []).map((p) => (
+                      <View key={p.id} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4">
+                        <Text className="text-white text-sm leading-relaxed">"{p.text}"</Text>
+                        {p.translation ? (
+                          <Text className="text-zinc-400 text-xs mt-1.5 leading-relaxed">{p.translation}</Text>
+                        ) : null}
+                        <View className="flex-row items-center justify-between mt-3">
+                          <View className="flex-row items-center gap-2">
+                            <View className="w-6 h-6 rounded-full bg-primary/20 items-center justify-center">
+                              <Text className="text-white text-[10px] font-bold">{p.user.name.charAt(0).toUpperCase()}</Text>
+                            </View>
+                            <Text className="text-zinc-500 text-xs">{p.user.name}</Text>
+                          </View>
+                          <View className="flex-row items-center gap-4">
+                            {p.isMine && (
+                              <TouchableOpacity onPress={() => deletePhrase(p.id)}>
+                                <Text className="text-zinc-600 text-xs">🗑</Text>
+                              </TouchableOpacity>
+                            )}
+                            <TouchableOpacity onPress={() => toggleLikePhrase(p.id)} className="flex-row items-center gap-1">
+                              <Text className="text-sm">{p.likedByMe ? "❤️" : "🤍"}</Text>
+                              <Text className={`text-xs font-semibold ${p.likedByMe ? "text-primary" : "text-zinc-500"}`}>{p.likeCount}</Text>
+                            </TouchableOpacity>
+                          </View>
+                        </View>
+                      </View>
+                    ))}
+                  </>
+                )}
+
                 {/* ── Tab: Ranking ── */}
                 {circleTab === "ranking" && (
                   <>
+                    <View className="flex-row gap-2 mb-1">
+                      {(["weekly", "all"] as const).map((p) => (
+                        <TouchableOpacity
+                          key={p}
+                          onPress={() => { setRankingPeriod(p); if (selected) loadRanking(selected.id, p); }}
+                          className={`flex-1 py-2 rounded-xl border items-center ${rankingPeriod === p ? "bg-primary/20 border-primary/40" : "bg-zinc-900 border-zinc-800"}`}
+                        >
+                          <Text className={`text-xs font-semibold ${rankingPeriod === p ? "text-primary" : "text-zinc-400"}`}>
+                            {p === "weekly" ? "📅 Esta semana" : "🏆 Geral"}
+                          </Text>
+                        </TouchableOpacity>
+                      ))}
+                    </View>
                     {rankingLoading && (
                       <View className="items-center py-12">
                         <ActivityIndicator color="#7c3aed" size="large" />
