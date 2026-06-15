@@ -1,8 +1,32 @@
 import { useEffect, useState, useCallback } from "react";
-import { useIAP as useIAPLib, ErrorCode, getAvailablePurchases } from "react-native-iap";
 import { Platform } from "react-native";
+import Constants, { ExecutionEnvironment } from "expo-constants";
 import { ApiClient } from "@infrastructure/http/ApiClient";
 import { useAuthStore } from "@presentation/stores/authStore";
+
+// react-native-iap relies on NitroModules, which are NOT available in Expo Go.
+// We lazily require it only outside Expo Go to avoid a crash at module load,
+// and fall back to no-op stubs so the app remains usable for testing in Expo Go.
+const isExpoGo = Constants.executionEnvironment === ExecutionEnvironment.StoreClient;
+
+let useIAPLib: (opts?: any) => any;
+let ErrorCode: any = { UserCancelled: "user-cancelled" };
+let getAvailablePurchases: () => Promise<any[]> = async () => [];
+
+if (!isExpoGo) {
+  const iap = require("react-native-iap");
+  useIAPLib = iap.useIAP;
+  ErrorCode = iap.ErrorCode;
+  getAvailablePurchases = iap.getAvailablePurchases;
+} else {
+  useIAPLib = () => ({
+    connected: false,
+    products: [],
+    fetchProducts: async () => {},
+    requestPurchase: async () => {},
+    finishTransaction: async () => {},
+  });
+}
 
 // ── Subscription SKUs (auto-renewable, monthly) ─────────────────────────────
 export const PLAN_SKUS = [
@@ -64,7 +88,7 @@ export function useIAP() {
   const { refreshUser } = useAuthStore();
 
   const { connected, products: rawProducts, fetchProducts, requestPurchase, finishTransaction } = useIAPLib({
-    onPurchaseSuccess: async (purchase) => {
+    onPurchaseSuccess: async (purchase: any) => {
       const txId = (purchase as any).transactionId ?? (purchase as any).id ?? "";
       const productId = (purchase as any).productId ?? (purchase as any).sku ?? "";
       const isPack = PACK_SKUS.includes(productId as PackSKU);
@@ -81,7 +105,7 @@ export function useIAP() {
       }
       setPurchasing(null);
     },
-    onPurchaseError: (error) => {
+    onPurchaseError: (error: any) => {
       if ((error as any).code !== ErrorCode.UserCancelled) {
         setPurchaseError((error as any).message ?? "Erro na compra");
       }
