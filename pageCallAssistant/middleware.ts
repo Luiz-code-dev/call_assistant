@@ -12,7 +12,8 @@ export async function middleware(req: NextRequest) {
   const host = req.headers.get("host") ?? "";
   const proto = req.headers.get("x-forwarded-proto") ?? "https";
 
-  if (host === "speakf.com.br" || proto === "http") {
+  const isLocalhost = host.startsWith("localhost") || host.startsWith("127.0.0.1");
+  if (!isLocalhost && (host === "speakf.com.br" || proto === "http")) {
     const url = new URL(req.url);
     url.protocol = "https:";
     url.host = "www.speakf.com.br";
@@ -27,38 +28,46 @@ export async function middleware(req: NextRequest) {
       return NextResponse.next();
     }
 
-    const eduSecret = new TextEncoder().encode(
-      process.env.EDU_STUDENT_JWT_SECRET || "edu-student-dev-secret"
+    const staffSecret = new TextEncoder().encode(
+      process.env.EDU_JWT_SECRET || "edu-dev-secret-change-me"
+    );
+    const studentSecret = new TextEncoder().encode(
+      process.env.EDU_STUDENT_JWT_SECRET || "student-dev-secret-change-me"
     );
 
+    // Public escola routes
     if (
       pathname.startsWith("/escola/entrar") ||
+      pathname.startsWith("/escola/aluno/entrar") ||
+      pathname.startsWith("/escola/convite/") ||
       pathname.startsWith("/verificar")
     ) {
       return NextResponse.next();
     }
 
+    // Student-only routes
     if (pathname.startsWith("/escola/aluno")) {
-      const studentToken = req.cookies.get("sf_edu_student")?.value;
+      const studentToken = req.cookies.get("sf_student_ctx")?.value;
       if (!studentToken) {
-        return NextResponse.redirect(new URL("/escola/entrar", req.url));
+        return NextResponse.redirect(new URL("/escola/aluno/entrar", req.url));
       }
       try {
-        await jwtVerify(studentToken, eduSecret);
+        await jwtVerify(studentToken, studentSecret);
         return NextResponse.next();
       } catch {
-        const res = NextResponse.redirect(new URL("/escola/entrar", req.url));
-        res.cookies.delete("sf_edu_student");
+        const res = NextResponse.redirect(new URL("/escola/aluno/entrar", req.url));
+        res.cookies.delete("sf_student_ctx");
         return res;
       }
     }
 
+    // Staff routes
     const ctxToken = req.cookies.get("sf_edu_ctx")?.value;
     if (!ctxToken) {
       return NextResponse.redirect(new URL("/escola/entrar", req.url));
     }
     try {
-      await jwtVerify(ctxToken, eduSecret);
+      await jwtVerify(ctxToken, staffSecret);
       return NextResponse.next();
     } catch {
       const res = NextResponse.redirect(new URL("/escola/entrar", req.url));

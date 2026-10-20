@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import { getEduContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { can } from "@/lib/escola/permissions";
-import { db } from "@/lib/db";
+import { prismaEdu } from "@/lib/escola/db";
 
 const STAGE_LABEL: Record<string, string> = {
   EARLY_CHILDHOOD: "Ed. Infantil",
@@ -26,12 +26,12 @@ export default async function TurmasPage() {
   if (!ctx) return redirect("/escola/entrar");
   if (!can(ctx.role, "class:read")) return redirect("/escola/painel");
 
-  const currentYear = await db.eduSchoolYear.findFirst({
+  const currentYear = await prismaEdu.eduSchoolYear.findFirst({
     where: { networkId: ctx.networkId, isCurrent: true },
     select: { id: true, year: true },
   });
 
-  const classes = await db.eduClass.findMany({
+  const classes = await prismaEdu.eduClass.findMany({
     where: {
       networkId: ctx.networkId,
       isActive: true,
@@ -73,7 +73,7 @@ export default async function TurmasPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
-                {classes.map((cls) => (
+                {classes.map((cls: { id: string; name: string; stage: string; gradeYear: number; shift: string; accessCode: string; school: { name: string }; _count: { subjects: number; enrollments: number } }) => (
                   <tr key={cls.id} className="hover:bg-card/50 transition-colors">
                     <td className="px-4 py-3 text-foreground">{cls.school.name}</td>
                     <td className="px-4 py-3 font-medium text-foreground">{cls.name}</td>

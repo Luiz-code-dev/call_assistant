@@ -11,6 +11,7 @@
 
 import { PrismaClient, EduRole, EduStage, EduShift, EduEnrollmentStatus } from "@prisma/client";
 import bcrypt from "bcryptjs";
+import { seedBnccMatrix } from "./seed-bncc";
 
 const db = new PrismaClient();
 

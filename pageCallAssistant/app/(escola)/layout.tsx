@@ -1,8 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "../globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "SpeakFlow Escolas",
@@ -10,9 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function EscolaLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="pt-BR" className="dark">
-      <body className={inter.className}>{children}</body>
-    </html>
-  );
+  return <>{children}</>;
 }

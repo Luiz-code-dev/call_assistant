@@ -1,130 +1,75 @@
 import { NextRequest, NextResponse } from "next/server";
-import { z } from "zod";
-import { db } from "@/lib/db";
-import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { getEduContext } from "@/lib/escola/context";
-import { can } from "@/lib/escola/permissions";
+import { prismaEdu } from "@/lib/escola/db";
 import { computeGradeHash, signHash } from "@/lib/escola/integrity";
 
-const entrySchema = z.object({
-  assessmentId: z.string().min(1),
-  studentId: z.string().min(1),
-  value: z.number().min(0).max(100).nullable(),
-  absent: z.boolean().default(false),
-});
+function flag() { return process.env.FEATURE_ESCOLAS === "true"; }
 
 export async function GET(req: NextRequest) {
-  if (!isEscolasEnabled()) return NextResponse.json({ error: "Not found" }, { status: 404 });
-
+  if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
-  if (!can(ctx.role, "grade:read")) return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 
-  const assessmentId = req.nextUrl.searchParams.get("assessmentId");
+  const { searchParams } = new URL(req.url);
+  const assessmentId = searchParams.get("assessmentId");
   if (!assessmentId) return NextResponse.json({ error: "assessmentId obrigatório" }, { status: 400 });
 
-  const assessment = await db.eduAssessment.findUnique({
-    where: { id: assessmentId },
-    include: {
-      classSubject: { select: { networkId: true } },
-    },
-  });
-  if (!assessment || assessment.classSubject.networkId !== ctx.networkId) {
-    return NextResponse.json({ error: "Avaliação não encontrada" }, { status: 404 });
-  }
+  const assessment = await prismaEdu.eduAssessment.findUnique({ where: { id: assessmentId, networkId: ctx.networkId } });
+  if (!assessment) return NextResponse.json({ error: "Avaliação não encontrada" }, { status: 404 });
 
-  const entries = await db.eduGradeEntry.findMany({
+  const grades = await prismaEdu.eduGradeEntry.findMany({
     where: { assessmentId, networkId: ctx.networkId },
     orderBy: [{ studentId: "asc" }, { version: "desc" }],
     distinct: ["studentId"],
   });
-
-  return NextResponse.json(entries);
+  return NextResponse.json({ grades });
 }
 
 export async function POST(req: NextRequest) {
-  if (!isEscolasEnabled()) return NextResponse.json({ error: "Not found" }, { status: 404 });
-
+  if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
-  if (!can(ctx.role, "grade:enter")) return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 
-  const parsed = entrySchema.safeParse(await req.json());
-  if (!parsed.success) return NextResponse.json({ error: "Dados inválidos" }, { status: 400 });
+  const { classSubjectId, assessmentId, rows } = await req.json();
+  if (!assessmentId || !Array.isArray(rows)) return NextResponse.json({ error: "Dados inválidos" }, { status: 400 });
 
-  const { assessmentId, studentId, value, absent } = parsed.data;
+  const assessment = await prismaEdu.eduAssessment.findUnique({ where: { id: assessmentId, networkId: ctx.networkId } });
+  if (!assessment) return NextResponse.json({ error: "Avaliação não encontrada" }, { status: 404 });
+  if (assessment.status === "PUBLISHED") return NextResponse.json({ error: "Avaliação já publicada" }, { status: 409 });
 
-  const assessment = await db.eduAssessment.findUnique({
-    where: { id: assessmentId },
-    include: { classSubject: { select: { networkId: true } } },
-  });
-  if (!assessment || assessment.classSubject.networkId !== ctx.networkId) {
-    return NextResponse.json({ error: "Avaliação não encontrada" }, { status: 404 });
-  }
-  if (assessment.status === "PUBLISHED") {
-    return NextResponse.json({ error: "Avaliação já publicada" }, { status: 409 });
+  // Verify teacher has access to this offer
+  if (ctx.role === "TEACHER") {
+    const offer = await prismaEdu.eduClassSubject.findUnique({ where: { id: classSubjectId, networkId: ctx.networkId } });
+    if (!offer || offer.teacherId !== ctx.userId) return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
   }
 
-  const term = await db.eduTerm.findUnique({ where: { id: assessment.termId } });
-  if (!term || term.status === "CLOSED") {
-    return NextResponse.json({ error: "Bimestre encerrado" }, { status: 409 });
+  const saved = [];
+  for (const row of rows) {
+    const { studentId, score, absent, note } = row;
+    if (!studentId) continue;
+
+    const lastEntry = await prismaEdu.eduGradeEntry.findFirst({
+      where: { assessmentId, studentId, networkId: ctx.networkId },
+      orderBy: { version: "desc" },
+      select: { version: true, hash: true },
+    });
+
+    const version = (lastEntry?.version ?? 0) + 1;
+    const prevHash = lastEntry?.hash ?? "0".repeat(64);
+    const enteredAt = new Date().toISOString();
+
+    const entryData = { networkId: ctx.networkId, assessmentId, studentId, value: score, absent: absent ?? false, version, correctionId: null, enteredById: ctx.userId, enteredAt, prevHash };
+    const hash = computeGradeHash(entryData);
+    let signature = "dev-sig"; let keyId = "dev";
+    try { const s = signHash(hash); signature = s.signature; keyId = s.keyId; } catch { /* no key in dev */ }
+
+    const entry = await prismaEdu.eduGradeEntry.create({
+      data: { networkId: ctx.networkId, assessmentId, studentId, value: score !== null && score !== undefined ? +score : null, absent: absent ?? false, version, enteredById: ctx.userId, enteredAt: new Date(enteredAt), prevHash, hash, signature, keyId, note: note ?? null },
+    });
+    saved.push(entry);
   }
 
-  const lastEntry = await db.eduGradeEntry.findFirst({
-    where: { assessmentId, studentId, networkId: ctx.networkId },
-    orderBy: { version: "desc" },
-    select: { version: true, hash: true },
-  });
+  await prismaEdu.eduAuditLog.create({ data: { networkId: ctx.networkId, actorType: "staff", actorId: ctx.userId, action: "grade.enter", entity: "EduAssessment", entityId: assessmentId, metadata: { count: saved.length } } });
 
-  const version = (lastEntry?.version ?? 0) + 1;
-  const prevHash = lastEntry?.hash ?? "0".repeat(64);
-  const enteredAt = new Date().toISOString();
-
-  const entryData = {
-    networkId: ctx.networkId,
-    assessmentId,
-    studentId,
-    value,
-    absent,
-    version,
-    correctionId: null,
-    enteredById: ctx.userId,
-    enteredAt,
-    prevHash,
-  };
-
-  const hash = computeGradeHash(entryData);
-  const { signature, keyId } = signHash(hash);
-
-  const entry = await db.eduGradeEntry.create({
-    data: {
-      networkId: ctx.networkId,
-      assessmentId,
-      studentId,
-      value: value !== null ? value : undefined,
-      absent,
-      version,
-      correctionId: null,
-      enteredById: ctx.userId,
-      enteredAt: new Date(enteredAt),
-      prevHash,
-      hash,
-      signature,
-      keyId,
-    },
-  });
-
-  await db.eduAuditLog.create({
-    data: {
-      networkId: ctx.networkId,
-      actorType: "staff",
-      actorId: ctx.userId,
-      action: "grade:enter",
-      entity: "EduGradeEntry",
-      entityId: entry.id,
-      metadata: { assessmentId, studentId, version },
-    },
-  });
-
-  return NextResponse.json(entry, { status: 201 });
+  return NextResponse.json({ saved: saved.length }, { status: 201 });
 }

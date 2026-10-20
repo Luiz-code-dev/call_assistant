@@ -695,6 +695,27 @@ enum EduCorrectionStatus {
   REJECTED
 }
 
+enum EduImportKind {
+  SCHOOLS
+  STAFF
+  STUDENTS
+  ASSIGNMENTS
+}
+
+enum EduImportStatus {
+  UPLOADED
+  PREVIEW
+  PROCESSING
+  DONE
+  FAILED
+  CANCELLED
+}
+
+enum EduStudentLoginMode {
+  PIN
+  PICTURE
+}
+
 model EduNetwork {
   id          String   @id @default(cuid())
   name        String
@@ -705,11 +726,13 @@ model EduNetwork {
   gradeConfig Json
   createdAt   DateTime @default(now())
 
-  schools     EduSchool[]
-  schoolYears EduSchoolYear[]
-  subjects    EduSubject[]
-  memberships EduMembership[]
-  students    EduStudent[]
+  schools      EduSchool[]
+  schoolYears  EduSchoolYear[]
+  subjects     EduSubject[]
+  memberships  EduMembership[]
+  students     EduStudent[]
+  importBatches EduImportBatch[]
+  invites      EduInvite[]
 }
 
 model EduMembership {
@@ -811,13 +834,15 @@ model EduClass {
   stage        EduStage
   gradeYear    Int
   shift        EduShift
-  accessCode   String   @unique
-  isActive     Boolean  @default(true)
+  accessCode        String              @unique
+  isActive          Boolean             @default(true)
+  defaultLoginMode  EduStudentLoginMode @default(PIN)
 
-  school      EduSchool      @relation(fields: [schoolId], references: [id])
-  schoolYear  EduSchoolYear  @relation(fields: [schoolYearId], references: [id])
+  school      EduSchool        @relation(fields: [schoolId], references: [id])
+  schoolYear  EduSchoolYear    @relation(fields: [schoolYearId], references: [id])
   subjects    EduClassSubject[]
   enrollments EduEnrollment[]
+  sessions    EduClassSession[]
 
   @@index([networkId, schoolId, schoolYearId])
 }
@@ -847,9 +872,12 @@ model EduStudent {
   pinHash          String
   pinFailedCount   Int       @default(0)
   pinLockedUntil   DateTime?
-  guardianConsentAt DateTime?
-  isActive         Boolean   @default(true)
-  createdAt        DateTime  @default(now())
+  guardianConsentAt  DateTime?
+  isActive           Boolean             @default(true)
+  loginMode          EduStudentLoginMode @default(PIN)
+  pictureSecretHash  String?
+  cardVersion        Int                 @default(1)
+  createdAt          DateTime            @default(now())
 
   network     EduNetwork      @relation(fields: [networkId], references: [id])
   enrollments EduEnrollment[]
@@ -928,7 +956,7 @@ model EduAssessment {
   id             String              @id @default(cuid())
   networkId      String
   classSubjectId String
-  termId         String
+  termId         String?
   title          String
   type           EduAssessmentType
   weight         Decimal             @db.Decimal(5, 2) @default(1)
@@ -940,8 +968,8 @@ model EduAssessment {
   createdById    String
   publishedAt    DateTime?
 
-  classSubject EduClassSubject @relation(fields: [classSubjectId], references: [id])
-  term         EduTerm         @relation(fields: [termId], references: [id])
+  classSubject EduClassSubject  @relation(fields: [classSubjectId], references: [id])
+  term         EduTerm?         @relation(fields: [termId], references: [id])
   entries      EduGradeEntry[]
 
   @@index([classSubjectId, termId])
@@ -962,6 +990,7 @@ model EduGradeEntry {
   hash         String   @unique
   signature    String
   keyId        String
+  note         String?      @db.Text
 
   assessment EduAssessment @relation(fields: [assessmentId], references: [id], onDelete: Restrict)
 
@@ -1019,4 +1048,62 @@ model EduAuditLog {
 
   @@index([networkId, entity, entityId])
   @@index([networkId, createdAt])
+}
+
+model EduImportBatch {
+  id          String          @id @default(cuid())
+  networkId   String
+  schoolId    String?
+  kind        EduImportKind
+  status      EduImportStatus @default(UPLOADED)
+  fileName    String
+  columnMap   Json?
+  totalRows   Int             @default(0)
+  processed   Int             @default(0)
+  created     Int             @default(0)
+  updated     Int             @default(0)
+  failed      Int             @default(0)
+  errors      Json?
+  createdById String
+  createdAt   DateTime        @default(now())
+  finishedAt  DateTime?
+
+  network EduNetwork @relation(fields: [networkId], references: [id])
+
+  @@index([networkId, createdAt])
+}
+
+model EduInvite {
+  id          String    @id @default(cuid())
+  networkId   String
+  schoolId    String?
+  email       String
+  name        String
+  role        EduRole
+  tokenHash   String    @unique
+  expiresAt   DateTime
+  acceptedAt  DateTime?
+  userId      String?
+  sentCount   Int       @default(1)
+  createdById String
+  createdAt   DateTime  @default(now())
+
+  network EduNetwork @relation(fields: [networkId], references: [id])
+
+  @@index([networkId, email])
+}
+
+model EduClassSession {
+  id         String    @id @default(cuid())
+  networkId  String
+  classId    String
+  openedById String
+  code       String    @unique
+  expiresAt  DateTime
+  closedAt   DateTime?
+
+  class EduClass @relation(fields: [classId], references: [id])
+
+  @@index([code])
+  @@index([networkId])
 }
