@@ -19,8 +19,56 @@ export async function middleware(req: NextRequest) {
     return NextResponse.redirect(url.toString(), 301);
   }
 
-  const rawToken = req.cookies.get("token")?.value;
   const { pathname } = req.nextUrl;
+
+  // ── Área Escolar ── isolado, não altera lógica existente ──────────
+  if (pathname.startsWith("/escola") || pathname.startsWith("/verificar")) {
+    if (process.env.FEATURE_ESCOLAS !== "true") {
+      return NextResponse.next();
+    }
+
+    const eduSecret = new TextEncoder().encode(
+      process.env.EDU_STUDENT_JWT_SECRET || "edu-student-dev-secret"
+    );
+
+    if (
+      pathname.startsWith("/escola/entrar") ||
+      pathname.startsWith("/verificar")
+    ) {
+      return NextResponse.next();
+    }
+
+    if (pathname.startsWith("/escola/aluno")) {
+      const studentToken = req.cookies.get("sf_edu_student")?.value;
+      if (!studentToken) {
+        return NextResponse.redirect(new URL("/escola/entrar", req.url));
+      }
+      try {
+        await jwtVerify(studentToken, eduSecret);
+        return NextResponse.next();
+      } catch {
+        const res = NextResponse.redirect(new URL("/escola/entrar", req.url));
+        res.cookies.delete("sf_edu_student");
+        return res;
+      }
+    }
+
+    const ctxToken = req.cookies.get("sf_edu_ctx")?.value;
+    if (!ctxToken) {
+      return NextResponse.redirect(new URL("/escola/entrar", req.url));
+    }
+    try {
+      await jwtVerify(ctxToken, eduSecret);
+      return NextResponse.next();
+    } catch {
+      const res = NextResponse.redirect(new URL("/escola/entrar", req.url));
+      res.cookies.delete("sf_edu_ctx");
+      return res;
+    }
+  }
+  // ── fim Área Escolar ──────────────────────────────────────────────
+
+  const rawToken = req.cookies.get("token")?.value;
 
   const isProtected = protectedRoutes.some((r) => pathname.startsWith(r));
   const isAuthRoute = authRoutes.some((r) => pathname.startsWith(r));
