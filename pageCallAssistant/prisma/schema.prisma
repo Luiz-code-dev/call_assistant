@@ -69,6 +69,8 @@ model User {
   circlePhrases        CirclePhrase[]
   circlePhraseLikes    CirclePhraseLike[]
   eduMemberships       EduMembership[]
+  eduPlatformAdmin      EduPlatformAdmin?
+  eduAccountState       EduAccountState?
 }
 
 model CreditTransaction {
@@ -637,6 +639,14 @@ enum EduRole {
   TEACHER
 }
 
+enum EduInviteRole {
+  PLATFORM_ADMIN
+  NETWORK_ADMIN
+  COORDINATOR
+  SCHOOL_ADMIN
+  TEACHER
+}
+
 enum EduStage {
   EARLY_CHILDHOOD
   ELEMENTARY_EARLY
@@ -714,6 +724,24 @@ enum EduImportStatus {
 enum EduStudentLoginMode {
   PIN
   PICTURE
+}
+
+model EduPlatformAdmin {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  isActive    Boolean  @default(true)
+  createdById String?
+  createdAt   DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model EduAccountState {
+  id            String    @id @default(cuid())
+  userId        String    @unique
+  passwordSetAt DateTime?
+
+  user User @relation(fields: [userId], references: [id])
 }
 
 model EduNetwork {
@@ -1036,7 +1064,7 @@ model EduTermClosure {
 
 model EduAuditLog {
   id        String   @id @default(cuid())
-  networkId String
+  networkId String?
   actorType String
   actorId   String
   action    String
@@ -1074,21 +1102,21 @@ model EduImportBatch {
 }
 
 model EduInvite {
-  id          String    @id @default(cuid())
-  networkId   String
+  id          String        @id @default(cuid())
+  networkId   String?
   schoolId    String?
   email       String
   name        String
-  role        EduRole
-  tokenHash   String    @unique
+  role        EduInviteRole
+  tokenHash   String        @unique
   expiresAt   DateTime
   acceptedAt  DateTime?
   userId      String?
-  sentCount   Int       @default(1)
+  sentCount   Int           @default(1)
   createdById String
-  createdAt   DateTime  @default(now())
+  createdAt   DateTime      @default(now())
 
-  network EduNetwork @relation(fields: [networkId], references: [id])
+  network EduNetwork? @relation(fields: [networkId], references: [id])
 
   @@index([networkId, email])
 }

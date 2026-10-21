@@ -1,9 +1,12 @@
 # local env files
-#.env*.local
+.env*.local
 
-# scripts locais (seeds, SQL sensível)
-scripts/
+# scripts locais (seeds, SQL sensível) — exceto scripts/escolas/ que vai para o repo
+scripts/**
+!scripts/escolas/
+!scripts/escolas/**
 .env.production
+.env.railway
 .next/
 node_modules/
 out/
