@@ -3,23 +3,53 @@ import { getEduContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { prismaEdu } from "@/lib/escola/db";
 import { suggestActivity } from "@/lib/escola/ai-gateway";
+import { assertCanManageClassSubject } from "@/lib/escola/permissions";
+import { z } from "zod";
 
 export const runtime = "nodejs";
+
+// A5: papéis que podem acessar atividades de professor
+const ALLOWED_ROLES = new Set(["TEACHER", "COORDINATOR", "NETWORK_ADMIN", "SCHOOL_ADMIN"]);
+
+// C: validação Zod para suggestActivity output
+const SuggestOutputSchema = z.object({
+  title: z.string().min(1),
+  prompt: z.string().min(1),
+  rubric: z.object({
+    criterios: z.array(z.object({
+      criterio: z.string(),
+      peso: z.number().min(0.01).max(1),
+      descricao: z.string().optional(),
+    })).min(2).max(4).refine(
+      (cs) => Math.abs(cs.reduce((s, c) => s + c.peso, 0) - 1) < 0.01,
+      { message: "Pesos devem somar 1" },
+    ),
+  }).optional(),
+  questions: z.array(z.object({
+    question: z.string(),
+    options: z.array(z.string()).min(2).max(5),
+    correctIndex: z.number().int().min(0),
+    explanation: z.string().optional(),
+  })).optional(),
+});
 
 // GET — lista atividades do professor nessa turma/componente
 export async function GET(req: NextRequest) {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "disabled" }, { status: 403 });
   const ctx = await getEduContext();
-  if (!ctx || ctx.role !== "TEACHER") return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
+  if (!ctx || !ALLOWED_ROLES.has(ctx.role)) return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 
   const { searchParams } = new URL(req.url);
   const classSubjectId = searchParams.get("classSubjectId");
 
-  const activities = await prismaEdu.eduActivity.findMany({
+  // A5: TEACHER vê apenas atividades das suas turmas
+  const teacherFilter = ctx.role === "TEACHER" ? { classSubject: { teacherId: ctx.userId } } : {};
+
+  const activities = await (prismaEdu as any).eduActivity.findMany({
     where: {
-      createdById: ctx.userId,
       networkId: ctx.networkId,
       ...(classSubjectId ? { classSubjectId } : {}),
+      ...teacherFilter,
     },
     orderBy: { createdAt: "desc" },
     include: {
@@ -35,19 +65,23 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "disabled" }, { status: 403 });
   const ctx = await getEduContext();
-  if (!ctx || ctx.role !== "TEACHER") return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
+  if (!ctx || !ALLOWED_ROLES.has(ctx.role)) return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 
   const body = await req.json();
 
-  // Sugestão IA (retorna sugestão sem salvar)
+  // Sugestão IA (retorna sugestão sem salvar) — C: valida output com Zod
   if (body.action === "sugerir") {
-    const suggestion = await suggestActivity({
+    const rawSuggestion = await suggestActivity({
       subjectName: body.subjectName ?? "Português",
       gradeYear: body.gradeYear ?? 6,
       topicTitle: body.topicTitle,
       activityType: body.type ?? "WRITTEN",
     });
-    return NextResponse.json({ suggestion });
+    const parsed = SuggestOutputSchema.safeParse(rawSuggestion);
+    if (!parsed.success) {
+      return NextResponse.json({ error: "Sugestão da IA inválida", details: parsed.error.flatten() }, { status: 422 });
+    }
+    return NextResponse.json({ suggestion: parsed.data });
   }
 
   const { classSubjectId, type, title, prompt, rubric, maxScore, maxAttempts, maxAudioSec, dueAt, topicId, assessmentId, status, questions } = body;
@@ -55,16 +89,24 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Campos obrigatórios ausentes" }, { status: 400 });
   }
 
-  // Valida que o classSubject pertence à rede do professor
-  const cs = await prismaEdu.eduClassSubject.findFirst({
-    where: { id: classSubjectId },
-    include: { class: { select: { networkId: true, schoolId: true } } },
+  // A5: Verifica que o professor é dono do classSubject
+  const cs = await (prismaEdu as any).eduClassSubject.findFirst({
+    where: { id: classSubjectId, networkId: ctx.networkId },
+    include: { class: { select: { schoolId: true } } },
   });
-  if (!cs || cs.class.networkId !== ctx.networkId) {
-    return NextResponse.json({ error: "Turma não encontrada" }, { status: 404 });
+  if (!cs) return NextResponse.json({ error: "Turma não encontrada" }, { status: 404 });
+
+  try {
+    assertCanManageClassSubject(ctx, {
+      teacherId: cs.teacherId ?? null,
+      networkId: ctx.networkId,
+      schoolId: cs.class?.schoolId ?? "",
+    });
+  } catch (e: any) {
+    return NextResponse.json({ error: e.message }, { status: e.status ?? 403 });
   }
 
-  const activity = await prismaEdu.eduActivity.create({
+  const activity = await (prismaEdu as any).eduActivity.create({
     data: {
       networkId: ctx.networkId,
       classSubjectId,
@@ -84,7 +126,7 @@ export async function POST(req: NextRequest) {
   });
 
   if (type === "QUIZ" && Array.isArray(questions) && questions.length > 0) {
-    await prismaEdu.eduQuizQuestion.createMany({
+    await (prismaEdu as any).eduQuizQuestion.createMany({
       data: questions.map((q: { question: string; options: string[]; correctIndex: number; explanation?: string }, i: number) => ({
         activityId: activity.id,
         order: i + 1,
