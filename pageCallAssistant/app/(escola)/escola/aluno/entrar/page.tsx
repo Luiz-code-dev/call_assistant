@@ -93,7 +93,7 @@ export default function AlunoEntrarPage() {
   }
 
   const filteredStudents = session?.students.filter(s => searchLetter ? s.display.toUpperCase().startsWith(searchLetter) : true) ?? [];
-  const letters = [...new Set((session?.students ?? []).map(s => s.display[0].toUpperCase()))].sort();
+  const letters = Array.from(new Set((session?.students ?? []).map(s => s.display[0].toUpperCase()))).sort();
 
   // PIN display: dots
   const pinDisplay = Array(6).fill("").map((_, i) => i < pin.length ? "●" : "○").join(" ");
