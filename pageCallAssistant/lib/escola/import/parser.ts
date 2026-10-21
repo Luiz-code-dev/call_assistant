@@ -1,10 +1,12 @@
 /**
  * CSV parser that handles:
  * - Semicolon or comma separator (auto-detect)
- * - UTF-8 and Windows-1252 (Latin-1) encoding
+ * - UTF-8 (with/without BOM) and Windows-1252 encoding (auto-detect)
  * - CRLF and LF line endings
  * - Quoted fields
  */
+
+import { decodeCsv } from "./decode";
 
 export type ParsedRow = Record<string, string>;
 
@@ -15,15 +17,11 @@ export interface ParseResult {
   separator: ";" | ",";
 }
 
-/** Decode a Buffer as UTF-8 or Latin-1 (Windows-1252 fallback) */
+/** Decode a Node.js Buffer, auto-detecting UTF-8 or Windows-1252 encoding */
 export function decodeBuffer(buf: Buffer): string {
-  const utf8 = buf.toString("utf8");
-  // If replacement characters appear, try latin1
-  if (utf8.includes("\uFFFD")) {
-    return buf.toString("latin1");
-  }
-  // Strip BOM if present
-  return utf8.startsWith("\uFEFF") ? utf8.slice(1) : utf8;
+  // Slice correctly in case buf is a view into a larger ArrayBuffer
+  const ab = buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength) as ArrayBuffer;
+  return decodeCsv(ab);
 }
 
 /** Detect separator from first line */
