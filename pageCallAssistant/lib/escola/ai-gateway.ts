@@ -1,71 +1,261 @@
+import { z } from "zod";
 import { getOpenAI } from "@/lib/openai";
 import { pseudonymize } from "./integrity";
 
-export interface GradingInput {
+// ─── Tipos de rubrica ────────────────────────────────────────────────────────
+
+export interface RubricCriterio {
+  criterio: string;
+  peso: number;          // 0–1, soma dos pesos deve ser 1
+  descricao?: string;
+}
+
+export interface RubricInput {
+  criterios: RubricCriterio[];
+  ageGroup?: "ANOS_INICIAIS" | "ANOS_FINAIS" | "MEDIO";
+  subjectName?: string;
+  gradeYear?: number;
+}
+
+// ─── Output estruturado (validado por Zod) ───────────────────────────────────
+
+const CriterioResultSchema = z.object({
+  criterio: z.string(),
+  nota: z.number().min(0).max(10),
+  comentario: z.string(),
+});
+
+export const AiFeedbackSchema = z.object({
+  score: z.number().min(0),
+  porCriterio: z.array(CriterioResultSchema),
+  acertos: z.array(z.string()).min(1),
+  melhorar: z.array(z.string()).min(1),
+  exemplo: z.string(),
+});
+
+export type AiFeedback = z.infer<typeof AiFeedbackSchema>;
+
+// ─── Avaliação de atividade com rubrica ──────────────────────────────────────
+
+export interface EvaluateActivityInput {
+  studentId: string;         // nunca enviado à IA; apenas pseudonimizado
+  activityPrompt: string;
+  rubric: RubricInput;
+  response: string;          // texto ou transcrição
+  maxScore: number;
+  activityType: "WRITTEN" | "SPOKEN";
+}
+
+export interface EvaluateResult {
+  feedback: AiFeedback;
+  costMs: number;
+  costTokens: number;
+}
+
+export async function evaluateActivity(
+  input: EvaluateActivityInput,
+): Promise<EvaluateResult> {
+  const openai = getOpenAI();
+  const opaqueId = pseudonymize(input.studentId);
+  const start = Date.now();
+
+  const rubricaDescrita = input.rubric.criterios
+    .map((c) => `- ${c.criterio} (peso ${c.peso}${c.descricao ? ": " + c.descricao : ""})`)
+    .join("\n");
+
+  const tonalidade =
+    input.rubric.ageGroup === "ANOS_INICIAIS"
+      ? "Use frases curtas e palavras simples, adequadas para crianças de 6 a 10 anos. Seja muito encorajador."
+      : input.rubric.ageGroup === "ANOS_FINAIS"
+      ? "Use linguagem clara e direta, adequada para adolescentes de 11 a 14 anos. Seja encorajador e específico."
+      : "Use linguagem clara e objetiva, adequada para jovens do ensino médio.";
+
+  const tipoExtra =
+    input.activityType === "SPOKEN"
+      ? "\nAdicione ao array 'melhorar' pelo menos um item sobre fluência ou clareza da fala."
+      : "";
+
+  const systemPrompt = `Você é um avaliador pedagógico de ${input.rubric.subjectName ?? "Português"} para o ${input.rubric.gradeYear ?? ""}º ano do ensino fundamental/médio brasileiro.
+${tonalidade}${tipoExtra}
+
+Avalie a resposta do aluno (ID opaco: ${opaqueId}) usando os critérios abaixo e retorne APENAS JSON válido no esquema especificado.
+
+Critérios de avaliação (soma dos pesos = 1):
+${rubricaDescrita}
+
+Regras de avaliação:
+- Nota final = soma(nota_criterio_i × peso_i) × ${input.maxScore}
+- Cada nota_criterio deve ser de 0 a 10
+- 'acertos': array com 2-4 pontos fortes específicos (não genérico como "boa resposta")
+- 'melhorar': array com 2-3 sugestões de melhoria concretas e acionáveis
+- 'exemplo': uma frase ou trecho reescrito mostrando como melhorar (máximo 2 frases)
+- Nunca mencionar o nome, matrícula ou qualquer dado pessoal do aluno
+- Nunca incluir conteúdo inadequado para menores`;
+
+  const userMessage = `Enunciado da atividade:
+${input.activityPrompt}
+
+Resposta do aluno:
+${input.response}`;
+
+  let lastError: unknown;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const res = await openai.chat.completions.create({
+        model: "gpt-4o-mini",
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: userMessage },
+        ],
+        response_format: { type: "json_object" },
+        max_tokens: 700,
+        temperature: 0.3,
+      });
+
+      const raw = res.choices[0]?.message?.content ?? "{}";
+      const parsed = JSON.parse(raw);
+
+      // Garante score dentro do limite
+      if (typeof parsed.score === "number") {
+        parsed.score = Math.min(Math.max(parsed.score, 0), input.maxScore);
+      }
+
+      const validated = AiFeedbackSchema.parse(parsed);
+      return {
+        feedback: validated,
+        costMs: Date.now() - start,
+        costTokens: res.usage?.total_tokens ?? 0,
+      };
+    } catch (e) {
+      lastError = e;
+    }
+  }
+
+  throw lastError;
+}
+
+// ─── Correção automática de quiz (sem IA) ────────────────────────────────────
+
+export interface QuizQuestion {
+  id: string;
+  correctIndex: number;
+  explanation?: string | null;
+  options: string[];
+  question: string;
+}
+
+export interface QuizAnswer {
+  questionId: string;
+  selectedIndex: number;
+}
+
+export interface QuizResult {
+  score: number;
+  total: number;
+  perQuestion: { questionId: string; correct: boolean; explanation?: string | null }[];
+}
+
+export function gradeQuiz(
+  questions: QuizQuestion[],
+  answers: QuizAnswer[],
+  maxScore: number,
+): QuizResult {
+  const answerMap = new Map(answers.map((a) => [a.questionId, a.selectedIndex]));
+  let correct = 0;
+  const perQuestion = questions.map((q) => {
+    const selected = answerMap.get(q.id);
+    const isCorrect = selected === q.correctIndex;
+    if (isCorrect) correct++;
+    return { questionId: q.id, correct: isCorrect, explanation: q.explanation };
+  });
+
+  return {
+    score: questions.length > 0 ? (correct / questions.length) * maxScore : 0,
+    total: questions.length,
+    perQuestion,
+  };
+}
+
+// ─── Sugestão de enunciado + rubrica (para professor) ────────────────────────
+
+export interface SuggestActivityInput {
+  subjectName: string;
+  gradeYear: number;
+  topicTitle?: string;
+  activityType: "WRITTEN" | "SPOKEN" | "QUIZ";
+}
+
+export interface SuggestedActivity {
+  title: string;
+  prompt: string;
+  rubric: { criterios: RubricCriterio[] };
+  questions?: { question: string; options: string[]; correctIndex: number; explanation: string }[];
+}
+
+export async function suggestActivity(
+  input: SuggestActivityInput,
+): Promise<SuggestedActivity> {
+  const openai = getOpenAI();
+
+  const tipoInstr =
+    input.activityType === "WRITTEN"
+      ? "atividade de escrita (dissertativa ou descritiva)"
+      : input.activityType === "SPOKEN"
+      ? "atividade de fala (o aluno vai gravar um áudio respondendo)"
+      : "quiz de múltipla escolha com 4 alternativas por questão (máx. 5 questões)";
+
+  const systemPrompt = `Você é um pedagogo especialista em ${input.subjectName} para o ${input.gradeYear}º ano do ensino fundamental/médio brasileiro.
+Crie uma ${tipoInstr}${input.topicTitle ? ` sobre o tópico "${input.topicTitle}"` : ""}.
+Retorne APENAS JSON com: title (string), prompt (string, enunciado para o aluno), rubric ({ criterios: [{criterio, peso, descricao}] })${input.activityType === "QUIZ" ? ", questions ([{question, options:[4 strings], correctIndex, explanation}])" : ""}.
+Critérios de rubrica: 2-4 critérios, pesos somando exatamente 1. Sem nome de aluno, sem ranking.`;
+
+  const res = await openai.chat.completions.create({
+    model: "gpt-4o-mini",
+    messages: [{ role: "system", content: systemPrompt }],
+    response_format: { type: "json_object" },
+    max_tokens: 800,
+    temperature: 0.7,
+  });
+
+  return JSON.parse(res.choices[0]?.message?.content ?? "{}") as SuggestedActivity;
+}
+
+// ─── Legado (mantido para compatibilidade) ───────────────────────────────────
+
+export async function gradeStudentResponse(input: {
   studentId: string;
   prompt: string;
   studentResponse: string;
   maxScore: number;
-  language?: string;
+}) {
+  const result = await evaluateActivity({
+    studentId: input.studentId,
+    activityPrompt: input.prompt,
+    rubric: { criterios: [{ criterio: "Conteúdo e clareza", peso: 1 }] },
+    response: input.studentResponse,
+    maxScore: input.maxScore,
+    activityType: "WRITTEN",
+  });
+  return {
+    score: result.feedback.score,
+    feedback: result.feedback.acertos.join(" ") + " " + result.feedback.melhorar.join(" "),
+    suggestedScore: result.feedback.score,
+  };
 }
 
-export interface GradingResult {
-  score: number;
-  feedback: string;
-  suggestedScore: number;
-}
-
-export interface AiFeedbackInput {
+export async function generateStudentFeedback(input: {
   studentId: string;
   subject: string;
   topic: string;
   studentText: string;
-}
-
-export async function gradeStudentResponse(input: GradingInput): Promise<GradingResult> {
-  const openai = getOpenAI();
-  const opaqueId = pseudonymize(input.studentId);
-
-  const systemPrompt = `Você é um avaliador pedagógico. Avalie a resposta do aluno (ID opaco: ${opaqueId}) de forma justa e construtiva. Responda APENAS em JSON com os campos: score (número de 0 a ${input.maxScore}), feedback (string em português, máximo 200 caracteres), suggestedScore (número).`;
-
-  const userMessage = `Enunciado: ${input.prompt}\n\nResposta do aluno: ${input.studentResponse}`;
-
-  const response = await openai.chat.completions.create({
-    model: "gpt-4o-mini",
-    messages: [
-      { role: "system", content: systemPrompt },
-      { role: "user", content: userMessage },
-    ],
-    response_format: { type: "json_object" },
-    max_tokens: 300,
-    temperature: 0.3,
+}): Promise<string> {
+  const result = await evaluateActivity({
+    studentId: input.studentId,
+    activityPrompt: `Redija sobre: ${input.topic}`,
+    rubric: { criterios: [{ criterio: "Conteúdo", peso: 1 }], subjectName: input.subject },
+    response: input.studentText,
+    maxScore: 10,
+    activityType: "WRITTEN",
   });
-
-  const raw = response.choices[0]?.message?.content ?? "{}";
-  const parsed = JSON.parse(raw) as Partial<GradingResult>;
-
-  return {
-    score: Math.min(Math.max(Number(parsed.score) || 0, 0), input.maxScore),
-    feedback: parsed.feedback ?? "",
-    suggestedScore: Math.min(Math.max(Number(parsed.suggestedScore) || 0, 0), input.maxScore),
-  };
-}
-
-export async function generateStudentFeedback(input: AiFeedbackInput): Promise<string> {
-  const openai = getOpenAI();
-  const opaqueId = pseudonymize(input.studentId);
-
-  const systemPrompt = `Você é um professor de ${input.subject} do ensino fundamental/médio brasileiro. Dê feedback construtivo e encorajador sobre o texto do aluno (ID opaco: ${opaqueId}) sobre o tema "${input.topic}". Seja específico. Máximo 300 palavras. Responda apenas o feedback, sem prefácio.`;
-
-  const response = await openai.chat.completions.create({
-    model: "gpt-4o-mini",
-    messages: [
-      { role: "system", content: systemPrompt },
-      { role: "user", content: input.studentText },
-    ],
-    max_tokens: 400,
-    temperature: 0.5,
-  });
-
-  return response.choices[0]?.message?.content?.trim() ?? "";
+  return result.feedback.acertos.join(" ") + "\n" + result.feedback.melhorar.join(" ");
 }

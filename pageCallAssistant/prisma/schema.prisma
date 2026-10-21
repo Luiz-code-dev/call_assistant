@@ -726,6 +726,25 @@ enum EduStudentLoginMode {
   PICTURE
 }
 
+enum EduActivityType {
+  WRITTEN
+  SPOKEN
+  QUIZ
+}
+
+enum EduActivityStatus {
+  DRAFT
+  PUBLISHED
+  CLOSED
+}
+
+enum EduSubmissionStatus {
+  IN_PROGRESS
+  SUBMITTED
+  EVALUATED
+  REVIEWED
+}
+
 model EduPlatformAdmin {
   id          String   @id @default(cuid())
   userId      String   @unique
@@ -1119,6 +1138,76 @@ model EduInvite {
   network EduNetwork? @relation(fields: [networkId], references: [id])
 
   @@index([networkId, email])
+}
+
+model EduActivity {
+  id             String            @id @default(cuid())
+  networkId      String
+  classSubjectId String
+  topicId        String?
+  assessmentId   String?
+  type           EduActivityType
+  title          String
+  prompt         String            @db.Text
+  rubric         Json
+  maxScore       Decimal           @db.Decimal(5, 2) @default(10)
+  maxAttempts    Int               @default(2)
+  maxAudioSec    Int?
+  opensAt        DateTime          @default(now())
+  dueAt          DateTime?
+  status         EduActivityStatus @default(DRAFT)
+  createdById    String
+  createdAt      DateTime          @default(now())
+
+  classSubject EduClassSubject   @relation(fields: [classSubjectId], references: [id])
+  questions    EduQuizQuestion[]
+  submissions  EduSubmission[]
+
+  @@index([classSubjectId, status])
+  @@index([networkId, status])
+}
+
+model EduQuizQuestion {
+  id           String  @id @default(cuid())
+  activityId   String
+  order        Int
+  question     String
+  options      Json
+  correctIndex Int
+  explanation  String?
+
+  activity EduActivity @relation(fields: [activityId], references: [id], onDelete: Cascade)
+
+  @@index([activityId])
+}
+
+model EduSubmission {
+  id           String              @id @default(cuid())
+  networkId    String
+  activityId   String
+  studentId    String
+  attempt      Int
+  status       EduSubmissionStatus @default(IN_PROGRESS)
+  text         String?             @db.Text
+  audioKey     String?
+  transcript   String?             @db.Text
+  quizAnswers  Json?
+  aiScore      Decimal?            @db.Decimal(5, 2)
+  aiFeedback   Json?
+  teacherScore Decimal?            @db.Decimal(5, 2)
+  teacherNote  String?             @db.Text
+  aiCostMs     Int?
+  aiCostTokens Int?
+  submittedAt  DateTime?
+  evaluatedAt  DateTime?
+  reviewedAt   DateTime?
+  createdAt    DateTime            @default(now())
+
+  activity EduActivity @relation(fields: [activityId], references: [id])
+
+  @@unique([activityId, studentId, attempt])
+  @@index([studentId, status])
+  @@index([activityId])
 }
 
 model EduClassSession {
