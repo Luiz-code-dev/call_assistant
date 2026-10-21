@@ -1,7 +1,29 @@
 import { cookies } from "next/headers";
 import { jwtVerify } from "jose";
-import { EduRole } from "@prisma/client";
+import { EduRole } from "@/lib/escola/types";
 import { db } from "@/lib/db";
+
+export async function resolverVinculos(userId: string) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return (db as any).eduMembership.findMany({
+    where: { userId, isActive: true, network: { isActive: true } },
+    include: {
+      network: { select: { id: true, name: true } },
+      school: { select: { id: true, name: true } },
+    },
+    orderBy: [{ networkId: "asc" }, { schoolId: "asc" }],
+  });
+}
+
+export function rotaDoPapel(role: string): string {
+  switch (role) {
+    case "NETWORK_ADMIN": return "/escola/rede";
+    case "COORDINATOR":   return "/escola/coordenacao";
+    case "SCHOOL_ADMIN":  return "/escola/direcao";
+    case "TEACHER":       return "/escola/professor";
+    default:              return "/escola/painel";
+  }
+}
 
 export interface EduContext {
   userId: string;
@@ -32,7 +54,8 @@ export async function getEduContext(): Promise<EduContext | null> {
     const membershipId = payload["mid"] as string | undefined;
     if (!membershipId) return null;
 
-    const membership = await db.eduMembership.findUnique({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const membership = await (db as any).eduMembership.findUnique({
       where: { id: membershipId },
       select: { id: true, userId: true, networkId: true, schoolId: true, role: true, isActive: true },
     });

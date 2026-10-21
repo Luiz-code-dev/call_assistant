@@ -4,16 +4,24 @@ import { z } from "zod";
 import bcrypt from "bcryptjs";
 import { db } from "@/lib/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
+import { rotaDoPapel } from "@/lib/escola/context";
 
 const bodySchema = z.object({
   email: z.string().email(),
   password: z.string().min(1),
-  networkId: z.string().min(1),
 });
 
 const secret = new TextEncoder().encode(
   process.env.EDU_STUDENT_JWT_SECRET || "edu-student-dev-secret"
 );
+
+async function buildCtxToken(userId: string, membershipId: string, networkId: string, schoolId: string | null, role: string) {
+  return new SignJWT({ sub: userId, mid: membershipId, nid: networkId, sid: schoolId ?? undefined, role })
+    .setProtectedHeader({ alg: "HS256" })
+    .setIssuedAt()
+    .setExpirationTime("12h")
+    .sign(secret);
+}
 
 export async function POST(req: NextRequest) {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Not found" }, { status: 404 });
@@ -23,7 +31,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Dados inválidos" }, { status: 400 });
   }
 
-  const { email, password, networkId } = parsed.data;
+  const { email, password } = parsed.data;
 
   const user = await db.user.findUnique({
     where: { email },
@@ -38,32 +46,51 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Credenciais inválidas" }, { status: 401 });
   }
 
-  const membership = await db.eduMembership.findFirst({
-    where: { userId: user.id, networkId, isActive: true },
+  const memberships = await db.eduMembership.findMany({
+    where: { userId: user.id, isActive: true, network: { isActive: true } },
     select: { id: true, role: true, schoolId: true, networkId: true },
+    orderBy: [{ networkId: "asc" }, { schoolId: "asc" }],
   });
-  if (!membership) {
-    return NextResponse.json({ error: "Sem acesso a esta rede" }, { status: 403 });
+
+  if (memberships.length === 0) {
+    return NextResponse.json(
+      { error: "Seu e-mail não está vinculado a nenhuma rede de ensino. Fale com a Secretaria." },
+      { status: 403 }
+    );
   }
 
-  const token = await new SignJWT({
-    sub: user.id,
-    mid: membership.id,
-    nid: membership.networkId,
-    sid: membership.schoolId ?? undefined,
-    role: membership.role,
-  })
-    .setProtectedHeader({ alg: "HS256" })
-    .setIssuedAt()
-    .setExpirationTime("12h")
-    .sign(secret);
+  let chosen = memberships[0];
 
-  const res = NextResponse.json({ ok: true, role: membership.role });
+  if (memberships.length > 1) {
+    const lastId = req.cookies.get("sf_edu_last")?.value;
+    const lastMatch = lastId ? memberships.find((m) => m.id === lastId) : null;
+    if (lastMatch) {
+      chosen = lastMatch;
+    } else {
+      const res = NextResponse.json({ ok: true, redirect: "/escola/escolher-perfil" });
+      res.cookies.set("sf_edu_pending_uid", user.id, {
+        httpOnly: true, secure: process.env.NODE_ENV === "production",
+        sameSite: "lax", maxAge: 60 * 5, path: "/",
+      });
+      return res;
+    }
+  }
+
+  const token = await buildCtxToken(user.id, chosen.id, chosen.networkId, chosen.schoolId, chosen.role);
+
+  const res = NextResponse.json({ ok: true, redirect: rotaDoPapel(chosen.role) });
   res.cookies.set("sf_edu_ctx", token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
     maxAge: 60 * 60 * 12,
+    path: "/",
+  });
+  res.cookies.set("sf_edu_last", chosen.id, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    maxAge: 60 * 60 * 24 * 30,
     path: "/",
   });
   return res;

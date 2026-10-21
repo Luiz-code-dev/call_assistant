@@ -15,29 +15,110 @@ export async function findInviteByToken(rawToken: string) {
   return prismaEdu.eduInvite.findUnique({ where: { tokenHash: hash } });
 }
 
-/** Send invite email — reuses the existing resend integration */
-export async function sendInviteEmail(to: string, name: string, token: string, networkName: string) {
+/** Send invite email — light-theme template aligned with SpeakFlow Escolas brand */
+export async function sendInviteEmail(
+  to: string,
+  name: string,
+  token: string,
+  networkName: string,
+  roleName?: string
+) {
   const baseUrl = process.env.NEXTAUTH_URL ?? process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
   const link = `${baseUrl}/escola/convite/${token}`;
+  const firstName = name.split(" ")[0];
+  const roleLabel = roleName ?? "membro da equipe escolar";
+
+  if (!process.env.RESEND_API_KEY) {
+    console.log(`[DEV] Edu invite email to ${to}: ${link}`);
+    return;
+  }
 
   try {
     const { Resend } = await import("resend");
     const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
-      from: process.env.RESEND_FROM ?? "noreply@speakflow.com.br",
+      from: process.env.RESEND_FROM ?? "SpeakFlow Escolas <noreply@speakflow.com.br>",
       to,
-      subject: `Convite para ${networkName} — SpeakFlow Escolas`,
-      html: `
-<div style="font-family:sans-serif;max-width:480px;margin:0 auto;">
-  <h2 style="color:#7C3AED;">SpeakFlow Escolas</h2>
-  <p>Olá, <strong>${name}</strong>!</p>
-  <p>Você foi convidado(a) para acessar a plataforma <strong>${networkName}</strong> no SpeakFlow Escolas.</p>
-  <p>Clique no botão abaixo para aceitar o convite e criar (ou vincular) sua conta:</p>
-  <a href="${link}" style="display:inline-block;background:#7C3AED;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;margin:16px 0;">Aceitar convite</a>
-  <p style="color:#888;font-size:12px;">O link é válido por 7 dias. Se você não esperava este convite, ignore este e-mail.</p>
-</div>`,
+      subject: `Seu convite para ${networkName} — SpeakFlow Escolas`,
+      html: `<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Convite SpeakFlow Escolas</title></head>
+<body style="margin:0;padding:0;background-color:#F8F7FC;font-family:Arial,Helvetica,sans-serif">
+  <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+    <tr><td align="center" style="padding:40px 16px">
+      <table width="520" cellpadding="0" cellspacing="0" role="presentation" style="background:#FFFFFF;border-radius:16px;border:1px solid #E9E5F5;overflow:hidden;max-width:100%">
+
+        <!-- Header band -->
+        <tr>
+          <td style="background:#EDE9FE;padding:28px 32px">
+            <table cellpadding="0" cellspacing="0" role="presentation">
+              <tr>
+                <td style="width:36px;height:36px;background:#6D28D9;border-radius:10px;text-align:center;vertical-align:middle">
+                  <span style="color:#FFFFFF;font-size:18px;line-height:36px">&#x1F4AC;</span>
+                </td>
+                <td style="padding-left:10px;font-size:18px;font-weight:800;color:#1F1A2E;vertical-align:middle">
+                  SpeakFlow <span style="color:#6D28D9">Escolas</span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Body -->
+        <tr>
+          <td style="padding:32px">
+            <h1 style="margin:0 0 8px;font-size:22px;font-weight:800;color:#3B0764">
+              Olá, ${firstName}!
+            </h1>
+            <p style="margin:0 0 20px;font-size:15px;color:#5B5470;line-height:1.6">
+              Você foi convidado(a) como <strong style="color:#1F1A2E">${roleLabel}</strong> na rede
+              <strong style="color:#1F1A2E">${networkName}</strong>.
+            </p>
+
+            <!-- Info box -->
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#FAF9FD;border:1px solid #E9E5F5;border-radius:10px;margin-bottom:24px">
+              <tr>
+                <td style="padding:16px 20px;font-size:14px;color:#5B5470;line-height:1.6">
+                  Clique no botão abaixo para aceitar o convite, criar ou vincular sua conta, e começar a usar a plataforma.
+                </td>
+              </tr>
+            </table>
+
+            <!-- CTA -->
+            <table cellpadding="0" cellspacing="0" role="presentation" style="margin-bottom:24px">
+              <tr>
+                <td style="border-radius:10px;background:#6D28D9">
+                  <a href="${link}" style="display:inline-block;padding:14px 32px;color:#FFFFFF;text-decoration:none;font-size:15px;font-weight:700;border-radius:10px">
+                    Aceitar convite &rarr;
+                  </a>
+                </td>
+              </tr>
+            </table>
+
+            <p style="margin:0 0 4px;font-size:13px;color:#9CA3AF">
+              Ou copie e cole este link no navegador:
+            </p>
+            <p style="margin:0;font-size:12px;color:#6D28D9;word-break:break-all">${link}</p>
+          </td>
+        </tr>
+
+        <!-- Footer -->
+        <tr>
+          <td style="background:#FAF9FD;border-top:1px solid #E9E5F5;padding:16px 32px">
+            <p style="margin:0;font-size:12px;color:#9CA3AF;line-height:1.6">
+              O link é válido por 7 dias. Se você não esperava este convite, ignore este e-mail — nenhuma ação é necessária.
+            </p>
+            <p style="margin:8px 0 0;font-size:11px;color:#C4B5FD">SpeakFlow Escolas &middot; speakflow.com.br</p>
+          </td>
+        </tr>
+
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`,
     });
   } catch (err) {
-    console.error("Erro ao enviar convite:", err);
+    console.error("[sendInviteEmail] Erro ao enviar convite:", err);
   }
 }

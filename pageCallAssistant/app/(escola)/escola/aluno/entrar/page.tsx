@@ -1,8 +1,10 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { QrCode, Monitor, ListOrdered, MessageSquare } from "lucide-react";
 
-type LoginMode = "select" | "aula" | "manual";
+type LoginMode = "select" | "qr" | "aula" | "manual";
 
 interface StudentItem { id: string; display: string; loginMode: string; }
 interface SessionData { sessionId: string; classId: string; className: string; students: StudentItem[]; }
@@ -100,20 +102,120 @@ export default function AlunoEntrarPage() {
 
   // Select mode screen
   if (mode === "select") return (
-    <div className="min-h-screen bg-gray-950 flex flex-col items-center justify-center p-6 gap-6">
-      <div className="text-center mb-4">
-        <div className="text-5xl mb-3">🎒</div>
-        <h1 className="text-3xl font-bold text-white">Entrar</h1>
-        <p className="text-gray-400 mt-1">Como você quer entrar?</p>
+    <div style={{ minHeight: "100vh", background: "#F8F7FC", display: "flex", flexDirection: "column" }}>
+      {/* Header */}
+      <header style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "20px 32px", background: "#FFFFFF", borderBottom: "1px solid #E9E5F5" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <div style={{ width: 32, height: 32, background: "#6D28D9", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+            <MessageSquare size={16} color="#FFFFFF" strokeWidth={2} />
+          </div>
+          <span style={{ fontWeight: 800, fontSize: 17, color: "#1F1A2E" }}>
+            SpeakFlow <span style={{ color: "#6D28D9" }}>Escolas</span>
+          </span>
+        </div>
+        <Link href="/escola/entrar" style={{ fontSize: 14, fontWeight: 600, color: "#6D28D9", textDecoration: "none" }}>
+          Sou da equipe escolar
+        </Link>
+      </header>
+
+      {/* Content */}
+      <main style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px 24px 24px" }}>
+        <h1 style={{ fontSize: 36, fontWeight: 800, color: "#3B0764", textAlign: "center", margin: "0 0 12px" }}>
+          Olá! Como você quer entrar?
+        </h1>
+        <p style={{ fontSize: 16, color: "#5B5470", textAlign: "center", margin: "0 0 48px" }}>
+          Escolha uma opção. Se tiver dúvida, peça ajuda ao seu professor.
+        </p>
+
+        {/* BigChoiceButtons */}
+        <div style={{ display: "flex", gap: 20, flexWrap: "wrap", justifyContent: "center", width: "100%", maxWidth: 960 }}>
+          {/* Ler meu cartão */}
+          <button
+            onClick={() => setMode("qr")}
+            style={{
+              flex: "1 1 260px", maxWidth: 300, minHeight: 300,
+              background: "#FFFFFF", border: "1.5px solid #C4B5FD",
+              borderRadius: 24, padding: "32px 24px",
+              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+              gap: 20, cursor: "pointer", transition: "border-color 0.15s",
+            }}
+            aria-label="Ler meu cartão"
+          >
+            <div style={{ width: 104, height: 104, background: "#EDE9FE", borderRadius: 20, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <QrCode size={52} color="#6D28D9" strokeWidth={1.8} />
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <p style={{ fontSize: 24, fontWeight: 800, color: "#1F1A2E", margin: "0 0 8px" }}>Ler meu cartão</p>
+              <p style={{ fontSize: 15, color: "#5B5470", margin: 0, lineHeight: 1.4 }}>Aponte a câmera para o QR code do cartão</p>
+            </div>
+          </button>
+
+          {/* Código da aula */}
+          <button
+            onClick={() => setMode("aula")}
+            style={{
+              flex: "1 1 260px", maxWidth: 300, minHeight: 300,
+              background: "#FFFFFF", border: "1.5px solid #99F6E4",
+              borderRadius: 24, padding: "32px 24px",
+              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+              gap: 20, cursor: "pointer", transition: "border-color 0.15s",
+            }}
+            aria-label="Código da aula"
+          >
+            <div style={{ width: 104, height: 104, background: "#CCFBF1", borderRadius: 20, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <Monitor size={52} color="#0F766E" strokeWidth={1.8} />
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <p style={{ fontSize: 24, fontWeight: 800, color: "#1F1A2E", margin: "0 0 8px" }}>Código da aula</p>
+              <p style={{ fontSize: 15, color: "#5B5470", margin: 0, lineHeight: 1.4 }}>Digite o código que o professor mostrou</p>
+            </div>
+          </button>
+
+          {/* Digitar matrícula */}
+          <button
+            onClick={() => setMode("manual")}
+            style={{
+              flex: "1 1 260px", maxWidth: 300, minHeight: 300,
+              background: "#FFFFFF", border: "1.5px solid #FCD34D",
+              borderRadius: 24, padding: "32px 24px",
+              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+              gap: 20, cursor: "pointer", transition: "border-color 0.15s",
+            }}
+            aria-label="Digitar matrícula"
+          >
+            <div style={{ width: 104, height: 104, background: "#FFEDD5", borderRadius: 20, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <ListOrdered size={52} color="#C2410C" strokeWidth={1.8} />
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <p style={{ fontSize: 24, fontWeight: 800, color: "#1F1A2E", margin: "0 0 8px" }}>Digitar matrícula</p>
+              <p style={{ fontSize: 15, color: "#5B5470", margin: 0, lineHeight: 1.4 }}>Código da turma e número de matrícula</p>
+            </div>
+          </button>
+        </div>
+
+        <p style={{ marginTop: 48, fontSize: 14, color: "#5B5470", textAlign: "center" }}>
+          Este tablet é compartilhado. Ao terminar, toque sempre em <strong style={{ color: "#1F1A2E" }}>Sair</strong>.
+        </p>
+      </main>
+    </div>
+  );
+
+  // QR / cartão mode — placeholder (câmera não implementada)
+  if (mode === "qr") return (
+    <div style={{ minHeight: "100vh", background: "#F8F7FC", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 24 }}>
+      <button onClick={() => { setMode("select"); setError(""); }} style={{ alignSelf: "flex-start", background: "none", border: "none", color: "#5B5470", fontSize: 15, cursor: "pointer", marginBottom: 24, minHeight: 44 }}>
+        ← Voltar
+      </button>
+      <div style={{ width: 104, height: 104, background: "#EDE9FE", borderRadius: 20, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 20 }}>
+        <QrCode size={52} color="#6D28D9" strokeWidth={1.8} />
       </div>
-      <div className="w-full max-w-xs space-y-4">
-        <button onClick={() => setMode("aula")} className="w-full bg-purple-700 hover:bg-purple-600 text-white text-xl font-bold py-5 rounded-2xl min-h-[80px] transition-colors">
-          📺 Código da Aula
-        </button>
-        <button onClick={() => setMode("manual")} className="w-full bg-gray-800 hover:bg-gray-700 text-white text-xl font-bold py-5 rounded-2xl min-h-[80px] transition-colors">
-          🔢 Digitar Matrícula
-        </button>
-      </div>
+      <h1 style={{ fontSize: 24, fontWeight: 800, color: "#1F1A2E", marginBottom: 8, textAlign: "center" }}>Ler meu cartão</h1>
+      <p style={{ fontSize: 15, color: "#5B5470", textAlign: "center", maxWidth: 320 }}>
+        A leitura de QR code estará disponível em breve. Use outra opção de entrada por enquanto.
+      </p>
+      <button onClick={() => setMode("select")} style={{ marginTop: 28, height: 48, padding: "0 32px", background: "#6D28D9", color: "#FFFFFF", border: "none", borderRadius: 10, fontSize: 15, fontWeight: 700, cursor: "pointer" }}>
+        Escolher outra opção
+      </button>
     </div>
   );
 
