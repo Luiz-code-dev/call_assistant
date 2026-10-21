@@ -1,0 +1,25 @@
+#!/bin/sh
+# Bloqueia push direto na main com aviso de perigo.
+
+VERMELHO='\033[1;37;41m'
+AMARELO='\033[1;33m'
+NORMAL='\033[0m'
+
+while read local_ref local_sha remote_ref remote_sha; do
+  if [ "$remote_ref" = "refs/heads/main" ]; then
+    printf "\n${VERMELHO}                                                              ${NORMAL}\n"
+    printf "${VERMELHO}   PERIGO: PUSH DIRETO NA MAIN BLOQUEADO                      ${NORMAL}\n"
+    printf "${VERMELHO}                                                              ${NORMAL}\n\n"
+    printf "${AMARELO}A main publica o SpeakFlow em PRODUCAO (www.speakflow.ia.br).${NORMAL}\n"
+    printf "${AMARELO}Um erro aqui derruba o sistema para todos os usuarios e escolas.${NORMAL}\n\n"
+    printf "Faca assim:\n"
+    printf "  1. git switch -c minha-branch\n"
+    printf "  2. git push -u origin minha-branch\n"
+    printf "  3. gh pr create   (ou abra o pull request no GitHub)\n"
+    printf "  4. Revise o PR e faca o merge pelo GitHub\n\n"
+    printf "Windsurf: NUNCA envie para a main. Use branch + pull request.\n\n"
+    exit 1
+  fi
+done
+
+exit 0
