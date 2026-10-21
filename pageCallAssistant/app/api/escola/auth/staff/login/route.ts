@@ -12,7 +12,7 @@ const bodySchema = z.object({
 });
 
 const secret = new TextEncoder().encode(
-  process.env.EDU_STUDENT_JWT_SECRET || "edu-student-dev-secret"
+  process.env.EDU_JWT_SECRET || "edu-dev-secret-change-me"
 );
 
 async function buildCtxToken(userId: string, membershipId: string, networkId: string, schoolId: string | null, role: string) {
@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Credenciais inválidas" }, { status: 401 });
   }
 
-  const memberships = await db.eduMembership.findMany({
+  const memberships = await (db as any).eduMembership.findMany({
     where: { userId: user.id, isActive: true, network: { isActive: true } },
     select: { id: true, role: true, schoolId: true, networkId: true },
     orderBy: [{ networkId: "asc" }, { schoolId: "asc" }],
@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
 
   if (memberships.length > 1) {
     const lastId = req.cookies.get("sf_edu_last")?.value;
-    const lastMatch = lastId ? memberships.find((m) => m.id === lastId) : null;
+    const lastMatch = lastId ? memberships.find((m: { id: string }) => m.id === lastId) : null;
     if (lastMatch) {
       chosen = lastMatch;
     } else {
