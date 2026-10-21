@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>SpeakFlow Icon Generator</title></head>
+<body style="background:#222;display:flex;flex-direction:column;align-items:center;padding:20px;font-family:sans-serif;color:white;">
+<h2>SpeakFlow Icon — clique em Download para salvar</h2>
+<canvas id="c" width="1024" height="1024" style="border-radius:20%;width:256px;height:256px;margin:16px"></canvas>
+<br>
+<button onclick="download()" style="padding:12px 32px;background:#7c3aed;color:white;border:none;border-radius:8px;font-size:16px;cursor:pointer;margin-top:8px">⬇ Download icon.png (1024×1024)</button>
+<p style="opacity:0.5;font-size:12px">Salve como icon.png em speakflowMobile/assets/</p>
+<script>
+const c = document.getElementById('c');
+const ctx = c.getContext('2d');
+const S = 1024;
+
+// Background gradient
+const bg = ctx.createRadialGradient(S/2, S/2, 0, S/2, S/2, S*0.7);
+bg.addColorStop(0,   '#7c3aed');
+bg.addColorStop(0.5, '#5b21b6');
+bg.addColorStop(1,   '#09090b');
+ctx.fillStyle = bg;
+ctx.roundRect(0, 0, S, S, 180);
+ctx.fill();
+
+// Subtle glow
+const glow = ctx.createRadialGradient(S/2, S*0.38, 0, S/2, S*0.38, S*0.32);
+glow.addColorStop(0, 'rgba(167,139,250,0.35)');
+glow.addColorStop(1, 'rgba(167,139,250,0)');
+ctx.fillStyle = glow;
+ctx.fillRect(0, 0, S, S);
+
+// Microphone body
+ctx.fillStyle = 'white';
+ctx.shadowColor = 'rgba(167,139,250,0.6)';
+ctx.shadowBlur = 40;
+
+const mx = S/2, my = S*0.37, mw = S*0.18, mh = S*0.28, mr = S*0.09;
+ctx.beginPath();
+ctx.roundRect(mx - mw/2, my - mh/2, mw, mh, mr);
+ctx.fill();
+
+// Microphone stand arc
+ctx.strokeStyle = 'white';
+ctx.lineWidth = S * 0.038;
+ctx.lineCap = 'round';
+ctx.shadowBlur = 30;
+ctx.beginPath();
+ctx.arc(mx, my + mh*0.12, S*0.19, Math.PI*0.05, Math.PI*0.95);
+ctx.stroke();
+
+// Microphone pole
+ctx.beginPath();
+ctx.moveTo(mx, my + mh*0.12 + S*0.19);
+ctx.lineTo(mx, my + mh*0.12 + S*0.19 + S*0.10);
+ctx.stroke();
+
+// Base line
+ctx.lineCap = 'round';
+ctx.beginPath();
+ctx.moveTo(mx - S*0.12, my + mh*0.12 + S*0.19 + S*0.10);
+ctx.lineTo(mx + S*0.12, my + mh*0.12 + S*0.19 + S*0.10);
+ctx.stroke();
+
+// "SpeakFlow" text
+ctx.shadowBlur = 0;
+ctx.fillStyle = 'rgba(255,255,255,0.92)';
+ctx.font = `bold ${S*0.072}px -apple-system, BlinkMacSystemFont, Arial, sans-serif`;
+ctx.textAlign = 'center';
+ctx.letterSpacing = `${S*0.003}px`;
+ctx.fillText('SpeakFlow', mx, S*0.88);
+
+function download() {
+  const a = document.createElement('a');
+  a.download = 'icon.png';
+  a.href = c.toDataURL('image/png');
+  a.click();
+}
+</script>
+</body>
+</html>

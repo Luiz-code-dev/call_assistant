@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from "react";
-import { Mic, PhoneOff, X, ArrowRight, Sparkles } from "lucide-react";
+import { Mic, PhoneOff, X, ArrowRight, Sparkles, LogOut } from "lucide-react";
 import { useSessionStore } from "../../application/store/sessionStore";
 import type { Session } from "@call-assistant/shared-types";
 import { useTranscriptStore } from "../../application/store/transcriptStore";
@@ -8,6 +8,8 @@ import { useAudioBridge } from "../../application/hooks/useAudioBridge";
 import { TranscriptPanel } from "../components/TranscriptPanel";
 import { CopilotPanel } from "../components/CopilotPanel";
 import { useCopilotStore } from "../../application/store/copilotStore";
+import { useAuthStore } from "../../application/store/authStore";
+import { useCredits } from "../../application/hooks/useCredits";
 
 export function SessionPage() {
   const { session, isConnecting, error, startSession, stopSession, clearError } =
@@ -53,13 +55,18 @@ export function SessionPage() {
 
   const handlePreCallConfirm = (meetingContext: string, label: string) => {
     setShowPreCall(false);
-    setSpeakerLabel(label.trim() || "Entrevistador");
+    const effectiveLabel = label.trim() || "Pessoa";
+    setSpeakerLabel(effectiveLabel);
+    const contextWithLabel = [
+      `Talking to: ${effectiveLabel}`,
+      meetingContext.trim(),
+    ].filter(Boolean).join(". ");
     startSession({
       sourceLanguage: "en-US",
       targetLanguage: "pt-BR",
       enableTts: false,
       enableSuggestions: false,
-      meetingContext: meetingContext.trim() || undefined,
+      meetingContext: contextWithLabel || undefined,
     });
   };
 
@@ -142,6 +149,39 @@ export function SessionPage() {
   );
 }
 
+const WEB_APP_URL = import.meta.env.VITE_WEB_APP_URL ?? "https://call-assistant.com.br";
+
+function CreditsStatusBar() {
+  const { balance } = useCredits();
+  if (!balance) return null;
+  const isLow = balance.balance < 20;
+  return (
+    <>
+      <span>·</span>
+      <span className={isLow ? "text-amber-400" : "text-violet-400/60"}>
+        {balance.balance} créditos{isLow ? " ⚠" : ""}
+      </span>
+      {balance.plan && balance.plan !== "free" && (
+        <>
+          <span>·</span>
+          <span className="capitalize">{balance.plan}</span>
+        </>
+      )}
+      {isLow && (
+        <>
+          <span>·</span>
+          <button
+            className="text-violet-400 hover:text-violet-300 underline underline-offset-2"
+            onClick={() => window.open(`${WEB_APP_URL}/pricing#credits`, "_blank")}
+          >
+            Recarregar
+          </button>
+        </>
+      )}
+    </>
+  );
+}
+
 interface HeaderProps {
   isActive: boolean;
   isConnecting: boolean;
@@ -150,12 +190,26 @@ interface HeaderProps {
 }
 
 function Header({ isActive, isConnecting, onStart, onStop }: HeaderProps) {
+  const logout = useAuthStore((s) => s.logout);
+  const user = useAuthStore((s) => s.user);
+  const initials = user?.name
+    ? user.name.split(" ").map((w) => w[0]).slice(0, 2).join("").toUpperCase()
+    : "?";
   return (
     <header className="flex items-center justify-between px-5 py-3 border-b border-white/10 app-drag-region">
       <div className="flex items-center gap-2">
         <div className={`w-2 h-2 rounded-full ${isActive ? "bg-green-400 animate-pulse" : "bg-white/20"}`} />
-        <span className="text-sm font-medium text-white/70">Call Assistant</span>
+        <span className="text-sm font-medium text-white/70">SpeakFlow</span>
       </div>
+
+      {user && (
+        <div className="flex items-center gap-2 text-xs text-white/40 app-no-drag">
+          <div className="w-6 h-6 rounded-full bg-violet-600/60 flex items-center justify-center text-[10px] font-semibold text-white/80">
+            {initials}
+          </div>
+          <span className="max-w-[140px] truncate">{user.name || user.email}</span>
+        </div>
+      )}
 
       <div className="flex items-center gap-2 app-no-drag">
         {isActive ? (
@@ -180,6 +234,15 @@ function Header({ isActive, isConnecting, onStart, onStop }: HeaderProps) {
             {isConnecting ? "Connecting..." : "Start Session"}
           </button>
         )}
+
+        <button
+          onClick={logout}
+          disabled={isActive}
+          title="Sair da conta"
+          className="p-1.5 rounded-lg text-white/20 hover:text-white/60 hover:bg-white/8 transition-colors disabled:opacity-0 disabled:pointer-events-none"
+        >
+          <LogOut size={14} />
+        </button>
       </div>
     </header>
   );
@@ -203,11 +266,12 @@ function StatusBar({ session }: StatusBarProps) {
       ) : (
         <span>No active session</span>
       )}
+      <CreditsStatusBar />
     </footer>
   );
 }
 
-const SPEAKER_PRESETS = ["Entrevistador", "Cliente", "Colega", "Amigo"];
+const SPEAKER_PRESETS = ["Cliente", "Colega", "Amigo", "Entrevistador"];
 
 interface PreCallModalProps {
   onConfirm: (meetingContext: string, speakerLabel: string) => void;
@@ -216,7 +280,7 @@ interface PreCallModalProps {
 
 function PreCallModal({ onConfirm, onCancel }: PreCallModalProps) {
   const [context, setContext] = useState("");
-  const [label, setLabel] = useState("Entrevistador");
+  const [label, setLabel] = useState("Cliente");
   const [customLabel, setCustomLabel] = useState("");
   const isCustom = !SPEAKER_PRESETS.includes(label);
 

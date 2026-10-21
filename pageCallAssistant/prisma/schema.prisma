@@ -1,0 +1,1236 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                   String              @id @default(cuid())
+  name                 String
+  username             String?             @unique
+  email                String              @unique
+  password             String
+  plan                 String              @default("free")
+  credits              Int                 @default(50)
+  emailVerified        Boolean             @default(false)
+  verificationToken    String?
+  verificationExpiry   DateTime?
+  resetToken           String?
+  resetTokenExpiry     DateTime?
+  acceptedTerms        Boolean             @default(false)
+  stripeCustomerId     String?
+  stripeSubscriptionId String?
+  subscriptionStatus   String?
+  planRenewsAt         DateTime?
+  avatarUrl            String?
+  bio                  String?             @db.Text
+  registrationIp       String?
+  createdAt            DateTime            @default(now())
+  updatedAt            DateTime            @updatedAt
+  transactions         CreditTransaction[]
+  sessions             CallSession[]
+  toolUsages           ToolUsage[]
+  circleMembers        CircleMember[]
+  badges               UserBadge[]
+  pushSubs             PushSubscription[]
+  submissions          Submission[]
+  proficiencyAssessments ProficiencyAssessment[]
+  dailyStreak          DailyStreak?
+  spinHistory          SpinHistory[]
+  friendsRequested     Friendship[]  @relation("FriendshipRequester")
+  friendsReceived      Friendship[]  @relation("FriendshipAddressee")
+  messagesSent         Message[]     @relation("MessageSender")
+  messagesReceived     Message[]     @relation("MessageReceiver")
+  posts                Post[]
+  postLikes            PostLike[]
+  postComments         PostComment[]
+  statusText           String?   @db.VarChar(150)
+  statusEmoji          String?   @db.VarChar(8)
+  statusExpires        DateTime?
+  statusMediaUrl       String?   @db.Text
+  jobTitle             String?
+  department           String?
+  b2bAccess            Boolean   @default(false)
+  b2bSeatLimit         Int       @default(5)
+  superAdmin           Boolean   @default(false)
+  crmAccess            Boolean   @default(false)
+  hasSeenOnboarding    Boolean   @default(false)
+  fcmToken             String?   @db.Text
+  fcmPlatform          String?
+  orgMemberships       OrgMember[]
+  corpSubmissions      CorpChallengeSubmission[]
+  certifications       CorporateCertification[]
+  orgLiveSessions      OrgLiveSession[]
+  feedbacks            Feedback[]
+  buddySessions        BuddySession[]
+  circlePhrases        CirclePhrase[]
+  circlePhraseLikes    CirclePhraseLike[]
+  eduMemberships       EduMembership[]
+  eduPlatformAdmin      EduPlatformAdmin?
+  eduAccountState       EduAccountState?
+}
+
+model CreditTransaction {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  type        String
+  amount      Int
+  source      String
+  description String
+  createdAt   DateTime @default(now())
+}
+
+model CallSession {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  startedAt   DateTime  @default(now())
+  endedAt     DateTime?
+  duration    Int?
+  creditsUsed Int       @default(0)
+  language    String?
+  transcript  String?
+  summary     String?
+  createdAt   DateTime  @default(now())
+}
+
+model ToolUsage {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  tool      String
+  createdAt DateTime @default(now())
+}
+
+model Circle {
+  id          String         @id @default(cuid())
+  ownerId     String
+  name        String
+  description String?
+  focus       String
+  level       String         @default("Todos")
+  visibility  String         @default("public")
+  maxMembers  Int            @default(20)
+  inviteToken String?        @unique
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  members     CircleMember[]
+  challenges  Challenge[]
+  phrases     CirclePhrase[]
+}
+
+model CirclePhrase {
+  id          String             @id @default(cuid())
+  circleId    String
+  userId      String
+  text        String
+  translation String?
+  likeCount   Int                @default(0)
+  createdAt   DateTime           @default(now())
+  circle      Circle             @relation(fields: [circleId], references: [id], onDelete: Cascade)
+  user        User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  likes       CirclePhraseLike[]
+
+  @@index([circleId])
+}
+
+model CirclePhraseLike {
+  id        String       @id @default(cuid())
+  phraseId  String
+  userId    String
+  createdAt DateTime     @default(now())
+  phrase    CirclePhrase @relation(fields: [phraseId], references: [id], onDelete: Cascade)
+  user      User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([phraseId, userId])
+  @@index([phraseId])
+}
+
+model CircleMember {
+  id          String   @id @default(cuid())
+  circleId    String
+  userId      String
+  role        String   @default("member")
+  status      String   @default("active")
+  inviteToken String?  @unique
+  joinedAt    DateTime @default(now())
+  circle      Circle   @relation(fields: [circleId], references: [id], onDelete: Cascade)
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([circleId, userId])
+}
+
+model Challenge {
+  id          String       @id @default(cuid())
+  circleId    String
+  title       String
+  prompt      String
+  scenario    String?
+  targetVocab String?
+  type        String       @default("written")
+  startsAt    DateTime
+  endsAt      DateTime
+  isRecurring   Boolean      @default(false)
+  winnerAwarded Boolean      @default(false)
+  createdAt     DateTime     @default(now())
+  circle        Circle       @relation(fields: [circleId], references: [id], onDelete: Cascade)
+  submissions   Submission[]
+  quizQuestions QuizQuestion[]
+}
+
+model Submission {
+  id          String                @id @default(cuid())
+  userId      String
+  challengeId String
+  circleId    String
+  content     String
+  isPublic    Boolean               @default(true)
+  isSelected  Boolean               @default(true)
+  createdAt   DateTime              @default(now())
+  user        User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  challenge   Challenge             @relation(fields: [challengeId], references: [id], onDelete: Cascade)
+  evaluation  SubmissionEvaluation?
+}
+
+model QuizQuestion {
+  id           String    @id @default(cuid())
+  challengeId  String
+  question     String
+  options      String
+  correctIndex Int
+  orderIndex   Int       @default(0)
+  challenge    Challenge @relation(fields: [challengeId], references: [id], onDelete: Cascade)
+}
+
+model PushSubscription {
+  id        String   @id @default(cuid())
+  userId    String
+  endpoint  String   @unique
+  p256dh    String
+  auth      String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model UserBadge {
+  id        String   @id @default(cuid())
+  userId    String
+  slug      String
+  earnedAt  DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, slug])
+}
+
+model SubmissionEvaluation {
+  id               String     @id @default(cuid())
+  submissionId     String     @unique
+  fluencyScore     Int
+  contentScore     Int
+  clarityScore     Int
+  totalScore       Int
+  feedback         String
+  improvedResponse String
+  tip              String
+  createdAt        DateTime   @default(now())
+  submission       Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+}
+
+model ProficiencyAssessment {
+  id              String   @id @default(cuid())
+  userId          String
+  level           String
+  levelLabel      String
+  confidence      String
+  fluencyAvg      Float
+  contentAvg      Float
+  clarityAvg      Float
+  totalAvg        Float
+  reasoning       String
+  strengths       String
+  improvements    String
+  overallFeedback String
+  submissionsUsed Int
+  isEligible      Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model DailyStreak {
+  id               String  @id @default(cuid())
+  userId           String  @unique
+  currentStreak    Int     @default(0)
+  longestStreak    Int     @default(0)
+  lastActivityDate String?
+  lastSpinDate     String?
+  user             User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model SpinHistory {
+  id         String   @id @default(cuid())
+  userId     String
+  credits    Int
+  prizeLabel String
+  isPremium  Boolean  @default(false)
+  spunAt     DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Friendship {
+  id          String   @id @default(cuid())
+  requesterId String
+  addresseeId String
+  status      String   @default("pending")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  requester   User     @relation("FriendshipRequester", fields: [requesterId], references: [id], onDelete: Cascade)
+  addressee   User     @relation("FriendshipAddressee", fields: [addresseeId], references: [id], onDelete: Cascade)
+
+  @@unique([requesterId, addresseeId])
+  @@index([addresseeId, status])
+}
+
+model Message {
+  id         String   @id @default(cuid())
+  senderId   String
+  receiverId String
+  content    String
+  iv         String
+  isRead     Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  sender     User     @relation("MessageSender", fields: [senderId], references: [id], onDelete: Cascade)
+  receiver   User     @relation("MessageReceiver", fields: [receiverId], references: [id], onDelete: Cascade)
+
+  @@index([senderId, receiverId])
+  @@index([receiverId, isRead])
+}
+
+model SupportMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  message   String
+  read      Boolean  @default(false)
+  emailSent Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+enum ActivityType {
+  POST
+  LIVE_SESSION
+  ACHIEVEMENT
+  CHALLENGE_COMPLETED
+}
+
+model Post {
+  id           String        @id @default(cuid())
+  userId       String
+  content      String?       @db.Text
+  imageUrl     String?       @db.Text
+  activityType ActivityType  @default(POST)
+  activityMeta Json?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  likes        PostLike[]
+  comments     PostComment[]
+
+  @@index([userId])
+  @@index([createdAt])
+  @@index([activityType])
+}
+
+model PostLike {
+  id        String   @id @default(cuid())
+  postId    String
+  userId    String
+  createdAt DateTime @default(now())
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, userId])
+  @@index([postId])
+}
+
+model PostComment {
+  id        String   @id @default(cuid())
+  postId    String
+  userId    String
+  content   String
+  createdAt DateTime @default(now())
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([postId])
+}
+
+// ================================================================
+// B2B — SpeakFlow for Teams
+// ================================================================
+
+model Organization {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  logoUrl     String?
+  domain      String?
+  industry    String?
+  plan        String    @default("teams")
+  seatLimit   Int       @default(5)
+  isActive    Boolean   @default(true)
+  suspendedAt DateTime?
+  cnpj        String?   @unique
+  cnpjStatus  String?   @default("unverified")
+  ownerId     String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
+
+  members        OrgMember[]
+  teams          OrgTeam[]
+  invites        OrgInvite[]
+  challenges     CorporateChallenge[]
+  certifications CorporateCertification[]
+  liveSessions   OrgLiveSession[]
+
+  @@index([slug])
+  @@index([ownerId])
+}
+
+model OrgMember {
+  id         String   @id @default(cuid())
+  orgId      String
+  userId     String
+  role       String   @default("member")
+  jobTitle   String?
+  department String?
+  commScore  Int      @default(0)
+  joinedAt   DateTime @default(now())
+
+  org         Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  teamMembers OrgTeamMember[]
+
+  @@unique([orgId, userId])
+  @@index([orgId])
+  @@index([userId])
+}
+
+model OrgTeam {
+  id        String   @id @default(cuid())
+  orgId     String
+  name      String
+  focus     String?
+  createdAt DateTime @default(now())
+
+  org        Organization    @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  members    OrgTeamMember[]
+  challenges CorporateChallenge[]
+
+  @@index([orgId])
+}
+
+model OrgTeamMember {
+  id       String @id @default(cuid())
+  teamId   String
+  memberId String
+
+  team   OrgTeam   @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  member OrgMember @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  @@unique([teamId, memberId])
+  @@index([teamId])
+  @@index([memberId])
+}
+
+model OrgInvite {
+  id        String   @id @default(cuid())
+  orgId     String
+  email     String
+  role      String   @default("member")
+  token     String   @unique @default(cuid())
+  status    String   @default("pending")
+  invitedBy String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  org Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, status])
+  @@index([email, status])
+}
+
+model CorporateChallenge {
+  id          String   @id @default(cuid())
+  orgId       String
+  teamId      String?
+  title       String
+  description String   @db.Text
+  type        String
+  category    String
+  scenario    String?  @db.Text
+  targetRole  String?
+  startsAt    DateTime
+  endsAt      DateTime
+  createdBy   String
+  createdAt   DateTime @default(now())
+
+  org         Organization              @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  team        OrgTeam?                  @relation(fields: [teamId], references: [id])
+  submissions CorpChallengeSubmission[]
+
+  @@index([orgId])
+  @@index([orgId, startsAt, endsAt])
+}
+
+model CorpChallengeSubmission {
+  id              String   @id @default(cuid())
+  challengeId     String
+  userId          String
+  orgId           String
+  content         String   @db.Text
+  audioUrl        String?
+  clarityScore    Int?
+  confidenceScore Int?
+  fluencyScore    Int?
+  contextScore    Int?
+  totalScore      Int?
+  feedback        String?  @db.Text
+  createdAt       DateTime @default(now())
+
+  challenge CorporateChallenge @relation(fields: [challengeId], references: [id], onDelete: Cascade)
+  user      User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([challengeId])
+  @@index([userId, orgId])
+  @@index([orgId, createdAt])
+}
+
+model CorporateCertification {
+  id          String   @id @default(cuid())
+  orgId       String
+  userId      String
+  level       String
+  score       Int
+  fluency     Float
+  consistency Float
+  pdfUrl      String?
+  issuedAt    DateTime @default(now())
+
+  org  Organization @relation(fields: [orgId], references: [id])
+  user User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, userId])
+  @@index([orgId, issuedAt])
+}
+
+model OrgLiveSession {
+  id          String   @id @default(cuid())
+  orgId       String
+  userId      String
+  category    String
+  creditsUsed Int      @default(0)
+  duration    Int?
+  sessionId   String?
+  createdAt   DateTime @default(now())
+
+  org  Organization @relation(fields: [orgId], references: [id])
+  user User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([orgId])
+  @@index([orgId, userId])
+  @@index([orgId, createdAt])
+}
+
+model CrmLead {
+  id          String       @id @default(cuid())
+  name        String
+  email       String
+  phone       String?
+  company     String?
+  role        String?
+  teamSize    String?
+  origin      String       @default("manual")
+  status      String       @default("novo")
+  score       Int          @default(0)
+  notes       String?      @db.Text
+  lastContact DateTime?
+  assignedTo  String?
+  userId      String?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  activities  CrmActivity[]
+
+  @@index([status])
+  @@index([email])
+  @@index([createdAt])
+}
+
+model CrmActivity {
+  id        String   @id @default(cuid())
+  leadId    String
+  authorId  String
+  type      String   @default("note")
+  content   String   @db.Text
+  createdAt DateTime @default(now())
+
+  lead CrmLead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+
+  @@index([leadId])
+}
+
+model Feedback {
+  id        String   @id @default(cuid())
+  userId    String
+  category  String   @default("feature")
+  content   String   @db.Text
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([createdAt])
+}
+
+model BuddySession {
+  id           String         @id @default(cuid())
+  userId       String
+  user         User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  language     String         @default("pt-BR")
+  topic        String?
+  title        String?
+  messageCount Int            @default(0)
+  wordsLearned Int            @default(0)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  messages     BuddyMessage[]
+
+  @@index([userId])
+  @@index([userId, createdAt])
+}
+
+model BuddyMessage {
+  id        String       @id @default(cuid())
+  sessionId String
+  session   BuddySession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  role      String
+  content   String       @db.Text
+  createdAt DateTime     @default(now())
+
+  @@index([sessionId])
+}
+
+// ================================================================
+// SPEAKFLOW ESCOLAS — Área Escolar multi-tenant
+// Todos os models abaixo são novos e isolados.
+// Não alteram nenhum model existente acima (exceto relação reversa
+// eduMemberships no User, que não cria coluna no banco).
+// ================================================================
+
+enum EduRole {
+  NETWORK_ADMIN
+  COORDINATOR
+  SCHOOL_ADMIN
+  TEACHER
+}
+
+enum EduInviteRole {
+  PLATFORM_ADMIN
+  NETWORK_ADMIN
+  COORDINATOR
+  SCHOOL_ADMIN
+  TEACHER
+}
+
+enum EduStage {
+  EARLY_CHILDHOOD
+  ELEMENTARY_EARLY
+  ELEMENTARY_LATE
+  HIGH_SCHOOL
+  EJA
+}
+
+enum EduShift {
+  MORNING
+  AFTERNOON
+  EVENING
+  FULL_TIME
+}
+
+enum EduTermStatus {
+  OPEN
+  CLOSED
+}
+
+enum EduEnrollmentStatus {
+  ACTIVE
+  TRANSFERRED
+  PROMOTED
+  RETAINED
+  COMPLETED
+  CANCELLED
+}
+
+enum EduPlanStatus {
+  DRAFT
+  IN_REVIEW
+  APPROVED
+  ARCHIVED
+}
+
+enum EduAssessmentType {
+  EXAM
+  ASSIGNMENT
+  PROJECT
+  AI_ACTIVITY
+  RECOVERY
+  OTHER
+}
+
+enum EduAssessmentStatus {
+  DRAFT
+  OPEN
+  GRADING
+  PUBLISHED
+}
+
+enum EduCorrectionStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum EduImportKind {
+  SCHOOLS
+  STAFF
+  STUDENTS
+  ASSIGNMENTS
+}
+
+enum EduImportStatus {
+  UPLOADED
+  PREVIEW
+  PROCESSING
+  DONE
+  FAILED
+  CANCELLED
+}
+
+enum EduStudentLoginMode {
+  PIN
+  PICTURE
+}
+
+enum EduActivityType {
+  WRITTEN
+  SPOKEN
+  QUIZ
+}
+
+enum EduAiStatus {
+  PENDING
+  RUNNING
+  DONE
+  FAILED
+}
+
+enum EduActivityStatus {
+  DRAFT
+  PUBLISHED
+  CLOSED
+}
+
+enum EduSubmissionStatus {
+  IN_PROGRESS
+  SUBMITTED
+  EVALUATED
+  REVIEWED
+}
+
+model EduPlatformAdmin {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  isActive    Boolean  @default(true)
+  createdById String?
+  createdAt   DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model EduAccountState {
+  id            String    @id @default(cuid())
+  userId        String    @unique
+  passwordSetAt DateTime?
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model EduNetwork {
+  id          String   @id @default(cuid())
+  name        String
+  city        String
+  state       String   @db.Char(2)
+  ibgeCode    String?  @unique
+  isActive    Boolean  @default(true)
+  gradeConfig Json
+  createdAt   DateTime @default(now())
+
+  schools      EduSchool[]
+  schoolYears  EduSchoolYear[]
+  subjects     EduSubject[]
+  memberships  EduMembership[]
+  students     EduStudent[]
+  importBatches EduImportBatch[]
+  invites      EduInvite[]
+}
+
+model EduMembership {
+  id        String   @id @default(cuid())
+  networkId String
+  userId    String
+  schoolId  String?
+  role      EduRole
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  network EduNetwork  @relation(fields: [networkId], references: [id])
+  user    User        @relation(fields: [userId], references: [id])
+  school  EduSchool?  @relation(fields: [schoolId], references: [id])
+
+  @@unique([networkId, userId, schoolId, role])
+  @@index([userId])
+}
+
+model EduSchool {
+  id        String  @id @default(cuid())
+  networkId String
+  name      String
+  inepCode  String?
+  isActive  Boolean @default(true)
+
+  network     EduNetwork      @relation(fields: [networkId], references: [id])
+  classes     EduClass[]
+  memberships EduMembership[]
+
+  @@unique([networkId, inepCode])
+}
+
+model EduSchoolYear {
+  id        String   @id @default(cuid())
+  networkId String
+  year      Int
+  startsAt  DateTime
+  endsAt    DateTime
+  isCurrent Boolean  @default(false)
+
+  network EduNetwork  @relation(fields: [networkId], references: [id])
+  terms   EduTerm[]
+  classes EduClass[]
+
+  @@unique([networkId, year])
+}
+
+model EduTerm {
+  id           String        @id @default(cuid())
+  schoolYearId String
+  name         String
+  order        Int
+  startsAt     DateTime
+  endsAt       DateTime
+  status       EduTermStatus @default(OPEN)
+
+  schoolYear  EduSchoolYear   @relation(fields: [schoolYearId], references: [id])
+  assessments EduAssessment[]
+  closures    EduTermClosure[]
+
+  @@unique([schoolYearId, order])
+}
+
+model EduSubject {
+  id        String  @id @default(cuid())
+  networkId String
+  name      String
+  area      String?
+  color     String?
+  isActive  Boolean @default(true)
+
+  network         EduNetwork          @relation(fields: [networkId], references: [id])
+  curriculumItems EduCurriculumItem[]
+
+  @@unique([networkId, name])
+}
+
+model EduCurriculumItem {
+  id          String    @id @default(cuid())
+  networkId   String
+  subjectId   String
+  stage       EduStage
+  gradeYear   Int
+  shift       EduShift?
+  weeklyHours Int
+
+  subject EduSubject @relation(fields: [subjectId], references: [id])
+
+  @@unique([networkId, subjectId, stage, gradeYear, shift])
+}
+
+model EduClass {
+  id           String   @id @default(cuid())
+  networkId    String
+  schoolId     String
+  schoolYearId String
+  name         String
+  stage        EduStage
+  gradeYear    Int
+  shift        EduShift
+  accessCode        String              @unique
+  isActive          Boolean             @default(true)
+  defaultLoginMode  EduStudentLoginMode @default(PIN)
+
+  school      EduSchool        @relation(fields: [schoolId], references: [id])
+  schoolYear  EduSchoolYear    @relation(fields: [schoolYearId], references: [id])
+  subjects    EduClassSubject[]
+  enrollments EduEnrollment[]
+  sessions    EduClassSession[]
+
+  @@index([networkId, schoolId, schoolYearId])
+}
+
+model EduClassSubject {
+  id        String  @id @default(cuid())
+  networkId String
+  classId   String
+  subjectId String
+  teacherId String?
+  isExtra   Boolean @default(false)
+
+  class       EduClass        @relation(fields: [classId], references: [id])
+  topics      EduTopic[]
+  assessments EduAssessment[]
+
+  @@unique([classId, subjectId])
+  @@index([teacherId])
+}
+
+model EduStudent {
+  id               String    @id @default(cuid())
+  networkId        String
+  enrollmentCode   String
+  fullName         String
+  birthDate        DateTime?
+  pinHash          String
+  pinFailedCount   Int       @default(0)
+  pinLockedUntil   DateTime?
+  guardianConsentAt  DateTime?
+  isActive           Boolean             @default(true)
+  loginMode          EduStudentLoginMode @default(PIN)
+  pictureSecretHash  String?
+  cardVersion        Int                 @default(1)
+  createdAt          DateTime            @default(now())
+
+  network     EduNetwork      @relation(fields: [networkId], references: [id])
+  enrollments EduEnrollment[]
+
+  @@unique([networkId, enrollmentCode])
+}
+
+model EduEnrollment {
+  id           String              @id @default(cuid())
+  networkId    String
+  studentId    String
+  classId      String
+  schoolYearId String
+  status       EduEnrollmentStatus @default(ACTIVE)
+  startedAt    DateTime            @default(now())
+  endedAt      DateTime?
+
+  student EduStudent @relation(fields: [studentId], references: [id])
+  class   EduClass   @relation(fields: [classId], references: [id])
+
+  @@index([studentId, schoolYearId])
+  @@index([classId])
+}
+
+model EduTeachingPlan {
+  id           String        @id @default(cuid())
+  networkId    String
+  schoolId     String?
+  subjectId    String
+  stage        EduStage
+  gradeYear    Int
+  schoolYearId String
+  version      Int           @default(1)
+  status       EduPlanStatus @default(DRAFT)
+  title        String
+  objectives   String        @db.Text
+  createdById  String
+  approvedById String?
+  approvedAt   DateTime?
+
+  units EduPlanUnit[]
+
+  @@unique([networkId, schoolId, subjectId, stage, gradeYear, schoolYearId, version])
+}
+
+model EduPlanUnit {
+  id         String   @id @default(cuid())
+  planId     String
+  termOrder  Int?
+  order      Int
+  title      String
+  objectives String   @db.Text
+  bnccSkills String[]
+
+  plan   EduTeachingPlan @relation(fields: [planId], references: [id])
+  topics EduTopic[]
+}
+
+model EduTopic {
+  id             String    @id @default(cuid())
+  networkId      String
+  classSubjectId String
+  unitId         String
+  title          String
+  description    String?   @db.Text
+  plannedDate    DateTime?
+  taughtAt       DateTime?
+  createdById    String
+  createdAt      DateTime  @default(now())
+
+  classSubject EduClassSubject @relation(fields: [classSubjectId], references: [id])
+  unit         EduPlanUnit     @relation(fields: [unitId], references: [id])
+}
+
+model EduAssessment {
+  id             String              @id @default(cuid())
+  networkId      String
+  classSubjectId String
+  termId         String?
+  title          String
+  type           EduAssessmentType
+  weight         Decimal             @db.Decimal(5, 2) @default(1)
+  maxScore       Decimal             @db.Decimal(5, 2) @default(10)
+  appliedAt      DateTime?
+  status         EduAssessmentStatus @default(DRAFT)
+  topicIds       String[]
+  aiChallengeId  String?
+  createdById    String
+  publishedAt    DateTime?
+
+  classSubject EduClassSubject  @relation(fields: [classSubjectId], references: [id])
+  term         EduTerm?         @relation(fields: [termId], references: [id])
+  entries      EduGradeEntry[]
+
+  @@index([classSubjectId, termId])
+}
+
+model EduGradeEntry {
+  id           String   @id @default(cuid())
+  networkId    String
+  assessmentId String
+  studentId    String
+  value        Decimal? @db.Decimal(5, 2)
+  absent       Boolean  @default(false)
+  version      Int
+  correctionId String?
+  enteredById  String
+  enteredAt    DateTime @default(now())
+  prevHash     String
+  hash         String   @unique
+  signature    String
+  keyId        String
+  note         String?      @db.Text
+
+  assessment EduAssessment @relation(fields: [assessmentId], references: [id], onDelete: Restrict)
+
+  @@unique([assessmentId, studentId, version])
+  @@index([assessmentId, studentId])
+}
+
+model EduGradeCorrection {
+  id            String              @id @default(cuid())
+  networkId     String
+  assessmentId  String
+  studentId     String
+  fromEntryId   String
+  newValue      Decimal?            @db.Decimal(5, 2)
+  newAbsent     Boolean             @default(false)
+  justification String              @db.Text
+  requestedById String
+  requestedAt   DateTime            @default(now())
+  status        EduCorrectionStatus @default(PENDING)
+  decidedById   String?
+  decidedAt     DateTime?
+  decisionNote  String?             @db.Text
+}
+
+model EduTermClosure {
+  id               String   @id @default(cuid())
+  networkId        String
+  classSubjectId   String
+  termId           String
+  version          Int
+  closedById       String
+  closedAt         DateTime @default(now())
+  averages         Json
+  rootHash         String
+  signature        String
+  keyId            String
+  verificationCode String   @unique
+
+  term EduTerm @relation(fields: [termId], references: [id], onDelete: Restrict)
+
+  @@unique([classSubjectId, termId, version])
+}
+
+model EduAuditLog {
+  id        String   @id @default(cuid())
+  networkId String?
+  actorType String
+  actorId   String
+  action    String
+  entity    String
+  entityId  String
+  metadata  Json?
+  ip        String?
+  createdAt DateTime @default(now())
+
+  @@index([networkId, entity, entityId])
+  @@index([networkId, createdAt])
+}
+
+model EduImportBatch {
+  id          String          @id @default(cuid())
+  networkId   String
+  schoolId    String?
+  kind        EduImportKind
+  status      EduImportStatus @default(UPLOADED)
+  fileName    String
+  columnMap   Json?
+  totalRows   Int             @default(0)
+  processed   Int             @default(0)
+  created     Int             @default(0)
+  updated     Int             @default(0)
+  failed      Int             @default(0)
+  errors      Json?
+  createdById String
+  createdAt   DateTime        @default(now())
+  finishedAt  DateTime?
+
+  network EduNetwork @relation(fields: [networkId], references: [id])
+
+  @@index([networkId, createdAt])
+}
+
+model EduInvite {
+  id          String        @id @default(cuid())
+  networkId   String?
+  schoolId    String?
+  email       String
+  name        String
+  role        EduInviteRole
+  tokenHash   String        @unique
+  expiresAt   DateTime
+  acceptedAt  DateTime?
+  userId      String?
+  sentCount   Int           @default(1)
+  createdById String
+  createdAt   DateTime      @default(now())
+
+  network EduNetwork? @relation(fields: [networkId], references: [id])
+
+  @@index([networkId, email])
+}
+
+model EduActivity {
+  id             String            @id @default(cuid())
+  networkId      String
+  classSubjectId String
+  topicId        String?
+  assessmentId   String?
+  type           EduActivityType
+  title          String
+  prompt         String            @db.Text
+  rubric         Json
+  maxScore       Decimal           @db.Decimal(5, 2) @default(10)
+  maxAttempts    Int               @default(2)
+  maxAudioSec    Int?
+  opensAt        DateTime          @default(now())
+  dueAt          DateTime?
+  status         EduActivityStatus @default(DRAFT)
+  createdById    String
+  createdAt      DateTime          @default(now())
+
+  classSubject EduClassSubject   @relation(fields: [classSubjectId], references: [id])
+  questions    EduQuizQuestion[]
+  submissions  EduSubmission[]
+
+  @@index([classSubjectId, status])
+  @@index([networkId, status])
+}
+
+model EduQuizQuestion {
+  id           String  @id @default(cuid())
+  activityId   String
+  order        Int
+  question     String
+  options      Json
+  correctIndex Int
+  explanation  String?
+
+  activity EduActivity @relation(fields: [activityId], references: [id], onDelete: Cascade)
+
+  @@index([activityId])
+}
+
+model EduSubmission {
+  id           String              @id @default(cuid())
+  networkId    String
+  activityId   String
+  studentId    String
+  attempt      Int
+  status       EduSubmissionStatus @default(IN_PROGRESS)
+  text         String?             @db.Text
+  audioKey     String?
+  transcript   String?             @db.Text
+  quizAnswers  Json?
+  aiScore      Decimal?            @db.Decimal(5, 2)
+  aiFeedback   Json?
+  teacherScore Decimal?            @db.Decimal(5, 2)
+  teacherNote  String?             @db.Text
+  aiStatus     EduAiStatus?
+  aiAttempts   Int                 @default(0)
+  aiLastError  String?             @db.Text
+  aiCostMs     Int?
+  aiCostTokens Int?
+  submittedAt  DateTime?
+  evaluatedAt  DateTime?
+  reviewedAt   DateTime?
+  createdAt    DateTime            @default(now())
+
+  activity EduActivity @relation(fields: [activityId], references: [id])
+
+  @@unique([activityId, studentId, attempt])
+  @@index([studentId, status])
+  @@index([activityId])
+}
+
+model EduClassSession {
+  id         String    @id @default(cuid())
+  networkId  String
+  classId    String
+  openedById String
+  code       String    @unique
+  expiresAt  DateTime
+  closedAt   DateTime?
+
+  class EduClass @relation(fields: [classId], references: [id])
+
+  @@index([code])
+  @@index([networkId])
+}

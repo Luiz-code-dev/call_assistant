@@ -22,6 +22,7 @@ export interface Session {
 
 export interface CreateSessionRequest {
   readonly config: SessionConfig;
+  readonly userId?: string;
 }
 
 export interface CreateSessionResponse {

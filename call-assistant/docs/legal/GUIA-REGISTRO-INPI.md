@@ -1,6 +1,6 @@
 # GUIA DE REGISTRO DE SOFTWARE NO INPI (Brasil)
 
-**Referente ao software:** Call Assistant  
+**Referente ao software:** SpeakFlow  
 **Autor:** Luiz Eduardo da Silva Dias Melo (CPF 046.245.652-5)  
 **Data:** 31 de março de 2026
 
@@ -41,7 +41,7 @@ Você precisará de:
 - E-mail de contato
 
 #### B) Identificação do Software
-- **Nome:** Call Assistant
+- **Nome:** SpeakFlow
 - **Versão:** 1.0.0
 - **Data de criação:** 31/03/2026
 - **Linguagem(ns):** Java, TypeScript, Rust
@@ -96,7 +96,7 @@ No sistema e-Software do INPI, preencha:
 ```
 1. Tipo de pedido:          Registro de Programa de Computador
 2. Natureza:                Aplicativo
-3. Título:                  Call Assistant
+3. Título:                  SpeakFlow
 4. Versão:                  1.0.0
 5. Data de publicação:      Não publicado (em sigilo)
 6. Titulares:               Luiz Eduardo da Silva Dias Melo

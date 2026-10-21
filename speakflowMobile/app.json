@@ -1,0 +1,80 @@
+{
+  "expo": {
+    "name": "SpeakFlow AI",
+    "slug": "speakflow-l3lve6fjw-wtsoes-f60m",
+    "version": "1.0.9",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "speakflow",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#09090b"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "br.com.speakflow.app",
+      "buildNumber": "7",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSMicrophoneUsageDescription": "O SpeakFlow usa o microfone para o Live Assist — copiloto de reuniões em tempo real.",
+        "NSCameraUsageDescription": "Câmera necessária para foto de perfil.",
+        "UIBackgroundModes": [
+          "audio"
+        ]
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#4c1d95"
+      },
+      "package": "br.com.speakflow.app",
+      "versionCode": 9,
+      "permissions": [
+        "RECORD_AUDIO",
+        "CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.FOREGROUND_SERVICE_MICROPHONE"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-av",
+        {
+          "microphonePermission": "O SpeakFlow usa o microfone para o Live Assist em tempo real."
+        }
+      ],
+      [
+        "expo-notifications",
+        {}
+      ],
+      "./plugins/withAudioForegroundService",
+      "expo-web-browser",
+      "expo-font",
+      "react-native-iap"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "b616375b-fbae-4a7b-b9cc-991bb9c0ec02"
+      }
+    },
+    "owner": "codevelopsolutions"
+  }
+}

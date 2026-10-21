@@ -22,7 +22,7 @@ class SessionRepositoryAdapterIT extends AbstractIntegrationTest {
     @DisplayName("save and findById should round-trip domain model")
     void saveAndFindById() {
         var config = new SessionConfig(Language.EN_US, Language.PT_BR, false, false, null);
-        var session = Session.create(config);
+        var session = Session.create(config, null);
         session.pullDomainEvents();
 
         StepVerifier.create(
@@ -43,7 +43,7 @@ class SessionRepositoryAdapterIT extends AbstractIntegrationTest {
     @Test
     @DisplayName("existsById should return true after save")
     void existsById() {
-        var session = Session.create(new SessionConfig(Language.EN_US, Language.PT_BR, false, false, null));
+        var session = Session.create(new SessionConfig(Language.EN_US, Language.PT_BR, false, false, null), null);
         session.pullDomainEvents();
 
         StepVerifier.create(
@@ -64,7 +64,7 @@ class SessionRepositoryAdapterIT extends AbstractIntegrationTest {
     @Test
     @DisplayName("save should persist ENDED session with endedAt set")
     void saveEndedSession() {
-        var session = Session.create(new SessionConfig(Language.EN_US, Language.PT_BR, false, false, null));
+        var session = Session.create(new SessionConfig(Language.EN_US, Language.PT_BR, false, false, null), null);
         session.pullDomainEvents();
         session.end();
         session.pullDomainEvents();

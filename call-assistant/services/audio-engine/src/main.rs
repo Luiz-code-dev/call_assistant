@@ -216,11 +216,11 @@ fn windows_capture_inner(
                 let is_silent = (flags & 0x2) != 0; // AUDCLNT_BUFFERFLAGS_SILENT
 
                 if n > 0 {
-                    if is_silent || !is_float {
+                    if is_silent {
                         for _ in 0..n {
                             mono_buf.push(0.0f32);
                         }
-                    } else {
+                    } else if is_float {
                         let samples = core::slice::from_raw_parts(
                             p_data as *const f32,
                             n * native_channels,
@@ -232,15 +232,29 @@ fn windows_capture_inner(
                             }
                             mono_buf.push(sum / native_channels as f32);
                         }
+                    } else {
+                        // PCM int16 format — convert to float instead of silencing
+                        let samples = core::slice::from_raw_parts(
+                            p_data as *const i16,
+                            n * native_channels,
+                        );
+                        for frame in 0..n {
+                            let mut sum = 0.0f32;
+                            for ch in 0..native_channels {
+                                sum += samples[frame * native_channels + ch] as f32 / 32768.0;
+                            }
+                            mono_buf.push(sum / native_channels as f32);
+                        }
                     }
                 }
 
                 let _ = capture_client.ReleaseBuffer(num_frames);
 
-                // Resample: point-sample decimation
-                while src_pos < mono_buf.len() as f64 {
+                // Resample: linear interpolation (avoids aliasing artifacts)
+                while src_pos + 1.0 < mono_buf.len() as f64 {
                     let idx = src_pos as usize;
-                    let s = mono_buf[idx];
+                    let frac = (src_pos - idx as f64) as f32;
+                    let s = mono_buf[idx] * (1.0 - frac) + mono_buf[idx + 1] * frac;
                     resampled.push((s.clamp(-1.0, 1.0) * 32767.0) as i16);
                     src_pos += ratio;
                 }

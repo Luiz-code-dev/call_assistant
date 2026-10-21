@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>SpeakFlow Screenshots</title>
+<style>
+  body{background:#111;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;color:white;padding:24px;display:flex;flex-direction:column;align-items:center;gap:24px;}
+  .row{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;}
+  .item{display:flex;flex-direction:column;align-items:center;gap:8px;}
+  canvas{border-radius:16px;width:180px;height:320px;}
+  button{padding:8px 20px;background:#7c3aed;color:white;border:none;border-radius:8px;font-size:13px;cursor:pointer;}
+  h3{margin:0;opacity:0.6;font-size:12px;text-transform:uppercase;}
+</style>
+</head>
+<body>
+<h2 style="margin:0">SpeakFlow — Phone Screenshots (1080×1920)</h2>
+<p style="opacity:0.5;margin:0;font-size:13px">Faça upload das 4 capturas no Play Console em "Capturas de tela do smartphone"</p>
+<div class="row" id="screens"></div>
+
+<script>
+const W=1080,H=1920;
+const BG='#09090b', CARD='#18181b', BORDER='#27272a', PRI='#7c3aed', PRILIGHT='rgba(124,58,237,0.15)';
+const WHITE='rgba(255,255,255,0.95)', MUTED='rgba(255,255,255,0.45)', DIM='rgba(255,255,255,0.25)';
+
+function base(ctx){
+  ctx.fillStyle=BG; ctx.fillRect(0,0,W,H);
+  // status bar
+  ctx.fillStyle=MUTED; ctx.font=`bold ${W*0.028}px Arial`; ctx.textAlign='left';
+  ctx.fillText('9:41',W*0.06,H*0.038);
+  ctx.textAlign='right'; ctx.fillText('●●●',W*0.94,H*0.038);
+}
+
+function card(ctx,x,y,w,h,r=16){
+  ctx.fillStyle=CARD; ctx.strokeStyle=BORDER; ctx.lineWidth=1.5;
+  ctx.beginPath(); ctx.roundRect(x,y,w,h,r); ctx.fill(); ctx.stroke();
+}
+
+function pill(ctx,x,y,label,bg='rgba(124,58,237,0.2)',tc='rgba(167,139,250,1)',fs=22){
+  ctx.fillStyle=bg; ctx.beginPath();
+  const tw=ctx.measureText(label).width+W*0.04;
+  ctx.roundRect(x,y,tw,H*0.036,H*0.018); ctx.fill();
+  ctx.fillStyle=tc; ctx.font=`bold ${fs}px Arial`; ctx.textAlign='left';
+  ctx.fillText(label,x+W*0.02,y+H*0.025);
+  return tw;
+}
+
+// ── SCREEN 1: HOME ──
+function screen1(){
+  const c=document.createElement('canvas'); c.width=W; c.height=H;
+  const ctx=c.getContext('2d'); base(ctx);
+  // header
+  ctx.fillStyle=WHITE; ctx.font=`bold ${W*0.062}px Arial`; ctx.textAlign='left';
+  ctx.fillText('SpeakFlow',W*0.06,H*0.10);
+  ctx.fillStyle=MUTED; ctx.font=`${W*0.032}px Arial`;
+  ctx.fillText('Bom dia! Vamos praticar inglês hoje?',W*0.06,H*0.125);
+
+  // credits card
+  const cg=ctx.createLinearGradient(W*0.06,0,W*0.94,0);
+  cg.addColorStop(0,'#5b21b6'); cg.addColorStop(1,'#7c3aed');
+  ctx.fillStyle=cg; ctx.beginPath(); ctx.roundRect(W*0.06,H*0.145,W*0.88,H*0.12,20); ctx.fill();
+  ctx.fillStyle='rgba(255,255,255,0.15)'; ctx.beginPath(); ctx.arc(W*0.82,H*0.175,H*0.065,0,Math.PI*2); ctx.fill();
+  ctx.fillStyle=WHITE; ctx.font=`bold ${W*0.08}px Arial`; ctx.textAlign='left';
+  ctx.fillText('248',W*0.10,H*0.20);
+  ctx.fillStyle='rgba(255,255,255,0.7)'; ctx.font=`${W*0.032}px Arial`;
+  ctx.fillText('créditos disponíveis',W*0.10,H*0.225);
+  ctx.fillStyle='rgba(255,255,255,0.5)'; ctx.font=`${W*0.026}px Arial`;
+  ctx.fillText('Plano Basic',W*0.10,H*0.248);
+
+  // quick actions title
+  ctx.fillStyle=MUTED; ctx.font=`bold ${W*0.032}px Arial`;
+  ctx.fillText('ACESSO RÁPIDO',W*0.06,H*0.305);
+
+  const actions=[
+    {icon:'🎙️',label:'Live Assist',sub:'Reuniões ao vivo'},
+    {icon:'⚡',label:'Ferramentas',sub:'IA para escrita'},
+    {icon:'👥',label:'Circles',sub:'Comunidades'},
+    {icon:'💬',label:'Mensagens',sub:'Chat com IA'},
+  ];
+  actions.forEach((a,i)=>{
+    const col=i%2, row=Math.floor(i/2);
+    const x=W*0.06+col*(W*0.46+W*0.02), y=H*0.32+row*(H*0.115+H*0.015);
+    card(ctx,x,y,W*0.46,H*0.115,16);
+    ctx.font=`${W*0.055}px Arial`; ctx.textAlign='left'; ctx.fillText(a.icon,x+W*0.04,y+H*0.055);
+    ctx.fillStyle=WHITE; ctx.font=`bold ${W*0.034}px Arial`; ctx.fillText(a.label,x+W*0.04,y+H*0.08);
+    ctx.fillStyle=MUTED; ctx.font=`${W*0.026}px Arial`; ctx.fillText(a.sub,x+W*0.04,y+H*0.098);
+  });
+
+  // recent activity
+  ctx.fillStyle=MUTED; ctx.font=`bold ${W*0.032}px Arial`; ctx.textAlign='left';
+  ctx.fillText('ATIVIDADE RECENTE',W*0.06,H*0.585);
+  const acts=['Reunião com cliente ✓','Quiz: Business English ✓','Email de negociação ✓'];
+  acts.forEach((a,i)=>{
+    card(ctx,W*0.06,H*0.60+i*(H*0.075+H*0.01),W*0.88,H*0.075,12);
+    ctx.fillStyle=WHITE; ctx.font=`${W*0.03}px Arial`; ctx.textAlign='left';
+    ctx.fillText(a,W*0.12,H*0.60+i*(H*0.075+H*0.01)+H*0.044);
+  });
+
+  // tab bar
+  ctx.fillStyle=CARD; ctx.strokeStyle=BORDER; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.rect(0,H*0.92,W,H*0.08); ctx.fill(); ctx.stroke();
+  const tabs=['🏠','🔧','🎙️','👥','💬'];
+  tabs.forEach((t,i)=>{
+    ctx.font=`${W*0.06}px Arial`; ctx.textAlign='center';
+    ctx.fillText(t,W*0.1+i*W*0.2,H*0.957);
+  });
+  return c;
+}
+
+// ── SCREEN 2: LIVE ASSIST ──
+function screen2(){
+  const c=document.createElement('canvas'); c.width=W; c.height=H;
+  const ctx=c.getContext('2d'); base(ctx);
+
+  ctx.fillStyle=WHITE; ctx.font=`bold ${W*0.055}px Arial`; ctx.textAlign='center';
+  ctx.fillText('Live Assist',W/2,H*0.10);
+  ctx.fillStyle=MUTED; ctx.font=`${W*0.028}px Arial`;
+  ctx.fillText('Reunião em andamento',W/2,H*0.125);
+
+  // live badge
+  ctx.fillStyle='rgba(239,68,68,0.2)'; ctx.beginPath(); ctx.roundRect(W/2-60,H*0.135,120,H*0.032,H*0.016); ctx.fill();
+  ctx.fillStyle='#f87171'; ctx.font=`bold ${W*0.025}px Arial`; ctx.textAlign='center';
+  ctx.fillText('● AO VIVO',W/2,H*0.156);
+
+  // transcript area
+  card(ctx,W*0.06,H*0.175,W*0.88,H*0.28,16);
+  ctx.fillStyle=MUTED; ctx.font=`${W*0.026}px Arial`; ctx.textAlign='left';
+  ctx.fillText('Transcrição:',W*0.10,H*0.198);
+
+  const lines=["\"We need to align on the Q3","roadmap before the sprint","planning session next week.\""];
+  lines.forEach((l,i)=>{
+    ctx.fillStyle=WHITE; ctx.font=`${W*0.032}px Arial`;
+    ctx.fillText(l,W*0.10,H*0.225+i*H*0.038);
+  });
+
+  // suggestion card
+  const sg=ctx.createLinearGradient(0,H*0.47,0,H*0.62);
+  sg.addColorStop(0,'rgba(124,58,237,0.25)'); sg.addColorStop(1,'rgba(124,58,237,0.05)');
+  ctx.fillStyle=sg; ctx.strokeStyle='rgba(124,58,237,0.4)'; ctx.lineWidth=1.5;
+  ctx.beginPath(); ctx.roundRect(W*0.06,H*0.47,W*0.88,H*0.17,16); ctx.fill(); ctx.stroke();
+  ctx.fillStyle='rgba(167,139,250,1)'; ctx.font=`bold ${W*0.028}px Arial`; ctx.textAlign='left';
+  ctx.fillText('💡 Sugestão da IA:',W*0.10,H*0.492);
+  ctx.fillStyle=WHITE; ctx.font=`${W*0.03}px Arial`;
+  const sug=["\"I'd like to propose we sync up","on our Q3 objectives to ensure","full alignment before sprint planning.\""];
+  sug.forEach((l,i)=> ctx.fillText(l,W*0.10,H*0.515+i*H*0.038));
+
+  // waveform
+  card(ctx,W*0.06,H*0.66,W*0.88,H*0.09,12);
+  for(let i=0;i<40;i++){
+    const h2=Math.random()*H*0.05+H*0.01;
+    ctx.fillStyle=i%2===0?PRI:'rgba(124,58,237,0.4)';
+    ctx.beginPath(); ctx.roundRect(W*0.09+i*W*0.02,H*0.705-h2/2,W*0.013,h2,4); ctx.fill();
+  }
+
+  // stop button
+  const bg2=ctx.createRadialGradient(W/2,H*0.81,0,W/2,H*0.81,W*0.13);
+  bg2.addColorStop(0,'#7c3aed'); bg2.addColorStop(1,'#5b21b6');
+  ctx.fillStyle=bg2; ctx.shadowColor='rgba(124,58,237,0.5)'; ctx.shadowBlur=30;
+  ctx.beginPath(); ctx.arc(W/2,H*0.81,W*0.12,0,Math.PI*2); ctx.fill();
+  ctx.shadowBlur=0;
+  ctx.fillStyle=WHITE; ctx.font=`bold ${W*0.036}px Arial`; ctx.textAlign='center';
+  ctx.fillText('PARAR',W/2,H*0.818);
+
+  ctx.fillStyle=CARD; ctx.strokeStyle=BORDER; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.rect(0,H*0.92,W,H*0.08); ctx.fill(); ctx.stroke();
+  const tabs=['🏠','🔧','🎙️','👥','💬'];
+  tabs.forEach((t,i)=>{ ctx.font=`${W*0.06}px Arial`; ctx.textAlign='center'; ctx.fillText(t,W*0.1+i*W*0.2,H*0.957); });
+  return c;
+}
+
+// ── SCREEN 3: TOOLS ──
+function screen3(){
+  const c=document.createElement('canvas'); c.width=W; c.height=H;
+  const ctx=c.getContext('2d'); base(ctx);
+
+  ctx.fillStyle=WHITE; ctx.font=`bold ${W*0.055}px Arial`; ctx.textAlign='left';
+  ctx.fillText('Ferramentas',W*0.06,H*0.10);
+  ctx.fillStyle=MUTED; ctx.font=`${W*0.03}px Arial`;
+  ctx.fillText('IA para seu inglês profissional',W*0.06,H*0.127);
+
+  const tools=[
+    {icon:'✨',name:'Melhorar Texto',desc:'Reescreva com mais impacto',tag:'Popular'},
+    {icon:'⚡',name:'Gerar Conteúdo',desc:'E-mails, posts e apresentações',tag:''},
+    {icon:'🎯',name:'Simulador de Entrevista',desc:'Pratique com IA interativa',tag:'Novo'},
+    {icon:'📊',name:'Análise CEFR',desc:'Descubra seu nível atual',tag:''},
+    {icon:'🌐',name:'Traduzir',desc:'Português ↔ Inglês profissional',tag:''},
+  ];
+  tools.forEach((t,i)=>{
+    const y=H*0.155+i*(H*0.105+H*0.012);
+    card(ctx,W*0.06,y,W*0.88,H*0.105,14);
+    ctx.font=`${W*0.06}px Arial`; ctx.textAlign='left'; ctx.fillText(t.icon,W*0.10,y+H*0.065);
+    ctx.fillStyle=WHITE; ctx.font=`bold ${W*0.035}px Arial`; ctx.fillText(t.name,W*0.22,y+H*0.042);
+    ctx.fillStyle=MUTED; ctx.font=`${W*0.027}px Arial`; ctx.fillText(t.desc,W*0.22,y+H*0.068);
+    if(t.tag){
+      ctx.fillStyle=PRILIGHT; ctx.beginPath(); ctx.roundRect(W*0.73,y+H*0.025,W*0.15,H*0.03,H*0.015); ctx.fill();
+      ctx.fillStyle='rgba(167,139,250,1)'; ctx.font=`bold ${W*0.022}px Arial`; ctx.textAlign='center';
+      ctx.fillText(t.tag,W*0.805,y+H*0.045); ctx.textAlign='left';
+    }
+    ctx.fillStyle=MUTED; ctx.font=`${W*0.04}px Arial`; ctx.textAlign='right'; ctx.fillText('›',W*0.92,y+H*0.062); ctx.textAlign='left';
+  });
+
+  ctx.fillStyle=CARD; ctx.strokeStyle=BORDER; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.rect(0,H*0.92,W,H*0.08); ctx.fill(); ctx.stroke();
+  const tabs=['🏠','🔧','🎙️','👥','💬'];
+  tabs.forEach((t,i)=>{ ctx.font=`${W*0.06}px Arial`; ctx.textAlign='center'; ctx.fillText(t,W*0.1+i*W*0.2,H*0.957); });
+  return c;
+}
+
+// ── SCREEN 4: CIRCLES ──
+function screen4(){
+  const c=document.createElement('canvas'); c.width=W; c.height=H;
+  const ctx=c.getContext('2d'); base(ctx);
+
+  ctx.fillStyle=WHITE; ctx.font=`bold ${W*0.055}px Arial`; ctx.textAlign='left';
+  ctx.fillText('Circles',W*0.06,H*0.10);
+  ctx.fillStyle=MUTED; ctx.font=`${W*0.03}px Arial`;
+  ctx.fillText('Pratique com sua comunidade',W*0.06,H*0.127);
+
+  const circles=[
+    {name:'Business English Pro',focus:'Reuniões & Negociações',members:24,tag:'Membro'},
+    {name:'Tech Startup English',focus:'Startups & Tecnologia',members:18,tag:''},
+    {name:'Sales & Customer Success',focus:'Vendas & CS',members:31,tag:'Owner'},
+  ];
+  circles.forEach((ci,i)=>{
+    const y=H*0.155+i*(H*0.145+H*0.015);
+    card(ctx,W*0.06,y,W*0.88,H*0.145,16);
+    // avatar
+    const ag=ctx.createLinearGradient(W*0.09,y+H*0.025,W*0.09+H*0.07,y+H*0.025);
+    ag.addColorStop(0,'#5b21b6'); ag.addColorStop(1,'#7c3aed');
+    ctx.fillStyle=ag; ctx.beginPath(); ctx.arc(W*0.13,y+H*0.06,H*0.035,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle=WHITE; ctx.font=`bold ${W*0.035}px Arial`; ctx.textAlign='center';
+    ctx.fillText(ci.name[0],W*0.13,y+H*0.072); ctx.textAlign='left';
+
+    ctx.fillStyle=WHITE; ctx.font=`bold ${W*0.035}px Arial`; ctx.fillText(ci.name,W*0.22,y+H*0.05);
+    ctx.fillStyle=MUTED; ctx.font=`${W*0.027}px Arial`; ctx.fillText(ci.focus,W*0.22,y+H*0.075);
+    ctx.fillText(`👥 ${ci.members} membros`,W*0.22,y+H*0.098);
+
+    if(ci.tag){
+      const tc=ci.tag==='Owner'?'rgba(251,191,36,1)':'rgba(167,139,250,1)';
+      const tb=ci.tag==='Owner'?'rgba(251,191,36,0.15)':PRILIGHT;
+      ctx.fillStyle=tb; ctx.beginPath(); ctx.roundRect(W*0.22,y+H*0.108,W*0.14,H*0.028,H*0.014); ctx.fill();
+      ctx.fillStyle=tc; ctx.font=`bold ${W*0.022}px Arial`; ctx.textAlign='center';
+      ctx.fillText(ci.tag,W*0.22+W*0.07,y+H*0.126); ctx.textAlign='left';
+    }
+
+    // challenge badge
+    ctx.fillStyle='rgba(16,185,129,0.15)'; ctx.beginPath(); ctx.roundRect(W*0.62,y+H*0.03,W*0.24,H*0.09,10); ctx.fill();
+    ctx.strokeStyle='rgba(16,185,129,0.3)'; ctx.lineWidth=1; ctx.beginPath(); ctx.roundRect(W*0.62,y+H*0.03,W*0.24,H*0.09,10); ctx.stroke();
+    ctx.fillStyle='rgba(52,211,153,1)'; ctx.font=`bold ${W*0.022}px Arial`; ctx.textAlign='center';
+    ctx.fillText('⚡ Desafio ativo',W*0.74,y+H*0.068); ctx.textAlign='left';
+  });
+
+  ctx.fillStyle=CARD; ctx.strokeStyle=BORDER; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.rect(0,H*0.92,W,H*0.08); ctx.fill(); ctx.stroke();
+  const tabs=['🏠','🔧','🎙️','👥','💬'];
+  tabs.forEach((t,i)=>{ ctx.font=`${W*0.06}px Arial`; ctx.textAlign='center'; ctx.fillText(t,W*0.1+i*W*0.2,H*0.957); });
+  return c;
+}
+
+const screens=[
+  {fn:screen1,label:'1. Home'},
+  {fn:screen2,label:'2. Live Assist'},
+  {fn:screen3,label:'3. Ferramentas'},
+  {fn:screen4,label:'4. Circles'},
+];
+
+const row=document.getElementById('screens');
+screens.forEach((s,i)=>{
+  const canvas=s.fn();
+  const div=document.createElement('div'); div.className='item';
+  const h=document.createElement('h3'); h.textContent=s.label;
+  const btn=document.createElement('button'); btn.textContent='⬇ Download';
+  btn.onclick=()=>{ const a=document.createElement('a'); a.download=`screenshot_0${i+1}.png`; a.href=canvas.toDataURL('image/png'); a.click(); };
+  div.appendChild(h); div.appendChild(canvas); div.appendChild(btn);
+  row.appendChild(div);
+});
+</script>
+</body>
+</html>

@@ -11,4 +11,5 @@ public interface SessionEventPublisher {
     void emitTranscript(String sessionId, Transcript transcript);
     void emitTranslation(String sessionId, Translation translation);
     void emitSuggestion(String sessionId, CopilotSuggestion suggestion);
+    void emitCreditsExhausted(String sessionId);
 }

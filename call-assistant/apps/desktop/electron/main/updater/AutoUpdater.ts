@@ -2,8 +2,8 @@ import { autoUpdater } from "electron-updater";
 import { BrowserWindow, dialog } from "electron";
 
 export function initAutoUpdater(mainWindow: BrowserWindow): void {
-  autoUpdater.autoDownload = true;
-  autoUpdater.autoInstallOnAppQuit = true;
+  autoUpdater.autoDownload = false;
+  autoUpdater.autoInstallOnAppQuit = false;
 
   autoUpdater.on("update-available", (info) => {
     mainWindow.webContents.send("update:available", info.version);
@@ -14,7 +14,7 @@ export function initAutoUpdater(mainWindow: BrowserWindow): void {
       .showMessageBox(mainWindow, {
         type: "info",
         title: "Atualização disponível",
-        message: "Uma nova versão do Call Assistant foi baixada.",
+        message: "Uma nova versão do SpeakFlow foi baixada.",
         detail: "Reinicie o aplicativo para aplicar a atualização.",
         buttons: ["Reiniciar agora", "Mais tarde"],
         defaultId: 0,

@@ -1,0 +1,176 @@
+"use client";
+import { useEffect, useState } from "react";
+import { STAGE_LABEL, SHIFT_LABEL } from "@/lib/escola/types";
+
+interface Teacher { id: string; name: string; email: string; }
+interface Offer { id: string; subjectId: string; teacherId: string | null; subject: { id: string; name: string; color: string | null }; }
+interface EduClass { id: string; name: string; stage: string; gradeYear: number; shift: string; subjects: Offer[]; }
+interface Subject { id: string; name: string; color: string | null; }
+
+export default function AtribuicoesPage() {
+  const [classes, setClasses] = useState<EduClass[]>([]);
+  const [subjects, setSubjects] = useState<Subject[]>([]);
+  const [teachers, setTeachers] = useState<Teacher[]>([]);
+  const [schoolId, setSchoolId] = useState<string>("");
+  const [schools, setSchools] = useState<{ id: string; name: string }[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [saved, setSaved] = useState(false);
+  const [changes, setChanges] = useState<Record<string, string | null>>({});
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 1024);
+    const handler = () => setIsMobile(window.innerWidth < 1024);
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/escola/escolas").then(r => r.json()).then(d => {
+      setSchools(d.schools ?? []);
+      if (d.schools?.[0]) setSchoolId(d.schools[0].id);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!schoolId) return;
+    setLoading(true);
+    fetch(`/api/escola/escolas/${schoolId}/atribuicoes`).then(r => r.json()).then(d => {
+      setClasses(d.classes ?? []);
+      setSubjects(d.subjects ?? []);
+      setTeachers(d.teachers ?? []);
+      setChanges({});
+      setLoading(false);
+    });
+  }, [schoolId]);
+
+  function setTeacher(offerId: string, teacherId: string | null) {
+    setChanges(c => ({ ...c, [offerId]: teacherId }));
+    setSaved(false);
+  }
+
+  function getOfferTeacher(offer: Offer): string | null {
+    return offer.id in changes ? changes[offer.id] : (offer.teacherId ?? null);
+  }
+
+  async function save() {
+    setSaving(true);
+    const assignments = Object.entries(changes).map(([classSubjectId, teacherId]) => ({ classSubjectId, teacherId }));
+    const r = await fetch(`/api/escola/escolas/${schoolId}/atribuicoes`, {
+      method: "PUT", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ assignments }),
+    });
+    if (r.ok) { setSaved(true); setChanges({}); }
+    setSaving(false);
+  }
+
+  const pendingCount = classes.reduce((acc, cls) => acc + cls.subjects.filter(o => !getOfferTeacher(o)).length, 0);
+  const changesCount = Object.keys(changes).length;
+
+  if (loading) return <div className="text-gray-400 text-center py-12 p-8">Carregando...</div>;
+
+  return (
+    <div className="p-4 md:p-6 lg:p-8 max-w-full">
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 className="text-xl font-bold text-white">Quadro de Atribuições</h1>
+          {pendingCount > 0 && <p className="text-yellow-400 text-sm mt-0.5">{pendingCount} aula{pendingCount !== 1 ? "s" : ""} sem professor</p>}
+        </div>
+        <div className="flex gap-3 flex-wrap">
+          <select value={schoolId} onChange={e => setSchoolId(e.target.value)} className="bg-gray-800 text-white rounded-lg px-3 py-2 text-sm border border-gray-700 outline-none min-h-[44px]">
+            {schools.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+          </select>
+          {changesCount > 0 && (
+            <button onClick={save} disabled={saving} className="bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium min-h-[44px] disabled:opacity-50 transition-colors">
+              {saving ? "Salvando..." : `Salvar ${changesCount} alteração${changesCount !== 1 ? "ões" : ""}`}
+            </button>
+          )}
+          {saved && <span className="text-green-400 text-sm flex items-center">✅ Salvo</span>}
+        </div>
+      </div>
+
+      {classes.length === 0 ? (
+        <div className="text-center py-16 text-gray-500"><div className="text-4xl mb-3">📋</div><div>Nenhuma turma encontrada</div></div>
+      ) : isMobile ? (
+        // Mobile: list by class
+        <div className="space-y-4">
+          {classes.map(cls => (
+            <div key={cls.id} className="bg-gray-900 border border-gray-800 rounded-xl p-4">
+              <div className="font-semibold text-white mb-1">{cls.name}</div>
+              <div className="text-gray-500 text-xs mb-3">{STAGE_LABEL[cls.stage as keyof typeof STAGE_LABEL] ?? cls.stage} · {cls.gradeYear}º · {SHIFT_LABEL[cls.shift as keyof typeof SHIFT_LABEL] ?? cls.shift}</div>
+              <div className="space-y-2">
+                {cls.subjects.map(offer => {
+                  const currentTeacher = getOfferTeacher(offer);
+                  const isChanged = offer.id in changes;
+                  return (
+                    <div key={offer.id} className="flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: offer.subject?.color ?? "#7C3AED" }} />
+                      <span className="text-gray-400 text-sm flex-1 min-w-0 truncate">{offer.subject?.name}</span>
+                      <select
+                        value={currentTeacher ?? ""}
+                        onChange={e => setTeacher(offer.id, e.target.value || null)}
+                        className={`bg-gray-800 text-sm rounded-lg px-2 py-1.5 border outline-none min-h-[44px] min-w-[160px] ${!currentTeacher ? "border-yellow-700 text-yellow-400" : isChanged ? "border-purple-600 text-white" : "border-gray-700 text-white"}`}
+                      >
+                        <option value="">— Sem professor —</option>
+                        {teachers.map(t => <option key={t.id} value={t.id}>{t.name}</option>)}
+                      </select>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        // Desktop: grid table
+        <div className="overflow-x-auto rounded-xl border border-gray-800">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="bg-gray-900 border-b border-gray-800">
+                <th className="text-left text-gray-400 font-medium p-3 min-w-[140px] sticky left-0 bg-gray-900 z-10">Turma</th>
+                {subjects.map(s => (
+                  <th key={s.id} className="text-center text-gray-400 font-medium p-2 min-w-[140px] max-w-[180px]">
+                    <div className="flex items-center justify-center gap-1">
+                      <div className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: s.color ?? "#7C3AED" }} />
+                      <span className="truncate">{s.name}</span>
+                    </div>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {classes.map(cls => (
+                <tr key={cls.id} className="border-b border-gray-800 hover:bg-gray-900/40">
+                  <td className="p-3 sticky left-0 bg-gray-950 z-10">
+                    <div className="text-white font-medium">{cls.name}</div>
+                    <div className="text-gray-600 text-xs">{cls.gradeYear}º · {SHIFT_LABEL[cls.shift as keyof typeof SHIFT_LABEL] ?? cls.shift}</div>
+                  </td>
+                  {subjects.map(subject => {
+                    const offer = cls.subjects.find(o => o.subjectId === subject.id);
+                    if (!offer) return <td key={subject.id} className="p-2 text-center"><span className="text-gray-700 text-xs">—</span></td>;
+                    const currentTeacher = getOfferTeacher(offer);
+                    const isChanged = offer.id in changes;
+                    return (
+                      <td key={subject.id} className="p-1.5">
+                        <select
+                          value={currentTeacher ?? ""}
+                          onChange={e => setTeacher(offer.id, e.target.value || null)}
+                          title={teachers.find(t => t.id === currentTeacher)?.name ?? ""}
+                          className={`w-full bg-gray-800 text-xs rounded px-1.5 py-1.5 border outline-none min-h-[36px] ${!currentTeacher ? "border-yellow-700 text-yellow-400 bg-yellow-900/20" : isChanged ? "border-purple-600 text-white" : "border-gray-700 text-gray-300"}`}
+                        >
+                          <option value="">—</option>
+                          {teachers.map(t => <option key={t.id} value={t.id}>{t.name.split(" ")[0]} {t.name.split(" ").slice(-1)[0]}</option>)}
+                        </select>
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  );
+}

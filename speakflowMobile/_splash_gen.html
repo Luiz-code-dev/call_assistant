@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>SpeakFlow Splash Generator</title></head>
+<body style="background:#111;display:flex;flex-direction:column;align-items:center;padding:24px;font-family:sans-serif;color:white;gap:16px;">
+<h2 style="margin:0">SpeakFlow — Splash Screen (1284×2778)</h2>
+<canvas id="c" width="1284" height="2778" style="width:180px;height:390px;border-radius:12px;"></canvas>
+<button onclick="dl()" style="padding:12px 32px;background:#7c3aed;color:white;border:none;border-radius:8px;font-size:16px;cursor:pointer">⬇ Download splash.png</button>
+<p style="opacity:0.4;font-size:12px;margin:0">Salve em speakflowMobile/assets/splash.png</p>
+<script>
+const c = document.getElementById('c');
+const ctx = c.getContext('2d');
+const W = 1284, H = 2778;
+
+// Background — solid dark to avoid "stain" effect
+ctx.fillStyle = '#09090b';
+ctx.fillRect(0, 0, W, H);
+
+// Subtle radial glow center
+const glow = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, W*0.55);
+glow.addColorStop(0, 'rgba(124,58,237,0.22)');
+glow.addColorStop(1, 'rgba(9,9,11,0)');
+ctx.fillStyle = glow;
+ctx.fillRect(0, 0, W, H);
+
+// Draw icon — big and prominent
+const S = 420;
+const ix = W/2 - S/2, iy = H/2 - S/2 - H*0.05;
+
+// Icon bg with strong gradient
+const ibg = ctx.createLinearGradient(ix, iy, ix+S, iy+S);
+ibg.addColorStop(0, '#7c3aed'); ibg.addColorStop(1, '#4c1d95');
+ctx.fillStyle = ibg;
+ctx.beginPath(); ctx.roundRect(ix, iy, S, S, S*0.22); ctx.fill();
+
+// Icon bg inner glow
+const iglow = ctx.createRadialGradient(ix+S*0.4, iy+S*0.35, 0, ix+S/2, iy+S/2, S*0.65);
+iglow.addColorStop(0, 'rgba(255,255,255,0.12)'); iglow.addColorStop(1, 'rgba(0,0,0,0)');
+ctx.fillStyle = iglow;
+ctx.beginPath(); ctx.roundRect(ix, iy, S, S, S*0.22); ctx.fill();
+
+// Mic body
+ctx.fillStyle = 'white'; ctx.shadowColor = 'rgba(167,139,250,0.7)'; ctx.shadowBlur = 28;
+const mw = S*0.19, mh = S*0.30, mr = S*0.095, mx = ix+S/2, my = iy+S*0.36;
+ctx.beginPath(); ctx.roundRect(mx-mw/2, my-mh/2, mw, mh, mr); ctx.fill();
+
+// Mic arc + stand
+ctx.strokeStyle = 'white'; ctx.lineWidth = S*0.042; ctx.lineCap = 'round'; ctx.shadowBlur = 18;
+ctx.beginPath(); ctx.arc(mx, my+mh*0.12, S*0.205, Math.PI*0.05, Math.PI*0.95); ctx.stroke();
+ctx.beginPath(); ctx.moveTo(mx, my+mh*0.12+S*0.205); ctx.lineTo(mx, my+mh*0.12+S*0.31); ctx.stroke();
+ctx.beginPath(); ctx.moveTo(mx-S*0.13, my+mh*0.12+S*0.31); ctx.lineTo(mx+S*0.13, my+mh*0.12+S*0.31); ctx.stroke();
+
+// "SpeakFlow" title
+ctx.shadowBlur = 0;
+ctx.fillStyle = 'white';
+ctx.font = `bold ${W*0.098}px -apple-system, BlinkMacSystemFont, Arial, sans-serif`;
+ctx.textAlign = 'center';
+ctx.fillText('SpeakFlow', W/2, iy + S + H*0.072);
+
+// Tagline
+ctx.fillStyle = 'rgba(196,181,253,0.9)';
+ctx.font = `${W*0.044}px Arial, sans-serif`;
+ctx.fillText('Inglês profissional com IA', W/2, iy + S + H*0.072 + W*0.065);
+
+function dl() {
+  const a = document.createElement('a');
+  a.download = 'splash.png';
+  a.href = c.toDataURL('image/png');
+  a.click();
+}
+window.onload = () => setTimeout(dl, 500);
+</script>
+</body>
+</html>

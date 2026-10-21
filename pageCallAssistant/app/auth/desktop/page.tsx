@@ -1,0 +1,126 @@
+"use client";
+
+import { useEffect, useState, useCallback } from "react";
+import { useRouter } from "next/navigation";
+import { Loader2, CheckCircle2, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+export default function DesktopAuthPage() {
+  const router = useRouter();
+  const [status, setStatus] = useState<"loading" | "ready" | "opening" | "error">("loading");
+  const [deepLink, setDeepLink] = useState("");
+
+  const syncCookie = useCallback(async (sfToken: string | null) => {
+    if (!sfToken) return;
+    try {
+      await fetch("/api/auth/refresh-cookie", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${sfToken}` },
+      });
+    } catch { /* best-effort */ }
+  }, []);
+
+  useEffect(() => {
+    async function generateToken() {
+      try {
+        const sfToken = typeof window !== "undefined" ? sessionStorage.getItem("sf_token") : null;
+        await syncCookie(sfToken);
+        const res = await fetch("/api/auth/desktop-token", {
+          method: "POST",
+          headers: { ...(sfToken ? { Authorization: `Bearer ${sfToken}` } : {}) },
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.message);
+        const link = `callassistant://auth?token=${encodeURIComponent(data.token)}`;
+        setDeepLink(link);
+        setStatus("ready");
+        openApp(link);
+      } catch {
+        setStatus("error");
+      }
+    }
+    generateToken();
+  }, [syncCookie]);
+
+  function openApp(link?: string) {
+    const url = link || deepLink;
+    if (!url) return;
+    setStatus("opening");
+    window.location.href = url;
+    setTimeout(() => setStatus("ready"), 2000);
+  }
+
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center bg-background px-6 text-center">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(139,92,246,0.1),transparent)] pointer-events-none" />
+
+      <button
+        onClick={() => router.push("/dashboard")}
+        className="mb-6 hover:opacity-80 transition-opacity cursor-pointer"
+        title="Ir para o Dashboard"
+      >
+        <img src="/icon.png" alt="SpeakFlow" className="h-16 w-16 rounded-2xl" />
+      </button>
+
+      {status === "loading" && (
+        <>
+          <Loader2 className="h-8 w-8 animate-spin text-violet-400 mb-4" />
+          <h1 className="text-2xl font-bold mb-2">Preparando acesso</h1>
+          <p className="text-muted-foreground">Gerando token seguro para o app...</p>
+        </>
+      )}
+
+      {(status === "ready" || status === "opening") && (
+        <>
+          <CheckCircle2 className="h-10 w-10 text-emerald-400 mb-4" />
+          <h1 className="text-2xl font-bold mb-2">Login realizado!</h1>
+          <p className="text-muted-foreground mb-6 max-w-sm">
+            {status === "opening"
+              ? "Abrindo o SpeakFlow..."
+              : "Clique no botão abaixo para abrir o app desktop."}
+          </p>
+          <Button
+            variant="gradient"
+            size="lg"
+            onClick={() => openApp()}
+            disabled={status === "opening"}
+          >
+            {status === "opening" ? (
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            ) : (
+              <ExternalLink className="mr-2 h-4 w-4" />
+            )}
+            {status === "opening" ? "Abrindo..." : "Abrir SpeakFlow"}
+          </Button>
+          <p className="mt-4 text-xs text-muted-foreground">
+            O app não abriu?{" "}
+            <a href={deepLink} className="text-violet-400 hover:underline">
+              Clique aqui
+            </a>
+          </p>
+        </>
+      )}
+
+      {status === "error" && (
+        <>
+          <h1 className="text-2xl font-bold mb-2 text-red-400">Erro ao gerar token</h1>
+          <p className="text-muted-foreground mb-6">
+            Faça login novamente para tentar.
+          </p>
+          <Button variant="outline" onClick={() => (window.location.href = "/login?callback=desktop")}>
+            Voltar ao login
+          </Button>
+        </>
+      )}
+
+      <div className="mt-8 pt-6 border-t border-border/40">
+        <a
+          href="/dashboard"
+          className="text-xs text-muted-foreground hover:text-foreground transition-colors underline-offset-4 hover:underline"
+        >
+          Ir para o Dashboard →
+        </a>
+      </div>
+    </div>
+  );
+}

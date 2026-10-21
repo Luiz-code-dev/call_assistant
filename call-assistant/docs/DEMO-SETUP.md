@@ -1,8 +1,34 @@
-# Call Assistant — Guia de Demo para Investidores
+# SpeakFlow — Guia de Demo para Investidores
 
 ## Visão Geral
 
-Para que um investidor possa instalar e usar o Call Assistant, são necessárias duas partes:
+O SpeakFlow possui dois produtos demonstráveis:
+
+1. **Plataforma Web** — já em produção no Railway, acesso direto via browser
+2. **App Desktop** — requer backend + instalador `.exe`
+
+---
+
+## PARTE A — Plataforma Web (acesso imediato)
+
+A plataforma web está disponível em produção. Para demonstrar:
+
+1. Acesse a URL de produção (Railway)
+2. Crie uma conta ou use uma conta de demonstração
+3. Mostre o fluxo: Dashboard → Ferramentas de IA → Network → Progresso → Certificado
+
+**Funcionalidades demonstráveis no browser:**
+- Ferramentas de IA (Melhorar Resposta, Gerar Resposta, Treino de Entrevista)
+- SpeakFlow Network: criar Circle, publicar desafio, avaliar resposta
+- Avaliação CEFR e Certificado de Proficiência (Premium)
+- Spark — chatbot de suporte
+- Tabela de planos e checkout Stripe (modo teste)
+
+---
+
+## PARTE B — App Desktop (requer setup)
+
+Para que um investidor possa instalar e usar o SpeakFlow desktop, são necessárias duas partes:
 1. **Backend na nuvem** — você faz o deploy uma vez (Railway.app, gratuito para demo)
 2. **Instalador `.exe`** — você gera e envia para o investidor instalar no Windows
 
@@ -98,7 +124,7 @@ O investidor precisa apenas:
 1. Baixar o `CallAssistant-Setup-0.1.0.exe`
 2. Executar como administrador (pode aparecer aviso do Windows Defender — clicar em "Mais informações" → "Executar assim mesmo")
 3. Seguir o instalador (next → next → finish)
-4. Abrir **Call Assistant** pelo atalho na área de trabalho
+4. Abrir **SpeakFlow** pelo atalho na área de trabalho
 
 > O app se conecta automaticamente ao backend que você configurou. Não é necessário instalar Java, Docker ou qualquer outro software.
 

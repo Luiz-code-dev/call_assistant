@@ -29,7 +29,7 @@ class TranscriptRepositoryAdapterIT extends AbstractIntegrationTest {
 
     @BeforeEach
     void setUp() {
-        var session = Session.create(new SessionConfig(Language.EN_US, Language.PT_BR, false, false, null));
+        var session = Session.create(new SessionConfig(Language.EN_US, Language.PT_BR, false, false, null), null);
         session.pullDomainEvents();
         savedSessionId = sessionRepository.save(session).map(Session::getId).block();
     }

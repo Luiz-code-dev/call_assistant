@@ -12,6 +12,7 @@ import com.callassistant.domain.port.outbound.SpeechToTextPort;
 import com.callassistant.domain.port.outbound.TranscriptRepository;
 import com.callassistant.domain.port.outbound.TranslationPort;
 import com.callassistant.domain.port.outbound.TranslationRepository;
+import com.callassistant.domain.port.outbound.WalletPort;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,7 @@ import reactor.core.publisher.Mono;
 import reactor.core.publisher.Sinks;
 
 import java.util.Optional;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -35,14 +37,16 @@ public class ProcessAudioChunkUseCaseImpl implements ProcessAudioChunkUseCase {
     private final TranslationPort translationPort;
     private final Optional<CopilotPort> copilotPort;
     private final SessionEventPublisher eventPublisher;
+    private final Optional<WalletPort> walletPort;
 
-    private static final long COPILOT_THROTTLE_MS  = 5_000;
+    private static final long COPILOT_THROTTLE_MS  = 3_000;
     private static final long PARAGRAPH_BREAK_MS   = 5_000;
 
     private final ConcurrentHashMap<String, Sinks.Many<AudioChunk>> audioSinks       = new ConcurrentHashMap<>();
     private final ConcurrentHashMap<String, AtomicLong>             lastCopilotCall  = new ConcurrentHashMap<>();
     private final ConcurrentHashMap<String, AtomicLong>             lastTranscriptTs = new ConcurrentHashMap<>();
     private final ConcurrentHashMap<String, StringBuilder>          paragraphBuffers = new ConcurrentHashMap<>();
+    private final Set<String>                                        exhaustedUserIds = ConcurrentHashMap.newKeySet();
 
     @Override
     public Mono<Void> execute(String sessionId, AudioChunk chunk) {
@@ -97,6 +101,10 @@ public class ProcessAudioChunkUseCaseImpl implements ProcessAudioChunkUseCase {
         paragraphBuffers.remove(sessionId);
     }
 
+    public void clearExhaustedUser(String userId) {
+        exhaustedUserIds.remove(userId);
+    }
+
     private String addToParagraphBuffer(String sessionId, String text) {
         var now = System.currentTimeMillis();
         var lastTs = lastTranscriptTs.computeIfAbsent(sessionId, id -> new AtomicLong(0));
@@ -130,28 +138,46 @@ public class ProcessAudioChunkUseCaseImpl implements ProcessAudioChunkUseCase {
         var tgt = config.targetLanguage();
         var context = addToParagraphBuffer(sessionId, saved.getText());
 
-        if (!shouldCallCopilot(sessionId)) {
+        if (!shouldCallCopilot(sessionId) || exhaustedUserIds.contains(session.getUserId())) {
+            if (exhaustedUserIds.contains(session.getUserId())) {
+                log.debug("Skipping copilot — credits exhausted for userId={}", session.getUserId());
+            }
             return fallbackTranslate(sessionId, saved, src, tgt, ctx);
         }
 
-        return copilotPort
-                .map(cp -> cp.suggest(sessionId, context, config)
+        // Translation emits immediately — user does not wait for copilot
+        Mono<Void> translateNow = fallbackTranslate(sessionId, saved, src, tgt, ctx);
+
+        // Copilot runs in the background and pushes suggestion when ready
+        copilotPort.ifPresent(cp ->
+                cp.suggest(sessionId, context, config)
                         .flatMap(suggestion -> {
                             eventPublisher.emitSuggestion(sessionId, suggestion);
-                            var translation = Translation.create(
-                                    saved.getSessionId(), saved.getId(),
-                                    saved.getText(), suggestion.contextSummary(),
-                                    src, tgt);
-                            return translationRepository.save(translation)
-                                    .doOnNext(t -> eventPublisher.emitTranslation(sessionId, t))
-                                    .then();
+                            return walletPort
+                                    .map(wp -> wp.deductCredits(session.getUserId(), 1, "usage",
+                                            "Copilot response — session " + sessionId)
+                                            .onErrorResume(InsufficientCreditsException.class, e -> {
+                                                exhaustedUserIds.add(session.getUserId());
+                                                eventPublisher.emitCreditsExhausted(sessionId);
+                                                log.warn("Credits exhausted — userId={}, session={}",
+                                                        session.getUserId(), sessionId);
+                                                return Mono.empty();
+                                            })
+                                            .onErrorResume(e -> {
+                                                log.error("Wallet deduct error — userId={}: {}",
+                                                        session.getUserId(), e.getMessage());
+                                                return Mono.empty();
+                                            }))
+                                    .orElse(Mono.empty());
                         })
-                        .switchIfEmpty(fallbackTranslate(sessionId, saved, src, tgt, ctx))
                         .onErrorResume(e -> {
-                            log.warn("Copilot failed, falling back to translation — {}", e.getMessage());
-                            return fallbackTranslate(sessionId, saved, src, tgt, ctx);
-                        }))
-                .orElseGet(() -> fallbackTranslate(sessionId, saved, src, tgt, ctx));
+                            log.warn("Copilot background error — sessionId={}: {}", sessionId, e.getMessage());
+                            return Mono.empty();
+                        })
+                        .subscribe()
+        );
+
+        return translateNow;
     }
 
     private Mono<Void> fallbackTranslate(String sessionId, Transcript saved,

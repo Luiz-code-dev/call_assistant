@@ -1,0 +1,23 @@
+# local env files
+.env*.local
+
+# scripts locais (seeds, SQL sensível) — exceto scripts/escolas/ que vai para o repo
+scripts/**
+!scripts/escolas/
+!scripts/escolas/**
+.env.production
+.env.railway
+.next/
+node_modules/
+out/
+dist/
+.DS_Store
+*.log
+*.tgz
+*.tar.gz
+*.zip
+
+/lib/generated/prisma
+
+# documentos internos
+MANUAL_USABILIDADE.md

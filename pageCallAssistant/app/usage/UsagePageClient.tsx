@@ -1,0 +1,448 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import {
+  Mic2, LogOut, ArrowLeft, Zap, TrendingDown, TrendingUp,
+  Loader2, CreditCard, RefreshCw, ArrowUpRight, CheckCircle2,
+} from "lucide-react";
+import { toast } from "sonner";
+
+interface WalletBalance {
+  balance: number;
+  bonusBalance: number;
+  trialBalance: number;
+  monthlyAllocation: number;
+  usedThisCycle: number;
+  plan: string;
+}
+
+interface CreditTransaction {
+  id: string;
+  type: "credit" | "debit";
+  amount: number;
+  source: string;
+  description: string;
+  createdAt: string;
+}
+
+interface TransactionsResponse {
+  content: CreditTransaction[];
+  totalElements: number;
+}
+
+interface Props {
+  userPlan: string | null;
+  stripePriceCredits5: string | null;
+  stripePriceCredits10: string | null;
+  stripePriceCredits25: string | null;
+  stripePriceCredits50: string | null;
+}
+
+const PLAN_INFO: Record<string, { label: string; price: string; allocation: number; color: string }> = {
+  free:    { label: "Gratuito", price: "Grátis",          allocation: 50,   color: "text-zinc-400"   },
+  basic:   { label: "Básico",   price: "R$ 74,90/mês",  allocation: 500,  color: "text-violet-400" },
+  premium: { label: "Premium",  price: "R$ 149,90/mês", allocation: 1000, color: "text-indigo-400" },
+};
+
+export default function UsagePageClient({
+  userPlan,
+  stripePriceCredits5,
+  stripePriceCredits10,
+  stripePriceCredits25,
+  stripePriceCredits50,
+}: Props) {
+  const canTopUp = userPlan === "basic" || userPlan === "premium";
+  const TOP_UPS = [
+    { label: "R$ 24,90",  credits: 50,  priceId: stripePriceCredits5  ?? null },
+    { label: "R$ 49,90",  credits: 150, priceId: stripePriceCredits10 ?? null },
+    { label: "R$ 119,90", credits: 400, priceId: stripePriceCredits25 ?? null },
+  ];
+
+  const searchParams = useSearchParams();
+  const [wallet, setWallet] = useState<WalletBalance | null>(null);
+  const [transactions, setTransactions] = useState<CreditTransaction[]>([]);
+  const [plan, setPlan] = useState("free");
+  const [loading, setLoading] = useState(true);
+  const [buying, setBuying] = useState<string | null>(null);
+  const [refreshing, setRefreshing] = useState(false);
+
+  async function loadData() {
+    try {
+      const [walletRes, txRes, meRes] = await Promise.all([
+        fetch("/api/wallet/balance"),
+        fetch("/api/wallet/transactions?size=30"),
+        fetch("/api/auth/me"),
+      ]);
+      const [walletData, txData, meData] = await Promise.all([
+        walletRes.json(),
+        txRes.json(),
+        meRes.json(),
+      ]);
+      setWallet(walletData);
+      setTransactions(txData.content ?? []);
+      if (meData?.plan) setPlan(meData.plan);
+    } catch {
+      setWallet({ balance: 0, bonusBalance: 0, trialBalance: 0, monthlyAllocation: 50, usedThisCycle: 0, plan: userPlan ?? "free" });
+      setTransactions([]);
+    } finally {
+      setLoading(false);
+      setRefreshing(false);
+    }
+  }
+
+  useEffect(() => {
+    loadData();
+    const creditsOk = searchParams.get("credits");
+    const amount = searchParams.get("amount");
+    if (creditsOk === "success") {
+      toast.success(`${amount ? `+${amount}` : ""} créditos adicionados à sua conta!`);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  async function handleTopUp(pack: typeof TOP_UPS[0]) {
+    if (!userPlan) {
+      window.location.href = "/login?redirect=/usage";
+      return;
+    }
+    if (!canTopUp) {
+      toast.error("Recargas disponíveis apenas para assinantes Basic ou Premium.");
+      return;
+    }
+    if (!pack.priceId) {
+      toast.error("Pagamento não configurado. Configure as variáveis Stripe no Railway.");
+      return;
+    }
+    if (purchasedThisMonth.has(pack.credits)) {
+      toast.error("Você já comprou este pacote este mês. Escolha outro pacote.");
+      return;
+    }
+    setBuying(pack.priceId);
+    try {
+      const sfToken = typeof window !== "undefined" ? sessionStorage.getItem("sf_token") : null;
+      const res = await fetch("/api/billing/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", ...(sfToken ? { Authorization: `Bearer ${sfToken}` } : {}) },
+        body: JSON.stringify({ priceId: pack.priceId, type: "credits", credits: String(pack.credits) }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.url) {
+        const msg =
+          data.error === "not_authenticated" ? "Sessão expirada. Faça login novamente."
+          : data.error === "already_purchased_this_month" ? "Você já comprou este pacote este mês. Escolha outro pacote."
+          : `Erro no checkout: ${data.error ?? "desconhecido"}${data.detail ? ` (${data.detail})` : ""}`;
+        toast.error(msg);
+        return;
+      }
+      window.location.href = data.url;
+    } catch {
+      toast.error("Erro de rede ao iniciar checkout. Tente novamente.");
+    } finally {
+      setBuying(null);
+    }
+  }
+
+  async function handleRefresh() {
+    setRefreshing(true);
+    await loadData();
+  }
+
+  if (loading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background">
+        <Loader2 className="h-8 w-8 animate-spin text-violet-400" />
+      </div>
+    );
+  }
+
+  const planInfo = PLAN_INFO[plan] ?? PLAN_INFO.free;
+  const balance = wallet?.balance ?? 0;
+  const allocation = wallet?.monthlyAllocation ?? planInfo.allocation;
+  const rawUsed = wallet?.usedThisCycle ?? 0;
+  const used = rawUsed >= 0 ? rawUsed : Math.max(0, allocation - balance);
+  const topUpBalance = wallet?.bonusBalance ?? 0;
+  const usedPct = allocation > 0 ? Math.min(100, Math.max(0, (used / allocation) * 100)) : 0;
+
+  const startOfMonth = new Date();
+  startOfMonth.setDate(1);
+  startOfMonth.setHours(0, 0, 0, 0);
+  const purchasedThisMonth = new Set(
+    transactions
+      .filter(tx => tx.type === "credit" && tx.source === "purchase" && new Date(tx.createdAt) >= startOfMonth)
+      .map(tx => tx.amount)
+  );
+
+  return (
+    <div className="min-h-screen bg-background">
+      <header className="border-b border-border/50 bg-card/50 px-6 py-4">
+        <div className="mx-auto flex max-w-4xl items-center justify-between">
+          <div className="flex items-center gap-3">
+            <Link href="/home">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600">
+                <Mic2 className="h-4 w-4 text-white" />
+              </div>
+            </Link>
+            <span className="font-semibold">SpeakFlow</span>
+            <span className="text-border">/</span>
+            <span className="text-muted-foreground">Uso</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Button variant="ghost" size="sm" onClick={handleRefresh} disabled={refreshing}>
+              <RefreshCw className={`h-4 w-4 ${refreshing ? "animate-spin" : ""}`} />
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => {
+                sessionStorage.removeItem("sf_token");
+                localStorage.removeItem("sf_token");
+                window.location.href = "/api/auth/logout";
+              }}
+            >
+              <LogOut className="h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+      </header>
+
+      <main className="mx-auto max-w-4xl px-6 py-10 space-y-6">
+
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold">Uso & Créditos</h1>
+            <p className="text-sm text-muted-foreground mt-1">Monitore seu consumo de créditos e recarregue quando precisar.</p>
+          </div>
+          <Button variant="outline" size="sm" asChild>
+            <Link href="/home">
+              <ArrowLeft className="mr-1.5 h-3.5 w-3.5" />
+              Início
+            </Link>
+          </Button>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-3">
+          <Card className="border-border/50 bg-card">
+            <CardHeader className="pb-2">
+              <CardDescription>Plano atual</CardDescription>
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-xl">{planInfo.label}</CardTitle>
+                <Badge variant="outline" className={planInfo.color}>{planInfo.price}</Badge>
+              </div>
+            </CardHeader>
+            <CardContent>
+              {userPlan === "premium" ? (
+                <Link href="/pricing" className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors inline-flex items-center gap-1">
+                  Gerenciar assinatura
+                  <ArrowUpRight className="h-3 w-3" />
+                </Link>
+              ) : (
+                <Button variant="gradient" size="sm" className="w-full" asChild>
+                  <Link href="/pricing">
+                    Fazer upgrade
+                    <ArrowUpRight className="ml-1.5 h-3.5 w-3.5" />
+                  </Link>
+                </Button>
+              )}
+            </CardContent>
+          </Card>
+
+          <Card className="border-border/50 bg-card">
+            <CardHeader className="pb-2">
+              <CardDescription>Saldo total</CardDescription>
+              <CardTitle className="text-3xl font-bold tabular-nums">
+                {balance.toLocaleString("pt-BR")}
+                <span className="ml-1.5 text-base font-normal text-muted-foreground">créditos</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="text-xs text-muted-foreground space-y-1">
+              <div className="flex justify-between">
+                <span>Alocação do plano</span>
+                <span className="font-medium text-foreground">{allocation}</span>
+              </div>
+              {topUpBalance > 0 && (
+                <div className="flex justify-between">
+                  <span>Créditos extras</span>
+                  <span className="font-medium text-emerald-400">+{topUpBalance}</span>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+
+          <Card className="border-border/50 bg-card">
+            <CardHeader className="pb-2">
+              <CardDescription>Utilizado no ciclo</CardDescription>
+              <CardTitle className="text-3xl font-bold tabular-nums">
+                {used.toLocaleString("pt-BR")}
+                <span className="ml-1.5 text-base font-normal text-muted-foreground">/ {allocation}</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-xs text-muted-foreground mb-1.5">
+                {balance.toLocaleString("pt-BR")} créditos disponíveis
+              </p>
+              <Progress value={usedPct} className="h-2" />
+            </CardContent>
+          </Card>
+        </div>
+
+        <Card className="border-border/50">
+          <CardHeader>
+            <CardTitle className="text-sm font-medium">Distribuição de créditos — ciclo atual</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="flex h-4 w-full overflow-hidden rounded-full bg-secondary">
+              <div
+                className="bg-violet-500 transition-all"
+                style={{ width: `${usedPct}%` }}
+                title={`${used} utilizado`}
+              />
+              {topUpBalance > 0 && (
+                <div
+                  className="bg-emerald-500/70 transition-all"
+                  style={{ width: `${Math.min(20, (topUpBalance / (allocation + topUpBalance)) * 100)}%` }}
+                  title={`${topUpBalance} recarga`}
+                />
+              )}
+            </div>
+            <div className="flex flex-wrap gap-4 text-xs text-muted-foreground">
+              <div className="flex items-center gap-1.5">
+                <span className="inline-block h-2.5 w-2.5 rounded-sm bg-violet-500" />
+                Utilizado — {used.toLocaleString("pt-BR")} créditos
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="inline-block h-2.5 w-2.5 rounded-sm bg-secondary border border-border" />
+                Disponível — {balance.toLocaleString("pt-BR")} créditos
+              </div>
+              {topUpBalance > 0 && (
+                <div className="flex items-center gap-1.5">
+                  <span className="inline-block h-2.5 w-2.5 rounded-sm bg-emerald-500/70" />
+                  Recarga — {topUpBalance.toLocaleString("pt-BR")} créditos
+                </div>
+              )}
+            </div>
+          </CardContent>
+        </Card>
+
+        {canTopUp ? (
+          <Card className="border-violet-500/20 bg-violet-500/5">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle className="flex items-center gap-2">
+                    <Zap className="h-4 w-4 text-violet-400" />
+                    Adicionar créditos
+                  </CardTitle>
+                  <CardDescription className="mt-1">
+                    Compra única, sem assinatura. Créditos não expiram.
+                  </CardDescription>
+                </div>
+                <CreditCard className="h-5 w-5 text-violet-400/50" />
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {TOP_UPS.map((pack) => (
+                  <button
+                    key={pack.priceId}
+                    onClick={() => handleTopUp(pack)}
+                    disabled={!!buying || purchasedThisMonth.has(pack.credits)}
+                    className={`group flex flex-col items-center gap-1 rounded-xl border p-4 text-center transition ${
+                      purchasedThisMonth.has(pack.credits)
+                        ? "border-emerald-500/20 bg-emerald-500/5 cursor-not-allowed"
+                        : "border-violet-500/20 bg-background/50 hover:border-violet-500/50 hover:bg-violet-500/10 disabled:opacity-50"
+                    }`}
+                  >
+                    {buying === pack.priceId ? (
+                      <Loader2 className="h-5 w-5 animate-spin text-violet-400" />
+                    ) : (
+                      <span className={`text-xl font-bold ${purchasedThisMonth.has(pack.credits) ? "text-muted-foreground" : ""}`}>
+                        {pack.label}
+                      </span>
+                    )}
+                    <span className="text-xs text-muted-foreground transition">
+                      {pack.credits} créditos
+                    </span>
+                    {purchasedThisMonth.has(pack.credits) && (
+                      <span className="mt-1 flex items-center gap-1 text-xs font-medium text-emerald-400">
+                        <CheckCircle2 className="h-3 w-3" /> Comprado este mês
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        ) : (
+          <Card className="border-violet-500/20 bg-violet-500/5">
+            <CardContent className="flex flex-col items-center gap-3 py-8 text-center">
+              <Zap className="h-8 w-8 text-violet-400/50" />
+              <p className="font-semibold">
+                {userPlan === null ? "Faça login para adicionar créditos" : "Disponível apenas para assinantes"}
+              </p>
+              <p className="text-sm text-muted-foreground">
+                {userPlan === null
+                  ? "Entre na sua conta para gerenciar créditos."
+                  : "Recargas avulsas estão disponíveis nos planos Basic e Premium."}
+              </p>
+              <Button variant="gradient" size="sm" asChild>
+                <Link href={userPlan === null ? "/login?redirect=/usage" : "/pricing"}>
+                  {userPlan === null ? "Entrar" : "Ver planos"}
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
+        )}
+
+        <Card className="border-border/50">
+          <CardHeader>
+            <CardTitle className="text-base">Histórico de créditos</CardTitle>
+            <CardDescription>Todos os eventos de crédito da sua conta</CardDescription>
+          </CardHeader>
+          <CardContent>
+            {transactions.length === 0 ? (
+              <p className="py-8 text-center text-sm text-muted-foreground">Nenhuma transação ainda.</p>
+            ) : (
+              <div className="divide-y divide-border/50">
+                {transactions.map((tx) => (
+                  <div key={tx.id} className="flex items-center justify-between py-3">
+                    <div className="flex items-center gap-3">
+                      <div className={`flex h-7 w-7 items-center justify-center rounded-full ${
+                        tx.type === "credit" ? "bg-emerald-500/10" : "bg-red-500/10"
+                      }`}>
+                        {tx.type === "credit"
+                          ? <TrendingUp className="h-3.5 w-3.5 text-emerald-400" />
+                          : <TrendingDown className="h-3.5 w-3.5 text-red-400" />
+                        }
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium leading-none">{tx.description}</p>
+                        <p className="mt-0.5 text-xs text-muted-foreground">
+                          {new Date(tx.createdAt).toLocaleDateString("en-US", {
+                            month: "short", day: "numeric", year: "numeric",
+                            hour: "2-digit", minute: "2-digit",
+                          })}
+                        </p>
+                      </div>
+                    </div>
+                    <span className={`text-sm font-semibold tabular-nums ${
+                      tx.type === "credit" ? "text-emerald-400" : "text-red-400"
+                    }`}>
+                      {tx.type === "credit" ? "+" : ""}{tx.amount}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+      </main>
+    </div>
+  );
+}

@@ -1,6 +1,6 @@
 {
-  "name": "@call-assistant/desktop",
-  "version": "0.1.0",
+  "name": "@speakflow/desktop",
+  "version": "0.1.1",
   "private": true,
   "main": "./out/main/index.js",
   "scripts": {
@@ -18,8 +18,8 @@
     "fs-extra": "^11.3.4"
   },
   "build": {
-    "appId": "com.callassistant",
-    "productName": "Call Assistant",
+    "appId": "com.speakflow",
+    "productName": "SpeakFlow",
     "copyright": "Copyright © 2025 Luiz Eduardo da Silva Dias Melo",
     "directories": {
       "output": "dist"
@@ -39,6 +39,8 @@
       "repo": "call_assistant"
     },
     "win": {
+      "icon": "resources/icon.ico",
+      "requestedExecutionLevel": "asInvoker",
       "target": [
         {
           "target": "nsis",
@@ -47,18 +49,25 @@
           ]
         }
       ],
-      "artifactName": "CallAssistant-Setup-${version}.exe"
+      "artifactName": "SpeakFlow-Setup-${version}.exe"
     },
+    "protocols": [
+      {
+        "name": "SpeakFlow Auth",
+        "schemes": ["callassistant"]
+      }
+    ],
     "nsis": {
       "oneClick": false,
       "unicode": true,
       "allowToChangeInstallationDirectory": true,
       "allowElevation": true,
-      "perMachine": false,
+      "perMachine": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "Call Assistant",
-      "installerIcon": null,
+      "shortcutName": "SpeakFlow",
+      "installerIcon": "resources/icon.ico",
+      "uninstallerIcon": "resources/icon.ico",
       "deleteAppDataOnUninstall": true,
       "license": "resources/license.txt"
     }

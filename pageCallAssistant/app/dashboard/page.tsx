@@ -1,0 +1,433 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import {
+  Mic2, Zap, CreditCard, ArrowUpRight, Download,
+  LogOut, Settings, TrendingUp, Loader2, CheckCircle2, Crown, Sparkles,
+  Wand2, MessageSquarePlus, Lock, Users, Radio, Smartphone, MessageSquare,
+} from "lucide-react";
+import { SupportChat } from "@/components/SupportChat";
+import { useSearchParams } from "next/navigation";
+import { toast } from "sonner";
+
+interface WalletBalance {
+  balance: number;
+  bonusBalance: number;
+  trialBalance: number;
+  monthlyAllocation?: number;
+  usedThisCycle?: number;
+}
+
+const PLAN_CREDITS: Record<string, number> = {
+  free: 50,
+  basic: 500,
+  premium: 1000,
+};
+
+const PLAN_LABELS: Record<string, string> = {
+  free: "Gratuito",
+  basic: "Básico",
+  premium: "Premium",
+};
+
+const PLAN_FEATURES: Record<string, string[]> = {
+  free: ["50 créditos de boas-vindas", "SpeakFlow Live — 10 sessões/dia", "Transcrição em tempo real", "Suporte básico"],
+  basic: ["500 créditos por ciclo", "SpeakFlow Live ilimitado", "Tradução + Copilot contextual", "Ferramentas de preparação com IA", "Suporte prioritário"],
+  premium: ["1.000 créditos por ciclo", "Todos os recursos do Básico", "IA avançada e personalizada", "Histórico de sessões", "Suporte VIP 24h"],
+};
+
+export default function DashboardPage() {
+  const router = useRouter();
+  useEffect(() => { router.replace("/home"); }, [router]);
+
+  const [wallet, setWallet] = useState<WalletBalance | null>(null);
+  const [plan, setPlan] = useState("free");
+  const [userName, setUserName] = useState("");
+  const [loading, setLoading] = useState(true);
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const checkout = searchParams.get("checkout");
+    const credits  = searchParams.get("credits");
+    const verified = searchParams.get("verified");
+    if (checkout === "success") toast.success("Assinatura ativada com sucesso!");
+    if (credits === "success") {
+      const amount = searchParams.get("amount");
+      toast.success(`${amount ?? ""} créditos adicionados à sua conta!`);
+    }
+    if (verified === "1") {
+      const postVerifyRedirect = localStorage.getItem("sf_post_verify_redirect");
+      if (postVerifyRedirect) {
+        localStorage.removeItem("sf_post_verify_redirect");
+        window.location.href = postVerifyRedirect;
+      }
+    }
+  }, [searchParams]);
+
+  useEffect(() => {
+    async function load() {
+      const sfToken = typeof window !== "undefined" ? sessionStorage.getItem("sf_token") : null;
+      const authHeaders: HeadersInit = sfToken ? { Authorization: `Bearer ${sfToken}` } : {};
+
+      try {
+        const meData = await fetch("/api/auth/me", { headers: authHeaders }).then((r) => r.json());
+        if (meData?.name) setUserName(meData.name);
+        if (meData?.plan) setPlan(meData.plan);
+      } catch { /* ignore */ }
+
+      try {
+        const walletRes = await fetch("/api/wallet/balance", { headers: authHeaders });
+        const walletData: WalletBalance = await walletRes.json();
+        if (walletRes.ok) setWallet(walletData);
+        else setWallet({ balance: 0, bonusBalance: 0, trialBalance: 0 });
+      } catch {
+        setWallet({ balance: 0, bonusBalance: 0, trialBalance: 0 });
+      } finally {
+        setLoading(false);
+      }
+    }
+    load();
+  }, []);
+
+  const balance = wallet?.balance ?? 0;
+  const totalCredits = wallet?.monthlyAllocation ?? PLAN_CREDITS[plan] ?? 50;
+  const used = wallet?.usedThisCycle ?? Math.max(0, totalCredits - balance);
+  const percentUsed = totalCredits > 0 ? Math.min((used / totalCredits) * 100, 100) : 0;
+  const firstName = userName ? userName.split(" ")[0] : "";
+
+  const planColor = plan === "premium" ? "text-amber-400" : plan === "basic" ? "text-violet-400" : "text-zinc-400";
+  const planBg = plan === "premium" ? "from-amber-500/10 to-card border-amber-500/20" : plan === "basic" ? "from-violet-500/10 to-card border-violet-500/20" : "from-zinc-500/5 to-card border-border/50";
+  const PlanIcon = plan === "premium" ? Crown : plan === "basic" ? Zap : Sparkles;
+
+  if (loading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background">
+        <Loader2 className="h-8 w-8 animate-spin text-violet-400" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-background">
+      <header className="border-b border-border/50 bg-card/50 px-6 py-4">
+        <div className="mx-auto flex max-w-5xl items-center justify-between">
+          <Link href="/" className="flex items-center gap-2">
+            <img src="/icon.png" alt="SpeakFlow" className="h-8 w-8 rounded-lg" />
+            <span className="font-semibold">SpeakFlow</span>
+          </Link>
+          <div className="flex items-center gap-3">
+            <Button variant="ghost" size="sm" asChild>
+              <Link href="/settings"><Settings className="h-4 w-4" /></Link>
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => {
+                sessionStorage.removeItem("sf_token");
+                localStorage.removeItem("sf_token");
+                window.location.href = "/api/auth/logout";
+              }}
+            >
+              <LogOut className="h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+      </header>
+
+      <main className="mx-auto max-w-5xl px-6 py-10">
+        {/* Welcome */}
+        <div className="mb-10 flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold">Olá{firstName ? `, ${firstName}` : ""} 👋</h1>
+            <p className="mt-1 text-muted-foreground">Aqui está o resumo da sua conta</p>
+          </div>
+          <div className={`hidden items-center gap-2 rounded-full border px-4 py-2 md:flex ${plan === "premium" ? "border-amber-500/30 bg-amber-500/10" : plan === "basic" ? "border-violet-500/30 bg-violet-500/10" : "border-border/50 bg-card"}`}>
+            <PlanIcon className={`h-4 w-4 ${planColor}`} />
+            <span className={`text-sm font-semibold ${planColor}`}>Plano {PLAN_LABELS[plan]}</span>
+          </div>
+        </div>
+
+        {/* Credits + Plan */}
+        <div className="mb-6 grid gap-4 md:grid-cols-3">
+          <Card className="md:col-span-2 border-border/50 bg-gradient-to-br from-card to-background">
+            <CardHeader className="pb-3">
+              <CardDescription className="flex items-center gap-1.5">
+                <Zap className="h-3.5 w-3.5 text-violet-400" />
+                Saldo de créditos
+              </CardDescription>
+              <div className="flex items-end gap-3">
+                <CardTitle className="text-6xl font-black tabular-nums">{balance.toLocaleString("pt-BR")}</CardTitle>
+                <span className="mb-2 text-sm text-muted-foreground">/ {totalCredits.toLocaleString("pt-BR")}</span>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <Progress value={percentUsed} className="mb-2 h-2" />
+              <div className="flex items-center justify-between text-xs text-muted-foreground">
+                <span>{used.toLocaleString("pt-BR")} utilizados</span>
+                <span className={percentUsed > 80 ? "text-red-400 font-medium" : "text-emerald-400 font-medium"}>
+                  {balance.toLocaleString("pt-BR")} disponíveis
+                </span>
+              </div>
+              <div className="mt-5 flex gap-2">
+                <Button variant="gradient" size="sm" asChild>
+                  <Link href="/usage">
+                    <TrendingUp className="mr-2 h-3.5 w-3.5" />
+                    Ver histórico
+                  </Link>
+                </Button>
+                <Button variant="outline" size="sm" asChild>
+                  <Link href="/pricing#credits">
+                    <CreditCard className="mr-2 h-3.5 w-3.5" />
+                    Adicionar créditos
+                  </Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className={`bg-gradient-to-br border ${planBg}`}>
+            <CardHeader className="pb-3">
+              <CardDescription className="flex items-center gap-1.5">
+                <PlanIcon className={`h-3.5 w-3.5 ${planColor}`} />
+                Seu plano atual
+              </CardDescription>
+              <CardTitle className={`text-xl ${planColor}`}>{PLAN_LABELS[plan]}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="mb-5 space-y-2">
+                {(PLAN_FEATURES[plan] ?? []).map((f) => (
+                  <li key={f} className="flex items-start gap-2 text-xs text-muted-foreground">
+                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-400" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              {plan !== "premium" && (
+                <Button variant="gradient" size="sm" className="w-full" asChild>
+                  <Link href="/pricing">
+                    {plan === "free" ? "Fazer upgrade" : "Ver planos"}
+                    <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
+                  </Link>
+                </Button>
+              )}
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Network Banner */}
+        <Link href="/network">
+          <Card className="mb-6 cursor-pointer border-violet-500/30 bg-gradient-to-r from-violet-500/10 via-indigo-500/5 to-transparent hover:border-violet-500/50 transition-all hover:shadow-lg">
+            <CardContent className="flex items-center gap-4 p-5">
+              <div className="rounded-xl bg-violet-500/20 p-3 shrink-0">
+                <Users className="h-6 w-6 text-violet-400" />
+              </div>
+              <div className="flex-1">
+                <p className="font-semibold">SpeakFlow Network</p>
+                <p className="text-sm text-muted-foreground">
+                  Circles de prática profissional · Desafios semanais · Ranking · Feedback com IA
+                </p>
+              </div>
+              <ArrowUpRight className="h-4 w-4 text-violet-400 shrink-0" />
+            </CardContent>
+          </Card>
+        </Link>
+
+        {/* SpeakFlow Live banner */}
+        <Link href="/live">
+          <Card className="mb-6 cursor-pointer border-red-500/30 bg-gradient-to-br from-red-500/10 via-violet-500/5 to-transparent hover:border-red-500/50 transition-all hover:shadow-lg overflow-hidden">
+            <CardContent className="p-0">
+              <div className="flex flex-col sm:flex-row">
+
+                {/* Left — description */}
+                <div className="flex-1 p-5">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="rounded-lg bg-red-500/20 p-2 shrink-0">
+                      <Radio className="h-5 w-5 text-red-400" />
+                    </div>
+                    <p className="font-bold text-base">SpeakFlow Live</p>
+                    <span className="rounded-full bg-red-500/10 border border-red-500/30 px-1.5 py-0.5 text-[10px] font-bold text-red-400 tracking-wider">NOVO</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                    Copiloto de conversação em tempo real na palma da sua mão. Instale como app no celular e receba sugestões de resposta em inglês na hora.
+                  </p>
+                  <ul className="space-y-2 mb-4">
+                    <li className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <Smartphone className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                      Instale na tela inicial do celular — sem precisar de app store
+                    </li>
+                    <li className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <Mic2 className="h-3.5 w-3.5 text-red-400 shrink-0" />
+                      Captura e traduz a conversa em tempo real
+                    </li>
+                    <li className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <Zap className="h-3.5 w-3.5 text-violet-400 shrink-0" />
+                      3 sugestões de resposta com IA — Curta, Profissional e Detalhada
+                    </li>
+                    <li className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <MessageSquare className="h-3.5 w-3.5 text-cyan-400 shrink-0" />
+                      Contexto personalizado: descreva sua call e a IA entende o cenário
+                    </li>
+                  </ul>
+                  <div className="flex items-center gap-1.5 text-xs font-semibold text-red-400">
+                    Abrir SpeakFlow Live <ArrowUpRight className="h-3.5 w-3.5" />
+                  </div>
+                </div>
+
+              </div>
+            </CardContent>
+          </Card>
+        </Link>
+
+        {/* Quick actions */}
+        <div className="mb-6 grid gap-3 sm:grid-cols-2 md:grid-cols-4">
+          <Link href="/usage">
+            <Card className="h-full cursor-pointer border-border/50 bg-card/80 transition-all hover:border-violet-500/40 hover:bg-violet-500/5 hover:shadow-lg">
+              <CardContent className="flex flex-col items-center gap-3 p-5 text-center">
+                <div className="rounded-xl bg-violet-500/15 p-3">
+                  <TrendingUp className="h-5 w-5 text-violet-400" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">Histórico</p>
+                  <p className="text-xs text-muted-foreground">Uso detalhado</p>
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
+
+          <Link href="/pricing#credits">
+            <Card className="h-full cursor-pointer border-border/50 bg-card/80 transition-all hover:border-cyan-500/40 hover:bg-cyan-500/5 hover:shadow-lg">
+              <CardContent className="flex flex-col items-center gap-3 p-5 text-center">
+                <div className="rounded-xl bg-cyan-500/15 p-3">
+                  <CreditCard className="h-5 w-5 text-cyan-400" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">Recarregar</p>
+                  <p className="text-xs text-muted-foreground">Adicionar créditos</p>
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
+
+          <a href="https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.0/SpeakFlow-Setup-0.1.0.exe" target="_blank" rel="noopener noreferrer">
+            <Card className="h-full cursor-pointer border-border/50 bg-card/80 transition-all hover:border-emerald-500/40 hover:bg-emerald-500/5 hover:shadow-lg">
+              <CardContent className="flex flex-col items-center gap-3 p-5 text-center">
+                <div className="rounded-xl bg-emerald-500/15 p-3">
+                  <Download className="h-5 w-5 text-emerald-400" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">Baixar app</p>
+                  <p className="text-xs text-muted-foreground">Windows .exe</p>
+                </div>
+              </CardContent>
+            </Card>
+          </a>
+
+          <Link href="/settings">
+            <Card className="h-full cursor-pointer border-border/50 bg-card/80 transition-all hover:border-violet-500/40 hover:bg-violet-500/5 hover:shadow-lg">
+              <CardContent className="flex flex-col items-center gap-3 p-5 text-center">
+                <div className="rounded-xl bg-violet-500/15 p-3">
+                  <Settings className="h-5 w-5 text-violet-400" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">Configurações</p>
+                  <p className="text-xs text-muted-foreground">Minha conta</p>
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
+        </div>
+
+        {/* AI Tools section */}
+        {(plan === "basic" || plan === "premium") ? (
+          <div className="mb-6">
+            <div className="mb-3 flex items-center justify-between">
+              <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Ferramentas de IA</h2>
+              <Link href="/tools" className="text-xs text-violet-400 hover:text-violet-300 transition-colors">Ver todas →</Link>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-3">
+              <Link href="/tools/improve">
+                <Card className="h-full cursor-pointer border-border/50 bg-card/80 transition-all hover:border-violet-500/40 hover:bg-violet-500/5 hover:shadow-lg">
+                  <CardContent className="flex items-center gap-3 p-4">
+                    <div className="rounded-xl bg-violet-500/15 p-2.5 shrink-0">
+                      <Wand2 className="h-4 w-4 text-violet-400" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold">Melhorar Resposta</p>
+                      <p className="text-xs text-muted-foreground">Aprimore seu inglês</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/tools/generate">
+                <Card className="h-full cursor-pointer border-border/50 bg-card/80 transition-all hover:border-cyan-500/40 hover:bg-cyan-500/5 hover:shadow-lg">
+                  <CardContent className="flex items-center gap-3 p-4">
+                    <div className="rounded-xl bg-cyan-500/15 p-2.5 shrink-0">
+                      <MessageSquarePlus className="h-4 w-4 text-cyan-400" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold">Gerar Resposta</p>
+                      <p className="text-xs text-muted-foreground">3 versões prontas</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/tools/interview">
+                <Card className="h-full cursor-pointer border-border/50 bg-card/80 transition-all hover:border-emerald-500/40 hover:bg-emerald-500/5 hover:shadow-lg">
+                  <CardContent className="flex items-center gap-3 p-4">
+                    <div className="rounded-xl bg-emerald-500/15 p-2.5 shrink-0">
+                      <Mic2 className="h-4 w-4 text-emerald-400" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold">Treino de Entrevista</p>
+                      <p className="text-xs text-muted-foreground">Pratique com IA</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <div className="mb-6 rounded-xl border border-violet-500/20 bg-violet-500/5 p-5 flex items-center gap-4">
+            <div className="rounded-xl bg-violet-500/10 p-2.5 shrink-0">
+              <Lock className="h-5 w-5 text-violet-400/60" />
+            </div>
+            <div className="flex-1">
+              <p className="text-sm font-semibold">Ferramentas de IA — Básico e Premium</p>
+              <p className="text-xs text-muted-foreground">Melhorar respostas, gerar textos e treinar entrevistas com IA.</p>
+            </div>
+            <Button variant="gradient" size="sm" asChild>
+              <Link href="/pricing">Fazer upgrade</Link>
+            </Button>
+          </div>
+        )}
+
+        {/* CTA banner */}
+        <Card className="border-violet-500/20 bg-gradient-to-r from-violet-500/10 via-indigo-500/5 to-transparent">
+          <CardContent className="flex items-center gap-4 p-5">
+            <div className="rounded-xl bg-violet-500/20 p-3">
+              <Mic2 className="h-6 w-6 text-violet-400" />
+            </div>
+            <div className="flex-1">
+              <p className="font-semibold">Pronto para sua próxima sessão?</p>
+              <p className="text-sm text-muted-foreground">
+                Abra o app desktop, inicie a reunião e deixe o SpeakFlow trabalhar para você.
+              </p>
+            </div>
+            <Button variant="gradient" size="sm" asChild>
+              <a href="https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.0/SpeakFlow-Setup-0.1.0.exe" target="_blank" rel="noopener noreferrer">
+                <Download className="mr-2 h-3.5 w-3.5" />
+                Baixar app
+              </a>
+            </Button>
+          </CardContent>
+        </Card>
+      </main>
+      <SupportChat />
+    </div>
+  );
+}

@@ -42,7 +42,7 @@ class StartSessionUseCaseTest {
                 .thenReturn(Mono.empty());
 
         var request = new CreateSessionRequest(
-                new SessionConfigDto("en-US", "pt-BR", false, false, null));
+                new SessionConfigDto("en-US", "pt-BR", false, false, null), null);
 
         StepVerifier.create(useCase.execute(request))
                 .assertNext(response -> {
@@ -60,7 +60,7 @@ class StartSessionUseCaseTest {
     @DisplayName("should reject same source and target language")
     void shouldRejectSameLanguages() {
         var request = new CreateSessionRequest(
-                new SessionConfigDto("en-US", "en-US", false, false, null));
+                new SessionConfigDto("en-US", "en-US", false, false, null), null);
 
         StepVerifier.create(useCase.execute(request))
                 .expectErrorMatches(e -> e instanceof IllegalArgumentException
