@@ -16,11 +16,9 @@
  */
 
 import crypto from "crypto";
-import bcrypt from "bcryptjs";
 import { PrismaClient } from "@prisma/client";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyPrisma = any;
-import { Resend } from "resend";
 
 // ──────────────────────────────────────────────────────────────────────────────
 // Args
@@ -66,7 +64,7 @@ async function main() {
   const { email, nome } = parseArgs();
 
   const prisma = new PrismaClient();
-  const resend = new Resend(process.env.RESEND_API_KEY!);
+  const resendKey = process.env.RESEND_API_KEY!;
   const appUrl = (process.env.NEXT_PUBLIC_APP_URL ?? "https://www.speakflow.ia.br").replace(/\/$/, "");
 
   try {
@@ -78,9 +76,8 @@ async function main() {
       userAction = "reutilizado";
       console.log(`✓  User encontrado: ${user.name} (${user.id})`);
     } else {
-      // Senha inutilizável: hash bcrypt de 64 bytes aleatórios descartados
-      const randomBytes = crypto.randomBytes(64).toString("hex");
-      const unusableHash = await bcrypt.hash(randomBytes, 12);
+      // Senha inutilizável: string que jamais casa com bcrypt.compare()
+      const unusableHash = "BOOTSTRAPPED:" + crypto.randomBytes(32).toString("hex");
 
       user = await prisma.user.create({
         data: {
@@ -146,11 +143,14 @@ async function main() {
 
     // 5. Envia e-mail via Resend
     const emailFrom = process.env.EMAIL_FROM ?? "SpeakFlow Escolas <noreply@speakflow.ia.br>";
-    const { error: sendError } = await resend.emails.send({
-      from: emailFrom,
-      to: email,
-      subject: "Defina sua senha de administrador do SpeakFlow Escolas",
-      html: `
+    const resendRes = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Authorization": `Bearer ${resendKey}` },
+      body: JSON.stringify({
+        from: emailFrom,
+        to: [email],
+        subject: "Defina sua senha de administrador do SpeakFlow Escolas",
+        html: `
         <!DOCTYPE html>
         <html lang="pt-BR">
         <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
@@ -199,10 +199,12 @@ async function main() {
         </body>
         </html>
       `,
+      }),
     });
+    const sendError = resendRes.ok ? null : await resendRes.text();
 
     if (sendError) {
-      console.warn("⚠  Não foi possível enviar o e-mail via Resend:", sendError.message);
+      console.warn("⚠  Não foi possível enviar o e-mail via Resend:", sendError);
       console.warn("   Use o link abaixo manualmente:");
     } else {
       console.log(`✓  E-mail enviado para ${email}`);
