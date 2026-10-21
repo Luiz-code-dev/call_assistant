@@ -6,11 +6,9 @@ import Link from "next/link";
 import { MessageSquare } from "lucide-react";
 
 const SUBJECT_BADGES = [
-  { label: "Inglês",      color: "#6D28D9", bg: "#EDE9FE" },
-  { label: "Português",   color: "#BE185D", bg: "#FCE7F3" },
-  { label: "Matemática",  color: "#1D4ED8", bg: "#DBEAFE" },
-  { label: "Ciências",    color: "#0F766E", bg: "#CCFBF1" },
-  { label: "História",    color: "#C2410C", bg: "#FFEDD5" },
+  { label: "Língua Portuguesa", color: "#BE185D", bg: "#FCE7F3" },
+  { label: "Matemática",        color: "#1D4ED8", bg: "#DBEAFE" },
+  { label: "Ciências",          color: "#0F766E", bg: "#CCFBF1" },
 ];
 
 const INPUT_STYLE: React.CSSProperties = {
@@ -85,7 +83,7 @@ export default function EscolaEntrarPage() {
           <p style={{ fontSize: 15, color: "#5B5470", marginBottom: 28, marginTop: 0, lineHeight: 1.6 }}>
             Aprendizagem com inteligência artificial para toda a rede municipal, em qualquer componente curricular.
           </p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center" }}>
             {SUBJECT_BADGES.map((b) => (
               <span
                 key={b.label}
@@ -94,6 +92,9 @@ export default function EscolaEntrarPage() {
                 {b.label}
               </span>
             ))}
+            <span style={{ fontSize: 13, color: "#6D28D9", fontWeight: 600 }}>
+              + todos os componentes da BNCC
+            </span>
           </div>
         </div>
 
