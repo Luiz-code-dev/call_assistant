@@ -14,8 +14,9 @@ export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const filter = searchParams.get("filter") ?? "todo"; // todo | feito | historico
 
-  const classSubjectIds: string[] = await prismaEdu.eduClassSubject.findMany({
-    where: { classId: ctx.classId },
+  // A6: isolamento — somente componentes da turma do aluno na sua rede
+  const classSubjectIds: string[] = await (prismaEdu as any).eduClassSubject.findMany({
+    where: { classId: ctx.classId, networkId: ctx.networkId },
     select: { id: true },
   }).then((rows: { id: string }[]) => rows.map((r) => r.id));
 
@@ -23,48 +24,49 @@ export async function GET(req: NextRequest) {
 
   const now = new Date();
 
-  const whereBase = {
-    classSubjectId: { in: classSubjectIds },
-    status: "PUBLISHED",
-    opensAt: { lte: now },
-  };
-
-  const activities = await prismaEdu.eduActivity.findMany({
-    where: whereBase,
+  const activities = await (prismaEdu as any).eduActivity.findMany({
+    where: {
+      classSubjectId: { in: classSubjectIds },
+      networkId: ctx.networkId,   // A6: network guard
+      status: "PUBLISHED",
+      opensAt: { lte: now },
+    },
     orderBy: [{ dueAt: "asc" }, { createdAt: "desc" }],
     include: {
-      classSubject: {
-        include: { class: { select: { name: true } } },
+      classSubject: { select: { id: true, subjectId: true } },
+      // A4: NUNCA retorna correctIndex/explanation antes da entrega
+      questions: {
+        orderBy: { order: "asc" },
+        select: { id: true, order: true, question: true, options: true },
       },
-      questions: { orderBy: { order: "asc" }, select: { id: true, order: true, question: true, options: true, correctIndex: true, explanation: true } },
       submissions: {
         where: { studentId: ctx.studentId },
         orderBy: { attempt: "desc" },
         take: 1,
-        select: { id: true, attempt: true, status: true, aiScore: true, teacherScore: true, aiFeedback: true, submittedAt: true, evaluatedAt: true },
+        select: {
+          id: true, attempt: true, status: true, aiStatus: true,
+          aiScore: true, teacherScore: true, aiFeedback: true,
+          submittedAt: true, evaluatedAt: true,
+        },
       },
     },
   });
 
-  // Enriquece com nome do componente curricular
-  const subjectIds = [...new Set(activities.map((a: { classSubject: { subjectId: string } }) => a.classSubject.subjectId))];
+  const subjectIds = [...new Set(activities.map((a: any) => a.classSubject.subjectId as string))];
   const subjects = subjectIds.length
-    ? await prismaEdu.eduSubject.findMany({ where: { id: { in: subjectIds } }, select: { id: true, name: true, color: true } })
+    ? await (prismaEdu as any).eduSubject.findMany({
+        where: { id: { in: subjectIds }, networkId: ctx.networkId },
+        select: { id: true, name: true, color: true },
+      })
     : [];
-  const subjectMap = Object.fromEntries(subjects.map((s: { id: string; name: string; color: string | null }) => [s.id, s]));
+  const subjectMap = Object.fromEntries(subjects.map((s: any) => [s.id, s]));
 
   const result = activities
-    .map((a: {
-      id: string; title: string; type: string; status: string; prompt: string;
-      rubric: unknown; maxScore: number; maxAttempts: number; maxAudioSec: number | null;
-      dueAt: Date | null; opensAt: Date; createdAt: Date;
-      classSubject: { id: string; subjectId: string; classId: string };
-      questions: unknown[]; submissions: { id: string; attempt: number; status: string; aiScore: number | null; teacherScore: number | null; aiFeedback: unknown; submittedAt: Date | null; evaluatedAt: Date | null }[];
-    }) => {
+    .map((a: any) => {
       const sub = a.submissions[0] ?? null;
       const subject = subjectMap[a.classSubject.subjectId] ?? null;
       const isDone = sub && ["SUBMITTED", "EVALUATED", "REVIEWED"].includes(sub.status);
-      const isExpired = a.dueAt && a.dueAt < now && !sub;
+      const isExpired = a.dueAt && new Date(a.dueAt) < now && !sub;
       return {
         id: a.id,
         title: a.title,
@@ -86,10 +88,10 @@ export async function GET(req: NextRequest) {
         canRetry: !isDone || ((sub?.attempt ?? 0) < a.maxAttempts && sub?.status === "EVALUATED"),
       };
     })
-    .filter((a: { isDone: boolean; isExpired: boolean | Date }) => {
+    .filter((a: any) => {
       if (filter === "todo") return !a.isDone && !a.isExpired;
       if (filter === "feito") return a.isDone;
-      return true; // historico
+      return true;
     });
 
   return NextResponse.json({ atividades: result });
