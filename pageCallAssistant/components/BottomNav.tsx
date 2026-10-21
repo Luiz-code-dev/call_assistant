@@ -10,6 +10,8 @@ const EXCLUDED_PREFIXES = [
   "/verify-email", "/reset-password", "/terms", "/privacy", "/robots", "/sitemap",
   // Pages with their own fixed bottom UI:
   "/messages", "/live",
+  // Área Escolar — totalmente separada do SpeakFlow pessoa física:
+  "/escola",
 ];
 
 function isExcluded(pathname: string) {
