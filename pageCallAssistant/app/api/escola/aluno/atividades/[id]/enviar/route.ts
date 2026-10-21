@@ -2,10 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { prismaEdu } from "@/lib/escola/db";
-import { evaluateActivity, gradeQuiz } from "@/lib/escola/ai-gateway";
+import { gradeQuiz } from "@/lib/escola/ai-gateway";
+import { uploadAudio, isAudioStorageConfigured } from "@/lib/escola/audio-store";
+import { getOpenAI } from "@/lib/openai";
+import { subjectToWhisperLang, stageToAgeGroup } from "@/lib/escola/subject-lang";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
+
+const MAX_AUDIO_BYTES = 25 * 1024 * 1024; // 25 MB (limite Whisper)
 
 export async function POST(req: NextRequest, { params }: { params: { id: string } }) {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "disabled" }, { status: 403 });
@@ -13,127 +18,164 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   const ctx = await getStudentContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
 
-  const body = await req.json();
-  const { text, transcript, audioKey, quizAnswers } = body as {
-    text?: string; transcript?: string; audioKey?: string; quizAnswers?: { questionId: string; selectedIndex: number }[];
-  };
-
-  const activity = await prismaEdu.eduActivity.findUnique({
-    where: { id: params.id },
-    include: { questions: { orderBy: { order: "asc" } } },
+  // A6: busca a atividade garantindo rede e turma do aluno
+  const activity = await (prismaEdu as any).eduActivity.findFirst({
+    where: {
+      id: params.id,
+      networkId: ctx.networkId,
+      status: "PUBLISHED",
+      classSubject: { classId: ctx.classId },
+    },
+    include: {
+      questions: { orderBy: { order: "asc" } },
+      classSubject: {
+        include: { class: { select: { gradeYear: true, stage: true } } },
+      },
+    },
   });
-  if (!activity || activity.status !== "PUBLISHED") {
-    return NextResponse.json({ error: "Atividade não encontrada" }, { status: 404 });
-  }
-  if (activity.dueAt && activity.dueAt < new Date()) {
+  if (!activity) return NextResponse.json({ error: "Atividade não encontrada" }, { status: 404 });
+  if (activity.dueAt && new Date(activity.dueAt) < new Date()) {
     return NextResponse.json({ error: "Prazo encerrado" }, { status: 409 });
   }
 
+  // A2: derivar idioma e contexto pedagógico do componente (nunca do navegador)
+  const subjectData = await (prismaEdu as any).eduSubject.findUnique({
+    where: { id: activity.classSubject.subjectId },
+    select: { name: true },
+  });
+  const subjectName: string = subjectData?.name ?? "";
+  const gradeYear: number = activity.classSubject.class?.gradeYear ?? 0;
+  const stage: string = activity.classSubject.class?.stage ?? "ELEMENTARY_LATE";
+  const ageGroup = stageToAgeGroup(stage as any, gradeYear);
+  const whisperLang = subjectToWhisperLang(subjectName);
+
   // Conta tentativas usadas
-  const usedAttempts = await prismaEdu.eduSubmission.count({
-    where: { activityId: params.id, studentId: ctx.studentId, status: { not: "IN_PROGRESS" } },
+  const usedAttempts = await (prismaEdu as any).eduSubmission.count({
+    where: { activityId: params.id, studentId: ctx.studentId, networkId: ctx.networkId, status: { not: "IN_PROGRESS" } },
   });
   if (usedAttempts >= activity.maxAttempts) {
     return NextResponse.json({ error: "Tentativas esgotadas" }, { status: 409 });
   }
 
+  let text: string | null = null;
+  let transcript: string | null = null;
+  let audioKey: string | null = null;
+  let quizAnswers: { questionId: string; selectedIndex: number }[] | null = null;
+
+  // A3: SPOKEN — recebe multipart com áudio, transcreve e guarda no servidor
+  if (activity.type === "SPOKEN") {
+    const contentType = req.headers.get("content-type") ?? "";
+    if (!contentType.startsWith("multipart/form-data")) {
+      return NextResponse.json({ error: "Envie o áudio como multipart/form-data" }, { status: 400 });
+    }
+    const formData = await req.formData();
+    const audioFile = formData.get("audio") as File | null;
+    if (!audioFile) return NextResponse.json({ error: "Campo 'audio' obrigatório" }, { status: 400 });
+    if (audioFile.size > MAX_AUDIO_BYTES) {
+      return NextResponse.json({ error: "Áudio excede 25 MB" }, { status: 413 });
+    }
+
+    const audioBuffer = Buffer.from(await audioFile.arrayBuffer());
+
+    // Guarda o áudio em storage privado
+    if (isAudioStorageConfigured()) {
+      const submissionDraftId = `draft-${ctx.studentId}-${params.id}`;
+      audioKey = await uploadAudio(ctx.networkId, submissionDraftId, audioBuffer, audioFile.type);
+    }
+
+    // Transcreve no servidor com o idioma correto
+    const openai = getOpenAI();
+    const blob = new Blob([audioBuffer], { type: audioFile.type });
+    const file = new File([blob], audioFile.name || "audio.webm", { type: audioFile.type });
+    const resp = await openai.audio.transcriptions.create({
+      model: "whisper-1",
+      file,
+      language: whisperLang,
+    });
+    transcript = resp.text ?? null;
+  } else if (activity.type === "QUIZ") {
+    const body = await req.json();
+    quizAnswers = body.quizAnswers ?? null;
+  } else {
+    const body = await req.json();
+    text = typeof body.text === "string" ? body.text.slice(0, 20000) : null;
+  }
+
   // Encontra ou cria submission IN_PROGRESS
-  let submission = await prismaEdu.eduSubmission.findFirst({
-    where: { activityId: params.id, studentId: ctx.studentId, status: "IN_PROGRESS" },
+  const existing = await (prismaEdu as any).eduSubmission.findFirst({
+    where: { activityId: params.id, studentId: ctx.studentId, networkId: ctx.networkId, status: "IN_PROGRESS" },
     orderBy: { attempt: "desc" },
   });
 
-  const attempt = submission?.attempt ?? usedAttempts + 1;
+  const attempt = existing?.attempt ?? usedAttempts + 1;
+  const now = new Date();
 
-  if (!submission) {
-    submission = await prismaEdu.eduSubmission.create({
+  // Persiste a entrega ANTES de qualquer avaliação
+  let submission: { id: string };
+  if (existing) {
+    submission = await (prismaEdu as any).eduSubmission.update({
+      where: { id: existing.id },
+      data: {
+        text: text ?? existing.text,
+        transcript: transcript ?? existing.transcript,
+        audioKey: audioKey ?? existing.audioKey,
+        quizAnswers: quizAnswers ?? existing.quizAnswers,    // C: Json nativo (não string)
+        status: "SUBMITTED",
+        submittedAt: now,
+        aiStatus: activity.type === "QUIZ" ? null : "PENDING",  // B8
+      },
+    });
+  } else {
+    submission = await (prismaEdu as any).eduSubmission.create({
       data: {
         networkId: ctx.networkId,
         activityId: params.id,
         studentId: ctx.studentId,
         attempt,
-        status: "IN_PROGRESS",
-        text: text ?? null,
-        transcript: transcript ?? null,
-        audioKey: audioKey ?? null,
-        quizAnswers: quizAnswers ? JSON.stringify(quizAnswers) : null,
-      },
-    });
-  } else {
-    submission = await prismaEdu.eduSubmission.update({
-      where: { id: submission.id },
-      data: {
-        text: text ?? submission.text,
-        transcript: transcript ?? submission.transcript,
-        audioKey: audioKey ?? submission.audioKey,
-        quizAnswers: quizAnswers ? JSON.stringify(quizAnswers) : submission.quizAnswers,
         status: "SUBMITTED",
-        submittedAt: new Date(),
+        submittedAt: now,
+        text,
+        transcript,
+        audioKey,
+        quizAnswers: quizAnswers ?? undefined,               // C: Json nativo
+        aiStatus: activity.type === "QUIZ" ? null : "PENDING",  // B8
       },
     });
   }
 
-  // Marca como submetido imediatamente (entrega segura antes da avaliação)
-  if (submission.status === "IN_PROGRESS") {
-    await prismaEdu.eduSubmission.update({
-      where: { id: submission.id },
-      data: { status: "SUBMITTED", submittedAt: new Date() },
-    });
+  // Atualiza audioKey com a key definitiva (substitui draft key) se storage configurado
+  if (activity.type === "SPOKEN" && audioKey && isAudioStorageConfigured()) {
+    const finalKey = audioKey.replace(`draft-${ctx.studentId}-${params.id}`, submission.id);
+    if (finalKey !== audioKey) {
+      await (prismaEdu as any).eduSubmission.update({
+        where: { id: submission.id },
+        data: { audioKey: finalKey },
+      });
+    }
   }
 
-  // Avaliação assíncrona pela IA (ou auto-correção para QUIZ)
+  // Quiz: auto-corrige imediatamente (sem IA externa)
   if (activity.type === "QUIZ") {
     try {
-      const answers: { questionId: string; selectedIndex: number }[] =
-        quizAnswers ?? (submission.quizAnswers ? JSON.parse(String(submission.quizAnswers)) : []);
+      const answers = quizAnswers ?? [];
       const result = gradeQuiz(activity.questions, answers, Number(activity.maxScore));
+      const idx = (qid: string) =>
+        activity.questions.findIndex((q: { id: string }) => q.id === qid) + 1;
       const feedback = {
         score: result.score,
-        porCriterio: [],
-        acertos: result.perQuestion.filter((q) => q.correct).map((q) => `Questão ${activity.questions.findIndex((aq: { id: string }) => aq.id === q.questionId) + 1} correta`),
-        melhorar: result.perQuestion.filter((q) => !q.correct).map((q) => q.explanation ?? `Questão ${activity.questions.findIndex((aq: { id: string }) => aq.id === q.questionId) + 1}: reveja o conteúdo`),
+        porCriterio: [] as unknown[],
+        acertos: result.perQuestion.filter((q: any) => q.correct).map((q: any) => `Questão ${idx(q.questionId)} correta`),
+        melhorar: result.perQuestion.filter((q: any) => !q.correct).map((q: any) => q.explanation ?? `Questão ${idx(q.questionId)}: reveja o conteúdo`),
         exemplo: "",
         quizDetail: result.perQuestion,
       };
-      await prismaEdu.eduSubmission.update({
+      await (prismaEdu as any).eduSubmission.update({
         where: { id: submission.id },
-        data: { status: "EVALUATED", aiScore: result.score, aiFeedback: feedback, evaluatedAt: new Date() },
+        data: { status: "EVALUATED", aiScore: result.score, aiFeedback: feedback, evaluatedAt: new Date(), aiStatus: "DONE" },
       });
-    } catch {
-      // Quiz mantido como SUBMITTED se falhar (não deve acontecer)
-    }
-  } else {
-    // Avaliação IA para WRITTEN/SPOKEN — assíncrona, falha segura
-    const responseText = activity.type === "SPOKEN" ? transcript : text;
-    if (responseText) {
-      setImmediate(async () => {
-        try {
-          const rubric = activity.rubric as { criterios: { criterio: string; peso: number; descricao?: string }[] };
-          const result = await evaluateActivity({
-            studentId: ctx.studentId,
-            activityPrompt: activity.prompt,
-            rubric: { ...rubric, subjectName: undefined, gradeYear: undefined },
-            response: responseText,
-            maxScore: Number(activity.maxScore),
-            activityType: activity.type as "WRITTEN" | "SPOKEN",
-          });
-          await prismaEdu.eduSubmission.update({
-            where: { id: submission.id },
-            data: {
-              status: "EVALUATED",
-              aiScore: result.feedback.score,
-              aiFeedback: result.feedback,
-              aiCostMs: result.costMs,
-              aiCostTokens: result.costTokens,
-              evaluatedAt: new Date(),
-            },
-          });
-        } catch {
-          // Se IA falhar: mantém SUBMITTED → "aguardando professor"
-        }
-      });
-    }
+    } catch { /* mantém SUBMITTED */ }
   }
+  // WRITTEN/SPOKEN: avaliação IA via cron (B8) — aiStatus=PENDING já gravado
 
   return NextResponse.json({ submissionId: submission.id, status: "SUBMITTED" });
 }

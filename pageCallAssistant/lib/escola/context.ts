@@ -73,6 +73,10 @@ export async function getEduContext(): Promise<EduContext | null> {
   }
 }
 
+// C: cache leve de revalidação por 60 s para evitar queries excessivas
+const revalidationCache = new Map<string, { ok: boolean; ts: number }>();
+const REVALIDATE_TTL_MS = 60_000;
+
 export async function getStudentContext(): Promise<StudentContext | null> {
   const cookieStore = cookies();
   const raw = cookieStore.get("sf_edu_student")?.value;
@@ -86,6 +90,32 @@ export async function getStudentContext(): Promise<StudentContext | null> {
     const classId = payload["cid"] as string | undefined;
 
     if (!studentId || !networkId || !enrollmentId || !classId) return null;
+
+    // C: revalida no banco (com cache) — garante aluno ativo, matrícula ativa, rede não suspensa
+    const cacheKey = `${studentId}:${enrollmentId}`;
+    const cached = revalidationCache.get(cacheKey);
+    if (!cached || Date.now() - cached.ts > REVALIDATE_TTL_MS) {
+      const enrollment = await (db as any).eduEnrollment.findUnique({
+        where: { id: enrollmentId },
+        select: {
+          status: true,
+          student: {
+            select: {
+              isActive: true,
+              network: { select: { isActive: true } },
+            },
+          },
+        },
+      });
+      const ok =
+        enrollment?.status === "ACTIVE" &&
+        enrollment?.student?.isActive === true &&
+        enrollment?.student?.network?.isActive === true;
+      revalidationCache.set(cacheKey, { ok, ts: Date.now() });
+      if (!ok) return null;
+    } else if (!cached.ok) {
+      return null;
+    }
 
     return { studentId, networkId, enrollmentId, classId };
   } catch {
