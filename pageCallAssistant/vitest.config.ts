@@ -3,7 +3,7 @@ import path from "path";
 
 export default defineConfig({
   test: {
-    include: ["lib/escola/**/*.test.ts"],
+    include: ["lib/escola/**/*.test.ts", "tests/escola/**/*.test.ts"],
     environment: "node",
     coverage: {
       provider: "v8",

@@ -14,8 +14,16 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
   const { text } = await req.json();
   if (typeof text !== "string") return NextResponse.json({ error: "text obrigatório" }, { status: 400 });
 
-  const activity = await prismaEdu.eduActivity.findUnique({ where: { id: params.id } });
-  if (!activity || activity.status !== "PUBLISHED") return NextResponse.json({ error: "Atividade não encontrada" }, { status: 404 });
+  // A6: isolamento — atividade deve pertencer à rede e turma do aluno
+  const activity = await (prismaEdu as any).eduActivity.findFirst({
+    where: {
+      id: params.id,
+      networkId: ctx.networkId,
+      status: "PUBLISHED",
+      classSubject: { classId: ctx.classId },
+    },
+  });
+  if (!activity) return NextResponse.json({ error: "Atividade não encontrada" }, { status: 404 });
 
   const existing = await prismaEdu.eduSubmission.findFirst({
     where: { activityId: params.id, studentId: ctx.studentId, status: "IN_PROGRESS" },

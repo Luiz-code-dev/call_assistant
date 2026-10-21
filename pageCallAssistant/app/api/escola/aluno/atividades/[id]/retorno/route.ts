@@ -11,14 +11,20 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
   const ctx = await getStudentContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
 
-  const submission = await prismaEdu.eduSubmission.findFirst({
-    where: { activityId: params.id, studentId: ctx.studentId },
-    orderBy: { attempt: "desc" },
-    include: {
-      activity: {
-        select: { id: true, title: true, prompt: true, maxScore: true, maxAttempts: true, type: true },
-      },
+  // A6: isolamento — atividade deve pertencer à rede e turma do aluno
+  const activity = await (prismaEdu as any).eduActivity.findFirst({
+    where: {
+      id: params.id,
+      networkId: ctx.networkId,
+      classSubject: { classId: ctx.classId },
     },
+    select: { id: true, title: true, prompt: true, maxScore: true, maxAttempts: true, type: true },
+  });
+  if (!activity) return NextResponse.json({ error: "Atividade não encontrada" }, { status: 404 });
+
+  const submission = await (prismaEdu as any).eduSubmission.findFirst({
+    where: { activityId: params.id, studentId: ctx.studentId, networkId: ctx.networkId },
+    orderBy: { attempt: "desc" },
   });
 
   if (!submission) return NextResponse.json({ error: "Entrega não encontrada" }, { status: 404 });
@@ -27,6 +33,7 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
     submissionId: submission.id,
     attempt: submission.attempt,
     status: submission.status,
+    aiStatus: submission.aiStatus,
     aiScore: submission.aiScore,
     aiFeedback: submission.aiFeedback,
     teacherScore: submission.teacherScore,
@@ -35,6 +42,6 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
     submittedAt: submission.submittedAt,
     evaluatedAt: submission.evaluatedAt,
     reviewedAt: submission.reviewedAt,
-    activity: submission.activity,
+    activity,
   });
 }

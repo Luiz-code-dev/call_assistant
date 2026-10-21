@@ -732,6 +732,13 @@ enum EduActivityType {
   QUIZ
 }
 
+enum EduAiStatus {
+  PENDING
+  RUNNING
+  DONE
+  FAILED
+}
+
 enum EduActivityStatus {
   DRAFT
   PUBLISHED
@@ -1196,6 +1203,9 @@ model EduSubmission {
   aiFeedback   Json?
   teacherScore Decimal?            @db.Decimal(5, 2)
   teacherNote  String?             @db.Text
+  aiStatus     EduAiStatus?
+  aiAttempts   Int                 @default(0)
+  aiLastError  String?             @db.Text
   aiCostMs     Int?
   aiCostTokens Int?
   submittedAt  DateTime?

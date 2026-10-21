@@ -1,4 +1,4 @@
-import { EduRole } from "@prisma/client";
+import { EduRole } from "@/lib/escola/types";
 
 export type EduAction =
   | "network:read"
@@ -113,4 +113,51 @@ export function canAny(role: EduRole, actions: EduAction[]): boolean {
 
 export function canAll(role: EduRole, actions: EduAction[]): boolean {
   return actions.every((a) => can(role, a));
+}
+
+/**
+ * Asserts that the given context can MANAGE (create/edit/delete activities,
+ * enter grades) a class subject. Throws an error with HTTP-ready code if not.
+ *
+ * Rules:
+ * - TEACHER: must be the teacher of the class subject (teacherId === ctx.userId)
+ * - COORDINATOR / NETWORK_ADMIN: any class subject in their network (read-only create on behalf)
+ * - SCHOOL_ADMIN: scoped to their school
+ */
+export function assertCanManageClassSubject(
+  ctx: { userId: string; networkId: string; schoolId: string | null; role: EduRole },
+  classSubject: { teacherId: string | null; networkId: string; schoolId: string },
+): void {
+  if (classSubject.networkId !== ctx.networkId) {
+    throw Object.assign(new Error("Fora da rede"), { status: 403 });
+  }
+  if (ctx.role === "TEACHER") {
+    if (classSubject.teacherId !== ctx.userId) {
+      throw Object.assign(new Error("Você não é o professor desta oferta"), { status: 403 });
+    }
+  } else if (ctx.role === "SCHOOL_ADMIN") {
+    if (ctx.schoolId && classSubject.schoolId !== ctx.schoolId) {
+      throw Object.assign(new Error("Escola fora do seu escopo"), { status: 403 });
+    }
+  }
+  // COORDINATOR and NETWORK_ADMIN pass for any class subject in the network
+}
+
+/**
+ * Asserts that the given context can VIEW submissions/grades for a class subject.
+ * Same as manage but SCHOOL_ADMIN can also view.
+ */
+export function assertCanViewClassSubject(
+  ctx: { userId: string; networkId: string; schoolId: string | null; role: EduRole },
+  classSubject: { teacherId: string | null; networkId: string; schoolId: string },
+): void {
+  if (classSubject.networkId !== ctx.networkId) {
+    throw Object.assign(new Error("Fora da rede"), { status: 403 });
+  }
+  if (ctx.role === "TEACHER" && classSubject.teacherId !== ctx.userId) {
+    throw Object.assign(new Error("Você não é o professor desta oferta"), { status: 403 });
+  }
+  if (ctx.role === "SCHOOL_ADMIN" && ctx.schoolId && classSubject.schoolId !== ctx.schoolId) {
+    throw Object.assign(new Error("Escola fora do seu escopo"), { status: 403 });
+  }
 }
