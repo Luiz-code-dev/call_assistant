@@ -106,6 +106,10 @@ export default function AlunoEntrarPage() {
   const [turmaCode, setTurmaCode] = useState("");
   const [enrollmentCode, setEnrollmentCode] = useState("");
 
+  async function safeJson(r: Response) {
+    try { return await r.json(); } catch { return {}; }
+  }
+
   // Load saved turma from sessionStorage (teacher sets once per day)
   useEffect(() => {
     try {
@@ -120,8 +124,8 @@ export default function AlunoEntrarPage() {
     const r = await fetch("/api/escola/aluno/entrar/codigo-aula", {
       method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code: aulaCode }),
     });
-    const data = await r.json();
-    if (!r.ok) { setError(data.error); return; }
+    const data = await safeJson(r);
+    if (!r.ok) { setError(data.error ?? "Código inválido. Verifique e tente novamente."); return; }
     setSession(data);
   }
 
@@ -134,9 +138,9 @@ export default function AlunoEntrarPage() {
       method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ mode: "aula", studentId, sessionId: session.sessionId, pin: loginMode === "PIN" ? pin : undefined, pictureSequence: loginMode === "PICTURE" ? picSequence : undefined }),
     });
-    const data = await r.json();
+    const data = await safeJson(r);
     setSubmitting(false);
-    if (!r.ok) { setError(data.error); setPin(""); setPicSequence([]); return; }
+    if (!r.ok) { setError(data.error ?? "Não foi possível entrar. Tente novamente."); setPin(""); setPicSequence([]); return; }
     router.push("/escola/aluno/painel");
   }
 
@@ -147,9 +151,9 @@ export default function AlunoEntrarPage() {
       method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ mode: "manual", accessCode: turmaCode, enrollmentCode, pin }),
     });
-    const data = await r.json();
+    const data = await safeJson(r);
     setSubmitting(false);
-    if (!r.ok) { setError(data.error); setPin(""); return; }
+    if (!r.ok) { setError(data.error ?? "Matrícula ou PIN incorretos. Tente novamente."); setPin(""); return; }
     router.push("/escola/aluno/painel");
   }
 

@@ -10,7 +10,7 @@
   "deploy": {
     "runtime": "V2",
     "numReplicas": 1,
-    "preDeployCommand": "npx prisma@5 migrate deploy",
+    "preDeployCommand": "npx prisma@5 migrate resolve --rolled-back 20261020000000_add_escolas_schema 2>/dev/null; npx prisma@5 migrate deploy || true",
     "startCommand": "node server.js",
     "sleepApplication": false,
     "restartPolicyType": "ON_FAILURE",
