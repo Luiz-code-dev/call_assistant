@@ -10,7 +10,7 @@ interface Atividade {
   prompt: string; maxScore: number; maxAttempts: number; maxAudioSec: number | null;
   dueAt: string | null; questions: QuizQuestion[];
   submission: { id: string; status: string; text?: string } | null;
-  attemptsUsed: number; canRetry: boolean;
+  attemptsUsed: number; canRetry: boolean; isDone: boolean; isExpired: boolean;
   subject: { name: string; color: string | null } | null;
 }
 

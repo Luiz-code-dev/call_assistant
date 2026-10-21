@@ -52,7 +52,7 @@ export async function GET(req: NextRequest) {
     },
   });
 
-  const subjectIds = [...new Set(activities.map((a: any) => a.classSubject.subjectId as string))];
+  const subjectIds = Array.from(new Set(activities.map((a: any) => a.classSubject.subjectId as string)));
   const subjects = subjectIds.length
     ? await (prismaEdu as any).eduSubject.findMany({
         where: { id: { in: subjectIds }, networkId: ctx.networkId },
