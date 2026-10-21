@@ -33,16 +33,19 @@ export async function POST(req: NextRequest, { params }: { params: { token: stri
     await prismaEdu.eduInvite.update({ where: { id: invite.id }, data: { userId } });
   }
 
-  // Upsert membership
+  // Upsert membership — keep reference for session token
   const existingMembership = await prismaEdu.eduMembership.findFirst({
     where: { networkId: invite.networkId, userId: userId!, schoolId: invite.schoolId, role: invite.role },
   });
+  let membershipId: string;
   if (existingMembership) {
     await prismaEdu.eduMembership.update({ where: { id: existingMembership.id }, data: { isActive: true } });
+    membershipId = existingMembership.id;
   } else {
-    await prismaEdu.eduMembership.create({
+    const created = await prismaEdu.eduMembership.create({
       data: { networkId: invite.networkId, userId: userId!, schoolId: invite.schoolId, role: invite.role, isActive: true },
     });
+    membershipId = created.id;
   }
 
   // Mark invite accepted
@@ -52,8 +55,8 @@ export async function POST(req: NextRequest, { params }: { params: { token: stri
     data: { networkId: invite.networkId, actorType: "user", actorId: userId!, action: "invite.accepted", entity: "EduInvite", entityId: invite.id },
   });
 
-  // Issue edu session cookie
-  const token = await new SignJWT({ userId, networkId: invite.networkId, role: invite.role, schoolId: invite.schoolId })
+  // Issue edu session cookie — claims must match getEduContext: sub/mid/nid/sid/role
+  const token = await new SignJWT({ sub: userId!, mid: membershipId, nid: invite.networkId, sid: invite.schoolId ?? undefined, role: invite.role })
     .setProtectedHeader({ alg: "HS256" }).setIssuedAt().setExpirationTime("30d").sign(EDU_SECRET);
 
   const res = NextResponse.json({ ok: true, redirect: "/escola/painel" });

@@ -1,6 +1,26 @@
 import { NextRequest, NextResponse } from "next/server";
 import { verifyToken } from "@/lib/auth";
 import { db } from "@/lib/db";
+import { createRemoteJWKSet, jwtVerify } from "jose";
+
+const APPLE_JWKS = createRemoteJWKSet(
+  new URL("https://appleid.apple.com/auth/keys")
+);
+const APPLE_BUNDLE_ID = process.env.APPLE_BUNDLE_ID ?? "br.com.speakflow";
+
+async function verifyAppleJWS(jwsRepresentation: string): Promise<{ transactionId: string; productId: string; bundleId: string }> {
+  const { payload } = await jwtVerify(jwsRepresentation, APPLE_JWKS);
+  const transactionId = (payload as any).transactionId as string | undefined;
+  const productId = (payload as any).productId as string | undefined;
+  const bundleId = (payload as any).bundleId as string | undefined;
+  if (!transactionId || !productId || !bundleId) {
+    throw new Error("Payload do JWS Apple incompleto");
+  }
+  if (bundleId !== APPLE_BUNDLE_ID) {
+    throw new Error(`bundleId inválido: ${bundleId}`);
+  }
+  return { transactionId, productId, bundleId };
+}
 
 // Plans: SET credits to plan allocation (same as Stripe webhook behavior)
 const PLAN_MAP: Record<string, { plan: string; credits: number }> = {
@@ -27,15 +47,25 @@ export async function POST(req: NextRequest) {
 
   const userId = payload.sub as string;
   const body = await req.json();
-  const { transactionId, productId, type } = body as {
-    transactionId: string;
-    productId: string;
-    type: "plan" | "pack";
-  };
+  const { jwsRepresentation } = body as { jwsRepresentation: string };
 
-  if (!transactionId || !productId) {
-    return NextResponse.json({ error: "transactionId e productId são obrigatórios" }, { status: 400 });
+  if (!jwsRepresentation) {
+    return NextResponse.json({ error: "jwsRepresentation é obrigatório" }, { status: 400 });
   }
+
+  let transactionId: string;
+  let productId: string;
+  try {
+    ({ transactionId, productId } = await verifyAppleJWS(jwsRepresentation));
+  } catch (e) {
+    return NextResponse.json({ error: "Transação Apple inválida ou não verificável" }, { status: 400 });
+  }
+
+  const typeRaw = PLAN_MAP[productId] ? "plan" : PACK_MAP[productId] ? "pack" : "unknown";
+  if (typeRaw === "unknown") {
+    return NextResponse.json({ error: "Produto não reconhecido" }, { status: 400 });
+  }
+  const type = typeRaw as "plan" | "pack";
 
   // ── Plan subscription ────────────────────────────────────────────────────────
   if (type === "plan") {

@@ -40,6 +40,10 @@ export interface StudentContext {
   classId: string;
 }
 
+const staffSecret = new TextEncoder().encode(
+  process.env.EDU_JWT_SECRET || "edu-dev-secret-change-me"
+);
+
 const studentSecret = new TextEncoder().encode(
   process.env.EDU_STUDENT_JWT_SECRET || "edu-student-dev-secret"
 );
@@ -50,7 +54,7 @@ export async function getEduContext(): Promise<EduContext | null> {
   if (!raw) return null;
 
   try {
-    const { payload } = await jwtVerify(raw, studentSecret);
+    const { payload } = await jwtVerify(raw, staffSecret);
     const membershipId = payload["mid"] as string | undefined;
     if (!membershipId) return null;
 

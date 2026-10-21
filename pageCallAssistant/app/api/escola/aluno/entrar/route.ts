@@ -16,7 +16,7 @@ const MAX_ATTEMPTS = 5;
 const LOCK_MINUTES = 15;
 
 async function issueStudentToken(student: { id: string; networkId: string }, classId: string, enrollmentId: string) {
-  return new SignJWT({ studentId: student.id, networkId: student.networkId, classId, enrollmentId })
+  return new SignJWT({ sub: student.id, nid: student.networkId, cid: classId, eid: enrollmentId })
     .setProtectedHeader({ alg: "HS256" }).setIssuedAt().setExpirationTime("15h").sign(STUDENT_JWT_SECRET);
 }
 
@@ -113,6 +113,6 @@ export async function POST(req: NextRequest) {
 
   const token = await issueStudentToken(student, classId!, enrollmentId!);
   const res = NextResponse.json({ ok: true, redirect: "/escola/aluno/painel" });
-  res.cookies.set("sf_student_ctx", token, { httpOnly: true, sameSite: "lax", path: "/", maxAge: 15 * 3600 });
+  res.cookies.set("sf_edu_student", token, { httpOnly: true, sameSite: "lax", path: "/", maxAge: 15 * 3600 });
   return res;
 }

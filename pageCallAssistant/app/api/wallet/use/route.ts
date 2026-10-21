@@ -14,18 +14,15 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: "Parâmetros inválidos" }, { status: 400 });
     }
 
-    const user = await db.user.findUnique({ where: { id: userId }, select: { credits: true } });
-    if (!user) {
+    const userExists = await db.user.findUnique({ where: { id: userId }, select: { id: true } });
+    if (!userExists) {
       return NextResponse.json({ message: "Usuário não encontrado" }, { status: 404 });
     }
 
-    if (user.credits < amount) {
-      return NextResponse.json({ message: "Saldo insuficiente", balance: user.credits }, { status: 402 });
-    }
-
-    const [updated] = await db.$transaction([
-      db.user.update({
-        where: { id: userId },
+    // Atomic conditional decrement: only succeeds if credits >= amount at the moment of write
+    const [updateResult] = await db.$transaction([
+      db.user.updateMany({
+        where: { id: userId, credits: { gte: amount } },
         data: { credits: { decrement: amount } },
       }),
       (db as any).creditTransaction.create({
@@ -39,7 +36,12 @@ export async function POST(req: NextRequest) {
       }),
     ]);
 
-    return NextResponse.json({ balance: updated.credits });
+    if (updateResult.count === 0) {
+      return NextResponse.json({ message: "Saldo insuficiente" }, { status: 402 });
+    }
+
+    const updated = await db.user.findUnique({ where: { id: userId }, select: { credits: true } });
+    return NextResponse.json({ balance: updated?.credits ?? 0 });
   } catch (err) {
     console.error("Wallet use error:", err);
     return NextResponse.json({ message: "Erro interno do servidor" }, { status: 500 });
