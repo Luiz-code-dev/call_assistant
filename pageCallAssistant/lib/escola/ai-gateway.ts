@@ -1,6 +1,5 @@
 import { z } from "zod";
 import { getOpenAI } from "@/lib/openai";
-import { pseudonymize } from "./integrity";
 
 // ─── Tipos de rubrica ────────────────────────────────────────────────────────
 
@@ -66,12 +65,41 @@ export function calcularScore(
 // ─── Avaliação de atividade com rubrica ──────────────────────────────────────
 
 export interface EvaluateActivityInput {
-  studentId: string;         // nunca enviado à IA; apenas pseudonimizado
+  studentId: string;         // nunca enviado à IA
   activityPrompt: string;
   rubric: RubricInput;
   response: string;          // texto ou transcrição
   maxScore: number;
   activityType: "WRITTEN" | "SPOKEN";
+}
+
+/** B10: erro lançado quando moderação flagra conteúdo */
+export class ModerationError extends Error {
+  constructor(public readonly categories: string[]) {
+    super(`MODERATION_FLAGGED:${categories.join(",")}`);
+    this.name = "ModerationError";
+  }
+}
+
+/**
+ * B10: Executa moderação OpenAI. Lança ModerationError se o conteúdo for flagrado.
+ * Silencia erros de rede para não bloquear o fluxo principal.
+ */
+export async function moderateText(text: string): Promise<void> {
+  try {
+    const openai = getOpenAI();
+    const result = await openai.moderations.create({ input: text });
+    const r = result.results[0];
+    if (r?.flagged) {
+      const cats = Object.entries(r.categories)
+        .filter(([, v]) => v)
+        .map(([k]) => k);
+      throw new ModerationError(cats);
+    }
+  } catch (e) {
+    if (e instanceof ModerationError) throw e;
+    // Falha de rede na moderação: não bloqueia avaliação
+  }
 }
 
 export interface EvaluateResult {
@@ -83,8 +111,10 @@ export interface EvaluateResult {
 export async function evaluateActivity(
   input: EvaluateActivityInput,
 ): Promise<EvaluateResult> {
+  // B10: Modera a resposta do aluno antes de enviar à IA
+  await moderateText(input.response);
+
   const openai = getOpenAI();
-  const opaqueId = pseudonymize(input.studentId);
   const start = Date.now();
 
   const rubricaDescrita = input.rubric.criterios
@@ -162,6 +192,14 @@ ${input.response}
 
       // Calcula score no servidor — nunca confia no modelo
       const score = calcularScore(porCriterioFiltrado, input.rubric.criterios, input.maxScore);
+
+      // B10: modera o feedback gerado pela IA antes de salvar
+      const feedbackText = [
+        ...validated.acertos,
+        ...validated.melhorar,
+        validated.exemplo,
+      ].join(" ");
+      await moderateText(feedbackText);
 
       return {
         feedback: { ...validated, porCriterio: porCriterioFiltrado, score },
