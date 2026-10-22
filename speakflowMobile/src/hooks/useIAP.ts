@@ -93,15 +93,17 @@ export function useIAP() {
       const productId = (purchase as any).productId ?? (purchase as any).sku ?? "";
       const isPack = PACK_SKUS.includes(productId as PackSKU);
       try {
-        await ApiClient.post("/api/iap/apple", {
-          transactionId: txId,
-          productId,
-          type: isPack ? "pack" : "plan",
+        const result = await ApiClient.post("/api/iap/apple", {
+          jwsRepresentation: (purchase as any).jwsRepresentation ?? "",
         });
+        if (!result.ok) {
+          console.warn("IAP grant recusado pelo servidor — transação NÃO finalizada para retry:", result);
+          return;
+        }
         await finishTransaction({ purchase, isConsumable: isPack });
         await refreshUser();
       } catch (e) {
-        console.warn("IAP grant error:", e);
+        console.warn("IAP grant error — transação NÃO finalizada para retry:", e);
       }
       setPurchasing(null);
     },
