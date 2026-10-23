@@ -46,6 +46,10 @@ const NAV_BY_ROLE: Record<EduRole, NavItem[]> = {
     { label: "Minhas Turmas", href: "/escola/professor", icon: "🏠" },
     { label: "Abrir Aula", href: "/escola/professor/aula", icon: "📺" },
   ],
+  PLATFORM_ADMIN: [
+    { label: "Painel", href: "/escola/admin", icon: "🏛️" },
+    { label: "Redes", href: "/escola/admin/redes", icon: "🌐" },
+  ],
 };
 
 const ROLE_LABEL: Record<EduRole, string> = {
@@ -53,6 +57,7 @@ const ROLE_LABEL: Record<EduRole, string> = {
   COORDINATOR: "Coordenação",
   SCHOOL_ADMIN: "Direção",
   TEACHER: "Professor",
+  PLATFORM_ADMIN: "Administrador da Plataforma",
 };
 
 const ROLE_COLOR: Record<EduRole, string> = {
@@ -60,6 +65,7 @@ const ROLE_COLOR: Record<EduRole, string> = {
   COORDINATOR: "bg-blue-600",
   SCHOOL_ADMIN: "bg-green-600",
   TEACHER: "bg-orange-600",
+  PLATFORM_ADMIN: "bg-gray-600",
 };
 
 interface Props {
