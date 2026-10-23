@@ -18,7 +18,6 @@ export async function POST(req: NextRequest, { params }: { params: { token: stri
   let userId = invite.userId;
 
   if (!userId) {
-    // Create user account (no existing account)
     if (!password || password.length < 8) return NextResponse.json({ error: "Senha deve ter ao menos 8 caracteres" }, { status: 400 });
     const passwordHash = await bcrypt.hash(password, 12);
     const existing = await prismaEdu.user.findFirst({ where: { email: invite.email } });
@@ -26,14 +25,35 @@ export async function POST(req: NextRequest, { params }: { params: { token: stri
       userId = existing.id;
     } else {
       const user = await prismaEdu.user.create({
-        data: { email: invite.email, name: invite.name, password: passwordHash, emailVerified: true },
+        data: { email: invite.email, name: invite.name, password: passwordHash, emailVerified: true, acceptedTerms: true },
       });
       userId = user.id;
     }
     await prismaEdu.eduInvite.update({ where: { id: invite.id }, data: { userId } });
   }
 
-  // Upsert membership — keep reference for session token
+  // Always record terms acceptance on the user row
+  await prismaEdu.user.update({ where: { id: userId! }, data: { acceptedTerms: true } });
+
+  // PLATFORM_ADMIN — no EduMembership, activate EduPlatformAdmin record
+  if (invite.role === "PLATFORM_ADMIN") {
+    await prismaEdu.eduPlatformAdmin.upsert({
+      where: { userId: userId! },
+      create: { userId: userId!, createdById: "invite" },
+      update: { isActive: true },
+    });
+    await prismaEdu.eduInvite.update({ where: { id: invite.id }, data: { acceptedAt: new Date(), userId } });
+    await prismaEdu.eduAuditLog.create({
+      data: { networkId: null, actorType: "user", actorId: userId!, action: "invite.accepted", entity: "EduInvite", entityId: invite.id },
+    });
+    const jwtToken = await new SignJWT({ sub: userId!, role: "PLATFORM_ADMIN" })
+      .setProtectedHeader({ alg: "HS256" }).setIssuedAt().setExpirationTime("30d").sign(EDU_SECRET);
+    const res = NextResponse.json({ ok: true, redirect: "/escola/admin" });
+    res.cookies.set("sf_edu_ctx", jwtToken, { httpOnly: true, sameSite: "lax", path: "/", maxAge: 30 * 24 * 3600 });
+    return res;
+  }
+
+  // Upsert membership for all other roles
   const existingMembership = await prismaEdu.eduMembership.findFirst({
     where: { networkId: invite.networkId, userId: userId!, schoolId: invite.schoolId, role: invite.role },
   });
@@ -48,18 +68,15 @@ export async function POST(req: NextRequest, { params }: { params: { token: stri
     membershipId = created.id;
   }
 
-  // Mark invite accepted
   await prismaEdu.eduInvite.update({ where: { id: invite.id }, data: { acceptedAt: new Date(), userId } });
-
   await prismaEdu.eduAuditLog.create({
     data: { networkId: invite.networkId, actorType: "user", actorId: userId!, action: "invite.accepted", entity: "EduInvite", entityId: invite.id },
   });
 
-  // Issue edu session cookie — claims must match getEduContext: sub/mid/nid/sid/role
-  const token = await new SignJWT({ sub: userId!, mid: membershipId, nid: invite.networkId, sid: invite.schoolId ?? undefined, role: invite.role })
+  const jwtToken = await new SignJWT({ sub: userId!, mid: membershipId, nid: invite.networkId, sid: invite.schoolId ?? undefined, role: invite.role })
     .setProtectedHeader({ alg: "HS256" }).setIssuedAt().setExpirationTime("30d").sign(EDU_SECRET);
 
   const res = NextResponse.json({ ok: true, redirect: "/escola/painel" });
-  res.cookies.set("sf_edu_ctx", token, { httpOnly: true, sameSite: "lax", path: "/", maxAge: 30 * 24 * 3600 });
+  res.cookies.set("sf_edu_ctx", jwtToken, { httpOnly: true, sameSite: "lax", path: "/", maxAge: 30 * 24 * 3600 });
   return res;
 }
