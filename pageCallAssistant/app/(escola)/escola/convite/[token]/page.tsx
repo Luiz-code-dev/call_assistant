@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, use } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 interface InviteInfo {
@@ -12,8 +12,8 @@ const ROLE_LABEL: Record<string, string> = {
   SCHOOL_ADMIN: "Diretor(a)", TEACHER: "Professor(a)",
 };
 
-export default function ConvitePage({ params }: { params: Promise<{ token: string }> }) {
-  const { token } = use(params);
+export default function ConvitePage({ params }: { params: { token: string } }) {
+  const { token } = params;
   const router = useRouter();
   const [invite, setInvite] = useState<InviteInfo | null>(null);
   const [loading, setLoading] = useState(true);
