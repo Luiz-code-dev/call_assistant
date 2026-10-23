@@ -1,6 +1,14 @@
 import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 import { getEduContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
+
+async function logoutAction() {
+  "use server";
+  cookies().delete("sf_edu_ctx");
+  cookies().delete("sf_edu_student");
+  redirect("/escola/entrar");
+}
 
 export default async function EscolaAdminPage() {
   if (!isEscolasEnabled()) return redirect("/escola/entrar");
@@ -22,36 +30,38 @@ export default async function EscolaAdminPage() {
 
         <div className="grid gap-4">
           <a
-            href="/escola/rede"
+            href="/escola/admin/redes"
             className="bg-gray-900 border border-gray-800 hover:border-purple-600 rounded-xl p-5 transition-colors group"
           >
             <div className="flex items-center gap-3">
               <span className="text-2xl">🌐</span>
               <div>
                 <div className="text-white font-semibold group-hover:text-purple-400 transition-colors">Redes de Ensino</div>
-                <div className="text-gray-500 text-sm">Gerenciar redes, escolas e usuários</div>
+                <div className="text-gray-500 text-sm">Visualizar todas as redes, escolas e membros cadastrados</div>
               </div>
             </div>
           </a>
 
           <a
-            href="/superadmin"
+            href="/escola/rede/convites"
             className="bg-gray-900 border border-gray-800 hover:border-purple-600 rounded-xl p-5 transition-colors group"
           >
             <div className="flex items-center gap-3">
-              <span className="text-2xl">⚙️</span>
+              <span className="text-2xl">✉️</span>
               <div>
-                <div className="text-white font-semibold group-hover:text-purple-400 transition-colors">Super Admin</div>
-                <div className="text-gray-500 text-sm">Painel de administração geral da plataforma</div>
+                <div className="text-white font-semibold group-hover:text-purple-400 transition-colors">Convites</div>
+                <div className="text-gray-500 text-sm">Gerenciar convites enviados às redes</div>
               </div>
             </div>
           </a>
         </div>
 
         <div className="text-center">
-          <a href="/escola/entrar" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">
-            Sair
-          </a>
+          <form action={logoutAction}>
+            <button type="submit" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">
+              Sair
+            </button>
+          </form>
         </div>
       </div>
     </div>
