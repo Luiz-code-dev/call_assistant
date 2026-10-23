@@ -101,6 +101,16 @@ const ROLE_PERMISSIONS: Record<EduRole, EduAction[]> = {
     "assessment:read",
     "assessment:write",
   ],
+  PLATFORM_ADMIN: [
+    "network:read",
+    "network:write",
+    "school:read",
+    "class:read",
+    "student:read",
+    "grade:read",
+    "audit:read",
+    "membership:manage",
+  ],
 };
 
 export function can(role: EduRole, action: EduAction): boolean {
