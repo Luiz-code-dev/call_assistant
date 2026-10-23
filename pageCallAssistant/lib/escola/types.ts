@@ -1,4 +1,4 @@
-export type EduRole = "NETWORK_ADMIN" | "COORDINATOR" | "SCHOOL_ADMIN" | "TEACHER";
+export type EduRole = "NETWORK_ADMIN" | "COORDINATOR" | "SCHOOL_ADMIN" | "TEACHER" | "PLATFORM_ADMIN";
 export type EduStage = "EARLY_CHILDHOOD" | "ELEMENTARY_EARLY" | "ELEMENTARY_LATE" | "HIGH_SCHOOL" | "EJA";
 export type EduShift = "MORNING" | "AFTERNOON" | "EVENING" | "FULL_TIME";
 export type EduTermStatus = "OPEN" | "CLOSED";
@@ -28,6 +28,7 @@ export const ROLE_LABEL: Record<EduRole, string> = {
   COORDINATOR: "Coordenação",
   SCHOOL_ADMIN: "Direção",
   TEACHER: "Professor",
+  PLATFORM_ADMIN: "Administrador da Plataforma",
 };
 
 export const PLAN_STATUS_LABEL: Record<EduPlanStatus, string> = {
