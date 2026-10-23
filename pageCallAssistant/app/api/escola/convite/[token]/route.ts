@@ -9,11 +9,13 @@ export async function GET(_: Request, { params }: { params: { token: string } })
     if (invite.expiresAt < new Date()) return NextResponse.json({ error: "Convite expirado" }, { status: 410 });
     if (invite.acceptedAt) return NextResponse.json({ error: "Convite já utilizado" }, { status: 409 });
 
-    const network = await prismaEdu.eduNetwork.findUnique({ where: { id: invite.networkId }, select: { name: true } });
+    const network = invite.networkId
+      ? await prismaEdu.eduNetwork.findUnique({ where: { id: invite.networkId }, select: { name: true } })
+      : null;
 
     return NextResponse.json({
       id: invite.id, name: invite.name, email: invite.email,
-      role: invite.role, networkName: network?.name, expiresAt: invite.expiresAt,
+      role: invite.role, networkName: network?.name ?? null, expiresAt: invite.expiresAt,
       hasAccount: !!invite.userId,
     });
   } catch (err) {
