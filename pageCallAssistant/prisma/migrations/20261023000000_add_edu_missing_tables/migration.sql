@@ -156,6 +156,23 @@ CREATE INDEX IF NOT EXISTS "EduSubmission_studentId_status_idx" ON "EduSubmissio
 CREATE INDEX IF NOT EXISTS "EduSubmission_activityId_idx" ON "EduSubmission"("activityId");
 DO $$ BEGIN ALTER TABLE "EduSubmission" ADD CONSTRAINT "EduSubmission_activityId_fkey" FOREIGN KEY ("activityId") REFERENCES "EduActivity"("id") ON DELETE RESTRICT ON UPDATE CASCADE; EXCEPTION WHEN duplicate_object THEN null; END $$;
 
+-- =========== Recriar triggers de imutabilidade (idempotente) ===========
+-- A migration original (20261020000001) pode ter aplicado parcialmente; garante estado correto.
+DROP TRIGGER IF EXISTS edu_grade_entry_immutable ON "EduGradeEntry";
+CREATE TRIGGER edu_grade_entry_immutable
+  BEFORE UPDATE OR DELETE ON "EduGradeEntry"
+  FOR EACH ROW EXECUTE FUNCTION edu_block_mutation();
+
+DROP TRIGGER IF EXISTS edu_term_closure_immutable ON "EduTermClosure";
+CREATE TRIGGER edu_term_closure_immutable
+  BEFORE UPDATE OR DELETE ON "EduTermClosure"
+  FOR EACH ROW EXECUTE FUNCTION edu_block_mutation();
+
+DROP TRIGGER IF EXISTS edu_audit_log_immutable ON "EduAuditLog";
+CREATE TRIGGER edu_audit_log_immutable
+  BEFORE UPDATE OR DELETE ON "EduAuditLog"
+  FOR EACH ROW EXECUTE FUNCTION edu_block_mutation();
+
 -- =========== EduClassSession ===========
 CREATE TABLE IF NOT EXISTS "EduClassSession" (
     "id"          TEXT NOT NULL,
