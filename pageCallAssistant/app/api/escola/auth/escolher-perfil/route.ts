@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { SignJWT } from "jose";
 import { z } from "zod";
 import { db } from "@/lib/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { rotaDoPapel } from "@/lib/escola/context";
-import { staffSecret } from "@/lib/escola/secrets";
+import { signStaffToken, staffCookieOptions } from "@/lib/escola/staff-session";
 
 const bodySchema = z.object({ membershipId: z.string().min(1) });
 
@@ -31,27 +30,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Vínculo inválido ou inativo." }, { status: 403 });
   }
 
-  const token = await new SignJWT({
-    sub: membership.userId,
-    mid: membership.id,
-    nid: membership.networkId,
-    sid: membership.schoolId ?? undefined,
-    role: membership.role,
-  })
-    .setProtectedHeader({ alg: "HS256" })
-    .setIssuedAt()
-    .setExpirationTime("12h")
-    .sign(staffSecret());
+  const token = await signStaffToken({ userId: membership.userId, role: membership.role, membershipId: membership.id, networkId: membership.networkId, schoolId: membership.schoolId });
 
   const res = NextResponse.json({ ok: true, redirect: rotaDoPapel(membership.role) });
 
-  res.cookies.set("sf_edu_ctx", token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    maxAge: 60 * 60 * 12,
-    path: "/",
-  });
+  res.cookies.set("sf_edu_ctx", token, staffCookieOptions);
   res.cookies.set("sf_edu_last", membership.id, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",

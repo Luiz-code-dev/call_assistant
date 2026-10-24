@@ -1,24 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
-import { SignJWT } from "jose";
 import { z } from "zod";
 import bcrypt from "bcryptjs";
 import { db } from "@/lib/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { rotaDoPapel } from "@/lib/escola/context";
-import { staffSecret } from "@/lib/escola/secrets";
+import { signStaffToken, staffCookieOptions } from "@/lib/escola/staff-session";
 
 const bodySchema = z.object({
   email: z.string().email(),
   password: z.string().min(1),
 });
-
-async function buildCtxToken(userId: string, membershipId: string, networkId: string, schoolId: string | null, role: string) {
-  return new SignJWT({ sub: userId, mid: membershipId, nid: networkId, sid: schoolId ?? undefined, role })
-    .setProtectedHeader({ alg: "HS256" })
-    .setIssuedAt()
-    .setExpirationTime("12h")
-    .sign(staffSecret());
-}
 
 export async function POST(req: NextRequest) {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Not found" }, { status: 404 });
@@ -73,16 +64,10 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  const token = await buildCtxToken(user.id, chosen.id, chosen.networkId, chosen.schoolId, chosen.role);
+  const token = await signStaffToken({ userId: user.id, role: chosen.role, membershipId: chosen.id, networkId: chosen.networkId, schoolId: chosen.schoolId });
 
   const res = NextResponse.json({ ok: true, redirect: rotaDoPapel(chosen.role) });
-  res.cookies.set("sf_edu_ctx", token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    maxAge: 60 * 60 * 12,
-    path: "/",
-  });
+  res.cookies.set("sf_edu_ctx", token, staffCookieOptions);
   res.cookies.set("sf_edu_last", chosen.id, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",

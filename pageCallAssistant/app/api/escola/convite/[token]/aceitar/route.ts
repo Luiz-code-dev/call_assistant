@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { findInviteByToken } from "@/lib/escola/invite";
 import { prismaEdu } from "@/lib/escola/db";
 import bcrypt from "bcryptjs";
-import { SignJWT } from "jose";
-import { staffSecret } from "@/lib/escola/secrets";
+import { signStaffToken, staffCookieOptions } from "@/lib/escola/staff-session";
 
 export async function POST(req: NextRequest, { params }: { params: { token: string } }) {
   const invite = await findInviteByToken(params.token);
@@ -45,10 +44,9 @@ export async function POST(req: NextRequest, { params }: { params: { token: stri
     await prismaEdu.eduAuditLog.create({
       data: { networkId: null, actorType: "user", actorId: userId!, action: "invite.accepted", entity: "EduInvite", entityId: invite.id },
     });
-    const jwtToken = await new SignJWT({ sub: userId!, role: "PLATFORM_ADMIN" })
-      .setProtectedHeader({ alg: "HS256" }).setIssuedAt().setExpirationTime("30d").sign(staffSecret());
+    const jwtToken = await signStaffToken({ userId: userId!, role: "PLATFORM_ADMIN" });
     const res = NextResponse.json({ ok: true, redirect: "/escola/admin" });
-    res.cookies.set("sf_edu_ctx", jwtToken, { httpOnly: true, sameSite: "lax", path: "/", maxAge: 30 * 24 * 3600 });
+    res.cookies.set("sf_edu_ctx", jwtToken, staffCookieOptions);
     return res;
   }
 
@@ -72,10 +70,9 @@ export async function POST(req: NextRequest, { params }: { params: { token: stri
     data: { networkId: invite.networkId, actorType: "user", actorId: userId!, action: "invite.accepted", entity: "EduInvite", entityId: invite.id },
   });
 
-  const jwtToken = await new SignJWT({ sub: userId!, mid: membershipId, nid: invite.networkId, sid: invite.schoolId ?? undefined, role: invite.role })
-    .setProtectedHeader({ alg: "HS256" }).setIssuedAt().setExpirationTime("30d").sign(staffSecret());
+  const jwtToken = await signStaffToken({ userId: userId!, role: invite.role, membershipId, networkId: invite.networkId, schoolId: invite.schoolId });
 
   const res = NextResponse.json({ ok: true, redirect: "/escola/painel" });
-  res.cookies.set("sf_edu_ctx", jwtToken, { httpOnly: true, sameSite: "lax", path: "/", maxAge: 30 * 24 * 3600 });
+  res.cookies.set("sf_edu_ctx", jwtToken, staffCookieOptions);
   return res;
 }
