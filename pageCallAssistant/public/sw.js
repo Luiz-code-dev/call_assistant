@@ -1,10 +1,21 @@
-const CACHE = "speakflow-v8";
+const CACHE = "speakflow-v9";
+const ESCOLA_CACHE = "speakflow-escola-v2";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE).then((cache) =>
-      cache.addAll(["/home", "/feed", "/live", "/network", "/manifest.json", "/icon.svg"])
-    )
+    Promise.all([
+      caches.open(CACHE).then((cache) =>
+        cache.addAll(["/home", "/feed", "/live", "/network", "/manifest.json", "/icon.svg"])
+      ),
+      caches.open(ESCOLA_CACHE).then((cache) =>
+        cache.addAll([
+          "/escola/entrar",
+          "/escola-manifest.json",
+          "/icon.svg",
+          "/icon.png",
+        ])
+      ),
+    ])
   );
 });
 
@@ -15,9 +26,10 @@ self.addEventListener("message", (event) => {
 });
 
 self.addEventListener("activate", (event) => {
+  const keep = [CACHE, ESCOLA_CACHE];
   event.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))
+      Promise.all(keys.filter((k) => !keep.includes(k)).map((k) => caches.delete(k)))
     )
   );
   self.clients.claim();
