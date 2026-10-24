@@ -11,16 +11,23 @@ export async function GET(req: NextRequest) {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const memberships = await (db as any).eduMembership.findMany({
-    where: { userId: pendingUid, isActive: true, network: { isActive: true } },
-    select: {
-      id: true,
-      role: true,
-      network: { select: { id: true, name: true } },
-      school: { select: { id: true, name: true } },
-    },
-    orderBy: [{ networkId: "asc" }, { schoolId: "asc" }],
-  });
+  const [memberships, platformAdmin] = await Promise.all([
+    (db as any).eduMembership.findMany({
+      where: { userId: pendingUid, isActive: true, network: { isActive: true } },
+      select: {
+        id: true, role: true,
+        network: { select: { id: true, name: true } },
+        school: { select: { id: true, name: true } },
+      },
+      orderBy: [{ networkId: "asc" }, { schoolId: "asc" }],
+    }),
+    (db as any).eduPlatformAdmin.findUnique({ where: { userId: pendingUid }, select: { isActive: true } }),
+  ]);
 
-  return NextResponse.json({ memberships });
+  const list = [
+    ...(platformAdmin?.isActive ? [{ id: "platform", role: "PLATFORM_ADMIN", network: { id: "", name: "SpeakFlow Escolas" }, school: null }] : []),
+    ...memberships,
+  ];
+
+  return NextResponse.json({ memberships: list });
 }

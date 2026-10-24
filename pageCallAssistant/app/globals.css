@@ -27,6 +27,34 @@
   }
 }
 
+/* Área Escolar: tema claro (sobrepõe as variáveis escuras do SpeakFlow) */
+@layer base {
+  .theme-escola {
+    --background: 255 45% 98%;
+    --foreground: 255 28% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 255 28% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 255 28% 14%;
+    --primary: 263 70% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 255 45% 98%;
+    --secondary-foreground: 255 28% 14%;
+    --muted: 252 47% 96%;
+    --muted-foreground: 256 14% 38%;
+    --accent: 251 91% 95%;
+    --accent-foreground: 263 69% 35%;
+    --destructive: 0 72% 42%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 253 41% 93%;
+    --input: 256 39% 90%;
+    --ring: 255 92% 85%;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    color-scheme: light;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;

@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 
 interface InviteInfo {
   id: string; name: string; email: string; role: string;
-  networkName: string | null; expiresAt: string; hasAccount: boolean;
+  networkName: string | null; expiresAt: string; mode: "create" | "login";
 }
 
 const ROLE_LABEL: Record<string, string> = {
@@ -131,8 +131,8 @@ export default function ConvitePage({ params }: { params: { token: string } }) {
 
   async function accept(e: React.FormEvent) {
     e.preventDefault();
-    if (!invite?.hasAccount && password !== confirm) { setError("As senhas não coincidem"); return; }
-    if (!invite?.hasAccount && password.length < 8) { setError("Senha deve ter ao menos 8 caracteres"); return; }
+    if (invite?.mode === "create" && password !== confirm) { setError("As senhas não coincidem"); return; }
+    if (invite?.mode === "create" && password.length < 8) { setError("Senha deve ter ao menos 8 caracteres"); return; }
     setSubmitting(true); setError("");
     const r = await fetch(`/api/escola/convite/${token}/aceitar`, {
       method: "POST", headers: { "Content-Type": "application/json" },
@@ -143,14 +143,16 @@ export default function ConvitePage({ params }: { params: { token: string } }) {
     router.push(data.redirect ?? "/escola/painel");
   }
 
-  if (loading) return <div className="min-h-screen bg-gray-950 flex items-center justify-center text-gray-400">Carregando...</div>;
+  if (loading) return <div className="theme-escola min-h-screen bg-[#F8F7FC] flex items-center justify-center text-[#5B5470]">Carregando...</div>;
 
   if (error && !invite) return (
-    <div className="min-h-screen bg-gray-950 flex items-center justify-center p-4">
-      <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 max-w-sm w-full text-center">
-        <div className="text-4xl mb-4">⚠️</div>
-        <h1 className="text-white font-bold text-lg mb-2">Convite inválido</h1>
-        <p className="text-gray-400 text-sm">{error}</p>
+    <div className="theme-escola min-h-screen bg-[#F8F7FC] flex items-center justify-center p-4">
+      <div className="bg-white border border-[#E9E5F5] rounded-2xl p-8 max-w-sm w-full text-center shadow-sm">
+        <div className="w-14 h-14 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-4">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#DC2626" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h1 className="text-[#1F1A2E] font-bold text-lg mb-2">Convite inválido</h1>
+        <p className="text-[#5B5470] text-sm">{error}</p>
       </div>
     </div>
   );
@@ -160,61 +162,72 @@ export default function ConvitePage({ params }: { params: { token: string } }) {
   return (
     <>
       {showTerms && <TermsModal onClose={() => setShowTerms(false)} />}
-      <div className="min-h-screen bg-gray-950 flex items-center justify-center p-4">
-        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 max-w-md w-full">
+      <div className="theme-escola min-h-screen bg-[#F8F7FC] flex items-center justify-center p-4">
+        <div className="bg-white border border-[#E9E5F5] rounded-2xl p-8 max-w-md w-full shadow-sm">
           <div className="text-center mb-6">
-            <div className="w-16 h-16 rounded-full bg-purple-700/30 flex items-center justify-center mx-auto mb-4">
-              <span className="text-3xl">🎓</span>
+            <div className="w-16 h-16 rounded-full bg-[#EDE9FE] flex items-center justify-center mx-auto mb-4">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6D28D9" strokeWidth="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
             </div>
-            <h1 className="text-white font-bold text-xl">Você foi convidado(a)!</h1>
-            <p className="text-gray-400 text-sm mt-1">
-              Função: <span className="text-purple-400 font-medium">{roleLabel}</span>
+            <h1 className="text-[#1F1A2E] font-bold text-xl">Você foi convidado(a)!</h1>
+            <p className="text-[#5B5470] text-sm mt-1">
+              Função: <span className="text-[#6D28D9] font-medium">{roleLabel}</span>
               {invite?.networkName && (
-                <> · <span className="text-gray-300">{invite.networkName}</span></>
+                <> · <span className="text-[#1F1A2E]">{invite.networkName}</span></>
               )}
             </p>
           </div>
 
-          <div className="bg-gray-800 rounded-lg px-4 py-3 mb-6">
-            <div className="text-gray-500 text-xs mb-0.5">Convidado(a)</div>
-            <div className="text-white font-medium">{invite?.name}</div>
-            <div className="text-gray-400 text-sm">{invite?.email}</div>
+          <div className="bg-[#F4F2FB] rounded-lg px-4 py-3 mb-6">
+            <div className="text-[#8E87A8] text-xs mb-0.5">Convidado(a)</div>
+            <div className="text-[#1F1A2E] font-medium">{invite?.name}</div>
+            <div className="text-[#5B5470] text-sm">{invite?.email}</div>
           </div>
 
           <form onSubmit={accept} className="space-y-4">
-            {!invite?.hasAccount && (
+            {invite?.mode === "create" && (
               <>
                 <div>
-                  <label className="text-gray-400 text-sm block mb-1">Criar senha *</label>
+                  <label className="text-[#5B5470] text-sm block mb-1">Criar senha (mín. 8 caracteres) *</label>
                   <input type="password" minLength={8} value={password} onChange={e => setPassword(e.target.value)}
-                    className="w-full bg-gray-800 text-white rounded-lg px-3 py-3 text-base border border-gray-700 focus:border-purple-500 outline-none" required />
+                    className="w-full bg-white text-[#1F1A2E] rounded-lg px-3 py-3 text-base border border-[#D8D3EC] focus:border-[#6D28D9] outline-none" required />
                 </div>
                 <div>
-                  <label className="text-gray-400 text-sm block mb-1">Confirmar senha *</label>
+                  <label className="text-[#5B5470] text-sm block mb-1">Confirmar senha *</label>
                   <input type="password" minLength={8} value={confirm} onChange={e => setConfirm(e.target.value)}
-                    className="w-full bg-gray-800 text-white rounded-lg px-3 py-3 text-base border border-gray-700 focus:border-purple-500 outline-none" required />
+                    className="w-full bg-white text-[#1F1A2E] rounded-lg px-3 py-3 text-base border border-[#D8D3EC] focus:border-[#6D28D9] outline-none" required />
                 </div>
               </>
             )}
-            {invite?.hasAccount && (
-              <p className="text-gray-400 text-sm bg-gray-800 rounded-lg p-3">
-                Sua conta SpeakFlow Escolas já existe. Ao aceitar, o vínculo será adicionado ao seu perfil.
-              </p>
+            {invite?.mode === "login" && (
+              <>
+                <p className="text-[#5B5470] text-sm bg-[#F4F2FB] rounded-lg p-3">
+                  Você já tem uma conta SpeakFlow Escolas. Confirme sua senha atual para aceitar o convite e adicionar o novo vínculo.
+                </p>
+                <div>
+                  <label className="text-[#5B5470] text-sm block mb-1">Sua senha atual *</label>
+                  <input type="password" value={password} onChange={e => setPassword(e.target.value)}
+                    className="w-full bg-white text-[#1F1A2E] rounded-lg px-3 py-3 text-base border border-[#D8D3EC] focus:border-[#6D28D9] outline-none" required />
+                </div>
+              </>
             )}
             <label className="flex items-start gap-3 cursor-pointer">
               <input type="checkbox" checked={acceptTerms} onChange={e => setAcceptTerms(e.target.checked)}
-                className="w-5 h-5 accent-purple-600 mt-0.5 shrink-0" required />
-              <span className="text-gray-400 text-sm">
+                className="w-5 h-5 accent-[#6D28D9] mt-0.5 shrink-0" required />
+              <span className="text-[#5B5470] text-sm">
                 Li e aceito os{" "}
-                <button type="button" onClick={() => setShowTerms(true)} className="text-purple-400 underline hover:text-purple-300">
+                <button type="button" onClick={() => setShowTerms(true)} className="text-[#6D28D9] underline hover:text-[#5B21B6]">
                   Termos de Uso
                 </button>
-                {" "}e a política de privacidade do SpeakFlow Escolas
+                {" "}e a{" "}
+                <a href="/escola/privacidade" target="_blank" className="text-[#6D28D9] underline hover:text-[#5B21B6]">
+                  política de privacidade
+                </a>
+                {" "}do SpeakFlow Escolas
               </span>
             </label>
-            {error && <p className="text-red-400 text-sm">{error}</p>}
+            {error && <p className="text-red-600 text-sm">{error}</p>}
             <button type="submit" disabled={submitting || !acceptTerms}
-              className="w-full bg-purple-700 hover:bg-purple-600 disabled:opacity-50 text-white font-semibold py-3 rounded-xl min-h-[44px] text-base transition-colors">
+              className="w-full bg-[#6D28D9] hover:bg-[#5B21B6] disabled:opacity-50 text-white font-semibold py-3 rounded-xl min-h-[44px] text-base transition-colors">
               {submitting ? "Processando..." : "Aceitar convite"}
             </button>
           </form>

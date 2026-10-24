@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify } from "jose";
+import { staffSecret, studentSecret } from "@/lib/escola/secrets";
 
 const secret = new TextEncoder().encode(
   process.env.JWT_SECRET || "dev-secret-change-in-production"
@@ -28,12 +29,8 @@ export async function middleware(req: NextRequest) {
       return NextResponse.next();
     }
 
-    const staffSecret = new TextEncoder().encode(
-      process.env.EDU_JWT_SECRET || "edu-dev-secret-change-me"
-    );
-    const studentSecret = new TextEncoder().encode(
-      process.env.EDU_STUDENT_JWT_SECRET || "student-dev-secret-change-me"
-    );
+    const _staffSecret = staffSecret();
+    const _studentSecret = studentSecret();
 
     // Public escola routes (include manifest so PWA install works on login page)
     if (
@@ -53,7 +50,7 @@ export async function middleware(req: NextRequest) {
         return NextResponse.redirect(new URL("/escola/aluno/entrar", req.url));
       }
       try {
-        await jwtVerify(studentToken, studentSecret);
+        await jwtVerify(studentToken, _studentSecret);
         return NextResponse.next();
       } catch {
         const res = NextResponse.redirect(new URL("/escola/aluno/entrar", req.url));
@@ -68,7 +65,7 @@ export async function middleware(req: NextRequest) {
       return NextResponse.redirect(new URL("/escola/entrar", req.url));
     }
     try {
-      await jwtVerify(ctxToken, staffSecret);
+      await jwtVerify(ctxToken, _staffSecret);
       return NextResponse.next();
     } catch {
       const res = NextResponse.redirect(new URL("/escola/entrar", req.url));

@@ -4,16 +4,13 @@ import { z } from "zod";
 import bcrypt from "bcryptjs";
 import { db } from "@/lib/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
+import { studentSecret } from "@/lib/escola/secrets";
 
 const bodySchema = z.object({
   accessCode: z.string().min(1),
   enrollmentCode: z.string().min(1),
   pin: z.string().length(6),
 });
-
-const secret = new TextEncoder().encode(
-  process.env.EDU_STUDENT_JWT_SECRET || "edu-student-dev-secret"
-);
 
 const PIN_MAX_ATTEMPTS = 5;
 const PIN_LOCK_MINUTES = 15;
@@ -100,7 +97,7 @@ export async function POST(req: NextRequest) {
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
     .setExpirationTime("4h")
-    .sign(secret);
+    .sign(studentSecret());
 
   const res = NextResponse.json({ ok: true });
   res.cookies.set("sf_edu_student", token, {

@@ -8,16 +8,16 @@ import { NextRequest, NextResponse } from "next/server";
 import { prismaEdu } from "@/lib/escola/db";
 import bcrypt from "bcryptjs";
 import { SignJWT, jwtVerify } from "jose";
+import { studentSecret } from "@/lib/escola/secrets";
 
 function flag() { return process.env.FEATURE_ESCOLAS === "true"; }
 
-const STUDENT_JWT_SECRET = new TextEncoder().encode(process.env.EDU_STUDENT_JWT_SECRET ?? "student-dev-secret-change-me");
 const MAX_ATTEMPTS = 5;
 const LOCK_MINUTES = 15;
 
 async function issueStudentToken(student: { id: string; networkId: string }, classId: string, enrollmentId: string) {
   return new SignJWT({ sub: student.id, nid: student.networkId, cid: classId, eid: enrollmentId })
-    .setProtectedHeader({ alg: "HS256" }).setIssuedAt().setExpirationTime("15h").sign(STUDENT_JWT_SECRET);
+    .setProtectedHeader({ alg: "HS256" }).setIssuedAt().setExpirationTime("15h").sign(studentSecret());
 }
 
 export async function POST(req: NextRequest) {
@@ -64,7 +64,7 @@ export async function POST(req: NextRequest) {
     const { qrToken } = body;
     if (!qrToken) return NextResponse.json({ error: "Token QR ausente" }, { status: 400 });
     try {
-      const { payload } = await jwtVerify(qrToken, STUDENT_JWT_SECRET);
+      const { payload } = await jwtVerify(qrToken, studentSecret());
       const { studentId, cardVersion } = payload as { studentId: string; cardVersion: number };
       const s = await prismaEdu.eduStudent.findUnique({ where: { id: studentId } });
       if (!s || s.cardVersion !== cardVersion) return NextResponse.json({ error: "Cartão revogado" }, { status: 401 });
