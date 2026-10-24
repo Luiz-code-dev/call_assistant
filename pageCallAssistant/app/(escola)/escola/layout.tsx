@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { jwtVerify } from "jose";
 import { db } from "@/lib/db";
-import EscolaShell from "@/components/escola/EscolaShell";
+import EscAppShell from "@/components/escola/layout/EscAppShell";
 import { EduRole } from "@/lib/escola/types";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const prisma = db as any;
@@ -16,6 +16,21 @@ async function getShellData() {
   if (!ctxToken) return null;
   try {
     const { payload } = await jwtVerify(ctxToken, secret);
+    const role = payload["role"] as EduRole | undefined;
+    const userId = payload["sub"] as string | undefined;
+
+    if (role === "PLATFORM_ADMIN" && userId) {
+      const user = await prisma.user.findUnique({
+        where: { id: userId },
+        select: { name: true, email: true },
+      });
+      return {
+        role: "PLATFORM_ADMIN" as EduRole,
+        contextName: "Plataforma",
+        userName: (user?.name || user?.email || "Administrador") as string,
+      };
+    }
+
     const membershipId = payload["mid"] as string | undefined;
     if (!membershipId) return null;
     const membership = await prisma.eduMembership.findUnique({
@@ -28,8 +43,8 @@ async function getShellData() {
     if (!membership) return null;
     return {
       role: membership.role as EduRole,
-      networkName: membership.network.name,
-      userName: membership.user.name || membership.user.email,
+      contextName: membership.network.name as string,
+      userName: (membership.user.name || membership.user.email) as string,
     };
   } catch {
     return null;
@@ -44,12 +59,12 @@ export default async function EscolaAuthLayout({ children }: { children: React.R
   }
 
   return (
-    <EscolaShell
+    <EscAppShell
       role={shellData.role}
-      networkName={shellData.networkName}
+      contextName={shellData.contextName}
       userName={shellData.userName}
     >
       {children}
-    </EscolaShell>
+    </EscAppShell>
   );
 }

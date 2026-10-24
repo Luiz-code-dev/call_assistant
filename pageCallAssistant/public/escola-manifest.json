@@ -1,0 +1,57 @@
+{
+  "name": "SpeakFlow Escolas",
+  "short_name": "Escolas",
+  "description": "Plataforma educacional para redes municipais de ensino — professores, coordenação e gestão.",
+  "start_url": "/escola/entrar",
+  "scope": "/escola/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#4F46E5",
+  "background_color": "#F9FAFB",
+  "lang": "pt-BR",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Entrar",
+      "short_name": "Entrar",
+      "description": "Acessar a área escolar",
+      "url": "/escola/entrar",
+      "icons": [{ "src": "/icon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Painel",
+      "short_name": "Painel",
+      "description": "Ir para o painel da minha rede",
+      "url": "/escola/rede",
+      "icons": [{ "src": "/icon.svg", "sizes": "any" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
+}

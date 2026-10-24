@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu } from "@/lib/escola/db";
 import { generateInviteToken, sendInviteEmail } from "@/lib/escola/invite";
+import { assertCanInvite, InvitePermissionError } from "@/lib/escola/roles";
+import type { EduRole } from "@/lib/escola/types";
 
 function flag() { return process.env.FEATURE_ESCOLAS === "true"; }
 
@@ -36,7 +38,7 @@ export async function POST(req: NextRequest) {
 
   const body = await req.json();
   // Accept single or batch { invites: [{email,name,role,schoolId?}] }
-  const items: { email: string; name: string; role: string; schoolId?: string }[] = body.invites ?? [body];
+  const items: { email: string; name: string; role: EduRole; schoolId?: string }[] = body.invites ?? [body];
 
   const network = await prismaEdu.eduNetwork.findUnique({ where: { id: ctx.networkId }, select: { name: true } });
   const networkName = network?.name ?? "SpeakFlow Escolas";
@@ -45,6 +47,16 @@ export async function POST(req: NextRequest) {
   for (const item of items) {
     const { email, name, role, schoolId } = item;
     if (!email || !name || !role) { results.push({ email, error: "Campos obrigatórios faltando" }); continue; }
+
+    try {
+      assertCanInvite(ctx.role, role);
+    } catch (err) {
+      if (err instanceof InvitePermissionError) {
+        results.push({ email, error: err.message });
+        continue;
+      }
+      throw err;
+    }
 
     // Check if already has an active invite
     const existing = await prismaEdu.eduInvite.findFirst({ where: { networkId: ctx.networkId, email: email.toLowerCase(), acceptedAt: null } });

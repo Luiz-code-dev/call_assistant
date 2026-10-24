@@ -2,6 +2,14 @@ import { getEduContext } from "@/lib/escola/context";
 import { redirect } from "next/navigation";
 import { prismaEdu } from "@/lib/escola/db";
 import Link from "next/link";
+import EscPageHeader from "@/components/escola/layout/EscPageHeader";
+import {
+  School,
+  GraduationCap,
+  Users,
+  CalendarRange,
+  ArrowRight,
+} from "lucide-react";
 
 export default async function RedePage() {
   const ctx = await getEduContext();
@@ -20,11 +28,11 @@ export default async function RedePage() {
 
   const network = await prismaEdu.eduNetwork.findUnique({ where: { id: ctx.networkId } });
 
-  const cards = [
-    { label: "Escolas", value: schools.length, href: "/escola/rede/escolas", icon: "🏫" },
-    { label: "Alunos ativos", value: studentCount, href: "/escola/rede/alunos", icon: "🎓" },
-    { label: "Membros da equipe", value: memberCount, href: "/escola/rede/vinculos", icon: "👤" },
-    { label: "Períodos", value: currentYear?.terms?.length ?? 0, href: "/escola/rede/anos-letivos", icon: "📅" },
+  const kpis = [
+    { label: "Escolas", value: schools.length, href: "/escola/rede/escolas", icon: <School size={20} className="text-indigo-600" />, bg: "bg-indigo-50" },
+    { label: "Alunos ativos", value: studentCount, href: "/escola/rede/alunos", icon: <GraduationCap size={20} className="text-emerald-600" />, bg: "bg-emerald-50" },
+    { label: "Membros da equipe", value: memberCount, href: "/escola/rede/convites", icon: <Users size={20} className="text-violet-600" />, bg: "bg-violet-50" },
+    { label: "Períodos no ano", value: currentYear?.terms?.length ?? 0, href: "/escola/rede/anos-letivos", icon: <CalendarRange size={20} className="text-amber-600" />, bg: "bg-amber-50" },
   ];
 
   const quickLinks = [
@@ -38,42 +46,51 @@ export default async function RedePage() {
     { label: "Auditoria", href: "/escola/rede/auditoria", desc: "Trilha de ações da rede" },
   ];
 
+  const yearLabel = currentYear ? `Ano letivo ${currentYear.year}` : "Nenhum ano letivo ativo";
+
   return (
-    <div className="p-4 md:p-6 lg:p-8 max-w-7xl mx-auto">
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-white">{network?.name}</h1>
-        <p className="text-gray-400 text-sm mt-1">
-          {network?.city}, {network?.state}
-          {currentYear ? ` — Ano letivo ${currentYear.year}` : " — Nenhum ano letivo ativo"}
-        </p>
-      </div>
+    <div className="flex flex-col min-h-full">
+      <EscPageHeader
+        breadcrumb={[{ label: "Rede" }]}
+        title={network?.name ?? "Visão geral"}
+        subtitle={`${network?.city ?? ""}, ${network?.state ?? ""} — ${yearLabel}`}
+      />
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        {cards.map((c) => (
-          <Link
-            key={c.href}
-            href={c.href}
-            className="bg-gray-900 border border-gray-800 rounded-xl p-4 hover:border-purple-700 transition-colors"
-          >
-            <div className="text-2xl mb-2">{c.icon}</div>
-            <div className="text-xs text-gray-400">{c.label}</div>
-            <div className="text-2xl font-bold text-white mt-1">{c.value}</div>
-          </Link>
-        ))}
-      </div>
+      <div className="px-7 py-6 max-w-[1440px] mx-auto w-full">
+        {/* KPI cards */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          {kpis.map((kpi) => (
+            <Link
+              key={kpi.href}
+              href={kpi.href}
+              className={`${kpi.bg} rounded-xl p-4 border border-white/60 hover:shadow-sm transition-shadow group`}
+            >
+              <div className="mb-2">{kpi.icon}</div>
+              <div className="text-[28px] font-extrabold text-gray-900 leading-none mb-1">{kpi.value}</div>
+              <div className="text-[13px] text-gray-600 font-medium flex items-center gap-1 group-hover:text-indigo-600 transition-colors">
+                {kpi.label}
+                <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+            </Link>
+          ))}
+        </div>
 
-      <h2 className="text-lg font-semibold text-white mb-4">Gestão da Rede</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {quickLinks.map((l) => (
-          <Link
-            key={l.href}
-            href={l.href}
-            className="bg-gray-900 border border-gray-800 rounded-xl p-4 hover:border-purple-700 transition-colors group"
-          >
-            <div className="font-medium text-white group-hover:text-purple-400 transition-colors">{l.label}</div>
-            <div className="text-gray-500 text-xs mt-1">{l.desc}</div>
-          </Link>
-        ))}
+        {/* Quick links */}
+        <h2 className="text-[16px] font-semibold text-gray-800 mb-4">Gestão da Rede</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+          {quickLinks.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className="bg-white border border-gray-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-sm transition-all group"
+            >
+              <div className="text-[14px] font-semibold text-gray-800 group-hover:text-indigo-600 transition-colors mb-1">
+                {l.label}
+              </div>
+              <div className="text-[12px] text-gray-500">{l.desc}</div>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

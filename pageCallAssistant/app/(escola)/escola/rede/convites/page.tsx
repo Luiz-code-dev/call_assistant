@@ -1,44 +1,83 @@
 "use client";
+
 import { useEffect, useState } from "react";
+import { MailPlus, Copy, RefreshCw, X, AlertCircle, CheckCircle2 } from "lucide-react";
+import { CAN_INVITE } from "@/lib/escola/roles";
 import { ROLE_LABEL } from "@/lib/escola/types";
+import type { EduRole } from "@/lib/escola/types";
 
 interface Invite {
-  id: string; email: string; name: string; role: string;
-  sentCount: number; expiresAt: string; acceptedAt: string | null; createdAt: string;
+  id: string;
+  email: string;
+  name: string;
+  role: string;
+  sentCount: number;
+  expiresAt: string;
+  acceptedAt: string | null;
+  createdAt: string;
 }
 
-const ROLE_COLOR: Record<string, string> = {
-  NETWORK_ADMIN: "text-purple-400", COORDINATOR: "text-blue-400",
-  SCHOOL_ADMIN: "text-green-400", TEACHER: "text-orange-400",
-};
+interface Context {
+  role: EduRole;
+  networkName?: string;
+}
 
 export default function ConvitesPage() {
+  const [ctx, setCtx] = useState<Context | null>(null);
   const [invites, setInvites] = useState<Invite[]>([]);
   const [filter, setFilter] = useState<"all" | "pending" | "accepted">("all");
-  const [form, setForm] = useState({ name: "", email: "", role: "TEACHER" });
+  const [form, setForm] = useState({ name: "", email: "", role: "" });
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
+  useEffect(() => {
+    fetch("/api/escola/auth/me")
+      .then((r) => r.ok ? r.json() : null)
+      .then((d) => {
+        if (d?.role) {
+          setCtx({ role: d.role, networkName: d.networkName });
+          const allowed = CAN_INVITE[d.role as EduRole] ?? [];
+          if (allowed.length > 0) setForm((f) => ({ ...f, role: allowed[0].role }));
+        }
+      });
+  }, []);
+
+  const allowedRoles = ctx ? (CAN_INVITE[ctx.role] ?? []) : [];
+  const selectedRoleConfig = allowedRoles.find((r) => r.role === form.role);
+
   async function load() {
     const q = filter !== "all" ? `?status=${filter}` : "";
     const r = await fetch(`/api/escola/convites${q}`);
-    const d = await r.json();
-    setInvites(d.invites ?? []);
+    if (r.ok) {
+      const d = await r.json();
+      setInvites(d.invites ?? []);
+    }
   }
+
   useEffect(() => { load(); }, [filter]);
 
   async function sendInvite(e: React.FormEvent) {
     e.preventDefault();
-    setSending(true); setError(""); setSuccess("");
+    setSending(true);
+    setError("");
+    setSuccess("");
     const r = await fetch("/api/escola/convites", {
-      method: "POST", headers: { "Content-Type": "application/json" },
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
     });
     const d = await r.json();
-    if (!r.ok) { setError(d.error); setSending(false); return; }
-    setSuccess("Convite enviado!"); setForm({ name: "", email: "", role: "TEACHER" });
-    setSending(false); load();
+    if (!r.ok) {
+      const msg = d.results?.[0]?.error ?? d.error ?? "Erro ao enviar convite.";
+      setError(msg);
+      setSending(false);
+      return;
+    }
+    setSuccess(`Convite enviado para ${form.email}. Válido por 7 dias.`);
+    setForm((f) => ({ ...f, name: "", email: "" }));
+    setSending(false);
+    load();
   }
 
   async function resend(id: string) {
@@ -53,88 +92,188 @@ export default function ConvitesPage() {
   }
 
   function copyLink(id: string) {
-    const token = invites.find(i => i.id === id)?.id ?? "";
-    navigator.clipboard.writeText(`${window.location.origin}/escola/convite/${token}`);
-    alert("Link copiado!");
+    navigator.clipboard.writeText(`${window.location.origin}/escola/convite/${id}`);
   }
 
   return (
-    <div className="p-4 md:p-6 lg:p-8 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold text-white mb-2">Convites de Servidores</h1>
-      <p className="text-gray-400 text-sm mb-6">Convide gestores, coordenadores, diretores e professores por e-mail.</p>
-
-      {/* New invite form */}
-      <form onSubmit={sendInvite} className="bg-gray-900 border border-gray-800 rounded-xl p-5 mb-6">
-        <h2 className="text-white font-semibold mb-4">Novo convite</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
-          <div>
-            <label className="text-gray-400 text-xs block mb-1">Nome *</label>
-            <input value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-              className="w-full bg-gray-800 text-white rounded-lg px-3 py-2.5 text-sm border border-gray-700 focus:border-purple-500 outline-none min-h-[44px]" required />
-          </div>
-          <div>
-            <label className="text-gray-400 text-xs block mb-1">E-mail *</label>
-            <input type="email" value={form.email} onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-              className="w-full bg-gray-800 text-white rounded-lg px-3 py-2.5 text-sm border border-gray-700 focus:border-purple-500 outline-none min-h-[44px]" required />
-          </div>
-          <div>
-            <label className="text-gray-400 text-xs block mb-1">Papel *</label>
-            <select value={form.role} onChange={e => setForm(f => ({ ...f, role: e.target.value }))}
-              className="w-full bg-gray-800 text-white rounded-lg px-3 py-2.5 text-sm border border-gray-700 outline-none min-h-[44px]">
-              <option value="TEACHER">Professor(a)</option>
-              <option value="COORDINATOR">Coordenador(a)</option>
-              <option value="SCHOOL_ADMIN">Diretor(a)</option>
-              <option value="NETWORK_ADMIN">Gestor de Rede</option>
-            </select>
-          </div>
-        </div>
-        {error && <p className="text-red-400 text-sm mb-3">{error}</p>}
-        {success && <p className="text-green-400 text-sm mb-3">{success}</p>}
-        <button type="submit" disabled={sending} className="bg-purple-700 hover:bg-purple-600 disabled:opacity-50 text-white px-6 py-2.5 rounded-lg text-sm font-medium min-h-[44px] transition-colors">
-          {sending ? "Enviando..." : "Enviar convite"}
-        </button>
-      </form>
-
-      {/* Filter */}
-      <div className="flex gap-2 mb-4">
-        {(["all", "pending", "accepted"] as const).map(f => (
-          <button key={f} onClick={() => setFilter(f)} className={`px-4 py-2 rounded-lg text-sm min-h-[44px] transition-colors ${filter === f ? "bg-gray-700 text-white" : "bg-gray-900 text-gray-500 hover:text-white"}`}>
-            {f === "all" ? "Todos" : f === "pending" ? "Pendentes" : "Aceitos"}
-          </button>
-        ))}
-        <span className="ml-auto text-gray-600 text-sm flex items-center">{invites.length} convite{invites.length !== 1 ? "s" : ""}</span>
+    <div className="px-7 py-8 max-w-[1440px] mx-auto">
+      {/* Header */}
+      <div className="mb-8">
+        <p className="text-sm text-gray-400 mb-1">Rede · Servidores e convites</p>
+        <h1 className="text-[28px] font-extrabold text-gray-900 leading-tight">Servidores e convites</h1>
+        <p className="text-[15px] text-gray-500 mt-1">
+          Convide membros da sua rede por e-mail.
+        </p>
       </div>
 
-      {invites.length === 0 ? (
-        <div className="text-center py-12 text-gray-600"><div className="text-4xl mb-3">✉️</div><div>Nenhum convite encontrado.</div></div>
-      ) : (
-        <div className="space-y-2">
-          {invites.map(inv => {
-            const expired = new Date(inv.expiresAt) < new Date();
-            return (
-              <div key={inv.id} className={`bg-gray-900 border rounded-xl p-4 flex flex-wrap items-center gap-3 ${expired && !inv.acceptedAt ? "border-yellow-900/50" : "border-gray-800"}`}>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-white font-medium">{inv.name}</span>
-                    <span className={`text-xs font-medium ${ROLE_COLOR[inv.role] ?? "text-gray-400"}`}>{ROLE_LABEL[inv.role as keyof typeof ROLE_LABEL] ?? inv.role}</span>
-                    {inv.acceptedAt && <span className="text-xs text-green-400 bg-green-900/30 px-2 py-0.5 rounded-full">✓ Aceito</span>}
-                    {!inv.acceptedAt && expired && <span className="text-xs text-yellow-400">Expirado</span>}
-                    {!inv.acceptedAt && !expired && <span className="text-xs text-gray-500">Pendente · {inv.sentCount} envio{inv.sentCount !== 1 ? "s" : ""}</span>}
-                  </div>
-                  <div className="text-gray-500 text-sm">{inv.email}</div>
-                </div>
-                {!inv.acceptedAt && (
-                  <div className="flex gap-2 shrink-0 flex-wrap">
-                    <button onClick={() => resend(inv.id)} className="text-xs text-blue-400 hover:text-blue-300 min-h-[36px] px-2 transition-colors">Reenviar</button>
-                    <button onClick={() => copyLink(inv.id)} className="text-xs text-gray-400 hover:text-gray-300 min-h-[36px] px-2 transition-colors">Copiar link</button>
-                    <button onClick={() => cancel(inv.id)} className="text-xs text-red-400 hover:text-red-300 min-h-[36px] px-2 transition-colors">Cancelar</button>
-                  </div>
+      <div className="grid grid-cols-1 xl:grid-cols-[400px_1fr] gap-6">
+        {/* Form */}
+        <div className="bg-white rounded-xl border border-gray-200 p-6 self-start">
+          <div className="flex items-center gap-2 mb-5">
+            <MailPlus size={18} className="text-indigo-600" />
+            <h2 className="text-[15px] font-semibold text-gray-800">Novo convite</h2>
+          </div>
+
+          {allowedRoles.length === 0 ? (
+            <p className="text-[14px] text-gray-500">
+              Seu perfil não tem permissão para convidar membros.
+            </p>
+          ) : (
+            <form onSubmit={sendInvite} className="space-y-4">
+              <div>
+                <label className="block text-[13px] font-medium text-gray-700 mb-1">Papel *</label>
+                <select
+                  value={form.role}
+                  onChange={(e) => setForm((f) => ({ ...f, role: e.target.value }))}
+                  className="w-full bg-white text-gray-900 rounded-lg px-3 py-2.5 text-sm border border-gray-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none min-h-[44px]"
+                >
+                  {allowedRoles.map((r) => (
+                    <option key={r.role} value={r.role}>
+                      {r.label}
+                    </option>
+                  ))}
+                </select>
+                {selectedRoleConfig && (
+                  <p className="text-[12px] text-gray-500 mt-1">{selectedRoleConfig.description}</p>
                 )}
               </div>
-            );
-          })}
+
+              <div>
+                <label className="block text-[13px] font-medium text-gray-700 mb-1">Nome *</label>
+                <input
+                  value={form.name}
+                  onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+                  className="w-full bg-white text-gray-900 rounded-lg px-3 py-2.5 text-sm border border-gray-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none min-h-[44px]"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-[13px] font-medium text-gray-700 mb-1">E-mail *</label>
+                <input
+                  type="email"
+                  value={form.email}
+                  onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
+                  className="w-full bg-white text-gray-900 rounded-lg px-3 py-2.5 text-sm border border-gray-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none min-h-[44px]"
+                  required
+                />
+              </div>
+
+              {error && (
+                <div className="flex items-start gap-2 p-3 bg-red-50 border border-red-100 rounded-lg">
+                  <AlertCircle size={15} className="text-red-500 mt-0.5 shrink-0" />
+                  <p className="text-[13px] text-red-700">{error}</p>
+                </div>
+              )}
+              {success && (
+                <div className="flex items-start gap-2 p-3 bg-emerald-50 border border-emerald-100 rounded-lg">
+                  <CheckCircle2 size={15} className="text-emerald-500 mt-0.5 shrink-0" />
+                  <p className="text-[13px] text-emerald-700">{success}</p>
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={sending}
+                className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white px-4 py-2.5 rounded-lg text-sm font-semibold min-h-[44px] transition-colors"
+              >
+                {sending ? "Enviando…" : "Enviar convite"}
+              </button>
+            </form>
+          )}
         </div>
-      )}
+
+        {/* List */}
+        <div>
+          <div className="flex items-center gap-2 mb-4">
+            {(["pending", "accepted", "all"] as const).map((f) => (
+              <button
+                key={f}
+                onClick={() => setFilter(f)}
+                className={`px-4 py-2 rounded-lg text-sm font-medium min-h-[40px] transition-colors ${
+                  filter === f
+                    ? "bg-indigo-600 text-white"
+                    : "bg-white text-gray-600 border border-gray-200 hover:bg-gray-50"
+                }`}
+              >
+                {f === "all" ? "Todos" : f === "pending" ? "Pendentes" : "Aceitos"}
+              </button>
+            ))}
+            <span className="ml-auto text-[13px] text-gray-400">
+              {invites.length} convite{invites.length !== 1 ? "s" : ""}
+            </span>
+          </div>
+
+          {invites.length === 0 ? (
+            <div className="bg-white rounded-xl border border-gray-200 flex flex-col items-center justify-center py-16 text-center">
+              <MailPlus size={32} className="text-gray-300 mb-3" />
+              <p className="text-gray-500 text-[15px] font-medium">Nenhum convite encontrado</p>
+              <p className="text-gray-400 text-sm mt-1">
+                {filter === "pending" ? "Nenhum convite aguardando resposta." : "Sem registros para este filtro."}
+              </p>
+            </div>
+          ) : (
+            <div className="space-y-2">
+              {invites.map((inv) => {
+                const expired = !inv.acceptedAt && new Date(inv.expiresAt) < new Date();
+                const roleLabel = ROLE_LABEL[inv.role as EduRole] ?? inv.role;
+                return (
+                  <div
+                    key={inv.id}
+                    className={`bg-white rounded-xl border p-4 flex flex-wrap items-center gap-3 ${
+                      expired ? "border-amber-200" : "border-gray-200"
+                    }`}
+                  >
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="text-[14px] font-semibold text-gray-800">{inv.name}</span>
+                        <span className="text-[12px] text-indigo-600 font-medium">{roleLabel}</span>
+                        {inv.acceptedAt && (
+                          <span className="text-[11px] text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full font-medium">Aceito</span>
+                        )}
+                        {!inv.acceptedAt && expired && (
+                          <span className="text-[11px] text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full font-medium">Expirado</span>
+                        )}
+                        {!inv.acceptedAt && !expired && (
+                          <span className="text-[11px] text-gray-400">
+                            Pendente · {inv.sentCount} envio{inv.sentCount !== 1 ? "s" : ""}
+                          </span>
+                        )}
+                      </div>
+                      <div className="text-[13px] text-gray-500 mt-0.5">{inv.email}</div>
+                    </div>
+                    {!inv.acceptedAt && (
+                      <div className="flex gap-1 shrink-0">
+                        <button
+                          onClick={() => resend(inv.id)}
+                          title="Reenviar"
+                          className="p-2 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors min-h-[36px] min-w-[36px] flex items-center justify-center"
+                        >
+                          <RefreshCw size={15} />
+                        </button>
+                        <button
+                          onClick={() => copyLink(inv.id)}
+                          title="Copiar link"
+                          className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors min-h-[36px] min-w-[36px] flex items-center justify-center"
+                        >
+                          <Copy size={15} />
+                        </button>
+                        <button
+                          onClick={() => cancel(inv.id)}
+                          title="Cancelar"
+                          className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors min-h-[36px] min-w-[36px] flex items-center justify-center"
+                        >
+                          <X size={15} />
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
