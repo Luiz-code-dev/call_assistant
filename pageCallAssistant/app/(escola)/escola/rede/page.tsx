@@ -5,10 +5,15 @@ import Link from "next/link";
 import EscPageHeader from "@/components/escola/layout/EscPageHeader";
 import {
   School,
-  GraduationCap,
   Users,
-  CalendarRange,
+  UserPlus,
+  Activity,
+  BookOpen,
+  ListChecks,
   ArrowRight,
+  AlertTriangle,
+  Info,
+  Upload,
 } from "lucide-react";
 
 export default async function RedePage() {
@@ -16,81 +21,249 @@ export default async function RedePage() {
   if (!ctx) redirect("/escola/entrar");
   if (ctx.role !== "NETWORK_ADMIN") redirect("/escola/painel");
 
-  const [schools, currentYear] = await Promise.all([
-    prismaEdu.eduSchool.findMany({ where: { networkId: ctx.networkId }, orderBy: { name: "asc" } }),
-    prismaEdu.eduSchoolYear.findFirst({ where: { networkId: ctx.networkId, isCurrent: true }, include: { terms: true } }),
+  const nid = ctx.networkId;
+
+  const [network, schools, currentYear] = await Promise.all([
+    prismaEdu.eduNetwork.findUnique({ where: { id: nid } }),
+    prismaEdu.eduSchool.findMany({
+      where: { networkId: nid },
+      orderBy: { name: "asc" },
+      select: { id: true, name: true, inepCode: true },
+    }),
+    prismaEdu.eduSchoolYear.findFirst({
+      where: { networkId: nid, isCurrent: true },
+      include: { terms: { orderBy: { startDate: "asc" } } },
+    }),
   ]);
 
-  const [studentCount, memberCount] = await Promise.all([
-    prismaEdu.eduStudent.count({ where: { networkId: ctx.networkId, isActive: true } }),
-    prismaEdu.eduMembership.count({ where: { networkId: ctx.networkId, isActive: true } }),
+  const [studentCount, memberCount, pendingInvites] = await Promise.all([
+    prismaEdu.eduStudent.count({ where: { networkId: nid, isActive: true } }),
+    prismaEdu.eduMembership.count({ where: { networkId: nid, isActive: true } }),
+    prismaEdu.eduInvite.count({ where: { networkId: nid, acceptedAt: null } }),
   ]);
 
-  const network = await prismaEdu.eduNetwork.findUnique({ where: { id: ctx.networkId } });
+  // Implantação: contar etapas concluídas (0–8)
+  const [hasSchools, hasYear, hasMemberships, hasStudents] = await Promise.all([
+    prismaEdu.eduSchool.count({ where: { networkId: nid } }).then((c: number) => c > 0),
+    prismaEdu.eduSchoolYear.count({ where: { networkId: nid } }).then((c: number) => c > 0),
+    prismaEdu.eduMembership.count({ where: { networkId: nid } }).then((c: number) => c > 0),
+    prismaEdu.eduStudent.count({ where: { networkId: nid } }).then((c: number) => c > 0),
+  ]);
 
-  const kpis = [
-    { label: "Escolas", value: schools.length, href: "/escola/rede/escolas", icon: <School size={20} className="text-indigo-600" />, bg: "bg-indigo-50" },
-    { label: "Alunos ativos", value: studentCount, href: "/escola/rede/alunos", icon: <GraduationCap size={20} className="text-emerald-600" />, bg: "bg-emerald-50" },
-    { label: "Membros da equipe", value: memberCount, href: "/escola/rede/convites", icon: <Users size={20} className="text-violet-600" />, bg: "bg-violet-50" },
-    { label: "Períodos no ano", value: currentYear?.terms?.length ?? 0, href: "/escola/rede/anos-letivos", icon: <CalendarRange size={20} className="text-amber-600" />, bg: "bg-amber-50" },
+  const implantacaoSteps = [hasSchools, hasYear, false, hasStudents, hasStudents, hasMemberships, false, false];
+  const stepsOk = implantacaoSteps.filter(Boolean).length;
+  const implantacaoConcluida = stepsOk >= 8;
+
+  const STEP_LABELS = [
+    "Escolas", "Ano letivo", "Matriz curricular", "Servidores",
+    "Turmas e alunos", "Atribuições", "Cartões de acesso", "Revisão",
   ];
+  const nextPendingStep = implantacaoSteps.findIndex((s) => !s);
+  const nextStepLabel = nextPendingStep >= 0 ? STEP_LABELS[nextPendingStep] : null;
 
-  const quickLinks = [
-    { label: "Gerenciar Escolas", href: "/escola/rede/escolas", desc: "CRUD de escolas e código INEP" },
-    { label: "Anos Letivos & Períodos", href: "/escola/rede/anos-letivos", desc: "Configurar bimestres e datas" },
-    { label: "Componentes Curriculares", href: "/escola/rede/componentes", desc: "Catálogo de disciplinas" },
-    { label: "Matriz Curricular", href: "/escola/rede/matriz", desc: "Componentes por etapa/série/turno" },
-    { label: "Turmas", href: "/escola/rede/turmas", desc: "Gerenciar turmas de todas as escolas" },
-    { label: "Alunos", href: "/escola/rede/alunos", desc: "Cadastro e enturmação" },
-    { label: "Vínculos de Equipe", href: "/escola/rede/vinculos", desc: "Gestores, coordenadores, diretores" },
-    { label: "Auditoria", href: "/escola/rede/auditoria", desc: "Trilha de ações da rede" },
-  ];
+  // Período atual
+  const now = new Date();
+  type Term = typeof currentYear extends { terms: Array<infer T> } ? T : never;
+  const currentTerm = currentYear?.terms.find(
+    (t: Term) => new Date((t as { startDate: Date | string }).startDate) <= now && new Date((t as { endDate: Date | string }).endDate) >= now
+  );
+  const daysToEndTerm = currentTerm
+    ? Math.ceil((new Date(currentTerm.endDate).getTime() - now.getTime()) / 86400000)
+    : null;
 
-  const yearLabel = currentYear ? `Ano letivo ${currentYear.year}` : "Nenhum ano letivo ativo";
+  // Alertas dinâmicos
+  type Alert = { msg: string; href: string; level: "warn" | "info" };
+  const alerts: Alert[] = [];
+  if (pendingInvites > 0) alerts.push({ msg: `${pendingInvites} convite${pendingInvites > 1 ? "s" : ""} pendente${pendingInvites > 1 ? "s" : ""} há mais de 3 dias`, href: "/escola/rede/servidores", level: "warn" });
+  if (daysToEndTerm !== null && daysToEndTerm <= 7 && daysToEndTerm >= 0) alerts.push({ msg: `Fim do período em ${daysToEndTerm} dia${daysToEndTerm !== 1 ? "s" : ""}`, href: "/escola/rede/ano-letivo", level: "info" });
+  if (!hasYear) alerts.push({ msg: "Nenhum ano letivo configurado", href: "/escola/rede/ano-letivo", level: "warn" });
+
+  const yearLabel = currentYear ? `${currentYear.year}` : null;
+
+  // Estado vazio — rede sem escolas, ano letivo ou membros
+  const isEmpty = !hasSchools && !hasYear && !hasMemberships;
 
   return (
     <div className="flex flex-col min-h-full">
       <EscPageHeader
         breadcrumb={[{ label: "Rede" }]}
         title={network?.name ?? "Visão geral"}
-        subtitle={`${network?.city ?? ""}, ${network?.state ?? ""} — ${yearLabel}`}
+        subtitle={network ? `${network.city}, ${network.state}${yearLabel ? ` — Ano letivo ${yearLabel}` : ""}` : undefined}
+        action={
+          <Link
+            href="/escola/rede/implantacao"
+            className="inline-flex items-center gap-2 border border-gray-300 hover:border-indigo-400 text-gray-700 hover:text-indigo-700 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors min-h-[44px]"
+          >
+            <Upload size={14} />
+            Importar planilha
+          </Link>
+        }
       />
 
-      <div className="px-7 py-6 max-w-[1440px] mx-auto w-full">
-        {/* KPI cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          {kpis.map((kpi) => (
-            <Link
-              key={kpi.href}
-              href={kpi.href}
-              className={`${kpi.bg} rounded-xl p-4 border border-white/60 hover:shadow-sm transition-shadow group`}
-            >
-              <div className="mb-2">{kpi.icon}</div>
-              <div className="text-[28px] font-extrabold text-gray-900 leading-none mb-1">{kpi.value}</div>
-              <div className="text-[13px] text-gray-600 font-medium flex items-center gap-1 group-hover:text-indigo-600 transition-colors">
-                {kpi.label}
-                <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-            </Link>
-          ))}
-        </div>
+      <div className="px-7 py-6 max-w-[1440px] mx-auto w-full space-y-6">
 
-        {/* Quick links */}
-        <h2 className="text-[16px] font-semibold text-gray-800 mb-4">Gestão da Rede</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-          {quickLinks.map((l) => (
+        {/* Estado vazio */}
+        {isEmpty && (
+          <div className="bg-indigo-50 border border-indigo-200 rounded-xl px-6 py-10 text-center">
+            <ListChecks size={32} className="text-indigo-400 mx-auto mb-3" />
+            <h2 className="text-[18px] font-bold text-gray-900 mb-1">Vamos implantar a rede</h2>
+            <p className="text-[14px] text-gray-600 mb-5">São 8 etapas e a maior parte é feita por planilha.</p>
             <Link
-              key={l.href}
-              href={l.href}
-              className="bg-white border border-gray-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-sm transition-all group"
+              href="/escola/rede/implantacao"
+              className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors min-h-[44px]"
             >
-              <div className="text-[14px] font-semibold text-gray-800 group-hover:text-indigo-600 transition-colors mb-1">
-                {l.label}
-              </div>
-              <div className="text-[12px] text-gray-500">{l.desc}</div>
+              Começar implantação
             </Link>
-          ))}
-        </div>
+          </div>
+        )}
+
+        {/* Barra de implantação (só enquanto não concluída) */}
+        {!isEmpty && !implantacaoConcluida && (
+          <div className="bg-white border border-gray-200 rounded-xl p-5">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-2">
+                <ListChecks size={16} className="text-indigo-600" />
+                <span className="text-[14px] font-semibold text-gray-800">
+                  Implantação — {stepsOk} de 8 etapas
+                </span>
+              </div>
+              {nextStepLabel && (
+                <span className="text-[12px] text-gray-500">Próximo: {nextStepLabel}</span>
+              )}
+            </div>
+            <div className="h-2.5 bg-gray-100 rounded-full overflow-hidden mb-3">
+              <div
+                className="h-full bg-indigo-500 rounded-full transition-all"
+                style={{ width: `${(stepsOk / 8) * 100}%` }}
+              />
+            </div>
+            <Link
+              href="/escola/rede/implantacao"
+              className="inline-flex items-center gap-1.5 text-[13px] font-medium text-indigo-600 hover:text-indigo-800 transition-colors"
+            >
+              Continuar implantação <ArrowRight size={13} />
+            </Link>
+          </div>
+        )}
+
+        {/* KPIs */}
+        {!isEmpty && (
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+            {[
+              {
+                label: "Escolas", value: schools.length,
+                href: "/escola/rede/escolas", icon: <School size={18} className="text-indigo-600" />, bg: "bg-indigo-50",
+              },
+              {
+                label: "Alunos ativos", value: studentCount,
+                href: "/escola/rede/turmas", icon: <Users size={18} className="text-emerald-600" />, bg: "bg-emerald-50",
+              },
+              {
+                label: "Servidores com acesso", value: memberCount,
+                sub: pendingInvites > 0 ? `${pendingInvites} convite${pendingInvites > 1 ? "s" : ""} pendente${pendingInvites > 1 ? "s" : ""}` : undefined,
+                href: "/escola/rede/servidores", icon: <UserPlus size={18} className="text-violet-600" />, bg: "bg-violet-50",
+              },
+              {
+                label: "Atividades na semana", value: "—",
+                href: "/escola/rede/indicadores", icon: <Activity size={18} className="text-amber-600" />, bg: "bg-amber-50",
+              },
+              {
+                label: "Notas do período", value: "—",
+                href: "/escola/rede/indicadores", icon: <BookOpen size={18} className="text-rose-600" />, bg: "bg-rose-50",
+              },
+            ].map((k) => (
+              <Link
+                key={k.href + k.label}
+                href={k.href}
+                className={`${k.bg} rounded-xl p-4 border border-white/60 hover:shadow-sm transition-shadow group`}
+              >
+                <div className="mb-2">{k.icon}</div>
+                <div className="text-[26px] font-extrabold text-gray-900 leading-none">{k.value}</div>
+                <div className="text-[12px] text-gray-600 mt-0.5 group-hover:text-indigo-700 transition-colors">{k.label}</div>
+                {k.sub && <div className="text-[11px] text-amber-700 mt-0.5">{k.sub}</div>}
+              </Link>
+            ))}
+          </div>
+        )}
+
+        {/* Alertas + Uso por componente */}
+        {!isEmpty && (alerts.length > 0) && (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {/* Precisa de atenção */}
+            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+              <div className="px-5 py-3 bg-gray-50 border-b border-gray-100">
+                <span className="text-[13px] font-semibold text-gray-700">Precisa de atenção</span>
+              </div>
+              <div className="divide-y divide-gray-100">
+                {alerts.map((a, i) => (
+                  <Link
+                    key={i}
+                    href={a.href}
+                    className="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 transition-colors group"
+                  >
+                    {a.level === "warn"
+                      ? <AlertTriangle size={15} className="text-amber-500 shrink-0" />
+                      : <Info size={15} className="text-blue-500 shrink-0" />
+                    }
+                    <span className="text-[13px] text-gray-700 flex-1">{a.msg}</span>
+                    <ArrowRight size={13} className="text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Uso por componente — placeholder até dados reais */}
+            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+              <div className="px-5 py-3 bg-gray-50 border-b border-gray-100 flex items-center justify-between">
+                <span className="text-[13px] font-semibold text-gray-700">Uso por componente (semana)</span>
+                <Link href="/escola/rede/indicadores" className="text-[12px] text-indigo-600 hover:underline">Ver tudo</Link>
+              </div>
+              <div className="px-5 py-4 text-[13px] text-gray-400 text-center">
+                Disponível após lançamento de atividades.
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Tabela de escolas */}
+        {schools.length > 0 && (
+          <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+            <div className="px-5 py-3 bg-gray-50 border-b border-gray-100 flex items-center justify-between">
+              <span className="text-[13px] font-semibold text-gray-700">Escolas</span>
+              <Link href="/escola/rede/escolas" className="text-[12px] text-indigo-600 hover:underline">Gerenciar</Link>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-[13px]">
+                <thead>
+                  <tr className="text-left text-gray-500 text-[12px] border-b border-gray-100">
+                    <th className="px-5 py-2.5 font-medium">Escola</th>
+                    <th className="px-4 py-2.5 font-medium">INEP</th>
+                    <th className="px-4 py-2.5 font-medium text-right">Alunos</th>
+                    <th className="px-4 py-2.5 font-medium text-right">Professores</th>
+                    <th className="px-4 py-2.5 font-medium text-right">Notas lançadas</th>
+                    <th className="px-4 py-2.5 font-medium text-right">Atividades</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {schools.map((s: typeof schools[number]) => (
+                    <tr key={s.id} className="hover:bg-gray-50 transition-colors">
+                      <td className="px-5 py-3">
+                        <Link href={`/escola/rede/escolas/${s.id}`} className="text-indigo-700 hover:underline font-medium">
+                          {s.name}
+                        </Link>
+                      </td>
+                      <td className="px-4 py-3 text-gray-400 font-mono text-[12px]">{s.inepCode ?? "—"}</td>
+                      <td className="px-4 py-3 text-right text-gray-700">—</td>
+                      <td className="px-4 py-3 text-right text-gray-700">—</td>
+                      <td className="px-4 py-3 text-right text-gray-400">—</td>
+                      <td className="px-4 py-3 text-right text-gray-400">—</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
