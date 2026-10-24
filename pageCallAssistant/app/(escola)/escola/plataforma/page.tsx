@@ -30,8 +30,10 @@ export default async function PlataformaPage() {
     }),
   ]);
 
-  const activeNetworks = networks.filter((n) => n.isActive);
-  const implanting = networks.filter((n) => !n.isActive);
+  type Network = typeof networks[number];
+  type PendingInvite = typeof pendingInvites[number];
+  const activeNetworks = networks.filter((n: Network) => n.isActive);
+  const implanting = networks.filter((n: Network) => !n.isActive);
 
   return (
     <div className="px-7 py-8 max-w-[1440px] mx-auto">
@@ -108,7 +110,7 @@ export default async function PlataformaPage() {
             <div className="bg-white rounded-xl border border-gray-200 p-5">
               <h2 className="text-[15px] font-semibold text-gray-800 mb-4">Precisa de atenção</h2>
               <div className="space-y-2">
-                {pendingInvites.map((inv) => {
+                {pendingInvites.map((inv: PendingInvite) => {
                   const daysLeft = Math.ceil(
                     (new Date(inv.expiresAt).getTime() - Date.now()) / 86400000
                   );
@@ -161,7 +163,7 @@ export default async function PlataformaPage() {
               </Link>
             </div>
             <div className="space-y-1">
-              {networks.slice(0, 8).map((network) => (
+              {networks.slice(0, 8).map((network: Network) => (
                 <Link
                   key={network.id}
                   href={`/escola/plataforma/redes/${network.id}`}
