@@ -12,6 +12,7 @@ const bodySchema = z.object({
 });
 
 export async function POST(req: NextRequest) {
+  try {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Not found" }, { status: 404 });
 
   const parsed = bodySchema.safeParse(await req.json());
@@ -96,4 +97,8 @@ export async function POST(req: NextRequest) {
     sameSite: "lax", maxAge: 60 * 5, path: "/",
   });
   return res;
+  } catch (err) {
+    console.error("[staff/login]", err);
+    return NextResponse.json({ error: "Erro interno ao autenticar" }, { status: 500 });
+  }
 }
