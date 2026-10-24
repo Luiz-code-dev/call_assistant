@@ -35,12 +35,13 @@ export async function middleware(req: NextRequest) {
       process.env.EDU_STUDENT_JWT_SECRET || "student-dev-secret-change-me"
     );
 
-    // Public escola routes
+    // Public escola routes (include manifest so PWA install works on login page)
     if (
       pathname.startsWith("/escola/entrar") ||
       pathname.startsWith("/escola/aluno/entrar") ||
       pathname.startsWith("/escola/convite/") ||
-      pathname.startsWith("/verificar")
+      pathname.startsWith("/verificar") ||
+      pathname === "/escola-manifest.json"
     ) {
       return NextResponse.next();
     }

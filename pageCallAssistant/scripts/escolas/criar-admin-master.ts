@@ -142,7 +142,7 @@ async function main() {
     console.log(`✓  Convite criado (válido até ${expiresAt.toISOString()})`);
 
     // 5. Envia e-mail via Resend
-    const emailFrom = process.env.EMAIL_FROM ?? "SpeakFlow Escolas <noreply@speakflow.ia.br>";
+    const emailFrom = process.env.RESEND_FROM ?? process.env.EMAIL_FROM ?? "SpeakFlow Escolas <noreply@speakflow.ia.br>";
     const resendRes = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { "Content-Type": "application/json", "Authorization": `Bearer ${resendKey}` },

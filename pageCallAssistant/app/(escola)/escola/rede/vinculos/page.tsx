@@ -4,7 +4,7 @@ import { ROLE_LABEL, EduRole } from "@/lib/escola/types";
 
 interface Member { id: string; role: EduRole; isActive: boolean; user: { name: string; email: string }; school: { name: string } | null; }
 
-const ROLE_COLORS: Record<EduRole, string> = { NETWORK_ADMIN: "bg-purple-900 text-purple-300", COORDINATOR: "bg-blue-900 text-blue-300", SCHOOL_ADMIN: "bg-green-900 text-green-300", TEACHER: "bg-orange-900 text-orange-300" };
+const ROLE_COLORS: Record<EduRole, string> = { NETWORK_ADMIN: "bg-purple-900 text-purple-300", COORDINATOR: "bg-blue-900 text-blue-300", SCHOOL_ADMIN: "bg-green-900 text-green-300", TEACHER: "bg-orange-900 text-orange-300", PLATFORM_ADMIN: "bg-gray-800 text-gray-300" };
 
 export default function VinculosPage() {
   const [members, setMembers] = useState<Member[]>([]);

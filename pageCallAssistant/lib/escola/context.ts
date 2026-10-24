@@ -55,6 +55,17 @@ export async function getEduContext(): Promise<EduContext | null> {
 
   try {
     const { payload } = await jwtVerify(raw, staffSecret);
+
+    // PLATFORM_ADMIN tokens carry role directly — no EduMembership
+    if (payload["role"] === "PLATFORM_ADMIN") {
+      const userId = payload["sub"] as string | undefined;
+      if (!userId) return null;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const admin = await (db as any).eduPlatformAdmin.findUnique({ where: { userId }, select: { isActive: true } });
+      if (!admin?.isActive) return null;
+      return { userId, networkId: "", schoolId: null, role: "PLATFORM_ADMIN" as EduRole, membershipId: "" };
+    }
+
     const membershipId = payload["mid"] as string | undefined;
     if (!membershipId) return null;
 
