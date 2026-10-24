@@ -29,9 +29,6 @@ export async function middleware(req: NextRequest) {
       return NextResponse.next();
     }
 
-    const _staffSecret = staffSecret();
-    const _studentSecret = studentSecret();
-
     // Public escola routes (include manifest so PWA install works on login page)
     if (
       pathname.startsWith("/escola/entrar") ||
@@ -50,7 +47,7 @@ export async function middleware(req: NextRequest) {
         return NextResponse.redirect(new URL("/escola/aluno/entrar", req.url));
       }
       try {
-        await jwtVerify(studentToken, _studentSecret);
+        await jwtVerify(studentToken, studentSecret());
         return NextResponse.next();
       } catch {
         const res = NextResponse.redirect(new URL("/escola/aluno/entrar", req.url));
@@ -65,7 +62,7 @@ export async function middleware(req: NextRequest) {
       return NextResponse.redirect(new URL("/escola/entrar", req.url));
     }
     try {
-      await jwtVerify(ctxToken, _staffSecret);
+      await jwtVerify(ctxToken, staffSecret());
       return NextResponse.next();
     } catch {
       const res = NextResponse.redirect(new URL("/escola/entrar", req.url));
