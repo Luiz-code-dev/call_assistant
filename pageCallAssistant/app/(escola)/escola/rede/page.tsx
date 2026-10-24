@@ -264,7 +264,6 @@ export default async function RedePage() {
             </div>
           </div>
         )}
-
       </div>
     </div>
   );
