@@ -96,18 +96,32 @@ export default function PlataformaConvitesPage() {
   }
 
   async function resend(id: string) {
-    await fetch(`/api/escola/convites/${id}`, { method: "POST" });
+    const r = await fetch(`/api/escola/plataforma/convites/${id}`, { method: "POST" });
+    if (!r.ok) {
+      const d = await r.json().catch(() => ({}));
+      alert(d.error ?? "Erro ao reenviar convite.");
+    }
     loadInvites();
   }
 
   async function cancel(id: string) {
     if (!confirm("Cancelar este convite?")) return;
-    await fetch(`/api/escola/convites/${id}`, { method: "DELETE" });
+    const r = await fetch(`/api/escola/plataforma/convites/${id}`, { method: "DELETE" });
+    if (!r.ok) {
+      const d = await r.json().catch(() => ({}));
+      alert(d.error ?? "Erro ao cancelar convite.");
+    }
     loadInvites();
   }
 
-  function copyLink(id: string) {
-    navigator.clipboard.writeText(`${window.location.origin}/escola/convite/${id}`);
+  async function copyLink(id: string) {
+    const r = await fetch(`/api/escola/plataforma/convites/${id}`);
+    if (!r.ok) {
+      alert("Não foi possível gerar o link do convite.");
+      return;
+    }
+    const { link } = await r.json();
+    await navigator.clipboard.writeText(link);
   }
 
   return (

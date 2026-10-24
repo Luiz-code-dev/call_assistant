@@ -122,7 +122,7 @@ export async function POST(req: NextRequest) {
 
   await prismaEdu.eduInvite.create({
     data: {
-      networkId: resolvedNetworkId ?? "",
+      networkId: resolvedNetworkId,
       schoolId: null,
       email: emailLower,
       name,
