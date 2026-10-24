@@ -12,6 +12,7 @@ interface Membership {
 }
 
 const ROLE_LABEL: Record<string, string> = {
+  PLATFORM_ADMIN: "Administração da plataforma",
   NETWORK_ADMIN: "Gestor da rede",
   COORDINATOR:   "Coordenador(a)",
   SCHOOL_ADMIN:  "Diretor(a)",

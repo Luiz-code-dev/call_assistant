@@ -164,7 +164,7 @@ export default function EscAppShell({ role, userName, contextName, children }: P
   }
 
   return (
-    <div className="flex h-screen bg-gray-50 overflow-hidden">
+    <div className="theme-escola flex h-screen bg-[#F8F7FC] overflow-hidden">
       {/* Desktop sidebar */}
       <aside className="hidden lg:flex flex-col w-[248px] shrink-0">
         <SidebarContent />

@@ -34,46 +34,66 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Credenciais inválidas" }, { status: 401 });
   }
 
-  const memberships = await (db as any).eduMembership.findMany({
-    where: { userId: user.id, isActive: true, network: { isActive: true } },
-    select: { id: true, role: true, schoolId: true, networkId: true },
-    orderBy: [{ networkId: "asc" }, { schoolId: "asc" }],
-  });
+  const [memberships, platformAdmin] = await Promise.all([
+    (db as any).eduMembership.findMany({
+      where: { userId: user.id, isActive: true, network: { isActive: true } },
+      select: { id: true, role: true, schoolId: true, networkId: true },
+      orderBy: [{ networkId: "asc" }, { schoolId: "asc" }],
+    }),
+    (db as any).eduPlatformAdmin.findUnique({ where: { userId: user.id }, select: { isActive: true } }),
+  ]);
 
-  if (memberships.length === 0) {
+  const isAdmin = !!platformAdmin?.isActive;
+  const opcoes = memberships.length + (isAdmin ? 1 : 0);
+
+  if (opcoes === 0) {
     return NextResponse.json(
-      { error: "Seu e-mail não está vinculado a nenhuma rede de ensino. Fale com a Secretaria." },
+      { error: "Seu e-mail não está vinculado ao SpeakFlow Escolas. Fale com a Secretaria de Educação." },
       { status: 403 }
     );
   }
 
-  let chosen = memberships[0];
+  const lastCookie = req.cookies.get("sf_edu_last")?.value;
 
-  if (memberships.length > 1) {
-    const lastId = req.cookies.get("sf_edu_last")?.value;
-    const lastMatch = lastId ? memberships.find((m: { id: string }) => m.id === lastId) : null;
-    if (lastMatch) {
-      chosen = lastMatch;
-    } else {
-      const res = NextResponse.json({ ok: true, redirect: "/escola/escolher-perfil" });
-      res.cookies.set("sf_edu_pending_uid", user.id, {
-        httpOnly: true, secure: process.env.NODE_ENV === "production",
-        sameSite: "lax", maxAge: 60 * 5, path: "/",
-      });
+  // Escolha automática: único vínculo/admin
+  if (opcoes === 1) {
+    if (isAdmin) {
+      const token = await signStaffToken({ userId: user.id, role: "PLATFORM_ADMIN" });
+      const res = NextResponse.json({ ok: true, redirect: rotaDoPapel("PLATFORM_ADMIN") });
+      res.cookies.set("sf_edu_ctx", token, staffCookieOptions);
+      res.cookies.set("sf_edu_last", "platform", { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "lax", maxAge: 60 * 60 * 24 * 30, path: "/" });
       return res;
     }
+    const chosen = memberships[0];
+    const token = await signStaffToken({ userId: user.id, role: chosen.role, membershipId: chosen.id, networkId: chosen.networkId, schoolId: chosen.schoolId });
+    const res = NextResponse.json({ ok: true, redirect: rotaDoPapel(chosen.role) });
+    res.cookies.set("sf_edu_ctx", token, staffCookieOptions);
+    res.cookies.set("sf_edu_last", chosen.id, { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "lax", maxAge: 60 * 60 * 24 * 30, path: "/" });
+    return res;
   }
 
-  const token = await signStaffToken({ userId: user.id, role: chosen.role, membershipId: chosen.id, networkId: chosen.networkId, schoolId: chosen.schoolId });
+  // Lembrar último acesso
+  if (lastCookie === "platform" && isAdmin) {
+    const token = await signStaffToken({ userId: user.id, role: "PLATFORM_ADMIN" });
+    const res = NextResponse.json({ ok: true, redirect: rotaDoPapel("PLATFORM_ADMIN") });
+    res.cookies.set("sf_edu_ctx", token, staffCookieOptions);
+    res.cookies.set("sf_edu_last", "platform", { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "lax", maxAge: 60 * 60 * 24 * 30, path: "/" });
+    return res;
+  }
+  const lastMatch = lastCookie ? memberships.find((m: { id: string }) => m.id === lastCookie) : null;
+  if (lastMatch) {
+    const token = await signStaffToken({ userId: user.id, role: lastMatch.role, membershipId: lastMatch.id, networkId: lastMatch.networkId, schoolId: lastMatch.schoolId });
+    const res = NextResponse.json({ ok: true, redirect: rotaDoPapel(lastMatch.role) });
+    res.cookies.set("sf_edu_ctx", token, staffCookieOptions);
+    res.cookies.set("sf_edu_last", lastMatch.id, { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "lax", maxAge: 60 * 60 * 24 * 30, path: "/" });
+    return res;
+  }
 
-  const res = NextResponse.json({ ok: true, redirect: rotaDoPapel(chosen.role) });
-  res.cookies.set("sf_edu_ctx", token, staffCookieOptions);
-  res.cookies.set("sf_edu_last", chosen.id, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    maxAge: 60 * 60 * 24 * 30,
-    path: "/",
+  // Múltiplos — escolher perfil
+  const res = NextResponse.json({ ok: true, redirect: "/escola/escolher-perfil" });
+  res.cookies.set("sf_edu_pending_uid", user.id, {
+    httpOnly: true, secure: process.env.NODE_ENV === "production",
+    sameSite: "lax", maxAge: 60 * 5, path: "/",
   });
   return res;
 }

@@ -20,6 +20,19 @@ export async function POST(req: NextRequest) {
 
   const { membershipId } = parsed.data;
 
+  // PLATFORM_ADMIN
+  if (membershipId === "platform") {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const admin = await (db as any).eduPlatformAdmin.findUnique({ where: { userId: pendingUid }, select: { isActive: true } });
+    if (!admin?.isActive) return NextResponse.json({ error: "Acesso de plataforma inativo." }, { status: 403 });
+    const token = await signStaffToken({ userId: pendingUid, role: "PLATFORM_ADMIN" });
+    const res = NextResponse.json({ ok: true, redirect: rotaDoPapel("PLATFORM_ADMIN") });
+    res.cookies.set("sf_edu_ctx", token, staffCookieOptions);
+    res.cookies.set("sf_edu_last", "platform", { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "lax", maxAge: 60 * 60 * 24 * 30, path: "/" });
+    res.cookies.delete("sf_edu_pending_uid");
+    return res;
+  }
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const membership = await (db as any).eduMembership.findFirst({
     where: { id: membershipId, userId: pendingUid, isActive: true, network: { isActive: true } },
@@ -35,13 +48,7 @@ export async function POST(req: NextRequest) {
   const res = NextResponse.json({ ok: true, redirect: rotaDoPapel(membership.role) });
 
   res.cookies.set("sf_edu_ctx", token, staffCookieOptions);
-  res.cookies.set("sf_edu_last", membership.id, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    maxAge: 60 * 60 * 24 * 30,
-    path: "/",
-  });
+  res.cookies.set("sf_edu_last", membership.id, { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "lax", maxAge: 60 * 60 * 24 * 30, path: "/" });
   res.cookies.delete("sf_edu_pending_uid");
 
   return res;

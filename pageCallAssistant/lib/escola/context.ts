@@ -18,11 +18,12 @@ export async function resolverVinculos(userId: string) {
 
 export function rotaDoPapel(role: string): string {
   switch (role) {
-    case "NETWORK_ADMIN": return "/escola/rede";
-    case "COORDINATOR":   return "/escola/coordenacao";
-    case "SCHOOL_ADMIN":  return "/escola/direcao";
-    case "TEACHER":       return "/escola/professor";
-    default:              return "/escola/painel";
+    case "PLATFORM_ADMIN": return "/escola/plataforma";
+    case "NETWORK_ADMIN":  return "/escola/rede";
+    case "COORDINATOR":    return "/escola/coordenacao";
+    case "SCHOOL_ADMIN":   return "/escola/direcao";
+    case "TEACHER":        return "/escola/professor";
+    default:               return "/escola/entrar";
   }
 }
 
