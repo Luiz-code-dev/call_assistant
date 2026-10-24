@@ -4,12 +4,9 @@ import { z } from "zod";
 import { db } from "@/lib/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { rotaDoPapel } from "@/lib/escola/context";
+import { staffSecret } from "@/lib/escola/secrets";
 
 const bodySchema = z.object({ membershipId: z.string().min(1) });
-
-const secret = new TextEncoder().encode(
-  process.env.EDU_STUDENT_JWT_SECRET || "edu-student-dev-secret"
-);
 
 export async function POST(req: NextRequest) {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Not found" }, { status: 404 });
@@ -44,7 +41,7 @@ export async function POST(req: NextRequest) {
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
     .setExpirationTime("12h")
-    .sign(secret);
+    .sign(staffSecret());
 
   const res = NextResponse.json({ ok: true, redirect: rotaDoPapel(membership.role) });
 

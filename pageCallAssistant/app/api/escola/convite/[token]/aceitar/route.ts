@@ -3,8 +3,7 @@ import { findInviteByToken } from "@/lib/escola/invite";
 import { prismaEdu } from "@/lib/escola/db";
 import bcrypt from "bcryptjs";
 import { SignJWT } from "jose";
-
-const EDU_SECRET = new TextEncoder().encode(process.env.EDU_JWT_SECRET ?? "edu-dev-secret-change-me");
+import { staffSecret } from "@/lib/escola/secrets";
 
 export async function POST(req: NextRequest, { params }: { params: { token: string } }) {
   const invite = await findInviteByToken(params.token);
@@ -47,7 +46,7 @@ export async function POST(req: NextRequest, { params }: { params: { token: stri
       data: { networkId: null, actorType: "user", actorId: userId!, action: "invite.accepted", entity: "EduInvite", entityId: invite.id },
     });
     const jwtToken = await new SignJWT({ sub: userId!, role: "PLATFORM_ADMIN" })
-      .setProtectedHeader({ alg: "HS256" }).setIssuedAt().setExpirationTime("30d").sign(EDU_SECRET);
+      .setProtectedHeader({ alg: "HS256" }).setIssuedAt().setExpirationTime("30d").sign(staffSecret());
     const res = NextResponse.json({ ok: true, redirect: "/escola/admin" });
     res.cookies.set("sf_edu_ctx", jwtToken, { httpOnly: true, sameSite: "lax", path: "/", maxAge: 30 * 24 * 3600 });
     return res;
@@ -74,7 +73,7 @@ export async function POST(req: NextRequest, { params }: { params: { token: stri
   });
 
   const jwtToken = await new SignJWT({ sub: userId!, mid: membershipId, nid: invite.networkId, sid: invite.schoolId ?? undefined, role: invite.role })
-    .setProtectedHeader({ alg: "HS256" }).setIssuedAt().setExpirationTime("30d").sign(EDU_SECRET);
+    .setProtectedHeader({ alg: "HS256" }).setIssuedAt().setExpirationTime("30d").sign(staffSecret());
 
   const res = NextResponse.json({ ok: true, redirect: "/escola/painel" });
   res.cookies.set("sf_edu_ctx", jwtToken, { httpOnly: true, sameSite: "lax", path: "/", maxAge: 30 * 24 * 3600 });

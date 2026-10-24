@@ -5,22 +5,19 @@ import bcrypt from "bcryptjs";
 import { db } from "@/lib/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { rotaDoPapel } from "@/lib/escola/context";
+import { staffSecret } from "@/lib/escola/secrets";
 
 const bodySchema = z.object({
   email: z.string().email(),
   password: z.string().min(1),
 });
 
-const secret = new TextEncoder().encode(
-  process.env.EDU_JWT_SECRET || "edu-dev-secret-change-me"
-);
-
 async function buildCtxToken(userId: string, membershipId: string, networkId: string, schoolId: string | null, role: string) {
   return new SignJWT({ sub: userId, mid: membershipId, nid: networkId, sid: schoolId ?? undefined, role })
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
     .setExpirationTime("12h")
-    .sign(secret);
+    .sign(staffSecret());
 }
 
 export async function POST(req: NextRequest) {

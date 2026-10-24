@@ -2,6 +2,7 @@ import { cookies } from "next/headers";
 import { jwtVerify } from "jose";
 import { EduRole } from "@/lib/escola/types";
 import { db } from "@/lib/db";
+import { staffSecret, studentSecret } from "@/lib/escola/secrets";
 
 export async function resolverVinculos(userId: string) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -40,13 +41,6 @@ export interface StudentContext {
   classId: string;
 }
 
-const staffSecret = new TextEncoder().encode(
-  process.env.EDU_JWT_SECRET || "edu-dev-secret-change-me"
-);
-
-const studentSecret = new TextEncoder().encode(
-  process.env.EDU_STUDENT_JWT_SECRET || "edu-student-dev-secret"
-);
 
 export async function getEduContext(): Promise<EduContext | null> {
   const cookieStore = cookies();
@@ -54,7 +48,7 @@ export async function getEduContext(): Promise<EduContext | null> {
   if (!raw) return null;
 
   try {
-    const { payload } = await jwtVerify(raw, staffSecret);
+    const { payload } = await jwtVerify(raw, staffSecret());
 
     // PLATFORM_ADMIN tokens carry role directly — no EduMembership
     if (payload["role"] === "PLATFORM_ADMIN") {
@@ -98,7 +92,7 @@ export async function getStudentContext(): Promise<StudentContext | null> {
   if (!raw) return null;
 
   try {
-    const { payload } = await jwtVerify(raw, studentSecret);
+    const { payload } = await jwtVerify(raw, studentSecret());
     const studentId = payload["sub"] as string | undefined;
     const networkId = payload["nid"] as string | undefined;
     const enrollmentId = payload["eid"] as string | undefined;
