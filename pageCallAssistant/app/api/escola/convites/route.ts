@@ -1,3 +1,4 @@
+import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu } from "@/lib/escola/db";
@@ -5,7 +6,7 @@ import { generateInviteToken, sendInviteEmail } from "@/lib/escola/invite";
 import { assertCanInvite, InvitePermissionError } from "@/lib/escola/roles";
 import type { EduRole } from "@/lib/escola/types";
 
-function flag() { return process.env.FEATURE_ESCOLAS === "true"; }
+function flag() { return isEscolasEnabled(); }
 
 export async function GET(req: NextRequest) {
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });

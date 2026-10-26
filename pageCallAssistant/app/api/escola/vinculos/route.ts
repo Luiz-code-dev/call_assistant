@@ -1,9 +1,10 @@
+import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu } from "@/lib/escola/db";
 import { db } from "@/lib/db";
 
-function flag() { return process.env.FEATURE_ESCOLAS === "true"; }
+function flag() { return isEscolasEnabled(); }
 
 export async function GET() {
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });

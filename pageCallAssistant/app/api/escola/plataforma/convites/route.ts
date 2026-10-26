@@ -1,3 +1,4 @@
+import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu } from "@/lib/escola/db";
@@ -6,7 +7,7 @@ import { assertCanInvite, InvitePermissionError } from "@/lib/escola/roles";
 import type { EduRole } from "@/lib/escola/types";
 
 function flag() {
-  return process.env.FEATURE_ESCOLAS === "true";
+  return isEscolasEnabled();
 }
 
 export async function GET(req: NextRequest) {

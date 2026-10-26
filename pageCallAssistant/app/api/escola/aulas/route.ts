@@ -1,9 +1,10 @@
+import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu } from "@/lib/escola/db";
 import crypto from "crypto";
 
-function flag() { return process.env.FEATURE_ESCOLAS === "true"; }
+function flag() { return isEscolasEnabled(); }
 
 // Characters that avoid visual ambiguity (no 0/O, 1/I/l)
 const SESSION_CHARS = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";

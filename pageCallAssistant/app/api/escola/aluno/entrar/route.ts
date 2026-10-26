@@ -1,3 +1,4 @@
+import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 /**
  * Student login endpoint — supports three modes:
  *   "aula"   - Session code already validated; studentId + PIN/picture
@@ -10,7 +11,7 @@ import bcrypt from "bcryptjs";
 import { SignJWT, jwtVerify } from "jose";
 import { studentSecret } from "@/lib/escola/secrets";
 
-function flag() { return process.env.FEATURE_ESCOLAS === "true"; }
+function flag() { return isEscolasEnabled(); }
 
 const MAX_ATTEMPTS = 5;
 const LOCK_MINUTES = 15;

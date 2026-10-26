@@ -1,10 +1,11 @@
+import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu } from "@/lib/escola/db";
 import { parseFileBuffer } from "@/lib/escola/import/parser";
 import { validateSchoolRow, validateStaffRow, validateStudentRow, validateAssignmentRow } from "@/lib/escola/import/validators";
 
-function flag() { return process.env.FEATURE_ESCOLAS === "true"; }
+function flag() { return isEscolasEnabled(); }
 
 const KIND_MAP: Record<string, string> = {
   escolas: "SCHOOLS", servidores: "STAFF", alunos: "STUDENTS", atribuicoes: "ASSIGNMENTS",

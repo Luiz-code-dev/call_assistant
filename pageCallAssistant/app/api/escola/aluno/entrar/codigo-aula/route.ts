@@ -1,7 +1,8 @@
+import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { prismaEdu } from "@/lib/escola/db";
 
-function flag() { return process.env.FEATURE_ESCOLAS === "true"; }
+function flag() { return isEscolasEnabled(); }
 
 /** Public endpoint: student enters session code → returns list of first names for class selection */
 export async function POST(req: NextRequest) {

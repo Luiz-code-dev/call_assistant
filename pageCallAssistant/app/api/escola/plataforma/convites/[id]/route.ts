@@ -1,10 +1,11 @@
+import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu } from "@/lib/escola/db";
 import { generateInviteToken, sendInviteEmail } from "@/lib/escola/invite";
 
 function flag() {
-  return process.env.FEATURE_ESCOLAS === "true";
+  return isEscolasEnabled();
 }
 
 async function getInvite(id: string) {

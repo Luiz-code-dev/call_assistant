@@ -14,15 +14,20 @@ export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const status = searchParams.get("status");
 
-  const diagnostics = await (prismaEdu as any).eduDiagnostic.findMany({
-    where: {
-      networkId: ctx.networkId,
-      ...(status ? { status } : {}),
-    },
-    orderBy: { createdAt: "desc" },
-    include: { items: { include: { skill: { select: { code: true, shortLabel: true } } } } },
-  });
-  return NextResponse.json({ diagnostics });
+  try {
+    const diagnostics = await (prismaEdu as any).eduDiagnostic.findMany({
+      where: {
+        networkId: ctx.networkId,
+        ...(status ? { status } : {}),
+      },
+      orderBy: { createdAt: "desc" },
+      include: { items: { include: { skill: { select: { code: true, shortLabel: true } } } } },
+    });
+    return NextResponse.json({ diagnostics });
+  } catch (err) {
+    console.error("[diagnosticos:GET]", err);
+    return NextResponse.json({ error: "Não foi possível carregar os diagnósticos." }, { status: 500 });
+  }
 }
 
 const createSchema = z.object({
