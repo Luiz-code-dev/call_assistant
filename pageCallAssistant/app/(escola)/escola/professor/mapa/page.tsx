@@ -9,7 +9,7 @@ const LEVEL_BG: Record<string, string> = {
   NOT_YET: "bg-red-700",
   ALMOST: "bg-yellow-600",
   MASTERED: "bg-green-700",
-  none: "bg-gray-800",
+  none: "bg-[#FAF9FD]",
 };
 const LEVEL_LABEL: Record<string, string> = {
   NOT_YET: "🔴", ALMOST: "🟡", MASTERED: "🟢", none: "—",
@@ -48,14 +48,14 @@ export default function MapaTurmaPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-950 p-4">
+    <div className="min-h-screen bg-[#F8F7FC] p-4">
       <div className="flex items-center gap-4 mb-6 mt-2">
-        <h1 className="text-white text-xl font-bold flex-1">Mapa da Turma</h1>
+        <h1 className="text-[#1F1A2E] text-xl font-bold flex-1">Mapa da Turma</h1>
         {classes.length > 1 && (
           <select
             value={classId}
             onChange={e => setClassId(e.target.value)}
-            className="bg-gray-800 text-white rounded-xl px-3 py-2 text-sm border border-gray-700"
+            className="bg-[#FAF9FD] text-[#1F1A2E] rounded-xl px-3 py-2 text-sm border border-[#DDD6EE]"
           >
             {classes.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
           </select>
@@ -63,21 +63,21 @@ export default function MapaTurmaPage() {
       </div>
 
       {loading ? (
-        <div className="text-gray-400 text-center py-16">Carregando mapa...</div>
+        <div className="text-[#5B5470] text-center py-16">Carregando mapa...</div>
       ) : skills.length === 0 || students.length === 0 ? (
-        <div className="text-center py-16 text-gray-600">
+        <div className="text-center py-16 text-[#5B5470]">
           <div className="text-4xl mb-3">📊</div>
           <p>Nenhum dado de domínio disponível ainda.</p>
           <p className="text-sm mt-1">Execute diagnósticos para ver o mapa.</p>
         </div>
       ) : (
-        <div className="overflow-x-auto rounded-2xl border border-gray-800">
+        <div className="overflow-x-auto rounded-2xl border border-[#E9E5F5]">
           <table className="min-w-full text-xs">
             <thead>
-              <tr className="bg-gray-900">
-                <th className="px-3 py-2 text-left text-gray-400 font-medium sticky left-0 bg-gray-900 min-w-[140px]">Aluno</th>
+              <tr className="bg-white">
+                <th className="px-3 py-2 text-left text-[#5B5470] font-medium sticky left-0 bg-white min-w-[140px]">Aluno</th>
                 {skills.map(s => (
-                  <th key={s.id} className="px-2 py-2 text-center text-gray-400 font-medium min-w-[56px]" title={s.code}>
+                  <th key={s.id} className="px-2 py-2 text-center text-[#5B5470] font-medium min-w-[56px]" title={s.code}>
                     <span className="block truncate max-w-[52px]">{s.shortLabel ?? s.code}</span>
                   </th>
                 ))}
@@ -85,8 +85,8 @@ export default function MapaTurmaPage() {
             </thead>
             <tbody>
               {students.map((st, idx) => (
-                <tr key={st.id} className={idx % 2 === 0 ? "bg-gray-950" : "bg-gray-900/40"}>
-                  <td className="px-3 py-2 text-white font-medium sticky left-0 bg-inherit truncate max-w-[140px]">
+                <tr key={st.id} className={idx % 2 === 0 ? "bg-[#F8F7FC]" : "bg-white/40"}>
+                  <td className="px-3 py-2 text-[#1F1A2E] font-medium sticky left-0 bg-inherit truncate max-w-[140px]">
                     {st.fullName}
                   </td>
                   {skills.map(sk => {
@@ -109,7 +109,7 @@ export default function MapaTurmaPage() {
         </div>
       )}
 
-      <div className="mt-4 flex gap-4 text-xs text-gray-500">
+      <div className="mt-4 flex gap-4 text-xs text-[#5B5470]">
         <span>🟢 Conquistado</span>
         <span>🟡 Quase lá</span>
         <span>🔴 Ainda aprendendo</span>

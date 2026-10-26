@@ -87,14 +87,14 @@ const TERMS_HTML = `<div style="font-family:Arial,sans-serif;font-size:13px;line
 
 function TermsModal({ onClose }: { onClose: () => void }) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70" onClick={onClose}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1F1A2E]/70" onClick={onClose}>
       <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl" onClick={e => e.stopPropagation()}>
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 shrink-0">
           <div>
             <h2 className="font-bold text-gray-900 text-base">Termos de Uso — SpeakFlow Escolas</h2>
-            <p className="text-xs text-gray-500 mt-0.5">Codevelop Solutions LTDA · CNPJ 51.412.510/0001-07</p>
+            <p className="text-xs text-[#5B5470] mt-0.5">Codevelop Solutions LTDA · CNPJ 51.412.510/0001-07</p>
           </div>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-2xl leading-none font-light">&times;</button>
+          <button onClick={onClose} className="text-[#5B5470] hover:text-[#5B5470] text-2xl leading-none font-light">&times;</button>
         </div>
         <div className="overflow-y-auto flex-1 px-6 py-4" dangerouslySetInnerHTML={{ __html: TERMS_HTML }} />
         <div className="px-6 py-4 border-t border-gray-200 shrink-0">

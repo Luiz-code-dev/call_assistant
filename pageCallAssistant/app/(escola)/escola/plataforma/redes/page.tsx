@@ -66,7 +66,7 @@ export default async function PlataformaRedesPage() {
             <h2 className="text-[20px] font-bold text-gray-900 mb-2">
               Nenhuma rede cadastrada
             </h2>
-            <p className="text-gray-500 text-[15px] max-w-md mb-6">
+            <p className="text-[#5B5470] text-[15px] max-w-md mb-6">
               Comece criando a primeira rede e convidando o gestor da Secretaria.
             </p>
             <Link
@@ -81,12 +81,12 @@ export default async function PlataformaRedesPage() {
           <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
             {/* Table header */}
             <div className="hidden md:grid grid-cols-[1fr_140px_120px_80px_80px_100px] gap-4 px-5 py-3 border-b border-gray-100 bg-gray-50">
-              <span className="text-[12px] font-semibold text-gray-500 uppercase tracking-wide">Rede</span>
-              <span className="text-[12px] font-semibold text-gray-500 uppercase tracking-wide">Situação</span>
-              <span className="text-[12px] font-semibold text-gray-500 uppercase tracking-wide">Município/UF</span>
-              <span className="text-[12px] font-semibold text-gray-500 uppercase tracking-wide text-right">Escolas</span>
-              <span className="text-[12px] font-semibold text-gray-500 uppercase tracking-wide text-right">Membros</span>
-              <span className="text-[12px] font-semibold text-gray-500 uppercase tracking-wide"></span>
+              <span className="text-[12px] font-semibold text-[#5B5470] uppercase tracking-wide">Rede</span>
+              <span className="text-[12px] font-semibold text-[#5B5470] uppercase tracking-wide">Situação</span>
+              <span className="text-[12px] font-semibold text-[#5B5470] uppercase tracking-wide">Município/UF</span>
+              <span className="text-[12px] font-semibold text-[#5B5470] uppercase tracking-wide text-right">Escolas</span>
+              <span className="text-[12px] font-semibold text-[#5B5470] uppercase tracking-wide text-right">Membros</span>
+              <span className="text-[12px] font-semibold text-[#5B5470] uppercase tracking-wide"></span>
             </div>
 
             {/* Rows */}
@@ -106,7 +106,7 @@ export default async function PlataformaRedesPage() {
                       >
                         {network.name}
                       </Link>
-                      <div className="text-[12px] text-gray-400 mt-0.5 md:hidden">
+                      <div className="text-[12px] text-[#5B5470] mt-0.5 md:hidden">
                         {network.city}/{network.state} · {network._count.schools} escola
                         {network._count.schools !== 1 ? "s" : ""} · {network._count.memberships} membro
                         {network._count.memberships !== 1 ? "s" : ""}
@@ -123,7 +123,7 @@ export default async function PlataformaRedesPage() {
                     </div>
 
                     {/* City/State */}
-                    <div className="hidden md:block text-[13px] text-gray-500">
+                    <div className="hidden md:block text-[13px] text-[#5B5470]">
                       {network.city}/{network.state}
                     </div>
 

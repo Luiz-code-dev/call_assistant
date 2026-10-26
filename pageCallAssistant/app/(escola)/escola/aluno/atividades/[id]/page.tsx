@@ -66,7 +66,7 @@ function WrittenActivity({ activity, onSubmit }: { activity: Atividade; onSubmit
         </div>
       </div>
       <button onClick={handleSubmit} disabled={submitting || text.trim().length < 10}
-        className="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-semibold text-white transition-all disabled:opacity-50"
+        className="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-semibold text-[#1F1A2E] transition-all disabled:opacity-50"
         style={{ background: "var(--esc-primary,#7c3aed)" }}>
         {submitting ? <><RefreshCw className="size-4 animate-spin" />Enviando…</> : <><Send className="size-4" />Enviar resposta</>}
       </button>
@@ -168,7 +168,7 @@ function SpokenActivity({ activity, onSubmit }: { activity: Atividade; onSubmit:
       <div className="rounded-xl border p-8 flex flex-col items-center gap-6" style={{ background: "var(--esc-surface,#fff)", borderColor: "var(--esc-border,#e5e7eb)" }}>
         {state === "idle" && (
           <button onClick={startRecording}
-            className="size-24 rounded-full flex items-center justify-center text-white shadow-lg transition-transform active:scale-95"
+            className="size-24 rounded-full flex items-center justify-center text-[#1F1A2E] shadow-lg transition-transform active:scale-95"
             style={{ background: "var(--esc-primary,#7c3aed)" }}>
             <Mic className="size-10" />
           </button>
@@ -177,7 +177,7 @@ function SpokenActivity({ activity, onSubmit }: { activity: Atividade; onSubmit:
           <>
             <div className="relative">
               <button onClick={stopRecording}
-                className="size-24 rounded-full flex items-center justify-center text-white shadow-lg animate-pulse"
+                className="size-24 rounded-full flex items-center justify-center text-[#1F1A2E] shadow-lg animate-pulse"
                 style={{ background: "#ef4444" }}>
                 <MicOff className="size-10" />
               </button>
@@ -201,7 +201,7 @@ function SpokenActivity({ activity, onSubmit }: { activity: Atividade; onSubmit:
                 <RefreshCw className="size-4" />Gravar de novo
               </button>
               <button onClick={handleSend} disabled={state === "transcribing"}
-                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-white disabled:opacity-50"
+                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-[#1F1A2E] disabled:opacity-50"
                 style={{ background: "var(--esc-primary,#7c3aed)" }}>
                 {state === "transcribing" ? <><RefreshCw className="size-4 animate-spin" />Enviando…</> : <><Send className="size-4" />Enviar</>}
               </button>
@@ -264,7 +264,7 @@ function QuizActivity({ activity, onSubmit }: { activity: Atividade; onSubmit: (
           Voltar
         </button>
         <button onClick={handleSubmit} disabled={submitting || !allAnswered}
-          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-white disabled:opacity-50"
+          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-[#1F1A2E] disabled:opacity-50"
           style={{ background: "var(--esc-primary,#7c3aed)" }}>
           {submitting ? <RefreshCw className="size-4 animate-spin" /> : <><Send className="size-4" />Enviar quiz</>}
         </button>
@@ -315,13 +315,13 @@ function QuizActivity({ activity, onSubmit }: { activity: Atividade; onSubmit: (
         )}
         {current < questions.length - 1 ? (
           <button onClick={() => setCurrent((c) => c + 1)}
-            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-white"
+            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-[#1F1A2E]"
             style={{ background: "var(--esc-primary,#7c3aed)" }}>
             Próxima <ChevronRight className="size-4" />
           </button>
         ) : (
           <button onClick={() => setReviewing(true)} disabled={!allAnswered}
-            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-white disabled:opacity-50"
+            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-[#1F1A2E] disabled:opacity-50"
             style={{ background: "var(--esc-primary,#7c3aed)" }}>
             Revisar e enviar
           </button>
@@ -383,7 +383,7 @@ function WaitingFeedback({ activityId }: { activityId: string }) {
           <p className="font-semibold text-zinc-800">Sua entrega foi salva com sucesso.</p>
           <p className="text-sm text-zinc-500">Seu professor vai corrigir em breve.</p>
           <button onClick={() => router.push("/escola/aluno")}
-            className="px-6 py-2 rounded-lg text-sm font-medium text-white"
+            className="px-6 py-2 rounded-lg text-sm font-medium text-[#1F1A2E]"
             style={{ background: "var(--esc-primary,#7c3aed)" }}>
             Voltar ao início
           </button>

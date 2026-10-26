@@ -18,16 +18,16 @@ export default function EscPageHeader({ breadcrumb, title, subtitle, action }: P
   return (
     <div className="px-7 pt-7 pb-5 border-b border-gray-200 bg-white">
       {breadcrumb && breadcrumb.length > 0 && (
-        <nav className="flex items-center gap-1 text-[13px] text-gray-400 mb-2">
+        <nav className="flex items-center gap-1 text-[13px] text-[#5B5470] mb-2">
           {breadcrumb.map((item, i) => (
             <span key={i} className="flex items-center gap-1">
-              {i > 0 && <ChevronRight size={13} className="text-gray-300" />}
+              {i > 0 && <ChevronRight size={13} className="text-[#3F3A4F]" />}
               {item.href ? (
                 <Link href={item.href} className="hover:text-indigo-600 transition-colors">
                   {item.label}
                 </Link>
               ) : (
-                <span className="text-gray-500">{item.label}</span>
+                <span className="text-[#5B5470]">{item.label}</span>
               )}
             </span>
           ))}
@@ -37,7 +37,7 @@ export default function EscPageHeader({ breadcrumb, title, subtitle, action }: P
         <div>
           <h1 className="text-[28px] font-extrabold text-gray-900 leading-tight">{title}</h1>
           {subtitle && (
-            <p className="text-[15px] text-gray-500 mt-1 leading-snug">{subtitle}</p>
+            <p className="text-[15px] text-[#5B5470] mt-1 leading-snug">{subtitle}</p>
           )}
         </div>
         {action && <div className="shrink-0 pt-0.5">{action}</div>}

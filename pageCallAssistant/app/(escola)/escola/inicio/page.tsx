@@ -20,7 +20,7 @@ const roles = [
     description: "Acompanhe a evolução escolar do seu filho",
     color: "from-emerald-600 to-teal-700",
     border: "border-emerald-600",
-    text: "text-emerald-400",
+    text: "text-[#166534]",
   },
   {
     href: "/escola/entrar",
@@ -29,7 +29,7 @@ const roles = [
     description: "Professor, coordenador, diretor ou administrador",
     color: "from-blue-600 to-indigo-700",
     border: "border-blue-600",
-    text: "text-blue-400",
+    text: "text-[#1D4ED8]",
   },
 ];
 
@@ -48,18 +48,18 @@ export default function InicioPage() {
   }, [router]);
 
   return (
-    <div className="min-h-screen bg-gray-950 flex flex-col">
+    <div className="min-h-screen bg-[#F8F7FC] flex flex-col">
       <div className="flex-1 flex flex-col items-center justify-center px-5 py-10">
 
         <div className="mb-10 text-center">
           <div className="inline-flex items-center gap-2 mb-3">
             <div className="w-9 h-9 rounded-xl bg-purple-600 flex items-center justify-center">
-              <span className="text-white text-base font-bold">S</span>
+              <span className="text-[#1F1A2E] text-base font-bold">S</span>
             </div>
-            <span className="text-white text-xl font-bold tracking-tight">SpeakFlow</span>
+            <span className="text-[#1F1A2E] text-xl font-bold tracking-tight">SpeakFlow</span>
             <span className="text-purple-400 text-xl font-bold">Escolas</span>
           </div>
-          <p className="text-gray-400 text-sm">Como você quer entrar?</p>
+          <p className="text-[#5B5470] text-sm">Como você quer entrar?</p>
         </div>
 
         <div className="w-full max-w-sm space-y-3">
@@ -67,14 +67,14 @@ export default function InicioPage() {
             <Link
               key={r.href}
               href={r.href}
-              className={`flex items-center gap-4 bg-gray-900 border ${r.border}/40 hover:${r.border} rounded-2xl p-5 transition-all active:scale-[0.98] group`}
+              className={`flex items-center gap-4 bg-white border ${r.border}/40 hover:${r.border} rounded-2xl p-5 transition-all active:scale-[0.98] group`}
             >
               <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${r.color} flex items-center justify-center text-2xl flex-shrink-0 shadow-lg`}>
                 {r.icon}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-white font-semibold text-base">{r.title}</p>
-                <p className="text-gray-400 text-xs mt-0.5 leading-snug">{r.description}</p>
+                <p className="text-[#1F1A2E] font-semibold text-base">{r.title}</p>
+                <p className="text-[#5B5470] text-xs mt-0.5 leading-snug">{r.description}</p>
               </div>
               <span className={`${r.text} text-lg group-hover:translate-x-1 transition-transform`}>→</span>
             </Link>

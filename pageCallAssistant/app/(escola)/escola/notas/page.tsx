@@ -42,9 +42,9 @@ const TYPE_LABEL: Record<string, string> = {
 
 const STATUS_BADGE: Record<string, string> = {
   DRAFT: "bg-muted text-muted-foreground",
-  OPEN: "bg-blue-500/20 text-blue-400",
-  GRADING: "bg-yellow-500/20 text-yellow-400",
-  PUBLISHED: "bg-green-500/20 text-green-400",
+  OPEN: "bg-blue-500/20 text-[#1D4ED8]",
+  GRADING: "bg-yellow-500/20 text-[#92400E]",
+  PUBLISHED: "bg-green-500/20 text-[#166534]",
 };
 
 export default function NotasPage() {
@@ -129,7 +129,7 @@ export default function NotasPage() {
           </div>
         )}
         {publishMsg && (
-          <div className="rounded-lg bg-green-500/10 border border-green-500/30 px-4 py-3 text-sm text-green-400">
+          <div className="rounded-lg bg-green-500/10 border border-green-500/30 px-4 py-3 text-sm text-[#166534]">
             {publishMsg}
           </div>
         )}

@@ -99,7 +99,7 @@ function EntregaRow({ entrega, activityId, maxScore, onReview }: {
                   className="flex-1 text-sm border rounded-lg px-3 py-2 text-zinc-900" style={{ borderColor: "var(--esc-border,#e5e7eb)" }} />
               </div>
               <button onClick={handleSave} disabled={saving}
-                className="w-full py-2 rounded-lg text-sm font-semibold text-white disabled:opacity-50"
+                className="w-full py-2 rounded-lg text-sm font-semibold text-[#1F1A2E] disabled:opacity-50"
                 style={{ background: "var(--esc-primary,#7c3aed)" }}>
                 {saving ? <RefreshCw className="size-3.5 animate-spin mx-auto" /> : "Confirmar nota"}
               </button>

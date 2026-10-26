@@ -88,10 +88,10 @@ export default function EscolaShell({ role, networkName, userName, children }: P
 
   const SidebarContent = () => (
     <div className="flex flex-col h-full">
-      <div className="p-4 border-b border-gray-800">
+      <div className="p-4 border-b border-[#E9E5F5]">
         <div className="text-purple-400 font-bold text-sm">SpeakFlow Escolas</div>
-        <div className="text-white text-xs mt-1 truncate">{networkName}</div>
-        <div className={`inline-flex items-center px-2 py-0.5 rounded text-white text-xs mt-2 ${ROLE_COLOR[role]}`}>
+        <div className="text-[#1F1A2E] text-xs mt-1 truncate">{networkName}</div>
+        <div className={`inline-flex items-center px-2 py-0.5 rounded text-[#1F1A2E] text-xs mt-2 ${ROLE_COLOR[role]}`}>
           {ROLE_LABEL[role]}
         </div>
       </div>
@@ -106,7 +106,7 @@ export default function EscolaShell({ role, networkName, userName, children }: P
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg mb-1 text-sm transition-colors min-h-[44px] ${
                 active
                   ? "bg-purple-700 text-white font-medium"
-                  : "text-gray-400 hover:bg-gray-800 hover:text-white"
+                  : "text-[#5B5470] hover:bg-[#F5F3FF] hover:text-[#1F1A2E]"
               }`}
             >
               <span className="text-base">{item.icon}</span>
@@ -115,11 +115,11 @@ export default function EscolaShell({ role, networkName, userName, children }: P
           );
         })}
       </nav>
-      <div className="p-4 border-t border-gray-800">
-        <div className="text-gray-400 text-xs truncate mb-2">{userName}</div>
+      <div className="p-4 border-t border-[#E9E5F5]">
+        <div className="text-[#5B5470] text-xs truncate mb-2">{userName}</div>
         <button
           onClick={handleLogout}
-          className="w-full text-left text-gray-500 hover:text-red-400 text-xs transition-colors"
+          className="w-full text-left text-[#5B5470] hover:text-[#B91C1C] text-xs transition-colors"
         >
           Sair da área escolar
         </button>
@@ -128,23 +128,23 @@ export default function EscolaShell({ role, networkName, userName, children }: P
   );
 
   return (
-    <div className="flex h-screen bg-gray-950 text-white overflow-hidden">
+    <div className="flex h-screen bg-[#F8F7FC] text-[#1F1A2E] overflow-hidden">
       {/* Sidebar desktop */}
-      <aside className="hidden lg:flex flex-col w-56 xl:w-64 bg-gray-900 border-r border-gray-800 shrink-0">
+      <aside className="hidden lg:flex flex-col w-56 xl:w-64 bg-white border-r border-[#E9E5F5] shrink-0">
         <SidebarContent />
       </aside>
 
       {/* Mobile drawer overlay */}
       {drawerOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/60 lg:hidden"
+          className="fixed inset-0 z-40 bg-[#1F1A2E]/60 lg:hidden"
           onClick={() => setDrawerOpen(false)}
         />
       )}
 
       {/* Mobile drawer */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-64 bg-gray-900 border-r border-gray-800 transform transition-transform duration-200 lg:hidden ${
+        className={`fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-[#E9E5F5] transform transition-transform duration-200 lg:hidden ${
           drawerOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -154,9 +154,9 @@ export default function EscolaShell({ role, networkName, userName, children }: P
       {/* Main content */}
       <div className="flex flex-col flex-1 min-w-0">
         {/* Header */}
-        <header className="flex items-center justify-between px-4 py-3 bg-gray-900 border-b border-gray-800 shrink-0">
+        <header className="flex items-center justify-between px-4 py-3 bg-white border-b border-[#E9E5F5] shrink-0">
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-800 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
+            className="lg:hidden p-2 rounded-lg hover:bg-[#F5F3FF] transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
             onClick={() => setDrawerOpen(true)}
             aria-label="Abrir menu"
           >
@@ -165,10 +165,10 @@ export default function EscolaShell({ role, networkName, userName, children }: P
           <div className="lg:hidden text-sm font-semibold text-purple-400">SpeakFlow Escolas</div>
           <div className="hidden lg:block" />
           <div className="flex items-center gap-3">
-            <span className="text-gray-400 text-sm hidden sm:block truncate max-w-[200px]">{userName}</span>
+            <span className="text-[#5B5470] text-sm hidden sm:block truncate max-w-[200px]">{userName}</span>
             <button
               onClick={handleLogout}
-              className="text-gray-500 hover:text-red-400 text-xs transition-colors px-2 py-1 rounded hover:bg-gray-800 min-h-[44px] flex items-center"
+              className="text-[#5B5470] hover:text-[#B91C1C] text-xs transition-colors px-2 py-1 rounded hover:bg-[#F5F3FF] min-h-[44px] flex items-center"
             >
               Sair
             </button>

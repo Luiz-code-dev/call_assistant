@@ -15,14 +15,14 @@ interface Atividade {
 
 const TYPE_ICON = { WRITTEN: PenLine, SPOKEN: Mic, QUIZ: HelpCircle };
 const TYPE_LABEL = { WRITTEN: "Escrita", SPOKEN: "Fala", QUIZ: "Quiz" };
-const TYPE_COLOR = { WRITTEN: "bg-blue-500/10 text-blue-400", SPOKEN: "bg-violet-500/10 text-violet-400", QUIZ: "bg-amber-500/10 text-amber-400" };
+const TYPE_COLOR = { WRITTEN: "bg-blue-500/10 text-[#1D4ED8]", SPOKEN: "bg-violet-500/10 text-violet-400", QUIZ: "bg-amber-500/10 text-[#92400E]" };
 
 function StatusBadge({ sub }: { sub: Submission | null }) {
   if (!sub) return null;
   if (sub.status === "IN_PROGRESS") return <span className="text-xs text-zinc-400">Rascunho</span>;
-  if (sub.status === "SUBMITTED") return <span className="text-xs text-amber-400 flex items-center gap-1"><Clock className="size-3" />Analisando…</span>;
+  if (sub.status === "SUBMITTED") return <span className="text-xs text-[#92400E] flex items-center gap-1"><Clock className="size-3" />Analisando…</span>;
   const nota = sub.teacherScore ?? sub.aiScore;
-  return <span className="text-xs text-green-400 flex items-center gap-1"><CheckCircle2 className="size-3" />{nota != null ? `Nota: ${Number(nota).toFixed(1)}` : "Corrigido"}</span>;
+  return <span className="text-xs text-[#166534] flex items-center gap-1"><CheckCircle2 className="size-3" />{nota != null ? `Nota: ${Number(nota).toFixed(1)}` : "Corrigido"}</span>;
 }
 
 export default function AlunoHomePage() {
@@ -129,7 +129,7 @@ export default function AlunoHomePage() {
           ) : paraFazer.length === 0 ? (
             <div className="rounded-xl border p-8 text-center"
               style={{ background: "var(--esc-surface, #fff)", borderColor: "var(--esc-border, #e5e7eb)" }}>
-              <CheckCircle2 className="size-10 text-green-400 mx-auto mb-3" />
+              <CheckCircle2 className="size-10 text-[#166534] mx-auto mb-3" />
               <p className="font-semibold text-zinc-800">Nenhuma atividade para hoje.</p>
               <p className="text-sm text-zinc-500 mt-1">Bom trabalho!</p>
             </div>

@@ -278,7 +278,7 @@ export default function NovaAtividadePage() {
             {saving ? <RefreshCw className="size-4 animate-spin mx-auto" /> : "Salvar rascunho"}
           </button>
           <button onClick={() => handleSave(true)} disabled={saving || !form.classSubjectId || !form.title}
-            className="flex-1 py-3 rounded-xl font-semibold text-white disabled:opacity-50 transition-all"
+            className="flex-1 py-3 rounded-xl font-semibold text-[#1F1A2E] disabled:opacity-50 transition-all"
             style={{ background: "var(--esc-primary,#7c3aed)" }}>
             {saving ? <RefreshCw className="size-4 animate-spin mx-auto" /> : "Publicar agora"}
           </button>

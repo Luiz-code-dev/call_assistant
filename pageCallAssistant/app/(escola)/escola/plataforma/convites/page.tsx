@@ -128,9 +128,9 @@ export default function PlataformaConvitesPage() {
     <div className="px-7 py-8 max-w-[1440px] mx-auto">
       {/* Header */}
       <div className="mb-8">
-        <p className="text-sm text-gray-400 mb-1">Plataforma › Convites</p>
+        <p className="text-sm text-[#5B5470] mb-1">Plataforma › Convites</p>
         <h1 className="text-[28px] font-extrabold text-gray-900 leading-tight">Convites</h1>
-        <p className="text-[15px] text-gray-500 mt-1">
+        <p className="text-[15px] text-[#5B5470] mt-1">
           Convide administradores da plataforma e gestores de rede.
         </p>
       </div>
@@ -159,7 +159,7 @@ export default function PlataformaConvitesPage() {
                 ))}
               </select>
               {selectedRoleConfig && (
-                <p className="text-[12px] text-gray-500 mt-1">{selectedRoleConfig.description}</p>
+                <p className="text-[12px] text-[#5B5470] mt-1">{selectedRoleConfig.description}</p>
               )}
             </div>
 
@@ -237,22 +237,22 @@ export default function PlataformaConvitesPage() {
                 className={`px-4 py-2 rounded-lg text-sm font-medium min-h-[40px] transition-colors ${
                   tab === t
                     ? "bg-indigo-600 text-white"
-                    : "bg-white text-gray-600 border border-gray-200 hover:bg-gray-50"
+                    : "bg-white text-[#5B5470] border border-gray-200 hover:bg-gray-50"
                 }`}
               >
                 {t === "pending" ? "Pendentes" : t === "accepted" ? "Aceitos" : "Todos"}
               </button>
             ))}
-            <span className="ml-auto text-[13px] text-gray-400">
+            <span className="ml-auto text-[13px] text-[#5B5470]">
               {invites.length} convite{invites.length !== 1 ? "s" : ""}
             </span>
           </div>
 
           {invites.length === 0 ? (
             <div className="bg-white rounded-xl border border-gray-200 flex flex-col items-center justify-center py-16 text-center">
-              <MailPlus size={32} className="text-gray-300 mb-3" />
-              <p className="text-gray-500 text-[15px] font-medium">Nenhum convite encontrado</p>
-              <p className="text-gray-400 text-sm mt-1">
+              <MailPlus size={32} className="text-[#3F3A4F] mb-3" />
+              <p className="text-[#5B5470] text-[15px] font-medium">Nenhum convite encontrado</p>
+              <p className="text-[#5B5470] text-sm mt-1">
                 {tab === "pending" ? "Nenhum convite aguardando resposta." : "Sem registros para este filtro."}
               </p>
             </div>
@@ -284,33 +284,33 @@ export default function PlataformaConvitesPage() {
                           </span>
                         )}
                         {!inv.acceptedAt && !expired && (
-                          <span className="text-[11px] text-gray-500">
+                          <span className="text-[11px] text-[#5B5470]">
                             Pendente · {inv.sentCount} envio{inv.sentCount !== 1 ? "s" : ""}
                           </span>
                         )}
                       </div>
-                      <div className="text-[13px] text-gray-500 mt-0.5">{inv.email}</div>
+                      <div className="text-[13px] text-[#5B5470] mt-0.5">{inv.email}</div>
                     </div>
                     {!inv.acceptedAt && (
                       <div className="flex gap-1 shrink-0">
                         <button
                           onClick={() => resend(inv.id)}
                           title="Reenviar"
-                          className="p-2 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors min-h-[36px] min-w-[36px] flex items-center justify-center"
+                          className="p-2 text-[#5B5470] hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors min-h-[36px] min-w-[36px] flex items-center justify-center"
                         >
                           <RefreshCw size={15} />
                         </button>
                         <button
                           onClick={() => copyLink(inv.id)}
                           title="Copiar link"
-                          className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors min-h-[36px] min-w-[36px] flex items-center justify-center"
+                          className="p-2 text-[#5B5470] hover:text-[#5B5470] hover:bg-gray-100 rounded-lg transition-colors min-h-[36px] min-w-[36px] flex items-center justify-center"
                         >
                           <Copy size={15} />
                         </button>
                         <button
                           onClick={() => cancel(inv.id)}
                           title="Cancelar"
-                          className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors min-h-[36px] min-w-[36px] flex items-center justify-center"
+                          className="p-2 text-[#5B5470] hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors min-h-[36px] min-w-[36px] flex items-center justify-center"
                         >
                           <X size={15} />
                         </button>

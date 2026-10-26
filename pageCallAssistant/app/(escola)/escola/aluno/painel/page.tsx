@@ -119,7 +119,7 @@ export default async function AlunoPainelPage() {
                               {grade?.absent ? (
                                 <span className="text-destructive text-xs font-medium">Ausente</span>
                               ) : grade?.value !== null && grade?.value !== undefined ? (
-                                <span className="text-green-400 text-xs font-medium">Lançado</span>
+                                <span className="text-[#166534] text-xs font-medium">Lançado</span>
                               ) : (
                                 <span className="text-muted-foreground text-xs">Pendente</span>
                               )}

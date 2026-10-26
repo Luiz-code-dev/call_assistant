@@ -12,9 +12,9 @@ interface Mastery {
 interface MasteryByLevel { NOT_YET: number; ALMOST: number; MASTERED: number; }
 
 const LEVEL_CONFIG = {
-  NOT_YET:  { label: "Ainda aprendendo", color: "bg-red-500",    text: "text-red-400",    icon: "🔴" },
-  ALMOST:   { label: "Quase lá",         color: "bg-yellow-500", text: "text-yellow-400", icon: "🟡" },
-  MASTERED: { label: "Conquistado",       color: "bg-green-500",  text: "text-green-400",  icon: "🟢" },
+  NOT_YET:  { label: "Ainda aprendendo", color: "bg-red-500",    text: "text-[#B91C1C]",    icon: "🔴" },
+  ALMOST:   { label: "Quase lá",         color: "bg-yellow-500", text: "text-[#92400E]", icon: "🟡" },
+  MASTERED: { label: "Conquistado",       color: "bg-green-500",  text: "text-[#166534]",  icon: "🟢" },
 };
 
 export default function EvolucaoPage({ params }: { params: { studentId: string } }) {
@@ -37,22 +37,22 @@ export default function EvolucaoPage({ params }: { params: { studentId: string }
   const filtered = filter === "all" ? masteries : masteries.filter(m => m.level === filter);
 
   if (loading) return (
-    <div className="min-h-screen bg-gray-950 flex items-center justify-center text-gray-400">
+    <div className="min-h-screen bg-[#F8F7FC] flex items-center justify-center text-[#5B5470]">
       Carregando evolução...
     </div>
   );
 
   return (
-    <div className="min-h-screen bg-gray-950 p-4 max-w-lg mx-auto">
+    <div className="min-h-screen bg-[#F8F7FC] p-4 max-w-lg mx-auto">
       <Link href="/escola/familia" className="text-purple-400 text-sm flex items-center gap-1 mt-4 mb-6">
         ← Voltar
       </Link>
 
-      <h1 className="text-white text-xl font-bold mb-4">Evolução por habilidade</h1>
+      <h1 className="text-[#1F1A2E] text-xl font-bold mb-4">Evolução por habilidade</h1>
 
       {total > 0 && (
-        <div className="bg-gray-900 rounded-2xl p-4 mb-6 border border-gray-800">
-          <p className="text-gray-400 text-xs mb-3">{total} habilidades avaliadas</p>
+        <div className="bg-white rounded-2xl p-4 mb-6 border border-[#E9E5F5]">
+          <p className="text-[#5B5470] text-xs mb-3">{total} habilidades avaliadas</p>
           <div className="w-full h-3 rounded-full overflow-hidden flex gap-0.5">
             {byLevel.MASTERED > 0 && (
               <div className="bg-green-500 h-full rounded-l-full" style={{ width: `${(byLevel.MASTERED / total) * 100}%` }} />
@@ -68,7 +68,7 @@ export default function EvolucaoPage({ params }: { params: { studentId: string }
             {(["MASTERED", "ALMOST", "NOT_YET"] as const).map(l => (
               <div key={l} className="flex items-center gap-1.5">
                 <span className={`text-xs ${LEVEL_CONFIG[l].text}`}>{LEVEL_CONFIG[l].icon}</span>
-                <span className="text-gray-400 text-xs">{LEVEL_CONFIG[l].label}: <strong className="text-white">{byLevel[l]}</strong></span>
+                <span className="text-[#5B5470] text-xs">{LEVEL_CONFIG[l].label}: <strong className="text-[#1F1A2E]">{byLevel[l]}</strong></span>
               </div>
             ))}
           </div>
@@ -81,7 +81,7 @@ export default function EvolucaoPage({ params }: { params: { studentId: string }
             key={f}
             onClick={() => setFilter(f)}
             className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-              filter === f ? "bg-purple-600 text-white" : "bg-gray-800 text-gray-400 hover:bg-gray-700"
+              filter === f ? "bg-purple-600 text-white" : "bg-[#FAF9FD] text-[#5B5470] hover:bg-[#F5F3FF]"
             }`}
           >
             {f === "all" ? "Todas" : LEVEL_CONFIG[f].label}
@@ -90,17 +90,17 @@ export default function EvolucaoPage({ params }: { params: { studentId: string }
       </div>
 
       {filtered.length === 0 ? (
-        <div className="text-center py-12 text-gray-600">
+        <div className="text-center py-12 text-[#5B5470]">
           <p>Nenhuma habilidade encontrada.</p>
         </div>
       ) : (
         <div className="space-y-2">
           {filtered.map(m => (
-            <div key={m.skillId} className="bg-gray-900 rounded-xl p-4 border border-gray-800 flex items-center gap-3">
+            <div key={m.skillId} className="bg-white rounded-xl p-4 border border-[#E9E5F5] flex items-center gap-3">
               <span className="text-lg">{LEVEL_CONFIG[m.level].icon}</span>
               <div className="flex-1 min-w-0">
-                <p className="text-white text-sm font-medium truncate">{m.skill.shortLabel ?? m.skill.code}</p>
-                <p className="text-gray-500 text-xs">{m.skill.subjectCode} · Código {m.skill.code}</p>
+                <p className="text-[#1F1A2E] text-sm font-medium truncate">{m.skill.shortLabel ?? m.skill.code}</p>
+                <p className="text-[#5B5470] text-xs">{m.skill.subjectCode} · Código {m.skill.code}</p>
               </div>
               <span className={`text-xs font-medium ${LEVEL_CONFIG[m.level].text}`}>
                 {LEVEL_CONFIG[m.level].label}

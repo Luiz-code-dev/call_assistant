@@ -66,7 +66,7 @@ export default async function PlataformaRedeDetalhePage({
             <div key={k.label} className={`${k.bg} rounded-xl p-4 border border-white/60`}>
               <div className="mb-1">{k.icon}</div>
               <div className="text-[26px] font-extrabold text-gray-900 leading-none">{k.value}</div>
-              <div className="text-[12px] text-gray-600 mt-0.5">{k.label}</div>
+              <div className="text-[12px] text-[#5B5470] mt-0.5">{k.label}</div>
             </div>
           ))}
         </div>
@@ -75,16 +75,16 @@ export default async function PlataformaRedeDetalhePage({
         <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
           <div className="px-5 py-3 border-b border-gray-100 bg-gray-50 flex items-center justify-between">
             <h2 className="text-[14px] font-semibold text-gray-700">Escolas</h2>
-            <span className="text-[12px] text-gray-400">{network.schools.length} escola{network.schools.length !== 1 ? "s" : ""}</span>
+            <span className="text-[12px] text-[#5B5470]">{network.schools.length} escola{network.schools.length !== 1 ? "s" : ""}</span>
           </div>
           {network.schools.length === 0 ? (
-            <div className="px-5 py-8 text-center text-[14px] text-gray-400">Nenhuma escola cadastrada nesta rede.</div>
+            <div className="px-5 py-8 text-center text-[14px] text-[#5B5470]">Nenhuma escola cadastrada nesta rede.</div>
           ) : (
             <div className="divide-y divide-gray-100">
               {network.schools.map((s: typeof network.schools[number]) => (
                 <div key={s.id} className="flex items-center justify-between px-5 py-3">
                   <span className="text-[14px] text-gray-800">{s.name}</span>
-                  {s.inepCode && <span className="text-[12px] text-gray-400 font-mono">{s.inepCode}</span>}
+                  {s.inepCode && <span className="text-[12px] text-[#5B5470] font-mono">{s.inepCode}</span>}
                 </div>
               ))}
             </div>
@@ -95,17 +95,17 @@ export default async function PlataformaRedeDetalhePage({
         <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
           <div className="px-5 py-3 border-b border-gray-100 bg-gray-50 flex items-center justify-between">
             <h2 className="text-[14px] font-semibold text-gray-700">Equipe da rede</h2>
-            <span className="text-[12px] text-gray-400">{network._count.memberships} membro{network._count.memberships !== 1 ? "s" : ""}</span>
+            <span className="text-[12px] text-[#5B5470]">{network._count.memberships} membro{network._count.memberships !== 1 ? "s" : ""}</span>
           </div>
           {network.memberships.length === 0 ? (
-            <div className="px-5 py-8 text-center text-[14px] text-gray-400">Nenhum membro ativo. Envie um convite para o gestor.</div>
+            <div className="px-5 py-8 text-center text-[14px] text-[#5B5470]">Nenhum membro ativo. Envie um convite para o gestor.</div>
           ) : (
             <div className="divide-y divide-gray-100">
               {network.memberships.map((m: typeof network.memberships[number]) => (
                 <div key={m.id} className="flex items-center justify-between px-5 py-3">
                   <div>
                     <div className="text-[14px] font-medium text-gray-800">{m.user.name}</div>
-                    <div className="text-[12px] text-gray-400">{m.user.email}</div>
+                    <div className="text-[12px] text-[#5B5470]">{m.user.email}</div>
                   </div>
                   <span className="text-[12px] bg-indigo-50 text-indigo-700 px-2.5 py-1 rounded-full font-medium">{m.role}</span>
                 </div>
