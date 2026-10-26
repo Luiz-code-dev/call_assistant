@@ -4,6 +4,8 @@ trigger: always_on
 
 # SpeakFlow Escolas — memória do projeto (leia antes de qualquer tarefa)
 
+Antes de qualquer tarefa de regra de negócio, leia `docs/escolas/ESPEC-Processo-Completo.md` — é a FONTE DA VERDADE do produto e vale mais que qualquer prompt antigo.
+
 ## 1. O produto
 - SpeakFlow Escolas é uma plataforma de REFORÇO ESCOLAR EM CASA com IA, para redes municipais e escolas privadas, em todos os componentes da BNCC. Produto da Codevelop Solutions, dentro do monorepo `call_assistant`, pasta `pageCallAssistant` (Next.js 14 App Router + Prisma + PostgreSQL), rota `/escola/**`, atrás da flag `FEATURE_ESCOLAS`.
 - Ciclo: diagnóstico por habilidade da BNCC → trilha de reforço → aluno pratica em casa (celular, tablet, computador) → retorno imediato da IA → escola acompanha quem praticou, avançou ou precisa de ajuda → família acompanha cada filho → novo diagnóstico ajusta a trilha.
@@ -49,6 +51,7 @@ trigger: always_on
 - Nunca colocar segredos no código ou no Git.
 
 ## 7. Documentos de referência (em `docs/escolas/`)
+- `ESPEC-Processo-Completo.md` — FONTE DA VERDADE do produto: ciclo diagnóstico → trilha → prática em casa → retorno da IA → escola e família acompanham → novo diagnóstico. Leia antes de qualquer tarefa de regra de negócio.
 - `PROMPT-WINDSURF-Escolas-Reforco-Escolar.md` — fases do reforço (habilidades BNCC, diagnóstico, trilhas, aluno em casa, família, painéis).
 - `PROMPT-WINDSURF-Escolas-Perfis-e-Layout.md`, `PROMPT-WINDSURF-Escolas-Design.md`, `PROMPT-WINDSURF-Escolas-Cadastro-e-Acessos.md`, `PROMPT-WINDSURF-Escolas-Correcao-Sessao-e-Tema.md`.
-- Em caso de dúvida entre um prompt antigo e o de reforço, vale o de reforço.
+- Em caso de dúvida entre um prompt antigo e o de reforço, vale o de reforço. Em conflito com a ESPEC, vale a ESPEC.
