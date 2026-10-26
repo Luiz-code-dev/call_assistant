@@ -31,6 +31,7 @@ export async function middleware(req: NextRequest) {
 
     // Public escola routes (include manifest so PWA install works on login page)
     if (
+      pathname === "/escola/inicio" ||
       pathname.startsWith("/escola/entrar") ||
       pathname.startsWith("/escola/aluno/entrar") ||
       pathname.startsWith("/escola/convite/") ||
