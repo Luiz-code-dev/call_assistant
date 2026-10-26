@@ -21,6 +21,13 @@ import {
   Grid3x3,
   QrCode,
   Presentation,
+  ClipboardList,
+  Target,
+  BarChart3,
+  Route,
+  HeartHandshake,
+  Activity,
+  MessageSquare,
   Menu,
   X,
   LogOut,
@@ -47,7 +54,39 @@ const ICON_MAP: Record<string, LucideIcon> = {
   Grid3x3,
   QrCode,
   Presentation,
+  ClipboardList,
+  Target,
+  BarChart3,
+  Route,
+  HeartHandshake,
+  Activity,
+  MessageSquare,
 };
+
+/** Logo oficial SpeakFlow Escolas: balão roxo com barras de onda brancas. */
+function EscLogo({ compact = false }: { compact?: boolean }) {
+  return (
+    <div className="flex items-center gap-2">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" className="shrink-0">
+        <path
+          d="M5 3h18a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3h-9l-6 4v-4H5a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Z"
+          fill="#6D28D9"
+        />
+        <g stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round">
+          <line x1="9" y1="10" x2="9" y2="14" />
+          <line x1="14" y1="7.5" x2="14" y2="16.5" />
+          <line x1="19" y1="10" x2="19" y2="14" />
+        </g>
+      </svg>
+      {!compact && (
+        <span className="leading-none">
+          <span className="font-extrabold text-[15px] text-[#1F1A2E]">SpeakFlow</span>{" "}
+          <span className="font-extrabold text-[15px] text-[#BE185D]">Escolas</span>
+        </span>
+      )}
+    </div>
+  );
+}
 
 const ROLE_LABEL: Record<EduRole, string> = {
   PLATFORM_ADMIN: "Administrador da plataforma",
@@ -89,13 +128,12 @@ export default function EscAppShell({ role, userName, contextName, children }: P
     return (
       <div className="flex flex-col h-full bg-white border-r border-gray-200">
         {/* Logo */}
-        <div className="px-5 pt-5 pb-4 border-b border-gray-100">
-          <div className="text-indigo-600 font-bold text-base leading-none">SpeakFlow</div>
-          <div className="text-indigo-400 text-[11px] font-semibold tracking-wide mt-0.5">ESCOLAS</div>
+        <div className="px-5 pt-5 pb-4 border-b border-gray-100 shrink-0">
+          <EscLogo />
         </div>
 
         {/* Profile chip */}
-        <div className="px-4 py-3 border-b border-gray-100">
+        <div className="px-4 py-3 border-b border-gray-100 shrink-0">
           <div className="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-gray-50 border border-gray-200">
             <div className="w-7 h-7 rounded bg-indigo-100 text-indigo-700 text-[11px] font-bold flex items-center justify-center shrink-0">
               {initials(userName)}
@@ -117,9 +155,14 @@ export default function EscAppShell({ role, userName, contextName, children }: P
         <nav className="flex-1 overflow-y-auto px-3 py-3 space-y-0.5">
           {navItems.map((item) => {
             const Icon = ICON_MAP[item.icon] ?? LayoutDashboard;
+            // Itens que sao "raiz" de outros (ex.: /escola/rede, pai de /escola/rede/turmas)
+            // so ficam ativos em correspondencia exata, para nao destacar junto com a sub-rota.
+            const isParentOfOther = navItems.some(
+              (o) => o.href !== item.href && o.href.startsWith(item.href + "/")
+            );
             const isExact = pathname === item.href;
-            const isPrefix = !isExact && pathname.startsWith(item.href + "/");
-            const active = isExact || isPrefix;
+            const isPrefix = pathname.startsWith(item.href + "/");
+            const active = isParentOfOther ? isExact : isExact || isPrefix;
             return (
               <Link
                 key={item.href}
@@ -127,13 +170,13 @@ export default function EscAppShell({ role, userName, contextName, children }: P
                 onClick={() => setDrawerOpen(false)}
                 className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-[15px] font-medium min-h-[44px] transition-colors ${
                   active
-                    ? "bg-indigo-50 text-indigo-700"
-                    : "text-[#5B5470] hover:bg-gray-50 hover:text-gray-900"
+                    ? "bg-[#EDE9FE] text-[#6D28D9]"
+                    : "text-[#5B5470] hover:bg-[#F5F3FF] hover:text-[#1F1A2E]"
                 }`}
               >
                 <Icon
                   size={20}
-                  className={`shrink-0 ${active ? "text-indigo-600" : "text-[#5B5470]"}`}
+                  className={`shrink-0 ${active ? "text-[#6D28D9]" : "text-[#5B5470]"}`}
                 />
                 <span className="leading-snug">{item.label}</span>
               </Link>
@@ -142,7 +185,7 @@ export default function EscAppShell({ role, userName, contextName, children }: P
         </nav>
 
         {/* Footer */}
-        <div className="px-4 py-4 border-t border-gray-100 space-y-3">
+        <div className="px-4 py-4 border-t border-gray-100 space-y-3 shrink-0">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-full bg-gray-200 text-[#5B5470] text-[11px] font-bold flex items-center justify-center shrink-0">
               {initials(userName)}
@@ -198,7 +241,7 @@ export default function EscAppShell({ role, userName, contextName, children }: P
           >
             {drawerOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
-          <span className="text-indigo-600 font-bold text-sm">SpeakFlow Escolas</span>
+          <EscLogo />
           <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 text-[11px] font-bold flex items-center justify-center">
             {initials(userName)}
           </div>
