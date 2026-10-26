@@ -1,3 +1,4 @@
+import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify } from "jose";
 import { staffSecret, studentSecret, familySecret } from "@/lib/escola/secrets";
@@ -25,7 +26,7 @@ export async function middleware(req: NextRequest) {
 
   // ── Área Escolar ── isolado, não altera lógica existente ──────────
   if (pathname.startsWith("/escola") || pathname.startsWith("/verificar")) {
-    if (process.env.FEATURE_ESCOLAS !== "true") {
+    if (!isEscolasEnabled()) {
       return NextResponse.next();
     }
 
