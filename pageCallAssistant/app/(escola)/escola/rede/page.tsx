@@ -32,7 +32,7 @@ export default async function RedePage() {
     }),
     prismaEdu.eduSchoolYear.findFirst({
       where: { networkId: nid, isCurrent: true },
-      include: { terms: { orderBy: { startDate: "asc" } } },
+      include: { terms: { orderBy: { startsAt: "asc" } } },
     }),
   ]);
 
@@ -65,10 +65,10 @@ export default async function RedePage() {
   const now = new Date();
   type Term = typeof currentYear extends { terms: Array<infer T> } ? T : never;
   const currentTerm = currentYear?.terms.find(
-    (t: Term) => new Date((t as { startDate: Date | string }).startDate) <= now && new Date((t as { endDate: Date | string }).endDate) >= now
+    (t: Term) => new Date((t as { startsAt: Date | string }).startsAt) <= now && new Date((t as { endsAt: Date | string }).endsAt) >= now
   );
   const daysToEndTerm = currentTerm
-    ? Math.ceil((new Date(currentTerm.endDate).getTime() - now.getTime()) / 86400000)
+    ? Math.ceil((new Date(currentTerm.endsAt).getTime() - now.getTime()) / 86400000)
     : null;
 
   // Alertas dinâmicos
