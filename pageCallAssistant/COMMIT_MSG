@@ -1,0 +1,8 @@
+feat(escolas): Fase 0 — FEATURE_ESCOLAS_NOTAS flag, ocultar módulo de notas
+
+- Adiciona isNotasEnabled() (padrão false) em lib/escola/feature-flag.ts
+- Atualiza navigation.ts com menus de reforço (diagnósticos, trilhas, famílias, mapa da turma)
+- Rotas /escola/notas e /verificar/[code] redirecionam para painel quando flag off
+- APIs grades, grades/publish, avaliacoes/abrir, avaliacoes/iniciar-correcao, periodos, periodos-ativos retornam 404 quando flag off
+- Cron evaluate não roda quando flag off
+- Muda professor/ofertas/[id]/notas para server component com redirect; UI client extraída para _NotasClient.tsx

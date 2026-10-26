@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify } from "jose";
-import { staffSecret, studentSecret } from "@/lib/escola/secrets";
+import { staffSecret, studentSecret, familySecret } from "@/lib/escola/secrets";
 
 const secret = new TextEncoder().encode(
   process.env.JWT_SECRET || "dev-secret-change-in-production"
@@ -34,10 +34,28 @@ export async function middleware(req: NextRequest) {
       pathname.startsWith("/escola/entrar") ||
       pathname.startsWith("/escola/aluno/entrar") ||
       pathname.startsWith("/escola/convite/") ||
+      pathname.startsWith("/escola/familia/entrar") ||
+      pathname.startsWith("/escola/familia/ativar") ||
       pathname.startsWith("/verificar") ||
       pathname === "/escola-manifest.json"
     ) {
       return NextResponse.next();
+    }
+
+    // Family portal routes
+    if (pathname.startsWith("/escola/familia")) {
+      const familyToken = req.cookies.get("sf_family_ctx")?.value;
+      if (!familyToken) {
+        return NextResponse.redirect(new URL("/escola/familia/entrar", req.url));
+      }
+      try {
+        await jwtVerify(familyToken, familySecret());
+        return NextResponse.next();
+      } catch {
+        const res = NextResponse.redirect(new URL("/escola/familia/entrar", req.url));
+        res.cookies.delete("sf_family_ctx");
+        return res;
+      }
     }
 
     // Student-only routes
