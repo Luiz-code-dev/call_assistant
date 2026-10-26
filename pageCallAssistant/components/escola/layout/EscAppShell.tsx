@@ -82,7 +82,7 @@ export default function EscAppShell({ role, userName, contextName, children }: P
 
   async function handleLogout() {
     await fetch("/api/escola/auth/logout", { method: "POST" });
-    router.push("/escola/entrar");
+    window.location.href = "/escola/entrar";
   }
 
   function SidebarContent() {

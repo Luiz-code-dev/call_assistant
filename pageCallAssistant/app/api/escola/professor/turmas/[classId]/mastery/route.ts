@@ -19,7 +19,7 @@ export async function GET(_: Request, { params }: { params: { classId: string } 
     select: { studentId: true, skillId: true, level: true },
   });
 
-  const skillIds = [...new Set(masteries.map((m: any) => m.skillId))];
+  const skillIds = Array.from(new Set(masteries.map((m: any) => m.skillId)));
   const skills = skillIds.length > 0 ? await (prismaEdu as any).eduSkill.findMany({
     where: { id: { in: skillIds } },
     select: { id: true, code: true, shortLabel: true, subjectCode: true },
