@@ -19,7 +19,7 @@ export async function GET() {
     map.get(m.skillId)![m.level as "NOT_YET" | "ALMOST" | "MASTERED"]++;
   }
 
-  const skillIds = [...map.keys()];
+  const skillIds = Array.from(map.keys());
   const skills = skillIds.length > 0 ? await (prismaEdu as any).eduSkill.findMany({
     where: { id: { in: skillIds } },
     select: { id: true, code: true, shortLabel: true, subjectCode: true },
