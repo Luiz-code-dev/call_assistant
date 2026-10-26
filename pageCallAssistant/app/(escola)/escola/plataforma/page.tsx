@@ -39,11 +39,11 @@ export default async function PlataformaPage() {
     <div className="px-7 py-8 max-w-[1440px] mx-auto">
       {/* Page header */}
       <div className="mb-8">
-        <p className="text-sm text-gray-400 mb-1">Plataforma</p>
+        <p className="text-sm text-[#5B5470] mb-1">Plataforma</p>
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
             <h1 className="text-[28px] font-extrabold text-gray-900 leading-tight">Visão geral</h1>
-            <p className="text-[15px] text-gray-500 mt-1">Situação das redes atendidas.</p>
+            <p className="text-[15px] text-[#5B5470] mt-1">Situação das redes atendidas.</p>
           </div>
           <Link
             href="/escola/plataforma/redes/nova"
@@ -90,7 +90,7 @@ export default async function PlataformaPage() {
             <Building2 size={32} className="text-indigo-400" />
           </div>
           <h2 className="text-[20px] font-bold text-gray-900 mb-2">Nenhuma rede cadastrada ainda</h2>
-          <p className="text-gray-500 text-[15px] max-w-md mb-6">
+          <p className="text-[#5B5470] text-[15px] max-w-md mb-6">
             Comece criando a primeira rede e convidando o gestor da Secretaria.
           </p>
           <Link
@@ -124,7 +124,7 @@ export default async function PlataformaPage() {
                     >
                       <AlertTriangle
                         size={15}
-                        className={`mt-0.5 shrink-0 ${expiring ? "text-amber-500" : "text-gray-400"}`}
+                        className={`mt-0.5 shrink-0 ${expiring ? "text-amber-500" : "text-[#5B5470]"}`}
                       />
                       <div className="flex-1 min-w-0">
                         <p className="text-[13px] text-gray-700">
@@ -135,7 +135,7 @@ export default async function PlataformaPage() {
                             ? "vence amanhã"
                             : `vence em ${daysLeft} dias`}
                         </p>
-                        <p className="text-[12px] text-gray-500">{inv.email}</p>
+                        <p className="text-[12px] text-[#5B5470]">{inv.email}</p>
                       </div>
                     </div>
                   );
@@ -173,7 +173,7 @@ export default async function PlataformaPage() {
                     <div className="text-[14px] font-medium text-gray-800 group-hover:text-indigo-600 transition-colors truncate">
                       {network.name}
                     </div>
-                    <div className="text-[12px] text-gray-400">
+                    <div className="text-[12px] text-[#5B5470]">
                       {network.city}/{network.state} · {network._count.schools} escola
                       {network._count.schools !== 1 ? "s" : ""}
                     </div>
@@ -212,7 +212,7 @@ function KpiCard({
     <div className={`${bg} rounded-xl p-4 border border-white/60`}>
       <div className="mb-2">{icon}</div>
       <div className="text-[28px] font-extrabold text-gray-900 leading-none mb-1">{value}</div>
-      <div className="text-[13px] text-gray-600 font-medium leading-tight">{label}</div>
+      <div className="text-[13px] text-[#5B5470] font-medium leading-tight">{label}</div>
     </div>
   );
 }

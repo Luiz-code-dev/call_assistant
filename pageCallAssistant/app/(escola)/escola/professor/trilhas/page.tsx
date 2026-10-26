@@ -32,9 +32,9 @@ export default function TrilhasProfessorPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-950 p-4 max-w-2xl mx-auto">
+    <div className="min-h-screen bg-[#F8F7FC] p-4 max-w-2xl mx-auto">
       <div className="flex items-center justify-between mt-4 mb-6">
-        <h1 className="text-white text-xl font-bold">Trilhas de Reforço</h1>
+        <h1 className="text-[#1F1A2E] text-xl font-bold">Trilhas de Reforço</h1>
         <Link
           href="/escola/professor/trilhas/nova"
           className="bg-purple-600 hover:bg-purple-500 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-colors"
@@ -44,9 +44,9 @@ export default function TrilhasProfessorPage() {
       </div>
 
       {loading ? (
-        <div className="text-gray-400 text-center py-16">Carregando trilhas...</div>
+        <div className="text-[#5B5470] text-center py-16">Carregando trilhas...</div>
       ) : tracks.length === 0 ? (
-        <div className="text-center py-16 text-gray-600">
+        <div className="text-center py-16 text-[#5B5470]">
           <div className="text-4xl mb-3">🛤️</div>
           <p>Nenhuma trilha criada ainda.</p>
           <p className="text-sm mt-1">Crie trilhas curtas de 3–8 atividades para os alunos.</p>
@@ -54,16 +54,16 @@ export default function TrilhasProfessorPage() {
       ) : (
         <div className="space-y-3">
           {tracks.map(t => (
-            <div key={t.id} className="bg-gray-900 rounded-2xl p-5 border border-gray-800">
+            <div key={t.id} className="bg-white rounded-2xl p-5 border border-[#E9E5F5]">
               <div className="flex items-start justify-between mb-2">
                 <div>
-                  <h2 className="text-white font-semibold">{t.title}</h2>
-                  <p className="text-gray-500 text-xs mt-0.5">
+                  <h2 className="text-[#1F1A2E] font-semibold">{t.title}</h2>
+                  <p className="text-[#5B5470] text-xs mt-0.5">
                     {t.items.length} atividades · {t.gradeYear}º ano
                   </p>
                 </div>
                 <span className={`text-xs px-2 py-1 rounded-full font-medium ${
-                  t.status === "PUBLISHED" ? "bg-green-900 text-green-300" : "bg-gray-800 text-gray-400"
+                  t.status === "PUBLISHED" ? "bg-[#DCFCE7] text-green-300" : "bg-[#FAF9FD] text-[#5B5470]"
                 }`}>
                   {t.status === "PUBLISHED" ? "Publicada" : "Rascunho"}
                 </span>

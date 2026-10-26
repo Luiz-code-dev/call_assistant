@@ -110,7 +110,7 @@ export default function NovaRedePage() {
           </div>
 
           <div>
-            <label className={field}>Código IBGE <span className="text-[12px] text-gray-400 font-normal">(opcional)</span></label>
+            <label className={field}>Código IBGE <span className="text-[12px] text-[#5B5470] font-normal">(opcional)</span></label>
             <input
               className={input}
               placeholder="Ex: 3509502"
@@ -131,7 +131,7 @@ export default function NovaRedePage() {
             </button>
             <Link
               href="/escola/plataforma/redes"
-              className="inline-flex items-center gap-1.5 text-[14px] text-gray-500 hover:text-gray-700 transition-colors min-h-[44px] px-2"
+              className="inline-flex items-center gap-1.5 text-[14px] text-[#5B5470] hover:text-gray-700 transition-colors min-h-[44px] px-2"
             >
               <ChevronLeft size={15} />
               Voltar

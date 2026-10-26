@@ -19,9 +19,9 @@ const STATUS_LABELS: Record<string, string> = {
   CLOSED: "Encerrado",
 };
 const STATUS_COLORS: Record<string, string> = {
-  DRAFT: "bg-gray-800 text-gray-400",
-  OPEN: "bg-green-900 text-green-300",
-  CLOSED: "bg-gray-700 text-gray-500",
+  DRAFT: "bg-[#FAF9FD] text-[#5B5470]",
+  OPEN: "bg-[#DCFCE7] text-green-300",
+  CLOSED: "bg-[#EDE9FE] text-[#5B5470]",
 };
 
 export default function DiagnosticosPage() {
@@ -42,11 +42,11 @@ export default function DiagnosticosPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-950 p-4 max-w-2xl mx-auto">
+    <div className="min-h-screen bg-[#F8F7FC] p-4 max-w-2xl mx-auto">
       <div className="flex items-center justify-between mt-4 mb-6">
         <div>
-          <h1 className="text-white text-xl font-bold">Diagnósticos</h1>
-          <p className="text-gray-400 text-xs mt-0.5">Identifique lacunas BNCC por turma</p>
+          <h1 className="text-[#1F1A2E] text-xl font-bold">Diagnósticos</h1>
+          <p className="text-[#5B5470] text-xs mt-0.5">Identifique lacunas BNCC por turma</p>
         </div>
         <Link
           href="/escola/coordenacao/diagnosticos/novo"
@@ -57,9 +57,9 @@ export default function DiagnosticosPage() {
       </div>
 
       {loading ? (
-        <div className="text-gray-400 text-center py-16">Carregando diagnósticos...</div>
+        <div className="text-[#5B5470] text-center py-16">Carregando diagnósticos...</div>
       ) : diagnostics.length === 0 ? (
-        <div className="text-center py-16 text-gray-600">
+        <div className="text-center py-16 text-[#5B5470]">
           <div className="text-4xl mb-3">📋</div>
           <p>Nenhum diagnóstico criado.</p>
           <p className="text-sm mt-1">Crie um diagnóstico para mapear o domínio das habilidades da turma.</p>
@@ -67,27 +67,27 @@ export default function DiagnosticosPage() {
       ) : (
         <div className="space-y-3">
           {diagnostics.map(d => (
-            <div key={d.id} className="bg-gray-900 rounded-2xl p-5 border border-gray-800">
+            <div key={d.id} className="bg-white rounded-2xl p-5 border border-[#E9E5F5]">
               <div className="flex items-start justify-between mb-2">
                 <div>
-                  <h2 className="text-white font-semibold">{d.title}</h2>
-                  <p className="text-gray-500 text-xs mt-0.5">
+                  <h2 className="text-[#1F1A2E] font-semibold">{d.title}</h2>
+                  <p className="text-[#5B5470] text-xs mt-0.5">
                     {d.gradeYear}º ano · Ciclo {d.cycle} · {d.items.length} habilidades
                   </p>
                 </div>
-                <span className={`text-xs px-2 py-1 rounded-full font-medium ${STATUS_COLORS[d.status] ?? "bg-gray-800 text-gray-400"}`}>
+                <span className={`text-xs px-2 py-1 rounded-full font-medium ${STATUS_COLORS[d.status] ?? "bg-[#FAF9FD] text-[#5B5470]"}`}>
                   {STATUS_LABELS[d.status] ?? d.status}
                 </span>
               </div>
 
               <div className="flex flex-wrap gap-1 mb-3">
                 {d.items.slice(0, 6).map(item => (
-                  <span key={item.id} className="bg-gray-800 text-gray-300 text-xs px-2 py-0.5 rounded-full" title={item.skill.code}>
+                  <span key={item.id} className="bg-[#FAF9FD] text-[#3F3A4F] text-xs px-2 py-0.5 rounded-full" title={item.skill.code}>
                     {item.skill.shortLabel ?? item.skill.code}
                   </span>
                 ))}
                 {d.items.length > 6 && (
-                  <span className="text-gray-500 text-xs px-2 py-0.5">+{d.items.length - 6}</span>
+                  <span className="text-[#5B5470] text-xs px-2 py-0.5">+{d.items.length - 6}</span>
                 )}
               </div>
 

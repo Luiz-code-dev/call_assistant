@@ -24,12 +24,12 @@ export default async function ProfessorPage() {
   return (
     <div className="p-4 md:p-6 lg:p-8 max-w-5xl mx-auto">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-white">Minhas Turmas</h1>
-        <p className="text-gray-400 text-sm mt-1">{offers.length} oferta{offers.length !== 1 ? "s" : ""} ativa{offers.length !== 1 ? "s" : ""}</p>
+        <h1 className="text-2xl font-bold text-[#1F1A2E]">Minhas Turmas</h1>
+        <p className="text-[#5B5470] text-sm mt-1">{offers.length} oferta{offers.length !== 1 ? "s" : ""} ativa{offers.length !== 1 ? "s" : ""}</p>
       </div>
 
       {offers.length === 0 ? (
-        <div className="text-center py-16 text-gray-500">
+        <div className="text-center py-16 text-[#5B5470]">
           <div className="text-4xl mb-3">📚</div>
           <div>Nenhuma turma atribuída ainda.</div>
           <p className="text-sm mt-2">Fale com a direção para ser vinculado a uma turma.</p>
@@ -40,17 +40,17 @@ export default async function ProfessorPage() {
             <Link
               key={offer.id}
               href={`/escola/professor/ofertas/${offer.id}`}
-              className="bg-gray-900 border border-gray-800 rounded-xl p-4 hover:border-purple-700 transition-colors group"
+              className="bg-white border border-[#E9E5F5] rounded-xl p-4 hover:border-purple-700 transition-colors group"
             >
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-3 h-3 rounded-full shrink-0" style={{ backgroundColor: offer.subject?.color ?? "#7C3AED" }} />
-                <span className="text-white font-medium group-hover:text-purple-400 transition-colors">{offer.subject?.name}</span>
+                <span className="text-[#1F1A2E] font-medium group-hover:text-purple-400 transition-colors">{offer.subject?.name}</span>
               </div>
-              <div className="text-gray-400 font-semibold">{offer.class?.name}</div>
-              <div className="text-gray-600 text-xs mt-1">
+              <div className="text-[#5B5470] font-semibold">{offer.class?.name}</div>
+              <div className="text-[#5B5470] text-xs mt-1">
                 {STAGE_LABEL[offer.class?.stage as keyof typeof STAGE_LABEL] ?? offer.class?.stage} · {offer.class?.gradeYear}º ano · {SHIFT_LABEL[offer.class?.shift as keyof typeof SHIFT_LABEL] ?? offer.class?.shift}
               </div>
-              <div className="text-gray-600 text-xs">{offer.class?.school?.name} · {offer.class?.schoolYear?.year}</div>
+              <div className="text-[#5B5470] text-xs">{offer.class?.school?.name} · {offer.class?.schoolYear?.year}</div>
               <div className="mt-3 text-purple-500 text-xs">{offer._count?.assessments} avaliação{offer._count?.assessments !== 1 ? "ões" : ""}</div>
             </Link>
           ))}

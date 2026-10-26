@@ -243,7 +243,7 @@ export default function RetornoPage() {
         )}
 
         <button onClick={() => router.push("/escola/aluno")}
-          className="w-full py-3 rounded-xl font-semibold text-white"
+          className="w-full py-3 rounded-xl font-semibold text-[#1F1A2E]"
           style={{ background: "var(--esc-primary,#7c3aed)" }}>
           Voltar ao início
         </button>

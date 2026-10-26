@@ -53,7 +53,7 @@ export default function EscolasPage() {
   return (
     <div className="p-4 md:p-6 lg:p-8 max-w-4xl mx-auto">
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-xl font-bold text-white">Escolas</h1>
+        <h1 className="text-xl font-bold text-[#1F1A2E]">Escolas</h1>
         <button
           onClick={() => setShowForm(true)}
           className="bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors min-h-[44px]"
@@ -63,14 +63,14 @@ export default function EscolasPage() {
       </div>
 
       {showForm && (
-        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-          <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 w-full max-w-md">
-            <h2 className="text-white font-semibold mb-4">Nova Escola</h2>
+        <div className="fixed inset-0 bg-[#1F1A2E]/60 z-50 flex items-center justify-center p-4">
+          <div className="bg-white border border-[#DDD6EE] rounded-xl p-6 w-full max-w-md">
+            <h2 className="text-[#1F1A2E] font-semibold mb-4">Nova Escola</h2>
             <form onSubmit={save} className="space-y-4">
               <div>
-                <label className="text-gray-400 text-sm block mb-1">Nome da escola *</label>
+                <label className="text-[#5B5470] text-sm block mb-1">Nome da escola *</label>
                 <input
-                  className="w-full bg-gray-800 text-white rounded-lg px-3 py-2.5 text-base border border-gray-700 focus:border-purple-500 outline-none"
+                  className="w-full bg-[#FAF9FD] text-[#1F1A2E] rounded-lg px-3 py-2.5 text-base border border-[#DDD6EE] focus:border-purple-500 outline-none"
                   value={form.name}
                   onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
                   placeholder="EMEF Professor..."
@@ -78,17 +78,17 @@ export default function EscolasPage() {
                 />
               </div>
               <div>
-                <label className="text-gray-400 text-sm block mb-1">Código INEP</label>
+                <label className="text-[#5B5470] text-sm block mb-1">Código INEP</label>
                 <input
-                  className="w-full bg-gray-800 text-white rounded-lg px-3 py-2.5 text-base border border-gray-700 focus:border-purple-500 outline-none"
+                  className="w-full bg-[#FAF9FD] text-[#1F1A2E] rounded-lg px-3 py-2.5 text-base border border-[#DDD6EE] focus:border-purple-500 outline-none"
                   value={form.inepCode}
                   onChange={e => setForm(f => ({ ...f, inepCode: e.target.value }))}
                   placeholder="35000000"
                 />
               </div>
-              {error && <p className="text-red-400 text-sm">{error}</p>}
+              {error && <p className="text-[#B91C1C] text-sm">{error}</p>}
               <div className="flex gap-3 pt-2">
-                <button type="button" onClick={() => setShowForm(false)} className="flex-1 py-2.5 rounded-lg border border-gray-700 text-gray-400 hover:text-white transition-colors min-h-[44px]">Cancelar</button>
+                <button type="button" onClick={() => setShowForm(false)} className="flex-1 py-2.5 rounded-lg border border-[#DDD6EE] text-[#5B5470] hover:text-[#1F1A2E] transition-colors min-h-[44px]">Cancelar</button>
                 <button type="submit" disabled={saving} className="flex-1 py-2.5 rounded-lg bg-purple-700 hover:bg-purple-600 text-white font-medium transition-colors min-h-[44px] disabled:opacity-50">{saving ? "Salvando..." : "Salvar"}</button>
               </div>
             </form>
@@ -97,9 +97,9 @@ export default function EscolasPage() {
       )}
 
       {loading ? (
-        <div className="text-gray-400 text-center py-12">Carregando...</div>
+        <div className="text-[#5B5470] text-center py-12">Carregando...</div>
       ) : schools.length === 0 ? (
-        <div className="text-center py-16 text-gray-500">
+        <div className="text-center py-16 text-[#5B5470]">
           <div className="text-4xl mb-3">🏫</div>
           <div>Nenhuma escola cadastrada</div>
           <button onClick={() => setShowForm(true)} className="mt-4 text-purple-400 hover:text-purple-300 text-sm">Criar primeira escola</button>
@@ -107,18 +107,18 @@ export default function EscolasPage() {
       ) : (
         <div className="space-y-3">
           {schools.map(s => (
-            <div key={s.id} className="bg-gray-900 border border-gray-800 rounded-xl p-4 flex items-center justify-between gap-4">
+            <div key={s.id} className="bg-white border border-[#E9E5F5] rounded-xl p-4 flex items-center justify-between gap-4">
               <div>
-                <div className="text-white font-medium">{s.name}</div>
-                <div className="text-gray-500 text-sm">{s.inepCode ? `INEP: ${s.inepCode}` : "Sem código INEP"}</div>
+                <div className="text-[#1F1A2E] font-medium">{s.name}</div>
+                <div className="text-[#5B5470] text-sm">{s.inepCode ? `INEP: ${s.inepCode}` : "Sem código INEP"}</div>
               </div>
               <div className="flex items-center gap-3 shrink-0">
-                <span className={`px-2 py-0.5 rounded text-xs ${s.isActive ? "bg-green-900 text-green-300" : "bg-gray-800 text-gray-500"}`}>
+                <span className={`px-2 py-0.5 rounded text-xs ${s.isActive ? "bg-[#DCFCE7] text-green-300" : "bg-[#FAF9FD] text-[#5B5470]"}`}>
                   {s.isActive ? "Ativa" : "Inativa"}
                 </span>
                 <button
                   onClick={() => toggleActive(s.id, s.isActive)}
-                  className="text-gray-500 hover:text-yellow-400 text-xs transition-colors px-2 py-1 min-h-[44px] flex items-center"
+                  className="text-[#5B5470] hover:text-[#92400E] text-xs transition-colors px-2 py-1 min-h-[44px] flex items-center"
                 >
                   {s.isActive ? "Desativar" : "Ativar"}
                 </button>

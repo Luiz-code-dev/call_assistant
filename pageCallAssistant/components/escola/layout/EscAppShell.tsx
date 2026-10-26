@@ -105,7 +105,7 @@ export default function EscAppShell({ role, userName, contextName, children }: P
                 {ROLE_LABEL[role]}
               </div>
               {contextName && (
-                <div className="text-[11px] text-gray-400 truncate leading-tight mt-0.5">
+                <div className="text-[11px] text-[#5B5470] truncate leading-tight mt-0.5">
                   {contextName}
                 </div>
               )}
@@ -128,12 +128,12 @@ export default function EscAppShell({ role, userName, contextName, children }: P
                 className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-[15px] font-medium min-h-[44px] transition-colors ${
                   active
                     ? "bg-indigo-50 text-indigo-700"
-                    : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                    : "text-[#5B5470] hover:bg-gray-50 hover:text-gray-900"
                 }`}
               >
                 <Icon
                   size={20}
-                  className={`shrink-0 ${active ? "text-indigo-600" : "text-gray-400"}`}
+                  className={`shrink-0 ${active ? "text-indigo-600" : "text-[#5B5470]"}`}
                 />
                 <span className="leading-snug">{item.label}</span>
               </Link>
@@ -144,7 +144,7 @@ export default function EscAppShell({ role, userName, contextName, children }: P
         {/* Footer */}
         <div className="px-4 py-4 border-t border-gray-100 space-y-3">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-full bg-gray-200 text-gray-600 text-[11px] font-bold flex items-center justify-center shrink-0">
+            <div className="w-8 h-8 rounded-full bg-gray-200 text-[#5B5470] text-[11px] font-bold flex items-center justify-center shrink-0">
               {initials(userName)}
             </div>
             <div className="flex-1 min-w-0">
@@ -153,7 +153,7 @@ export default function EscAppShell({ role, userName, contextName, children }: P
           </div>
           <button
             onClick={handleLogout}
-            className="flex items-center gap-2 text-[13px] text-gray-500 hover:text-red-500 transition-colors"
+            className="flex items-center gap-2 text-[13px] text-[#5B5470] hover:text-red-500 transition-colors"
           >
             <LogOut size={14} />
             Sair
@@ -173,7 +173,7 @@ export default function EscAppShell({ role, userName, contextName, children }: P
       {/* Mobile drawer overlay */}
       {drawerOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/50 lg:hidden"
+          className="fixed inset-0 z-40 bg-[#1F1A2E]/50 lg:hidden"
           onClick={() => setDrawerOpen(false)}
         />
       )}
@@ -192,7 +192,7 @@ export default function EscAppShell({ role, userName, contextName, children }: P
         {/* Mobile top bar */}
         <header className="lg:hidden flex items-center justify-between px-4 py-3 bg-white border-b border-gray-200 shrink-0 h-[56px]">
           <button
-            className="p-2 rounded-lg hover:bg-gray-100 min-w-[44px] min-h-[44px] flex items-center justify-center text-gray-600"
+            className="p-2 rounded-lg hover:bg-gray-100 min-w-[44px] min-h-[44px] flex items-center justify-center text-[#5B5470]"
             onClick={() => setDrawerOpen(!drawerOpen)}
             aria-label="Menu"
           >

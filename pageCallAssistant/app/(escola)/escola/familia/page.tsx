@@ -26,25 +26,25 @@ export default function FamiliaPage() {
   }, []);
 
   if (loading) return (
-    <div className="min-h-screen bg-gray-950 flex items-center justify-center">
-      <div className="text-gray-400">Carregando...</div>
+    <div className="min-h-screen bg-[#F8F7FC] flex items-center justify-center">
+      <div className="text-[#5B5470]">Carregando...</div>
     </div>
   );
 
   return (
-    <div className="min-h-screen bg-gray-950 p-4 max-w-lg mx-auto">
+    <div className="min-h-screen bg-[#F8F7FC] p-4 max-w-lg mx-auto">
       <div className="flex items-center justify-between mt-4 mb-6">
         <div>
-          <h1 className="text-white text-2xl font-bold">Portal da Família</h1>
-          <p className="text-gray-400 text-sm">Acompanhe a evolução escolar</p>
+          <h1 className="text-[#1F1A2E] text-2xl font-bold">Portal da Família</h1>
+          <p className="text-[#5B5470] text-sm">Acompanhe a evolução escolar</p>
         </div>
         <form method="POST" action="/api/escola/familia/sair">
-          <button className="text-gray-500 text-sm underline">Sair</button>
+          <button className="text-[#5B5470] text-sm underline">Sair</button>
         </form>
       </div>
 
       {filhos.length === 0 ? (
-        <div className="text-center py-16 text-gray-500">
+        <div className="text-center py-16 text-[#5B5470]">
           <div className="text-4xl mb-3">👨‍👩‍👧</div>
           <p>Nenhum aluno vinculado.</p>
         </div>
@@ -54,20 +54,20 @@ export default function FamiliaPage() {
             <Link
               key={filho.studentId}
               href={`/escola/familia/evolucao/${filho.studentId}`}
-              className="block bg-gray-900 rounded-2xl p-5 border border-gray-800 hover:border-purple-700 transition-colors"
+              className="block bg-white rounded-2xl p-5 border border-[#E9E5F5] hover:border-purple-700 transition-colors"
             >
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-purple-700 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
                   {filho.fullName.charAt(0).toUpperCase()}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-white font-semibold truncate">{filho.fullName}</p>
-                  <p className="text-gray-400 text-xs">
+                  <p className="text-[#1F1A2E] font-semibold truncate">{filho.fullName}</p>
+                  <p className="text-[#5B5470] text-xs">
                     {RELATION_LABELS[filho.relation] ?? filho.relation} ·{" "}
                     {filho.class ? `${filho.class.name} (${filho.class.gradeYear}º ano)` : "Turma não encontrada"}
                   </p>
                 </div>
-                <span className="text-gray-500 text-sm">→</span>
+                <span className="text-[#5B5470] text-sm">→</span>
               </div>
             </Link>
           ))}

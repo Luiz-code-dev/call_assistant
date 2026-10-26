@@ -107,7 +107,7 @@ export default async function RedePage() {
           <div className="bg-indigo-50 border border-indigo-200 rounded-xl px-6 py-10 text-center">
             <ListChecks size={32} className="text-indigo-400 mx-auto mb-3" />
             <h2 className="text-[18px] font-bold text-gray-900 mb-1">Vamos implantar a rede</h2>
-            <p className="text-[14px] text-gray-600 mb-5">São 8 etapas e a maior parte é feita por planilha.</p>
+            <p className="text-[14px] text-[#5B5470] mb-5">São 8 etapas e a maior parte é feita por planilha.</p>
             <Link
               href="/escola/rede/implantacao"
               className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors min-h-[44px]"
@@ -128,7 +128,7 @@ export default async function RedePage() {
                 </span>
               </div>
               {nextStepLabel && (
-                <span className="text-[12px] text-gray-500">Próximo: {nextStepLabel}</span>
+                <span className="text-[12px] text-[#5B5470]">Próximo: {nextStepLabel}</span>
               )}
             </div>
             <div className="h-2.5 bg-gray-100 rounded-full overflow-hidden mb-3">
@@ -179,7 +179,7 @@ export default async function RedePage() {
               >
                 <div className="mb-2">{k.icon}</div>
                 <div className="text-[26px] font-extrabold text-gray-900 leading-none">{k.value}</div>
-                <div className="text-[12px] text-gray-600 mt-0.5 group-hover:text-indigo-700 transition-colors">{k.label}</div>
+                <div className="text-[12px] text-[#5B5470] mt-0.5 group-hover:text-indigo-700 transition-colors">{k.label}</div>
                 {k.sub && <div className="text-[11px] text-amber-700 mt-0.5">{k.sub}</div>}
               </Link>
             ))}
@@ -206,7 +206,7 @@ export default async function RedePage() {
                       : <Info size={15} className="text-blue-500 shrink-0" />
                     }
                     <span className="text-[13px] text-gray-700 flex-1">{a.msg}</span>
-                    <ArrowRight size={13} className="text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowRight size={13} className="text-[#5B5470] opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
                 ))}
               </div>
@@ -218,7 +218,7 @@ export default async function RedePage() {
                 <span className="text-[13px] font-semibold text-gray-700">Uso por componente (semana)</span>
                 <Link href="/escola/rede/indicadores" className="text-[12px] text-indigo-600 hover:underline">Ver tudo</Link>
               </div>
-              <div className="px-5 py-4 text-[13px] text-gray-400 text-center">
+              <div className="px-5 py-4 text-[13px] text-[#5B5470] text-center">
                 Disponível após lançamento de atividades.
               </div>
             </div>
@@ -235,7 +235,7 @@ export default async function RedePage() {
             <div className="overflow-x-auto">
               <table className="w-full text-[13px]">
                 <thead>
-                  <tr className="text-left text-gray-500 text-[12px] border-b border-gray-100">
+                  <tr className="text-left text-[#5B5470] text-[12px] border-b border-gray-100">
                     <th className="px-5 py-2.5 font-medium">Escola</th>
                     <th className="px-4 py-2.5 font-medium">INEP</th>
                     <th className="px-4 py-2.5 font-medium text-right">Alunos</th>
@@ -252,11 +252,11 @@ export default async function RedePage() {
                           {s.name}
                         </Link>
                       </td>
-                      <td className="px-4 py-3 text-gray-400 font-mono text-[12px]">{s.inepCode ?? "—"}</td>
+                      <td className="px-4 py-3 text-[#5B5470] font-mono text-[12px]">{s.inepCode ?? "—"}</td>
                       <td className="px-4 py-3 text-right text-gray-700">—</td>
                       <td className="px-4 py-3 text-right text-gray-700">—</td>
-                      <td className="px-4 py-3 text-right text-gray-400">—</td>
-                      <td className="px-4 py-3 text-right text-gray-400">—</td>
+                      <td className="px-4 py-3 text-right text-[#5B5470]">—</td>
+                      <td className="px-4 py-3 text-right text-[#5B5470]">—</td>
                     </tr>
                   ))}
                 </tbody>
