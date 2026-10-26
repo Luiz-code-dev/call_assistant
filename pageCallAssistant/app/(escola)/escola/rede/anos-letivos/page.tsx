@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { CalendarRange } from "lucide-react";
 
 interface Term { id: string; name: string; order: number; startsAt: string; endsAt: string; status: string; }
 interface Year { id: string; year: number; startsAt: string; endsAt: string; isCurrent: boolean; terms: Term[]; }
@@ -148,7 +149,7 @@ export default function AnosLetivosPage() {
         <div className="text-[#5B5470] text-center py-12">Carregando...</div>
       ) : years.length === 0 ? (
         <div className="text-center py-16 text-[#5B5470]">
-          <div className="text-4xl mb-3">📅</div>
+          <div className="w-14 h-14 rounded-xl bg-[#EDE9FE] flex items-center justify-center mx-auto mb-3"><CalendarRange size={26} className="text-[#6D28D9]" /></div>
           <div>Nenhum ano letivo cadastrado</div>
         </div>
       ) : (

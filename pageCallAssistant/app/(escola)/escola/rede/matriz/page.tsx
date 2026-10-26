@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { STAGE_LABEL, SHIFT_LABEL, EduStage, EduShift } from "@/lib/escola/types";
+import { FolderTree, Check, X } from "lucide-react";
 
 interface Subject { id: string; name: string; color: string | null; }
 interface CurriculumItem { id: string; subjectId: string; stage: EduStage; gradeYear: number; shift: EduShift | null; weeklyHours: number; }
@@ -66,7 +67,7 @@ export default function MatrizPage() {
       {loading ? (
         <div className="text-[#5B5470] py-12 text-center">Carregando...</div>
       ) : subjects.length === 0 ? (
-        <div className="text-center py-16 text-[#5B5470]"><div className="text-4xl mb-3">🗂️</div><div>Cadastre componentes curriculares primeiro</div></div>
+        <div className="text-center py-16 text-[#5B5470]"><div className="w-14 h-14 rounded-xl bg-[#EDE9FE] flex items-center justify-center mx-auto mb-3"><FolderTree size={26} className="text-[#6D28D9]" /></div><div>Cadastre componentes curriculares primeiro</div></div>
       ) : (
         <div className="overflow-x-auto">
           <table className="w-full border-collapse text-sm">
@@ -98,8 +99,8 @@ export default function MatrizPage() {
                               onChange={e => setEditing(ed => ed ? {...ed, weeklyHours: +e.target.value} : ed)}
                               className="w-16 bg-[#FAF9FD] text-[#1F1A2E] text-center rounded px-1 py-1 text-xs border border-purple-500 outline-none" />
                             <div className="flex gap-1">
-                              <button disabled={saving} onClick={() => saveItem(subject.id, gradeYear, editing.weeklyHours)} className="text-[#166534] text-xs px-1 min-h-[28px]">✓</button>
-                              <button onClick={() => setEditing(null)} className="text-[#5B5470] text-xs px-1 min-h-[28px]">✕</button>
+                              <button disabled={saving} onClick={() => saveItem(subject.id, gradeYear, editing.weeklyHours)} className="text-[#166534] text-xs px-1 min-h-[28px] inline-flex items-center"><Check size={14} /></button>
+                              <button onClick={() => setEditing(null)} className="text-[#5B5470] text-xs px-1 min-h-[28px] inline-flex items-center"><X size={14} /></button>
                             </div>
                           </div>
                         ) : (

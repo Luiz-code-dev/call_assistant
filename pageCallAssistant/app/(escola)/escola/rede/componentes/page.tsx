@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { BookOpen } from "lucide-react";
 
 interface Subject { id: string; name: string; area: string | null; color: string | null; isActive: boolean; }
 
@@ -80,7 +81,7 @@ export default function ComponentesPage() {
       ) : (
         <div className="space-y-2">
           {subjects.length === 0 && (
-            <div className="text-center py-16 text-[#5B5470]"><div className="text-4xl mb-3">📚</div><div>Nenhum componente cadastrado</div></div>
+            <div className="text-center py-16 text-[#5B5470]"><div className="w-14 h-14 rounded-xl bg-[#EDE9FE] flex items-center justify-center mx-auto mb-3"><BookOpen size={26} className="text-[#6D28D9]" /></div><div>Nenhum componente cadastrado</div></div>
           )}
           {subjects.map(s => (
             <div key={s.id} className="bg-white border border-[#E9E5F5] rounded-xl p-4 flex items-center gap-4">

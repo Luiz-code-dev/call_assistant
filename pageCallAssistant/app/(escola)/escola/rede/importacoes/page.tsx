@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { Download, FileText, UploadCloud } from "lucide-react";
 
 type ImportKind = "escolas" | "servidores" | "alunos" | "atribuicoes";
 type BatchStatus = "UPLOADED" | "PREVIEW" | "PROCESSING" | "DONE" | "FAILED" | "CANCELLED";
@@ -88,15 +89,15 @@ export default function ImportacoesPage() {
         </div>
 
         <div className="flex flex-wrap gap-3 items-center mb-4">
-          <button onClick={downloadTemplate} className="text-purple-400 hover:text-purple-300 text-sm underline min-h-[44px] flex items-center transition-colors">⬇ Baixar modelo {KIND_LABEL[kind]}</button>
+          <button onClick={downloadTemplate} className="text-purple-400 hover:text-purple-300 text-sm underline min-h-[44px] flex items-center transition-colors"><Download size={14} className="mr-1" />Baixar modelo {KIND_LABEL[kind]}</button>
         </div>
 
         <div className="border-2 border-dashed border-[#DDD6EE] rounded-xl p-6 text-center mb-4 cursor-pointer hover:border-purple-600 transition-colors" onClick={() => fileRef.current?.click()}>
           <input ref={fileRef} type="file" accept=".csv,.xlsx,.xls" className="hidden" onChange={e => { setFile(e.target.files?.[0] ?? null); setPreview(null); setError(""); }} />
           {file ? (
-            <div className="text-[#1F1A2E]"><div className="text-2xl mb-1">📄</div><div className="font-medium">{file.name}</div><div className="text-[#5B5470] text-xs">{(file.size / 1024).toFixed(1)} KB</div></div>
+            <div className="text-[#1F1A2E]"><FileText size={24} className="mx-auto mb-1 text-[#6D28D9]" /><div className="font-medium">{file.name}</div><div className="text-[#5B5470] text-xs">{(file.size / 1024).toFixed(1)} KB</div></div>
           ) : (
-            <div className="text-[#5B5470]"><div className="text-3xl mb-2">📤</div><div>Clique ou arraste um arquivo CSV/XLSX</div><div className="text-xs mt-1">Máx. 20 MB</div></div>
+            <div className="text-[#5B5470]"><UploadCloud size={28} className="mx-auto mb-2 text-[#6D28D9]" /><div>Clique ou arraste um arquivo CSV/XLSX</div><div className="text-xs mt-1">Máx. 20 MB</div></div>
           )}
         </div>
 
@@ -165,7 +166,7 @@ export default function ImportacoesPage() {
                     className="text-xs text-[#166534] hover:text-green-300 min-h-[44px] flex items-center px-2 transition-colors">Confirmar</button>
                 )}
                 {b.status === "DONE" && b.failed > 0 && (
-                  <a href={`/api/escola/importacoes/${b.id}/relatorio`} className="text-xs text-[#5B5470] hover:text-[#3F3A4F] min-h-[44px] flex items-center px-2 transition-colors">⬇ Relatório</a>
+                  <a href={`/api/escola/importacoes/${b.id}/relatorio`} className="text-xs text-[#5B5470] hover:text-[#3F3A4F] min-h-[44px] flex items-center px-2 transition-colors"><Download size={13} className="mr-1" />Relatório</a>
                 )}
               </div>
             </div>
