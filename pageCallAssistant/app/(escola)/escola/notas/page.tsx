@@ -1,3 +1,13 @@
+import { redirect } from "next/navigation";
+import { isNotasEnabled } from "@/lib/escola/feature-flag";
+
+export default function NotasPage() {
+  if (!isNotasEnabled()) redirect("/escola/painel");
+  // TODO: restore full grade UI here when FEATURE_ESCOLAS_NOTAS=true
+  return null;
+}
+
+/*
 "use client";
 
 import { useEffect, useState } from "react";
@@ -160,3 +170,4 @@ export default function NotasPage() {
     </main>
   );
 }
+*/

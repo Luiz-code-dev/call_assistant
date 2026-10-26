@@ -1,18 +1,13 @@
+import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
-import { isEscolasEnabled } from "@/lib/escola/feature-flag";
+import { isEscolasEnabled, isNotasEnabled } from "@/lib/escola/feature-flag";
 
 interface Props {
   params: { code: string };
 }
 
 export default async function VerificarPage({ params }: Props) {
-  if (!isEscolasEnabled()) {
-    return (
-      <main className="min-h-screen bg-background flex items-center justify-center">
-        <p className="text-muted-foreground">Serviço indisponível.</p>
-      </main>
-    );
-  }
+  if (!isEscolasEnabled() || !isNotasEnabled()) redirect("/escola/painel");
 
   const closure = await db.eduTermClosure.findFirst({
     where: { verificationCode: params.code },

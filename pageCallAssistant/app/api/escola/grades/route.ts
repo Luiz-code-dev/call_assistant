@@ -2,11 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu } from "@/lib/escola/db";
 import { computeGradeHash, signHash } from "@/lib/escola/integrity";
-
-function flag() { return process.env.FEATURE_ESCOLAS === "true"; }
+import { isEscolasEnabled, isNotasEnabled } from "@/lib/escola/feature-flag";
 
 export async function GET(req: NextRequest) {
-  if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
+  if (!isEscolasEnabled() || !isNotasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
 

@@ -71,6 +71,7 @@ model User {
   eduMemberships       EduMembership[]
   eduPlatformAdmin      EduPlatformAdmin?
   eduAccountState       EduAccountState?
+  eduGuardian           EduGuardian?
 }
 
 model CreditTransaction {
@@ -1234,4 +1235,268 @@ model EduClassSession {
 
   @@index([code])
   @@index([networkId])
+}
+
+// ================================================================
+// FASE 1 — Habilidades BNCC
+// ================================================================
+
+model EduSkill {
+  id          String   @id @default(cuid())
+  code        String   @unique
+  subjectCode String
+  stage       String
+  gradeYears  Int[]
+  description String
+  shortLabel  String?
+  networkId   String?
+
+  activitySkills EduActivitySkill[]
+  diagnosticItems EduDiagnosticItem[]
+  masteries      EduSkillMastery[]
+  masteryEvents  EduSkillMasteryEvent[]
+  trackSkills    EduTrack[]             @relation("TrackSkills")
+
+  @@index([subjectCode, stage])
+  @@index([networkId])
+}
+
+model EduActivitySkill {
+  activityId String
+  skillId    String
+
+  skill EduSkill @relation(fields: [skillId], references: [id])
+
+  @@id([activityId, skillId])
+  @@index([skillId])
+}
+
+// ================================================================
+// FASE 2 — Diagnóstico e Domínio de Habilidade
+// ================================================================
+
+enum EduMasteryLevel {
+  NOT_YET
+  ALMOST
+  MASTERED
+}
+
+model EduDiagnostic {
+  id          String   @id @default(cuid())
+  networkId   String
+  subjectId   String
+  gradeYear   Int
+  title       String
+  cycle       Int      @default(1)
+  status      String   @default("DRAFT")
+  opensAt     DateTime?
+  closesAt    DateTime?
+  createdById String
+  createdAt   DateTime @default(now())
+
+  items EduDiagnosticItem[]
+
+  @@index([networkId, subjectId, gradeYear])
+  @@index([networkId, status])
+}
+
+model EduDiagnosticItem {
+  id           String @id @default(cuid())
+  diagnosticId String
+  skillId      String
+  order        Int
+  activityId   String
+
+  diagnostic EduDiagnostic @relation(fields: [diagnosticId], references: [id], onDelete: Cascade)
+  skill      EduSkill      @relation(fields: [skillId], references: [id])
+
+  @@index([diagnosticId])
+  @@index([skillId])
+}
+
+model EduSkillMastery {
+  id        String          @id @default(cuid())
+  networkId String
+  studentId String
+  skillId   String
+  level     EduMasteryLevel
+  source    String
+  updatedAt DateTime        @updatedAt
+
+  skill EduSkill @relation(fields: [skillId], references: [id])
+
+  @@unique([studentId, skillId])
+  @@index([networkId, skillId, level])
+}
+
+model EduSkillMasteryEvent {
+  id        String          @id @default(cuid())
+  networkId String
+  studentId String
+  skillId   String
+  level     EduMasteryLevel
+  source    String
+  createdAt DateTime        @default(now())
+
+  skill EduSkill @relation(fields: [skillId], references: [id])
+
+  @@index([studentId, skillId])
+  @@index([networkId, createdAt])
+}
+
+// ================================================================
+// FASE 3 — Trilhas de Reforço
+// ================================================================
+
+model EduTrack {
+  id           String @id @default(cuid())
+  networkId    String
+  subjectId    String
+  gradeYear    Int
+  title        String
+  skillIds     String[]
+  status       String @default("DRAFT")
+  createdById  String
+  approvedById String?
+  createdAt    DateTime @default(now())
+
+  items       EduTrackItem[]
+  assignments EduTrackAssignment[]
+  skills      EduSkill[]           @relation("TrackSkills")
+
+  @@index([networkId, subjectId, gradeYear])
+  @@index([networkId, status])
+}
+
+model EduTrackItem {
+  id         String @id @default(cuid())
+  trackId    String
+  order      Int
+  activityId String
+  estMinutes Int    @default(10)
+
+  track EduTrack @relation(fields: [trackId], references: [id], onDelete: Cascade)
+
+  @@index([trackId])
+}
+
+model EduTrackAssignment {
+  id         String   @id @default(cuid())
+  networkId  String
+  trackId    String
+  classId    String?
+  studentId  String?
+  assignedBy String
+  startsAt   DateTime @default(now())
+  dueAt      DateTime?
+
+  track    EduTrack           @relation(fields: [trackId], references: [id])
+  progress EduTrackProgress[]
+
+  @@index([networkId, classId])
+  @@index([networkId, studentId])
+}
+
+model EduTrackProgress {
+  id               String   @id @default(cuid())
+  networkId        String
+  assignmentId     String
+  studentId        String
+  completedItemIds String[]
+  lastActivityAt   DateTime?
+
+  assignment EduTrackAssignment @relation(fields: [assignmentId], references: [id])
+
+  @@unique([assignmentId, studentId])
+  @@index([studentId])
+}
+
+// ================================================================
+// FASE 5 — Pais e Responsáveis
+// ================================================================
+
+enum EduGuardianRelation {
+  MAE
+  PAI
+  AVO_AVO
+  TIO_TIA
+  TUTOR_LEGAL
+  OUTRO
+}
+
+model EduGuardian {
+  id        String   @id @default(cuid())
+  networkId String
+  userId    String?  @unique
+  name      String
+  email     String?
+  phone     String?
+  createdAt DateTime @default(now())
+
+  user    User?              @relation(fields: [userId], references: [id])
+  links   EduGuardianLink[]
+  invites EduGuardianInvite[]
+  consents EduGuardianConsent[]
+
+  @@index([networkId, email])
+  @@index([networkId, phone])
+}
+
+model EduGuardianLink {
+  id           String              @id @default(cuid())
+  networkId    String
+  guardianId   String
+  studentId    String
+  relation     EduGuardianRelation
+  isActive     Boolean             @default(true)
+  createdAt    DateTime            @default(now())
+  revokedAt    DateTime?
+  revokedById  String?
+  revokeReason String?
+
+  guardian EduGuardian @relation(fields: [guardianId], references: [id])
+
+  @@unique([guardianId, studentId])
+  @@index([networkId, studentId])
+  @@index([networkId, isActive])
+}
+
+model EduFamilyCode {
+  id              String   @id @default(cuid())
+  networkId       String
+  studentId       String   @unique
+  codeHash        String
+  activationsLeft Int      @default(3)
+  expiresAt       DateTime
+  createdAt       DateTime @default(now())
+
+  @@index([networkId])
+}
+
+model EduGuardianInvite {
+  id          String    @id @default(cuid())
+  networkId   String
+  guardianId  String
+  tokenHash   String    @unique
+  channel     String
+  expiresAt   DateTime
+  acceptedAt  DateTime?
+  createdById String
+
+  guardian EduGuardian @relation(fields: [guardianId], references: [id])
+
+  @@index([networkId])
+}
+
+model EduGuardianConsent {
+  id           String   @id @default(cuid())
+  guardianId   String
+  studentId    String
+  termsVersion String
+  acceptedAt   DateTime @default(now())
+  ip           String?
+
+  guardian EduGuardian @relation(fields: [guardianId], references: [id])
+
+  @@index([guardianId, studentId])
 }
