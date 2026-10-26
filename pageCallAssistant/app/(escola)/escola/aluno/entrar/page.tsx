@@ -141,7 +141,7 @@ export default function AlunoEntrarPage() {
     const data = await safeJson(r);
     setSubmitting(false);
     if (!r.ok) { setError(data.error ?? "Não foi possível entrar. Tente novamente."); setPin(""); setPicSequence([]); return; }
-    router.push("/escola/aluno/painel");
+    window.location.href = "/escola/aluno/painel";
   }
 
   async function loginManual() {
@@ -154,7 +154,7 @@ export default function AlunoEntrarPage() {
     const data = await safeJson(r);
     setSubmitting(false);
     if (!r.ok) { setError(data.error ?? "Matrícula ou PIN incorretos. Tente novamente."); setPin(""); return; }
-    router.push("/escola/aluno/painel");
+    window.location.href = "/escola/aluno/painel";
   }
 
   function resetManual() {
