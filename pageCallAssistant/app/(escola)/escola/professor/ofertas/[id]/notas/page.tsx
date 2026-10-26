@@ -1,7 +1,13 @@
-"use client";
-import { useEffect, useState, use } from "react";
-import { useSearchParams } from "next/navigation";
-import Link from "next/link";
+import { redirect } from "next/navigation";
+import { isNotasEnabled } from "@/lib/escola/feature-flag";
+import { NotasClient } from "./_NotasClient";
+
+export default function NotasPage({ params }: { params: Promise<{ id: string }> }) {
+  if (!isNotasEnabled()) redirect("/escola/professor");
+  return <NotasClient params={params} />;
+}
+
+/*
 
 interface Student { id: string; studentId: string; fullName: string; enrollmentCode: string; }
 interface Assessment { id: string; title: string; status: string; maxScore: string; }
@@ -190,3 +196,4 @@ export default function NotasPage({ params }: { params: Promise<{ id: string }> 
     </div>
   );
 }
+*/

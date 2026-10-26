@@ -1,14 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { db } from "@/lib/db";
-import { isEscolasEnabled } from "@/lib/escola/feature-flag";
+import { isEscolasEnabled, isNotasEnabled } from "@/lib/escola/feature-flag";
 import { getEduContext } from "@/lib/escola/context";
 import { can } from "@/lib/escola/permissions";
 
 const bodySchema = z.object({ assessmentId: z.string().min(1) });
 
 export async function POST(req: NextRequest) {
-  if (!isEscolasEnabled()) return NextResponse.json({ error: "Not found" }, { status: 404 });
+  if (!isEscolasEnabled() || !isNotasEnabled()) return NextResponse.json({ error: "Not found" }, { status: 404 });
 
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });

@@ -11,7 +11,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { prismaEdu } from "@/lib/escola/db";
-import { isEscolasEnabled } from "@/lib/escola/feature-flag";
+import { isEscolasEnabled, isNotasEnabled } from "@/lib/escola/feature-flag";
 import { evaluateActivity, ModerationError } from "@/lib/escola/ai-gateway";
 import { subjectToWhisperLang, stageToAgeGroup } from "@/lib/escola/subject-lang";
 
@@ -22,7 +22,7 @@ const MAX_ATTEMPTS = 3;
 const PENDING_THRESHOLD_MS = 30_000;
 
 export async function POST(req: NextRequest) {
-  if (!isEscolasEnabled()) return NextResponse.json({ ok: false }, { status: 403 });
+  if (!isEscolasEnabled() || !isNotasEnabled()) return NextResponse.json({ ok: false }, { status: 403 });
 
   const secret = process.env.CRON_SECRET;
   if (secret) {
