@@ -44,7 +44,7 @@ export default function EscolaEntrarPage() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Erro ao entrar");
-      router.push(data.redirect ?? "/escola/escolher-perfil");
+      window.location.href = data.redirect ?? "/escola/escolher-perfil";
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Erro inesperado");
     } finally {

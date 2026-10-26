@@ -43,7 +43,7 @@ export default function FamiliaEntrarPage() {
       });
       const data = await r.json();
       if (!r.ok) { setError(data.error ?? "Erro ao entrar"); setLoading(false); return; }
-      router.push("/escola/familia");
+      window.location.href = "/escola/familia";
     } catch {
       setError("Erro de conexão. Tente novamente.");
       setLoading(false);

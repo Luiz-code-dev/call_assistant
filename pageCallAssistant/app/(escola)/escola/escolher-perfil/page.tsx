@@ -31,9 +31,9 @@ export default function EscolaEscolherPerfilPage() {
       .then((r) => r.json())
       .then((d) => {
         if (d.memberships) setMemberships(d.memberships);
-        else router.push("/escola/entrar");
+        else window.location.href = "/escola/entrar";
       })
-      .catch(() => router.push("/escola/entrar"))
+      .catch(() => { window.location.href = "/escola/entrar"; })
       .finally(() => setLoading(false));
   }, [router]);
 
@@ -48,7 +48,7 @@ export default function EscolaEscolherPerfilPage() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Erro ao selecionar perfil");
-      router.push(data.redirect);
+      window.location.href = data.redirect;
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Erro inesperado");
       setChoosing(null);
