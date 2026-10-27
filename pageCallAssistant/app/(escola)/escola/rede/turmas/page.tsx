@@ -123,7 +123,7 @@ export default function TurmasRedePage() {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {filtered.map((c) => (
-              <div key={c.id} className="bg-white border border-[#E9E5F5] rounded-2xl p-4 hover:border-[#C4B5FD] transition-colors">
+              <Link key={c.id} href={`/escola/rede/turmas/${c.id}`} className="block bg-white border border-[#E9E5F5] rounded-2xl p-4 hover:border-[#C4B5FD] hover:shadow-sm transition-all">
                 <div className="flex items-start justify-between mb-2">
                   <div>
                     <div className="text-[#1F1A2E] font-semibold">{c.name}</div>
@@ -136,7 +136,7 @@ export default function TurmasRedePage() {
                   <div>Código: <span className="text-[#6D28D9] font-mono font-medium">{c.accessCode}</span></div>
                   {c._count && <div>{c._count.enrollments} alunos · {c._count.subjects} componentes</div>}
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}
