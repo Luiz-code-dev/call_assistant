@@ -1,50 +1,65 @@
-import { View, Text, Pressable, ScrollView, StyleSheet } from "react-native";
+import { useEffect, useState, useCallback } from "react";
+import { View, Text, Pressable, ScrollView, StyleSheet, ActivityIndicator } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { ChevronRight } from "lucide-react-native";
-import { colors, radius, masteryColor } from "@/lib/theme";
+import { router } from "expo-router";
+import { ArrowLeft, Clock } from "lucide-react-native";
+import { colors, radius, fonts } from "@/lib/theme";
+import { apiGet } from "@/lib/api";
 
-// Retornos para revisar (professor). Lista das ultimas entregas com o nivel
-// sugerido pela IA; o professor pode abrir e, se preciso, corrigir o nivel.
-const RETORNOS = [
-  { id: "1", aluno: "Ana Souza", hab: "Frações: parte de um todo", nivel: "MASTERED", quando: "há 2h" },
-  { id: "2", aluno: "Pedro Alves", hab: "Frações: parte de um todo", nivel: "NOT_YET", quando: "há 5h", travado: true },
-  { id: "3", aluno: "Bruno Lima", hab: "Números decimais", nivel: "ALMOST", quando: "ontem" },
-];
+interface Atividade { id: string; title?: string; nome?: string; subject?: { name?: string } | null; pendentes?: number; turma?: string | null }
 
-export default function Retornos() {
+export default function ProfessorRetornos() {
   const insets = useSafeAreaInsets();
+  const [lista, setLista] = useState<Atividade[] | null>(null);
+  const [erro, setErro] = useState(false);
+
+  const carregar = useCallback(async () => {
+    setErro(false);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const d = await apiGet<any>("/professor/atividades?revisar=1");
+    if (!d) { setErro(true); setLista([]); return; }
+    setLista(d.atividades ?? d.items ?? d.activities ?? []);
+  }, []);
+  useEffect(() => { carregar(); }, [carregar]);
+
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: colors.bg }} contentContainerStyle={{ padding: 20, paddingTop: insets.top + 12, paddingBottom: insets.bottom + 24, gap: 10 }}>
-      <Text style={styles.title}>Retornos para revisar</Text>
-      {RETORNOS.map((r) => {
-        const m = masteryColor[r.nivel as keyof typeof masteryColor];
-        return (
-          <Pressable key={r.id} style={styles.card}>
-            <View style={{ flex: 1 }}>
-              <View style={styles.row}>
-                <Text style={styles.aluno}>{r.aluno}</Text>
-                {r.travado && <Text style={styles.travado}>travado</Text>}
+    <View style={{ flex: 1, backgroundColor: colors.bg }}>
+      <View style={[styles.head, { paddingTop: insets.top + 8 }]}>
+        <Pressable onPress={() => router.back()} hitSlop={10}><ArrowLeft size={22} color={colors.text} /></Pressable>
+        <Text style={styles.headTitle}>Retornos para revisar</Text>
+      </View>
+      <ScrollView contentContainerStyle={{ padding: 16, paddingBottom: insets.bottom + 24, gap: 12 }}>
+        {lista === null && !erro ? <View style={styles.sk}><ActivityIndicator color={colors.action} /></View>
+          : erro ? <View style={styles.card}><Text style={styles.text}>Não foi possível carregar. Tente de novo.</Text><Pressable onPress={carregar} style={styles.retry}><Text style={styles.retryText}>Tentar de novo</Text></Pressable></View>
+          : (lista?.length ?? 0) === 0 ? <View style={styles.card}><Text style={styles.cardTitle}>Nada para revisar</Text><Text style={styles.text}>As entregas que precisam da sua revisão aparecem aqui.</Text></View>
+          : lista!.map((a) => (
+            <View key={a.id} style={styles.card}>
+              <View style={styles.rowBetween}>
+                <Text style={styles.title} numberOfLines={1}>{a.title ?? a.nome}</Text>
+                {a.pendentes ? <View style={styles.badge}><Clock size={12} color={colors.warn} /><Text style={styles.badgeText}>{a.pendentes}</Text></View> : null}
               </View>
-              <Text style={styles.hab}>{r.hab}</Text>
-              <Text style={styles.quando}>{r.quando}</Text>
+              <Text style={styles.textMuted}>{[a.subject?.name, a.turma].filter(Boolean).join(" · ")}</Text>
             </View>
-            <View style={[styles.nivel, { backgroundColor: m.bg }]}><Text style={[styles.nivelText, { color: m.fg }]}>{m.label}</Text></View>
-            <ChevronRight size={16} color={colors.textMuted} />
-          </Pressable>
-        );
-      })}
-    </ScrollView>
+          ))}
+        <Text style={styles.foot}>A revisão detalhada (ouvir áudio, mudar o nível) está disponível no navegador.</Text>
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  title: { fontSize: 20, fontWeight: "800", color: colors.text, marginBottom: 4 },
-  card: { flexDirection: "row", alignItems: "center", gap: 10, backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border, borderRadius: radius.card, padding: 14 },
-  row: { flexDirection: "row", alignItems: "center", gap: 8 },
-  aluno: { fontSize: 15, fontWeight: "700", color: colors.text },
-  travado: { fontSize: 11, fontWeight: "700", color: colors.danger, backgroundColor: colors.dangerSoft, paddingHorizontal: 8, paddingVertical: 2, borderRadius: radius.pill },
-  hab: { fontSize: 13, color: colors.textMuted, marginTop: 2 },
-  quando: { fontSize: 12, color: colors.textMuted, marginTop: 2 },
-  nivel: { borderRadius: radius.pill, paddingHorizontal: 10, paddingVertical: 4 },
-  nivelText: { fontSize: 12, fontWeight: "700" },
+  head: { flexDirection: "row", alignItems: "center", gap: 12, paddingHorizontal: 16, paddingBottom: 12, backgroundColor: colors.surface, borderBottomWidth: 1, borderBottomColor: colors.border },
+  headTitle: { fontSize: 16, fontWeight: "800", color: colors.text, fontFamily: fonts.bold },
+  sk: { height: 100, borderRadius: radius.cardLg, backgroundColor: colors.actionSoft, alignItems: "center", justifyContent: "center" },
+  card: { backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border, borderRadius: radius.card, padding: 16, gap: 4 },
+  cardTitle: { fontSize: 18, fontWeight: "800", color: colors.text, fontFamily: fonts.extrabold },
+  title: { flex: 1, fontSize: 15, fontWeight: "700", color: colors.text, fontFamily: fonts.bold },
+  text: { fontSize: 14, color: colors.textMuted, lineHeight: 20, fontFamily: fonts.regular },
+  textMuted: { fontSize: 13, color: colors.textMuted, fontFamily: fonts.regular },
+  rowBetween: { flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: 8 },
+  badge: { flexDirection: "row", alignItems: "center", gap: 4, backgroundColor: colors.warnSoft, borderRadius: radius.pill, paddingHorizontal: 8, paddingVertical: 2 },
+  badgeText: { fontSize: 12, fontWeight: "700", color: colors.warn, fontFamily: fonts.bold },
+  foot: { fontSize: 12, color: colors.textMuted, textAlign: "center", marginTop: 8, fontFamily: fonts.regular },
+  retry: { alignSelf: "flex-start", backgroundColor: colors.actionSoft, borderRadius: radius.input, paddingHorizontal: 16, paddingVertical: 10 },
+  retryText: { color: colors.action, fontWeight: "700", fontFamily: fonts.bold },
 });
