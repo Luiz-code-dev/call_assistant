@@ -37,6 +37,7 @@ export default function TurmaDetalhePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [manage, setManage] = useState<Student | null>(null);
+  const [addOpen, setAddOpen] = useState(false);
 
   const load = useCallback(async () => {
     setLoading(true); setError(false);
@@ -58,6 +59,12 @@ export default function TurmaDetalhePage() {
         breadcrumb={[{ label: "Rede", href: "/escola/rede" }, { label: "Turmas", href: "/escola/rede/turmas" }, { label: cls?.name ?? "Turma" }]}
         title={cls ? cls.name : "Turma"}
         subtitle={cls ? `${cls.schoolName} · ${STAGE_LABEL[cls.stage]} · ${cls.gradeYear}º ano · ${SHIFT_LABEL[cls.shift]} · ${cls.year} · código ${cls.accessCode}` : undefined}
+        action={
+          <div className="flex items-center gap-2">
+            <Link href="/escola/rede/importacoes?modelo=C" className="inline-flex items-center gap-2 border border-[#DDD6EE] hover:border-[#C4B5FD] text-[#5B5470] hover:text-[#1F1A2E] px-4 py-2.5 rounded-lg text-sm font-medium transition-colors min-h-[44px]">Importar alunos</Link>
+            <button onClick={() => setAddOpen(true)} className="inline-flex items-center gap-2 bg-[#6D28D9] hover:bg-[#5B21B6] text-white px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors min-h-[44px]"><UserPlus size={14} /> Adicionar aluno</button>
+          </div>
+        }
       />
 
       <div className="px-7 py-6 max-w-[1440px] mx-auto w-full">
@@ -136,6 +143,67 @@ export default function TurmaDetalhePage() {
       </div>
 
       {manage && <ResponsaveisModal student={manage} onClose={() => setManage(null)} onChanged={load} />}
+      {addOpen && <AddAlunoModal classId={id} onClose={() => setAddOpen(false)} onSaved={load} />}
+    </div>
+  );
+}
+
+function AddAlunoModal({ classId, onClose, onSaved }: { classId: string; onClose: () => void; onSaved: () => void }) {
+  const [form, setForm] = useState({ enrollmentCode: "", fullName: "", birthDate: "" });
+  const [saving, setSaving] = useState(false);
+  const [err, setErr] = useState("");
+  const [result, setResult] = useState<{ pin: string; code: string | null } | null>(null);
+
+  async function salvar(e: React.FormEvent) {
+    e.preventDefault(); setSaving(true); setErr("");
+    const pin = String(Math.floor(100000 + Math.random() * 900000));
+    const r = await fetch("/api/escola/alunos", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...form, classId, pin }),
+    });
+    const d = await r.json();
+    if (!r.ok) { setErr(d.error ?? "Erro ao salvar"); setSaving(false); return; }
+    let code: string | null = null;
+    try {
+      const cr = await fetch(`/api/escola/alunos/${d.student.id}/codigo-familia`, { method: "POST" });
+      if (cr.ok) code = (await cr.json()).code;
+    } catch { /* ignore */ }
+    setResult({ pin, code }); setSaving(false); onSaved();
+  }
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1F1A2E]/40">
+      <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-6">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-[15px] font-semibold text-[#1F1A2E]">Adicionar aluno</h2>
+          <button onClick={onClose} className="text-[#5B5470] hover:text-[#1F1A2E] p-1"><X size={18} /></button>
+        </div>
+        {result ? (
+          <div className="space-y-3">
+            <div className="flex items-center gap-2 text-[#166534] text-sm"><CheckCircle2 size={16} /> Aluno cadastrado nesta turma.</div>
+            <div className="bg-[#FAF9FD] border border-[#E9E5F5] rounded-xl p-4 space-y-2">
+              <div className="flex items-center justify-between"><span className="text-[13px] text-[#5B5470]">PIN do aluno</span><span className="font-mono text-[16px] tracking-widest text-[#1F1A2E]">{result.pin}</span></div>
+              {result.code && <div className="flex items-center justify-between"><span className="text-[13px] text-[#5B5470]">Código de família</span><span className="font-mono text-[16px] tracking-widest text-[#1F1A2E]">{result.code}</span></div>}
+            </div>
+            <p className="text-[11px] text-[#5B5470]">Anote e imprima no cartão de acesso. O PIN e o código só aparecem agora.</p>
+            <button onClick={onClose} className="w-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white px-4 py-2.5 rounded-lg text-sm font-semibold min-h-[44px]">Concluir</button>
+          </div>
+        ) : (
+          <form onSubmit={salvar} className="space-y-3">
+            <input className={inputCls} placeholder="Matrícula" value={form.enrollmentCode} onChange={(e) => setForm((f) => ({ ...f, enrollmentCode: e.target.value }))} required />
+            <input className={inputCls} placeholder="Nome completo" value={form.fullName} onChange={(e) => setForm((f) => ({ ...f, fullName: e.target.value }))} required />
+            <div>
+              <label className="text-[12px] text-[#5B5470] block mb-1">Data de nascimento</label>
+              <input className={inputCls} type="date" value={form.birthDate} onChange={(e) => setForm((f) => ({ ...f, birthDate: e.target.value }))} />
+            </div>
+            {err && <p className="text-[#B91C1C] text-[13px]">{err}</p>}
+            <div className="flex gap-3 pt-1">
+              <button type="button" onClick={onClose} className="flex-1 py-2.5 rounded-lg border border-[#DDD6EE] text-[#5B5470] hover:text-[#1F1A2E] min-h-[44px]">Cancelar</button>
+              <button type="submit" disabled={saving} className="flex-1 py-2.5 rounded-lg bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-semibold min-h-[44px] disabled:opacity-50">{saving ? "Salvando…" : "Salvar"}</button>
+            </div>
+          </form>
+        )}
+      </div>
     </div>
   );
 }
