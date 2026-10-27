@@ -10,6 +10,8 @@ import { prismaEdu } from "@/lib/escola/db";
 import bcrypt from "bcryptjs";
 import { SignJWT, jwtVerify } from "jose";
 import { studentSecret } from "@/lib/escola/secrets";
+import { STUDENT_COOKIE, DEVICE_COOKIE } from "@/lib/escola/cookies";
+import { readDeviceToken, addDeviceStudent, signDeviceToken, studentDisplayParts, DEVICE_MAX_AGE } from "@/lib/escola/device";
 
 function flag() { return isEscolasEnabled(); }
 
@@ -27,7 +29,7 @@ export async function POST(req: NextRequest) {
   const body = await req.json();
   const { mode, pin, pictureSequence } = body;
 
-  let student: { id: string; networkId: string; pinHash: string; pictureSecretHash: string | null; loginMode: string; pinFailedCount: number; pinLockedUntil: Date | null; isActive: boolean } | null = null;
+  let student: { id: string; networkId: string; fullName: string; pinHash: string; pictureSecretHash: string | null; loginMode: string; pinFailedCount: number; pinLockedUntil: Date | null; isActive: boolean } | null = null;
   let classId: string | null = null;
   let enrollmentId: string | null = null;
 
@@ -77,8 +79,28 @@ export async function POST(req: NextRequest) {
     } catch {
       return NextResponse.json({ error: "QR inválido" }, { status: 401 });
     }
+  } else if (mode === "dispositivo") {
+    // "Aparelho de casa": so permite alunos ja lembrados no cookie assinado.
+    const { studentId } = body;
+    if (!studentId) return NextResponse.json({ error: "Dados incompletos" }, { status: 400 });
+
+    const known = await readDeviceToken(req.cookies.get(DEVICE_COOKIE)?.value);
+    if (!known.some((s) => s.id === studentId)) {
+      return NextResponse.json({ error: "Este aparelho não reconhece o aluno. Entre por outra opção." }, { status: 403 });
+    }
+
+    const s = await prismaEdu.eduStudent.findUnique({ where: { id: studentId } });
+    if (!s || !s.isActive) return NextResponse.json({ error: "Aluno não encontrado" }, { status: 404 });
+
+    const enrollment = await prismaEdu.eduEnrollment.findFirst({ where: { studentId: s.id, status: "ACTIVE" }, orderBy: { startedAt: "desc" } });
+    if (!enrollment) return NextResponse.json({ error: "Aluno sem turma ativa" }, { status: 403 });
+
+    student = s;
+    classId = enrollment.classId;
+    enrollmentId = enrollment.id;
+
   } else {
-    return NextResponse.json({ error: "Modo inválido. Use: aula, manual, qr" }, { status: 400 });
+    return NextResponse.json({ error: "Modo inválido. Use: aula, manual, qr, dispositivo" }, { status: 400 });
   }
 
   if (!student) return NextResponse.json({ error: "Aluno não encontrado" }, { status: 404 });
@@ -114,6 +136,18 @@ export async function POST(req: NextRequest) {
 
   const token = await issueStudentToken(student, classId!, enrollmentId!);
   const res = NextResponse.json({ ok: true, redirect: "/escola/aluno/painel" });
-  res.cookies.set("sf_edu_student", token, { httpOnly: true, sameSite: "lax", path: "/", maxAge: 15 * 3600 });
+  res.cookies.set(STUDENT_COOKIE, token, { httpOnly: true, sameSite: "lax", path: "/", maxAge: 15 * 3600 });
+
+  // "Este aparelho é de casa": lembrar o aluno (nunca no modo sala/aula).
+  const remember = mode === "dispositivo" || (mode === "manual" && body.rememberDevice === true);
+  if (remember) {
+    const { name, initial } = studentDisplayParts(student.fullName);
+    const current = await readDeviceToken(req.cookies.get(DEVICE_COOKIE)?.value);
+    const next = addDeviceStudent(current, { id: student.id, name, initial, loginMode: student.loginMode });
+    res.cookies.set(DEVICE_COOKIE, await signDeviceToken(next), {
+      httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", path: "/", maxAge: DEVICE_MAX_AGE,
+    });
+  }
+
   return res;
 }

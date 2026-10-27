@@ -30,7 +30,7 @@ trigger: always_on
 
 ## 4. Sessão e segredos (já corrigido, não regredir)
 - Segredos só por `lib/escola/secrets.ts` (`staffSecret()`, `studentSecret()`, família `EDU_FAMILY_JWT_SECRET`). Token da equipe só por `lib/escola/staff-session.ts`.
-- Cookies: equipe `sf_edu_ctx`, aluno `sf_student_ctx`, família `sf_family_ctx`. Layout `app/(escola)/escola/layout.tsx` usa `getEduContext()`.
+- Cookies (fonte única `lib/escola/cookies.ts`): equipe `sf_edu_ctx`, aluno `sf_edu_student`, família `sf_family_ctx`, escolha de perfil `sf_edu_pending_uid`, aparelho de casa `sf_edu_device`. Layout `app/(escola)/escola/layout.tsx` usa `getEduContext()`.
 - `rotaDoPapel()` em `lib/escola/context.ts` define a página inicial de cada perfil.
 
 ## 5. Visual (obrigatório em TODA página da Área Escolar)

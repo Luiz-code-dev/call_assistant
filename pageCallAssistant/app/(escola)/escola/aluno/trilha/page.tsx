@@ -109,7 +109,9 @@ export default function MinhaTrilhaPage() {
       </div>
 
       <div className="mt-8 pb-8 text-center">
-        <Link href="/escola/aluno/entrar" className="text-[#5B5470] text-xs underline">Sair</Link>
+        <form method="POST" action="/api/escola/aluno/sair">
+          <button type="submit" className="text-[#5B5470] text-xs underline">Sair</button>
+        </form>
       </div>
     </div>
   );

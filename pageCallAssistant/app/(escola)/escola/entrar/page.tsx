@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { MessageSquare } from "lucide-react";
 
@@ -25,12 +25,15 @@ const INPUT_STYLE: React.CSSProperties = {
   fontFamily: "inherit",
 };
 
-export default function EscolaEntrarPage() {
+function EscolaEntrarInner() {
   const router = useRouter();
+  const sp = useSearchParams();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const aviso = sp.get("expirou") ? "Sua sessão expirou. Entre de novo." : sp.get("saiu") ? "Você saiu." : "";
 
   async function handleStaffLogin(e: React.FormEvent) {
     e.preventDefault();
@@ -138,6 +141,12 @@ export default function EscolaEntrarPage() {
             Use o e-mail cadastrado pela Secretaria de Educação.
           </p>
 
+          {aviso && (
+            <div style={{ background: "#EDE9FE", border: "1px solid #DDD6EE", borderRadius: 10, padding: "12px 16px", marginBottom: 20, fontSize: 14, color: "#4C1D95", textAlign: "center" }}>
+              {aviso}
+            </div>
+          )}
+
           {error && (
             <div style={{ background: "#FEE2E2", border: "1px solid #FECACA", borderRadius: 10, padding: "12px 16px", marginBottom: 20, fontSize: 14, color: "#B91C1C" }}>
               {error}
@@ -219,5 +228,13 @@ export default function EscolaEntrarPage() {
         }
       `}</style>
     </div>
+  );
+}
+
+export default function EscolaEntrarPage() {
+  return (
+    <Suspense fallback={null}>
+      <EscolaEntrarInner />
+    </Suspense>
   );
 }

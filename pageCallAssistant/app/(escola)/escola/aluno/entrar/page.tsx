@@ -1,14 +1,15 @@
 "use client";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { QrCode, Monitor, ListOrdered, MessageSquare, Delete } from "lucide-react";
+import { QrCode, Monitor, ListOrdered, MessageSquare, Delete, Home, Trash2 } from "lucide-react";
 
-type LoginMode = "select" | "qr" | "aula" | "manual";
+type LoginMode = "select" | "qr" | "aula" | "manual" | "device";
 type ManualStep = "turma" | "matricula" | "pin";
 
 interface StudentItem { id: string; display: string; loginMode: string; }
 interface SessionData { sessionId: string; classId: string; className: string; students: StudentItem[]; }
+interface DeviceStudent { id: string; name: string; initial: string; loginMode: string; }
 
 const PICTURES = [
   { id: "sun",    emoji: "☀️",  label: "Sol" },
@@ -85,10 +86,13 @@ function AlphaNumPad({ onPress, onDelete, onClear }: { onPress: (c: string) => v
   );
 }
 
-export default function AlunoEntrarPage() {
+function AlunoEntrarInner() {
   const router = useRouter();
+  const sp = useSearchParams();
   const [mode, setMode] = useState<LoginMode>("select");
   const [error, setError] = useState("");
+
+  const aviso = sp.get("expirou") ? "Sua sessão expirou. Entre de novo." : sp.get("saiu") ? "Você saiu." : "";
 
   // Aula mode
   const [aulaCode, setAulaCode] = useState("");
@@ -105,9 +109,53 @@ export default function AlunoEntrarPage() {
   const [manualStep, setManualStep] = useState<ManualStep>("turma");
   const [turmaCode, setTurmaCode] = useState("");
   const [enrollmentCode, setEnrollmentCode] = useState("");
+  const [rememberDevice, setRememberDevice] = useState(false);
+
+  // "Aparelho de casa" (Etapa 3): quem já praticou neste aparelho
+  const [deviceChecked, setDeviceChecked] = useState(false);
+  const [deviceStudents, setDeviceStudents] = useState<DeviceStudent[]>([]);
+  const [deviceSelected, setDeviceSelected] = useState<DeviceStudent | null>(null);
 
   async function safeJson(r: Response) {
     try { return await r.json(); } catch { return {}; }
+  }
+
+  // Ao abrir: se este aparelho lembra alunos, abre "Quem vai praticar agora?"
+  useEffect(() => {
+    let active = true;
+    (async () => {
+      try {
+        const r = await fetch("/api/escola/aluno/dispositivo");
+        const data = await r.json().catch(() => ({}));
+        if (active && Array.isArray(data.students) && data.students.length > 0) {
+          setDeviceStudents(data.students);
+          setMode("device");
+        }
+      } catch { /* sem aparelho lembrado */ }
+      finally { if (active) setDeviceChecked(true); }
+    })();
+    return () => { active = false; };
+  }, []);
+
+  async function loginDevice() {
+    if (!deviceSelected) return;
+    const isPicture = deviceSelected.loginMode === "PICTURE";
+    if (isPicture ? picSequence.length !== 3 : pin.length < 4) { setError(isPicture ? "Selecione 3 figuras" : "Digite seu PIN"); return; }
+    setSubmitting(true); setError("");
+    const r = await fetch("/api/escola/aluno/entrar", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ mode: "dispositivo", studentId: deviceSelected.id, pin: isPicture ? undefined : pin, pictureSequence: isPicture ? picSequence : undefined }),
+    });
+    const data = await safeJson(r);
+    setSubmitting(false);
+    if (!r.ok) { setError(data.error ?? "Não foi possível entrar. Tente novamente."); setPin(""); setPicSequence([]); return; }
+    window.location.href = "/escola/aluno/painel";
+  }
+
+  async function forgetDevice() {
+    try { await fetch("/api/escola/aluno/dispositivo", { method: "DELETE" }); } catch { /* noop */ }
+    setDeviceStudents([]); setDeviceSelected(null); setPin(""); setPicSequence([]); setError("");
+    setMode("select");
   }
 
   // Load saved turma from sessionStorage (teacher sets once per day)
@@ -149,7 +197,7 @@ export default function AlunoEntrarPage() {
     setSubmitting(true); setError("");
     const r = await fetch("/api/escola/aluno/entrar", {
       method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ mode: "manual", accessCode: turmaCode, enrollmentCode, pin }),
+      body: JSON.stringify({ mode: "manual", accessCode: turmaCode, enrollmentCode, pin, rememberDevice }),
     });
     const data = await safeJson(r);
     setSubmitting(false);
@@ -177,6 +225,118 @@ export default function AlunoEntrarPage() {
   // PIN display: dots
   const pinDisplay = Array(6).fill("").map((_, i) => i < pin.length ? "●" : "○").join(" ");
 
+  // Enquanto verifica se o aparelho lembra alunos, evita piscar a tela.
+  if (!deviceChecked) return (
+    <div style={{ ...SCREEN, justifyContent: "center" }}>
+      <p style={{ color: "#5B5470", fontSize: 15 }}>Carregando…</p>
+    </div>
+  );
+
+  // ── "Quem vai praticar agora?" — aparelho de casa ─────────────────────────
+  if (mode === "device") {
+    // Aluno escolhido: PIN ou figuras
+    if (deviceSelected) {
+      const isPicture = deviceSelected.loginMode === "PICTURE";
+      const dots = Array(6).fill("").map((_, i) => (
+        <div key={i} style={{ width: 18, height: 18, borderRadius: "50%", background: i < pin.length ? "#6D28D9" : "#DDD6EE" }} />
+      ));
+      return (
+        <div style={{ ...SCREEN, padding: "24px 16px 32px" }}>
+          <div style={{ width: "100%", maxWidth: 400 }}>
+            <button onClick={() => { setDeviceSelected(null); setPin(""); setPicSequence([]); setError(""); }} style={BACK_BTN}>← Voltar</button>
+            <div style={{ textAlign: "center", margin: "16px 0 24px" }}>
+              <div style={{ width: 72, height: 72, background: "#EDE9FE", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px", fontSize: 26, fontWeight: 800, color: "#6D28D9" }}>
+                {deviceSelected.name[0]?.toUpperCase()}{deviceSelected.initial}
+              </div>
+              <h2 style={{ margin: "0 0 4px", fontSize: 22, fontWeight: 800, color: "#1F1A2E" }}>{deviceSelected.name}{deviceSelected.initial ? ` ${deviceSelected.initial}.` : ""}</h2>
+              <p style={{ margin: 0, fontSize: 14, color: "#5B5470" }}>{isPicture ? "Selecione suas 3 figuras na ordem" : "Digite seu PIN"}</p>
+            </div>
+            {isPicture ? (
+              <>
+                <div style={{ display: "flex", justifyContent: "center", gap: 12, marginBottom: 24 }}>
+                  {Array(3).fill("").map((_, i) => {
+                    const pic = PICTURES.find(p => p.id === picSequence[i]);
+                    return (
+                      <div key={i} style={{ width: 64, height: 64, borderRadius: 14, border: `2px solid ${pic ? "#6D28D9" : "#DDD6EE"}`, background: pic ? "#EDE9FE" : "#F8F7FC", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 28 }}>
+                        {pic?.emoji ?? "?"}
+                      </div>
+                    );
+                  })}
+                </div>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12, marginBottom: 16 }}>
+                  {PICTURES.map(p => (
+                    <button key={p.id} onClick={() => { if (picSequence.length < 3) setPicSequence(seq => [...seq, p.id]); }} disabled={picSequence.length >= 3}
+                      style={{ height: 76, borderRadius: 14, border: "1.5px solid #E9E5F5", background: "#FFFFFF", fontSize: 32, cursor: picSequence.length >= 3 ? "not-allowed" : "pointer", opacity: picSequence.length >= 3 ? 0.4 : 1 }}>
+                      {p.emoji}
+                    </button>
+                  ))}
+                </div>
+                <button onClick={() => setPicSequence([])} style={{ ...BACK_BTN, margin: "0 auto" }}>Limpar</button>
+              </>
+            ) : (
+              <>
+                <div style={{ display: "flex", justifyContent: "center", gap: 10, marginBottom: 24 }}>{dots}</div>
+                <NumPad onPress={d => { if (pin.length < 6) setPin(p => p + d); }} onDelete={() => setPin(p => p.slice(0, -1))} />
+              </>
+            )}
+            {error && <p style={{ color: "#B91C1C", fontSize: 14, textAlign: "center", marginTop: 16 }}>{error}</p>}
+            <button onClick={loginDevice} disabled={submitting || (isPicture ? picSequence.length !== 3 : pin.length < 4)}
+              style={{ width: "100%", height: 56, marginTop: 20, background: "#6D28D9", color: "#FFFFFF", border: "none", borderRadius: 14, fontSize: 17, fontWeight: 800, cursor: "pointer", opacity: (submitting || (isPicture ? picSequence.length !== 3 : pin.length < 4)) ? 0.5 : 1, fontFamily: "inherit" }}>
+              {submitting ? "Verificando..." : "Entrar"}
+            </button>
+          </div>
+        </div>
+      );
+    }
+    // Lista de avatares
+    return (
+      <div style={{ minHeight: "100vh", background: "#F8F7FC", display: "flex", flexDirection: "column" }}>
+        <header style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "20px 32px", background: "#FFFFFF", borderBottom: "1px solid #E9E5F5" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <div style={{ width: 32, height: 32, background: "#6D28D9", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+              <MessageSquare size={16} color="#FFFFFF" strokeWidth={2} />
+            </div>
+            <span style={{ fontWeight: 800, fontSize: 17, color: "#1F1A2E" }}>SpeakFlow <span style={{ color: "#6D28D9" }}>Escolas</span></span>
+          </div>
+          <Link href="/escola/entrar" style={{ fontSize: 14, fontWeight: 600, color: "#6D28D9", textDecoration: "none" }}>Sou da equipe escolar</Link>
+        </header>
+        <main style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px 24px 24px" }}>
+          {aviso && (
+            <div style={{ background: "#EDE9FE", border: "1px solid #DDD6EE", borderRadius: 12, padding: "12px 20px", marginBottom: 28, fontSize: 15, fontWeight: 600, color: "#4C1D95", textAlign: "center" }}>{aviso}</div>
+          )}
+          <div style={{ width: 56, height: 56, background: "#EDE9FE", borderRadius: 16, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
+            <Home size={28} color="#6D28D9" strokeWidth={1.8} />
+          </div>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#3B0764", textAlign: "center", margin: "0 0 8px" }}>Quem vai praticar agora?</h1>
+          <p style={{ fontSize: 15, color: "#5B5470", textAlign: "center", margin: "0 0 8px" }}>Toque no seu nome para entrar.</p>
+
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 16, justifyContent: "center", marginTop: 20, maxWidth: 580 }}>
+            {deviceStudents.map(s => (
+              <button key={s.id} onClick={() => { setDeviceSelected(s); setPin(""); setPicSequence([]); setError(""); }}
+                style={{ background: "#FFFFFF", border: "1.5px solid #E9E5F5", borderRadius: 20, padding: "24px 20px", display: "flex", flexDirection: "column", alignItems: "center", gap: 12, cursor: "pointer", minWidth: 150 }}>
+                <div style={{ width: 72, height: 72, borderRadius: "50%", background: "#EDE9FE", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 28, fontWeight: 800, color: "#6D28D9" }}>
+                  {s.name[0]?.toUpperCase()}{s.initial}
+                </div>
+                <span style={{ fontSize: 17, fontWeight: 700, color: "#1F1A2E" }}>{s.name}{s.initial ? ` ${s.initial}.` : ""}</span>
+              </button>
+            ))}
+          </div>
+
+          <div style={{ display: "flex", gap: 16, marginTop: 40, flexWrap: "wrap", justifyContent: "center" }}>
+            <button onClick={() => { setMode("select"); setError(""); }}
+              style={{ height: 48, padding: "0 24px", borderRadius: 12, border: "1.5px solid #DDD6EE", background: "#FFFFFF", color: "#6D28D9", fontWeight: 700, fontSize: 15, cursor: "pointer", fontFamily: "inherit" }}>
+              Outro aluno
+            </button>
+            <button onClick={forgetDevice}
+              style={{ height: 48, padding: "0 20px", borderRadius: 12, border: "none", background: "transparent", color: "#5B5470", fontWeight: 600, fontSize: 14, cursor: "pointer", display: "flex", alignItems: "center", gap: 8, fontFamily: "inherit" }}>
+              <Trash2 size={16} color="#5B5470" /> Esquecer este aparelho
+            </button>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
   // Select mode screen
   if (mode === "select") return (
     <div style={{ minHeight: "100vh", background: "#F8F7FC", display: "flex", flexDirection: "column" }}>
@@ -197,6 +357,11 @@ export default function AlunoEntrarPage() {
 
       {/* Content */}
       <main style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px 24px 24px" }}>
+        {aviso && (
+          <div style={{ background: "#EDE9FE", border: "1px solid #DDD6EE", borderRadius: 12, padding: "12px 20px", marginBottom: 28, fontSize: 15, fontWeight: 600, color: "#4C1D95", textAlign: "center" }}>
+            {aviso}
+          </div>
+        )}
         <h1 style={{ fontSize: 36, fontWeight: 800, color: "#3B0764", textAlign: "center", margin: "0 0 12px" }}>
           Olá! Como você quer entrar?
         </h1>
@@ -529,13 +694,28 @@ export default function AlunoEntrarPage() {
 
         {error && <p style={{ color: "#B91C1C", fontSize: 14, textAlign: "center", marginTop: 12 }}>{error}</p>}
 
+        <label style={{ display: "flex", alignItems: "flex-start", gap: 10, marginTop: 20, padding: "12px 14px", borderRadius: 12, border: "1.5px solid #E9E5F5", background: "#FFFFFF", cursor: "pointer" }}>
+          <input type="checkbox" checked={rememberDevice} onChange={e => setRememberDevice(e.target.checked)} style={{ width: 20, height: 20, marginTop: 1, accentColor: "#6D28D9", cursor: "pointer" }} />
+          <span style={{ fontSize: 13, color: "#5B5470", lineHeight: 1.4 }}>
+            <strong style={{ color: "#1F1A2E", fontWeight: 700 }}>Este aparelho é de casa.</strong> Lembrar quem pratica aqui para entrar mais rápido. Não marque em tablets da escola.
+          </span>
+        </label>
+
         <button
           onClick={loginManual}
           disabled={submitting || pin.length < 4}
-          style={{ width: "100%", height: 56, marginTop: 20, background: pin.length >= 4 ? "#6D28D9" : "#C4B5FD", color: "#FFFFFF", border: "none", borderRadius: 14, fontSize: 17, fontWeight: 800, cursor: pin.length >= 4 ? "pointer" : "not-allowed", fontFamily: "inherit" }}>
+          style={{ width: "100%", height: 56, marginTop: 16, background: pin.length >= 4 ? "#6D28D9" : "#C4B5FD", color: "#FFFFFF", border: "none", borderRadius: 14, fontSize: 17, fontWeight: 800, cursor: pin.length >= 4 ? "pointer" : "not-allowed", fontFamily: "inherit" }}>
           {submitting ? "Verificando..." : "Entrar"}
         </button>
       </div>
     </div>
+  );
+}
+
+export default function AlunoEntrarPage() {
+  return (
+    <Suspense fallback={null}>
+      <AlunoEntrarInner />
+    </Suspense>
   );
 }
