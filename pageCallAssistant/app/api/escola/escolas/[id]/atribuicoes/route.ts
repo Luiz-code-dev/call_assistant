@@ -18,13 +18,17 @@ export async function GET(_: NextRequest, { params }: { params: { id: string } }
   const currentYear = await prismaEdu.eduSchoolYear.findFirst({ where: { networkId: ctx.networkId, isCurrent: true } });
   if (!currentYear) return NextResponse.json({ classes: [], subjects: [], teachers: [] });
 
-  const classes = await prismaEdu.eduClass.findMany({
+  // EduClassSubject não tem relação declarada com EduSubject no schema — buscamos sem include de subject.
+  const classesRaw = await prismaEdu.eduClass.findMany({
     where: { networkId: ctx.networkId, schoolId: params.id, schoolYearId: currentYear.id, isActive: true },
-    include: {
+    select: {
+      id: true,
+      name: true,
+      stage: true,
+      gradeYear: true,
+      shift: true,
       subjects: {
-        include: {
-          subject: { select: { id: true, name: true, color: true } },
-        },
+        select: { id: true, subjectId: true, teacherId: true },
       },
     },
     orderBy: [{ stage: "asc" }, { gradeYear: "asc" }, { name: "asc" }],
@@ -32,16 +36,38 @@ export async function GET(_: NextRequest, { params }: { params: { id: string } }
 
   const teachers = await prismaEdu.eduMembership.findMany({
     where: { networkId: ctx.networkId, schoolId: params.id, role: "TEACHER", isActive: true },
-    include: { user: { select: { id: true, name: true, email: true } } },
+    select: { user: { select: { id: true, name: true, email: true } } },
     orderBy: { user: { name: "asc" } },
   });
 
   const subjects = await prismaEdu.eduSubject.findMany({
     where: { networkId: ctx.networkId, isActive: true },
+    select: { id: true, name: true, color: true },
     orderBy: { name: "asc" },
   });
 
-  return NextResponse.json({ classes, subjects, teachers: teachers.map((t: { user: { id: string; name: string; email: string } }) => t.user), schoolYear: currentYear });
+  // Mapeia subjectId → subject para enriquecer as ofertas da turma
+  const subjectMap: Record<string, { id: string; name: string; color: string | null }> = Object.fromEntries(
+    subjects.map((s: { id: string; name: string; color: string | null }) => [s.id, s])
+  );
+
+  const classes = classesRaw.map((cls: {
+    id: string; name: string; stage: string; gradeYear: number; shift: string;
+    subjects: { id: string; subjectId: string; teacherId: string | null }[];
+  }) => ({
+    ...cls,
+    subjects: cls.subjects.map(o => ({
+      ...o,
+      subject: subjectMap[o.subjectId] ?? { id: o.subjectId, name: "Componente", color: null },
+    })),
+  }));
+
+  return NextResponse.json({
+    classes,
+    subjects,
+    teachers: teachers.map((t: { user: { id: string; name: string; email: string } }) => t.user),
+    schoolYear: currentYear,
+  });
 }
 
 export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
