@@ -1,11 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
+import { bearerToken } from "@/lib/escola/app-auth";
+import { verifyPendingStaffToken } from "@/lib/escola/staff-session";
 
 export async function GET(req: NextRequest) {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Not found" }, { status: 404 });
 
-  const pendingUid = req.cookies.get("sf_edu_pending_uid")?.value;
+  // App: token pendente no Bearer. Web: cookie de escolha pendente.
+  const bearer = bearerToken();
+  const pendingUid = bearer ? await verifyPendingStaffToken(bearer) : req.cookies.get("sf_edu_pending_uid")?.value;
   if (!pendingUid) {
     return NextResponse.json({ error: "Sessão expirada. Faça login novamente." }, { status: 401 });
   }

@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 import { db } from "@/lib/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { rotaDoPapel } from "@/lib/escola/context";
-import { signStaffToken, staffCookieOptions, STAFF_SESSION_SECONDS } from "@/lib/escola/staff-session";
+import { signStaffToken, signPendingStaffToken, staffCookieOptions, STAFF_SESSION_SECONDS } from "@/lib/escola/staff-session";
 import { isAppClient, APP_STAFF_SECONDS } from "@/lib/escola/app-auth";
 
 const bodySchema = z.object({
@@ -93,8 +93,10 @@ export async function POST(req: NextRequest) {
     return res;
   }
 
-  // Múltiplos — escolher perfil
-  const res = NextResponse.json({ ok: true, redirect: "/escola/escolher-perfil" });
+  // Múltiplos — escolher perfil. No app, devolve um token pendente curto
+  // (sem cookie confiavel no RN) para o fluxo GET memberships + POST escolher-perfil.
+  const pending = appClient ? await signPendingStaffToken(user.id) : undefined;
+  const res = NextResponse.json({ ok: true, redirect: "/escola/escolher-perfil", ...(appClient ? { needsProfile: true, pending } : {}) });
   res.cookies.set("sf_edu_pending_uid", user.id, {
     httpOnly: true, secure: process.env.NODE_ENV === "production",
     sameSite: "lax", maxAge: 60 * 5, path: "/",

@@ -17,11 +17,13 @@ import { jwtVerify, type JWTPayload } from "jose";
 export const APP_CLIENT = "speakflow-escolas-app";
 export type EduAudience = "staff" | "student" | "family";
 
-// TODO(2026-11-27): remover a tolerancia a tokens sem `aud`. Todo token novo
-// (web e app) ja e emitido com `aud`; apos 30 dias do deploy nao deve restar
-// nenhum cookie legado sem `aud`. O teste em app-auth.test.ts falha depois
-// desta data para forcar a limpeza.
-export const AUD_LEGACY_UNTIL = new Date("2026-11-27T00:00:00Z");
+// TODO(2027-02-01): remover a tolerancia a tokens sem `aud`. A janela cobre o
+// MAIOR tempo de vida de token ja emitido antes do deploy: a familia usava 90
+// dias (login/ativar/convite). Um corte menor derrubaria familias logadas ate
+// ~2 meses antes do vencimento natural do cookie delas. Depois desta data,
+// todo cookie legado ja expirou; o teste em app-auth.test.ts falha para forcar
+// a limpeza. (Deploy ~2026-10-27 + 90d + folga.)
+export const AUD_LEGACY_UNTIL = new Date("2027-02-01T00:00:00Z");
 
 // Duracoes da sessao no app (o ESPEC pede: equipe/familia 30 dias; aluno 15 h,
 // ou 30 dias quando "Este aparelho e de casa").
