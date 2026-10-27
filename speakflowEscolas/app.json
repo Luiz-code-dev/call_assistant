@@ -1,0 +1,82 @@
+{
+  "expo": {
+    "name": "SpeakFlow Escolas",
+    "slug": "speakflow-escolas",
+    "version": "1.0.0",
+    "orientation": "default",
+    "icon": "./assets/icon.png",
+    "scheme": "speakflowescolas",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": false,
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#F8F7FC"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "br.com.speakflow.escolas",
+      "buildNumber": "1",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSMicrophoneUsageDescription": "O SpeakFlow Escolas usa o microfone para você gravar suas respostas nas atividades de fala.",
+        "NSCameraUsageDescription": "O SpeakFlow Escolas usa a câmera para ler o QR code do seu cartão de acesso."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#6D28D9"
+      },
+      "package": "br.com.speakflow.escolas",
+      "versionCode": 1,
+      "permissions": [
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.CAMERA"
+      ],
+      "blockedPermissions": [
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ],
+      "allowBackup": false
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-av",
+        {
+          "microphonePermission": "O SpeakFlow Escolas usa o microfone para você gravar suas respostas nas atividades de fala."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "O SpeakFlow Escolas usa a câmera para ler o QR code do seu cartão de acesso."
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "targetSdkVersion": 36,
+            "compileSdkVersion": 36
+          }
+        }
+      ]
+    ],
+    "experiments": { "typedRoutes": true },
+    "extra": {
+      "router": {},
+      "eas": { "projectId": "REPLACE_WITH_NEW_ESCOLAS_EAS_PROJECT_ID" },
+      "apiBaseUrl": "https://www.speakflow.ia.br"
+    },
+    "owner": "codevelopsolutions"
+  }
+}
