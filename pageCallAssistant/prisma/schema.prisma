@@ -1219,6 +1219,8 @@ model EduSubmission {
   quizAnswers  Json?
   aiScore      Decimal?            @db.Decimal(5, 2)
   aiFeedback   Json?
+  masteryLevel EduMasteryLevel?
+  skillId      String?
   teacherScore Decimal?            @db.Decimal(5, 2)
   teacherNote  String?             @db.Text
   aiStatus     EduAiStatus?

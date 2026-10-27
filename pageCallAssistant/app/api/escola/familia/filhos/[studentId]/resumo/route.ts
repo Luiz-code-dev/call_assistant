@@ -43,33 +43,51 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
     const enr = student.enrollments[0];
     const cls = enr?.class;
 
-    // ── Esta semana ──
+    // ── Esta semana ── (segunda..domingo, America/Sao_Paulo; exclui IN_PROGRESS)
     const weekStart = weekStartSaoPaulo();
+    const weekEnd = new Date(weekStart.getTime() + 7 * 86400000);
     const subsWeek = await (prismaEdu as any).eduSubmission.findMany({
-      where: { studentId, submittedAt: { gte: weekStart }, status: { in: ["SUBMITTED", "EVALUATED"] } },
-      select: { submittedAt: true },
+      where: { studentId, submittedAt: { gte: weekStart, lt: weekEnd }, status: { not: "IN_PROGRESS" } },
+      select: { submittedAt: true, activityId: true },
     });
     const dias = [false, false, false, false, false, false, false];
-    for (const s of subsWeek) if (s.submittedAt) dias[dayIndexSaoPaulo(new Date(s.submittedAt))] = true;
-    const atividades = subsWeek.length;
-    const minutos = atividades * 10; // aprox. (estMinutes padrao); refinar ao mapear item da trilha
+    const actIds = new Set<string>();
+    for (const s of subsWeek) { if (s.submittedAt) dias[dayIndexSaoPaulo(new Date(s.submittedAt))] = true; actIds.add(s.activityId); }
+    const atividades = actIds.size;
+    // minutos = soma de EduTrackItem.estMinutes por activityId (10 se nao houver)
+    let minutos = 0;
+    if (actIds.size) {
+      const items = await (prismaEdu as any).eduTrackItem.findMany({ where: { activityId: { in: Array.from(actIds) } }, select: { activityId: true, estMinutes: true } });
+      const est = new Map<string, number>(items.map((i: any) => [i.activityId, i.estMinutes]));
+      for (const id of Array.from(actIds)) minutos += est.get(id) ?? 10;
+    }
     const diasPraticados = dias.filter(Boolean).length;
     let semanaFrase: string;
     if (diasPraticados === 0) semanaFrase = `${firstName} ainda não praticou esta semana.`;
     else if (diasPraticados < 3) semanaFrase = `${firstName} praticou ${diasPraticados} dia(s) esta semana.`;
     else semanaFrase = `${firstName} praticou ${diasPraticados} dias esta semana. Muito bem!`;
 
-    // ── Trilhas ──
+    // ── Trilhas ── (atribuicao por aluno OU pela turma ativa; so track APPROVED)
     const assigns = await (prismaEdu as any).eduTrackAssignment.findMany({
       where: { OR: [{ studentId }, ...(enr?.classId ? [{ classId: enr.classId }] : [])] },
-      orderBy: { startsAt: "desc" },
-      include: { track: { select: { id: true, title: true, subjectId: true, skillIds: true } }, progress: { where: { studentId }, select: { completedItemIds: true } } },
+      include: {
+        track: { select: { id: true, title: true, subjectId: true, skillIds: true, status: true, _count: { select: { items: true } } } },
+        progress: { where: { studentId }, select: { completedItemIds: true, lastActivityAt: true } },
+      },
     });
+    // Ativas = track APPROVED e feitas < total; atual = lastActivityAt mais recente (senao startsAt)
+    const ativas = assigns
+      .filter((a: any) => a.track?.status === "APPROVED")
+      .map((a: any) => ({ a, feitas: a.progress[0]?.completedItemIds?.length ?? 0, total: a.track._count?.items ?? 0, last: a.progress[0]?.lastActivityAt ?? null }))
+      .filter((x: any) => x.feitas < x.total)
+      .sort((x: any, y: any) => {
+        const lx = x.last ? new Date(x.last).getTime() : 0, ly = y.last ? new Date(y.last).getTime() : 0;
+        if (ly !== lx) return ly - lx;
+        return new Date(y.a.startsAt).getTime() - new Date(x.a.startsAt).getTime();
+      });
     let trilhaAtual: any = null;
-    if (assigns.length) {
-      const a = assigns[0];
-      const total = await (prismaEdu as any).eduTrackItem.count({ where: { trackId: a.track.id } });
-      const feitas = a.progress[0]?.completedItemIds?.length ?? 0;
+    if (ativas.length) {
+      const { a, feitas, total } = ativas[0];
       const subject = await (prismaEdu as any).eduSubject.findUnique({ where: { id: a.track.subjectId }, select: { name: true, color: true } });
       let skillLabel = a.track.title;
       if (a.track.skillIds?.length) {
@@ -78,16 +96,28 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
       }
       trilhaAtual = { subjectName: subject?.name ?? "Componente", subjectColor: subject?.color ?? "#6D28D9", skillLabel, feitas, total };
     }
-    const outrasTrilhas = Math.max(0, assigns.length - 1);
+    const outrasTrilhas = Math.max(0, ativas.length - 1);
 
     // ── Evolução ──
     const masteries = await (prismaEdu as any).eduSkillMastery.findMany({ where: { studentId }, select: { level: true } });
     const evolucao = { MASTERED: 0, ALMOST: 0, NOT_YET: 0, avancaramNoMes: 0 };
     for (const m of masteries) evolucao[m.level as "MASTERED" | "ALMOST" | "NOT_YET"]++;
+    // avancaramNoMes = habilidades com evento nos ultimos 30d cujo nivel ficou
+    // melhor que o evento anterior da mesma habilidade.
     const since = new Date(Date.now() - 30 * 86400000);
-    evolucao.avancaramNoMes = await (prismaEdu as any).eduSkillMasteryEvent.count({
-      where: { studentId, createdAt: { gte: since }, level: { in: ["ALMOST", "MASTERED"] } },
+    const RANK: Record<string, number> = { NOT_YET: 0, ALMOST: 1, MASTERED: 2 };
+    const allEvents = await (prismaEdu as any).eduSkillMasteryEvent.findMany({
+      where: { studentId }, orderBy: { createdAt: "asc" }, select: { skillId: true, level: true, createdAt: true },
     });
+    const prevBySkill = new Map<string, number>();
+    const avancou = new Set<string>();
+    for (const e of allEvents) {
+      const prev = prevBySkill.get(e.skillId);
+      const cur = RANK[e.level] ?? 0;
+      if (prev !== undefined && cur > prev && new Date(e.createdAt) >= since) avancou.add(e.skillId);
+      prevBySkill.set(e.skillId, cur);
+    }
+    evolucao.avancaramNoMes = avancou.size;
 
     // ── Dica "Como ajudar" (1x por semana, reaproveitada) ──
     let dica = "Pergunte o que ele(a) aprendeu hoje e peça para explicar com as próprias palavras.";
@@ -109,11 +139,11 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
       }
     }
 
-    // ── Últimos retornos ──
+    // ── Últimos retornos ── (aiStatus DONE; nivel da coluna masteryLevel)
     const subs = await (prismaEdu as any).eduSubmission.findMany({
-      where: { studentId, status: "EVALUATED", aiFeedback: { not: null } },
+      where: { studentId, aiStatus: "DONE" },
       orderBy: { evaluatedAt: "desc" }, take: 3,
-      select: { evaluatedAt: true, aiFeedback: true, activity: { select: { classSubject: { select: { subjectId: true } } } } },
+      select: { evaluatedAt: true, aiFeedback: true, masteryLevel: true, activity: { select: { title: true, classSubject: { select: { subjectId: true } } } } },
     });
     const subjIds = Array.from(new Set(subs.map((s: any) => s.activity?.classSubject?.subjectId).filter(Boolean)));
     const subjMap = new Map<string, string>();
@@ -125,10 +155,11 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
       const fb = (s.aiFeedback ?? {}) as any;
       return {
         subjectName: subjMap.get(s.activity?.classSubject?.subjectId) ?? "Componente",
+        title: s.activity?.title ?? null,
         when: relativeDay(s.evaluatedAt),
-        level: fb.level ?? fb.masteryLevel ?? null,
-        acertou: fb.acertou ?? fb.gotRight ?? (Array.isArray(fb.strengths) ? fb.strengths[0] : null) ?? null,
-        melhorar: fb.melhorar ?? fb.improve ?? (Array.isArray(fb.improvements) ? fb.improvements[0] : null) ?? null,
+        level: s.masteryLevel ?? null,
+        acertou: Array.isArray(fb.acertos) ? fb.acertos[0] ?? null : null,
+        melhorar: Array.isArray(fb.melhorar) ? fb.melhorar[0] ?? null : null,
       };
     });
 
@@ -138,6 +169,28 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
     if (lastSub?.submittedAt) {
       const d = Math.floor((Date.now() - new Date(lastSub.submittedAt).getTime()) / 86400000);
       if (d >= 7) alertas.push({ tipo: "warn", texto: `${firstName} está há ${d} dias sem praticar.` });
+    } else if (trilhaAtual) {
+      alertas.push({ tipo: "warn", texto: `${firstName} ainda não começou a praticar.` });
+    }
+    // Novo diagnostico disponivel = EduDiagnostic OPEN do ano da turma, na janela,
+    // sem entrega do aluno em nenhuma atividade dos seus itens.
+    if (cls?.gradeYear != null) {
+      const now = new Date();
+      const diag = await (prismaEdu as any).eduDiagnostic.findFirst({
+        where: {
+          networkId: ctx.networkId, gradeYear: cls.gradeYear, status: "OPEN",
+          OR: [{ opensAt: null }, { opensAt: { lte: now } }],
+          AND: [{ OR: [{ closesAt: null }, { closesAt: { gte: now } }] }],
+        },
+        select: { id: true, items: { select: { activityId: true } } },
+      });
+      if (diag) {
+        const diagActs = diag.items.map((i: any) => i.activityId).filter(Boolean);
+        const done = diagActs.length
+          ? await (prismaEdu as any).eduSubmission.count({ where: { studentId, activityId: { in: diagActs }, status: { not: "IN_PROGRESS" } } })
+          : 0;
+        if (done === 0) alertas.push({ tipo: "info", texto: `Novo diagnóstico disponível para ${firstName}.` });
+      }
     }
 
     return NextResponse.json({
