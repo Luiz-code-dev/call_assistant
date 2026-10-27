@@ -40,27 +40,33 @@ export async function POST(req: NextRequest, { params }: { params: { token: stri
 
   const { termsVersion } = await req.json().catch(() => ({ termsVersion: "v1.0" }));
 
-  await (prismaEdu as any).eduGuardianInvite.update({ where: { id: invite.id }, data: { acceptedAt: new Date() } });
+  try {
+    await (prismaEdu as any).eduGuardianInvite.update({ where: { id: invite.id }, data: { acceptedAt: new Date() } });
 
-  // Registra consentimento por filho vinculado
-  const links = await (prismaEdu as any).eduGuardianLink.findMany({ where: { guardianId: invite.guardianId, isActive: true } });
-  for (const l of links) {
-    await (prismaEdu as any).eduGuardianConsent.create({
-      data: { guardianId: invite.guardianId, studentId: l.studentId, termsVersion: termsVersion ?? "v1.0" },
-    }).catch(() => {});
+    // Registra consentimento por filho vinculado
+    const links = await (prismaEdu as any).eduGuardianLink.findMany({ where: { guardianId: invite.guardianId, isActive: true } });
+    for (const l of links) {
+      await (prismaEdu as any).eduGuardianConsent.create({
+        data: { guardianId: invite.guardianId, studentId: l.studentId, termsVersion: termsVersion ?? "v1.0" },
+      }).catch(() => {});
+    }
+
+    const token = await new SignJWT({ nid: invite.networkId })
+      .setProtectedHeader({ alg: "HS256" })
+      .setSubject(invite.guardianId)
+      .setIssuedAt()
+      .setExpirationTime("90d")
+      .sign(familySecret());
+
+    const res = NextResponse.json({ ok: true });
+    res.cookies.set("sf_family_ctx", token, {
+      httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production",
+      maxAge: 60 * 60 * 24 * 90, path: "/",
+    });
+    return res;
+  } catch (err) {
+    // Causa mais comum: EDU_FAMILY_JWT_SECRET ausente em producao (familySecret lanca).
+    console.error("[familia/convite:POST]", err);
+    return NextResponse.json({ error: "Não foi possível aceitar o convite." }, { status: 500 });
   }
-
-  const token = await new SignJWT({ nid: invite.networkId })
-    .setProtectedHeader({ alg: "HS256" })
-    .setSubject(invite.guardianId)
-    .setIssuedAt()
-    .setExpirationTime("90d")
-    .sign(familySecret());
-
-  const res = NextResponse.json({ ok: true });
-  res.cookies.set("sf_family_ctx", token, {
-    httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production",
-    maxAge: 60 * 60 * 24 * 90, path: "/",
-  });
-  return res;
 }
