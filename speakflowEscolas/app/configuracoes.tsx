@@ -1,12 +1,22 @@
 import { useEffect, useState } from "react";
 import { View, Text, Pressable, ScrollView, StyleSheet, Linking } from "react-native";
-import { FileText, ShieldCheck, Trash2, ChevronRight, Bot } from "lucide-react-native";
+import { router } from "expo-router";
+import { FileText, ShieldCheck, Trash2, ChevronRight, Bot, LogOut } from "lucide-react-native";
 import { colors, radius } from "@/lib/theme";
 import { fetchConfig, EscolaConfig } from "@/lib/api";
+import { lerSessao, sair } from "@/lib/session";
 
 export default function Configuracoes() {
   const [cfg, setCfg] = useState<EscolaConfig | null>(null);
+  const [saindo, setSaindo] = useState(false);
   useEffect(() => { fetchConfig().then(setCfg); }, []);
+
+  async function handleSair() {
+    setSaindo(true);
+    const s = await lerSessao();
+    if (s) await sair(s.perfil, s.token);
+    router.replace("/");
+  }
 
   const base = "https://www.speakflow.ia.br";
   const rows = [
@@ -38,6 +48,11 @@ export default function Configuracoes() {
         })}
       </View>
 
+      <Pressable onPress={handleSair} disabled={saindo} style={[styles.sair, saindo && { opacity: 0.6 }]}>
+        <LogOut size={18} color={colors.danger} />
+        <Text style={styles.sairText}>{saindo ? "Saindo…" : "Sair"}</Text>
+      </Pressable>
+
       <Text style={styles.footer}>SpeakFlow Escolas · versão 1.0.0</Text>
     </ScrollView>
   );
@@ -51,5 +66,7 @@ const styles = StyleSheet.create({
   row: { flexDirection: "row", alignItems: "center", gap: 12, paddingHorizontal: 16, paddingVertical: 16, minHeight: 52 },
   rowBorder: { borderTopWidth: 1, borderTopColor: colors.border },
   rowLabel: { flex: 1, fontSize: 15, color: colors.text, fontWeight: "500" },
+  sair: { flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 8, backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.dangerSoft, borderRadius: radius.card, paddingVertical: 14, minHeight: 48 },
+  sairText: { color: colors.danger, fontSize: 15, fontWeight: "700" },
   footer: { textAlign: "center", color: colors.textMuted, fontSize: 12, marginTop: 8 },
 });

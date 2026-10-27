@@ -22,8 +22,11 @@ export async function POST(req: NextRequest) {
   const email = parsed.data.email.trim().toLowerCase();
 
   try {
+    // Serve tanto para REDEFINIR quanto para CRIAR a 1a senha: responsaveis
+    // cadastrados pela escola/convite ficam sem passwordHash ate o 1o acesso;
+    // com e-mail valido, eles recebem o link e criam a senha por aqui.
     const guardian = await (prismaEdu as any).eduGuardian.findFirst({
-      where: { email: { equals: email, mode: "insensitive" }, passwordHash: { not: null } },
+      where: { email: { equals: email, mode: "insensitive" } },
     });
 
     if (guardian?.email) {

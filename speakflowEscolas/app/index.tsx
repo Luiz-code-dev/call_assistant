@@ -5,14 +5,29 @@ import { GraduationCap, Users, HeartHandshake, Settings } from "lucide-react-nat
 import { router } from "expo-router";
 import { colors, radius, touch } from "@/lib/theme";
 import { fetchConfig } from "@/lib/api";
+import { lerSessao, rotaInicial } from "@/lib/session";
 
 export default function Entrada() {
   const insets = useSafeAreaInsets();
   const [familyEnabled, setFamilyEnabled] = useState(false);
+  const [checando, setChecando] = useState(true);
+
+  // Ja logado? Abre direto na tela do perfil. Senao, mostra a selecao.
+  useEffect(() => {
+    let ativo = true;
+    lerSessao().then((s) => {
+      if (!ativo) return;
+      if (s) router.replace(rotaInicial(s) as never);
+      else setChecando(false);
+    });
+    return () => { ativo = false; };
+  }, []);
 
   useEffect(() => {
     fetchConfig().then((c) => setFamilyEnabled(!!c?.familyEnabled));
   }, []);
+
+  if (checando) return null;
 
   const options = [
     { key: "aluno", label: "Sou aluno", hint: "Cartão QR, código da turma + matrícula + PIN", icon: GraduationCap, to: "/aluno/entrar" },

@@ -7,6 +7,9 @@ import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { familySecret } from "@/lib/escola/secrets";
 import { FAMILY_COOKIE } from "@/lib/escola/cookies";
 import { normalizePhone } from "@/lib/escola/phone";
+import { isAppClient, APP_FAMILY_SECONDS } from "@/lib/escola/app-auth";
+
+const WEB_FAMILY_SECONDS = 60 * 60 * 24 * 90;
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -22,6 +25,9 @@ export async function POST(req: NextRequest) {
   const isEmail = identifier.includes("@");
   const value = isEmail ? identifier.trim().toLowerCase() : normalizePhone(identifier);
   if (!value) return NextResponse.json({ error: GENERIC }, { status: 401 });
+
+  const appClient = isAppClient();
+  const familySeconds = appClient ? APP_FAMILY_SECONDS : WEB_FAMILY_SECONDS;
 
   try {
     // O mesmo e-mail/celular pode existir em redes diferentes (nao ha unique
@@ -41,9 +47,9 @@ export async function POST(req: NextRequest) {
     for (const g of active) {
       if (await bcrypt.compare(senha, g.passwordHash)) {
         await (prismaEdu as any).eduGuardian.update({ where: { id: g.id }, data: { loginFailedCount: 0, loginLockedUntil: null } });
-        const token = await new SignJWT({ nid: g.networkId }).setProtectedHeader({ alg: "HS256" }).setSubject(g.id).setIssuedAt().setExpirationTime("90d").sign(familySecret());
-        const res = NextResponse.json({ ok: true });
-        res.cookies.set(FAMILY_COOKIE, token, { httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", maxAge: 60 * 60 * 24 * 90, path: "/" });
+        const token = await new SignJWT({ nid: g.networkId }).setProtectedHeader({ alg: "HS256" }).setAudience("family").setSubject(g.id).setIssuedAt().setExpirationTime(`${familySeconds}s`).sign(familySecret());
+        const res = NextResponse.json({ ok: true, ...(appClient ? { token } : {}) });
+        res.cookies.set(FAMILY_COOKIE, token, { httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", maxAge: familySeconds, path: "/" });
         return res;
       }
     }

@@ -40,3 +40,12 @@ export const masteryColor = {
 export const radius = { card: 16, cardLg: 24, pill: 999, input: 12 };
 // Botões do aluno: 52px.
 export const touch = { aluno: 52, default: 44 };
+
+// Fonte Inter (carregada no _layout via expo-font). Use nos estilos de texto.
+export const fonts = {
+  regular: "Inter_400Regular",
+  medium: "Inter_500Medium",
+  semibold: "Inter_600SemiBold",
+  bold: "Inter_700Bold",
+  extrabold: "Inter_800ExtraBold",
+};

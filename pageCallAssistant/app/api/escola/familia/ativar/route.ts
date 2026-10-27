@@ -7,6 +7,7 @@ import { familySecret } from "@/lib/escola/secrets";
 import { hashFamilyCode, sameBirthDate } from "@/lib/escola/familia";
 import { FAMILY_COOKIE } from "@/lib/escola/cookies";
 import { normalizePhone } from "@/lib/escola/phone";
+import { isAppClient, APP_FAMILY_SECONDS } from "@/lib/escola/app-auth";
 import bcrypt from "bcryptjs";
 
 const schema = z.object({
@@ -74,19 +75,22 @@ export async function POST(req: NextRequest) {
     data: { guardianId: guardian.id, studentId: student.id, termsVersion, ip: consentIp ?? null },
   });
 
+  const appClient = isAppClient();
+  const familySeconds = appClient ? APP_FAMILY_SECONDS : 60 * 60 * 24 * 90;
   const token = await new SignJWT({ nid: networkId })
     .setProtectedHeader({ alg: "HS256" })
+    .setAudience("family")
     .setSubject(guardian.id)
     .setIssuedAt()
-    .setExpirationTime("90d")
+    .setExpirationTime(`${familySeconds}s`)
     .sign(familySecret());
 
-  const res = NextResponse.json({ ok: true, guardianId: guardian.id, studentName: student.fullName });
+  const res = NextResponse.json({ ok: true, guardianId: guardian.id, studentName: student.fullName, ...(appClient ? { token } : {}) });
   res.cookies.set(FAMILY_COOKIE, token, {
     httpOnly: true,
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",
-    maxAge: 60 * 60 * 24 * 90,
+    maxAge: familySeconds,
     path: "/",
   });
   return res;

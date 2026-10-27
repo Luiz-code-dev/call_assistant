@@ -12,15 +12,16 @@ import { SignJWT, jwtVerify } from "jose";
 import { studentSecret } from "@/lib/escola/secrets";
 import { STUDENT_COOKIE, DEVICE_COOKIE } from "@/lib/escola/cookies";
 import { readDeviceToken, addDeviceStudent, signDeviceToken, studentDisplayParts, DEVICE_MAX_AGE } from "@/lib/escola/device";
+import { isAppClient, APP_STUDENT_SECONDS, APP_STUDENT_HOME_SECONDS } from "@/lib/escola/app-auth";
 
 function flag() { return isEscolasEnabled(); }
 
 const MAX_ATTEMPTS = 5;
 const LOCK_MINUTES = 15;
 
-async function issueStudentToken(student: { id: string; networkId: string }, classId: string, enrollmentId: string) {
+async function issueStudentToken(student: { id: string; networkId: string }, classId: string, enrollmentId: string, seconds: number = APP_STUDENT_SECONDS) {
   return new SignJWT({ sub: student.id, nid: student.networkId, cid: classId, eid: enrollmentId })
-    .setProtectedHeader({ alg: "HS256" }).setIssuedAt().setExpirationTime("15h").sign(studentSecret());
+    .setProtectedHeader({ alg: "HS256" }).setAudience("student").setIssuedAt().setExpirationTime(`${seconds}s`).sign(studentSecret());
 }
 
 export async function POST(req: NextRequest) {
@@ -134,12 +135,15 @@ export async function POST(req: NextRequest) {
   // Success — reset counter
   await prismaEdu.eduStudent.update({ where: { id: student.id }, data: { pinFailedCount: 0, pinLockedUntil: null } });
 
-  const token = await issueStudentToken(student, classId!, enrollmentId!);
-  const res = NextResponse.json({ ok: true, redirect: "/escola/aluno/painel" });
-  res.cookies.set(STUDENT_COOKIE, token, { httpOnly: true, sameSite: "lax", path: "/", maxAge: 15 * 3600 });
-
   // "Este aparelho é de casa": lembrar o aluno (nunca no modo sala/aula).
   const remember = mode === "dispositivo" || (mode === "manual" && body.rememberDevice === true);
+  const appClient = isAppClient();
+  const studentSeconds = remember ? APP_STUDENT_HOME_SECONDS : APP_STUDENT_SECONDS;
+
+  const token = await issueStudentToken(student, classId!, enrollmentId!, studentSeconds);
+  const res = NextResponse.json({ ok: true, redirect: "/escola/aluno/painel", ...(appClient ? { token } : {}) });
+  res.cookies.set(STUDENT_COOKIE, token, { httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", path: "/", maxAge: studentSeconds });
+
   if (remember) {
     const { name, initial } = studentDisplayParts(student.fullName);
     const current = await readDeviceToken(req.cookies.get(DEVICE_COOKIE)?.value);

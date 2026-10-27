@@ -1206,6 +1206,18 @@ model EduQuizQuestion {
   @@index([activityId])
 }
 
+model EduFeedbackReport {
+  id           String   @id @default(cuid())
+  networkId    String
+  submissionId String
+  studentId    String
+  reason       String   // RETORNO_ERRADO | CONTEUDO_INADEQUADO | OUTRO
+  detail       String?
+  createdAt    DateTime @default(now())
+
+  @@index([networkId, submissionId])
+}
+
 model EduSubmission {
   id           String              @id @default(cuid())
   networkId    String

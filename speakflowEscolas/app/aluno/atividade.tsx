@@ -1,138 +1,196 @@
-import { useState } from "react";
-import { View, Text, Pressable, ScrollView, StyleSheet, TextInput, Alert } from "react-native";
+import { useEffect, useState, useCallback, useRef } from "react";
+import { View, Text, Pressable, ScrollView, StyleSheet, TextInput, ActivityIndicator, Modal, Alert } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Mic, Square, Play, Send, Bot } from "lucide-react-native";
+import { router, useLocalSearchParams } from "expo-router";
 import { Audio } from "expo-av";
-import { router } from "expo-router";
-import { colors, radius, subjectColors, touch } from "@/lib/theme";
+import * as SecureStore from "expo-secure-store";
+import { ArrowLeft, Mic, Square, Send, Bot } from "lucide-react-native";
+import { colors, radius, touch, fonts } from "@/lib/theme";
+import { apiGet, apiSend, API_BASE, APP_CLIENT } from "@/lib/api";
+import { authHeaders } from "@/lib/session";
 
-type Tipo = "fala" | "escrita" | "quiz";
-const QUIZ = { pergunta: "Quanto é 3/4 de uma pizza de 4 fatias?", ops: ["1 fatia", "2 fatias", "3 fatias", "4 fatias"], correta: 2 };
+interface Question { id: string; question: string; options: string[] }
+interface Activity {
+  id: string; title: string; type: string; prompt?: string; maxAudioSec?: number;
+  subject: { name: string } | null; questions: Question[];
+}
 
-export default function Atividade() {
+const IA_ACK = "sf_edu_ia_ack";
+
+export default function AlunoAtividade() {
   const insets = useSafeAreaInsets();
-  const [tipo, setTipo] = useState<Tipo>("fala");
-  const [aiOk, setAiOk] = useState(false);
-  const [showAi, setShowAi] = useState(false);
-  const [recording, setRecording] = useState<Audio.Recording | null>(null);
-  const [recorded, setRecorded] = useState(false);
-  const [texto, setTexto] = useState("");
-  const [sel, setSel] = useState<number | null>(null);
+  const { id } = useLocalSearchParams<{ id: string }>();
+  const [act, setAct] = useState<Activity | null>(null);
+  const [erro, setErro] = useState(false);
+  const [text, setText] = useState("");
+  const [answers, setAnswers] = useState<Record<string, number>>({});
+  const [enviando, setEnviando] = useState(false);
+  const [iaModal, setIaModal] = useState(false);
+  const [gravando, setGravando] = useState(false);
+  const [audioUri, setAudioUri] = useState<string | null>(null);
+  const recording = useRef<Audio.Recording | null>(null);
 
-  const ma = subjectColors.MA;
-  const words = texto.trim() ? texto.trim().split(/\s+/).length : 0;
+  const carregar = useCallback(async () => {
+    setErro(false);
+    const d = await apiGet<{ atividades: Activity[] }>("/aluno/atividades");
+    const a = d?.atividades?.find((x) => x.id === id) ?? null;
+    if (!a) { setErro(true); return; }
+    setAct(a);
+  }, [id]);
+  useEffect(() => { carregar(); }, [carregar]);
 
-  async function toggleRecord() {
+  async function garantirCienciaIA(): Promise<boolean> {
+    const ack = await SecureStore.getItemAsync(IA_ACK);
+    if (ack === "1") return true;
+    setIaModal(true);
+    return false;
+  }
+
+  async function iniciarGravacao() {
     try {
-      if (recording) {
-        await recording.stopAndUnloadAsync();
-        setRecording(null); setRecorded(true);
-        return;
-      }
-      // Permissão pedida só no uso (ao tocar em gravar).
       const perm = await Audio.requestPermissionsAsync();
-      if (!perm.granted) { Alert.alert("Microfone", "Para gravar sua resposta, libere o microfone nas configurações do aparelho."); return; }
+      if (!perm.granted) { Alert.alert("Microfone", "Para gravar sua resposta, permita o microfone nos ajustes."); return; }
       await Audio.setAudioModeAsync({ allowsRecordingIOS: true, playsInSilentModeIOS: true });
       const { recording: rec } = await Audio.Recording.createAsync(Audio.RecordingOptionsPresets.HIGH_QUALITY);
-      setRecording(rec);
+      recording.current = rec;
+      setGravando(true);
+    } catch { Alert.alert("Microfone", "Não foi possível iniciar a gravação."); }
+  }
+
+  async function pararGravacao() {
+    try {
+      await recording.current?.stopAndUnloadAsync();
+      setAudioUri(recording.current?.getURI() ?? null);
+    } catch { /* noop */ }
+    setGravando(false);
+  }
+
+  async function enviar() {
+    if (!(await garantirCienciaIA())) return;
+    if (!act) return;
+    setEnviando(true);
+    try {
+      let body: Record<string, unknown> = {};
+      if (act.type === "QUIZ") {
+        body = { quizAnswers: act.questions.map((q) => answers[q.id] ?? -1) };
+      } else if (act.type === "SPOKEN") {
+        if (!audioUri) { setEnviando(false); Alert.alert("Fala", "Grave sua resposta antes de enviar."); return; }
+        const fd = new FormData();
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        fd.append("audio", { uri: audioUri, name: "audio.m4a", type: "audio/m4a" } as any);
+        const tr = await fetch(`${API_BASE}/api/escola/aluno/transcrever`, { method: "POST", headers: { ...(await authHeaders()) }, body: fd });
+        const trd = await tr.json().catch(() => ({}));
+        if (!tr.ok) { setEnviando(false); Alert.alert("Fala", trd.error ?? "Não foi possível transcrever."); return; }
+        body = { text: trd.transcript ?? "" };
+      } else {
+        body = { text };
+      }
+      const r = await apiSend(`/aluno/atividades/${act.id}/enviar`, "POST", body);
+      setEnviando(false);
+      if (!r.ok) { Alert.alert("Enviar", r.error ?? "Não foi possível enviar."); return; }
+      router.replace(`/aluno/retorno?id=${act.id}` as never);
     } catch {
-      Alert.alert("Erro", "Não foi possível acessar o microfone.");
+      setEnviando(false);
+      Alert.alert("Sem internet", "Sua resposta não foi enviada. Verifique a conexão e tente de novo.");
     }
   }
 
-  function enviar() {
-    // Mostra o aviso de IA antes do primeiro envio (Apple 5.1.2(i)).
-    if (!aiOk) { setShowAi(true); return; }
-    router.push("/aluno/retorno" as never);
+  async function confirmarCiencia() {
+    await SecureStore.setItemAsync(IA_ACK, "1");
+    setIaModal(false);
+    enviar();
   }
 
+  if (!act && !erro) return <View style={styles.center}><ActivityIndicator color={colors.action} /></View>;
+  if (erro) return (
+    <View style={styles.center}>
+      <Text style={styles.text}>Não foi possível carregar a atividade.</Text>
+      <Pressable onPress={carregar} style={styles.retry}><Text style={styles.retryText}>Tentar de novo</Text></Pressable>
+    </View>
+  );
+
+  const a = act!;
+  const podeEnviar = a.type === "QUIZ" ? a.questions.every((q) => answers[q.id] != null) : a.type === "SPOKEN" ? !!audioUri : text.trim().length > 0;
+
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: colors.bg }} contentContainerStyle={{ padding: 20, paddingTop: insets.top + 12, paddingBottom: insets.bottom + 24, gap: 14 }}>
-      <View style={[styles.chip, { backgroundColor: ma + "1A", alignSelf: "flex-start" }]}>
-        <Text style={[styles.chipText, { color: ma }]}>Matemática · 6º ano</Text>
-      </View>
-      <Text style={styles.enunciado}>Explique, do seu jeito, o que significa 3/4 de um todo.</Text>
-
-      <View style={styles.tabs}>
-        {(["fala", "escrita", "quiz"] as Tipo[]).map((t) => (
-          <Pressable key={t} onPress={() => setTipo(t)} style={[styles.tab, tipo === t && { backgroundColor: colors.action }]}>
-            <Text style={[styles.tabText, { color: tipo === t ? "#FFFFFF" : colors.textMuted }]}>{t === "fala" ? "Fala" : t === "escrita" ? "Escrita" : "Quiz"}</Text>
-          </Pressable>
-        ))}
+    <View style={{ flex: 1, backgroundColor: colors.bg }}>
+      <View style={[styles.head, { paddingTop: insets.top + 8 }]}>
+        <Pressable onPress={() => router.replace("/aluno/trilha")} hitSlop={10}><ArrowLeft size={22} color={colors.text} /></Pressable>
+        <Text style={styles.headTitle} numberOfLines={1}>{a.title}</Text>
       </View>
 
-      {tipo === "fala" && (
-        <View style={styles.card}>
-          <Pressable onPress={toggleRecord} style={[styles.micBig, recording && { backgroundColor: colors.danger }]}>
-            {recording ? <Square size={28} color="#FFFFFF" /> : <Mic size={28} color="#FFFFFF" />}
-          </Pressable>
-          <Text style={styles.micHint}>{recording ? "Gravando… toque para parar" : recorded ? "Resposta gravada" : "Toque para gravar sua resposta"}</Text>
-          {recorded && !recording && (
-            <Pressable style={styles.ghost}><Play size={14} color={colors.action} /><Text style={styles.ghostText}>Ouvir</Text></Pressable>
-          )}
-        </View>
-      )}
+      <ScrollView contentContainerStyle={{ padding: 16, paddingBottom: insets.bottom + 24, gap: 14 }}>
+        {a.prompt ? (
+          <View style={styles.card}><Text style={styles.enunLabel}>ENUNCIADO</Text><Text style={styles.enun}>{a.prompt}</Text></View>
+        ) : null}
 
-      {tipo === "escrita" && (
-        <View style={styles.card}>
-          <TextInput value={texto} onChangeText={setTexto} multiline placeholder="Escreva sua resposta…" placeholderTextColor={colors.textMuted} style={styles.textarea} />
-          <Text style={styles.counter}>{words} palavra{words !== 1 ? "s" : ""} · rascunho salvo</Text>
-        </View>
-      )}
-
-      {tipo === "quiz" && (
-        <View style={styles.card}>
-          <Text style={styles.quizQ}>{QUIZ.pergunta}</Text>
-          {QUIZ.ops.map((o, i) => (
-            <Pressable key={i} onPress={() => setSel(i)} style={[styles.quizOp, sel === i && { borderColor: colors.action, backgroundColor: colors.actionSoft }]}>
-              <Text style={[styles.quizOpText, sel === i && { color: colors.actionTint, fontWeight: "700" }]}>{o}</Text>
+        {a.type === "QUIZ" ? (
+          a.questions.map((q, qi) => (
+            <View key={q.id} style={styles.card}>
+              <Text style={styles.qTitle}>{qi + 1}. {q.question}</Text>
+              {q.options.map((op, oi) => (
+                <Pressable key={oi} onPress={() => setAnswers((s) => ({ ...s, [q.id]: oi }))} style={[styles.opt, answers[q.id] === oi && { borderColor: colors.action, backgroundColor: colors.actionSoft }]}>
+                  <Text style={[styles.optText, answers[q.id] === oi && { color: colors.action }]}>{op}</Text>
+                </Pressable>
+              ))}
+            </View>
+          ))
+        ) : a.type === "SPOKEN" ? (
+          <View style={[styles.card, { alignItems: "center", gap: 14 }]}>
+            <Text style={styles.text}>{gravando ? "Gravando… toque para parar" : audioUri ? "Gravado! Você pode enviar ou gravar de novo." : "Toque para gravar sua resposta"}</Text>
+            <Pressable onPress={gravando ? pararGravacao : iniciarGravacao} style={[styles.micBtn, gravando && { backgroundColor: "#DB2777" }]}>
+              {gravando ? <Square size={32} color="#FFF" /> : <Mic size={34} color="#FFF" />}
             </Pressable>
-          ))}
-        </View>
-      )}
+            {audioUri && !gravando ? <Pressable onPress={() => { setAudioUri(null); iniciarGravacao(); }}><Text style={styles.link}>Gravar de novo</Text></Pressable> : null}
+          </View>
+        ) : (
+          <View style={styles.card}>
+            <TextInput value={text} onChangeText={setText} multiline placeholder="Escreva sua resposta…" placeholderTextColor={colors.textMuted} style={styles.textarea} />
+            <Text style={styles.count}>{text.trim() ? text.trim().split(/\s+/).length : 0} palavras</Text>
+          </View>
+        )}
 
-      <Pressable onPress={enviar} style={styles.enviar}>
-        <Send size={18} color="#FFFFFF" /><Text style={styles.enviarText}>Enviar</Text>
-      </Pressable>
+        <Pressable onPress={enviar} disabled={!podeEnviar || enviando} style={[styles.enviar, (!podeEnviar || enviando) && { opacity: 0.5 }]}>
+          <Send size={18} color="#FFF" />
+          <Text style={styles.enviarText}>{enviando ? "Enviando…" : "Enviar resposta"}</Text>
+        </Pressable>
+      </ScrollView>
 
-      {showAi && (
-        <View style={styles.modalOverlay}>
-          <View style={styles.modal}>
-            <View style={styles.aiIcon}><Bot size={22} color={colors.action} /></View>
-            <Text style={styles.modalTitle}>Antes de enviar</Text>
-            <Text style={styles.modalText}>Suas respostas (texto ou áudio) são enviadas a um serviço de inteligência artificial (OpenAI) para gerar o retorno. Seu nome e sua matrícula não são enviados.</Text>
-            <Pressable onPress={() => { setAiOk(true); setShowAi(false); router.push("/aluno/retorno" as never); }} style={styles.enviar}>
-              <Text style={styles.enviarText}>Entendi</Text>
-            </Pressable>
+      <Modal visible={iaModal} transparent animationType="fade" onRequestClose={() => setIaModal(false)}>
+        <View style={styles.backdrop}>
+          <View style={styles.iaBox}>
+            <View style={styles.iaIcon}><Bot size={24} color={colors.action} /></View>
+            <Text style={styles.cardTitle}>Sobre o retorno</Text>
+            <Text style={styles.text}>Suas respostas (texto ou áudio) são enviadas a um serviço de inteligência artificial para gerar o retorno. Seu nome e sua matrícula não são enviados.</Text>
+            <Pressable onPress={confirmarCiencia} style={styles.enviar}><Text style={styles.enviarText}>Entendi</Text></Pressable>
           </View>
         </View>
-      )}
-    </ScrollView>
+      </Modal>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  chip: { borderRadius: radius.pill, paddingHorizontal: 12, paddingVertical: 5 },
-  chipText: { fontSize: 12, fontWeight: "700" },
-  enunciado: { fontSize: 18, fontWeight: "700", color: colors.text, lineHeight: 25 },
-  tabs: { flexDirection: "row", gap: 8 },
-  tab: { flex: 1, alignItems: "center", paddingVertical: 10, borderRadius: radius.input, backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border },
-  tabText: { fontSize: 14, fontWeight: "700" },
-  card: { backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border, borderRadius: radius.card, padding: 20, alignItems: "center", gap: 12 },
-  micBig: { width: 88, height: 88, borderRadius: 44, backgroundColor: colors.brandPink, alignItems: "center", justifyContent: "center" },
-  micHint: { fontSize: 14, color: colors.textMuted },
-  ghost: { flexDirection: "row", alignItems: "center", gap: 6 },
-  ghostText: { color: colors.action, fontWeight: "700", fontSize: 14 },
-  textarea: { width: "100%", minHeight: 140, fontSize: 15, color: colors.text, textAlignVertical: "top" },
-  counter: { alignSelf: "flex-start", fontSize: 12, color: colors.textMuted },
-  quizQ: { fontSize: 16, fontWeight: "700", color: colors.text, alignSelf: "flex-start", marginBottom: 6 },
-  quizOp: { width: "100%", borderWidth: 1.5, borderColor: colors.borderStrong, borderRadius: radius.input, padding: 16, marginTop: 8 },
-  quizOpText: { fontSize: 15, color: colors.text },
-  enviar: { flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 8, backgroundColor: colors.action, borderRadius: radius.input, paddingVertical: 16, minHeight: touch.aluno, width: "100%" },
-  enviarText: { color: "#FFFFFF", fontSize: 16, fontWeight: "700" },
-  modalOverlay: { position: "absolute", top: 0, left: 0, right: 0, bottom: 0, backgroundColor: "#1F1A2E66", alignItems: "center", justifyContent: "center", padding: 24 },
-  modal: { backgroundColor: colors.surface, borderRadius: radius.cardLg, padding: 24, gap: 10, width: "100%", maxWidth: 360 },
-  aiIcon: { width: 44, height: 44, borderRadius: 12, backgroundColor: colors.actionSoft, alignItems: "center", justifyContent: "center" },
-  modalTitle: { fontSize: 17, fontWeight: "800", color: colors.text },
-  modalText: { fontSize: 14, color: colors.textMuted, lineHeight: 20, marginBottom: 6 },
+  center: { flex: 1, backgroundColor: colors.bg, alignItems: "center", justifyContent: "center", gap: 12, padding: 24 },
+  head: { flexDirection: "row", alignItems: "center", gap: 12, paddingHorizontal: 16, paddingBottom: 12, backgroundColor: colors.surface, borderBottomWidth: 1, borderBottomColor: colors.border },
+  headTitle: { flex: 1, fontSize: 16, fontWeight: "800", color: colors.text, fontFamily: fonts.bold },
+  card: { backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border, borderRadius: radius.card, padding: 16, gap: 10 },
+  cardTitle: { fontSize: 18, fontWeight: "800", color: colors.text, fontFamily: fonts.extrabold },
+  enunLabel: { fontSize: 12, color: colors.textMuted, fontWeight: "700", letterSpacing: 0.5, fontFamily: fonts.semibold },
+  enun: { fontSize: 16, color: colors.text, lineHeight: 23, fontFamily: fonts.regular },
+  qTitle: { fontSize: 16, fontWeight: "700", color: colors.text, fontFamily: fonts.bold },
+  opt: { borderWidth: 1.5, borderColor: colors.border, borderRadius: radius.input, paddingVertical: 14, paddingHorizontal: 16, minHeight: 56, justifyContent: "center" },
+  optText: { fontSize: 15, color: colors.text, fontFamily: fonts.regular },
+  textarea: { minHeight: 160, textAlignVertical: "top", fontSize: 16, color: colors.text, fontFamily: fonts.regular },
+  count: { fontSize: 12, color: colors.textMuted, textAlign: "right", fontFamily: fonts.regular },
+  micBtn: { width: 88, height: 88, borderRadius: 44, backgroundColor: colors.action, alignItems: "center", justifyContent: "center" },
+  link: { color: colors.action, fontSize: 14, fontWeight: "700", fontFamily: fonts.bold },
+  text: { fontSize: 14, color: colors.textMuted, lineHeight: 20, textAlign: "center", fontFamily: fonts.regular },
+  enviar: { flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 8, backgroundColor: colors.action, borderRadius: radius.input, paddingVertical: 15, minHeight: touch.aluno },
+  enviarText: { color: "#FFF", fontSize: 16, fontWeight: "800", fontFamily: fonts.extrabold },
+  retry: { backgroundColor: colors.actionSoft, borderRadius: radius.input, paddingHorizontal: 16, paddingVertical: 10 },
+  retryText: { color: colors.action, fontWeight: "700", fontFamily: fonts.bold },
+  backdrop: { flex: 1, backgroundColor: "rgba(31,26,46,0.5)", alignItems: "center", justifyContent: "center", padding: 24 },
+  iaBox: { backgroundColor: colors.bg, borderRadius: radius.cardLg, padding: 20, gap: 12, width: "100%", maxWidth: 400 },
+  iaIcon: { width: 44, height: 44, borderRadius: 12, backgroundColor: colors.actionSoft, alignItems: "center", justifyContent: "center" },
 });

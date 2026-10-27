@@ -18,6 +18,7 @@
       "supportsTablet": true,
       "bundleIdentifier": "br.com.speakflow.escolas",
       "buildNumber": "1",
+      "associatedDomains": ["applinks:www.speakflow.ia.br"],
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false,
         "NSMicrophoneUsageDescription": "O SpeakFlow Escolas usa o microfone para você gravar suas respostas nas atividades de fala.",
@@ -44,7 +45,15 @@
         "android.permission.READ_EXTERNAL_STORAGE",
         "android.permission.WRITE_EXTERNAL_STORAGE"
       ],
-      "allowBackup": false
+      "allowBackup": false,
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [{ "scheme": "https", "host": "www.speakflow.ia.br", "pathPrefix": "/escola" }],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ]
     },
     "plugins": [
       "expo-router",
