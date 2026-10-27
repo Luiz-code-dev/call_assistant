@@ -37,6 +37,30 @@ const STEP_CTA: Record<number, string> = {
   8: "Revisar pendências",
 };
 
+// Quando o passo ja esta concluido, o botao leva para a tela de lista (ver),
+// em vez da importacao.
+const STEP_LINKS_DONE: Record<number, string> = {
+  1: "/escola/rede/escolas",
+  2: "/escola/rede/anos-letivos",
+  3: "/escola/rede/componentes",
+  4: "/escola/rede/servidores",
+  5: "/escola/rede/turmas",
+  6: "/escola/rede/turmas",
+  7: "/escola/rede/turmas",
+  8: "#revisao",
+};
+
+const STEP_CTA_DONE: Record<number, string> = {
+  1: "Ver escolas",
+  2: "Ver ano letivo",
+  3: "Ver matriz",
+  4: "Ver servidores",
+  5: "Ver turmas e alunos",
+  6: "Ver atribuições",
+  7: "Ver turmas e cartões",
+  8: "Revisar pendências",
+};
+
 export default function ImplantacaoPage() {
   const [status, setStatus] = useState<Status | null>(null);
   const [loading, setLoading] = useState(true);
@@ -129,7 +153,7 @@ export default function ImplantacaoPage() {
                 return (
                   <Link
                     key={step.step}
-                    href={STEP_LINKS[step.step] ?? "#"}
+                    href={(step.done ? STEP_LINKS_DONE[step.step] : STEP_LINKS[step.step]) ?? "#"}
                     className={`flex items-center gap-4 p-4 rounded-2xl border transition-colors group ${border}`}
                   >
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${circle}`}>
@@ -147,7 +171,7 @@ export default function ImplantacaoPage() {
                       <div className="text-[#5B5470] text-sm mt-0.5 truncate">{step.hint}</div>
                     </div>
                     <span className="inline-flex items-center gap-1 text-[13px] font-medium text-[#6D28D9] shrink-0">
-                      {STEP_CTA[step.step]} <ArrowRight size={13} />
+                      {step.done ? STEP_CTA_DONE[step.step] : STEP_CTA[step.step]} <ArrowRight size={13} />
                     </span>
                   </Link>
                 );
