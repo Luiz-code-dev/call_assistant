@@ -12,7 +12,7 @@ export default function FamiliaLoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const aviso = sp.get("expirou") ? "Sua sessão expirou. Entre de novo." : sp.get("saiu") ? "Você saiu." : "";
+  const aviso = sp.get("redefinida") ? "Senha alterada. Entre com a nova senha." : sp.get("expirou") ? "Sua sessão expirou. Entre de novo." : sp.get("saiu") ? "Você saiu." : "";
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault(); setLoading(true); setError("");

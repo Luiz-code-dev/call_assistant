@@ -41,6 +41,7 @@ export async function middleware(req: NextRequest) {
       pathname.startsWith("/escola/familia/ativar") ||
       pathname.startsWith("/escola/familia/primeiro-acesso") ||
       pathname.startsWith("/escola/familia/esqueci-senha") ||
+      pathname.startsWith("/escola/familia/redefinir-senha") ||
       pathname.startsWith("/escola/familia/convite/") ||
       pathname === "/escola/termos" ||
       pathname === "/escola/privacidade" ||

@@ -1452,6 +1452,8 @@ model EduGuardian {
   passwordHash     String?
   loginFailedCount Int       @default(0)
   loginLockedUntil DateTime?
+  resetTokenHash      String?   @unique
+  resetTokenExpiresAt DateTime?
   createdAt DateTime @default(now())
 
   user    User?              @relation(fields: [userId], references: [id])
