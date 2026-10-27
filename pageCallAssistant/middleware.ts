@@ -2,6 +2,7 @@ import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify } from "jose";
 import { staffSecret, studentSecret, familySecret } from "@/lib/escola/secrets";
+import { STAFF_COOKIE, STUDENT_COOKIE, FAMILY_COOKIE } from "@/lib/escola/cookies";
 
 const secret = new TextEncoder().encode(
   process.env.JWT_SECRET || "dev-secret-change-in-production"
@@ -50,7 +51,7 @@ export async function middleware(req: NextRequest) {
 
     // Family portal routes
     if (pathname.startsWith("/escola/familia")) {
-      const familyToken = req.cookies.get("sf_family_ctx")?.value;
+      const familyToken = req.cookies.get(FAMILY_COOKIE)?.value;
       if (!familyToken) {
         return NextResponse.redirect(new URL("/escola/familia/entrar", req.url));
       }
@@ -58,15 +59,15 @@ export async function middleware(req: NextRequest) {
         await jwtVerify(familyToken, familySecret());
         return NextResponse.next();
       } catch {
-        const res = NextResponse.redirect(new URL("/escola/familia/entrar", req.url));
-        res.cookies.delete("sf_family_ctx");
+        const res = NextResponse.redirect(new URL("/escola/familia/entrar?expirou=1", req.url));
+        res.cookies.delete(FAMILY_COOKIE);
         return res;
       }
     }
 
     // Student-only routes
     if (pathname.startsWith("/escola/aluno")) {
-      const studentToken = req.cookies.get("sf_student_ctx")?.value;
+      const studentToken = req.cookies.get(STUDENT_COOKIE)?.value;
       if (!studentToken) {
         return NextResponse.redirect(new URL("/escola/aluno/entrar", req.url));
       }
@@ -74,14 +75,14 @@ export async function middleware(req: NextRequest) {
         await jwtVerify(studentToken, studentSecret());
         return NextResponse.next();
       } catch {
-        const res = NextResponse.redirect(new URL("/escola/aluno/entrar", req.url));
-        res.cookies.delete("sf_student_ctx");
+        const res = NextResponse.redirect(new URL("/escola/aluno/entrar?expirou=1", req.url));
+        res.cookies.delete(STUDENT_COOKIE);
         return res;
       }
     }
 
     // Staff routes
-    const ctxToken = req.cookies.get("sf_edu_ctx")?.value;
+    const ctxToken = req.cookies.get(STAFF_COOKIE)?.value;
     if (!ctxToken) {
       return NextResponse.redirect(new URL("/escola/entrar", req.url));
     }
@@ -89,8 +90,8 @@ export async function middleware(req: NextRequest) {
       await jwtVerify(ctxToken, staffSecret());
       return NextResponse.next();
     } catch {
-      const res = NextResponse.redirect(new URL("/escola/entrar", req.url));
-      res.cookies.delete("sf_edu_ctx");
+      const res = NextResponse.redirect(new URL("/escola/entrar?expirou=1", req.url));
+      res.cookies.delete(STAFF_COOKIE);
       return res;
     }
   }
