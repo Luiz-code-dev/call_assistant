@@ -2,6 +2,7 @@ import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu } from "@/lib/escola/db";
+import { genInviteToken, hashToken } from "@/lib/escola/familia";
 
 function flag() { return isEscolasEnabled(); }
 
@@ -88,5 +89,20 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
     data: { networkId: ctx.networkId, actorType: "user", actorId: ctx.userId, action: "guardian.linked", entity: "EduGuardianLink", entityId: guardian.id },
   }).catch(() => {});
 
-  return NextResponse.json({ ok: true, guardianId: guardian.id }, { status: 201 });
+  // Convite (link por e-mail/WhatsApp) mostrando o nome do aluno no aceite.
+  let invitePath: string | null = null;
+  const token = genInviteToken();
+  try {
+    await prismaEdu.eduGuardianInvite.create({
+      data: {
+        networkId: ctx.networkId, guardianId: guardian.id, tokenHash: hashToken(token),
+        channel: emailN ? "email" : phoneN ? "whatsapp" : "link",
+        expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+        createdById: ctx.userId,
+      },
+    });
+    invitePath = `/escola/familia/convite/${token}`;
+  } catch { /* convite é opcional */ }
+
+  return NextResponse.json({ ok: true, guardianId: guardian.id, invitePath }, { status: 201 });
 }

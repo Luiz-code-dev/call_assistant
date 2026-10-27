@@ -216,6 +216,7 @@ function ResponsaveisModal({ student, onClose, onChanged }: { student: Student; 
   const [saving, setSaving] = useState(false);
   const [err, setErr] = useState("");
   const [familyCode, setFamilyCode] = useState<string | null>(null);
+  const [inviteLink, setInviteLink] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -238,6 +239,7 @@ function ResponsaveisModal({ student, onClose, onChanged }: { student: Student; 
     const r = await fetch(`/api/escola/alunos/${student.id}/responsaveis`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
     const d = await r.json();
     if (!r.ok) { setErr(d.error ?? "Erro ao salvar"); setSaving(false); return; }
+    if (d.invitePath) setInviteLink(`${window.location.origin}${d.invitePath}`);
     setForm({ name: "", relation: "MAE", email: "", phone: "" }); setFound(null); setSaving(false);
     load(); onChanged();
   }
@@ -294,6 +296,17 @@ function ResponsaveisModal({ student, onClose, onChanged }: { student: Student; 
           {err && <p className="text-[#B91C1C] text-[13px]">{err}</p>}
           <button type="submit" disabled={saving} className="w-full inline-flex items-center justify-center gap-2 bg-[#6D28D9] hover:bg-[#5B21B6] text-white px-4 py-2.5 rounded-lg text-sm font-semibold min-h-[44px] disabled:opacity-50"><CheckCircle2 size={15} /> {found ? "Ligar responsável" : "Adicionar responsável"}</button>
         </form>
+
+        {inviteLink && (
+          <div className="mt-4 p-3 bg-[#DCFCE7] border border-[#BBF7D0] rounded-lg">
+            <div className="flex items-center gap-2 text-[#166534] text-[13px] font-medium mb-1"><CheckCircle2 size={15} /> Responsável vinculado</div>
+            <p className="text-[12px] text-[#166534] mb-2">Envie este link por WhatsApp/e-mail — mostra o nome do aluno e dá acesso.</p>
+            <div className="flex items-center gap-2 bg-white border border-[#BBF7D0] rounded-lg px-2 py-1.5">
+              <span className="text-[11px] text-[#1F1A2E] truncate flex-1">{inviteLink}</span>
+              <button onClick={() => navigator.clipboard.writeText(inviteLink)} className="p-1 rounded text-[#5B5470] hover:text-[#166534]"><Copy size={14} /></button>
+            </div>
+          </div>
+        )}
 
         <div className="border-t border-[#E9E5F5] pt-4 mt-4">
           <h3 className="text-[13px] font-semibold text-[#1F1A2E] mb-2">Código de família (cartão)</h3>

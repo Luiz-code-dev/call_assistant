@@ -1,4 +1,13 @@
-import { createHash, randomInt } from "crypto";
+import { createHash, randomInt, randomBytes } from "crypto";
+
+/** Token opaco do convite da família (link por e-mail/WhatsApp). */
+export function genInviteToken(): string {
+  return randomBytes(24).toString("hex");
+}
+/** Hash determinístico do token para armazenamento/busca. */
+export function hashToken(token: string): string {
+  return createHash("sha256").update(token).digest("hex");
+}
 
 /** Alfabeto do código de família: sem caracteres ambíguos (0/O, 1/I, etc.). */
 export const FAMILY_CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
