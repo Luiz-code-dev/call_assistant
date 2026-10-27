@@ -667,3 +667,47 @@ export async function sendPromoWelcomeEmail(email: string, name: string, verifyL
     `,
   }).catch((err: unknown) => console.error("[sendPromoWelcomeEmail]", err));
 }
+
+// Convite da família (SpeakFlow Escolas) — tema claro, mostra o nome do filho.
+export async function sendGuardianInviteEmail(
+  to: string,
+  guardianName: string,
+  childNames: string[],
+  inviteUrl: string,
+) {
+  if (!resend) {
+    console.log(`[DEV] Guardian invite email to ${to}: ${inviteUrl} (filhos: ${childNames.join(", ")})`);
+    return;
+  }
+  const first = guardianName?.split(" ")[0] || "você";
+  const filhos = childNames.length ? childNames.join(", ") : "seu filho(a)";
+  await resend.emails.send({
+    from: process.env.EMAIL_FROM_ESCOLA || "SpeakFlow Escolas <escolas@speakflow.ia.br>",
+    to,
+    subject: `Acompanhe ${childNames[0] ?? "seu filho(a)"} no SpeakFlow Escolas`,
+    html: `
+      <div style="font-family:Inter,Arial,sans-serif;max-width:520px;margin:0 auto;padding:32px 24px;background:#FFFFFF;color:#1F1A2E;border:1px solid #E9E5F5;border-radius:16px">
+        <div style="margin-bottom:20px">
+          <span style="font-weight:800;font-size:20px;color:#1F1A2E">SpeakFlow</span>
+          <span style="font-weight:800;font-size:20px;color:#BE185D"> Escolas</span>
+        </div>
+        <h1 style="font-size:22px;font-weight:800;margin:0 0 8px">Olá, ${first}!</h1>
+        <p style="color:#5B5470;margin:0 0 20px;font-size:15px;line-height:1.5">
+          Você foi cadastrado(a) pela escola como responsável de <strong style="color:#1F1A2E">${filhos}</strong>.
+          Acompanhe a evolução, as trilhas de reforço e o retorno das atividades.
+        </p>
+        <div style="text-align:center;margin:24px 0">
+          <a href="${inviteUrl}" style="display:inline-block;padding:14px 32px;background:#6D28D9;color:#fff;border-radius:10px;text-decoration:none;font-weight:700;font-size:15px">
+            Acessar e acompanhar →
+          </a>
+        </div>
+        <p style="color:#5B5470;font-size:13px;margin:0 0 4px">Se o botão não funcionar, copie e cole no navegador:</p>
+        <p style="color:#6D28D9;font-size:12px;word-break:break-all;margin:0 0 20px">${inviteUrl}</p>
+        <hr style="border:none;border-top:1px solid #E9E5F5;margin:0 0 16px"/>
+        <p style="color:#5B5470;font-size:12px;margin:0">
+          Você verá apenas o(s) seu(s) filho(s). Dúvidas? Fale com a secretaria da escola.
+        </p>
+      </div>
+    `,
+  }).catch((err: unknown) => console.error("[sendGuardianInviteEmail]", err));
+}

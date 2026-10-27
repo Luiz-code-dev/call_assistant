@@ -3,8 +3,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu } from "@/lib/escola/db";
 import { genInviteToken, hashToken } from "@/lib/escola/familia";
+import { sendGuardianInviteEmail } from "@/lib/email";
 
 function flag() { return isEscolasEnabled(); }
+
+const ESCOLA_BASE = process.env.NEXT_PUBLIC_ESCOLA_URL || "https://www.speakflow.ia.br";
 
 const RELATIONS = ["MAE", "PAI", "AVO_AVO", "TIO_TIA", "TUTOR_LEGAL", "OUTRO"];
 
@@ -90,19 +93,27 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   }).catch(() => {});
 
   // Convite (link por e-mail/WhatsApp) mostrando o nome do aluno no aceite.
+  // Usa o e-mail RESOLVIDO do guardian (vale tanto para novo quanto para
+  // responsavel existente que foi apenas religado por guardianId).
+  const guardianEmail: string | null = guardian.email ?? null;
+  const guardianPhone: string | null = guardian.phone ?? null;
   let invitePath: string | null = null;
   const token = genInviteToken();
   try {
     await prismaEdu.eduGuardianInvite.create({
       data: {
         networkId: ctx.networkId, guardianId: guardian.id, tokenHash: hashToken(token),
-        channel: emailN ? "email" : phoneN ? "whatsapp" : "link",
+        channel: guardianEmail ? "email" : guardianPhone ? "whatsapp" : "link",
         expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
         createdById: ctx.userId,
       },
     });
     invitePath = `/escola/familia/convite/${token}`;
-  } catch { /* convite é opcional */ }
+    // Dispara o e-mail do convite via Resend (se o responsável tem e-mail).
+    if (guardianEmail) {
+      await sendGuardianInviteEmail(guardianEmail, guardian.name, [student.fullName], `${ESCOLA_BASE}${invitePath}`);
+    }
+  } catch (e) { console.error("[responsaveis:convite]", e); }
 
   return NextResponse.json({ ok: true, guardianId: guardian.id, invitePath }, { status: 201 });
 }
