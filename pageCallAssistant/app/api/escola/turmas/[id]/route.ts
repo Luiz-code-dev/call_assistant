@@ -25,10 +25,19 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
       include: {
         school: { select: { id: true, name: true } },
         schoolYear: { select: { year: true } },
-        subjects: { include: { subject: { select: { name: true, color: true, area: true } } } },
+        subjects: true,
       },
     });
     if (!cls) return NextResponse.json({ error: "Turma não encontrada" }, { status: 404 });
+
+    // EduClassSubject nao tem relacao "subject"; busca os componentes por subjectId.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const subjectIds = cls.subjects.map((cs: any) => cs.subjectId);
+    const subjs = subjectIds.length
+      ? await prismaEdu.eduSubject.findMany({ where: { id: { in: subjectIds } }, select: { id: true, name: true, color: true } })
+      : [];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const subjMap = new Map<string, any>(subjs.map((s: any) => [s.id, s]));
 
     const enrollments = await prismaEdu.eduEnrollment.findMany({
       where: { networkId: ctx.networkId, classId: cls.id, status: "ACTIVE" },
@@ -80,7 +89,7 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
         accessCode: cls.accessCode, schoolName: cls.school?.name, schoolId: cls.school?.id,
         year: cls.schoolYear?.year,
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        subjects: cls.subjects.map((cs: any) => ({ name: cs.subject?.name, color: cs.subject?.color, teacherId: cs.teacherId })),
+        subjects: cls.subjects.map((cs: any) => ({ name: subjMap.get(cs.subjectId)?.name, color: subjMap.get(cs.subjectId)?.color, teacherId: cs.teacherId })),
       },
       students,
       indicadores: {
