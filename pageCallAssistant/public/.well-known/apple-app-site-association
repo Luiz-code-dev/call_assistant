@@ -9,10 +9,19 @@
           "/reset-password",
           "/invite/*"
         ]
+      },
+      {
+        "appID": "REPLACE_TEAM_ID.br.com.speakflow.escolas",
+        "paths": [
+          "/escola/*"
+        ]
       }
     ]
   },
   "webcredentials": {
-    "apps": ["REPLACE_TEAM_ID.br.com.speakflow.app"]
+    "apps": [
+      "REPLACE_TEAM_ID.br.com.speakflow.app",
+      "REPLACE_TEAM_ID.br.com.speakflow.escolas"
+    ]
   }
 }
