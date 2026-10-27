@@ -6,6 +6,7 @@ import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { familySecret } from "@/lib/escola/secrets";
 import { hashFamilyCode, sameBirthDate } from "@/lib/escola/familia";
 import { FAMILY_COOKIE } from "@/lib/escola/cookies";
+import { normalizePhone } from "@/lib/escola/phone";
 import bcrypt from "bcryptjs";
 
 const schema = z.object({
@@ -26,6 +27,7 @@ export async function POST(req: NextRequest) {
   const parsed = schema.safeParse(await req.json());
   if (!parsed.success) return NextResponse.json({ error: "Dados inválidos", details: parsed.error.flatten() }, { status: 400 });
   const { familyCode, birthDate, guardianName, guardianEmail, guardianPhone, senha, relation, termsVersion, consentIp } = parsed.data;
+  const phoneNorm = guardianPhone ? (normalizePhone(guardianPhone) || null) : null;
   const passwordHash = senha ? await bcrypt.hash(senha, 10) : null;
 
   // Acha o código pelo hash (busca O(1)); o código é por aluno (studentId único).
@@ -51,11 +53,11 @@ export async function POST(req: NextRequest) {
   });
 
   let guardian = await (prismaEdu as any).eduGuardian.findFirst({
-    where: { networkId, ...(guardianEmail ? { email: guardianEmail } : { phone: guardianPhone }) },
+    where: { networkId, ...(guardianEmail ? { email: guardianEmail } : { phone: phoneNorm }) },
   });
   if (!guardian) {
     guardian = await (prismaEdu as any).eduGuardian.create({
-      data: { networkId, name: guardianName, email: guardianEmail ?? null, phone: guardianPhone ?? null, ...(passwordHash ? { passwordHash } : {}) },
+      data: { networkId, name: guardianName, email: guardianEmail ?? null, phone: phoneNorm, ...(passwordHash ? { passwordHash } : {}) },
     });
   } else if (passwordHash) {
     // Primeiro acesso define/atualiza a senha do responsavel existente.

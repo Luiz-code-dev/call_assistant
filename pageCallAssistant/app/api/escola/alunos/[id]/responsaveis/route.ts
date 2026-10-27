@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu } from "@/lib/escola/db";
 import { genInviteToken, hashToken } from "@/lib/escola/familia";
+import { normalizePhone } from "@/lib/escola/phone";
 import { sendGuardianInviteEmail } from "@/lib/email";
 
 function flag() { return isEscolasEnabled(); }
@@ -58,7 +59,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   if (!relation || !RELATIONS.includes(relation)) return NextResponse.json({ error: "Parentesco inválido" }, { status: 400 });
 
   const emailN = email?.trim() || null;
-  const phoneN = phone?.trim() || null;
+  const phoneN = normalizePhone(phone) || null;
 
   // Limite de 4 responsaveis ativos por aluno
   const count = await prismaEdu.eduGuardianLink.count({ where: { networkId: ctx.networkId, studentId: params.id, isActive: true } });
