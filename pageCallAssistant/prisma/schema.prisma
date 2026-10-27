@@ -1449,6 +1449,9 @@ model EduGuardian {
   name      String
   email     String?
   phone     String?
+  passwordHash     String?
+  loginFailedCount Int       @default(0)
+  loginLockedUntil DateTime?
   createdAt DateTime @default(now())
 
   user    User?              @relation(fields: [userId], references: [id])
