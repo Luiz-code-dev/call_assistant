@@ -1,6 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { QrCode, Monitor, ListOrdered, MessageSquare, Delete } from "lucide-react";
 
@@ -85,10 +85,13 @@ function AlphaNumPad({ onPress, onDelete, onClear }: { onPress: (c: string) => v
   );
 }
 
-export default function AlunoEntrarPage() {
+function AlunoEntrarInner() {
   const router = useRouter();
+  const sp = useSearchParams();
   const [mode, setMode] = useState<LoginMode>("select");
   const [error, setError] = useState("");
+
+  const aviso = sp.get("expirou") ? "Sua sessão expirou. Entre de novo." : sp.get("saiu") ? "Você saiu." : "";
 
   // Aula mode
   const [aulaCode, setAulaCode] = useState("");
@@ -197,6 +200,11 @@ export default function AlunoEntrarPage() {
 
       {/* Content */}
       <main style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px 24px 24px" }}>
+        {aviso && (
+          <div style={{ background: "#EDE9FE", border: "1px solid #DDD6EE", borderRadius: 12, padding: "12px 20px", marginBottom: 28, fontSize: 15, fontWeight: 600, color: "#4C1D95", textAlign: "center" }}>
+            {aviso}
+          </div>
+        )}
         <h1 style={{ fontSize: 36, fontWeight: 800, color: "#3B0764", textAlign: "center", margin: "0 0 12px" }}>
           Olá! Como você quer entrar?
         </h1>
@@ -537,5 +545,13 @@ export default function AlunoEntrarPage() {
         </button>
       </div>
     </div>
+  );
+}
+
+export default function AlunoEntrarPage() {
+  return (
+    <Suspense fallback={null}>
+      <AlunoEntrarInner />
+    </Suspense>
   );
 }
