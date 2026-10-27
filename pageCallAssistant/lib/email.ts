@@ -682,7 +682,7 @@ export async function sendGuardianInviteEmail(
   const first = guardianName?.split(" ")[0] || "você";
   const filhos = childNames.length ? childNames.join(", ") : "seu filho(a)";
   await resend.emails.send({
-    from: process.env.EMAIL_FROM_ESCOLA || "SpeakFlow Escolas <escolas@speakflow.ia.br>",
+    from: process.env.EMAIL_FROM_ESCOLA || process.env.RESEND_FROM || "SpeakFlow Escolas <escolas@speakflow.ia.br>",
     to,
     subject: `Acompanhe ${childNames[0] ?? "seu filho(a)"} no SpeakFlow Escolas`,
     html: `
