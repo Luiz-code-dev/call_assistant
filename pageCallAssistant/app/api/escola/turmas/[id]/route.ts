@@ -7,7 +7,9 @@ function flag() { return isEscolasEnabled(); }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function guardianSituacao(g: any): "ACOMPANHANDO" | "SEM_ACESSO" {
-  return g?.userId ? "ACOMPANHANDO" : "SEM_ACESSO";
+  // Tem acesso se ligado a uma conta (userId) OU se ja definiu senha propria
+  // (modelo novo da familia: login direto por e-mail/celular + senha).
+  return g?.userId || g?.passwordHash ? "ACOMPANHANDO" : "SEM_ACESSO";
 }
 
 export async function GET(_req: NextRequest, { params }: { params: { id: string } }) {
@@ -49,7 +51,7 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
     const links = studentIds.length
       ? await prismaEdu.eduGuardianLink.findMany({
           where: { networkId: ctx.networkId, studentId: { in: studentIds }, isActive: true },
-          include: { guardian: { select: { id: true, name: true, email: true, phone: true, userId: true } } },
+          include: { guardian: { select: { id: true, name: true, email: true, phone: true, userId: true, passwordHash: true } } },
         })
       : [];
 

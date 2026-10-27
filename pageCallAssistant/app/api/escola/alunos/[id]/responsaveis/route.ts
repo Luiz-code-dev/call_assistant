@@ -35,14 +35,14 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
 
   const links = await prismaEdu.eduGuardianLink.findMany({
     where: { networkId: ctx.networkId, studentId: params.id, isActive: true },
-    include: { guardian: { select: { id: true, name: true, email: true, phone: true, userId: true } } },
+    include: { guardian: { select: { id: true, name: true, email: true, phone: true, userId: true, passwordHash: true } } },
     orderBy: { createdAt: "asc" },
   });
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const responsaveis = links.map((l: any) => ({
     linkId: l.id, guardianId: l.guardianId, relation: l.relation,
     name: l.guardian?.name, email: l.guardian?.email, phone: l.guardian?.phone,
-    situacao: l.guardian?.userId ? "ACOMPANHANDO" : "SEM_ACESSO",
+    situacao: l.guardian?.userId || l.guardian?.passwordHash ? "ACOMPANHANDO" : "SEM_ACESSO",
   }));
   return NextResponse.json({ responsaveis });
 }

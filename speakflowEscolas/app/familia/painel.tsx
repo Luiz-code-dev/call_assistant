@@ -6,15 +6,15 @@ import { Settings, Lightbulb, Plus, ChevronRight, AlertTriangle } from "lucide-r
 import { colors, radius, fonts } from "@/lib/theme";
 import { apiGet } from "@/lib/api";
 
-interface Filho { id: string; fullName?: string; name?: string; firstName?: string; className?: string | null }
+// Formas reais de /api/escola/familia/filhos e .../resumo
+interface Filho { studentId: string; firstName?: string; fullName?: string; className?: string | null }
 interface Resumo {
-  aluno?: { firstName?: string; className?: string | null; shift?: string | null };
-  semana?: { dias?: boolean[]; atividades?: number; minutos?: number; frase?: string; hojeIndex?: number };
-  trilhaAtual?: { subject?: { name?: string }; habilidade?: string; feitas?: number; total?: number } | null;
-  evolucao?: { mastered?: number; almost?: number; notYet?: number; frase?: string } | null;
+  semana?: { dias?: boolean[]; atividades?: number; minutos?: number; frase?: string };
+  trilhaAtual?: { subjectName?: string; subjectColor?: string; skillLabel?: string; feitas?: number; total?: number } | null;
+  evolucao?: { MASTERED?: number; ALMOST?: number; NOT_YET?: number; avancaramNoMes?: number } | null;
   dica?: string | null;
-  retornos?: { id?: string; subject?: string; nivel?: string; resumo?: string }[];
-  alertas?: string[];
+  retornos?: { subjectName?: string; title?: string | null; when?: string; level?: string | null; acertou?: string | null; melhorar?: string | null }[];
+  alertas?: { tipo: string; texto: string }[];
   escola?: { nome?: string | null; turma?: string | null; turno?: string | null; phone?: string | null; email?: string | null };
 }
 const DIAS = ["S", "T", "Q", "Q", "S", "S", "D"];
@@ -25,6 +25,7 @@ export default function FamiliaPainel() {
   const [filhos, setFilhos] = useState<Filho[] | null>(null);
   const [sel, setSel] = useState<string | null>(null);
   const [resumo, setResumo] = useState<Resumo | null>(null);
+  const [resumoErro, setResumoErro] = useState(false);
   const [erro, setErro] = useState(false);
 
   const carregarFilhos = useCallback(async () => {
@@ -33,17 +34,21 @@ export default function FamiliaPainel() {
     if (!d) { setErro(true); setFilhos([]); return; }
     setGuardian(d.guardianFirstName ?? "");
     setFilhos(d.filhos ?? []);
-    if (d.filhos?.[0]) setSel(d.filhos[0].id);
+    if (d.filhos?.[0]) setSel(d.filhos[0].studentId);
   }, []);
   useEffect(() => { carregarFilhos(); }, [carregarFilhos]);
 
-  useEffect(() => {
+  const carregarResumo = useCallback(() => {
     if (!sel) return;
-    setResumo(null);
-    apiGet<Resumo>(`/familia/filhos/${sel}/resumo`).then((d) => setResumo(d ?? {}));
+    setResumo(null); setResumoErro(false);
+    apiGet<Resumo>(`/familia/filhos/${sel}/resumo`).then((d) => {
+      if (d === null) { setResumoErro(true); setResumo({}); }
+      else setResumo(d);
+    });
   }, [sel]);
+  useEffect(() => { carregarResumo(); }, [carregarResumo]);
 
-  const nome = (f: Filho) => f.firstName || f.name || f.fullName?.split(" ")[0] || "Aluno";
+  const nome = (f: Filho) => f.firstName || f.fullName?.split(" ")[0] || "Aluno";
 
   return (
     <ScrollView style={{ flex: 1, backgroundColor: colors.bg }} contentContainerStyle={{ padding: 16, paddingTop: insets.top + 16, paddingBottom: insets.bottom + 24, gap: 14 }}>
@@ -64,20 +69,25 @@ export default function FamiliaPainel() {
         <>
           <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8 }}>
             {filhos!.map((f) => (
-              <Pressable key={f.id} onPress={() => setSel(f.id)} style={[styles.chip, sel === f.id && { backgroundColor: colors.action }]}>
-                <Text style={[styles.chipText, { color: sel === f.id ? "#FFF" : colors.text }]}>{nome(f)}{f.className ? ` · ${f.className}` : ""}</Text>
+              <Pressable key={f.studentId} onPress={() => setSel(f.studentId)} style={[styles.chip, sel === f.studentId && { backgroundColor: colors.action }]}>
+                <Text style={[styles.chipText, { color: sel === f.studentId ? "#FFF" : colors.text }]}>{nome(f)}{f.className ? ` · ${f.className}` : ""}</Text>
               </Pressable>
             ))}
             <Pressable onPress={() => router.push("/familia/adicionar-filho")} style={styles.chipAdd}><Plus size={16} color={colors.action} /></Pressable>
           </ScrollView>
 
-          {!resumo ? (
+          {resumoErro ? (
+            <View style={styles.card}>
+              <Text style={styles.text}>Não foi possível carregar o resumo. Tente de novo.</Text>
+              <Pressable onPress={carregarResumo} style={styles.retry}><Text style={styles.retryText}>Tentar de novo</Text></Pressable>
+            </View>
+          ) : !resumo ? (
             <View style={styles.skeleton}><ActivityIndicator color={colors.action} /></View>
           ) : (
             <>
               {resumo.alertas?.map((a, i) => (
                 <View key={i} style={[styles.block, { backgroundColor: colors.warnSoft, borderColor: "#FDE68A", flexDirection: "row", gap: 10 }]}>
-                  <AlertTriangle size={18} color={colors.warn} /><Text style={[styles.text, { flex: 1, color: colors.warn }]}>{a}</Text>
+                  <AlertTriangle size={18} color={colors.warn} /><Text style={[styles.text, { flex: 1, color: colors.warn }]}>{a.texto}</Text>
                 </View>
               ))}
 
@@ -97,8 +107,8 @@ export default function FamiliaPainel() {
               {resumo.trilhaAtual ? (
                 <View style={styles.block}>
                   <Text style={styles.blockTitle}>Trilha atual</Text>
-                  {resumo.trilhaAtual.subject?.name ? <Text style={styles.pillInline}>{resumo.trilhaAtual.subject.name}</Text> : null}
-                  {resumo.trilhaAtual.habilidade ? <Text style={styles.text}>{resumo.trilhaAtual.habilidade}</Text> : null}
+                  {resumo.trilhaAtual.subjectName ? <Text style={[styles.pillInline, resumo.trilhaAtual.subjectColor ? { color: resumo.trilhaAtual.subjectColor } : null]}>{resumo.trilhaAtual.subjectName}</Text> : null}
+                  {resumo.trilhaAtual.skillLabel ? <Text style={styles.text}>{resumo.trilhaAtual.skillLabel}</Text> : null}
                   <Text style={styles.textMuted}>{resumo.trilhaAtual.feitas ?? 0} de {resumo.trilhaAtual.total ?? 0}</Text>
                 </View>
               ) : null}
@@ -107,11 +117,11 @@ export default function FamiliaPainel() {
                 <Pressable onPress={() => router.push(`/familia/evolucao?id=${sel}` as never)} style={styles.block}>
                   <View style={styles.rowBetween}><Text style={styles.blockTitle}>Evolução</Text><ChevronRight size={16} color={colors.action} /></View>
                   <View style={{ flexDirection: "row", gap: 8, flexWrap: "wrap" }}>
-                    <Badge n={resumo.evolucao.mastered} label="Domina" fg={colors.success} bg={colors.successSoft} />
-                    <Badge n={resumo.evolucao.almost} label="Quase lá" fg={colors.warn} bg={colors.warnSoft} />
-                    <Badge n={resumo.evolucao.notYet} label="Ainda não" fg={colors.danger} bg={colors.dangerSoft} />
+                    <Badge n={resumo.evolucao.MASTERED} label="Domina" fg={colors.success} bg={colors.successSoft} />
+                    <Badge n={resumo.evolucao.ALMOST} label="Quase lá" fg={colors.warn} bg={colors.warnSoft} />
+                    <Badge n={resumo.evolucao.NOT_YET} label="Ainda não" fg={colors.danger} bg={colors.dangerSoft} />
                   </View>
-                  {resumo.evolucao.frase ? <Text style={styles.textMuted}>{resumo.evolucao.frase}</Text> : null}
+                  {resumo.evolucao.avancaramNoMes ? <Text style={styles.textMuted}>{resumo.evolucao.avancaramNoMes} habilidade(s) avançaram este mês</Text> : null}
                 </Pressable>
               ) : null}
 
@@ -126,7 +136,7 @@ export default function FamiliaPainel() {
                 <Pressable onPress={() => router.push(`/familia/retornos?id=${sel}` as never)} style={styles.block}>
                   <View style={styles.rowBetween}><Text style={styles.blockTitle}>Últimos retornos</Text><ChevronRight size={16} color={colors.action} /></View>
                   {resumo.retornos.slice(0, 3).map((r, i) => (
-                    <Text key={r.id ?? i} style={styles.textMuted} numberOfLines={1}>{r.subject ? `${r.subject} · ` : ""}{r.resumo ?? r.nivel ?? ""}</Text>
+                    <Text key={i} style={styles.textMuted} numberOfLines={1}>{r.subjectName ? `${r.subjectName} · ` : ""}{r.acertou ?? r.melhorar ?? r.title ?? ""}</Text>
                   ))}
                 </Pressable>
               ) : null}

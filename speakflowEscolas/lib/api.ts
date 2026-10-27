@@ -1,5 +1,13 @@
+import { router } from "expo-router";
 import { API_BASE, APP_CLIENT } from "@/lib/config";
-import { authHeaders } from "@/lib/session";
+import { authHeaders, limparSessao } from "@/lib/session";
+
+// 401 numa chamada autenticada = sessao invalida/vencida/desvinculada:
+// limpa o token e volta para a entrada (login), sem ficar preso em erro.
+async function tratarNaoAutorizado() {
+  await limparSessao();
+  try { router.replace("/"); } catch { /* fora da navegacao */ }
+}
 
 export { API_BASE, APP_CLIENT };
 
@@ -23,10 +31,24 @@ export async function fetchConfig(): Promise<EscolaConfig | null> {
   }
 }
 
+// Timeout padrao para nao deixar a tela girando pra sempre quando a rede cai.
+const REQ_TIMEOUT_MS = 20000;
+
+async function fetchComTimeout(url: string, init: RequestInit): Promise<Response> {
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), REQ_TIMEOUT_MS);
+  try {
+    return await fetch(url, { ...init, signal: ctrl.signal });
+  } finally {
+    clearTimeout(t);
+  }
+}
+
 /** GET autenticado em /api/escola<path>. Retorna null em erro (nunca lanca). */
 export async function apiGet<T>(path: string): Promise<T | null> {
   try {
-    const r = await fetch(`${API_BASE}/api/escola${path}`, { headers: await authHeaders() });
+    const r = await fetchComTimeout(`${API_BASE}/api/escola${path}`, { headers: await authHeaders() });
+    if (r.status === 401) { await tratarNaoAutorizado(); return null; }
     if (!r.ok) return null;
     return (await r.json()) as T;
   } catch {
@@ -55,11 +77,13 @@ export async function apiSend<T>(
     const base = opts?.auth === false ? { "X-Client": APP_CLIENT } : await authHeaders();
     const headers: Record<string, string> = { ...base };
     if (body !== undefined) headers["Content-Type"] = "application/json";
-    const r = await fetch(`${API_BASE}/api/escola${path}`, {
+    const r = await fetchComTimeout(`${API_BASE}/api/escola${path}`, {
       method,
       headers,
       body: body !== undefined ? JSON.stringify(body) : undefined,
     });
+    // So redireciona em chamadas autenticadas; no login (auth:false) 401 = senha errada.
+    if (r.status === 401 && opts?.auth !== false) { await tratarNaoAutorizado(); }
     let data: T | null = null;
     try { data = (await r.json()) as T; } catch { /* sem corpo */ }
     const error = !r.ok ? ((data as { error?: string } | null)?.error ?? "Nao foi possivel completar a acao.") : undefined;

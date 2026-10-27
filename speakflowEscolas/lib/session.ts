@@ -15,12 +15,32 @@ export async function salvarSessao(s: Sessao): Promise<void> {
   await SecureStore.setItemAsync(KEY, JSON.stringify(s));
 }
 
+// Le o `exp` (segundos) do JWT sem verificar assinatura (so para saber se venceu).
+function expDoToken(token: string): number | null {
+  try {
+    const part = token.split(".")[1];
+    if (!part) return null;
+    const b64 = part.replace(/-/g, "+").replace(/_/g, "/").padEnd(Math.ceil(part.length / 4) * 4, "=");
+    const json = JSON.parse(globalThis.atob(b64)) as { exp?: number };
+    return typeof json.exp === "number" ? json.exp : null;
+  } catch {
+    return null;
+  }
+}
+
 export async function lerSessao(): Promise<Sessao | null> {
   try {
     const raw = await SecureStore.getItemAsync(KEY);
     if (!raw) return null;
     const s = JSON.parse(raw) as Sessao;
-    return s?.token && s?.perfil ? s : null;
+    if (!s?.token || !s?.perfil) return null;
+    // Sessao vencida: apaga e obriga novo login (em vez de abrir a tela logada quebrada).
+    const exp = expDoToken(s.token);
+    if (exp !== null && exp * 1000 <= Date.now()) {
+      await limparSessao();
+      return null;
+    }
+    return s;
   } catch {
     return null;
   }
