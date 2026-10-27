@@ -812,6 +812,8 @@ model EduSchool {
   networkId String
   name      String
   inepCode  String?
+  phone     String?
+  email     String?
   isActive  Boolean @default(true)
 
   network     EduNetwork      @relation(fields: [networkId], references: [id])
@@ -819,6 +821,20 @@ model EduSchool {
   memberships EduMembership[]
 
   @@unique([networkId, inepCode])
+}
+
+// Dica "Como ajudar" da familia, gerada pela IA 1x por semana por aluno.
+model EduFamilyTip {
+  id        String   @id @default(cuid())
+  networkId String
+  studentId String
+  skillId   String?
+  weekStart DateTime
+  text      String   @db.Text
+  createdAt DateTime @default(now())
+
+  @@unique([studentId, weekStart])
+  @@index([networkId])
 }
 
 model EduSchoolYear {
@@ -1203,6 +1219,8 @@ model EduSubmission {
   quizAnswers  Json?
   aiScore      Decimal?            @db.Decimal(5, 2)
   aiFeedback   Json?
+  masteryLevel EduMasteryLevel?
+  skillId      String?
   teacherScore Decimal?            @db.Decimal(5, 2)
   teacherNote  String?             @db.Text
   aiStatus     EduAiStatus?
