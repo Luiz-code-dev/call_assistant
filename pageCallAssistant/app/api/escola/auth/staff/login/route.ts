@@ -4,7 +4,8 @@ import bcrypt from "bcryptjs";
 import { db } from "@/lib/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { rotaDoPapel } from "@/lib/escola/context";
-import { signStaffToken, staffCookieOptions } from "@/lib/escola/staff-session";
+import { signStaffToken, staffCookieOptions, STAFF_SESSION_SECONDS } from "@/lib/escola/staff-session";
+import { isAppClient, APP_STAFF_SECONDS } from "@/lib/escola/app-auth";
 
 const bodySchema = z.object({
   email: z.string().email(),
@@ -21,6 +22,8 @@ export async function POST(req: NextRequest) {
   }
 
   const { email, password } = parsed.data;
+  const appClient = isAppClient();
+  const staffSeconds = appClient ? APP_STAFF_SECONDS : STAFF_SESSION_SECONDS;
 
   const user = await db.user.findUnique({
     where: { email },
@@ -59,15 +62,15 @@ export async function POST(req: NextRequest) {
   // Escolha automática: único vínculo/admin
   if (opcoes === 1) {
     if (isAdmin) {
-      const token = await signStaffToken({ userId: user.id, role: "PLATFORM_ADMIN" });
-      const res = NextResponse.json({ ok: true, redirect: rotaDoPapel("PLATFORM_ADMIN") });
+      const token = await signStaffToken({ userId: user.id, role: "PLATFORM_ADMIN" }, staffSeconds);
+      const res = NextResponse.json({ ok: true, redirect: rotaDoPapel("PLATFORM_ADMIN"), ...(appClient ? { token } : {}) });
       res.cookies.set("sf_edu_ctx", token, staffCookieOptions);
       res.cookies.set("sf_edu_last", "platform", { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "lax", maxAge: 60 * 60 * 24 * 30, path: "/" });
       return res;
     }
     const chosen = memberships[0];
-    const token = await signStaffToken({ userId: user.id, role: chosen.role, membershipId: chosen.id, networkId: chosen.networkId, schoolId: chosen.schoolId });
-    const res = NextResponse.json({ ok: true, redirect: rotaDoPapel(chosen.role) });
+    const token = await signStaffToken({ userId: user.id, role: chosen.role, membershipId: chosen.id, networkId: chosen.networkId, schoolId: chosen.schoolId }, staffSeconds);
+    const res = NextResponse.json({ ok: true, redirect: rotaDoPapel(chosen.role), ...(appClient ? { token } : {}) });
     res.cookies.set("sf_edu_ctx", token, staffCookieOptions);
     res.cookies.set("sf_edu_last", chosen.id, { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "lax", maxAge: 60 * 60 * 24 * 30, path: "/" });
     return res;
@@ -75,16 +78,16 @@ export async function POST(req: NextRequest) {
 
   // Lembrar último acesso
   if (lastCookie === "platform" && isAdmin) {
-    const token = await signStaffToken({ userId: user.id, role: "PLATFORM_ADMIN" });
-    const res = NextResponse.json({ ok: true, redirect: rotaDoPapel("PLATFORM_ADMIN") });
+    const token = await signStaffToken({ userId: user.id, role: "PLATFORM_ADMIN" }, staffSeconds);
+    const res = NextResponse.json({ ok: true, redirect: rotaDoPapel("PLATFORM_ADMIN"), ...(appClient ? { token } : {}) });
     res.cookies.set("sf_edu_ctx", token, staffCookieOptions);
     res.cookies.set("sf_edu_last", "platform", { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "lax", maxAge: 60 * 60 * 24 * 30, path: "/" });
     return res;
   }
   const lastMatch = lastCookie ? memberships.find((m: { id: string }) => m.id === lastCookie) : null;
   if (lastMatch) {
-    const token = await signStaffToken({ userId: user.id, role: lastMatch.role, membershipId: lastMatch.id, networkId: lastMatch.networkId, schoolId: lastMatch.schoolId });
-    const res = NextResponse.json({ ok: true, redirect: rotaDoPapel(lastMatch.role) });
+    const token = await signStaffToken({ userId: user.id, role: lastMatch.role, membershipId: lastMatch.id, networkId: lastMatch.networkId, schoolId: lastMatch.schoolId }, staffSeconds);
+    const res = NextResponse.json({ ok: true, redirect: rotaDoPapel(lastMatch.role), ...(appClient ? { token } : {}) });
     res.cookies.set("sf_edu_ctx", token, staffCookieOptions);
     res.cookies.set("sf_edu_last", lastMatch.id, { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "lax", maxAge: 60 * 60 * 24 * 30, path: "/" });
     return res;

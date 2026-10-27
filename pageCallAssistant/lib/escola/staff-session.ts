@@ -7,7 +7,10 @@ export type StaffTokenInput =
   | { userId: string; role: "PLATFORM_ADMIN" }
   | { userId: string; role: string; membershipId: string; networkId: string; schoolId: string | null };
 
-export async function signStaffToken(input: StaffTokenInput): Promise<string> {
+export async function signStaffToken(
+  input: StaffTokenInput,
+  seconds: number = STAFF_SESSION_SECONDS
+): Promise<string> {
   const claims: Record<string, unknown> = { sub: input.userId, role: input.role };
   if ("membershipId" in input) {
     claims.mid = input.membershipId;
@@ -16,8 +19,9 @@ export async function signStaffToken(input: StaffTokenInput): Promise<string> {
   }
   return new SignJWT(claims)
     .setProtectedHeader({ alg: "HS256" })
+    .setAudience("staff")
     .setIssuedAt()
-    .setExpirationTime(`${STAFF_SESSION_SECONDS}s`)
+    .setExpirationTime(`${seconds}s`)
     .sign(staffSecret());
 }
 

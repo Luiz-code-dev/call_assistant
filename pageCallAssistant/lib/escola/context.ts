@@ -1,8 +1,8 @@
 import { cookies } from "next/headers";
-import { jwtVerify } from "jose";
 import { EduRole } from "@/lib/escola/types";
 import { db } from "@/lib/db";
 import { staffSecret, studentSecret } from "@/lib/escola/secrets";
+import { bearerToken, verifyTypedToken } from "@/lib/escola/app-auth";
 
 export async function resolverVinculos(userId: string) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -44,13 +44,14 @@ export interface StudentContext {
 
 
 export async function getEduContext(): Promise<EduContext | null> {
-  const cookieStore = cookies();
-  const raw = cookieStore.get("sf_edu_ctx")?.value;
+  // App (Bearer) tem prioridade sobre o cookie da web.
+  const raw = bearerToken() ?? cookies().get("sf_edu_ctx")?.value;
   if (!raw) return null;
 
-  try {
-    const { payload } = await jwtVerify(raw, staffSecret());
+  const payload = await verifyTypedToken(raw, staffSecret(), "staff");
+  if (!payload) return null;
 
+  try {
     // PLATFORM_ADMIN tokens carry role directly — no EduMembership
     if (payload["role"] === "PLATFORM_ADMIN") {
       const userId = payload["sub"] as string | undefined;
@@ -88,12 +89,13 @@ const revalidationCache = new Map<string, { ok: boolean; ts: number }>();
 const REVALIDATE_TTL_MS = 60_000;
 
 export async function getStudentContext(): Promise<StudentContext | null> {
-  const cookieStore = cookies();
-  const raw = cookieStore.get("sf_edu_student")?.value;
+  const raw = bearerToken() ?? cookies().get("sf_edu_student")?.value;
   if (!raw) return null;
 
+  const payload = await verifyTypedToken(raw, studentSecret(), "student");
+  if (!payload) return null;
+
   try {
-    const { payload } = await jwtVerify(raw, studentSecret());
     const studentId = payload["sub"] as string | undefined;
     const networkId = payload["nid"] as string | undefined;
     const enrollmentId = payload["eid"] as string | undefined;

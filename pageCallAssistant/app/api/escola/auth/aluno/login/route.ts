@@ -5,6 +5,7 @@ import bcrypt from "bcryptjs";
 import { db } from "@/lib/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { studentSecret } from "@/lib/escola/secrets";
+import { isAppClient, APP_STUDENT_SECONDS } from "@/lib/escola/app-auth";
 
 const bodySchema = z.object({
   accessCode: z.string().min(1),
@@ -88,6 +89,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Matrícula inativa nesta turma" }, { status: 403 });
   }
 
+  const appClient = isAppClient();
+  const studentSeconds = appClient ? APP_STUDENT_SECONDS : 60 * 60 * 4;
   const token = await new SignJWT({
     sub: student.id,
     nid: cls.networkId,
@@ -95,16 +98,17 @@ export async function POST(req: NextRequest) {
     cid: cls.id,
   })
     .setProtectedHeader({ alg: "HS256" })
+    .setAudience("student")
     .setIssuedAt()
-    .setExpirationTime("4h")
+    .setExpirationTime(`${studentSeconds}s`)
     .sign(studentSecret());
 
-  const res = NextResponse.json({ ok: true });
+  const res = NextResponse.json({ ok: true, ...(appClient ? { token } : {}) });
   res.cookies.set("sf_edu_student", token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
-    maxAge: 60 * 60 * 4,
+    maxAge: studentSeconds,
     path: "/",
   });
   return res;
