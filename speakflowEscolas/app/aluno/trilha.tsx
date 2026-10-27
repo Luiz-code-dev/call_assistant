@@ -1,116 +1,116 @@
-import { View, Text, Pressable, ScrollView, StyleSheet } from "react-native";
+import { useEffect, useState, useCallback } from "react";
+import { View, Text, Pressable, ScrollView, StyleSheet, ActivityIndicator } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Check, Mic, Sparkles, ArrowRight } from "lucide-react-native";
 import { router } from "expo-router";
-import { colors, radius, subjectColors, touch } from "@/lib/theme";
+import { Settings, ArrowRight, TrendingUp } from "lucide-react-native";
+import { colors, radius, touch, fonts, subjectColors, masteryColor } from "@/lib/theme";
+import { apiGet } from "@/lib/api";
 
-// "Minha trilha" — fiel ao cartão do topo do site (components/site/trail-mockup.tsx).
-// Conteúdo ilustrativo por padrão; quando houver dados reais do aluno
-// (GET /api/escola/aluno/trilhas) eles substituem os campos abaixo.
-const STEPS = ["done", "done", "done", "current", "todo"] as const;
+interface Activity {
+  id: string; title: string; type: string;
+  subject: { id: string; name: string; color?: string } | null;
+  submission: { status: string; aiScore?: number | null } | null;
+  isDone: boolean;
+}
 
-export default function MinhaTrilha() {
+export default function AlunoTrilha() {
   const insets = useSafeAreaInsets();
-  const ma = subjectColors.MA;
+  const [todo, setTodo] = useState<Activity[] | null>(null);
+  const [erro, setErro] = useState(false);
+
+  const carregar = useCallback(async () => {
+    setErro(false);
+    const d = await apiGet<{ atividades: Activity[] }>("/aluno/atividades?filter=todo");
+    if (!d) { setErro(true); setTodo([]); return; }
+    setTodo(d.atividades ?? []);
+  }, []);
+
+  useEffect(() => { carregar(); }, [carregar]);
+
+  const corComp = (a: Activity) => a.subject?.color || (a.subject ? subjectColors[a.subject.id] : undefined) || colors.action;
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: colors.bg }} contentContainerStyle={{ padding: 20, paddingTop: insets.top + 16, paddingBottom: insets.bottom + 24 }}>
-      <View style={styles.card}>
-        {/* topo: componente + "Minha trilha" */}
-        <View style={styles.row}>
-          <View style={[styles.chip, { backgroundColor: ma + "1A" }]}>
-            <Text style={[styles.chipText, { color: ma }]}>Matemática · 6º ano</Text>
-          </View>
-          <Text style={styles.minhaTrilha}>Minha trilha</Text>
-        </View>
-
-        {/* habilidade */}
-        <View style={{ marginTop: 16 }}>
-          <Text style={styles.habLabel}>Habilidade</Text>
-          <Text style={styles.habTitle}>Frações: parte de um todo</Text>
-        </View>
-
-        {/* progresso */}
-        <View style={{ marginTop: 16, gap: 8 }}>
-          <View style={styles.row}>
-            <Text style={styles.progLabel}>3 de 5 atividades</Text>
-            <Text style={[styles.progLabel, { color: colors.action }]}>60%</Text>
-          </View>
-          <View style={styles.track}>
-            <View style={[styles.trackFill, { width: "60%" }]} />
-          </View>
-          <View style={styles.steps}>
-            {STEPS.map((s, i) => (
-              <View
-                key={i}
-                style={[
-                  styles.step,
-                  s === "done" && { backgroundColor: colors.action },
-                  s === "current" && { borderWidth: 2, borderColor: colors.brandPink, backgroundColor: "#FCE7F3" },
-                  s === "todo" && { backgroundColor: "#EEE9F5" },
-                ]}
-              >
-                {s === "done" ? <Check size={13} color="#FFFFFF" /> : <Text style={[styles.stepNum, s === "current" && { color: colors.brandPink }]}>{i + 1}</Text>}
-              </View>
-            ))}
-          </View>
-        </View>
-
-        {/* onda de áudio: "Explique em áudio como pensou" */}
-        <View style={styles.audioCard}>
-          <View style={styles.micBtn}><Mic size={16} color="#FFFFFF" /></View>
-          <View style={{ flex: 1 }}>
-            <Text style={styles.audioLabel}>Explique em áudio como pensou</Text>
-            <View style={styles.wave}>
-              {[0.4, 0.7, 1, 0.6, 0.9, 0.5, 0.8, 1, 0.7, 0.45, 0.85, 0.6, 0.95, 0.5].map((h, i) => (
-                <View key={i} style={[styles.waveBar, { height: 6 + h * 16 }]} />
-              ))}
-            </View>
-          </View>
-        </View>
-
-        {/* Retorno na hora */}
-        <View style={styles.retorno}>
-          <View style={styles.row}>
-            <Sparkles size={15} color={colors.brandPink} />
-            <Text style={styles.retornoTitle}>  Retorno na hora</Text>
-          </View>
-          <View style={[styles.line, { width: "92%", backgroundColor: colors.action + "40" }]} />
-          <View style={[styles.line, { width: "66%", backgroundColor: colors.action + "40" }]} />
-          <View style={[styles.line, { width: "75%", backgroundColor: colors.brandPink + "40" }]} />
-        </View>
+    <ScrollView style={{ flex: 1, backgroundColor: colors.bg }} contentContainerStyle={{ padding: 16, paddingTop: insets.top + 16, paddingBottom: insets.bottom + 24, gap: 14 }}>
+      <View style={styles.header}>
+        <Text style={styles.hi}>Minha trilha</Text>
+        <Pressable onPress={() => router.push("/configuracoes")} hitSlop={10}><Settings size={22} color={colors.textMuted} /></Pressable>
       </View>
 
-      <Pressable onPress={() => router.push("/aluno/atividade" as never)} style={styles.continuar}>
-        <Text style={styles.continuarText}>Continuar</Text>
-        <ArrowRight size={18} color="#FFFFFF" />
+      {todo === null ? (
+        <View style={styles.skeleton}><ActivityIndicator color={colors.action} /></View>
+      ) : erro ? (
+        <View style={styles.card}>
+          <Text style={styles.cardText}>Não foi possível carregar. Tente de novo.</Text>
+          <Pressable onPress={carregar} style={styles.retry}><Text style={styles.retryText}>Tentar de novo</Text></Pressable>
+        </View>
+      ) : todo.length === 0 ? (
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>Tudo em dia por aqui!</Text>
+          <Text style={styles.cardText}>Quando o professor indicar uma nova atividade, ela aparece aqui.</Text>
+        </View>
+      ) : (
+        <>
+          {/* Próximo passo */}
+          <View style={[styles.card, { borderColor: corComp(todo[0]) + "55" }]}>
+            {todo[0].subject && (
+              <View style={[styles.pill, { backgroundColor: corComp(todo[0]) + "22" }]}>
+                <Text style={[styles.pillText, { color: corComp(todo[0]) }]}>{todo[0].subject.name}</Text>
+              </View>
+            )}
+            <Text style={styles.next}>Próximo passo</Text>
+            <Text style={styles.cardTitle}>{todo[0].title}</Text>
+            <Pressable onPress={() => router.push(`/aluno/atividade?id=${todo[0].id}` as never)} style={styles.continuar}>
+              <Text style={styles.continuarText}>Continuar</Text>
+              <ArrowRight size={18} color="#FFF" />
+            </Pressable>
+          </View>
+
+          {todo.length > 1 && (
+            <>
+              <Text style={styles.section}>Outras atividades</Text>
+              {todo.slice(1).map((a) => (
+                <Pressable key={a.id} onPress={() => router.push(`/aluno/atividade?id=${a.id}` as never)} style={styles.rowCard}>
+                  <View style={{ flex: 1 }}>
+                    {a.subject && <Text style={[styles.rowSubject, { color: corComp(a) }]}>{a.subject.name}</Text>}
+                    <Text style={styles.rowTitle}>{a.title}</Text>
+                  </View>
+                  <ArrowRight size={18} color={colors.textMuted} />
+                </Pressable>
+              ))}
+            </>
+          )}
+        </>
+      )}
+
+      <Pressable onPress={() => router.push("/aluno/evolucao")} style={styles.evolucao}>
+        <TrendingUp size={18} color={colors.action} />
+        <Text style={styles.evolucaoText}>Minha evolução</Text>
       </Pressable>
     </ScrollView>
   );
 }
 
+// evita warning de import nao usado em masteryColor (reservado para proximos blocos)
+void masteryColor;
+
 const styles = StyleSheet.create({
-  card: { backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border, borderRadius: radius.cardLg, padding: 20 },
-  row: { flexDirection: "row", alignItems: "center", justifyContent: "space-between" },
-  chip: { borderRadius: radius.pill, paddingHorizontal: 12, paddingVertical: 5 },
-  chipText: { fontSize: 12, fontWeight: "700" },
-  minhaTrilha: { fontSize: 12, fontWeight: "700", color: colors.textMuted },
-  habLabel: { fontSize: 12, fontWeight: "700", color: colors.textMuted },
-  habTitle: { fontSize: 20, fontWeight: "800", color: colors.text, marginTop: 2 },
-  progLabel: { fontSize: 12, fontWeight: "700", color: colors.text },
-  track: { height: 8, borderRadius: radius.pill, backgroundColor: colors.actionSoft, overflow: "hidden" },
-  trackFill: { height: "100%", borderRadius: radius.pill, backgroundColor: colors.brandPink },
-  steps: { flexDirection: "row", alignItems: "center", gap: 6, marginTop: 4 },
-  step: { width: 24, height: 24, borderRadius: 12, alignItems: "center", justifyContent: "center" },
-  stepNum: { fontSize: 10, fontWeight: "800", color: colors.textMuted },
-  audioCard: { flexDirection: "row", alignItems: "center", gap: 12, backgroundColor: "#F3F0FA", borderRadius: radius.card, padding: 12, marginTop: 16 },
-  micBtn: { width: 40, height: 40, borderRadius: 20, backgroundColor: colors.brandPink, alignItems: "center", justifyContent: "center" },
-  audioLabel: { fontSize: 12, fontWeight: "700", color: colors.text },
-  wave: { flexDirection: "row", alignItems: "center", gap: 3, height: 24, marginTop: 4 },
-  waveBar: { width: 3, borderRadius: 2, backgroundColor: colors.action },
-  retorno: { gap: 9, borderWidth: 1, borderColor: colors.action + "33", backgroundColor: colors.actionSoft, borderRadius: radius.card, padding: 16, marginTop: 16 },
-  retornoTitle: { fontSize: 14, fontWeight: "700", color: colors.actionTint },
-  line: { height: 8, borderRadius: radius.pill },
-  continuar: { flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 8, backgroundColor: colors.action, borderRadius: radius.input, paddingVertical: 16, marginTop: 20, minHeight: touch.aluno },
-  continuarText: { color: "#FFFFFF", fontSize: 16, fontWeight: "700" },
+  header: { flexDirection: "row", alignItems: "center", justifyContent: "space-between" },
+  hi: { fontSize: 24, fontWeight: "800", color: colors.text, fontFamily: fonts.extrabold },
+  skeleton: { height: 160, borderRadius: radius.cardLg, backgroundColor: colors.actionSoft, alignItems: "center", justifyContent: "center" },
+  card: { backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border, borderRadius: radius.cardLg, padding: 18, gap: 8 },
+  pill: { alignSelf: "flex-start", borderRadius: radius.pill, paddingHorizontal: 12, paddingVertical: 4 },
+  pillText: { fontSize: 12, fontWeight: "700", fontFamily: fonts.bold },
+  next: { fontSize: 12, color: colors.textMuted, textTransform: "uppercase", letterSpacing: 0.5, marginTop: 4, fontFamily: fonts.semibold },
+  cardTitle: { fontSize: 19, fontWeight: "800", color: colors.text, fontFamily: fonts.extrabold },
+  cardText: { fontSize: 14, color: colors.textMuted, lineHeight: 20, fontFamily: fonts.regular },
+  continuar: { flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 8, backgroundColor: colors.action, borderRadius: radius.input, paddingVertical: 14, minHeight: touch.aluno, marginTop: 8 },
+  continuarText: { color: "#FFF", fontSize: 17, fontWeight: "800", fontFamily: fonts.extrabold },
+  section: { fontSize: 13, color: colors.textMuted, fontWeight: "700", marginTop: 4, fontFamily: fonts.semibold },
+  rowCard: { flexDirection: "row", alignItems: "center", gap: 12, backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border, borderRadius: radius.card, padding: 16, minHeight: 64 },
+  rowSubject: { fontSize: 12, fontWeight: "700", fontFamily: fonts.bold },
+  rowTitle: { fontSize: 16, fontWeight: "600", color: colors.text, fontFamily: fonts.semibold },
+  retry: { alignSelf: "flex-start", backgroundColor: colors.actionSoft, borderRadius: radius.input, paddingHorizontal: 16, paddingVertical: 10, marginTop: 4 },
+  retryText: { color: colors.action, fontWeight: "700", fontFamily: fonts.bold },
+  evolucao: { flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 8, paddingVertical: 14, marginTop: 4 },
+  evolucaoText: { color: colors.action, fontSize: 15, fontWeight: "700", fontFamily: fonts.bold },
 });
