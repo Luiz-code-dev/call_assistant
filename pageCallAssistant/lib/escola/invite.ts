@@ -35,7 +35,8 @@ export async function sendFamilyPasswordResetEmail(to: string, name: string, tok
     const { Resend } = await import("resend");
     const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
-      from: process.env.RESEND_FROM ?? "SpeakFlow Escolas <noreply@speakflow.com.br>",
+      // Mesmo remetente verificado dos demais e-mails da familia (sendGuardianInviteEmail).
+      from: process.env.EMAIL_FROM_ESCOLA || process.env.RESEND_FROM || "SpeakFlow Escolas <escolas@speakflow.ia.br>",
       to,
       subject: "Redefinir a senha — SpeakFlow Escolas",
       html: `<!DOCTYPE html>
