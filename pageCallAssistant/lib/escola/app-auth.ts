@@ -17,6 +17,12 @@ import { jwtVerify, type JWTPayload } from "jose";
 export const APP_CLIENT = "speakflow-escolas-app";
 export type EduAudience = "staff" | "student" | "family";
 
+// TODO(2026-11-27): remover a tolerancia a tokens sem `aud`. Todo token novo
+// (web e app) ja e emitido com `aud`; apos 30 dias do deploy nao deve restar
+// nenhum cookie legado sem `aud`. O teste em app-auth.test.ts falha depois
+// desta data para forcar a limpeza.
+export const AUD_LEGACY_UNTIL = new Date("2026-11-27T00:00:00Z");
+
 // Duracoes da sessao no app (o ESPEC pede: equipe/familia 30 dias; aluno 15 h,
 // ou 30 dias quando "Este aparelho e de casa").
 export const APP_STAFF_SECONDS = 60 * 60 * 24 * 30;
@@ -54,12 +60,15 @@ export function bearerToken(): string | null {
 export async function verifyTypedToken(
   raw: string,
   secret: Uint8Array,
-  aud: EduAudience
+  aud: EduAudience,
+  now: number = Date.now()
 ): Promise<JWTPayload | null> {
   try {
     const { payload } = await jwtVerify(raw, secret);
-    if (payload.aud && payload.aud !== aud) return null;
-    return payload;
+    if (payload.aud) return payload.aud === aud ? payload : null;
+    // Sem aud = cookie legado: tolerado so durante a janela de migracao.
+    // (A separacao por tipo ja e garantida pelo segredo distinto de cada perfil.)
+    return now < AUD_LEGACY_UNTIL.getTime() ? payload : null;
   } catch {
     return null;
   }

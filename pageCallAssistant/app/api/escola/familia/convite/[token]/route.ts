@@ -53,6 +53,7 @@ export async function POST(req: NextRequest, { params }: { params: { token: stri
 
     const token = await new SignJWT({ nid: invite.networkId })
       .setProtectedHeader({ alg: "HS256" })
+      .setAudience("family")
       .setSubject(invite.guardianId)
       .setIssuedAt()
       .setExpirationTime("90d")

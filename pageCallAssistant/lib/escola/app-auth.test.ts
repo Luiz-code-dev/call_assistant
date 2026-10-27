@@ -7,7 +7,7 @@ vi.mock("next/headers", () => ({
   headers: () => ({ get: (k: string) => headerStore.get(k.toLowerCase()) ?? null }),
 }));
 
-import { verifyTypedToken, bearerToken, isAppClient, APP_CLIENT } from "./app-auth";
+import { verifyTypedToken, bearerToken, isAppClient, APP_CLIENT, AUD_LEGACY_UNTIL } from "./app-auth";
 
 const SECRET = new TextEncoder().encode("test-secret-com-pelo-menos-32-caracteres!!");
 
@@ -38,9 +38,21 @@ describe("verifyTypedToken (aud + assinatura + expiracao)", () => {
     expect(await verifyTypedToken(await makeToken({ aud: "staff" }), outro, "staff")).toBeNull();
   });
 
-  it("aceita token legado sem aud (o segredo ja separa o tipo)", async () => {
-    const p = await verifyTypedToken(await makeToken({}), SECRET, "staff");
+  it("aceita token legado sem aud DENTRO da janela de migracao", async () => {
+    const antes = AUD_LEGACY_UNTIL.getTime() - 1000;
+    const p = await verifyTypedToken(await makeToken({}), SECRET, "staff", antes);
     expect(p?.sub).toBe("u1");
+  });
+
+  it("recusa token legado sem aud DEPOIS da janela de migracao", async () => {
+    const depois = AUD_LEGACY_UNTIL.getTime() + 1000;
+    expect(await verifyTypedToken(await makeToken({}), SECRET, "staff", depois)).toBeNull();
+  });
+
+  // Sentinela: falha de proposito apos AUD_LEGACY_UNTIL para forcar a remocao
+  // da tolerancia ao token legado (e o TODO em app-auth.ts).
+  it("ainda estamos no periodo de tolerancia ao legado (remover apos o prazo)", () => {
+    expect(Date.now()).toBeLessThan(AUD_LEGACY_UNTIL.getTime());
   });
 });
 
