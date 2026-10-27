@@ -1,78 +1,41 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { Users, AlertTriangle, RefreshCw } from "lucide-react";
+import FamilyShell, { useFilhos } from "@/components/escola/familia/FamilyShell";
 
-interface Filho {
-  studentId: string;
-  fullName: string;
-  enrollmentCode: string;
-  relation: string;
-  class: { name: string; gradeYear: number } | null;
-}
-
-const RELATION_LABELS: Record<string, string> = {
-  MAE: "Mãe", PAI: "Pai", AVO_AVO: "Avó/Avô", TIO_TIA: "Tio/Tia",
-  TUTOR_LEGAL: "Tutor(a) legal", OUTRO: "Responsável",
-};
-
-export default function FamiliaPage() {
-  const [filhos, setFilhos] = useState<Filho[]>([]);
-  const [loading, setLoading] = useState(true);
+export default function FamiliaHome() {
+  const router = useRouter();
+  const { data, error, loading } = useFilhos();
 
   useEffect(() => {
-    fetch("/api/escola/familia/filhos")
-      .then(r => r.ok ? r.json() : { filhos: [] })
-      .then(d => { setFilhos(d.filhos ?? []); setLoading(false); });
-  }, []);
-
-  if (loading) return (
-    <div className="min-h-screen bg-[#F8F7FC] flex items-center justify-center">
-      <div className="text-[#5B5470]">Carregando...</div>
-    </div>
-  );
+    if (!data?.filhos?.length) return;
+    const last = typeof window !== "undefined" ? localStorage.getItem("sf_familia_ultimo_filho") : null;
+    const alvo = data.filhos.find((f) => f.studentId === last) ?? data.filhos[0];
+    router.replace(`/escola/familia/${alvo.studentId}`);
+  }, [data, router]);
 
   return (
-    <div className="min-h-screen bg-[#F8F7FC] p-4 max-w-lg mx-auto">
-      <div className="flex items-center justify-between mt-4 mb-6">
-        <div>
-          <h1 className="text-[#1F1A2E] text-2xl font-bold">Portal da Família</h1>
-          <p className="text-[#5B5470] text-sm">Acompanhe a evolução escolar</p>
+    <FamilyShell>
+      {loading ? (
+        <div className="text-center py-20 text-[#5B5470]">Carregando…</div>
+      ) : error ? (
+        <div className="bg-white border border-[#E9E5F5] rounded-2xl px-6 py-12 text-center max-w-md mx-auto">
+          <div className="w-14 h-14 rounded-xl bg-[#FEE2E2] flex items-center justify-center mx-auto mb-4"><AlertTriangle size={26} className="text-[#B91C1C]" /></div>
+          <p className="text-[#1F1A2E] font-semibold mb-3">Não foi possível carregar. Tente de novo.</p>
+          <button onClick={() => location.reload()} className="inline-flex items-center gap-2 bg-[#6D28D9] hover:bg-[#5B21B6] text-white px-5 py-2.5 rounded-lg text-sm font-semibold"><RefreshCw size={15} /> Tentar de novo</button>
         </div>
-        <form method="POST" action="/api/escola/familia/sair">
-          <button className="text-[#5B5470] text-sm underline">Sair</button>
-        </form>
-      </div>
-
-      {filhos.length === 0 ? (
-        <div className="text-center py-16 text-[#5B5470]">
-          <div className="text-4xl mb-3">👨‍👩‍👧</div>
-          <p>Nenhum aluno vinculado.</p>
+      ) : !data?.filhos?.length ? (
+        <div className="bg-white border border-[#E9E5F5] rounded-2xl px-6 py-14 text-center max-w-md mx-auto">
+          <div className="w-14 h-14 rounded-xl bg-[#EDE9FE] flex items-center justify-center mx-auto mb-4"><Users size={26} className="text-[#6D28D9]" /></div>
+          <p className="text-[#1F1A2E] font-semibold mb-1">Nenhum filho ligado à sua conta ainda.</p>
+          <p className="text-[#5B5470] text-sm mb-5">Use o código de família do cartão do aluno para adicionar.</p>
+          <Link href="/escola/familia/adicionar-filho" className="inline-flex items-center gap-2 bg-[#6D28D9] hover:bg-[#5B21B6] text-white px-5 py-2.5 rounded-lg text-sm font-semibold">Adicionar filho</Link>
         </div>
       ) : (
-        <div className="space-y-4">
-          {filhos.map(filho => (
-            <Link
-              key={filho.studentId}
-              href={`/escola/familia/evolucao/${filho.studentId}`}
-              className="block bg-white rounded-2xl p-5 border border-[#E9E5F5] hover:border-purple-700 transition-colors"
-            >
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-purple-700 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
-                  {filho.fullName.charAt(0).toUpperCase()}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-[#1F1A2E] font-semibold truncate">{filho.fullName}</p>
-                  <p className="text-[#5B5470] text-xs">
-                    {RELATION_LABELS[filho.relation] ?? filho.relation} ·{" "}
-                    {filho.class ? `${filho.class.name} (${filho.class.gradeYear}º ano)` : "Turma não encontrada"}
-                  </p>
-                </div>
-                <span className="text-[#5B5470] text-sm">→</span>
-              </div>
-            </Link>
-          ))}
-        </div>
+        <div className="text-center py-20 text-[#5B5470]">Abrindo o painel…</div>
       )}
-    </div>
+    </FamilyShell>
   );
 }

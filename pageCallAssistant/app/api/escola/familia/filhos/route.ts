@@ -23,12 +23,16 @@ export async function GET() {
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
 
   try {
+    const guardian = await (prismaEdu as any).eduGuardian.findUnique({ where: { id: ctx.guardianId }, select: { name: true } });
+    const guardianName = guardian?.name ?? "";
+    const guardianFirstName = guardianName.trim().split(/\s+/)[0] ?? "";
+
     const links = await (prismaEdu as any).eduGuardianLink.findMany({
       where: { guardianId: ctx.guardianId, isActive: true },
       select: { studentId: true },
     });
     const ids = links.map((l: { studentId: string }) => l.studentId);
-    if (!ids.length) return NextResponse.json({ filhos: [] });
+    if (!ids.length) return NextResponse.json({ guardianName, guardianFirstName, filhos: [] });
 
     const students = await (prismaEdu as any).eduStudent.findMany({
       where: { id: { in: ids } },
@@ -55,7 +59,7 @@ export async function GET() {
         color: pickColor(s.id),
       };
     });
-    return NextResponse.json({ filhos });
+    return NextResponse.json({ guardianName, guardianFirstName, filhos });
   } catch (err) {
     console.error("[familia/filhos:GET]", err);
     return NextResponse.json({ error: "Não foi possível carregar os filhos." }, { status: 500 });
