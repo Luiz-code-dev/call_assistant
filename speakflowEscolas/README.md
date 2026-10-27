@@ -27,3 +27,11 @@ App separado do SpeakFlow AI (`speakflowMobile/` — **não tocar**). Público e
 - Exclusão de conta no app + página pública `/escola/excluir-conta`.
 - Aviso de IA antes do 1º envio; botão "Reportar este retorno" na tela de retorno.
 - Sem SDK de anúncio/analytics de terceiros; sem push para aluno.
+
+## Dependências (`.npmrc` legacy-peer-deps)
+`npm install` usa `legacy-peer-deps=true` (mesmo do `speakflowMobile`, que já
+builda no SDK 54). Motivo exato: **`lucide-react-native@0.468.0`** declara peer
+`react ^16||^17||^18`, mas o SDK 54 usa **React 19**, o que causa `ERESOLVE`.
+`npx expo install --check` passa (versões ok para o SDK 54). Para remover o
+`legacy-peer-deps` no futuro, subir o `lucide-react-native` para uma versão que
+declare `react ^19` (salto major — reconferir os nomes dos ícones usados).
