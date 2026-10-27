@@ -176,7 +176,7 @@ function EscolaEntrarInner() {
                   Senha
                 </label>
                 <Link
-                  href="/reset-password"
+                  href="/escola/entrar/esqueci-senha"
                   style={{ fontSize: 13, color: "#6D28D9", fontWeight: 500, textDecoration: "none" }}
                 >
                   Esqueci minha senha
