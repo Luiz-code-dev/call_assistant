@@ -38,6 +38,10 @@ export async function middleware(req: NextRequest) {
       pathname.startsWith("/escola/convite/") ||
       pathname.startsWith("/escola/familia/entrar") ||
       pathname.startsWith("/escola/familia/ativar") ||
+      pathname.startsWith("/escola/familia/convite/") ||
+      pathname === "/escola/termos" ||
+      pathname === "/escola/privacidade" ||
+      pathname === "/escola/excluir-conta" ||
       pathname.startsWith("/verificar") ||
       pathname === "/escola-manifest.json"
     ) {
