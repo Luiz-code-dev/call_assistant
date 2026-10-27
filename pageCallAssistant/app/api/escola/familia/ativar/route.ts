@@ -1,15 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { SignJWT } from "jose";
-import bcrypt from "bcryptjs";
 import { prismaEdu } from "@/lib/escola/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { familySecret } from "@/lib/escola/secrets";
+import { hashFamilyCode, sameBirthDate } from "@/lib/escola/familia";
 
 const schema = z.object({
-  networkId: z.string().min(1),
-  studentEnrollmentCode: z.string().min(1),
-  familyCode: z.string().min(6).max(12),
+  familyCode: z.string().min(6).max(16),
+  birthDate: z.string().min(8), // YYYY-MM-DD
   guardianName: z.string().min(2),
   guardianEmail: z.string().email().optional(),
   guardianPhone: z.string().optional(),
@@ -23,23 +22,24 @@ export async function POST(req: NextRequest) {
 
   const parsed = schema.safeParse(await req.json());
   if (!parsed.success) return NextResponse.json({ error: "Dados inválidos", details: parsed.error.flatten() }, { status: 400 });
+  const { familyCode, birthDate, guardianName, guardianEmail, guardianPhone, relation, termsVersion, consentIp } = parsed.data;
 
-  const { networkId, studentEnrollmentCode, familyCode, guardianName, guardianEmail, guardianPhone, relation, termsVersion, consentIp } = parsed.data;
-
-  const student = await (prismaEdu as any).eduStudent.findFirst({
-    where: { networkId, enrollmentCode: studentEnrollmentCode, isActive: true },
-  });
-  if (!student) return NextResponse.json({ error: "Aluno não encontrado" }, { status: 404 });
-
-  const record = await (prismaEdu as any).eduFamilyCode.findUnique({
-    where: { studentId: student.id },
-  });
+  // Acha o código pelo hash (busca O(1)); o código é por aluno (studentId único).
+  const codeHash = hashFamilyCode(familyCode);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const record = await (prismaEdu as any).eduFamilyCode.findFirst({ where: { codeHash } });
   if (!record || record.activationsLeft <= 0 || record.expiresAt < new Date()) {
     return NextResponse.json({ error: "Código inválido ou expirado" }, { status: 400 });
   }
 
-  const valid = await bcrypt.compare(familyCode, record.codeHash);
-  if (!valid) return NextResponse.json({ error: "Código inválido" }, { status: 400 });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const student = await (prismaEdu as any).eduStudent.findFirst({ where: { id: record.studentId, isActive: true } });
+  // A data de nascimento confirma que a pessoa conhece o aluno (prova de posse do cartão + vínculo real).
+  if (!student || !sameBirthDate(birthDate, student.birthDate)) {
+    return NextResponse.json({ error: "Código ou data de nascimento não conferem" }, { status: 400 });
+  }
+
+  const networkId = student.networkId;
 
   await (prismaEdu as any).eduFamilyCode.update({
     where: { id: record.id },
@@ -58,7 +58,7 @@ export async function POST(req: NextRequest) {
   await (prismaEdu as any).eduGuardianLink.upsert({
     where: { guardianId_studentId: { guardianId: guardian.id, studentId: student.id } },
     create: { networkId, guardianId: guardian.id, studentId: student.id, relation, isActive: true },
-    update: { isActive: true, relation },
+    update: { isActive: true, relation, revokedAt: null, revokedById: null, revokeReason: null },
   });
 
   await (prismaEdu as any).eduGuardianConsent.create({
@@ -72,7 +72,7 @@ export async function POST(req: NextRequest) {
     .setExpirationTime("90d")
     .sign(familySecret());
 
-  const res = NextResponse.json({ ok: true, guardianId: guardian.id });
+  const res = NextResponse.json({ ok: true, guardianId: guardian.id, studentName: student.fullName });
   res.cookies.set("sf_family_ctx", token, {
     httpOnly: true,
     sameSite: "lax",
