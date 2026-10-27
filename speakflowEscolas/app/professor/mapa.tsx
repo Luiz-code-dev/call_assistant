@@ -6,8 +6,11 @@ import { ArrowLeft } from "lucide-react-native";
 import { colors, radius, fonts } from "@/lib/theme";
 import { apiGet } from "@/lib/api";
 
-interface Skill { id: string; name: string }
-interface Mastery { studentId: string; studentName?: string; skillId: string; level?: string }
+// Formas reais: mastery -> { masteries: {studentId, skillId, level}[], skills: {id, code, shortLabel}[] };
+// nomes dos alunos vêm de /professor/turmas/[classId]/alunos -> { students: {id, fullName}[] }
+interface Skill { id: string; code?: string; shortLabel?: string | null }
+interface Mastery { studentId: string; skillId: string; level?: string }
+interface Aluno { id: string; fullName: string }
 
 const cell = (lvl?: string) => lvl === "MASTERED" ? colors.success : lvl === "ALMOST" ? "#CA8A04" : lvl === "NOT_YET" ? colors.danger : "#D1D5DB";
 
@@ -16,24 +19,32 @@ export default function ProfessorMapa() {
   const { classId, nome } = useLocalSearchParams<{ classId: string; nome?: string }>();
   const [skills, setSkills] = useState<Skill[]>([]);
   const [mast, setMast] = useState<Mastery[] | null>(null);
+  const [lista, setLista] = useState<Aluno[]>([]);
   const [erro, setErro] = useState(false);
 
   const carregar = useCallback(async () => {
     setErro(false);
-    const d = await apiGet<{ masteries: Mastery[]; skills: Skill[] }>(`/professor/turmas/${classId}/mastery`);
+    const [d, a] = await Promise.all([
+      apiGet<{ masteries: Mastery[]; skills: Skill[] }>(`/professor/turmas/${classId}/mastery`),
+      apiGet<{ students: Aluno[] }>(`/professor/turmas/${classId}/alunos`),
+    ]);
     if (!d) { setErro(true); setMast([]); return; }
-    setSkills(d.skills ?? []); setMast(d.masteries ?? []);
+    setSkills(d.skills ?? []); setMast(d.masteries ?? []); setLista(a?.students ?? []);
   }, [classId]);
   useEffect(() => { carregar(); }, [carregar]);
 
-  // Agrupa por aluno
-  const porAluno = new Map<string, { name: string; cells: Record<string, string | undefined> }>();
+  // Uma linha por aluno da turma (mesmo sem dados ainda), com os níveis por habilidade.
+  const cells = new Map<string, Record<string, string | undefined>>();
   (mast ?? []).forEach((m) => {
-    const row = porAluno.get(m.studentId) ?? { name: m.studentName ?? "Aluno", cells: {} };
-    row.cells[m.skillId] = m.level;
-    porAluno.set(m.studentId, row);
+    const row = cells.get(m.studentId) ?? {};
+    row[m.skillId] = m.level;
+    cells.set(m.studentId, row);
   });
-  const alunos = Array.from(porAluno.entries());
+  const alunos: [string, { name: string; cells: Record<string, string | undefined> }][] =
+    lista.length > 0
+      ? lista.map((s) => [s.id, { name: s.fullName, cells: cells.get(s.id) ?? {} }])
+      : Array.from(cells.entries()).map(([sid, c]) => [sid, { name: "Aluno", cells: c }]);
+  const rotulo = (s: Skill) => s.shortLabel || s.code || "Habilidade";
 
   return (
     <View style={{ flex: 1, backgroundColor: colors.bg }}>
@@ -51,7 +62,7 @@ export default function ProfessorMapa() {
               {/* Cabeçalho de habilidades */}
               <View style={styles.gridRow}>
                 <View style={styles.nameCol}><Text style={styles.th}>Aluno</Text></View>
-                {skills.map((s) => <View key={s.id} style={styles.skillCol}><Text style={styles.thSkill} numberOfLines={2}>{s.name}</Text></View>)}
+                {skills.map((s) => <View key={s.id} style={styles.skillCol}><Text style={styles.thSkill} numberOfLines={2}>{rotulo(s)}</Text></View>)}
               </View>
               {alunos.map(([sid, row]) => (
                 <View key={sid} style={styles.gridRow}>

@@ -1,5 +1,13 @@
+import { router } from "expo-router";
 import { API_BASE, APP_CLIENT } from "@/lib/config";
-import { authHeaders } from "@/lib/session";
+import { authHeaders, limparSessao } from "@/lib/session";
+
+// 401 numa chamada autenticada = sessao invalida/vencida/desvinculada:
+// limpa o token e volta para a entrada (login), sem ficar preso em erro.
+async function tratarNaoAutorizado() {
+  await limparSessao();
+  try { router.replace("/"); } catch { /* fora da navegacao */ }
+}
 
 export { API_BASE, APP_CLIENT };
 
@@ -40,6 +48,7 @@ async function fetchComTimeout(url: string, init: RequestInit): Promise<Response
 export async function apiGet<T>(path: string): Promise<T | null> {
   try {
     const r = await fetchComTimeout(`${API_BASE}/api/escola${path}`, { headers: await authHeaders() });
+    if (r.status === 401) { await tratarNaoAutorizado(); return null; }
     if (!r.ok) return null;
     return (await r.json()) as T;
   } catch {
@@ -73,6 +82,8 @@ export async function apiSend<T>(
       headers,
       body: body !== undefined ? JSON.stringify(body) : undefined,
     });
+    // So redireciona em chamadas autenticadas; no login (auth:false) 401 = senha errada.
+    if (r.status === 401 && opts?.auth !== false) { await tratarNaoAutorizado(); }
     let data: T | null = null;
     try { data = (await r.json()) as T; } catch { /* sem corpo */ }
     const error = !r.ok ? ((data as { error?: string } | null)?.error ?? "Nao foi possivel completar a acao.") : undefined;

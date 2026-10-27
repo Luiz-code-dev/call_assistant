@@ -6,7 +6,8 @@ import { ArrowLeft } from "lucide-react-native";
 import { colors, radius, fonts } from "@/lib/theme";
 import { apiGet } from "@/lib/api";
 
-interface Retorno { id?: string; subject?: string; componente?: string; nivel?: string; titulo?: string; acertou?: string; melhorar?: string; resumo?: string; data?: string }
+// Forma real de /familia/filhos/[id]/retornos
+interface Retorno { id?: string; subjectName?: string; level?: string | null; titulo?: string; acertou?: string | null; melhorar?: string | null; resumo?: string }
 
 const NIVEL = (n?: string) => n === "MASTERED" ? { l: "Domina", fg: colors.success, bg: colors.successSoft }
   : n === "ALMOST" ? { l: "Quase lá", fg: colors.warn, bg: colors.warnSoft }
@@ -37,11 +38,11 @@ export default function FamiliaRetornos() {
           : erro ? <View style={styles.card}><Text style={styles.text}>Não foi possível carregar. Tente de novo.</Text><Pressable onPress={carregar} style={styles.retry}><Text style={styles.retryText}>Tentar de novo</Text></Pressable></View>
           : (lista?.length ?? 0) === 0 ? <View style={styles.card}><Text style={styles.cardTitle}>Ainda sem retornos</Text><Text style={styles.text}>Quando seu filho praticar, os retornos aparecem aqui.</Text></View>
           : lista!.map((r, i) => {
-            const nv = NIVEL(r.nivel);
+            const nv = NIVEL(r.level ?? undefined);
             return (
               <View key={r.id ?? i} style={styles.card}>
                 <View style={styles.rowBetween}>
-                  <Text style={styles.comp}>{r.subject ?? r.componente ?? ""}</Text>
+                  <Text style={styles.comp}>{r.subjectName ?? ""}</Text>
                   {nv ? <View style={[styles.badge, { backgroundColor: nv.bg }]}><Text style={[styles.badgeText, { color: nv.fg }]}>{nv.l}</Text></View> : null}
                 </View>
                 {r.titulo ? <Text style={styles.titulo}>{r.titulo}</Text> : null}

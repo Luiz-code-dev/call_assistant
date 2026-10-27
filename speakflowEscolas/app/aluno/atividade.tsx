@@ -70,21 +70,22 @@ export default function AlunoAtividade() {
     if (!act) return;
     setEnviando(true);
     try {
-      let body: Record<string, unknown> = {};
-      if (act.type === "QUIZ") {
-        body = { quizAnswers: act.questions.map((q) => answers[q.id] ?? -1) };
-      } else if (act.type === "SPOKEN") {
+      if (act.type === "SPOKEN") {
+        // O servidor exige multipart para fala: ele mesmo transcreve e guarda o audio.
         if (!audioUri) { setEnviando(false); Alert.alert("Fala", "Grave sua resposta antes de enviar."); return; }
         const fd = new FormData();
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         fd.append("audio", { uri: audioUri, name: "audio.m4a", type: "audio/m4a" } as any);
-        const tr = await fetch(`${API_BASE}/api/escola/aluno/transcrever`, { method: "POST", headers: { ...(await authHeaders()) }, body: fd });
-        const trd = await tr.json().catch(() => ({}));
-        if (!tr.ok) { setEnviando(false); Alert.alert("Fala", trd.error ?? "Não foi possível transcrever."); return; }
-        body = { text: trd.transcript ?? "" };
-      } else {
-        body = { text };
+        const res = await fetch(`${API_BASE}/api/escola/aluno/atividades/${act.id}/enviar`, { method: "POST", headers: { ...(await authHeaders()) }, body: fd });
+        const d = await res.json().catch(() => ({}));
+        setEnviando(false);
+        if (!res.ok) { Alert.alert("Enviar", d.error ?? "Não foi possível enviar."); return; }
+        router.replace(`/aluno/retorno?id=${act.id}` as never);
+        return;
       }
+      const body: Record<string, unknown> = act.type === "QUIZ"
+        ? { quizAnswers: act.questions.map((q) => ({ questionId: q.id, selectedIndex: answers[q.id] ?? -1 })) }
+        : { text };
       const r = await apiSend(`/aluno/atividades/${act.id}/enviar`, "POST", body);
       setEnviando(false);
       if (!r.ok) { Alert.alert("Enviar", r.error ?? "Não foi possível enviar."); return; }

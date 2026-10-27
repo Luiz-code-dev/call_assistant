@@ -6,8 +6,9 @@ import { ArrowLeft } from "lucide-react-native";
 import { colors, radius, fonts } from "@/lib/theme";
 import { apiGet } from "@/lib/api";
 
-interface Hab { nome?: string; label?: string; nivel?: string }
-interface Comp { name?: string; nome?: string; color?: string; habilidades?: Hab[] }
+// Forma real de /familia/filhos/[id]/evolucao: componentes[].habilidades[] com label + level
+interface Hab { label?: string; level?: string; levelInicial?: string | null }
+interface Comp { name?: string; color?: string; habilidades?: Hab[] }
 
 const NIVEL = (n?: string) => n === "MASTERED" ? { l: "Domina", fg: colors.success, bg: colors.successSoft }
   : n === "ALMOST" ? { l: "Quase lá", fg: colors.warn, bg: colors.warnSoft }
@@ -21,9 +22,9 @@ export default function FamiliaEvolucao() {
 
   const carregar = useCallback(async () => {
     setErro(false);
-    const d = await apiGet<{ componentes?: Comp[]; evolucao?: Comp[] }>(`/familia/filhos/${id}/evolucao`);
+    const d = await apiGet<{ componentes?: Comp[] }>(`/familia/filhos/${id}/evolucao`);
     if (!d) { setErro(true); setComps([]); return; }
-    setComps(d.componentes ?? d.evolucao ?? []);
+    setComps(d.componentes ?? []);
   }, [id]);
   useEffect(() => { carregar(); }, [carregar]);
 
@@ -39,12 +40,12 @@ export default function FamiliaEvolucao() {
           : (comps?.length ?? 0) === 0 ? <View style={styles.card}><Text style={styles.cardTitle}>Sem dados ainda</Text><Text style={styles.text}>A evolução por habilidade aparece conforme o aluno pratica.</Text></View>
           : comps!.map((c, ci) => (
             <View key={ci} style={styles.card}>
-              <Text style={[styles.comp, c.color ? { color: c.color } : null]}>{c.name ?? c.nome}</Text>
+              <Text style={[styles.comp, c.color ? { color: c.color } : null]}>{c.name}</Text>
               {(c.habilidades ?? []).map((h, hi) => {
-                const nv = NIVEL(h.nivel);
+                const nv = NIVEL(h.level);
                 return (
                   <View key={hi} style={styles.row}>
-                    <Text style={styles.rowTitle} numberOfLines={2}>{h.nome ?? h.label}</Text>
+                    <Text style={styles.rowTitle} numberOfLines={2}>{h.label}</Text>
                     <View style={[styles.badge, { backgroundColor: nv.bg }]}><Text style={[styles.badgeText, { color: nv.fg }]}>{nv.l}</Text></View>
                   </View>
                 );
