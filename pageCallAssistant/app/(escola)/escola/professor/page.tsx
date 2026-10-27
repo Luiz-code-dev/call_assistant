@@ -9,17 +9,40 @@ export default async function ProfessorPage() {
   if (!ctx) redirect("/escola/entrar");
   if (!["TEACHER","NETWORK_ADMIN","COORDINATOR"].includes(ctx.role)) redirect("/escola/painel");
 
+  // EduClassSubject não tem relação declarada com EduSubject no schema,
+  // então buscamos sem include de subject e depois fazemos lookup separado.
   const offers = await prismaEdu.eduClassSubject.findMany({
     where: { networkId: ctx.networkId, teacherId: ctx.userId },
-    include: {
-      subject: { select: { name: true, color: true } },
+    select: {
+      id: true,
+      subjectId: true,
       class: {
-        select: { id: true, name: true, stage: true, gradeYear: true, shift: true, schoolYear: { select: { year: true } }, school: { select: { name: true } } },
+        select: {
+          id: true,
+          name: true,
+          stage: true,
+          gradeYear: true,
+          shift: true,
+          schoolYear: { select: { year: true } },
+          school: { select: { name: true } },
+        },
       },
       _count: { select: { assessments: true } },
     },
     orderBy: { class: { schoolYear: { year: "desc" } } },
   });
+
+  // Busca os componentes separadamente pelo subjectId
+  const subjectIds = Array.from(new Set(offers.map((o: { subjectId: string }) => o.subjectId)));
+  const subjectsRaw = subjectIds.length
+    ? await prismaEdu.eduSubject.findMany({
+        where: { id: { in: subjectIds } },
+        select: { id: true, name: true, color: true },
+      })
+    : [];
+  const subjectMap: Record<string, { name: string; color: string | null }> = Object.fromEntries(
+    subjectsRaw.map((s: { id: string; name: string; color: string | null }) => [s.id, s])
+  );
 
   return (
     <div className="p-4 md:p-6 lg:p-8 max-w-5xl mx-auto">
@@ -36,24 +59,32 @@ export default async function ProfessorPage() {
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {offers.map((offer: { id: string; subject: { name: string; color: string | null }; class: { id: string; name: string; stage: string; gradeYear: number; shift: string; schoolYear: { year: number }; school: { name: string } }; _count: { assessments: number } }) => (
-            <Link
-              key={offer.id}
-              href={`/escola/professor/ofertas/${offer.id}`}
-              className="bg-white border border-[#E9E5F5] rounded-xl p-4 hover:border-purple-700 transition-colors group"
-            >
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-3 h-3 rounded-full shrink-0" style={{ backgroundColor: offer.subject?.color ?? "#7C3AED" }} />
-                <span className="text-[#1F1A2E] font-medium group-hover:text-purple-400 transition-colors">{offer.subject?.name}</span>
-              </div>
-              <div className="text-[#5B5470] font-semibold">{offer.class?.name}</div>
-              <div className="text-[#5B5470] text-xs mt-1">
-                {STAGE_LABEL[offer.class?.stage as keyof typeof STAGE_LABEL] ?? offer.class?.stage} · {offer.class?.gradeYear}º ano · {SHIFT_LABEL[offer.class?.shift as keyof typeof SHIFT_LABEL] ?? offer.class?.shift}
-              </div>
-              <div className="text-[#5B5470] text-xs">{offer.class?.school?.name} · {offer.class?.schoolYear?.year}</div>
-              <div className="mt-3 text-purple-500 text-xs">{offer._count?.assessments} avaliação{offer._count?.assessments !== 1 ? "ões" : ""}</div>
-            </Link>
-          ))}
+          {offers.map((offer: {
+            id: string;
+            subjectId: string;
+            class: { id: string; name: string; stage: string; gradeYear: number; shift: string; schoolYear: { year: number }; school: { name: string } };
+            _count: { assessments: number };
+          }) => {
+            const subject = subjectMap[offer.subjectId];
+            return (
+              <Link
+                key={offer.id}
+                href={`/escola/professor/ofertas/${offer.id}`}
+                className="bg-white border border-[#E9E5F5] rounded-xl p-4 hover:border-purple-700 transition-colors group"
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-3 h-3 rounded-full shrink-0" style={{ backgroundColor: subject?.color ?? "#7C3AED" }} />
+                  <span className="text-[#1F1A2E] font-medium group-hover:text-purple-400 transition-colors">{subject?.name ?? "Componente"}</span>
+                </div>
+                <div className="text-[#5B5470] font-semibold">{offer.class?.name}</div>
+                <div className="text-[#5B5470] text-xs mt-1">
+                  {STAGE_LABEL[offer.class?.stage as keyof typeof STAGE_LABEL] ?? offer.class?.stage} · {offer.class?.gradeYear}º ano · {SHIFT_LABEL[offer.class?.shift as keyof typeof SHIFT_LABEL] ?? offer.class?.shift}
+                </div>
+                <div className="text-[#5B5470] text-xs">{offer.class?.school?.name} · {offer.class?.schoolYear?.year}</div>
+                <div className="mt-3 text-purple-500 text-xs">{offer._count?.assessments} avaliação{offer._count?.assessments !== 1 ? "ões" : ""}</div>
+              </Link>
+            );
+          })}
         </div>
       )}
     </div>
