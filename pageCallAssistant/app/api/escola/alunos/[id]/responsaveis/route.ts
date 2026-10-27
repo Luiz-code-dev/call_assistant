@@ -3,8 +3,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu } from "@/lib/escola/db";
 import { genInviteToken, hashToken } from "@/lib/escola/familia";
+import { sendGuardianInviteEmail } from "@/lib/email";
 
 function flag() { return isEscolasEnabled(); }
+
+const ESCOLA_BASE = process.env.NEXT_PUBLIC_ESCOLA_URL || "https://www.speakflow.ia.br";
 
 const RELATIONS = ["MAE", "PAI", "AVO_AVO", "TIO_TIA", "TUTOR_LEGAL", "OUTRO"];
 
@@ -102,7 +105,11 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
       },
     });
     invitePath = `/escola/familia/convite/${token}`;
-  } catch { /* convite é opcional */ }
+    // Dispara o e-mail do convite via Resend (se o responsável tem e-mail).
+    if (emailN) {
+      await sendGuardianInviteEmail(emailN, guardian.name, [student.fullName], `${ESCOLA_BASE}${invitePath}`);
+    }
+  } catch (e) { console.error("[responsaveis:convite]", e); }
 
   return NextResponse.json({ ok: true, guardianId: guardian.id, invitePath }, { status: 201 });
 }
