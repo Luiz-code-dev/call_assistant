@@ -73,7 +73,7 @@ export default async function AlunoPainelPage() {
         </div>
         <div className="flex items-center gap-4">
           <span className="text-sm text-foreground font-medium">{student?.fullName}</span>
-          <form action="/api/escola/auth/logout" method="POST">
+          <form action="/api/escola/aluno/sair" method="POST">
             <button type="submit" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Sair
             </button>

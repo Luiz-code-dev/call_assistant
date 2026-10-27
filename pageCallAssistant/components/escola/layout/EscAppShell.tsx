@@ -119,11 +119,6 @@ export default function EscAppShell({ role, userName, contextName, children }: P
   const router = useRouter();
   const navItems = NAV_BY_ROLE[role] ?? [];
 
-  async function handleLogout() {
-    await fetch("/api/escola/auth/logout", { method: "POST" });
-    window.location.href = "/escola/entrar";
-  }
-
   function SidebarContent() {
     return (
       <div className="flex flex-col h-full bg-white border-r border-gray-200">
@@ -194,13 +189,15 @@ export default function EscAppShell({ role, userName, contextName, children }: P
               <div className="text-[13px] font-medium text-gray-700 truncate">{userName}</div>
             </div>
           </div>
-          <button
-            onClick={handleLogout}
-            className="flex items-center gap-2 text-[13px] text-[#5B5470] hover:text-red-500 transition-colors"
-          >
-            <LogOut size={14} />
-            Sair
-          </button>
+          <form method="POST" action="/api/escola/auth/logout">
+            <button
+              type="submit"
+              className="flex items-center gap-2 text-[13px] text-[#5B5470] hover:text-red-500 transition-colors"
+            >
+              <LogOut size={14} />
+              Sair
+            </button>
+          </form>
         </div>
       </div>
     );

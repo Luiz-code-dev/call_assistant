@@ -71,7 +71,7 @@ export default function AlunoHomePage() {
             <p className="text-xs text-zinc-500">{classInfo}</p>
             <h1 className="text-base font-semibold text-zinc-900">{studentName || "Portal do Aluno"}</h1>
           </div>
-          <form action="/api/escola/auth/aluno/logout" method="POST">
+          <form action="/api/escola/aluno/sair" method="POST">
             <button type="submit" className="p-2 text-zinc-400 hover:text-zinc-600 transition-colors" title="Sair">
               <LogOut className="size-4" />
             </button>
