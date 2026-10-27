@@ -25,6 +25,7 @@ export default function FamiliaPainel() {
   const [filhos, setFilhos] = useState<Filho[] | null>(null);
   const [sel, setSel] = useState<string | null>(null);
   const [resumo, setResumo] = useState<Resumo | null>(null);
+  const [resumoErro, setResumoErro] = useState(false);
   const [erro, setErro] = useState(false);
 
   const carregarFilhos = useCallback(async () => {
@@ -37,11 +38,15 @@ export default function FamiliaPainel() {
   }, []);
   useEffect(() => { carregarFilhos(); }, [carregarFilhos]);
 
-  useEffect(() => {
+  const carregarResumo = useCallback(() => {
     if (!sel) return;
-    setResumo(null);
-    apiGet<Resumo>(`/familia/filhos/${sel}/resumo`).then((d) => setResumo(d ?? {}));
+    setResumo(null); setResumoErro(false);
+    apiGet<Resumo>(`/familia/filhos/${sel}/resumo`).then((d) => {
+      if (d === null) { setResumoErro(true); setResumo({}); }
+      else setResumo(d);
+    });
   }, [sel]);
+  useEffect(() => { carregarResumo(); }, [carregarResumo]);
 
   const nome = (f: Filho) => f.firstName || f.name || f.fullName?.split(" ")[0] || "Aluno";
 
@@ -71,7 +76,12 @@ export default function FamiliaPainel() {
             <Pressable onPress={() => router.push("/familia/adicionar-filho")} style={styles.chipAdd}><Plus size={16} color={colors.action} /></Pressable>
           </ScrollView>
 
-          {!resumo ? (
+          {resumoErro ? (
+            <View style={styles.card}>
+              <Text style={styles.text}>Não foi possível carregar o resumo. Tente de novo.</Text>
+              <Pressable onPress={carregarResumo} style={styles.retry}><Text style={styles.retryText}>Tentar de novo</Text></Pressable>
+            </View>
+          ) : !resumo ? (
             <View style={styles.skeleton}><ActivityIndicator color={colors.action} /></View>
           ) : (
             <>
