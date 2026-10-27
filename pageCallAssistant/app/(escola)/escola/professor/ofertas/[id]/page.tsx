@@ -8,20 +8,30 @@ export default async function OfertaPage({ params }: { params: { id: string } })
   const ctx = await getEduContext();
   if (!ctx) redirect("/escola/entrar");
 
+  // EduClassSubject não tem relação declarada com EduSubject: buscamos sem include de subject.
   const offer = await prismaEdu.eduClassSubject.findUnique({
     where: { id: params.id, networkId: ctx.networkId },
-    include: {
-      subject: { select: { name: true, color: true } },
+    select: {
+      id: true,
+      subjectId: true,
+      teacherId: true,
       class: {
-        include: {
+        select: {
+          name: true,
+          _count: { select: { enrollments: true } },
           schoolYear: { select: { year: true } },
           school: { select: { name: true } },
-          _count: { select: { enrollments: true } },
         },
       },
       assessments: {
         orderBy: { createdAt: "desc" },
-        include: {
+        select: {
+          id: true,
+          title: true,
+          type: true,
+          status: true,
+          weight: true,
+          maxScore: true,
           term: { select: { name: true } },
           _count: { select: { entries: true } },
         },
@@ -31,6 +41,14 @@ export default async function OfertaPage({ params }: { params: { id: string } })
 
   if (!offer) redirect("/escola/professor");
   if (ctx.role === "TEACHER" && offer.teacherId !== ctx.userId) redirect("/escola/professor");
+
+  // Lookup do componente separado (sem relação declarada no schema)
+  const subject = offer.subjectId
+    ? await prismaEdu.eduSubject.findUnique({
+        where: { id: offer.subjectId },
+        select: { name: true, color: true },
+      })
+    : null;
 
   const totalStudents = offer.class?._count?.enrollments ?? 0;
 
@@ -43,16 +61,16 @@ export default async function OfertaPage({ params }: { params: { id: string } })
       <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
         <div>
           <div className="flex items-center gap-3 mb-1">
-            <div className="w-4 h-4 rounded-full shrink-0" style={{ backgroundColor: offer.subject?.color ?? "#7C3AED" }} />
-            <h1 className="text-2xl font-bold text-[#1F1A2E]">{offer.subject?.name}</h1>
+            <div className="w-4 h-4 rounded-full shrink-0" style={{ backgroundColor: subject?.color ?? "#7C3AED" }} />
+            <h1 className="text-2xl font-bold text-[#1F1A2E]">{subject?.name ?? "Componente"}</h1>
           </div>
           <p className="text-[#5B5470] text-sm">{offer.class?.name} · {offer.class?.school?.name} · {offer.class?.schoolYear?.year}</p>
           <p className="text-[#5B5470] text-xs mt-0.5">{totalStudents} alunos matriculados</p>
         </div>
         <div className="flex gap-2 flex-wrap">
-          <Link href={`/escola/professor/ofertas/${params.id}/assuntos`} className="bg-[#FAF9FD] hover:bg-[#F5F3FF] text-[#3F3A4F] hover:text-[#1F1A2E] px-4 py-2 rounded-lg text-sm min-h-[44px] flex items-center transition-colors">📝 Assuntos</Link>
-          <Link href={`/escola/professor/ofertas/${params.id}/avaliacoes`} className="bg-[#FAF9FD] hover:bg-[#F5F3FF] text-[#3F3A4F] hover:text-[#1F1A2E] px-4 py-2 rounded-lg text-sm min-h-[44px] flex items-center transition-colors">📊 Avaliações</Link>
-          <Link href={`/escola/professor/ofertas/${params.id}/notas`} className="bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium min-h-[44px] flex items-center transition-colors">🎯 Planilha de Notas</Link>
+          <Link href={`/escola/professor/ofertas/${params.id}/assuntos`} className="bg-[#FAF9FD] hover:bg-[#F5F3FF] text-[#3F3A4F] hover:text-[#1F1A2E] px-4 py-2 rounded-lg text-sm min-h-[44px] flex items-center transition-colors">Assuntos</Link>
+          <Link href={`/escola/professor/ofertas/${params.id}/avaliacoes`} className="bg-[#FAF9FD] hover:bg-[#F5F3FF] text-[#3F3A4F] hover:text-[#1F1A2E] px-4 py-2 rounded-lg text-sm min-h-[44px] flex items-center transition-colors">Avaliações</Link>
+          <Link href={`/escola/professor/ofertas/${params.id}/notas`} className="bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium min-h-[44px] flex items-center transition-colors">Planilha de Notas</Link>
         </div>
       </div>
 
@@ -77,7 +95,7 @@ export default async function OfertaPage({ params }: { params: { id: string } })
                 </div>
               </div>
               <div className="flex items-center gap-3 shrink-0">
-                <span className={`px-2 py-0.5 rounded text-xs ${a.status === "PUBLISHED" ? "bg-[#DCFCE7] text-green-300" : a.status === "GRADING" ? "bg-[#FEF3C7] text-yellow-300" : "bg-[#FAF9FD] text-[#5B5470]"}`}>
+                <span className={`px-2 py-0.5 rounded text-xs ${a.status === "PUBLISHED" ? "bg-[#DCFCE7] text-[#166534]" : a.status === "GRADING" ? "bg-[#FEF3C7] text-[#92400E]" : "bg-[#FAF9FD] text-[#5B5470]"}`}>
                   {ASSESSMENT_STATUS_LABEL[a.status as keyof typeof ASSESSMENT_STATUS_LABEL] ?? a.status}
                 </span>
                 <span className="text-[#5B5470] text-xs">{a._count?.entries}/{totalStudents} notas</span>
