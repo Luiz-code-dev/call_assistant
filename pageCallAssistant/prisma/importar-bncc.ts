@@ -38,10 +38,18 @@ function parseCSVLine(line: string): string[] {
 }
 
 async function main() {
-  const csvPath = process.argv[2];
-  if (!csvPath) {
-    console.error("Uso: npx ts-node prisma/importar-bncc.ts <caminho.csv>");
-    process.exit(1);
+  // Quando chamado sem argumento (pelo start script), usa o CSV padrão e pula se já importado
+  const csvPath = process.argv[2] ?? "prisma/data/bncc-ef.csv";
+  const auto = !process.argv[2]; // modo automático (sem argumento)
+
+  if (auto) {
+    const existing = await (db as any).eduSkill.count({ where: { networkId: null } });
+    if (existing > 0) {
+      console.log(`[bncc-seed] ${existing} habilidades BNCC já existem — pulando importação.`);
+      await db.$disconnect();
+      return;
+    }
+    console.log("[bncc-seed] Nenhuma habilidade BNCC encontrada. Importando...");
   }
 
   const fullPath = path.resolve(csvPath);
