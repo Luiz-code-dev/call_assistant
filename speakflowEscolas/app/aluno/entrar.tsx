@@ -33,7 +33,8 @@ const FIGURES = [
     svg: <Svg viewBox="0 0 48 48" width={52} height={52}><Ellipse cx="20" cy="28" rx="12" ry="9" fill="#94A3B8"/><Ellipse cx="30" cy="30" rx="10" ry="8" fill="#94A3B8"/><Ellipse cx="24" cy="22" rx="9" ry="9" fill="#94A3B8"/></Svg> },
 ];
 
-const AULA_KEYS = ["A","B","C","D","E","F","G","H","J","K","L","M","N","P","Q","R","S","T","U","V","W","X","Y","Z"];
+// Fix 2: inclui dígitos 2-9 (SESSION_CHARS = ABCDEFGHJKLMNPQRSTUVWXYZ23456789)
+const AULA_KEYS = ["A","B","C","D","E","F","G","H","J","K","L","M","N","P","Q","R","S","T","U","V","W","X","Y","Z","2","3","4","5","6","7","8","9"];
 const AVATAR_COLORS = ["#6D28D9","#BE185D","#0F766E","#1D4ED8","#C2410C","#15803D","#A16207","#0E7490"];
 function avatarColor(name: string) { let h = 0; for (const c of name) h = (h * 31 + c.charCodeAt(0)) & 0xffff; return AVATAR_COLORS[h % AVATAR_COLORS.length]; }
 function falar(t: string) { Speech.speak(t, { language: "pt-BR", rate: 0.9 }); }
@@ -264,12 +265,14 @@ export default function AlunoEntrar() {
 
   // ── PIN ────────────────────────────────────────────────────────────────────
   if (screen === "pin" && selected) {
+    // Fix 1: máx 6 dígitos (PIN legado=6, novo=4); auto-submit em 6; Confirmar aparece em 4-5
+    const MAX_PIN = 6;
     const pressKey = (k: string) => {
       if (k === "del") { setPin(p => p.slice(0,-1)); return; }
-      if (pin.length >= 4) return;
+      if (pin.length >= MAX_PIN) return;
       const next = pin + k;
       setPin(next);
-      if (next.length === 4) submitPin(next);
+      if (next.length === MAX_PIN) submitPin(next);
     };
     const keys = ["1","2","3","4","5","6","7","8","9","","0","del"];
     return (
@@ -286,10 +289,16 @@ export default function AlunoEntrar() {
             {!!session?.className && <Text style={s.sub}>{session.className}</Text>}
             <Text style={{ color: colors.text, fontWeight: "600", fontFamily: fonts.semibold, fontSize: 16 }}>Digite seu PIN</Text>
             <View style={{ flexDirection: "row", gap: 12 }}>
-              {[0,1,2,3].map(i => (
+              {Array.from({ length: Math.max(4, pin.length) }, (_, i) => (
                 <View key={i} style={[s.dot, i < pin.length && s.dotFilled]} />
               ))}
             </View>
+            {pin.length >= 4 && pin.length < MAX_PIN && (
+              <Pressable onPress={() => submitPin(pin)}
+                style={{ marginTop: 6, backgroundColor: colors.action, borderRadius: 12, paddingHorizontal: 24, paddingVertical: 10, minHeight: 44, alignItems: "center" }}>
+                <Text style={{ color: "#FFF", fontWeight: "700", fontSize: 15, fontFamily: fonts.bold }}>Confirmar</Text>
+              </Pressable>
+            )}
             {!!pinError && <Text style={s.err}>{pinError}</Text>}
             <Text style={{ color: colors.textMuted, fontSize: 13, textAlign: "center", fontFamily: fonts.regular }}>Esqueceu? Peca ao professor um PIN novo.</Text>
           </View>
