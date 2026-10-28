@@ -2,7 +2,11 @@ import { getEduContext } from "@/lib/escola/context";
 import { redirect } from "next/navigation";
 import { prismaEdu } from "@/lib/escola/db";
 import Link from "next/link";
+import { Bell } from "lucide-react";
 import { STAGE_LABEL, SHIFT_LABEL } from "@/lib/escola/types";
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const p = prismaEdu as any;
 
 export default async function ProfessorPage() {
   const ctx = await getEduContext();
@@ -44,8 +48,44 @@ export default async function ProfessorPage() {
     subjectsRaw.map((s: { id: string; name: string; color: string | null }) => [s.id, s])
   );
 
+  // Alertas do professor (não lidos)
+  const alertas = ctx.role === "TEACHER"
+    ? await p.eduTeacherAlert.findMany({
+        where: { networkId: ctx.networkId, teacherUserId: ctx.userId, readAt: null },
+        orderBy: { createdAt: "desc" as const },
+        take: 5,
+        include: {
+          student: { select: { fullName: true } },
+          track:   { select: { title: true } },
+        },
+      }).catch(() => [])
+    : [];
+
+  const TYPE_LABEL: Record<string, string> = {
+    TRACK_COMPLETED: "concluiu a trilha",
+    STUDENT_STUCK:   "está travado em",
+    NOT_STARTED:     "não começou a trilha",
+  };
   return (
     <div className="p-4 md:p-6 lg:p-8 max-w-5xl mx-auto">
+      {/* Alertas */}
+      {alertas.length > 0 && (
+        <div className="mb-6 bg-[#FEF3C7] border border-yellow-200 rounded-xl p-4 space-y-2">
+          <div className="flex items-center gap-2 mb-1">
+            <Bell size={16} className="text-[#92400E]" />
+            <span className="font-semibold text-sm text-[#92400E]">{alertas.length} aviso{alertas.length !== 1 ? "s" : ""}</span>
+          </div>
+          {alertas.map((a: { id: string; type: string; student: { fullName: string } | null; track: { title: string } | null }) => (
+            <p key={a.id} className="text-sm text-[#92400E]">
+              <span className="font-medium">{a.student?.fullName ?? "Aluno"}</span>{" "}
+              {TYPE_LABEL[a.type] ?? a.type}{" "}
+              {a.track?.title ? <span className="italic">{a.track.title}</span> : null}.
+            </p>
+          ))}
+          <Link href="/api/escola/professor/alertas" className="text-xs text-[#92400E] underline">Ver todos</Link>
+        </div>
+      )}
+
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-[#1F1A2E]">Minhas Turmas</h1>
         <p className="text-[#5B5470] text-sm mt-1">{offers.length} oferta{offers.length !== 1 ? "s" : ""} ativa{offers.length !== 1 ? "s" : ""}</p>
@@ -53,7 +93,6 @@ export default async function ProfessorPage() {
 
       {offers.length === 0 ? (
         <div className="text-center py-16 text-[#5B5470]">
-          <div className="text-4xl mb-3">📚</div>
           <div>Nenhuma turma atribuída ainda.</div>
           <p className="text-sm mt-2">Fale com a direção para ser vinculado a uma turma.</p>
         </div>
