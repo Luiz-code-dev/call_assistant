@@ -30,7 +30,7 @@ export default function NovoDiagnosticoPage() {
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
 
   useEffect(() => {
-    fetch("/api/escola/materias").then(r => r.ok ? r.json() : { subjects: [] }).then(d => setSubjects(d.subjects ?? []));
+    fetch("/api/escola/componentes").then(r => r.ok ? r.json() : { subjects: [] }).then(d => setSubjects(d.subjects ?? []));
   }, []);
 
   useEffect(() => {

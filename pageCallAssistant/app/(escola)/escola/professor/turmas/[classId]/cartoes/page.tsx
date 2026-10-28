@@ -69,12 +69,10 @@ export default function CartoesPage({ params }: { params: { classId: string } })
             className="flex items-center gap-2 bg-[#0F766E] hover:bg-[#0D6B63] disabled:opacity-60 text-white px-4 py-2.5 rounded-xl text-sm font-semibold min-h-[44px] transition-colors">
             <KeyRound size={15} /> {genLoading ? "Gerando..." : "Gerar senhas"}
           </button>
-          {pins.length > 0 && (
-            <button onClick={() => gerarSenhas(true)} disabled={genLoading}
-              className="flex items-center gap-2 border border-[#DDD6EE] text-[#5B5470] px-4 py-2.5 rounded-xl text-sm font-semibold min-h-[44px] hover:bg-[#F8F7FC] transition-colors">
-              <RefreshCw size={14} /> Regenerar todas
-            </button>
-          )}
+          <button onClick={() => gerarSenhas(true)} disabled={genLoading}
+            className="flex items-center gap-2 border border-[#DDD6EE] text-[#5B5470] px-4 py-2.5 rounded-xl text-sm font-semibold min-h-[44px] hover:bg-[#F8F7FC] transition-colors">
+            <RefreshCw size={14} /> Regenerar todas
+          </button>
           <button onClick={() => window.print()}
             className="flex items-center gap-2 bg-[#6D28D9] hover:bg-[#5B21B6] text-white px-5 py-2.5 rounded-xl text-sm font-semibold min-h-[44px] transition-colors">
             <Printer size={16} /> Imprimir / Salvar PDF

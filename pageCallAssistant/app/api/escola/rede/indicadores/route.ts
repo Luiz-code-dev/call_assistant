@@ -1,11 +1,9 @@
 /**
  * GET /api/escola/rede/indicadores
- * Calcula indicadores reais da rede:
- * - % alunos que praticaram na semana (submissões na semana / matriculados ativos)
- * - atividades concluídas no período
- * - habilidades recuperadas (NOT_YET → MASTERED em EduSkillMasteryEvent)
- * - % famílias acompanhando (alunos com guardianLink ativo e guardian com login nos últimos 30 dias)
- * - detalhamento por escola
+ * Calcula indicadores reais da rede usando os modelos corretos do schema:
+ * - EduEnrollment.status = ACTIVE
+ * - EduSubmission (não eduActivitySubmission), submittedAt
+ * - EduSkillMasteryEvent.level (não toLevel/fromLevel)
  */
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
@@ -14,19 +12,15 @@ import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 
 function flag() { return isEscolasEnabled(); }
 
-function startOfWeek(): Date {
-  const d = new Date();
-  d.setHours(0, 0, 0, 0);
-  d.setDate(d.getDate() - d.getDay());
-  return d;
-}
-
 function daysAgo(n: number): Date {
   const d = new Date();
   d.setDate(d.getDate() - n);
   d.setHours(0, 0, 0, 0);
   return d;
 }
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const P = prismaEdu as any;
 
 export async function GET(req: NextRequest) {
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
@@ -37,107 +31,147 @@ export async function GET(req: NextRequest) {
 
   const { searchParams } = new URL(req.url);
   const escolaId = searchParams.get("escolaId") || undefined;
-  const periodo = searchParams.get("periodo") || "atual";
+  const periodo = searchParams.get("periodo") || "7d";
+  const since = periodo === "30d" ? daysAgo(30) : daysAgo(7);
+  const semanaInicio = daysAgo(7);
 
-  const since = periodo === "7d" ? daysAgo(7) : periodo === "30d" ? daysAgo(30) : daysAgo(7);
-  const semanaInicio = startOfWeek();
-  const familiasCutoff = daysAgo(30);
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const prismaAny = prismaEdu as any;
-
-  // Busca escolas da rede
-  const schools = await prismaAny.eduSchool.findMany({
+  // Escolas da rede
+  const schools: { id: string; name: string }[] = await P.eduSchool.findMany({
     where: { networkId: ctx.networkId, ...(escolaId ? { id: escolaId } : {}) },
     select: { id: true, name: true },
     orderBy: { name: "asc" },
   });
-  const schoolIds = schools.map((s: { id: string }) => s.id);
+  const schoolIds = schools.map((s) => s.id);
 
-  // Matriculados ativos por escola
-  const enrollments = await prismaAny.eduEnrollment.findMany({
-    where: { isActive: true, class: { schoolId: { in: schoolIds }, networkId: ctx.networkId } },
+  // Matriculados ativos — EduEnrollment.status = "ACTIVE"
+  const enrollments: { studentId: string; class: { schoolId: string } }[] = await P.eduEnrollment.findMany({
+    where: {
+      status: "ACTIVE",
+      class: { schoolId: { in: schoolIds }, networkId: ctx.networkId },
+    },
     select: { studentId: true, class: { select: { schoolId: true } } },
   });
   const totalMatriculados = enrollments.length;
+  const studentIds = enrollments.map((e) => e.studentId);
 
-  // Submissões na semana (praticaram)
-  const praticaram = await prismaAny.eduActivitySubmission.findMany({
-    where: {
-      submittedAt: { gte: semanaInicio },
-      networkId: ctx.networkId,
-      ...(escolaId ? { schoolId: escolaId } : {}),
-    },
-    select: { studentId: true, schoolId: true },
-    distinct: ["studentId"],
-  });
-  const totalPraticaram = praticaram.length;
+  // Alunos que praticaram na semana — EduSubmission, submittedAt
+  const praticouSet = studentIds.length
+    ? await P.eduSubmission.groupBy({
+        by: ["studentId"],
+        where: {
+          networkId: ctx.networkId,
+          studentId: { in: studentIds },
+          submittedAt: { gte: semanaInicio },
+          status: { not: "IN_PROGRESS" },
+        },
+      })
+    : [];
+  const totalPraticaram = praticouSet.length;
 
-  // Atividades concluídas no período
-  const atividades = await prismaAny.eduActivitySubmission.count({
-    where: {
-      submittedAt: { gte: since },
-      networkId: ctx.networkId,
-      ...(escolaId ? { schoolId: escolaId } : {}),
-    },
-  });
+  // Atividades concluídas — EduSubmission com status != IN_PROGRESS no período
+  const atividades: number = studentIds.length
+    ? await P.eduSubmission.count({
+        where: {
+          networkId: ctx.networkId,
+          studentId: { in: studentIds },
+          submittedAt: { gte: since },
+          status: { not: "IN_PROGRESS" },
+        },
+      })
+    : 0;
 
-  // Habilidades recuperadas (NOT_YET → MASTERED) no período
-  const habilidades = await prismaAny.eduSkillMasteryEvent.count({
-    where: {
-      createdAt: { gte: since },
-      networkId: ctx.networkId,
-      toLevel: "MASTERED",
-      fromLevel: { in: ["NOT_YET", "ALMOST"] },
-      ...(escolaId ? { schoolId: escolaId } : {}),
-    },
-  }).catch(() => 0);
+  // Habilidades recuperadas — EduSkillMasteryEvent.level = MASTERED no período
+  const habilidades: number = studentIds.length
+    ? await P.eduSkillMasteryEvent.count({
+        where: {
+          networkId: ctx.networkId,
+          studentId: { in: studentIds },
+          createdAt: { gte: since },
+          level: "MASTERED",
+        },
+      })
+    : 0;
 
-  // Famílias acompanhando: alunos com guardianLink ativo
-  const alunosComGuardian = await prismaAny.eduGuardianLink.count({
-    where: {
-      isActive: true,
-      networkId: ctx.networkId,
-      ...(escolaId ? { student: { enrollments: { some: { class: { schoolId: escolaId } } } } } : {}),
-    },
-  });
+  // Famílias acompanhando — alunos com guardianLink ativo
+  const alunosComGuardian: number = studentIds.length
+    ? await P.eduGuardianLink.count({
+        where: {
+          isActive: true,
+          networkId: ctx.networkId,
+          studentId: { in: studentIds },
+        },
+      })
+    : 0;
 
-  // Percentuais
   const pctPraticaram = totalMatriculados > 0 ? Math.round((totalPraticaram / totalMatriculados) * 100) : 0;
   const pctFamilias = totalMatriculados > 0 ? Math.round((alunosComGuardian / totalMatriculados) * 100) : 0;
 
   // Dados por escola
-  const bySchool = await Promise.all(schools.map(async (school: { id: string; name: string }) => {
-    const matriculados = enrollments.filter((e: { class: { schoolId: string } }) => e.class.schoolId === school.id).length;
-    const praticou = praticaram.filter((p: { schoolId: string }) => p.schoolId === school.id).length;
-    const atividadesEscola = await prismaAny.eduActivitySubmission.count({
-      where: { submittedAt: { gte: since }, networkId: ctx.networkId, schoolId: school.id },
-    }).catch(() => 0);
-    const habilidadesEscola = await prismaAny.eduSkillMasteryEvent.count({
-      where: { createdAt: { gte: since }, networkId: ctx.networkId, toLevel: "MASTERED", schoolId: school.id },
-    }).catch(() => 0);
-    const guardians = await prismaAny.eduGuardianLink.count({
-      where: { isActive: true, networkId: ctx.networkId, student: { enrollments: { some: { class: { schoolId: school.id } } } } },
-    }).catch(() => 0);
+  const bySchool = await Promise.all(
+    schools.map(async (school) => {
+      const schoolStudentIds = enrollments
+        .filter((e) => e.class.schoolId === school.id)
+        .map((e) => e.studentId);
+      const matriculados = schoolStudentIds.length;
 
-    return {
-      id: school.id,
-      name: school.name,
-      matriculados,
-      praticaram: matriculados > 0 ? Math.round((praticou / matriculados) * 100) : 0,
-      atividades: atividadesEscola,
-      habilidades: habilidadesEscola,
-      familias: matriculados > 0 ? Math.round((guardians / matriculados) * 100) : 0,
-    };
-  }));
+      const praticouEscola = matriculados
+        ? await P.eduSubmission.groupBy({
+            by: ["studentId"],
+            where: {
+              networkId: ctx.networkId,
+              studentId: { in: schoolStudentIds },
+              submittedAt: { gte: semanaInicio },
+              status: { not: "IN_PROGRESS" },
+            },
+          })
+        : [];
+
+      const atividadesEscola: number = matriculados
+        ? await P.eduSubmission.count({
+            where: {
+              networkId: ctx.networkId,
+              studentId: { in: schoolStudentIds },
+              submittedAt: { gte: since },
+              status: { not: "IN_PROGRESS" },
+            },
+          })
+        : 0;
+
+      const habilidadesEscola: number = matriculados
+        ? await P.eduSkillMasteryEvent.count({
+            where: {
+              networkId: ctx.networkId,
+              studentId: { in: schoolStudentIds },
+              createdAt: { gte: since },
+              level: "MASTERED",
+            },
+          })
+        : 0;
+
+      const guardiansEscola: number = matriculados
+        ? await P.eduGuardianLink.count({
+            where: {
+              isActive: true,
+              networkId: ctx.networkId,
+              studentId: { in: schoolStudentIds },
+            },
+          })
+        : 0;
+
+      return {
+        id: school.id,
+        name: school.name,
+        matriculados,
+        praticaram: matriculados > 0 ? Math.round((praticouEscola.length / matriculados) * 100) : 0,
+        atividades: atividadesEscola,
+        habilidades: habilidadesEscola,
+        familias: matriculados > 0 ? Math.round((guardiansEscola / matriculados) * 100) : 0,
+      };
+    })
+  );
 
   return NextResponse.json({
-    totais: {
-      praticaram: pctPraticaram,
-      atividades,
-      habilidades,
-      familias: pctFamilias,
-    },
+    totais: { praticaram: pctPraticaram, atividades, habilidades, familias: pctFamilias },
     bySchool,
   });
 }
