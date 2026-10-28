@@ -12,20 +12,63 @@ export async function GET(req: NextRequest) {
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
 
   const { searchParams } = new URL(req.url);
-  const subjectCode = searchParams.get("subjectCode");
-  const stage = searchParams.get("stage");
-  const gradeYear = searchParams.get("gradeYear");
+  const q = searchParams.get("q")?.trim() ?? "";
+  const subjectCode = searchParams.get("subjectCode") ?? null;
+  const subjectId = searchParams.get("subjectId") ?? null;
+  const stage = searchParams.get("stage") ?? null;
+  const gradeYear = searchParams.get("gradeYear") ?? null;
+  const limit = Math.min(parseInt(searchParams.get("limit") ?? "50"), 100);
 
-  const skills = await (prismaEdu as any).eduSkill.findMany({
-    where: {
-      ...(subjectCode ? { subjectCode } : {}),
-      ...(stage ? { stage } : {}),
-      ...(gradeYear ? { gradeYears: { has: parseInt(gradeYear) } } : {}),
-      OR: [{ networkId: null }, { networkId: ctx.networkId }],
-    },
-    orderBy: [{ subjectCode: "asc" }, { code: "asc" }],
-  });
-  return NextResponse.json({ skills });
+  try {
+    // Se subjectId, resolve o subjectCode a partir do nome do EduSubject
+    let resolvedSubjectCode = subjectCode;
+    if (!resolvedSubjectCode && subjectId) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const subj = await (prismaEdu as any).eduSubject.findFirst({
+        where: { id: subjectId },
+        select: { name: true },
+      });
+      if (subj?.name) {
+        const SUBJECT_CODE_MAP: Record<string, string> = {
+          "matematica": "MA", "lingua portuguesa": "LP", "ciencias": "CI",
+          "historia": "HI", "geografia": "GE", "arte": "AR",
+          "educacao fisica": "EF", "lingua inglesa": "LI", "ensino religioso": "ER",
+        };
+        const normalized = subj.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        resolvedSubjectCode = SUBJECT_CODE_MAP[normalized] ?? null;
+      }
+    }
+
+    // Filtro de texto: busca insensitive em code, shortLabel e description
+    const textFilter = q
+      ? {
+          OR: [
+            { code: { contains: q, mode: "insensitive" as const } },
+            { shortLabel: { contains: q, mode: "insensitive" as const } },
+            { description: { contains: q, mode: "insensitive" as const } },
+          ],
+        }
+      : {};
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const skills = await (prismaEdu as any).eduSkill.findMany({
+      where: {
+        ...(resolvedSubjectCode ? { subjectCode: resolvedSubjectCode } : {}),
+        ...(stage ? { stage } : {}),
+        ...(gradeYear ? { gradeYears: { has: parseInt(gradeYear) } } : {}),
+        OR: [{ networkId: null }, { networkId: ctx.networkId }],
+        ...textFilter,
+      },
+      orderBy: [{ subjectCode: "asc" }, { code: "asc" }],
+      take: limit,
+      select: { id: true, code: true, subjectCode: true, stage: true, gradeYears: true, shortLabel: true, description: true },
+    });
+
+    return NextResponse.json({ skills });
+  } catch (err) {
+    console.error("[api/habilidades]", err);
+    return NextResponse.json({ error: "Erro ao buscar habilidades" }, { status: 500 });
+  }
 }
 
 const createSchema = z.object({

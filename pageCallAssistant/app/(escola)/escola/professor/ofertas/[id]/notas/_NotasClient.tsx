@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, use } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
@@ -7,8 +7,8 @@ interface Student { id: string; studentId: string; fullName: string; enrollmentC
 interface Assessment { id: string; title: string; status: string; maxScore: string; }
 interface GradeEntry { studentId: string; score: string | null; absent: boolean; note: string | null; }
 
-export function NotasClient({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = use(params);
+export function NotasClient({ params }: { params: { id: string } }) {
+  const id = params.id;
   const searchParams = useSearchParams();
   const assessmentId = searchParams.get("assessment") ?? "";
 
