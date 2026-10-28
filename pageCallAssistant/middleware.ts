@@ -31,6 +31,10 @@ export async function middleware(req: NextRequest) {
       return NextResponse.next();
     }
 
+    // Injeta pathname para que layouts server-side possam pular o shell em páginas de aluno/família
+    const requestHeaders = new Headers(req.headers);
+    requestHeaders.set("x-pathname", pathname);
+
     // Public escola routes (include manifest so PWA install works on login page)
     if (
       pathname === "/escola/inicio" ||
@@ -49,7 +53,7 @@ export async function middleware(req: NextRequest) {
       pathname.startsWith("/verificar") ||
       pathname === "/escola-manifest.json"
     ) {
-      return NextResponse.next();
+      return NextResponse.next({ request: { headers: requestHeaders } });
     }
 
     // Family portal routes
@@ -60,7 +64,7 @@ export async function middleware(req: NextRequest) {
       }
       try {
         await jwtVerify(familyToken, familySecret());
-        return NextResponse.next();
+        return NextResponse.next({ request: { headers: requestHeaders } });
       } catch {
         const res = NextResponse.redirect(new URL("/escola/familia/entrar?expirou=1", req.url));
         res.cookies.delete(FAMILY_COOKIE);
@@ -76,7 +80,7 @@ export async function middleware(req: NextRequest) {
       }
       try {
         await jwtVerify(studentToken, studentSecret());
-        return NextResponse.next();
+        return NextResponse.next({ request: { headers: requestHeaders } });
       } catch {
         const res = NextResponse.redirect(new URL("/escola/aluno/entrar?expirou=1", req.url));
         res.cookies.delete(STUDENT_COOKIE);
@@ -91,7 +95,7 @@ export async function middleware(req: NextRequest) {
     }
     try {
       await jwtVerify(ctxToken, staffSecret());
-      return NextResponse.next();
+      return NextResponse.next({ request: { headers: requestHeaders } });
     } catch {
       const res = NextResponse.redirect(new URL("/escola/entrar?expirou=1", req.url));
       res.cookies.delete(STAFF_COOKIE);
