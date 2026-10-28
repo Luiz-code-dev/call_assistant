@@ -3,10 +3,12 @@ import { redirect } from "next/navigation";
 import { prismaEdu } from "@/lib/escola/db";
 import Link from "next/link";
 import { ASSESSMENT_STATUS_LABEL, ASSESSMENT_TYPE_LABEL } from "@/lib/escola/types";
+import { isNotasEnabled } from "@/lib/escola/feature-flag";
 
 export default async function OfertaPage({ params }: { params: { id: string } }) {
   const ctx = await getEduContext();
   if (!ctx) redirect("/escola/entrar");
+  const notasAtivo = isNotasEnabled();
 
   // findFirst em vez de findUnique: networkId é filtro de segurança, não constraint única.
   // Removido _count.entries (EduGradeEntry — módulo de notas FEATURE_ESCOLAS_NOTAS=false).
@@ -16,6 +18,7 @@ export default async function OfertaPage({ params }: { params: { id: string } })
       id: true,
       subjectId: true,
       teacherId: true,
+      classId: true,
       class: {
         select: {
           name: true,
@@ -68,38 +71,46 @@ export default async function OfertaPage({ params }: { params: { id: string } })
           <p className="text-[#5B5470] text-xs mt-0.5">{totalStudents} alunos matriculados</p>
         </div>
         <div className="flex gap-2 flex-wrap">
-          <Link href={`/escola/professor/ofertas/${params.id}/avaliacoes`} className="bg-[#FAF9FD] hover:bg-[#F5F3FF] text-[#3F3A4F] hover:text-[#1F1A2E] px-4 py-2 rounded-lg text-sm min-h-[44px] flex items-center transition-colors">Avaliações</Link>
+          <Link href={`/escola/professor/turmas/${offer.classId}/cartoes`} className="bg-[#EDE9FE] hover:bg-[#DDD6EE] text-[#4C1D95] px-4 py-2 rounded-lg text-sm min-h-[44px] flex items-center gap-2 transition-colors font-semibold">
+            Imprimir cartões
+          </Link>
+          {notasAtivo && (
+            <Link href={`/escola/professor/ofertas/${params.id}/avaliacoes`} className="bg-[#FAF9FD] hover:bg-[#F5F3FF] text-[#3F3A4F] hover:text-[#1F1A2E] px-4 py-2 rounded-lg text-sm min-h-[44px] flex items-center transition-colors">Avaliações</Link>
+          )}
         </div>
       </div>
 
-      <h2 className="text-lg font-semibold text-[#1F1A2E] mb-4">Avaliações <span className="text-[#5B5470] text-sm">({offer.assessments?.length ?? 0})</span></h2>
-
-      {offer.assessments?.length === 0 ? (
-        <div className="text-center py-12 border border-dashed border-[#E9E5F5] rounded-xl text-[#5B5470]">
-          <div className="text-sm font-medium mb-1">Nenhuma avaliação criada</div>
-          <Link href={`/escola/professor/ofertas/${params.id}/avaliacoes`} className="text-[#6D28D9] text-sm mt-2 inline-block hover:underline">Criar avaliação →</Link>
-        </div>
-      ) : (
-        <div className="space-y-3">
-          {offer.assessments?.map((a: { id: string; title: string; type: string; status: string; weight: unknown; maxScore: unknown; term: { name: string } | null }) => (
-            <div key={a.id} className="bg-white border border-[#E9E5F5] rounded-xl p-4 flex flex-wrap items-center justify-between gap-3">
-              <div>
-                <div className="text-[#1F1A2E] font-medium">{a.title}</div>
-                <div className="text-[#5B5470] text-xs">
-                  {ASSESSMENT_TYPE_LABEL[a.type as keyof typeof ASSESSMENT_TYPE_LABEL] ?? a.type}
-                  {a.term && ` · ${a.term.name}`}
-                  {` · peso ${String(a.weight)} · máx ${String(a.maxScore)}`}
-                </div>
-              </div>
-              <div className="flex items-center gap-3 shrink-0">
-                <span className={`px-2 py-0.5 rounded text-xs ${a.status === "PUBLISHED" ? "bg-[#DCFCE7] text-[#166534]" : a.status === "GRADING" ? "bg-[#FEF3C7] text-[#92400E]" : "bg-[#FAF9FD] text-[#5B5470]"}`}>
-                  {ASSESSMENT_STATUS_LABEL[a.status as keyof typeof ASSESSMENT_STATUS_LABEL] ?? a.status}
-                </span>
-                <span className="text-[#5B5470] text-xs">{totalStudents} alunos</span>
-              </div>
+      {notasAtivo && (
+        <>
+          <h2 className="text-lg font-semibold text-[#1F1A2E] mb-4">Avaliações <span className="text-[#5B5470] text-sm">({offer.assessments?.length ?? 0})</span></h2>
+          {offer.assessments?.length === 0 ? (
+            <div className="text-center py-12 border border-dashed border-[#E9E5F5] rounded-xl text-[#5B5470]">
+              <div className="text-sm font-medium mb-1">Nenhuma avaliação criada</div>
+              <Link href={`/escola/professor/ofertas/${params.id}/avaliacoes`} className="text-[#6D28D9] text-sm mt-2 inline-block hover:underline">Criar avaliação →</Link>
             </div>
-          ))}
-        </div>
+          ) : (
+            <div className="space-y-3">
+              {offer.assessments?.map((a: { id: string; title: string; type: string; status: string; weight: unknown; maxScore: unknown; term: { name: string } | null }) => (
+                <div key={a.id} className="bg-white border border-[#E9E5F5] rounded-xl p-4 flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <div className="text-[#1F1A2E] font-medium">{a.title}</div>
+                    <div className="text-[#5B5470] text-xs">
+                      {ASSESSMENT_TYPE_LABEL[a.type as keyof typeof ASSESSMENT_TYPE_LABEL] ?? a.type}
+                      {a.term && ` · ${a.term.name}`}
+                      {` · peso ${String(a.weight)} · máx ${String(a.maxScore)}`}
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 shrink-0">
+                    <span className={`px-2 py-0.5 rounded text-xs ${a.status === "PUBLISHED" ? "bg-[#DCFCE7] text-[#166534]" : a.status === "GRADING" ? "bg-[#FEF3C7] text-[#92400E]" : "bg-[#FAF9FD] text-[#5B5470]"}`}>
+                      {ASSESSMENT_STATUS_LABEL[a.status as keyof typeof ASSESSMENT_STATUS_LABEL] ?? a.status}
+                    </span>
+                    <span className="text-[#5B5470] text-xs">{totalStudents} alunos</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </>
       )}
     </div>
   );

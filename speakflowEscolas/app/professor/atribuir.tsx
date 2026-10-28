@@ -42,7 +42,7 @@ export default function ProfessorAtribuir() {
     if (filter === "NOT_YET_ALMOST") body.skillLevelFilter = ["NOT_YET", "ALMOST"];
     const r = await apiSend(`/trilhas/${tid}/atribuir?preview=1`, "POST", body);
     setEnviando(false);
-    if (r.ok) setPreview(await r.json());
+    if (r.ok) setPreview(r.data as typeof preview);
   }
 
   async function confirmar() {
@@ -53,8 +53,8 @@ export default function ProfessorAtribuir() {
     const r = await apiSend(`/trilhas/${track.id}/atribuir`, "POST", body);
     setEnviando(false);
     if (r.ok) {
-      const d = await r.json();
-      setOkMsg(`Trilha atribuída a ${d.atribuidos} aluno${d.atribuidos !== 1 ? "s" : ""}.`);
+      const d = r.data as { atribuidos: number } | null;
+      setOkMsg(`Trilha atribuída a ${d?.atribuidos ?? 0} aluno${(d?.atribuidos ?? 0) !== 1 ? "s" : ""}.`);
       setTrack(null); setTurma(null); setPreview(null);
     }
   }

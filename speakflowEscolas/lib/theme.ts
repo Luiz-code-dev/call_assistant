@@ -37,7 +37,7 @@ export const masteryColor = {
   MASTERED: { label: "Domina", fg: "#166534", bg: "#DCFCE7" },
 };
 
-export const radius = { card: 16, cardLg: 24, pill: 999, input: 12 };
+export const radius = { card: 16, cardLg: 24, pill: 999, input: 12, btn: 12, sm: 8 };
 // Botões do aluno: 52px.
 export const touch = { aluno: 52, default: 44 };
 
@@ -48,4 +48,8 @@ export const fonts = {
   semibold: "Inter_600SemiBold",
   bold: "Inter_700Bold",
   extrabold: "Inter_800ExtraBold",
+  // Presets que podem ser espalhados em StyleSheet
+  title:    { fontFamily: "Inter_700Bold",      fontWeight: "700" as const },
+  subtitle: { fontFamily: "Inter_600SemiBold",  fontWeight: "600" as const },
+  body:     { fontFamily: "Inter_400Regular",   fontWeight: "400" as const },
 };

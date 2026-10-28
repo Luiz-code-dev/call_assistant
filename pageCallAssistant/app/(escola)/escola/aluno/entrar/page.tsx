@@ -1,721 +1,381 @@
 "use client";
-import { Suspense, useState, useEffect } from "react";
+import { Suspense, useState, useEffect, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import Link from "next/link";
-import { QrCode, Monitor, ListOrdered, MessageSquare, Delete, Home, Trash2 } from "lucide-react";
+import { QrCode, Volume2, Delete, ChevronLeft } from "lucide-react";
 
-type LoginMode = "select" | "qr" | "aula" | "manual" | "device";
-type ManualStep = "turma" | "matricula" | "pin";
-
-interface StudentItem { id: string; display: string; loginMode: string; }
-interface SessionData { sessionId: string; classId: string; className: string; students: StudentItem[]; }
-interface DeviceStudent { id: string; name: string; initial: string; loginMode: string; }
-
-const PICTURES = [
-  { id: "sun",    emoji: "☀️",  label: "Sol" },
-  { id: "cat",    emoji: "🐱",  label: "Gato" },
-  { id: "ball",   emoji: "⚽",  label: "Bola" },
-  { id: "tree",   emoji: "🌳",  label: "Árvore" },
-  { id: "house",  emoji: "🏠",  label: "Casa" },
-  { id: "fish",   emoji: "🐟",  label: "Peixe" },
-  { id: "flower", emoji: "🌸",  label: "Flor" },
-  { id: "book",   emoji: "📚",  label: "Livro" },
-  { id: "heart",  emoji: "❤️",  label: "Coração" },
+// ── Figuras SVG (sem emoji) ──────────────────────────────────────────────────
+const FIGURES = [
+  { id: "sun",    label: "Sol",     svg: <svg viewBox="0 0 48 48" className="w-full h-full"><circle cx="24" cy="24" r="10" fill="#F59E0B"/><g stroke="#F59E0B" strokeWidth="3" strokeLinecap="round">{[0,45,90,135,180,225,270,315].map((a,i)=><line key={i} x1={24+14*Math.cos(a*Math.PI/180)} y1={24+14*Math.sin(a*Math.PI/180)} x2={24+19*Math.cos(a*Math.PI/180)} y2={24+19*Math.sin(a*Math.PI/180)}/>)}</g></svg> },
+  { id: "star",   label: "Estrela", svg: <svg viewBox="0 0 48 48" className="w-full h-full"><polygon points="24,4 29,18 44,18 32,27 37,42 24,33 11,42 16,27 4,18 19,18" fill="#7C3AED"/></svg> },
+  { id: "heart",  label: "Coracao", svg: <svg viewBox="0 0 48 48" className="w-full h-full"><path d="M24 40 C24 40 6 28 6 17 C6 11 10 7 16 7 C20 7 23 10 24 12 C25 10 28 7 32 7 C38 7 42 11 42 17 C42 28 24 40 24 40Z" fill="#BE185D"/></svg> },
+  { id: "house",  label: "Casa",    svg: <svg viewBox="0 0 48 48" className="w-full h-full"><polygon points="24,6 42,22 38,22 38,42 10,42 10,22 6,22" fill="#0F766E"/></svg> },
+  { id: "fish",   label: "Peixe",   svg: <svg viewBox="0 0 48 48" className="w-full h-full"><ellipse cx="22" cy="24" rx="14" ry="9" fill="#1D4ED8"/><polygon points="36,15 44,24 36,33" fill="#1D4ED8"/><circle cx="14" cy="21" r="2" fill="white"/></svg> },
+  { id: "flower", label: "Flor",    svg: <svg viewBox="0 0 48 48" className="w-full h-full"><circle cx="24" cy="24" r="6" fill="#FBBF24"/>{[0,60,120,180,240,300].map((a,i)=><ellipse key={i} cx={24+11*Math.cos(a*Math.PI/180)} cy={24+11*Math.sin(a*Math.PI/180)} rx="6" ry="4" fill="#BE185D" transform={`rotate(${a},${24+11*Math.cos(a*Math.PI/180)},${24+11*Math.sin(a*Math.PI/180)})`}/>)}</svg> },
+  { id: "moon",   label: "Lua",     svg: <svg viewBox="0 0 48 48" className="w-full h-full"><path d="M30 8 A16 16 0 1 0 30 40 A12 12 0 1 1 30 8Z" fill="#6D28D9"/></svg> },
+  { id: "drop",   label: "Gota",    svg: <svg viewBox="0 0 48 48" className="w-full h-full"><path d="M24 6 Q36 22 36 30 A12 12 0 0 1 12 30 Q12 22 24 6Z" fill="#0EA5E9"/></svg> },
+  { id: "cloud",  label: "Nuvem",   svg: <svg viewBox="0 0 48 48" className="w-full h-full"><ellipse cx="20" cy="28" rx="12" ry="9" fill="#94A3B8"/><ellipse cx="30" cy="30" rx="10" ry="8" fill="#94A3B8"/><ellipse cx="24" cy="22" rx="9" ry="9" fill="#94A3B8"/></svg> },
 ];
 
-const BACK_BTN: React.CSSProperties = {
-  background: "none", border: "none", color: "#6D28D9", fontSize: 15,
-  fontWeight: 600, cursor: "pointer", padding: "8px 0", minHeight: 44,
-  display: "flex", alignItems: "center", gap: 6, fontFamily: "inherit",
-};
+// Fix 2: inclui dígitos 2-9 (SESSION_CHARS = ABCDEFGHJKLMNPQRSTUVWXYZ23456789)
+const AULA_KEYS = ["A","B","C","D","E","F","G","H","J","K","L","M","N","P","Q","R","S","T","U","V","W","X","Y","Z","2","3","4","5","6","7","8","9"];
 
-const SCREEN: React.CSSProperties = {
-  minHeight: "100vh", background: "#F8F7FC",
-  display: "flex", flexDirection: "column", alignItems: "center",
-};
-
-function NumPad({ onPress, onDelete }: { onPress: (d: string) => void; onDelete: () => void }) {
-  const keys = ["1","2","3","4","5","6","7","8","9","","0","del"];
-  return (
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12, width: "100%", maxWidth: 320 }}>
-      {keys.map((k, i) => (
-        <button
-          key={i} type="button"
-          disabled={k === ""}
-          onClick={() => k === "del" ? onDelete() : onPress(k)}
-          style={{
-            height: 72, borderRadius: 14, border: "none",
-            background: k === "" ? "transparent" : "#FFFFFF",
-            boxShadow: k === "" ? "none" : "0 1px 4px rgba(109,40,217,0.12)",
-            fontSize: k === "del" ? 16 : 28, fontWeight: 700,
-            color: "#3B0764", cursor: k === "" ? "default" : "pointer",
-            display: "flex", alignItems: "center", justifyContent: "center",
-          }}
-        >
-          {k === "del" ? <Delete size={22} color="#6D28D9" /> : k}
-        </button>
-      ))}
-    </div>
-  );
+const AVATAR_COLORS = ["#6D28D9","#BE185D","#0F766E","#1D4ED8","#C2410C","#15803D","#A16207","#0E7490"];
+function avatarColor(name: string) { let h = 0; for (const c of name) h = (h * 31 + c.charCodeAt(0)) & 0xffff; return AVATAR_COLORS[h % AVATAR_COLORS.length]; }
+function speak(text: string) {
+  if (typeof window === "undefined" || !window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text); u.lang = "pt-BR"; u.rate = 0.9;
+  window.speechSynthesis.speak(u);
 }
 
-function AlphaNumPad({ onPress, onDelete, onClear }: { onPress: (c: string) => void; onDelete: () => void; onClear: () => void }) {
-  const rows = [
-    ["Q","W","E","R","T","Y","U","I","O","P"],
-    ["A","S","D","F","G","H","J","K","L"],
-    ["Z","X","C","V","B","N","M"],
-    ["1","2","3","4","5","6","7","8","9","0"],
-  ];
-  return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 8, width: "100%" }}>
-      {rows.map((row, ri) => (
-        <div key={ri} style={{ display: "flex", justifyContent: "center", gap: 6 }}>
-          {row.map(c => (
-            <button key={c} type="button" onClick={() => onPress(c)}
-              style={{ height: 52, minWidth: 36, flex: 1, maxWidth: 52, borderRadius: 10, border: "none", background: "#FFFFFF", boxShadow: "0 1px 3px rgba(109,40,217,0.10)", fontSize: 18, fontWeight: 700, color: "#3B0764", cursor: "pointer" }}>
-              {c}
+interface DeviceStudent { id: string; name: string; loginMode: string; }
+interface SessionStudent { id: string; display: string; loginMode: string; }
+interface SessionData { sessionId: string; classId: string; className: string; gradeYear: number; defaultLoginMode: string; students: SessionStudent[]; }
+
+// Fix 1: PIN aceita 4 ou 6 dígitos (novos=4, legados=6)
+const MAX_PIN = 6;
+
+type Screen = "device" | "choose" | "aula-code" | "aula-names" | "pin" | "figures";
+// qrMode: quando autenticando com cartão (mode="qr"), studentId guarda o token JWT
+type LoginCtx = { mode: "aula"; studentId: string; sessionId: string } | { mode: "qr"; qrToken: string } | { mode: "dispositivo"; studentId: string };
+
+function EntrarInner() {
+  const router = useRouter();
+  const sp = useSearchParams();
+
+  const [screen, setScreen] = useState<Screen>("choose");
+  const [deviceStudents, setDeviceStudents] = useState<DeviceStudent[]>([]);
+
+  const [aulaCode, setAulaCode] = useState<string[]>(Array(6).fill(""));
+  const [aulaError, setAulaError] = useState("");
+  const [aulaLoading, setAulaLoading] = useState(false);
+  const [session, setSession] = useState<SessionData | null>(null);
+
+  const [selectedStudent, setSelectedStudent] = useState<{ id: string; display: string; loginMode: string } | null>(null);
+  const [loginCtx, setLoginCtx] = useState<LoginCtx | null>(null);
+
+  const [pin, setPin] = useState("");
+  const [pinError, setPinError] = useState("");
+
+  const [figSeq, setFigSeq] = useState<string[]>([]);
+  const [figError, setFigError] = useState("");
+
+  const resolveAulaCode = useCallback(async (code: string) => {
+    setAulaLoading(true); setAulaError("");
+    const r = await fetch("/api/escola/aluno/entrar/codigo-aula", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ code }),
+    });
+    const d = await r.json();
+    setAulaLoading(false);
+    if (!r.ok) { setAulaError(d.error ?? "Esse codigo nao funcionou. Confira com o professor."); setAulaCode(Array(6).fill("")); return; }
+    setSession(d); setScreen("aula-names");
+  }, []);
+
+  // Fix 3 + Fix 4: carrega ?card= e alunos do dispositivo via cookie
+  useEffect(() => {
+    const cardParam = sp.get("card");
+    const aulaParam = sp.get("aula");
+
+    // Fix 3: ?card=TOKEN — vai direto para PIN com mode "qr"
+    if (cardParam) {
+      setLoginCtx({ mode: "qr", qrToken: cardParam });
+      // Precisamos saber o loginMode — chamar API para resolver o token
+      fetch("/api/escola/aluno/entrar/card-info", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ qrToken: cardParam }),
+      }).then(r => r.json()).then(d => {
+        if (d.studentId) {
+          setSelectedStudent({ id: d.studentId, display: d.display ?? "Aluno", loginMode: d.loginMode ?? "PIN" });
+          setScreen(d.loginMode === "PICTURE" ? "figures" : "pin");
+        } else {
+          setAulaError(d.error ?? "QR invalido ou cartao bloqueado.");
+          setScreen("choose");
+        }
+      }).catch(() => { setAulaError("Nao foi possivel verificar o cartao."); setScreen("choose"); });
+      return;
+    }
+
+    if (aulaParam) {
+      const letters = aulaParam.toUpperCase().split("").slice(0, 6);
+      setAulaCode([...letters, ...Array(6 - letters.length).fill("")]);
+      if (letters.length === 6) resolveAulaCode(aulaParam.toUpperCase());
+      else setScreen("aula-code");
+      return;
+    }
+
+    // Fix 4: alunos lembrados via cookie assinado (não localStorage)
+    fetch("/api/escola/aluno/dispositivo")
+      .then(r => r.json())
+      .then(d => {
+        if (d.students?.length) {
+          setDeviceStudents(d.students);
+          setScreen("device");
+        } else {
+          setScreen("choose");
+        }
+      })
+      .catch(() => setScreen("choose"));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (aulaCode.every(l => l !== "")) resolveAulaCode(aulaCode.join(""));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [aulaCode]);
+
+  function selectStudent(student: SessionStudent) {
+    setSelectedStudent(student); setPin(""); setPinError(""); setFigSeq([]); setFigError("");
+    if (session) setLoginCtx({ mode: "aula", studentId: student.id, sessionId: session.sessionId });
+    setScreen(student.loginMode === "PICTURE" ? "figures" : "pin");
+  }
+
+  function selectDeviceStudent(s: DeviceStudent) {
+    // Fix 4: mode dispositivo para alunos lembrados no cookie
+    setSelectedStudent({ id: s.id, display: s.name, loginMode: s.loginMode });
+    setLoginCtx({ mode: "dispositivo", studentId: s.id });
+    setPin(""); setPinError(""); setFigSeq([]); setFigError("");
+    setScreen(s.loginMode === "PICTURE" ? "figures" : "pin");
+  }
+
+  async function submitPin(finalPin: string) {
+    if (!loginCtx) return;
+    let body: Record<string, unknown>;
+    if (loginCtx.mode === "qr") {
+      body = { mode: "qr", qrToken: loginCtx.qrToken, pin: finalPin };
+    } else if (loginCtx.mode === "dispositivo") {
+      body = { mode: "dispositivo", studentId: loginCtx.studentId };
+    } else {
+      body = { mode: "aula", studentId: loginCtx.studentId, sessionId: loginCtx.sessionId, pin: finalPin };
+    }
+    const r = await fetch("/api/escola/aluno/entrar", {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body),
+    });
+    const d = await r.json();
+    if (!r.ok) { setPinError(d.error ?? "PIN incorreto. Tente de novo."); setPin(""); return; }
+    router.replace("/escola/aluno/trilha");
+  }
+
+  async function submitFigures(seq: string[]) {
+    if (!loginCtx || loginCtx.mode !== "aula") return;
+    const r = await fetch("/api/escola/aluno/entrar", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ mode: "aula", studentId: loginCtx.studentId, sessionId: loginCtx.sessionId, pictureSequence: seq }),
+    });
+    const d = await r.json();
+    if (!r.ok) { setFigError("Quase! Tente de novo."); setFigSeq([]); return; }
+    router.replace("/escola/aluno/trilha");
+  }
+
+  const headerName = selectedStudent?.display.split(" ")[0] ?? "";
+
+  // ── Device ──────────────────────────────────────────────────────────────────
+  if (screen === "device" && deviceStudents.length > 0) {
+    return (
+      <div className="min-h-screen bg-[#F8F7FC] flex flex-col items-center justify-center p-6">
+        <button onClick={() => speak("Quem vai praticar agora?")} className="absolute top-4 right-4 flex items-center gap-2 text-[#6D28D9] text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-[#EDE9FE] rounded-full">
+          <Volume2 size={16} /> Ouvir
+        </button>
+        <h1 className="text-3xl font-bold text-[#1F1A2E] mb-8">Quem vai praticar agora?</h1>
+        <div className="flex flex-wrap gap-4 justify-center max-w-2xl mb-8">
+          {deviceStudents.map(s => (
+            <button key={s.id} onClick={() => selectDeviceStudent(s)}
+              className="flex flex-col items-center gap-3 bg-white border-2 border-[#E9E5F5] rounded-2xl p-5 min-w-[140px] hover:border-[#6D28D9] transition-all min-h-[64px]">
+              <div className="w-20 h-20 rounded-full flex items-center justify-center text-white text-3xl font-bold" style={{ background: avatarColor(s.name) }}>{s.name[0].toUpperCase()}</div>
+              <span className="text-[#1F1A2E] text-xl font-bold">{s.name.split(" ")[0]}</span>
+            </button>
+          ))}
+          <button onClick={() => setScreen("choose")} className="flex flex-col items-center justify-center gap-3 border-2 border-dashed border-[#DDD6EE] rounded-2xl p-5 min-w-[140px] hover:border-[#6D28D9] text-[#6D28D9] transition-all min-h-[64px]">
+            <span className="text-4xl font-light leading-none">+</span>
+            <span className="text-sm font-semibold">Outro aluno</span>
+          </button>
+        </div>
+        {/* Fix 4: DELETE no cookie via API */}
+        <button onClick={() => fetch("/api/escola/aluno/dispositivo", { method: "DELETE" }).then(() => { setDeviceStudents([]); setScreen("choose"); })}
+          className="text-[#5B5470] text-sm underline min-h-[44px]">Esquecer este aparelho</button>
+      </div>
+    );
+  }
+
+  // ── Choose ──────────────────────────────────────────────────────────────────
+  if (screen === "choose") {
+    return (
+      <div className="min-h-screen bg-[#F8F7FC] flex flex-col items-center justify-center p-6">
+        <button onClick={() => speak("Como voce quer entrar?")} className="absolute top-4 right-4 flex items-center gap-2 text-[#6D28D9] text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-[#EDE9FE] rounded-full">
+          <Volume2 size={16} /> Ouvir
+        </button>
+        {aulaError && <p className="text-[#B91C1C] text-sm mb-4 bg-[#FEE2E2] px-4 py-2 rounded-xl">{aulaError}</p>}
+        <h1 className="text-3xl font-bold text-[#1F1A2E] mb-10">Como voce quer entrar?</h1>
+        <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xl">
+          <button onClick={() => { setAulaCode(Array(6).fill("")); setAulaError(""); setScreen("aula-code"); }}
+            className="flex-1 flex flex-col items-center justify-center gap-4 bg-[#0F766E] hover:bg-[#0D6B63] text-white rounded-2xl p-8 min-h-[180px] transition-colors">
+            <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center"><span className="text-4xl font-bold">#</span></div>
+            <div className="text-center"><div className="text-xl font-bold">Codigo da aula</div><div className="text-sm opacity-90 mt-1">O professor mostra no quadro</div></div>
+          </button>
+          {/* Fix 3: Ler cartao → web pede a URL copiada da camera do SO */}
+          <button onClick={() => {
+              const url = window.prompt("Cole o endereco do QR do cartao (abra com a camera do celular, copie o link e cole aqui):");
+              if (!url) return;
+              const m = /[?&]card=([^&]+)/.exec(url);
+              if (m) {
+                router.replace(`/escola/aluno/entrar?card=${encodeURIComponent(decodeURIComponent(m[1]))}`);
+              } else {
+                alert("Endereco invalido. Certifique-se de copiar o link completo do QR.");
+              }
+            }}
+            className="flex-1 flex flex-col items-center justify-center gap-4 bg-[#6D28D9] hover:bg-[#5B21B6] text-white rounded-2xl p-8 min-h-[180px] transition-colors">
+            <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center"><QrCode size={36} /></div>
+            <div className="text-center"><div className="text-xl font-bold">Ler meu cartao</div><div className="text-sm opacity-90 mt-1">Aponte a camera do celular para o QR</div></div>
+          </button>
+        </div>
+        <p className="text-[#5B5470] text-sm mt-8">Nao tem cartao? Peca ao seu professor.</p>
+      </div>
+    );
+  }
+
+  // ── Codigo da aula ──────────────────────────────────────────────────────────
+  if (screen === "aula-code") {
+    return (
+      <div className="min-h-screen bg-[#F8F7FC] flex flex-col items-center p-6 pt-16">
+        <button onClick={() => setScreen("choose")} className="absolute top-4 left-4 text-[#6D28D9] font-semibold min-h-[44px] px-3 flex items-center gap-1"><ChevronLeft size={18}/> Voltar</button>
+        <button onClick={() => speak("Digite as letras ou numeros que o professor mostrou")} className="absolute top-4 right-4 flex items-center gap-2 text-[#6D28D9] text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-[#EDE9FE] rounded-full"><Volume2 size={16} /> Ouvir</button>
+        <h2 className="text-[#1F1A2E] font-bold text-2xl mb-6">Digite o codigo que o professor mostrou</h2>
+        <div className="flex gap-3 mb-6">
+          {aulaCode.map((l, i) => (
+            <div key={i} className={`w-14 h-16 flex items-center justify-center rounded-xl border-2 text-3xl font-bold font-mono text-[#1F1A2E] bg-white ${l ? "border-[#6D28D9]" : aulaCode.slice(0,i).every(x=>x) ? "border-[#6D28D9] shadow-[0_0_0_3px_rgba(109,40,217,0.2)]" : "border-[#DDD6EE]"}`}>{l}</div>
+          ))}
+        </div>
+        {aulaError && <p className="text-[#B91C1C] text-sm mb-4 font-medium">{aulaError}</p>}
+        {aulaLoading && <p className="text-[#5B5470] text-sm mb-4">Verificando...</p>}
+        {/* Fix 2: teclado inclui digitos 2-9 */}
+        <div className="grid gap-2 w-full max-w-sm" style={{ gridTemplateColumns: "repeat(8, 1fr)" }}>
+          {AULA_KEYS.map(k => (
+            <button key={k} onClick={() => {
+              const idx = aulaCode.findIndex(l => l === ""); if (idx === -1) return;
+              const next = [...aulaCode]; next[idx] = k; setAulaCode(next); setAulaError("");
+            }} className="h-14 rounded-xl border border-[#DDD6EE] bg-white text-[#1F1A2E] text-xl font-bold hover:bg-[#EDE9FE] hover:border-[#6D28D9] transition-colors min-h-[56px]">{k}</button>
+          ))}
+          <button onClick={() => { const last = [...aulaCode].reverse().findIndex(l=>l!==""); if(last===-1)return; const idx=5-last; const next=[...aulaCode]; next[idx]=""; setAulaCode(next); }}
+            className="h-14 col-span-2 rounded-xl border border-[#DDD6EE] bg-white text-[#1F1A2E] hover:bg-[#FEE2E2] transition-colors flex items-center justify-center min-h-[56px]">
+            <Delete size={22} color="#B91C1C" />
+          </button>
+        </div>
+        <p className="text-[#5B5470] text-xs mt-4">Letras e numeros. Sem I, O, 0 e 1.</p>
+      </div>
+    );
+  }
+
+  // ── Nomes da aula ───────────────────────────────────────────────────────────
+  if (screen === "aula-names" && session) {
+    return (
+      <div className="min-h-screen bg-[#F8F7FC] flex flex-col items-center p-6 pt-16">
+        <button onClick={() => setScreen("aula-code")} className="absolute top-4 left-4 text-[#6D28D9] font-semibold min-h-[44px] px-3 flex items-center gap-1"><ChevronLeft size={18}/> Voltar</button>
+        <button onClick={() => speak("Toque no seu nome")} className="absolute top-4 right-4 flex items-center gap-2 text-[#6D28D9] text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-[#EDE9FE] rounded-full"><Volume2 size={16} /> Ouvir</button>
+        <p className="text-[#5B5470] text-sm mb-2">{session.className}</p>
+        <h2 className="text-3xl font-bold text-[#1F1A2E] mb-6">Toque no seu nome</h2>
+        <div className="grid gap-3 w-full max-w-2xl" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))" }}>
+          {session.students.map(s => (
+            <button key={s.id} onClick={() => selectStudent(s)}
+              className="flex items-center gap-3 bg-white border-2 border-[#E9E5F5] rounded-xl px-4 py-3 hover:border-[#6D28D9] hover:bg-[#EDE9FE] transition-all min-h-[64px]">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center text-white text-lg font-bold flex-shrink-0" style={{ background: avatarColor(s.display) }}>{s.display[0].toUpperCase()}</div>
+              <span className="text-[#1F1A2E] text-lg font-bold text-left">{s.display}</span>
             </button>
           ))}
         </div>
-      ))}
-      <div style={{ display: "flex", gap: 8, justifyContent: "center" }}>
-        <button type="button" onClick={onClear} style={{ height: 48, padding: "0 20px", borderRadius: 10, border: "none", background: "#EDE9FE", color: "#6D28D9", fontWeight: 700, fontSize: 14, cursor: "pointer" }}>Limpar</button>
-        <button type="button" onClick={onDelete} style={{ height: 48, padding: "0 20px", borderRadius: 10, border: "none", background: "#EDE9FE", color: "#6D28D9", fontWeight: 700, fontSize: 14, cursor: "pointer", display: "flex", alignItems: "center", gap: 6 }}><Delete size={16} color="#6D28D9" /> Apagar</button>
       </div>
-    </div>
-  );
-}
-
-function AlunoEntrarInner() {
-  const router = useRouter();
-  const sp = useSearchParams();
-  const [mode, setMode] = useState<LoginMode>("select");
-  const [error, setError] = useState("");
-
-  const aviso = sp.get("expirou") ? "Sua sessão expirou. Entre de novo." : sp.get("saiu") ? "Você saiu." : "";
-
-  // Aula mode
-  const [aulaCode, setAulaCode] = useState("");
-  const [session, setSession] = useState<SessionData | null>(null);
-  const [selectedStudent, setSelectedStudent] = useState<StudentItem | null>(null);
-  const [searchLetter, setSearchLetter] = useState("");
-
-  // PIN / picture
-  const [pin, setPin] = useState("");
-  const [picSequence, setPicSequence] = useState<string[]>([]);
-  const [submitting, setSubmitting] = useState(false);
-
-  // Manual mode — 3-step: turma → matrícula → PIN
-  const [manualStep, setManualStep] = useState<ManualStep>("turma");
-  const [turmaCode, setTurmaCode] = useState("");
-  const [enrollmentCode, setEnrollmentCode] = useState("");
-  const [rememberDevice, setRememberDevice] = useState(false);
-
-  // "Aparelho de casa" (Etapa 3): quem já praticou neste aparelho
-  const [deviceChecked, setDeviceChecked] = useState(false);
-  const [deviceStudents, setDeviceStudents] = useState<DeviceStudent[]>([]);
-  const [deviceSelected, setDeviceSelected] = useState<DeviceStudent | null>(null);
-
-  async function safeJson(r: Response) {
-    try { return await r.json(); } catch { return {}; }
+    );
   }
 
-  // Ao abrir: se este aparelho lembra alunos, abre "Quem vai praticar agora?"
-  useEffect(() => {
-    let active = true;
-    (async () => {
-      try {
-        const r = await fetch("/api/escola/aluno/dispositivo");
-        const data = await r.json().catch(() => ({}));
-        if (active && Array.isArray(data.students) && data.students.length > 0) {
-          setDeviceStudents(data.students);
-          setMode("device");
-        }
-      } catch { /* sem aparelho lembrado */ }
-      finally { if (active) setDeviceChecked(true); }
-    })();
-    return () => { active = false; };
-  }, []);
-
-  async function loginDevice() {
-    if (!deviceSelected) return;
-    const isPicture = deviceSelected.loginMode === "PICTURE";
-    if (isPicture ? picSequence.length !== 3 : pin.length < 4) { setError(isPicture ? "Selecione 3 figuras" : "Digite seu PIN"); return; }
-    setSubmitting(true); setError("");
-    const r = await fetch("/api/escola/aluno/entrar", {
-      method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ mode: "dispositivo", studentId: deviceSelected.id, pin: isPicture ? undefined : pin, pictureSequence: isPicture ? picSequence : undefined }),
-    });
-    const data = await safeJson(r);
-    setSubmitting(false);
-    if (!r.ok) { setError(data.error ?? "Não foi possível entrar. Tente novamente."); setPin(""); setPicSequence([]); return; }
-    window.location.href = "/escola/aluno/painel";
-  }
-
-  async function forgetDevice() {
-    try { await fetch("/api/escola/aluno/dispositivo", { method: "DELETE" }); } catch { /* noop */ }
-    setDeviceStudents([]); setDeviceSelected(null); setPin(""); setPicSequence([]); setError("");
-    setMode("select");
-  }
-
-  // Load saved turma from sessionStorage (teacher sets once per day)
-  useEffect(() => {
-    try {
-      const saved = sessionStorage.getItem("sf_edu_turma");
-      if (saved) setTurmaCode(saved);
-    } catch { /* noop */ }
-  }, []);
-
-  async function enterAulaCode() {
-    if (aulaCode.length !== 6) return;
-    setError("");
-    const r = await fetch("/api/escola/aluno/entrar/codigo-aula", {
-      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code: aulaCode }),
-    });
-    const data = await safeJson(r);
-    if (!r.ok) { setError(data.error ?? "Código inválido. Verifique e tente novamente."); return; }
-    setSession(data);
-  }
-
-  async function loginStudent(studentId: string, loginMode: string) {
-    if (!session) return;
-    if (loginMode === "PIN" && pin.length < 4) { setError("Digite o PIN completo"); return; }
-    if (loginMode === "PICTURE" && picSequence.length !== 3) { setError("Selecione 3 figuras"); return; }
-    setSubmitting(true); setError("");
-    const r = await fetch("/api/escola/aluno/entrar", {
-      method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ mode: "aula", studentId, sessionId: session.sessionId, pin: loginMode === "PIN" ? pin : undefined, pictureSequence: loginMode === "PICTURE" ? picSequence : undefined }),
-    });
-    const data = await safeJson(r);
-    setSubmitting(false);
-    if (!r.ok) { setError(data.error ?? "Não foi possível entrar. Tente novamente."); setPin(""); setPicSequence([]); return; }
-    window.location.href = "/escola/aluno/painel";
-  }
-
-  async function loginManual() {
-    if (!turmaCode || !enrollmentCode || pin.length < 4) { setError("Preencha todos os campos e o PIN"); return; }
-    setSubmitting(true); setError("");
-    const r = await fetch("/api/escola/aluno/entrar", {
-      method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ mode: "manual", accessCode: turmaCode, enrollmentCode, pin, rememberDevice }),
-    });
-    const data = await safeJson(r);
-    setSubmitting(false);
-    if (!r.ok) { setError(data.error ?? "Matrícula ou PIN incorretos. Tente novamente."); setPin(""); return; }
-    window.location.href = "/escola/aluno/painel";
-  }
-
-  function resetManual() {
-    setManualStep("turma");
-    setEnrollmentCode("");
-    setPin("");
-    setError("");
-  }
-
-  function saveTurmaAndContinue() {
-    if (!turmaCode) return;
-    try { sessionStorage.setItem("sf_edu_turma", turmaCode); } catch { /* noop */ }
-    setManualStep("matricula");
-    setError("");
-  }
-
-  const filteredStudents = session?.students.filter(s => searchLetter ? s.display.toUpperCase().startsWith(searchLetter) : true) ?? [];
-  const letters = Array.from(new Set((session?.students ?? []).map(s => s.display[0].toUpperCase()))).sort();
-
-  // PIN display: dots
-  const pinDisplay = Array(6).fill("").map((_, i) => i < pin.length ? "●" : "○").join(" ");
-
-  // Enquanto verifica se o aparelho lembra alunos, evita piscar a tela.
-  if (!deviceChecked) return (
-    <div style={{ ...SCREEN, justifyContent: "center" }}>
-      <p style={{ color: "#5B5470", fontSize: 15 }}>Carregando…</p>
-    </div>
-  );
-
-  // ── "Quem vai praticar agora?" — aparelho de casa ─────────────────────────
-  if (mode === "device") {
-    // Aluno escolhido: PIN ou figuras
-    if (deviceSelected) {
-      const isPicture = deviceSelected.loginMode === "PICTURE";
-      const dots = Array(6).fill("").map((_, i) => (
-        <div key={i} style={{ width: 18, height: 18, borderRadius: "50%", background: i < pin.length ? "#6D28D9" : "#DDD6EE" }} />
-      ));
-      return (
-        <div style={{ ...SCREEN, padding: "24px 16px 32px" }}>
-          <div style={{ width: "100%", maxWidth: 400 }}>
-            <button onClick={() => { setDeviceSelected(null); setPin(""); setPicSequence([]); setError(""); }} style={BACK_BTN}>← Voltar</button>
-            <div style={{ textAlign: "center", margin: "16px 0 24px" }}>
-              <div style={{ width: 72, height: 72, background: "#EDE9FE", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px", fontSize: 26, fontWeight: 800, color: "#6D28D9" }}>
-                {deviceSelected.name[0]?.toUpperCase()}{deviceSelected.initial}
-              </div>
-              <h2 style={{ margin: "0 0 4px", fontSize: 22, fontWeight: 800, color: "#1F1A2E" }}>{deviceSelected.name}{deviceSelected.initial ? ` ${deviceSelected.initial}.` : ""}</h2>
-              <p style={{ margin: 0, fontSize: 14, color: "#5B5470" }}>{isPicture ? "Selecione suas 3 figuras na ordem" : "Digite seu PIN"}</p>
-            </div>
-            {isPicture ? (
-              <>
-                <div style={{ display: "flex", justifyContent: "center", gap: 12, marginBottom: 24 }}>
-                  {Array(3).fill("").map((_, i) => {
-                    const pic = PICTURES.find(p => p.id === picSequence[i]);
-                    return (
-                      <div key={i} style={{ width: 64, height: 64, borderRadius: 14, border: `2px solid ${pic ? "#6D28D9" : "#DDD6EE"}`, background: pic ? "#EDE9FE" : "#F8F7FC", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 28 }}>
-                        {pic?.emoji ?? "?"}
-                      </div>
-                    );
-                  })}
-                </div>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12, marginBottom: 16 }}>
-                  {PICTURES.map(p => (
-                    <button key={p.id} onClick={() => { if (picSequence.length < 3) setPicSequence(seq => [...seq, p.id]); }} disabled={picSequence.length >= 3}
-                      style={{ height: 76, borderRadius: 14, border: "1.5px solid #E9E5F5", background: "#FFFFFF", fontSize: 32, cursor: picSequence.length >= 3 ? "not-allowed" : "pointer", opacity: picSequence.length >= 3 ? 0.4 : 1 }}>
-                      {p.emoji}
-                    </button>
-                  ))}
-                </div>
-                <button onClick={() => setPicSequence([])} style={{ ...BACK_BTN, margin: "0 auto" }}>Limpar</button>
-              </>
-            ) : (
-              <>
-                <div style={{ display: "flex", justifyContent: "center", gap: 10, marginBottom: 24 }}>{dots}</div>
-                <NumPad onPress={d => { if (pin.length < 6) setPin(p => p + d); }} onDelete={() => setPin(p => p.slice(0, -1))} />
-              </>
-            )}
-            {error && <p style={{ color: "#B91C1C", fontSize: 14, textAlign: "center", marginTop: 16 }}>{error}</p>}
-            <button onClick={loginDevice} disabled={submitting || (isPicture ? picSequence.length !== 3 : pin.length < 4)}
-              style={{ width: "100%", height: 56, marginTop: 20, background: "#6D28D9", color: "#FFFFFF", border: "none", borderRadius: 14, fontSize: 17, fontWeight: 800, cursor: "pointer", opacity: (submitting || (isPicture ? picSequence.length !== 3 : pin.length < 4)) ? 0.5 : 1, fontFamily: "inherit" }}>
-              {submitting ? "Verificando..." : "Entrar"}
-            </button>
-          </div>
-        </div>
-      );
-    }
-    // Lista de avatares
+  // ── PIN (Fix 1: 4-6 dígitos) ─────────────────────────────────────────────
+  if (screen === "pin" && selectedStudent) {
+    // Fix 1: máx MAX_PIN=6 dígitos; auto-submit em 6; "Confirmar" libera em 4+
+    const keys = ["1","2","3","4","5","6","7","8","9","","0","del"];
+    const pressKey = (k: string) => {
+      if (k === "del") { setPin(p => p.slice(0,-1)); return; }
+      if (pin.length >= MAX_PIN) return;
+      const next = pin + k;
+      setPin(next);
+      if (next.length === MAX_PIN) submitPin(next);
+    };
+    const dotsCount = Math.max(4, pin.length);
     return (
-      <div style={{ minHeight: "100vh", background: "#F8F7FC", display: "flex", flexDirection: "column" }}>
-        <header style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "20px 32px", background: "#FFFFFF", borderBottom: "1px solid #E9E5F5" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <div style={{ width: 32, height: 32, background: "#6D28D9", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-              <MessageSquare size={16} color="#FFFFFF" strokeWidth={2} />
+      <div className="min-h-screen bg-[#F8F7FC] flex flex-col items-center justify-center p-6">
+        <button onClick={() => setScreen(session ? "aula-names" : "device")} className="absolute top-4 left-4 text-[#6D28D9] font-semibold min-h-[44px] px-3 flex items-center gap-1"><ChevronLeft size={18}/> Voltar</button>
+        <button onClick={() => speak(`Oi ${headerName}! Digite seu PIN`)} className="absolute top-4 right-4 flex items-center gap-2 text-[#6D28D9] text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-[#EDE9FE] rounded-full"><Volume2 size={16} /> Ouvir</button>
+        <div className="flex flex-col lg:flex-row items-center gap-10">
+          <div className="flex flex-col items-center">
+            <div className="w-24 h-24 rounded-full flex items-center justify-center text-white text-4xl font-bold mb-4" style={{ background: avatarColor(selectedStudent.display) }}>{selectedStudent.display[0].toUpperCase()}</div>
+            <div className="text-2xl font-bold text-[#1F1A2E]">Oi, {headerName}!</div>
+            <div className="text-[#5B5470] text-sm mt-1">{session?.className ?? ""}</div>
+            <div className="text-[#1F1A2E] font-semibold mt-6 mb-3">Digite seu PIN</div>
+            <div className="flex gap-3 mb-2">
+              {Array.from({ length: dotsCount }, (_, i) => (
+                <div key={i} className={`w-5 h-5 rounded-full border-2 ${i < pin.length ? "bg-[#6D28D9] border-[#6D28D9]" : "border-[#DDD6EE]"}`}/>
+              ))}
             </div>
-            <span style={{ fontWeight: 800, fontSize: 17, color: "#1F1A2E" }}>SpeakFlow <span style={{ color: "#6D28D9" }}>Escolas</span></span>
+            {/* Botão Confirmar aparece quando 4 ou 5 dígitos digitados (PIN legado pode ser menos que 6) */}
+            {pin.length >= 4 && pin.length < MAX_PIN && (
+              <button onClick={() => submitPin(pin)} className="mt-3 bg-[#6D28D9] hover:bg-[#5B21B6] text-white px-6 py-2 rounded-xl font-semibold text-sm min-h-[44px] transition-colors">
+                Confirmar
+              </button>
+            )}
+            {pinError && <p className="text-[#B91C1C] text-sm mt-2">{pinError}</p>}
+            <p className="text-[#5B5470] text-xs mt-3">Esqueceu? Peca ao professor um PIN novo.</p>
           </div>
-          <Link href="/escola/entrar" style={{ fontSize: 14, fontWeight: 600, color: "#6D28D9", textDecoration: "none" }}>Sou da equipe escolar</Link>
-        </header>
-        <main style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px 24px 24px" }}>
-          {aviso && (
-            <div style={{ background: "#EDE9FE", border: "1px solid #DDD6EE", borderRadius: 12, padding: "12px 20px", marginBottom: 28, fontSize: 15, fontWeight: 600, color: "#4C1D95", textAlign: "center" }}>{aviso}</div>
-          )}
-          <div style={{ width: 56, height: 56, background: "#EDE9FE", borderRadius: 16, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
-            <Home size={28} color="#6D28D9" strokeWidth={1.8} />
-          </div>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#3B0764", textAlign: "center", margin: "0 0 8px" }}>Quem vai praticar agora?</h1>
-          <p style={{ fontSize: 15, color: "#5B5470", textAlign: "center", margin: "0 0 8px" }}>Toque no seu nome para entrar.</p>
-
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 16, justifyContent: "center", marginTop: 20, maxWidth: 580 }}>
-            {deviceStudents.map(s => (
-              <button key={s.id} onClick={() => { setDeviceSelected(s); setPin(""); setPicSequence([]); setError(""); }}
-                style={{ background: "#FFFFFF", border: "1.5px solid #E9E5F5", borderRadius: 20, padding: "24px 20px", display: "flex", flexDirection: "column", alignItems: "center", gap: 12, cursor: "pointer", minWidth: 150 }}>
-                <div style={{ width: 72, height: 72, borderRadius: "50%", background: "#EDE9FE", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 28, fontWeight: 800, color: "#6D28D9" }}>
-                  {s.name[0]?.toUpperCase()}{s.initial}
-                </div>
-                <span style={{ fontSize: 17, fontWeight: 700, color: "#1F1A2E" }}>{s.name}{s.initial ? ` ${s.initial}.` : ""}</span>
+          <div className="grid gap-3" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+            {keys.map((k, i) => (
+              <button key={i} disabled={k===""} onClick={() => k !== "" && pressKey(k)}
+                className={`h-16 w-20 rounded-xl text-2xl font-bold text-[#1F1A2E] transition-colors ${k===""?"invisible":"bg-white border border-[#DDD6EE] hover:bg-[#EDE9FE]"}`}>
+                {k==="del" ? <Delete size={22} className="mx-auto" color="#B91C1C"/> : k}
               </button>
             ))}
           </div>
-
-          <div style={{ display: "flex", gap: 16, marginTop: 40, flexWrap: "wrap", justifyContent: "center" }}>
-            <button onClick={() => { setMode("select"); setError(""); }}
-              style={{ height: 48, padding: "0 24px", borderRadius: 12, border: "1.5px solid #DDD6EE", background: "#FFFFFF", color: "#6D28D9", fontWeight: 700, fontSize: 15, cursor: "pointer", fontFamily: "inherit" }}>
-              Outro aluno
-            </button>
-            <button onClick={forgetDevice}
-              style={{ height: 48, padding: "0 20px", borderRadius: 12, border: "none", background: "transparent", color: "#5B5470", fontWeight: 600, fontSize: 14, cursor: "pointer", display: "flex", alignItems: "center", gap: 8, fontFamily: "inherit" }}>
-              <Trash2 size={16} color="#5B5470" /> Esquecer este aparelho
-            </button>
-          </div>
-        </main>
+        </div>
       </div>
     );
   }
 
-  // Select mode screen
-  if (mode === "select") return (
-    <div style={{ minHeight: "100vh", background: "#F8F7FC", display: "flex", flexDirection: "column" }}>
-      {/* Header */}
-      <header style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "20px 32px", background: "#FFFFFF", borderBottom: "1px solid #E9E5F5" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <div style={{ width: 32, height: 32, background: "#6D28D9", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-            <MessageSquare size={16} color="#FFFFFF" strokeWidth={2} />
-          </div>
-          <span style={{ fontWeight: 800, fontSize: 17, color: "#1F1A2E" }}>
-            SpeakFlow <span style={{ color: "#6D28D9" }}>Escolas</span>
-          </span>
-        </div>
-        <Link href="/escola/entrar" style={{ fontSize: 14, fontWeight: 600, color: "#6D28D9", textDecoration: "none" }}>
-          Sou da equipe escolar
-        </Link>
-      </header>
-
-      {/* Content */}
-      <main style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px 24px 24px" }}>
-        {aviso && (
-          <div style={{ background: "#EDE9FE", border: "1px solid #DDD6EE", borderRadius: 12, padding: "12px 20px", marginBottom: 28, fontSize: 15, fontWeight: 600, color: "#4C1D95", textAlign: "center" }}>
-            {aviso}
-          </div>
-        )}
-        <h1 style={{ fontSize: 36, fontWeight: 800, color: "#3B0764", textAlign: "center", margin: "0 0 12px" }}>
-          Olá! Como você quer entrar?
-        </h1>
-        <p style={{ fontSize: 16, color: "#5B5470", textAlign: "center", margin: "0 0 48px" }}>
-          Escolha uma opção. Se tiver dúvida, peça ajuda ao seu professor.
-        </p>
-
-        {/* BigChoiceButtons */}
-        <div style={{ display: "flex", gap: 20, flexWrap: "wrap", justifyContent: "center", width: "100%", maxWidth: 960 }}>
-          {/* Ler meu cartão */}
-          <button
-            onClick={() => setMode("qr")}
-            style={{
-              flex: "1 1 260px", maxWidth: 300, minHeight: 300,
-              background: "#FFFFFF", border: "1.5px solid #C4B5FD",
-              borderRadius: 24, padding: "32px 24px",
-              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-              gap: 20, cursor: "pointer", transition: "border-color 0.15s",
-            }}
-            aria-label="Ler meu cartão"
-          >
-            <div style={{ width: 104, height: 104, background: "#EDE9FE", borderRadius: 20, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <QrCode size={52} color="#6D28D9" strokeWidth={1.8} />
-            </div>
-            <div style={{ textAlign: "center" }}>
-              <p style={{ fontSize: 24, fontWeight: 800, color: "#1F1A2E", margin: "0 0 8px" }}>Ler meu cartão</p>
-              <p style={{ fontSize: 15, color: "#5B5470", margin: 0, lineHeight: 1.4 }}>Aponte a câmera para o QR code do cartão</p>
-            </div>
-          </button>
-
-          {/* Código da aula */}
-          <button
-            onClick={() => setMode("aula")}
-            style={{
-              flex: "1 1 260px", maxWidth: 300, minHeight: 300,
-              background: "#FFFFFF", border: "1.5px solid #99F6E4",
-              borderRadius: 24, padding: "32px 24px",
-              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-              gap: 20, cursor: "pointer", transition: "border-color 0.15s",
-            }}
-            aria-label="Código da aula"
-          >
-            <div style={{ width: 104, height: 104, background: "#CCFBF1", borderRadius: 20, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Monitor size={52} color="#0F766E" strokeWidth={1.8} />
-            </div>
-            <div style={{ textAlign: "center" }}>
-              <p style={{ fontSize: 24, fontWeight: 800, color: "#1F1A2E", margin: "0 0 8px" }}>Código da aula</p>
-              <p style={{ fontSize: 15, color: "#5B5470", margin: 0, lineHeight: 1.4 }}>Digite o código que o professor mostrou</p>
-            </div>
-          </button>
-
-          {/* Digitar matrícula */}
-          <button
-            onClick={() => setMode("manual")}
-            style={{
-              flex: "1 1 260px", maxWidth: 300, minHeight: 300,
-              background: "#FFFFFF", border: "1.5px solid #FCD34D",
-              borderRadius: 24, padding: "32px 24px",
-              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-              gap: 20, cursor: "pointer", transition: "border-color 0.15s",
-            }}
-            aria-label="Digitar matrícula"
-          >
-            <div style={{ width: 104, height: 104, background: "#FFEDD5", borderRadius: 20, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <ListOrdered size={52} color="#C2410C" strokeWidth={1.8} />
-            </div>
-            <div style={{ textAlign: "center" }}>
-              <p style={{ fontSize: 24, fontWeight: 800, color: "#1F1A2E", margin: "0 0 8px" }}>Digitar matrícula</p>
-              <p style={{ fontSize: 15, color: "#5B5470", margin: 0, lineHeight: 1.4 }}>Código da turma e número de matrícula</p>
-            </div>
-          </button>
-        </div>
-
-        <p style={{ marginTop: 48, fontSize: 14, color: "#5B5470", textAlign: "center" }}>
-          Este tablet é compartilhado. Ao terminar, toque sempre em <strong style={{ color: "#1F1A2E" }}>Sair</strong>.
-        </p>
-      </main>
-    </div>
-  );
-
-  // QR / cartão mode — placeholder (câmera não implementada)
-  if (mode === "qr") return (
-    <div style={{ minHeight: "100vh", background: "#F8F7FC", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 24 }}>
-      <button onClick={() => { setMode("select"); setError(""); }} style={{ alignSelf: "flex-start", background: "none", border: "none", color: "#5B5470", fontSize: 15, cursor: "pointer", marginBottom: 24, minHeight: 44 }}>
-        ← Voltar
-      </button>
-      <div style={{ width: 104, height: 104, background: "#EDE9FE", borderRadius: 20, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 20 }}>
-        <QrCode size={52} color="#6D28D9" strokeWidth={1.8} />
-      </div>
-      <h1 style={{ fontSize: 24, fontWeight: 800, color: "#1F1A2E", marginBottom: 8, textAlign: "center" }}>Ler meu cartão</h1>
-      <p style={{ fontSize: 15, color: "#5B5470", textAlign: "center", maxWidth: 320 }}>
-        A leitura de QR code estará disponível em breve. Use outra opção de entrada por enquanto.
-      </p>
-      <button onClick={() => setMode("select")} style={{ marginTop: 28, height: 48, padding: "0 32px", background: "#6D28D9", color: "#FFFFFF", border: "none", borderRadius: 10, fontSize: 15, fontWeight: 700, cursor: "pointer" }}>
-        Escolher outra opção
-      </button>
-    </div>
-  );
-
-  // ── Código da Aula — enter code ──────────────────────────────────────────
-  if (mode === "aula" && !session) return (
-    <div style={{ ...SCREEN, justifyContent: "center", padding: 24 }}>
-      <div style={{ width: "100%", maxWidth: 480 }}>
-        <button onClick={() => { setMode("select"); setAulaCode(""); setError(""); }} style={BACK_BTN}>← Voltar</button>
-        <div style={{ width: 72, height: 72, background: "#CCFBF1", borderRadius: 18, display: "flex", alignItems: "center", justifyContent: "center", margin: "24px auto 16px" }}>
-          <Monitor size={36} color="#0F766E" strokeWidth={1.8} />
-        </div>
-        <h1 style={{ fontSize: 26, fontWeight: 800, color: "#1F1A2E", textAlign: "center", margin: "0 0 8px" }}>Código da Aula</h1>
-        <p style={{ fontSize: 15, color: "#5B5470", textAlign: "center", margin: "0 0 24px", lineHeight: 1.5 }}>
-          Digite o código de 6 caracteres que o professor mostrou no quadro ou na tela.
-        </p>
-        <input
-          value={aulaCode}
-          onChange={e => { setAulaCode(e.target.value.toUpperCase().slice(0, 6)); setError(""); }}
-          autoFocus
-          maxLength={6}
-          placeholder="A B C 1 2 3"
-          autoCapitalize="characters"
-          style={{
-            width: "100%", boxSizing: "border-box", height: 72,
-            border: "2px solid #C4B5FD", borderRadius: 16,
-            background: "#FFFFFF", color: "#3B0764",
-            fontSize: 36, fontWeight: 800, letterSpacing: "0.3em",
-            textAlign: "center", outline: "none", fontFamily: "monospace",
-          }}
-        />
-        {error && <p style={{ color: "#B91C1C", fontSize: 14, textAlign: "center", marginTop: 10 }}>{error}</p>}
-        <button
-          onClick={enterAulaCode}
-          disabled={aulaCode.length !== 6}
-          style={{ width: "100%", height: 56, marginTop: 16, background: aulaCode.length === 6 ? "#6D28D9" : "#C4B5FD", color: "#FFFFFF", border: "none", borderRadius: 14, fontSize: 17, fontWeight: 800, cursor: aulaCode.length === 6 ? "pointer" : "not-allowed", fontFamily: "inherit" }}
-        >
-          Entrar na aula
-        </button>
-        <p style={{ textAlign: "center", marginTop: 16, fontSize: 13, color: "#9CA3AF" }}>
-          O código é exibido pelo professor no computador ou projetor.
-        </p>
-      </div>
-    </div>
-  );
-
-  // ── Aula — select student ──────────────────────────────────────────────
-  if (mode === "aula" && session && !selectedStudent) return (
-    <div style={{ ...SCREEN, alignItems: "stretch" }}>
-      <div style={{ background: "#FFFFFF", borderBottom: "1px solid #E9E5F5", padding: "16px 24px", display: "flex", alignItems: "center", gap: 12 }}>
-        <button onClick={() => { setSession(null); setAulaCode(""); }} style={BACK_BTN}>←</button>
-        <div>
-          <p style={{ margin: 0, fontWeight: 800, fontSize: 18, color: "#1F1A2E" }}>{session.className}</p>
-          <p style={{ margin: 0, fontSize: 14, color: "#5B5470" }}>Toque no seu nome</p>
-        </div>
-      </div>
-      <div style={{ padding: "12px 16px 4px", display: "flex", flexWrap: "wrap", gap: 8 }}>
-        <button onClick={() => setSearchLetter("")}
-          style={{ height: 40, minWidth: 56, padding: "0 12px", borderRadius: 10, border: "none", background: searchLetter === "" ? "#6D28D9" : "#EDE9FE", color: searchLetter === "" ? "#FFFFFF" : "#6D28D9", fontWeight: 700, fontSize: 13, cursor: "pointer" }}>
-          Todos
-        </button>
-        {letters.map(l => (
-          <button key={l} onClick={() => setSearchLetter(l === searchLetter ? "" : l)}
-            style={{ height: 40, minWidth: 40, padding: "0 10px", borderRadius: 10, border: "none", background: searchLetter === l ? "#6D28D9" : "#EDE9FE", color: searchLetter === l ? "#FFFFFF" : "#6D28D9", fontWeight: 700, fontSize: 14, cursor: "pointer" }}>
-            {l}
-          </button>
-        ))}
-      </div>
-      <div style={{ flex: 1, overflowY: "auto", padding: "12px 16px 24px", display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))", gap: 12 }}>
-        {filteredStudents.map(s => (
-          <button key={s.id}
-            onClick={() => { setSelectedStudent(s); setPin(""); setPicSequence([]); setError(""); }}
-            style={{ background: "#FFFFFF", border: "1.5px solid #E9E5F5", borderRadius: 16, padding: "20px 12px", fontSize: 17, fontWeight: 700, color: "#1F1A2E", cursor: "pointer", textAlign: "center", minHeight: 72 }}>
-            {s.display}
-          </button>
-        ))}
-      </div>
-      {error && <p style={{ color: "#B91C1C", fontSize: 14, textAlign: "center", padding: "0 16px 16px" }}>{error}</p>}
-    </div>
-  );
-
-  // ── Aula — PIN or picture ───────────────────────────────────────────────
-  if (mode === "aula" && session && selectedStudent) {
-    const isPicture = selectedStudent.loginMode === "PICTURE";
-    const pinDots = Array(6).fill("").map((_, i) => (
-      <div key={i} style={{ width: 18, height: 18, borderRadius: "50%", background: i < pin.length ? "#6D28D9" : "#DDD6EE" }} />
-    ));
+  // ── Figuras ──────────────────────────────────────────────────────────────────
+  if (screen === "figures" && selectedStudent) {
     return (
-      <div style={{ ...SCREEN, padding: "24px 16px 32px" }}>
-        <div style={{ width: "100%", maxWidth: 400 }}>
-          <button onClick={() => { setSelectedStudent(null); setPin(""); setPicSequence([]); setError(""); }} style={BACK_BTN}>← Voltar</button>
-          <div style={{ textAlign: "center", margin: "16px 0 24px" }}>
-            <div style={{ width: 72, height: 72, background: "#EDE9FE", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px", fontSize: 32 }}>👤</div>
-            <h2 style={{ margin: "0 0 4px", fontSize: 22, fontWeight: 800, color: "#1F1A2E" }}>{selectedStudent.display}</h2>
-            <p style={{ margin: 0, fontSize: 14, color: "#5B5470" }}>{isPicture ? "Selecione suas 3 figuras na ordem" : "Digite seu PIN"}</p>
+      <div className="min-h-screen bg-[#F8F7FC] flex flex-col items-center justify-center p-6">
+        <button onClick={() => setScreen(session ? "aula-names" : "device")} className="absolute top-4 left-4 text-[#6D28D9] font-semibold min-h-[44px] px-3 flex items-center gap-1"><ChevronLeft size={18}/> Voltar</button>
+        <button onClick={() => speak(`Oi ${headerName}! Toque nas suas 3 figuras secretas`)} className="absolute top-4 right-4 flex items-center gap-2 text-[#6D28D9] text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-[#EDE9FE] rounded-full"><Volume2 size={16} /> Ouvir</button>
+        <div className="flex flex-col lg:flex-row items-center gap-10">
+          <div className="flex flex-col items-center">
+            <div className="w-24 h-24 rounded-full flex items-center justify-center text-white text-4xl font-bold mb-4" style={{ background: avatarColor(selectedStudent.display) }}>{selectedStudent.display[0].toUpperCase()}</div>
+            <div className="text-2xl font-bold text-[#1F1A2E]">Oi, {headerName}!</div>
+            <div className="text-[#5B5470] text-sm mt-1">{session?.className ?? ""}</div>
+            <div className="text-[#1F1A2E] font-semibold mt-6 mb-3 text-center">Toque nas suas<br/>3 figuras secretas</div>
+            <div className="flex gap-3 mb-2">
+              {[0,1,2].map(i => (<div key={i} className={`w-5 h-5 rounded-full border-2 ${i < figSeq.length ? "bg-[#6D28D9] border-[#6D28D9]" : "border-[#DDD6EE]"}`}/>))}
+            </div>
+            {figError && <p className="text-[#B91C1C] text-sm mt-2">{figError}</p>}
           </div>
-          {isPicture ? (
-            <>
-              <div style={{ display: "flex", justifyContent: "center", gap: 12, marginBottom: 24 }}>
-                {Array(3).fill("").map((_, i) => {
-                  const pic = PICTURES.find(p => p.id === picSequence[i]);
-                  return (
-                    <div key={i} style={{ width: 64, height: 64, borderRadius: 14, border: `2px solid ${pic ? "#6D28D9" : "#DDD6EE"}`, background: pic ? "#EDE9FE" : "#F8F7FC", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 28 }}>
-                      {pic?.emoji ?? "?"}
-                    </div>
-                  );
-                })}
-              </div>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12, marginBottom: 16 }}>
-                {PICTURES.map(p => (
-                  <button key={p.id}
-                    onClick={() => { if (picSequence.length < 3) setPicSequence(seq => [...seq, p.id]); }}
-                    disabled={picSequence.length >= 3}
-                    style={{ height: 76, borderRadius: 14, border: "1.5px solid #E9E5F5", background: "#FFFFFF", fontSize: 32, cursor: picSequence.length >= 3 ? "not-allowed" : "pointer", opacity: picSequence.length >= 3 ? 0.4 : 1 }}>
-                    {p.emoji}
-                  </button>
-                ))}
-              </div>
-              <button onClick={() => setPicSequence([])} style={{ ...BACK_BTN, margin: "0 auto" }}>Limpar</button>
-            </>
-          ) : (
-            <>
-              <div style={{ display: "flex", justifyContent: "center", gap: 10, marginBottom: 24 }}>{pinDots}</div>
-              <NumPad onPress={d => { if (pin.length < 6) setPin(p => p + d); }} onDelete={() => setPin(p => p.slice(0, -1))} />
-            </>
-          )}
-          {error && <p style={{ color: "#B91C1C", fontSize: 14, textAlign: "center", marginTop: 16 }}>{error}</p>}
-          <button
-            onClick={() => loginStudent(selectedStudent.id, selectedStudent.loginMode)}
-            disabled={submitting || (isPicture ? picSequence.length !== 3 : pin.length < 4)}
-            style={{ width: "100%", height: 56, marginTop: 20, background: "#6D28D9", color: "#FFFFFF", border: "none", borderRadius: 14, fontSize: 17, fontWeight: 800, cursor: "pointer", opacity: (submitting || (isPicture ? picSequence.length !== 3 : pin.length < 4)) ? 0.5 : 1, fontFamily: "inherit" }}>
-            {submitting ? "Verificando..." : "Entrar"}
-          </button>
+          <div className="grid grid-cols-3 gap-3">
+            {FIGURES.map(fig => {
+              const pos = figSeq.indexOf(fig.id) + 1;
+              const isSel = pos > 0;
+              return (
+                <button key={fig.id} onClick={() => {
+                  if (isSel) return;
+                  const next = [...figSeq, fig.id]; setFigSeq(next); setFigError("");
+                  if (next.length === 3) submitFigures(next);
+                }} className={`w-24 h-24 rounded-2xl flex flex-col items-center justify-center border-2 relative transition-all ${isSel ? "border-[#6D28D9] bg-[#EDE9FE]" : "border-[#E9E5F5] bg-white hover:border-[#6D28D9]"}`}>
+                  <div className="w-14 h-14">{fig.svg}</div>
+                  {isSel && <div className="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-[#6D28D9] text-white text-xs font-bold flex items-center justify-center">{pos}</div>}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
     );
   }
 
-  // ── Manual mode — Step: turma ──────────────────────────────────────────
-  if (mode === "manual" && manualStep === "turma") return (
-    <div style={{ ...SCREEN, padding: "24px 16px 32px" }}>
-      <div style={{ width: "100%", maxWidth: 540 }}>
-        <button onClick={() => { setMode("select"); resetManual(); }} style={BACK_BTN}>← Voltar</button>
-        <div style={{ width: 72, height: 72, background: "#FFEDD5", borderRadius: 18, display: "flex", alignItems: "center", justifyContent: "center", margin: "16px auto 16px" }}>
-          <ListOrdered size={36} color="#C2410C" strokeWidth={1.8} />
-        </div>
-        <h1 style={{ fontSize: 24, fontWeight: 800, color: "#1F1A2E", textAlign: "center", margin: "0 0 4px" }}>Digitar matrícula</h1>
-        <p style={{ fontSize: 14, color: "#5B5470", textAlign: "center", margin: "0 0 24px" }}>Passo 1 de 3 · Código da turma</p>
-
-        {/* Display */}
-        <div style={{ background: "#FFFFFF", border: "2px solid #C4B5FD", borderRadius: 14, height: 64, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 20 }}>
-          <span style={{ fontSize: 32, fontWeight: 800, color: "#3B0764", letterSpacing: "0.15em", fontFamily: "monospace" }}>
-            {turmaCode || <span style={{ color: "#DDD6EE" }}>TURMA</span>}
-          </span>
-        </div>
-
-        {turmaCode && (
-          <p style={{ fontSize: 13, color: "#6D28D9", textAlign: "center", marginBottom: 12, fontWeight: 600 }}>
-            Turma salva. O professor pode alterar se necessário.
-          </p>
-        )}
-
-        <AlphaNumPad
-          onPress={c => { if (turmaCode.length < 12) setTurmaCode(v => v + c); }}
-          onDelete={() => setTurmaCode(v => v.slice(0, -1))}
-          onClear={() => setTurmaCode("")}
-        />
-
-        {error && <p style={{ color: "#B91C1C", fontSize: 14, textAlign: "center", marginTop: 12 }}>{error}</p>}
-
-        <button
-          onClick={saveTurmaAndContinue}
-          disabled={!turmaCode}
-          style={{ width: "100%", height: 56, marginTop: 20, background: turmaCode ? "#6D28D9" : "#C4B5FD", color: "#FFFFFF", border: "none", borderRadius: 14, fontSize: 17, fontWeight: 800, cursor: turmaCode ? "pointer" : "not-allowed", fontFamily: "inherit" }}>
-          Continuar →
-        </button>
-      </div>
-    </div>
-  );
-
-  // ── Manual mode — Step: matrícula ──────────────────────────────────────
-  if (mode === "manual" && manualStep === "matricula") return (
-    <div style={{ ...SCREEN, padding: "24px 16px 32px" }}>
-      <div style={{ width: "100%", maxWidth: 360 }}>
-        <button onClick={() => { setManualStep("turma"); setEnrollmentCode(""); setError(""); }} style={BACK_BTN}>← Voltar</button>
-        <h1 style={{ fontSize: 24, fontWeight: 800, color: "#1F1A2E", textAlign: "center", margin: "16px 0 4px" }}>Qual é sua matrícula?</h1>
-        <p style={{ fontSize: 14, color: "#5B5470", textAlign: "center", margin: "0 0 24px" }}>
-          Passo 2 de 3 · Turma: <strong style={{ color: "#6D28D9" }}>{turmaCode}</strong>
-        </p>
-
-        {/* Matrícula display */}
-        <div style={{ background: "#FFFFFF", border: "2px solid #C4B5FD", borderRadius: 14, height: 72, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 24 }}>
-          <span style={{ fontSize: 36, fontWeight: 800, color: "#3B0764", letterSpacing: "0.1em", fontFamily: "monospace" }}>
-            {enrollmentCode || <span style={{ color: "#DDD6EE", fontSize: 22 }}>000000000</span>}
-          </span>
-        </div>
-
-        <NumPad
-          onPress={d => { if (enrollmentCode.length < 12) setEnrollmentCode(v => v + d); }}
-          onDelete={() => setEnrollmentCode(v => v.slice(0, -1))}
-        />
-
-        {error && <p style={{ color: "#B91C1C", fontSize: 14, textAlign: "center", marginTop: 12 }}>{error}</p>}
-
-        <button
-          onClick={() => { if (enrollmentCode.length >= 1) { setManualStep("pin"); setError(""); } }}
-          disabled={!enrollmentCode}
-          style={{ width: "100%", height: 56, marginTop: 20, background: enrollmentCode ? "#6D28D9" : "#C4B5FD", color: "#FFFFFF", border: "none", borderRadius: 14, fontSize: 17, fontWeight: 800, cursor: enrollmentCode ? "pointer" : "not-allowed", fontFamily: "inherit" }}>
-          Continuar →
-        </button>
-      </div>
-    </div>
-  );
-
-  // ── Manual mode — Step: PIN ────────────────────────────────────────────
-  const pinDots = Array(6).fill("").map((_, i) => (
-    <div key={i} style={{ width: 20, height: 20, borderRadius: "50%", background: i < pin.length ? "#6D28D9" : "#DDD6EE" }} />
-  ));
-
-  return (
-    <div style={{ ...SCREEN, padding: "24px 16px 32px" }}>
-      <div style={{ width: "100%", maxWidth: 360 }}>
-        <button onClick={() => { setManualStep("matricula"); setPin(""); setError(""); }} style={BACK_BTN}>← Voltar</button>
-        <h1 style={{ fontSize: 24, fontWeight: 800, color: "#1F1A2E", textAlign: "center", margin: "16px 0 4px" }}>Qual é seu PIN?</h1>
-        <p style={{ fontSize: 14, color: "#5B5470", textAlign: "center", margin: "0 0 24px" }}>
-          Passo 3 de 3 · Matrícula: <strong style={{ color: "#6D28D9" }}>{enrollmentCode}</strong>
-        </p>
-
-        <div style={{ display: "flex", justifyContent: "center", gap: 12, marginBottom: 28 }}>{pinDots}</div>
-
-        <NumPad
-          onPress={d => { if (pin.length < 6) setPin(p => p + d); }}
-          onDelete={() => setPin(p => p.slice(0, -1))}
-        />
-
-        {error && <p style={{ color: "#B91C1C", fontSize: 14, textAlign: "center", marginTop: 12 }}>{error}</p>}
-
-        <label style={{ display: "flex", alignItems: "flex-start", gap: 10, marginTop: 20, padding: "12px 14px", borderRadius: 12, border: "1.5px solid #E9E5F5", background: "#FFFFFF", cursor: "pointer" }}>
-          <input type="checkbox" checked={rememberDevice} onChange={e => setRememberDevice(e.target.checked)} style={{ width: 20, height: 20, marginTop: 1, accentColor: "#6D28D9", cursor: "pointer" }} />
-          <span style={{ fontSize: 13, color: "#5B5470", lineHeight: 1.4 }}>
-            <strong style={{ color: "#1F1A2E", fontWeight: 700 }}>Este aparelho é de casa.</strong> Lembrar quem pratica aqui para entrar mais rápido. Não marque em tablets da escola.
-          </span>
-        </label>
-
-        <button
-          onClick={loginManual}
-          disabled={submitting || pin.length < 4}
-          style={{ width: "100%", height: 56, marginTop: 16, background: pin.length >= 4 ? "#6D28D9" : "#C4B5FD", color: "#FFFFFF", border: "none", borderRadius: 14, fontSize: 17, fontWeight: 800, cursor: pin.length >= 4 ? "pointer" : "not-allowed", fontFamily: "inherit" }}>
-          {submitting ? "Verificando..." : "Entrar"}
-        </button>
-      </div>
-    </div>
-  );
+  return null;
 }
 
 export default function AlunoEntrarPage() {
-  return (
-    <Suspense fallback={null}>
-      <AlunoEntrarInner />
-    </Suspense>
-  );
+  return <Suspense fallback={<div className="min-h-screen bg-[#F8F7FC] flex items-center justify-center text-[#5B5470]">Carregando...</div>}><EntrarInner /></Suspense>;
 }

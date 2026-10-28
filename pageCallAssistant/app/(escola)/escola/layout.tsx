@@ -1,7 +1,20 @@
+import { headers } from "next/headers";
 import { db } from "@/lib/db";
 import EscAppShell from "@/components/escola/layout/EscAppShell";
 import { getEduContext } from "@/lib/escola/context";
 import { EduRole } from "@/lib/escola/types";
+
+// Páginas do aluno e da família NÃO usam o EscAppShell (barra lateral da equipe)
+function isShellFreePath(pathname: string): boolean {
+  return (
+    pathname.startsWith("/escola/aluno") ||
+    pathname.startsWith("/escola/familia") ||
+    pathname.startsWith("/escola/entrar") ||
+    pathname === "/escola/inicio" ||
+    pathname === "/escola/termos" ||
+    pathname === "/escola/privacidade"
+  );
+}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const prisma = db as any;
@@ -32,6 +45,13 @@ async function getShellData() {
 }
 
 export default async function EscolaAuthLayout({ children }: { children: React.ReactNode }) {
+  // Páginas de aluno e família não usam o shell da equipe
+  const headersList = await headers();
+  const pathname = headersList.get("x-pathname") ?? "";
+  if (isShellFreePath(pathname)) {
+    return <div className="theme-escola min-h-screen bg-[#F8F7FC]">{children}</div>;
+  }
+
   const shellData = await getShellData();
   if (!shellData) {
     return <div className="theme-escola min-h-screen">{children}</div>;
