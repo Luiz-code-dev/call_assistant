@@ -772,14 +772,15 @@ model EduAccountState {
 }
 
 model EduNetwork {
-  id          String   @id @default(cuid())
-  name        String
-  city        String
-  state       String   @db.Char(2)
-  ibgeCode    String?  @unique
-  isActive    Boolean  @default(true)
-  gradeConfig Json
-  createdAt   DateTime @default(now())
+  id                    String   @id @default(cuid())
+  name                  String
+  city                  String
+  state                 String   @db.Char(2)
+  ibgeCode              String?  @unique
+  isActive              Boolean  @default(true)
+  gradeConfig           Json
+  requireTrackApproval  Boolean  @default(true)
+  createdAt             DateTime @default(now())
 
   schools      EduSchool[]
   schoolYears  EduSchoolYear[]
@@ -1379,16 +1380,18 @@ model EduSkillMasteryEvent {
 // ================================================================
 
 model EduTrack {
-  id           String @id @default(cuid())
+  id           String    @id @default(cuid())
   networkId    String
   subjectId    String
   gradeYear    Int
   title        String
   skillIds     String[]
-  status       String @default("DRAFT")
+  status       String    @default("DRAFT")
   createdById  String
   approvedById String?
-  createdAt    DateTime @default(now())
+  reviewNote   String?
+  submittedAt  DateTime?
+  createdAt    DateTime  @default(now())
 
   items       EduTrackItem[]
   assignments EduTrackAssignment[]
@@ -1411,14 +1414,16 @@ model EduTrackItem {
 }
 
 model EduTrackAssignment {
-  id         String   @id @default(cuid())
+  id         String    @id @default(cuid())
   networkId  String
   trackId    String
   classId    String?
   studentId  String?
   assignedBy String
-  startsAt   DateTime @default(now())
+  startsAt   DateTime  @default(now())
   dueAt      DateTime?
+  endedAt    DateTime?
+  forced     Boolean   @default(false)
 
   track    EduTrack           @relation(fields: [trackId], references: [id])
   progress EduTrackProgress[]
@@ -1428,17 +1433,37 @@ model EduTrackAssignment {
 }
 
 model EduTrackProgress {
-  id               String   @id @default(cuid())
+  id               String    @id @default(cuid())
   networkId        String
   assignmentId     String
   studentId        String
   completedItemIds String[]
   lastActivityAt   DateTime?
+  completedAt      DateTime?
 
   assignment EduTrackAssignment @relation(fields: [assignmentId], references: [id])
 
   @@unique([assignmentId, studentId])
   @@index([studentId])
+}
+
+// ================================================================
+// FASE 3b — Avisos ao professor
+// ================================================================
+
+model EduTeacherAlert {
+  id             String    @id @default(cuid())
+  networkId      String
+  teacherUserId  String
+  type           String
+  studentId      String?
+  trackId        String?
+  skillId        String?
+  readAt         DateTime?
+  createdAt      DateTime  @default(now())
+
+  @@index([teacherUserId, readAt])
+  @@index([networkId, createdAt])
 }
 
 // ================================================================
