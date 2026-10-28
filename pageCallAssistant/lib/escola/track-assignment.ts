@@ -41,9 +41,8 @@ export async function assignTrackToStudents(
     where: { id: trackId, networkId },
     select: { id: true, status: true, subjectId: true, skillIds: true },
   });
-  if (!track || track.status !== "APPROVED") {
-    throw new Error("Trilha não está aprovada.");
-  }
+  if (!track) throw new Error("Trilha não encontrada.");
+  if (track.status !== "APPROVED") throw new Error("Trilha não está aprovada.");
 
   // 2. Masteries atuais dos alunos nas habilidades da trilha
   const masteries: Array<{ studentId: string; skillId: string; level: string }> =
