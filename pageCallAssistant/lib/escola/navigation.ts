@@ -29,8 +29,8 @@ export const NAV_BY_ROLE: Record<EduRole, NavItem[]> = {
   COORDINATOR: [
     { label: "Visão geral",              href: "/escola/coordenacao",                      icon: "LayoutDashboard" },
     { label: "Diagnósticos",             href: "/escola/coordenacao/diagnosticos",         icon: "ClipboardList"   },
-    // TODO fase coordenacao: criar paginas antes de reexibir no menu
-    // { label: "Trilhas",                  href: "/escola/coordenacao/trilhas",              icon: "Route"           },
+    { label: "Trilhas",                  href: "/escola/coordenacao/trilhas",              icon: "Route"           },
+    // { label: "Habilidades prioritárias", href: "/escola/coordenacao/habilidades", icon: "Target" }, // TODO
     // { label: "Habilidades prioritárias", href: "/escola/coordenacao/habilidades",          icon: "Target"          },
     // { label: "Escolas e turmas",         href: "/escola/coordenacao/escolas",              icon: "School"          },
   ],
