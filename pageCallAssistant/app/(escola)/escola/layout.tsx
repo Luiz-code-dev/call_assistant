@@ -7,23 +7,28 @@ import { EduRole } from "@/lib/escola/types";
 const prisma = db as any;
 
 async function getShellData() {
-  const ctx = await getEduContext(); // mesmo segredo do login e do middleware
-  if (!ctx) return null;
+  try {
+    const ctx = await getEduContext(); // mesmo segredo do login e do middleware
+    if (!ctx) return null;
 
-  const user = await prisma.user.findUnique({ where: { id: ctx.userId }, select: { name: true, email: true } });
-  const userName = (user?.name || user?.email || "Usuário") as string;
+    const user = await prisma.user.findUnique({ where: { id: ctx.userId }, select: { name: true, email: true } });
+    const userName = (user?.name || user?.email || "Usuário") as string;
 
-  if (ctx.role === "PLATFORM_ADMIN") {
-    return { role: "PLATFORM_ADMIN" as EduRole, contextName: "Plataforma", userName };
+    if (ctx.role === "PLATFORM_ADMIN") {
+      return { role: "PLATFORM_ADMIN" as EduRole, contextName: "Plataforma", userName };
+    }
+
+    const network = await prisma.eduNetwork.findUnique({ where: { id: ctx.networkId }, select: { name: true } });
+    let contextName = (network?.name ?? "") as string;
+    if (ctx.schoolId) {
+      const school = await prisma.eduSchool.findUnique({ where: { id: ctx.schoolId }, select: { name: true } });
+      if (school?.name) contextName = school.name as string;
+    }
+    return { role: ctx.role, contextName, userName };
+  } catch (err) {
+    console.error("[escola/layout] getShellData error:", err);
+    return null;
   }
-
-  const network = await prisma.eduNetwork.findUnique({ where: { id: ctx.networkId }, select: { name: true } });
-  let contextName = (network?.name ?? "") as string;
-  if (ctx.schoolId) {
-    const school = await prisma.eduSchool.findUnique({ where: { id: ctx.schoolId }, select: { name: true } });
-    if (school?.name) contextName = school.name as string;
-  }
-  return { role: ctx.role, contextName, userName };
 }
 
 export default async function EscolaAuthLayout({ children }: { children: React.ReactNode }) {
