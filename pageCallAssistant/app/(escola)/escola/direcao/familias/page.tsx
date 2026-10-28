@@ -49,8 +49,11 @@ export default function FamiliasPage() {
         <div className="text-[#5B5470] text-center py-16">Carregando...</div>
       ) : filtered.length === 0 ? (
         <div className="text-center py-16 text-[#5B5470]">
-          <div className="text-4xl mb-3">👨‍👩‍👧</div>
-          <p>{search ? "Nenhum resultado." : "Nenhum responsável vinculado ainda."}</p>
+          <div className="w-14 h-14 rounded-xl bg-[#EDE9FE] flex items-center justify-center mx-auto mb-4">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6D28D9" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <p>{search ? "Nenhum resultado para a busca." : "Nenhum responsável vinculado ainda."}</p>
+          {!search && <p className="text-sm mt-1">Use &quot;Atribuições&quot; para convidar famílias.</p>}
         </div>
       ) : (
         <div className="space-y-3">
