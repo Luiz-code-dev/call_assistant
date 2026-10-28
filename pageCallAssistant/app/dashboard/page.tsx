@@ -313,7 +313,7 @@ export default function DashboardPage() {
             </Card>
           </Link>
 
-          <a href="https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.0/SpeakFlow-Setup-0.1.0.exe" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.2/SpeakFlow-Setup-0.1.2.exe" target="_blank" rel="noopener noreferrer">
             <Card className="h-full cursor-pointer border-border/50 bg-card/80 transition-all hover:border-emerald-500/40 hover:bg-emerald-500/5 hover:shadow-lg">
               <CardContent className="flex flex-col items-center gap-3 p-5 text-center">
                 <div className="rounded-xl bg-emerald-500/15 p-3">
@@ -419,7 +419,7 @@ export default function DashboardPage() {
               </p>
             </div>
             <Button variant="gradient" size="sm" asChild>
-              <a href="https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.0/SpeakFlow-Setup-0.1.0.exe" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.2/SpeakFlow-Setup-0.1.2.exe" target="_blank" rel="noopener noreferrer">
                 <Download className="mr-2 h-3.5 w-3.5" />
                 Baixar app
               </a>
