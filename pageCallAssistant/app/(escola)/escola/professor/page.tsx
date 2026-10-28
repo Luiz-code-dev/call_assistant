@@ -48,18 +48,36 @@ export default async function ProfessorPage() {
     subjectsRaw.map((s: { id: string; name: string; color: string | null }) => [s.id, s])
   );
 
-  // Alertas do professor (não lidos)
-  const alertas = ctx.role === "TEACHER"
-    ? await p.eduTeacherAlert.findMany({
-        where: { networkId: ctx.networkId, teacherUserId: ctx.userId, readAt: null },
-        orderBy: { createdAt: "desc" as const },
-        take: 5,
-        include: {
-          student: { select: { fullName: true } },
-          track:   { select: { title: true } },
-        },
-      }).catch(() => [])
-    : [];
+  // Alertas do professor — EduTeacherAlert não declara @relation no schema,
+  // então fazemos lookup separado para evitar "Unknown field" em runtime.
+  const alertasRaw: { id: string; type: string; studentId: string | null; trackId: string | null }[] =
+    ctx.role === "TEACHER"
+      ? await p.eduTeacherAlert.findMany({
+          where: { networkId: ctx.networkId, teacherUserId: ctx.userId, readAt: null },
+          orderBy: { createdAt: "desc" as const },
+          take: 5,
+          select: { id: true, type: true, studentId: true, trackId: true },
+        }).catch(() => [])
+      : [];
+
+  // Lookup de nomes de aluno e títulos de trilha em paralelo
+  const alertStudentIds = alertasRaw.map(a => a.studentId).filter((id): id is string => Boolean(id));
+  const alertTrackIds   = alertasRaw.map(a => a.trackId).filter((id): id is string => Boolean(id));
+  const [alertStudents, alertTracks] = await Promise.all([
+    alertStudentIds.length
+      ? prismaEdu.eduStudent.findMany({ where: { id: { in: alertStudentIds } }, select: { id: true, fullName: true } }).catch(() => [])
+      : [],
+    alertTrackIds.length
+      ? p.eduTrack.findMany({ where: { id: { in: alertTrackIds } }, select: { id: true, title: true } }).catch(() => [])
+      : [],
+  ]);
+  const studentNameMap: Record<string, string> = Object.fromEntries(
+    (alertStudents as { id: string; fullName: string }[]).map(s => [s.id, s.fullName])
+  );
+  const trackTitleMap: Record<string, string> = Object.fromEntries(
+    (alertTracks as { id: string; title: string }[]).map(t => [t.id, t.title])
+  );
+  const alertas = alertasRaw;
 
   const TYPE_LABEL: Record<string, string> = {
     TRACK_COMPLETED: "concluiu a trilha",
@@ -75,11 +93,11 @@ export default async function ProfessorPage() {
             <Bell size={16} className="text-[#92400E]" />
             <span className="font-semibold text-sm text-[#92400E]">{alertas.length} aviso{alertas.length !== 1 ? "s" : ""}</span>
           </div>
-          {alertas.map((a: { id: string; type: string; student: { fullName: string } | null; track: { title: string } | null }) => (
+          {alertas.map((a) => (
             <p key={a.id} className="text-sm text-[#92400E]">
-              <span className="font-medium">{a.student?.fullName ?? "Aluno"}</span>{" "}
+              <span className="font-medium">{a.studentId ? (studentNameMap[a.studentId] ?? "Aluno") : "Aluno"}</span>{" "}
               {TYPE_LABEL[a.type] ?? a.type}{" "}
-              {a.track?.title ? <span className="italic">{a.track.title}</span> : null}.
+              {a.trackId && trackTitleMap[a.trackId] ? <span className="italic">{trackTitleMap[a.trackId]}</span> : null}.
             </p>
           ))}
           <Link href="/api/escola/professor/alertas" className="text-xs text-[#92400E] underline">Ver todos</Link>
