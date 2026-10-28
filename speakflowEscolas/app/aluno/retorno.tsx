@@ -154,7 +154,7 @@ export default function AlunoRetorno() {
             <View style={s.btnRow}>
               {podeRetry && (
                 <Pressable
-                  onPress={() => router.back()}
+                  onPress={() => router.push({ pathname: "/aluno/atividade", params: { id, assignmentId, itemId } })}
                   style={s.outlineBtn}
                 >
                   <RotateCcw size={16} color={colors.action} />
