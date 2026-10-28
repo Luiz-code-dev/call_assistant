@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Search, Plus, Trash2, GripVertical, Sparkles, Loader2, ChevronLeft, ChevronRight, AlertCircle } from "lucide-react";
@@ -21,6 +21,7 @@ export default function NovaTrilhaPage() {
   const [skillSearch, setSkillSearch] = useState("");
   const [skillResults, setSkillResults] = useState<Skill[]>([]);
   const [loadingSkills, setLoadingSkills] = useState(false);
+  const [erroSkills, setErroSkills] = useState("");
   const [selectedSkills, setSelectedSkills] = useState<Skill[]>([]);
   const [title, setTitle] = useState("");
 
@@ -34,16 +35,35 @@ export default function NovaTrilhaPage() {
   const [erro, setErro] = useState("");
 
   // Carrega componentes na montagem
-  useState(() => {
+  useEffect(() => {
     fetch("/api/escola/componentes").then(r => r.ok ? r.json() : { subjects: [] })
       .then(d => { setSubjects(d.subjects ?? []); if (d.subjects?.[0]) setSubjectId(d.subjects[0].id); });
-  });
+  }, []);
+
+  // Carrega habilidades automaticamente ao trocar componente ou ano
+  useEffect(() => {
+    if (!subjectId) return;
+    setErroSkills("");
+    setLoadingSkills(true);
+    const params = new URLSearchParams({ subjectId, gradeYear: String(gradeYear), limit: "50" });
+    if (skillSearch.trim()) params.set("q", skillSearch.trim());
+    fetch(`/api/escola/habilidades?${params}`)
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(d => { setSkillResults(d.skills ?? []); setSkills(d.skills ?? []); })
+      .catch(() => setErroSkills("Nao foi possivel buscar as habilidades. Tente novamente."))
+      .finally(() => setLoadingSkills(false));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [subjectId, gradeYear]);
 
   async function buscarHabilidades() {
-    if (!skillSearch.trim()) return;
+    if (!subjectId) return;
+    setErroSkills("");
     setLoadingSkills(true);
-    const r = await fetch(`/api/escola/habilidades?q=${encodeURIComponent(skillSearch)}&gradeYear=${gradeYear}`).catch(() => null);
+    const params = new URLSearchParams({ subjectId, gradeYear: String(gradeYear) });
+    if (skillSearch.trim()) params.set("q", skillSearch.trim());
+    const r = await fetch(`/api/escola/habilidades?${params}`).catch(() => null);
     if (r?.ok) { const d = await r.json(); setSkillResults(d.skills ?? []); }
+    else if (r) setErroSkills("Nao foi possivel buscar as habilidades. Tente novamente.");
     setLoadingSkills(false);
   }
 
@@ -174,12 +194,28 @@ export default function NovaTrilhaPage() {
                 ))}
               </div>
             )}
-            {skillResults.length > 0 && (
+            {loadingSkills && <p className="text-[#5B5470] text-sm py-2">Carregando habilidades...</p>}
+            {!loadingSkills && erroSkills && (
+              <div className="flex items-center gap-2 text-[#B91C1C] text-sm py-2">
+                <AlertCircle size={14} />
+                <span>{erroSkills}</span>
+                <button onClick={buscarHabilidades} className="underline ml-1">Tentar de novo</button>
+              </div>
+            )}
+            {!loadingSkills && !erroSkills && skillResults.length === 0 && subjectId && (
+              <p className="text-[#5B5470] text-sm py-2">
+                {skillSearch.trim()
+                  ? `Nenhuma habilidade encontrada para "${skillSearch}" neste componente e ano. Tente outro termo.`
+                  : "As habilidades da BNCC ainda nao foram carregadas para este componente e ano. Peca a coordenacao ou ao suporte."}
+              </p>
+            )}
+            {!loadingSkills && skillResults.length > 0 && (
               <div className="border border-[#E9E5F5] rounded-xl overflow-hidden divide-y divide-[#F8F7FC]">
                 {skillResults.map(s => {
                   const sel = !!selectedSkills.find(x => x.id === s.id);
                   return (
                     <button key={s.id} onClick={() => toggleSkill(s)} disabled={!sel && selectedSkills.length >= 3}
+                      title={s.description}
                       className={`w-full text-left px-4 py-3 text-sm transition-colors ${sel ? "bg-[#EDE9FE]" : "bg-white hover:bg-[#F8F7FC]"} disabled:opacity-40`}>
                       <span className="font-mono font-semibold text-[#4C1D95] mr-2">{s.code}</span>
                       <span className="text-[#5B5470]">{s.shortLabel ?? s.description}</span>

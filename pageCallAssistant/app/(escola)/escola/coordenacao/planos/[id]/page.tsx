@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, use } from "react";
+import { useEffect, useState } from "react";
 import { PLAN_STATUS_LABEL, EduPlanStatus } from "@/lib/escola/types";
 import Link from "next/link";
 
@@ -8,8 +8,8 @@ interface Plan { id: string; title: string; status: EduPlanStatus; stage: string
 
 const STATUS_COLOR: Record<EduPlanStatus, string> = { DRAFT: "bg-[#EDE9FE] text-[#3F3A4F]", IN_REVIEW: "bg-[#FEF3C7] text-yellow-300", APPROVED: "bg-[#DCFCE7] text-green-300", ARCHIVED: "bg-[#FAF9FD] text-[#5B5470]" };
 
-export default function PlanoDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = use(params);
+export default function PlanoDetailPage({ params }: { params: { id: string } }) {
+  const id = params.id;
   const [plan, setPlan] = useState<Plan | null>(null);
   const [loading, setLoading] = useState(true);
   const [showUnitForm, setShowUnitForm] = useState(false);

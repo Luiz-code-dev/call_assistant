@@ -1,13 +1,13 @@
 "use client";
-import { useEffect, useState, use } from "react";
+import { useEffect, useState } from "react";
 import { ASSESSMENT_TYPE_LABEL, ASSESSMENT_STATUS_LABEL, EduAssessmentType } from "@/lib/escola/types";
 import Link from "next/link";
 
 interface Assessment { id: string; title: string; type: EduAssessmentType; status: string; weight: number; maxScore: string; termId: string | null; term: { name: string } | null; _count?: { entries: number }; }
 interface Term { id: string; name: string; status: string; }
 
-export default function AvaliacoesPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = use(params);
+export default function AvaliacoesPage({ params }: { params: { id: string } }) {
+  const id = params.id;
   const [assessments, setAssessments] = useState<Assessment[]>([]);
   const [terms, setTerms] = useState<Term[]>([]);
   const [loading, setLoading] = useState(true);

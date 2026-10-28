@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import { isNotasEnabled } from "@/lib/escola/feature-flag";
 import { NotasClient } from "./_NotasClient";
 
-export default function NotasPage({ params }: { params: Promise<{ id: string }> }) {
+export default function NotasPage({ params }: { params: { id: string } }) {
   if (!isNotasEnabled()) redirect("/escola/professor");
   return <NotasClient params={params} />;
 }
@@ -13,7 +13,7 @@ interface Student { id: string; studentId: string; fullName: string; enrollmentC
 interface Assessment { id: string; title: string; status: string; maxScore: string; }
 interface GradeEntry { studentId: string; score: string | null; absent: boolean; note: string | null; }
 
-export default function NotasPage({ params }: { params: Promise<{ id: string }> }) {
+export default function NotasPage({ params }: { params: { id: string } }) {
   const { id } = use(params);
   const searchParams = useSearchParams();
   const assessmentId = searchParams.get("assessment") ?? "";
