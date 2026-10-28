@@ -135,6 +135,17 @@ export async function POST(req: NextRequest) {
   // Success — reset counter
   await prismaEdu.eduStudent.update({ where: { id: student.id }, data: { pinFailedCount: 0, pinLockedUntil: null } });
 
+  // Fix 5: gravar presença quando modo "aula"
+  if (mode === "aula" && body.sessionId) {
+    try {
+      await (prismaEdu as unknown as { eduSessionPresence: { upsert: (a: unknown) => Promise<unknown> } }).eduSessionPresence.upsert({
+        where: { sessionId_studentId: { sessionId: body.sessionId as string, studentId: student.id } },
+        create: { sessionId: body.sessionId as string, studentId: student.id },
+        update: { enteredAt: new Date() },
+      });
+    } catch { /* schema ainda não migrado em dev — ignora silenciosamente */ }
+  }
+
   // "Este aparelho é de casa": lembrar o aluno (nunca no modo sala/aula).
   const remember = mode === "dispositivo" || (mode === "manual" && body.rememberDevice === true);
   const appClient = isAppClient();

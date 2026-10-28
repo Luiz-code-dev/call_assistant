@@ -8,70 +8,70 @@ datasource db {
 }
 
 model User {
-  id                   String              @id @default(cuid())
-  name                 String
-  username             String?             @unique
-  email                String              @unique
-  password             String
-  plan                 String              @default("free")
-  credits              Int                 @default(50)
-  emailVerified        Boolean             @default(false)
-  verificationToken    String?
-  verificationExpiry   DateTime?
-  resetToken           String?
-  resetTokenExpiry     DateTime?
-  acceptedTerms        Boolean             @default(false)
-  stripeCustomerId     String?
-  stripeSubscriptionId String?
-  subscriptionStatus   String?
-  planRenewsAt         DateTime?
-  avatarUrl            String?
-  bio                  String?             @db.Text
-  registrationIp       String?
-  createdAt            DateTime            @default(now())
-  updatedAt            DateTime            @updatedAt
-  transactions         CreditTransaction[]
-  sessions             CallSession[]
-  toolUsages           ToolUsage[]
-  circleMembers        CircleMember[]
-  badges               UserBadge[]
-  pushSubs             PushSubscription[]
-  submissions          Submission[]
+  id                     String                    @id @default(cuid())
+  name                   String
+  username               String?                   @unique
+  email                  String                    @unique
+  password               String
+  plan                   String                    @default("free")
+  credits                Int                       @default(50)
+  emailVerified          Boolean                   @default(false)
+  verificationToken      String?
+  verificationExpiry     DateTime?
+  resetToken             String?
+  resetTokenExpiry       DateTime?
+  acceptedTerms          Boolean                   @default(false)
+  stripeCustomerId       String?
+  stripeSubscriptionId   String?
+  subscriptionStatus     String?
+  planRenewsAt           DateTime?
+  avatarUrl              String?
+  bio                    String?                   @db.Text
+  registrationIp         String?
+  createdAt              DateTime                  @default(now())
+  updatedAt              DateTime                  @updatedAt
+  transactions           CreditTransaction[]
+  sessions               CallSession[]
+  toolUsages             ToolUsage[]
+  circleMembers          CircleMember[]
+  badges                 UserBadge[]
+  pushSubs               PushSubscription[]
+  submissions            Submission[]
   proficiencyAssessments ProficiencyAssessment[]
-  dailyStreak          DailyStreak?
-  spinHistory          SpinHistory[]
-  friendsRequested     Friendship[]  @relation("FriendshipRequester")
-  friendsReceived      Friendship[]  @relation("FriendshipAddressee")
-  messagesSent         Message[]     @relation("MessageSender")
-  messagesReceived     Message[]     @relation("MessageReceiver")
-  posts                Post[]
-  postLikes            PostLike[]
-  postComments         PostComment[]
-  statusText           String?   @db.VarChar(150)
-  statusEmoji          String?   @db.VarChar(8)
-  statusExpires        DateTime?
-  statusMediaUrl       String?   @db.Text
-  jobTitle             String?
-  department           String?
-  b2bAccess            Boolean   @default(false)
-  b2bSeatLimit         Int       @default(5)
-  superAdmin           Boolean   @default(false)
-  crmAccess            Boolean   @default(false)
-  hasSeenOnboarding    Boolean   @default(false)
-  fcmToken             String?   @db.Text
-  fcmPlatform          String?
-  orgMemberships       OrgMember[]
-  corpSubmissions      CorpChallengeSubmission[]
-  certifications       CorporateCertification[]
-  orgLiveSessions      OrgLiveSession[]
-  feedbacks            Feedback[]
-  buddySessions        BuddySession[]
-  circlePhrases        CirclePhrase[]
-  circlePhraseLikes    CirclePhraseLike[]
-  eduMemberships       EduMembership[]
-  eduPlatformAdmin      EduPlatformAdmin?
-  eduAccountState       EduAccountState?
-  eduGuardian           EduGuardian?
+  dailyStreak            DailyStreak?
+  spinHistory            SpinHistory[]
+  friendsRequested       Friendship[]              @relation("FriendshipRequester")
+  friendsReceived        Friendship[]              @relation("FriendshipAddressee")
+  messagesSent           Message[]                 @relation("MessageSender")
+  messagesReceived       Message[]                 @relation("MessageReceiver")
+  posts                  Post[]
+  postLikes              PostLike[]
+  postComments           PostComment[]
+  statusText             String?                   @db.VarChar(150)
+  statusEmoji            String?                   @db.VarChar(8)
+  statusExpires          DateTime?
+  statusMediaUrl         String?                   @db.Text
+  jobTitle               String?
+  department             String?
+  b2bAccess              Boolean                   @default(false)
+  b2bSeatLimit           Int                       @default(5)
+  superAdmin             Boolean                   @default(false)
+  crmAccess              Boolean                   @default(false)
+  hasSeenOnboarding      Boolean                   @default(false)
+  fcmToken               String?                   @db.Text
+  fcmPlatform            String?
+  orgMemberships         OrgMember[]
+  corpSubmissions        CorpChallengeSubmission[]
+  certifications         CorporateCertification[]
+  orgLiveSessions        OrgLiveSession[]
+  feedbacks              Feedback[]
+  buddySessions          BuddySession[]
+  circlePhrases          CirclePhrase[]
+  circlePhraseLikes      CirclePhraseLike[]
+  eduMemberships         EduMembership[]
+  eduPlatformAdmin       EduPlatformAdmin?
+  eduAccountState        EduAccountState?
+  eduGuardian            EduGuardian?
 }
 
 model CreditTransaction {
@@ -166,19 +166,19 @@ model CircleMember {
 }
 
 model Challenge {
-  id          String       @id @default(cuid())
-  circleId    String
-  title       String
-  prompt      String
-  scenario    String?
-  targetVocab String?
-  type        String       @default("written")
-  startsAt    DateTime
-  endsAt      DateTime
-  isRecurring   Boolean      @default(false)
-  winnerAwarded Boolean      @default(false)
-  createdAt     DateTime     @default(now())
-  circle        Circle       @relation(fields: [circleId], references: [id], onDelete: Cascade)
+  id            String         @id @default(cuid())
+  circleId      String
+  title         String
+  prompt        String
+  scenario      String?
+  targetVocab   String?
+  type          String         @default("written")
+  startsAt      DateTime
+  endsAt        DateTime
+  isRecurring   Boolean        @default(false)
+  winnerAwarded Boolean        @default(false)
+  createdAt     DateTime       @default(now())
+  circle        Circle         @relation(fields: [circleId], references: [id], onDelete: Cascade)
   submissions   Submission[]
   quizQuestions QuizQuestion[]
 }
@@ -218,11 +218,11 @@ model PushSubscription {
 }
 
 model UserBadge {
-  id        String   @id @default(cuid())
-  userId    String
-  slug      String
-  earnedAt  DateTime @default(now())
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id       String   @id @default(cuid())
+  userId   String
+  slug     String
+  earnedAt DateTime @default(now())
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, slug])
 }
@@ -412,8 +412,8 @@ model OrgMember {
   commScore  Int      @default(0)
   joinedAt   DateTime @default(now())
 
-  org         Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
-  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  org         Organization    @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  user        User            @relation(fields: [userId], references: [id], onDelete: Cascade)
   teamMembers OrgTeamMember[]
 
   @@unique([orgId, userId])
@@ -428,7 +428,7 @@ model OrgTeam {
   focus     String?
   createdAt DateTime @default(now())
 
-  org        Organization    @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  org        Organization         @relation(fields: [orgId], references: [id], onDelete: Cascade)
   members    OrgTeamMember[]
   challenges CorporateChallenge[]
 
@@ -548,24 +548,24 @@ model OrgLiveSession {
 }
 
 model CrmLead {
-  id          String       @id @default(cuid())
+  id          String    @id @default(cuid())
   name        String
   email       String
   phone       String?
   company     String?
   role        String?
   teamSize    String?
-  origin      String       @default("manual")
-  status      String       @default("novo")
-  score       Int          @default(0)
-  notes       String?      @db.Text
+  origin      String    @default("manual")
+  status      String    @default("novo")
+  score       Int       @default(0)
+  notes       String?   @db.Text
   lastContact DateTime?
   assignedTo  String?
   userId      String?
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 
-  activities  CrmActivity[]
+  activities CrmActivity[]
 
   @@index([status])
   @@index([email])
@@ -772,23 +772,23 @@ model EduAccountState {
 }
 
 model EduNetwork {
-  id                    String   @id @default(cuid())
-  name                  String
-  city                  String
-  state                 String   @db.Char(2)
-  ibgeCode              String?  @unique
-  isActive              Boolean  @default(true)
-  gradeConfig           Json
-  requireTrackApproval  Boolean  @default(true)
-  createdAt             DateTime @default(now())
+  id                   String   @id @default(cuid())
+  name                 String
+  city                 String
+  state                String   @db.Char(2)
+  ibgeCode             String?  @unique
+  isActive             Boolean  @default(true)
+  gradeConfig          Json
+  requireTrackApproval Boolean  @default(true)
+  createdAt            DateTime @default(now())
 
-  schools      EduSchool[]
-  schoolYears  EduSchoolYear[]
-  subjects     EduSubject[]
-  memberships  EduMembership[]
-  students     EduStudent[]
+  schools       EduSchool[]
+  schoolYears   EduSchoolYear[]
+  subjects      EduSubject[]
+  memberships   EduMembership[]
+  students      EduStudent[]
   importBatches EduImportBatch[]
-  invites      EduInvite[]
+  invites       EduInvite[]
 }
 
 model EduMembership {
@@ -800,9 +800,9 @@ model EduMembership {
   isActive  Boolean  @default(true)
   createdAt DateTime @default(now())
 
-  network EduNetwork  @relation(fields: [networkId], references: [id])
-  user    User        @relation(fields: [userId], references: [id])
-  school  EduSchool?  @relation(fields: [schoolId], references: [id])
+  network EduNetwork @relation(fields: [networkId], references: [id])
+  user    User       @relation(fields: [userId], references: [id])
+  school  EduSchool? @relation(fields: [schoolId], references: [id])
 
   @@unique([networkId, userId, schoolId, role])
   @@index([userId])
@@ -846,7 +846,7 @@ model EduSchoolYear {
   endsAt    DateTime
   isCurrent Boolean  @default(false)
 
-  network EduNetwork  @relation(fields: [networkId], references: [id])
+  network EduNetwork @relation(fields: [networkId], references: [id])
   terms   EduTerm[]
   classes EduClass[]
 
@@ -862,7 +862,7 @@ model EduTerm {
   endsAt       DateTime
   status       EduTermStatus @default(OPEN)
 
-  schoolYear  EduSchoolYear   @relation(fields: [schoolYearId], references: [id])
+  schoolYear  EduSchoolYear    @relation(fields: [schoolYearId], references: [id])
   assessments EduAssessment[]
   closures    EduTermClosure[]
 
@@ -898,20 +898,20 @@ model EduCurriculumItem {
 }
 
 model EduClass {
-  id           String   @id @default(cuid())
-  networkId    String
-  schoolId     String
-  schoolYearId String
-  name         String
-  stage        EduStage
-  gradeYear    Int
-  shift        EduShift
-  accessCode        String              @unique
-  isActive          Boolean             @default(true)
-  defaultLoginMode  EduStudentLoginMode @default(PIN)
+  id               String              @id @default(cuid())
+  networkId        String
+  schoolId         String
+  schoolYearId     String
+  name             String
+  stage            EduStage
+  gradeYear        Int
+  shift            EduShift
+  accessCode       String              @unique
+  isActive         Boolean             @default(true)
+  defaultLoginMode EduStudentLoginMode @default(PIN)
 
-  school      EduSchool        @relation(fields: [schoolId], references: [id])
-  schoolYear  EduSchoolYear    @relation(fields: [schoolYearId], references: [id])
+  school      EduSchool         @relation(fields: [schoolId], references: [id])
+  schoolYear  EduSchoolYear     @relation(fields: [schoolYearId], references: [id])
   subjects    EduClassSubject[]
   enrollments EduEnrollment[]
   sessions    EduClassSession[]
@@ -937,20 +937,20 @@ model EduClassSubject {
 }
 
 model EduStudent {
-  id               String    @id @default(cuid())
-  networkId        String
-  enrollmentCode   String
-  fullName         String
-  birthDate        DateTime?
-  pinHash          String
-  pinFailedCount   Int       @default(0)
-  pinLockedUntil   DateTime?
-  guardianConsentAt  DateTime?
-  isActive           Boolean             @default(true)
-  loginMode          EduStudentLoginMode @default(PIN)
-  pictureSecretHash  String?
-  cardVersion        Int                 @default(1)
-  createdAt          DateTime            @default(now())
+  id                String              @id @default(cuid())
+  networkId         String
+  enrollmentCode    String
+  fullName          String
+  birthDate         DateTime?
+  pinHash           String
+  pinFailedCount    Int                 @default(0)
+  pinLockedUntil    DateTime?
+  guardianConsentAt DateTime?
+  isActive          Boolean             @default(true)
+  loginMode         EduStudentLoginMode @default(PIN)
+  pictureSecretHash String?
+  cardVersion       Int                 @default(1)
+  createdAt         DateTime            @default(now())
 
   network     EduNetwork      @relation(fields: [networkId], references: [id])
   enrollments EduEnrollment[]
@@ -1032,8 +1032,8 @@ model EduAssessment {
   termId         String?
   title          String
   type           EduAssessmentType
-  weight         Decimal             @db.Decimal(5, 2) @default(1)
-  maxScore       Decimal             @db.Decimal(5, 2) @default(10)
+  weight         Decimal             @default(1) @db.Decimal(5, 2)
+  maxScore       Decimal             @default(10) @db.Decimal(5, 2)
   appliedAt      DateTime?
   status         EduAssessmentStatus @default(DRAFT)
   topicIds       String[]
@@ -1041,8 +1041,8 @@ model EduAssessment {
   createdById    String
   publishedAt    DateTime?
 
-  classSubject EduClassSubject  @relation(fields: [classSubjectId], references: [id])
-  term         EduTerm?         @relation(fields: [termId], references: [id])
+  classSubject EduClassSubject @relation(fields: [classSubjectId], references: [id])
+  term         EduTerm?        @relation(fields: [termId], references: [id])
   entries      EduGradeEntry[]
 
   @@index([classSubjectId, termId])
@@ -1063,7 +1063,7 @@ model EduGradeEntry {
   hash         String   @unique
   signature    String
   keyId        String
-  note         String?      @db.Text
+  note         String?  @db.Text
 
   assessment EduAssessment @relation(fields: [assessmentId], references: [id], onDelete: Restrict)
 
@@ -1176,7 +1176,7 @@ model EduActivity {
   title          String
   prompt         String            @db.Text
   rubric         Json
-  maxScore       Decimal           @db.Decimal(5, 2) @default(10)
+  maxScore       Decimal           @default(10) @db.Decimal(5, 2)
   maxAttempts    Int               @default(2)
   maxAudioSec    Int?
   opensAt        DateTime          @default(now())
@@ -1212,7 +1212,7 @@ model EduFeedbackReport {
   networkId    String
   submissionId String
   studentId    String
-  reason       String   // RETORNO_ERRADO | CONTEUDO_INADEQUADO | OUTRO
+  reason       String // RETORNO_ERRADO | CONTEUDO_INADEQUADO | OUTRO
   detail       String?
   createdAt    DateTime @default(now())
 
@@ -1262,10 +1262,23 @@ model EduClassSession {
   expiresAt  DateTime
   closedAt   DateTime?
 
-  class EduClass @relation(fields: [classId], references: [id])
+  class    EduClass             @relation(fields: [classId], references: [id])
+  presence EduSessionPresence[]
 
   @@index([code])
   @@index([networkId])
+}
+
+model EduSessionPresence {
+  id        String   @id @default(cuid())
+  sessionId String
+  studentId String
+  enteredAt DateTime @default(now())
+
+  session EduClassSession @relation(fields: [sessionId], references: [id])
+
+  @@unique([sessionId, studentId])
+  @@index([sessionId])
 }
 
 // ================================================================
@@ -1273,8 +1286,8 @@ model EduClassSession {
 // ================================================================
 
 model EduSkill {
-  id          String   @id @default(cuid())
-  code        String   @unique
+  id          String  @id @default(cuid())
+  code        String  @unique
   subjectCode String
   stage       String
   gradeYears  Int[]
@@ -1282,11 +1295,11 @@ model EduSkill {
   shortLabel  String?
   networkId   String?
 
-  activitySkills EduActivitySkill[]
+  activitySkills  EduActivitySkill[]
   diagnosticItems EduDiagnosticItem[]
-  masteries      EduSkillMastery[]
-  masteryEvents  EduSkillMasteryEvent[]
-  trackSkills    EduTrack[]             @relation("TrackSkills")
+  masteries       EduSkillMastery[]
+  masteryEvents   EduSkillMasteryEvent[]
+  trackSkills     EduTrack[]             @relation("TrackSkills")
 
   @@index([subjectCode, stage])
   @@index([networkId])
@@ -1313,17 +1326,17 @@ enum EduMasteryLevel {
 }
 
 model EduDiagnostic {
-  id          String   @id @default(cuid())
+  id          String    @id @default(cuid())
   networkId   String
   subjectId   String
   gradeYear   Int
   title       String
-  cycle       Int      @default(1)
-  status      String   @default("DRAFT")
+  cycle       Int       @default(1)
+  status      String    @default("DRAFT")
   opensAt     DateTime?
   closesAt    DateTime?
   createdById String
-  createdAt   DateTime @default(now())
+  createdAt   DateTime  @default(now())
 
   items EduDiagnosticItem[]
 
@@ -1452,15 +1465,15 @@ model EduTrackProgress {
 // ================================================================
 
 model EduTeacherAlert {
-  id             String    @id @default(cuid())
-  networkId      String
-  teacherUserId  String
-  type           String
-  studentId      String?
-  trackId        String?
-  skillId        String?
-  readAt         DateTime?
-  createdAt      DateTime  @default(now())
+  id            String    @id @default(cuid())
+  networkId     String
+  teacherUserId String
+  type          String
+  studentId     String?
+  trackId       String?
+  skillId       String?
+  readAt        DateTime?
+  createdAt     DateTime  @default(now())
 
   @@index([teacherUserId, readAt])
   @@index([networkId, createdAt])
@@ -1480,22 +1493,22 @@ enum EduGuardianRelation {
 }
 
 model EduGuardian {
-  id        String   @id @default(cuid())
-  networkId String
-  userId    String?  @unique
-  name      String
-  email     String?
-  phone     String?
-  passwordHash     String?
-  loginFailedCount Int       @default(0)
-  loginLockedUntil DateTime?
+  id                  String    @id @default(cuid())
+  networkId           String
+  userId              String?   @unique
+  name                String
+  email               String?
+  phone               String?
+  passwordHash        String?
+  loginFailedCount    Int       @default(0)
+  loginLockedUntil    DateTime?
   resetTokenHash      String?   @unique
   resetTokenExpiresAt DateTime?
-  createdAt DateTime @default(now())
+  createdAt           DateTime  @default(now())
 
-  user    User?              @relation(fields: [userId], references: [id])
-  links   EduGuardianLink[]
-  invites EduGuardianInvite[]
+  user     User?                @relation(fields: [userId], references: [id])
+  links    EduGuardianLink[]
+  invites  EduGuardianInvite[]
   consents EduGuardianConsent[]
 
   @@index([networkId, email])

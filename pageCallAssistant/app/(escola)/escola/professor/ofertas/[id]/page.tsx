@@ -18,6 +18,7 @@ export default async function OfertaPage({ params }: { params: { id: string } })
       id: true,
       subjectId: true,
       teacherId: true,
+      classId: true,
       class: {
         select: {
           name: true,
@@ -69,11 +70,14 @@ export default async function OfertaPage({ params }: { params: { id: string } })
           <p className="text-[#5B5470] text-sm">{offer.class?.name} · {offer.class?.school?.name} · {offer.class?.schoolYear?.year}</p>
           <p className="text-[#5B5470] text-xs mt-0.5">{totalStudents} alunos matriculados</p>
         </div>
-        {notasAtivo && (
-          <div className="flex gap-2 flex-wrap">
+        <div className="flex gap-2 flex-wrap">
+          <Link href={`/escola/professor/turmas/${offer.classId}/cartoes`} className="bg-[#EDE9FE] hover:bg-[#DDD6EE] text-[#4C1D95] px-4 py-2 rounded-lg text-sm min-h-[44px] flex items-center gap-2 transition-colors font-semibold">
+            Imprimir cartões
+          </Link>
+          {notasAtivo && (
             <Link href={`/escola/professor/ofertas/${params.id}/avaliacoes`} className="bg-[#FAF9FD] hover:bg-[#F5F3FF] text-[#3F3A4F] hover:text-[#1F1A2E] px-4 py-2 rounded-lg text-sm min-h-[44px] flex items-center transition-colors">Avaliações</Link>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
       {notasAtivo && (
