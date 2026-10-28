@@ -32,7 +32,9 @@ export default function AlunoAtividade() {
 
   const carregar = useCallback(async () => {
     setErro(false);
-    const d = await apiGet<{ atividades: Activity[] }>("/aluno/atividades");
+    // filter=todos inclui atividades ja entregues (SUBMITTED/EVALUATED),
+    // necessario para que "Tentar de novo" consiga reabrir a atividade.
+    const d = await apiGet<{ atividades: Activity[] }>("/aluno/atividades?filter=todos");
     const a = d?.atividades?.find((x) => x.id === id) ?? null;
     if (!a) { setErro(true); return; }
     setAct(a);
