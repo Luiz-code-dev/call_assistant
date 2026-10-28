@@ -25,7 +25,7 @@ export default async function OfertaPage({ params }: { params: { id: string } })
         },
       },
       assessments: {
-        orderBy: { createdAt: "desc" },
+        orderBy: { id: "desc" },
         select: {
           id: true,
           title: true,
