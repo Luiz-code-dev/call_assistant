@@ -5,6 +5,9 @@ import Link from "next/link";
 import { Bell } from "lucide-react";
 import { STAGE_LABEL, SHIFT_LABEL } from "@/lib/escola/types";
 
+// Força re-render a cada request — sem cache do RSC payload
+export const dynamic = "force-dynamic";
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const p = prismaEdu as any;
 
