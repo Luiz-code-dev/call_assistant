@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { MessageSquare } from "lucide-react";
@@ -28,6 +28,14 @@ const INPUT_STYLE: React.CSSProperties = {
 function EscolaEntrarInner() {
   const router = useRouter();
   const sp = useSearchParams();
+
+  // Redireciona para o painel se já estiver logado
+  useEffect(() => {
+    fetch("/api/escola/me", { credentials: "include" })
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { if (d?.role) router.replace("/escola/painel"); })
+      .catch(() => {});
+  }, [router]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [email, setEmail] = useState("");

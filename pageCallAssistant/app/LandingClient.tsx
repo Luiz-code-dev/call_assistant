@@ -783,13 +783,13 @@ function DownloadSection({ isLoggedIn }: { isLoggedIn: boolean }) {
                 {isLoggedIn ? "Ir para o App" : "Criar conta grátis"}<ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <a href="https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.1/SpeakFlow-Setup-0.1.1.exe" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.2/SpeakFlow-Setup-0.1.2.exe" target="_blank" rel="noopener noreferrer">
               <Button size="lg" variant="outline" className="w-full sm:w-auto border-zinc-700 bg-zinc-900/50 hover:bg-zinc-800 text-white px-8">
-                <Download className="mr-2 h-4 w-4" />Baixar SpeakFlow-Setup-0.1.1.exe
+                <Download className="mr-2 h-4 w-4" />Baixar SpeakFlow-Setup-0.1.2.exe
               </Button>
             </a>
           </div>
-          <p className="mt-6 text-center text-sm text-zinc-500">Windows 10/11 64-bit &bull; Versão 0.1.1 &bull; 80 MB</p>
+          <p className="mt-6 text-center text-sm text-zinc-500">Windows 10/11 64-bit &bull; Versão 0.1.2 &bull; 80 MB</p>
         </AnimatedSection>
       </div>
     </section>

@@ -134,9 +134,9 @@ const FAQS: FAQ[] = [
   {
     id: "desktop-download",
     q: "Como baixar o app desktop?",
-    a: "O app desktop SpeakFlow é para Windows 10/11 e roda em segundo plano durante suas calls.\n\nPara baixar:\n1. No Dashboard, clique no avatar (canto superior direito)\n2. Selecione \"Baixar App Desktop\"\n3. Execute o instalador SpeakFlow-Setup-0.1.1.exe\n4. Faça login com sua conta SpeakFlow\n5. Abra o app antes da sua próxima reunião em inglês\n\nOu baixe diretamente em:\nhttps://github.com/Luiz-code-dev/call_assistant/releases\n\nRequisitos: Windows 10/11 64-bit · ~80 MB",
-    ctaLoggedIn: { label: "Baixar app desktop →", href: "https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.1/SpeakFlow-Setup-0.1.1.exe", variant: "primary" },
-    ctaLoggedOut: { label: "Baixar app desktop →", href: "https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.1/SpeakFlow-Setup-0.1.1.exe", variant: "primary" },
+    a: "O app desktop SpeakFlow é para Windows 10/11 e roda em segundo plano durante suas calls.\n\nPara baixar:\n1. No Dashboard, clique no avatar (canto superior direito)\n2. Selecione \"Baixar App Desktop\"\n3. Execute o instalador SpeakFlow-Setup-0.1.2.exe\n4. Faça login com sua conta SpeakFlow\n5. Abra o app antes da sua próxima reunião em inglês\n\nOu baixe diretamente em:\nhttps://github.com/Luiz-code-dev/call_assistant/releases\n\nRequisitos: Windows 10/11 64-bit · ~80 MB",
+    ctaLoggedIn: { label: "Baixar app desktop →", href: "https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.2/SpeakFlow-Setup-0.1.2.exe", variant: "primary" },
+    ctaLoggedOut: { label: "Baixar app desktop →", href: "https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.2/SpeakFlow-Setup-0.1.2.exe", variant: "primary" },
   },
   {
     id: "certificate",
