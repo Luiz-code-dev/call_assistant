@@ -22,6 +22,8 @@ export interface AssignmentInput {
   assignedBy: string;
   dueAt?: Date | null;
   force?: boolean;
+  /** Se true, calcula as regras mas NÃO grava no banco. */
+  dryRun?: boolean;
 }
 
 export interface AssignmentResult {
@@ -115,8 +117,8 @@ export async function assignTrackToStudents(
     atribuirIds.push(studentId);
   }
 
-  // 4. Cria as atribuições
-  if (atribuirIds.length > 0) {
+  // 4. Cria as atribuições (não grava se dryRun)
+  if (atribuirIds.length > 0 && !input.dryRun) {
     await p.eduTrackAssignment.createMany({
       data: atribuirIds.map((studentId) => ({
         id: `ta_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
