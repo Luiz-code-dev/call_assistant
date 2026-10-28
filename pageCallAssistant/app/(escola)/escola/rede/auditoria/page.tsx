@@ -4,30 +4,9 @@ import { SearchX, RefreshCw } from "lucide-react";
 import EscPageHeader from "@/components/escola/layout/EscPageHeader";
 
 interface AuditLog {
-  id: string; actorType: string; actorId: string; action: string; entity: string;
-  entityId: string; metadata: Record<string, unknown> | null; ip: string | null; createdAt: string;
+  id: string; actorName: string; actorRole: string; action: string;
+  entityLabel: string; entityName: string; ip: string | null; createdAt: string;
 }
-
-const ACTION_LABEL: Record<string, string> = {
-  "invite.sent": "Enviou um convite",
-  "invite.accepted": "Aceitou um convite",
-  "invite.cancelled": "Cancelou um convite",
-  "school.created": "Criou uma escola",
-  "school.updated": "Atualizou uma escola",
-  "class.created": "Criou uma turma",
-  "student.imported": "Importou alunos",
-  "membership.created": "Vinculou um servidor",
-  "membership.updated": "Atualizou um vínculo",
-};
-
-function actionText(action: string) {
-  if (ACTION_LABEL[action]) return ACTION_LABEL[action];
-  return action.replace(/[._]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-}
-
-const ACTOR_LABEL: Record<string, string> = {
-  user: "Equipe", student: "Aluno", guardian: "Família", system: "Sistema",
-};
 
 const inputCls =
   "bg-white text-[#1F1A2E] rounded-[10px] px-3 h-11 text-sm border-[1.5px] border-[#DDD6EE] focus:border-[#6D28D9] focus:ring-[3px] focus:ring-[#EDE9FE] outline-none transition-colors";
@@ -54,7 +33,7 @@ export default function AuditoriaPage() {
     const now = Date.now();
     const cutoff = periodo === "7d" ? 7 : periodo === "30d" ? 30 : periodo === "90d" ? 90 : 0;
     return logs.filter((l) => {
-      if (pessoa && !l.actorId.toLowerCase().includes(pessoa.toLowerCase())) return false;
+      if (pessoa && !l.actorName.toLowerCase().includes(pessoa.toLowerCase())) return false;
       if (cutoff && now - new Date(l.createdAt).getTime() > cutoff * 86400000) return false;
       return true;
     });
@@ -110,10 +89,10 @@ export default function AuditoriaPage() {
                   {filtered.map((l) => (
                     <tr key={l.id} className="hover:bg-[#FAF9FD] transition-colors">
                       <td className="px-5 py-3 text-[#5B5470] whitespace-nowrap">{new Date(l.createdAt).toLocaleString("pt-BR")}</td>
-                      <td className="px-4 py-3 text-[#5B5470] font-mono text-[12px]">{l.actorId.slice(0, 8)}…</td>
-                      <td className="px-4 py-3 text-[#5B5470]">{ACTOR_LABEL[l.actorType] ?? l.actorType}</td>
-                      <td className="px-4 py-3 text-[#1F1A2E] font-medium">{actionText(l.action)}</td>
-                      <td className="px-4 py-3 text-[#5B5470]">{l.entity}</td>
+                      <td className="px-4 py-3 text-[#1F1A2E] font-medium">{l.actorName}</td>
+                      <td className="px-4 py-3 text-[#5B5470]">{l.actorRole}</td>
+                      <td className="px-4 py-3 text-[#1F1A2E] font-medium">{l.action}</td>
+                      <td className="px-4 py-3 text-[#5B5470]">{l.entityName || l.entityLabel}</td>
                     </tr>
                   ))}
                 </tbody>
