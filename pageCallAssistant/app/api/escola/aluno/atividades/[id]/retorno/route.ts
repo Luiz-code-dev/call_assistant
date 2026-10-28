@@ -35,6 +35,7 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
     status: submission.status,
     aiStatus: submission.aiStatus,
     aiScore: submission.aiScore,
+    masteryLevel: submission.masteryLevel ?? null,
     aiFeedback: submission.aiFeedback,
     teacherScore: submission.teacherScore,
     teacherNote: submission.teacherNote,

@@ -66,34 +66,32 @@ export default function MinhaTrilhaPage() {
 
         {/* Próximo passo */}
         {proximoPasso ? (
-          <div className="bg-white border border-[#E9E5F5] rounded-2xl overflow-hidden">
-            <div className="px-6 py-3 text-white text-sm font-semibold" style={{ background: subjectColor(proximoPasso.subjectId) }}>
-              {proximoPasso.subjectId}
-            </div>
-            <div className="p-6 space-y-4">
-              <div>
-                <h2 className="text-[#1F1A2E] font-bold text-lg leading-tight">{proximoPasso.title}</h2>
-                {proximoPasso.skills[0] && (
-                  <p className="text-[#5B5470] text-sm mt-1">{proximoPasso.skills[0].shortLabel ?? proximoPasso.skills[0].code}</p>
-                )}
-              </div>
-              {/* Barra de progresso */}
-              <div>
-                <div className="flex items-center justify-between text-xs text-[#5B5470] mb-1.5">
-                  <span>Atividade {proximoPasso.ordem} de {proximoPasso.total}</span>
-                  <span>~{proximoPasso.estMinutes} min</span>
-                </div>
-                <div className="h-2 bg-[#F8F7FC] rounded-full overflow-hidden border border-[#E9E5F5]">
-                  <div className="h-full rounded-full transition-all" style={{ width: `${((proximoPasso.ordem - 1) / proximoPasso.total) * 100}%`, background: subjectColor(proximoPasso.subjectId) }}/>
-                </div>
-              </div>
-              {proximoPasso.dueAt && (
-                <p className="text-xs text-[#5B5470]">Prazo: {new Date(proximoPasso.dueAt).toLocaleDateString("pt-BR")}</p>
+          <div>
+            <p className="text-xs font-semibold text-[#5B5470] mb-2 uppercase tracking-wide">Seu próximo passo</p>
+            <div className="rounded-2xl p-6 space-y-4" style={{ background: "#4C1D95" }}>
+              {/* Componente · trilha */}
+              <p className="text-white/80 text-xs font-semibold">
+                {proximoPasso.subjectId} · {proximoPasso.title}
+              </p>
+              {/* Habilidade */}
+              {proximoPasso.skills[0] && (
+                <h2 className="text-white font-extrabold text-xl leading-tight">
+                  {proximoPasso.skills[0].shortLabel ?? proximoPasso.skills[0].code}
+                </h2>
               )}
+              {/* Meta */}
+              <div className="flex items-center justify-between text-white/70 text-xs">
+                <span>Atividade {proximoPasso.ordem} de {proximoPasso.total}</span>
+                <span>cerca de {proximoPasso.estMinutes} min</span>
+              </div>
+              {/* Barra de progresso branca */}
+              <div className="h-1.5 bg-white/20 rounded-full overflow-hidden">
+                <div className="h-full bg-white rounded-full transition-all" style={{ width: `${((proximoPasso.ordem - 1) / proximoPasso.total) * 100}%` }}/>
+              </div>
+              {/* Botão Continuar */}
               <Link
                 href={`/escola/aluno/atividades/${proximoPasso.activityId}?assignmentId=${proximoPasso.assignmentId}&itemId=${proximoPasso.itemId}`}
-                className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-semibold text-white text-base transition-colors min-h-[52px]"
-                style={{ background: subjectColor(proximoPasso.subjectId) }}>
+                className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-white font-bold text-[#6D28D9] text-base min-h-[52px] hover:bg-[#EDE9FE] transition-colors">
                 Continuar <ChevronRight size={18}/>
               </Link>
             </div>
