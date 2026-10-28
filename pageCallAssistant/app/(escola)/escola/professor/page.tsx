@@ -40,7 +40,7 @@ export default async function ProfessorPage() {
       },
       orderBy: { class: { schoolYear: { year: "desc" } } },
     });
-  } catch { offers = []; }
+  } catch (err) { console.error("[professor/page] offers query:", err); offers = []; }
 
   // Busca componentes separadamente (EduClassSubject não tem @relation com EduSubject)
   let subjectMap: Record<string, { name: string; color: string | null }> = {};
@@ -55,7 +55,7 @@ export default async function ProfessorPage() {
         (subjectsRaw as { id: string; name: string; color: string | null }[]).map(s => [s.id, s])
       );
     }
-  } catch { subjectMap = {}; }
+  } catch (err) { console.error("[professor/page] subjectMap query:", err); subjectMap = {}; }
 
   // ── Alertas ──────────────────────────────────────────────────────
   // EduTeacherAlert não tem @relation no schema — lookup separado.
@@ -89,7 +89,7 @@ export default async function ProfessorPage() {
     trackTitleMap = Object.fromEntries(
       (alertTracks as { id: string; title: string }[]).map(t => [t.id, t.title])
     );
-  } catch { alertas = []; studentNameMap = {}; trackTitleMap = {}; }
+  } catch (err) { console.error("[professor/page] alertas query:", err); alertas = []; studentNameMap = {}; trackTitleMap = {}; }
 
   const TYPE_LABEL: Record<string, string> = {
     TRACK_COMPLETED: "concluiu a trilha",
