@@ -118,7 +118,7 @@ function TrilhaCard({ t, concluida }: { t: AtivaTrilha; concluida?: boolean }) {
   return (
     <View style={[s.card, { borderTopWidth: 3, borderTopColor: cor }]}>
       <Text style={s.cardTitle}>{t.title}</Text>
-      {t.skills[0] && <Text style={s.heroSkill}>{t.skills[0].shortLabel ?? t.skills[0].code}</Text>}
+      {t.skills[0] && <Text style={s.cardSkill}>{t.skills[0].shortLabel ?? t.skills[0].code}</Text>}
 
       {/* Barrinhas de itens */}
       <View style={s.itemRow}>
@@ -168,6 +168,7 @@ const s = StyleSheet.create({
   heroCard:    { backgroundColor: colors.actionTint, borderRadius: radius.card, padding: 20, gap: 10 },
   heroBandText:{ color: "rgba(255,255,255,0.85)", fontSize: 12, fontWeight: "600", fontFamily: fonts.semibold },
   heroSkill:   { color: "#fff", fontSize: 18, fontWeight: "800", fontFamily: fonts.extrabold, lineHeight: 24 },
+  cardSkill:   { ...fonts.body, color: colors.textMuted, fontSize: 12 },
   heroMeta:    { flexDirection: "row", justifyContent: "space-between" },
   metaWhite:   { color: "rgba(255,255,255,0.75)", fontSize: 12, fontFamily: fonts.regular },
   metaText:    { ...fonts.body, color: colors.textMuted, fontSize: 12 },
