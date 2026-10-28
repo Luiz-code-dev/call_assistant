@@ -39,10 +39,8 @@ export const NAV_BY_ROLE: Record<EduRole, NavItem[]> = {
     { label: "Turmas e alunos",      href: "/escola/direcao/turmas",      icon: "Users"           },
     { label: "Famílias",             href: "/escola/direcao/familias",    icon: "HeartHandshake"  },
     { label: "Atribuições",          href: "/escola/direcao/atribuicoes", icon: "Grid3x3"         },
-    // TODO fase direcao: criar paginas antes de reexibir no menu
-    // { label: "Servidores e convites",href: "/escola/direcao/convites",    icon: "UserPlus"        },
-    // { label: "Cartões de acesso",    href: "/escola/direcao/cartoes",     icon: "QrCode"          },
-    // { label: "Participação",         href: "/escola/direcao/participacao",icon: "Activity"        },
+    { label: "Cartões de acesso",    href: "/escola/direcao/cartoes",     icon: "QrCode"          },
+    { label: "Auditoria",            href: "/escola/direcao/auditoria",   icon: "ScrollText"      },
   ],
   TEACHER: [
     { label: "Minhas turmas",         href: "/escola/professor",                  icon: "Users"         },

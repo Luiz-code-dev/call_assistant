@@ -51,7 +51,6 @@ const ENTITY_PT: Record<string, string> = {
   "EduTeachingPlan": "Plano de ensino",
   "EduTrail": "Trilha",
   "EduAssessment": "Avaliação",
-  "EduClass": "Turma",
 };
 
 // Tradução de perfil de ator
@@ -92,9 +91,9 @@ export async function GET(req: NextRequest) {
   });
 
   // Resolve nomes de atores em lote
-  const userIds = [...new Set(logs.filter((l: { actorType: string }) => l.actorType === "user" || l.actorType === "staff").map((l: { actorId: string }) => l.actorId))];
-  const studentIds = [...new Set(logs.filter((l: { actorType: string }) => l.actorType === "student").map((l: { actorId: string }) => l.actorId))];
-  const guardianIds = [...new Set(logs.filter((l: { actorType: string }) => l.actorType === "guardian").map((l: { actorId: string }) => l.actorId))];
+  const userIds = Array.from(new Set(logs.filter((l: { actorType: string }) => l.actorType === "user" || l.actorType === "staff").map((l: { actorId: string }) => l.actorId)));
+  const studentIds = Array.from(new Set(logs.filter((l: { actorType: string }) => l.actorType === "student").map((l: { actorId: string }) => l.actorId)));
+  const guardianIds = Array.from(new Set(logs.filter((l: { actorType: string }) => l.actorType === "guardian").map((l: { actorId: string }) => l.actorId)));
 
   const [users, students, guardians, memberships] = await Promise.all([
     userIds.length ? prismaUser.user.findMany({ where: { id: { in: userIds } }, select: { id: true, name: true, email: true } }) : [],
