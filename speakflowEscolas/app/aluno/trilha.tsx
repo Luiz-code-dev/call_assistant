@@ -57,32 +57,38 @@ export default function AlunoTrilha() {
         </View>
       ) : proximoPasso ? (
         /* ── Próximo passo em destaque ── */
-        <View style={[s.heroCard, { borderTopColor: subjectColor(proximoPasso.subjectId) }]}>
-          <View style={[s.heroBand, { backgroundColor: subjectColor(proximoPasso.subjectId) }]}>
-            <Text style={s.heroBandText}>{proximoPasso.subjectId}</Text>
-          </View>
-          <View style={s.heroBody}>
-            <Text style={s.heroTitle}>{proximoPasso.title}</Text>
+        <>
+          <Text style={s.sectionLabel}>Seu próximo passo</Text>
+          <View style={s.heroCard}>
+            {/* Linha superior: componente · trilha */}
+            <Text style={s.heroBandText} numberOfLines={1}>
+              {proximoPasso.subjectId} · {proximoPasso.title}
+            </Text>
+            {/* Habilidade em linguagem simples */}
             {proximoPasso.skills[0] && (
-              <Text style={s.heroSkill}>{proximoPasso.skills[0].shortLabel ?? proximoPasso.skills[0].code}</Text>
+              <Text style={s.heroSkill} numberOfLines={2}>
+                {proximoPasso.skills[0].shortLabel ?? proximoPasso.skills[0].code}
+              </Text>
             )}
+            {/* Meta: atividade N de M · ~X min */}
             <View style={s.heroMeta}>
-              <Text style={s.metaText}>Atividade {proximoPasso.ordem} de {proximoPasso.total}</Text>
-              <Text style={s.metaText}>~{proximoPasso.estMinutes} min</Text>
+              <Text style={s.metaWhite}>Atividade {proximoPasso.ordem} de {proximoPasso.total}</Text>
+              <Text style={s.metaWhite}>cerca de {proximoPasso.estMinutes} min</Text>
             </View>
-            {/* Barra de progresso */}
+            {/* Barra de progresso branca */}
             <View style={s.progBar}>
-              <View style={[s.progFill, { width: `${((proximoPasso.ordem-1)/proximoPasso.total)*100}%`, backgroundColor: subjectColor(proximoPasso.subjectId) }]}/>
+              <View style={[s.progFill, { width: `${((proximoPasso.ordem - 1) / proximoPasso.total) * 100}%` }]} />
             </View>
+            {/* Botão Continuar */}
             <Pressable
               onPress={() => router.push({ pathname: "/aluno/atividade", params: { id: proximoPasso.activityId, assignmentId: proximoPasso.assignmentId, itemId: proximoPasso.itemId } })}
-              style={[s.heroBtn, { backgroundColor: subjectColor(proximoPasso.subjectId) }]}
+              style={s.heroBtn}
             >
               <Text style={s.heroBtnText}>Continuar</Text>
-              <ArrowRight size={18} color="#fff"/>
+              <ArrowRight size={18} color={colors.action} />
             </Pressable>
           </View>
-        </View>
+        </>
       ) : ativas.length === 0 && concluidas.length === 0 ? (
         <View style={s.card}>
           <Text style={s.cardTitle}>Nenhuma trilha ainda</Text>
@@ -155,20 +161,20 @@ function TrilhaCard({ t, concluida }: { t: AtivaTrilha; concluida?: boolean }) {
 }
 
 const s = StyleSheet.create({
-  pageTitle:   { ...fonts.title, fontSize: 22, color: colors.text },
-  sectionTitle:{ ...fonts.subtitle, marginTop: 8 },
-  heroCard:    { backgroundColor: colors.surface, borderRadius: radius.card, borderWidth: 1, borderColor: colors.border, overflow: "hidden" },
-  heroBand:    { paddingVertical: 6, paddingHorizontal: 14 },
-  heroBandText:{ color: "#fff", fontSize: 12, fontWeight: "600" },
-  heroBody:    { padding: 16, gap: 8 },
-  heroTitle:   { ...fonts.title, fontSize: 17 },
-  heroSkill:   { ...fonts.body, color: colors.textMuted, fontSize: 12 },
+  pageTitle:    { ...fonts.title, fontSize: 22, color: colors.text },
+  sectionLabel: { fontSize: 13, fontWeight: "700", color: colors.textMuted, fontFamily: fonts.bold, marginBottom: -4 },
+  sectionTitle: { ...fonts.subtitle, marginTop: 8 },
+  // Hero card: fundo roxo profundo, texto branco
+  heroCard:    { backgroundColor: colors.actionTint, borderRadius: radius.card, padding: 20, gap: 10 },
+  heroBandText:{ color: "rgba(255,255,255,0.85)", fontSize: 12, fontWeight: "600", fontFamily: fonts.semibold },
+  heroSkill:   { color: "#fff", fontSize: 18, fontWeight: "800", fontFamily: fonts.extrabold, lineHeight: 24 },
   heroMeta:    { flexDirection: "row", justifyContent: "space-between" },
+  metaWhite:   { color: "rgba(255,255,255,0.75)", fontSize: 12, fontFamily: fonts.regular },
   metaText:    { ...fonts.body, color: colors.textMuted, fontSize: 12 },
-  progBar:     { height: 6, backgroundColor: colors.bg, borderRadius: 3, overflow: "hidden", borderWidth: 1, borderColor: colors.border },
-  progFill:    { height: "100%", borderRadius: 3 },
-  heroBtn:     { borderRadius: radius.btn, paddingVertical: 14, flexDirection: "row", justifyContent: "center", alignItems: "center", gap: 8, ...touch },
-  heroBtnText: { color: "#fff", fontWeight: "700", fontSize: 15 },
+  progBar:     { height: 5, backgroundColor: "rgba(255,255,255,0.25)", borderRadius: 3, overflow: "hidden" },
+  progFill:    { height: "100%", borderRadius: 3, backgroundColor: "#fff" },
+  heroBtn:     { backgroundColor: "#fff", borderRadius: radius.btn, paddingVertical: 14, flexDirection: "row", justifyContent: "center", alignItems: "center", gap: 8, ...touch, marginTop: 4 },
+  heroBtnText: { color: colors.action, fontWeight: "800", fontSize: 15, fontFamily: fonts.extrabold },
   card:        { backgroundColor: colors.surface, borderRadius: radius.card, borderWidth: 1, borderColor: colors.border, padding: 14, gap: 8 },
   cardTitle:   { ...fonts.subtitle },
   cardText:    { ...fonts.body, color: colors.textMuted },
