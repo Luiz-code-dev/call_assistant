@@ -13,71 +13,80 @@ export default async function ProfessorPage() {
   if (!ctx) redirect("/escola/entrar");
   if (!["TEACHER","NETWORK_ADMIN","COORDINATOR"].includes(ctx.role)) redirect("/escola/painel");
 
-  // EduClassSubject não tem relação declarada com EduSubject no schema,
-  // então buscamos sem include de subject e depois fazemos lookup separado.
-  const offers = await prismaEdu.eduClassSubject.findMany({
-    where: { networkId: ctx.networkId, teacherId: ctx.userId },
-    select: {
-      id: true,
-      subjectId: true,
-      class: {
-        select: {
-          id: true,
-          name: true,
-          stage: true,
-          gradeYear: true,
-          shift: true,
-          schoolYear: { select: { year: true } },
-          school: { select: { name: true } },
+  // ── Turmas do professor ──────────────────────────────────────────
+  // Toda a busca em try/catch — se qualquer query falhar a página
+  // mostra estado vazio em vez de Application Error.
+  let offers: {
+    id: string; subjectId: string;
+    class: { id: string; name: string; stage: string; gradeYear: number; shift: string; schoolYear: { year: number }; school: { name: string } };
+    _count: { assessments: number };
+  }[] = [];
+  try {
+    offers = await prismaEdu.eduClassSubject.findMany({
+      where: { networkId: ctx.networkId, teacherId: ctx.userId },
+      select: {
+        id: true, subjectId: true,
+        class: {
+          select: {
+            id: true, name: true, stage: true, gradeYear: true, shift: true,
+            schoolYear: { select: { year: true } },
+            school: { select: { name: true } },
+          },
         },
+        _count: { select: { assessments: true } },
       },
-      _count: { select: { assessments: true } },
-    },
-    orderBy: { class: { schoolYear: { year: "desc" } } },
-  });
+      orderBy: { class: { schoolYear: { year: "desc" } } },
+    });
+  } catch { offers = []; }
 
-  // Busca os componentes separadamente pelo subjectId
-  const subjectIds = Array.from(new Set(offers.map((o: { subjectId: string }) => o.subjectId)));
-  const subjectsRaw = subjectIds.length
-    ? await prismaEdu.eduSubject.findMany({
+  // Busca componentes separadamente (EduClassSubject não tem @relation com EduSubject)
+  let subjectMap: Record<string, { name: string; color: string | null }> = {};
+  try {
+    const subjectIds = Array.from(new Set(offers.map(o => o.subjectId)));
+    if (subjectIds.length) {
+      const subjectsRaw = await prismaEdu.eduSubject.findMany({
         where: { id: { in: subjectIds } },
         select: { id: true, name: true, color: true },
-      })
-    : [];
-  const subjectMap: Record<string, { name: string; color: string | null }> = Object.fromEntries(
-    subjectsRaw.map((s: { id: string; name: string; color: string | null }) => [s.id, s])
-  );
+      });
+      subjectMap = Object.fromEntries(
+        (subjectsRaw as { id: string; name: string; color: string | null }[]).map(s => [s.id, s])
+      );
+    }
+  } catch { subjectMap = {}; }
 
-  // Alertas do professor — EduTeacherAlert não declara @relation no schema,
-  // então fazemos lookup separado para evitar "Unknown field" em runtime.
-  const alertasRaw: { id: string; type: string; studentId: string | null; trackId: string | null }[] =
-    ctx.role === "TEACHER"
-      ? await p.eduTeacherAlert.findMany({
-          where: { networkId: ctx.networkId, teacherUserId: ctx.userId, readAt: null },
-          orderBy: { createdAt: "desc" as const },
-          take: 5,
-          select: { id: true, type: true, studentId: true, trackId: true },
-        }).catch(() => [])
-      : [];
-
-  // Lookup de nomes de aluno e títulos de trilha em paralelo
-  const alertStudentIds = alertasRaw.map(a => a.studentId).filter((id): id is string => Boolean(id));
-  const alertTrackIds   = alertasRaw.map(a => a.trackId).filter((id): id is string => Boolean(id));
-  const [alertStudents, alertTracks] = await Promise.all([
-    alertStudentIds.length
-      ? prismaEdu.eduStudent.findMany({ where: { id: { in: alertStudentIds } }, select: { id: true, fullName: true } }).catch(() => [])
-      : [],
-    alertTrackIds.length
-      ? p.eduTrack.findMany({ where: { id: { in: alertTrackIds } }, select: { id: true, title: true } }).catch(() => [])
-      : [],
-  ]);
-  const studentNameMap: Record<string, string> = Object.fromEntries(
-    (alertStudents as { id: string; fullName: string }[]).map(s => [s.id, s.fullName])
-  );
-  const trackTitleMap: Record<string, string> = Object.fromEntries(
-    (alertTracks as { id: string; title: string }[]).map(t => [t.id, t.title])
-  );
-  const alertas = alertasRaw;
+  // ── Alertas ──────────────────────────────────────────────────────
+  // EduTeacherAlert não tem @relation no schema — lookup separado.
+  // Usamos try/catch (não .catch) para capturar erros síncronos
+  // caso o modelo ainda não exista no Prisma client em produção.
+  let alertas: { id: string; type: string; studentId: string | null; trackId: string | null }[] = [];
+  let studentNameMap: Record<string, string> = {};
+  let trackTitleMap: Record<string, string> = {};
+  try {
+    if (ctx.role === "TEACHER") {
+      alertas = await p.eduTeacherAlert.findMany({
+        where: { networkId: ctx.networkId, teacherUserId: ctx.userId, readAt: null },
+        orderBy: { createdAt: "desc" as const },
+        take: 5,
+        select: { id: true, type: true, studentId: true, trackId: true },
+      });
+    }
+    const alertStudentIds = alertas.map(a => a.studentId).filter((id): id is string => Boolean(id));
+    const alertTrackIds   = alertas.map(a => a.trackId).filter((id): id is string => Boolean(id));
+    const [alertStudents, alertTracks] = await Promise.all([
+      alertStudentIds.length
+        ? prismaEdu.eduStudent.findMany({ where: { id: { in: alertStudentIds } }, select: { id: true, fullName: true } })
+        : [],
+      alertTrackIds.length
+        ? p.eduTrack.findMany({ where: { id: { in: alertTrackIds } }, select: { id: true, title: true } })
+        : [],
+    ]);
+    studentNameMap = Object.fromEntries(
+      (alertStudents as { id: string; fullName: string }[]).map(s => [s.id, s.fullName])
+    );
+    trackTitleMap = Object.fromEntries(
+      (alertTracks as { id: string; title: string }[]).map(t => [t.id, t.title])
+    );
+  } catch { alertas = []; studentNameMap = {}; trackTitleMap = {}; }
 
   const TYPE_LABEL: Record<string, string> = {
     TRACK_COMPLETED: "concluiu a trilha",

@@ -75,7 +75,7 @@ const allTips = [
   { tip: "Use 'bandwidth' metaforicamente para falar sobre capacidade disponível de uma pessoa.", example: "Do you have the bandwidth to take on this task this week?" },
 ];
 
-const DESKTOP_APP_URL = "https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.1/SpeakFlow-Setup-0.1.1.exe";
+const DESKTOP_APP_URL = "https://github.com/Luiz-code-dev/call_assistant/releases/download/v0.1.2/SpeakFlow-Setup-0.1.2.exe";
 
 const PLAN_LABELS: Record<string, string> = { free: "Gratuito", basic: "Básico", premium: "Premium" };
 const PLAN_COLORS: Record<string, string> = {
@@ -567,7 +567,7 @@ function InstallAppBanner() {
         </div>
         <div className="flex-1 min-w-0">
           <p className="font-semibold text-white text-sm">App Desktop SpeakFlow</p>
-          <p className="text-xs text-zinc-400 mt-0.5 mb-3">Copiloto em tempo real para calls em inglês — Windows 10/11 · Versão 0.1.1</p>
+          <p className="text-xs text-zinc-400 mt-0.5 mb-3">Copiloto em tempo real para calls em inglês — Windows 10/11 · Versão 0.1.2</p>
           <div className="flex flex-wrap gap-2">
             <a
               href={DESKTOP_APP_URL}
