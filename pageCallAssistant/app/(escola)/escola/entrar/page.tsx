@@ -29,13 +29,15 @@ function EscolaEntrarInner() {
   const router = useRouter();
   const sp = useSearchParams();
 
-  // Redireciona para o painel se já estiver logado
+  // Ao sair, invalida o cache do router para o layout re-renderizar sem sessão
   useEffect(() => {
+    if (sp.get("saiu")) { router.refresh(); return; }
+    // Redireciona para o painel se ainda estiver logado
     fetch("/api/escola/me", { credentials: "include" })
       .then(r => r.ok ? r.json() : null)
       .then(d => { if (d?.role) router.replace("/escola/painel"); })
       .catch(() => {});
-  }, [router]);
+  }, [router, sp]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [email, setEmail] = useState("");
