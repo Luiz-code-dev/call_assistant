@@ -62,6 +62,16 @@ describe("área escolar", () => {
     expect(nav).not.toMatch(/\/\/\s*\{\s*label:/);
   });
 
+  it("Escolas não usa o banco do SpeakFlow AI diretamente", () => {
+    const API_ESCOLA = path.join(ROOT, "app/api/escola");
+    const apiFiles = fs.existsSync(API_ESCOLA) ? walk(API_ESCOLA) : [];
+    const allFiles = [...files, ...apiFiles];
+    const usam = allFiles
+      .filter(f => /from ["']@\/lib\/db["']/.test(fs.readFileSync(f, "utf8")))
+      .map(f => path.relative(ROOT, f));
+    expect(usam).toEqual([]);
+  });
+
   it("nenhum prompt/alert/confirm do navegador", () => {
     // Ignora: `function confirmarImportacao` e referências a campos `.prompt` em interfaces/objetos
     const usam = files

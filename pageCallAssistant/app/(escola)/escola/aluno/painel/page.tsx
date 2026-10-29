@@ -1,7 +1,8 @@
 import { redirect } from "next/navigation";
+import { prismaEdu } from "@/lib/escola/db";
 import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
-import { db } from "@/lib/db";
+
 
 export default async function AlunoPainelPage() {
   if (!isEscolasEnabled()) return redirect("/escola/entrar");
@@ -10,11 +11,11 @@ export default async function AlunoPainelPage() {
   if (!ctx) return redirect("/escola/entrar");
 
   const [student, enrollment] = await Promise.all([
-    db.eduStudent.findUnique({
+    prismaEdu.eduStudent.findUnique({
       where: { id: ctx.studentId },
       select: { fullName: true },
     }),
-    db.eduEnrollment.findUnique({
+    prismaEdu.eduEnrollment.findUnique({
       where: { id: ctx.enrollmentId },
       select: {
         class: {
@@ -53,14 +54,14 @@ export default async function AlunoPainelPage() {
 
   const cls = enrollment?.class;
 
-  const subjectIds = cls?.subjects.map((cs) => cs.subjectId) ?? [];
+  const subjectIds = cls?.subjects.map((cs: Record<string,any>) => cs.subjectId) ?? [];
   const subjectRows = subjectIds.length
-    ? await db.eduSubject.findMany({
+    ? await prismaEdu.eduSubject.findMany({
         where: { id: { in: subjectIds } },
         select: { id: true, name: true },
       })
     : [];
-  const subjectName = Object.fromEntries(subjectRows.map((s) => [s.id, s.name]));
+  const subjectName = Object.fromEntries(subjectRows.map((s: Record<string,any>) => [s.id, s.name]));
 
   return (
     <main className="min-h-screen bg-background">
@@ -87,7 +88,7 @@ export default async function AlunoPainelPage() {
         ) : cls.subjects.length === 0 ? (
           <p className="text-center text-muted-foreground py-16">Nenhuma nota publicada ainda.</p>
         ) : (
-          cls.subjects.map((cs) => (
+          cls.subjects.map((cs: Record<string,any>) => (
             <section key={cs.id}>
               <h2 className="text-lg font-semibold text-foreground mb-3">{subjectName[cs.subjectId] ?? cs.subjectId}</h2>
               {cs.assessments.length === 0 ? (
@@ -105,7 +106,7 @@ export default async function AlunoPainelPage() {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-border">
-                      {cs.assessments.map((a) => {
+                      {cs.assessments.map((a: Record<string,any>) => {
                         const grade = a.entries[0];
                         return (
                           <tr key={a.id} className="hover:bg-card/50 transition-colors">

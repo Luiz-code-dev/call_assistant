@@ -1,5 +1,6 @@
+import { prismaEdu } from "@/lib/escola/db";
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/lib/db";
+
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { bearerToken } from "@/lib/escola/app-auth";
 import { verifyPendingStaffToken } from "@/lib/escola/staff-session";
@@ -16,7 +17,7 @@ export async function GET(req: NextRequest) {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [memberships, platformAdmin] = await Promise.all([
-    (db as any).eduMembership.findMany({
+    prismaEdu.eduMembership.findMany({
       where: { userId: pendingUid, isActive: true, network: { isActive: true } },
       select: {
         id: true, role: true,
@@ -25,7 +26,7 @@ export async function GET(req: NextRequest) {
       },
       orderBy: [{ networkId: "asc" }, { schoolId: "asc" }],
     }),
-    (db as any).eduPlatformAdmin.findUnique({ where: { userId: pendingUid }, select: { isActive: true } }),
+    prismaEdu.eduPlatformAdmin.findUnique({ where: { userId: pendingUid }, select: { isActive: true } }),
   ]);
 
   const list = [

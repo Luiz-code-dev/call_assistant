@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
+import { prismaEdu } from "@/lib/escola/db";
 import { z } from "zod";
 import { Prisma } from "@prisma/client";
-import { db } from "@/lib/db";
+
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { getEduContext } from "@/lib/escola/context";
 import { can } from "@/lib/escola/permissions";
@@ -21,7 +22,7 @@ export async function GET() {
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
   if (!can(ctx.role, "network:read")) return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 
-  const network = await db.eduNetwork.findUnique({
+  const network = await prismaEdu.eduNetwork.findUnique({
     where: { id: ctx.networkId },
     include: { schools: { where: { isActive: true }, orderBy: { name: "asc" } } },
   });
@@ -40,7 +41,7 @@ export async function PATCH(req: NextRequest) {
   if (!body.success) return NextResponse.json({ error: "Dados inválidos" }, { status: 400 });
 
   const { gradeConfig, ...rest } = body.data;
-  const updated = await db.eduNetwork.update({
+  const updated = await prismaEdu.eduNetwork.update({
     where: { id: ctx.networkId },
     data: {
       ...rest,

@@ -4,6 +4,7 @@ import { staffSecret, studentSecret } from "@/lib/escola/secrets";
 import { bearerToken, verifyTypedToken } from "@/lib/escola/app-auth";
 import { getTenantDb } from "@/lib/escola/tenant-db";
 import { findPlatformAdmin } from "@/lib/escola/catalogo";
+import { setTenantDb } from "@/lib/escola/db";
 
 export async function resolverVinculos(userId: string, networkId: string) {
   const db = await getTenantDb(networkId);
@@ -67,6 +68,7 @@ export async function getEduContext(): Promise<EduContext | null> {
 
     // Usa getTenantDb(networkId) — rota o acesso para a base correta
     const db = await getTenantDb(networkId);
+    setTenantDb(db); // injeta no AsyncLocalStorage para prismaEdu
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const membership = await (db as any).eduMembership.findUnique({
       where: { id: membershipId },
@@ -109,6 +111,7 @@ export async function getStudentContext(): Promise<StudentContext | null> {
     const cached = revalidationCache.get(cacheKey);
     if (!cached || Date.now() - cached.ts > REVALIDATE_TTL_MS) {
       const db = await getTenantDb(networkId);
+      setTenantDb(db); // injeta no AsyncLocalStorage para prismaEdu
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const enrollment = await (db as any).eduEnrollment.findUnique({
         where: { id: enrollmentId },

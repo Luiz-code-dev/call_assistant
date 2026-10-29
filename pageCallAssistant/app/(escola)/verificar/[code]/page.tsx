@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
-import { db } from "@/lib/db";
+import { prismaEdu } from "@/lib/escola/db";
+
 import { isEscolasEnabled, isNotasEnabled } from "@/lib/escola/feature-flag";
 
 interface Props {
@@ -9,7 +10,7 @@ interface Props {
 export default async function VerificarPage({ params }: Props) {
   if (!isEscolasEnabled() || !isNotasEnabled()) redirect("/escola/painel");
 
-  const closure = await db.eduTermClosure.findFirst({
+  const closure = await prismaEdu.eduTermClosure.findFirst({
     where: { verificationCode: params.code },
     include: {
       term: { select: { name: true, startsAt: true, endsAt: true } },

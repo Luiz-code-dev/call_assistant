@@ -10,7 +10,7 @@
  * - Professor só atribui às suas próprias turmas (verificado no chamador).
  */
 
-import { db } from "@/lib/db";
+import { prismaEdu as db } from "@/lib/escola/db";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const p = db as any;
