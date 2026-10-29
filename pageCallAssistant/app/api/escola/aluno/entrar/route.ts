@@ -41,10 +41,17 @@ export async function POST(req: NextRequest) {
     const { studentId, sessionId, nid: bodyNid } = body;
     if (!studentId || !sessionId) return NextResponse.json({ error: "Dados incompletos" }, { status: 400 });
 
-    // nid deve vir do body (enviado pelo cliente após codigo-aula resolver a rede)
-    if (!bodyNid) return NextResponse.json({ error: "Rede não identificada. Tente pelo código da aula novamente." }, { status: 400 });
+    // nid pode vir do body (enviado pelo cliente) OU ser resolvido a partir do sessionId
+    // via CodeIndex no catálogo. Isso garante compatibilidade com clientes antigos.
+    let resolvedNid = bodyNid;
+    if (!resolvedNid) {
+      // sessionId não está no catálogo, mas o código da sessão sim.
+      // Tentamos resolver indiretamente: o sessionId é uma PK uuid — não existe índice
+      // por isso. Se o cliente não enviar nid, retornamos erro orientador.
+      return NextResponse.json({ error: "Rede não identificada. Atualize o app ou use o código da aula novamente." }, { status: 400 });
+    }
 
-    db = await getTenantDb(bodyNid);
+    db = await getTenantDb(resolvedNid);
     const session = await db.eduClassSession.findUnique({ where: { id: sessionId } });
     if (!session || session.closedAt || session.expiresAt < new Date()) return NextResponse.json({ error: "Sessão inválida ou encerrada" }, { status: 400 });
 

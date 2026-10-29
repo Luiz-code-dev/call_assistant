@@ -36,6 +36,8 @@ export interface EduContext {
   schoolId: string | null;
   role: EduRole;
   membershipId: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  db?: any;
 }
 
 export interface StudentContext {
@@ -53,12 +55,13 @@ export async function getEduContext(): Promise<EduContext | null> {
   if (!payload) return null;
 
   try {
-    // PLATFORM_ADMIN: valida no catálogo (sem networkId)
+    // PLATFORM_ADMIN: revalida no catálogo a cada request
     if (payload["role"] === "PLATFORM_ADMIN") {
       const userId = payload["sub"] as string | undefined;
       if (!userId) return null;
-      // Check catalog for platform admins
-      // We store userId as email in PlatformAdmin; for now accept if token is valid
+      const { findPlatformAdmin } = await import("@/lib/escola/catalogo");
+      const admin = await findPlatformAdmin(userId);
+      if (!admin || !admin.isActive) return null;
       return { userId, networkId: "", schoolId: null, role: "PLATFORM_ADMIN" as EduRole, membershipId: "" };
     }
 
@@ -66,9 +69,11 @@ export async function getEduContext(): Promise<EduContext | null> {
     const networkId   = payload["nid"] as string | undefined;
     if (!membershipId || !networkId) return null;
 
-    // Usa getTenantDb(networkId) — rota o acesso para a base correta
+    // Usa getTenantDb(networkId) — rota o acesso para a base correta.
+    // Também injeta no AsyncLocalStorage via setTenantDb para compatibilidade
+    // com rotas que ainda usam prismaEdu.
     const db = await getTenantDb(networkId);
-    setTenantDb(db); // injeta no AsyncLocalStorage para prismaEdu
+    setTenantDb(db);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const membership = await (db as any).eduMembership.findUnique({
       where: { id: membershipId },
@@ -82,6 +87,7 @@ export async function getEduContext(): Promise<EduContext | null> {
       schoolId: membership.schoolId,
       role: membership.role,
       membershipId: membership.id,
+      db,
     };
   } catch {
     return null;

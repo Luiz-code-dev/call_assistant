@@ -116,7 +116,7 @@ export async function GET(req: NextRequest) {
   const guardianIds = Array.from(new Set(logs.filter((l: { actorType: string }) => l.actorType === "guardian").map((l: { actorId: string }) => l.actorId)));
 
   const [users, students, guardians, memberships] = await Promise.all([
-    userIds.length ? prismaEdu.user.findMany({ where: { id: { in: userIds } }, select: { id: true, name: true, email: true } }) : [],
+    userIds.length ? prismaEdu.eduUser.findMany({ where: { id: { in: userIds } }, select: { id: true, name: true, email: true } }) : [],
     studentIds.length ? prismaEdu.eduStudent.findMany({ where: { id: { in: studentIds as string[] } }, select: { id: true, fullName: true } }) : [],
     guardianIds.length ? prismaEdu.eduGuardian.findMany({ where: { id: { in: guardianIds as string[] } }, select: { id: true, name: true } }) : [],
     userIds.length ? prismaEdu.eduMembership.findMany({ where: { userId: { in: userIds as string[] }, networkId: ctx.networkId }, select: { userId: true, role: true } }) : [],

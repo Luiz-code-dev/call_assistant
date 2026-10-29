@@ -5,7 +5,7 @@ import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { rotaDoPapel } from "@/lib/escola/context";
 import { signStaffToken, staffCookieOptions, STAFF_SESSION_SECONDS, verifyPendingStaffToken } from "@/lib/escola/staff-session";
 import { isAppClient, APP_STAFF_SECONDS, bearerToken } from "@/lib/escola/app-auth";
-import { findPlatformAdmin } from "@/lib/escola/catalogo";
+import { findPlatformAdmin, findTenantsByLogin } from "@/lib/escola/catalogo";
 import { getTenantDb } from "@/lib/escola/tenant-db";
 
 const bodySchema = z.object({
@@ -43,13 +43,28 @@ export async function POST(req: NextRequest) {
     return res;
   }
 
-  // Membership: precisa do networkId para rotear para a base correta
-  if (!networkId) {
-    return NextResponse.json({ error: "networkId obrigatório para selecionar perfil." }, { status: 400 });
+  // Resolve networkId server-side quando cliente não envia (compatibilidade com app nativo)
+  let resolvedNetworkId = networkId;
+  if (!resolvedNetworkId) {
+    const tenantIds = await findTenantsByLogin("STAFF", pendingUid);
+    for (const tid of tenantIds) {
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const dbTry = await getTenantDb(tid) as any;
+        const m = await dbTry.eduMembership.findFirst({
+          where: { id: membershipId, userId: pendingUid, isActive: true },
+          select: { networkId: true },
+        });
+        if (m) { resolvedNetworkId = m.networkId; break; }
+      } catch { /* tenant indisponível, tenta próximo */ }
+    }
+    if (!resolvedNetworkId) {
+      return NextResponse.json({ error: "Vínculo não encontrado. Faça login novamente." }, { status: 403 });
+    }
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const db = await getTenantDb(networkId) as any;
+  const db = await getTenantDb(resolvedNetworkId) as any;
   const membership = await db.eduMembership.findFirst({
     where: { id: membershipId, userId: pendingUid, isActive: true, network: { isActive: true } },
     select: { id: true, userId: true, networkId: true, schoolId: true, role: true },

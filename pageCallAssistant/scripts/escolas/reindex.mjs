@@ -20,8 +20,16 @@ const catalog = new CatalogClient({
 });
 
 async function reindexDb(tenantId, db) {
-  // STAFF: todos os EduUser com membership ativa
-  const users = await db.eduUser.findMany({ where: { isActive: true } });
+  // STAFF: EduUser com membership ativa nesta rede
+  // Filtramos por memberships para garantir que só servidores desta rede são indexados.
+  const memberships = await db.eduMembership.findMany({
+    where: { networkId: tenantId, isActive: true },
+    select: { userId: true },
+  });
+  const memberUserIds = [...new Set(memberships.map(m => m.userId))];
+  const users = memberUserIds.length
+    ? await db.eduUser.findMany({ where: { id: { in: memberUserIds }, isActive: true } })
+    : [];
   for (const u of users) {
     await catalog.loginIndex.upsert({
       where: { kind_identifier_tenantId: { kind: "STAFF", identifier: u.email.toLowerCase(), tenantId } },
@@ -30,8 +38,8 @@ async function reindexDb(tenantId, db) {
     });
   }
 
-  // GUARDIAN: todos os EduGuardian com email
-  const guardians = await db.eduGuardian.findMany({ where: { isActive: true } });
+  // GUARDIAN: EduGuardian desta rede com email
+  const guardians = await db.eduGuardian.findMany({ where: { networkId: tenantId, isActive: true } });
   for (const g of guardians) {
     if (!g.email) continue;
     await catalog.loginIndex.upsert({
@@ -41,8 +49,8 @@ async function reindexDb(tenantId, db) {
     });
   }
 
-  // CLASS_ACCESS: código de acesso das turmas
-  const classes = await db.eduClass.findMany({ where: { isActive: true }, select: { accessCode: true } });
+  // CLASS_ACCESS: código de acesso das turmas desta rede
+  const classes = await db.eduClass.findMany({ where: { networkId: tenantId, isActive: true }, select: { accessCode: true } });
   for (const c of classes) {
     if (!c.accessCode) continue;
     await catalog.codeIndex.upsert({
@@ -52,9 +60,9 @@ async function reindexDb(tenantId, db) {
     });
   }
 
-  // CLASS_SESSION: sessões de aula ativas
+  // CLASS_SESSION: sessões de aula ativas desta rede
   const sessions = await db.eduClassSession.findMany({
-    where: { expiresAt: { gt: new Date() } },
+    where: { networkId: tenantId, expiresAt: { gt: new Date() } },
     select: { code: true, expiresAt: true },
   });
   for (const s of sessions) {
@@ -65,8 +73,11 @@ async function reindexDb(tenantId, db) {
     });
   }
 
-  // FAMILY_CODE
-  const familyCodes = await db.eduFamilyCode.findMany({ select: { code: true, expiresAt: true } }).catch(() => []);
+  // FAMILY_CODE desta rede
+  const familyCodes = await db.eduFamilyCode.findMany({
+    where: { networkId: tenantId },
+    select: { code: true, expiresAt: true },
+  }).catch(() => []);
   for (const fc of familyCodes) {
     await catalog.codeIndex.upsert({
       where: { code: fc.code.toUpperCase() },

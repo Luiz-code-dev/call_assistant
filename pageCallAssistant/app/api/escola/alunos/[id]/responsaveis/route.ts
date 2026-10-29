@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu } from "@/lib/escola/db";
 import { genInviteToken, hashToken } from "@/lib/escola/familia";
+import { registerFamilyInviteInCatalog } from "@/lib/escola/invite";
 import { normalizePhone } from "@/lib/escola/phone";
 import { sendGuardianInviteEmail } from "@/lib/email";
 
@@ -101,14 +102,16 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   let invitePath: string | null = null;
   const token = genInviteToken();
   try {
+    const familyExpiresAt = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
     await prismaEdu.eduGuardianInvite.create({
       data: {
         networkId: ctx.networkId, guardianId: guardian.id, tokenHash: hashToken(token),
         channel: guardianEmail ? "email" : guardianPhone ? "whatsapp" : "link",
-        expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+        expiresAt: familyExpiresAt,
         createdById: ctx.userId,
       },
     });
+    await registerFamilyInviteInCatalog(hashToken(token), ctx.networkId, familyExpiresAt).catch(() => null);
     invitePath = `/escola/familia/convite/${token}`;
     // Dispara o e-mail do convite via Resend (se o responsável tem e-mail).
     if (guardianEmail) {

@@ -43,12 +43,17 @@ function buildExtendedClient(base: PrismaClient, networkId: string): any {
     query: {
       $allModels: {
         async $allOperations({ args, query }: { args: any; query: (a: any) => Promise<any> }) {
-          return base.$transaction(async (tx) => {
-            await (tx as any).$executeRawUnsafe(
-              `SELECT set_config('app.network_id', '${safeNid}', true)`
-            );
-            return query(args);
-          });
+          // Use the batch form so both statements share the same connection:
+          // [0] SET LOCAL app.network_id — sets the RLS variable for this connection
+          // [1] query(args)              — the actual model operation sees the variable
+          // The array form of $transaction guarantees a single implicit transaction
+          // on one connection, unlike the callback form where query(args) runs on
+          // the outer client (different connection).
+          const [, result] = await (base as any).$transaction([
+            base.$executeRawUnsafe(`SELECT set_config('app.network_id', '${safeNid}', true)`),
+            query(args),
+          ]);
+          return result;
         },
       },
     },

@@ -2,6 +2,7 @@ import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu } from "@/lib/escola/db";
+import { registerCode, unregisterCode } from "@/lib/escola/catalogo";
 import crypto from "crypto";
 
 function flag() { return isEscolasEnabled(); }
@@ -29,13 +30,18 @@ export async function POST(req: NextRequest) {
   const offer = await prismaEdu.eduClassSubject.findFirst({ where: { classId, teacherId: ctx.userId } });
   if (!offer) return NextResponse.json({ error: "Você não é professor desta turma" }, { status: 403 });
 
-  // Close any open sessions for this class
+  // Close any open sessions for this class (and remove their catalog entries)
+  const openSessions = await prismaEdu.eduClassSession.findMany({
+    where: { classId, closedAt: null },
+    select: { code: true },
+  });
   await prismaEdu.eduClassSession.updateMany({
     where: { classId, closedAt: null },
     data: { closedAt: new Date() },
   });
+  await Promise.all(openSessions.map((s: { code: string }) => unregisterCode(s.code).catch(() => null)));
 
-  // Generate unique code
+  // Generate unique code (check both tenant DB and catalog to avoid collisions)
   let code = generateSessionCode();
   let attempts = 0;
   while (attempts < 10) {
@@ -49,6 +55,9 @@ export async function POST(req: NextRequest) {
   const session = await prismaEdu.eduClassSession.create({
     data: { networkId: ctx.networkId, classId, openedById: ctx.userId, code, expiresAt },
   });
+
+  // Register in catalog so público route /aluno/entrar/codigo-aula can resolve the tenant
+  await registerCode("CLASS_SESSION", code, ctx.networkId, expiresAt);
 
   return NextResponse.json({ sessionId: session.id, code, expiresAt }, { status: 201 });
 }

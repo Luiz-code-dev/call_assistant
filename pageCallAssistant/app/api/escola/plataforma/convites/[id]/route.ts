@@ -2,7 +2,7 @@ import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu } from "@/lib/escola/db";
-import { generateInviteToken, sendInviteEmail } from "@/lib/escola/invite";
+import { generateInviteToken, sendInviteEmail, registerStaffInviteInCatalog } from "@/lib/escola/invite";
 
 function flag() {
   return isEscolasEnabled();
@@ -47,6 +47,7 @@ export async function GET(
     where: { id },
     data: { tokenHash: hash, expiresAt },
   });
+  if (invite.networkId) await registerStaffInviteInCatalog(hash, invite.networkId, expiresAt).catch(() => null);
 
   const base = process.env.NEXT_PUBLIC_APP_URL?.startsWith("http")
     ? process.env.NEXT_PUBLIC_APP_URL
@@ -87,6 +88,7 @@ export async function POST(
     where: { id },
     data: { tokenHash: hash, expiresAt, sentCount: invite.sentCount + 1 },
   });
+  if (invite.networkId) await registerStaffInviteInCatalog(hash, invite.networkId, expiresAt).catch(() => null);
 
   await sendInviteEmail(invite.email, invite.name, raw, networkName);
 

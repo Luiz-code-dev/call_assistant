@@ -49,6 +49,7 @@ export async function POST(req: NextRequest) {
       gradeYear: session.class.gradeYear,
       defaultLoginMode: session.class.defaultLoginMode,
       expiresAt: session.expiresAt,
+      nid: tenantId, // necessário para o cliente enviar no POST /aluno/entrar mode=aula
       students,
     });
   } catch (err) {
