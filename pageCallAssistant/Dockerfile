@@ -48,14 +48,31 @@ RUN adduser --system --uid 1001 nextjs
 COPY --from=builder /app/public* ./public/
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+# Schemas, migrations e dados BNCC
 COPY --from=builder /app/prisma ./prisma
+
+# Clientes Prisma gerados (inclui @prisma/escolas e @prisma/escolas-catalogo)
 COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
+
+# CLI do Prisma instalada na imagem (mesma versão do package.json)
+# Evita download em runtime via npx prisma@5
+COPY --from=builder /app/node_modules/prisma ./node_modules/prisma
+COPY --from=builder /app/node_modules/.bin/prisma ./node_modules/.bin/prisma
+
+# Scripts de migração e start
 COPY --from=builder /app/scripts ./scripts
 COPY --from=builder /app/package.json ./package.json
+
+# Dependências runtime dos scripts (bcryptjs para invite-account, etc.)
+COPY --from=builder /app/node_modules/bcryptjs ./node_modules/bcryptjs
+
+RUN chmod +x scripts/start.sh
+
 USER nextjs
 EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
-CMD ["node", "server.js"]
+CMD ["sh", "scripts/start.sh"]
