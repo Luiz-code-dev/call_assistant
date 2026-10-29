@@ -12,6 +12,7 @@ export interface DeviceStudent {
   name: string;    // primeiro nome
   initial: string; // inicial do sobrenome (pode ser "")
   loginMode: string;
+  nid?: string;    // networkId — adicionado para modo dispositivo
 }
 
 export const MAX_DEVICE_STUDENTS = 4;

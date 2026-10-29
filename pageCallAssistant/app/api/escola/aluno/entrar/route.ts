@@ -181,7 +181,7 @@ export async function POST(req: NextRequest) {
   if (remember) {
     const { name, initial } = studentDisplayParts(student.fullName);
     const current = await readDeviceToken(req.cookies.get(DEVICE_COOKIE)?.value);
-    const next = addDeviceStudent(current, { id: student.id, name, initial, loginMode: student.loginMode });
+    const next = addDeviceStudent(current, { id: student.id, name, initial, loginMode: student.loginMode, nid: student.networkId });
     res.cookies.set(DEVICE_COOKIE, await signDeviceToken(next), {
       httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", path: "/", maxAge: DEVICE_MAX_AGE,
     });

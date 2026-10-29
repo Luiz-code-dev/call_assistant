@@ -5,6 +5,7 @@ import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { familySecret } from "@/lib/escola/secrets";
 import { findFamilyInviteByToken, deregisterInviteFromCatalog, hashToken } from "@/lib/escola/invite";
 import { isAppClient, APP_FAMILY_SECONDS } from "@/lib/escola/app-auth";
+import { syncGuardianLogin } from "@/lib/escola/catalogo-sync";
 
 export async function GET(_req: NextRequest, { params }: { params: { token: string } }) {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
@@ -67,6 +68,11 @@ export async function POST(req: NextRequest, { params }: { params: { token: stri
         data: { passwordHash: await bcrypt.hash(senha, 10), loginFailedCount: 0, loginLockedUntil: null },
       });
     }
+
+    // Sincroniza índice de login no catálogo para que login futuro funcione
+    const guardianFull = await db.eduGuardian.findUnique({ where: { id: invite.guardianId }, select: { email: true, phone: true, networkId: true } });
+    if (guardianFull?.email) await syncGuardianLogin(guardianFull.email.toLowerCase().trim(), guardianFull.networkId).catch(() => null);
+    if (guardianFull?.phone) await syncGuardianLogin(guardianFull.phone, guardianFull.networkId).catch(() => null);
 
     const links = await db.eduGuardianLink.findMany({ where: { guardianId: invite.guardianId, isActive: true } });
     for (const l of links) {

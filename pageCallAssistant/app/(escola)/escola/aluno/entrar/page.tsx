@@ -28,16 +28,16 @@ function speak(text: string) {
   window.speechSynthesis.speak(u);
 }
 
-interface DeviceStudent { id: string; name: string; loginMode: string; }
+interface DeviceStudent { id: string; name: string; loginMode: string; nid?: string; }
 interface SessionStudent { id: string; display: string; loginMode: string; }
-interface SessionData { sessionId: string; classId: string; className: string; gradeYear: number; defaultLoginMode: string; students: SessionStudent[]; }
+interface SessionData { sessionId: string; classId: string; className: string; gradeYear: number; defaultLoginMode: string; students: SessionStudent[]; nid: string; }
 
 // Fix 1: PIN aceita 4 ou 6 dígitos (novos=4, legados=6)
 const MAX_PIN = 6;
 
 type Screen = "device" | "choose" | "aula-code" | "aula-names" | "pin" | "figures" | "qr-camera";
 // qrMode: quando autenticando com cartão (mode="qr"), studentId guarda o token JWT
-type LoginCtx = { mode: "aula"; studentId: string; sessionId: string } | { mode: "qr"; qrToken: string } | { mode: "dispositivo"; studentId: string };
+type LoginCtx = { mode: "aula"; studentId: string; sessionId: string; nid: string } | { mode: "qr"; qrToken: string } | { mode: "dispositivo"; studentId: string; nid?: string };
 
 function EntrarInner() {
   const router = useRouter();
@@ -126,14 +126,14 @@ function EntrarInner() {
 
   function selectStudent(student: SessionStudent) {
     setSelectedStudent(student); setPin(""); setPinError(""); setFigSeq([]); setFigError("");
-    if (session) setLoginCtx({ mode: "aula", studentId: student.id, sessionId: session.sessionId });
+    if (session) setLoginCtx({ mode: "aula", studentId: student.id, sessionId: session.sessionId, nid: session.nid });
     setScreen(student.loginMode === "PICTURE" ? "figures" : "pin");
   }
 
   function selectDeviceStudent(s: DeviceStudent) {
     // Fix 4: mode dispositivo para alunos lembrados no cookie
     setSelectedStudent({ id: s.id, display: s.name, loginMode: s.loginMode });
-    setLoginCtx({ mode: "dispositivo", studentId: s.id });
+    setLoginCtx({ mode: "dispositivo", studentId: s.id, nid: s.nid });
     setPin(""); setPinError(""); setFigSeq([]); setFigError("");
     setScreen(s.loginMode === "PICTURE" ? "figures" : "pin");
   }
@@ -144,9 +144,9 @@ function EntrarInner() {
     if (loginCtx.mode === "qr") {
       body = { mode: "qr", qrToken: loginCtx.qrToken, pin: finalPin };
     } else if (loginCtx.mode === "dispositivo") {
-      body = { mode: "dispositivo", studentId: loginCtx.studentId };
+      body = { mode: "dispositivo", studentId: loginCtx.studentId, ...(loginCtx.nid ? { nid: loginCtx.nid } : {}) };
     } else {
-      body = { mode: "aula", studentId: loginCtx.studentId, sessionId: loginCtx.sessionId, pin: finalPin };
+      body = { mode: "aula", studentId: loginCtx.studentId, sessionId: loginCtx.sessionId, nid: loginCtx.nid, pin: finalPin };
     }
     const r = await fetch("/api/escola/aluno/entrar", {
       method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body),
@@ -160,7 +160,7 @@ function EntrarInner() {
     if (!loginCtx || loginCtx.mode !== "aula") return;
     const r = await fetch("/api/escola/aluno/entrar", {
       method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ mode: "aula", studentId: loginCtx.studentId, sessionId: loginCtx.sessionId, pictureSequence: seq }),
+      body: JSON.stringify({ mode: "aula", studentId: loginCtx.studentId, sessionId: loginCtx.sessionId, nid: loginCtx.nid, pictureSequence: seq }),
     });
     const d = await r.json();
     if (!r.ok) { setFigError("Quase! Tente de novo."); setFigSeq([]); return; }

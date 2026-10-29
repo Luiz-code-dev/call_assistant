@@ -7,6 +7,7 @@ import { signStaffToken, staffCookieOptions, STAFF_SESSION_SECONDS, verifyPendin
 import { isAppClient, APP_STAFF_SECONDS, bearerToken } from "@/lib/escola/app-auth";
 import { findPlatformAdmin, findTenantsByLogin } from "@/lib/escola/catalogo";
 import { getTenantDb } from "@/lib/escola/tenant-db";
+import { PENDING_UID_COOKIE } from "@/lib/escola/cookies";
 
 const bodySchema = z.object({
   membershipId: z.string().min(1),
@@ -19,10 +20,12 @@ export async function POST(req: NextRequest) {
   const appClient = isAppClient();
   const staffSeconds = appClient ? APP_STAFF_SECONDS : STAFF_SESSION_SECONDS;
 
-  // App: token pendente no Bearer. Web: cookie de escolha pendente.
+  // App: token pendente no Bearer. Web: cookies de escolha pendente.
   const bearer = bearerToken();
-  const pendingUid = bearer ? await verifyPendingStaffToken(bearer) : req.cookies.get("sf_edu_pending_uid")?.value;
-  if (!pendingUid) {
+  const pendingResult = bearer ? await verifyPendingStaffToken(bearer) : null;
+  const pendingUid = pendingResult?.userId ?? req.cookies.get(PENDING_UID_COOKIE)?.value;
+  const pendingEmail = pendingResult?.email ?? req.cookies.get("sf_edu_pending_email")?.value;
+  if (!pendingUid || !pendingEmail) {
     return NextResponse.json({ error: "Sessão expirada. Faça login novamente." }, { status: 401 });
   }
 
@@ -31,22 +34,23 @@ export async function POST(req: NextRequest) {
 
   const { membershipId, networkId } = parsed.data;
 
-  // PLATFORM_ADMIN — verifica no catálogo
+  // PLATFORM_ADMIN — verifica no catálogo pelo e-mail (não pelo userId do token)
   if (membershipId === "platform") {
-    const admin = await findPlatformAdmin(pendingUid);
+    const admin = await findPlatformAdmin(pendingEmail);
     if (!admin || !admin.isActive) return NextResponse.json({ error: "Acesso de plataforma inativo." }, { status: 403 });
     const token = await signStaffToken({ userId: pendingUid, role: "PLATFORM_ADMIN" }, staffSeconds);
     const res = NextResponse.json({ ok: true, redirect: rotaDoPapel("PLATFORM_ADMIN"), ...(appClient ? { token } : {}) });
     res.cookies.set("sf_edu_ctx", token, staffCookieOptions);
     res.cookies.set("sf_edu_last", "platform", { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "lax", maxAge: 60 * 60 * 24 * 30, path: "/" });
-    res.cookies.delete("sf_edu_pending_uid");
+    res.cookies.delete(PENDING_UID_COOKIE);
+    res.cookies.delete("sf_edu_pending_email");
     return res;
   }
 
   // Resolve networkId server-side quando cliente não envia (compatibilidade com app nativo)
   let resolvedNetworkId = networkId;
   if (!resolvedNetworkId) {
-    const tenantIds = await findTenantsByLogin("STAFF", pendingUid);
+    const tenantIds = await findTenantsByLogin("STAFF", pendingEmail);
     for (const tid of tenantIds) {
       try {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -80,7 +84,8 @@ export async function POST(req: NextRequest) {
 
   res.cookies.set("sf_edu_ctx", token, staffCookieOptions);
   res.cookies.set("sf_edu_last", membership.id, { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "lax", maxAge: 60 * 60 * 24 * 30, path: "/" });
-  res.cookies.delete("sf_edu_pending_uid");
+  res.cookies.delete(PENDING_UID_COOKIE);
+  res.cookies.delete("sf_edu_pending_email");
 
   return res;
 }
