@@ -156,7 +156,11 @@ async function seedRedeA() {
 
     const rede = await db.eduNetwork.upsert({
       where: { id: NETWORK_ID },
-      create: { id: NETWORK_ID, name: "Rede Municipal Demo A (Demonstração)", isActive: true, slug: NETWORK_ID },
+      create: {
+        id: NETWORK_ID, name: "Rede Municipal Demo A (Demonstração)",
+        city: "Cidade Demo", state: "SP", isActive: true, slug: NETWORK_ID,
+        gradeConfig: {},
+      },
       update: { isActive: true },
     });
 
@@ -238,7 +242,11 @@ async function seedRedeB() {
 
     const rede = await db.eduNetwork.upsert({
       where: { id: NETWORK_ID },
-      create: { id: NETWORK_ID, name: "Escola Particular Demo B (Demonstração)", isActive: true, slug: NETWORK_ID },
+      create: {
+        id: NETWORK_ID, name: "Escola Particular Demo B (Demonstração)",
+        city: "Cidade Demo B", state: "RJ", isActive: true, slug: NETWORK_ID,
+        gradeConfig: {},
+      },
       update: { isActive: true },
     });
 
