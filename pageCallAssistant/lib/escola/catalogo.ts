@@ -107,3 +107,25 @@ export async function findPlatformAdmin(email: string) {
   const db = getCatalogDb();
   return db.platformAdmin.findUnique({ where: { email: email.toLowerCase().trim() } });
 }
+
+/** Registra token de convite no catálogo para permitir lookup sem contexto. */
+export async function registerInvite(kind: "STAFF_INVITE" | "FAMILY_INVITE", tokenHash: string, tenantId: string, expiresAt: Date) {
+  const db = getCatalogDb();
+  await db.codeIndex.upsert({
+    where: { code: tokenHash },
+    create: { code: tokenHash, kind, tenantId, expiresAt },
+    update: { kind, tenantId, expiresAt },
+  });
+}
+
+/** Remove convite do catálogo (após aceite ou expiração). */
+export async function unregisterInvite(tokenHash: string) {
+  const db = getCatalogDb();
+  await db.codeIndex.delete({ where: { code: tokenHash } }).catch(() => null);
+}
+
+/** Resolve rede pelo hash do token de convite. */
+export async function findTenantByInviteHash(tokenHash: string) {
+  const db = getCatalogDb();
+  return db.codeIndex.findUnique({ where: { code: tokenHash } });
+}

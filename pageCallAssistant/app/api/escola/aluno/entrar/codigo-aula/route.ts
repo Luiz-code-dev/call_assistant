@@ -1,12 +1,11 @@
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
-import { prismaEdu } from "@/lib/escola/db";
-
-function flag() { return isEscolasEnabled(); }
+import { findTenantByCode } from "@/lib/escola/catalogo";
+import { getTenantDb } from "@/lib/escola/tenant-db";
 
 /** Public endpoint: student enters session code → returns list of first names for class selection */
 export async function POST(req: NextRequest) {
-  if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
+  if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
 
   const { code } = await req.json();
   if (!code || typeof code !== "string" || code.length !== 6) {
@@ -14,8 +13,16 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const session = await prismaEdu.eduClassSession.findUnique({
-      where: { code: code.toUpperCase().trim() },
+    const normalizedCode = code.toUpperCase().trim();
+    // Resolve rede pelo catálogo (CodeIndex)
+    const tenantId = await findTenantByCode(normalizedCode);
+    if (!tenantId) return NextResponse.json({ error: "Código inválido ou aula encerrada" }, { status: 404 });
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const db = await getTenantDb(tenantId) as any;
+
+    const session = await db.eduClassSession.findUnique({
+      where: { code: normalizedCode },
       include: { class: { select: { id: true, name: true, gradeYear: true, defaultLoginMode: true } } },
     });
 
@@ -23,7 +30,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Código inválido ou aula encerrada" }, { status: 404 });
     }
 
-    const enrollments = await prismaEdu.eduEnrollment.findMany({
+    const enrollments = await db.eduEnrollment.findMany({
       where: { classId: session.classId, status: "ACTIVE" },
       include: { student: { select: { id: true, fullName: true, loginMode: true } } },
       orderBy: { student: { fullName: "asc" } },

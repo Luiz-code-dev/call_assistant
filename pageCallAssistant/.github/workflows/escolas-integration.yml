@@ -1,0 +1,80 @@
+name: Escolas Integration Tests
+
+on:
+  pull_request:
+    paths:
+      - "pageCallAssistant/prisma/escolas/**"
+      - "pageCallAssistant/prisma/escolas-catalogo/**"
+      - "pageCallAssistant/lib/escola/**"
+      - "pageCallAssistant/app/api/escola/**"
+      - "pageCallAssistant/scripts/escolas/**"
+
+jobs:
+  integration:
+    name: Integration (3 Postgres)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: pageCallAssistant
+
+    services:
+      escolas-catalogo:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_DB: escolas_catalogo
+          POSTGRES_USER: escolas
+          POSTGRES_PASSWORD: ${{ secrets.ESCOLAS_TEST_PG_PASS }}
+        ports: ["5433:5432"]
+        options: >-
+          --health-cmd "pg_isready -U escolas -d escolas_catalogo"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+
+      escolas-dados-01:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_DB: escolas_dados_01
+          POSTGRES_USER: escolas
+          POSTGRES_PASSWORD: ${{ secrets.ESCOLAS_TEST_PG_PASS }}
+        ports: ["5434:5432"]
+        options: >-
+          --health-cmd "pg_isready -U escolas -d escolas_dados_01"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+
+      escolas-dados-02:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_DB: escolas_dados_02
+          POSTGRES_USER: escolas
+          POSTGRES_PASSWORD: ${{ secrets.ESCOLAS_TEST_PG_PASS }}
+        ports: ["5435:5432"]
+        options: >-
+          --health-cmd "pg_isready -U escolas -d escolas_dados_02"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+
+    env:
+      ESCOLAS_CATALOG_URL: postgresql://escolas:${{ secrets.ESCOLAS_TEST_PG_PASS }}@localhost:5433/escolas_catalogo
+      ESCOLAS_DB_01_URL: postgresql://escolas:${{ secrets.ESCOLAS_TEST_PG_PASS }}@localhost:5434/escolas_dados_01
+      ESCOLAS_DB_02_URL: postgresql://escolas:${{ secrets.ESCOLAS_TEST_PG_PASS }}@localhost:5435/escolas_dados_02
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/test_speakflow
+      ESCOLAS_SEED_DEMO: "true"
+      NODE_ENV: test
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: pageCallAssistant/package-lock.json
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Vitest unit tests
+        run: npx vitest run
+
+      - name: Run integration tests
+        run: npm run escolas:test:integration
+
+      - name: Schema comparison
+        run: node scripts/escolas/comparar-schemas.mjs

@@ -20,7 +20,8 @@
     "escolas:seed-demo": "node scripts/escolas/seed-demo.mjs",
     "escolas:bootstrap": "node scripts/escolas/bootstrap-catalogo.mjs",
     "escolas:bncc-import": "node scripts/escolas/bncc-import.mjs",
-    "escolas:migrate-all": "node scripts/escolas/migrate-all.mjs"
+    "escolas:migrate-all": "node scripts/escolas/migrate-all.mjs",
+    "escolas:test:integration": "node scripts/escolas/test-integration.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1155.0",

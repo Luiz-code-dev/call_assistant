@@ -1,0 +1,9 @@
+version: 2
+# Senhas de desenvolvimento local (Docker Compose para testes de integração).
+# Não são segredos de produção — a senha real fica em ESCOLAS_TEST_PG_PASS
+# (variável de ambiente local ou GitHub Secret).
+# Ignoramos o commit específico onde o placeholder de dev foi introduzido
+# antes de ser substituído por variável de ambiente no commit 38fa3131.
+ignore:
+  - sha: a18b334267bde21bb64c5d92a6eb7e6693987735
+    comment: "Dev-only Docker Compose placeholder password, replaced by env var in 38fa3131"
