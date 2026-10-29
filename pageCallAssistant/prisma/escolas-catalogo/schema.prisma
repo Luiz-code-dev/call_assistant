@@ -1,0 +1,93 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../node_modules/@prisma/escolas-catalogo"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("ESCOLAS_CATALOG_URL")
+}
+
+enum TenantKind {
+  PUBLIC_NETWORK
+  PRIVATE_SCHOOL
+}
+
+enum TenantStatus {
+  ACTIVE
+  MIGRATING
+  SUSPENDED
+}
+
+enum TenantPlan {
+  SHARED
+  DEDICATED
+}
+
+enum LoginKind {
+  STAFF
+  GUARDIAN
+}
+
+enum CodeKind {
+  CLASS_ACCESS
+  CLASS_SESSION
+  FAMILY_CODE
+}
+
+model Tenant {
+  id        String       @id
+  name      String
+  kind      TenantKind
+  status    TenantStatus @default(ACTIVE)
+  dbKey     String
+  plan      TenantPlan   @default(SHARED)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  db TenantDatabase @relation(fields: [dbKey], references: [key])
+}
+
+model TenantDatabase {
+  key      String   @id
+  envVar   String
+  region   String   @default("railway-us")
+  isShared Boolean  @default(true)
+  isActive Boolean  @default(true)
+  tenants  Tenant[]
+}
+
+model LoginIndex {
+  id         String    @id @default(cuid())
+  kind       LoginKind
+  identifier String
+  tenantId   String
+
+  @@unique([kind, identifier, tenantId])
+  @@index([kind, identifier])
+}
+
+model CodeIndex {
+  code      String    @id
+  kind      CodeKind
+  tenantId  String
+  expiresAt DateTime?
+}
+
+model PlatformAdmin {
+  id           String  @id @default(cuid())
+  email        String  @unique
+  name         String
+  passwordHash String
+  isActive     Boolean @default(true)
+}
+
+model TenantDailyStats {
+  tenantId         String
+  day              DateTime
+  activeStudents   Int      @default(0)
+  submissions      Int      @default(0)
+  skillsRecovered  Int      @default(0)
+
+  @@id([tenantId, day])
+}

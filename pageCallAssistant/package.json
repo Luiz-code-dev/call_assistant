@@ -4,15 +4,19 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
-    "start": "npx prisma@5 migrate deploy && npx ts-node prisma/importar-bncc.ts && node server.js",
+    "build": "prisma generate && prisma generate --schema prisma/escolas-catalogo/schema.prisma && prisma generate --schema prisma/escolas/schema.prisma && next build",
+    "start": "npx prisma@5 migrate deploy && npx prisma@5 migrate deploy --schema prisma/escolas-catalogo/schema.prisma && node scripts/escolas/migrate-all.mjs && npx ts-node prisma/importar-bncc.ts && node server.js",
     "lint": "next lint",
     "db:migrate": "prisma migrate deploy",
+    "db:migrate:catalogo": "prisma migrate deploy --schema prisma/escolas-catalogo/schema.prisma",
+    "db:migrate:escolas": "node scripts/escolas/migrate-all.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "escola:admin-master": "npx tsx scripts/escolas/criar-admin-master.ts",
-    "escola:seed-familia-demo": "node prisma/seed-familia-demo.mjs"
+    "escola:seed-familia-demo": "node prisma/seed-familia-demo.mjs",
+    "escola:seed-demo": "node scripts/escolas/seed-demo.mjs",
+    "escolas:reindex": "node scripts/escolas/reindex.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1155.0",
