@@ -16,6 +16,9 @@ function getCatalogDb(): PrismaClient {
   return _catalog;
 }
 
+/** Acesso direto ao cliente do catálogo (para uso em Server Components). */
+export const catalogDb = { get tenant() { return getCatalogDb().tenant; }, get tenantDatabase() { return getCatalogDb().tenantDatabase; }, get loginIndex() { return getCatalogDb().loginIndex; }, get codeIndex() { return getCatalogDb().codeIndex; }, get platformAdmin() { return getCatalogDb().platformAdmin; } };
+
 // Cache de tenant por networkId (60 s)
 const tenantCache = new Map<string, { data: import("@prisma/escolas-catalogo").Tenant & { db: import("@prisma/escolas-catalogo").TenantDatabase }; ts: number }>();
 const CACHE_TTL = 60_000;
