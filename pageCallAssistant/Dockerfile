@@ -33,6 +33,8 @@ ENV NEXT_PUBLIC_STRIPE_PRICE_CREDITS_25=$NEXT_PUBLIC_STRIPE_PRICE_CREDITS_25
 ENV NEXT_PUBLIC_STRIPE_PRICE_CREDITS_50=$NEXT_PUBLIC_STRIPE_PRICE_CREDITS_50
 
 RUN npx prisma generate
+RUN npx prisma generate --schema prisma/escolas/schema.prisma
+RUN npx prisma generate --schema prisma/escolas-catalogo/schema.prisma
 RUN npm run build
 
 FROM base AS runner
