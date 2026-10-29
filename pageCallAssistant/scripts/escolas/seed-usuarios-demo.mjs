@@ -158,7 +158,7 @@ async function seedRedeA() {
       where: { id: NETWORK_ID },
       create: {
         id: NETWORK_ID, name: "Rede Municipal Demo A (Demonstração)",
-        city: "Cidade Demo", state: "SP", isActive: true, slug: NETWORK_ID,
+        city: "Cidade Demo", state: "SP", isActive: true,
         gradeConfig: {},
       },
       update: { isActive: true },
@@ -244,7 +244,7 @@ async function seedRedeB() {
       where: { id: NETWORK_ID },
       create: {
         id: NETWORK_ID, name: "Escola Particular Demo B (Demonstração)",
-        city: "Cidade Demo B", state: "RJ", isActive: true, slug: NETWORK_ID,
+        city: "Cidade Demo B", state: "RJ", isActive: true,
         gradeConfig: {},
       },
       update: { isActive: true },
