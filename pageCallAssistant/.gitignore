@@ -1,8 +1,9 @@
 # local env files
 .env*.local
 
-# scripts locais (seeds, SQL sensível) — exceto scripts/escolas/ que vai para o repo
+# scripts locais (seeds, SQL sensível) — exceto scripts/escolas/ e start.sh que vão para o repo
 scripts/**
+!scripts/start.sh
 !scripts/escolas/
 !scripts/escolas/**
 .env.production

@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && prisma generate --schema prisma/escolas-catalogo/schema.prisma && prisma generate --schema prisma/escolas/schema.prisma && next build",
-    "start": "node server.js",
+    "start": "sh scripts/start.sh",
     "lint": "next lint",
     "db:generate": "prisma generate",
     "db:generate:escolas": "prisma generate --schema prisma/escolas/schema.prisma",
