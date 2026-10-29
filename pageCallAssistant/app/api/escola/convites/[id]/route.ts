@@ -2,7 +2,7 @@ import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu } from "@/lib/escola/db";
-import { generateInviteToken, sendInviteEmail } from "@/lib/escola/invite";
+import { generateInviteToken, sendInviteEmail, registerStaffInviteInCatalog } from "@/lib/escola/invite";
 
 function flag() { return isEscolasEnabled(); }
 
@@ -32,10 +32,12 @@ export async function POST(req: Request, { params }: { params: { id: string } })
   if (invite.acceptedAt) return NextResponse.json({ error: "Convite já aceito" }, { status: 400 });
 
   const { raw, hash } = generateInviteToken();
+  const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
   await prismaEdu.eduInvite.update({
     where: { id: params.id },
-    data: { tokenHash: hash, expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), sentCount: invite.sentCount + 1 },
+    data: { tokenHash: hash, expiresAt, sentCount: invite.sentCount + 1 },
   });
+  await registerStaffInviteInCatalog(hash, ctx.networkId, expiresAt).catch(() => null);
   const network = await prismaEdu.eduNetwork.findUnique({ where: { id: ctx.networkId }, select: { name: true } });
   await sendInviteEmail(invite.email, invite.name, raw, network?.name ?? "SpeakFlow Escolas");
   return NextResponse.json({ ok: true });

@@ -7,7 +7,7 @@
  * passam direto — a validação de escopo é feita via relacionamento.
  */
 
-import { db } from "@/lib/db";
+import { prismaEdu as db } from "@/lib/escola/db";
 
 /** Modelos Edu* que têm campo networkId e devem ser isolados */
 const NETWORK_SCOPED = new Set([

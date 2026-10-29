@@ -1,12 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { db } from "@/lib/db";
+
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { rotaDoPapel } from "@/lib/escola/context";
 import { signStaffToken, staffCookieOptions, STAFF_SESSION_SECONDS, verifyPendingStaffToken } from "@/lib/escola/staff-session";
 import { isAppClient, APP_STAFF_SECONDS, bearerToken } from "@/lib/escola/app-auth";
+import { findPlatformAdmin, findTenantsByLogin } from "@/lib/escola/catalogo";
+import { getTenantDb } from "@/lib/escola/tenant-db";
 
-const bodySchema = z.object({ membershipId: z.string().min(1) });
+const bodySchema = z.object({
+  membershipId: z.string().min(1),
+  networkId: z.string().optional(), // enviado pelo cliente após login
+});
 
 export async function POST(req: NextRequest) {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Not found" }, { status: 404 });
@@ -24,13 +29,12 @@ export async function POST(req: NextRequest) {
   const parsed = bodySchema.safeParse(await req.json());
   if (!parsed.success) return NextResponse.json({ error: "Dados inválidos" }, { status: 400 });
 
-  const { membershipId } = parsed.data;
+  const { membershipId, networkId } = parsed.data;
 
-  // PLATFORM_ADMIN
+  // PLATFORM_ADMIN — verifica no catálogo
   if (membershipId === "platform") {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const admin = await (db as any).eduPlatformAdmin.findUnique({ where: { userId: pendingUid }, select: { isActive: true } });
-    if (!admin?.isActive) return NextResponse.json({ error: "Acesso de plataforma inativo." }, { status: 403 });
+    const admin = await findPlatformAdmin(pendingUid);
+    if (!admin || !admin.isActive) return NextResponse.json({ error: "Acesso de plataforma inativo." }, { status: 403 });
     const token = await signStaffToken({ userId: pendingUid, role: "PLATFORM_ADMIN" }, staffSeconds);
     const res = NextResponse.json({ ok: true, redirect: rotaDoPapel("PLATFORM_ADMIN"), ...(appClient ? { token } : {}) });
     res.cookies.set("sf_edu_ctx", token, staffCookieOptions);
@@ -39,8 +43,29 @@ export async function POST(req: NextRequest) {
     return res;
   }
 
+  // Resolve networkId server-side quando cliente não envia (compatibilidade com app nativo)
+  let resolvedNetworkId = networkId;
+  if (!resolvedNetworkId) {
+    const tenantIds = await findTenantsByLogin("STAFF", pendingUid);
+    for (const tid of tenantIds) {
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const dbTry = await getTenantDb(tid) as any;
+        const m = await dbTry.eduMembership.findFirst({
+          where: { id: membershipId, userId: pendingUid, isActive: true },
+          select: { networkId: true },
+        });
+        if (m) { resolvedNetworkId = m.networkId; break; }
+      } catch { /* tenant indisponível, tenta próximo */ }
+    }
+    if (!resolvedNetworkId) {
+      return NextResponse.json({ error: "Vínculo não encontrado. Faça login novamente." }, { status: 403 });
+    }
+  }
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const membership = await (db as any).eduMembership.findFirst({
+  const db = await getTenantDb(resolvedNetworkId) as any;
+  const membership = await db.eduMembership.findFirst({
     where: { id: membershipId, userId: pendingUid, isActive: true, network: { isActive: true } },
     select: { id: true, userId: true, networkId: true, schoolId: true, role: true },
   });

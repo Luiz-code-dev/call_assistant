@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { prismaEdu } from "@/lib/escola/db";
 import { z } from "zod";
-import { db } from "@/lib/db";
+
 import { isEscolasEnabled, isNotasEnabled } from "@/lib/escola/feature-flag";
 import { getEduContext } from "@/lib/escola/context";
 import { can } from "@/lib/escola/permissions";
@@ -19,7 +20,7 @@ export async function POST(req: NextRequest) {
 
   const { assessmentId } = parsed.data;
 
-  const assessment = await db.eduAssessment.findUnique({
+  const assessment = await prismaEdu.eduAssessment.findUnique({
     where: { id: assessmentId },
     include: { classSubject: { select: { networkId: true } } },
   });
@@ -30,12 +31,12 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Já publicada" }, { status: 409 });
   }
 
-  const updated = await db.eduAssessment.update({
+  const updated = await prismaEdu.eduAssessment.update({
     where: { id: assessmentId },
     data: { status: "PUBLISHED", publishedAt: new Date() },
   });
 
-  await db.eduAuditLog.create({
+  await prismaEdu.eduAuditLog.create({
     data: {
       networkId: ctx.networkId,
       actorType: "staff",

@@ -2,7 +2,8 @@
  * Invite helpers — token generation/verification and email dispatch.
  */
 import crypto from "crypto";
-import { prismaEdu } from "@/lib/escola/db";
+import { findTenantByInviteHash, registerInvite, unregisterInvite } from "@/lib/escola/catalogo";
+import { getTenantDb } from "@/lib/escola/tenant-db";
 
 export function generateInviteToken(): { raw: string; hash: string } {
   const raw = crypto.randomBytes(32).toString("hex");
@@ -10,9 +11,48 @@ export function generateInviteToken(): { raw: string; hash: string } {
   return { raw, hash };
 }
 
-export async function findInviteByToken(rawToken: string) {
+/** Registra o token do convite da equipe no catálogo para permitir lookup sem contexto. */
+export async function registerStaffInviteInCatalog(tokenHash: string, tenantId: string, expiresAt: Date) {
+  await registerInvite("STAFF_INVITE", tokenHash, tenantId, expiresAt);
+}
+
+/** Registra o token do convite da família no catálogo. */
+export async function registerFamilyInviteInCatalog(tokenHash: string, tenantId: string, expiresAt: Date) {
+  await registerInvite("FAMILY_INVITE", tokenHash, tenantId, expiresAt);
+}
+
+/** Remove convite do catálogo após aceite. */
+export async function deregisterInviteFromCatalog(tokenHash: string) {
+  await unregisterInvite(tokenHash);
+}
+
+/**
+ * Busca o convite de equipe pelo token raw.
+ * Usa o catálogo para resolver a rede sem depender do contexto AsyncLocalStorage.
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function findInviteByToken(rawToken: string): Promise<any | null> {
   const hash = crypto.createHash("sha256").update(rawToken).digest("hex");
-  return prismaEdu.eduInvite.findUnique({ where: { tokenHash: hash } });
+  const idx = await findTenantByInviteHash(hash);
+  if (!idx) return null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const db = await getTenantDb(idx.tenantId) as any;
+  return db.eduInvite.findUnique({ where: { tokenHash: hash } });
+}
+
+/**
+ * Busca o convite de família pelo token raw.
+ * Retorna { invite, db, tenantId } ou null.
+ */
+export async function findFamilyInviteByToken(rawToken: string) {
+  const hash = crypto.createHash("sha256").update(rawToken).digest("hex");
+  const idx = await findTenantByInviteHash(hash);
+  if (!idx) return null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const db = await getTenantDb(idx.tenantId) as any;
+  const invite = await db.eduGuardianInvite.findFirst({ where: { tokenHash: hash } });
+  if (!invite) return null;
+  return { invite, db, tenantId: idx.tenantId };
 }
 
 /** Hash de um token cru (mesmo esquema do convite): guardamos so o hash. */

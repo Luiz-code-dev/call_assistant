@@ -2,7 +2,7 @@ import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu } from "@/lib/escola/db";
-import { db } from "@/lib/db";
+
 
 function flag() { return isEscolasEnabled(); }
 
@@ -26,8 +26,8 @@ export async function POST(req: NextRequest) {
   if (ctx.role !== "NETWORK_ADMIN") return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
   const { email, role, schoolId } = await req.json();
   if (!email || !role) return NextResponse.json({ error: "E-mail e papel são obrigatórios" }, { status: 400 });
-  const user = await db.user.findUnique({ where: { email: email.toLowerCase().trim() } });
-  if (!user) return NextResponse.json({ error: "Usuário não encontrado. O usuário precisa ter uma conta SpeakFlow." }, { status: 404 });
+  const user = await prismaEdu.eduUser.findUnique({ where: { email: email.toLowerCase().trim() } });
+  if (!user) return NextResponse.json({ error: "Usuário não encontrado na rede." }, { status: 404 });
   const existing = await prismaEdu.eduMembership.findFirst({ where: { networkId: ctx.networkId, userId: user.id, role, schoolId: schoolId || null } });
   if (existing) {
     if (existing.isActive) return NextResponse.json({ error: "Vínculo já existe" }, { status: 409 });

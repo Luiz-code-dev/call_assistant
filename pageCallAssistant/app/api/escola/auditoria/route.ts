@@ -2,7 +2,7 @@ import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu } from "@/lib/escola/db";
-import { db } from "@/lib/db";
+
 
 function flag() { return isEscolasEnabled(); }
 
@@ -68,7 +68,7 @@ const ACTOR_ROLE_PT: Record<string, string> = {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const prismaUser = db as any;
+
 
 export async function GET(req: NextRequest) {
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
@@ -116,7 +116,7 @@ export async function GET(req: NextRequest) {
   const guardianIds = Array.from(new Set(logs.filter((l: { actorType: string }) => l.actorType === "guardian").map((l: { actorId: string }) => l.actorId)));
 
   const [users, students, guardians, memberships] = await Promise.all([
-    userIds.length ? prismaUser.user.findMany({ where: { id: { in: userIds } }, select: { id: true, name: true, email: true } }) : [],
+    userIds.length ? prismaEdu.eduUser.findMany({ where: { id: { in: userIds } }, select: { id: true, name: true, email: true } }) : [],
     studentIds.length ? prismaEdu.eduStudent.findMany({ where: { id: { in: studentIds as string[] } }, select: { id: true, fullName: true } }) : [],
     guardianIds.length ? prismaEdu.eduGuardian.findMany({ where: { id: { in: guardianIds as string[] } }, select: { id: true, name: true } }) : [],
     userIds.length ? prismaEdu.eduMembership.findMany({ where: { userId: { in: userIds as string[] }, networkId: ctx.networkId }, select: { userId: true, role: true } }) : [],

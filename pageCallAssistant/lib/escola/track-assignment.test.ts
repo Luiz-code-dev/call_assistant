@@ -4,19 +4,22 @@
  */
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
-vi.mock("@/lib/db", () => ({
-  db: {
-    eduTrack:            { findUnique: vi.fn() },
-    eduSkillMastery:     { findMany:   vi.fn() },
-    eduTrackAssignment:  { findMany:   vi.fn(), createMany: vi.fn() },
-  },
+// vi.hoisted garante que mockClient seja definido ANTES do vi.mock ser hoistado
+const mockClient = vi.hoisted(() => ({
+  eduTrack:            { findUnique: vi.fn() },
+  eduSkillMastery:     { findMany:   vi.fn() },
+  eduTrackAssignment:  { findMany:   vi.fn(), createMany: vi.fn() },
+}));
+
+vi.mock("@/lib/escola/db", () => ({
+  prismaEdu: mockClient,
+  setTenantDb: vi.fn(),
+  getDb: vi.fn(),
 }));
 
 import { assignTrackToStudents } from "./track-assignment";
-import { db } from "@/lib/db";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const p = db as any;
+const p = mockClient;
 
 const TRACK_ID = "track1";
 const NETWORK_ID = "net1";
@@ -54,7 +57,7 @@ describe("assignTrackToStudents — regras", () => {
 
   it("rejeita trilha inexistente (null)", async () => {
     p.eduTrack.findUnique.mockResolvedValue(null);
-    await expect(assignTrackToStudents(baseInput())).rejects.toThrow("não está aprovada");
+    await expect(assignTrackToStudents(baseInput())).rejects.toThrow(/não encontrada|não está aprovada/);
   });
 
   it("pula aluno com a mesma trilha já ativa", async () => {

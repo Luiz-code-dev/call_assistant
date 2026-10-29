@@ -2,7 +2,7 @@ import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu } from "@/lib/escola/db";
-import { generateInviteToken, sendInviteEmail } from "@/lib/escola/invite";
+import { generateInviteToken, sendInviteEmail, registerStaffInviteInCatalog } from "@/lib/escola/invite";
 import { assertCanInvite, InvitePermissionError } from "@/lib/escola/roles";
 import type { EduRole } from "@/lib/escola/types";
 
@@ -116,10 +116,10 @@ export async function POST(req: NextRequest) {
 
   const { raw, hash } = generateInviteToken();
   const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
-  const user = await prismaEdu.user.findFirst({
+  const user = await prismaEdu.eduUser.findFirst({
     where: { email: emailLower },
     select: { id: true },
-  });
+  }).catch(() => null);
 
   await prismaEdu.eduInvite.create({
     data: {
@@ -135,6 +135,7 @@ export async function POST(req: NextRequest) {
     },
   });
 
+  if (resolvedNetworkId) await registerStaffInviteInCatalog(hash, resolvedNetworkId, expiresAt).catch(() => null);
   await sendInviteEmail(email, name, raw, networkName);
 
   return NextResponse.json({ status: "sent" }, { status: 201 });

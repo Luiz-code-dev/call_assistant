@@ -3,19 +3,21 @@
  */
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
-vi.mock("@/lib/db", () => ({
-  db: {
-    eduTrack:           { findUnique: vi.fn() },
-    eduSkillMastery:    { findMany: vi.fn() },
-    eduTrackAssignment: { findMany: vi.fn(), createMany: vi.fn() },
-  },
+const mockClient = vi.hoisted(() => ({
+  eduTrack:           { findUnique: vi.fn() },
+  eduSkillMastery:    { findMany: vi.fn() },
+  eduTrackAssignment: { findMany: vi.fn(), createMany: vi.fn() },
+}));
+
+vi.mock("@/lib/escola/db", () => ({
+  prismaEdu: mockClient,
+  setTenantDb: vi.fn(),
+  getDb: vi.fn(),
 }));
 
 import { assignTrackToStudents } from "./track-assignment";
-import { db } from "@/lib/db";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const p = db as any;
+const p = mockClient;
 
 const BASE_TRACK = {
   id: "track-ef06ma07",

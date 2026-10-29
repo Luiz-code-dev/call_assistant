@@ -1,13 +1,16 @@
 import { cookies } from "next/headers";
 import { EduRole } from "@/lib/escola/types";
-import { db } from "@/lib/db";
 import { staffSecret, studentSecret } from "@/lib/escola/secrets";
 import { bearerToken, verifyTypedToken } from "@/lib/escola/app-auth";
+import { getTenantDb } from "@/lib/escola/tenant-db";
+import { findPlatformAdmin } from "@/lib/escola/catalogo";
+import { setTenantDb } from "@/lib/escola/db";
 
-export async function resolverVinculos(userId: string) {
+export async function resolverVinculos(userId: string, networkId: string) {
+  const db = await getTenantDb(networkId);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (db as any).eduMembership.findMany({
-    where: { userId, isActive: true, network: { isActive: true } },
+    where: { userId, isActive: true },
     include: {
       network: { select: { id: true, name: true } },
       school: { select: { id: true, name: true } },
@@ -33,6 +36,8 @@ export interface EduContext {
   schoolId: string | null;
   role: EduRole;
   membershipId: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  db?: any;
 }
 
 export interface StudentContext {
@@ -42,9 +47,7 @@ export interface StudentContext {
   classId: string;
 }
 
-
 export async function getEduContext(): Promise<EduContext | null> {
-  // App (Bearer) tem prioridade sobre o cookie da web.
   const raw = bearerToken() ?? cookies().get("sf_edu_ctx")?.value;
   if (!raw) return null;
 
@@ -52,19 +55,25 @@ export async function getEduContext(): Promise<EduContext | null> {
   if (!payload) return null;
 
   try {
-    // PLATFORM_ADMIN tokens carry role directly — no EduMembership
+    // PLATFORM_ADMIN: revalida no catálogo a cada request
     if (payload["role"] === "PLATFORM_ADMIN") {
       const userId = payload["sub"] as string | undefined;
       if (!userId) return null;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const admin = await (db as any).eduPlatformAdmin.findUnique({ where: { userId }, select: { isActive: true } });
-      if (!admin?.isActive) return null;
+      const { findPlatformAdmin } = await import("@/lib/escola/catalogo");
+      const admin = await findPlatformAdmin(userId);
+      if (!admin || !admin.isActive) return null;
       return { userId, networkId: "", schoolId: null, role: "PLATFORM_ADMIN" as EduRole, membershipId: "" };
     }
 
     const membershipId = payload["mid"] as string | undefined;
-    if (!membershipId) return null;
+    const networkId   = payload["nid"] as string | undefined;
+    if (!membershipId || !networkId) return null;
 
+    // Usa getTenantDb(networkId) — rota o acesso para a base correta.
+    // Também injeta no AsyncLocalStorage via setTenantDb para compatibilidade
+    // com rotas que ainda usam prismaEdu.
+    const db = await getTenantDb(networkId);
+    setTenantDb(db);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const membership = await (db as any).eduMembership.findUnique({
       where: { id: membershipId },
@@ -78,13 +87,14 @@ export async function getEduContext(): Promise<EduContext | null> {
       schoolId: membership.schoolId,
       role: membership.role,
       membershipId: membership.id,
+      db,
     };
   } catch {
     return null;
   }
 }
 
-// C: cache leve de revalidação por 60 s para evitar queries excessivas
+// Cache leve de revalidação por 60 s
 const revalidationCache = new Map<string, { ok: boolean; ts: number }>();
 const REVALIDATE_TTL_MS = 60_000;
 
@@ -96,33 +106,24 @@ export async function getStudentContext(): Promise<StudentContext | null> {
   if (!payload) return null;
 
   try {
-    const studentId = payload["sub"] as string | undefined;
-    const networkId = payload["nid"] as string | undefined;
+    const studentId   = payload["sub"] as string | undefined;
+    const networkId   = payload["nid"] as string | undefined;
     const enrollmentId = payload["eid"] as string | undefined;
-    const classId = payload["cid"] as string | undefined;
+    const classId     = payload["cid"] as string | undefined;
 
     if (!studentId || !networkId || !enrollmentId || !classId) return null;
 
-    // C: revalida no banco (com cache) — garante aluno ativo, matrícula ativa, rede não suspensa
     const cacheKey = `${studentId}:${enrollmentId}`;
     const cached = revalidationCache.get(cacheKey);
     if (!cached || Date.now() - cached.ts > REVALIDATE_TTL_MS) {
+      const db = await getTenantDb(networkId);
+      setTenantDb(db); // injeta no AsyncLocalStorage para prismaEdu
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const enrollment = await (db as any).eduEnrollment.findUnique({
         where: { id: enrollmentId },
-        select: {
-          status: true,
-          student: {
-            select: {
-              isActive: true,
-              network: { select: { isActive: true } },
-            },
-          },
-        },
+        select: { status: true, student: { select: { isActive: true } } },
       });
-      const ok =
-        enrollment?.status === "ACTIVE" &&
-        enrollment?.student?.isActive === true &&
-        enrollment?.student?.network?.isActive === true;
+      const ok = enrollment?.status === "ACTIVE" && enrollment?.student?.isActive === true;
       revalidationCache.set(cacheKey, { ok, ts: Date.now() });
       if (!ok) return null;
     } else if (!cached.ok) {

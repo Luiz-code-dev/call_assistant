@@ -17,8 +17,8 @@ const SHIFT_LABEL: Record<string, string> = {
   MORNING: "Manhã", AFTERNOON: "Tarde", EVENING: "Noturno", FULL_TIME: "Integral",
 };
 
-async function signCardToken(studentId: string, cardVersion: number): Promise<string> {
-  return new SignJWT({ studentId, cardVersion })
+async function signCardToken(studentId: string, cardVersion: number, nid: string): Promise<string> {
+  return new SignJWT({ studentId, cardVersion, nid })
     .setProtectedHeader({ alg: "HS256" })
     .setAudience("student-card")
     .setIssuedAt()
@@ -54,7 +54,7 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
 
     const cards = await Promise.all(enrollments.map(async (e: PrismaEduAny, i: number) => {
       const s = e.student;
-      const token = await signCardToken(s.id, s.cardVersion);
+      const token = await signCardToken(s.id, s.cardVersion, ctx.networkId);
       const qrUrl = `${baseUrl}/escola/aluno/entrar?card=${encodeURIComponent(token)}`;
       return { num: i + 1, name: s.fullName, loginMode: s.loginMode, cardVersion: s.cardVersion, qrUrl, studentId: s.id };
     }));

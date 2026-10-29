@@ -1,5 +1,6 @@
 import { headers } from "next/headers";
-import { db } from "@/lib/db";
+import { prismaEdu } from "@/lib/escola/db";
+
 import EscAppShell from "@/components/escola/layout/EscAppShell";
 import { getEduContext } from "@/lib/escola/context";
 import { EduRole } from "@/lib/escola/types";
@@ -17,7 +18,7 @@ function isShellFreePath(pathname: string): boolean {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const prisma = db as any;
+const prisma = prismaEdu;
 
 async function getShellData() {
   try {
