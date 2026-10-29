@@ -109,7 +109,7 @@ export default function PlanoDetailPage({ params }: { params: { id: string } }) 
 
       {plan.units?.length === 0 ? (
         <div className="text-center py-10 text-[#5B5470] border border-dashed border-[#E9E5F5] rounded-xl">
-          <div className="text-3xl mb-2">📝</div>
+          <div className="text-3xl mb-2"></div>
           <div className="text-sm">Nenhuma unidade didática</div>
         </div>
       ) : (

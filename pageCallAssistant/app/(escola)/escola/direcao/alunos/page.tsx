@@ -15,6 +15,10 @@ export default function AlunosPage() {
   const [csvMode, setCsvMode] = useState(false);
   const [csvText, setCsvText] = useState("");
   const [csvResult, setCsvResult] = useState<{success:number;errors:{line:number;msg:string}[]}>({ success: 0, errors: [] });
+  const [pinDrawer, setPinDrawer] = useState<{ id: string; nome: string } | null>(null);
+  const [pinGerado, setPinGerado] = useState<string | null>(null);
+  const [pinLoading, setPinLoading] = useState(false);
+  const [pinMsg, setPinMsg] = useState("");
 
   async function load() {
     setLoading(true);
@@ -47,11 +51,14 @@ export default function AlunosPage() {
     setSaving(false);
   }
 
-  async function resetPin(id: string) {
-    const pin = prompt("Novo PIN (6 dígitos):");
-    if (!pin || !/^\d{6}$/.test(pin)) { alert("PIN deve ter 6 dígitos numéricos"); return; }
-    const r = await fetch(`/api/escola/alunos/${id}/pin`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pin }) });
-    if (r.ok) alert("PIN redefinido com sucesso!"); else alert("Erro ao redefinir PIN");
+  async function gerarPinServidor(id: string) {
+    setPinLoading(true); setPinGerado(null); setPinMsg("");
+    // Gera PIN aleatório no servidor (sem enviar PIN do navegador)
+    const r = await fetch(`/api/escola/alunos/${id}/pin`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({}) });
+    const d = await r.json().catch(() => ({}));
+    if (r.ok && d.pin) { setPinGerado(d.pin); setPinMsg(""); }
+    else { setPinMsg(d.error ?? "Erro ao gerar senha."); }
+    setPinLoading(false);
   }
 
   return (
@@ -74,7 +81,7 @@ export default function AlunosPage() {
           <p className="text-[#5B5470] text-xs mb-3">Formato: matrícula, nome, data_nascimento (opcional), nome_da_turma (opcional)</p>
           <textarea value={csvText} onChange={e => setCsvText(e.target.value)} rows={8} placeholder={"12345, João da Silva, 2012-03-15, 7º A\n67890, Maria Souza,,8º B"} className="w-full bg-[#FAF9FD] text-[#1F1A2E] rounded-lg px-3 py-2 text-sm border border-[#DDD6EE] outline-none font-mono resize-y mb-3 focus:border-purple-500" />
           <button onClick={importCsv} disabled={saving || !csvText.trim()} className="bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded-lg text-sm min-h-[44px] disabled:opacity-50">{saving ? "Importando..." : "Importar"}</button>
-          {csvResult.success > 0 && <p className="text-[#166534] text-sm mt-3">✅ {csvResult.success} aluno(s) importado(s)</p>}
+          {csvResult.success > 0 && <p className="text-[#166534] text-sm mt-3"> {csvResult.success} aluno(s) importado(s)</p>}
           {csvResult.errors.length > 0 && (
             <div className="mt-3 space-y-1">{csvResult.errors.map((e, i) => <p key={i} className="text-[#B91C1C] text-xs">Linha {e.line}: {e.msg}</p>)}</div>
           )}
@@ -120,7 +127,7 @@ export default function AlunosPage() {
       )}
 
       {loading ? <div className="text-[#5B5470] text-center py-12">Carregando...</div> : students.length === 0 ? (
-        <div className="text-center py-16 text-[#5B5470]"><div className="text-4xl mb-3">🎓</div><div>Nenhum aluno encontrado</div></div>
+        <div className="text-center py-16 text-[#5B5470]"><div className="text-4xl mb-3"></div><div>Nenhum aluno encontrado</div></div>
       ) : (
         <div className="space-y-2">
           {students.map(s => (
@@ -131,10 +138,46 @@ export default function AlunosPage() {
                 {s.enrollments?.[0] && <div className="text-purple-400 text-xs">{s.enrollments[0].class?.name}</div>}
               </div>
               <div className="flex items-center gap-2 shrink-0">
-                <button onClick={() => resetPin(s.id)} className="text-xs text-[#5B5470] hover:text-[#92400E] px-2 py-1 min-h-[44px] flex items-center transition-colors">Redefinir PIN</button>
+                <button onClick={() => { setPinDrawer({ id: s.id, nome: s.fullName }); setPinGerado(null); setPinMsg(""); }} className="text-xs text-[#6D28D9] hover:text-[#5B21B6] px-2 py-1 min-h-[44px] flex items-center transition-colors">Gerar nova senha</button>
               </div>
             </div>
           ))}
+        </div>
+      )}
+
+      {/* Drawer: Gerar nova senha */}
+      {pinDrawer && (
+        <div className="fixed inset-0 bg-black/40 z-50 flex justify-end">
+          <div className="bg-white w-full max-w-sm h-full shadow-xl flex flex-col overflow-y-auto">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-[#E9E5F5]">
+              <h2 className="text-[#1F1A2E] font-bold text-base">Gerar nova senha</h2>
+              <button onClick={() => setPinDrawer(null)} className="text-[#5B5470] hover:text-[#1F1A2E] p-1">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+              </button>
+            </div>
+            <div className="p-5 flex-1">
+              <p className="text-[#1F1A2E] font-semibold mb-1">{pinDrawer.nome}</p>
+              <p className="text-[#5B5470] text-sm mb-6">O sistema irá gerar uma nova senha aleatória. Mostre ao aluno e destrua após entrega.</p>
+              {!pinGerado ? (
+                <button onClick={() => gerarPinServidor(pinDrawer.id)} disabled={pinLoading}
+                  className="w-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white py-3 rounded-xl font-semibold text-sm min-h-[48px] disabled:opacity-60">
+                  {pinLoading ? "Gerando…" : "Gerar nova senha"}
+                </button>
+              ) : (
+                <div>
+                  <p className="text-[#5B5470] text-xs mb-2">Nova senha gerada — anote e entregue ao aluno:</p>
+                  <div className="bg-[#EDE9FE] border border-[#C4B5FD] rounded-xl p-4 text-center mb-4">
+                    <span className="text-[48px] font-extrabold text-[#4C1D95] tracking-widest">{pinGerado}</span>
+                  </div>
+                  <button onClick={() => window.print()} className="w-full border border-[#DDD6EE] text-[#5B5470] py-2.5 rounded-xl text-sm font-semibold mb-3 min-h-[44px] hover:border-[#6D28D9]">
+                    Imprimir comprovante
+                  </button>
+                  <button onClick={() => { setPinGerado(null); setPinDrawer(null); }} className="w-full bg-[#6D28D9] text-white py-2.5 rounded-xl text-sm font-semibold min-h-[44px]">Fechar</button>
+                </div>
+              )}
+              {pinMsg && <p className="text-[#B91C1C] text-sm mt-3">{pinMsg}</p>}
+            </div>
+          </div>
         </div>
       )}
     </div>

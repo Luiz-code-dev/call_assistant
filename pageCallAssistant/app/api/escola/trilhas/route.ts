@@ -69,6 +69,25 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ tracks });
   }
 
+  // "pendentes" — para COORDINATOR e NETWORK_ADMIN: trilhas SUBMITTED de toda a rede
+  if (aba === "pendentes") {
+    if (!["COORDINATOR","NETWORK_ADMIN"].includes(ctx.role))
+      return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
+    const tracks = await p.eduTrack.findMany({
+      where: { ...base, status: "SUBMITTED" },
+      include: {
+        ...TRACK_INCLUDE,
+        createdByUser: { select: { id: true, name: true, email: true } },
+      },
+      orderBy: { updatedAt: "desc" as const },
+    }).catch(() => p.eduTrack.findMany({
+      where: { ...base, status: "SUBMITTED" },
+      include: TRACK_INCLUDE,
+      orderBy: { createdAt: "desc" as const },
+    }));
+    return NextResponse.json({ tracks });
+  }
+
   // "minhas" — rascunhos e trilhas do professor
   const tracks = await p.eduTrack.findMany({
     where: { ...base, createdById: ctx.userId },

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { STAGE_LABEL, SHIFT_LABEL } from "@/lib/escola/types";
 
 interface Teacher { id: string; name: string; email: string; }
@@ -13,9 +13,11 @@ export default function AtribuicoesPage() {
   const [teachers, setTeachers] = useState<Teacher[]>([]);
   const [schoolId, setSchoolId] = useState<string>("");
   const [schools, setSchools] = useState<{ id: string; name: string }[]>([]);
+  const [role, setRole] = useState<string>("");
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [saveError, setSaveError] = useState("");
   const [changes, setChanges] = useState<Record<string, string | null>>({});
   const [isMobile, setIsMobile] = useState(false);
 
@@ -27,27 +29,39 @@ export default function AtribuicoesPage() {
   }, []);
 
   useEffect(() => {
-    fetch("/api/escola/escolas").then(r => r.json()).then(d => {
-      setSchools(d.schools ?? []);
-      if (d.schools?.[0]) setSchoolId(d.schools[0].id);
+    Promise.all([
+      fetch("/api/escola/escolas").then(r => r.json()),
+      fetch("/api/escola/auth/me").then(r => r.ok ? r.json() : { role: "" }),
+    ]).then(([dSchools, dMe]: [{ schools?: { id: string; name: string }[] }, { role?: string; schoolId?: string }]) => {
+      setRole(dMe.role ?? "");
+      const lista = dSchools.schools ?? [];
+      setSchools(lista);
+      // Prioriza o schoolId retornado pelo /auth/me para diretores; fallback: primeiro da lista
+      const contextSchoolId = dMe.schoolId ?? "";
+      const target = contextSchoolId && lista.some(s => s.id === contextSchoolId)
+        ? contextSchoolId
+        : lista[0]?.id ?? "";
+      if (target) setSchoolId(target);
     });
   }, []);
 
-  useEffect(() => {
-    if (!schoolId) return;
-    setLoading(true);
-    fetch(`/api/escola/escolas/${schoolId}/atribuicoes`).then(r => r.json()).then(d => {
+  const loadSchool = useCallback((sid: string) => {
+    if (!sid) return;
+    setLoading(true); setSaveError("");
+    fetch(`/api/escola/escolas/${sid}/atribuicoes`).then(r => r.json()).then(d => {
       setClasses(d.classes ?? []);
       setSubjects(d.subjects ?? []);
       setTeachers(d.teachers ?? []);
       setChanges({});
       setLoading(false);
     });
-  }, [schoolId]);
+  }, []);
+
+  useEffect(() => { if (schoolId) loadSchool(schoolId); }, [schoolId, loadSchool]);
 
   function setTeacher(offerId: string, teacherId: string | null) {
     setChanges(c => ({ ...c, [offerId]: teacherId }));
-    setSaved(false);
+    setSaved(false); setSaveError("");
   }
 
   function getOfferTeacher(offer: Offer): string | null {
@@ -55,15 +69,24 @@ export default function AtribuicoesPage() {
   }
 
   async function save() {
-    setSaving(true);
+    setSaving(true); setSaveError("");
     const assignments = Object.entries(changes).map(([classSubjectId, teacherId]) => ({ classSubjectId, teacherId }));
     const r = await fetch(`/api/escola/escolas/${schoolId}/atribuicoes`, {
       method: "PUT", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ assignments }),
     });
-    if (r.ok) { setSaved(true); setChanges({}); }
+    if (r.ok) {
+      setSaved(true);
+      // Recarrega dados do servidor para refletir o estado real salvo
+      loadSchool(schoolId);
+    } else {
+      const d = await r.json().catch(() => ({}));
+      setSaveError(d.error ?? "Não foi possível salvar. Tente novamente.");
+    }
     setSaving(false);
   }
+
+  const isMultiSchool = ["NETWORK_ADMIN", "COORDINATOR"].includes(role);
 
   const pendingCount = classes.reduce((acc, cls) => acc + cls.subjects.filter(o => !getOfferTeacher(o)).length, 0);
   const changesCount = Object.keys(changes).length;
@@ -78,15 +101,18 @@ export default function AtribuicoesPage() {
           {pendingCount > 0 && <p className="text-[#92400E] text-sm mt-0.5">{pendingCount} aula{pendingCount !== 1 ? "s" : ""} sem professor</p>}
         </div>
         <div className="flex gap-3 flex-wrap">
-          <select value={schoolId} onChange={e => setSchoolId(e.target.value)} className="bg-[#FAF9FD] text-[#1F1A2E] rounded-lg px-3 py-2 text-sm border border-[#DDD6EE] outline-none min-h-[44px]">
-            {schools.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
-          </select>
+          {isMultiSchool && (
+            <select value={schoolId} onChange={e => setSchoolId(e.target.value)} className="bg-[#FAF9FD] text-[#1F1A2E] rounded-lg px-3 py-2 text-sm border border-[#DDD6EE] outline-none min-h-[44px]">
+              {schools.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+            </select>
+          )}
           {changesCount > 0 && (
             <button onClick={save} disabled={saving} className="bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium min-h-[44px] disabled:opacity-50 transition-colors">
               {saving ? "Salvando..." : `Salvar ${changesCount} alteração${changesCount !== 1 ? "ões" : ""}`}
             </button>
           )}
-          {saved && <span className="text-[#166534] text-sm flex items-center gap-1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M20 6 9 17l-5-5"/></svg> Salvo</span>}
+          {saved && !saveError && <span className="text-[#166534] text-sm flex items-center gap-1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M20 6 9 17l-5-5"/></svg> Salvo</span>}
+          {saveError && <span className="text-[#B91C1C] text-sm">{saveError}</span>}
         </div>
       </div>
 

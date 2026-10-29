@@ -26,16 +26,12 @@ export default function CoordenacaoTrilhasPage() {
 
   const carregar = useCallback(async (a: Aba) => {
     setLoading(true); setErro("");
-    const status = a === "aguardando" ? "SUBMITTED" : "APPROVED";
-    const r = await fetch(`/api/escola/trilhas?aba=${a === "aguardando" ? "minhas" : "biblioteca"}&status=${status}`).catch(() => null);
-    // Coordenação vê todas, não só as "minhas"; usa endpoint de biblioteca para APPROVED
-    const r2 = await fetch(a === "aguardando"
-      ? "/api/escola/coordenacao/trilhas-pendentes"
-      : "/api/escola/trilhas?aba=biblioteca"
-    ).catch(() => null);
-    const target = r2?.ok ? r2 : r;
-    if (!target?.ok) { setErro("Não foi possível carregar."); setLoading(false); return; }
-    const d = await target.json();
+    const url = a === "aguardando"
+      ? "/api/escola/trilhas?aba=pendentes"
+      : "/api/escola/trilhas?aba=biblioteca";
+    const r = await fetch(url).catch(() => null);
+    if (!r?.ok) { setErro("Não foi possível carregar."); setLoading(false); return; }
+    const d = await r.json();
     setTracks(d.tracks ?? []);
     setLoading(false);
   }, []);
@@ -151,7 +147,7 @@ function DevolverModal({ track, onClose, onAprovar, onDevolver }: {
       <div className="bg-white w-full max-w-lg rounded-2xl max-h-[90vh] overflow-y-auto">
         <div className="sticky top-0 bg-white border-b border-[#E9E5F5] px-6 py-4 flex items-center justify-between">
           <h2 className="font-semibold text-[#1F1A2E]">{track.title}</h2>
-          <button onClick={onClose} className="text-[#5B5470] hover:text-[#1F1A2E] p-1 text-lg">✕</button>
+          <button onClick={onClose} className="text-[#5B5470] hover:text-[#1F1A2E] p-1 text-lg"></button>
         </div>
         <div className="p-6 space-y-4">
           <div className="flex flex-wrap gap-1">

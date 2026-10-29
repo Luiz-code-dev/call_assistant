@@ -60,7 +60,7 @@ export default function DiagnosticosPage() {
         <div className="text-[#5B5470] text-center py-16">Carregando diagnósticos...</div>
       ) : diagnostics.length === 0 ? (
         <div className="text-center py-16 text-[#5B5470]">
-          <div className="text-4xl mb-3">📋</div>
+          <div className="text-4xl mb-3"></div>
           <p>Nenhum diagnóstico criado.</p>
           <p className="text-sm mt-1">Crie um diagnóstico para mapear o domínio das habilidades da turma.</p>
         </div>

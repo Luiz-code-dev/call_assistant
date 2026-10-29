@@ -273,7 +273,7 @@ function AtribuirModal({ track, onClose, onSucesso }: {
       <div className="bg-white w-full sm:max-w-md rounded-t-2xl sm:rounded-2xl max-h-[90vh] overflow-y-auto">
         <div className="sticky top-0 bg-white border-b border-[#E9E5F5] px-6 py-4 flex items-center justify-between">
           <h2 className="font-semibold text-[#1F1A2E]">Atribuir: {track.title}</h2>
-          <button onClick={onClose} className="text-[#5B5470] hover:text-[#1F1A2E] p-1">✕</button>
+          <button onClick={onClose} className="text-[#5B5470] hover:text-[#1F1A2E] p-1"></button>
         </div>
 
         <div className="p-6 space-y-4">

@@ -81,7 +81,7 @@ function EntregaRow({ entrega, activityId, maxScore, onReview }: {
               <p className="text-xs font-semibold text-zinc-500 mb-1">Avaliação da IA</p>
               <div className="bg-blue-50 rounded-lg p-3 space-y-1">
                 <p className="text-xs text-blue-800 font-medium">Nota sugerida: {Number(sub.aiScore ?? 0).toFixed(1)} / {maxScore}</p>
-                {sub.aiFeedback.acertos?.map((a, i) => <p key={i} className="text-xs text-blue-700">✓ {a}</p>)}
+                {sub.aiFeedback.acertos?.map((a, i) => <p key={i} className="text-xs text-blue-700"> {a}</p>)}
                 {sub.aiFeedback.melhorar?.map((m, i) => <p key={i} className="text-xs text-blue-600">→ {m}</p>)}
               </div>
             </div>
