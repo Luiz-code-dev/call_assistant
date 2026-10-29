@@ -8,7 +8,7 @@
  * Uso: node scripts/escolas/migrate-all.mjs
  */
 import { execSync } from "child_process";
-import { PrismaClient } from "../../prisma/escolas-catalogo/generated/index.js";
+import { PrismaClient } from "@prisma/escolas-catalogo";
 
 const catalog = new PrismaClient({
   datasources: { db: { url: process.env.ESCOLAS_CATALOG_URL } },

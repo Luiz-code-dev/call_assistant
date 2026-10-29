@@ -20,7 +20,7 @@
  */
 import { parseArgs } from "util";
 import { execSync } from "child_process";
-import { PrismaClient as CatalogClient } from "../../prisma/escolas-catalogo/generated/index.js";
+import { PrismaClient as CatalogClient } from "@prisma/escolas-catalogo";
 
 const { values: args } = parseArgs({
   args: process.argv.slice(2),
@@ -44,7 +44,7 @@ if (!tenantId || !targetKey) {
 
 let PrismaClient;
 try {
-  ({ PrismaClient } = await import("../../prisma/escolas/generated/index.js"));
+  ({ PrismaClient } = await import("@prisma/escolas"));
 } catch {
   throw new Error("Cliente escolas não gerado.");
 }

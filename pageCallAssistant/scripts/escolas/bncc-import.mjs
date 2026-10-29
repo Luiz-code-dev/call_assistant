@@ -7,7 +7,7 @@
  *
  * Uso: node scripts/escolas/bncc-import.mjs
  */
-import { PrismaClient as CatalogClient } from "../../prisma/escolas-catalogo/generated/index.js";
+import { PrismaClient as CatalogClient } from "@prisma/escolas-catalogo";
 import { readFileSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
@@ -18,7 +18,7 @@ const ROOT = join(__dirname, "../..");
 
 let PrismaClient;
 try {
-  ({ PrismaClient } = await import("../../prisma/escolas/generated/index.js"));
+  ({ PrismaClient } = await import("@prisma/escolas"));
 } catch {
   throw new Error("Cliente escolas não gerado. Execute: npm run db:generate:escolas");
 }

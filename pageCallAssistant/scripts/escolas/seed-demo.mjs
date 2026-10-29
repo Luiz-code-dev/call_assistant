@@ -12,7 +12,7 @@
  *   npm run escolas:seed-demo
  *   node scripts/escolas/seed-demo.mjs
  */
-import { PrismaClient as CatalogClient } from "../../prisma/escolas-catalogo/generated/index.js";
+import { PrismaClient as CatalogClient } from "@prisma/escolas-catalogo";
 import { createHash } from "crypto";
 import bcrypt from "bcryptjs";
 
@@ -31,7 +31,7 @@ function tenantClient(envVar) {
 let PrismaClient;
 try {
   // Tenta cliente gerado da base escolas
-  ({ PrismaClient } = await import("../../prisma/escolas/generated/index.js"));
+  ({ PrismaClient } = await import("@prisma/escolas"));
 } catch {
   throw new Error("Cliente Prisma da base escolas não gerado. Execute: npm run db:generate:escolas");
 }

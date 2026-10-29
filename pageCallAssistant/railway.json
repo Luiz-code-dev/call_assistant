@@ -10,7 +10,7 @@
   "deploy": {
     "runtime": "V2",
     "numReplicas": 1,
-    "preDeployCommand": "npx prisma@5 migrate deploy && npx prisma@5 migrate deploy --schema prisma/escolas-catalogo/schema.prisma && node scripts/escolas/migrate-all.mjs && node scripts/escolas/bncc-import.mjs",
+    "preDeployCommand": "npx prisma@5 migrate deploy && npx prisma@5 migrate deploy --schema prisma/escolas-catalogo/schema.prisma && node scripts/escolas/bootstrap-catalogo.mjs && node scripts/escolas/migrate-all.mjs && node scripts/escolas/bncc-import.mjs && node -e \"if(process.env.ESCOLAS_SEED_DEMO==='true'){require('child_process').execSync('node scripts/escolas/seed-demo.mjs',{stdio:'inherit'})}\"",
     "startCommand": "node server.js",
     "sleepApplication": false,
     "restartPolicyType": "ON_FAILURE",

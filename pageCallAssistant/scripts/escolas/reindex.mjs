@@ -6,11 +6,11 @@
  * bases de cada rede ativa. Idempotente (upsert). Roda à noite via cron e
  * pode ser executado manualmente.
  */
-import { PrismaClient as CatalogClient } from "../../prisma/escolas-catalogo/generated/index.js";
+import { PrismaClient as CatalogClient } from "@prisma/escolas-catalogo";
 
 let PrismaClient;
 try {
-  ({ PrismaClient } = await import("../../prisma/escolas/generated/index.js"));
+  ({ PrismaClient } = await import("@prisma/escolas"));
 } catch {
   throw new Error("Cliente escolas não gerado. Execute: npm run db:generate:escolas");
 }
