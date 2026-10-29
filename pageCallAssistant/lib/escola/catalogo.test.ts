@@ -72,7 +72,7 @@ describe("catalogo — findTenantByCode", () => {
   });
 
   it("aceita código sem expiração", () => {
-    const permanent = { code: "X", kind: "CLASS_ACCESS", tenantId: "net-a", expiresAt: null };
+    const permanent: { code: string; kind: string; tenantId: string; expiresAt: Date | null } = { code: "X", kind: "CLASS_ACCESS", tenantId: "net-a", expiresAt: null };
     const isExpired = permanent.expiresAt && permanent.expiresAt < new Date();
     expect(isExpired).toBeFalsy();
   });
