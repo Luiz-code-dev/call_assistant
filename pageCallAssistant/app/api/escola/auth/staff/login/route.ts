@@ -105,13 +105,14 @@ export async function POST(req: NextRequest) {
     }
 
     // Múltiplos — escolher perfil
-    const pending = appClient ? await signPendingStaffToken(validMemberships[0]?.user.id ?? "") : undefined;
+    const pendingUserId = validMemberships[0]?.user.id ?? "";
+    const pending = appClient ? await signPendingStaffToken(pendingUserId, email) : undefined;
     const res = NextResponse.json({ ok: true, redirect: "/escola/escolher-perfil", ...(appClient ? { needsProfile: true, pending } : {}) });
     if (!appClient) {
-      // Salva userId temporário para o fluxo web de escolha
-      res.cookies.set("sf_edu_pending_uid", validMemberships[0]?.user.id ?? "", {
-        httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "lax", maxAge: 60 * 5, path: "/",
-      });
+      // Salva userId e email temporários para o fluxo web de escolha de perfil
+      const cookieOpts = { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "lax" as const, maxAge: 60 * 5, path: "/" };
+      res.cookies.set("sf_edu_pending_uid", pendingUserId, cookieOpts);
+      res.cookies.set("sf_edu_pending_email", email.toLowerCase().trim(), cookieOpts);
     }
     return res;
   } catch (err) {

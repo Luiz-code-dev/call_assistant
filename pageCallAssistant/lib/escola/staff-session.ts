@@ -5,9 +5,9 @@ export const STAFF_SESSION_SECONDS = 60 * 60 * 12;
 // Token curto de "perfil pendente" (so para o app escolher entre varios vinculos).
 export const PENDING_STAFF_SECONDS = 60 * 10;
 
-/** Emite o token pendente (app) com aud "staff-pending" e sub = userId. */
-export async function signPendingStaffToken(userId: string): Promise<string> {
-  return new SignJWT({ pending: true })
+/** Emite o token pendente (app) com aud "staff-pending", sub = userId e claim eml = email. */
+export async function signPendingStaffToken(userId: string, email: string): Promise<string> {
+  return new SignJWT({ pending: true, eml: email })
     .setProtectedHeader({ alg: "HS256" })
     .setAudience("staff-pending")
     .setSubject(userId)
@@ -16,12 +16,15 @@ export async function signPendingStaffToken(userId: string): Promise<string> {
     .sign(staffSecret());
 }
 
-/** Valida o token pendente e retorna o userId, ou null. */
-export async function verifyPendingStaffToken(raw: string): Promise<string | null> {
+/** Valida o token pendente e retorna { userId, email }, ou null. */
+export async function verifyPendingStaffToken(raw: string): Promise<{ userId: string; email: string } | null> {
   try {
     const { payload } = await jwtVerify(raw, staffSecret(), { audience: "staff-pending" });
     if (payload.pending !== true) return null;
-    return (payload.sub as string | undefined) ?? null;
+    const userId = payload.sub as string | undefined;
+    const email = payload["eml"] as string | undefined;
+    if (!userId || !email) return null;
+    return { userId, email };
   } catch {
     return null;
   }

@@ -108,6 +108,12 @@ export async function findPlatformAdmin(email: string) {
   return db.platformAdmin.findUnique({ where: { email: email.toLowerCase().trim() } });
 }
 
+/** Revalida admin de plataforma pelo ID (sub do token JWT). */
+export async function findPlatformAdminById(id: string) {
+  const db = getCatalogDb();
+  return db.platformAdmin.findUnique({ where: { id } });
+}
+
 /** Registra token de convite no catálogo para permitir lookup sem contexto. */
 export async function registerInvite(kind: "STAFF_INVITE" | "FAMILY_INVITE", tokenHash: string, tenantId: string, expiresAt: Date) {
   const db = getCatalogDb();

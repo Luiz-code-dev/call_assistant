@@ -58,8 +58,12 @@ COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
 
 # CLI do Prisma instalada na imagem (mesma versão do package.json)
 # Evita download em runtime via npx prisma@5
+# IMPORTANTE: NÃO copiar node_modules/.bin/prisma (é symlink no Linux; Docker segue o symlink
+# e copia o conteúdo para .bin/, mudando __dirname e quebrando a busca pelo .wasm)
+# Em vez disso, criamos um wrapper em /usr/local/bin/prisma que invoca node com caminho correto.
 COPY --from=builder /app/node_modules/prisma ./node_modules/prisma
-COPY --from=builder /app/node_modules/.bin/prisma ./node_modules/.bin/prisma
+RUN printf '#!/bin/sh\nexec node /app/node_modules/prisma/build/index.js "$@"\n' \
+    > /usr/local/bin/prisma && chmod +x /usr/local/bin/prisma
 
 # Scripts de migração e start
 COPY --from=builder /app/scripts ./scripts

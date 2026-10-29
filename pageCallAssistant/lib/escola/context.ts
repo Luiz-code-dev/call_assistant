@@ -3,7 +3,7 @@ import { EduRole } from "@/lib/escola/types";
 import { staffSecret, studentSecret } from "@/lib/escola/secrets";
 import { bearerToken, verifyTypedToken } from "@/lib/escola/app-auth";
 import { getTenantDb } from "@/lib/escola/tenant-db";
-import { findPlatformAdmin } from "@/lib/escola/catalogo";
+import { findPlatformAdminById } from "@/lib/escola/catalogo";
 import { setTenantDb } from "@/lib/escola/db";
 
 export async function resolverVinculos(userId: string, networkId: string) {
@@ -55,12 +55,11 @@ export async function getEduContext(): Promise<EduContext | null> {
   if (!payload) return null;
 
   try {
-    // PLATFORM_ADMIN: revalida no catálogo a cada request
+    // PLATFORM_ADMIN: revalida no catálogo a cada request (sub = platformAdmin.id)
     if (payload["role"] === "PLATFORM_ADMIN") {
       const userId = payload["sub"] as string | undefined;
       if (!userId) return null;
-      const { findPlatformAdmin } = await import("@/lib/escola/catalogo");
-      const admin = await findPlatformAdmin(userId);
+      const admin = await findPlatformAdminById(userId);
       if (!admin || !admin.isActive) return null;
       return { userId, networkId: "", schoolId: null, role: "PLATFORM_ADMIN" as EduRole, membershipId: "" };
     }
