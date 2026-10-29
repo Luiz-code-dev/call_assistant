@@ -13,13 +13,18 @@ export async function GET() {
     include: { class: { select: { id: true, name: true, gradeYear: true, stage: true, isActive: true } } },
   });
 
-  const seen = new Set<string>();
-  const classes = classSubjects
-    .filter((cs: any) => cs.class.isActive)
-    .reduce((acc: any[], cs: any) => {
-      if (!seen.has(cs.class.id)) { seen.add(cs.class.id); acc.push(cs.class); }
-      return acc;
-    }, []);
+  // Agrupa por turma, adicionando lista de subjectIds do professor nessa turma
+  const byClass = new Map<string, { id: string; name: string; gradeYear: number; stage: string; isActive: boolean; subjects: { subjectId: string }[] }>();
+  for (const cs of classSubjects as { subjectId: string; class: { id: string; name: string; gradeYear: number; stage: string; isActive: boolean } }[]) {
+    if (!cs.class.isActive) continue;
+    const entry = byClass.get(cs.class.id);
+    if (entry) {
+      entry.subjects.push({ subjectId: cs.subjectId });
+    } else {
+      byClass.set(cs.class.id, { ...cs.class, subjects: [{ subjectId: cs.subjectId }] });
+    }
+  }
+  const classes = Array.from(byClass.values());
 
-  return NextResponse.json({ classes });
+  return NextResponse.json({ classes, role: ctx.role });
 }

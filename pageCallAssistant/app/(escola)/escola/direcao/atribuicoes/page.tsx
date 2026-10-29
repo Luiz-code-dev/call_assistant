@@ -32,12 +32,16 @@ export default function AtribuicoesPage() {
     Promise.all([
       fetch("/api/escola/escolas").then(r => r.json()),
       fetch("/api/escola/auth/me").then(r => r.ok ? r.json() : { role: "" }),
-    ]).then(([dSchools, dMe]: [{ schools?: { id: string; name: string }[] }, { role?: string }]) => {
+    ]).then(([dSchools, dMe]: [{ schools?: { id: string; name: string }[] }, { role?: string; schoolId?: string }]) => {
       setRole(dMe.role ?? "");
       const lista = dSchools.schools ?? [];
       setSchools(lista);
-      // SCHOOL_ADMIN: usa só a escola do contexto (primeiro da lista, já filtrada pelo backend)
-      if (lista[0]) setSchoolId(lista[0].id);
+      // Prioriza o schoolId retornado pelo /auth/me para diretores; fallback: primeiro da lista
+      const contextSchoolId = dMe.schoolId ?? "";
+      const target = contextSchoolId && lista.some(s => s.id === contextSchoolId)
+        ? contextSchoolId
+        : lista[0]?.id ?? "";
+      if (target) setSchoolId(target);
     });
   }, []);
 

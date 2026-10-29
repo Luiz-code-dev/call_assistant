@@ -38,12 +38,24 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
       }).catch(() => [])
     : [];
 
-  const responderam = new Set(submissions.map((s: { studentId: string }) => s.studentId));
+  // Deduplicar: um registro por (studentId, activityId) — mantém a tentativa de maior nível
+  const levelOrder: Record<string, number> = { MASTERED: 3, ALMOST: 2, NOT_YET: 1 };
+  const bestByStudentActivity = new Map<string, { masteryLevel: string | null }>();
+  for (const s of submissions as { studentId: string; activityId: string; masteryLevel: string | null }[]) {
+    const key = `${s.studentId}|${s.activityId}`;
+    const prev = bestByStudentActivity.get(key);
+    if (!prev || (levelOrder[s.masteryLevel ?? ""] ?? 0) > (levelOrder[prev.masteryLevel ?? ""] ?? 0)) {
+      bestByStudentActivity.set(key, s);
+    }
+  }
+  const dedupedSubs = Array.from(bestByStudentActivity.values()) as { studentId: string; activityId: string; masteryLevel: string | null }[];
+
+  const responderam = new Set(dedupedSubs.map((s) => s.studentId));
   const total = await P.eduEnrollment.count({ where: { networkId: ctx.networkId, status: "ACTIVE" } }).catch(() => 0);
 
   // Resultado por habilidade
   const bySkill = diag.items.map((item: { activityId: string; skill: { id: string; code: string; shortLabel: string | null; description: string } }) => {
-    const subs: { masteryLevel: string | null }[] = submissions.filter((s: { activityId: string }) => s.activityId === item.activityId);
+    const subs = dedupedSubs.filter((s) => s.activityId === item.activityId);
     const mastered = subs.filter(s => s.masteryLevel === "MASTERED").length;
     const almost   = subs.filter(s => s.masteryLevel === "ALMOST").length;
     const notYet   = subs.filter(s => s.masteryLevel === "NOT_YET").length;
@@ -82,7 +94,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
   if (!status) return NextResponse.json({ error: "Ação inválida" }, { status: 400 });
 
   const diag = await P.eduDiagnostic.update({
-    where: { id: params.id },
+    where: { id: params.id, networkId: ctx.networkId },
     data: { status },
   }).catch(() => null);
 

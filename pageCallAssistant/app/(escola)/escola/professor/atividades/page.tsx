@@ -11,9 +11,9 @@ export default function AtividadesPage() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("/api/escola/atividades?scope=rede")
+    fetch("/api/escola/professor/atividades")
       .then(r => r.ok ? r.json() : Promise.reject(r.status))
-      .then(d => { setActivities(d.activities ?? []); setLoading(false); })
+      .then(d => { setActivities(d.atividades ?? d.activities ?? []); setLoading(false); })
       .catch(() => { setError("Nao foi possivel carregar as atividades."); setLoading(false); });
   }, []);
 

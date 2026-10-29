@@ -28,10 +28,15 @@ export default async function DirecaoPage() {
     ? await P.eduEnrollment.count({ where: { classId: { in: classIds }, status: "ACTIVE" } })
     : 0;
 
-  // Famílias vinculadas
+  // Famílias vinculadas — conta alunos distintos com pelo menos 1 vínculo ativo nesta escola
   const comAcesso: number = classIds.length
-    ? await P.eduGuardianLink.count({ where: { networkId: ctx.networkId, isActive: true, student: undefined } })
-      .catch(() => 0)
+    ? await P.eduEnrollment.count({
+        where: {
+          classId: { in: classIds },
+          status: "ACTIVE",
+          student: { guardianLinks: { some: { isActive: true } } },
+        },
+      }).catch(() => 0)
     : 0;
 
   const links = [
