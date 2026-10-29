@@ -170,12 +170,18 @@ async function seedRedeA() {
       update: { isActive: true },
     });
 
+    const anoLetivoA = await db.eduSchoolYear.upsert({
+      where: { networkId_year: { networkId: rede.id, year: 2025 } },
+      create: { networkId: rede.id, year: 2025, startsAt: new Date("2025-02-01"), endsAt: new Date("2025-12-15"), isCurrent: true },
+      update: { isCurrent: true },
+    });
+
     await db.eduClass.upsert({
       where: { id: `turma-${NETWORK_ID}` },
       create: {
         id: `turma-${NETWORK_ID}`, name: "5º Ano A", gradeYear: 5,
         stage: "ANOS_INICIAIS", shift: "MANHA",
-        schoolId: escola.id, networkId: rede.id, academicYearId: null,
+        schoolId: escola.id, networkId: rede.id, schoolYearId: anoLetivoA.id,
         isActive: true, accessCode: "DEMOA001",
       },
       update: { isActive: true },
@@ -256,12 +262,18 @@ async function seedRedeB() {
       update: { isActive: true },
     });
 
+    const anoLetivoB = await db.eduSchoolYear.upsert({
+      where: { networkId_year: { networkId: rede.id, year: 2025 } },
+      create: { networkId: rede.id, year: 2025, startsAt: new Date("2025-02-01"), endsAt: new Date("2025-12-15"), isCurrent: true },
+      update: { isCurrent: true },
+    });
+
     await db.eduClass.upsert({
       where: { id: `turma-${NETWORK_ID}` },
       create: {
         id: `turma-${NETWORK_ID}`, name: "6º Ano B", gradeYear: 6,
         stage: "ANOS_FINAIS", shift: "TARDE",
-        schoolId: escola.id, networkId: rede.id, academicYearId: null,
+        schoolId: escola.id, networkId: rede.id, schoolYearId: anoLetivoB.id,
         isActive: true, accessCode: "DEMOB001",
       },
       update: { isActive: true },
