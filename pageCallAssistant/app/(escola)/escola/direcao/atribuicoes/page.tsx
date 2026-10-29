@@ -86,12 +86,12 @@ export default function AtribuicoesPage() {
               {saving ? "Salvando..." : `Salvar ${changesCount} alteração${changesCount !== 1 ? "ões" : ""}`}
             </button>
           )}
-          {saved && <span className="text-[#166534] text-sm flex items-center">✅ Salvo</span>}
+          {saved && <span className="text-[#166534] text-sm flex items-center gap-1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M20 6 9 17l-5-5"/></svg> Salvo</span>}
         </div>
       </div>
 
       {classes.length === 0 ? (
-        <div className="text-center py-16 text-[#5B5470]"><div className="text-4xl mb-3">📋</div><div>Nenhuma turma encontrada</div></div>
+        <div className="text-center py-16 text-[#5B5470]"><div className="w-12 h-12 rounded-xl bg-[#EDE9FE] flex items-center justify-center mx-auto mb-3"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6D28D9" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div>Nenhuma turma encontrada</div></div>
       ) : isMobile ? (
         // Mobile: list by class
         <div className="space-y-4">
