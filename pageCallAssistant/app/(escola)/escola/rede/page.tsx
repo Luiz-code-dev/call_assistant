@@ -75,8 +75,8 @@ export default async function RedePage() {
   type Alert = { msg: string; href: string; level: "warn" | "info" };
   const alerts: Alert[] = [];
   if (pendingInvites > 0) alerts.push({ msg: `${pendingInvites} convite${pendingInvites > 1 ? "s" : ""} pendente${pendingInvites > 1 ? "s" : ""} há mais de 3 dias`, href: "/escola/rede/servidores", level: "warn" });
-  if (daysToEndTerm !== null && daysToEndTerm <= 7 && daysToEndTerm >= 0) alerts.push({ msg: `Fim do período em ${daysToEndTerm} dia${daysToEndTerm !== 1 ? "s" : ""}`, href: "/escola/rede/ano-letivo", level: "info" });
-  if (!hasYear) alerts.push({ msg: "Nenhum ano letivo configurado", href: "/escola/rede/ano-letivo", level: "warn" });
+  if (daysToEndTerm !== null && daysToEndTerm <= 7 && daysToEndTerm >= 0) alerts.push({ msg: `Fim do período em ${daysToEndTerm} dia${daysToEndTerm !== 1 ? "s" : ""}`, href: "/escola/rede/anos-letivos", level: "info" });
+  if (!hasYear) alerts.push({ msg: "Nenhum ano letivo configurado", href: "/escola/rede/anos-letivos", level: "warn" });
 
   const yearLabel = currentYear ? `${currentYear.year}` : null;
 

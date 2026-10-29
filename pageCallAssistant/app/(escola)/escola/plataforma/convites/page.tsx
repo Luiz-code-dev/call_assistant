@@ -42,6 +42,8 @@ export default function PlataformaConvitesPage() {
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [rowMsg, setRowMsg] = useState("");
+  const [pendingCancel, setPendingCancel] = useState<string | null>(null);
 
   async function loadNetworks() {
     const r = await fetch("/api/escola/plataforma/redes");
@@ -97,31 +99,32 @@ export default function PlataformaConvitesPage() {
 
   async function resend(id: string) {
     const r = await fetch(`/api/escola/plataforma/convites/${id}`, { method: "POST" });
-    if (!r.ok) {
-      const d = await r.json().catch(() => ({}));
-      alert(d.error ?? "Erro ao reenviar convite.");
-    }
+    const d = await r.json().catch(() => ({}));
+    setRowMsg(r.ok ? "Convite reenviado." : (d.error ?? "Erro ao reenviar convite."));
+    setTimeout(() => setRowMsg(""), 4000);
     loadInvites();
   }
 
   async function cancel(id: string) {
-    if (!confirm("Cancelar este convite?")) return;
-    const r = await fetch(`/api/escola/plataforma/convites/${id}`, { method: "DELETE" });
-    if (!r.ok) {
-      const d = await r.json().catch(() => ({}));
-      alert(d.error ?? "Erro ao cancelar convite.");
-    }
+    setPendingCancel(id);
+  }
+
+  async function confirmCancel() {
+    if (!pendingCancel) return;
+    const r = await fetch(`/api/escola/plataforma/convites/${pendingCancel}`, { method: "DELETE" });
+    const d = await r.json().catch(() => ({}));
+    if (!r.ok) setRowMsg(d.error ?? "Erro ao cancelar convite.");
+    setPendingCancel(null);
     loadInvites();
   }
 
   async function copyLink(id: string) {
     const r = await fetch(`/api/escola/plataforma/convites/${id}`);
-    if (!r.ok) {
-      alert("Não foi possível gerar o link do convite.");
-      return;
-    }
+    if (!r.ok) { setRowMsg("Não foi possível gerar o link do convite."); return; }
     const { link } = await r.json();
     await navigator.clipboard.writeText(link);
+    setRowMsg("Link copiado!");
+    setTimeout(() => setRowMsg(""), 3000);
   }
 
   return (
@@ -323,6 +326,21 @@ export default function PlataformaConvitesPage() {
           )}
         </div>
       </div>
+      {rowMsg && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#1F1A2E] text-white px-5 py-2.5 rounded-xl text-sm shadow-xl z-50">{rowMsg}</div>
+      )}
+      {pendingCancel && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl p-6 w-full max-w-sm shadow-xl">
+            <h3 className="text-[#1F1A2E] font-bold text-lg mb-2">Cancelar convite</h3>
+            <p className="text-[#5B5470] text-sm mb-6">O convite será cancelado e o link ficará inválido.</p>
+            <div className="flex gap-3">
+              <button onClick={() => setPendingCancel(null)} className="flex-1 border border-[#DDD6EE] text-[#5B5470] py-2.5 rounded-xl text-sm font-semibold min-h-[44px]">Manter</button>
+              <button onClick={confirmCancel} className="flex-1 bg-[#B91C1C] hover:bg-red-700 text-white py-2.5 rounded-xl text-sm font-semibold min-h-[44px]">Cancelar convite</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -81,8 +81,28 @@ export async function GET(req: NextRequest) {
   const pessoaFilter = searchParams.get("pessoa");
 
   const where: Record<string, unknown> = { networkId: ctx.networkId };
-  if (ctx.role === "SCHOOL_ADMIN" && ctx.schoolId) where["schoolId"] = ctx.schoolId;
   if (actionFilter) where["action"] = { contains: actionFilter, mode: "insensitive" };
+
+  // SCHOOL_ADMIN: EduAuditLog não tem schoolId — filtra por entityId relacionados à escola
+  let entityIdFilter: string[] | undefined;
+  if (ctx.role === "SCHOOL_ADMIN" && ctx.schoolId) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const P = prismaEdu as any;
+    const [classes, members] = await Promise.all([
+      P.eduClass.findMany({ where: { networkId: ctx.networkId, schoolId: ctx.schoolId }, select: { id: true } }),
+      P.eduMembership.findMany({ where: { networkId: ctx.networkId, schoolId: ctx.schoolId }, select: { id: true } }),
+    ]);
+    const classIds: string[] = classes.map((c: { id: string }) => c.id);
+    // alunos matriculados nas turmas da escola
+    const enrollments = await P.eduEnrollment.findMany({ where: { classId: { in: classIds }, status: "ACTIVE" }, select: { studentId: true } });
+    entityIdFilter = [
+      ctx.schoolId,
+      ...classIds,
+      ...enrollments.map((e: { studentId: string }) => e.studentId),
+      ...members.map((m: { id: string }) => m.id),
+    ];
+    where["entityId"] = { in: entityIdFilter };
+  }
 
   const logs = await prismaEdu.eduAuditLog.findMany({
     where,

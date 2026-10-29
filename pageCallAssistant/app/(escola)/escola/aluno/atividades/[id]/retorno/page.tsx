@@ -194,7 +194,7 @@ export default function RetornoPage() {
                 <ul className="space-y-2">
                   {aiFeedback.acertos.map((a, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-zinc-700">
-                      <span className="text-green-500 mt-0.5">✓</span>{a}
+                      <span className="text-green-500 mt-0.5"></span>{a}
                     </li>
                   ))}
                 </ul>

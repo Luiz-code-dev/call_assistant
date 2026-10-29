@@ -36,7 +36,7 @@ export default async function AdminRedesPage() {
 
         {networks.length === 0 ? (
           <div className="text-center py-16 text-[#5B5470]">
-            <div className="text-4xl mb-3">🌐</div>
+            <div className="text-4xl mb-3"></div>
             <p>Nenhuma rede cadastrada ainda.</p>
           </div>
         ) : (

@@ -1,7 +1,7 @@
 "use client";
-import { Suspense, useState, useEffect, useCallback } from "react";
+import { Suspense, useState, useEffect, useCallback, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { QrCode, Volume2, Delete, ChevronLeft } from "lucide-react";
+import { QrCode, Volume2, Delete, ChevronLeft, Camera, AlertCircle } from "lucide-react";
 
 // ── Figuras SVG (sem emoji) ──────────────────────────────────────────────────
 const FIGURES = [
@@ -35,7 +35,7 @@ interface SessionData { sessionId: string; classId: string; className: string; g
 // Fix 1: PIN aceita 4 ou 6 dígitos (novos=4, legados=6)
 const MAX_PIN = 6;
 
-type Screen = "device" | "choose" | "aula-code" | "aula-names" | "pin" | "figures";
+type Screen = "device" | "choose" | "aula-code" | "aula-names" | "pin" | "figures" | "qr-camera";
 // qrMode: quando autenticando com cartão (mode="qr"), studentId guarda o token JWT
 type LoginCtx = { mode: "aula"; studentId: string; sessionId: string } | { mode: "qr"; qrToken: string } | { mode: "dispositivo"; studentId: string };
 
@@ -212,20 +212,10 @@ function EntrarInner() {
             <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center"><span className="text-4xl font-bold">#</span></div>
             <div className="text-center"><div className="text-xl font-bold">Codigo da aula</div><div className="text-sm opacity-90 mt-1">O professor mostra no quadro</div></div>
           </button>
-          {/* Fix 3: Ler cartao → web pede a URL copiada da camera do SO */}
-          <button onClick={() => {
-              const url = window.prompt("Cole o endereco do QR do cartao (abra com a camera do celular, copie o link e cole aqui):");
-              if (!url) return;
-              const m = /[?&]card=([^&]+)/.exec(url);
-              if (m) {
-                router.replace(`/escola/aluno/entrar?card=${encodeURIComponent(decodeURIComponent(m[1]))}`);
-              } else {
-                alert("Endereco invalido. Certifique-se de copiar o link completo do QR.");
-              }
-            }}
+          <button onClick={() => setScreen("qr-camera")}
             className="flex-1 flex flex-col items-center justify-center gap-4 bg-[#6D28D9] hover:bg-[#5B21B6] text-white rounded-2xl p-8 min-h-[180px] transition-colors">
             <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center"><QrCode size={36} /></div>
-            <div className="text-center"><div className="text-xl font-bold">Ler meu cartao</div><div className="text-sm opacity-90 mt-1">Aponte a camera do celular para o QR</div></div>
+            <div className="text-center"><div className="text-xl font-bold">Ler meu cartao</div><div className="text-sm opacity-90 mt-1">Camera le o QR do cartao</div></div>
           </button>
         </div>
         <p className="text-[#5B5470] text-sm mt-8">Nao tem cartao? Peca ao seu professor.</p>
@@ -263,6 +253,14 @@ function EntrarInner() {
         <p className="text-[#5B5470] text-xs mt-4">Letras e numeros. Sem I, O, 0 e 1.</p>
       </div>
     );
+  }
+
+  // ── Leitor QR com câmera ──────────────────────────────────────────────────
+  if (screen === "qr-camera") {
+    return <QRCameraScreen onCancel={() => setScreen("choose")} onDetected={url => {
+      const m = /[?&]card=([^&]+)/.exec(url);
+      if (m) router.replace(`/escola/aluno/entrar?card=${encodeURIComponent(decodeURIComponent(m[1]))}`);
+    }} onUseCode={() => setScreen("aula-code")} />;
   }
 
   // ── Nomes da aula ───────────────────────────────────────────────────────────
@@ -374,6 +372,101 @@ function EntrarInner() {
   }
 
   return null;
+}
+
+// ── Leitor QR com câmera ────────────────────────────────────────────────────
+function QRCameraScreen({ onCancel, onDetected, onUseCode }: { onCancel: () => void; onDetected: (url: string) => void; onUseCode: () => void }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [err, setErr] = useState<string | null>(null);
+  const [scanning, setScanning] = useState(false);
+  const streamRef = useRef<MediaStream | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    let rafId: number;
+
+    async function start() {
+      setScanning(true); setErr(null);
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+        if (cancelled) { stream.getTracks().forEach(t => t.stop()); return; }
+        streamRef.current = stream;
+        if (videoRef.current) { videoRef.current.srcObject = stream; await videoRef.current.play(); }
+
+        const scanFrame = async () => {
+          if (cancelled || !videoRef.current || videoRef.current.readyState < 2) { rafId = requestAnimationFrame(scanFrame); return; }
+          // BarcodeDetector (Chrome 83+, Safari 17.4+)
+          if ("BarcodeDetector" in window) {
+            try {
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              const bd = new (window as any).BarcodeDetector({ formats: ["qr_code"] });
+              const codes = await bd.detect(videoRef.current);
+              if (codes.length > 0 && !cancelled) { cleanup(); onDetected(codes[0].rawValue); return; }
+            } catch { /* ignore */ }
+          } else {
+            // Fallback jsqr (lazy import)
+            const canvas = document.createElement("canvas");
+            const vw = videoRef.current.videoWidth; const vh = videoRef.current.videoHeight;
+            if (vw && vh) {
+              canvas.width = vw; canvas.height = vh;
+              const ctx = canvas.getContext("2d")!;
+              ctx.drawImage(videoRef.current, 0, 0, vw, vh);
+              const imageData = ctx.getImageData(0, 0, vw, vh);
+              const jsQR = (await import("jsqr").catch(() => null))?.default;
+              if (jsQR) {
+                const code = jsQR(imageData.data, vw, vh);
+                if (code && !cancelled) { cleanup(); onDetected(code.data); return; }
+              }
+            }
+          }
+          rafId = requestAnimationFrame(scanFrame);
+        }
+        scanFrame();
+      } catch {
+        if (!cancelled) setErr("Câmera não disponível. Verifique as permissões do navegador.");
+        setScanning(false);
+      }
+    }
+
+    function cleanup() { cancelled = true; cancelAnimationFrame(rafId); streamRef.current?.getTracks().forEach(t => t.stop()); }
+    start();
+    return () => cleanup();
+  }, [onDetected]);
+
+  return (
+    <div className="min-h-screen bg-[#1F1A2E] flex flex-col items-center justify-center p-4">
+      <div className="w-full max-w-sm">
+        <div className="flex items-center justify-between mb-4">
+          <button onClick={onCancel} className="text-white/70 flex items-center gap-1 text-sm"><ChevronLeft size={16} /> Voltar</button>
+          <span className="text-white font-semibold">Escanear cartão</span>
+          <div className="w-16" />
+        </div>
+        {err ? (
+          <div className="bg-white rounded-2xl p-6 text-center">
+            <AlertCircle className="mx-auto mb-3 text-[#B91C1C]" size={32} />
+            <p className="text-[#1F1A2E] text-sm mb-4">{err}</p>
+            <button onClick={onUseCode} className="w-full bg-[#6D28D9] text-white py-3 rounded-xl font-semibold text-sm min-h-[44px]">Usar código da aula</button>
+          </div>
+        ) : (
+          <>
+            <div className="relative rounded-2xl overflow-hidden aspect-square bg-black mb-4">
+              <video ref={videoRef} className="w-full h-full object-cover" muted playsInline />
+              {scanning && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-48 h-48 border-4 border-white/60 rounded-2xl" />
+                  <div className="absolute top-1/2 -translate-y-1/2 w-48 h-0.5 bg-[#6D28D9] animate-bounce" />
+                </div>
+              )}
+            </div>
+            <p className="text-white/60 text-sm text-center mb-4">Aponte para o QR do cartão do aluno</p>
+            <button onClick={onUseCode} className="w-full border border-white/30 text-white/80 py-3 rounded-xl text-sm font-semibold min-h-[44px]">
+              <Camera size={14} className="inline mr-1.5" />Usar código da aula
+            </button>
+          </>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default function AlunoEntrarPage() {

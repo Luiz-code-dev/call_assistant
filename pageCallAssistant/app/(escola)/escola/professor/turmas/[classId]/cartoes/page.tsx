@@ -34,8 +34,8 @@ export default function CartoesPage({ params }: { params: { classId: string } })
     });
     const d = await r.json();
     setGenLoading(false);
-    if (!r.ok) { alert(d.error ?? "Erro ao gerar senhas"); return; }
-    if (d.count === 0) { alert("Todos os alunos ja possuem senha. Use 'Regenerar todas' para substituir."); return; }
+    if (!r.ok) { setError(d.error ?? "Erro ao gerar senhas"); return; }
+    if (d.count === 0) { setError("Todos os alunos já possuem senha. Use 'Regenerar todas' para substituir."); return; }
     setPins(d.pins); setShowPins(true);
   }
 

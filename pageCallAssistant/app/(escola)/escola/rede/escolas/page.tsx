@@ -21,6 +21,7 @@ export default function EscolasPage() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
   const [rowError, setRowError] = useState("");
+  const [pendingToggle, setPendingToggle] = useState<SchoolRow | null>(null);
   const router = useRouter();
 
   async function load() {
@@ -54,7 +55,7 @@ export default function EscolasPage() {
 
   async function toggleActive(s: SchoolRow) {
     setRowError("");
-    if (s.isActive && !confirm(`Desativar a escola ${s.name}?`)) return;
+    if (s.isActive) { setPendingToggle(s); return; }
     const r = await fetch(`/api/escola/escolas/${s.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -160,6 +161,24 @@ export default function EscolasPage() {
                 <button type="submit" disabled={saving || !inepValid} className="flex-1 py-2.5 rounded-lg bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-semibold min-h-[44px] disabled:opacity-50">{saving ? "Salvando…" : "Salvar"}</button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* Modal confirmação desativar escola */}
+      {pendingToggle && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl p-6 w-full max-w-sm shadow-xl">
+            <h3 className="text-[#1F1A2E] font-bold text-lg mb-2">Desativar escola</h3>
+            <p className="text-[#5B5470] text-sm mb-6">Deseja desativar <strong>{pendingToggle.name}</strong>? Os dados serão preservados.</p>
+            <div className="flex gap-3">
+              <button onClick={() => setPendingToggle(null)} className="flex-1 border border-[#DDD6EE] text-[#5B5470] py-2.5 rounded-xl text-sm font-semibold min-h-[44px]">Cancelar</button>
+              <button onClick={async () => {
+                const s = pendingToggle; setPendingToggle(null);
+                const r = await fetch(`/api/escola/escolas/${s.id}`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ isActive: false }) });
+                if (!r.ok) { const d = await r.json().catch(() => ({})); setRowError(d.error ?? "Erro."); } else load();
+              }} className="flex-1 bg-[#B91C1C] hover:bg-red-700 text-white py-2.5 rounded-xl text-sm font-semibold min-h-[44px]">Desativar</button>
+            </div>
           </div>
         </div>
       )}

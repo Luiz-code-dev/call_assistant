@@ -2,6 +2,7 @@ import { getEduContext } from "@/lib/escola/context";
 import { redirect } from "next/navigation";
 import { prismaEdu } from "@/lib/escola/db";
 import Link from "next/link";
+import { Users, CreditCard, ClipboardList, Search, UserCheck } from "lucide-react";
 
 export default async function DirecaoPage() {
   const ctx = await getEduContext();
@@ -10,69 +11,77 @@ export default async function DirecaoPage() {
 
   const schoolId = ctx.schoolId;
   const where = schoolId ? { networkId: ctx.networkId, schoolId } : { networkId: ctx.networkId };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const P = prismaEdu as any;
 
-  const [classCount, studentCount, school] = await Promise.all([
-    prismaEdu.eduClass.count({ where: { ...where, isActive: true } }),
-    prismaEdu.eduStudent.count({ where: { networkId: ctx.networkId, isActive: true } }),
-    schoolId ? prismaEdu.eduSchool.findUnique({ where: { id: schoolId } }) : null,
+  const [classCount, school] = await Promise.all([
+    P.eduClass.count({ where: { ...where, isActive: true } }),
+    schoolId ? P.eduSchool.findUnique({ where: { id: schoolId } }) : null,
   ]);
 
-  const recentClasses = await prismaEdu.eduClass.findMany({
-    where: { ...where, isActive: true },
-    include: { schoolYear: { select: { year: true } }, _count: { select: { enrollments: true } } },
-    orderBy: { schoolYear: { year: "desc" } },
-    take: 5,
-  });
+  // Alunos matriculados na escola (via turmas)
+  const classIds: string[] = (await P.eduClass.findMany({
+    where: { ...where, isActive: true }, select: { id: true },
+  })).map((c: { id: string }) => c.id);
+
+  const studentCount: number = classIds.length
+    ? await P.eduEnrollment.count({ where: { classId: { in: classIds }, status: "ACTIVE" } })
+    : 0;
+
+  // Famílias vinculadas — conta alunos distintos com pelo menos 1 vínculo ativo nesta escola
+  const comAcesso: number = classIds.length
+    ? await P.eduEnrollment.count({
+        where: {
+          classId: { in: classIds },
+          status: "ACTIVE",
+          student: { guardianLinks: { some: { isActive: true } } },
+        },
+      }).catch(() => 0)
+    : 0;
 
   const links = [
-    { label: "Turmas", href: "/escola/direcao/turmas", desc: "Criar e gerenciar turmas", icon: "👥" },
-    { label: "Alunos", href: "/escola/direcao/alunos", desc: "Cadastro, enturmação e importação", icon: "🎓" },
-    { label: "Cartões de Acesso", href: "/escola/direcao/cartoes", desc: "Gerar e imprimir cartões", icon: "🪪" },
-    { label: "Retificações", href: "/escola/direcao/retificacoes", desc: "Aprovar ou rejeitar pedidos", icon: "✏️" },
-    { label: "Auditoria", href: "/escola/direcao/auditoria", desc: "Trilha de ações", icon: "🔍" },
+    { label: "Turmas e alunos", href: "/escola/direcao/turmas", icon: <Users size={20} className="text-[#6D28D9]" />, bg: "bg-[#EDE9FE]", desc: "Turmas, alunos, PINs e cartões" },
+    { label: "Famílias", href: "/escola/direcao/familias", icon: <UserCheck size={20} className="text-[#BE185D]" />, bg: "bg-[#FCE7F3]", desc: "Responsáveis, convites e vínculos" },
+    { label: "Cartões de acesso", href: "/escola/direcao/cartoes", icon: <CreditCard size={20} className="text-[#1D4ED8]" />, bg: "bg-[#DBEAFE]", desc: "Imprimir cartões e senhas" },
+    { label: "Atribuições", href: "/escola/direcao/atribuicoes", icon: <ClipboardList size={20} className="text-[#0F766E]" />, bg: "bg-[#CCFBF1]", desc: "Professores por componente" },
+    { label: "Auditoria", href: "/escola/direcao/auditoria", icon: <Search size={20} className="text-[#92400E]" />, bg: "bg-[#FEF3C7]", desc: "Trilha de ações da escola" },
   ];
 
   return (
     <div className="p-4 md:p-6 lg:p-8 max-w-5xl mx-auto">
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-[#1F1A2E]">{school?.name ?? "Direção Escolar"}</h1>
-        <p className="text-[#5B5470] text-sm mt-1">Painel da direção</p>
+        <p className="text-[#5B5470] text-sm mt-1">Painel de gestão da escola</p>
       </div>
-      <div className="grid grid-cols-2 gap-4 mb-8">
-        <div className="bg-white border border-[#E9E5F5] rounded-xl p-4">
-          <div className="text-[#5B5470] text-xs">Turmas ativas</div>
-          <div className="text-3xl font-bold text-[#1F1A2E] mt-1">{classCount}</div>
+
+      {/* KPIs */}
+      <div className="grid grid-cols-3 gap-4 mb-8">
+        <div className="bg-white border border-[#E9E5F5] rounded-2xl p-4">
+          <div className="text-[#5B5470] text-xs mb-1">Turmas ativas</div>
+          <div className="text-3xl font-bold text-[#1F1A2E]">{classCount}</div>
         </div>
-        <div className="bg-white border border-[#E9E5F5] rounded-xl p-4">
-          <div className="text-[#5B5470] text-xs">Alunos ativos</div>
-          <div className="text-3xl font-bold text-[#1F1A2E] mt-1">{studentCount}</div>
+        <div className="bg-white border border-[#E9E5F5] rounded-2xl p-4">
+          <div className="text-[#5B5470] text-xs mb-1">Alunos matriculados</div>
+          <div className="text-3xl font-bold text-[#1F1A2E]">{studentCount}</div>
+        </div>
+        <div className="bg-white border border-[#E9E5F5] rounded-2xl p-4">
+          <div className="text-[#5B5470] text-xs mb-1">Com família vinculada</div>
+          <div className="text-3xl font-bold text-[#1F1A2E]">{comAcesso}</div>
         </div>
       </div>
 
-      <h2 className="text-lg font-semibold text-[#1F1A2E] mb-4">Ações rápidas</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+      {/* Ações rápidas */}
+      <h2 className="text-[#1F1A2E] font-semibold text-sm mb-3">Acesso rápido</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {links.map(l => (
-          <Link key={l.href} href={l.href} className="bg-white border border-[#E9E5F5] rounded-xl p-4 hover:border-purple-700 transition-colors group">
-            <div className="text-2xl mb-2">{l.icon}</div>
-            <div className="font-medium text-[#1F1A2E] group-hover:text-purple-400 transition-colors">{l.label}</div>
-            <div className="text-[#5B5470] text-xs mt-1">{l.desc}</div>
+          <Link key={l.href} href={l.href}
+            className="bg-white border border-[#E9E5F5] rounded-2xl p-4 hover:border-[#C4B5FD] transition-colors group flex flex-col gap-2">
+            <div className={`w-10 h-10 rounded-xl ${l.bg} flex items-center justify-center`}>{l.icon}</div>
+            <div className="font-semibold text-[#1F1A2E] text-sm group-hover:text-[#6D28D9] transition-colors">{l.label}</div>
+            <div className="text-[#5B5470] text-xs">{l.desc}</div>
           </Link>
         ))}
       </div>
-
-      {recentClasses.length > 0 && (
-        <>
-          <h2 className="text-lg font-semibold text-[#1F1A2E] mb-4">Turmas recentes</h2>
-          <div className="space-y-2">
-            {recentClasses.map((c: { id: string; name: string; schoolYear: { year: number }; _count: { enrollments: number } }) => (
-              <div key={c.id} className="bg-white border border-[#E9E5F5] rounded-xl px-4 py-3 flex items-center justify-between">
-                <div className="text-[#1F1A2E] font-medium">{c.name}</div>
-                <div className="text-[#5B5470] text-sm">{c.schoolYear?.year} · {c._count?.enrollments} alunos</div>
-              </div>
-            ))}
-          </div>
-        </>
-      )}
     </div>
   );
 }
