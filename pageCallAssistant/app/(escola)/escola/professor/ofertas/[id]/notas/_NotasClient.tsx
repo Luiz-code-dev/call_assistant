@@ -115,7 +115,7 @@ export function NotasClient({ params }: { params: { id: string } }) {
           <button onClick={saveDraft} disabled={saving || !selectedAssessment} className="bg-[#EDE9FE] hover:bg-[#F5F3FF] text-[#1F1A2E] px-4 py-2 rounded-lg text-sm min-h-[44px] disabled:opacity-50 transition-colors">{saving ? "Salvando..." : "Salvar rascunho"}</button>
           {canPublish && <button onClick={() => setShowPublish(true)} className="bg-green-700 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium min-h-[44px] transition-colors">Publicar notas</button>}
         </div>
-        {saved && <span className="text-[#166534] text-sm flex items-center">✅ Rascunho salvo</span>}
+        {saved && <span className="text-[#166534] text-sm flex items-center"> Rascunho salvo</span>}
         {error && <span className="text-[#B91C1C] text-sm">{error}</span>}
       </div>
 
@@ -135,7 +135,7 @@ export function NotasClient({ params }: { params: { id: string } }) {
       )}
 
       {students.length === 0 ? (
-        <div className="text-center py-16 text-[#5B5470]"><div className="text-4xl mb-3">🎓</div><div>Nenhum aluno matriculado</div></div>
+        <div className="text-center py-16 text-[#5B5470]"><div className="text-4xl mb-3"></div><div>Nenhum aluno matriculado</div></div>
       ) : (
         <div className="overflow-x-auto">
           <table className="w-full border-collapse text-sm">

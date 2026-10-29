@@ -59,7 +59,7 @@ export default function ImportacoesPage() {
     setUploading(false);
   }
 
-  async function confirm() {
+  async function confirmarImportacao() {
     if (!preview) return;
     setConfirming(true); setError("");
     const r = await fetch(`/api/escola/importacoes/${preview.batchId}/confirmar`, { method: "POST" });
@@ -128,7 +128,7 @@ export default function ImportacoesPage() {
           )}
 
           {preview.validRows > 0 ? (
-            <button onClick={confirm} disabled={confirming} className="w-full bg-green-700 hover:bg-green-600 disabled:opacity-50 text-white font-medium py-3 rounded-xl min-h-[44px] transition-colors">
+            <button onClick={confirmarImportacao} disabled={confirming} className="w-full bg-green-700 hover:bg-green-600 disabled:opacity-50 text-white font-medium py-3 rounded-xl min-h-[44px] transition-colors">
               {confirming ? "Iniciando..." : `Importar ${preview.validRows} linha${preview.validRows !== 1 ? "s" : ""} válida${preview.validRows !== 1 ? "s" : ""}`}
             </button>
           ) : (

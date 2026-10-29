@@ -20,7 +20,7 @@ export default async function VerificarPage({ params }: Props) {
     return (
       <main className="min-h-screen bg-background flex items-center justify-center p-4">
         <div className="max-w-md w-full rounded-2xl border border-destructive/30 bg-card p-8 text-center">
-          <div className="text-4xl mb-4">⚠️</div>
+          <div className="text-4xl mb-4">️</div>
           <h1 className="text-xl font-bold text-foreground mb-2">Código não encontrado</h1>
           <p className="text-muted-foreground text-sm">
             O código <span className="font-mono font-medium">{params.code}</span> não corresponde a nenhum fechamento de bimestre registrado.
@@ -34,7 +34,7 @@ export default async function VerificarPage({ params }: Props) {
     <main className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="max-w-md w-full rounded-2xl border border-green-500/30 bg-card p-8">
         <div className="text-center mb-6">
-          <div className="text-4xl mb-2">✅</div>
+          <div className="text-4xl mb-2"></div>
           <h1 className="text-xl font-bold text-foreground">Boletim Verificado</h1>
           <p className="text-sm text-muted-foreground mt-1">
             Este boletim é autentico e foi gerado pelo sistema SpeakFlow Escolas.

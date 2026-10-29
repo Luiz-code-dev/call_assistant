@@ -16,7 +16,8 @@ export default function NovaTrilhaPage() {
   // Passo 1 — habilidades
   const [subjects, setSubjects] = useState<Subject[]>([]);
   const [subjectId, setSubjectId] = useState("");
-  const [gradeYear, setGradeYear] = useState(6);
+  const [gradeYear, setGradeYear] = useState(1);
+  const [gradeYears, setGradeYears] = useState<number[]>([]);
   const [skills, setSkills] = useState<Skill[]>([]);
   const [skillSearch, setSkillSearch] = useState("");
   const [skillResults, setSkillResults] = useState<Skill[]>([]);
@@ -34,10 +35,35 @@ export default function NovaTrilhaPage() {
   const [saving, setSaving] = useState(false);
   const [erro, setErro] = useState("");
 
-  // Carrega componentes na montagem
+  // Carrega turmas do professor para filtrar seletores de ano e componente
   useEffect(() => {
-    fetch("/api/escola/componentes").then(r => r.ok ? r.json() : { subjects: [] })
-      .then(d => { setSubjects(d.subjects ?? []); if (d.subjects?.[0]) setSubjectId(d.subjects[0].id); });
+    Promise.all([
+      fetch("/api/escola/componentes").then(r => r.ok ? r.json() : { subjects: [] }),
+      fetch("/api/escola/professor/turmas").then(r => r.ok ? r.json() : { classes: [], role: "TEACHER" }),
+    ]).then(([dComp, dTurmas]) => {
+      const role: string = dTurmas.role ?? "TEACHER";
+      const allSubjects: Subject[] = dComp.subjects ?? [];
+      const classes: { gradeYear: number; subjects: { subjectId: string }[] }[] = dTurmas.classes ?? [];
+
+      if (["COORDINATOR", "NETWORK_ADMIN"].includes(role) || classes.length === 0) {
+        // Gestor/coordenação: todos os anos e componentes
+        setSubjects(allSubjects);
+        if (allSubjects[0]) setSubjectId(allSubjects[0].id);
+        setGradeYears([1,2,3,4,5,6,7,8,9]);
+        setGradeYear(1);
+      } else {
+        // Professor: filtrar por turmas dele
+        const anos = Array.from(new Set(classes.map(c => c.gradeYear))).sort((a,b) => a-b);
+        const subjectIds = new Set(classes.flatMap(c => c.subjects.map(s => s.subjectId)));
+        const filteredSubjects = allSubjects.filter(s => subjectIds.has(s.id));
+
+        setGradeYears(anos.length > 0 ? anos : [1,2,3,4,5,6,7,8,9]);
+        setGradeYear(anos[0] ?? 1);
+        setSubjects(filteredSubjects.length > 0 ? filteredSubjects : allSubjects);
+        if (filteredSubjects[0]) setSubjectId(filteredSubjects[0].id);
+        else if (allSubjects[0]) setSubjectId(allSubjects[0].id);
+      }
+    });
   }, []);
 
   // Carrega habilidades automaticamente ao trocar componente ou ano
@@ -165,7 +191,7 @@ export default function NovaTrilhaPage() {
               <label className="block text-sm font-medium text-[#1F1A2E] mb-1.5">Ano</label>
               <select value={gradeYear} onChange={e => setGradeYear(+e.target.value)}
                 className="border border-[#DDD6EE] rounded-lg px-3 py-2.5 text-sm text-[#1F1A2E] outline-none focus:border-[#6D28D9] bg-white min-h-[44px]">
-                {[1,2,3,4,5,6,7,8,9].map(y => <option key={y} value={y}>{y}º</option>)}
+                {(gradeYears.length > 0 ? gradeYears : [1,2,3,4,5,6,7,8,9]).map(y => <option key={y} value={y}>{y}º</option>)}
               </select>
             </div>
           </div>
@@ -189,7 +215,7 @@ export default function NovaTrilhaPage() {
                     <span className="font-mono font-semibold">{s.code}</span>
                     <span className="text-[#6D28D9]">·</span>
                     <span className="max-w-[180px] truncate">{s.shortLabel ?? s.description.slice(0, 40)}</span>
-                    <span className="text-[#5B5470]">✕</span>
+                    <span className="text-[#5B5470]"></span>
                   </span>
                 ))}
               </div>

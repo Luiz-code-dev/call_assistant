@@ -83,7 +83,6 @@ export default function AlunoHomePage() {
         {/* Atalhos */}
         <section className="grid grid-cols-3 gap-3">
           {[
-            { href: "/escola/aluno/notas", icon: ClipboardList, label: "Minhas notas" },
             { href: "/escola/aluno/atividades/historico", icon: BookOpen, label: "Feitas" },
             { href: "/escola/aluno/evolucao", icon: TrendingUp, label: "Evolução" },
           ].map(({ href, icon: Icon, label }) => (

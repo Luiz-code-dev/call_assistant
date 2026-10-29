@@ -38,6 +38,7 @@ export default function ServidoresPage() {
   const [sending, setSending] = useState(false);
   const [formError, setFormError] = useState("");
   const [formOk, setFormOk] = useState("");
+  const [pendingCancel, setPendingCancel] = useState<{ type: "invite" | "member"; id: string; nome?: string } | null>(null);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -106,21 +107,24 @@ export default function ServidoresPage() {
     load();
   }
   async function cancel(id: string) {
-    if (!confirm("Cancelar este convite?")) return;
-    await fetch(`/api/escola/convites/${id}`, { method: "DELETE" });
-    load();
+    setPendingCancel({ type: "invite", id });
   }
   function copyLink(id: string) {
     navigator.clipboard.writeText(`${window.location.origin}/escola/convite/${id}`);
   }
   async function toggleActive(m: Member) {
-    if (m.isActive && !confirm(`Desativar o acesso de ${m.user?.name || m.user?.email}?`)) return;
-    await fetch(`/api/escola/vinculos/${m.id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ isActive: !m.isActive }),
-    });
+    if (m.isActive) { setPendingCancel({ type: "member", id: m.id, nome: m.user?.name ?? m.user?.email }); return; }
+    await fetch(`/api/escola/vinculos/${m.id}`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ isActive: true }) });
     load();
+  }
+  async function confirmPendingCancel() {
+    if (!pendingCancel) return;
+    if (pendingCancel.type === "invite") {
+      await fetch(`/api/escola/convites/${pendingCancel.id}`, { method: "DELETE" });
+    } else {
+      await fetch(`/api/escola/vinculos/${pendingCancel.id}`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ isActive: false }) });
+    }
+    setPendingCancel(null); load();
   }
 
   const ativos = members.filter((m) => m.isActive);
@@ -312,6 +316,26 @@ export default function ServidoresPage() {
                 <button type="submit" disabled={sending} className="flex-1 py-2.5 rounded-lg bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-semibold min-h-[44px] disabled:opacity-50">{sending ? "Enviando…" : "Enviar convite"}</button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* Modal confirmação */}
+      {pendingCancel && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl p-6 w-full max-w-sm shadow-xl">
+            <h3 className="text-[#1F1A2E] font-bold text-lg mb-2">
+              {pendingCancel.type === "invite" ? "Cancelar convite" : "Desativar acesso"}
+            </h3>
+            <p className="text-[#5B5470] text-sm mb-6">
+              {pendingCancel.type === "invite"
+                ? "O convite será cancelado e o link ficará inválido."
+                : `Desativar o acesso de ${pendingCancel.nome ?? "este servidor"}?`}
+            </p>
+            <div className="flex gap-3">
+              <button onClick={() => setPendingCancel(null)} className="flex-1 border border-[#DDD6EE] text-[#5B5470] py-2.5 rounded-xl text-sm font-semibold min-h-[44px]">Cancelar</button>
+              <button onClick={confirmPendingCancel} className="flex-1 bg-[#B91C1C] hover:bg-red-700 text-white py-2.5 rounded-xl text-sm font-semibold min-h-[44px]">Confirmar</button>
+            </div>
           </div>
         </div>
       )}

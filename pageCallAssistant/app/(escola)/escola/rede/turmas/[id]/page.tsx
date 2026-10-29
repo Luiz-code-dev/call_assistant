@@ -217,6 +217,8 @@ function ResponsaveisModal({ student, onClose, onChanged }: { student: Student; 
   const [err, setErr] = useState("");
   const [familyCode, setFamilyCode] = useState<string | null>(null);
   const [inviteLink, setInviteLink] = useState<string | null>(null);
+  const [pendingDesv, setPendingDesv] = useState<{ id: string } | null>(null);
+  const [motivoDesv, setMotivoDesv] = useState("");
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -244,11 +246,10 @@ function ResponsaveisModal({ student, onClose, onChanged }: { student: Student; 
     load(); onChanged();
   }
 
-  async function desvincular(linkId: string) {
-    const motivo = prompt("Motivo da desvinculação (obrigatório):");
-    if (!motivo?.trim()) return;
-    const r = await fetch(`/api/escola/alunos/${student.id}/responsaveis/${linkId}/desvincular`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ motivo }) });
-    if (r.ok) { load(); onChanged(); }
+  async function desvincular() {
+    if (!pendingDesv || !motivoDesv.trim()) return;
+    const r = await fetch(`/api/escola/alunos/${student.id}/responsaveis/${pendingDesv.id}/desvincular`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ motivo: motivoDesv }) });
+    if (r.ok) { setPendingDesv(null); setMotivoDesv(""); load(); onChanged(); }
   }
 
   async function gerarCodigo() {
@@ -257,6 +258,7 @@ function ResponsaveisModal({ student, onClose, onChanged }: { student: Student; 
   }
 
   return (
+    <>
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1F1A2E]/40">
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg max-h-[90dvh] overflow-y-auto p-6">
         <div className="flex items-center justify-between mb-4">
@@ -270,7 +272,7 @@ function ResponsaveisModal({ student, onClose, onChanged }: { student: Student; 
             {list.map((g) => (
               <div key={g.linkId} className="flex items-center justify-between gap-2 border border-[#E9E5F5] rounded-xl px-3 py-2">
                 <div className="min-w-0"><div className="text-[13px] font-medium text-[#1F1A2E] truncate">{g.name} <span className="text-[#5B5470] font-normal">· {relLabel(g.relation)}</span></div><div className="text-[12px] text-[#5B5470] truncate">{g.email || g.phone || "—"}</div></div>
-                <div className="flex items-center gap-2 shrink-0"><SituacaoChip s={g.situacao} /><button onClick={() => desvincular(g.linkId)} title="Desvincular" className="p-1.5 rounded-lg text-[#5B5470] hover:text-[#B91C1C] hover:bg-[#FEE2E2]"><Trash2 size={14} /></button></div>
+                <div className="flex items-center gap-2 shrink-0"><SituacaoChip s={g.situacao} /><button onClick={() => { setPendingDesv({ id: g.linkId }); setMotivoDesv(""); }} title="Desvincular" className="p-1.5 rounded-lg text-[#5B5470] hover:text-[#B91C1C] hover:bg-[#FEE2E2]"><Trash2 size={14} /></button></div>
               </div>
             ))}
           </div>
@@ -322,5 +324,20 @@ function ResponsaveisModal({ student, onClose, onChanged }: { student: Student; 
         </div>
       </div>
     </div>
+    {pendingDesv && (
+      <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-[60] p-4">
+        <div className="bg-white rounded-2xl p-6 w-full max-w-sm shadow-xl">
+          <h3 className="text-[#1F1A2E] font-bold text-base mb-2">Desvincular responsável</h3>
+          <p className="text-[#5B5470] text-sm mb-3">Motivo obrigatório para fins de auditoria.</p>
+          <textarea value={motivoDesv} onChange={e => setMotivoDesv(e.target.value)} placeholder="Informe o motivo…" rows={3}
+            className="w-full bg-white rounded-xl px-3 py-2 text-sm border border-[#DDD6EE] focus:border-[#6D28D9] outline-none resize-none mb-4" />
+          <div className="flex gap-3">
+            <button onClick={() => { setPendingDesv(null); setMotivoDesv(''); }} className="flex-1 border border-[#DDD6EE] text-[#5B5470] py-2.5 rounded-xl text-sm font-semibold min-h-[44px]">Cancelar</button>
+            <button onClick={desvincular} disabled={!motivoDesv.trim()} className="flex-1 bg-[#B91C1C] text-white py-2.5 rounded-xl text-sm font-semibold min-h-[44px] disabled:opacity-50">Desvincular</button>
+          </div>
+        </div>
+      </div>
+    )}
+    </>
   );
 }

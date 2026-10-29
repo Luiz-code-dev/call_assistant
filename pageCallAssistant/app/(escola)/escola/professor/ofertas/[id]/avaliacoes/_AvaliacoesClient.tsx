@@ -96,7 +96,7 @@ export function AvaliacoesClient({ params }: { params: { id: string } }) {
       )}
 
       {loading ? <div className="text-[#5B5470] text-center py-12">Carregando...</div> : assessments.length === 0 ? (
-        <div className="text-center py-16 text-[#5B5470]"><div className="text-4xl mb-3">📊</div><div>Nenhuma avaliação</div></div>
+        <div className="text-center py-16 text-[#5B5470]"><div className="text-4xl mb-3"></div><div>Nenhuma avaliação</div></div>
       ) : (
         <div className="space-y-3">
           {assessments.map(a => (

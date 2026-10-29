@@ -264,7 +264,7 @@ function AtribuirInline({ trackId, trackTitle, onClose, onSucesso }: { trackId: 
       <div className="bg-white w-full sm:max-w-md rounded-t-2xl sm:rounded-2xl">
         <div className="border-b border-[#E9E5F5] px-6 py-4 flex items-center justify-between">
           <h2 className="font-semibold text-[#1F1A2E] text-sm">Atribuir: {trackTitle}</h2>
-          <button onClick={onClose} className="text-[#5B5470] hover:text-[#1F1A2E] p-1 text-lg">✕</button>
+          <button onClick={onClose} className="text-[#5B5470] hover:text-[#1F1A2E] p-1 text-lg"></button>
         </div>
         <div className="p-6 space-y-4">
           <div>

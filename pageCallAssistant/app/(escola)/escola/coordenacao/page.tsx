@@ -12,10 +12,9 @@ export default async function CoordPage() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const P = prismaEdu as any;
 
-  const [diagAbertos, trilhasPendentes] = await Promise.all([
-    P.eduDiagnostic.count({ where: { networkId: ctx.networkId, status: "OPEN" } }).catch(() => 0),
-    P.eduTrail.count({ where: { networkId: ctx.networkId, status: "PENDING_APPROVAL" } }).catch(() => 0),
-  ]);
+  let diagAbertos = 0, trilhasPendentes = 0;
+  try { diagAbertos = await P.eduDiagnostic.count({ where: { networkId: ctx.networkId, status: "OPEN" } }); } catch (e) { console.error("[coordenacao] diagAbertos", e); }
+  try { trilhasPendentes = await P.eduTrack.count({ where: { networkId: ctx.networkId, status: "SUBMITTED" } }); } catch (e) { console.error("[coordenacao] trilhasPendentes", e); }
 
   const cards = [
     {
@@ -41,8 +40,8 @@ export default async function CoordPage() {
   const links = [
     { label: "Novo diagnóstico", href: "/escola/coordenacao/diagnosticos/novo", icon: <ClipboardList size={16} />, desc: "Criar diagnóstico BNCC" },
     { label: "Trilhas", href: "/escola/coordenacao/trilhas", icon: <Route size={16} />, desc: "Biblioteca de trilhas" },
-    { label: "Habilidades prioritárias", href: "/escola/coordenacao/diagnosticos", icon: <Target size={16} />, desc: "Ver por ano e componente" },
-    { label: "Escolas e turmas", href: "/escola/rede/escolas", icon: <School size={16} />, desc: "Participação por turma" },
+    { label: "Habilidades prioritárias", href: "/escola/coordenacao/habilidades", icon: <Target size={16} />, desc: "Ver por ano e componente" },
+    { label: "Escolas e turmas", href: "/escola/coordenacao/escolas", icon: <School size={16} />, desc: "Participação por turma" },
   ];
 
   return (
