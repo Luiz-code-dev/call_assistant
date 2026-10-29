@@ -68,7 +68,8 @@ COPY --from=builder /app/package.json ./package.json
 # Dependências runtime dos scripts (bcryptjs para invite-account, etc.)
 COPY --from=builder /app/node_modules/bcryptjs ./node_modules/bcryptjs
 
-RUN chmod +x scripts/start.sh
+# Normaliza CRLF→LF (seguro mesmo que o arquivo já tenha LF) e torna executável
+RUN sed -i 's/\r$//' scripts/start.sh && chmod +x scripts/start.sh
 
 USER nextjs
 EXPOSE 3000
