@@ -1,6 +1,11 @@
 -- RLS: Row Level Security por rede (networkId)
 -- Executar como superusuário; aplicação usa usuário sem BYPASSRLS
 
+-- EduNetwork: a própria rede se isola pelo "id"
+ALTER TABLE "EduNetwork" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "EduNetwork" FORCE ROW LEVEL SECURITY;
+CREATE POLICY rede ON "EduNetwork" USING ("id" = current_setting('app.network_id', true)) WITH CHECK ("id" = current_setting('app.network_id', true));
+
 ALTER TABLE "EduUser" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "EduUser" FORCE ROW LEVEL SECURITY;
 CREATE POLICY rede ON "EduUser" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
@@ -8,10 +13,6 @@ CREATE POLICY rede ON "EduUser" USING ("networkId" = current_setting('app.networ
 ALTER TABLE "EduMembership" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "EduMembership" FORCE ROW LEVEL SECURITY;
 CREATE POLICY rede ON "EduMembership" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
-
-ALTER TABLE "EduNetwork" ENABLE ROW LEVEL SECURITY;
-ALTER TABLE "EduNetwork" FORCE ROW LEVEL SECURITY;
-CREATE POLICY rede ON "EduNetwork" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
 
 ALTER TABLE "EduSchool" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "EduSchool" FORCE ROW LEVEL SECURITY;
@@ -24,10 +25,6 @@ CREATE POLICY rede ON "EduFamilyTip" USING ("networkId" = current_setting('app.n
 ALTER TABLE "EduSchoolYear" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "EduSchoolYear" FORCE ROW LEVEL SECURITY;
 CREATE POLICY rede ON "EduSchoolYear" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
-
-ALTER TABLE "EduTerm" ENABLE ROW LEVEL SECURITY;
-ALTER TABLE "EduTerm" FORCE ROW LEVEL SECURITY;
-CREATE POLICY rede ON "EduTerm" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
 
 ALTER TABLE "EduSubject" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "EduSubject" FORCE ROW LEVEL SECURITY;
@@ -57,10 +54,6 @@ ALTER TABLE "EduTeachingPlan" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "EduTeachingPlan" FORCE ROW LEVEL SECURITY;
 CREATE POLICY rede ON "EduTeachingPlan" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
 
-ALTER TABLE "EduPlanUnit" ENABLE ROW LEVEL SECURITY;
-ALTER TABLE "EduPlanUnit" FORCE ROW LEVEL SECURITY;
-CREATE POLICY rede ON "EduPlanUnit" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
-
 ALTER TABLE "EduTopic" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "EduTopic" FORCE ROW LEVEL SECURITY;
 CREATE POLICY rede ON "EduTopic" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
@@ -81,9 +74,10 @@ ALTER TABLE "EduTermClosure" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "EduTermClosure" FORCE ROW LEVEL SECURITY;
 CREATE POLICY rede ON "EduTermClosure" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
 
+-- AuditLog e Invite: networkId nullable — policy permissiva para NULL
 ALTER TABLE "EduAuditLog" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "EduAuditLog" FORCE ROW LEVEL SECURITY;
-CREATE POLICY rede ON "EduAuditLog" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
+CREATE POLICY rede ON "EduAuditLog" USING ("networkId" IS NULL OR "networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" IS NULL OR "networkId" = current_setting('app.network_id', true));
 
 ALTER TABLE "EduImportBatch" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "EduImportBatch" FORCE ROW LEVEL SECURITY;
@@ -91,15 +85,11 @@ CREATE POLICY rede ON "EduImportBatch" USING ("networkId" = current_setting('app
 
 ALTER TABLE "EduInvite" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "EduInvite" FORCE ROW LEVEL SECURITY;
-CREATE POLICY rede ON "EduInvite" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
+CREATE POLICY rede ON "EduInvite" USING ("networkId" IS NULL OR "networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" IS NULL OR "networkId" = current_setting('app.network_id', true));
 
 ALTER TABLE "EduActivity" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "EduActivity" FORCE ROW LEVEL SECURITY;
 CREATE POLICY rede ON "EduActivity" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
-
-ALTER TABLE "EduQuizQuestion" ENABLE ROW LEVEL SECURITY;
-ALTER TABLE "EduQuizQuestion" FORCE ROW LEVEL SECURITY;
-CREATE POLICY rede ON "EduQuizQuestion" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
 
 ALTER TABLE "EduFeedbackReport" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "EduFeedbackReport" FORCE ROW LEVEL SECURITY;
@@ -113,21 +103,9 @@ ALTER TABLE "EduClassSession" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "EduClassSession" FORCE ROW LEVEL SECURITY;
 CREATE POLICY rede ON "EduClassSession" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
 
-ALTER TABLE "EduSessionPresence" ENABLE ROW LEVEL SECURITY;
-ALTER TABLE "EduSessionPresence" FORCE ROW LEVEL SECURITY;
-CREATE POLICY rede ON "EduSessionPresence" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
-
-ALTER TABLE "EduActivitySkill" ENABLE ROW LEVEL SECURITY;
-ALTER TABLE "EduActivitySkill" FORCE ROW LEVEL SECURITY;
-CREATE POLICY rede ON "EduActivitySkill" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
-
 ALTER TABLE "EduDiagnostic" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "EduDiagnostic" FORCE ROW LEVEL SECURITY;
 CREATE POLICY rede ON "EduDiagnostic" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
-
-ALTER TABLE "EduDiagnosticItem" ENABLE ROW LEVEL SECURITY;
-ALTER TABLE "EduDiagnosticItem" FORCE ROW LEVEL SECURITY;
-CREATE POLICY rede ON "EduDiagnosticItem" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
 
 ALTER TABLE "EduSkillMastery" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "EduSkillMastery" FORCE ROW LEVEL SECURITY;
@@ -140,10 +118,6 @@ CREATE POLICY rede ON "EduSkillMasteryEvent" USING ("networkId" = current_settin
 ALTER TABLE "EduTrack" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "EduTrack" FORCE ROW LEVEL SECURITY;
 CREATE POLICY rede ON "EduTrack" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
-
-ALTER TABLE "EduTrackItem" ENABLE ROW LEVEL SECURITY;
-ALTER TABLE "EduTrackItem" FORCE ROW LEVEL SECURITY;
-CREATE POLICY rede ON "EduTrackItem" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
 
 ALTER TABLE "EduTrackAssignment" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "EduTrackAssignment" FORCE ROW LEVEL SECURITY;
@@ -173,10 +147,11 @@ ALTER TABLE "EduGuardianInvite" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "EduGuardianInvite" FORCE ROW LEVEL SECURITY;
 CREATE POLICY rede ON "EduGuardianInvite" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
 
-ALTER TABLE "EduGuardianConsent" ENABLE ROW LEVEL SECURITY;
-ALTER TABLE "EduGuardianConsent" FORCE ROW LEVEL SECURITY;
-CREATE POLICY rede ON "EduGuardianConsent" USING ("networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" = current_setting('app.network_id', true));
-
+-- EduSkill: BNCC global (networkId NULL) ou da rede
 ALTER TABLE "EduSkill" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE "EduSkill" FORCE ROW LEVEL SECURITY;
 CREATE POLICY rede ON "EduSkill" USING ("networkId" IS NULL OR "networkId" = current_setting('app.network_id', true)) WITH CHECK ("networkId" IS NULL OR "networkId" = current_setting('app.network_id', true));
+
+-- Tabelas sem networkId: EduPlatformAdmin, EduAccountState, EduTerm, EduPlanUnit,
+-- EduQuizQuestion, EduActivitySkill, EduSessionPresence, EduDiagnosticItem,
+-- EduTrackItem, EduGuardianConsent — sem política RLS (acesso via relação).

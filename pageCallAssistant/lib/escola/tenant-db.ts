@@ -1,80 +1,134 @@
 /**
  * lib/escola/tenant-db.ts
  * Retorna um PrismaClient isolado por rede (networkId).
- * Toda operação roda com SET LOCAL app.network_id = '<networkId>',
- * alimentando o RLS nas bases de dados das redes.
+ *
+ * ARQUITETURA:
+ *   - clientCache: um PrismaClient base por dbKey (shared entre redes do mesmo banco)
+ *   - extendedCache: um cliente estendido por networkId (injeta SET LOCAL em cada query)
+ *   - Cada operação no cliente estendido roda num $transaction com:
+ *       SET LOCAL app.network_id = '<networkId>'
+ *     alimentando o RLS no Postgres.
  */
 import { PrismaClient } from "@prisma/escolas";
 import { getTenant } from "./catalogo";
 
-// Cache de clientes por dbKey (máx. 20)
-const clientCache = new Map<string, { client: PrismaClient; ts: number }>();
+// ── Cache base por dbKey ─────────────────────────────────────────────────────
+const baseCache = new Map<string, { client: PrismaClient; ts: number }>();
+// ── Cache estendido por networkId ─────────────────────────────────────────────
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const extendedCache = new Map<string, { client: any; ts: number }>();
+
 const MAX_CLIENTS = 20;
 const CLIENT_TTL = 10 * 60_000; // 10 min
 
-function buildClient(url: string): PrismaClient {
+function buildBaseClient(url: string): PrismaClient {
   return new PrismaClient({
     datasources: { db: { url } },
     log: process.env.NODE_ENV === "development" ? ["warn", "error"] : ["error"],
-  }) as PrismaClient;
+  });
 }
 
 /**
- * Devolve um PrismaClient configurado para a rede `networkId`.
+ * buildExtendedClient — adiciona extensão que injeta SET LOCAL antes de cada query.
+ * Cada operação roda assim:
+ *   BEGIN
+ *     SET LOCAL app.network_id = '<networkId>';
+ *     <query original>
+ *   COMMIT
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function buildExtendedClient(base: PrismaClient, networkId: string): any {
+  const safeNid = networkId.replace(/'/g, "''");
+  return base.$extends({
+    query: {
+      $allModels: {
+        async $allOperations({ args, query }: { args: any; query: (a: any) => Promise<any> }) {
+          return base.$transaction(async (tx) => {
+            await (tx as any).$executeRawUnsafe(
+              `SELECT set_config('app.network_id', '${safeNid}', true)`
+            );
+            return query(args);
+          });
+        },
+      },
+    },
+  });
+}
+
+/**
+ * Devolve um cliente Prisma com RLS ativo para a rede `networkId`.
+ * Toda operação injeta automaticamente SET LOCAL app.network_id.
  * Lança erro tratado se a rede estiver em manutenção ou suspensa.
  */
-export async function getTenantDb(networkId: string): Promise<PrismaClient> {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function getTenantDb(networkId: string): Promise<any> {
   const tenant = await getTenant(networkId);
 
   if (!tenant) throw new Error(`Rede '${networkId}' não encontrada no catálogo.`);
 
   if (tenant.status === "MIGRATING") {
-    throw Object.assign(new Error("Sua rede está em manutenção. Tente em alguns minutos."), { code: "TENANT_MIGRATING" });
+    throw Object.assign(
+      new Error("Sua rede está em manutenção. Tente em alguns minutos."),
+      { code: "TENANT_MIGRATING" }
+    );
   }
   if (tenant.status === "SUSPENDED") {
-    throw Object.assign(new Error("Esta rede está suspensa. Entre em contato com o suporte."), { code: "TENANT_SUSPENDED" });
+    throw Object.assign(
+      new Error("Esta rede está suspensa. Entre em contato com o suporte."),
+      { code: "TENANT_SUSPENDED" }
+    );
   }
 
+  // Verifica cache do cliente estendido por networkId
+  const cachedExt = extendedCache.get(networkId);
+  if (cachedExt && Date.now() - cachedExt.ts < CLIENT_TTL) return cachedExt.client;
+
+  // Verifica (ou cria) cliente base por dbKey
   const dbKey = tenant.dbKey;
-  const cached = clientCache.get(dbKey);
-  if (cached && Date.now() - cached.ts < CLIENT_TTL) return cached.client;
+  let base: PrismaClient;
+  const cachedBase = baseCache.get(dbKey);
+  if (cachedBase && Date.now() - cachedBase.ts < CLIENT_TTL) {
+    base = cachedBase.client;
+  } else {
+    const envVar = tenant.db.envVar;
+    const url = process.env[envVar];
+    if (!url) throw new Error(`Variável de ambiente '${envVar}' não está definida (rede '${networkId}').`);
 
-  const envVar = tenant.db.envVar;
-  const url = process.env[envVar];
-  if (!url) throw new Error(`Variável de ambiente '${envVar}' não está definida (rede '${networkId}').`);
-
-  // Evitar cache ilimitado
-  if (clientCache.size >= MAX_CLIENTS) {
-    const oldest = Array.from(clientCache.entries()).sort((a, b) => a[1].ts - b[1].ts)[0];
-    if (oldest) { await oldest[1].client.$disconnect().catch(() => null); clientCache.delete(oldest[0]); }
+    // Evitar cache ilimitado
+    if (baseCache.size >= MAX_CLIENTS) {
+      const oldest = Array.from(baseCache.entries()).sort((a, b) => a[1].ts - b[1].ts)[0];
+      if (oldest) { await oldest[1].client.$disconnect().catch(() => {}); baseCache.delete(oldest[0]); }
+    }
+    base = buildBaseClient(url);
+    baseCache.set(dbKey, { client: base, ts: Date.now() });
   }
 
-  const client = buildClient(url);
-  clientCache.set(dbKey, { client, ts: Date.now() });
-  return client;
+  // Evitar cache ilimitado de estendidos
+  if (extendedCache.size >= MAX_CLIENTS) {
+    const oldest = Array.from(extendedCache.entries()).sort((a, b) => a[1].ts - b[1].ts)[0];
+    if (oldest) extendedCache.delete(oldest[0]);
+  }
+  const extended = buildExtendedClient(base, networkId);
+  extendedCache.set(networkId, { client: extended, ts: Date.now() });
+  return extended;
 }
 
 /**
- * Executa fn com isolamento de rede via SET LOCAL app.network_id.
- * Garante que o RLS do Postgres filtre corretamente.
+ * Executa fn com isolamento de rede.
+ * O cliente já injeta SET LOCAL em cada operação; não precisa de $transaction extra.
  */
 export async function withTenant<T>(
   networkId: string,
-  fn: (db: PrismaClient) => Promise<T>,
+  fn: (db: Awaited<ReturnType<typeof getTenantDb>>) => Promise<T>,
 ): Promise<T> {
   const db = await getTenantDb(networkId);
-  return db.$transaction(async (tx) => {
-    await (tx as any).$executeRawUnsafe(`SET LOCAL app.network_id = '${networkId.replace(/'/g, "''")}'`);
-    return fn(tx as unknown as PrismaClient);
-  });
+  return fn(db);
 }
 
 /**
- * Atalho para rotas: obtém db e injeta SET LOCAL antes de qualquer query.
- * Uso: const db = await getTenantDbWithRls(ctx.networkId);
+ * Alias semântico — mantido para compatibilidade de chamadas anteriores.
+ * Retorna o mesmo cliente com RLS ativo que getTenantDb.
  */
-export async function getTenantDbWithRls(networkId: string): Promise<PrismaClient> {
-  const db = await getTenantDb(networkId);
-  // Retorna proxy que injeta SET LOCAL em cada $transaction
-  return db;
+export async function getTenantDbWithRls(networkId: string) {
+  return getTenantDb(networkId);
 }
