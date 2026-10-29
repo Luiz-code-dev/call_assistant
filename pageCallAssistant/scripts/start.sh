@@ -24,5 +24,10 @@ if [ "$ESCOLAS_SEED_DEMO" = "true" ]; then
   node scripts/escolas/seed-demo.mjs
 fi
 
+if [ "$ESCOLAS_SEED_USUARIOS" = "true" ]; then
+  echo "[start] seed usuarios demo"
+  node scripts/escolas/seed-usuarios-demo.mjs
+fi
+
 echo "[start] iniciando o servidor"
 exec node server.js
