@@ -102,10 +102,10 @@ async function importBncc(db, label) {
 
 // ── helpers ───────────────────────────────────────────────────────────────────
 
-async function upsertUser(db, email, name) {
+async function upsertUser(db, networkId, email, name) {
   return db.eduUser.upsert({
-    where: { email },
-    create: { email, name, passwordHash: hashPw(SENHA), isActive: true },
+    where: { networkId_email: { networkId, email } },
+    create: { networkId, email, name, passwordHash: hashPw(SENHA), isActive: true },
     update: { passwordHash: hashPw(SENHA), isActive: true, name },
   });
 }
@@ -213,7 +213,7 @@ async function seedRedeA() {
     ];
 
     for (const u of usuarios) {
-      const user = await upsertUser(db, u.email, u.name);
+      const user = await upsertUser(db, rede.id, u.email, u.name);
       await upsertMembership(db, user.id, rede.id, u.role, u.school);
       await syncLogin(u.email, NETWORK_ID);
       console.log(`  ✓ ${u.email} (${u.role})`);
@@ -303,7 +303,7 @@ async function seedRedeB() {
     ];
 
     for (const u of usuarios) {
-      const user = await upsertUser(db, u.email, u.name);
+      const user = await upsertUser(db, rede.id, u.email, u.name);
       await upsertMembership(db, user.id, rede.id, u.role, u.school);
       await syncLogin(u.email, NETWORK_ID);
       console.log(`  ✓ ${u.email} (${u.role})`);
