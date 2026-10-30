@@ -143,6 +143,13 @@ async function seedRede(demo) {
       update: {},
     });
 
+    // Ano letivo
+    const anoLetivo = await db.eduSchoolYear.upsert({
+      where: { networkId_year: { networkId: demo.id, year: 2025 } },
+      create: { networkId: demo.id, year: 2025, startsAt: new Date("2025-02-01"), endsAt: new Date("2025-12-15"), isCurrent: true },
+      update: { isCurrent: true },
+    });
+
     // Turma
     const turma = await db.eduClass.upsert({
       where: { id: `turma-${demo.id}` },
@@ -150,11 +157,11 @@ async function seedRede(demo) {
         id: `turma-${demo.id}`,
         name: "5º Ano A",
         gradeYear: 5,
-        stage: "ANOS_INICIAIS",
-        shift: "MANHA",
-        schoolId: escola.id,
+        stage: "ELEMENTARY_EARLY",
+        shift: "MORNING",
+        school: { connect: { id: escola.id } },
+        schoolYear: { connect: { id: anoLetivo.id } },
         networkId: demo.id,
-        academicYearId: null,
         isActive: true,
         accessCode: `DEMO${demo.dbKey.toUpperCase()}A`,
       },

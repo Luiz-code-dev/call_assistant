@@ -102,26 +102,29 @@ async function importBncc(db, label) {
 
 // ── helpers ───────────────────────────────────────────────────────────────────
 
-async function upsertUser(db, email, name) {
+async function upsertUser(db, networkId, email, name) {
   return db.eduUser.upsert({
-    where: { email },
-    create: { email, name, passwordHash: hashPw(SENHA), isActive: true },
+    where: { networkId_email: { networkId, email } },
+    create: { networkId, email, name, passwordHash: hashPw(SENHA), isActive: true },
     update: { passwordHash: hashPw(SENHA), isActive: true, name },
   });
 }
 
 async function upsertMembership(db, userId, networkId, role, schoolId = null) {
-  return db.eduMembership.upsert({
-    where: { userId_networkId_role: { userId, networkId, role } },
-    create: { userId, networkId, role, schoolId, isActive: true },
-    update: { isActive: true, schoolId },
-  }).catch(() =>
-    db.eduMembership.upsert({
-      where: { userId_networkId_role: { userId, networkId, role } },
-      create: { userId, networkId, role, isActive: true },
-      update: { isActive: true },
-    })
-  );
+  // schoolId é nullable — upsert com chave composta nullable não funciona no Prisma/SQL
+  // (NULL != NULL). Usamos findFirst + create/update.
+  const existing = await db.eduMembership.findFirst({
+    where: { userId, networkId, role, schoolId: schoolId ?? null },
+  });
+  if (existing) {
+    return db.eduMembership.update({
+      where: { id: existing.id },
+      data: { isActive: true },
+    });
+  }
+  return db.eduMembership.create({
+    data: { userId, networkId, role, schoolId: schoolId ?? null, isActive: true },
+  });
 }
 
 async function syncLogin(email, tenantId) {
@@ -170,12 +173,18 @@ async function seedRedeA() {
       update: { isActive: true },
     });
 
+    const anoLetivoA = await db.eduSchoolYear.upsert({
+      where: { networkId_year: { networkId: rede.id, year: 2025 } },
+      create: { networkId: rede.id, year: 2025, startsAt: new Date("2025-02-01"), endsAt: new Date("2025-12-15"), isCurrent: true },
+      update: { isCurrent: true },
+    });
+
     await db.eduClass.upsert({
       where: { id: `turma-${NETWORK_ID}` },
       create: {
         id: `turma-${NETWORK_ID}`, name: "5º Ano A", gradeYear: 5,
-        stage: "ANOS_INICIAIS", shift: "MANHA",
-        schoolId: escola.id, networkId: rede.id, academicYearId: null,
+        stage: "ELEMENTARY_EARLY", shift: "MORNING",
+        school: { connect: { id: escola.id } }, schoolYear: { connect: { id: anoLetivoA.id } }, networkId: rede.id,
         isActive: true, accessCode: "DEMOA001",
       },
       update: { isActive: true },
@@ -207,7 +216,7 @@ async function seedRedeA() {
     ];
 
     for (const u of usuarios) {
-      const user = await upsertUser(db, u.email, u.name);
+      const user = await upsertUser(db, rede.id, u.email, u.name);
       await upsertMembership(db, user.id, rede.id, u.role, u.school);
       await syncLogin(u.email, NETWORK_ID);
       console.log(`  ✓ ${u.email} (${u.role})`);
@@ -256,12 +265,18 @@ async function seedRedeB() {
       update: { isActive: true },
     });
 
+    const anoLetivoB = await db.eduSchoolYear.upsert({
+      where: { networkId_year: { networkId: rede.id, year: 2025 } },
+      create: { networkId: rede.id, year: 2025, startsAt: new Date("2025-02-01"), endsAt: new Date("2025-12-15"), isCurrent: true },
+      update: { isCurrent: true },
+    });
+
     await db.eduClass.upsert({
       where: { id: `turma-${NETWORK_ID}` },
       create: {
         id: `turma-${NETWORK_ID}`, name: "6º Ano B", gradeYear: 6,
-        stage: "ANOS_FINAIS", shift: "TARDE",
-        schoolId: escola.id, networkId: rede.id, academicYearId: null,
+        stage: "ELEMENTARY_LATE", shift: "AFTERNOON",
+        school: { connect: { id: escola.id } }, schoolYear: { connect: { id: anoLetivoB.id } }, networkId: rede.id,
         isActive: true, accessCode: "DEMOB001",
       },
       update: { isActive: true },
@@ -291,7 +306,7 @@ async function seedRedeB() {
     ];
 
     for (const u of usuarios) {
-      const user = await upsertUser(db, u.email, u.name);
+      const user = await upsertUser(db, rede.id, u.email, u.name);
       await upsertMembership(db, user.id, rede.id, u.role, u.school);
       await syncLogin(u.email, NETWORK_ID);
       console.log(`  ✓ ${u.email} (${u.role})`);
