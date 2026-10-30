@@ -1,8 +1,6 @@
 import { redirect } from "next/navigation";
-import { isNotasEnabled } from "@/lib/escola/feature-flag";
-import { AvaliacoesClient } from "./_AvaliacoesClient";
 
+// Módulo de notas removido — redireciona para a oferta
 export default function AvaliacoesPage({ params }: { params: { id: string } }) {
-  if (!isNotasEnabled()) redirect("/escola/professor");
-  return <AvaliacoesClient params={params} />;
+  redirect(`/escola/professor/ofertas/${params.id}`);
 }
