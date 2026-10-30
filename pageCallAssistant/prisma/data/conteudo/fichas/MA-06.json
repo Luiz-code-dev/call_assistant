@@ -1,0 +1,27 @@
+[
+  {
+    "skillCode": "EF06MA07",
+    "whatStudentDoes": "Resolve operações com frações: soma, subtração, multiplicação e divisão, usando equivalência e representação em reta numérica.",
+    "commonErrors": [
+      { "code": "soma-denominadores", "description": "Soma numerador com numerador e denominador com denominador sem igualar os denominadores" },
+      { "code": "inverte-divisao", "description": "Não inverte a segunda fração na divisão (não multiplica pelo inverso)" },
+      { "code": "simplifica-errado", "description": "Simplifica apenas o numerador ou só o denominador, sem dividir ambos pelo mesmo número" }
+    ],
+    "recommendedTypes": ["QUIZ", "AI_ACTIVITY"],
+    "ageNotes": "Usar material concreto (pizza, barra de chocolate) para representar frações antes de algoritmizar.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA03",
+    "whatStudentDoes": "Resolve situações-problema com números inteiros positivos e negativos em contextos de temperatura, saldo bancário, altitude.",
+    "commonErrors": [
+      { "code": "sinal-multiplicacao", "description": "Erra a regra de sinais na multiplicação de negativos (neg × neg = pos)" },
+      { "code": "posicao-reta", "description": "Confunde posição de negativos na reta numérica" }
+    ],
+    "recommendedTypes": ["QUIZ", "AI_ACTIVITY"],
+    "ageNotes": "Use contextos reais (temperatura, saldo) antes de apresentar a reta numérica abstrata.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  }
+]

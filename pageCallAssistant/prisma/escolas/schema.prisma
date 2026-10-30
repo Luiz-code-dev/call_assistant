@@ -179,6 +179,10 @@ model EduNetwork {
   isActive             Boolean  @default(true)
   gradeConfig          Json
   requireTrackApproval Boolean  @default(true)
+  /// Atribuição de trilha após diagnóstico: AUTO | SUGGEST
+  trackAssignmentMode  String   @default("SUGGEST")
+  /// Diagnóstico com degrau de pré-requisito habilitado por padrão
+  diagnosticAdaptive   Boolean  @default(true)
   createdAt            DateTime @default(now())
 
   schools       EduSchool[]
@@ -567,8 +571,10 @@ model EduInvite {
 
 model EduActivity {
   id             String            @id @default(cuid())
-  networkId      String
-  classSubjectId String
+  /// null = conteúdo SpeakFlow global (biblioteca)
+  networkId      String?
+  /// null = atividade de biblioteca (não vinculada a turma)
+  classSubjectId String?
   topicId        String?
   assessmentId   String?
   type           EduActivityType
@@ -583,27 +589,52 @@ model EduActivity {
   status         EduActivityStatus @default(DRAFT)
   createdById    String
   createdAt      DateTime          @default(now())
+  /// Origem: SPEAKFLOW | REDE | PROFESSOR
+  source         String            @default("PROFESSOR")
+  subjectCode    String?
+  gradeYears     Int[]
+  skillIds       String[]
+  version        Int               @default(1)
+  derivedFromId  String?
+  estMinutes     Int               @default(10)
+  audioPromptUrl String?
+  imageUrl       String?
+  /// Faixa etária/série (ex.: "EF6" para 6º ano EF)
+  ageBand        String?
+  /// Aula de hoje que originou esta atividade
+  lessonId       String?
+  /// DRAFT | IN_REVIEW | APPROVED | REJECTED
+  reviewStatus   String            @default("DRAFT")
 
-  classSubject EduClassSubject   @relation(fields: [classSubjectId], references: [id])
+  classSubject EduClassSubject?  @relation(fields: [classSubjectId], references: [id])
   questions    EduQuizQuestion[]
   submissions  EduSubmission[]
 
   @@index([classSubjectId, status])
   @@index([networkId, status])
+  @@index([networkId, source])
+  @@index([lessonId])
 }
 
 model EduQuizQuestion {
-  id           String  @id @default(cuid())
-  activityId   String
-  order        Int
-  question     String
-  options      Json
-  correctIndex Int
-  explanation  String?
+  id              String  @id @default(cuid())
+  activityId      String
+  order           Int
+  question        String
+  options         Json
+  correctIndex    Int
+  explanation     String?
+  /// Habilidade BNCC que este item avalia
+  skillId         String?
+  /// Objetivo da aula ao qual este item está ligado
+  objectiveId     String?
+  /// Código do erro conceitual que a alternativa errada mais comum representa
+  misconceptionCode String?
 
   activity EduActivity @relation(fields: [activityId], references: [id], onDelete: Cascade)
 
   @@index([activityId])
+  @@index([skillId])
 }
 
 model EduFeedbackReport {
@@ -685,23 +716,31 @@ model EduSessionPresence {
 // ================================================================
 
 model EduSkill {
-  id          String  @id @default(cuid())
-  code        String  @unique
-  subjectCode String
-  stage       String
-  gradeYears  Int[]
-  description String
-  shortLabel  String?
-  networkId   String?
+  id             String  @id @default(cuid())
+  code           String  @unique
+  subjectCode    String
+  stage          String
+  gradeYears     Int[]
+  description    String
+  shortLabel     String?
+  networkId      String?
+  /// Unidade temática BNCC (ex.: Números, Álgebra, Geometria)
+  thematicUnit   String?
+  /// Objeto de conhecimento BNCC (ex.: Frações equivalentes)
+  knowledgeObject String?
 
-  activitySkills  EduActivitySkill[]
-  diagnosticItems EduDiagnosticItem[]
-  masteries       EduSkillMastery[]
-  masteryEvents   EduSkillMasteryEvent[]
-  trackSkills     EduTrack[]             @relation("TrackSkills")
+  activitySkills   EduActivitySkill[]
+  diagnosticItems  EduDiagnosticItem[]
+  masteries        EduSkillMastery[]
+  masteryEvents    EduSkillMasteryEvent[]
+  trackSkills      EduTrack[]              @relation("TrackSkills")
+  prerequisites    EduSkillPrerequisite[]  @relation("SkillPrereqs")
+  asPrerequisiteOf EduSkillPrerequisite[]  @relation("SkillAsPrereq")
+  guides           EduSkillGuide[]
 
   @@index([subjectCode, stage])
   @@index([networkId])
+  @@index([thematicUnit])
 }
 
 model EduActivitySkill {
@@ -715,6 +754,55 @@ model EduActivitySkill {
 }
 
 // ================================================================
+// FASE 1b — Pré-requisitos e Fichas Pedagógicas
+// ================================================================
+
+/// Relação de pré-requisito entre habilidades BNCC
+model EduSkillPrerequisite {
+  id                  String  @id @default(cuid())
+  skillId             String
+  prerequisiteSkillId String
+  weight              Int     @default(1)
+  /// null = pré-requisito SpeakFlow (global); não-null = da rede
+  networkId           String?
+  source              String  @default("SPEAKFLOW")
+  /// DRAFT | APPROVED
+  status              String  @default("DRAFT")
+  createdAt           DateTime @default(now())
+
+  skill        EduSkill @relation("SkillPrereqs", fields: [skillId], references: [id])
+  prerequisite EduSkill @relation("SkillAsPrereq", fields: [prerequisiteSkillId], references: [id])
+
+  @@unique([skillId, prerequisiteSkillId, networkId])
+  @@index([skillId])
+  @@index([prerequisiteSkillId])
+  @@index([networkId])
+}
+
+/// Ficha pedagógica de uma habilidade (erros comuns, tipos recomendados)
+model EduSkillGuide {
+  id              String   @id @default(cuid())
+  skillId         String
+  whatStudentDoes String   @db.Text
+  /// [{ code: string, description: string }]
+  commonErrors    Json     @default("[]")
+  recommendedTypes String[]
+  ageNotes        String?
+  version         Int      @default(1)
+  /// null = ficha SpeakFlow (global); não-null = da rede
+  networkId       String?
+  source          String   @default("SPEAKFLOW")
+  /// DRAFT | IN_REVIEW | APPROVED | REJECTED
+  status          String   @default("DRAFT")
+  createdAt       DateTime @default(now())
+
+  skill EduSkill @relation(fields: [skillId], references: [id])
+
+  @@index([skillId])
+  @@index([networkId])
+}
+
+// ================================================================
 // FASE 2 — Diagnóstico e Domínio de Habilidade
 // ================================================================
 
@@ -725,22 +813,30 @@ enum EduMasteryLevel {
 }
 
 model EduDiagnostic {
-  id          String    @id @default(cuid())
-  networkId   String
-  subjectId   String
-  gradeYear   Int
-  title       String
-  cycle       Int       @default(1)
-  status      String    @default("DRAFT")
-  opensAt     DateTime?
-  closesAt    DateTime?
-  createdById String
-  createdAt   DateTime  @default(now())
+  id            String    @id @default(cuid())
+  /// null = diagnóstico SpeakFlow global (biblioteca)
+  networkId     String?
+  subjectId     String
+  gradeYear     Int
+  title         String
+  cycle         Int       @default(1)
+  status        String    @default("DRAFT")
+  opensAt       DateTime?
+  closesAt      DateTime?
+  createdById   String
+  createdAt     DateTime  @default(now())
+  /// Origem: SPEAKFLOW | REDE
+  source        String    @default("REDE")
+  version       Int       @default(1)
+  derivedFromId String?
+  /// Diagnóstico com degrau de pré-requisito
+  adaptive      Boolean   @default(true)
 
   items EduDiagnosticItem[]
 
   @@index([networkId, subjectId, gradeYear])
   @@index([networkId, status])
+  @@index([networkId, source])
 }
 
 model EduDiagnosticItem {
@@ -792,18 +888,23 @@ model EduSkillMasteryEvent {
 // ================================================================
 
 model EduTrack {
-  id           String    @id @default(cuid())
-  networkId    String
-  subjectId    String
-  gradeYear    Int
-  title        String
-  skillIds     String[]
-  status       String    @default("DRAFT")
-  createdById  String
-  approvedById String?
-  reviewNote   String?
-  submittedAt  DateTime?
-  createdAt    DateTime  @default(now())
+  id            String    @id @default(cuid())
+  /// null = trilha SpeakFlow global (biblioteca)
+  networkId     String?
+  subjectId     String
+  gradeYear     Int
+  title         String
+  skillIds      String[]
+  status        String    @default("DRAFT")
+  createdById   String
+  approvedById  String?
+  reviewNote    String?
+  submittedAt   DateTime?
+  createdAt     DateTime  @default(now())
+  /// Origem: SPEAKFLOW | REDE | PROFESSOR
+  source        String    @default("PROFESSOR")
+  version       Int       @default(1)
+  derivedFromId String?
 
   items       EduTrackItem[]
   assignments EduTrackAssignment[]
@@ -811,6 +912,7 @@ model EduTrack {
 
   @@index([networkId, subjectId, gradeYear])
   @@index([networkId, status])
+  @@index([networkId, source])
 }
 
 model EduTrackItem {
@@ -971,4 +1073,45 @@ model EduGuardianConsent {
   guardian EduGuardian @relation(fields: [guardianId], references: [id])
 
   @@index([guardianId, studentId])
+}
+
+// ================================================================
+// FASE 6 — Aula de Hoje (extensão da sala de aula)
+// ================================================================
+
+/// Aula registrada pelo professor (diferente de EduClassSession que é sala presencial)
+model EduLesson {
+  id             String    @id @default(cuid())
+  networkId      String
+  classSubjectId String
+  teacherId      String
+  date           DateTime  @db.Date
+  title          String
+  skillIds       String[]
+  /// Materiais: [{ type: "photo"|"pdf"|"text", url?: string, text?: string }]
+  materials      Json      @default("[]")
+  /// DRAFT | PUBLISHED
+  status         String    @default("DRAFT")
+  publishedAt    DateTime?
+  dueAt          DateTime?
+  createdAt      DateTime  @default(now())
+
+  objectives EduLessonObjective[]
+
+  @@index([networkId, classSubjectId])
+  @@index([networkId, teacherId])
+  @@index([networkId, date])
+}
+
+/// Objetivo de aprendizagem de uma aula registrada
+model EduLessonObjective {
+  id       String  @id @default(cuid())
+  lessonId String
+  order    Int
+  text     String
+  skillId  String?
+
+  lesson EduLesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@index([lessonId])
 }

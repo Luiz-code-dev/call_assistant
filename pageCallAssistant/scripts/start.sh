@@ -19,6 +19,9 @@ node scripts/escolas/migrate-all.mjs
 echo "[start] importando BNCC (idempotente, com lock)"
 node scripts/escolas/bncc-import.mjs
 
+echo "[start] importando conteudo SpeakFlow (idempotente, com lock)"
+node scripts/escolas/conteudo-import.mjs
+
 if [ "$ESCOLAS_SEED_DEMO" = "true" ]; then
   echo "[start] seed demo"
   node scripts/escolas/seed-demo.mjs
