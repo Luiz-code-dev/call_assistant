@@ -111,17 +111,20 @@ async function upsertUser(db, networkId, email, name) {
 }
 
 async function upsertMembership(db, userId, networkId, role, schoolId = null) {
-  return db.eduMembership.upsert({
-    where: { userId_networkId_role: { userId, networkId, role } },
-    create: { userId, networkId, role, schoolId, isActive: true },
-    update: { isActive: true, schoolId },
-  }).catch(() =>
-    db.eduMembership.upsert({
-      where: { userId_networkId_role: { userId, networkId, role } },
-      create: { userId, networkId, role, isActive: true },
-      update: { isActive: true },
-    })
-  );
+  // schoolId é nullable — upsert com chave composta nullable não funciona no Prisma/SQL
+  // (NULL != NULL). Usamos findFirst + create/update.
+  const existing = await db.eduMembership.findFirst({
+    where: { userId, networkId, role, schoolId: schoolId ?? null },
+  });
+  if (existing) {
+    return db.eduMembership.update({
+      where: { id: existing.id },
+      data: { isActive: true },
+    });
+  }
+  return db.eduMembership.create({
+    data: { userId, networkId, role, schoolId: schoolId ?? null, isActive: true },
+  });
 }
 
 async function syncLogin(email, tenantId) {
