@@ -181,7 +181,7 @@ async function seedRedeA() {
       create: {
         id: `turma-${NETWORK_ID}`, name: "5º Ano A", gradeYear: 5,
         stage: "ELEMENTARY_EARLY", shift: "MORNING",
-        schoolId: escola.id, networkId: rede.id, schoolYearId: anoLetivoA.id,
+        school: { connect: { id: escola.id } }, networkId: rede.id, schoolYearId: anoLetivoA.id,
         isActive: true, accessCode: "DEMOA001",
       },
       update: { isActive: true },
@@ -273,7 +273,7 @@ async function seedRedeB() {
       create: {
         id: `turma-${NETWORK_ID}`, name: "6º Ano B", gradeYear: 6,
         stage: "ELEMENTARY_LATE", shift: "AFTERNOON",
-        schoolId: escola.id, networkId: rede.id, schoolYearId: anoLetivoB.id,
+        school: { connect: { id: escola.id } }, networkId: rede.id, schoolYearId: anoLetivoB.id,
         isActive: true, accessCode: "DEMOB001",
       },
       update: { isActive: true },
