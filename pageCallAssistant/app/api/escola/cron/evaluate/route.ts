@@ -14,6 +14,7 @@ import { prismaEdu } from "@/lib/escola/db";
 import { isEscolasEnabled, isNotasEnabled } from "@/lib/escola/feature-flag";
 import { evaluateActivity, ModerationError } from "@/lib/escola/ai-gateway";
 import { subjectToWhisperLang, stageToAgeGroup } from "@/lib/escola/subject-lang";
+import { recordMasteryEvent } from "@/lib/escola/mastery-event";
 
 export const runtime = "nodejs";
 export const maxDuration = 300;
@@ -90,6 +91,7 @@ export async function POST(req: NextRequest) {
         activityType: activity.type as "WRITTEN" | "SPOKEN",
       });
 
+      const masteryLevel = result.feedback.score >= 0.7 ? "MASTERED" : result.feedback.score >= 0.4 ? "ALMOST" : "NOT_YET";
       await (prismaEdu as any).eduSubmission.update({
         where: { id: sub.id },
         data: {
@@ -100,8 +102,22 @@ export async function POST(req: NextRequest) {
           aiCostTokens: result.costTokens,
           evaluatedAt: new Date(),
           aiStatus: "DONE",
+          masteryLevel,
         },
       });
+      // Grava evento de domínio por habilidade
+      const skillIds: string[] = Array.isArray(activity.skillIds) ? activity.skillIds : [];
+      const source = activity.lessonId ? "CLASS_ACTIVITY" : "TRACK";
+      for (const skillId of skillIds) {
+        await recordMasteryEvent({
+          networkId: sub.networkId,
+          studentId: sub.studentId,
+          skillId,
+          level: masteryLevel as "NOT_YET" | "ALMOST" | "MASTERED",
+          source,
+          submissionId: sub.id,
+        }).catch(() => null);
+      }
       results.push({ id: sub.id, outcome: "DONE" });
     } catch (err) {
       // B10: moderação flagrou o conteúdo — falha imediata, sem retry

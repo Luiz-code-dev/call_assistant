@@ -3,6 +3,11 @@
  * Retorna um PrismaClient isolado por rede (networkId).
  *
  * ARQUITETURA:
+ *   - A aplicação conecta como "escolas_app" (NOSUPERUSER NOBYPASSRLS).
+ *     O RLS do Postgres é, assim, efetivamente aplicado.
+ *   - Migrations, bootstrap, bncc-import, conteudo-import e seeds continuam
+ *     usando a URL original (superusuário), pois precisam criar tabelas e importar
+ *     dados de referência com networkId = null.
  *   - clientCache: um PrismaClient base por dbKey (shared entre redes do mesmo banco)
  *   - extendedCache: um cliente estendido por networkId (injeta SET LOCAL em cada query)
  *   - Cada operação no cliente estendido roda num $transaction com:
@@ -11,6 +16,23 @@
  */
 import { PrismaClient } from "@prisma/escolas";
 import { getTenant } from "./catalogo";
+
+/**
+ * Monta a URL de conexão da aplicação substituindo usuário/senha pelo escolas_app.
+ * Se ESCOLAS_APP_DB_PASSWORD não estiver definido, usa a URL original (compatibilidade).
+ */
+function buildAppUrl(superuserUrl: string): string {
+  const appPwd = process.env.ESCOLAS_APP_DB_PASSWORD;
+  if (!appPwd) return superuserUrl; // sem escolas_app configurado → usa superusuário (dev)
+  try {
+    const u = new URL(superuserUrl);
+    u.username = "escolas_app";
+    u.password = encodeURIComponent(appPwd);
+    return u.toString();
+  } catch {
+    return superuserUrl;
+  }
+}
 
 // ── Cache base por dbKey ─────────────────────────────────────────────────────
 const baseCache = new Map<string, { client: PrismaClient; ts: number }>();
@@ -23,7 +45,7 @@ const CLIENT_TTL = 10 * 60_000; // 10 min
 
 function buildBaseClient(url: string): PrismaClient {
   return new PrismaClient({
-    datasources: { db: { url } },
+    datasources: { db: { url: buildAppUrl(url) } },
     log: process.env.NODE_ENV === "development" ? ["warn", "error"] : ["error"],
   });
 }
