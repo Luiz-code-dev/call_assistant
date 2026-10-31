@@ -52,8 +52,10 @@ async function importPrerequisitos(db) {
     const prereqId = codeMap[item.prerequisiteCode];
     if (!skillId || !prereqId) continue; // habilidade ainda não importada
 
-    // Upsert com id estável
+    // Upsert com id estável — nunca altera status de item aprovado
     const id = `SF-PREREQ-${item.skillCode}-${item.prerequisiteCode}`;
+    const existing = await db.eduSkillPrerequisite.findUnique({ where: { id }, select: { id: true, status: true } });
+    if (existing?.status === "APPROVED") { n++; continue; } // pedagogo aprovou — não tocar
     await db.eduSkillPrerequisite.upsert({
       where: { id },
       create: {
@@ -63,9 +65,9 @@ async function importPrerequisitos(db) {
         weight: item.weight ?? 1,
         networkId: null,
         source: item.source ?? "SPEAKFLOW",
-        status: item.status ?? "DRAFT",
+        status: "DRAFT",
       },
-      update: { weight: item.weight ?? 1, status: item.status ?? "DRAFT" },
+      update: { weight: item.weight ?? 1 }, // nunca mexe em status
     });
     n++;
   }
@@ -87,6 +89,9 @@ async function importFichas(db) {
       if (!skill) continue;
 
       const id = `SF-FICHA-${ficha.skillCode}`;
+      // Nunca alterar item aprovado pelo pedagogo
+      const existing = await db.eduSkillGuide.findUnique({ where: { id }, select: { id: true, status: true } });
+      if (existing?.status === "APPROVED") { n++; continue; }
       await db.eduSkillGuide.upsert({
         where: { id },
         create: {
@@ -98,14 +103,14 @@ async function importFichas(db) {
           ageNotes: ficha.ageNotes ?? null,
           networkId: null,
           source: ficha.source ?? "SPEAKFLOW",
-          status: ficha.status ?? "DRAFT",
+          status: "DRAFT",
         },
         update: {
           whatStudentDoes: ficha.whatStudentDoes,
           commonErrors: ficha.commonErrors ?? [],
           recommendedTypes: ficha.recommendedTypes ?? [],
           ageNotes: ficha.ageNotes ?? null,
-          status: ficha.status ?? "DRAFT",
+          // nunca mexe em status
         },
       });
       n++;

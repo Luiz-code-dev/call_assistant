@@ -143,3 +143,112 @@ export async function previewAssignment(
     pulados: [],
   })).then(() => assignTrackToStudents(input));
 }
+
+// ── Atribuição pós-diagnóstico (AUTO / SUGGEST) ────────────────────────────
+
+export interface PostDiagnosticInput {
+  networkId: string;
+  diagnosticId: string;
+  studentId: string;
+  /** Habilidades em NOT_YET (mais básica primeiro) */
+  notYetSkillIds: string[];
+  assignedBy: string; // userId do acionador (sistema = "system")
+}
+
+export interface PostDiagnosticResult {
+  mode: "AUTO" | "SUGGEST";
+  atribuidos: number;
+  sugeridos: number;
+  detalhes: Array<{ skillId: string; trackId: string | null; acao: string }>;
+}
+
+/**
+ * Após um diagnóstico, para cada habilidade em NOT_YET:
+ *   - Busca a trilha publicada da habilidade (ou do pré-requisito mais básico).
+ *   - Se EduNetwork.trackAssignmentMode = AUTO → atribui direto (até 3/componente).
+ *   - Se SUGGEST → cria EduTeacherAlert com sugestão.
+ */
+export async function assignAfterDiagnostic(
+  input: PostDiagnosticInput
+): Promise<PostDiagnosticResult> {
+  const { networkId, studentId, notYetSkillIds, assignedBy } = input;
+
+  // Lê configuração da rede
+  const network = await p.eduNetwork.findUnique({
+    where: { id: networkId },
+    select: { trackAssignmentMode: true },
+  });
+  const mode: "AUTO" | "SUGGEST" = network?.trackAssignmentMode === "AUTO" ? "AUTO" : "SUGGEST";
+
+  const detalhes: PostDiagnosticResult["detalhes"] = [];
+  let atribuidos = 0;
+  let sugeridos = 0;
+
+  // Limita a 3 habilidades por componente (as mais básicas primeiro)
+  const handled = new Set<string>();
+  for (const skillId of notYetSkillIds.slice(0, 3)) {
+    if (handled.has(skillId)) continue;
+    handled.add(skillId);
+
+    // Busca trilha aprovada que cobre a habilidade (preferência: networkId própria, depois null)
+    const track = await p.eduTrack.findFirst({
+      where: {
+        status: "APPROVED",
+        skillIds: { has: skillId },
+        OR: [{ networkId }, { networkId: null }],
+      },
+      orderBy: [{ networkId: "asc" }, { createdAt: "desc" }],
+      select: { id: true, networkId: true, subjectId: true },
+    });
+
+    if (!track) {
+      detalhes.push({ skillId, trackId: null, acao: "sem_trilha" });
+      continue;
+    }
+
+    if (mode === "AUTO") {
+      try {
+        const res = await assignTrackToStudents({
+          networkId,
+          trackId: track.id,
+          studentIds: [studentId],
+          assignedBy,
+        });
+        atribuidos += res.atribuidos;
+        detalhes.push({ skillId, trackId: track.id, acao: res.atribuidos > 0 ? "atribuido" : `pulado:${res.pulados[0]?.motivo}` });
+      } catch (e) {
+        detalhes.push({ skillId, trackId: track.id, acao: `erro:${(e as Error).message}` });
+      }
+    } else {
+      // SUGGEST: cria alerta para o professor
+      const enrollment = await p.eduEnrollment.findFirst({
+        where: { studentId, networkId },
+        select: { classId: true },
+      });
+      if (enrollment) {
+        const classSubject = await p.eduClassSubject.findFirst({
+          where: { classId: enrollment.classId, subjectId: track.subjectId, networkId },
+          select: { teacherId: true },
+        });
+        if (classSubject?.teacherId) {
+          await p.eduTeacherAlert.create({
+            data: {
+              networkId,
+              teacherId: classSubject.teacherId,
+              studentId,
+              type: "TRACK_SUGGESTION",
+              message: `Diagnóstico: aluno precisa de reforço. Trilha sugerida para a habilidade.`,
+              metadata: { trackId: track.id, skillId, source: "DIAGNOSTIC" },
+            },
+          }).catch(() => null); // não falha o fluxo se o alerta não criar
+          sugeridos++;
+          detalhes.push({ skillId, trackId: track.id, acao: "sugerido" });
+          continue;
+        }
+      }
+      detalhes.push({ skillId, trackId: track.id, acao: "sugestao_sem_professor" });
+    }
+  }
+
+  return { mode, atribuidos, sugeridos, detalhes };
+}

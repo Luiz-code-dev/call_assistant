@@ -381,7 +381,7 @@ function WaitingFeedback({ activityId }: { activityId: string }) {
         <>
           <Clock className="size-12 text-amber-500 mx-auto" />
           <p className="font-semibold text-zinc-800">Sua entrega foi salva com sucesso.</p>
-          <p className="text-sm text-zinc-500">Seu professor vai corrigir em breve.</p>
+          <p className="text-sm text-zinc-500">Sua entrega está sendo avaliada. O retorno aparecerá em instantes.</p>
           <button onClick={() => router.push("/escola/aluno")}
             className="px-6 py-2 rounded-lg text-sm font-medium text-[#1F1A2E]"
             style={{ background: "var(--esc-primary,#7c3aed)" }}>

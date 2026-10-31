@@ -16,6 +16,9 @@ node scripts/escolas/bootstrap-catalogo.mjs
 echo "[start] migrando bases tenant (idempotente, com lock)"
 node scripts/escolas/migrate-all.mjs
 
+echo "[start] verificando papel escolas_app (sem BYPASSRLS)"
+node scripts/escolas/check-app-role.mjs
+
 echo "[start] importando BNCC (idempotente, com lock)"
 node scripts/escolas/bncc-import.mjs
 
