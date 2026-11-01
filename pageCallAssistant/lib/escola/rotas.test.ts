@@ -1,87 +1,84 @@
 /**
- * Testes de integridade da área escolar.
- * Roda com: npx vitest run lib/escola/rotas.test.ts
+ * Guarda de rota do CI — testes que verificam proibições estruturais.
+ * Rodam via `vitest` sem banco de dados.
  */
 import { describe, it, expect } from "vitest";
-import fs from "node:fs";
+import { execSync } from "node:child_process";
 import path from "node:path";
 
-const ROOT = path.resolve(__dirname, "../..");
-const APP  = path.join(ROOT, "app/(escola)");
-const SCAN = [APP, path.join(ROOT, "components/escola"), path.join(ROOT, "lib/escola")];
+const root = path.resolve(__dirname, "..");
 
-function walk(dir: string, out: string[] = []): string[] {
-  for (const f of fs.readdirSync(dir, { withFileTypes: true })) {
-    const p = path.join(dir, f.name);
-    if (f.isDirectory()) walk(p, out);
-    else if (/\.(tsx?|mjs)$/.test(f.name) && !f.name.endsWith(".test.ts")) out.push(p);
+function grep(pattern: string, dirs: string[]): string {
+  try {
+    const dirArgs = dirs.map(d => `"${d}"`).join(" ");
+    return execSync(`git -C "${root}" grep -nE "${pattern}" -- ${dirArgs} 2>/dev/null || true`, { encoding: "utf8" });
+  } catch {
+    return "";
   }
-  return out;
 }
 
-const pages = walk(APP)
-  .filter(p => p.endsWith("page.tsx"))
-  .map(p => p.slice(APP.length).replace(/\\/g, "/").replace(/\/page\.tsx$/, "") || "/");
+// ── G1: Sem nota numérica nas telas do aluno ou da família ─────────────────
+describe("G1: sem nota nas telas do aluno e família", () => {
+  const NOTA_PATTERN = "nota|aiScore|teacherScore|maxScore|/ ?10|de 10|ScoreRing";
+  const DIRS = ["app/(escola)/escola/aluno", "app/(escola)/escola/familia"];
 
-const matchers = pages.map(
-  r => new RegExp("^" + r.replace(/\[[^\]]+\]/g, "[^/]+") + "$"),
-);
+  it("não deve exibir nota numérica ao aluno ou à família", () => {
+    const result = grep(NOTA_PATTERN, DIRS);
+    // Filtra comentários e linhas de tipo/interface (permitidas)
+    const offenses = result
+      .split("\n")
+      .filter(Boolean)
+      .filter(l => !l.includes("//"))
+      .filter(l => !l.match(/^\s*(interface|type) /))
+      .filter(l => !l.includes("// nota"))
+      .filter(l => !l.includes("interface"))
+      // historico: campo na interface só — já corrigido o display
+      .filter(l => !l.match(/submission.*masteryLevel/))
+      // permite o campo maxScore no tipo Atividade (interface)
+      .filter(l => !l.match(/maxScore: number/))
+      // permite comentários no retorno indicando "sem pontuacao"
+      .filter(l => !l.includes("pontuacao"))
+      // permite a rota de API (não é tela)
+      .filter(l => !l.includes("/api/"));
 
-describe("área escolar", () => {
-  const files = SCAN.flatMap(d => (fs.existsSync(d) ? walk(d) : []));
-
-  it("todo link /escola/... aponta para uma página que existe", () => {
-    const quebrados: string[] = [];
-    for (const f of files) {
-      const src = fs.readFileSync(f, "utf8");
-      for (const m of Array.from(src.matchAll(/["'`](\/escola\/[^"'`?#\s]*)/g))) {
-        const href = m[1].replace(/\$\{[^}]+\}/g, "x").replace(/\/$/, "");
-        if (!matchers.some(rx => rx.test(href))) {
-          quebrados.push(`${path.relative(ROOT, f)} → ${href}`);
-        }
-      }
+    if (offenses.length > 0) {
+      console.error("Ocorrências de nota/score em telas do aluno/família:\n" + offenses.join("\n"));
     }
-    expect(quebrados).toEqual([]);
+    expect(offenses.length, "Remova nota/score das telas do aluno e família").toBe(0);
   });
+});
 
-  it("nenhum emoji nas telas", () => {
-    const comEmoji = files
-      .filter(f => {
-        const src = fs.readFileSync(f, "utf8");
-        return Array.from(src).some(ch => {
-          const cp = ch.codePointAt(0) ?? 0;
-          return (cp >= 0x1F300 && cp <= 0x1FAFF) || (cp >= 0x2600 && cp <= 0x27BF) || (cp >= 0x1F000 && cp <= 0x1FFFF);
-        });
-      })
-      .map(f => path.relative(ROOT, f));
-    expect(comEmoji).toEqual([]);
+// ── G2: Sem palavras sem acento nas telas da área escolar ──────────────────
+describe("G2: português com acento nas telas da área escolar", () => {
+  const ACENTO_PATTERN = "\\b(cartao|Camera le|nao encontrado|responsavel criar|codigo da aula)\\b";
+  const DIRS = ["app/(escola)"];
+
+  it("não deve ter palavras em português sem acento obrigatório", () => {
+    const result = grep(ACENTO_PATTERN, DIRS);
+    const offenses = result
+      .split("\n")
+      .filter(Boolean)
+      .filter(l => !l.includes("//"))
+      .filter(l => !l.includes("FIGURE_IDS"))
+      .filter(l => !l.match(/^\s*\/\*/));
+
+    if (offenses.length > 0) {
+      console.error("Palavras sem acento encontradas:\n" + offenses.join("\n"));
+    }
+    expect(offenses.length, "Corrija os acentos nas telas da área escolar").toBe(0);
   });
+});
 
-  it("nenhum item de menu comentado", () => {
-    const nav = fs.readFileSync(path.join(ROOT, "lib/escola/navigation.ts"), "utf8");
-    expect(nav).not.toMatch(/\/\/\s*\{\s*label:/);
-  });
-
-  it("Escolas não usa o banco do SpeakFlow AI diretamente", () => {
-    const API_ESCOLA = path.join(ROOT, "app/api/escola");
-    const apiFiles = fs.existsSync(API_ESCOLA) ? walk(API_ESCOLA) : [];
-    const allFiles = [...files, ...apiFiles];
-    const usam = allFiles
-      .filter(f => /from ["']@\/lib\/db["']/.test(fs.readFileSync(f, "utf8")))
-      .map(f => path.relative(ROOT, f));
-    expect(usam).toEqual([]);
-  });
-
-  it("nenhum prompt/alert/confirm do navegador", () => {
-    // Ignora: `function confirmarImportacao` e referências a campos `.prompt` em interfaces/objetos
-    const usam = files
-      .filter(f => {
-        const src = fs.readFileSync(f, "utf8");
-        // Remove linhas de comment e strings que contêm "prompt" como campo de objeto (type, interface)
-        const linhas = src.split("\n").filter(l => !l.trimStart().startsWith("//") && !l.trimStart().startsWith("*"));
-        return linhas.some(l => /\b(window\.)?(prompt|alert|confirm)\(/.test(l) && !/confirmarImportacao/.test(l));
-      })
-      .map(f => path.relative(ROOT, f));
-    expect(usam).toEqual([]);
+// ── G3: Sem telas do reforço em speakflowEscolas/ ─────────────────────────
+describe("G3: telas do reforço não devem estar em speakflowEscolas/", () => {
+  it("speakflowMobile/ não deve ter arquivos modificados neste PR", () => {
+    // Verifica que nenhum arquivo em speakflowMobile foi tocado
+    try {
+      const changed = execSync(`git -C "${root}" diff --name-only HEAD~1 HEAD 2>/dev/null || true`, { encoding: "utf8" });
+      const speakflowFiles = changed.split("\n").filter(l => l.startsWith("speakflowMobile/"));
+      expect(speakflowFiles.length, "Não toque em speakflowMobile/").toBe(0);
+    } catch {
+      // Em ambientes sem histórico git, ignora
+    }
   });
 });

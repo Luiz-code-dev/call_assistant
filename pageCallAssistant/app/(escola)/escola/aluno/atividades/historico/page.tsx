@@ -9,7 +9,7 @@ interface Atividade {
   id: string; title: string; type: "WRITTEN" | "SPOKEN" | "QUIZ";
   subject: { name: string; color: string | null } | null;
   dueAt: string | null; isDone: boolean;
-  submission: { status: string; aiScore: number | null; teacherScore: number | null; submittedAt: string | null } | null;
+  submission: { status: string; masteryLevel: string | null; submittedAt: string | null } | null;
 }
 
 const TYPE_ICON = { WRITTEN: PenLine, SPOKEN: Mic, QUIZ: HelpCircle };
@@ -60,7 +60,7 @@ export default function HistoricoPage() {
                 <div className="space-y-2">
                   {items.map((a) => {
                     const Icon = TYPE_ICON[a.type];
-                    const nota = a.submission?.teacherScore ?? a.submission?.aiScore;
+                    const nivel = a.submission?.masteryLevel ?? null;
                     const isPending = a.submission?.status === "SUBMITTED";
                     return (
                       <Link key={a.id} href={`/escola/aluno/atividades/${a.id}/retorno`}
@@ -74,13 +74,15 @@ export default function HistoricoPage() {
                           )}
                         </div>
                         {isPending ? (
-                          <span className="text-xs text-amber-500 flex items-center gap-1 shrink-0"><Clock className="size-3" />Analisando</span>
-                        ) : nota != null ? (
-                          <span className={`text-sm font-bold shrink-0 ${Number(nota) >= 7 ? "text-green-600" : Number(nota) >= 5 ? "text-amber-600" : "text-rose-600"}`}>
-                            {Number(nota).toFixed(1)}
-                          </span>
+                          <span className="text-xs text-[#92400E] flex items-center gap-1 shrink-0"><Clock className="size-3" />Analisando</span>
+                        ) : nivel === "MASTERED" ? (
+                          <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534] shrink-0">Domina</span>
+                        ) : nivel === "ALMOST" ? (
+                          <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-[#FEF3C7] text-[#92400E] shrink-0">Quase lá</span>
+                        ) : nivel === "NOT_YET" ? (
+                          <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-[#FEE2E2] text-[#B91C1C] shrink-0">Ainda não</span>
                         ) : (
-                          <span className="text-xs text-zinc-400 shrink-0">Aguardando professor</span>
+                          <span className="text-xs text-[#5B5470] shrink-0">Aguardando</span>
                         )}
                         <ChevronRight className="size-4 text-zinc-300 shrink-0" />
                       </Link>

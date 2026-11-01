@@ -4,6 +4,8 @@ Plataforma SaaS do SpeakFlow — autenticação, planos, ferramentas de IA, comu
 
 > **Parte do ecossistema SpeakFlow.** Para o app desktop (Electron + Java + Rust), veja [`../call-assistant`](../call-assistant).
 
+> **SpeakFlow Escolas — app da loja:** O aplicativo `SpeakFlowEscolasApp` (repositório separado) é um wrapper WebView que abre `https://speakflow.ia.br/escola/inicio`. Todas as telas do produto escolar são telas web em `app/(escola)/escola/`. **Não crie telas do reforço em `speakflowEscolas/`** — aquele diretório é ignorado pelo produto escolar.
+
 ---
 
 ## Estrutura do projeto

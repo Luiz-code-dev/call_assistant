@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef, useCallback } from "react";
 import { useRouter, useParams } from "next/navigation";
-import { ArrowLeft, Mic, MicOff, Play, RefreshCw, Send, CheckCircle2, Clock, AlertCircle, ChevronRight } from "lucide-react";
+import { ArrowLeft, Mic, MicOff, Play, RefreshCw, Send, CheckCircle2, Clock, AlertCircle, ChevronRight, Volume2 } from "lucide-react";
 
 interface QuizQuestion { id: string; order: number; question: string; options: string[] }
 interface Atividade {
@@ -14,7 +14,64 @@ interface Atividade {
   subject: { name: string; color: string | null } | null;
 }
 
-// ─── Escrita ─────────────────────────────────────────────────────────────────
+// ─── Botao Ouvir ─────────────────────────────────────────────────────────────
+
+function OuvirButton({ texto }: { texto: string }) {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [tocando, setTocando] = useState(false);
+
+  async function ouvir() {
+    if (tocando) {
+      audioRef.current?.pause();
+      setTocando(false);
+      return;
+    }
+    setTocando(true);
+    try {
+      const r = await fetch("/api/escola/aluno/tts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: texto }),
+      });
+      if (r.ok && r.status !== 204) {
+        const blob = await r.blob();
+        const url = URL.createObjectURL(blob);
+        if (!audioRef.current) audioRef.current = new Audio();
+        audioRef.current.src = url;
+        audioRef.current.onended = () => setTocando(false);
+        audioRef.current.play().catch(() => fallback(texto));
+      } else {
+        fallback(texto);
+      }
+    } catch {
+      fallback(texto);
+    }
+  }
+
+  function fallback(t: string) {
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(t);
+      u.lang = "pt-BR"; u.rate = 0.9;
+      u.onend = () => setTocando(false);
+      window.speechSynthesis.speak(u);
+    } else {
+      setTocando(false);
+    }
+  }
+
+  return (
+    <button
+      onClick={ouvir}
+      title={tocando ? "Parar" : "Ouvir enunciado"}
+      className={`shrink-0 p-2.5 rounded-xl min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors ${tocando ? "bg-[#6D28D9] text-white" : "bg-[#EDE9FE] text-[#6D28D9] hover:bg-[#DDD6EE]"}`}
+    >
+      {tocando ? <Play className="size-4" /> : <Volume2 className="size-4" />}
+    </button>
+  );
+}
+
+// ─── Escrita ──────────────────────────────────────────────────────────────────
 
 function WrittenActivity({ activity, onSubmit }: { activity: Atividade; onSubmit: (data: { text: string }) => Promise<void> }) {
   const DRAFT_KEY = `edu_draft_${activity.id}`;
@@ -48,27 +105,29 @@ function WrittenActivity({ activity, onSubmit }: { activity: Atividade; onSubmit
 
   return (
     <div className="space-y-4">
-      <div className="rounded-xl border p-4" style={{ background: "var(--esc-surface,#fff)", borderColor: "var(--esc-border,#e5e7eb)" }}>
-        <p className="text-sm text-zinc-700 leading-relaxed whitespace-pre-wrap">{activity.prompt}</p>
+      <div className="rounded-xl border border-[#E9E5F5] bg-white p-4">
+        <div className="flex items-start gap-3">
+          <p className="text-sm text-[#1F1A2E] leading-relaxed whitespace-pre-wrap flex-1">{activity.prompt}</p>
+          <OuvirButton texto={activity.prompt} />
+        </div>
       </div>
-      <div className="rounded-xl border overflow-hidden" style={{ background: "var(--esc-surface,#fff)", borderColor: "var(--esc-border,#e5e7eb)" }}>
+      <div className="rounded-xl border border-[#E9E5F5] bg-white overflow-hidden">
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder="Escreva sua resposta aqui…"
+          placeholder="Escreva sua resposta aqui..."
           rows={10}
-          className="w-full p-4 text-base text-zinc-900 bg-transparent resize-none outline-none placeholder:text-zinc-400"
+          className="w-full p-4 text-base text-[#1F1A2E] bg-transparent resize-none outline-none placeholder:text-[#5B5470]"
           style={{ fontSize: "16px", lineHeight: "1.6" }}
         />
-        <div className="flex items-center justify-between px-4 py-2 border-t" style={{ borderColor: "var(--esc-border,#e5e7eb)" }}>
-          <span className="text-xs text-zinc-400">{wordCount} palavra{wordCount !== 1 ? "s" : ""}</span>
-          <span className="text-xs text-zinc-400">Salvo automaticamente</span>
+        <div className="flex items-center justify-between px-4 py-2 border-t border-[#E9E5F5]">
+          <span className="text-xs text-[#5B5470]">{wordCount} palavra{wordCount !== 1 ? "s" : ""}</span>
+          <span className="text-xs text-[#5B5470]">Salvo automaticamente</span>
         </div>
       </div>
       <button onClick={handleSubmit} disabled={submitting || text.trim().length < 10}
-        className="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-semibold text-[#1F1A2E] transition-all disabled:opacity-50"
-        style={{ background: "var(--esc-primary,#7c3aed)" }}>
-        {submitting ? <><RefreshCw className="size-4 animate-spin" />Enviando…</> : <><Send className="size-4" />Enviar resposta</>}
+        className="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-semibold text-white bg-[#6D28D9] hover:bg-[#5B21B6] transition-colors disabled:opacity-50 min-h-[52px]">
+        {submitting ? <><RefreshCw className="size-4 animate-spin" />Enviando...</> : <><Send className="size-4" />Enviar resposta</>}
       </button>
     </div>
   );
@@ -113,23 +172,13 @@ function SpokenActivity({ activity, onSubmit }: { activity: Atividade; onSubmit:
         });
       }, 1000);
     } catch {
-      setErrorMsg("Permissão de microfone negada. Toque no ícone de cadeado na barra do navegador e permita o microfone.");
+      setErrorMsg("Permissao de microfone negada. Toque no icone de cadeado na barra do navegador e permita o microfone.");
       setState("error");
     }
   };
 
-  const stopRecording = () => {
-    clearInterval(timerRef.current);
-    mediaRef.current?.stop();
-  };
-
-  const retake = () => {
-    setAudioUrl(null);
-    setAudioBlob(null);
-    setTranscript(null);
-    setState("idle");
-    setElapsed(0);
-  };
+  const stopRecording = () => { clearInterval(timerRef.current); mediaRef.current?.stop(); };
+  const retake = () => { setAudioUrl(null); setAudioBlob(null); setTranscript(null); setState("idle"); setElapsed(0); };
 
   const handleSend = async () => {
     if (!audioBlob) return;
@@ -153,23 +202,25 @@ function SpokenActivity({ activity, onSubmit }: { activity: Atividade; onSubmit:
 
   return (
     <div className="space-y-4">
-      <div className="rounded-xl border p-4" style={{ background: "var(--esc-surface,#fff)", borderColor: "var(--esc-border,#e5e7eb)" }}>
-        <p className="text-sm text-zinc-700 leading-relaxed whitespace-pre-wrap">{activity.prompt}</p>
-        <p className="text-xs text-zinc-400 mt-2">Tempo máximo: {fmtTime(maxSec)}</p>
+      <div className="rounded-xl border border-[#E9E5F5] bg-white p-4">
+        <div className="flex items-start gap-3">
+          <p className="text-sm text-[#1F1A2E] leading-relaxed whitespace-pre-wrap flex-1">{activity.prompt}</p>
+          <OuvirButton texto={activity.prompt} />
+        </div>
+        <p className="text-xs text-[#5B5470] mt-2">Tempo maximo: {fmtTime(maxSec)}</p>
       </div>
 
       {errorMsg && (
-        <div className="rounded-xl border border-rose-200 bg-rose-50 p-4 flex gap-3">
-          <AlertCircle className="size-5 text-rose-500 shrink-0 mt-0.5" />
-          <p className="text-sm text-rose-700">{errorMsg}</p>
+        <div className="rounded-xl border border-[#FCA5A5] bg-[#FEE2E2] p-4 flex gap-3">
+          <AlertCircle className="size-5 text-[#B91C1C] shrink-0 mt-0.5" />
+          <p className="text-sm text-[#B91C1C]">{errorMsg}</p>
         </div>
       )}
 
-      <div className="rounded-xl border p-8 flex flex-col items-center gap-6" style={{ background: "var(--esc-surface,#fff)", borderColor: "var(--esc-border,#e5e7eb)" }}>
+      <div className="rounded-xl border border-[#E9E5F5] bg-white p-8 flex flex-col items-center gap-6">
         {state === "idle" && (
           <button onClick={startRecording}
-            className="size-24 rounded-full flex items-center justify-center text-[#1F1A2E] shadow-lg transition-transform active:scale-95"
-            style={{ background: "var(--esc-primary,#7c3aed)" }}>
+            className="size-24 rounded-full flex items-center justify-center text-white bg-[#6D28D9] hover:bg-[#5B21B6] shadow-lg transition-transform active:scale-95 min-h-[96px]">
             <Mic className="size-10" />
           </button>
         )}
@@ -177,17 +228,16 @@ function SpokenActivity({ activity, onSubmit }: { activity: Atividade; onSubmit:
           <>
             <div className="relative">
               <button onClick={stopRecording}
-                className="size-24 rounded-full flex items-center justify-center text-[#1F1A2E] shadow-lg animate-pulse"
-                style={{ background: "#ef4444" }}>
+                className="size-24 rounded-full flex items-center justify-center text-white bg-[#B91C1C] shadow-lg animate-pulse min-h-[96px]">
                 <MicOff className="size-10" />
               </button>
             </div>
             <div className="text-center">
-              <p className="text-3xl font-mono font-bold text-zinc-800">{fmtTime(elapsed)}</p>
-              <div className="mt-2 w-48 h-1.5 rounded-full bg-zinc-200">
-                <div className="h-full rounded-full bg-rose-500 transition-all" style={{ width: `${(elapsed / maxSec) * 100}%` }} />
+              <p className="text-3xl font-mono font-bold text-[#1F1A2E]">{fmtTime(elapsed)}</p>
+              <div className="mt-2 w-48 h-1.5 rounded-full bg-[#E9E5F5]">
+                <div className="h-full rounded-full bg-[#B91C1C] transition-all" style={{ width: `${(elapsed / maxSec) * 100}%` }} />
               </div>
-              <p className="text-xs text-zinc-400 mt-1">Toque para parar</p>
+              <p className="text-xs text-[#5B5470] mt-1">Toque para parar</p>
             </div>
           </>
         )}
@@ -196,23 +246,21 @@ function SpokenActivity({ activity, onSubmit }: { activity: Atividade; onSubmit:
             <audio controls src={audioUrl} className="w-full rounded-lg" />
             <div className="flex gap-3">
               <button onClick={retake} disabled={state === "transcribing"}
-                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border font-medium text-zinc-700 disabled:opacity-50"
-                style={{ borderColor: "var(--esc-border,#e5e7eb)" }}>
+                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-[#DDD6EE] font-medium text-[#1F1A2E] disabled:opacity-50 min-h-[44px]">
                 <RefreshCw className="size-4" />Gravar de novo
               </button>
               <button onClick={handleSend} disabled={state === "transcribing"}
-                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-[#1F1A2E] disabled:opacity-50"
-                style={{ background: "var(--esc-primary,#7c3aed)" }}>
-                {state === "transcribing" ? <><RefreshCw className="size-4 animate-spin" />Enviando…</> : <><Send className="size-4" />Enviar</>}
+                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-white bg-[#6D28D9] hover:bg-[#5B21B6] disabled:opacity-50 min-h-[44px]">
+                {state === "transcribing" ? <><RefreshCw className="size-4 animate-spin" />Enviando...</> : <><Send className="size-4" />Enviar</>}
               </button>
             </div>
           </div>
         )}
         {state === "done" && (
           <div className="text-center space-y-2">
-            <CheckCircle2 className="size-12 text-green-500 mx-auto" />
-            <p className="font-semibold text-zinc-800">Enviado!</p>
-            {transcript && <p className="text-sm text-zinc-500 max-w-xs">&ldquo;{transcript}&rdquo;</p>}
+            <CheckCircle2 className="size-12 text-[#166534] mx-auto" />
+            <p className="font-semibold text-[#1F1A2E]">Enviado!</p>
+            {transcript && <p className="text-sm text-[#5B5470] max-w-xs">&ldquo;{transcript}&rdquo;</p>}
           </div>
         )}
       </div>
@@ -241,31 +289,29 @@ function QuizActivity({ activity, onSubmit }: { activity: Atividade; onSubmit: (
     setSubmitting(false);
   };
 
-  if (!q) return <p className="text-center text-zinc-500">Sem questões.</p>;
+  if (!q) return <p className="text-center text-[#5B5470] py-16">Sem questoes.</p>;
 
   if (reviewing) return (
     <div className="space-y-4">
-      <h3 className="font-semibold text-zinc-800">Revise suas respostas</h3>
+      <h3 className="font-semibold text-[#1F1A2E]">Revise suas respostas</h3>
       {questions.map((qq, i) => {
         const selected = answers.get(qq.id);
         return (
-          <div key={qq.id} className="rounded-xl border p-4" style={{ background: "var(--esc-surface,#fff)", borderColor: "var(--esc-border,#e5e7eb)" }}>
-            <p className="text-sm font-medium text-zinc-700 mb-2">{i + 1}. {qq.question}</p>
-            <p className="text-sm text-violet-600 font-medium">
-              {selected !== undefined ? (qq.options as string[])[selected] : <span className="text-rose-500">Não respondida</span>}
+          <div key={qq.id} className="rounded-xl border border-[#E9E5F5] bg-white p-4">
+            <p className="text-sm font-medium text-[#1F1A2E] mb-2">{i + 1}. {qq.question}</p>
+            <p className="text-sm text-[#6D28D9] font-medium">
+              {selected !== undefined ? (qq.options as string[])[selected] : <span className="text-[#B91C1C]">Nao respondida</span>}
             </p>
           </div>
         );
       })}
       <div className="flex gap-3">
         <button onClick={() => setReviewing(false)}
-          className="flex-1 py-3 rounded-xl border font-medium text-zinc-700"
-          style={{ borderColor: "var(--esc-border,#e5e7eb)" }}>
+          className="flex-1 py-3 rounded-xl border-2 border-[#DDD6EE] font-medium text-[#1F1A2E] min-h-[44px]">
           Voltar
         </button>
         <button onClick={handleSubmit} disabled={submitting || !allAnswered}
-          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-[#1F1A2E] disabled:opacity-50"
-          style={{ background: "var(--esc-primary,#7c3aed)" }}>
+          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-white bg-[#6D28D9] hover:bg-[#5B21B6] disabled:opacity-50 min-h-[44px]">
           {submitting ? <RefreshCw className="size-4 animate-spin" /> : <><Send className="size-4" />Enviar quiz</>}
         </button>
       </div>
@@ -274,28 +320,28 @@ function QuizActivity({ activity, onSubmit }: { activity: Atividade; onSubmit: (
 
   return (
     <div className="space-y-4">
-      {/* Progress */}
-      <div className="flex items-center justify-between text-sm text-zinc-500">
-        <span>Questão {current + 1} de {questions.length}</span>
+      <div className="flex items-center justify-between text-sm text-[#5B5470]">
+        <span>Questao {current + 1} de {questions.length}</span>
         <span>{totalAnswered} respondida{totalAnswered !== 1 ? "s" : ""}</span>
       </div>
-      <div className="w-full h-1.5 rounded-full bg-zinc-200">
-        <div className="h-full rounded-full transition-all" style={{ width: `${((current + 1) / questions.length) * 100}%`, background: "var(--esc-primary,#7c3aed)" }} />
+      <div className="w-full h-1.5 rounded-full bg-[#E9E5F5]">
+        <div className="h-full rounded-full bg-[#6D28D9] transition-all" style={{ width: `${((current + 1) / questions.length) * 100}%` }} />
       </div>
 
-      {/* Questão */}
-      <div className="rounded-xl border p-4" style={{ background: "var(--esc-surface,#fff)", borderColor: "var(--esc-border,#e5e7eb)" }}>
-        <p className="font-medium text-zinc-900 leading-relaxed">{q.question}</p>
+      <div className="rounded-xl border border-[#E9E5F5] bg-white p-4">
+        <div className="flex items-start gap-3">
+          <p className="font-medium text-[#1F1A2E] leading-relaxed flex-1">{q.question}</p>
+          <OuvirButton texto={q.question} />
+        </div>
       </div>
 
-      {/* Alternativas */}
       <div className="space-y-2">
         {(q.options as string[]).map((opt, i) => {
           const selected = answers.get(q.id) === i;
           return (
             <button key={i} onClick={() => select(q.id, i)}
-              className={`w-full text-left p-4 rounded-xl border text-sm font-medium transition-all ${selected ? "border-violet-500 bg-violet-50 text-violet-900" : "border-zinc-200 bg-white text-zinc-800 hover:border-violet-300"}`}>
-              <span className={`inline-flex size-6 rounded-full items-center justify-center text-xs font-bold mr-3 ${selected ? "bg-violet-500 text-white" : "bg-zinc-100 text-zinc-600"}`}>
+              className={`w-full text-left p-4 rounded-xl border-2 text-sm font-medium transition-all min-h-[52px] ${selected ? "border-[#6D28D9] bg-[#EDE9FE] text-[#1F1A2E]" : "border-[#E9E5F5] bg-white text-[#1F1A2E] hover:border-[#6D28D9]"}`}>
+              <span className={`inline-flex size-6 rounded-full items-center justify-center text-xs font-bold mr-3 ${selected ? "bg-[#6D28D9] text-white" : "bg-[#EDE9FE] text-[#6D28D9]"}`}>
                 {String.fromCharCode(65 + i)}
               </span>
               {opt}
@@ -304,25 +350,21 @@ function QuizActivity({ activity, onSubmit }: { activity: Atividade; onSubmit: (
         })}
       </div>
 
-      {/* Nav */}
       <div className="flex gap-3">
         {current > 0 && (
           <button onClick={() => setCurrent((c) => c - 1)}
-            className="px-4 py-3 rounded-xl border font-medium text-zinc-700"
-            style={{ borderColor: "var(--esc-border,#e5e7eb)" }}>
+            className="px-4 py-3 rounded-xl border-2 border-[#DDD6EE] font-medium text-[#1F1A2E] min-h-[44px]">
             Anterior
           </button>
         )}
         {current < questions.length - 1 ? (
           <button onClick={() => setCurrent((c) => c + 1)}
-            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-[#1F1A2E]"
-            style={{ background: "var(--esc-primary,#7c3aed)" }}>
-            Próxima <ChevronRight className="size-4" />
+            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-white bg-[#6D28D9] hover:bg-[#5B21B6] min-h-[44px]">
+            Proxima <ChevronRight className="size-4" />
           </button>
         ) : (
           <button onClick={() => setReviewing(true)} disabled={!allAnswered}
-            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-[#1F1A2E] disabled:opacity-50"
-            style={{ background: "var(--esc-primary,#7c3aed)" }}>
+            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-white bg-[#6D28D9] hover:bg-[#5B21B6] disabled:opacity-50 min-h-[44px]">
             Revisar e enviar
           </button>
         )}
@@ -358,34 +400,33 @@ function WaitingFeedback({ activityId }: { activityId: string }) {
   }, [activityId, router]);
 
   return (
-    <div className="rounded-xl border p-10 text-center space-y-4" style={{ background: "var(--esc-surface,#fff)", borderColor: "var(--esc-border,#e5e7eb)" }}>
+    <div className="rounded-xl border border-[#E9E5F5] bg-white p-10 text-center space-y-4">
       {status === "waiting" && (
         <>
-          <div className="size-16 rounded-full mx-auto flex items-center justify-center" style={{ background: "var(--esc-primary,#7c3aed)" + "18" }}>
-            <RefreshCw className="size-8 text-violet-500 animate-spin" />
+          <div className="size-16 rounded-full mx-auto flex items-center justify-center bg-[#EDE9FE]">
+            <RefreshCw className="size-8 text-[#6D28D9] animate-spin" />
           </div>
-          <p className="font-semibold text-zinc-800 text-lg">Analisando sua resposta…</p>
-          <p className="text-sm text-zinc-500">Aguarde alguns segundos</p>
-          <div className="w-48 mx-auto h-1 bg-zinc-200 rounded-full overflow-hidden">
-            <div className="h-full bg-violet-500 animate-pulse rounded-full" style={{ width: `${Math.min(seconds * 1.5, 90)}%` }} />
+          <p className="font-semibold text-[#1F1A2E] text-lg">Analisando sua resposta...</p>
+          <p className="text-sm text-[#5B5470]">Aguarde alguns segundos</p>
+          <div className="w-48 mx-auto h-1 bg-[#E9E5F5] rounded-full overflow-hidden">
+            <div className="h-full bg-[#6D28D9] animate-pulse rounded-full" style={{ width: `${Math.min(seconds * 1.5, 90)}%` }} />
           </div>
         </>
       )}
       {status === "ready" && (
         <>
-          <CheckCircle2 className="size-16 text-green-500 mx-auto" />
-          <p className="font-semibold text-green-700 text-lg">Retorno pronto!</p>
+          <CheckCircle2 className="size-16 text-[#166534] mx-auto" />
+          <p className="font-semibold text-[#166534] text-lg">Retorno pronto!</p>
         </>
       )}
       {status === "manual" && (
         <>
-          <Clock className="size-12 text-amber-500 mx-auto" />
-          <p className="font-semibold text-zinc-800">Sua entrega foi salva com sucesso.</p>
-          <p className="text-sm text-zinc-500">Sua entrega está sendo avaliada. O retorno aparecerá em instantes.</p>
+          <Clock className="size-12 text-[#92400E] mx-auto" />
+          <p className="font-semibold text-[#1F1A2E]">Sua entrega foi salva com sucesso.</p>
+          <p className="text-sm text-[#5B5470]">Sua entrega esta sendo avaliada. O retorno aparecera em instantes.</p>
           <button onClick={() => router.push("/escola/aluno")}
-            className="px-6 py-2 rounded-lg text-sm font-medium text-[#1F1A2E]"
-            style={{ background: "var(--esc-primary,#7c3aed)" }}>
-            Voltar ao início
+            className="px-6 py-3 rounded-xl text-sm font-semibold text-white bg-[#6D28D9] hover:bg-[#5B21B6] min-h-[44px]">
+            Voltar ao inicio
           </button>
         </>
       )}
@@ -393,7 +434,7 @@ function WaitingFeedback({ activityId }: { activityId: string }) {
   );
 }
 
-// ─── Página principal ─────────────────────────────────────────────────────────
+// ─── Pagina principal ─────────────────────────────────────────────────────────
 
 export default function FazerAtividadePage() {
   const { id } = useParams<{ id: string }>();
@@ -403,12 +444,12 @@ export default function FazerAtividadePage() {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    fetch(`/api/escola/aluno/atividades?filter=todo`)
+    fetch("/api/escola/aluno/atividades?filter=todo")
       .then((r) => r.json())
       .then((d) => {
         const act = (d.atividades as Atividade[]).find((a) => a.id === id);
         if (!act) {
-          fetch(`/api/escola/aluno/atividades?filter=feito`)
+          fetch("/api/escola/aluno/atividades?filter=feito")
             .then((r2) => r2.json())
             .then((d2) => {
               const done = (d2.atividades as Atividade[]).find((a) => a.id === id);
@@ -435,21 +476,21 @@ export default function FazerAtividadePage() {
   }, [id]);
 
   if (loading) return (
-    <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--esc-bg,#f8f9fc)" }}>
-      <RefreshCw className="size-6 text-violet-500 animate-spin" />
+    <div className="min-h-screen flex items-center justify-center bg-[#F8F7FC]">
+      <RefreshCw className="size-6 text-[#6D28D9] animate-spin" />
     </div>
   );
 
   return (
-    <div className="min-h-screen" style={{ background: "var(--esc-bg,#f8f9fc)" }}>
-      <header className="sticky top-0 z-10 border-b" style={{ background: "var(--esc-surface,#fff)", borderColor: "var(--esc-border,#e5e7eb)" }}>
+    <div className="min-h-screen bg-[#F8F7FC]">
+      <header className="sticky top-0 z-10 border-b border-[#E9E5F5] bg-white">
         <div className="max-w-2xl mx-auto px-4 py-3 flex items-center gap-3">
-          <button onClick={() => router.back()} className="p-1.5 rounded-lg hover:bg-zinc-100 transition-colors">
-            <ArrowLeft className="size-5 text-zinc-600" />
+          <button onClick={() => router.back()} className="p-1.5 rounded-lg hover:bg-[#F8F7FC] transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center">
+            <ArrowLeft className="size-5 text-[#5B5470]" />
           </button>
           <div className="flex-1 min-w-0">
-            <p className="text-xs text-zinc-500">{activity?.subject?.name}</p>
-            <h1 className="font-semibold text-zinc-900 truncate">{activity?.title}</h1>
+            <p className="text-xs text-[#5B5470]">{activity?.subject?.name}</p>
+            <h1 className="font-semibold text-[#1F1A2E] truncate">{activity?.title}</h1>
           </div>
         </div>
       </header>
@@ -464,7 +505,7 @@ export default function FazerAtividadePage() {
         ) : activity?.type === "QUIZ" ? (
           <QuizActivity activity={activity} onSubmit={async (d) => handleSubmit(d)} />
         ) : (
-          <p className="text-center text-zinc-400 py-16">Atividade não encontrada.</p>
+          <p className="text-center text-[#5B5470] py-16">Atividade nao encontrada.</p>
         )}
       </main>
     </div>
