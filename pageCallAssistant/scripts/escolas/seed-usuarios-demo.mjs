@@ -215,12 +215,28 @@ async function seedRedeA() {
       { email: "prof.demo@speakflow.escola",    name: "Prof Demo",    role: "TEACHER",        school: escola.id },
     ];
 
+    let profUserId = null;
     for (const u of usuarios) {
       const user = await upsertUser(db, rede.id, u.email, u.name);
       await upsertMembership(db, user.id, rede.id, u.role, u.school);
       await syncLogin(u.email, NETWORK_ID);
+      if (u.role === "TEACHER") profUserId = user.id;
       console.log(`  ✓ ${u.email} (${u.role})`);
     }
+
+    // Sessão demo permanente — aluno usa DEMA25 para entrar na turma
+    await db.eduClassSession.upsert({
+      where: { code: "DEMA25" },
+      create: {
+        networkId: rede.id,
+        classId: `turma-${NETWORK_ID}`,
+        openedById: profUserId ?? `prof-${NETWORK_ID}`,
+        code: "DEMA25",
+        expiresAt: new Date("2099-12-31"),
+      },
+      update: { expiresAt: new Date("2099-12-31"), closedAt: null },
+    });
+
     console.log(`  ✓ Aluno: "Aluno Demo Silva" | código DEMA25 | PIN 1234`);
   } finally {
     await db.$disconnect();
@@ -305,12 +321,28 @@ async function seedRedeB() {
       { email: "prof.b@speakflow.escola",   name: "Prof Demo B",   role: "TEACHER",        school: escola.id },
     ];
 
+    let profUserId = null;
     for (const u of usuarios) {
       const user = await upsertUser(db, rede.id, u.email, u.name);
       await upsertMembership(db, user.id, rede.id, u.role, u.school);
       await syncLogin(u.email, NETWORK_ID);
+      if (u.role === "TEACHER") profUserId = user.id;
       console.log(`  ✓ ${u.email} (${u.role})`);
     }
+
+    // Sessão demo permanente — aluno usa DEMB25 para entrar na turma
+    await db.eduClassSession.upsert({
+      where: { code: "DEMB25" },
+      create: {
+        networkId: rede.id,
+        classId: `turma-${NETWORK_ID}`,
+        openedById: profUserId ?? `prof-${NETWORK_ID}`,
+        code: "DEMB25",
+        expiresAt: new Date("2099-12-31"),
+      },
+      update: { expiresAt: new Date("2099-12-31"), closedAt: null },
+    });
+
     console.log(`  ✓ Aluno: "Aluno Demo B Santos" | código DEMB25 | PIN 5678`);
   } finally {
     await db.$disconnect();
