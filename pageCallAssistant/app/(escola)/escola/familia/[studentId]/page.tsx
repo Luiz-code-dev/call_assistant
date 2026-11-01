@@ -15,7 +15,7 @@ const LEVELS = [
 const levelInfo = (k: string | null) => LEVELS.find((l) => l.key === k);
 
 interface Resumo {
-  aluno: { fullName: string; firstName: string; className: string | null; schoolName: string | null; shift: string | null; gradeYear: number | null };
+  aluno: { fullName: string; firstName: string; loginMode: string; className: string | null; schoolName: string | null; shift: string | null; gradeYear: number | null };
   semana: { dias: boolean[]; atividades: number; minutos: number; frase: string; hojeIndex: number };
   trilhaAtual: { subjectName: string; subjectColor: string; skillLabel: string; feitas: number; total: number } | null;
   outrasTrilhas: number;
@@ -326,7 +326,7 @@ export default function PainelFilho() {
           </Card>
 
           {/* Acesso do seu filho */}
-          <AcessoFilhoCard studentId={studentId} loginMode={data.aluno.gradeYear != null && data.aluno.gradeYear <= 5 ? "PICTURE" : "PIN"} />
+          <AcessoFilhoCard studentId={studentId} loginMode={data.aluno.loginMode} />
         </div>
       ) : null}
     </FamilyShell>

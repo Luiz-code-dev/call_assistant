@@ -120,6 +120,8 @@ export default function AcessoFamiliasPage() {
   const [activeKit, setActiveKit] = useState<KitResult | null>(null);
   const [inviteLoading, setInviteLoading] = useState<Record<string, boolean>>({});
   const [inviteMsg, setInviteMsg] = useState<Record<string, string>>({});
+  // email input inline por aluno: null = fechado, string = valor digitado
+  const [inviteEmail, setInviteEmail] = useState<Record<string, string | null>>({});
 
   async function load() {
     setLoading(true); setError(false);
@@ -157,21 +159,34 @@ export default function AcessoFamiliasPage() {
     setKitLoading(p => ({ ...p, [studentId]: false }));
   }
 
-  async function enviarConvite(studentId: string, classId: string) {
+  function abrirFormConvite(studentId: string) {
+    setInviteEmail(p => ({ ...p, [studentId]: p[studentId] ?? "" }));
+    setInviteMsg(p => ({ ...p, [studentId]: "" }));
+  }
+
+  async function enviarConvite(studentId: string) {
+    const email = inviteEmail[studentId] ?? "";
+    if (!email.includes("@")) {
+      setInviteMsg(p => ({ ...p, [studentId]: "Digite um e-mail válido." }));
+      return;
+    }
     setInviteLoading(p => ({ ...p, [studentId]: true }));
     setInviteMsg(p => ({ ...p, [studentId]: "" }));
     try {
       const r = await fetch(`/api/escola/familia/convidar`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ studentId }),
+        body: JSON.stringify({ studentId, email }),
       });
       const d = await r.json();
-      setInviteMsg(p => ({ ...p, [studentId]: r.ok ? "Convite enviado." : (d.error ?? "Erro ao enviar.") }));
+      if (r.ok) {
+        setInviteMsg(p => ({ ...p, [studentId]: "Convite enviado." }));
+        setInviteEmail(p => ({ ...p, [studentId]: null }));
+      } else {
+        setInviteMsg(p => ({ ...p, [studentId]: d.error ?? "Erro ao enviar." }));
+      }
     } catch { setInviteMsg(p => ({ ...p, [studentId]: "Erro ao enviar." })); }
     setInviteLoading(p => ({ ...p, [studentId]: false }));
-    // Unused variable suppression
-    void classId;
   }
 
   return (
@@ -236,16 +251,39 @@ export default function AcessoFamiliasPage() {
                             <div className="flex-1 min-w-0">
                               <p className="text-[#1F1A2E] text-sm font-medium truncate">{s.fullName}</p>
                               <p className="text-[#5B5470] text-xs">{s.loginMode === "PICTURE" ? "Figuras" : "PIN"}</p>
-                              {inviteMsg[s.id] && <p className="text-xs mt-0.5 text-[#166534]">{inviteMsg[s.id]}</p>}
+                              {inviteMsg[s.id] && (
+                                <p className={`text-xs mt-0.5 ${inviteMsg[s.id] === "Convite enviado." ? "text-[#166534]" : "text-[#B91C1C]"}`}>{inviteMsg[s.id]}</p>
+                              )}
+                              {/* Formulário inline de email para convite digital */}
+                              {inviteEmail[s.id] !== null && inviteEmail[s.id] !== undefined && (
+                                <div className="mt-1.5 flex gap-1.5 items-center">
+                                  <input
+                                    type="email"
+                                    placeholder="email@responsavel.com"
+                                    value={inviteEmail[s.id] ?? ""}
+                                    onChange={e => setInviteEmail(p => ({ ...p, [s.id]: e.target.value }))}
+                                    className="flex-1 border border-[#DDD6EE] rounded-lg px-2 py-1 text-xs text-[#1F1A2E] focus:border-[#6D28D9] outline-none min-w-0"
+                                  />
+                                  <button
+                                    onClick={() => enviarConvite(s.id)}
+                                    disabled={!!inviteLoading[s.id]}
+                                    className="bg-[#6D28D9] text-white px-2 py-1 rounded-lg text-xs font-semibold min-h-[28px] disabled:opacity-50"
+                                  >{inviteLoading[s.id] ? "…" : "Enviar"}</button>
+                                  <button
+                                    onClick={() => setInviteEmail(p => ({ ...p, [s.id]: null }))}
+                                    className="text-[#5B5470] px-1.5 py-1 rounded-lg text-xs border border-[#DDD6EE] min-h-[28px]"
+                                  >X</button>
+                                </div>
+                              )}
                             </div>
                             <div className="flex gap-2 shrink-0">
                               <button
-                                onClick={() => enviarConvite(s.id, c.id)}
+                                onClick={() => abrirFormConvite(s.id)}
                                 disabled={!!inviteLoading[s.id]}
                                 title="Enviar convite digital ao responsável"
                                 className="flex items-center gap-1 border border-[#DDD6EE] text-[#5B5470] hover:border-[#6D28D9] hover:text-[#6D28D9] px-3 py-1.5 rounded-lg text-xs font-semibold min-h-[36px] disabled:opacity-50 transition-colors"
                               >
-                                <Mail size={13} /> {inviteLoading[s.id] ? "…" : "Convidar"}
+                                <Mail size={13} /> Convidar
                               </button>
                               <button
                                 onClick={() => gerarKit(s.id)}
