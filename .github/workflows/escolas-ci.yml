@@ -177,6 +177,12 @@ jobs:
           npx prisma generate --schema prisma/escolas/schema.prisma
           npx prisma generate --schema prisma/escolas-catalogo/schema.prisma
 
+          # O start.sh da main não tem START_SERVER=false — ele termina com `exec node server.js`.
+          # Como não há build (e não queremos 5 min de next build só para o upgrade test),
+          # criamos um stub que sai com 0 para que o passo complete sem erro.
+          echo "console.log('[upgrade-test] server.js stub: databases initialized');" \
+               "process.exit(0);" > server.js
+
           # 1/2: start.sh da main contra bancos vazios (estado de produção antes do deploy)
           # O prisma do main-wt precisa estar no PATH antes do start.sh, que só adiciona /app ao PATH recebido
           export PATH="$GITHUB_WORKSPACE/main-wt/pageCallAssistant/node_modules/.bin:$PATH"
