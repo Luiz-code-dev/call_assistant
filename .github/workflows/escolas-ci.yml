@@ -2,7 +2,7 @@ name: escolas-ci
 
 on:
   push:
-    branches: ["feature/**"]
+    branches: [main]
     paths:
       - "pageCallAssistant/**"
       - ".github/workflows/escolas-ci.yml"
@@ -24,6 +24,17 @@ jobs:
     name: start.sh × 3 + tsc + lint + vitest + int tests
     runs-on: ubuntu-latest
     timeout-minutes: 25
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_HOST_AUTH_METHOD: trust
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 2s --health-timeout 5s --health-retries 30
 
     steps:
       - uses: actions/checkout@v4
@@ -60,26 +71,12 @@ jobs:
           echo "CI_FAMILY_JWT=$FAMSEC"          >> "$GITHUB_ENV"
         working-directory: .
 
-      # Postgres 16 via docker (trust — a autenticação do escolas_app é testada pelo check-app-role)
-      - name: Iniciar Postgres 16
-        run: |
-          docker run -d \
-            --name pg16 \
-            -e POSTGRES_HOST_AUTH_METHOD=trust \
-            -p 5432:5432 \
-            postgres:16
-          for i in $(seq 1 30); do
-            docker exec pg16 pg_isready -U postgres && break
-            sleep 1
-          done
-        working-directory: .
-
       - name: Criar bancos
         run: |
-          psql -h localhost -U postgres -c "CREATE DATABASE ai;"
-          psql -h localhost -U postgres -c "CREATE DATABASE catalogo;"
-          psql -h localhost -U postgres -c "CREATE DATABASE db01;"
-          psql -h localhost -U postgres -c "CREATE DATABASE db02;"
+          psql -h 127.0.0.1 -U postgres -c "CREATE DATABASE ai;"
+          psql -h 127.0.0.1 -U postgres -c "CREATE DATABASE catalogo;"
+          psql -h 127.0.0.1 -U postgres -c "CREATE DATABASE db01;"
+          psql -h 127.0.0.1 -U postgres -c "CREATE DATABASE db02;"
         working-directory: .
 
       - name: Instalar dependências
@@ -103,10 +100,10 @@ jobs:
       # ── start.sh 1/3: primeira execução normal ──────────────────────────
       - name: "start.sh [1/3] — primeira execucao"
         env:
-          DATABASE_URL: "postgresql://postgres@localhost:5432/ai"
-          ESCOLAS_CATALOG_URL: "postgresql://postgres@localhost:5432/catalogo"
-          ESCOLAS_DB_01_URL: "postgresql://postgres@localhost:5432/db01"
-          ESCOLAS_DB_02_URL: "postgresql://postgres@localhost:5432/db02"
+          DATABASE_URL: "postgresql://postgres@127.0.0.1:5432/ai"
+          ESCOLAS_CATALOG_URL: "postgresql://postgres@127.0.0.1:5432/catalogo"
+          ESCOLAS_DB_01_URL: "postgresql://postgres@127.0.0.1:5432/db01"
+          ESCOLAS_DB_02_URL: "postgresql://postgres@127.0.0.1:5432/db02"
           ESCOLAS_APP_DB_PASSWORD: "${{ env.APP_PASS_1 }}"
           NEXTAUTH_SECRET: "${{ env.CI_NEXTAUTH_SECRET }}"
           NEXTAUTH_URL: "http://localhost:3000"
@@ -119,10 +116,10 @@ jobs:
       # ── start.sh 2/3: troca de senha + verificação de idempotência ───────
       - name: "start.sh [2/3] — troca de senha + idempotencia"
         env:
-          DATABASE_URL: "postgresql://postgres@localhost:5432/ai"
-          ESCOLAS_CATALOG_URL: "postgresql://postgres@localhost:5432/catalogo"
-          ESCOLAS_DB_01_URL: "postgresql://postgres@localhost:5432/db01"
-          ESCOLAS_DB_02_URL: "postgresql://postgres@localhost:5432/db02"
+          DATABASE_URL: "postgresql://postgres@127.0.0.1:5432/ai"
+          ESCOLAS_CATALOG_URL: "postgresql://postgres@127.0.0.1:5432/catalogo"
+          ESCOLAS_DB_01_URL: "postgresql://postgres@127.0.0.1:5432/db01"
+          ESCOLAS_DB_02_URL: "postgresql://postgres@127.0.0.1:5432/db02"
           ESCOLAS_APP_DB_PASSWORD: "${{ env.APP_PASS_2 }}"
           NEXTAUTH_SECRET: "${{ env.CI_NEXTAUTH_SECRET }}"
           NEXTAUTH_URL: "http://localhost:3000"
@@ -131,9 +128,9 @@ jobs:
           EDU_FAMILY_JWT_SECRET: "${{ env.CI_FAMILY_JWT }}"
           START_SERVER: "false"
         run: |
-          before=$(psql -h localhost -U postgres -d db01 -t -c 'SELECT COUNT(*) FROM "EduSkill";' | tr -d ' \n')
+          before=$(psql -h 127.0.0.1 -U postgres -d db01 -t -c 'SELECT COUNT(*) FROM "EduSkill";' | tr -d ' \n')
           sh scripts/start.sh
-          after=$(psql -h localhost -U postgres -d db01 -t -c 'SELECT COUNT(*) FROM "EduSkill";' | tr -d ' \n')
+          after=$(psql -h 127.0.0.1 -U postgres -d db01 -t -c 'SELECT COUNT(*) FROM "EduSkill";' | tr -d ' \n')
           if [ "$before" != "$after" ]; then
             echo "FAIL: contagem de EduSkill mudou ($before -> $after) — nao e idempotente"
             exit 1
@@ -143,10 +140,10 @@ jobs:
       # ── start.sh 3/3: CONTEUDO_FORCE_FAIL não derruba o servidor ─────────
       - name: "start.sh [3/3] — CONTEUDO_FORCE_FAIL=true sobrevive"
         env:
-          DATABASE_URL: "postgresql://postgres@localhost:5432/ai"
-          ESCOLAS_CATALOG_URL: "postgresql://postgres@localhost:5432/catalogo"
-          ESCOLAS_DB_01_URL: "postgresql://postgres@localhost:5432/db01"
-          ESCOLAS_DB_02_URL: "postgresql://postgres@localhost:5432/db02"
+          DATABASE_URL: "postgresql://postgres@127.0.0.1:5432/ai"
+          ESCOLAS_CATALOG_URL: "postgresql://postgres@127.0.0.1:5432/catalogo"
+          ESCOLAS_DB_01_URL: "postgresql://postgres@127.0.0.1:5432/db01"
+          ESCOLAS_DB_02_URL: "postgresql://postgres@127.0.0.1:5432/db02"
           ESCOLAS_APP_DB_PASSWORD: "${{ env.APP_PASS_2 }}"
           NEXTAUTH_SECRET: "${{ env.CI_NEXTAUTH_SECRET }}"
           NEXTAUTH_URL: "http://localhost:3000"
@@ -168,10 +165,10 @@ jobs:
         working-directory: .
         run: |
           # Bancos isolados para não interferir com os anteriores
-          psql -h localhost -U postgres -c "CREATE DATABASE ai_up;"
-          psql -h localhost -U postgres -c "CREATE DATABASE cat_up;"
-          psql -h localhost -U postgres -c "CREATE DATABASE db01_up;"
-          psql -h localhost -U postgres -c "CREATE DATABASE db02_up;"
+          psql -h 127.0.0.1 -U postgres -c "CREATE DATABASE ai_up;"
+          psql -h 127.0.0.1 -U postgres -c "CREATE DATABASE cat_up;"
+          psql -h 127.0.0.1 -U postgres -c "CREATE DATABASE db01_up;"
+          psql -h 127.0.0.1 -U postgres -c "CREATE DATABASE db02_up;"
 
           # Preparar o checkout do main
           cd main-wt/pageCallAssistant
@@ -181,10 +178,12 @@ jobs:
           npx prisma generate --schema prisma/escolas-catalogo/schema.prisma
 
           # 1/2: start.sh da main contra bancos vazios (estado de produção antes do deploy)
-          DATABASE_URL="postgresql://postgres@localhost:5432/ai_up" \
-          ESCOLAS_CATALOG_URL="postgresql://postgres@localhost:5432/cat_up" \
-          ESCOLAS_DB_01_URL="postgresql://postgres@localhost:5432/db01_up" \
-          ESCOLAS_DB_02_URL="postgresql://postgres@localhost:5432/db02_up" \
+          # O prisma do main-wt precisa estar no PATH antes do start.sh, que só adiciona /app ao PATH recebido
+          export PATH="$GITHUB_WORKSPACE/main-wt/pageCallAssistant/node_modules/.bin:$PATH"
+          DATABASE_URL="postgresql://postgres@127.0.0.1:5432/ai_up" \
+          ESCOLAS_CATALOG_URL="postgresql://postgres@127.0.0.1:5432/cat_up" \
+          ESCOLAS_DB_01_URL="postgresql://postgres@127.0.0.1:5432/db01_up" \
+          ESCOLAS_DB_02_URL="postgresql://postgres@127.0.0.1:5432/db02_up" \
           ESCOLAS_APP_DB_PASSWORD="$APP_PASS_1" \
           NEXTAUTH_SECRET="$CI_NEXTAUTH_SECRET" \
           NEXTAUTH_URL="http://localhost:3000" \
@@ -197,10 +196,12 @@ jobs:
 
           # 2/2: start.sh desta branch contra os mesmos bancos (simula o deploy em produção)
           cd "$GITHUB_WORKSPACE/pageCallAssistant"
-          DATABASE_URL="postgresql://postgres@localhost:5432/ai_up" \
-          ESCOLAS_CATALOG_URL="postgresql://postgres@localhost:5432/cat_up" \
-          ESCOLAS_DB_01_URL="postgresql://postgres@localhost:5432/db01_up" \
-          ESCOLAS_DB_02_URL="postgresql://postgres@localhost:5432/db02_up" \
+          # Garantir que o prisma da branch esteja no PATH
+          export PATH="$GITHUB_WORKSPACE/pageCallAssistant/node_modules/.bin:$PATH"
+          DATABASE_URL="postgresql://postgres@127.0.0.1:5432/ai_up" \
+          ESCOLAS_CATALOG_URL="postgresql://postgres@127.0.0.1:5432/cat_up" \
+          ESCOLAS_DB_01_URL="postgresql://postgres@127.0.0.1:5432/db01_up" \
+          ESCOLAS_DB_02_URL="postgresql://postgres@127.0.0.1:5432/db02_up" \
           ESCOLAS_APP_DB_PASSWORD="$APP_PASS_1" \
           NEXTAUTH_SECRET="$CI_NEXTAUTH_SECRET" \
           NEXTAUTH_URL="http://localhost:3000" \
@@ -214,12 +215,12 @@ jobs:
       # ── Testes de integração ─────────────────────────────────────────────
       - name: Testes de integração (escolas)
         env:
-          TEST_PG_URL: "postgresql://postgres@localhost:5432"
+          TEST_PG_URL: "postgresql://postgres@127.0.0.1:5432"
           ESCOLAS_APP_DB_PASSWORD: "${{ env.APP_PASS_2 }}"
-          ESCOLAS_CATALOG_URL: "postgresql://postgres@localhost:5432/catalogo"
-          ESCOLAS_DB_URL: "postgresql://postgres@localhost:5432/db01"
-          ESCOLAS_DB_01_URL: "postgresql://postgres@localhost:5432/db01"
-          ESCOLAS_DB_02_URL: "postgresql://postgres@localhost:5432/db02"
+          ESCOLAS_CATALOG_URL: "postgresql://postgres@127.0.0.1:5432/catalogo"
+          ESCOLAS_DB_URL: "postgresql://postgres@127.0.0.1:5432/db01"
+          ESCOLAS_DB_01_URL: "postgresql://postgres@127.0.0.1:5432/db01"
+          ESCOLAS_DB_02_URL: "postgresql://postgres@127.0.0.1:5432/db02"
         run: npm run escolas:test:int
         continue-on-error: true
 
@@ -268,18 +269,27 @@ jobs:
             -e POSTGRES_HOST_AUTH_METHOD=trust \
             -p 5432:5432 \
             postgres:16
-          for i in $(seq 1 30); do
-            docker exec pg16 pg_isready -U postgres && break
+        working-directory: .
+
+      - name: Esperar o Postgres ficar pronto
+        run: |
+          for i in $(seq 1 60); do
+            if pg_isready -h 127.0.0.1 -p 5432 -U postgres >/dev/null 2>&1 \
+               && psql -h 127.0.0.1 -U postgres -c "SELECT 1" >/dev/null 2>&1; then
+              echo "Postgres pronto em ${i}s"; exit 0
+            fi
             sleep 1
           done
+          echo "Postgres nao subiu em 60s"; docker logs $(docker ps -q --filter ancestor=postgres:16) || true
+          exit 1
         working-directory: .
 
       - name: Criar bancos
         run: |
-          psql -h localhost -U postgres -c "CREATE DATABASE ai;"
-          psql -h localhost -U postgres -c "CREATE DATABASE catalogo;"
-          psql -h localhost -U postgres -c "CREATE DATABASE db01;"
-          psql -h localhost -U postgres -c "CREATE DATABASE db02;"
+          psql -h 127.0.0.1 -U postgres -c "CREATE DATABASE ai;"
+          psql -h 127.0.0.1 -U postgres -c "CREATE DATABASE catalogo;"
+          psql -h 127.0.0.1 -U postgres -c "CREATE DATABASE db01;"
+          psql -h 127.0.0.1 -U postgres -c "CREATE DATABASE db02;"
         working-directory: .
 
       # npm ci necessário apenas para prisma generate (não copia para a imagem)
@@ -303,10 +313,10 @@ jobs:
         run: |
           docker run --rm \
             --network host \
-            -e DATABASE_URL="postgresql://postgres@localhost:5432/ai" \
-            -e ESCOLAS_CATALOG_URL="postgresql://postgres@localhost:5432/catalogo" \
-            -e ESCOLAS_DB_01_URL="postgresql://postgres@localhost:5432/db01" \
-            -e ESCOLAS_DB_02_URL="postgresql://postgres@localhost:5432/db02" \
+            -e DATABASE_URL="postgresql://postgres@127.0.0.1:5432/ai" \
+            -e ESCOLAS_CATALOG_URL="postgresql://postgres@127.0.0.1:5432/catalogo" \
+            -e ESCOLAS_DB_01_URL="postgresql://postgres@127.0.0.1:5432/db01" \
+            -e ESCOLAS_DB_02_URL="postgresql://postgres@127.0.0.1:5432/db02" \
             -e ESCOLAS_APP_DB_PASSWORD="$APP_PASS" \
             -e NEXTAUTH_SECRET="$CI_NEXTAUTH_SECRET" \
             -e NEXTAUTH_URL="http://localhost:3000" \
