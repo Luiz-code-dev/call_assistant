@@ -84,6 +84,31 @@ async function provisionAppRole(superuserUrl, dbKey) {
 }
 
 /**
+ * Garante que o papel escolas_app existe (sem senha, sem grants) antes de migrate deploy.
+ * Migrações futuras que referenciem o papel não vão quebrar.
+ * As permissões reais são concedidas por provisionAppRole após as migrações.
+ */
+async function ensureRoleExists(dbUrl, dbKey) {
+  const pg = new Client({ connectionString: dbUrl });
+  try {
+    await pg.connect();
+    await pg.query(`
+      DO $$
+      BEGIN
+        IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'escolas_app') THEN
+          CREATE ROLE escolas_app LOGIN NOSUPERUSER NOBYPASSRLS NOCREATEDB NOCREATEROLE NOINHERIT;
+        END IF;
+      END $$;
+    `);
+    console.log(`[migrate-all] escolas_app role garantido em '${dbKey}'.`);
+  } catch (err) {
+    throw new Error(`[migrate-all] Falha ao garantir escolas_app em '${dbKey}': ${err.message}`);
+  } finally {
+    await pg.end().catch(() => null);
+  }
+}
+
+/**
  * Resolve migrações que ficaram em estado "failed" em deploy anterior (Prisma P3009).
  * PostgreSQL faz rollback automático da transação DDL, portanto marcar como
  * --rolled-back é seguro: a migração será re-aplicada pelo migrate deploy na sequência.
@@ -142,7 +167,10 @@ async function main() {
 
       console.log(`[migrate-all] Migrando base: ${db.key} (${db.envVar}) ...`);
 
-      // Resolve migrações com falha anterior para que migrate deploy possa avançar (P3009)
+      // 1. Garante que escolas_app existe antes do migrate deploy
+      await ensureRoleExists(url, db.key);
+
+      // 2. Resolve migrações com falha anterior para que migrate deploy possa avançar (P3009)
       await resolveFailedMigrations(url, db.key);
 
       try {

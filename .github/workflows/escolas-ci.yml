@@ -157,6 +157,60 @@ jobs:
           CONTEUDO_FORCE_FAIL: "true"
         run: sh scripts/start.sh
 
+      # ── Teste de upgrade: main → branch nos mesmos bancos (simula produção) ─
+      - name: Checkout main (para teste de upgrade)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main-wt
+
+      - name: "start.sh [upgrade] — main contra bancos vazios, depois esta branch"
+        working-directory: .
+        run: |
+          # Bancos isolados para não interferir com os anteriores
+          psql -h localhost -U postgres -c "CREATE DATABASE ai_up;"
+          psql -h localhost -U postgres -c "CREATE DATABASE cat_up;"
+          psql -h localhost -U postgres -c "CREATE DATABASE db01_up;"
+          psql -h localhost -U postgres -c "CREATE DATABASE db02_up;"
+
+          # Preparar o checkout do main
+          cd main-wt/pageCallAssistant
+          npm ci --legacy-peer-deps
+          npx prisma generate
+          npx prisma generate --schema prisma/escolas/schema.prisma
+          npx prisma generate --schema prisma/escolas-catalogo/schema.prisma
+
+          # 1/2: start.sh da main contra bancos vazios (estado de produção antes do deploy)
+          DATABASE_URL="postgresql://postgres@localhost:5432/ai_up" \
+          ESCOLAS_CATALOG_URL="postgresql://postgres@localhost:5432/cat_up" \
+          ESCOLAS_DB_01_URL="postgresql://postgres@localhost:5432/db01_up" \
+          ESCOLAS_DB_02_URL="postgresql://postgres@localhost:5432/db02_up" \
+          ESCOLAS_APP_DB_PASSWORD="$APP_PASS_1" \
+          NEXTAUTH_SECRET="$CI_NEXTAUTH_SECRET" \
+          NEXTAUTH_URL="http://localhost:3000" \
+          ESCOLAS_STAFF_JWT_SECRET="$CI_STAFF_JWT" \
+          ESCOLAS_STUDENT_JWT_SECRET="$CI_STUDENT_JWT" \
+          EDU_FAMILY_JWT_SECRET="$CI_FAMILY_JWT" \
+          START_SERVER=false \
+          sh scripts/start.sh
+          echo "[upgrade-test] start.sh da main OK"
+
+          # 2/2: start.sh desta branch contra os mesmos bancos (simula o deploy em produção)
+          cd "$GITHUB_WORKSPACE/pageCallAssistant"
+          DATABASE_URL="postgresql://postgres@localhost:5432/ai_up" \
+          ESCOLAS_CATALOG_URL="postgresql://postgres@localhost:5432/cat_up" \
+          ESCOLAS_DB_01_URL="postgresql://postgres@localhost:5432/db01_up" \
+          ESCOLAS_DB_02_URL="postgresql://postgres@localhost:5432/db02_up" \
+          ESCOLAS_APP_DB_PASSWORD="$APP_PASS_1" \
+          NEXTAUTH_SECRET="$CI_NEXTAUTH_SECRET" \
+          NEXTAUTH_URL="http://localhost:3000" \
+          ESCOLAS_STAFF_JWT_SECRET="$CI_STAFF_JWT" \
+          ESCOLAS_STUDENT_JWT_SECRET="$CI_STUDENT_JWT" \
+          EDU_FAMILY_JWT_SECRET="$CI_FAMILY_JWT" \
+          START_SERVER=false \
+          sh scripts/start.sh
+          echo "[upgrade-test] Upgrade main→branch simulado com sucesso"
+
       # ── Testes de integração ─────────────────────────────────────────────
       - name: Testes de integração (escolas)
         env:

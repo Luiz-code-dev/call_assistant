@@ -43,5 +43,5 @@ CREATE POLICY "sessao_escrita" ON "EduAttemptSession"
         "networkId" = current_setting('app.network_id', true)
     );
 
--- escolas_app pode ler e escrever na própria rede
-GRANT SELECT, INSERT, UPDATE, DELETE ON "EduAttemptSession" TO escolas_app;
+-- Permissões concedidas pelo provisionAppRole em migrate-all.mjs (GRANT ON ALL TABLES
+-- + ALTER DEFAULT PRIVILEGES), nunca em migrations individuais.
