@@ -1119,3 +1119,39 @@ model EduLessonObjective {
 
   @@index([lessonId])
 }
+
+// ================================================================
+// FASE 7 — Sessão de tentativa (I1: uma questão por vez, I2-I8)
+// ================================================================
+
+/// Rastreia uma sessão de resposta a uma atividade (diagnóstico ou trilha).
+/// Permite retomar de onde parou, impõe tempo mínimo e embaralha questões.
+model EduAttemptSession {
+  id              String   @id @default(cuid())
+  networkId       String
+  studentId       String
+  activityId      String
+  /// Opcional: se a sessão é parte de um diagnóstico
+  diagnosticId    String?
+  /// Índice da questão atual (0-based)
+  currentQuestion Int      @default(0)
+  /// Respostas já gravadas: [{ questionId, selectedIndex, answeredAt, elapsedMs }]
+  answers         Json     @default("[]")
+  /// Ordem embaralhada das questões (array de índices originais)
+  shuffleOrder    Json     @default("[]")
+  /// Tempo mínimo por questão em ms (I2)
+  minMsPerQuestion Int     @default(5000)
+  /// Variante da atividade (I4)
+  variantId       String?
+  startedAt       DateTime @default(now())
+  lastActivityAt  DateTime @default(now())
+  /// Sessão expira após 4 horas de inatividade
+  expiresAt       DateTime
+  completedAt     DateTime?
+  /// Salvo quando o aluno sai sem terminar (I6)
+  resumeToken     String?  @unique
+
+  @@unique([studentId, activityId, diagnosticId])
+  @@index([networkId, studentId])
+  @@index([networkId, activityId])
+}

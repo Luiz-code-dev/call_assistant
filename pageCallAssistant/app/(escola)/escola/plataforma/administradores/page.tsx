@@ -13,7 +13,7 @@ export default function AdministradoresPage() {
     fetch("/api/escola/plataforma/administradores")
       .then(r => r.ok ? r.json() : Promise.reject(r.status))
       .then(d => { setAdmins(d.admins ?? []); setLoading(false); })
-      .catch(() => { setError("Nao foi possivel carregar os administradores."); setLoading(false); });
+      .catch(() => { setError("Não foi possível carregar os administradores."); setLoading(false); });
   }, []);
 
   return (

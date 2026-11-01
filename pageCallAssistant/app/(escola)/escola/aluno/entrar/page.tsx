@@ -68,7 +68,7 @@ function EntrarInner() {
     });
     const d = await r.json();
     setAulaLoading(false);
-    if (!r.ok) { setAulaError(d.error ?? "Esse codigo nao funcionou. Confira com o professor."); setAulaCode(Array(6).fill("")); return; }
+    if (!r.ok) { setAulaError(d.error ?? "Esse código não funcionou. Confira com o professor."); setAulaCode(Array(6).fill("")); return; }
     setSession(d); setScreen("aula-names");
   }, []);
 
@@ -201,11 +201,11 @@ function EntrarInner() {
   if (screen === "choose") {
     return (
       <div className="min-h-screen bg-[#F8F7FC] flex flex-col items-center justify-center p-6">
-        <button onClick={() => speak("Como voce quer entrar?")} className="absolute top-4 right-4 flex items-center gap-2 text-[#6D28D9] text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-[#EDE9FE] rounded-full">
+        <button onClick={() => speak("Como você quer entrar?")} className="absolute top-4 right-4 flex items-center gap-2 text-[#6D28D9] text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-[#EDE9FE] rounded-full">
           <Volume2 size={16} /> Ouvir
         </button>
         {aulaError && <p className="text-[#B91C1C] text-sm mb-4 bg-[#FEE2E2] px-4 py-2 rounded-xl">{aulaError}</p>}
-        <h1 className="text-3xl font-bold text-[#1F1A2E] mb-10">Como voce quer entrar?</h1>
+        <h1 className="text-3xl font-bold text-[#1F1A2E] mb-10">Como você quer entrar?</h1>
         <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xl">
           <button onClick={() => { setAulaCode(Array(6).fill("")); setAulaError(""); setScreen("aula-code"); }}
             className="flex-1 flex flex-col items-center justify-center gap-4 bg-[#0F766E] hover:bg-[#0D6B63] text-white rounded-2xl p-8 min-h-[180px] transition-colors">
@@ -218,7 +218,7 @@ function EntrarInner() {
             <div className="text-center"><div className="text-xl font-bold">Ler meu cartao</div><div className="text-sm opacity-90 mt-1">Camera le o QR do cartao</div></div>
           </button>
         </div>
-        <p className="text-[#5B5470] text-sm mt-8">Nao tem cartao? Peca ao seu professor.</p>
+        <p className="text-[#5B5470] text-sm mt-8">Não tem cartão? Peça ao seu professor.</p>
       </div>
     );
   }
@@ -229,7 +229,7 @@ function EntrarInner() {
       <div className="min-h-screen bg-[#F8F7FC] flex flex-col items-center p-6 pt-16">
         <button onClick={() => setScreen("choose")} className="absolute top-4 left-4 text-[#6D28D9] font-semibold min-h-[44px] px-3 flex items-center gap-1"><ChevronLeft size={18}/> Voltar</button>
         <button onClick={() => speak("Digite as letras ou numeros que o professor mostrou")} className="absolute top-4 right-4 flex items-center gap-2 text-[#6D28D9] text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-[#EDE9FE] rounded-full"><Volume2 size={16} /> Ouvir</button>
-        <h2 className="text-[#1F1A2E] font-bold text-2xl mb-6">Digite o codigo que o professor mostrou</h2>
+        <h2 className="text-[#1F1A2E] font-bold text-2xl mb-6">Digite o código que o professor mostrou</h2>
         <div className="flex gap-3 mb-6">
           {aulaCode.map((l, i) => (
             <div key={i} className={`w-14 h-16 flex items-center justify-center rounded-xl border-2 text-3xl font-bold font-mono text-[#1F1A2E] bg-white ${l ? "border-[#6D28D9]" : aulaCode.slice(0,i).every(x=>x) ? "border-[#6D28D9] shadow-[0_0_0_3px_rgba(109,40,217,0.2)]" : "border-[#DDD6EE]"}`}>{l}</div>

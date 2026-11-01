@@ -93,7 +93,7 @@ export default function AulaPage() {
   return (
     <div className="p-4 md:p-6 lg:p-8 max-w-5xl mx-auto">
       <h1 className="text-2xl font-bold text-[#1F1A2E] mb-2">Modo Sala de Aula</h1>
-      <p className="text-[#5B5470] text-sm mb-6">Abra uma aula para que os alunos entrem pelo codigo no projetor.</p>
+      <p className="text-[#5B5470] text-sm mb-6">Abra uma aula para que os alunos entrem pelo código no projetor.</p>
 
       {/* Sessões abertas */}
       {sessions.map(s => {
@@ -191,8 +191,8 @@ export default function AulaPage() {
       {/* Formulário para abrir nova aula */}
       {uniqueClasses.length === 0 ? (
         <div className="text-center py-16 text-[#5B5470]">
-          <p className="text-lg font-semibold mb-2">Voce nao esta atribuido a nenhuma turma.</p>
-          <p className="text-sm">Peca a coordenacao para vincular voce a uma turma.</p>
+          <p className="text-lg font-semibold mb-2">Você não está atribuído a nenhuma turma.</p>
+          <p className="text-sm">Peça à coordenação para vincular você a uma turma.</p>
         </div>
       ) : (
         <div className="bg-white border border-[#E9E5F5] rounded-2xl p-6 max-w-sm">

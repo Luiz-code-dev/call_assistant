@@ -76,7 +76,7 @@ export default function NovaTrilhaPage() {
     fetch(`/api/escola/habilidades?${params}`)
       .then(r => r.ok ? r.json() : Promise.reject(r.status))
       .then(d => { setSkillResults(d.skills ?? []); setSkills(d.skills ?? []); })
-      .catch(() => setErroSkills("Nao foi possivel buscar as habilidades. Tente novamente."))
+      .catch(() => setErroSkills("Não foi possível buscar as habilidades. Tente novamente."))
       .finally(() => setLoadingSkills(false));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [subjectId, gradeYear]);
@@ -89,7 +89,7 @@ export default function NovaTrilhaPage() {
     if (skillSearch.trim()) params.set("q", skillSearch.trim());
     const r = await fetch(`/api/escola/habilidades?${params}`).catch(() => null);
     if (r?.ok) { const d = await r.json(); setSkillResults(d.skills ?? []); }
-    else if (r) setErroSkills("Nao foi possivel buscar as habilidades. Tente novamente.");
+    else if (r) setErroSkills("Não foi possível buscar as habilidades. Tente novamente.");
     setLoadingSkills(false);
   }
 
@@ -232,7 +232,7 @@ export default function NovaTrilhaPage() {
               <p className="text-[#5B5470] text-sm py-2">
                 {skillSearch.trim()
                   ? `Nenhuma habilidade encontrada para "${skillSearch}" neste componente e ano. Tente outro termo.`
-                  : "As habilidades da BNCC ainda nao foram carregadas para este componente e ano. Peca a coordenacao ou ao suporte."}
+                  : "As habilidades da BNCC ainda não foram carregadas para este componente e ano. Peça à coordenação ou ao suporte."}
               </p>
             )}
             {!loadingSkills && skillResults.length > 0 && (
