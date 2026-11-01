@@ -1,0 +1,114 @@
+name: escolas-ci
+
+on:
+  push:
+    branches: ["feature/**"]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: pageCallAssistant/package-lock.json
+
+      - name: Install dependencies
+        working-directory: pageCallAssistant
+        run: npm ci --legacy-peer-deps
+
+      - name: Generate Prisma clients
+        working-directory: pageCallAssistant
+        run: |
+          npx prisma generate
+          npx prisma generate --schema prisma/escolas/schema.prisma
+          npx prisma generate --schema prisma/escolas-catalogo/schema.prisma
+
+      - name: Create databases and roles
+        env:
+          PGPASSWORD: postgres
+        run: |
+          psql -h localhost -U postgres -c "CREATE DATABASE ai;"
+          psql -h localhost -U postgres -c "CREATE DATABASE catalogo;"
+          psql -h localhost -U postgres -c "CREATE DATABASE db01;"
+          psql -h localhost -U postgres -c "CREATE DATABASE db02;"
+
+      - name: Set environment variables
+        run: |
+          echo "ESCOLAS_APP_DB_PASSWORD=S3nh@'#%/!x" >> $GITHUB_ENV
+          echo "DATABASE_URL=postgresql://postgres:postgres@localhost:5432/ai" >> $GITHUB_ENV
+          echo "ESCOLAS_CATALOGO_URL=postgresql://postgres:postgres@localhost:5432/catalogo" >> $GITHUB_ENV
+          echo "ESCOLAS_DB_01_URL=postgresql://postgres:postgres@localhost:5432/db01" >> $GITHUB_ENV
+          echo "ESCOLAS_DB_02_URL=postgresql://postgres:postgres@localhost:5432/db02" >> $GITHUB_ENV
+          echo "NEXTAUTH_SECRET=test-secret-for-ci" >> $GITHUB_ENV
+          echo "NEXTAUTH_URL=http://localhost:3000" >> $GITHUB_ENV
+          echo "ESCOLAS_STAFF_JWT_SECRET=test-staff-secret" >> $GITHUB_ENV
+          echo "ESCOLAS_STUDENT_JWT_SECRET=test-student-secret" >> $GITHUB_ENV
+          echo "EDU_FAMILY_JWT_SECRET=test-family-secret" >> $GITHUB_ENV
+
+      - name: Run start.sh (first pass — sets up schema and seeds)
+        working-directory: pageCallAssistant
+        env:
+          ESCOLAS_SEED_DEMO: "true"
+          ESCOLAS_SEED_USUARIOS: "true"
+          START_SERVER: "false"
+        run: |
+          sed 's/exec node server.js/echo "[ci] servidor omitido (START_SERVER=false)"/' scripts/start.sh | sh
+
+      - name: Run start.sh (second pass — rotate password, idempotency check)
+        working-directory: pageCallAssistant
+        env:
+          ESCOLAS_APP_DB_PASSWORD: "N0v4S3nh@!2025"
+          ESCOLAS_SEED_DEMO: "true"
+          ESCOLAS_SEED_USUARIOS: "true"
+          START_SERVER: "false"
+        run: |
+          before=$(psql -h localhost -U postgres -d db01 -t -c "SELECT COUNT(*) FROM \"EduSkill\";")
+          sed 's/exec node server.js/echo "[ci] servidor omitido"/' scripts/start.sh | sh
+          after=$(psql -h localhost -U postgres -d db01 -t -c "SELECT COUNT(*) FROM \"EduSkill\";")
+          if [ "$before" != "$after" ]; then
+            echo "FAIL: contagem de EduSkill mudou entre execucoes (nao e idempotente)"
+            exit 1
+          fi
+
+      - name: Run start.sh (third pass — conteudo-import quebrado deve sobreviver)
+        working-directory: pageCallAssistant
+        env:
+          ESCOLAS_APP_DB_PASSWORD: "N0v4S3nh@!2025"
+          CONTEUDO_FORCE_FAIL: "true"
+          START_SERVER: "false"
+        run: |
+          sed 's/exec node server.js/echo "[ci] servidor omitido"/' scripts/start.sh | sh
+          echo "OK: start.sh sobreviveu com conteudo-import falhando"
+
+      - name: Run integration tests
+        working-directory: pageCallAssistant
+        run: npm run escolas:test:int
+
+      - name: TypeScript check
+        working-directory: pageCallAssistant
+        run: npx tsc --noEmit
+
+      - name: Lint
+        working-directory: pageCallAssistant
+        run: npm run lint

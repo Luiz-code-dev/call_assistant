@@ -820,8 +820,9 @@ model EduDiagnostic {
   id            String    @id @default(cuid())
   /// null = diagnóstico SpeakFlow global (biblioteca)
   networkId     String?
-  subjectId     String
-  gradeYear     Int
+  subjectId     String?
+  subjectCode   String?
+  gradeYear     Int?
   title         String
   cycle         Int       @default(1)
   status        String    @default("DRAFT")
@@ -895,8 +896,9 @@ model EduTrack {
   id            String    @id @default(cuid())
   /// null = trilha SpeakFlow global (biblioteca)
   networkId     String?
-  subjectId     String
-  gradeYear     Int
+  subjectId     String?
+  subjectCode   String?
+  gradeYear     Int?
   title         String
   skillIds      String[]
   status        String    @default("DRAFT")

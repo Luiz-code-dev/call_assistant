@@ -69,8 +69,13 @@ RUN printf '#!/bin/sh\nexec node /app/node_modules/prisma/build/index.js "$@"\n'
 COPY --from=builder /app/scripts ./scripts
 COPY --from=builder /app/package.json ./package.json
 
-# Dependências runtime dos scripts (bcryptjs para invite-account, etc.)
+# Dependências runtime dos scripts (bcryptjs para invite-account, pg para migrate-all.mjs)
 COPY --from=builder /app/node_modules/bcryptjs ./node_modules/bcryptjs
+COPY --from=builder /app/node_modules/pg ./node_modules/pg
+COPY --from=builder /app/node_modules/pg-pool ./node_modules/pg-pool
+COPY --from=builder /app/node_modules/pg-protocol ./node_modules/pg-protocol
+COPY --from=builder /app/node_modules/pg-types ./node_modules/pg-types
+COPY --from=builder /app/node_modules/pgpass ./node_modules/pgpass
 
 # Normaliza CRLF→LF (seguro mesmo que o arquivo já tenha LF) e torna executável
 RUN sed -i 's/\r$//' scripts/start.sh && chmod +x scripts/start.sh

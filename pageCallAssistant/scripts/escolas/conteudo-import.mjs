@@ -151,6 +151,8 @@ async function importTrilhas(db) {
             id: act.id, networkId: null, title: act.title, type: act.type,
             prompt: act.prompt, estMinutes: act.estMinutes ?? 5,
             status: "DRAFT", source: "SPEAKFLOW",
+            rubric: act.rubric ?? { type: act.type, criteria: [] },
+            createdById: "speakflow-system",
           },
           update: { title: act.title, prompt: act.prompt },
         });
@@ -181,7 +183,7 @@ async function importTrilhas(db) {
       // Upsert trilha
       await db.eduTrack.upsert({
         where: { id: trackId },
-        create: { id: trackId, networkId: null, skillId: skill.id, title: trilha.title, source: "SPEAKFLOW", status: "DRAFT", derivedFromId: null },
+        create: { id: trackId, networkId: null, skillIds: [skill.id], title: trilha.title, source: "SPEAKFLOW", status: "DRAFT", derivedFromId: null, createdById: "speakflow-system" },
         update: { title: trilha.title },
       });
 
@@ -217,8 +219,9 @@ async function importDiagnosticos(db) {
         where: { id: diag.id },
         create: {
           id: diag.id, networkId: null, title: diag.title,
-          subjectCode: diag.subjectCode, gradeYear: diag.gradeYear,
+          gradeYear: diag.gradeYear,
           source: diag.source ?? "SPEAKFLOW", status: "DRAFT",
+          createdById: "speakflow-system",
         },
         update: { title: diag.title },
       });
@@ -234,7 +237,7 @@ async function importDiagnosticos(db) {
           if (!existingAct || existingAct.status !== "APPROVED") {
             await db.eduActivity.upsert({
               where: { id: act.id },
-              create: { id: act.id, networkId: null, title: act.title, type: act.type, prompt: act.prompt, estMinutes: act.estMinutes ?? 5, status: "DRAFT", source: "SPEAKFLOW" },
+              create: { id: act.id, networkId: null, title: act.title, type: act.type, prompt: act.prompt, estMinutes: act.estMinutes ?? 5, status: "DRAFT", source: "SPEAKFLOW", rubric: act.rubric ?? { type: act.type, criteria: [] }, createdById: "speakflow-system" },
               update: { title: act.title, prompt: act.prompt },
             });
             for (let qi = 0; qi < (act.questions ?? []).length; qi++) {

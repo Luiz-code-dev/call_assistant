@@ -23,7 +23,7 @@ echo "[start] importando BNCC (idempotente, com lock)"
 node scripts/escolas/bncc-import.mjs
 
 echo "[start] importando conteudo SpeakFlow (idempotente, com lock)"
-node scripts/escolas/conteudo-import.mjs
+node scripts/escolas/conteudo-import.mjs || echo "[start] AVISO: importacao de conteudo falhou; servidor sobe sem o conteudo novo"
 
 if [ "$ESCOLAS_SEED_DEMO" = "true" ]; then
   echo "[start] seed demo"
