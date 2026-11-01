@@ -6,6 +6,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { prismaEdu } from "@/lib/escola/db";
 import { getEduContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
+import { assignAfterDiagnostic } from "@/lib/escola/track-assignment";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const P = prismaEdu as any;
@@ -99,5 +100,51 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
   }).catch(() => null);
 
   if (!diag) return NextResponse.json({ error: "Diagnóstico não encontrado" }, { status: 404 });
+
+  // L4: ao encerrar, dispara atribuição AUTO/SUGGEST para cada aluno com NOT_YET
+  if (status === "CLOSED") {
+    (async () => {
+      try {
+        const fullDiag = await P.eduDiagnostic.findUnique({
+          where: { id: params.id },
+          include: { items: { select: { activityId: true, skillId: true } } },
+        });
+        if (!fullDiag) return;
+
+        const activityIds = fullDiag.items.map((i: { activityId: string }) => i.activityId);
+        if (!activityIds.length) return;
+
+        // Submissões NOT_YET agrupadas por aluno
+        const subs = await P.eduSubmission.findMany({
+          where: { activityId: { in: activityIds }, networkId: ctx.networkId, masteryLevel: "NOT_YET" },
+          select: { studentId: true, activityId: true },
+          distinct: ["studentId", "activityId"],
+        });
+
+        // activityId → skillId
+        const actToSkill: Record<string, string> = {};
+        for (const item of fullDiag.items as { activityId: string; skillId: string }[]) {
+          actToSkill[item.activityId] = item.skillId;
+        }
+
+        // Agrupa NOT_YET skillIds por aluno
+        const byStudent: Record<string, string[]> = {};
+        for (const s of subs as { studentId: string; activityId: string }[]) {
+          const skillId = actToSkill[s.activityId];
+          if (!skillId) continue;
+          if (!byStudent[s.studentId]) byStudent[s.studentId] = [];
+          if (!byStudent[s.studentId].includes(skillId)) byStudent[s.studentId].push(skillId);
+        }
+
+        for (const [studentId, notYetSkillIds] of Object.entries(byStudent)) {
+          await assignAfterDiagnostic({ networkId: ctx.networkId, diagnosticId: params.id, studentId, notYetSkillIds, assignedBy: "system" })
+            .catch((e: Error) => console.error("[diagnostico/encerrar]", studentId, e?.message));
+        }
+      } catch (err) {
+        console.error("[diagnostico/encerrar] assignAfterDiagnostic batch:", (err as Error)?.message);
+      }
+    })();
+  }
+
   return NextResponse.json({ diag });
 }

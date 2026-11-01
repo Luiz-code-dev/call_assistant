@@ -14,7 +14,7 @@ export default function AtividadesPage() {
     fetch("/api/escola/professor/atividades")
       .then(r => r.ok ? r.json() : Promise.reject(r.status))
       .then(d => { setActivities(d.atividades ?? d.activities ?? []); setLoading(false); })
-      .catch(() => { setError("Nao foi possivel carregar as atividades."); setLoading(false); });
+      .catch(() => { setError("Não foi possível carregar as atividades."); setLoading(false); });
   }, []);
 
   return (

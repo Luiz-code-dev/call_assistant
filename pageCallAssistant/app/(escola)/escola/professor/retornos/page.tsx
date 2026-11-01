@@ -14,7 +14,7 @@ export default function RetornosPage() {
     fetch("/api/escola/professor/retornos")
       .then(r => r.ok ? r.json() : Promise.reject(r.status))
       .then(d => { setSubs(d.submissions ?? []); setLoading(false); })
-      .catch(() => { setError("Nao foi possivel carregar os retornos."); setLoading(false); });
+      .catch(() => { setError("Não foi possível carregar os retornos."); setLoading(false); });
   }, []);
 
   const visible = tab === "sinalizados" ? subs.filter(s => s.flagged) : subs;

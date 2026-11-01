@@ -159,3 +159,44 @@ export async function withTenant<T>(
 export async function getTenantDbWithRls(networkId: string) {
   return getTenantDb(networkId);
 }
+
+/**
+ * Executa `fn` dentro de uma única transação de banco com o contexto RLS correto.
+ * Usa o cliente base (sem o middleware $allModels) para abrir a transação e injeta
+ * set_config manualmente no início — assim não há $transaction dentro de $transaction.
+ *
+ * Uso:
+ *   const result = await withTenantTx(networkId, async (tx) => {
+ *     await tx.eduSkillMastery.upsert({ ... });
+ *     await tx.eduSkillMasteryEvent.create({ ... });
+ *     return result;
+ *   });
+ */
+export async function withTenantTx<T>(
+  networkId: string,
+  fn: (tx: PrismaClient) => Promise<T>,
+): Promise<T> {
+  const tenant = await getTenant(networkId);
+  if (!tenant) throw new Error(`Rede '${networkId}' não encontrada.`);
+
+  const dbKey = tenant.dbKey;
+  const envVar = tenant.db.envVar;
+  const url = process.env[envVar];
+  if (!url) throw new Error(`Variável '${envVar}' não definida (rede '${networkId}').`);
+
+  // Usa o cliente base (escolas_app), sem a extensão de middleware
+  let base: PrismaClient;
+  const cached = baseCache.get(dbKey);
+  if (cached && Date.now() - cached.ts < CLIENT_TTL) {
+    base = cached.client;
+  } else {
+    base = buildBaseClient(url);
+    baseCache.set(dbKey, { client: base, ts: Date.now() });
+  }
+
+  const safeNid = networkId.replace(/'/g, "''");
+  return (base as any).$transaction(async (tx: PrismaClient) => {
+    await (tx as any).$executeRawUnsafe(`SELECT set_config('app.network_id', '${safeNid}', true)`);
+    return fn(tx);
+  });
+}

@@ -92,7 +92,7 @@ function EntrarInner() {
           setAulaError(d.error ?? "QR invalido ou cartao bloqueado.");
           setScreen("choose");
         }
-      }).catch(() => { setAulaError("Nao foi possivel verificar o cartao."); setScreen("choose"); });
+      }).catch(() => { setAulaError("Não foi possível verificar o cartao."); setScreen("choose"); });
       return;
     }
 

@@ -22,19 +22,22 @@ const catalog = new PrismaClient({
 /**
  * Cria o papel escolas_app de forma idempotente e concede os privilégios mínimos.
  * A senha vem de ESCOLAS_APP_DB_PASSWORD.
- * Se a variável não estiver definida, emite aviso e pula (compatibilidade com ambientes sem RLS real).
+ * Se a variável não estiver definida ou qualquer passo falhar, lança erro fatal.
+ * Nunca imprime a senha nem a URL com credenciais no log.
  */
-async function provisionAppRole(superuserUrl) {
+async function provisionAppRole(superuserUrl, dbKey) {
   const appPwd = process.env.ESCOLAS_APP_DB_PASSWORD;
   if (!appPwd) {
-    console.warn("[migrate-all] AVISO: ESCOLAS_APP_DB_PASSWORD não definido. escolas_app não será criado/atualizado.");
-    return;
+    throw new Error(`[migrate-all] ESCOLAS_APP_DB_PASSWORD não definido. Base: ${dbKey}. Defina a variável antes de iniciar.`);
   }
 
   const pg = new Client({ connectionString: superuserUrl });
-  await pg.connect();
+  let step = "conectar";
   try {
+    await pg.connect();
+
     // Cria o papel se não existir (idempotente)
+    step = "CREATE ROLE";
     await pg.query(`
       DO $$
       BEGIN
@@ -44,25 +47,39 @@ async function provisionAppRole(superuserUrl) {
       END $$;
     `);
 
-    // Atualiza a senha em todo deploy (garante rotação futura)
-    await pg.query(`ALTER ROLE escolas_app PASSWORD $1`, [appPwd]);
+    // Atualiza a senha — usa escapeLiteral para evitar injeção, sem parâmetro $1
+    step = "ALTER ROLE PASSWORD";
+    await pg.query(`ALTER ROLE escolas_app WITH LOGIN PASSWORD ${pg.escapeLiteral(appPwd)}`);
 
     // CONNECT + USAGE no schema public
-    const dbName = new URL(superuserUrl.replace(/^postgres/, "http")).pathname.slice(1);
+    step = "GRANT CONNECT";
+    const dbName = new URL(superuserUrl.replace(/^postgres(?:ql)?:\/\//, "http://")).pathname.slice(1).split("?")[0];
     await pg.query(`GRANT CONNECT ON DATABASE "${dbName}" TO escolas_app`);
+
+    step = "GRANT USAGE SCHEMA";
     await pg.query(`GRANT USAGE ON SCHEMA public TO escolas_app`);
 
     // DML em todas as tabelas existentes
+    step = "GRANT DML TABLES";
     await pg.query(`GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO escolas_app`);
+
     // Sequências
+    step = "GRANT SEQUENCES";
     await pg.query(`GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO escolas_app`);
+
     // Tabelas futuras (criadas em migrations posteriores)
+    step = "ALTER DEFAULT PRIVILEGES TABLES";
     await pg.query(`ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO escolas_app`);
+
+    step = "ALTER DEFAULT PRIVILEGES SEQUENCES";
     await pg.query(`ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT USAGE, SELECT ON SEQUENCES TO escolas_app`);
 
-    console.log(`[migrate-all] Papel escolas_app provisionado em ${dbName}.`);
+    console.log(`[migrate-all] escolas_app provisionado em '${dbKey}' (base: ${dbName}).`);
+  } catch (err) {
+    // Nunca imprima a senha nem a URL com credenciais
+    throw new Error(`[migrate-all] Falha ao provisionar escolas_app em '${dbKey}' (passo: ${step}): ${err.message}`);
   } finally {
-    await pg.end();
+    await pg.end().catch(() => null);
   }
 }
 
@@ -103,12 +120,8 @@ async function main() {
         process.exit(1);
       }
 
-      // Provisiona escolas_app com o superusuário (URL original)
-      try {
-        await provisionAppRole(url);
-      } catch (err) {
-        console.warn(`[migrate-all] Aviso ao provisionar escolas_app em ${db.key}: ${err.message}`);
-      }
+      // Provisiona escolas_app com o superusuário (URL original) — falha fatal
+      await provisionAppRole(url, db.key);
     }
 
     console.log("[migrate-all] Todas as bases migradas com sucesso.");

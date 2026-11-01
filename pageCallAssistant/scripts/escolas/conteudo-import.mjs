@@ -50,7 +50,8 @@ async function importPrerequisitos(db) {
   for (const item of items) {
     const skillId = codeMap[item.skillCode];
     const prereqId = codeMap[item.prerequisiteCode];
-    if (!skillId || !prereqId) continue; // habilidade ainda não importada
+    if (!skillId) throw new Error(`Código de habilidade não encontrado no banco: ${item.skillCode}. Verifique o bncc-import.`);
+    if (!prereqId) throw new Error(`Código de pré-requisito não encontrado no banco: ${item.prerequisiteCode}. Verifique o prerequisitos.json.`);
 
     // Upsert com id estável — nunca altera status de item aprovado
     const id = `SF-PREREQ-${item.skillCode}-${item.prerequisiteCode}`;

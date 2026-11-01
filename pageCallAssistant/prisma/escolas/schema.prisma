@@ -768,7 +768,9 @@ model EduSkillPrerequisite {
   source              String  @default("SPEAKFLOW")
   /// DRAFT | APPROVED
   status              String  @default("DRAFT")
+  reviewNote          String? @db.Text
   createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
 
   skill        EduSkill @relation("SkillPrereqs", fields: [skillId], references: [id])
   prerequisite EduSkill @relation("SkillAsPrereq", fields: [prerequisiteSkillId], references: [id])
@@ -794,7 +796,9 @@ model EduSkillGuide {
   source          String   @default("SPEAKFLOW")
   /// DRAFT | IN_REVIEW | APPROVED | REJECTED
   status          String   @default("DRAFT")
+  reviewNote      String?  @db.Text
   createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 
   skill EduSkill @relation(fields: [skillId], references: [id])
 

@@ -213,16 +213,17 @@ describe("AUTO vs SUGGEST no assignAfterDiagnostic", () => {
   });
 
   it("modo SUGGEST: não atribui — apenas cria alerta", () => {
-    const mode = "SUGGEST";
-    const assigned: string[] = [];
-    const suggested: string[] = [];
-
-    const processSkill = (skillId: string) => {
-      if (mode === "AUTO") { assigned.push(skillId); }
-      else { suggested.push(skillId); }
-    };
-    processSkill("ef06ma07");
-
+    function runMode(mode: "AUTO" | "SUGGEST") {
+      const assigned: string[] = [];
+      const suggested: string[] = [];
+      const processSkill = (skillId: string) => {
+        if (mode === "AUTO") { assigned.push(skillId); }
+        else { suggested.push(skillId); }
+      };
+      processSkill("ef06ma07");
+      return { assigned, suggested };
+    }
+    const { assigned, suggested } = runMode("SUGGEST");
     expect(assigned).toHaveLength(0);
     expect(suggested).toHaveLength(1);
   });

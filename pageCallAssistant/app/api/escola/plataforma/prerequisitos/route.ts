@@ -1,13 +1,13 @@
 /**
  * GET  /api/escola/plataforma/prerequisitos  — lista EduSkillPrerequisite (all statuses)
  * PATCH /api/escola/plataforma/prerequisitos — aprovar/reprovar item (id, action, reviewNote?)
+ *
+ * Usa conteudo-plataforma.ts (superusuário) pois PLATFORM_ADMIN não tem networkId.
  */
 import { NextRequest, NextResponse } from "next/server";
-import { prismaEdu } from "@/lib/escola/db";
 import { getEduContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
-
-const P = prismaEdu as any;
+import { getContentReadDb, forEachContentDb } from "@/lib/escola/conteudo-plataforma";
 
 export async function GET(req: NextRequest) {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
@@ -18,16 +18,21 @@ export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const status = searchParams.get("status") ?? "DRAFT";
 
-  const items = await P.eduSkillPrerequisite.findMany({
-    where: { status, networkId: null },
-    include: {
-      skill: { select: { code: true, shortLabel: true } },
-      prerequisiteSkill: { select: { code: true, shortLabel: true } },
-    },
-    orderBy: [{ skill: { code: "asc" } }, { weight: "desc" }],
-    take: 200,
-  });
-  return NextResponse.json({ items });
+  try {
+    const db = await getContentReadDb();
+    const items = await (db as any).eduSkillPrerequisite.findMany({
+      where: { status, networkId: null },
+      include: {
+        skill: { select: { code: true, shortLabel: true } },
+        prerequisite: { select: { code: true, shortLabel: true } },
+      },
+      orderBy: [{ skill: { code: "asc" } }, { weight: "desc" }],
+      take: 200,
+    });
+    return NextResponse.json({ items });
+  } catch (err) {
+    return NextResponse.json({ error: err instanceof Error ? err.message : "Erro interno" }, { status: 500 });
+  }
 }
 
 export async function PATCH(req: NextRequest) {
@@ -42,9 +47,20 @@ export async function PATCH(req: NextRequest) {
     return NextResponse.json({ error: "id e action (APPROVE|REJECT) obrigatórios" }, { status: 400 });
 
   const newStatus = action === "APPROVE" ? "APPROVED" : "DRAFT";
-  const updated = await P.eduSkillPrerequisite.update({
-    where: { id, networkId: null },
-    data: { status: newStatus, reviewNote: reviewNote ?? null },
-  });
-  return NextResponse.json({ item: updated });
+
+  try {
+    await forEachContentDb(async (db) => {
+      const exists = await (db as any).eduSkillPrerequisite.findUnique({ where: { id }, select: { id: true } });
+      if (!exists) return;
+      await (db as any).eduSkillPrerequisite.update({
+        where: { id },
+        data: { status: newStatus, reviewNote: reviewNote ?? null },
+      });
+    });
+    const db = await getContentReadDb();
+    const item = await (db as any).eduSkillPrerequisite.findUnique({ where: { id } });
+    return NextResponse.json({ item });
+  } catch (err) {
+    return NextResponse.json({ error: err instanceof Error ? err.message : "Erro interno" }, { status: 500 });
+  }
 }
