@@ -204,9 +204,9 @@ async function seedRedeA() {
 
     await db.eduEnrollment.upsert({
       where: { id: `enroll-${NETWORK_ID}` },
-      create: { id: `enroll-${NETWORK_ID}`, studentId: aluno.id, classId: `turma-${NETWORK_ID}`, networkId: rede.id, status: "ACTIVE" },
-      update: {},
-    }).catch(() => {});
+      create: { id: `enroll-${NETWORK_ID}`, studentId: aluno.id, classId: `turma-${NETWORK_ID}`, schoolYearId: anoLetivoA.id, networkId: rede.id, status: "ACTIVE" },
+      update: { status: "ACTIVE" },
+    });
 
     const usuarios = [
       { email: "gestor.demo@speakflow.escola",  name: "Gestor Demo",  role: "NETWORK_ADMIN", school: null },
@@ -312,9 +312,9 @@ async function seedRedeB() {
 
     await db.eduEnrollment.upsert({
       where: { id: `enroll-${NETWORK_ID}` },
-      create: { id: `enroll-${NETWORK_ID}`, studentId: aluno.id, classId: `turma-${NETWORK_ID}`, networkId: rede.id, status: "ACTIVE" },
-      update: {},
-    }).catch(() => {});
+      create: { id: `enroll-${NETWORK_ID}`, studentId: aluno.id, classId: `turma-${NETWORK_ID}`, schoolYearId: anoLetivoB.id, networkId: rede.id, status: "ACTIVE" },
+      update: { status: "ACTIVE" },
+    });
 
     const usuarios = [
       { email: "gestor.b@speakflow.escola", name: "Gestor Demo B", role: "NETWORK_ADMIN", school: null },
