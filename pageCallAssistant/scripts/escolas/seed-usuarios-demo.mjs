@@ -185,14 +185,14 @@ async function seedRedeA() {
         id: `turma-${NETWORK_ID}`, name: "5º Ano A", gradeYear: 5,
         stage: "ELEMENTARY_EARLY", shift: "MORNING",
         school: { connect: { id: escola.id } }, schoolYear: { connect: { id: anoLetivoA.id } }, networkId: rede.id,
-        isActive: true, accessCode: "DEMOA001",
+        isActive: true, accessCode: "DEMA25",
       },
       update: { isActive: true },
     });
 
     await catalog.codeIndex.upsert({
-      where: { code: "DEMOA001" },
-      create: { code: "DEMOA001", kind: "CLASS_ACCESS", tenantId: NETWORK_ID },
+      where: { code: "DEMA25" },
+      create: { code: "DEMA25", kind: "CLASS_ACCESS", tenantId: NETWORK_ID },
       update: {},
     });
 
@@ -221,7 +221,7 @@ async function seedRedeA() {
       await syncLogin(u.email, NETWORK_ID);
       console.log(`  ✓ ${u.email} (${u.role})`);
     }
-    console.log(`  ✓ Aluno: "Aluno Demo Silva" | código DEMOA001 | PIN 1234`);
+    console.log(`  ✓ Aluno: "Aluno Demo Silva" | código DEMA25 | PIN 1234`);
   } finally {
     await db.$disconnect();
   }
@@ -277,14 +277,14 @@ async function seedRedeB() {
         id: `turma-${NETWORK_ID}`, name: "6º Ano B", gradeYear: 6,
         stage: "ELEMENTARY_LATE", shift: "AFTERNOON",
         school: { connect: { id: escola.id } }, schoolYear: { connect: { id: anoLetivoB.id } }, networkId: rede.id,
-        isActive: true, accessCode: "DEMOB001",
+        isActive: true, accessCode: "DEMB25",
       },
       update: { isActive: true },
     });
 
     await catalog.codeIndex.upsert({
-      where: { code: "DEMOB001" },
-      create: { code: "DEMOB001", kind: "CLASS_ACCESS", tenantId: NETWORK_ID },
+      where: { code: "DEMB25" },
+      create: { code: "DEMB25", kind: "CLASS_ACCESS", tenantId: NETWORK_ID },
       update: {},
     });
 
@@ -311,7 +311,7 @@ async function seedRedeB() {
       await syncLogin(u.email, NETWORK_ID);
       console.log(`  ✓ ${u.email} (${u.role})`);
     }
-    console.log(`  ✓ Aluno: "Aluno Demo B Santos" | código DEMOB001 | PIN 5678`);
+    console.log(`  ✓ Aluno: "Aluno Demo B Santos" | código DEMB25 | PIN 5678`);
   } finally {
     await db.$disconnect();
   }
@@ -337,12 +337,12 @@ async function main() {
 ║    coord.demo@speakflow.escola    COORDINATOR                ║
 ║    direcao.demo@speakflow.escola  SCHOOL_ADMIN               ║
 ║    prof.demo@speakflow.escola     TEACHER                    ║
-║    Aluno: código DEMOA001  PIN 1234                          ║
+║    Aluno: código DEMA25  PIN 1234                          ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  escolas-dados-02 — Escola Particular Demo B (isolado)       ║
 ║    gestor.b@speakflow.escola      NETWORK_ADMIN              ║
 ║    prof.b@speakflow.escola        TEACHER                    ║
-║    Aluno: código DEMOB001  PIN 5678                          ║
+║    Aluno: código DEMB25  PIN 5678                          ║
 ╚══════════════════════════════════════════════════════════════╝
 `);
 }

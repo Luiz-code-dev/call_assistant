@@ -50,6 +50,7 @@ const DEMOS = [
     dbKey: "db01",
     envVar: "ESCOLAS_DB_01_URL",
     plan: "SHARED",
+    classCode: "DEMA25", // sem I, O, 0, 1 (compatível com teclado do aluno)
   },
   {
     id: "demo-rede-b",
@@ -58,6 +59,7 @@ const DEMOS = [
     dbKey: "db02",
     envVar: "ESCOLAS_DB_02_URL",
     plan: "DEDICATED",
+    classCode: "DEMB25", // sem I, O, 0, 1
   },
 ];
 
@@ -163,7 +165,7 @@ async function seedRede(demo) {
         schoolYear: { connect: { id: anoLetivo.id } },
         networkId: demo.id,
         isActive: true,
-        accessCode: `DEMO${demo.dbKey.toUpperCase()}A`,
+        accessCode: demo.classCode,
       },
       update: {},
     });
@@ -234,8 +236,8 @@ async function seedRede(demo) {
 
     // Code index para turma
     await catalog.codeIndex.upsert({
-      where: { code: `DEMO${demo.dbKey.toUpperCase()}A` },
-      create: { code: `DEMO${demo.dbKey.toUpperCase()}A`, kind: "CLASS_ACCESS", tenantId: demo.id },
+      where: { code: demo.classCode },
+      create: { code: demo.classCode, kind: "CLASS_ACCESS", tenantId: demo.id },
       update: {},
     });
 
