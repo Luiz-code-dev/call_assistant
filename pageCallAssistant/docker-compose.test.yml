@@ -9,7 +9,8 @@ services:
   pg:
     image: postgres:16
     environment:
-      POSTGRES_PASSWORD: postgres
+      # Senha de teste local — defina POSTGRES_TEST_PASSWORD para sobrescrever
+      POSTGRES_PASSWORD: ${POSTGRES_TEST_PASSWORD:-localtest}
     ports:
       - "55432:5432"
     healthcheck:

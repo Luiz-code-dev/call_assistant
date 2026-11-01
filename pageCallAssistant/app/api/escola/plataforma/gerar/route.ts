@@ -116,7 +116,8 @@ Responda APENAS com JSON válido neste formato:
               subjectCode,
               gradeYears: [gradeYear],
               skillIds: [skill.id],
-              // maxScore removido — pertence ao módulo de notas
+              rubric: { type: "QUIZ", criteria: [] },
+              createdById: ctx.userId,
               maxAttempts: 2,
               estMinutes: 10,
               version: 1,

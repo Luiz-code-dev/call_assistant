@@ -172,7 +172,10 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
         exemplo: "",
         quizDetail: result.perQuestion,
       };
-      const masteryLevel = result.score >= 0.7 ? "MASTERED" : result.score >= 0.4 ? "ALMOST" : "NOT_YET";
+      // gradeQuiz retorna pontos escalados por maxScore (não fração) — normalizar antes de comparar
+      const maxScore = Number(activity.maxScore) || 10;
+      const scoreFrac = result.score / maxScore;
+      const masteryLevel = scoreFrac >= 0.7 ? "MASTERED" : scoreFrac >= 0.4 ? "ALMOST" : "NOT_YET";
       await (prismaEdu as any).eduSubmission.update({
         where: { id: submission.id },
         data: {
