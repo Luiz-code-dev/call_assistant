@@ -15,10 +15,13 @@ export async function GET(req: NextRequest) {
   const status = searchParams.get("status");
 
   try {
+    // Busca diagnósticos da rede E diagnósticos SpeakFlow (networkId: null)
     const diagnostics = await (prismaEdu as any).eduDiagnostic.findMany({
       where: {
-        networkId: ctx.networkId,
-        ...(status ? { status } : {}),
+        OR: [
+          { networkId: ctx.networkId, ...(status ? { status } : {}) },
+          { networkId: null, source: "SPEAKFLOW" },
+        ],
       },
       orderBy: { createdAt: "desc" },
       include: { items: { include: { skill: { select: { code: true, shortLabel: true } } } } },

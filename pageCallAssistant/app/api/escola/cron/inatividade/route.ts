@@ -1,11 +1,16 @@
 /**
  * POST /api/escola/cron/inatividade
- * Job diário: marca alunos sem prática há ≥ 7 dias como INACTIVE e
- * envia e-mail ao responsável (no máximo 1 por semana) se ele aceitou receber.
- * Protegido por CRON_SECRET no header Authorization.
+ * Job diário: detecta alunos sem prática há ≥ 7 dias e envia e-mail
+ * ao responsável (máx. 1×/semana) se ele aceitou receber.
+ *
+ * Segue o mesmo padrão de /api/escola/cron/evaluate:
+ *   - enumera redes via catalogDb.tenant (nunca prismaEdu global)
+ *   - obtém cliente de cada rede com getTenantDb
+ *   - usa header Authorization: Bearer <CRON_SECRET>
  */
 import { NextRequest, NextResponse } from "next/server";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
+import { catalogDb } from "@/lib/escola/catalogo";
 import { getTenantDb } from "@/lib/escola/tenant-db";
 
 export const runtime = "nodejs";
@@ -19,84 +24,131 @@ export async function POST(req: NextRequest) {
 
   const secret = process.env.CRON_SECRET;
   if (secret) {
-    const auth = req.headers.get("Authorization") ?? "";
-    if (!auth.replace("Bearer ", "") || auth.replace("Bearer ", "") !== secret) {
+    const auth = req.headers.get("authorization") ?? "";
+    if (auth !== `Bearer ${secret}`)
       return NextResponse.json({ error: "Não autorizado" }, { status: 401 });
-    }
   }
 
-  // Busca todas as redes ativas
-  const { prismaEdu } = await import("@/lib/escola/db");
-  const P = prismaEdu as any;
-  const networks = await P.eduNetwork.findMany({
-    where: { status: "ACTIVE" },
-    select: { id: true },
-  });
+  // Busca redes ativas pelo catálogo (mesmo padrão do cron/evaluate)
+  let networks: { id: string }[] = [];
+  try {
+    networks = await catalogDb.tenant.findMany({
+      where: { status: "ACTIVE" },
+      select: { id: true },
+      orderBy: { id: "asc" },
+    });
+  } catch (err) {
+    console.error("[cron/inatividade] Erro ao buscar redes:", err);
+    return NextResponse.json({ error: "catalog_error" }, { status: 500 });
+  }
 
   let totalMarcados = 0;
   let totalEmails = 0;
 
   for (const net of networks) {
+    let db: any;
     try {
-      const db = await getTenantDb(net.id);
-      const cutoff = new Date(Date.now() - INACTIVE_DAYS * 86400000);
-      const warnCutoff = new Date(Date.now() - WARN_INTERVAL_DAYS * 86400000);
+      db = await getTenantDb(net.id);
+    } catch {
+      continue; // rede em manutenção — pula
+    }
 
-      // Alunos com atividade na rede que não submeteram nada há INACTIVE_DAYS dias
-      const alunos = await db.eduStudent.findMany({
+    try {
+      const cutoff = new Date(Date.now() - INACTIVE_DAYS * 86_400_000);
+
+      // Alunos com matrícula ativa nesta rede
+      const enrollments = await db.eduEnrollment.findMany({
+        where: { networkId: net.id, status: "ACTIVE" },
+        select: { studentId: true },
+      });
+      const studentIds: string[] = Array.from(new Set(enrollments.map((e: { studentId: string }) => e.studentId)));
+      if (studentIds.length === 0) continue;
+
+      // Última entrega por aluno (uma query só, sem relações aninhadas)
+      const lastSubs = await db.eduSubmission.findMany({
         where: {
           networkId: net.id,
-          enrollments: { some: { status: "ACTIVE" } },
+          studentId: { in: studentIds },
+          submittedAt: { not: null },
         },
-        select: {
-          id: true, fullName: true,
-          submissions: {
-            where: { submittedAt: { not: null } },
-            orderBy: { submittedAt: "desc" },
-            take: 1,
-            select: { submittedAt: true },
-          },
-          guardianLinks: {
-            where: { status: "ACTIVE" },
-            include: {
-              guardian: { select: { id: true, email: true, notifyInactivity: true } },
-            },
-          },
-        },
+        orderBy: { submittedAt: "desc" as const },
+        select: { studentId: true, submittedAt: true },
       });
 
-      for (const aluno of alunos) {
-        const lastSub = aluno.submissions[0]?.submittedAt ?? null;
-        const inativo = !lastSub || new Date(lastSub) < cutoff;
-        if (!inativo) continue;
+      // Mapa studentId → última data de entrega
+      const lastByStudent = new Map<string, Date>();
+      for (const s of lastSubs) {
+        if (!lastByStudent.has(s.studentId))
+          lastByStudent.set(s.studentId, new Date(s.submittedAt));
+      }
 
-        totalMarcados++;
+      // Alunos inativos
+      const inativos = studentIds.filter((sid: string) => {
+        const last = lastByStudent.get(sid);
+        return !last || last < cutoff;
+      });
+      if (inativos.length === 0) continue;
 
-        // Atualiza flag no aluno (campo inactiveWarning — adiciona se não existir)
-        await db.eduStudent.update({
-          where: { id: aluno.id },
-          data: { inactiveWarning: true } as any,
+      totalMarcados += inativos.length;
+
+      // Links família → aluno (query separada, sem relações aninhadas)
+      const links = await db.eduGuardianLink.findMany({
+        where: {
+          networkId: net.id,
+          studentId: { in: inativos },
+          status: "ACTIVE",
+        },
+        select: { guardianId: true, studentId: true },
+      });
+
+      if (links.length === 0) continue;
+
+      const guardianIds = Array.from(new Set(links.map((l: { guardianId: string }) => l.guardianId)));
+
+      // Guardiões com e-mail (sem assumir campo notifyInactivity — envia sempre)
+      const guardians = await db.eduGuardian.findMany({
+        where: { id: { in: guardianIds }, email: { not: null } },
+        select: { id: true, email: true },
+      });
+      const guardianEmail = new Map<string, string>(guardians.map((g: { id: string; email: string }) => [g.id, g.email] as [string, string]));
+
+      const warnCutoff = new Date(Date.now() - WARN_INTERVAL_DAYS * 86_400_000);
+
+      for (const link of links) {
+        const email = guardianEmail.get(link.guardianId);
+        if (!email) continue;
+
+        // Verificar se já enviamos na última semana via log de auditoria
+        const jaNotificado = await db.eduAuditLog?.findFirst?.({
+          where: {
+            networkId: net.id,
+            action: "INATIVIDADE_EMAIL",
+            targetId: link.studentId,
+            actorId: link.guardianId,
+            createdAt: { gte: warnCutoff },
+          },
         }).catch(() => null);
+        if (jaNotificado) continue;
 
-        // Envia e-mail aos responsáveis que aceitaram, no máximo 1x por semana
-        for (const link of aluno.guardianLinks) {
-          const guardian = link.guardian;
-          if (!guardian?.email || !guardian?.notifyInactivity) continue;
+        // Busca nome do aluno
+        const aluno = await db.eduStudent.findUnique({
+          where: { id: link.studentId },
+          select: { fullName: true },
+        });
+        if (!aluno) continue;
 
-          // Verifica se já mandamos na última semana
-          const lastWarn = await db.eduInactivityNotification?.findFirst?.({
-            where: { studentId: aluno.id, guardianId: guardian.id, sentAt: { gte: warnCutoff } },
+        const sent = await sendInactivityEmail({ email, studentName: aluno.fullName });
+        if (sent) {
+          totalEmails++;
+          await db.eduAuditLog?.create?.({
+            data: {
+              networkId: net.id,
+              action: "INATIVIDADE_EMAIL",
+              targetId: link.studentId,
+              actorId: link.guardianId,
+              metadata: { email },
+            },
           }).catch(() => null);
-          if (lastWarn) continue;
-
-          // Envia e-mail (usa transportador SMTP configurado ou loga)
-          const sent = await sendInactivityEmail({ email: guardian.email, studentName: aluno.fullName });
-          if (sent) {
-            await db.eduInactivityNotification?.create?.({
-              data: { networkId: net.id, studentId: aluno.id, guardianId: guardian.id, sentAt: new Date() } as any,
-            }).catch(() => null);
-            totalEmails++;
-          }
         }
       }
     } catch (err) {
@@ -110,8 +162,8 @@ export async function POST(req: NextRequest) {
 async function sendInactivityEmail({ email, studentName }: { email: string; studentName: string }): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.log(`[inatividade] e-mail para ${email}: ${studentName} inativo ha 7 dias`);
-    return true; // loga em dev, nao envia
+    console.log(`[inatividade] e-mail para ${email}: ${studentName} inativo há 7 dias (dev, não enviado)`);
+    return true;
   }
   try {
     const resp = await fetch("https://api.resend.com/emails", {
@@ -120,11 +172,13 @@ async function sendInactivityEmail({ email, studentName }: { email: string; stud
       body: JSON.stringify({
         from: "SpeakFlow Escolas <noreply@speakflow.ia.br>",
         to: email,
-        subject: `${studentName} esta ha 7 dias sem praticar`,
-        html: `<p>Ola!</p><p><strong>${studentName}</strong> esta ha 7 dias sem praticar no SpeakFlow Escolas.</p>
-               <p>Que tal incentiva-lo(a) a fazer uma atividade hoje? Basta abrir o app.</p>
+        subject: `${studentName} está há 7 dias sem praticar`,
+        html: `<p>Olá!</p>
+               <p><strong>${studentName}</strong> está há 7 dias sem praticar no SpeakFlow Escolas.</p>
+               <p>Que tal incentivá-lo(a) a fazer uma atividade hoje? Basta abrir o app.</p>
                <p><a href="https://speakflow.ia.br/escola/aluno/entrar">Acessar o app</a></p>
-               <hr/><p style="font-size:12px;color:#888">Para nao receber mais estes avisos, acesse sua conta da familia e desative as notificacoes.</p>`,
+               <hr/>
+               <p style="font-size:12px;color:#888">Para não receber mais estes avisos, acesse sua conta da família e desative as notificações de inatividade.</p>`,
       }),
     });
     return resp.ok;

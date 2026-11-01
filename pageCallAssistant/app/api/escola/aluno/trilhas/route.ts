@@ -10,6 +10,7 @@ import { NextResponse } from "next/server";
 import { prismaEdu } from "@/lib/escola/db";
 import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
+import { weekStartSaoPaulo, dayIndexSaoPaulo } from "@/lib/escola/family-guard";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const p = prismaEdu as any;
@@ -103,9 +104,40 @@ export async function GET() {
     }
   }
 
+  // Dados da semana (segunda..domingo, America/Sao_Paulo)
+  const weekStart = weekStartSaoPaulo();
+  const weekEnd = new Date(weekStart.getTime() + 7 * 86_400_000);
+  const subsWeek = await p.eduSubmission.findMany({
+    where: {
+      networkId: student.networkId,
+      studentId: student.studentId,
+      submittedAt: { gte: weekStart, lt: weekEnd },
+      status: { not: "IN_PROGRESS" },
+    },
+    select: { submittedAt: true },
+  });
+  const dias = [false, false, false, false, false, false, false];
+  for (const s of subsWeek) {
+    if (s.submittedAt) dias[dayIndexSaoPaulo(new Date(s.submittedAt))] = true;
+  }
+  const diasPraticados = dias.filter(Boolean).length;
+  // Dias seguidos até hoje (recuando a partir de hoje)
+  const hojeIndex = dayIndexSaoPaulo(new Date());
+  let diasSeguidos = 0;
+  for (let i = hojeIndex; i >= 0; i--) {
+    if (dias[i]) diasSeguidos++;
+    else break;
+  }
+
   return NextResponse.json({
     proximoPasso,
     ativas,
     concluidas: concluidas.slice(0, 3),
+    semana: {
+      dias,
+      diasPraticados,
+      diasSeguidos,
+      hojeIndex,
+    },
   });
 }

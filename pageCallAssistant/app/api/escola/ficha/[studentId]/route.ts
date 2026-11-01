@@ -89,17 +89,32 @@ export async function GET(_req: NextRequest, { params }: { params: { studentId: 
     if (errors.length > 0) studentErrorMap[skillId] = errors;
   }
 
-  // Trilha sugerida para o aluno
-  const suggestedAssignment = await P.eduTrackAssignment.findFirst({
+  // Trilha sugerida para o aluno: busca EduTeacherAlert com type=TRACK_SUGGESTION
+  // (gerado por assignAfterDiagnostic no modo SUGGEST)
+  const suggestAlert = await P.eduTeacherAlert.findFirst({
     where: {
       networkId: ctx.networkId,
       studentId: params.studentId,
-      assignedBy: "SUGGEST",
-      endedAt: null,
+      type: "TRACK_SUGGESTION",
+      readAt: null,
     },
-    include: { track: { select: { id: true, title: true } } },
     orderBy: { createdAt: "desc" },
+    select: { id: true, metadata: true },
   });
+
+  let suggestedAssignment: { id: string; trackId: string; trackTitle: string } | null = null;
+  if (suggestAlert?.metadata) {
+    const meta = suggestAlert.metadata as { trackId?: string };
+    if (meta.trackId) {
+      const track = await P.eduTrack.findFirst({
+        where: { id: meta.trackId },
+        select: { id: true, title: true },
+      });
+      if (track) {
+        suggestedAssignment = { id: suggestAlert.id, trackId: track.id, trackTitle: track.title };
+      }
+    }
+  }
 
   return NextResponse.json({
     student,
@@ -107,10 +122,6 @@ export async function GET(_req: NextRequest, { params }: { params: { studentId: 
     events: events.slice(0, 20),
     guideMap,
     studentErrorMap,
-    suggestedAssignment: suggestedAssignment ? {
-      id: suggestedAssignment.id,
-      trackId: suggestedAssignment.trackId,
-      trackTitle: suggestedAssignment.track?.title ?? "",
-    } : null,
+    suggestedAssignment,
   });
 }
