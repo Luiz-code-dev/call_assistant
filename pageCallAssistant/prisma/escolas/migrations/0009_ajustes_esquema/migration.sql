@@ -1,13 +1,16 @@
 -- Migration 0009: ajustes de esquema — alinha banco com schema.prisma
 -- Todas as operações são idempotentes ou seguras de repetir.
 
--- ── 1. Remover defaults de array que não estão declarados no schema ─────────
--- Prisma não usa DEFAULT no banco para Int[] / String[] sem @default().
--- O padrão foi adicionado em 0003 mas não corresponde ao schema atual.
-ALTER TABLE "EduActivity"         ALTER COLUMN "gradeYears"        DROP DEFAULT;
-ALTER TABLE "EduActivity"         ALTER COLUMN "skillIds"          DROP DEFAULT;
-ALTER TABLE "EduLesson"           ALTER COLUMN "skillIds"          DROP DEFAULT;
-ALTER TABLE "EduSkillGuide"       ALTER COLUMN "recommendedTypes"  DROP DEFAULT;
+-- ── 1. Garantir defaults de array alinhados com @default([]) do schema ──────
+-- Prisma 5 gera DEFAULT '{}' para Int[] @default([]) e TEXT[] @default([]).
+-- Algumas versões anteriores criaram DEFAULT ARRAY[]::...; normalizamos para
+-- o valor canônico que o Prisma espera (sem perder o default).
+-- Usamos ALTER ... SET DEFAULT para ser idempotente.
+ALTER TABLE "EduActivity"   ALTER COLUMN "gradeYears"       SET DEFAULT '{}';
+ALTER TABLE "EduActivity"   ALTER COLUMN "skillIds"         SET DEFAULT '{}';
+ALTER TABLE "EduLesson"     ALTER COLUMN "skillIds"         SET DEFAULT '{}';
+ALTER TABLE "EduSkillGuide" ALTER COLUMN "recommendedTypes" SET DEFAULT '{}';
+ALTER TABLE "EduTrack"      ALTER COLUMN "skillIds"         SET DEFAULT '{}';
 
 -- ── 2. Remover DEFAULT NOW() de colunas @updatedAt (Prisma gerencia) ────────
 -- A migration 0008 adicionou DEFAULT CURRENT_TIMESTAMP para permitir a adição

@@ -592,8 +592,8 @@ model EduActivity {
   /// Origem: SPEAKFLOW | REDE | PROFESSOR
   source         String            @default("PROFESSOR")
   subjectCode    String?
-  gradeYears     Int[]
-  skillIds       String[]
+  gradeYears     Int[]    @default([])
+  skillIds       String[] @default([])
   version        Int               @default(1)
   derivedFromId  String?
   estMinutes     Int               @default(10)
@@ -788,7 +788,7 @@ model EduSkillGuide {
   whatStudentDoes String   @db.Text
   /// [{ code: string, description: string }]
   commonErrors    Json     @default("[]")
-  recommendedTypes String[]
+  recommendedTypes String[] @default([])
   ageNotes        String?
   version         Int      @default(1)
   /// null = ficha SpeakFlow (global); não-null = da rede
@@ -900,7 +900,7 @@ model EduTrack {
   subjectCode   String?
   gradeYear     Int?
   title         String
-  skillIds      String[]
+  skillIds      String[] @default([])
   status        String    @default("DRAFT")
   createdById   String
   approvedById  String?
@@ -1093,7 +1093,7 @@ model EduLesson {
   teacherId      String
   date           DateTime  @db.Date
   title          String
-  skillIds       String[]
+  skillIds       String[] @default([])
   /// Materiais: [{ type: "photo"|"pdf"|"text", url?: string, text?: string }]
   materials      Json      @default("[]")
   /// DRAFT | PUBLISHED
