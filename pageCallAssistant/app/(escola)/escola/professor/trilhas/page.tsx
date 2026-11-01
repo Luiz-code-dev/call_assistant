@@ -43,21 +43,18 @@ export default function TrilhasProfessorPage() {
   useEffect(() => { carregar(aba); }, [aba, carregar]);
 
   async function duplicar(track: Track) {
-    const r = await fetch("/api/escola/trilhas", {
+    const r = await fetch(`/api/escola/professor/trilhas/${track.id}/duplicar`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        title: `${track.title} (cópia)`,
-        subjectId: track.subjectId,
-        gradeYear: track.gradeYear,
-        skillIds: track.skills.map(s => s.id),
-        items: track.items.map(it => ({ activityId: (it as unknown as { activityId: string }).activityId ?? "", order: it.order, estMinutes: it.estMinutes })),
-      }),
+      body: JSON.stringify({ title: `${track.title} (cópia)` }),
     });
     if (r.ok) {
       setMsgSalvo("Trilha duplicada como rascunho.");
       setTimeout(() => setMsgSalvo(""), 4000);
       if (aba === "minhas") carregar("minhas");
+    } else {
+      setMsgSalvo("Não foi possível duplicar a trilha. Tente novamente.");
+      setTimeout(() => setMsgSalvo(""), 4000);
     }
   }
 
