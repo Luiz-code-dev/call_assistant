@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 
@@ -17,6 +17,7 @@ export async function POST(req: NextRequest, { params }: { params: { submissionI
 
   const student = await getStudentContext();
   if (!student) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (student?.db) setTenantDb(student.db);
 
   const parsed = schema.safeParse(await req.json().catch(() => ({})));
   if (!parsed.success) return NextResponse.json({ error: "Dados inválidos" }, { status: 400 });

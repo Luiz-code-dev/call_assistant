@@ -5,7 +5,7 @@
 import { NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 
 const P = prismaEdu as any; // eslint-disable-line @typescript-eslint/no-explicit-any
 
@@ -13,6 +13,7 @@ export async function GET() {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (ctx.role !== "PLATFORM_ADMIN") return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 
   const members = await P.eduNetworkMember.findMany({

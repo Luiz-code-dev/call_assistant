@@ -5,7 +5,7 @@
  */
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { studentSecret } from "@/lib/escola/secrets";
 import { publicOrigin } from "@/lib/escola/public-url";
@@ -32,6 +32,7 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   // Professor não acessa cartões com QR/PIN — apenas visualiza o código da aula
   if (!["SCHOOL_ADMIN","NETWORK_ADMIN"].includes(ctx.role)) {
     return NextResponse.json({ error: "Sem permissão. Cartões são emitidos pela direção." }, { status: 403 });

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { z } from "zod";
 import { Prisma } from "@prisma/client";
 
@@ -20,6 +20,7 @@ export async function GET() {
 
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (!can(ctx.role, "network:read")) return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 
   const network = await prismaEdu.eduNetwork.findUnique({
@@ -35,6 +36,7 @@ export async function PATCH(req: NextRequest) {
 
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (!can(ctx.role, "network:write")) return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 
   const body = createSchema.partial().safeParse(await req.json());

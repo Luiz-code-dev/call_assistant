@@ -7,7 +7,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { getOpenAI } from "@/lib/openai";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { subjectToWhisperLang } from "@/lib/escola/subject-lang";
 
 export const runtime = "nodejs";
@@ -28,6 +28,7 @@ export async function POST(req: NextRequest) {
 
   const ctx = await getStudentContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
 
   let formData: FormData;
   try {

@@ -1,7 +1,7 @@
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 
 function flag() { return isEscolasEnabled(); }
 
@@ -9,6 +9,7 @@ export async function GET(_: NextRequest, { params }: { params: { id: string } }
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   const subjects = await prismaEdu.eduClassSubject.findMany({
     where: { classId: params.id, networkId: ctx.networkId },
     include: { subject: { select: { name: true, color: true } } },
@@ -20,6 +21,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (!["NETWORK_ADMIN", "SCHOOL_ADMIN"].includes(ctx.role)) return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
   const { subjectId, teacherId } = await req.json();
   const offer = await prismaEdu.eduClassSubject.update({
@@ -33,6 +35,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (!["NETWORK_ADMIN", "SCHOOL_ADMIN", "COORDINATOR"].includes(ctx.role)) return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
   const { subjectId, teacherId } = await req.json();
   const cls = await prismaEdu.eduClass.findUnique({ where: { id: params.id, networkId: ctx.networkId } });

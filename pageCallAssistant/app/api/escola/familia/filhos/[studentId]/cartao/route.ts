@@ -11,7 +11,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { SignJWT } from "jose";
 import { getFamilyContext } from "@/lib/escola/family-context";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { studentSecret } from "@/lib/escola/secrets";
 import { publicOrigin } from "@/lib/escola/public-url";
@@ -36,6 +36,7 @@ export async function GET(req: NextRequest, { params }: { params: { studentId: s
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getFamilyContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
 
   const link = await assertLink(ctx, params.studentId);
   if (!link) return NextResponse.json({ error: "Sem permissão para este aluno." }, { status: 403 });
@@ -60,6 +61,7 @@ export async function POST(req: NextRequest, { params }: { params: { studentId: 
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getFamilyContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
 
   const link = await assertLink(ctx, params.studentId);
   if (!link) return NextResponse.json({ error: "Sem permissão para este aluno." }, { status: 403 });

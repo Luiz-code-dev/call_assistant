@@ -4,7 +4,7 @@
  * O conteúdo SpeakFlow (networkId=null) nunca é alterado.
  */
 import { NextRequest, NextResponse } from "next/server";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { getEduContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 
@@ -17,6 +17,7 @@ export async function POST(
   if (!isEscolasEnabled()) return NextResponse.json({ error: "disabled" }, { status: 403 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (!["TEACHER", "COORDINATOR", "NETWORK_ADMIN"].includes(ctx.role))
     return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 

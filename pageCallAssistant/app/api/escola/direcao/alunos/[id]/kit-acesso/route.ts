@@ -12,7 +12,7 @@ import { randomInt } from "crypto";
 import bcrypt from "bcryptjs";
 import { SignJWT } from "jose";
 import { getEduContext } from "@/lib/escola/context";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { studentSecret } from "@/lib/escola/secrets";
 import { publicOrigin } from "@/lib/escola/public-url";
@@ -46,6 +46,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (!["SCHOOL_ADMIN", "NETWORK_ADMIN"].includes(ctx.role))
     return NextResponse.json({ error: "Sem permissão. Apenas direção e secretaria geram o kit de acesso." }, { status: 403 });
 

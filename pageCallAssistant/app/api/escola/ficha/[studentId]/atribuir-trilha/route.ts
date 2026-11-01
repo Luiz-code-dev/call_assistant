@@ -7,7 +7,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { getEduContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { assignTrackToStudents } from "@/lib/escola/track-assignment";
 
 const ALLOWED_ROLES = ["TEACHER", "COORDINATOR", "SCHOOL_ADMIN", "NETWORK_ADMIN"];
@@ -29,6 +29,7 @@ export async function POST(
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (!ALLOWED_ROLES.includes(ctx.role))
     return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 

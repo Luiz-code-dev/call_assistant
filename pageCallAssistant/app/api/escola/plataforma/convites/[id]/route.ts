@@ -1,7 +1,7 @@
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { generateInviteToken, sendInviteEmail, registerStaffInviteInCatalog } from "@/lib/escola/invite";
 
 function flag() {
@@ -33,6 +33,7 @@ export async function GET(
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (ctx.role !== "PLATFORM_ADMIN")
     return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 
@@ -64,6 +65,7 @@ export async function POST(
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (ctx.role !== "PLATFORM_ADMIN")
     return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 
@@ -103,6 +105,7 @@ export async function DELETE(
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (ctx.role !== "PLATFORM_ADMIN")
     return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 

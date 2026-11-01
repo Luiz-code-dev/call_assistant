@@ -45,6 +45,8 @@ export interface StudentContext {
   networkId: string;
   enrollmentId: string;
   classId: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  db: any;
 }
 
 export async function getEduContext(): Promise<EduContext | null> {
@@ -98,7 +100,7 @@ const revalidationCache = new Map<string, { ok: boolean; ts: number }>();
 const REVALIDATE_TTL_MS = 60_000;
 
 export async function getStudentContext(): Promise<StudentContext | null> {
-  const raw = bearerToken() ?? cookies().get("sf_edu_student")?.value;
+  const raw = bearerToken() ?? cookies().get("sf_student_ctx")?.value;
   if (!raw) return null;
 
   const payload = await verifyTypedToken(raw, studentSecret(), "student");
@@ -112,11 +114,12 @@ export async function getStudentContext(): Promise<StudentContext | null> {
 
     if (!studentId || !networkId || !enrollmentId || !classId) return null;
 
+    // getTenantDb é cacheado por networkId — barato de chamar a cada request
+    const db = await getTenantDb(networkId);
+
     const cacheKey = `${studentId}:${enrollmentId}`;
     const cached = revalidationCache.get(cacheKey);
     if (!cached || Date.now() - cached.ts > REVALIDATE_TTL_MS) {
-      const db = await getTenantDb(networkId);
-      setTenantDb(db); // injeta no AsyncLocalStorage para prismaEdu
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const enrollment = await (db as any).eduEnrollment.findUnique({
         where: { id: enrollmentId },
@@ -129,7 +132,7 @@ export async function getStudentContext(): Promise<StudentContext | null> {
       return null;
     }
 
-    return { studentId, networkId, enrollmentId, classId };
+    return { studentId, networkId, enrollmentId, classId, db };
   } catch {
     return null;
   }

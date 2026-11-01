@@ -6,7 +6,7 @@
  */
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import bcrypt from "bcryptjs";
 import { randomInt } from "crypto";
@@ -18,6 +18,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   // Professor não gera PINs — o acesso ao reforço é gerido pela escola e entregue à família
   if (!["SCHOOL_ADMIN","NETWORK_ADMIN"].includes(ctx.role)) {
     return NextResponse.json({ error: "Sem permissão. O PIN é gerado pela direção ou secretaria." }, { status: 403 });

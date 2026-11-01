@@ -1,7 +1,7 @@
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 
 
 function flag() { return isEscolasEnabled(); }
@@ -10,6 +10,7 @@ export async function GET() {
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (ctx.role !== "NETWORK_ADMIN") return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
   const members = await prismaEdu.eduMembership.findMany({
     where: { networkId: ctx.networkId },
@@ -23,6 +24,7 @@ export async function POST(req: NextRequest) {
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (ctx.role !== "NETWORK_ADMIN") return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
   const { email, role, schoolId } = await req.json();
   if (!email || !role) return NextResponse.json({ error: "E-mail e papel são obrigatórios" }, { status: 400 });

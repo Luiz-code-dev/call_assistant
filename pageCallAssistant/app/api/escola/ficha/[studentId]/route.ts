@@ -1,7 +1,7 @@
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 
 function flag() { return isEscolasEnabled(); }
 
@@ -11,6 +11,7 @@ export async function GET(_req: NextRequest, { params }: { params: { studentId: 
   if (!flag()) return NextResponse.json({ error: "Nao encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Nao autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (!ALLOWED_ROLES.includes(ctx.role))
     return NextResponse.json({ error: "Sem permissao" }, { status: 403 });
 

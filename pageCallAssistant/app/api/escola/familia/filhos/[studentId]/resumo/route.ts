@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { getFamilyContext } from "@/lib/escola/family-context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { guardianOwnsStudent, weekStartSaoPaulo, dayIndexSaoPaulo } from "@/lib/escola/family-guard";
@@ -22,6 +22,7 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getFamilyContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (!(await guardianOwnsStudent(ctx.guardianId, params.studentId))) {
     return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   }

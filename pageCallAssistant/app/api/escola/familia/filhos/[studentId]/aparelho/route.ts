@@ -7,7 +7,7 @@
  */
 import { NextRequest, NextResponse } from "next/server";
 import { getFamilyContext } from "@/lib/escola/family-context";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { readDeviceToken, addDeviceStudent, signDeviceToken, studentDisplayParts, DEVICE_MAX_AGE } from "@/lib/escola/device";
 import { DEVICE_COOKIE } from "@/lib/escola/cookies";
@@ -16,6 +16,7 @@ export async function POST(req: NextRequest, { params }: { params: { studentId: 
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getFamilyContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const P = prismaEdu as any;

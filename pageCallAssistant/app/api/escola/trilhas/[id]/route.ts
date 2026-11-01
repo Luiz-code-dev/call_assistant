@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { getEduContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 
@@ -16,6 +16,7 @@ export async function GET(_: NextRequest, { params }: { params: { id: string } }
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
 
   const track = await p.eduTrack.findUnique({
     where: { id: params.id, networkId: ctx.networkId },
@@ -43,6 +44,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
 
   const track = await p.eduTrack.findUnique({ where: { id: params.id, networkId: ctx.networkId } });
   if (!track) return NextResponse.json({ error: "Não encontrada" }, { status: 404 });

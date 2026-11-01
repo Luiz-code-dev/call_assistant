@@ -1,7 +1,7 @@
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { yearAllowedForStage, buildAccessCode } from "@/lib/escola/stage";
 import { SHIFT_LABEL } from "@/lib/escola/types";
 import type { EduShift } from "@/lib/escola/types";
@@ -12,6 +12,7 @@ export async function GET() {
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   const where = ctx.schoolId ? { networkId: ctx.networkId, schoolId: ctx.schoolId } : { networkId: ctx.networkId };
   const classes = await prismaEdu.eduClass.findMany({
     where,
@@ -29,6 +30,7 @@ export async function POST(req: NextRequest) {
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (!["NETWORK_ADMIN", "SCHOOL_ADMIN"].includes(ctx.role)) return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
   const { schoolId, schoolYearId, name, stage, gradeYear, shift } = await req.json();
   if (!schoolId || !schoolYearId || !name || !stage || !gradeYear || !shift) return NextResponse.json({ error: "Campos obrigatórios faltando" }, { status: 400 });

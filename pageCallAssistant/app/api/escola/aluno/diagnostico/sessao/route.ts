@@ -17,7 +17,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { calcularDegrau, aplicarDegrau } from "@/lib/escola/diagnostico-degrau";
 import { recordMasteryEvent } from "@/lib/escola/mastery-event";
 import { assignAfterDiagnostic } from "@/lib/escola/track-assignment";
@@ -42,6 +42,7 @@ export async function POST(req: NextRequest) {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "disabled" }, { status: 403 });
   const ctx = await getStudentContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
 
   const body = await req.json();
   const { action } = body;

@@ -1,7 +1,7 @@
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 
 function flag() { return isEscolasEnabled(); }
 
@@ -9,6 +9,7 @@ export async function GET() {
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   const rows = await prismaEdu.eduSchool.findMany({
     where: { networkId: ctx.networkId },
     orderBy: { name: "asc" },
@@ -29,6 +30,7 @@ export async function POST(req: NextRequest) {
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (ctx.role !== "NETWORK_ADMIN") return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
   const { name, inepCode } = await req.json();
   if (!name?.trim()) return NextResponse.json({ error: "Nome obrigatório" }, { status: 400 });

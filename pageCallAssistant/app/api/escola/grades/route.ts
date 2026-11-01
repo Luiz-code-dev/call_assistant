@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { computeGradeHash, signHash } from "@/lib/escola/integrity";
 import { isEscolasEnabled, isNotasEnabled } from "@/lib/escola/feature-flag";
 
@@ -8,6 +8,7 @@ export async function GET(req: NextRequest) {
   if (!isEscolasEnabled() || !isNotasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
 
   const { searchParams } = new URL(req.url);
   const assessmentId = searchParams.get("assessmentId");
@@ -28,6 +29,7 @@ export async function POST(req: NextRequest) {
   if (!isEscolasEnabled() || !isNotasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
 
   const { classSubjectId, assessmentId, rows } = await req.json();
   if (!assessmentId || !Array.isArray(rows)) return NextResponse.json({ error: "Dados inválidos" }, { status: 400 });

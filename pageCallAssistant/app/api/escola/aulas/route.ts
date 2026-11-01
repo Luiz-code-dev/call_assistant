@@ -1,7 +1,7 @@
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { registerCode, unregisterCode } from "@/lib/escola/catalogo";
 import crypto from "crypto";
 
@@ -21,6 +21,7 @@ export async function POST(req: NextRequest) {
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (ctx.role !== "TEACHER") return NextResponse.json({ error: "Somente professores podem abrir aulas" }, { status: 403 });
 
   const { classId, durationMinutes = 120 } = await req.json();
@@ -66,6 +67,7 @@ export async function GET(req: NextRequest) {
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (ctx.role !== "TEACHER") return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 
   const sessions = await prismaEdu.eduClassSession.findMany({

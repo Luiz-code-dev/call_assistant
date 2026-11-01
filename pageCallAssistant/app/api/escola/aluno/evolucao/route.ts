@@ -3,7 +3,7 @@
  * Retorna evolução do aluno autenticado por habilidade e componente.
  */
 import { NextResponse } from "next/server";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 
@@ -11,6 +11,7 @@ export async function GET() {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const student = await getStudentContext();
   if (!student) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (student?.db) setTenantDb(student.db);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const P = prismaEdu as any;

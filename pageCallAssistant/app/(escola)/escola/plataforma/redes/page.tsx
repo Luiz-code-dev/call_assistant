@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getEduContext } from "@/lib/escola/context";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import EscPageHeader from "@/components/escola/layout/EscPageHeader";
 import { Building2, Plus, ExternalLink } from "lucide-react";
 

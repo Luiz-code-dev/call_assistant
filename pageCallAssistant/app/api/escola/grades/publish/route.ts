@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { z } from "zod";
 
 import { isEscolasEnabled, isNotasEnabled } from "@/lib/escola/feature-flag";
@@ -13,6 +13,7 @@ export async function POST(req: NextRequest) {
 
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (!can(ctx.role, "grade:publish")) return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 
   const parsed = bodySchema.safeParse(await req.json());

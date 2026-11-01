@@ -7,7 +7,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { getFamilyContext } from "@/lib/escola/family-context";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 
 const VALID_FIGURES = ["sun","star","heart","house","fish","flower","moon","drop","cloud"];
@@ -16,6 +16,7 @@ export async function POST(req: NextRequest, { params }: { params: { studentId: 
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getFamilyContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
 
   const { figures } = await req.json().catch(() => ({}));
   if (!Array.isArray(figures) || figures.length !== 3 || !figures.every((f) => VALID_FIGURES.includes(f)))

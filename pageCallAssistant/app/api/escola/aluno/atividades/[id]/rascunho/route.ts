@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 
 export const runtime = "nodejs";
 
@@ -10,6 +10,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
 
   const ctx = await getStudentContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
 
   const { text } = await req.json();
   if (typeof text !== "string") return NextResponse.json({ error: "text obrigatório" }, { status: 400 });

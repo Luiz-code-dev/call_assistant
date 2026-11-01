@@ -1,7 +1,7 @@
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import bcrypt from "bcryptjs";
 
 function flag() { return isEscolasEnabled(); }
@@ -10,6 +10,7 @@ export async function GET(req: NextRequest) {
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   const search = new URL(req.url).searchParams.get("search") ?? "";
   const where: Record<string, unknown> = { networkId: ctx.networkId };
   if (search) where["OR"] = [{ fullName: { contains: search, mode: "insensitive" } }, { enrollmentCode: { contains: search } }];
@@ -26,6 +27,7 @@ export async function POST(req: NextRequest) {
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (!["NETWORK_ADMIN","SCHOOL_ADMIN"].includes(ctx.role)) return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
   const { enrollmentCode, fullName, birthDate, classId, pin } = await req.json();
   if (!enrollmentCode || !fullName || !pin) return NextResponse.json({ error: "Campos obrigatórios faltando" }, { status: 400 });

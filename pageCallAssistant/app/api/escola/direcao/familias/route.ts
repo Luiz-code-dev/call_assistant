@@ -10,7 +10,7 @@
  *  - "sem_responsavel"  → sem nenhum vínculo ativo
  */
 import { NextResponse } from "next/server";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { getEduContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 
@@ -18,6 +18,7 @@ export async function GET() {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (!["SCHOOL_ADMIN", "NETWORK_ADMIN", "COORDINATOR"].includes(ctx.role))
     return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 
