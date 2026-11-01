@@ -1,8 +1,9 @@
 #!/bin/sh
 set -e
 
-# Garante que o CLI do Prisma copiado para node_modules/.bin esteja no PATH
-export PATH="/app/node_modules/.bin:$PATH"
+# Garante que o CLI do Prisma esteja no PATH (Docker via wrapper /usr/local/bin/prisma;
+# CI e local via node_modules/.bin do projeto)
+export PATH="$(pwd)/node_modules/.bin:/app/node_modules/.bin:$PATH"
 
 echo "[start] migrando banco SpeakFlow AI"
 prisma migrate deploy

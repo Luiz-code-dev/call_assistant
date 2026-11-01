@@ -6,8 +6,8 @@
  * Executar UMA VEZ antes de sh scripts/start.sh.
  *
  * Uso:
- *   export ESCOLAS_TEST_PG_PASS="postgres"   # superusuário do docker
- *   export ESCOLAS_APP_DB_PASSWORD="@#%'/!"  # senha com caracteres especiais
+ *   export ESCOLAS_TEST_PG_PASS="$(openssl rand -hex 16)"   # superusuário do docker
+ *   export ESCOLAS_APP_DB_PASSWORD="$(openssl rand -hex 12)"
  *   node scripts/escolas/test-db-setup.mjs
  */
 import pg from "pg";

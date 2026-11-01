@@ -17,10 +17,13 @@ defaults:
     working-directory: pageCallAssistant
 
 jobs:
-  ci:
-    name: CI — build, docker, start.sh, testes
+  # ─────────────────────────────────────────────────────────────────────────
+  # Job 1: tsc, lint, vitest, start.sh × 3 e testes de integração
+  # ─────────────────────────────────────────────────────────────────────────
+  start-sh:
+    name: start.sh × 3 + tsc + lint + vitest + int tests
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 25
 
     steps:
       - uses: actions/checkout@v4
@@ -31,7 +34,7 @@ jobs:
           cache: "npm"
           cache-dependency-path: pageCallAssistant/package-lock.json
 
-      # ─── Senhas geradas no CI (nunca escritas no código) ──────────────
+      # Senhas geradas a cada execução — nunca escritas no código
       - name: Gerar senhas de teste
         run: |
           PG_PASS="$(openssl rand -hex 16)"
@@ -40,12 +43,12 @@ jobs:
           echo "::add-mask::$PG_PASS"
           echo "::add-mask::$APP1"
           echo "::add-mask::$APP2"
-          echo "PG_PASS=$PG_PASS"         >> "$GITHUB_ENV"
-          echo "APP_PASS_1=$APP1"         >> "$GITHUB_ENV"
-          echo "APP_PASS_2=$APP2"         >> "$GITHUB_ENV"
+          echo "PG_PASS=$PG_PASS"   >> "$GITHUB_ENV"
+          echo "APP_PASS_1=$APP1"   >> "$GITHUB_ENV"
+          echo "APP_PASS_2=$APP2"   >> "$GITHUB_ENV"
         working-directory: .
 
-      # ─── Postgres (sem senha no código — usa POSTGRES_HOST_AUTH_METHOD) ─
+      # Postgres 16 via docker (trust — a autenticação do escolas_app é testada pelo check-app-role)
       - name: Iniciar Postgres 16
         run: |
           docker run -d \
@@ -59,15 +62,14 @@ jobs:
           done
         working-directory: .
 
-      - name: Criar bancos e usuario escolas_app
+      - name: Criar bancos
         run: |
-          docker exec pg16 psql -U postgres -c "CREATE DATABASE ai;"
-          docker exec pg16 psql -U postgres -c "CREATE DATABASE catalogo;"
-          docker exec pg16 psql -U postgres -c "CREATE DATABASE db01;"
-          docker exec pg16 psql -U postgres -c "CREATE DATABASE db02;"
+          psql -h localhost -U postgres -c "CREATE DATABASE ai;"
+          psql -h localhost -U postgres -c "CREATE DATABASE catalogo;"
+          psql -h localhost -U postgres -c "CREATE DATABASE db01;"
+          psql -h localhost -U postgres -c "CREATE DATABASE db02;"
         working-directory: .
 
-      # ─── Dependências e geração do Prisma ─────────────────────────────
       - name: Instalar dependências
         run: npm ci --legacy-peer-deps
 
@@ -77,19 +79,17 @@ jobs:
           npx prisma generate --schema prisma/escolas/schema.prisma
           npx prisma generate --schema prisma/escolas-catalogo/schema.prisma
 
-      # ─── TypeScript e Lint ────────────────────────────────────────────
       - name: TypeScript check
         run: npx tsc --noEmit
 
       - name: Lint
         run: npm run lint
 
-      # ─── Testes unitários / Vitest ─────────────────────────────────────
       - name: Vitest
         run: npm test
 
-      # ─── start.sh — passo 1: migração + provisioning normal ───────────
-      - name: "start.sh [1/3] — primeira execução"
+      # ── start.sh 1/3: primeira execução normal ──────────────────────────
+      - name: "start.sh [1/3] — primeira execucao"
         env:
           DATABASE_URL: "postgresql://postgres@localhost:5432/ai"
           ESCOLAS_CATALOGO_URL: "postgresql://postgres@localhost:5432/catalogo"
@@ -104,8 +104,8 @@ jobs:
           START_SERVER: "false"
         run: sh scripts/start.sh
 
-      # ─── start.sh — passo 2: troca de senha + idempotência ────────────
-      - name: "start.sh [2/3] — troca de senha + idempotência"
+      # ── start.sh 2/3: troca de senha + verificação de idempotência ───────
+      - name: "start.sh [2/3] — troca de senha + idempotencia"
         env:
           DATABASE_URL: "postgresql://postgres@localhost:5432/ai"
           ESCOLAS_CATALOGO_URL: "postgresql://postgres@localhost:5432/catalogo"
@@ -119,17 +119,17 @@ jobs:
           EDU_FAMILY_JWT_SECRET: "ci-family-secret"
           START_SERVER: "false"
         run: |
-          before=$(docker exec pg16 psql -U postgres -d db01 -t -c "SELECT COUNT(*) FROM \"EduSkill\";")
+          before=$(psql -h localhost -U postgres -d db01 -t -c 'SELECT COUNT(*) FROM "EduSkill";' | tr -d ' \n')
           sh scripts/start.sh
-          after=$(docker exec pg16 psql -U postgres -d db01 -t -c "SELECT COUNT(*) FROM \"EduSkill\";")
-          if [ "$(echo $before | tr -d ' ')" != "$(echo $after | tr -d ' ')" ]; then
-            echo "FAIL: contagem de EduSkill mudou — operacao nao e idempotente"
+          after=$(psql -h localhost -U postgres -d db01 -t -c 'SELECT COUNT(*) FROM "EduSkill";' | tr -d ' \n')
+          if [ "$before" != "$after" ]; then
+            echo "FAIL: contagem de EduSkill mudou ($before -> $after) — nao e idempotente"
             exit 1
           fi
           echo "OK: idempotencia confirmada ($after habilidades)"
 
-      # ─── start.sh — passo 3: CONTEUDO_FORCE_FAIL deve sobreviver ──────
-      - name: "start.sh [3/3] — CONTEUDO_FORCE_FAIL=true nao derruba"
+      # ── start.sh 3/3: CONTEUDO_FORCE_FAIL não derruba o servidor ─────────
+      - name: "start.sh [3/3] — CONTEUDO_FORCE_FAIL=true sobrevive"
         env:
           DATABASE_URL: "postgresql://postgres@localhost:5432/ai"
           ESCOLAS_CATALOGO_URL: "postgresql://postgres@localhost:5432/catalogo"
@@ -145,42 +145,7 @@ jobs:
           CONTEUDO_FORCE_FAIL: "true"
         run: sh scripts/start.sh
 
-      # ─── Docker build + run (valida a imagem de produção real) ─────────
-      - name: Docker build
-        run: |
-          docker build \
-            --build-arg NEXT_PUBLIC_APP_URL=http://localhost:3000 \
-            -t speakflow-escolas-ci:latest \
-            .
-        working-directory: pageCallAssistant
-
-      - name: "Docker run — start.sh no container de producao"
-        run: |
-          docker run --rm \
-            --network host \
-            -e DATABASE_URL="postgresql://postgres@localhost:5432/ai" \
-            -e ESCOLAS_CATALOGO_URL="postgresql://postgres@localhost:5432/catalogo" \
-            -e ESCOLAS_DB_01_URL="postgresql://postgres@localhost:5432/db01" \
-            -e ESCOLAS_DB_02_URL="postgresql://postgres@localhost:5432/db02" \
-            -e ESCOLAS_APP_DB_PASSWORD="$APP_PASS_2" \
-            -e NEXTAUTH_SECRET="ci-secret-only" \
-            -e NEXTAUTH_URL="http://localhost:3000" \
-            -e ESCOLAS_STAFF_JWT_SECRET="ci-staff-secret" \
-            -e ESCOLAS_STUDENT_JWT_SECRET="ci-student-secret" \
-            -e EDU_FAMILY_JWT_SECRET="ci-family-secret" \
-            -e START_SERVER="false" \
-            speakflow-escolas-ci:latest 2>&1 | tee /tmp/docker-run.log
-          grep -q "\[check-role\]" /tmp/docker-run.log && echo "check-role OK" || (echo "check-role nao encontrado" && exit 1)
-        working-directory: .
-
-      - name: Upload docker run log
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: docker-run-log
-          path: /tmp/docker-run.log
-
-      # ─── Testes de integração ──────────────────────────────────────────
+      # ── Testes de integração ─────────────────────────────────────────────
       - name: Testes de integração (escolas)
         env:
           TEST_PG_URL: "postgresql://postgres@localhost:5432"
@@ -191,3 +156,95 @@ jobs:
           ESCOLAS_DB_02_URL: "postgresql://postgres@localhost:5432/db02"
         run: npm run escolas:test:int
         continue-on-error: true
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # Job 2: docker build + docker run (valida a imagem de produção real)
+  # ─────────────────────────────────────────────────────────────────────────
+  docker:
+    name: docker build + docker run
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: pageCallAssistant/package-lock.json
+
+      # Senhas próprias deste job (independentes do start-sh)
+      - name: Gerar senhas de teste
+        run: |
+          APP_PASS="$(openssl rand -hex 12)"
+          echo "::add-mask::$APP_PASS"
+          echo "APP_PASS=$APP_PASS" >> "$GITHUB_ENV"
+        working-directory: .
+
+      # Postgres 16 para o docker run (trust — igual ao job start-sh)
+      - name: Iniciar Postgres 16
+        run: |
+          docker run -d \
+            --name pg16 \
+            -e POSTGRES_HOST_AUTH_METHOD=trust \
+            -p 5432:5432 \
+            postgres:16
+          for i in $(seq 1 30); do
+            docker exec pg16 pg_isready -U postgres && break
+            sleep 1
+          done
+        working-directory: .
+
+      - name: Criar bancos
+        run: |
+          psql -h localhost -U postgres -c "CREATE DATABASE ai;"
+          psql -h localhost -U postgres -c "CREATE DATABASE catalogo;"
+          psql -h localhost -U postgres -c "CREATE DATABASE db01;"
+          psql -h localhost -U postgres -c "CREATE DATABASE db02;"
+        working-directory: .
+
+      # npm ci necessário apenas para prisma generate (não copia para a imagem)
+      - name: Instalar dependências (para prisma generate)
+        run: npm ci --legacy-peer-deps
+
+      - name: Gerar clientes Prisma (para o build)
+        run: |
+          npx prisma generate
+          npx prisma generate --schema prisma/escolas/schema.prisma
+          npx prisma generate --schema prisma/escolas-catalogo/schema.prisma
+
+      - name: Docker build
+        run: |
+          docker build \
+            --build-arg NEXT_PUBLIC_APP_URL=http://localhost:3000 \
+            -t speakflow-escolas-ci:latest \
+            .
+
+      - name: "Docker run — start.sh no container de producao"
+        run: |
+          docker run --rm \
+            --network host \
+            -e DATABASE_URL="postgresql://postgres@localhost:5432/ai" \
+            -e ESCOLAS_CATALOGO_URL="postgresql://postgres@localhost:5432/catalogo" \
+            -e ESCOLAS_DB_01_URL="postgresql://postgres@localhost:5432/db01" \
+            -e ESCOLAS_DB_02_URL="postgresql://postgres@localhost:5432/db02" \
+            -e ESCOLAS_APP_DB_PASSWORD="$APP_PASS" \
+            -e NEXTAUTH_SECRET="ci-secret-only" \
+            -e NEXTAUTH_URL="http://localhost:3000" \
+            -e ESCOLAS_STAFF_JWT_SECRET="ci-staff-secret" \
+            -e ESCOLAS_STUDENT_JWT_SECRET="ci-student-secret" \
+            -e EDU_FAMILY_JWT_SECRET="ci-family-secret" \
+            -e START_SERVER="false" \
+            speakflow-escolas-ci:latest 2>&1 | tee /tmp/docker-run.log
+          grep -q "\[check-role\]" /tmp/docker-run.log \
+            && echo "check-role OK" \
+            || { echo "FAIL: [check-role] nao encontrado no log"; exit 1; }
+        working-directory: .
+
+      - name: Upload docker run log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-run-log
+          path: /tmp/docker-run.log
