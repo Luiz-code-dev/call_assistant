@@ -7,3 +7,5 @@ version: 2
 ignore:
   - sha: a18b334267bde21bb64c5d92a6eb7e6693987735
     comment: "Dev-only Docker Compose placeholder password, replaced by env var in 38fa3131"
+  - sha: e985756e799619366b1110b757305f018747ea4b
+    comment: "Dev-only Postgres test password (docker-compose.test.yml), replaced by env var reference in bd4a2253"
