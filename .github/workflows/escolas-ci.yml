@@ -410,21 +410,27 @@ jobs:
             fi
           done
 
-          # Login como prof.demo
-          PROF_COOKIE=$(curl -sf -c /tmp/prof-cookies.txt -b /tmp/prof-cookies.txt \
-            -X POST http://localhost:3001/api/escola/auth/login \
+          # Login como prof.demo (endpoint correto: /auth/staff/login)
+          PROF_HTTP=$(curl -s -c /tmp/prof-cookies.txt -b /tmp/prof-cookies.txt \
+            -X POST http://localhost:3001/api/escola/auth/staff/login \
             -H "Content-Type: application/json" \
             -d '{"email":"prof.demo@speakflow.escola","password":"Speakflow@2027"}' \
-            -w "%{http_code}" -o /dev/null)
-          echo "Login prof.demo: HTTP $PROF_COOKIE"
+            -w "%{http_code}" -o /tmp/prof-login.json)
+          echo "Login prof.demo: HTTP $PROF_HTTP"
+          if [ "$PROF_HTTP" != "200" ]; then
+            echo "FAIL: login do professor retornou $PROF_HTTP"; cat /tmp/prof-login.json; exit 1
+          fi
 
           # Login como direcao.demo
-          DIR_COOKIE=$(curl -sf -c /tmp/dir-cookies.txt -b /tmp/dir-cookies.txt \
-            -X POST http://localhost:3001/api/escola/auth/login \
+          DIR_HTTP=$(curl -s -c /tmp/dir-cookies.txt -b /tmp/dir-cookies.txt \
+            -X POST http://localhost:3001/api/escola/auth/staff/login \
             -H "Content-Type: application/json" \
             -d '{"email":"direcao.demo@speakflow.escola","password":"Speakflow@2027"}' \
-            -w "%{http_code}" -o /dev/null)
-          echo "Login direcao.demo: HTTP $DIR_COOKIE"
+            -w "%{http_code}" -o /tmp/dir-login.json)
+          echo "Login direcao.demo: HTTP $DIR_HTTP"
+          if [ "$DIR_HTTP" != "200" ]; then
+            echo "FAIL: login da direcao retornou $DIR_HTTP"; cat /tmp/dir-login.json; exit 1
+          fi
 
           FAIL=0
           # Smoke tests como professor
@@ -433,7 +439,7 @@ jobs:
             "/api/escola/professor/turmas" \
             "/api/escola/professor/ofertas" \
             "/api/escola/trilhas"; do
-            STATUS=$(curl -sf -b /tmp/prof-cookies.txt \
+            STATUS=$(curl -s -b /tmp/prof-cookies.txt \
               http://localhost:3001${ENDPOINT} \
               -w "%{http_code}" -o /dev/null 2>/dev/null || echo "000")
             if [ "$STATUS" = "200" ]; then
@@ -447,8 +453,8 @@ jobs:
           # Smoke tests como direção
           for ENDPOINT in \
             "/api/escola/auth/me" \
-            "/api/escola/turmas"; do
-            STATUS=$(curl -sf -b /tmp/dir-cookies.txt \
+            "/api/escola/direcao/familias"; do
+            STATUS=$(curl -s -b /tmp/dir-cookies.txt \
               http://localhost:3001${ENDPOINT} \
               -w "%{http_code}" -o /dev/null 2>/dev/null || echo "000")
             if [ "$STATUS" = "200" ]; then

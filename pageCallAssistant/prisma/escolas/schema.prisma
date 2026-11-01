@@ -1145,11 +1145,11 @@ model EduAttemptSession {
   minMsPerQuestion Int     @default(5000)
   /// Variante da atividade (I4)
   variantId       String?
-  startedAt       DateTime @default(now())
-  lastActivityAt  DateTime @default(now())
+  startedAt       DateTime  @default(now()) @db.Timestamptz
+  lastActivityAt  DateTime  @default(now()) @db.Timestamptz
   /// Sessão expira após 4 horas de inatividade
-  expiresAt       DateTime
-  completedAt     DateTime?
+  expiresAt       DateTime  @db.Timestamptz
+  completedAt     DateTime? @db.Timestamptz
   /// Salvo quando o aluno sai sem terminar (I6)
   resumeToken     String?  @unique
 
