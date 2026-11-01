@@ -23,7 +23,11 @@ echo "[start] importando BNCC (idempotente, com lock)"
 node scripts/escolas/bncc-import.mjs
 
 echo "[start] importando conteudo SpeakFlow (idempotente, com lock)"
-node scripts/escolas/conteudo-import.mjs || echo "[start] AVISO: importacao de conteudo falhou; servidor sobe sem o conteudo novo"
+if [ "$CONTEUDO_FORCE_FAIL" = "true" ]; then
+  echo "[start] AVISO: CONTEUDO_FORCE_FAIL=true — importacao de conteudo ignorada intencionalmente"
+else
+  node scripts/escolas/conteudo-import.mjs || echo "[start] AVISO: importacao de conteudo falhou; servidor sobe sem o conteudo novo"
+fi
 
 if [ "$ESCOLAS_SEED_DEMO" = "true" ]; then
   echo "[start] seed demo"
@@ -33,6 +37,11 @@ fi
 if [ "$ESCOLAS_SEED_USUARIOS" = "true" ]; then
   echo "[start] seed usuarios demo"
   node scripts/escolas/seed-usuarios-demo.mjs
+fi
+
+if [ "$START_SERVER" = "false" ]; then
+  echo "[start] START_SERVER=false — encerrando sem iniciar o servidor (modo CI)"
+  exit 0
 fi
 
 echo "[start] iniciando o servidor"

@@ -9,8 +9,9 @@ services:
   pg:
     image: postgres:16
     environment:
-      # Senha de teste local — defina POSTGRES_TEST_PASSWORD para sobrescrever
-      POSTGRES_PASSWORD: ${POSTGRES_TEST_PASSWORD:-localtest}
+      # Variável obrigatória — gere localmente: export POSTGRES_TEST_PASSWORD=$(openssl rand -hex 16)
+      # Veja README-testes.md para instruções completas.
+      POSTGRES_PASSWORD: ${POSTGRES_TEST_PASSWORD:?defina POSTGRES_TEST_PASSWORD antes de subir o Compose}
     ports:
       - "55432:5432"
     healthcheck:

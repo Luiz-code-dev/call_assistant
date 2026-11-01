@@ -91,7 +91,7 @@ function EscolaEntrarInner() {
 
         <div>
           <h1 style={{ fontSize: 34, fontWeight: 800, color: "#3B0764", lineHeight: 1.2, marginBottom: 16, marginTop: 0 }}>
-            Cada aluno com retorno imediato. Cada nota com garantia.
+            Cada aluno com retorno imediato. Cada habilidade acompanhada.
           </h1>
           <p style={{ fontSize: 15, color: "#5B5470", marginBottom: 28, marginTop: 0, lineHeight: 1.6 }}>
             Aprendizagem com inteligência artificial para toda a rede municipal, em qualquer componente curricular.

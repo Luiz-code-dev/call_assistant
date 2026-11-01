@@ -7,6 +7,12 @@ WORKDIR /app
 COPY package.json package-lock.json* ./
 RUN npm ci --ignore-scripts --legacy-peer-deps
 
+# Estágio dedicado: dependências de produção para os scripts de migração (pg, bcryptjs, etc.)
+FROM node:20-alpine AS scriptdeps
+WORKDIR /deps
+COPY package.json package-lock.json* ./
+RUN npm ci --omit=dev --ignore-scripts --no-audit --no-fund
+
 FROM base AS builder
 RUN apk add --no-cache openssl
 WORKDIR /app
@@ -45,6 +51,9 @@ ENV NODE_ENV=production
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
+# Dependências de produção dos scripts (pg, bcryptjs, etc.) — cobertura completa
+COPY --from=scriptdeps /deps/node_modules ./node_modules
+
 COPY --from=builder /app/public* ./public/
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
@@ -53,11 +62,11 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder /app/prisma ./prisma
 
 # Clientes Prisma gerados (inclui @prisma/escolas e @prisma/escolas-catalogo)
+# Sobrescreve o que veio do scriptdeps para garantir versão correta gerada no builder
 COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
 
 # CLI do Prisma instalada na imagem (mesma versão do package.json)
-# Evita download em runtime via npx prisma@5
 # IMPORTANTE: NÃO copiar node_modules/.bin/prisma (é symlink no Linux; Docker segue o symlink
 # e copia o conteúdo para .bin/, mudando __dirname e quebrando a busca pelo .wasm)
 # Em vez disso, criamos um wrapper em /usr/local/bin/prisma que invoca node com caminho correto.
@@ -68,14 +77,6 @@ RUN printf '#!/bin/sh\nexec node /app/node_modules/prisma/build/index.js "$@"\n'
 # Scripts de migração e start
 COPY --from=builder /app/scripts ./scripts
 COPY --from=builder /app/package.json ./package.json
-
-# Dependências runtime dos scripts (bcryptjs para invite-account, pg para migrate-all.mjs)
-COPY --from=builder /app/node_modules/bcryptjs ./node_modules/bcryptjs
-COPY --from=builder /app/node_modules/pg ./node_modules/pg
-COPY --from=builder /app/node_modules/pg-pool ./node_modules/pg-pool
-COPY --from=builder /app/node_modules/pg-protocol ./node_modules/pg-protocol
-COPY --from=builder /app/node_modules/pg-types ./node_modules/pg-types
-COPY --from=builder /app/node_modules/pgpass ./node_modules/pgpass
 
 # Normaliza CRLF→LF (seguro mesmo que o arquivo já tenha LF) e torna executável
 RUN sed -i 's/\r$//' scripts/start.sh && chmod +x scripts/start.sh

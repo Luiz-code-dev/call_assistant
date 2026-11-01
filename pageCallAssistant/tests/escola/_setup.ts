@@ -2,13 +2,14 @@
  * Setup global para os testes de integração do SpeakFlow Escolas.
  *
  * Variáveis de ambiente necessárias (ex.: .env.test.local):
- *   TEST_PG_URL=postgresql://postgres:postgres@localhost:55432
- *   ESCOLAS_APP_DB_PASSWORD=@#%'/!
- *   ESCOLAS_CATALOG_URL=postgresql://postgres:postgres@localhost:55432/catalogo
- *   ESCOLAS_DB_URL=postgresql://postgres:postgres@localhost:55432/db01
- *   ESCOLAS_DB_01_URL=postgresql://postgres:postgres@localhost:55432/db01
- *   ESCOLAS_DB_02_URL=postgresql://postgres:postgres@localhost:55432/db02
+ *   TEST_PG_URL=<url-sem-credenciais>   # ex.: postgresql://localhost:55432
+ *   ESCOLAS_APP_DB_PASSWORD=<gerado>    # openssl rand -hex 12
+ *   ESCOLAS_CATALOG_URL=<url>
+ *   ESCOLAS_DB_URL=<url>
+ *   ESCOLAS_DB_01_URL=<url>
+ *   ESCOLAS_DB_02_URL=<url>
  *
+ * Veja README-testes.md para instruções completas de setup local.
  * Se TEST_PG_URL não estiver definido, todos os testes falham imediatamente
  * (não pulam — o requisito é explícito: sem banco disponível, o teste falha).
  */
@@ -22,7 +23,7 @@ beforeAll(async () => {
     throw new Error(
       "TEST_PG_URL não definido. " +
       "Suba o docker: docker compose -f docker-compose.test.yml up -d && " +
-      "exporte TEST_PG_URL=postgresql://postgres:postgres@localhost:55432"
+      "Veja README-testes.md para configurar TEST_PG_URL"
     );
   }
 

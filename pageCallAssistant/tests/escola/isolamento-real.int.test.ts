@@ -6,7 +6,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import pg from "pg";
 
-const BASE_URL = process.env.TEST_PG_URL ?? "postgresql://postgres:postgres@localhost:55432";
+const BASE_URL = process.env.TEST_PG_URL ?? "";
 const APP_PWD  = process.env.ESCOLAS_APP_DB_PASSWORD ?? "";
 const DB_01    = `${BASE_URL}/db01`;
 const DB_02    = `${BASE_URL}/db02`;

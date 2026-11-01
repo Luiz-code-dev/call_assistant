@@ -21,8 +21,7 @@ function StatusBadge({ sub }: { sub: Submission | null }) {
   if (!sub) return null;
   if (sub.status === "IN_PROGRESS") return <span className="text-xs text-zinc-400">Rascunho</span>;
   if (sub.status === "SUBMITTED") return <span className="text-xs text-[#92400E] flex items-center gap-1"><Clock className="size-3" />Analisando…</span>;
-  const nota = sub.teacherScore ?? sub.aiScore;
-  return <span className="text-xs text-[#166534] flex items-center gap-1"><CheckCircle2 className="size-3" />{nota != null ? `Nota: ${Number(nota).toFixed(1)}` : "Corrigido"}</span>;
+  return <span className="text-xs text-[#166534] flex items-center gap-1"><CheckCircle2 className="size-3" />Corrigido</span>;
 }
 
 export default function AlunoHomePage() {
