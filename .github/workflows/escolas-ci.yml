@@ -400,7 +400,9 @@ jobs:
             -e ESCOLAS_APP_DB_PASSWORD="$APP_PASS" \
             -e NEXTAUTH_SECRET="$CI_NEXTAUTH_SECRET" \
             -e NEXTAUTH_URL="http://localhost:3001" \
+            -e EDU_JWT_SECRET="$CI_STAFF_JWT" \
             -e ESCOLAS_STAFF_JWT_SECRET="$CI_STAFF_JWT" \
+            -e EDU_STUDENT_JWT_SECRET="$CI_STUDENT_JWT" \
             -e ESCOLAS_STUDENT_JWT_SECRET="$CI_STUDENT_JWT" \
             -e EDU_FAMILY_JWT_SECRET="$CI_FAMILY_JWT" \
             -e PORT=3001 \
@@ -422,6 +424,10 @@ jobs:
             fi
           done
 
+          # Coleta logs do servidor em qualquer saída (trap)
+          dump_logs() { echo "--- Ultimas 40 linhas do servidor ---"; docker logs sf-smoke 2>&1 | tail -40 || true; }
+          trap dump_logs EXIT
+
           # Login como prof.demo (endpoint correto: /auth/staff/login)
           PROF_HTTP=$(curl -s -c /tmp/prof-cookies.txt -b /tmp/prof-cookies.txt \
             -X POST http://localhost:3001/api/escola/auth/staff/login \
@@ -430,7 +436,8 @@ jobs:
             -w "%{http_code}" -o /tmp/prof-login.json)
           echo "Login prof.demo: HTTP $PROF_HTTP"
           if [ "$PROF_HTTP" != "200" ]; then
-            echo "FAIL: login do professor retornou $PROF_HTTP"; cat /tmp/prof-login.json; exit 1
+            echo "FAIL: login do professor retornou $PROF_HTTP"; cat /tmp/prof-login.json
+            dump_logs; trap - EXIT; exit 1
           fi
 
           # Login como direcao.demo
@@ -441,7 +448,8 @@ jobs:
             -w "%{http_code}" -o /tmp/dir-login.json)
           echo "Login direcao.demo: HTTP $DIR_HTTP"
           if [ "$DIR_HTTP" != "200" ]; then
-            echo "FAIL: login da direcao retornou $DIR_HTTP"; cat /tmp/dir-login.json; exit 1
+            echo "FAIL: login da direcao retornou $DIR_HTTP"; cat /tmp/dir-login.json
+            dump_logs; trap - EXIT; exit 1
           fi
 
           FAIL=0
