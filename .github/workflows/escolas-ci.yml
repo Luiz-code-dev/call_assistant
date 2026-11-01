@@ -34,18 +34,30 @@ jobs:
           cache: "npm"
           cache-dependency-path: pageCallAssistant/package-lock.json
 
-      # Senhas geradas a cada execução — nunca escritas no código
+      # Senhas e segredos gerados a cada execução — nunca escritos no código
       - name: Gerar senhas de teste
         run: |
           PG_PASS="$(openssl rand -hex 16)"
           APP1="$(openssl rand -hex 12)"
           APP2="$(openssl rand -hex 12)"
+          NXSECRET="$(openssl rand -hex 32)"
+          STAFFSEC="$(openssl rand -hex 32)"
+          STUDSEC="$(openssl rand -hex 32)"
+          FAMSEC="$(openssl rand -hex 32)"
           echo "::add-mask::$PG_PASS"
           echo "::add-mask::$APP1"
           echo "::add-mask::$APP2"
-          echo "PG_PASS=$PG_PASS"   >> "$GITHUB_ENV"
-          echo "APP_PASS_1=$APP1"   >> "$GITHUB_ENV"
-          echo "APP_PASS_2=$APP2"   >> "$GITHUB_ENV"
+          echo "::add-mask::$NXSECRET"
+          echo "::add-mask::$STAFFSEC"
+          echo "::add-mask::$STUDSEC"
+          echo "::add-mask::$FAMSEC"
+          echo "PG_PASS=$PG_PASS"         >> "$GITHUB_ENV"
+          echo "APP_PASS_1=$APP1"         >> "$GITHUB_ENV"
+          echo "APP_PASS_2=$APP2"         >> "$GITHUB_ENV"
+          echo "CI_NEXTAUTH_SECRET=$NXSECRET"   >> "$GITHUB_ENV"
+          echo "CI_STAFF_JWT=$STAFFSEC"         >> "$GITHUB_ENV"
+          echo "CI_STUDENT_JWT=$STUDSEC"        >> "$GITHUB_ENV"
+          echo "CI_FAMILY_JWT=$FAMSEC"          >> "$GITHUB_ENV"
         working-directory: .
 
       # Postgres 16 via docker (trust — a autenticação do escolas_app é testada pelo check-app-role)
@@ -92,15 +104,15 @@ jobs:
       - name: "start.sh [1/3] — primeira execucao"
         env:
           DATABASE_URL: "postgresql://postgres@localhost:5432/ai"
-          ESCOLAS_CATALOGO_URL: "postgresql://postgres@localhost:5432/catalogo"
+          ESCOLAS_CATALOG_URL: "postgresql://postgres@localhost:5432/catalogo"
           ESCOLAS_DB_01_URL: "postgresql://postgres@localhost:5432/db01"
           ESCOLAS_DB_02_URL: "postgresql://postgres@localhost:5432/db02"
           ESCOLAS_APP_DB_PASSWORD: "${{ env.APP_PASS_1 }}"
-          NEXTAUTH_SECRET: "ci-secret-only"
+          NEXTAUTH_SECRET: "${{ env.CI_NEXTAUTH_SECRET }}"
           NEXTAUTH_URL: "http://localhost:3000"
-          ESCOLAS_STAFF_JWT_SECRET: "ci-staff-secret"
-          ESCOLAS_STUDENT_JWT_SECRET: "ci-student-secret"
-          EDU_FAMILY_JWT_SECRET: "ci-family-secret"
+          ESCOLAS_STAFF_JWT_SECRET: "${{ env.CI_STAFF_JWT }}"
+          ESCOLAS_STUDENT_JWT_SECRET: "${{ env.CI_STUDENT_JWT }}"
+          EDU_FAMILY_JWT_SECRET: "${{ env.CI_FAMILY_JWT }}"
           START_SERVER: "false"
         run: sh scripts/start.sh
 
@@ -108,15 +120,15 @@ jobs:
       - name: "start.sh [2/3] — troca de senha + idempotencia"
         env:
           DATABASE_URL: "postgresql://postgres@localhost:5432/ai"
-          ESCOLAS_CATALOGO_URL: "postgresql://postgres@localhost:5432/catalogo"
+          ESCOLAS_CATALOG_URL: "postgresql://postgres@localhost:5432/catalogo"
           ESCOLAS_DB_01_URL: "postgresql://postgres@localhost:5432/db01"
           ESCOLAS_DB_02_URL: "postgresql://postgres@localhost:5432/db02"
           ESCOLAS_APP_DB_PASSWORD: "${{ env.APP_PASS_2 }}"
-          NEXTAUTH_SECRET: "ci-secret-only"
+          NEXTAUTH_SECRET: "${{ env.CI_NEXTAUTH_SECRET }}"
           NEXTAUTH_URL: "http://localhost:3000"
-          ESCOLAS_STAFF_JWT_SECRET: "ci-staff-secret"
-          ESCOLAS_STUDENT_JWT_SECRET: "ci-student-secret"
-          EDU_FAMILY_JWT_SECRET: "ci-family-secret"
+          ESCOLAS_STAFF_JWT_SECRET: "${{ env.CI_STAFF_JWT }}"
+          ESCOLAS_STUDENT_JWT_SECRET: "${{ env.CI_STUDENT_JWT }}"
+          EDU_FAMILY_JWT_SECRET: "${{ env.CI_FAMILY_JWT }}"
           START_SERVER: "false"
         run: |
           before=$(psql -h localhost -U postgres -d db01 -t -c 'SELECT COUNT(*) FROM "EduSkill";' | tr -d ' \n')
@@ -132,15 +144,15 @@ jobs:
       - name: "start.sh [3/3] — CONTEUDO_FORCE_FAIL=true sobrevive"
         env:
           DATABASE_URL: "postgresql://postgres@localhost:5432/ai"
-          ESCOLAS_CATALOGO_URL: "postgresql://postgres@localhost:5432/catalogo"
+          ESCOLAS_CATALOG_URL: "postgresql://postgres@localhost:5432/catalogo"
           ESCOLAS_DB_01_URL: "postgresql://postgres@localhost:5432/db01"
           ESCOLAS_DB_02_URL: "postgresql://postgres@localhost:5432/db02"
           ESCOLAS_APP_DB_PASSWORD: "${{ env.APP_PASS_2 }}"
-          NEXTAUTH_SECRET: "ci-secret-only"
+          NEXTAUTH_SECRET: "${{ env.CI_NEXTAUTH_SECRET }}"
           NEXTAUTH_URL: "http://localhost:3000"
-          ESCOLAS_STAFF_JWT_SECRET: "ci-staff-secret"
-          ESCOLAS_STUDENT_JWT_SECRET: "ci-student-secret"
-          EDU_FAMILY_JWT_SECRET: "ci-family-secret"
+          ESCOLAS_STAFF_JWT_SECRET: "${{ env.CI_STAFF_JWT }}"
+          ESCOLAS_STUDENT_JWT_SECRET: "${{ env.CI_STUDENT_JWT }}"
+          EDU_FAMILY_JWT_SECRET: "${{ env.CI_FAMILY_JWT }}"
           START_SERVER: "false"
           CONTEUDO_FORCE_FAIL: "true"
         run: sh scripts/start.sh
@@ -174,12 +186,24 @@ jobs:
           cache: "npm"
           cache-dependency-path: pageCallAssistant/package-lock.json
 
-      # Senhas próprias deste job (independentes do start-sh)
+      # Senhas e segredos próprios deste job (independentes do start-sh)
       - name: Gerar senhas de teste
         run: |
           APP_PASS="$(openssl rand -hex 12)"
+          NXSECRET="$(openssl rand -hex 32)"
+          STAFFSEC="$(openssl rand -hex 32)"
+          STUDSEC="$(openssl rand -hex 32)"
+          FAMSEC="$(openssl rand -hex 32)"
           echo "::add-mask::$APP_PASS"
-          echo "APP_PASS=$APP_PASS" >> "$GITHUB_ENV"
+          echo "::add-mask::$NXSECRET"
+          echo "::add-mask::$STAFFSEC"
+          echo "::add-mask::$STUDSEC"
+          echo "::add-mask::$FAMSEC"
+          echo "APP_PASS=$APP_PASS"             >> "$GITHUB_ENV"
+          echo "CI_NEXTAUTH_SECRET=$NXSECRET"   >> "$GITHUB_ENV"
+          echo "CI_STAFF_JWT=$STAFFSEC"         >> "$GITHUB_ENV"
+          echo "CI_STUDENT_JWT=$STUDSEC"        >> "$GITHUB_ENV"
+          echo "CI_FAMILY_JWT=$FAMSEC"          >> "$GITHUB_ENV"
         working-directory: .
 
       # Postgres 16 para o docker run (trust — igual ao job start-sh)
@@ -226,15 +250,15 @@ jobs:
           docker run --rm \
             --network host \
             -e DATABASE_URL="postgresql://postgres@localhost:5432/ai" \
-            -e ESCOLAS_CATALOGO_URL="postgresql://postgres@localhost:5432/catalogo" \
+            -e ESCOLAS_CATALOG_URL="postgresql://postgres@localhost:5432/catalogo" \
             -e ESCOLAS_DB_01_URL="postgresql://postgres@localhost:5432/db01" \
             -e ESCOLAS_DB_02_URL="postgresql://postgres@localhost:5432/db02" \
             -e ESCOLAS_APP_DB_PASSWORD="$APP_PASS" \
-            -e NEXTAUTH_SECRET="ci-secret-only" \
+            -e NEXTAUTH_SECRET="$CI_NEXTAUTH_SECRET" \
             -e NEXTAUTH_URL="http://localhost:3000" \
-            -e ESCOLAS_STAFF_JWT_SECRET="ci-staff-secret" \
-            -e ESCOLAS_STUDENT_JWT_SECRET="ci-student-secret" \
-            -e EDU_FAMILY_JWT_SECRET="ci-family-secret" \
+            -e ESCOLAS_STAFF_JWT_SECRET="$CI_STAFF_JWT" \
+            -e ESCOLAS_STUDENT_JWT_SECRET="$CI_STUDENT_JWT" \
+            -e EDU_FAMILY_JWT_SECRET="$CI_FAMILY_JWT" \
             -e START_SERVER="false" \
             speakflow-escolas-ci:latest 2>&1 | tee /tmp/docker-run.log
           grep -q "\[check-role\]" /tmp/docker-run.log \

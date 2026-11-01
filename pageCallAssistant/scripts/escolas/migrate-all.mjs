@@ -83,6 +83,39 @@ async function provisionAppRole(superuserUrl, dbKey) {
   }
 }
 
+/**
+ * Resolve migrações que ficaram em estado "failed" em deploy anterior (Prisma P3009).
+ * PostgreSQL faz rollback automático da transação DDL, portanto marcar como
+ * --rolled-back é seguro: a migração será re-aplicada pelo migrate deploy na sequência.
+ */
+async function resolveFailedMigrations(dbUrl, dbKey) {
+  const pg = new Client({ connectionString: dbUrl });
+  try {
+    await pg.connect();
+    // Migração "failed" = started_at preenchido, finished_at e rolled_back_at nulos
+    const { rows } = await pg.query(`
+      SELECT migration_name
+      FROM "_prisma_migrations"
+      WHERE started_at IS NOT NULL
+        AND finished_at IS NULL
+        AND rolled_back_at IS NULL
+    `);
+    for (const { migration_name } of rows) {
+      console.log(`[migrate-all] Resolvendo migração com falha anterior: ${migration_name} (base: ${dbKey})`);
+      execSync(
+        `prisma migrate resolve --rolled-back ${migration_name} --schema prisma/escolas/schema.prisma`,
+        { env: { ...process.env, ESCOLAS_DB_URL: dbUrl }, stdio: "inherit" }
+      );
+    }
+  } catch (err) {
+    // Tabela ainda não existe em banco novo — ignorar
+    if (err.message && err.message.includes("_prisma_migrations")) return;
+    throw err;
+  } finally {
+    await pg.end().catch(() => null);
+  }
+}
+
 async function main() {
   await catalog.$executeRaw`SELECT pg_advisory_lock(${MIGRATE_LOCK_ID})`;
   console.log("[migrate-all] Lock adquirido.");
@@ -108,6 +141,10 @@ async function main() {
       }
 
       console.log(`[migrate-all] Migrando base: ${db.key} (${db.envVar}) ...`);
+
+      // Resolve migrações com falha anterior para que migrate deploy possa avançar (P3009)
+      await resolveFailedMigrations(url, db.key);
+
       try {
         execSync(
           `prisma migrate deploy --schema prisma/escolas/schema.prisma`,
