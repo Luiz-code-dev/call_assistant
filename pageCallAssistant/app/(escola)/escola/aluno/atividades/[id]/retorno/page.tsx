@@ -1,26 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { ArrowLeft, CheckCircle2, Target, Lightbulb, Quote, Mic, RefreshCw, Clock, Star } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Lightbulb, Quote, Mic, RefreshCw, Clock } from "lucide-react";
 
-interface CriterioResult { criterio: string; nota: number; comentario: string }
 interface AiFeedback {
-  score: number;
-  porCriterio: CriterioResult[];
   acertos: string[];
   melhorar: string[];
   exemplo: string;
   quizDetail?: { questionId: string; correct: boolean; explanation?: string | null }[];
 }
-interface Activity { id: string; title: string; prompt: string; maxScore: number; maxAttempts: number; type: string }
+interface Activity { id: string; title: string; prompt: string; maxAttempts: number; type: string }
 interface RetornoData {
   submissionId: string;
   attempt: number;
   status: string;
-  aiScore: number | null;
+  masteryLevel: string | null;
   aiFeedback: AiFeedback | null;
-  teacherScore: number | null;
   teacherNote: string | null;
   transcript: string | null;
   evaluatedAt: string | null;
@@ -28,26 +24,11 @@ interface RetornoData {
   activity: Activity;
 }
 
-function ScoreRing({ score, max }: { score: number; max: number }) {
-  const pct = Math.min((score / max) * 100, 100);
-  const color = pct >= 70 ? "#22c55e" : pct >= 50 ? "#f59e0b" : "#ef4444";
-  const r = 36;
-  const circ = 2 * Math.PI * r;
-  return (
-    <div className="relative size-24 shrink-0">
-      <svg className="size-24 -rotate-90" viewBox="0 0 80 80">
-        <circle cx="40" cy="40" r={r} fill="none" stroke="#e5e7eb" strokeWidth="7" />
-        <circle cx="40" cy="40" r={r} fill="none" stroke={color} strokeWidth="7"
-          strokeDasharray={circ} strokeDashoffset={circ - (pct / 100) * circ}
-          strokeLinecap="round" className="transition-all duration-700" />
-      </svg>
-      <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-xl font-bold text-zinc-900">{Number(score).toFixed(1)}</span>
-        <span className="text-[10px] text-zinc-400">de {max}</span>
-      </div>
-    </div>
-  );
-}
+const LEVEL: Record<string, { label: string; fg: string; bg: string; border: string }> = {
+  MASTERED: { label: "Domina",    fg: "#166534", bg: "#DCFCE7", border: "#86EFAC" },
+  ALMOST:   { label: "Quase la",  fg: "#92400E", bg: "#FEF3C7", border: "#FDE68A" },
+  NOT_YET:  { label: "Ainda nao", fg: "#B91C1C", bg: "#FEE2E2", border: "#FCA5A5" },
+};
 
 export default function RetornoPage() {
   const { id } = useParams<{ id: string }>();
@@ -55,146 +36,135 @@ export default function RetornoPage() {
   const [data, setData] = useState<RetornoData | null>(null);
   const [loading, setLoading] = useState(true);
   const [polling, setPolling] = useState(false);
+  const [showDomina, setShowDomina] = useState(false);
+  const prevLevel = useState<string | null>(null);
 
-  useEffect(() => {
-    const load = async () => {
-      const res = await fetch(`/api/escola/aluno/atividades/${id}/retorno`);
-      if (res.status === 401) { router.replace("/escola/aluno/entrar"); return; }
-      if (res.ok) {
-        const d = await res.json();
-        setData(d);
-        if (d.status === "SUBMITTED") setPolling(true);
-      }
-      setLoading(false);
-    };
-    load();
+  const loadData = useCallback(async () => {
+    const res = await fetch(`/api/escola/aluno/atividades/${id}/retorno`);
+    if (res.status === 401) { router.replace("/escola/aluno/entrar"); return; }
+    if (res.ok) {
+      const d = await res.json();
+      setData((prev) => {
+        // animar "Domina!" quando nivel sobe para MASTERED
+        if (prev?.masteryLevel !== "MASTERED" && d.masteryLevel === "MASTERED") {
+          setShowDomina(true);
+          setTimeout(() => setShowDomina(false), 3000);
+        }
+        return d;
+      });
+      if (d.status === "SUBMITTED") setPolling(true);
+      else setPolling(false);
+    }
+    setLoading(false);
   }, [id, router]);
 
-  // Poll enquanto aguardando avaliação
+  useEffect(() => { loadData(); }, [loadData]);
+
   useEffect(() => {
     if (!polling) return;
-    const timer = setInterval(async () => {
-      const res = await fetch(`/api/escola/aluno/atividades/${id}/retorno`);
-      if (res.ok) {
-        const d = await res.json();
-        setData(d);
-        if (d.status !== "SUBMITTED") setPolling(false);
-      }
-    }, 4000);
+    const timer = setInterval(loadData, 4000);
     return () => clearInterval(timer);
-  }, [polling, id]);
+  }, [polling, loadData]);
+
+  void prevLevel;
 
   if (loading) return (
-    <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--esc-bg,#f8f9fc)" }}>
-      <RefreshCw className="size-6 text-violet-500 animate-spin" />
+    <div className="min-h-screen flex items-center justify-center bg-[#F8F7FC]">
+      <RefreshCw className="size-6 text-[#6D28D9] animate-spin" />
     </div>
   );
 
   if (!data) return (
-    <div className="min-h-screen flex items-center justify-center">
-      <p className="text-zinc-500">Retorno não encontrado.</p>
+    <div className="min-h-screen flex items-center justify-center bg-[#F8F7FC]">
+      <p className="text-[#5B5470]">Retorno nao encontrado.</p>
     </div>
   );
 
-  const { aiFeedback, status, aiScore, teacherScore, teacherNote, transcript, activity } = data;
-  const finalScore = teacherScore ?? aiScore;
-  const isTeacherReviewed = status === "REVIEWED";
+  const { aiFeedback, status, teacherNote, transcript, activity, masteryLevel } = data;
   const isPending = status === "SUBMITTED";
-  const canRetry = data.attempt < activity.maxAttempts && !isTeacherReviewed;
+  const canRetry = data.attempt < activity.maxAttempts && status !== "REVIEWED";
+  const nivel = masteryLevel ? LEVEL[masteryLevel] ?? null : null;
 
   return (
-    <div className="min-h-screen" style={{ background: "var(--esc-bg,#f8f9fc)" }}>
-      <header className="sticky top-0 z-10 border-b" style={{ background: "var(--esc-surface,#fff)", borderColor: "var(--esc-border,#e5e7eb)" }}>
+    <div className="min-h-screen bg-[#F8F7FC] relative">
+      {/* Animacao Domina! */}
+      {showDomina && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
+          <div className="bg-[#DCFCE7] border-2 border-[#86EFAC] rounded-3xl px-10 py-8 text-center animate-bounce shadow-2xl">
+            <p className="text-5xl font-extrabold text-[#166534]">Domina!</p>
+            <p className="text-[#166534] mt-2 text-lg">Habilidade conquistada</p>
+          </div>
+        </div>
+      )}
+
+      <header className="sticky top-0 z-10 border-b border-[#E9E5F5] bg-white">
         <div className="max-w-2xl mx-auto px-4 py-3 flex items-center gap-3">
-          <button onClick={() => router.push("/escola/aluno")} className="p-1.5 rounded-lg hover:bg-zinc-100 transition-colors">
-            <ArrowLeft className="size-5 text-zinc-600" />
+          <button onClick={() => router.push("/escola/aluno")} className="p-1.5 rounded-lg hover:bg-[#F8F7FC] transition-colors">
+            <ArrowLeft className="size-5 text-[#5B5470]" />
           </button>
           <div className="flex-1 min-w-0">
-            <p className="text-xs text-zinc-500">Retorno da atividade</p>
-            <h1 className="font-semibold text-zinc-900 truncate">{activity.title}</h1>
+            <p className="text-xs text-[#5B5470]">Retorno da atividade</p>
+            <h1 className="font-semibold text-[#1F1A2E] truncate">{activity.title}</h1>
           </div>
         </div>
       </header>
 
       <main className="max-w-2xl mx-auto px-4 py-6 space-y-4">
 
-        {/* Status aguardando professor */}
+        {/* Aguardando avaliacao */}
         {isPending && (
-          <div className="rounded-xl border border-amber-200 bg-amber-50 p-6 flex items-center gap-4">
-            <Clock className="size-8 text-amber-500 shrink-0 animate-pulse" />
+          <div className="rounded-xl border border-[#FDE68A] bg-[#FEF3C7] p-6 flex items-center gap-4">
+            <Clock className="size-8 text-[#92400E] shrink-0 animate-pulse" />
             <div>
-              <p className="font-semibold text-amber-800">Analisando sua resposta…</p>
-              <p className="text-sm text-amber-600 mt-0.5">Aguarde alguns segundos.</p>
+              <p className="font-semibold text-[#92400E]">Analisando sua resposta...</p>
+              <p className="text-sm text-[#92400E] mt-0.5">Aguarde alguns segundos.</p>
             </div>
           </div>
         )}
 
-        {/* Nota */}
-        {finalScore != null && (
-          <div className="rounded-xl border p-5 flex items-center gap-5" style={{ background: "var(--esc-surface,#fff)", borderColor: "var(--esc-border,#e5e7eb)" }}>
-            <ScoreRing score={Number(finalScore)} max={Number(activity.maxScore)} />
-            <div>
-              <p className="text-sm font-medium text-zinc-500">
-                {isTeacherReviewed ? (
-                  <span className="flex items-center gap-1 text-green-600"><Star className="size-3.5" />Nota confirmada pelo professor</span>
-                ) : (
-                  <span className="text-amber-600 flex items-center gap-1"><Clock className="size-3.5" />Nota sugerida pela IA — o professor ainda vai confirmar</span>
-                )}
-              </p>
-              {teacherNote && (
-                <p className="text-sm text-zinc-600 mt-2 italic">&ldquo;{teacherNote}&rdquo;</p>
-              )}
+        {/* Nivel de dominio */}
+        {nivel && (
+          <div className="rounded-xl border-2 p-5 flex items-center gap-4" style={{ background: nivel.bg, borderColor: nivel.border }}>
+            <div className="flex-1">
+              <p className="text-xs font-semibold uppercase tracking-wide mb-1" style={{ color: nivel.fg }}>Nivel desta habilidade</p>
+              <p className="text-2xl font-extrabold" style={{ color: nivel.fg }}>{nivel.label}</p>
             </div>
+            {masteryLevel === "MASTERED" && <CheckCircle2 className="size-10 shrink-0" style={{ color: nivel.fg }} />}
           </div>
         )}
 
-        {/* Transcrição (fala) */}
+        {/* Nota do professor (sem pontuacao) */}
+        {teacherNote && (
+          <div className="rounded-xl border border-[#E9E5F5] bg-white p-4">
+            <p className="text-xs font-semibold text-[#5B5470] mb-1">Observacao do professor</p>
+            <p className="text-sm text-[#1F1A2E] italic">&ldquo;{teacherNote}&rdquo;</p>
+          </div>
+        )}
+
+        {/* Transcricao (fala) */}
         {activity.type === "SPOKEN" && transcript && (
-          <div className="rounded-xl border p-4" style={{ background: "var(--esc-surface,#fff)", borderColor: "var(--esc-border,#e5e7eb)" }}>
+          <div className="rounded-xl border border-[#E9E5F5] bg-white p-4">
             <div className="flex items-center gap-2 mb-2">
-              <Mic className="size-4 text-violet-500" />
-              <span className="text-sm font-semibold text-zinc-700">O que você disse</span>
+              <Mic className="size-4 text-[#6D28D9]" />
+              <span className="text-sm font-semibold text-[#1F1A2E]">O que voce disse</span>
             </div>
-            <p className="text-sm text-zinc-600 italic leading-relaxed">&ldquo;{transcript}&rdquo;</p>
+            <p className="text-sm text-[#5B5470] italic leading-relaxed">&ldquo;{transcript}&rdquo;</p>
           </div>
         )}
 
         {aiFeedback && (
           <>
-            {/* Por critério */}
-            {aiFeedback.porCriterio?.length > 0 && (
-              <div className="rounded-xl border overflow-hidden" style={{ borderColor: "var(--esc-border,#e5e7eb)" }}>
-                <div className="px-4 py-3 border-b flex items-center gap-2" style={{ background: "var(--esc-surface,#fff)", borderColor: "var(--esc-border,#e5e7eb)" }}>
-                  <Target className="size-4 text-violet-500" />
-                  <span className="text-sm font-semibold text-zinc-700">Por critério</span>
-                </div>
-                <div className="divide-y divide-zinc-100">
-                  {aiFeedback.porCriterio.map((c, i) => (
-                    <div key={i} className="px-4 py-3 flex items-start gap-3" style={{ background: "var(--esc-surface,#fff)" }}>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-zinc-800">{c.criterio}</p>
-                        <p className="text-xs text-zinc-500 mt-0.5">{c.comentario}</p>
-                      </div>
-                      <span className={`text-sm font-bold shrink-0 ${c.nota >= 7 ? "text-green-600" : c.nota >= 5 ? "text-amber-600" : "text-rose-600"}`}>
-                        {c.nota.toFixed(1)}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Acertos */}
+            {/* O que acertou */}
             {aiFeedback.acertos?.length > 0 && (
-              <div className="rounded-xl border p-4" style={{ background: "var(--esc-surface,#fff)", borderColor: "var(--esc-border,#e5e7eb)" }}>
+              <div className="rounded-xl border border-[#E9E5F5] bg-white p-4">
                 <div className="flex items-center gap-2 mb-3">
-                  <CheckCircle2 className="size-4 text-green-500" />
-                  <span className="text-sm font-semibold text-zinc-700">O que você acertou</span>
+                  <CheckCircle2 className="size-4 text-[#166534]" />
+                  <span className="text-sm font-semibold text-[#1F1A2E]">O que voce acertou</span>
                 </div>
                 <ul className="space-y-2">
                   {aiFeedback.acertos.map((a, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-zinc-700">
-                      <span className="text-green-500 mt-0.5"></span>{a}
+                    <li key={i} className="flex items-start gap-2 text-sm text-[#1F1A2E]">
+                      <span className="text-[#166534] mt-0.5 shrink-0">&#10003;</span>{a}
                     </li>
                   ))}
                 </ul>
@@ -203,15 +173,15 @@ export default function RetornoPage() {
 
             {/* Como melhorar */}
             {aiFeedback.melhorar?.length > 0 && (
-              <div className="rounded-xl border p-4" style={{ background: "var(--esc-surface,#fff)", borderColor: "var(--esc-border,#e5e7eb)" }}>
+              <div className="rounded-xl border border-[#E9E5F5] bg-white p-4">
                 <div className="flex items-center gap-2 mb-3">
-                  <Lightbulb className="size-4 text-amber-500" />
-                  <span className="text-sm font-semibold text-zinc-700">Como melhorar</span>
+                  <Lightbulb className="size-4 text-[#92400E]" />
+                  <span className="text-sm font-semibold text-[#1F1A2E]">Como melhorar</span>
                 </div>
                 <ul className="space-y-2">
                   {aiFeedback.melhorar.map((m, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-zinc-700">
-                      <span className="text-amber-500 mt-0.5">→</span>{m}
+                    <li key={i} className="flex items-start gap-2 text-sm text-[#1F1A2E]">
+                      <span className="text-[#92400E] mt-0.5 shrink-0">&#8594;</span>{m}
                     </li>
                   ))}
                 </ul>
@@ -220,12 +190,12 @@ export default function RetornoPage() {
 
             {/* Exemplo */}
             {aiFeedback.exemplo && (
-              <div className="rounded-xl border p-4" style={{ background: "var(--esc-surface,#fff)", borderColor: "var(--esc-border,#e5e7eb)" }}>
+              <div className="rounded-xl border border-[#E9E5F5] bg-white p-4">
                 <div className="flex items-center gap-2 mb-3">
-                  <Quote className="size-4 text-violet-500" />
-                  <span className="text-sm font-semibold text-zinc-700">Exemplo de resposta melhorada</span>
+                  <Quote className="size-4 text-[#6D28D9]" />
+                  <span className="text-sm font-semibold text-[#1F1A2E]">Exemplo</span>
                 </div>
-                <p className="text-sm text-zinc-600 italic leading-relaxed border-l-2 border-violet-300 pl-3">
+                <p className="text-sm text-[#5B5470] italic leading-relaxed border-l-2 border-[#DDD6EE] pl-3">
                   {aiFeedback.exemplo}
                 </p>
               </div>
@@ -236,16 +206,14 @@ export default function RetornoPage() {
         {/* Tentar de novo */}
         {canRetry && (
           <button onClick={() => router.push(`/escola/aluno/atividades/${id}`)}
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl border font-medium text-zinc-700 hover:border-violet-300 transition-all"
-            style={{ borderColor: "var(--esc-border,#e5e7eb)" }}>
+            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-[#DDD6EE] font-medium text-[#1F1A2E] hover:border-[#6D28D9] transition-all min-h-[44px]">
             <RefreshCw className="size-4" />Tentar de novo (tentativa {data.attempt + 1} de {activity.maxAttempts})
           </button>
         )}
 
         <button onClick={() => router.push("/escola/aluno")}
-          className="w-full py-3 rounded-xl font-semibold text-[#1F1A2E]"
-          style={{ background: "var(--esc-primary,#7c3aed)" }}>
-          Voltar ao início
+          className="w-full py-4 rounded-2xl font-semibold text-white bg-[#6D28D9] hover:bg-[#5B21B6] transition-colors min-h-[52px]">
+          Voltar ao inicio
         </button>
       </main>
     </div>

@@ -125,6 +125,8 @@ export default function MinhaTrilhaPage() {
   );
 }
 
+const STEP_LABELS = ["Relembrar", "Exemplo guiado", "Praticar", "Aplicar", "Explicar"];
+
 function TrilhaCard({ t, concluida }: { t: AtivaTrilha; concluida?: boolean }) {
   const cor = subjectColor(t.subjectId);
   const pct = t.totalItems > 0 ? Math.round((t.concluidos / t.totalItems) * 100) : 0;
@@ -152,28 +154,40 @@ function TrilhaCard({ t, concluida }: { t: AtivaTrilha; concluida?: boolean }) {
           </div>
         </div>
 
-        {/* Lista de itens */}
-        <div className="flex gap-1.5 flex-wrap">
-          {t.items.map((it, idx) => (
-            <span key={it.id} title={`Atividade ${idx+1}`}
-              className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-medium
-                ${it.done ? "text-white" : nextItem?.id === it.id ? "border-2 text-[#1F1A2E]" : "bg-[#F8F7FC] border border-[#E9E5F5] text-[#5B5470]"}`}
-              style={it.done ? { background: cor } : nextItem?.id === it.id ? { borderColor: cor, color: cor } : {}}>
-              {it.done ? <CheckCircle size={12}/> : nextItem?.id !== it.id ? <Lock size={10}/> : idx+1}
-            </span>
-          ))}
+        {/* Escada: 5 etapas nomeadas */}
+        <div className="space-y-1.5">
+          {t.items.map((it, idx) => {
+            const stepLabel = STEP_LABELS[idx % STEP_LABELS.length];
+            const isNext = nextItem?.id === it.id;
+            const isDone = it.done;
+            return (
+              <div key={it.id}
+                className={`flex items-center gap-3 rounded-xl px-3 py-2 border transition-colors
+                  ${isDone ? "border-transparent" : isNext ? "border-2" : "border-[#E9E5F5]"}`}
+                style={isDone ? { background: cor + "14", borderColor: cor + "30" } : isNext ? { borderColor: cor, background: cor + "08" } : { background: "#F8F7FC" }}>
+                <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-xs font-bold transition-colors`}
+                  style={isDone ? { background: cor, color: "#fff" } : isNext ? { background: cor, color: "#fff" } : { background: "#E9E5F5", color: "#5B5470" }}>
+                  {isDone ? <CheckCircle size={12}/> : isNext ? idx + 1 : <Lock size={10}/>}
+                </div>
+                <span className={`text-sm font-medium flex-1 ${isDone ? "text-[#5B5470] line-through" : isNext ? "text-[#1F1A2E] font-semibold" : "text-[#5B5470]"}`}>
+                  {stepLabel}
+                </span>
+                {isNext && <span className="text-xs text-[#5B5470]">~{it.estMinutes} min</span>}
+              </div>
+            );
+          })}
         </div>
 
         {!concluida && nextItem && (
           <Link href={`/escola/aluno/atividades/${nextItem.activityId}?assignmentId=${t.assignmentId}&itemId=${nextItem.id}`}
-            className="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl text-sm font-medium text-white transition-colors min-h-[44px]"
+            className="flex items-center justify-center gap-1.5 w-full py-3 rounded-xl text-sm font-semibold text-white transition-colors min-h-[48px]"
             style={{ background: cor }}>
             Continuar <ChevronRight size={14}/>
           </Link>
         )}
         {concluida && (
           <div className="flex items-center justify-center gap-2 bg-[#DCFCE7] border border-[#166534]/20 rounded-xl py-2.5 text-sm text-[#166534] font-medium">
-            <Trophy size={14}/> Trilha concluída!
+            <Trophy size={14}/> Trilha concluida!
           </div>
         )}
       </div>

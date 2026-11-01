@@ -276,6 +276,10 @@ function PainelAluno({ student, classId: _cid, skills, masteryMap, onClose }: {
         <button onClick={onClose} className="text-[#5B5470] hover:text-[#1F1A2E] p-1"><X size={20} /></button>
       </div>
       <div className="p-6 space-y-2">
+        <a href={`/escola/ficha/${student.id}`}
+          className="flex items-center justify-center gap-2 w-full border-2 border-[#6D28D9] text-[#6D28D9] hover:bg-[#EDE9FE] py-2.5 rounded-xl text-sm font-semibold min-h-[44px] transition-colors mb-4">
+          Abrir ficha completa
+        </a>
         <p className="text-sm font-semibold text-[#1F1A2E] mb-3">Habilidades avaliadas</p>
         {skills.length === 0 && <p className="text-[#5B5470] text-sm">Nenhuma habilidade avaliada.</p>}
         {skills.map(s => {

@@ -91,8 +91,9 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
       const subject = await (prismaEdu as any).eduSubject.findUnique({ where: { id: a.track.subjectId }, select: { name: true, color: true } });
       let skillLabel = a.track.title;
       if (a.track.skillIds?.length) {
-        const sk = await (prismaEdu as any).eduSkill.findFirst({ where: { id: { in: a.track.skillIds } }, select: { shortLabel: true, description: true } });
-        skillLabel = sk?.shortLabel || sk?.description || a.track.title;
+        const sk = await (prismaEdu as any).eduSkill.findFirst({ where: { id: { in: a.track.skillIds } }, select: { shortLabel: true, description: true, knowledgeObject: true } });
+        // Usa objeto de conhecimento (linguagem simples) de preferência ao código BNCC
+        skillLabel = sk?.knowledgeObject || sk?.shortLabel || sk?.description || a.track.title;
       }
       trilhaAtual = { subjectName: subject?.name ?? "Componente", subjectColor: subject?.color ?? "#6D28D9", skillLabel, feitas, total };
     }

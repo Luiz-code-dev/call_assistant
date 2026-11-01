@@ -8,19 +8,21 @@ function flag() { return isEscolasEnabled(); }
 const ALLOWED_ROLES = ["TEACHER", "COORDINATOR", "SCHOOL_ADMIN", "NETWORK_ADMIN"];
 
 export async function GET(_req: NextRequest, { params }: { params: { studentId: string } }) {
-  if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
+  if (!flag()) return NextResponse.json({ error: "Nao encontrado" }, { status: 404 });
   const ctx = await getEduContext();
-  if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (!ctx) return NextResponse.json({ error: "Nao autenticado" }, { status: 401 });
   if (!ALLOWED_ROLES.includes(ctx.role))
-    return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
+    return NextResponse.json({ error: "Sem permissao" }, { status: 403 });
 
-  const student = await prismaEdu.eduStudent.findFirst({
+  const P = prismaEdu as any;
+
+  const student = await P.eduStudent.findFirst({
     where: { id: params.studentId, networkId: ctx.networkId },
     select: { id: true, fullName: true, enrollmentCode: true },
   });
-  if (!student) return NextResponse.json({ error: "Aluno não encontrado" }, { status: 404 });
+  if (!student) return NextResponse.json({ error: "Aluno nao encontrado" }, { status: 404 });
 
-  const masteries = await prismaEdu.eduSkillMastery.findMany({
+  const masteries = await P.eduSkillMastery.findMany({
     where: { networkId: ctx.networkId, studentId: params.studentId },
     include: {
       skill: {
@@ -30,15 +32,15 @@ export async function GET(_req: NextRequest, { params }: { params: { studentId: 
     orderBy: { skill: { subjectCode: "asc" } },
   });
 
-  const events = await prismaEdu.eduSkillMasteryEvent.findMany({
+  const events = await P.eduSkillMasteryEvent.findMany({
     where: { networkId: ctx.networkId, studentId: params.studentId },
     include: { skill: { select: { code: true, subjectCode: true } } },
     orderBy: { createdAt: "desc" },
     take: 30,
   });
 
-  // Erros comuns mais frequentes por habilidade
-  const guides = await prismaEdu.eduSkillGuide.findMany({
+  // Erros comuns genericos por habilidade (ficha pedagogica)
+  const guides = await P.eduSkillGuide.findMany({
     where: {
       networkId: null,
       skillId: { in: masteries.map((m: { skillId: string }) => m.skillId) },
@@ -48,5 +50,67 @@ export async function GET(_req: NextRequest, { params }: { params: { studentId: 
   });
   const guideMap = Object.fromEntries(guides.map((g: { skillId: string; commonErrors: unknown }) => [g.skillId, g.commonErrors]));
 
-  return NextResponse.json({ student, masteries, events: events.slice(0, 20), guideMap });
+  // Erros REAIS do aluno: extrair misconceptionCode das sessoes de diagnostico
+  const sessions = await P.eduAttemptSession.findMany({
+    where: {
+      networkId: ctx.networkId,
+      studentId: params.studentId,
+      completedAt: { not: null },
+    },
+    select: { answers: true },
+  });
+
+  // Contar ocorrencias de cada misconceptionCode por skillCode
+  const miscBySkill: Record<string, Record<string, number>> = {};
+  for (const s of sessions) {
+    const answers = (s.answers ?? []) as { skillCode?: string; misconceptionCode?: string; isCorrect?: boolean }[];
+    for (const a of answers) {
+      if (a.isCorrect || !a.misconceptionCode || !a.skillCode) continue;
+      if (!miscBySkill[a.skillCode]) miscBySkill[a.skillCode] = {};
+      miscBySkill[a.skillCode][a.misconceptionCode] = (miscBySkill[a.skillCode][a.misconceptionCode] ?? 0) + 1;
+    }
+  }
+
+  // Para cada habilidade, mapear misconceptionCode para descricao (via guideMap.commonErrors)
+  const studentErrorMap: Record<string, { code: string; count: number; description: string }[]> = {};
+  for (const m of masteries) {
+    const skillCode = m.skill.code;
+    const skillId = m.skillId;
+    const miscCounts = miscBySkill[skillCode] ?? {};
+    const errors = Object.entries(miscCounts)
+      .map(([code, count]) => {
+        // Tenta encontrar descricao na ficha pedagogica generica
+        const genericErrors = (guideMap[skillId] ?? []) as { code: string; description: string }[];
+        const desc = genericErrors.find((e) => e.code === code)?.description ?? code;
+        return { code, count: count as number, description: desc };
+      })
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 3);
+    if (errors.length > 0) studentErrorMap[skillId] = errors;
+  }
+
+  // Trilha sugerida para o aluno
+  const suggestedAssignment = await P.eduTrackAssignment.findFirst({
+    where: {
+      networkId: ctx.networkId,
+      studentId: params.studentId,
+      assignedBy: "SUGGEST",
+      endedAt: null,
+    },
+    include: { track: { select: { id: true, title: true } } },
+    orderBy: { createdAt: "desc" },
+  });
+
+  return NextResponse.json({
+    student,
+    masteries,
+    events: events.slice(0, 20),
+    guideMap,
+    studentErrorMap,
+    suggestedAssignment: suggestedAssignment ? {
+      id: suggestedAssignment.id,
+      trackId: suggestedAssignment.trackId,
+      trackTitle: suggestedAssignment.track?.title ?? "",
+    } : null,
+  });
 }

@@ -89,10 +89,10 @@ function EntrarInner() {
           setSelectedStudent({ id: d.studentId, display: d.display ?? "Aluno", loginMode: d.loginMode ?? "PIN" });
           setScreen(d.loginMode === "PICTURE" ? "figures" : "pin");
         } else {
-          setAulaError(d.error ?? "QR invalido ou cartao bloqueado.");
+          setAulaError(d.error ?? "QR inválido ou cartão bloqueado.");
           setScreen("choose");
         }
-      }).catch(() => { setAulaError("Não foi possível verificar o cartao."); setScreen("choose"); });
+      }).catch(() => { setAulaError("Não foi possível verificar o cartão."); setScreen("choose"); });
       return;
     }
 
@@ -183,7 +183,7 @@ function EntrarInner() {
         <button onClick={() => setScreen("qr-camera")}
           className="w-full max-w-xl flex items-center gap-5 bg-[#6D28D9] hover:bg-[#5B21B6] text-white rounded-2xl px-7 py-5 min-h-[80px] transition-colors mb-4">
           <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center shrink-0"><QrCode size={32} /></div>
-          <div className="text-left"><div className="text-xl font-bold">Ler o QR do meu cartao</div><div className="text-sm opacity-90 mt-0.5">Camera le o QR do cartao de acesso</div></div>
+          <div className="text-left"><div className="text-xl font-bold">Ler o QR do meu cartão</div><div className="text-sm opacity-90 mt-0.5">Câmera lê o QR do cartão de acesso</div></div>
         </button>
 
         {/* 2. Alunos do aparelho de casa */}
@@ -208,10 +208,10 @@ function EntrarInner() {
         <button onClick={() => { setAulaCode(Array(6).fill("")); setAulaError(""); setScreen("aula-code"); }}
           className="w-full max-w-xl flex items-center gap-5 border-2 border-[#DDD6EE] hover:border-[#6D28D9] bg-white text-[#1F1A2E] rounded-2xl px-7 py-5 min-h-[80px] transition-colors">
           <div className="w-14 h-14 bg-[#F8F7FC] rounded-2xl flex items-center justify-center shrink-0 text-[#0F766E]"><span className="text-3xl font-bold">#</span></div>
-          <div className="text-left"><div className="text-xl font-bold text-[#1F1A2E]">Na escola: codigo da aula</div><div className="text-sm text-[#5B5470] mt-0.5">O professor mostra o codigo no quadro</div></div>
+          <div className="text-left"><div className="text-xl font-bold text-[#1F1A2E]">Na escola: código da aula</div><div className="text-sm text-[#5B5470] mt-0.5">O professor mostra o código no quadro</div></div>
         </button>
 
-        <p className="text-[#5B5470] text-sm mt-6">Esqueceu? Peça para o seu responsavel criar um PIN novo no app da familia.</p>
+        <p className="text-[#5B5470] text-sm mt-6">Esqueceu? Peça para o seu responsável criar um PIN novo no app da familia.</p>
       </div>
     );
   }
