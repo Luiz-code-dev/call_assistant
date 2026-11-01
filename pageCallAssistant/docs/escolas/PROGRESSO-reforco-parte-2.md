@@ -119,6 +119,38 @@ Data início: 2025-01
 - `_AvaliacoesClient.tsx`: substituído por redirect (módulo de notas removido).
 - `aluno/atividades/[id]/page.tsx`: texto "em breve" substituído por mensagem de avaliação pendente.
 
+## Checklist da rodada 3 (commits e985756e / f35d471c / 24d18c59)
+
+- [x] R1/I1-I3: `POST /api/escola/aluno/diagnostico/sessao` — servidor controla sessão, uma questão por vez, tempo mínimo (800ms), embaralhamento, variante por tentativa
+- [x] R2: `recordMasteryEvent(DIAGNOSTIC)` para habilidade do ano e pré-requisito na conclusão
+- [x] R3: `EduAttemptSession` no schema Prisma + migração `0006_attempt_session`
+- [x] R4: `withTenantTx` usado em `mastery/route.ts` (remove `$transaction` em lote)
+- [x] R5: `prisma/data/conteudo/trilhas/MA-06.json` e `diagnosticos/MA-06.json` — 34 habilidades × 5 atividades, item 1/2+1/3 com alternativa errada "2/5"; `conteudo-import.mjs` estendido para trilhas e diagnósticos
+- [x] R6/L12: `PATCH /api/escola/ficha/[studentId]/nivel` e `POST /api/escola/ficha/[studentId]/atribuir-trilha`
+- [x] R7/L5: professor/page.tsx busca `EduTeacherAlert` type=TRACK_SUGGESTION pendentes e exibe banner "Atribuir a todos"
+- [x] R8: `professor/trilhas/page.tsx` — botão Duplicar agora usa `POST /api/escola/professor/trilhas/[id]/duplicar`
+- [x] L12: rotas `retomar-em-sala`, `segunda-chance`, `enviar-reforco` criadas
+- [x] Telas coordenação: `coordenacao/habilidades` e `coordenacao/escolas` como telas reais (não mais redirects); APIs dedicadas criadas
+- [x] Acentos: `aluno/entrar`, `error.tsx`, `administradores`, `professor/aula`, `trilhas/nova` corrigidos
+- [x] App screens: `aluno/index.tsx`, `aluno/turma.tsx`, `professor/aula-hoje.tsx`, `professor/aula/[id].tsx` criados no repositório speakflowEscolas
+- [x] Testes: 13 arquivos `*.int.test.ts` + `_setup.ts` + `vitest.int.config.ts` + script `escolas:test:int`
+- [x] `docker-compose.test.yml`: postgres:16, porta 55432
+- [x] `pg@8.13.1` + `@types/pg@8.11.10` instalados
+- [ ] `npm run escolas:test:int` contra banco real (Docker Desktop não disponível no ambiente de desenvolvimento)
+- [ ] Smoke Playwright + E2E flows (requer banco real)
+- [ ] `sh scripts/start.sh` × 2 com troca de senha (requer banco real)
+
+### Verificação da rodada 3
+
+```
+npx tsc --noEmit      → Exit code: 0 (sem erros)
+npm run lint          → Exit code: 0 (apenas warnings pré-existentes)
+npx vitest run        → 12 arquivos, 140 testes, todos passando
+grep -rE "(Nao|nao|voce|possivel|codigo)\b" app/(escola) → 0 ocorrências nas telas
+```
+
+---
+
 ## Resultado da Verificação Final (seção 5)
 
 ### 5.1 npm run build
