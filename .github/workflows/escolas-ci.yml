@@ -111,7 +111,41 @@ jobs:
           ESCOLAS_STUDENT_JWT_SECRET: "${{ env.CI_STUDENT_JWT }}"
           EDU_FAMILY_JWT_SECRET: "${{ env.CI_FAMILY_JWT }}"
           START_SERVER: "false"
-        run: sh scripts/start.sh
+        run: |
+          sh scripts/start.sh 2>&1 | tee /tmp/start-sh-1.log
+          if grep -q "importacao de conteudo falhou" /tmp/start-sh-1.log; then
+            echo "FAIL: importacao de conteudo falhou — revisar migracao ou script de conteudo"
+            exit 1
+          fi
+          echo "OK: conteudo importado sem erros"
+
+      # ── Drift check: schema.prisma deve coincidir com o banco migrado ────
+      - name: "Drift check — schema vs banco migrado"
+        env:
+          DATABASE_URL: "postgresql://postgres@127.0.0.1:5432/ai"
+          ESCOLAS_DB_URL: "postgresql://postgres@127.0.0.1:5432/db01"
+        run: |
+          # Banco tenant (Escolas)
+          npx prisma migrate diff \
+            --from-url "postgresql://postgres@127.0.0.1:5432/db01" \
+            --to-schema-datamodel prisma/escolas/schema.prisma \
+            --exit-code \
+            || { echo "FAIL: schema.prisma de escolas diverge do banco migrado — adicione uma migration"; exit 1; }
+          echo "OK: sem deriva no banco de escolas (db01)"
+          # Catálogo
+          npx prisma migrate diff \
+            --from-url "postgresql://postgres@127.0.0.1:5432/catalogo" \
+            --to-schema-datamodel prisma/escolas-catalogo/schema.prisma \
+            --exit-code \
+            || { echo "FAIL: schema do catalogo diverge — adicione uma migration"; exit 1; }
+          echo "OK: sem deriva no catalogo"
+          # SpeakFlow AI
+          npx prisma migrate diff \
+            --from-url "postgresql://postgres@127.0.0.1:5432/ai" \
+            --to-schema-datamodel prisma/schema.prisma \
+            --exit-code \
+            || { echo "FAIL: schema do SpeakFlow AI diverge — adicione uma migration"; exit 1; }
+          echo "OK: sem deriva no SpeakFlow AI"
 
       # ── start.sh 2/3: troca de senha + verificação de idempotência ───────
       - name: "start.sh [2/3] — troca de senha + idempotencia"
@@ -334,6 +368,103 @@ jobs:
           grep -q "\[check-role\]" /tmp/docker-run.log \
             && echo "check-role OK" \
             || { echo "FAIL: [check-role] nao encontrado no log"; exit 1; }
+          if grep -q "importacao de conteudo falhou" /tmp/docker-run.log; then
+            echo "FAIL: importacao de conteudo falhou no container de producao"
+            exit 1
+          fi
+          echo "OK: conteudo importado sem erros (docker)"
+        working-directory: .
+
+      # ── Smoke tests: server real + rotas autenticadas ────────────────────
+      - name: "Smoke tests — servidor real + endpoints autenticados"
+        run: |
+          # Inicia o container em background COM o servidor (sem START_SERVER=false)
+          docker run -d --name sf-smoke \
+            --network host \
+            -e DATABASE_URL="postgresql://postgres@127.0.0.1:5432/ai" \
+            -e ESCOLAS_CATALOG_URL="postgresql://postgres@127.0.0.1:5432/catalogo" \
+            -e ESCOLAS_DB_01_URL="postgresql://postgres@127.0.0.1:5432/db01" \
+            -e ESCOLAS_DB_02_URL="postgresql://postgres@127.0.0.1:5432/db02" \
+            -e ESCOLAS_APP_DB_PASSWORD="$APP_PASS" \
+            -e NEXTAUTH_SECRET="$CI_NEXTAUTH_SECRET" \
+            -e NEXTAUTH_URL="http://localhost:3001" \
+            -e ESCOLAS_STAFF_JWT_SECRET="$CI_STAFF_JWT" \
+            -e ESCOLAS_STUDENT_JWT_SECRET="$CI_STUDENT_JWT" \
+            -e EDU_FAMILY_JWT_SECRET="$CI_FAMILY_JWT" \
+            -e PORT=3001 \
+            speakflow-escolas-ci:latest 2>&1
+
+          # Aguarda o servidor ficar pronto (máx 60 s)
+          echo "Aguardando servidor na porta 3001..."
+          for i in $(seq 1 60); do
+            if curl -sf http://localhost:3001/api/health >/dev/null 2>&1 \
+               || curl -sf http://localhost:3001/ >/dev/null 2>&1; then
+              echo "Servidor pronto em ${i}s"
+              break
+            fi
+            sleep 1
+            if [ "$i" -eq 60 ]; then
+              echo "FAIL: servidor nao subiu em 60s"
+              docker logs sf-smoke || true
+              exit 1
+            fi
+          done
+
+          # Login como prof.demo
+          PROF_COOKIE=$(curl -sf -c /tmp/prof-cookies.txt -b /tmp/prof-cookies.txt \
+            -X POST http://localhost:3001/api/escola/auth/login \
+            -H "Content-Type: application/json" \
+            -d '{"email":"prof.demo@speakflow.escola","password":"Speakflow@2027"}' \
+            -w "%{http_code}" -o /dev/null)
+          echo "Login prof.demo: HTTP $PROF_COOKIE"
+
+          # Login como direcao.demo
+          DIR_COOKIE=$(curl -sf -c /tmp/dir-cookies.txt -b /tmp/dir-cookies.txt \
+            -X POST http://localhost:3001/api/escola/auth/login \
+            -H "Content-Type: application/json" \
+            -d '{"email":"direcao.demo@speakflow.escola","password":"Speakflow@2027"}' \
+            -w "%{http_code}" -o /dev/null)
+          echo "Login direcao.demo: HTTP $DIR_COOKIE"
+
+          FAIL=0
+          # Smoke tests como professor
+          for ENDPOINT in \
+            "/api/escola/auth/me" \
+            "/api/escola/professor/turmas" \
+            "/api/escola/professor/ofertas" \
+            "/api/escola/trilhas"; do
+            STATUS=$(curl -sf -b /tmp/prof-cookies.txt \
+              http://localhost:3001${ENDPOINT} \
+              -w "%{http_code}" -o /dev/null 2>/dev/null || echo "000")
+            if [ "$STATUS" = "200" ]; then
+              echo "OK: prof.demo $ENDPOINT => $STATUS"
+            else
+              echo "FAIL: prof.demo $ENDPOINT => $STATUS (esperado 200)"
+              FAIL=1
+            fi
+          done
+
+          # Smoke tests como direção
+          for ENDPOINT in \
+            "/api/escola/auth/me" \
+            "/api/escola/turmas"; do
+            STATUS=$(curl -sf -b /tmp/dir-cookies.txt \
+              http://localhost:3001${ENDPOINT} \
+              -w "%{http_code}" -o /dev/null 2>/dev/null || echo "000")
+            if [ "$STATUS" = "200" ]; then
+              echo "OK: direcao.demo $ENDPOINT => $STATUS"
+            else
+              echo "FAIL: direcao.demo $ENDPOINT => $STATUS (esperado 200)"
+              FAIL=1
+            fi
+          done
+
+          docker logs sf-smoke > /tmp/smoke-server.log 2>&1 || true
+          docker stop sf-smoke || true
+          docker rm sf-smoke || true
+
+          [ "$FAIL" -eq 0 ] || { echo "Um ou mais smoke tests falharam"; exit 1; }
+          echo "Smoke tests: todos OK"
         working-directory: .
 
       - name: Upload docker run log
@@ -341,4 +472,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: docker-run-log
-          path: /tmp/docker-run.log
+          path: |
+            /tmp/docker-run.log
+            /tmp/smoke-server.log
