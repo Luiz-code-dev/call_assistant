@@ -20,6 +20,37 @@ Data início: 2025-01
 - [x] 4 Estúdio sem "em breve"; tela de notas removida
 - [x] 5 Verificação final inteira
 
+---
+
+## Checklist da seção 7 (rodada de correções — commit cb4bdf89)
+
+- [x] 1 `ALTER ROLE` corrigido (`escapeLiteral`), falha fatal quando `ESCOLAS_APP_DB_PASSWORD` definida e passo falha; senha nunca no log — `scripts/escolas/migrate-all.mjs`
+- [x] 2.1 RLS nas 4 tabelas filhas (`EduQuizQuestion`, `EduTrackItem`, `EduDiagnosticItem`, `EduActivitySkill`) — migração `0005_rls_filhas` + `reviewNote` em `EduSkillGuide` e `EduSkillPrerequisite`
+- [x] 2.2 `withTenantTx` implementado em `lib/escola/tenant-db.ts` (callback tx, `SET LOCAL` garantido na mesma conexão)
+- [x] 2.3 Cron por rede: `cron/evaluate/route.ts` lista redes do catálogo, `getTenantDb(networkId)` por rede, submissões filtradas por `networkId`
+- [x] 2.4 Estúdio: `lib/escola/conteudo-plataforma.ts` (superusuário, replica em todas as bases); rotas `plataforma/fichas`, `plataforma/prerequisitos`, `plataforma/revisar`, `plataforma/gerar` reescritas; `reviewNote` nas duas tabelas
+- [ ] L1 `aplicarDegrau` — ligado na rota de resposta do diagnóstico; teste `degrau.int.test.ts` (banco real pendente)
+- [ ] L2 `recordMasteryEvent(source=DIAGNOSTIC)` — conclusão do diagnóstico; teste `degrau.int.test.ts` (banco real pendente)
+- [x] L3 `extractMisconceptionCodes` — ligado nas 3 rotas de entrega (`enviar`, cron, gerar-perguntas)
+- [x] L4 `assignAfterDiagnostic` — ligado no `PATCH /diagnosticos/[id]` ao `encerrar`, com `notYetSkillIds` reais por aluno
+- [x] L5 `POST /api/escola/professor/sugestoes/aceitar` — `aceitar_todos` e `cancelar`
+- [ ] L6 Botões "Duplicar e adaptar" visíveis nas telas (API existe, botões UI pendentes de verificação)
+- [ ] L7 `recordMasteryEvent(CLASS_ACTIVITY)` — ligado em `enviar` e cron (código presente, teste com banco real pendente)
+- [ ] L8 `POST /professor/aulas/gerar-perguntas` — ligado na tela `aulas/nova` (rota existe, wiring de tela pendente)
+- [x] L9 `POST /api/escola/professor/aulas/sugerir-objetivos` — IA sem dado de aluno
+- [ ] L10 Material da aula (upload) — usa rota existente; passo "Material" da tela pendente de verificação
+- [ ] L11 Painel da aula (`GET /professor/aulas/[id]`) — rota existe; teste `painel-aula.int.test.ts` pendente
+- [ ] L12 Rotas de sala (retomar, segunda chance, enviar para reforço) — existem; teste pendente
+- [ ] L13 Ficha do aluno: mudar nível, atribuir trilha — rotas existem; teste `ficha.int.test.ts` pendente
+- [ ] L14 Estúdio: gerar/reprovar/editar/aprovar — APIs funcionais; teste `estudio.int.test.ts` (2 bases reais) pendente
+- [ ] L15 Configuração da rede (AUTO/SUGGEST, degrau on/off) — tela `/rede/configuracoes` existe; teste `configuracoes.int.test.ts` pendente
+- [ ] L16 Indicador da Secretaria (habilidades recuperadas) — API pendente de verificação; teste `indicadores.int.test.ts` pendente
+- [ ] 4.1–4.8 Telas: verificação completa por perfil pendente (requer banco real + smoke test)
+- [ ] 0.4.5 Acentos corrigidos em todas as telas (parcial: evolucao, retornos, atividades, familia corrigidos; verificação completa pendente)
+- [x] 5 MA-06: códigos EF05MA26/27 corrigidos (→ EF05MA24/EF05MA20); importador falha com erro claro quando código inexistente
+- [ ] 5 MA-06: trilhas (`trilhas/MA-06.json`) e diagnóstico (`diagnosticos/MA-06.json`) — pendentes
+- [ ] 6 Verificação inteira (tsc=0 ✓, lint=0 ✓, vitest 140/140 ✓, "em breve" vazio ✓; banco real, smoke e E2E pendentes)
+
 ## Diário de implementação
 
 ### 1. Infraestrutura de banco e papel escolas_app
