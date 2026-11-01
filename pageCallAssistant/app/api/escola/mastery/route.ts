@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { getEduContext, getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { withTenantTx } from "@/lib/escola/tenant-db";
@@ -15,6 +15,7 @@ export async function GET(req: NextRequest) {
   if (studentId) {
     const ctx = await getEduContext();
     if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
     const masteries = await (prismaEdu as any).eduSkillMastery.findMany({
       where: { studentId, networkId: ctx.networkId },
       include: { skill: { select: { code: true, description: true, shortLabel: true, subjectCode: true } } },
@@ -25,6 +26,7 @@ export async function GET(req: NextRequest) {
 
   const student = await getStudentContext();
   if (!student) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (student?.db) setTenantDb(student.db);
   const masteries = await (prismaEdu as any).eduSkillMastery.findMany({
     where: { studentId: student.studentId, networkId: student.networkId },
     include: { skill: { select: { code: true, description: true, shortLabel: true, subjectCode: true } } },
@@ -45,6 +47,7 @@ export async function POST(req: NextRequest) {
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
 
   const parsed = upsertSchema.safeParse(await req.json());
   if (!parsed.success) return NextResponse.json({ error: "Dados inválidos" }, { status: 400 });

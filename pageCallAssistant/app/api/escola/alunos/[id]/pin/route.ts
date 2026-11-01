@@ -1,7 +1,7 @@
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import bcrypt from "bcryptjs";
 
 function flag() { return isEscolasEnabled(); }
@@ -14,6 +14,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (!["NETWORK_ADMIN","SCHOOL_ADMIN","TEACHER"].includes(ctx.role))
     return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 

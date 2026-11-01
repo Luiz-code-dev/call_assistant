@@ -2,7 +2,7 @@ import { createHash, createHmac, randomBytes } from "crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { assertCanViewClassSubject, assertCanManageClassSubject } from "@/lib/escola/permissions";
 
 export const runtime = "nodejs";

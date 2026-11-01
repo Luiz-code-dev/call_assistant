@@ -7,7 +7,7 @@
  * Só APPROVED, só atribuições ativas (endedAt null), sem trilhas arquivadas.
  */
 import { NextResponse } from "next/server";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { weekStartSaoPaulo, dayIndexSaoPaulo } from "@/lib/escola/family-guard";
@@ -19,6 +19,7 @@ export async function GET() {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const student = await getStudentContext();
   if (!student) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (student?.db) setTenantDb(student.db);
 
   const assignments = await p.eduTrackAssignment.findMany({
     where: {

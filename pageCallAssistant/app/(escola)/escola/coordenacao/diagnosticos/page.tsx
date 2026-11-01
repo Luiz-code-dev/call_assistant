@@ -40,16 +40,27 @@ export default function DiagnosticosPage() {
     load();
   }
 
-  async function abrirParaRede(id: string, gradeYear: number) {
+  async function abrirParaRede(id: string, gradeYear: number, isLibrary = false) {
     setAbrindoRede(id);
     setMsgRede(prev => ({ ...prev, [id]: "" }));
-    // Abre o diagnostico e cria aplicacoes para todas as turmas do ano
-    const r1 = await fetch(`/api/escola/diagnosticos/${id}/abrir`, { method: "POST" });
-    if (!r1.ok) { setMsgRede(prev => ({ ...prev, [id]: "Erro ao abrir diagnostico." })); setAbrindoRede(null); return; }
+
+    // Itens da biblioteca (networkId=null) precisam ser clonados para a rede antes de abrir
+    let diagId = id;
+    if (isLibrary) {
+      const rc = await fetch(`/api/escola/diagnosticos/biblioteca/${id}/ativar-rede`, { method: "POST" });
+      if (!rc.ok) { setMsgRede(prev => ({ ...prev, [id]: "Erro ao ativar diagnóstico para a rede." })); setAbrindoRede(null); return; }
+      const clone = await rc.json();
+      diagId = clone.id;
+    }
+
+    // Abre o diagnostico (agora pertencente à rede)
+    const r1 = await fetch(`/api/escola/diagnosticos/${diagId}/abrir`, { method: "POST" });
+    if (!r1.ok) { setMsgRede(prev => ({ ...prev, [id]: "Erro ao abrir diagnóstico." })); setAbrindoRede(null); return; }
+
     // Associa a turmas do gradeYear
     const turmasAno = turmas.filter(t => t.gradeYear === gradeYear);
     if (turmasAno.length > 0) {
-      await fetch(`/api/escola/diagnosticos/${id}/aplicar`, {
+      await fetch(`/api/escola/diagnosticos/${diagId}/aplicar`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ classIds: turmasAno.map(t => t.id) }),
@@ -118,7 +129,7 @@ export default function DiagnosticosPage() {
                         Ver resultados
                       </Link>
                       {(d.status === "DRAFT" || d.status === "CLOSED") && (
-                        <button onClick={() => abrirParaRede(d.id, d.gradeYear)} disabled={abrindoRede === d.id}
+                        <button onClick={() => abrirParaRede(d.id, d.gradeYear, true)} disabled={abrindoRede === d.id}
                           className="flex-1 bg-[#6D28D9] hover:bg-[#5B21B6] text-white text-sm py-2.5 rounded-xl transition-colors disabled:opacity-50 min-h-[44px]">
                           {abrindoRede === d.id ? "Abrindo..." : "Abrir para a rede"}
                         </button>

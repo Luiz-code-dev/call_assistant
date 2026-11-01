@@ -5,7 +5,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { assertCanViewClassSubject } from "@/lib/escola/permissions";
 import { getAudioSignedUrl, isAudioStorageConfigured } from "@/lib/escola/audio-store";
 
@@ -16,6 +16,7 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
 
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
+  if (ctx?.db) setTenantDb(ctx.db);
 
   const { searchParams } = new URL(req.url);
   const submissionId = searchParams.get("submission");

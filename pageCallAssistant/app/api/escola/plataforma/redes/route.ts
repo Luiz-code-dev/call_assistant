@@ -1,7 +1,7 @@
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 
 function flag() {
   return isEscolasEnabled();
@@ -12,6 +12,7 @@ export async function GET() {
 
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (ctx.role !== "PLATFORM_ADMIN")
     return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 
@@ -28,6 +29,7 @@ export async function POST(req: NextRequest) {
 
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (ctx.role !== "PLATFORM_ADMIN")
     return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 

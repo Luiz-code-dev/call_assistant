@@ -1,6 +1,6 @@
 import { getEduContext } from "@/lib/escola/context";
 import { redirect } from "next/navigation";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import Link from "next/link";
 import { Bell } from "lucide-react";
 import { STAGE_LABEL, SHIFT_LABEL } from "@/lib/escola/types";
@@ -14,6 +14,7 @@ const p = prismaEdu as any;
 export default async function ProfessorPage() {
   const ctx = await getEduContext();
   if (!ctx) redirect("/escola/entrar");
+  if (ctx?.db) setTenantDb(ctx.db);
   if (!["TEACHER","NETWORK_ADMIN","COORDINATOR"].includes(ctx.role)) redirect("/escola/painel");
 
   // ── Turmas do professor ──────────────────────────────────────────

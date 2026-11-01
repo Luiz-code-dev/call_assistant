@@ -1,7 +1,7 @@
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { genInviteToken, hashToken } from "@/lib/escola/familia";
 import { registerFamilyInviteInCatalog } from "@/lib/escola/invite";
 import { normalizePhone } from "@/lib/escola/phone";
@@ -31,6 +31,7 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   const student = await assertStudentInScope(ctx, params.id);
   if (!student) return NextResponse.json({ error: "Aluno não encontrado" }, { status: 404 });
 
@@ -52,6 +53,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
   if (!["NETWORK_ADMIN", "SCHOOL_ADMIN"].includes(ctx.role)) return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
   const student = await assertStudentInScope(ctx, params.id);
   if (!student) return NextResponse.json({ error: "Aluno não encontrado" }, { status: 404 });

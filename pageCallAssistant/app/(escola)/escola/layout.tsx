@@ -1,5 +1,5 @@
 import { headers } from "next/headers";
-import { prismaEdu } from "@/lib/escola/db";
+import { setTenantDb } from "@/lib/escola/db";
 
 import EscAppShell from "@/components/escola/layout/EscAppShell";
 import { getEduContext } from "@/lib/escola/context";
@@ -17,13 +17,14 @@ function isShellFreePath(pathname: string): boolean {
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const prisma = prismaEdu;
-
 async function getShellData() {
   try {
     const ctx = await getEduContext(); // mesmo segredo do login e do middleware
     if (!ctx) return null;
+    // enterWith dentro de getEduContext() não propaga para o caller — reaplicar aqui
+    if (ctx.db) setTenantDb(ctx.db);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const prisma = ctx.db as any;
 
     const user = await prisma.user.findUnique({ where: { id: ctx.userId }, select: { name: true, email: true } });
     const userName = (user?.name || user?.email || "Usuário") as string;

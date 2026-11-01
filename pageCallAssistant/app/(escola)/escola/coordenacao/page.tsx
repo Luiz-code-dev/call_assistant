@@ -1,12 +1,13 @@
 import { getEduContext } from "@/lib/escola/context";
 import { redirect } from "next/navigation";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import Link from "next/link";
 import { ClipboardList, Route, Target, School } from "lucide-react";
 
 export default async function CoordPage() {
   const ctx = await getEduContext();
   if (!ctx) redirect("/escola/entrar");
+  if (ctx?.db) setTenantDb(ctx.db);
   if (!["COORDINATOR","NETWORK_ADMIN"].includes(ctx.role)) redirect("/escola/painel");
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

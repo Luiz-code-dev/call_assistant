@@ -1,6 +1,6 @@
 import { getEduContext } from "@/lib/escola/context";
 import { redirect } from "next/navigation";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import Link from "next/link";
 import EscPageHeader from "@/components/escola/layout/EscPageHeader";
 import {
@@ -19,6 +19,7 @@ import {
 export default async function RedePage() {
   const ctx = await getEduContext();
   if (!ctx) redirect("/escola/entrar");
+  if (ctx?.db) setTenantDb(ctx.db);
   if (ctx.role !== "NETWORK_ADMIN") redirect("/escola/painel");
 
   const nid = ctx.networkId;

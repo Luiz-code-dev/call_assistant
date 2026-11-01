@@ -1,11 +1,12 @@
 import { getEduContext } from "@/lib/escola/context";
 import { redirect } from "next/navigation";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import Link from "next/link";
 
 export default async function OfertaPage({ params }: { params: { id: string } }) {
   const ctx = await getEduContext();
   if (!ctx) redirect("/escola/entrar");
+  if (ctx?.db) setTenantDb(ctx.db);
 
   const offer = await prismaEdu.eduClassSubject.findFirst({
     where: { id: params.id, networkId: ctx.networkId },

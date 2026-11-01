@@ -1,12 +1,13 @@
 import { getEduContext } from "@/lib/escola/context";
 import { redirect } from "next/navigation";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import Link from "next/link";
 import { Users, CreditCard, ClipboardList, Search, UserCheck } from "lucide-react";
 
 export default async function DirecaoPage() {
   const ctx = await getEduContext();
   if (!ctx) redirect("/escola/entrar");
+  if (ctx?.db) setTenantDb(ctx.db);
   if (!["SCHOOL_ADMIN","NETWORK_ADMIN"].includes(ctx.role)) redirect("/escola/painel");
 
   const schoolId = ctx.schoolId;

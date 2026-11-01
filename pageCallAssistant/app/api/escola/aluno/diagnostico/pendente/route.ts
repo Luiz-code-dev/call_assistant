@@ -6,7 +6,7 @@
 import { NextResponse } from "next/server";
 import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 
 const P = prismaEdu as any;
 
@@ -14,6 +14,7 @@ export async function GET() {
   if (!isEscolasEnabled()) return NextResponse.json({ diagnosticos: [] });
   const ctx = await getStudentContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
 
   // Busca turma do aluno para saber o gradeYear
   const enr = await P.eduEnrollment.findFirst({
