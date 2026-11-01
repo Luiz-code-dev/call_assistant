@@ -96,7 +96,7 @@ export async function POST(req: NextRequest) {
         where: {
           networkId: net.id,
           studentId: { in: inativos },
-          status: "ACTIVE",
+          isActive: true,
         },
         select: { guardianId: true, studentId: true },
       });
@@ -123,7 +123,8 @@ export async function POST(req: NextRequest) {
           where: {
             networkId: net.id,
             action: "INATIVIDADE_EMAIL",
-            targetId: link.studentId,
+            entity: "EduStudent",
+            entityId: link.studentId,
             actorId: link.guardianId,
             createdAt: { gte: warnCutoff },
           },
@@ -143,9 +144,11 @@ export async function POST(req: NextRequest) {
           await db.eduAuditLog?.create?.({
             data: {
               networkId: net.id,
-              action: "INATIVIDADE_EMAIL",
-              targetId: link.studentId,
+              actorType: "GUARDIAN",
               actorId: link.guardianId,
+              action: "INATIVIDADE_EMAIL",
+              entity: "EduStudent",
+              entityId: link.studentId,
               metadata: { email },
             },
           }).catch(() => null);

@@ -3,6 +3,7 @@ import { EduRole } from "@/lib/escola/types";
 import { staffSecret, studentSecret } from "@/lib/escola/secrets";
 import { bearerToken, verifyTypedToken } from "@/lib/escola/app-auth";
 import { getTenantDb } from "@/lib/escola/tenant-db";
+import { STUDENT_COOKIE } from "@/lib/escola/cookies";
 import { findPlatformAdminById } from "@/lib/escola/catalogo";
 import { setTenantDb } from "@/lib/escola/db";
 
@@ -100,7 +101,7 @@ const revalidationCache = new Map<string, { ok: boolean; ts: number }>();
 const REVALIDATE_TTL_MS = 60_000;
 
 export async function getStudentContext(): Promise<StudentContext | null> {
-  const raw = bearerToken() ?? cookies().get("sf_student_ctx")?.value;
+  const raw = bearerToken() ?? cookies().get(STUDENT_COOKIE)?.value;
   if (!raw) return null;
 
   const payload = await verifyTypedToken(raw, studentSecret(), "student");
