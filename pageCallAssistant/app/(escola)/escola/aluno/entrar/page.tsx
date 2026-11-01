@@ -169,56 +169,49 @@ function EntrarInner() {
 
   const headerName = selectedStudent?.display.split(" ")[0] ?? "";
 
-  // ── Device ──────────────────────────────────────────────────────────────────
-  if (screen === "device" && deviceStudents.length > 0) {
-    return (
-      <div className="min-h-screen bg-[#F8F7FC] flex flex-col items-center justify-center p-6">
-        <button onClick={() => speak("Quem vai praticar agora?")} className="absolute top-4 right-4 flex items-center gap-2 text-[#6D28D9] text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-[#EDE9FE] rounded-full">
-          <Volume2 size={16} /> Ouvir
-        </button>
-        <h1 className="text-3xl font-bold text-[#1F1A2E] mb-8">Quem vai praticar agora?</h1>
-        <div className="flex flex-wrap gap-4 justify-center max-w-2xl mb-8">
-          {deviceStudents.map(s => (
-            <button key={s.id} onClick={() => selectDeviceStudent(s)}
-              className="flex flex-col items-center gap-3 bg-white border-2 border-[#E9E5F5] rounded-2xl p-5 min-w-[140px] hover:border-[#6D28D9] transition-all min-h-[64px]">
-              <div className="w-20 h-20 rounded-full flex items-center justify-center text-white text-3xl font-bold" style={{ background: avatarColor(s.name) }}>{s.name[0].toUpperCase()}</div>
-              <span className="text-[#1F1A2E] text-xl font-bold">{s.name.split(" ")[0]}</span>
-            </button>
-          ))}
-          <button onClick={() => setScreen("choose")} className="flex flex-col items-center justify-center gap-3 border-2 border-dashed border-[#DDD6EE] rounded-2xl p-5 min-w-[140px] hover:border-[#6D28D9] text-[#6D28D9] transition-all min-h-[64px]">
-            <span className="text-4xl font-light leading-none">+</span>
-            <span className="text-sm font-semibold">Outro aluno</span>
-          </button>
-        </div>
-        {/* Fix 4: DELETE no cookie via API */}
-        <button onClick={() => fetch("/api/escola/aluno/dispositivo", { method: "DELETE" }).then(() => { setDeviceStudents([]); setScreen("choose"); })}
-          className="text-[#5B5470] text-sm underline min-h-[44px]">Esquecer este aparelho</button>
-      </div>
-    );
-  }
-
-  // ── Choose ──────────────────────────────────────────────────────────────────
-  if (screen === "choose") {
+  // ── Choose (unificado: QR primeiro, aparelho de casa no meio, código da aula por último) ──
+  if (screen === "device" || screen === "choose") {
     return (
       <div className="min-h-screen bg-[#F8F7FC] flex flex-col items-center justify-center p-6">
         <button onClick={() => speak("Como você quer entrar?")} className="absolute top-4 right-4 flex items-center gap-2 text-[#6D28D9] text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-[#EDE9FE] rounded-full">
           <Volume2 size={16} /> Ouvir
         </button>
         {aulaError && <p className="text-[#B91C1C] text-sm mb-4 bg-[#FEE2E2] px-4 py-2 rounded-xl">{aulaError}</p>}
-        <h1 className="text-3xl font-bold text-[#1F1A2E] mb-10">Como você quer entrar?</h1>
-        <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xl">
-          <button onClick={() => { setAulaCode(Array(6).fill("")); setAulaError(""); setScreen("aula-code"); }}
-            className="flex-1 flex flex-col items-center justify-center gap-4 bg-[#0F766E] hover:bg-[#0D6B63] text-white rounded-2xl p-8 min-h-[180px] transition-colors">
-            <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center"><span className="text-4xl font-bold">#</span></div>
-            <div className="text-center"><div className="text-xl font-bold">Codigo da aula</div><div className="text-sm opacity-90 mt-1">O professor mostra no quadro</div></div>
-          </button>
-          <button onClick={() => setScreen("qr-camera")}
-            className="flex-1 flex flex-col items-center justify-center gap-4 bg-[#6D28D9] hover:bg-[#5B21B6] text-white rounded-2xl p-8 min-h-[180px] transition-colors">
-            <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center"><QrCode size={36} /></div>
-            <div className="text-center"><div className="text-xl font-bold">Ler meu cartao</div><div className="text-sm opacity-90 mt-1">Camera le o QR do cartao</div></div>
-          </button>
-        </div>
-        <p className="text-[#5B5470] text-sm mt-8">Não tem cartão? Peça ao seu professor.</p>
+        <h1 className="text-3xl font-bold text-[#1F1A2E] mb-8">Como você quer entrar?</h1>
+
+        {/* 1. QR — ação principal */}
+        <button onClick={() => setScreen("qr-camera")}
+          className="w-full max-w-xl flex items-center gap-5 bg-[#6D28D9] hover:bg-[#5B21B6] text-white rounded-2xl px-7 py-5 min-h-[80px] transition-colors mb-4">
+          <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center shrink-0"><QrCode size={32} /></div>
+          <div className="text-left"><div className="text-xl font-bold">Ler o QR do meu cartao</div><div className="text-sm opacity-90 mt-0.5">Camera le o QR do cartao de acesso</div></div>
+        </button>
+
+        {/* 2. Alunos do aparelho de casa */}
+        {deviceStudents.length > 0 && (
+          <div className="w-full max-w-xl mb-4">
+            <p className="text-[#5B5470] text-xs font-semibold mb-2 px-1">Aparelho de casa</p>
+            <div className="flex flex-wrap gap-3">
+              {deviceStudents.map(s => (
+                <button key={s.id} onClick={() => selectDeviceStudent(s)}
+                  className="flex flex-col items-center gap-2 bg-white border-2 border-[#E9E5F5] rounded-2xl p-4 min-w-[110px] hover:border-[#6D28D9] transition-all min-h-[52px]">
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center text-white text-2xl font-bold" style={{ background: avatarColor(s.name) }}>{s.name[0].toUpperCase()}</div>
+                  <span className="text-[#1F1A2E] text-base font-bold">{s.name.split(" ")[0]}</span>
+                </button>
+              ))}
+            </div>
+            <button onClick={() => fetch("/api/escola/aluno/dispositivo", { method: "DELETE" }).then(() => { setDeviceStudents([]); })}
+              className="text-[#5B5470] text-xs underline mt-2 min-h-[36px]">Esquecer este aparelho</button>
+          </div>
+        )}
+
+        {/* 3. Código da aula — ação secundária */}
+        <button onClick={() => { setAulaCode(Array(6).fill("")); setAulaError(""); setScreen("aula-code"); }}
+          className="w-full max-w-xl flex items-center gap-5 border-2 border-[#DDD6EE] hover:border-[#6D28D9] bg-white text-[#1F1A2E] rounded-2xl px-7 py-5 min-h-[80px] transition-colors">
+          <div className="w-14 h-14 bg-[#F8F7FC] rounded-2xl flex items-center justify-center shrink-0 text-[#0F766E]"><span className="text-3xl font-bold">#</span></div>
+          <div className="text-left"><div className="text-xl font-bold text-[#1F1A2E]">Na escola: codigo da aula</div><div className="text-sm text-[#5B5470] mt-0.5">O professor mostra o codigo no quadro</div></div>
+        </button>
+
+        <p className="text-[#5B5470] text-sm mt-6">Esqueceu? Peça para o seu responsavel criar um PIN novo no app da familia.</p>
       </div>
     );
   }

@@ -31,7 +31,7 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
     const student = await (prismaEdu as any).eduStudent.findUnique({
       where: { id: studentId },
       select: {
-        id: true, fullName: true,
+        id: true, fullName: true, loginMode: true,
         enrollments: {
           where: { status: "ACTIVE" }, orderBy: { startedAt: "desc" }, take: 1,
           select: { classId: true, class: { select: { name: true, shift: true, gradeYear: true, school: { select: { name: true, phone: true, email: true } } } } },
@@ -194,7 +194,7 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
     }
 
     return NextResponse.json({
-      aluno: { id: student.id, fullName: student.fullName, firstName, className: cls?.name ?? null, schoolName: cls?.school?.name ?? null, shift: cls ? (SHIFT_LABEL[cls.shift] ?? cls.shift) : null, gradeYear: cls?.gradeYear ?? null },
+      aluno: { id: student.id, fullName: student.fullName, firstName, loginMode: student.loginMode ?? "PIN", className: cls?.name ?? null, schoolName: cls?.school?.name ?? null, shift: cls ? (SHIFT_LABEL[cls.shift] ?? cls.shift) : null, gradeYear: cls?.gradeYear ?? null },
       semana: { dias, atividades, minutos, frase: semanaFrase, hojeIndex: dayIndexSaoPaulo(new Date()) },
       trilhaAtual, outrasTrilhas,
       evolucao,

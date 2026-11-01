@@ -152,7 +152,7 @@ export async function POST(req: NextRequest) {
       data: { pinFailedCount: newCount, pinLockedUntil: locked ? new Date(Date.now() + LOCK_MINUTES * 60 * 1000) : null },
     });
     const remaining = MAX_ATTEMPTS - newCount;
-    const msg = locked ? "PIN bloqueado por 15 minutos. Peça ao professor para desbloquear." : `PIN incorreto. Você ainda tem ${remaining} tentativa${remaining !== 1 ? "s" : ""}.`;
+    const msg = locked ? "PIN bloqueado por 15 minutos. Peça para o seu responsável criar um PIN novo no app da família." : `PIN incorreto. Você ainda tem ${remaining} tentativa${remaining !== 1 ? "s" : ""}.`;
     return NextResponse.json({ error: msg }, { status: 401 });
   }
 

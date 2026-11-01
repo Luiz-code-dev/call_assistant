@@ -2,23 +2,25 @@
  * POST /api/escola/turmas/[id]/gerar-pins
  * Gera PINs aleatorios de 4 digitos para alunos da turma (apenas quem nao tem hash).
  * Retorna lista plaintext para impressao — hash salvo no banco.
- * Acesso: TEACHER, SCHOOL_ADMIN, NETWORK_ADMIN.
+ * Acesso: SCHOOL_ADMIN, NETWORK_ADMIN (professor recebe 403 — acesso gerido pela escola/familia).
  */
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu } from "@/lib/escola/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import bcrypt from "bcryptjs";
+import { randomInt } from "crypto";
 
 function flag() { return isEscolasEnabled(); }
-function randomPin() { return String(Math.floor(1000 + Math.random() * 9000)); }
+function randomPin() { return String(randomInt(1000, 10000)).padStart(4, "0"); }
 
 export async function POST(req: NextRequest, { params }: { params: { id: string } }) {
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
-  if (!["TEACHER","SCHOOL_ADMIN","NETWORK_ADMIN"].includes(ctx.role)) {
-    return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
+  // Professor não gera PINs — o acesso ao reforço é gerido pela escola e entregue à família
+  if (!["SCHOOL_ADMIN","NETWORK_ADMIN"].includes(ctx.role)) {
+    return NextResponse.json({ error: "Sem permissão. O PIN é gerado pela direção ou secretaria." }, { status: 403 });
   }
   const { forceAll } = await req.json().catch(() => ({ forceAll: false }));
 

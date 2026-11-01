@@ -32,8 +32,9 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
-  if (!["TEACHER","SCHOOL_ADMIN","NETWORK_ADMIN"].includes(ctx.role)) {
-    return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
+  // Professor não acessa cartões com QR/PIN — apenas visualiza o código da aula
+  if (!["SCHOOL_ADMIN","NETWORK_ADMIN"].includes(ctx.role)) {
+    return NextResponse.json({ error: "Sem permissão. Cartões são emitidos pela direção." }, { status: 403 });
   }
 
   try {

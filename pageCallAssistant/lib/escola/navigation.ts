@@ -39,7 +39,7 @@ export const NAV_BY_ROLE: Record<EduRole, NavItem[]> = {
     { label: "Turmas e alunos",   href: "/escola/direcao/turmas",      icon: "Users"           },
     { label: "Famílias",          href: "/escola/direcao/familias",    icon: "HeartHandshake"  },
     { label: "Atribuições",       href: "/escola/direcao/atribuicoes", icon: "Grid3x3"         },
-    { label: "Cartões de acesso", href: "/escola/direcao/cartoes",     icon: "QrCode"          },
+    { label: "Acesso das famílias", href: "/escola/direcao/cartoes",    icon: "QrCode"          },
     { label: "Auditoria",         href: "/escola/direcao/auditoria",   icon: "ScrollText"      },
   ],
   TEACHER: [

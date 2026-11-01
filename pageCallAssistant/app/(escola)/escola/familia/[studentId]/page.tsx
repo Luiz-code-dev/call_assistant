@@ -2,8 +2,9 @@
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { AlertTriangle, RefreshCw, Lightbulb, ChevronRight, School } from "lucide-react";
+import { AlertTriangle, RefreshCw, Lightbulb, ChevronRight, School, QrCode, Smartphone, KeyRound, ShieldOff } from "lucide-react";
 import FamilyShell from "@/components/escola/familia/FamilyShell";
+import { QRCodeSVG } from "qrcode.react";
 
 const DIAS = ["S", "T", "Q", "Q", "S", "S", "D"];
 const LEVELS = [
@@ -14,7 +15,7 @@ const LEVELS = [
 const levelInfo = (k: string | null) => LEVELS.find((l) => l.key === k);
 
 interface Resumo {
-  aluno: { fullName: string; firstName: string; className: string | null; schoolName: string | null; shift: string | null; gradeYear: number | null };
+  aluno: { fullName: string; firstName: string; loginMode: string; className: string | null; schoolName: string | null; shift: string | null; gradeYear: number | null };
   semana: { dias: boolean[]; atividades: number; minutos: number; frase: string; hojeIndex: number };
   trilhaAtual: { subjectName: string; subjectColor: string; skillLabel: string; feitas: number; total: number } | null;
   outrasTrilhas: number;
@@ -23,6 +24,165 @@ interface Resumo {
   retornos: { subjectName: string; when: string; level: string | null; acertou: string | null; melhorar: string | null }[];
   alertas: { tipo: "warn" | "info"; texto: string }[];
   escola: { nome: string | null; turma: string | null; turno: string | null; phone: string | null; email: string | null };
+}
+
+function AcessoFilhoCard({ studentId, loginMode }: { studentId: string; loginMode: string }) {
+  const [fase, setFase] = useState<"idle" | "pin" | "figuras" | "qr" | "aparelho_ok">("idle");
+  const [pinInput, setPinInput] = useState("");
+  const [figInput, setFigInput] = useState<string[]>([]);
+  const [qrUrl, setQrUrl] = useState("");
+  const [msg, setMsg] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const FIGURE_IDS = ["sun","star","heart","house","fish","flower","moon","drop","cloud"];
+  const FIGURE_LABEL: Record<string,string> = { sun:"Sol", star:"Estrela", heart:"Coracao", house:"Casa", fish:"Peixe", flower:"Flor", moon:"Lua", drop:"Gota", cloud:"Nuvem" };
+
+  async function prepararAparelho() {
+    setLoading(true); setMsg("");
+    const r = await fetch(`/api/escola/familia/filhos/${studentId}/aparelho`, { method: "POST" });
+    const d = await r.json();
+    setLoading(false);
+    if (r.ok) { setFase("aparelho_ok"); setMsg(`Aparelho preparado para ${d.name ?? "o aluno"}.`); }
+    else setMsg(d.error ?? "Erro ao preparar aparelho.");
+  }
+
+  async function mostrarQr() {
+    setLoading(true); setMsg("");
+    const r = await fetch(`/api/escola/familia/filhos/${studentId}/cartao`);
+    const d = await r.json();
+    setLoading(false);
+    if (r.ok) { setQrUrl(d.qrUrl); setFase("qr"); }
+    else setMsg(d.error ?? "Erro ao obter QR.");
+  }
+
+  async function salvarPin() {
+    if (!/^\d{4}$/.test(pinInput)) { setMsg("PIN deve ter 4 dígitos."); return; }
+    setLoading(true); setMsg("");
+    const r = await fetch(`/api/escola/familia/filhos/${studentId}/pin`, {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pin: pinInput }),
+    });
+    const d = await r.json();
+    setLoading(false);
+    if (r.ok) { setFase("idle"); setMsg("PIN criado. O PIN antigo não funciona mais."); setPinInput(""); }
+    else setMsg(d.error ?? "Erro ao criar PIN.");
+  }
+
+  async function salvarFiguras() {
+    if (figInput.length !== 3) { setMsg("Selecione exatamente 3 figuras."); return; }
+    setLoading(true); setMsg("");
+    const r = await fetch(`/api/escola/familia/filhos/${studentId}/figuras`, {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ figures: figInput }),
+    });
+    const d = await r.json();
+    setLoading(false);
+    if (r.ok) { setFase("idle"); setMsg("Figuras trocadas. A sequência antiga não funciona mais."); setFigInput([]); }
+    else setMsg(d.error ?? "Erro ao trocar figuras.");
+  }
+
+  async function perderCartao() {
+    setLoading(true); setMsg("");
+    const r = await fetch(`/api/escola/familia/filhos/${studentId}/cartao`, { method: "POST" });
+    const d = await r.json();
+    setLoading(false);
+    if (r.ok) { setQrUrl(d.qrUrl); setFase("qr"); setMsg("Cartão antigo bloqueado. Este é o novo QR."); }
+    else setMsg(d.error ?? "Erro ao bloquear cartão.");
+  }
+
+  function toggleFigura(id: string) {
+    setFigInput(prev => prev.includes(id) ? prev.filter(f => f !== id) : prev.length < 3 ? [...prev, id] : prev);
+  }
+
+  return (
+    <section className="bg-white border border-[#E9E5F5] rounded-[20px] p-4 shadow-[0_1px_2px_rgba(31,26,46,0.04)]">
+      <h2 className="text-[13px] font-semibold text-[#5B5470] mb-3">Acesso do seu filho</h2>
+
+      {msg && <p className="text-sm text-[#166534] bg-[#DCFCE7] border border-[#BBF7D0] px-3 py-2 rounded-lg mb-3">{msg}</p>}
+
+      {fase === "idle" && (
+        <div className="flex flex-col gap-2">
+          <button onClick={prepararAparelho} disabled={loading}
+            className="flex items-center gap-3 bg-[#EDE9FE] hover:bg-[#DDD6EE] text-[#4C1D95] px-4 py-3 rounded-xl text-[14px] font-semibold min-h-[48px] transition-colors disabled:opacity-50">
+            <Smartphone size={18} className="shrink-0" />
+            <div className="text-left"><p>Preparar este aparelho para o meu filho</p><p className="text-xs font-normal text-[#5B5470]">O filho poderá entrar tocando no nome, sem o cartão</p></div>
+          </button>
+          <button onClick={mostrarQr} disabled={loading}
+            className="flex items-center gap-3 border border-[#DDD6EE] hover:border-[#6D28D9] text-[#1F1A2E] px-4 py-3 rounded-xl text-[14px] font-semibold min-h-[48px] transition-colors disabled:opacity-50">
+            <QrCode size={18} className="text-[#6D28D9] shrink-0" />
+            <span>Mostrar o QR do cartão</span>
+          </button>
+          <button onClick={() => { setFase(loginMode === "PICTURE" ? "figuras" : "pin"); setMsg(""); setPinInput(""); setFigInput([]); }}
+            className="flex items-center gap-3 border border-[#DDD6EE] hover:border-[#6D28D9] text-[#1F1A2E] px-4 py-3 rounded-xl text-[14px] font-semibold min-h-[48px] transition-colors">
+            <KeyRound size={18} className="text-[#6D28D9] shrink-0" />
+            <span>{loginMode === "PICTURE" ? "Trocar as figuras" : "Criar um PIN novo"}</span>
+          </button>
+          <button onClick={perderCartao} disabled={loading}
+            className="flex items-center gap-3 border border-[#FECACA] hover:border-[#B91C1C] text-[#B91C1C] px-4 py-3 rounded-xl text-[14px] font-semibold min-h-[48px] transition-colors disabled:opacity-50">
+            <ShieldOff size={18} className="shrink-0" />
+            <span>Perdeu o cartão?</span>
+          </button>
+        </div>
+      )}
+
+      {fase === "pin" && (
+        <div>
+          <p className="text-sm text-[#5B5470] mb-2">Digite um PIN de 4 dígitos para o seu filho.</p>
+          <p className="text-xs text-[#5B5470] mb-3">Você não verá o PIN atual — apenas define um novo.</p>
+          <input type="password" inputMode="numeric" maxLength={4} value={pinInput} onChange={e => setPinInput(e.target.value.replace(/\D/g, ""))}
+            className="block w-32 border-2 border-[#DDD6EE] rounded-xl px-3 py-2 text-center text-2xl font-bold tracking-widest text-[#1F1A2E] focus:border-[#6D28D9] outline-none mb-3"
+            placeholder="0000" />
+          <div className="flex gap-2">
+            <button onClick={salvarPin} disabled={loading || pinInput.length !== 4}
+              className="bg-[#6D28D9] hover:bg-[#5B21B6] text-white px-4 py-2.5 rounded-xl text-sm font-semibold min-h-[44px] disabled:opacity-50">
+              {loading ? "Salvando…" : "Salvar PIN"}
+            </button>
+            <button onClick={() => { setFase("idle"); setPinInput(""); setMsg(""); }}
+              className="border border-[#DDD6EE] text-[#5B5470] px-4 py-2.5 rounded-xl text-sm font-semibold min-h-[44px]">Cancelar</button>
+          </div>
+        </div>
+      )}
+
+      {fase === "figuras" && (
+        <div>
+          <p className="text-sm text-[#5B5470] mb-2">Escolha 3 figuras para o seu filho memorizar.</p>
+          <div className="flex flex-wrap gap-2 mb-3">
+            {FIGURE_IDS.map(id => (
+              <button key={id} onClick={() => toggleFigura(id)}
+                className={`px-3 py-1.5 rounded-full text-sm font-semibold border-2 transition-colors ${figInput.includes(id) ? "bg-[#6D28D9] border-[#6D28D9] text-white" : "bg-white border-[#DDD6EE] text-[#1F1A2E] hover:border-[#6D28D9]"}`}>
+                {FIGURE_LABEL[id]}
+              </button>
+            ))}
+          </div>
+          <p className="text-xs text-[#5B5470] mb-3">Selecionadas: {figInput.map(f => FIGURE_LABEL[f]).join(", ") || "nenhuma"}</p>
+          <div className="flex gap-2">
+            <button onClick={salvarFiguras} disabled={loading || figInput.length !== 3}
+              className="bg-[#6D28D9] hover:bg-[#5B21B6] text-white px-4 py-2.5 rounded-xl text-sm font-semibold min-h-[44px] disabled:opacity-50">
+              {loading ? "Salvando…" : "Salvar figuras"}
+            </button>
+            <button onClick={() => { setFase("idle"); setFigInput([]); setMsg(""); }}
+              className="border border-[#DDD6EE] text-[#5B5470] px-4 py-2.5 rounded-xl text-sm font-semibold min-h-[44px]">Cancelar</button>
+          </div>
+        </div>
+      )}
+
+      {fase === "qr" && qrUrl && (
+        <div className="text-center">
+          <div className="flex justify-center mb-3">
+            <QRCodeSVG value={qrUrl} size={160} level="M" />
+          </div>
+          <p className="text-xs text-[#5B5470] mb-3">Aponte o celular do seu filho para este QR para entrar.</p>
+          <button onClick={() => { setFase("idle"); setQrUrl(""); setMsg(""); }}
+            className="border border-[#DDD6EE] text-[#5B5470] px-4 py-2.5 rounded-xl text-sm font-semibold min-h-[44px]">Fechar</button>
+        </div>
+      )}
+
+      {fase === "aparelho_ok" && (
+        <div>
+          <p className="text-sm text-[#166534]">{msg}</p>
+          <button onClick={() => { setFase("idle"); setMsg(""); }} className="mt-3 border border-[#DDD6EE] text-[#5B5470] px-4 py-2.5 rounded-xl text-sm font-semibold min-h-[44px]">Ok</button>
+        </div>
+      )}
+    </section>
+  );
 }
 
 function Card({ title, children, right }: { title?: string; children: React.ReactNode; right?: React.ReactNode }) {
@@ -164,6 +324,9 @@ export default function PainelFilho() {
               </div>
             </div>
           </Card>
+
+          {/* Acesso do seu filho */}
+          <AcessoFilhoCard studentId={studentId} loginMode={data.aluno.loginMode} />
         </div>
       ) : null}
     </FamilyShell>
