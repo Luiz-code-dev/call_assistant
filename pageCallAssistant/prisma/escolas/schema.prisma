@@ -768,7 +768,9 @@ model EduSkillPrerequisite {
   source              String  @default("SPEAKFLOW")
   /// DRAFT | APPROVED
   status              String  @default("DRAFT")
+  reviewNote          String? @db.Text
   createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
 
   skill        EduSkill @relation("SkillPrereqs", fields: [skillId], references: [id])
   prerequisite EduSkill @relation("SkillAsPrereq", fields: [prerequisiteSkillId], references: [id])
@@ -794,7 +796,9 @@ model EduSkillGuide {
   source          String   @default("SPEAKFLOW")
   /// DRAFT | IN_REVIEW | APPROVED | REJECTED
   status          String   @default("DRAFT")
+  reviewNote      String?  @db.Text
   createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 
   skill EduSkill @relation(fields: [skillId], references: [id])
 
@@ -816,8 +820,9 @@ model EduDiagnostic {
   id            String    @id @default(cuid())
   /// null = diagnóstico SpeakFlow global (biblioteca)
   networkId     String?
-  subjectId     String
-  gradeYear     Int
+  subjectId     String?
+  subjectCode   String?
+  gradeYear     Int?
   title         String
   cycle         Int       @default(1)
   status        String    @default("DRAFT")
@@ -891,8 +896,9 @@ model EduTrack {
   id            String    @id @default(cuid())
   /// null = trilha SpeakFlow global (biblioteca)
   networkId     String?
-  subjectId     String
-  gradeYear     Int
+  subjectId     String?
+  subjectCode   String?
+  gradeYear     Int?
   title         String
   skillIds      String[]
   status        String    @default("DRAFT")
@@ -1114,4 +1120,40 @@ model EduLessonObjective {
   lesson EduLesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
 
   @@index([lessonId])
+}
+
+// ================================================================
+// FASE 7 — Sessão de tentativa (I1: uma questão por vez, I2-I8)
+// ================================================================
+
+/// Rastreia uma sessão de resposta a uma atividade (diagnóstico ou trilha).
+/// Permite retomar de onde parou, impõe tempo mínimo e embaralha questões.
+model EduAttemptSession {
+  id              String   @id @default(cuid())
+  networkId       String
+  studentId       String
+  activityId      String
+  /// Opcional: se a sessão é parte de um diagnóstico
+  diagnosticId    String?
+  /// Índice da questão atual (0-based)
+  currentQuestion Int      @default(0)
+  /// Respostas já gravadas: [{ questionId, selectedIndex, answeredAt, elapsedMs }]
+  answers         Json     @default("[]")
+  /// Ordem embaralhada das questões (array de índices originais)
+  shuffleOrder    Json     @default("[]")
+  /// Tempo mínimo por questão em ms (I2)
+  minMsPerQuestion Int     @default(5000)
+  /// Variante da atividade (I4)
+  variantId       String?
+  startedAt       DateTime @default(now())
+  lastActivityAt  DateTime @default(now())
+  /// Sessão expira após 4 horas de inatividade
+  expiresAt       DateTime
+  completedAt     DateTime?
+  /// Salvo quando o aluno sai sem terminar (I6)
+  resumeToken     String?  @unique
+
+  @@unique([studentId, activityId, diagnosticId])
+  @@index([networkId, studentId])
+  @@index([networkId, activityId])
 }

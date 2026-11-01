@@ -5,7 +5,7 @@ import { ChevronLeft, TrendingUp } from "lucide-react";
 
 interface SkillProgress { subjectName: string; subjectColor: string; skills: { code: string; description: string; level: string }[] }
 
-const levelLabel: Record<string, string> = { NOT_YET: "Ainda nao", ALMOST: "Quase la", MASTERED: "Domina" };
+const levelLabel: Record<string, string> = { NOT_YET: "Ainda não", ALMOST: "Quase lá", MASTERED: "Domina" };
 const levelColor: Record<string, string> = { NOT_YET: "bg-[#FEE2E2] text-[#B91C1C]", ALMOST: "bg-[#FEF3C7] text-[#92400E]", MASTERED: "bg-[#DCFCE7] text-[#166534]" };
 
 export default function EvolucaoPage() {
@@ -23,7 +23,7 @@ export default function EvolucaoPage() {
         <Link href="/escola/aluno" className="p-2 rounded-xl text-[#5B5470] hover:text-[#1F1A2E]"><ChevronLeft size={20}/></Link>
         <div className="flex items-center gap-2">
           <TrendingUp className="text-[#6D28D9]" size={20}/>
-          <h1 className="text-[#1F1A2E] font-bold text-xl">Minha evolucao</h1>
+          <h1 className="text-[#1F1A2E] font-bold text-xl">Minha evolução</h1>
         </div>
       </div>
       {loading ? <p className="text-[#5B5470] text-center py-8">Carregando...</p> : data.length === 0 ? (

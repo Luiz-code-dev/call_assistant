@@ -1,5 +1,77 @@
 [
   {
+    "skillCode": "EF06MA01",
+    "whatStudentDoes": "Compara, ordena, lê e escreve números naturais e racionais com representação decimal finita, usando a reta numérica.",
+    "commonErrors": [
+      { "code": "ordena-por-digitos", "description": "Compara 1,9 e 1,12 e diz que 1,12 é maior por ter mais dígitos" },
+      { "code": "ignora-zero-decimal", "description": "Não considera os zeros à direita da vírgula na comparação (ex: 1,20 vs 1,2)" }
+    ],
+    "recommendedTypes": ["QUIZ", "AI_ACTIVITY"],
+    "ageNotes": "Use a reta numérica física e régua marcada em décimos para tornar a ordem concreta.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA02",
+    "whatStudentDoes": "Reconhece o sistema de numeração decimal (base, valor posicional, função do zero) e compara com outros sistemas históricos.",
+    "commonErrors": [
+      { "code": "valor-posicional", "description": "Confunde a posição das ordens (unidade de mil com centena)" },
+      { "code": "funcao-zero", "description": "Omite o zero como marcador de posição vazia" }
+    ],
+    "recommendedTypes": ["QUIZ"],
+    "ageNotes": "Mostrar o ábaco e o sistema romano antes de sistematizar o decimal.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA03",
+    "whatStudentDoes": "Resolve situações-problema com cálculos (mentais ou escritos) com números naturais, usando estratégias variadas.",
+    "commonErrors": [
+      { "code": "sinal-multiplicacao", "description": "Erra a regra de sinais na multiplicação de negativos (neg × neg = pos)" },
+      { "code": "posicao-reta", "description": "Confunde posição de negativos na reta numérica" }
+    ],
+    "recommendedTypes": ["QUIZ", "AI_ACTIVITY"],
+    "ageNotes": "Use contextos reais (temperatura, saldo) antes de apresentar a reta numérica abstrata.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA04",
+    "whatStudentDoes": "Constrói algoritmo em linguagem natural e representa por fluxograma a resolução de um problema simples (ex: verificar se número é par).",
+    "commonErrors": [
+      { "code": "ordem-passos", "description": "Inverte a ordem dos passos no fluxograma (verificação antes da entrada do dado)" },
+      { "code": "condicional-incompleta", "description": "Não inclui o caminho alternativo (senão) na estrutura condicional" }
+    ],
+    "recommendedTypes": ["WRITTEN"],
+    "ageNotes": "Começar com atividades cotidianas (receita, caminho à escola) antes de introduzir o fluxograma formal.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA05",
+    "whatStudentDoes": "Classifica números naturais em primos e compostos, identifica múltiplos e divisores e aplica critérios de divisibilidade.",
+    "commonErrors": [
+      { "code": "1-primo", "description": "Considera 1 como número primo" },
+      { "code": "criterio-3", "description": "Não soma os algarismos para verificar divisibilidade por 3" }
+    ],
+    "recommendedTypes": ["QUIZ"],
+    "ageNotes": "O Crivo de Eratóstenes em papel quadriculado é uma estratégia eficaz para identificar primos.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA06",
+    "whatStudentDoes": "Resolve e elabora problemas que envolvam as ideias de múltiplo e de divisor.",
+    "commonErrors": [
+      { "code": "confunde-multiplo-divisor", "description": "Confunde múltiplo com divisor (3 é múltiplo de 9 vs 9 é múltiplo de 3)" },
+      { "code": "mmc-incorreto", "description": "Calcula o MMC pela soma em vez da decomposição em fatores primos" }
+    ],
+    "recommendedTypes": ["QUIZ", "AI_ACTIVITY"],
+    "ageNotes": "Usar problemas de cotidiano (balas divididas igualmente, encontro de ônibus) para contextualizar.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
     "skillCode": "EF06MA07",
     "whatStudentDoes": "Resolve operações com frações: soma, subtração, multiplicação e divisão, usando equivalência e representação em reta numérica.",
     "commonErrors": [
@@ -13,14 +85,322 @@
     "status": "DRAFT"
   },
   {
-    "skillCode": "EF06MA03",
-    "whatStudentDoes": "Resolve situações-problema com números inteiros positivos e negativos em contextos de temperatura, saldo bancário, altitude.",
+    "skillCode": "EF06MA08",
+    "whatStudentDoes": "Reconhece que números racionais positivos podem ser expressos em forma fracionária e decimal e estabelece relações entre elas.",
     "commonErrors": [
-      { "code": "sinal-multiplicacao", "description": "Erra a regra de sinais na multiplicação de negativos (neg × neg = pos)" },
-      { "code": "posicao-reta", "description": "Confunde posição de negativos na reta numérica" }
+      { "code": "nao-converte-decima", "description": "Não sabe converter fração em decimal dividindo numerador pelo denominador" },
+      { "code": "dizima-periodica", "description": "Confunde dízimas periódicas com decimais finitos" }
+    ],
+    "recommendedTypes": ["QUIZ"],
+    "ageNotes": "Calculadora pode ser usada para explorar a conversão e identificar padrões.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA09",
+    "whatStudentDoes": "Resolve e elabora problemas que envolvam o cálculo da fração de uma quantidade (resultado natural).",
+    "commonErrors": [
+      { "code": "opera-errado", "description": "Multiplica pelo denominador em vez de dividir (calcula 3/4 de 20 como 20×4=80)" },
+      { "code": "ignora-numerador", "description": "Divide pela denominador mas esquece de multiplicar pelo numerador" }
     ],
     "recommendedTypes": ["QUIZ", "AI_ACTIVITY"],
-    "ageNotes": "Use contextos reais (temperatura, saldo) antes de apresentar a reta numérica abstrata.",
+    "ageNotes": "Usar barras de frações físicas e problemas com objetos concretos (caixas de laranja, turmas).",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA10",
+    "whatStudentDoes": "Resolve e elabora problemas com adição ou subtração de racionais positivos na forma fracionária.",
+    "commonErrors": [
+      { "code": "denominadores-diferentes", "description": "Soma numeradores sem igualar os denominadores" },
+      { "code": "mmc-errado", "description": "Calcula o MMC incorretamente na busca pelo denominador comum" }
+    ],
+    "recommendedTypes": ["QUIZ", "AI_ACTIVITY"],
+    "ageNotes": "Representar em barras coloridas antes de operar numericamente.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA11",
+    "whatStudentDoes": "Resolve e elabora problemas com razões e taxas, incluindo escalas.",
+    "commonErrors": [
+      { "code": "inverte-razao", "description": "Inverte antecedente e consequente na razão (A:B vs B:A)" },
+      { "code": "escala-soma", "description": "Usa adição em vez de multiplicação para converter escala" }
+    ],
+    "recommendedTypes": ["QUIZ", "AI_ACTIVITY"],
+    "ageNotes": "Usar mapas e plantas baixas para contextualizar escala de forma significativa.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA12",
+    "whatStudentDoes": "Resolve e elabora problemas com proporção, incluindo divisão proporcional e porcentagem.",
+    "commonErrors": [
+      { "code": "regra-tres-somando", "description": "Usa adição em vez de multiplicação cruzada na regra de três" },
+      { "code": "porcentagem-soma", "description": "Calcula 30% de 200 somando 30+200 em vez de multiplicar 200×0,30" }
+    ],
+    "recommendedTypes": ["QUIZ", "AI_ACTIVITY"],
+    "ageNotes": "Introduzir porcentagem com descontos e impostos reais antes de formalizar o algoritmo.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA13",
+    "whatStudentDoes": "Representa e localiza números inteiros no contexto de temperatura, saldo bancário, altitude acima/abaixo do nível do mar.",
+    "commonErrors": [
+      { "code": "negativo-menor", "description": "Diz que -10 é maior que -2 por ter módulo maior" },
+      { "code": "soma-sinais", "description": "(-3) + (-5) resulta em +8 (ignora os sinais)" }
+    ],
+    "recommendedTypes": ["QUIZ"],
+    "ageNotes": "Termômetros e elevadores são contextos concretos e motivadores para introduzir inteiros.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA14",
+    "whatStudentDoes": "Classifica e representa ângulos por meio de malhas e transportadores, distinguindo agudo, reto, obtuso e raso.",
+    "commonErrors": [
+      { "code": "transportador-base", "description": "Não alinha corretamente o lado do ângulo com a linha de base do transportador" },
+      { "code": "escala-errada", "description": "Lê a escala errada do transportador (180-α em vez de α)" }
+    ],
+    "recommendedTypes": ["QUIZ"],
+    "ageNotes": "Usar dobraduras e triângulos recortados antes de apresentar o transportador.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA15",
+    "whatStudentDoes": "Reconhece, denomina e compara polígonos considerando lados, ângulos e diagonais.",
+    "commonErrors": [
+      { "code": "diagonais", "description": "Confunde diagonal com lado ou mediana" },
+      { "code": "nome-poligono", "description": "Confunde hexágono com heptágono (conta errado os lados)" }
+    ],
+    "recommendedTypes": ["QUIZ"],
+    "ageNotes": "Geoboard e tangram facilitam a exploração das propriedades de forma cinestésica.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA16",
+    "whatStudentDoes": "Constrói malhas quadriculadas e representa polígonos com ângulos retos e não retos.",
+    "commonErrors": [
+      { "code": "angulo-na-malha", "description": "Não percebe que a diagonal em malha quadriculada não tem ângulo reto com os eixos" }
+    ],
+    "recommendedTypes": ["QUIZ", "WRITTEN"],
+    "ageNotes": "Usar papel quadriculado impresso para atividades de construção.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA17",
+    "whatStudentDoes": "Quantifica e ordena volumes usando unidades de medida padronizadas, reconhecendo que objetos de mesmo volume podem ter formas diferentes.",
+    "commonErrors": [
+      { "code": "volume-por-aparencia", "description": "Julga que objeto mais alto tem maior volume independente da largura" },
+      { "code": "confunde-vol-area", "description": "Confunde área de superfície com volume do sólido" }
+    ],
+    "recommendedTypes": ["QUIZ"],
+    "ageNotes": "Usar copos graduados e blocos de madeira para criar conservação do volume.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA18",
+    "whatStudentDoes": "Interpreta e usa escalas em mapas, plantas e maquetes, realizando conversões.",
+    "commonErrors": [
+      { "code": "escala-adicao", "description": "Soma o valor da escala em vez de multiplicar (1:100 → mede 5 cm, diz 5+100=105 m)" },
+      { "code": "inverte-escala", "description": "Multiplica quando deve dividir na conversão inversa" }
+    ],
+    "recommendedTypes": ["QUIZ", "AI_ACTIVITY"],
+    "ageNotes": "Plantas baixas de escolas e plantas do próprio bairro tornam o contexto significativo.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA19",
+    "whatStudentDoes": "Determina a área de retângulos e triângulos mediante composição e decomposição em retângulos, calculando com fórmulas.",
+    "commonErrors": [
+      { "code": "altura-triangulo", "description": "Usa o lado oblíquo em vez da altura perpendicular para calcular a área do triângulo" },
+      { "code": "esquece-dividir-2", "description": "Calcula base×altura sem dividir por 2 na área do triângulo" }
+    ],
+    "recommendedTypes": ["QUIZ", "AI_ACTIVITY"],
+    "ageNotes": "Usar papel quadriculado e recorte para mostrar que o triângulo é metade do retângulo.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA20",
+    "whatStudentDoes": "Determina a área de figuras planas formadas pela composição e decomposição de retângulos e triângulos.",
+    "commonErrors": [
+      { "code": "sobreposicao", "description": "Soma áreas de partes sobrepostas em vez de subtrair" },
+      { "code": "esquece-parte", "description": "Divide a figura mas omite uma das partes no cálculo total" }
+    ],
+    "recommendedTypes": ["QUIZ"],
+    "ageNotes": "Colorir cada parte com cor diferente antes de calcular evita confusão de limites.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA21",
+    "whatStudentDoes": "Determina medidas de figuras planas pela composição e decomposição em figuras simples.",
+    "commonErrors": [
+      { "code": "perimetro-area", "description": "Confunde a fórmula de perímetro com a de área" },
+      { "code": "lado-faltante", "description": "Omite um lado ao somar o perímetro de figuras irregulares" }
+    ],
+    "recommendedTypes": ["QUIZ"],
+    "ageNotes": "Percorrer o contorno da figura com o dedo antes de medir cada lado.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA22",
+    "whatStudentDoes": "Utiliza coordenadas cartesianas para representar e localizar pontos no plano, relacionando geometria analítica e álgebra.",
+    "commonErrors": [
+      { "code": "inverte-xy", "description": "Lê (y, x) em vez de (x, y) ao plotar ou identificar pontos" },
+      { "code": "quadrante-negativo", "description": "Não sabe posicionar pontos em quadrantes com coordenadas negativas" }
+    ],
+    "recommendedTypes": ["QUIZ"],
+    "ageNotes": "O jogo de batalha naval é uma ótima introdução lúdica às coordenadas.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA23",
+    "whatStudentDoes": "Constrói e interpreta tabelas de dupla entrada para organizar dados de pesquisa de campo.",
+    "commonErrors": [
+      { "code": "total-duplo", "description": "Conta o mesmo elemento duas vezes ao preencher os totais da tabela" },
+      { "code": "leitura-linha", "description": "Confunde leitura por linha e por coluna ao comparar categorias" }
+    ],
+    "recommendedTypes": ["QUIZ", "WRITTEN"],
+    "ageNotes": "Partir de dados coletados pela própria turma torna a tabela mais significativa.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA24",
+    "whatStudentDoes": "Coleta, classifica, organiza e representa dados qualitativos (nominais e ordinais) e quantitativos (discretos).",
+    "commonErrors": [
+      { "code": "tipo-dado", "description": "Classifica dado ordinal (nota baixa/alta) como nominal" },
+      { "code": "eixo-y-zero", "description": "Começa o eixo y em valor diferente de zero sem indicar corte, distorcendo o gráfico" }
+    ],
+    "recommendedTypes": ["QUIZ", "WRITTEN"],
+    "ageNotes": "Pesquisa real da turma (cor favorita, esporte) motiva a coleta e classificação.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA25",
+    "whatStudentDoes": "Interpreta e constrói gráficos de colunas, barras e setores, considerando título, escala e rótulos.",
+    "commonErrors": [
+      { "code": "grafico-setor", "description": "Divide o círculo em partes iguais independente dos percentuais" },
+      { "code": "escala-uniforme", "description": "Usa intervalos irregulares no eixo de frequência" }
+    ],
+    "recommendedTypes": ["QUIZ", "WRITTEN"],
+    "ageNotes": "Comparar gráficos de jornais com os produzidos pelos alunos estimula olhar crítico.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA26",
+    "whatStudentDoes": "Calcula média aritmética de um conjunto de dados e interpreta o resultado no contexto.",
+    "commonErrors": [
+      { "code": "nao-divide", "description": "Soma todos os valores mas não divide pelo número de elementos" },
+      { "code": "media-moda", "description": "Confunde média com moda (valor mais frequente)" }
+    ],
+    "recommendedTypes": ["QUIZ", "AI_ACTIVITY"],
+    "ageNotes": "Calcular a média das notas da turma em brincadeiras ou da temperatura semanal motiva o cálculo.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA27",
+    "whatStudentDoes": "Compreende e usa a linguagem algébrica para representar variações e regularidades em sequências numéricas.",
+    "commonErrors": [
+      { "code": "letra-numero", "description": "Interpreta a letra como um número fixo e não como variável" },
+      { "code": "termo-geral", "description": "Não generaliza o padrão da sequência, apenas continua numericamente" }
+    ],
+    "recommendedTypes": ["QUIZ", "WRITTEN"],
+    "ageNotes": "Usar padrões visuais (sequências de quadradinhos, palitos) facilita a percepção do termo geral.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA28",
+    "whatStudentDoes": "Resolve e cria problemas que envolvem a partição e a composição de figuras geométricas planas.",
+    "commonErrors": [
+      { "code": "sobreposicao-area", "description": "Soma áreas de partes sem considerar regiões sobrepostas" }
+    ],
+    "recommendedTypes": ["QUIZ"],
+    "ageNotes": "Tangram e recortes em papel são excelentes para trabalhar composição e decomposição.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA29",
+    "whatStudentDoes": "Verifica, por meio de composição e decomposição, que a soma dos ângulos internos de qualquer triângulo é 180°.",
+    "commonErrors": [
+      { "code": "soma-180-retangulo", "description": "Confunde a soma dos ângulos de triângulo (180°) com a de quadrilátero (360°)" },
+      { "code": "angulo-externo", "description": "Usa ângulo externo em vez do ângulo interno na verificação" }
+    ],
+    "recommendedTypes": ["QUIZ"],
+    "ageNotes": "Recortar os ângulos de um triângulo e juntá-los é uma demonstração manipulativa eficaz.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA30",
+    "whatStudentDoes": "Resolve e elabora problemas de cálculo de comprimento e de área envolvendo figuras planas compostas (por justaposição ou recorte).",
+    "commonErrors": [
+      { "code": "perimetro-interno", "description": "Inclui lados internos (fronteiras entre partes) no cálculo do perímetro total" }
+    ],
+    "recommendedTypes": ["QUIZ"],
+    "ageNotes": "Plantar canteiros e calcular cercas em contexto de horta escolar é um problema motivador.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA31",
+    "whatStudentDoes": "Construir e interpretar gráficos de linhas para representar variação de grandezas em situações reais.",
+    "commonErrors": [
+      { "code": "liga-pontos", "description": "Liga pontos de categorias discretas com linha (tipo gráfico errado)" },
+      { "code": "interpola", "description": "Interpola valores entre pontos como se a variação fosse linear sem analisar contexto" }
+    ],
+    "recommendedTypes": ["QUIZ"],
+    "ageNotes": "Temperatura ao longo da semana é um contexto ideal para gráfico de linhas.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA32",
+    "whatStudentDoes": "Esboça e interpreta planta baixa de ambiente da escola a partir de vista superior.",
+    "commonErrors": [
+      { "code": "perspectiva", "description": "Desenha em perspectiva em vez de vista superior plana" },
+      { "code": "sem-escala", "description": "Não mantém proporção entre os ambientes ao esboçar a planta" }
+    ],
+    "recommendedTypes": ["WRITTEN"],
+    "ageNotes": "Fotografar o espaço de cima (drones, Google Maps) ajuda a compreender a vista superior.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA33",
+    "whatStudentDoes": "Reconhecer as notações decimais para números racionais e as representações em forma de fração, comparando-as.",
+    "commonErrors": [
+      { "code": "decimal-frac", "description": "Não sabe que 0,5 = 1/2 e trata os formatos como diferentes sem relação" }
+    ],
+    "recommendedTypes": ["QUIZ"],
+    "ageNotes": "Usar calculadora para verificar a divisão e encontrar a forma decimal de diversas frações.",
+    "source": "SPEAKFLOW",
+    "status": "DRAFT"
+  },
+  {
+    "skillCode": "EF06MA34",
+    "whatStudentDoes": "Resolver e elaborar problemas com números racionais positivos na representação decimal, incluindo situações cotidianas.",
+    "commonErrors": [
+      { "code": "virgula-errada", "description": "Erra o alinhamento da vírgula na adição/subtração de decimais com diferente número de casas" },
+      { "code": "multiplica-decimal", "description": "Multiplica corretamente mas erra a posição da vírgula no resultado" }
+    ],
+    "recommendedTypes": ["QUIZ", "AI_ACTIVITY"],
+    "ageNotes": "Usar preços de produtos reais torna as operações com decimais contextualizadas e significativas.",
     "source": "SPEAKFLOW",
     "status": "DRAFT"
   }

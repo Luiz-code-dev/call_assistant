@@ -91,6 +91,16 @@ export default async function ProfessorPage() {
     );
   } catch (err) { console.error("[professor/page] alertas query:", err); alertas = []; studentNameMap = {}; trackTitleMap = {}; }
 
+  // ── Sugestões de trilha (TRACK_SUGGESTION pendentes) ─────────────
+  let sugestoesPendentes = 0;
+  try {
+    if (ctx.role === "TEACHER") {
+      sugestoesPendentes = await p.eduTeacherAlert.count({
+        where: { networkId: ctx.networkId, teacherUserId: ctx.userId, type: "TRACK_SUGGESTION", status: "PENDING" },
+      });
+    }
+  } catch (err) { console.error("[professor/page] sugestoes query:", err); sugestoesPendentes = 0; }
+
   const TYPE_LABEL: Record<string, string> = {
     TRACK_COMPLETED: "concluiu a trilha",
     STUDENT_STUCK:   "está travado em",
@@ -98,6 +108,23 @@ export default async function ProfessorPage() {
   };
   return (
     <div className="p-4 md:p-6 lg:p-8 max-w-5xl mx-auto">
+      {/* Sugestões de trilha (TRACK_SUGGESTION pendentes) — R7/L5 */}
+      {sugestoesPendentes > 0 && (
+        <div className="mb-4 bg-[#EDE9FE] border border-[#C4B5FD] rounded-xl p-4 flex items-center gap-4 flex-wrap">
+          <div className="flex-1">
+            <p className="font-semibold text-[#4C1D95] text-sm">
+              {sugestoesPendentes} sugestão{sugestoesPendentes !== 1 ? "ões" : ""} de trilha aguardando
+            </p>
+            <p className="text-xs text-[#5B5470] mt-0.5">O diagnóstico identificou alunos que precisam de reforço.</p>
+          </div>
+          <form action="/api/escola/professor/sugestoes/aceitar" method="POST" className="inline">
+            <input type="hidden" name="action" value="aceitar_todos" />
+            <button type="submit" className="px-4 py-2 bg-[#6D28D9] text-white text-sm font-semibold rounded-xl hover:bg-[#5B21B6] min-h-[44px]">
+              Atribuir a todos
+            </button>
+          </form>
+        </div>
+      )}
       {/* Alertas */}
       {alertas.length > 0 && (
         <div className="mb-6 bg-[#FEF3C7] border border-yellow-200 rounded-xl p-4 space-y-2">

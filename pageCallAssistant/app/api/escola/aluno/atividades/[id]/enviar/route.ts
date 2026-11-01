@@ -6,6 +6,7 @@ import { gradeQuiz } from "@/lib/escola/ai-gateway";
 import { uploadAudio, isAudioStorageConfigured } from "@/lib/escola/audio-store";
 import { getOpenAI } from "@/lib/openai";
 import { subjectToWhisperLang, stageToAgeGroup } from "@/lib/escola/subject-lang";
+import { recordMasteryEvent, extractMisconceptionCodes } from "@/lib/escola/mastery-event";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -161,6 +162,8 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
       const result = gradeQuiz(activity.questions, answers, Number(activity.maxScore));
       const idx = (qid: string) =>
         activity.questions.findIndex((q: { id: string }) => q.id === qid) + 1;
+      // Extrai misconceptionCodes das respostas erradas (sem enviar ao navegador)
+      const misconceptions = extractMisconceptionCodes(activity.questions, answers);
       const feedback = {
         score: result.score,
         porCriterio: [] as unknown[],
@@ -169,10 +172,35 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
         exemplo: "",
         quizDetail: result.perQuestion,
       };
+      // gradeQuiz retorna pontos escalados por maxScore (não fração) — normalizar antes de comparar
+      const maxScore = Number(activity.maxScore) || 10;
+      const scoreFrac = result.score / maxScore;
+      const masteryLevel = scoreFrac >= 0.7 ? "MASTERED" : scoreFrac >= 0.4 ? "ALMOST" : "NOT_YET";
       await (prismaEdu as any).eduSubmission.update({
         where: { id: submission.id },
-        data: { status: "EVALUATED", aiScore: result.score, aiFeedback: feedback, evaluatedAt: new Date(), aiStatus: "DONE" },
+        data: {
+          status: "EVALUATED",
+          aiScore: result.score,
+          aiFeedback: { ...feedback, misconceptions: Object.keys(misconceptions).length ? misconceptions : {} },
+          evaluatedAt: new Date(),
+          aiStatus: "DONE",
+          masteryLevel,
+        },
       });
+      // Grava evento de domínio (CLASS_ACTIVITY se tiver lessonId, senão TRACK)
+      const source = activity.lessonId ? "CLASS_ACTIVITY" : "TRACK";
+      // Grava por cada skillId ligado à atividade
+      const skillIds: string[] = Array.isArray(activity.skillIds) ? activity.skillIds : [];
+      for (const skillId of skillIds) {
+        await recordMasteryEvent({
+          networkId: ctx.networkId,
+          studentId: ctx.studentId,
+          skillId,
+          level: masteryLevel as "NOT_YET" | "ALMOST" | "MASTERED",
+          source,
+          submissionId: submission.id,
+        }).catch(() => null); // não falha o fluxo
+      }
     } catch { /* mantém SUBMITTED */ }
   }
   // WRITTEN/SPOKEN: avaliação IA via cron (B8) — aiStatus=PENDING já gravado

@@ -1,0 +1,383 @@
+[
+  {
+    "skillCode": "EF06MA01",
+    "title": "Trilha: Números Naturais e Racionais (EF06MA01)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA01-A1", "step": "relembrar", "title": "Relembrar: o que é um número racional?", "type": "QUIZ", "prompt": "Demonstração — aguarda revisão pedagógica. Relacione os conceitos de números naturais e racionais.", "estMinutes": 5, "questions": [{ "question": "Qual destas representações é um número racional?", "options": [{ "text": "1/2" }, { "text": "√2", "misconceptionCode": "irracional-e-racional" }, { "text": "∞", "misconceptionCode": "infinito-e-numero" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA01-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: ordenando racionais", "type": "WRITTEN", "prompt": "Demonstração — aguarda revisão pedagógica. Ordene os números 0,5 / 1/4 / 0,75 do menor para o maior.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA01-A3", "step": "praticar", "title": "Praticar: comparando frações e decimais", "type": "QUIZ", "prompt": "Demonstração — aguarda revisão pedagógica. Compare os pares de números.", "estMinutes": 5, "questions": [{ "question": "Qual é maior: 2/3 ou 0,5?", "options": [{ "text": "2/3" }, { "text": "0,5", "misconceptionCode": "compara-decimal-sem-converter" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA01-A4", "step": "aplicar", "title": "Aplicar: reta numérica com racionais", "type": "WRITTEN", "prompt": "Demonstração — aguarda revisão pedagógica. Coloque os números 1/2, 3/4 e 0,25 na reta numérica.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA01-A5", "step": "explicar", "title": "Explicar: diferença entre racionais e naturais", "type": "SPOKEN", "prompt": "Demonstração — aguarda revisão pedagógica. Explique com suas palavras o que são números racionais.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA07",
+    "title": "Trilha: Frações e Operações (EF06MA07)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA07-A1", "step": "relembrar", "title": "Relembrar: o que é uma fração?", "type": "QUIZ", "prompt": "Demonstração — aguarda revisão pedagógica. Uma fração representa uma parte de um todo.", "estMinutes": 5, "questions": [{ "question": "O que significa 1/4?", "options": [{ "text": "Uma parte de quatro iguais" }, { "text": "Quatro partes de um", "misconceptionCode": "inverte-numerador-denominador" }, { "text": "Um mais quatro", "misconceptionCode": "soma-em-vez-de-divisao" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA07-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: somando frações com mesmo denominador", "type": "WRITTEN", "prompt": "Demonstração — aguarda revisão pedagógica. Para somar 1/5 + 2/5, mantenha o denominador e some os numeradores.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA07-A3", "step": "praticar", "title": "Praticar: soma de frações", "type": "QUIZ", "prompt": "Demonstração — aguarda revisão pedagógica. Inclui o erro comum 2/5 em 1/2 + 1/3.", "estMinutes": 5, "questions": [
+        { "question": "Quanto é 1/2 + 1/3?", "options": [
+          { "text": "5/6" },
+          { "text": "2/5", "misconceptionCode": "soma-num-e-den-separado" },
+          { "text": "2/6", "misconceptionCode": "mantém-denominador-diferente" },
+          { "text": "1/6", "misconceptionCode": "subtrai-em-vez-de-somar" }
+        ], "correctIndex": 0 }
+      ] },
+      { "id": "SF-MA-06-EF06MA07-A4", "step": "aplicar", "title": "Aplicar: frações no cotidiano", "type": "WRITTEN", "prompt": "Demonstração — aguarda revisão pedagógica. Maria comeu 1/3 de uma pizza e João comeu 1/4. Quanto comeram juntos?", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA07-A5", "step": "explicar", "title": "Explicar: por que preciso de denominador comum?", "type": "SPOKEN", "prompt": "Demonstração — aguarda revisão pedagógica. Explique por que não podemos somar 1/2 + 1/3 somando numeradores e denominadores separadamente.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA02",
+    "title": "Trilha: Divisibilidade (EF06MA02)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA02-A1", "step": "relembrar", "title": "Relembrar: múltiplos e divisores", "type": "QUIZ", "prompt": "Demonstração — aguarda revisão pedagógica.", "estMinutes": 5, "questions": [{ "question": "6 é múltiplo de 3?", "options": [{ "text": "Sim" }, { "text": "Não", "misconceptionCode": "confunde-multiplo-divisor" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA02-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: critérios de divisibilidade", "type": "WRITTEN", "prompt": "Demonstração — aguarda revisão pedagógica.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA02-A3", "step": "praticar", "title": "Praticar: divisibilidade", "type": "QUIZ", "prompt": "Demonstração — aguarda revisão pedagógica.", "estMinutes": 5, "questions": [{ "question": "126 é divisível por 6?", "options": [{ "text": "Sim" }, { "text": "Não", "misconceptionCode": "nao-aplica-criterio" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA02-A4", "step": "aplicar", "title": "Aplicar: MMC e MDC", "type": "WRITTEN", "prompt": "Demonstração — aguarda revisão pedagógica.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA02-A5", "step": "explicar", "title": "Explicar: divisibilidade com palavras", "type": "SPOKEN", "prompt": "Demonstração — aguarda revisão pedagógica.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA03",
+    "title": "Trilha: Números Inteiros (EF06MA03)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA03-A1", "step": "relembrar", "title": "Relembrar: números negativos", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "-3 é menor que 0?", "options": [{ "text": "Sim" }, { "text": "Não", "misconceptionCode": "nega-numeros-negativos" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA03-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: reta numérica com inteiros", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA03-A3", "step": "praticar", "title": "Praticar: operações com inteiros", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "-2 + 5 = ?", "options": [{ "text": "3" }, { "text": "-7", "misconceptionCode": "soma-modulos-negativos" }, { "text": "7", "misconceptionCode": "ignora-sinal" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA03-A4", "step": "aplicar", "title": "Aplicar: temperatura e inteiros", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA03-A5", "step": "explicar", "title": "Explicar: inteiros no dia a dia", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA04",
+    "title": "Trilha: Potenciação e Radiciação (EF06MA04)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA04-A1", "step": "relembrar", "title": "Relembrar: quadrados e cubos perfeitos", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "2³ = ?", "options": [{ "text": "8" }, { "text": "6", "misconceptionCode": "multiplica-base-por-expoente" }, { "text": "9", "misconceptionCode": "confunde-quadrado-cubo" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA04-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: propriedades da potenciação", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA04-A3", "step": "praticar", "title": "Praticar: potenciação", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "3² × 3³ = ?", "options": [{ "text": "3⁵ = 243" }, { "text": "9⁵", "misconceptionCode": "eleva-base-tb" }, { "text": "3⁶", "misconceptionCode": "multiplica-expoentes" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA04-A4", "step": "aplicar", "title": "Aplicar: área e potências", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA04-A5", "step": "explicar", "title": "Explicar: diferença entre multiplicação e potência", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA05",
+    "title": "Trilha: Múltiplos, Divisores, MMC, MDC (EF06MA05)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA05-A1", "step": "relembrar", "title": "Relembrar: MMC e MDC", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "MDC(12,8) = ?", "options": [{ "text": "4" }, { "text": "24", "misconceptionCode": "confunde-mmc-mdc" }, { "text": "2", "misconceptionCode": "calcula-errado" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA05-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: fatoração", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA05-A3", "step": "praticar", "title": "Praticar: MMC e MDC", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "MMC(4,6) = ?", "options": [{ "text": "12" }, { "text": "2", "misconceptionCode": "confunde-mmc-mdc" }, { "text": "24", "misconceptionCode": "multiplica-em-vez-de-mmc" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA05-A4", "step": "aplicar", "title": "Aplicar: problemas de MMC", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA05-A5", "step": "explicar", "title": "Explicar: quando usar MMC vs MDC", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA06",
+    "title": "Trilha: Frações Equivalentes (EF06MA06)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA06-A1", "step": "relembrar", "title": "Relembrar: frações equivalentes", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "1/2 é equivalente a 2/4?", "options": [{ "text": "Sim" }, { "text": "Não", "misconceptionCode": "nao-reconhece-equivalencia" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA06-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: simplificando frações", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA06-A3", "step": "praticar", "title": "Praticar: simplificar frações", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "6/8 simplificado = ?", "options": [{ "text": "3/4" }, { "text": "2/3", "misconceptionCode": "divide-errado" }, { "text": "6/8", "misconceptionCode": "nao-simplifica" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA06-A4", "step": "aplicar", "title": "Aplicar: frações em problemas", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA06-A5", "step": "explicar", "title": "Explicar: por que simplificar?", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA08",
+    "title": "Trilha: Porcentagem (EF06MA08)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA08-A1", "step": "relembrar", "title": "Relembrar: porcentagem como fração de 100", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "50% equivale a qual fração?", "options": [{ "text": "1/2" }, { "text": "1/5", "misconceptionCode": "divide-por-10-em-vez-100" }, { "text": "5/10", "misconceptionCode": "nao-simplifica-porcento" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA08-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: calcular 30% de 200", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA08-A3", "step": "praticar", "title": "Praticar: porcentagem", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "25% de 80 = ?", "options": [{ "text": "20" }, { "text": "25", "misconceptionCode": "confunde-porcentagem-com-valor" }, { "text": "40", "misconceptionCode": "divide-por-errado" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA08-A4", "step": "aplicar", "title": "Aplicar: desconto e aumento", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA08-A5", "step": "explicar", "title": "Explicar: porcentagem no cotidiano", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA09",
+    "title": "Trilha: Razão e Proporção (EF06MA09)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA09-A1", "step": "relembrar", "title": "Relembrar: razão", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "A razão de 6 para 3 é?", "options": [{ "text": "2" }, { "text": "3", "misconceptionCode": "subtrai-em-vez-dividir" }, { "text": "18", "misconceptionCode": "multiplica-em-vez-dividir" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA09-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: grandezas proporcionais", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA09-A3", "step": "praticar", "title": "Praticar: regra de três", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Se 3 cadernos custam R$15, quanto custam 5?", "options": [{ "text": "R$25" }, { "text": "R$20", "misconceptionCode": "soma-diferenca-proporcao" }, { "text": "R$30", "misconceptionCode": "multiplica-direto" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA09-A4", "step": "aplicar", "title": "Aplicar: escala e mapas", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA09-A5", "step": "explicar", "title": "Explicar: proporção em problemas reais", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA10",
+    "title": "Trilha: Plano Cartesiano (EF06MA10)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA10-A1", "step": "relembrar", "title": "Relembrar: eixos e quadrantes", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "O ponto (3,-2) está em qual quadrante?", "options": [{ "text": "IV" }, { "text": "II", "misconceptionCode": "inverte-quadrantes" }, { "text": "I", "misconceptionCode": "ignora-sinal-negativo" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA10-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: plotar pontos", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA10-A3", "step": "praticar", "title": "Praticar: coordenadas cartesianas", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Qual o ponto na origem?", "options": [{ "text": "(0,0)" }, { "text": "(1,0)", "misconceptionCode": "desloca-origem" }, { "text": "(0,1)", "misconceptionCode": "inverte-eixos" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA10-A4", "step": "aplicar", "title": "Aplicar: localização e trajetória", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA10-A5", "step": "explicar", "title": "Explicar: para que serve o plano cartesiano", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA11",
+    "title": "Trilha: Expressões Algébricas (EF06MA11)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA11-A1", "step": "relembrar", "title": "Relembrar: variáveis e expressões", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Em 2x + 3, se x=4, o resultado é?", "options": [{ "text": "11" }, { "text": "14", "misconceptionCode": "soma-coef-e-variavel" }, { "text": "9", "misconceptionCode": "ignora-coeficiente" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA11-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: simplificar termos semelhantes", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA11-A3", "step": "praticar", "title": "Praticar: expressões algébricas", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "3x + 2x = ?", "options": [{ "text": "5x" }, { "text": "5x²", "misconceptionCode": "eleva-expoente-ao-somar" }, { "text": "6x", "misconceptionCode": "multiplica-em-vez-somar" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA11-A4", "step": "aplicar", "title": "Aplicar: modelar situações com álgebra", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA11-A5", "step": "explicar", "title": "Explicar: o que é uma variável", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA12",
+    "title": "Trilha: Equações do 1º Grau (EF06MA12)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA12-A1", "step": "relembrar", "title": "Relembrar: balancear equações", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "x + 5 = 12 → x = ?", "options": [{ "text": "7" }, { "text": "17", "misconceptionCode": "soma-em-vez-subtrair" }, { "text": "60", "misconceptionCode": "multiplica-em-vez-subtrair" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA12-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: resolver equação passo a passo", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA12-A3", "step": "praticar", "title": "Praticar: equações do 1º grau", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "2x = 10 → x = ?", "options": [{ "text": "5" }, { "text": "20", "misconceptionCode": "multiplica-em-vez-dividir" }, { "text": "8", "misconceptionCode": "subtrai-em-vez-dividir" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA12-A4", "step": "aplicar", "title": "Aplicar: equações em problemas", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA12-A5", "step": "explicar", "title": "Explicar: estratégia de resolução de equação", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA13",
+    "title": "Trilha: Inequações (EF06MA13)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA13-A1", "step": "relembrar", "title": "Relembrar: símbolos de desigualdade", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "x > 3 inclui x = 3?", "options": [{ "text": "Não" }, { "text": "Sim", "misconceptionCode": "confunde-maior-maior-igual" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA13-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: resolver inequação", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA13-A3", "step": "praticar", "title": "Praticar: inequações", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "x + 2 > 5 → x > ?", "options": [{ "text": "3" }, { "text": "7", "misconceptionCode": "soma-em-vez-subtrair" }, { "text": "2", "misconceptionCode": "nao-isola-variavel" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA13-A4", "step": "aplicar", "title": "Aplicar: inequações em situações reais", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA13-A5", "step": "explicar", "title": "Explicar: diferença entre equação e inequação", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA14",
+    "title": "Trilha: Ângulos (EF06MA14)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA14-A1", "step": "relembrar", "title": "Relembrar: tipos de ângulos", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Um ângulo de 90° é chamado de?", "options": [{ "text": "Reto" }, { "text": "Agudo", "misconceptionCode": "confunde-reto-agudo" }, { "text": "Obtuso", "misconceptionCode": "confunde-reto-obtuso" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA14-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: medir ângulos com transferidor", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA14-A3", "step": "praticar", "title": "Praticar: ângulos suplementares e complementares", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Se um ângulo é 70°, seu complementar é?", "options": [{ "text": "20°" }, { "text": "110°", "misconceptionCode": "usa-suplementar-em-vez-complementar" }, { "text": "290°", "misconceptionCode": "subtrai-de-360" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA14-A4", "step": "aplicar", "title": "Aplicar: ângulos em polígonos", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA14-A5", "step": "explicar", "title": "Explicar: onde ângulos aparecem no dia a dia", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA15",
+    "title": "Trilha: Triângulos e Polígonos (EF06MA15)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA15-A1", "step": "relembrar", "title": "Relembrar: classificação de triângulos", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Um triângulo com todos os lados iguais é?", "options": [{ "text": "Equilátero" }, { "text": "Isósceles", "misconceptionCode": "confunde-equilatero-isosceles" }, { "text": "Escaleno", "misconceptionCode": "confunde-equilatero-escaleno" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA15-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: soma dos ângulos internos", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA15-A3", "step": "praticar", "title": "Praticar: polígonos regulares", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "A soma dos ângulos internos de um triângulo é?", "options": [{ "text": "180°" }, { "text": "360°", "misconceptionCode": "usa-soma-quadrilatero" }, { "text": "270°", "misconceptionCode": "calcula-errado" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA15-A4", "step": "aplicar", "title": "Aplicar: polígonos em plantas baixas", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA15-A5", "step": "explicar", "title": "Explicar: diferença entre polígono regular e irregular", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA16",
+    "title": "Trilha: Circunferência e Círculo (EF06MA16)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA16-A1", "step": "relembrar", "title": "Relembrar: raio, diâmetro e circunferência", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "O diâmetro é o dobro do?", "options": [{ "text": "Raio" }, { "text": "Arco", "misconceptionCode": "confunde-diametro-arco" }, { "text": "Perímetro", "misconceptionCode": "confunde-diametro-perimetro" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA16-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: calcular π×d", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA16-A3", "step": "praticar", "title": "Praticar: perímetro e área do círculo", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "A área do círculo usa qual fórmula?", "options": [{ "text": "π × r²" }, { "text": "2 × π × r", "misconceptionCode": "usa-perimetro-em-vez-area" }, { "text": "π × d", "misconceptionCode": "usa-diametro-sem-quadrado" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA16-A4", "step": "aplicar", "title": "Aplicar: área de piscinas e tampas circulares", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA16-A5", "step": "explicar", "title": "Explicar: diferença entre circunferência e círculo", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA17",
+    "title": "Trilha: Área de Polígonos (EF06MA17)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA17-A1", "step": "relembrar", "title": "Relembrar: área de retângulo e quadrado", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Área do retângulo 4×6 = ?", "options": [{ "text": "24" }, { "text": "20", "misconceptionCode": "calcula-perimetro-em-vez-area" }, { "text": "10", "misconceptionCode": "soma-lados-em-vez-multiplicar" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA17-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: área do triângulo", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA17-A3", "step": "praticar", "title": "Praticar: áreas de figuras planas", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Área do triângulo com base 6 e altura 4 = ?", "options": [{ "text": "12" }, { "text": "24", "misconceptionCode": "nao-divide-por-2" }, { "text": "10", "misconceptionCode": "soma-base-altura" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA17-A4", "step": "aplicar", "title": "Aplicar: calcular área de ambientes", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA17-A5", "step": "explicar", "title": "Explicar: por que dividir por 2 na área do triângulo", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA18",
+    "title": "Trilha: Volume (EF06MA18)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA18-A1", "step": "relembrar", "title": "Relembrar: cubo e paralelepípedo", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Volume do cubo com aresta 3 cm = ?", "options": [{ "text": "27 cm³" }, { "text": "9 cm³", "misconceptionCode": "usa-area-em-vez-volume" }, { "text": "18 cm³", "misconceptionCode": "multiplica-dois-lados-apenas" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA18-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: volume de paralelepípedo", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA18-A3", "step": "praticar", "title": "Praticar: volume", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Volume de caixa 5×4×3 = ?", "options": [{ "text": "60 cm³" }, { "text": "47 cm³", "misconceptionCode": "soma-em-vez-multiplicar" }, { "text": "20 cm³", "misconceptionCode": "usa-area-da-base" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA18-A4", "step": "aplicar", "title": "Aplicar: capacidade de recipientes", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA18-A5", "step": "explicar", "title": "Explicar: diferença entre área e volume", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA19",
+    "title": "Trilha: Simetria (EF06MA19)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA19-A1", "step": "relembrar", "title": "Relembrar: eixo de simetria", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "O quadrado tem quantos eixos de simetria?", "options": [{ "text": "4" }, { "text": "2", "misconceptionCode": "conta-so-diagonais" }, { "text": "1", "misconceptionCode": "conta-so-vertical" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA19-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: refletir figuras", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA19-A3", "step": "praticar", "title": "Praticar: identificar simetria", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "A letra H tem eixo de simetria?", "options": [{ "text": "Sim, horizontal e vertical" }, { "text": "Não", "misconceptionCode": "nao-reconhece-simetria" }, { "text": "Só diagonal", "misconceptionCode": "confunde-eixos" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA19-A4", "step": "aplicar", "title": "Aplicar: simetria em logos e arte", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA19-A5", "step": "explicar", "title": "Explicar: simetria na natureza", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA20",
+    "title": "Trilha: Transformações Geométricas (EF06MA20)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA20-A1", "step": "relembrar", "title": "Relembrar: translação, rotação, reflexão", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Mover uma figura sem girar ou espelhar é?", "options": [{ "text": "Translação" }, { "text": "Rotação", "misconceptionCode": "confunde-translacao-rotacao" }, { "text": "Reflexão", "misconceptionCode": "confunde-translacao-reflexao" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA20-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: aplicar translação", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA20-A3", "step": "praticar", "title": "Praticar: identificar transformações", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Girar uma figura 90° é uma?", "options": [{ "text": "Rotação" }, { "text": "Reflexão", "misconceptionCode": "confunde-rotacao-reflexao" }, { "text": "Translação", "misconceptionCode": "confunde-rotacao-translacao" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA20-A4", "step": "aplicar", "title": "Aplicar: pavimentações e padrões", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA20-A5", "step": "explicar", "title": "Explicar: transformações em obras de arte", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA21",
+    "title": "Trilha: Estatística Básica (EF06MA21)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA21-A1", "step": "relembrar", "title": "Relembrar: tabelas e gráficos", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "O tipo de gráfico mais usado para comparar partes de um todo é?", "options": [{ "text": "Pizza" }, { "text": "Barras", "misconceptionCode": "usa-barras-para-partes" }, { "text": "Linhas", "misconceptionCode": "usa-linhas-para-partes" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA21-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: construir tabela de frequência", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA21-A3", "step": "praticar", "title": "Praticar: ler e interpretar gráficos", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Se 3 alunos vieram de ônibus e há 10 no total, qual a porcentagem?", "options": [{ "text": "30%" }, { "text": "3%", "misconceptionCode": "divide-errado" }, { "text": "70%", "misconceptionCode": "calcula-complemento" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA21-A4", "step": "aplicar", "title": "Aplicar: pesquisa de preferências da turma", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA21-A5", "step": "explicar", "title": "Explicar: como escolher o gráfico certo", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA22",
+    "title": "Trilha: Média, Moda e Mediana (EF06MA22)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA22-A1", "step": "relembrar", "title": "Relembrar: o que é média aritmética", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Média de 4, 6 e 8 = ?", "options": [{ "text": "6" }, { "text": "8", "misconceptionCode": "pega-maior-valor" }, { "text": "18", "misconceptionCode": "soma-sem-dividir" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA22-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: calcular moda e mediana", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA22-A3", "step": "praticar", "title": "Praticar: média, moda e mediana", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Moda de: 3, 5, 3, 7, 3 = ?", "options": [{ "text": "3" }, { "text": "5", "misconceptionCode": "usa-mediana" }, { "text": "4,2", "misconceptionCode": "calcula-media" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA22-A4", "step": "aplicar", "title": "Aplicar: médias em notas escolares", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA22-A5", "step": "explicar", "title": "Explicar: quando usar cada medida de tendência central", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA23",
+    "title": "Trilha: Probabilidade Básica (EF06MA23)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA23-A1", "step": "relembrar", "title": "Relembrar: experimento aleatório", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Probabilidade de sair cara em uma moeda justa = ?", "options": [{ "text": "1/2" }, { "text": "1", "misconceptionCode": "certeza-em-evento-aleatorio" }, { "text": "0", "misconceptionCode": "impossibilidade-em-evento-possivel" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA23-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: espaço amostral", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA23-A3", "step": "praticar", "title": "Praticar: calcular probabilidades simples", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Dado de 6 faces: probabilidade de sair 3 = ?", "options": [{ "text": "1/6" }, { "text": "1/3", "misconceptionCode": "divide-por-3-em-vez-6" }, { "text": "3/6", "misconceptionCode": "usa-numero-como-numerador" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA23-A4", "step": "aplicar", "title": "Aplicar: jogos e chances", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA23-A5", "step": "explicar", "title": "Explicar: o que significa probabilidade 0 e 1", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA24",
+    "title": "Trilha: Leitura de Gráficos Complexos (EF06MA24)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA24-A1", "step": "relembrar", "title": "Relembrar: gráfico de dupla entrada", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Qual gráfico compara evolução ao longo do tempo?", "options": [{ "text": "Linhas" }, { "text": "Pizza", "misconceptionCode": "usa-pizza-para-evolucao" }, { "text": "Barras horizontais", "misconceptionCode": "confunde-tipo-de-grafico" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA24-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: interpretar gráfico de temperatura", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA24-A3", "step": "praticar", "title": "Praticar: extrair informações de gráficos", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Em qual mês houve maior aumento? (dado um gráfico hipotético)", "options": [{ "text": "Março" }, { "text": "Janeiro", "misconceptionCode": "lê-valor-absoluto-em-vez-variacao" }, { "text": "Dezembro", "misconceptionCode": "pega-valor-maximo" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA24-A4", "step": "aplicar", "title": "Aplicar: criar gráfico de pesquisa", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA24-A5", "step": "explicar", "title": "Explicar: como não enganar com gráficos", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA25",
+    "title": "Trilha: Sistema de Medidas (EF06MA25)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA25-A1", "step": "relembrar", "title": "Relembrar: unidades de comprimento", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "1 metro equivale a quantos centímetros?", "options": [{ "text": "100 cm" }, { "text": "10 cm", "misconceptionCode": "confunde-metro-decimetro" }, { "text": "1000 cm", "misconceptionCode": "confunde-metro-km" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA25-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: converter unidades", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA25-A3", "step": "praticar", "title": "Praticar: conversão de medidas", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "2,5 km = ? m", "options": [{ "text": "2500 m" }, { "text": "250 m", "misconceptionCode": "divide-por-10-em-vez-1000" }, { "text": "25000 m", "misconceptionCode": "multiplica-errado" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA25-A4", "step": "aplicar", "title": "Aplicar: perímetro e área com unidades", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA25-A5", "step": "explicar", "title": "Explicar: por que existem várias unidades", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA26",
+    "title": "Trilha: Grandezas Diretamente Proporcionais (EF06MA26)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA26-A1", "step": "relembrar", "title": "Relembrar: proporcionalidade direta", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Se a velocidade dobra, o tempo para o mesmo trajeto?", "options": [{ "text": "Cai pela metade" }, { "text": "Dobra", "misconceptionCode": "confunde-prop-direta-inversa" }, { "text": "Permanece o mesmo", "misconceptionCode": "nao-reconhece-proporcionalidade" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA26-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: regra de três simples", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA26-A3", "step": "praticar", "title": "Praticar: proporcionalidade direta", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "3 kg custam R$12. 7 kg custam?", "options": [{ "text": "R$28" }, { "text": "R$16", "misconceptionCode": "soma-em-vez-proporcionar" }, { "text": "R$84", "misconceptionCode": "multiplica-os-dois" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA26-A4", "step": "aplicar", "title": "Aplicar: orçamentos e receitas", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA26-A5", "step": "explicar", "title": "Explicar: diferença entre proporcional e linear", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA27",
+    "title": "Trilha: Grandezas Inversamente Proporcionais (EF06MA27)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA27-A1", "step": "relembrar", "title": "Relembrar: proporcionalidade inversa", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "4 operários fazem um muro em 6 dias. 8 operários fazem em?", "options": [{ "text": "3 dias" }, { "text": "12 dias", "misconceptionCode": "usa-proporcionalidade-direta" }, { "text": "2 dias", "misconceptionCode": "divide-errado" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA27-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: regra de três inversa", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA27-A3", "step": "praticar", "title": "Praticar: proporcionalidade inversa", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Como identificar que é inversamente proporcional?", "options": [{ "text": "Quando uma cresce a outra decresce" }, { "text": "Quando as duas crescem juntas", "misconceptionCode": "confunde-com-direta" }, { "text": "Quando uma é constante", "misconceptionCode": "confunde-com-constante" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA27-A4", "step": "aplicar", "title": "Aplicar: velocidade e tempo", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA27-A5", "step": "explicar", "title": "Explicar: exemplos do cotidiano", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA28",
+    "title": "Trilha: Representação Decimal de Frações (EF06MA28)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA28-A1", "step": "relembrar", "title": "Relembrar: fração → decimal", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "1/4 em decimal = ?", "options": [{ "text": "0,25" }, { "text": "0,4", "misconceptionCode": "inverte-numerador-denominador" }, { "text": "1,4", "misconceptionCode": "coloca-virgula-errado" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA28-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: dízimas periódicas", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA28-A3", "step": "praticar", "title": "Praticar: converter entre fração e decimal", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "0,75 = ?", "options": [{ "text": "3/4" }, { "text": "7/5", "misconceptionCode": "usa-digitos-como-numerador-denominador" }, { "text": "75/100 não simplificado = 3/4", "misconceptionCode": "nao-simplifica" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA28-A4", "step": "aplicar", "title": "Aplicar: dinheiro e medidas decimais", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA28-A5", "step": "explicar", "title": "Explicar: por que 1/3 vira dízima periódica", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA29",
+    "title": "Trilha: Operações com Decimais (EF06MA29)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA29-A1", "step": "relembrar", "title": "Relembrar: alinhamento de vírgula", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "1,5 + 0,35 = ?", "options": [{ "text": "1,85" }, { "text": "1,135", "misconceptionCode": "coloca-digitos-sem-alinhar" }, { "text": "1,8535", "misconceptionCode": "concatena-em-vez-somar" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA29-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: multiplicação de decimais", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA29-A3", "step": "praticar", "title": "Praticar: operações com decimais", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "2,4 × 0,5 = ?", "options": [{ "text": "1,2" }, { "text": "12", "misconceptionCode": "esquece-casas-decimais" }, { "text": "0,12", "misconceptionCode": "desloca-virgula-errado" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA29-A4", "step": "aplicar", "title": "Aplicar: troco e medidas", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA29-A5", "step": "explicar", "title": "Explicar: como posicionar a vírgula ao multiplicar", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA30",
+    "title": "Trilha: Noções de Geometria Espacial (EF06MA30)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA30-A1", "step": "relembrar", "title": "Relembrar: poliedros e faces", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Um cubo tem quantas faces?", "options": [{ "text": "6" }, { "text": "4", "misconceptionCode": "conta-so-bases" }, { "text": "8", "misconceptionCode": "conta-vertices" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA30-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: planificação de sólidos", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA30-A3", "step": "praticar", "title": "Praticar: identificar sólidos geométricos", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Uma bola é um?", "options": [{ "text": "Esfera" }, { "text": "Cilindro", "misconceptionCode": "confunde-esfera-cilindro" }, { "text": "Cone", "misconceptionCode": "confunde-esfera-cone" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA30-A4", "step": "aplicar", "title": "Aplicar: embalagens e planificações", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA30-A5", "step": "explicar", "title": "Explicar: diferença entre 2D e 3D", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA31",
+    "title": "Trilha: Construção de Polígonos (EF06MA31)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA31-A1", "step": "relembrar", "title": "Relembrar: usar régua e compasso", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Para bissetar um ângulo, usa-se?", "options": [{ "text": "Compasso" }, { "text": "Régua", "misconceptionCode": "usa-regua-para-bissetar" }, { "text": "Transferidor", "misconceptionCode": "usa-transferidor-para-construcao" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA31-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: construir triângulo equilátero", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA31-A3", "step": "praticar", "title": "Praticar: construções geométricas", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Mediatriz de um segmento é?", "options": [{ "text": "Reta perpendicular ao ponto médio" }, { "text": "Bissetriz do ângulo", "misconceptionCode": "confunde-mediatriz-bissetriz" }, { "text": "Paralela ao segmento", "misconceptionCode": "confunde-mediatriz-paralela" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA31-A4", "step": "aplicar", "title": "Aplicar: plantas e croquis", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA31-A5", "step": "explicar", "title": "Explicar: precisão das construções geométricas", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA32",
+    "title": "Trilha: Posição e Direção (EF06MA32)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA32-A1", "step": "relembrar", "title": "Relembrar: coordenadas na grade", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Na notação (x, y), qual eixo vem primeiro?", "options": [{ "text": "X (horizontal)" }, { "text": "Y (vertical)", "misconceptionCode": "inverte-ordem-coordenadas" }, { "text": "Tanto faz", "misconceptionCode": "nao-conhece-convencao" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA32-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: localizar objeto em mapa", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA32-A3", "step": "praticar", "title": "Praticar: ponto em plano cartesiano", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Qual ponto fica no eixo Y?", "options": [{ "text": "(0, 3)" }, { "text": "(3, 0)", "misconceptionCode": "coloca-no-eixo-x" }, { "text": "(3, 3)", "misconceptionCode": "usa-diagonal" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA32-A4", "step": "aplicar", "title": "Aplicar: GPS e localização", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA32-A5", "step": "explicar", "title": "Explicar: a utilidade de um sistema de coordenadas", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA33",
+    "title": "Trilha: Relação entre Figuras Planas e Espaciais (EF06MA33)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA33-A1", "step": "relembrar", "title": "Relembrar: face de sólidos", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "As faces de um cubo são?", "options": [{ "text": "Quadrados" }, { "text": "Triângulos", "misconceptionCode": "confunde-faces-de-piramide" }, { "text": "Retângulos", "misconceptionCode": "confunde-cubo-paralelepipedo" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA33-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: planificar um cubo", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 5 },
+      { "id": "SF-MA-06-EF06MA33-A3", "step": "praticar", "title": "Praticar: identificar figuras nas faces", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "As faces laterais de um prisma triangular são?", "options": [{ "text": "Retângulos" }, { "text": "Triângulos", "misconceptionCode": "confunde-bases-com-laterais" }, { "text": "Quadrados", "misconceptionCode": "confunde-com-cubo" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA33-A4", "step": "aplicar", "title": "Aplicar: montar sólidos a partir de planificações", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA33-A5", "step": "explicar", "title": "Explicar: como visualizar sólidos em 3D", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  },
+  {
+    "skillCode": "EF06MA34",
+    "title": "Trilha: Matemática Financeira (EF06MA34)",
+    "activities": [
+      { "id": "SF-MA-06-EF06MA34-A1", "step": "relembrar", "title": "Relembrar: lucro, prejuízo, custo e venda", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Comprei por R$50 e vendi por R$80. Tive?", "options": [{ "text": "Lucro de R$30" }, { "text": "Prejuízo de R$30", "misconceptionCode": "inverte-lucro-prejuizo" }, { "text": "Lucro de R$130", "misconceptionCode": "soma-em-vez-subtrair" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA34-A2", "step": "exemplo_guiado", "title": "Exemplo guiado: calcular juros simples", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA34-A3", "step": "praticar", "title": "Praticar: lucro e porcentagem", "type": "QUIZ", "prompt": "Demonstração.", "estMinutes": 5, "questions": [{ "question": "Lucro de 20% em R$100 = ?", "options": [{ "text": "R$20" }, { "text": "R$2", "misconceptionCode": "divide-por-10-em-vez-5" }, { "text": "R$120 de lucro (confunde lucro com total)", "misconceptionCode": "confunde-lucro-com-total" }], "correctIndex": 0 }] },
+      { "id": "SF-MA-06-EF06MA34-A4", "step": "aplicar", "title": "Aplicar: poupar e gastar com consciência", "type": "WRITTEN", "prompt": "Demonstração.", "estMinutes": 7 },
+      { "id": "SF-MA-06-EF06MA34-A5", "step": "explicar", "title": "Explicar: por que estudar matemática financeira", "type": "SPOKEN", "prompt": "Demonstração.", "estMinutes": 5 }
+    ]
+  }
+]

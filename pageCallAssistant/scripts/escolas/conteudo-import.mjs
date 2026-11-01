@@ -50,10 +50,13 @@ async function importPrerequisitos(db) {
   for (const item of items) {
     const skillId = codeMap[item.skillCode];
     const prereqId = codeMap[item.prerequisiteCode];
-    if (!skillId || !prereqId) continue; // habilidade ainda não importada
+    if (!skillId) throw new Error(`Código de habilidade não encontrado no banco: ${item.skillCode}. Verifique o bncc-import.`);
+    if (!prereqId) throw new Error(`Código de pré-requisito não encontrado no banco: ${item.prerequisiteCode}. Verifique o prerequisitos.json.`);
 
-    // Upsert com id estável
+    // Upsert com id estável — nunca altera status de item aprovado
     const id = `SF-PREREQ-${item.skillCode}-${item.prerequisiteCode}`;
+    const existing = await db.eduSkillPrerequisite.findUnique({ where: { id }, select: { id: true, status: true } });
+    if (existing?.status === "APPROVED") { n++; continue; } // pedagogo aprovou — não tocar
     await db.eduSkillPrerequisite.upsert({
       where: { id },
       create: {
@@ -63,9 +66,9 @@ async function importPrerequisitos(db) {
         weight: item.weight ?? 1,
         networkId: null,
         source: item.source ?? "SPEAKFLOW",
-        status: item.status ?? "DRAFT",
+        status: "DRAFT",
       },
-      update: { weight: item.weight ?? 1, status: item.status ?? "DRAFT" },
+      update: { weight: item.weight ?? 1 }, // nunca mexe em status
     });
     n++;
   }
@@ -87,6 +90,9 @@ async function importFichas(db) {
       if (!skill) continue;
 
       const id = `SF-FICHA-${ficha.skillCode}`;
+      // Nunca alterar item aprovado pelo pedagogo
+      const existing = await db.eduSkillGuide.findUnique({ where: { id }, select: { id: true, status: true } });
+      if (existing?.status === "APPROVED") { n++; continue; }
       await db.eduSkillGuide.upsert({
         where: { id },
         create: {
@@ -98,20 +104,170 @@ async function importFichas(db) {
           ageNotes: ficha.ageNotes ?? null,
           networkId: null,
           source: ficha.source ?? "SPEAKFLOW",
-          status: ficha.status ?? "DRAFT",
+          status: "DRAFT",
         },
         update: {
           whatStudentDoes: ficha.whatStudentDoes,
           commonErrors: ficha.commonErrors ?? [],
           recommendedTypes: ficha.recommendedTypes ?? [],
           ageNotes: ficha.ageNotes ?? null,
-          status: ficha.status ?? "DRAFT",
+          // nunca mexe em status
         },
       });
       n++;
     }
   }
   console.log(`  [fichas] ${n} fichas importadas.`);
+}
+
+// ── Importar trilhas (EduTrack + EduActivity + EduTrackItem) ─────────────────
+async function importTrilhas(db) {
+  const trilhasDir = join(DATA_DIR, "trilhas");
+  if (!existsSync(trilhasDir)) return;
+  const files = readdirSync(trilhasDir).filter(f => f.endsWith(".json"));
+  let n = 0;
+  for (const file of files) {
+    const trilhas = JSON.parse(readFileSync(join(trilhasDir, file), "utf8"));
+    for (const trilha of trilhas) {
+      const skill = await db.eduSkill.findUnique({ where: { code: trilha.skillCode }, select: { id: true } });
+      if (!skill) throw new Error(`Habilidade não encontrada: ${trilha.skillCode}`);
+
+      const trackId = `SF-TRACK-${trilha.skillCode}`;
+      const existingTrack = await db.eduTrack.findUnique({ where: { id: trackId }, select: { id: true, status: true } });
+      if (existingTrack?.status === "APPROVED") { n++; continue; }
+
+      // Upsert atividades antes da trilha
+      for (const act of trilha.activities ?? []) {
+        const existingAct = await db.eduActivity.findUnique({ where: { id: act.id }, select: { id: true, status: true } });
+        if (existingAct?.status === "APPROVED") continue;
+
+        const qs = act.questions ?? [];
+        if (qs.length > 0 && qs.every(q => q.correctIndex === undefined))
+          throw new Error(`Atividade ${act.id}: quiz sem gabarito`);
+
+        await db.eduActivity.upsert({
+          where: { id: act.id },
+          create: {
+            id: act.id, networkId: null, title: act.title, type: act.type,
+            prompt: act.prompt, estMinutes: act.estMinutes ?? 5,
+            status: "DRAFT", source: "SPEAKFLOW",
+            rubric: act.rubric ?? { type: act.type, criteria: [] },
+            createdById: "speakflow-system",
+          },
+          update: { title: act.title, prompt: act.prompt },
+        });
+
+        // Upsert questions
+        for (let qi = 0; qi < qs.length; qi++) {
+          const q = qs[qi];
+          const qId = `${act.id}-Q${qi}`;
+          await db.eduQuizQuestion.upsert({
+            where: { id: qId },
+            create: {
+              id: qId, activityId: act.id, order: qi,
+              question: q.question, options: q.options, correctIndex: q.correctIndex,
+              misconceptionCode: q.options?.[qi]?.misconceptionCode ?? null,
+            },
+            update: { question: q.question, options: q.options, correctIndex: q.correctIndex },
+          });
+        }
+
+        // Habilidade × atividade
+        await db.eduActivitySkill.upsert({
+          where: { id: `${act.id}-${skill.id}` },
+          create: { id: `${act.id}-${skill.id}`, activityId: act.id, skillId: skill.id },
+          update: {},
+        }).catch(() => null);
+      }
+
+      // Upsert trilha
+      await db.eduTrack.upsert({
+        where: { id: trackId },
+        create: { id: trackId, networkId: null, skillIds: [skill.id], title: trilha.title, source: "SPEAKFLOW", status: "DRAFT", derivedFromId: null, createdById: "speakflow-system" },
+        update: { title: trilha.title },
+      });
+
+      // Upsert itens da trilha
+      for (let i = 0; i < (trilha.activities ?? []).length; i++) {
+        const act = trilha.activities[i];
+        const itemId = `${trackId}-I${i}`;
+        await db.eduTrackItem.upsert({
+          where: { id: itemId },
+          create: { id: itemId, trackId, activityId: act.id, order: i },
+          update: { order: i },
+        });
+      }
+      n++;
+    }
+  }
+  console.log(`  [trilhas] ${n} trilhas importadas.`);
+}
+
+// ── Importar diagnósticos ──────────────────────────────────────────────────
+async function importDiagnosticos(db) {
+  const diagDir = join(DATA_DIR, "diagnosticos");
+  if (!existsSync(diagDir)) return;
+  const files = readdirSync(diagDir).filter(f => f.endsWith(".json"));
+  let n = 0;
+  for (const file of files) {
+    const diags = JSON.parse(readFileSync(join(diagDir, file), "utf8"));
+    for (const diag of diags) {
+      const existingDiag = await db.eduDiagnostic.findUnique({ where: { id: diag.id }, select: { id: true, status: true } });
+      if (existingDiag?.status === "APPROVED") { n++; continue; }
+
+      await db.eduDiagnostic.upsert({
+        where: { id: diag.id },
+        create: {
+          id: diag.id, networkId: null, title: diag.title,
+          gradeYear: diag.gradeYear,
+          source: diag.source ?? "SPEAKFLOW", status: "DRAFT",
+          createdById: "speakflow-system",
+        },
+        update: { title: diag.title },
+      });
+
+      for (let i = 0; i < (diag.items ?? []).length; i++) {
+        const item = diag.items[i];
+        const skill = await db.eduSkill.findUnique({ where: { code: item.skillCode }, select: { id: true } });
+        if (!skill) throw new Error(`Habilidade não encontrada: ${item.skillCode} (diagnóstico ${diag.id})`);
+
+        const act = item.activity;
+        if (act) {
+          const existingAct = await db.eduActivity.findUnique({ where: { id: act.id }, select: { id: true, status: true } });
+          if (!existingAct || existingAct.status !== "APPROVED") {
+            await db.eduActivity.upsert({
+              where: { id: act.id },
+              create: { id: act.id, networkId: null, title: act.title, type: act.type, prompt: act.prompt, estMinutes: act.estMinutes ?? 5, status: "DRAFT", source: "SPEAKFLOW", rubric: act.rubric ?? { type: act.type, criteria: [] }, createdById: "speakflow-system" },
+              update: { title: act.title, prompt: act.prompt },
+            });
+            for (let qi = 0; qi < (act.questions ?? []).length; qi++) {
+              const q = act.questions[qi];
+              const qId = `${act.id}-Q${qi}`;
+              await db.eduQuizQuestion.upsert({
+                where: { id: qId },
+                create: { id: qId, activityId: act.id, order: qi, question: q.question, options: q.options, correctIndex: q.correctIndex, misconceptionCode: null },
+                update: { question: q.question, options: q.options, correctIndex: q.correctIndex },
+              });
+            }
+            await db.eduActivitySkill.upsert({
+              where: { id: `${act.id}-${skill.id}` },
+              create: { id: `${act.id}-${skill.id}`, activityId: act.id, skillId: skill.id },
+              update: {},
+            }).catch(() => null);
+          }
+        }
+
+        const diagItemId = `${diag.id}-ITEM-${i}`;
+        await db.eduDiagnosticItem.upsert({
+          where: { id: diagItemId },
+          create: { id: diagItemId, diagnosticId: diag.id, activityId: item.activityId, skillId: skill.id, order: i },
+          update: { order: i },
+        });
+      }
+      n++;
+    }
+  }
+  console.log(`  [diagnosticos] ${n} diagnósticos importados.`);
 }
 
 // ── Processar uma base ────────────────────────────────────────────────────────
@@ -122,6 +278,8 @@ async function processBase(envVar) {
     console.log(`  [conteudo] Processando ${envVar}...`);
     await importPrerequisitos(db);
     await importFichas(db);
+    await importTrilhas(db);
+    await importDiagnosticos(db);
     await db.$executeRaw`SELECT pg_advisory_unlock(${LOCK_ID})`;
   } catch (err) {
     console.error(`  [conteudo] Erro em ${envVar}:`, err.message);
