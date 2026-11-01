@@ -364,6 +364,8 @@ jobs:
             -e ESCOLAS_STUDENT_JWT_SECRET="$CI_STUDENT_JWT" \
             -e EDU_FAMILY_JWT_SECRET="$CI_FAMILY_JWT" \
             -e START_SERVER="false" \
+            -e ESCOLAS_SEED_DEMO="true" \
+            -e ESCOLAS_SEED_USUARIOS="true" \
             speakflow-escolas-ci:latest 2>&1 | tee /tmp/docker-run.log
           grep -q "\[check-role\]" /tmp/docker-run.log \
             && echo "check-role OK" \

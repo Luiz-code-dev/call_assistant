@@ -19,12 +19,17 @@ ALTER TABLE "EduTrack"      ALTER COLUMN "skillIds"         SET DEFAULT '{}';
 ALTER TABLE "EduSkillGuide"         ALTER COLUMN "updatedAt" DROP DEFAULT;
 ALTER TABLE "EduSkillPrerequisite"  ALTER COLUMN "updatedAt" DROP DEFAULT;
 
--- ── 3. Índice único em EduSkillPrerequisite ──────────────────────────────────
--- Declarado no schema como @@unique([skillId, prerequisiteSkillId, networkId])
--- mas ausente no banco.
-CREATE UNIQUE INDEX IF NOT EXISTS
-  "EduSkillPrerequisite_skillId_prerequisiteSkillId_networkId_key"
-  ON "EduSkillPrerequisite" ("skillId", "prerequisiteSkillId", "networkId");
+-- ── 3. Constraint única em EduSkillPrerequisite ──────────────────────────────
+-- Declarado no schema como @@unique([skillId, prerequisiteSkillId, networkId]).
+-- Prisma 5 gera UNIQUE CONSTRAINT (não CREATE INDEX), portanto usamos ADD CONSTRAINT.
+-- O DROP ... IF EXISTS garante idempotência.
+ALTER TABLE "EduSkillPrerequisite"
+  DROP CONSTRAINT IF EXISTS
+    "EduSkillPrerequisite_skillId_prerequisiteSkillId_networkId_key";
+
+ALTER TABLE "EduSkillPrerequisite"
+  ADD CONSTRAINT "EduSkillPrerequisite_skillId_prerequisiteSkillId_networkId_key"
+  UNIQUE ("skillId", "prerequisiteSkillId", "networkId");
 
 -- ── 4. Corrigir FK em EduActivity.classSubjectId ─────────────────────────────
 -- Migration 0001 criou com ON DELETE RESTRICT.
