@@ -20,16 +20,41 @@ ALTER TABLE "EduSkillGuide"         ALTER COLUMN "updatedAt" DROP DEFAULT;
 ALTER TABLE "EduSkillPrerequisite"  ALTER COLUMN "updatedAt" DROP DEFAULT;
 
 -- ── 3. Constraint única em EduSkillPrerequisite ──────────────────────────────
--- Declarado no schema como @@unique([skillId, prerequisiteSkillId, networkId]).
--- Prisma 5 gera UNIQUE CONSTRAINT (não CREATE INDEX), portanto usamos ADD CONSTRAINT.
--- O DROP ... IF EXISTS garante idempotência.
-ALTER TABLE "EduSkillPrerequisite"
-  DROP CONSTRAINT IF EXISTS
-    "EduSkillPrerequisite_skillId_prerequisiteSkillId_networkId_key";
+-- Prisma 5 gera UNIQUE CONSTRAINT (não CREATE INDEX).
+-- Migrações anteriores podem ter criado um INDEX standalone com o mesmo nome,
+-- o que faz ADD CONSTRAINT falhar com "relation already exists" (42P07).
+-- O bloco PL/pgSQL abaixo trata os dois casos de forma idempotente:
+--  a) Se já existe como CONSTRAINT → não faz nada.
+--  b) Se existe como INDEX standalone → dropa e cria como CONSTRAINT.
+--  c) Se não existe → cria diretamente.
+DO $$
+DECLARE
+  v_conname TEXT := 'EduSkillPrerequisite_skillId_prerequisiteSkillId_networkId_key';
+BEGIN
+  -- Caso (a): já existe como CONSTRAINT UNIQUE
+  IF EXISTS (
+    SELECT 1 FROM pg_constraint c
+    JOIN pg_class t ON t.oid = c.conrelid
+    WHERE t.relname = 'EduSkillPrerequisite'
+      AND c.conname = v_conname
+      AND c.contype = 'u'
+  ) THEN
+    RETURN; -- já está correto, nada a fazer
+  END IF;
 
-ALTER TABLE "EduSkillPrerequisite"
-  ADD CONSTRAINT "EduSkillPrerequisite_skillId_prerequisiteSkillId_networkId_key"
-  UNIQUE ("skillId", "prerequisiteSkillId", "networkId");
+  -- Caso (b): existe como INDEX standalone (sem constraint associada)
+  IF EXISTS (
+    SELECT 1 FROM pg_indexes
+    WHERE tablename = 'EduSkillPrerequisite' AND indexname = v_conname
+  ) THEN
+    EXECUTE format('DROP INDEX %I', v_conname);
+  END IF;
+
+  -- Caso (b) e (c): cria como CONSTRAINT
+  ALTER TABLE "EduSkillPrerequisite"
+    ADD CONSTRAINT "EduSkillPrerequisite_skillId_prerequisiteSkillId_networkId_key"
+    UNIQUE ("skillId", "prerequisiteSkillId", "networkId");
+END $$;
 
 -- ── 4. Corrigir FK em EduActivity.classSubjectId ─────────────────────────────
 -- Migration 0001 criou com ON DELETE RESTRICT.
