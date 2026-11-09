@@ -297,6 +297,7 @@ async function importDiagnosticos(db) {
     }).catch(() => null);
     const subjectId = subject?.id ?? "sem-disciplina";
 
+    const diagTitle = diag.title ?? diag.titulo ?? diag.id;
     await db.eduDiagnostic.upsert({
       where: { id: diag.id },
       create: {
@@ -304,13 +305,13 @@ async function importDiagnosticos(db) {
         networkId: null,
         subjectId,
         gradeYear: diag.gradeYear,
-        title: diag.title,
+        title: diagTitle,
         cycle: diag.cycle ?? 1,
         status: "APPROVED",
         source: "SPEAKFLOW",
         createdById: "speakflow-system",
       },
-      update: { title: diag.title, status: "APPROVED" },
+      update: { title: diagTitle, status: "APPROVED" },
     });
 
     // Upsert itens do diagnostico
