@@ -277,7 +277,7 @@ export default function PainelFilho() {
                   {data.evolucao.avancaramNoMes > 0 && <p className="text-[12px] text-[#5B5470]">{data.evolucao.avancaramNoMes} habilidades avançaram este mês</p>}
                 </>
               ) : (
-                <p className="text-[14px] text-[#5B5470] leading-snug">O diagnóstico de {data.aluno.firstName} ainda não foi feito. Depois dele, você vê aqui o que ele(a) já domina e o que vai praticar.</p>
+                <p className="text-[14px] text-[#5B5470] leading-snug">O diagnóstico de {data.aluno.firstName} ainda não foi feito. Assim que for realizado, você verá aqui as habilidades que {data.aluno.firstName} já domina e o que vai praticar.</p>
               )}
             </Card>
 
