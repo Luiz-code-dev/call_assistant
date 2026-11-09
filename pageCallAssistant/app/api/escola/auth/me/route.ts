@@ -7,7 +7,12 @@ export async function GET() {
   if (!isEscolasEnabled())
     return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
 
-  const ctx = await getEduContext();
+  let ctx;
+  try {
+    ctx = await getEduContext();
+  } catch {
+    return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  }
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
   if (ctx?.db) setTenantDb(ctx.db);
 
