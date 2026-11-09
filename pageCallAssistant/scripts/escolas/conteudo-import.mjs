@@ -210,7 +210,8 @@ async function importDiagnosticos(db) {
   const files = readdirSync(diagDir).filter(f => f.endsWith(".json"));
   let n = 0;
   for (const file of files) {
-    const diags = JSON.parse(readFileSync(join(diagDir, file), "utf8"));
+    const raw = JSON.parse(readFileSync(join(diagDir, file), "utf8"));
+    const diags = Array.isArray(raw) ? raw : [raw];
     for (const diag of diags) {
       const existingDiag = await db.eduDiagnostic.findUnique({ where: { id: diag.id }, select: { id: true, status: true } });
       if (existingDiag?.status === "APPROVED") { n++; continue; }

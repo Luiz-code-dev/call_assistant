@@ -119,7 +119,7 @@ async function seedRede(demo) {
     // Cria/atualiza rede
     await db.eduNetwork.upsert({
       where: { id: demo.id },
-      create: { id: demo.id, name: demo.name, isActive: true, slug: demo.id, city: "Cidade Demo", state: "SP", gradeConfig: {} },
+      create: { id: demo.id, name: demo.name, isActive: true, city: "Cidade Demo", state: "SP", gradeConfig: {} },
       update: { name: demo.name, isActive: true },
     });
 

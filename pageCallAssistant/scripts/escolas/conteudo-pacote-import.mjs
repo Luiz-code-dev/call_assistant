@@ -176,7 +176,7 @@ async function importTrilhas(db) {
             maxAttempts: 2,
             status: "PUBLISHED",
             source: "SPEAKFLOW",
-            reviewNote: REVIEW_NOTE,
+            reviewStatus: "APPROVED",
             createdById: "speakflow-system",
           },
           update: {
@@ -332,7 +332,7 @@ async function importDiagnosticos(db) {
 async function importInTenant(envVar) {
   const db = tenantDb(envVar);
   try {
-    await db.$queryRaw`SELECT pg_advisory_lock(${LOCK_ID}::bigint)`;
+    await db.$executeRaw`SELECT pg_advisory_lock(${LOCK_ID}::bigint)`;
     console.log(`\n[${envVar}] iniciando importacao do pacote de demonstracao...`);
 
     await importPrerequisitos(db);
@@ -342,7 +342,7 @@ async function importInTenant(envVar) {
 
     console.log(`[${envVar}] importacao concluida`);
   } finally {
-    await db.$queryRaw`SELECT pg_advisory_unlock(${LOCK_ID}::bigint)`.catch(() => {});
+    await db.$executeRaw`SELECT pg_advisory_unlock(${LOCK_ID}::bigint)`.catch(() => {});
     await db.$disconnect();
   }
 }
