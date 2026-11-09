@@ -261,7 +261,7 @@ export default function PainelFilho() {
                   <p className="text-[12px] text-[#5B5470]">{data.trilhaAtual.feitas} de {data.trilhaAtual.total} atividades{data.outrasTrilhas > 0 ? ` · +${data.outrasTrilhas} trilha` : ""}</p>
                 </>
               ) : (
-                <p className="text-[14px] text-[#5B5470] leading-snug">A escola ainda não indicou uma trilha para {data.aluno.firstName}. Ela aparece aqui depois do diagnóstico.</p>
+                <p className="text-[14px] text-[#5B5470] leading-snug">Nenhuma trilha em andamento. {data.aluno.firstName} ainda não fez o diagnóstico desta matéria.</p>
               )}
             </Card>
 

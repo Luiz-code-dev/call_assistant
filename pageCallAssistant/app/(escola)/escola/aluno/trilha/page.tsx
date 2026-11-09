@@ -111,7 +111,7 @@ export default function MinhaTrilhaPage() {
               <circle cx="15" cy="40" r="2.5" fill="#C4B5FD"/>
             </svg>
             <h2 className="text-[#1F1A2E] font-semibold">Nenhuma trilha por enquanto</h2>
-            <p className="text-[#5B5470] text-sm mt-1">Sua escola ainda nao indicou uma trilha. Enquanto isso, veja sua evolucao.</p>
+            <p className="text-[#5B5470] text-sm mt-1">Faça um diagnóstico para começar sua trilha de reforço.</p>
             <Link href="/escola/aluno/painel" className="mt-4 inline-block text-[#6D28D9] hover:underline text-sm">Ver minha evolucao</Link>
           </div>
         ) : null}

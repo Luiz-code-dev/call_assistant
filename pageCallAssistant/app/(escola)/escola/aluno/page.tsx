@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
-import { Mic, PenLine, HelpCircle, Clock, CheckCircle2, ChevronRight, BookOpen, TrendingUp, LogOut, ClipboardList, FlaskConical } from "lucide-react";
+import { Mic, PenLine, HelpCircle, Clock, CheckCircle2, ChevronRight, BookOpen, TrendingUp, LogOut, ClipboardList, FlaskConical, ArrowRight } from "lucide-react";
 
 interface Subject { id: string; name: string; color: string | null }
 interface Submission { id: string; status: string; evaluatedAt: string | null; masteryLevel: string | null }
@@ -12,7 +12,12 @@ interface Atividade {
   isExpired: boolean; canRetry: boolean; maxAttempts: number; attemptsUsed: number;
   submission: Submission | null;
 }
-interface DiagPendente { id: string; title: string; gradeYear: number; cycle: number; totalQuestoes: number; }
+interface Materia {
+  codigo: string; nome: string; cor: string;
+  diagnosticoId: string | null;
+  estado: "disponivel" | "em_trilha" | "feito" | "sem_diagnostico";
+  trilhaAtual: string | null;
+}
 
 const TYPE_ICON = { WRITTEN: PenLine, SPOKEN: Mic, QUIZ: HelpCircle };
 const TYPE_LABEL = { WRITTEN: "Escrita", SPOKEN: "Fala", QUIZ: "Quiz" };
@@ -47,15 +52,15 @@ export default function AlunoHomePage() {
   const [diasSemana, setDiasSemana] = useState<boolean[]>([false,false,false,false,false,false,false]);
   const [diasSeguidos, setDiasSeguidos] = useState(0);
   const [hojeIndex, setHojeIndex] = useState(0);
-  const [diagnosticos, setDiagnosticos] = useState<DiagPendente[]>([]);
+  const [materias, setMaterias] = useState<Materia[]>([]);
 
   const load = useCallback(async () => {
     try {
-      const [resAtvs, resPerfil, resTrilhas, resDiag] = await Promise.all([
+      const [resAtvs, resPerfil, resTrilhas, resMat] = await Promise.all([
         fetch("/api/escola/aluno/atividades?filter=todo"),
         fetch("/api/escola/aluno/perfil"),
         fetch("/api/escola/aluno/trilhas"),
-        fetch("/api/escola/aluno/diagnostico/pendente"),
+        fetch("/api/escola/aluno/materias"),
       ]);
 
       if (resAtvs.status === 401) { window.location.href = "/escola/aluno/entrar"; return; }
@@ -85,9 +90,9 @@ export default function AlunoHomePage() {
         }
       }
 
-      if (resDiag.ok) {
-        const dg = await resDiag.json();
-        setDiagnosticos(dg.diagnosticos ?? []);
+      if (resMat.ok) {
+        const mat = await resMat.json();
+        setMaterias(mat.materias ?? []);
       }
     } finally {
       setLoading(false);
@@ -125,23 +130,37 @@ export default function AlunoHomePage() {
 
       <main className="max-w-3xl mx-auto px-4 py-6 space-y-6">
 
-        {/* Cards de diagnostico pendente */}
-        {diagnosticos.length > 0 && (
+        {/* Minhas matérias */}
+        {materias.length > 0 && (
           <section>
-            {diagnosticos.map(d => (
-              <Link key={d.id} href={`/escola/aluno/diagnostico/${d.id}`}
-                className="flex items-center gap-4 rounded-2xl border-2 border-[#6D28D9] bg-[#EDE9FE] p-4 hover:bg-[#DDD6EE] transition-colors mb-3">
-                <div className="w-10 h-10 rounded-xl bg-[#6D28D9] flex items-center justify-center shrink-0">
-                  <FlaskConical className="size-5 text-white" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-xs font-semibold text-[#6D28D9] uppercase tracking-wide">DIAGNÓSTICO DISPONÍVEL</p>
-                  <p className="font-bold text-[#1F1A2E] truncate">{d.title}</p>
-                  <p className="text-xs text-[#5B5470]">{d.totalQuestoes} questões — {d.gradeYear}º ano</p>
-                </div>
-                <span className="shrink-0 bg-[#6D28D9] text-white text-xs font-bold px-3 py-1.5 rounded-xl min-h-[44px] flex items-center">Começar</span>
-              </Link>
-            ))}
+            <h2 className="text-sm font-semibold text-[#5B5470] uppercase tracking-wide mb-3">Minhas matérias</h2>
+            <div className="grid grid-cols-2 gap-3">
+              {materias.map(m => {
+                const href = m.diagnosticoId ? `/escola/aluno/diagnostico/${m.diagnosticoId}` : "/escola/aluno/trilha";
+                const isEmTrilha = m.estado === "em_trilha";
+                const isFeito = m.estado === "feito";
+                return (
+                  <Link key={m.codigo} href={href}
+                    className="flex flex-col gap-2 rounded-2xl border-2 bg-white p-4 hover:shadow-md transition-all min-h-[90px]"
+                    style={{ borderColor: m.cor + "40" }}>
+                    <div className="flex items-center justify-between">
+                      <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: m.cor + "18", color: m.cor }}>
+                        <FlaskConical className="size-4" />
+                      </div>
+                      {isEmTrilha && <span className="text-[9px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded-full" style={{ backgroundColor: m.cor + "18", color: m.cor }}>Em trilha</span>}
+                      {isFeito && !isEmTrilha && <CheckCircle2 className="size-4" style={{ color: m.cor }} />}
+                      {!isEmTrilha && !isFeito && <ArrowRight className="size-4 text-[#5B5470]" />}
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-[#1F1A2E] leading-tight">{m.nome}</p>
+                      <p className="text-[10px] text-[#5B5470] mt-0.5">
+                        {isEmTrilha ? (m.trilhaAtual ?? "Em prática") : isFeito ? "Diagnóstico feito" : "Começar diagnóstico"}
+                      </p>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
           </section>
         )}
 

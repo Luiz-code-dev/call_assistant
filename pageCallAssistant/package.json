@@ -30,6 +30,7 @@
     "escolas:test:int": "vitest run --config vitest.int.config.ts",
     "escolas:seed-teste": "node scripts/escolas/seed-teste-usabilidade.mjs",
     "escolas:reset-teste": "node scripts/escolas/reset-teste.mjs",
+    "escolas:reset-aluno-demo": "node scripts/escolas/reset-aluno-demo.mjs",
     "escolas:inventario": "node scripts/escolas/inventario.mjs",
     "test:e2e": "playwright test",
     "test:e2e:headed": "playwright test --headed"
