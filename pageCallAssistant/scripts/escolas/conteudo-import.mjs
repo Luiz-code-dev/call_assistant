@@ -216,15 +216,16 @@ async function importDiagnosticos(db) {
       const existingDiag = await db.eduDiagnostic.findUnique({ where: { id: diag.id }, select: { id: true, status: true } });
       if (existingDiag?.status === "APPROVED") { n++; continue; }
 
+      const diagTitle = diag.title ?? diag.titulo ?? diag.id;
       await db.eduDiagnostic.upsert({
         where: { id: diag.id },
         create: {
-          id: diag.id, networkId: null, title: diag.title,
+          id: diag.id, networkId: null, title: diagTitle,
           gradeYear: diag.gradeYear,
           source: diag.source ?? "SPEAKFLOW", status: "DRAFT",
           createdById: "speakflow-system",
         },
-        update: { title: diag.title },
+        update: { title: diagTitle },
       });
 
       for (let i = 0; i < (diag.items ?? []).length; i++) {

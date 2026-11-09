@@ -44,12 +44,24 @@ function listTenantEnvVars() {
 // ── Pré-requisitos ────────────────────────────────────────────────────────────
 async function importPrerequisitos(db) {
   if (!existsSync(PREREQ_FILE)) return;
-  const items = JSON.parse(readFileSync(PREREQ_FILE, "utf8"));
+  const raw = JSON.parse(readFileSync(PREREQ_FILE, "utf8"));
+  // O JSON pode ser um array direto ou ter a estrutura { criar: [...], rejeitar: [...] }
+  const items = Array.isArray(raw) ? raw : (raw.criar ?? []);
+  const rejeitar = Array.isArray(raw) ? [] : (raw.rejeitar ?? []);
 
   const codes = [...new Set([...items.map(i => i.skillCode), ...items.map(i => i.prerequisiteCode)])];
   const skills = await db.eduSkill.findMany({ where: { code: { in: codes } }, select: { id: true, code: true } });
   const codeMap = Object.fromEntries(skills.map(s => [s.code, s.id]));
   let n = 0;
+
+  // Rejeitar pré-requisitos obsoletos
+  for (const rej of rejeitar) {
+    const id = `SF-PREREQ-${rej.skillCode}-${rej.prerequisiteCode}`;
+    await db.eduSkillPrerequisite.updateMany({
+      where: { skillId: codeMap[rej.skillCode], prerequisiteSkillId: codeMap[rej.prerequisiteCode] },
+      data: { status: "REJECTED" },
+    }).catch(() => null);
+  }
 
   for (const item of items) {
     const skillId = codeMap[item.skillCode];
