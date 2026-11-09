@@ -1,0 +1,24 @@
+{
+  "_comment": "Pré-requisitos do pacote de demonstração. Os pré-requisitos antigos marcados em 'rejeitar' recebem status=REJECTED com reviewNote explicando a troca.",
+  "rejeitar": [
+    { "skillCode": "EF06MA07", "prerequisiteCode": "EF05MA07", "reviewNote": "Substituído: EF05MA07 trata de adição de decimais, não de frações equivalentes. Pré-requisito correto é EF05MA04." },
+    { "skillCode": "EF06MA07", "prerequisiteCode": "EF04MA07", "reviewNote": "Substituído: EF04MA07 não é pré-requisito direto de EF06MA07. Pré-requisito correto é EF05MA03." },
+    { "skillCode": "EF06MA08", "prerequisiteCode": "EF05MA07", "reviewNote": "Substituído: EF05MA07 (adição de decimais) não é pré-requisito de frações-decimais. Pré-requisito correto é EF05MA05." },
+    { "skillCode": "EF06MA09", "prerequisiteCode": "EF05MA07", "reviewNote": "Substituído: EF05MA07 não é pré-requisito de fração de quantidade. Pré-requisito correto é EF05MA03." },
+    { "skillCode": "EF06MA10", "prerequisiteCode": "EF05MA07", "reviewNote": "Substituído: EF05MA07 não é pré-requisito de adição/subtração de frações. Pré-requisitos corretos são EF06MA07 e EF05MA04." }
+  ],
+  "criar": [
+    { "skillCode": "EF06MA07", "prerequisiteCode": "EF05MA04", "weight": 3, "reviewNote": "pacote de demonstração" },
+    { "skillCode": "EF06MA07", "prerequisiteCode": "EF05MA03", "weight": 2, "reviewNote": "pacote de demonstração" },
+    { "skillCode": "EF06MA08", "prerequisiteCode": "EF05MA05", "weight": 3, "reviewNote": "pacote de demonstração" },
+    { "skillCode": "EF06MA09", "prerequisiteCode": "EF05MA03", "weight": 3, "reviewNote": "pacote de demonstração" },
+    { "skillCode": "EF06MA10", "prerequisiteCode": "EF06MA07", "weight": 3, "reviewNote": "pacote de demonstração" },
+    { "skillCode": "EF06MA10", "prerequisiteCode": "EF05MA04", "weight": 2, "reviewNote": "pacote de demonstração" },
+    { "skillCode": "EF05MA03", "prerequisiteCode": "EF04MA09", "weight": 3, "reviewNote": "pacote de demonstração" },
+    { "skillCode": "EF05MA04", "prerequisiteCode": "EF04MA09", "weight": 2, "reviewNote": "pacote de demonstração" },
+    { "skillCode": "EF05MA05", "prerequisiteCode": "EF05MA03", "weight": 2, "reviewNote": "pacote de demonstração" },
+    { "skillCode": "EF35LP04", "prerequisiteCode": "EF35LP03", "weight": 3, "reviewNote": "pacote de demonstração" },
+    { "skillCode": "EF35LP04", "prerequisiteCode": "EF15LP03", "weight": 2, "reviewNote": "pacote de demonstração" },
+    { "skillCode": "EF35LP05", "prerequisiteCode": "EF15LP03", "weight": 2, "reviewNote": "pacote de demonstração" }
+  ]
+}

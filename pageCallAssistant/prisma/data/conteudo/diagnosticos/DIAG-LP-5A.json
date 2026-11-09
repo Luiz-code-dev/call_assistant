@@ -1,0 +1,239 @@
+{
+  "id": "DIAG-LP-5A",
+  "titulo": "Diagnostico de Leitura — 5o ano",
+  "descricao": "Avaliacao diagnostica de leitura para o 5o ano.",
+  "status": "APPROVED",
+  "source": "SPEAKFLOW",
+  "reviewNote": "pacote de demonstracao, revisao pedagogica pendente",
+  "textos": {
+    "animais": {
+      "id": "TX-LP-01",
+      "titulo": "O gato e o rato",
+      "texto": "O gato dormia embaixo da arvore quando o rato passou correndo. O gato abriu um olho, depois o outro. O rato parou, olhou para o gato e disse: \"Hoje nao vai funcionar. Eu sei que voce esta acordado.\" O gato fechou os olhos de novo e fingiu dormir. O rato riu e foi embora. No dia seguinte, o rato voltou pelo mesmo caminho. Desta vez, o gato estava dormindo de verdade. O rato passou sem fazer barulho e os dois nunca mais se viram."
+    },
+    "escola": {
+      "id": "TX-LP-02",
+      "titulo": "O primeiro dia de aula",
+      "texto": "Mariana chegou cedo na escola no primeiro dia do ano. A sala tinha novas mesas e um quadro verde bem grande. A professora escreveu o nome de cada aluno em um cartaz colorido. Depois pediu que cada um contasse uma coisa que gostava de fazer nas ferias. Mariana falou que tinha aprendido a fazer pipa com o avo. A professora sorriu e disse que eles iam fazer uma pipa juntos na aula de artes."
+    },
+    "receita": {
+      "id": "TX-LP-03",
+      "titulo": "Brigadeiro de colher",
+      "texto": "Voce vai precisar de: 1 lata de leite condensado, 2 colheres de chocolate em po e 1 colher de manteiga. Coloque tudo em uma panela e misture bem antes de ligar o fogo. Cozinhe em fogo baixo, mexendo sempre, por cerca de 10 minutos. Quando a mistura soltar do fundo da panela, esta pronto. Desligue o fogo, espere esfriar e sirva em potinhos. Rende 8 porcoes."
+    },
+    "jogo": {
+      "id": "TX-LP-04",
+      "titulo": "Regras do pega-pega",
+      "texto": "No pega-pega, um jogador e escolhido para ser o pegador. Os outros jogadores tentam correr sem ser tocados. Quando o pegador toca alguem, essa pessoa vira o novo pegador. Nao vale tocar a mesma pessoa duas vezes seguidas. O jogo termina quando todos concordam em parar. O ultimo pegador da rodada começa o proximo jogo."
+    },
+    "passeio": {
+      "id": "TX-LP-05",
+      "titulo": "O passeio no parque",
+      "texto": "A turma da professora Laura foi ao parque no sabado de manha. Eles levaram lanchinhos e um saco para o lixo. No parque, as criancas correram, brincaram de cabra-cega e observaram os passaros. Joao encontrou uma borboleta azul e ficou parado por muito tempo olhando para ela. Na volta, a professora perguntou o que cada um tinha gostado mais. Quase todos falaram do lanchinho, mas Joao falou da borboleta."
+    },
+    "bilhete": {
+      "id": "TX-LP-06",
+      "titulo": "Bilhete para a mae",
+      "texto": "Mae, fui na casa do Carlos fazer o trabalho de ciencias. A mae dele disse que posso jantar la. Vou voltar antes das 20h. Deixei o numero do Carlos na geladeira. Beijo, Pedro."
+    },
+    "gato": {
+      "id": "TX-LP-01",
+      "titulo": "O gato e o rato",
+      "texto": "O gato dormia embaixo da arvore quando o rato passou correndo. O gato abriu um olho, depois o outro. O rato parou, olhou para o gato e disse: \"Hoje nao vai funcionar. Eu sei que voce esta acordado.\" O gato fechou os olhos de novo e fingiu dormir. O rato riu e foi embora. No dia seguinte, o rato voltou pelo mesmo caminho. Desta vez, o gato estava dormindo de verdade. O rato passou sem fazer barulho e os dois nunca mais se viram."
+    }
+  },
+  "items": [
+    {
+      "id": "DI-LP5-EF15LP03-01",
+      "skillCode": "EF15LP03",
+      "question": "Leia o bilhete. Para onde Pedro foi?",
+      "options": [
+        {
+          "text": "Na casa do Carlos"
+        },
+        {
+          "text": "No parque",
+          "misconceptionCode": "informacao-nao-esta-no-texto"
+        },
+        {
+          "text": "Na escola",
+          "misconceptionCode": "confunde-personagens"
+        },
+        {
+          "text": "Em casa da professora",
+          "misconceptionCode": "confunde-personagens"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "O bilhete diz: \"fui na casa do Carlos\"."
+    },
+    {
+      "id": "DI-LP5-EF15LP03-02",
+      "skillCode": "EF15LP03",
+      "question": "Leia o bilhete. A que horas Pedro disse que volta?",
+      "options": [
+        {
+          "text": "Antes das 20h"
+        },
+        {
+          "text": "As 18h",
+          "misconceptionCode": "informacao-nao-esta-no-texto"
+        },
+        {
+          "text": "Depois das 20h",
+          "misconceptionCode": "informacao-distorcida"
+        },
+        {
+          "text": "Nao disse hora",
+          "misconceptionCode": "confunde-personagens"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "O bilhete diz: \"vou voltar antes das 20h\"."
+    },
+    {
+      "id": "DI-LP5-EF35LP03-01",
+      "skillCode": "EF35LP03",
+      "question": "Leia o texto do gato e do rato. Qual e o assunto principal?",
+      "options": [
+        {
+          "text": "A relacao entre o gato e o rato"
+        },
+        {
+          "text": "O sono dos gatos",
+          "misconceptionCode": "detalhe-como-ideia-central"
+        },
+        {
+          "text": "A vida no campo",
+          "misconceptionCode": "informacao-nao-esta-no-texto"
+        },
+        {
+          "text": "As arvores da floresta",
+          "misconceptionCode": "informacao-nao-esta-no-texto"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "O texto gira em torno da relacao e tentativa do gato de enganar o rato."
+    },
+    {
+      "id": "DI-LP5-EF35LP03-02",
+      "skillCode": "EF35LP03",
+      "question": "Leia o texto do passeio. Qual e a ideia central?",
+      "options": [
+        {
+          "text": "A turma da professora Laura foi ao parque e teve experiencias diferentes"
+        },
+        {
+          "text": "Joao viu uma borboleta azul",
+          "misconceptionCode": "detalhe-como-ideia-central"
+        },
+        {
+          "text": "A turma levou lanchinho",
+          "misconceptionCode": "detalhe-como-ideia-central"
+        },
+        {
+          "text": "O parque tem muitos passaros",
+          "misconceptionCode": "informacao-nao-esta-no-texto"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "O texto conta sobre o passeio todo da turma e as diferentes experiencias."
+    },
+    {
+      "id": "DI-LP5-EF35LP04-01",
+      "skillCode": "EF35LP04",
+      "question": "No bilhete, Pedro especifica o horario de volta. O que isso sugere?",
+      "options": [
+        {
+          "text": "Que a mae de Pedro tem uma regra sobre horario de volta"
+        },
+        {
+          "text": "Que Pedro vai demorar muito",
+          "misconceptionCode": "informacao-distorcida"
+        },
+        {
+          "text": "Que Pedro nao quer jantar la",
+          "misconceptionCode": "informacao-distorcida"
+        },
+        {
+          "text": "Nao e possivel inferir",
+          "misconceptionCode": "nega-inferencia"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "Pedro especificar o horario sugere que existe uma regra ou expectativa sobre isso."
+    },
+    {
+      "id": "DI-LP5-EF35LP04-02",
+      "skillCode": "EF35LP04",
+      "question": "No texto do passeio, a turma levou um saco para o lixo. O que isso sugere?",
+      "options": [
+        {
+          "text": "Que a professora e a turma se preocupam com o meio ambiente"
+        },
+        {
+          "text": "Que iam fazer trabalho de ciencias",
+          "misconceptionCode": "inventa-informacao"
+        },
+        {
+          "text": "Que o parque e sujo",
+          "misconceptionCode": "informacao-distorcida"
+        },
+        {
+          "text": "Nada e possivel inferir",
+          "misconceptionCode": "nega-inferencia"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "O saco de lixo sugere preocupacao com o ambiente."
+    },
+    {
+      "id": "DI-LP5-EF35LP05-01",
+      "skillCode": "EF35LP05",
+      "question": "\"O aluno ficou confuso com a explicacao. O professor teve que clarificar o assunto.\" \"Clarificar\" provavelmente significa:",
+      "options": [
+        {
+          "text": "Explicar de forma mais clara"
+        },
+        {
+          "text": "Complicar mais",
+          "misconceptionCode": "sentido-oposto"
+        },
+        {
+          "text": "Desenhar no quadro",
+          "misconceptionCode": "sentido-nao-relacionado"
+        },
+        {
+          "text": "Nao e possivel saber",
+          "misconceptionCode": "nega-contexto"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "O contexto mostra que clarificar e tornar mais claro."
+    },
+    {
+      "id": "DI-LP5-EF35LP05-02",
+      "skillCode": "EF35LP05",
+      "question": "\"O problema era arduo, mas os alunos nao desistiram.\" \"Arduo\" provavelmente significa:",
+      "options": [
+        {
+          "text": "Dificil e trabalhoso"
+        },
+        {
+          "text": "Facil e simples",
+          "misconceptionCode": "sentido-oposto"
+        },
+        {
+          "text": "Interessante",
+          "misconceptionCode": "sentido-nao-relacionado"
+        },
+        {
+          "text": "Breve",
+          "misconceptionCode": "sentido-nao-relacionado"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "\"Nao desistiram\" sugere que o problema era um desafio, portanto arduo."
+    }
+  ]
+}

@@ -30,6 +30,9 @@ else
   node scripts/escolas/conteudo-import.mjs || echo "[start] AVISO: importacao de conteudo falhou; servidor sobe sem o conteudo novo"
 fi
 
+echo "[start] importando pacote de demonstracao (idempotente, com lock)"
+node scripts/escolas/conteudo-pacote-import.mjs || echo "[start] AVISO: importacao do pacote de demonstracao falhou; servidor sobe normalmente"
+
 if [ "$ESCOLAS_SEED_DEMO" = "true" ]; then
   echo "[start] seed demo"
   node scripts/escolas/seed-demo.mjs
