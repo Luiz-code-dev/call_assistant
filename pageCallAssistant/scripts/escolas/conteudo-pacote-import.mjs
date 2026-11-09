@@ -154,8 +154,11 @@ async function importFichas(db) {
 // ── Trilhas ───────────────────────────────────────────────────────────────────
 async function importTrilhas(db) {
   const files = readdirSync(TRILHAS_DIR).filter(f => f.endsWith(".json") && f !== "MA-06.json");
-  // Apenas os arquivos do pacote de demonstracao
-  const demoFiles = files.filter(f => f === "FRAC.json" || f === "LP-05.json");
+  // Todos os arquivos do pacote de demonstração (FRAC, LP e todos os novos componentes)
+  const demoFiles = files.filter(f =>
+    f === "FRAC.json" || f === "LP-05.json" ||
+    /^[A-Z]{2,3}-\d{2}\.json$/.test(f)
+  );
   let n = 0;
 
   for (const file of demoFiles) {
