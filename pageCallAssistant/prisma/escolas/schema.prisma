@@ -180,7 +180,7 @@ model EduNetwork {
   gradeConfig          Json
   requireTrackApproval Boolean  @default(true)
   /// Atribuição de trilha após diagnóstico: AUTO | SUGGEST
-  trackAssignmentMode  String   @default("SUGGEST")
+  trackAssignmentMode  String   @default("AUTO")
   /// Diagnóstico com degrau de pré-requisito habilitado por padrão
   diagnosticAdaptive   Boolean  @default(true)
   /// Rede de demonstração — pode ser apagada pelo reset-teste

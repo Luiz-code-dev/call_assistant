@@ -2,6 +2,10 @@
  * GET /api/escola/aluno/materias
  * Retorna todos os componentes BNCC do ano do aluno com status do diagnóstico.
  * O aluno pode escolher qualquer matéria — sem depender da escola.
+ *
+ * Busca diagnósticos por subjectCode (biblioteca) ou subjectId (rede),
+ * porque diagnósticos criados pela escola têm subjectId mas podem não ter
+ * subjectCode preenchido.
  */
 import { NextResponse } from "next/server";
 import { getStudentContext } from "@/lib/escola/context";
@@ -11,10 +15,9 @@ import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const P = prismaEdu as any;
 
-// Componentes BNCC por etapa (EF Anos Iniciais 1-5, Anos Finais 6-9)
-const COMPONENTES_ANOS_INICIAIS = ["LP","MA","CI","HI","GE","AR","EF"];
-const COMPONENTES_ANOS_FINAIS   = ["LP","MA","CI","HI","GE","AR","EF","LI"];
-const COMPONENTE_FACULTATIVO     = "ER"; // Ensino Religioso
+const COMPONENTES_ANOS_INICIAIS = ["LP", "MA", "CI", "HI", "GE", "AR", "EF"];
+const COMPONENTES_ANOS_FINAIS   = ["LP", "MA", "CI", "HI", "GE", "AR", "EF", "LI"];
+const COMPONENTE_FACULTATIVO     = "ER";
 
 const NOMES: Record<string, string> = {
   LP: "Língua Portuguesa", MA: "Matemática",    CI: "Ciências",
@@ -38,24 +41,42 @@ export async function GET() {
   });
   const gradeYear: number = enr?.class?.gradeYear ?? 6;
 
-  // Componentes do ano (ER incluso se a rede habilitou)
-  const network = await P.eduNetwork.findUnique({
-    where: { id: ctx.networkId },
-    select: { id: true },
-  });
   const base = gradeYear <= 5 ? COMPONENTES_ANOS_INICIAIS : COMPONENTES_ANOS_FINAIS;
-  const codigos = [...base, COMPONENTE_FACULTATIVO]; // ER sempre incluído por ora
+  const codigos = [...base, COMPONENTE_FACULTATIVO];
 
-  // Diagnósticos disponíveis (APPROVED biblioteca ou OPEN da rede) por subjectCode
+  // Mapa subjectCode → subjectId para buscar diagnósticos sem subjectCode
+  const subjects = await P.eduSubject.findMany({
+    where: { code: { in: codigos } },
+    select: { id: true, code: true },
+  });
+  const subjectIdByCode: Record<string, string> = {};
+  for (const s of subjects) subjectIdByCode[s.code] = s.id;
+
+  // Diagnósticos: por subjectCode (biblioteca global) OU subjectId (rede)
+  const subjectIds = Object.values(subjectIdByCode);
   const diags = await P.eduDiagnostic.findMany({
     where: {
-      subjectCode: { in: codigos },
       gradeYear,
       status: { in: ["OPEN", "APPROVED"] },
-      OR: [{ networkId: ctx.networkId }, { networkId: null }],
+      OR: [
+        // biblioteca SpeakFlow — tem subjectCode
+        { networkId: null, source: "SPEAKFLOW", subjectCode: { in: codigos } },
+        // diagnósticos da rede — podem ter subjectCode ou subjectId
+        { networkId: ctx.networkId, subjectCode: { in: codigos } },
+        { networkId: ctx.networkId, subjectId: { in: subjectIds } },
+      ],
     },
-    select: { id: true, subjectCode: true, status: true, networkId: true },
+    select: { id: true, subjectCode: true, subjectId: true, status: true, networkId: true },
   });
+
+  // Normaliza: se não tem subjectCode, resolve pelo subjectId
+  const codeById: Record<string, string> = {};
+  for (const s of subjects) codeById[s.id] = s.code;
+
+  const diagsNormalized = diags.map((d: { id: string; subjectCode: string | null; subjectId: string | null; status: string; networkId: string | null }) => ({
+    ...d,
+    subjectCode: d.subjectCode ?? (d.subjectId ? codeById[d.subjectId] ?? null : null),
+  }));
 
   // Sessões concluídas do aluno (por diagnosticId)
   const sessoes = await P.eduAttemptSession.findMany({
@@ -67,40 +88,46 @@ export async function GET() {
   // Trilhas ativas por subjectCode
   const trilhasAtivas = await P.eduTrackAssignment.findMany({
     where: { studentId: ctx.studentId, networkId: ctx.networkId, endedAt: null },
-    include: { track: { select: { subjectCode: true, title: true, gradeYear: true } } },
+    include: { track: { select: { subjectCode: true, subjectId: true, title: true } } },
   });
   const trilhaPorMateria: Record<string, string> = {};
   for (const ta of trilhasAtivas) {
-    if (ta.track?.subjectCode) trilhaPorMateria[ta.track.subjectCode] = ta.track.title;
+    const sc = ta.track?.subjectCode ?? (ta.track?.subjectId ? codeById[ta.track.subjectId] ?? null : null);
+    if (sc) trilhaPorMateria[sc] = ta.track.title;
   }
 
   // Monta resposta
-  const materias = codigos
-    .filter((c) => c !== COMPONENTE_FACULTATIVO || network) // ER sempre por ora
-    .map((codigo) => {
-      // Prefere diagnóstico da rede (OPEN), senão da biblioteca (APPROVED)
-      const diagRede = diags.find((d: { subjectCode: string; networkId: string | null; status: string }) => d.subjectCode === codigo && d.networkId === ctx.networkId);
-      const diagBib  = diags.find((d: { subjectCode: string; networkId: string | null }) => d.subjectCode === codigo && d.networkId === null);
-      const diag = diagRede ?? diagBib ?? null;
+  const materias = codigos.map((codigo) => {
+    // Prefere OPEN da rede (escola abriu), depois APPROVED da rede, depois biblioteca
+    const diagRede = diagsNormalized.find((d: { subjectCode: string | null; networkId: string | null; status: string }) =>
+      d.subjectCode === codigo && d.networkId === ctx.networkId && d.status === "OPEN"
+    );
+    const diagRedeAppr = diagsNormalized.find((d: { subjectCode: string | null; networkId: string | null; status: string }) =>
+      d.subjectCode === codigo && d.networkId === ctx.networkId && d.status === "APPROVED"
+    );
+    const diagBib = diagsNormalized.find((d: { subjectCode: string | null; networkId: string | null }) =>
+      d.subjectCode === codigo && d.networkId === null
+    );
+    const diag = diagRede ?? diagRedeAppr ?? diagBib ?? null;
 
-      const diagFeito = diag ? feitos.has(diag.id) : false;
-      const trilhaAtiva = trilhaPorMateria[codigo] ?? null;
+    const diagFeito = diag ? feitos.has(diag.id) : false;
+    const trilhaAtiva = trilhaPorMateria[codigo] ?? null;
 
-      let estado: "sem_diagnostico" | "disponivel" | "em_trilha" | "feito" = "sem_diagnostico";
-      if (trilhaAtiva) estado = "em_trilha";
-      else if (diagFeito) estado = "feito";
-      else if (diag) estado = "disponivel";
+    let estado: "sem_diagnostico" | "disponivel" | "em_trilha" | "feito" = "sem_diagnostico";
+    if (trilhaAtiva) estado = "em_trilha";
+    else if (diagFeito) estado = "feito";
+    else if (diag) estado = "disponivel";
 
-      return {
-        codigo,
-        nome: NOMES[codigo] ?? codigo,
-        cor: CORES[codigo] ?? "#6D28D9",
-        diagnosticoId: diag?.id ?? null,
-        estado,
-        trilhaAtual: trilhaAtiva,
-      };
-    })
-    .filter((m) => m.estado !== "sem_diagnostico" || m.diagnosticoId !== null);
+    return {
+      codigo,
+      nome: NOMES[codigo] ?? codigo,
+      cor: CORES[codigo] ?? "#6D28D9",
+      // Só expõe o diagnosticoId quando o diagnóstico ainda não foi feito
+      diagnosticoId: estado === "disponivel" ? (diag?.id ?? null) : null,
+      estado,
+      trilhaAtual: trilhaAtiva,
+    };
+  }).filter((m) => m.estado !== "sem_diagnostico");
 
   return NextResponse.json({ materias, gradeYear });
 }
