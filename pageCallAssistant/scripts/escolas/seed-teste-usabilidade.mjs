@@ -171,6 +171,20 @@ async function seedRedeA() {
       data: { isCurrent: false },
     }).catch(() => {});
 
+    // P0.2: EduClassSubject — vincula 5ºA a Matemática com prof.demo como titular
+    const profDemoMembro = await db.eduMembership.findFirst({ where: { networkId: rede.id, role: "TEACHER" } });
+    const matSubjectA = await db.eduSubject.findFirst({ where: { networkId: rede.id, name: { contains: "atem" } } });
+    if (matSubjectA) {
+      await db.eduClassSubject.upsert({
+        where: { classId_subjectId: { classId: turma.id, subjectId: matSubjectA.id } },
+        create: { networkId: rede.id, classId: turma.id, subjectId: matSubjectA.id, teacherId: profDemoMembro?.userId ?? null },
+        update: { teacherId: profDemoMembro?.userId ?? null },
+      });
+      console.log("  ok: EduClassSubject 5A + Matematica criado");
+    } else {
+      console.log("  AVISO: EduSubject Matematica nao encontrado na Rede A");
+    }
+
     // Aluno Demo Silva → PICTURE (atualizar se ainda for PIN)
     const alunoSilva = await db.eduStudent.findUnique({ where: { id: `aluno-${NETWORK_ID}` } });
     if (alunoSilva && alunoSilva.loginMode !== "PICTURE") {
@@ -289,6 +303,19 @@ async function seedRedeB() {
     console.log("  ok: direcao.b (SCHOOL_ADMIN)");
 
     const profMembro = await db.eduMembership.findFirst({ where: { networkId: rede.id, role: "TEACHER" } });
+
+    // P0.2: EduClassSubject — vincula 6ºB a Matemática com prof.b como titular
+    const matSubjectB = await db.eduSubject.findFirst({ where: { networkId: rede.id, name: { contains: "atem" } } });
+    if (matSubjectB) {
+      await db.eduClassSubject.upsert({
+        where: { classId_subjectId: { classId: turma.id, subjectId: matSubjectB.id } },
+        create: { networkId: rede.id, classId: turma.id, subjectId: matSubjectB.id, teacherId: profMembro?.userId ?? null },
+        update: { teacherId: profMembro?.userId ?? null },
+      });
+      console.log("  ok: EduClassSubject 6B + Matematica criado");
+    } else {
+      console.log("  AVISO: EduSubject Matematica nao encontrado na Rede B");
+    }
 
     // 19 alunos extras no 6º B (PIN — grau 6-9)
     const alunosExtra = [];

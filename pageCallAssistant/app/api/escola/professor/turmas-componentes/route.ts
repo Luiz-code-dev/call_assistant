@@ -11,17 +11,17 @@ export async function GET() {
   if (!ctx || ctx.role !== "TEACHER") return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 
   const classSubjects = await prismaEdu.eduClassSubject.findMany({
-    where: { teacherId: ctx.userId },
+    where: { teacherId: ctx.userId, networkId: ctx.networkId },
     include: {
-      class: { select: { name: true, gradeYear: true, network: { select: { id: true } } } },
+      class: { select: { name: true, gradeYear: true } },
       subject: { select: { name: true } },
     },
     orderBy: [{ class: { gradeYear: "asc" } }],
   });
 
+  type CsRow = (typeof classSubjects)[number];
   const items = classSubjects
-    .filter((cs: { class: { network: { id: string } } }) => cs.class.network.id === ctx.networkId)
-    .map((cs: { id: string; class: { name: string; gradeYear: number }; subject: { name: string } }) => ({
+    .map((cs: CsRow) => ({
       id: cs.id,
       className: cs.class.name,
       gradeYear: cs.class.gradeYear,

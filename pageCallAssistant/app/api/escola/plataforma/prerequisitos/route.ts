@@ -20,7 +20,7 @@ export async function GET(req: NextRequest) {
 
   try {
     const db = await getContentReadDb();
-    const items = await (db as any).eduSkillPrerequisite.findMany({
+    const raw = await db.eduSkillPrerequisite.findMany({
       where: { status, networkId: null },
       include: {
         skill: { select: { code: true, shortLabel: true } },
@@ -29,6 +29,8 @@ export async function GET(req: NextRequest) {
       orderBy: [{ skill: { code: "asc" } }, { weight: "desc" }],
       take: 200,
     });
+    // Renomeia `prerequisite` → `prerequisiteSkill` para o componente
+    const items = raw.map(r => ({ ...r, prerequisiteSkill: r.prerequisite }));
     return NextResponse.json({ items });
   } catch (err) {
     return NextResponse.json({ error: err instanceof Error ? err.message : "Erro interno" }, { status: 500 });
