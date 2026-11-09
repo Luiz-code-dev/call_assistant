@@ -320,19 +320,40 @@ async function importDiagnosticos(db) {
       const skill = await db.eduSkill.findUnique({ where: { code: item.skillCode }, select: { id: true } });
       if (!skill) continue;
 
-      // Usa a atividade do pacote pelo step (relembrar = diag)
-      const actId = item.activityId ?? `${diag.id}-ITEM-${idx}`;
-      const diagItemId = `${diag.id}-DI-${idx}`;
+      // Garante EduActivity para o item (EduDiagnosticItem.activityId e required)
+      const actId = item.activityId ?? item.id ?? `${diag.id}-ITEM-${idx}`;
+      const existingAct = await db.eduActivity.findUnique({ where: { id: actId }, select: { id: true } });
+      if (!existingAct) {
+        const opts = (item.options ?? []).map(o => (typeof o === "string" ? o : o.text ?? o));
+        await db.eduActivity.create({
+          data: {
+            id: actId, networkId: null,
+            title: item.question ?? `Item ${idx + 1} — ${item.skillCode}`,
+            type: "QUIZ", prompt: item.question ?? "",
+            estMinutes: 2, status: "APPROVED", source: "SPEAKFLOW",
+            rubric: { type: "QUIZ", criteria: [] },
+            createdById: "speakflow-system",
+          },
+        });
+        if (item.question && opts.length > 0) {
+          const qId = `${actId}-Q0`;
+          await db.eduQuizQuestion.upsert({
+            where: { id: qId },
+            create: { id: qId, activityId: actId, order: 0, question: item.question, options: opts, correctIndex: item.correctIndex ?? 0, misconceptionCode: null },
+            update: { question: item.question, options: opts, correctIndex: item.correctIndex ?? 0 },
+          });
+        }
+        await db.eduActivitySkill.upsert({
+          where: { id: `${actId}-${skill.id}` },
+          create: { id: `${actId}-${skill.id}`, activityId: actId, skillId: skill.id },
+          update: {},
+        }).catch(() => null);
+      }
 
+      const diagItemId = `${diag.id}-DI-${idx}`;
       await db.eduDiagnosticItem.upsert({
         where: { id: diagItemId },
-        create: {
-          id: diagItemId,
-          diagnosticId: diag.id,
-          skillId: skill.id,
-          order: idx,
-          activityId: actId,
-        },
+        create: { id: diagItemId, diagnosticId: diag.id, skillId: skill.id, order: idx, activityId: actId },
         update: { activityId: actId },
       });
     }
