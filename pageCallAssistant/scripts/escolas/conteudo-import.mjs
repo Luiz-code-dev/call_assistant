@@ -139,7 +139,7 @@ async function importTrilhas(db) {
       // Upsert atividades antes da trilha
       for (const act of trilha.activities ?? []) {
         const existingAct = await db.eduActivity.findUnique({ where: { id: act.id }, select: { id: true, status: true } });
-        if (existingAct?.status === "APPROVED") continue;
+        if (existingAct?.status === "PUBLISHED") continue;
 
         const qs = act.questions ?? [];
         if (qs.length > 0 && qs.every(q => q.correctIndex === undefined))
@@ -236,7 +236,7 @@ async function importDiagnosticos(db) {
         const act = item.activity;
         if (act) {
           const existingAct = await db.eduActivity.findUnique({ where: { id: act.id }, select: { id: true, status: true } });
-          if (!existingAct || existingAct.status !== "APPROVED") {
+          if (!existingAct || existingAct.status !== "PUBLISHED") {
             await db.eduActivity.upsert({
               where: { id: act.id },
               create: { id: act.id, networkId: null, title: act.title, type: act.type, prompt: act.prompt, estMinutes: act.estMinutes ?? 5, status: "DRAFT", source: "SPEAKFLOW", rubric: act.rubric ?? { type: act.type, criteria: [] }, createdById: "speakflow-system" },
@@ -270,7 +270,7 @@ async function importDiagnosticos(db) {
                 id: diagActId, networkId: null,
                 title: item.question ?? `Item ${i + 1} — ${item.skillCode}`,
                 type: "QUIZ", prompt: item.question ?? "",
-                estMinutes: 2, status: "APPROVED", source: "SPEAKFLOW",
+                estMinutes: 2, status: "PUBLISHED", source: "SPEAKFLOW",
                 rubric: { type: "QUIZ", criteria: [] },
                 createdById: "speakflow-system",
               },

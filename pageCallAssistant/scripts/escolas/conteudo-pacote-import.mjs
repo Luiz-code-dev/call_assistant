@@ -171,7 +171,7 @@ async function importTrilhas(db) {
       // Upsert atividades antes da trilha
       for (const act of trilha.activities ?? []) {
         const existingAct = await db.eduActivity.findUnique({ where: { id: act.id }, select: { id: true, status: true } });
-        if (existingAct?.status === "APPROVED") continue;
+        if (existingAct?.status === "PUBLISHED") continue;
 
         await db.eduActivity.upsert({
           where: { id: act.id },
@@ -330,7 +330,7 @@ async function importDiagnosticos(db) {
             id: actId, networkId: null,
             title: item.question ?? `Item ${idx + 1} — ${item.skillCode}`,
             type: "QUIZ", prompt: item.question ?? "",
-            estMinutes: 2, status: "APPROVED", source: "SPEAKFLOW",
+            estMinutes: 2, status: "PUBLISHED", source: "SPEAKFLOW",
             rubric: { type: "QUIZ", criteria: [] },
             createdById: "speakflow-system",
           },
