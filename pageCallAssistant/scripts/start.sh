@@ -40,6 +40,11 @@ if [ "$ESCOLAS_SEED_USUARIOS" = "true" ]; then
   node scripts/escolas/seed-usuarios-demo.mjs
 fi
 
+if [ "$ESCOLAS_SEED_TESTE" = "true" ]; then
+  echo "[start] seed teste de usabilidade"
+  node scripts/escolas/seed-teste-usabilidade.mjs
+fi
+
 if [ "$START_SERVER" = "false" ]; then
   echo "[start] START_SERVER=false — encerrando sem iniciar o servidor (modo CI)"
   exit 0

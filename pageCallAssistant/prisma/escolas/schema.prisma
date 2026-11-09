@@ -183,6 +183,8 @@ model EduNetwork {
   trackAssignmentMode  String   @default("SUGGEST")
   /// Diagnóstico com degrau de pré-requisito habilitado por padrão
   diagnosticAdaptive   Boolean  @default(true)
+  /// Rede de demonstração — pode ser apagada pelo reset-teste
+  isDemo               Boolean  @default(false)
   createdAt            DateTime @default(now())
 
   schools       EduSchool[]

@@ -27,7 +27,10 @@
     "escolas:bncc-import": "node scripts/escolas/bncc-import.mjs",
     "escolas:migrate-all": "node scripts/escolas/migrate-all.mjs",
     "escolas:test:integration": "node scripts/escolas/test-integration.mjs",
-    "escolas:test:int": "vitest run --config vitest.int.config.ts"
+    "escolas:test:int": "vitest run --config vitest.int.config.ts",
+    "escolas:seed-teste": "node scripts/escolas/seed-teste-usabilidade.mjs",
+    "escolas:reset-teste": "node scripts/escolas/reset-teste.mjs",
+    "escolas:inventario": "node scripts/escolas/inventario.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1155.0",
