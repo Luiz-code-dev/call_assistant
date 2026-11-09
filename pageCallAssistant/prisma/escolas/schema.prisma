@@ -284,6 +284,7 @@ model EduSubject {
 
   network         EduNetwork          @relation(fields: [networkId], references: [id])
   curriculumItems EduCurriculumItem[]
+  classes         EduClassSubject[]
 
   @@unique([networkId, name])
 }
@@ -333,12 +334,14 @@ model EduClassSubject {
   isExtra   Boolean @default(false)
 
   class       EduClass        @relation(fields: [classId], references: [id])
+  subject     EduSubject      @relation(fields: [subjectId], references: [id])
   topics      EduTopic[]
   assessments EduAssessment[]
   activities  EduActivity[]
 
   @@unique([classId, subjectId])
   @@index([teacherId])
+  @@index([subjectId])
 }
 
 model EduStudent {
@@ -600,6 +603,8 @@ model EduActivity {
   derivedFromId  String?
   estMinutes     Int               @default(10)
   audioPromptUrl String?
+  /// Texto exato que o botão "Ouvir" lê (TTS)
+  audioScript    String? @db.Text
   imageUrl       String?
   /// Faixa etária/série (ex.: "EF6" para 6º ano EF)
   ageBand        String?
@@ -608,9 +613,10 @@ model EduActivity {
   /// DRAFT | IN_REVIEW | APPROVED | REJECTED
   reviewStatus   String            @default("DRAFT")
 
-  classSubject EduClassSubject?  @relation(fields: [classSubjectId], references: [id])
-  questions    EduQuizQuestion[]
-  submissions  EduSubmission[]
+  classSubject     EduClassSubject?    @relation(fields: [classSubjectId], references: [id])
+  questions        EduQuizQuestion[]
+  submissions      EduSubmission[]
+  diagnosticItems  EduDiagnosticItem[]
 
   @@index([classSubjectId, status])
   @@index([networkId, status])
@@ -632,6 +638,8 @@ model EduQuizQuestion {
   objectiveId     String?
   /// Código do erro conceitual que a alternativa errada mais comum representa
   misconceptionCode String?
+  /// Variantes da questão: [{question, options, correctIndex}]
+  variants          Json    @default("[]")
 
   activity EduActivity @relation(fields: [activityId], references: [id], onDelete: Cascade)
 
@@ -855,9 +863,11 @@ model EduDiagnosticItem {
 
   diagnostic EduDiagnostic @relation(fields: [diagnosticId], references: [id], onDelete: Cascade)
   skill      EduSkill      @relation(fields: [skillId], references: [id])
+  activity   EduActivity   @relation(fields: [activityId], references: [id])
 
   @@index([diagnosticId])
   @@index([skillId])
+  @@index([activityId])
 }
 
 model EduSkillMastery {

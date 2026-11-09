@@ -98,7 +98,10 @@ export default function AulaPage() {
       {/* Sessões abertas */}
       {sessions.map(s => {
         const expiresAt = new Date(s.expiresAt);
-        const expiresStr = expiresAt.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
+        const farFuture = expiresAt.getFullYear() > new Date().getFullYear() + 1;
+        const expiresStr = farFuture
+          ? expiresAt.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric" })
+          : expiresAt.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
         const aulaUrl = `https://www.speakflow.ia.br/escola/aluno/entrar?aula=${s.code}`;
         const info = presentes[s.id];
 
@@ -120,7 +123,7 @@ export default function AulaPage() {
                   <div className="text-center sm:text-left">
                     <div className="text-[#5B5470] text-xs font-semibold tracking-widest uppercase mb-1">Codigo da aula</div>
                     <div className="text-5xl font-bold font-mono text-[#1F1A2E] tracking-widest">{s.code}</div>
-                    <div className="text-[#166534] text-sm mt-1">expira as {expiresStr}</div>
+                    <div className="text-[#166534] text-sm mt-1">válida {farFuture ? "até " : "até às "}{expiresStr}</div>
                   </div>
                 </div>
 
@@ -190,10 +193,12 @@ export default function AulaPage() {
 
       {/* Formulário para abrir nova aula */}
       {uniqueClasses.length === 0 ? (
-        <div className="text-center py-16 text-[#5B5470]">
-          <p className="text-lg font-semibold mb-2">Você não está atribuído a nenhuma turma.</p>
-          <p className="text-sm">Peça à coordenação para vincular você a uma turma.</p>
-        </div>
+        sessions.length === 0 ? (
+          <div className="text-center py-16 text-[#5B5470]">
+            <p className="text-lg font-semibold mb-2">Você não está atribuído a nenhuma turma.</p>
+            <p className="text-sm">Peça à coordenação para vincular você a uma turma.</p>
+          </div>
+        ) : null
       ) : (
         <div className="bg-white border border-[#E9E5F5] rounded-2xl p-6 max-w-sm">
           <h2 className="text-[#1F1A2E] font-semibold mb-4">Abrir nova aula</h2>

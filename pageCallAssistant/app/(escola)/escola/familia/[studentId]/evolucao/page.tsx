@@ -58,7 +58,7 @@ export default function EvolucaoCompleta() {
             </div>
 
             {total === 0 ? (
-              <div className="bg-white border border-[#E9E5F5] rounded-[20px] p-6 text-center text-[#5B5470] text-sm">O diagnóstico ainda não foi feito. Depois dele, você vê aqui o que ele(a) já domina e o que vai praticar.</div>
+              <div className="bg-white border border-[#E9E5F5] rounded-[20px] p-6 text-center text-[#5B5470] text-sm">O diagnóstico ainda não foi feito. Assim que for realizado, você verá aqui as habilidades já dominadas e as que serão praticadas.</div>
             ) : (
               <>
                 {/* Resumo barra empilhada */}

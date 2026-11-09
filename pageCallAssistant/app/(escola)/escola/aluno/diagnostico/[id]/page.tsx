@@ -101,7 +101,7 @@ export default function DiagnosticoPage() {
 
   if (loading) return (
     <div className="min-h-screen bg-[#F8F7FC] flex items-center justify-center">
-      <div className="text-[#5B5470]">Preparando diagnostico...</div>
+      <div className="text-[#5B5470]">Preparando diagnóstico...</div>
     </div>
   );
 
@@ -118,12 +118,12 @@ export default function DiagnosticoPage() {
         <span className="text-4xl">&#10003;</span>
       </div>
       <h1 className="text-[#1F1A2E] text-2xl font-bold">Pronto!</h1>
-      <p className="text-[#5B5470]">Sua trilha esta sendo preparada. Em breve aparecera no inicio.</p>
+      <p className="text-[#5B5470]">Sua trilha está sendo preparada. Em breve aparecerá no início.</p>
       <button
         onClick={() => router.push("/escola/aluno")}
         className="w-full max-w-xs py-4 rounded-2xl bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-bold text-lg min-h-[52px] transition-colors"
       >
-        Ir para o inicio
+        Ir para o início
       </button>
     </div>
   );
@@ -140,7 +140,7 @@ export default function DiagnosticoPage() {
       <header className="bg-white border-b border-[#E9E5F5] px-4 py-3">
         <div className="max-w-lg mx-auto">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-semibold text-[#5B5470] uppercase tracking-wide">Diagnostico</span>
+            <span className="text-xs font-semibold text-[#5B5470] uppercase tracking-wide">DIAGNÓSTICO</span>
             <span className="text-xs text-[#5B5470]">{questaoAtual} de {totalQuestoes}</span>
           </div>
           <div className="h-2 bg-[#E9E5F5] rounded-full overflow-hidden">
@@ -155,7 +155,7 @@ export default function DiagnosticoPage() {
       <main className="flex-1 max-w-lg mx-auto w-full px-4 py-6 flex flex-col gap-5">
         {avisoRapido && (
           <div className="bg-[#FEF3C7] border border-[#FDE68A] rounded-xl px-4 py-3 text-sm text-[#92400E] font-medium text-center">
-            Vamos com calma! Leia a questao com atencao antes de responder.
+            Vamos com calma! Leia a questão com atenção antes de responder.
           </div>
         )}
 

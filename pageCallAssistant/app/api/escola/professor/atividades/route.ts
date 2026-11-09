@@ -38,6 +38,7 @@ export async function GET(req: NextRequest) {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "disabled" }, { status: 403 });
   const ctx = await getEduContext();
   if (!ctx || !ALLOWED_ROLES.has(ctx.role)) return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
+  if (ctx.db) { const { setTenantDb } = await import("@/lib/escola/db"); setTenantDb(ctx.db); }
 
   const { searchParams } = new URL(req.url);
   const classSubjectId = searchParams.get("classSubjectId");
@@ -45,7 +46,7 @@ export async function GET(req: NextRequest) {
   // A5: TEACHER vê apenas atividades das suas turmas
   const teacherFilter = ctx.role === "TEACHER" ? { classSubject: { teacherId: ctx.userId } } : {};
 
-  const activities = await (prismaEdu as any).eduActivity.findMany({
+  const activities = await prismaEdu.eduActivity.findMany({
     where: {
       networkId: ctx.networkId,
       ...(classSubjectId ? { classSubjectId } : {}),

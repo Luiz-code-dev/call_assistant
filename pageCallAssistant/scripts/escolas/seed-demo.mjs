@@ -119,15 +119,15 @@ async function seedRede(demo) {
     // Cria/atualiza rede
     await db.eduNetwork.upsert({
       where: { id: demo.id },
-      create: { id: demo.id, name: demo.name, isActive: true, slug: demo.id, city: "Cidade Demo", state: "SP", gradeConfig: {} },
+      create: { id: demo.id, name: demo.name, isActive: true, city: "Cidade Demo", state: "SP", gradeConfig: {} },
       update: { name: demo.name, isActive: true },
     });
 
     // EduUser: gestor da rede
     const gestorEmail = `gestor@${demo.id}.demo`;
     const gestor = await db.eduUser.upsert({
-      where: { email: gestorEmail },
-      create: { email: gestorEmail, name: "Gestor Demo", passwordHash: hashPw("Demo@2025"), isActive: true },
+      where: { networkId_email: { networkId: demo.id, email: gestorEmail } },
+      create: { networkId: demo.id, email: gestorEmail, name: "Gestor Demo", passwordHash: hashPw("Demo@2025"), isActive: true },
       update: {},
     });
 
@@ -200,8 +200,8 @@ async function seedRede(demo) {
     // Professor
     const profEmail = `professor@${demo.id}.demo`;
     const prof = await db.eduUser.upsert({
-      where: { email: profEmail },
-      create: { email: profEmail, name: "Professor Demo", passwordHash: hashPw("Demo@2025"), isActive: true },
+      where: { networkId_email: { networkId: demo.id, email: profEmail } },
+      create: { networkId: demo.id, email: profEmail, name: "Professor Demo", passwordHash: hashPw("Demo@2025"), isActive: true },
       update: {},
     });
 
@@ -250,8 +250,8 @@ async function seedRede(demo) {
       ];
       for (const acc of reviewAccounts) {
         const u = await db.eduUser.upsert({
-          where: { email: acc.email },
-          create: { email: acc.email, name: acc.name, passwordHash: hashPw("Review@2025!"), isActive: true },
+          where: { networkId_email: { networkId: demo.id, email: acc.email } },
+          create: { networkId: demo.id, email: acc.email, name: acc.name, passwordHash: hashPw("Review@2025!"), isActive: true },
           update: {},
         });
         await db.eduMembership.upsert({

@@ -71,6 +71,32 @@ export async function GET(_: NextRequest, { params }: { params: { id: string } }
   });
 }
 
+/** POST — cria EduClassSubject (vincula turma + componente) para NETWORK_ADMIN/COORDINATOR/SCHOOL_ADMIN */
+export async function POST(req: NextRequest, { params }: { params: { id: string } }) {
+  if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
+  const ctx = await getEduContext();
+  if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  if (ctx?.db) setTenantDb(ctx.db);
+  if (!["NETWORK_ADMIN", "SCHOOL_ADMIN", "COORDINATOR"].includes(ctx.role))
+    return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
+  if (ctx.role === "SCHOOL_ADMIN" && ctx.schoolId !== params.id)
+    return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
+
+  const { classId, subjectId, teacherId } = await req.json();
+  if (!classId || !subjectId) return NextResponse.json({ error: "classId e subjectId obrigatórios" }, { status: 400 });
+
+  const cls = await prismaEdu.eduClass.findUnique({ where: { id: classId, networkId: ctx.networkId } });
+  if (!cls || cls.schoolId !== params.id) return NextResponse.json({ error: "Turma não encontrada" }, { status: 404 });
+
+  const cs = await prismaEdu.eduClassSubject.upsert({
+    where: { classId_subjectId: { classId, subjectId } },
+    create: { networkId: ctx.networkId, classId, subjectId, teacherId: teacherId ?? null },
+    update: { teacherId: teacherId ?? null },
+  });
+
+  return NextResponse.json({ classSubject: cs }, { status: 201 });
+}
+
 export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
   if (!flag()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();

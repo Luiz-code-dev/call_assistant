@@ -139,7 +139,7 @@ async function importTrilhas(db) {
       // Upsert atividades antes da trilha
       for (const act of trilha.activities ?? []) {
         const existingAct = await db.eduActivity.findUnique({ where: { id: act.id }, select: { id: true, status: true } });
-        if (existingAct?.status === "APPROVED") continue;
+        if (existingAct?.status === "PUBLISHED") continue;
 
         const qs = act.questions ?? [];
         if (qs.length > 0 && qs.every(q => q.correctIndex === undefined))
@@ -210,20 +210,22 @@ async function importDiagnosticos(db) {
   const files = readdirSync(diagDir).filter(f => f.endsWith(".json"));
   let n = 0;
   for (const file of files) {
-    const diags = JSON.parse(readFileSync(join(diagDir, file), "utf8"));
+    const raw = JSON.parse(readFileSync(join(diagDir, file), "utf8"));
+    const diags = Array.isArray(raw) ? raw : [raw];
     for (const diag of diags) {
       const existingDiag = await db.eduDiagnostic.findUnique({ where: { id: diag.id }, select: { id: true, status: true } });
       if (existingDiag?.status === "APPROVED") { n++; continue; }
 
+      const diagTitle = diag.title ?? diag.titulo ?? diag.id;
       await db.eduDiagnostic.upsert({
         where: { id: diag.id },
         create: {
-          id: diag.id, networkId: null, title: diag.title,
+          id: diag.id, networkId: null, title: diagTitle,
           gradeYear: diag.gradeYear,
           source: diag.source ?? "SPEAKFLOW", status: "DRAFT",
           createdById: "speakflow-system",
         },
-        update: { title: diag.title },
+        update: { title: diagTitle },
       });
 
       for (let i = 0; i < (diag.items ?? []).length; i++) {
@@ -234,7 +236,7 @@ async function importDiagnosticos(db) {
         const act = item.activity;
         if (act) {
           const existingAct = await db.eduActivity.findUnique({ where: { id: act.id }, select: { id: true, status: true } });
-          if (!existingAct || existingAct.status !== "APPROVED") {
+          if (!existingAct || existingAct.status !== "PUBLISHED") {
             await db.eduActivity.upsert({
               where: { id: act.id },
               create: { id: act.id, networkId: null, title: act.title, type: act.type, prompt: act.prompt, estMinutes: act.estMinutes ?? 5, status: "DRAFT", source: "SPEAKFLOW", rubric: act.rubric ?? { type: act.type, criteria: [] }, createdById: "speakflow-system" },
@@ -257,10 +259,41 @@ async function importDiagnosticos(db) {
           }
         }
 
+        // EduDiagnosticItem.activityId e required — garante EduActivity para itens sem activity embutida
+        const diagActId = item.activityId ?? (item.activity?.id) ?? item.id ?? `${diag.id}-ITEM-${i}`;
+        if (!item.activity && !item.activityId) {
+          const existingDiagAct = await db.eduActivity.findUnique({ where: { id: diagActId }, select: { id: true } });
+          if (!existingDiagAct) {
+            const opts = (item.options ?? []).map(o => (typeof o === "string" ? o : o.text ?? o));
+            await db.eduActivity.create({
+              data: {
+                id: diagActId, networkId: null,
+                title: item.question ?? `Item ${i + 1} — ${item.skillCode}`,
+                type: "QUIZ", prompt: item.question ?? "",
+                estMinutes: 2, status: "PUBLISHED", source: "SPEAKFLOW",
+                rubric: { type: "QUIZ", criteria: [] },
+                createdById: "speakflow-system",
+              },
+            });
+            if (item.question && opts.length > 0) {
+              const qId = `${diagActId}-Q0`;
+              await db.eduQuizQuestion.upsert({
+                where: { id: qId },
+                create: { id: qId, activityId: diagActId, order: 0, question: item.question, options: opts, correctIndex: item.correctIndex ?? 0, misconceptionCode: null },
+                update: { question: item.question, options: opts, correctIndex: item.correctIndex ?? 0 },
+              });
+            }
+            await db.eduActivitySkill.upsert({
+              where: { id: `${diagActId}-${skill.id}` },
+              create: { id: `${diagActId}-${skill.id}`, activityId: diagActId, skillId: skill.id },
+              update: {},
+            }).catch(() => null);
+          }
+        }
         const diagItemId = `${diag.id}-ITEM-${i}`;
         await db.eduDiagnosticItem.upsert({
           where: { id: diagItemId },
-          create: { id: diagItemId, diagnosticId: diag.id, activityId: item.activityId, skillId: skill.id, order: i },
+          create: { id: diagItemId, diagnosticId: diag.id, activityId: diagActId, skillId: skill.id, order: i },
           update: { order: i },
         });
       }

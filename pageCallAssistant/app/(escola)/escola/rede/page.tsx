@@ -169,7 +169,7 @@ export default async function RedePage() {
                 href: "/escola/rede/indicadores", icon: <Activity size={18} className="text-amber-600" />, bg: "bg-amber-50",
               },
               {
-                label: "Notas do período", value: "—",
+                label: "Habilidades recuperadas", value: "—",
                 href: "/escola/rede/indicadores", icon: <BookOpen size={18} className="text-rose-600" />, bg: "bg-rose-50",
               },
             ].map((k) => (
@@ -241,7 +241,7 @@ export default async function RedePage() {
                     <th className="px-4 py-2.5 font-medium">INEP</th>
                     <th className="px-4 py-2.5 font-medium text-right">Alunos</th>
                     <th className="px-4 py-2.5 font-medium text-right">Professores</th>
-                    <th className="px-4 py-2.5 font-medium text-right">Notas lançadas</th>
+                    <th className="px-4 py-2.5 font-medium text-right">Praticaram na semana (%)</th>
                     <th className="px-4 py-2.5 font-medium text-right">Atividades</th>
                   </tr>
                 </thead>

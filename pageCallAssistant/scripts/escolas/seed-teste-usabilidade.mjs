@@ -171,6 +171,20 @@ async function seedRedeA() {
       data: { isCurrent: false },
     }).catch(() => {});
 
+    // P0.2: EduClassSubject — vincula 5ºA a Matemática com prof.demo como titular
+    const profDemoMembro = await db.eduMembership.findFirst({ where: { networkId: rede.id, role: "TEACHER" } });
+    const matSubjectA = await db.eduSubject.findFirst({ where: { networkId: rede.id, name: { contains: "atem" } } });
+    if (matSubjectA) {
+      await db.eduClassSubject.upsert({
+        where: { classId_subjectId: { classId: turma.id, subjectId: matSubjectA.id } },
+        create: { networkId: rede.id, classId: turma.id, subjectId: matSubjectA.id, teacherId: profDemoMembro?.userId ?? null },
+        update: { teacherId: profDemoMembro?.userId ?? null },
+      });
+      console.log("  ok: EduClassSubject 5A + Matematica criado");
+    } else {
+      console.log("  AVISO: EduSubject Matematica nao encontrado na Rede A");
+    }
+
     // Aluno Demo Silva → PICTURE (atualizar se ainda for PIN)
     const alunoSilva = await db.eduStudent.findUnique({ where: { id: `aluno-${NETWORK_ID}` } });
     if (alunoSilva && alunoSilva.loginMode !== "PICTURE") {
@@ -290,6 +304,19 @@ async function seedRedeB() {
 
     const profMembro = await db.eduMembership.findFirst({ where: { networkId: rede.id, role: "TEACHER" } });
 
+    // P0.2: EduClassSubject — vincula 6ºB a Matemática com prof.b como titular
+    const matSubjectB = await db.eduSubject.findFirst({ where: { networkId: rede.id, name: { contains: "atem" } } });
+    if (matSubjectB) {
+      await db.eduClassSubject.upsert({
+        where: { classId_subjectId: { classId: turma.id, subjectId: matSubjectB.id } },
+        create: { networkId: rede.id, classId: turma.id, subjectId: matSubjectB.id, teacherId: profMembro?.userId ?? null },
+        update: { teacherId: profMembro?.userId ?? null },
+      });
+      console.log("  ok: EduClassSubject 6B + Matematica criado");
+    } else {
+      console.log("  AVISO: EduSubject Matematica nao encontrado na Rede B");
+    }
+
     // 19 alunos extras no 6º B (PIN — grau 6-9)
     const alunosExtra = [];
     for (let i = 0; i < 19; i++) {
@@ -359,92 +386,118 @@ async function seedRedeB() {
     }
     console.log(`  ok: ${trilhasDraft.length} trilhas MA-06 → APPROVED`);
 
-    // Diagnóstico MA-06 aberto para Rede B
-    const diagId = "diag-teste-ma06-rede-b";
+    // Diagnóstico de Frações — 6º ano (início do bimestre) — substitui diag-teste-ma06-rede-b
+    const diagId = "diag-fracoes-6a-rede-b";
+    const matSubjectForDiag = matSubjectB ?? await db.eduSubject.findFirst({ where: { name: { contains: "atem" } } });
     const diag = await db.eduDiagnostic.upsert({
       where: { id: diagId },
       create: {
         id: diagId,
         networkId: rede.id,
-        subjectCode: "MA",
+        subjectId: matSubjectForDiag?.id ?? "sem-disciplina",
         gradeYear: 6,
-        title: "Diagnostico MA-06 — Teste de Usabilidade",
+        title: "Diagnostico de Fracoes — 6o ano (inicio do bimestre)",
         cycle: 1,
         status: "OPEN",
         opensAt: new Date(),
         createdById: coordUser.id,
-        source: "REDE",
-        adaptive: true,
+        source: "SPEAKFLOW",
       },
       update: { status: "OPEN" },
     });
 
-    // Banco de questões para cada item do diagnóstico MA-06
-    // EduQuizQuestion é obrigatório — sem ela o endpoint /aluno/diagnostico/[id]
-    // retorna array vazio de perguntas e o aluno não consegue responder.
-    const QUESTOES_MA06 = [
-      { q: "Qual é o valor de 2/3 + 1/6?", opts: ["5/6","1/2","3/9","2/9"], c: 0, exp: "2/3 = 4/6, logo 4/6 + 1/6 = 5/6" },
-      { q: "Simplifique a fração 12/18.", opts: ["2/3","3/4","6/9","4/6"], c: 0, exp: "MDC(12,18)=6 → 12/18 = 2/3" },
-      { q: "Quanto é 1/2 + 1/3?", opts: ["5/6","2/5","3/5","2/6"], c: 0, exp: "1/2=3/6, 1/3=2/6, soma=5/6" },
-      { q: "Um número racional entre 1 e 2 é:", opts: ["3/2","5/2","1/4","0,25"], c: 0, exp: "3/2 = 1,5 está entre 1 e 2" },
-      { q: "Calcule 3/4 − 1/8.", opts: ["5/8","2/4","1/2","4/8"], c: 0, exp: "3/4=6/8, 6/8−1/8=5/8" },
-      { q: "Qual fração é equivalente a 0,75?", opts: ["3/4","7/5","3/5","4/3"], c: 0, exp: "0,75 = 75/100 = 3/4" },
-      { q: "Se um inteiro é dividido em 5 partes iguais, cada parte vale:", opts: ["1/5","5/1","1/4","2/5"], c: 0, exp: "1 ÷ 5 = 1/5" },
-      { q: "Qual é o resultado de 2 × (1/4)?", opts: ["1/2","2/4","1/8","3/4"], c: 0, exp: "2 × 1/4 = 2/4 = 1/2" },
-    ];
+    // Questoes do diagnostico de Fracoes (habilidades EF06MA07, EF06MA08, EF06MA09, EF06MA10)
+    // Cada habilidade tem 2 questoes — total 8 itens para o 6o ano
+    const QUESTOES_FRAC = {
+      "EF06MA07": [
+        { q: "Qual das fracoes a seguir e a maior?", opts: ["3/4","1/2","2/5","1/3"], c: 0, exp: "3/4=0,75 e a maior entre as opcoes." },
+        { q: "2/6 e 1/3 sao equivalentes?", opts: ["Sim, 2/6 = 1/3","Nao, denominadores diferentes","Sim, mas so se forem positivas","Nao, 2 diferente de 1"], c: 0, exp: "2/6 dividido por 2/2 = 1/3. Sao equivalentes." },
+      ],
+      "EF06MA08": [
+        { q: "Qual decimal equivale a 3/4?", opts: ["0,75","0,34","0,43","7,5"], c: 0, exp: "3 dividido por 4 = 0,75." },
+        { q: "0,6 pode ser escrito como fracao:", opts: ["3/5","6/100","1/6","6/5"], c: 0, exp: "0,6 = 6/10 = 3/5 (simplificando)." },
+      ],
+      "EF06MA09": [
+        { q: "Qual e 1/4 de 20?", opts: ["5","4","10","8"], c: 0, exp: "20 dividido por 4 = 5." },
+        { q: "Pedro tem 24 figurinhas. Ele deu 1/3 para a irma. Quantas deu?", opts: ["8","6","12","3"], c: 0, exp: "1/3 de 24 = 24 dividido por 3 = 8." },
+      ],
+      "EF06MA10": [
+        { q: "Quanto e 1/2 + 1/3?", opts: ["5/6","2/5","3/5","2/6"], c: 0, exp: "1/2=3/6, 1/3=2/6, soma=5/6." },
+        { q: "Quanto e 3/4 - 1/4?", opts: ["2/4","1/2","3/8","1/4"], c: 0, exp: "3/4 - 1/4 = 2/4 = 1/2." },
+      ],
+    };
 
-    // Itens do diagnóstico (8 habilidades para tamanho razoável)
-    const skillsParaDiag = skillsMA06.slice(0, 8);
-    for (let i = 0; i < skillsParaDiag.length; i++) {
-      const skill = skillsParaDiag[i];
-      const atvId = `ativ-diag-ma06-${i}`;
-      const atv = await db.eduActivity.upsert({
-        where: { id: atvId },
-        create: {
-          id: atvId,
-          networkId: rede.id,
-          type: "QUIZ",
-          title: `Questao diagnostico MA-06 — ${skill.code}`,
-          prompt: `Resolva o problema relacionado a ${skill.code}.`,
-          rubric: { type: "quiz" },
-          maxScore: 10,
-          maxAttempts: 1,
-          status: "PUBLISHED",
-          createdById: coordUser.id,
-        },
-        update: {},
-      });
-      // Bug 4: criar EduQuizQuestion — sem ela o endpoint retorna perguntas vazias
-      const q = QUESTOES_MA06[i] ?? QUESTOES_MA06[0];
-      await db.eduQuizQuestion.upsert({
-        where: { id: `qz-diag-ma06-${i}` },
-        create: {
-          id: `qz-diag-ma06-${i}`,
-          activityId: atv.id,
-          order: 0,
-          question: q.q,
-          options: q.opts,
-          correctIndex: q.c,
-          explanation: q.exp,
-          skillId: skill.id,
-        },
-        update: {},
-      });
-      await db.eduDiagnosticItem.upsert({
-        where: { id: `item-diag-ma06-${i}` },
-        create: { id: `item-diag-ma06-${i}`, diagnosticId: diag.id, skillId: skill.id, order: i, activityId: atv.id },
-        update: {},
-      });
+    // Habilidades do 6o ano de Fracoes na ordem do diagnostico
+    const codigosFrac6 = ["EF06MA07","EF06MA08","EF06MA09","EF06MA10"];
+    const skillsFrac6 = await db.eduSkill.findMany({
+      where: { code: { in: codigosFrac6 } },
+      select: { id: true, code: true },
+    });
+    const skillMapFrac = Object.fromEntries(skillsFrac6.map(s => [s.code, s]));
+
+    let diagItemIdx = 0;
+    for (const cod of codigosFrac6) {
+      const skill = skillMapFrac[cod];
+      if (!skill) { console.log(`  AVISO: habilidade ${cod} nao encontrada`); continue; }
+      const qs = QUESTOES_FRAC[cod] ?? [];
+      for (let qi = 0; qi < qs.length; qi++) {
+        const q = qs[qi];
+        const atvId = `ativ-diag-frac-${cod}-${qi}`;
+        await db.eduActivity.upsert({
+          where: { id: atvId },
+          create: {
+            id: atvId,
+            networkId: rede.id,
+            classSubjectId: null,
+            type: "QUIZ",
+            title: `Diagnostico Fracoes — ${cod} Q${qi+1}`,
+            prompt: q.q,
+            rubric: { type: "quiz" },
+            maxScore: 10,
+            maxAttempts: 1,
+            status: "PUBLISHED",
+            source: "SPEAKFLOW",
+            createdById: coordUser.id,
+          },
+          update: {},
+        });
+        const qId = `qz-diag-frac-${cod}-${qi}`;
+        await db.eduQuizQuestion.upsert({
+          where: { id: qId },
+          create: {
+            id: qId,
+            activityId: atvId,
+            order: 0,
+            question: q.q,
+            options: q.opts,
+            correctIndex: q.c,
+            explanation: q.exp,
+            skillId: skill.id,
+          },
+          update: {},
+        });
+        const itemId = `item-diag-frac-${cod}-${qi}`;
+        await db.eduDiagnosticItem.upsert({
+          where: { id: itemId },
+          create: { id: itemId, diagnosticId: diag.id, skillId: skill.id, order: diagItemIdx, activityId: atvId },
+          update: {},
+        });
+        diagItemIdx++;
+      }
     }
-    console.log(`  ok: diagnostico aberto com ${skillsParaDiag.length} itens e questoes`);
+    console.log(`  ok: diagnostico de Fracoes aberto com ${diagItemIdx} itens`);
 
-    // 15 respostas ao diagnóstico: Aluno Demo B Santos NAO responde
-    // ~40% erram EF06MA07 → 6 de 15
+    // 15 respostas ao diagnostico: Aluno Demo B Santos NAO responde
+    // 6 de 15 erram EF06MA07 → caem no degrau EF05MA04
+    // 4 alunos marcam "2/5" em 1/2 + 1/3 → erro soma-num-e-den-separado
     const now = new Date();
     const alunosQueResponderam = alunosExtra.slice(0, 15);
     const erramEF06MA07 = new Set(alunosQueResponderam.slice(0, 6).map(a => a.id));
-    // 4 alunos com erro "1/2 + 1/3" (são subconjunto dos que erram EF06MA07)
     const erroFracaoIds = new Set(alunosQueResponderam.slice(0, 4).map(a => a.id));
+
+    // Habilidades prerequisito para o degrau
+    const skillEF05MA04 = await db.eduSkill.findUnique({ where: { code: "EF05MA04" }, select: { id: true, code: true } }).catch(() => null);
+    const skillEF04MA09 = await db.eduSkill.findUnique({ where: { code: "EF04MA09" }, select: { id: true, code: true } }).catch(() => null);
 
     for (const aluno of alunosQueResponderam) {
       const masteryEF06MA07 = erramEF06MA07.has(aluno.id) ? "NOT_YET" : "MASTERED";
@@ -454,29 +507,71 @@ async function seedRedeB() {
         update: { level: masteryEF06MA07 },
       }).catch(() => {});
 
-      // Masteries para habilidades anteriores do diagnóstico
-      for (let i = 1; i < Math.min(4, skillsParaDiag.length); i++) {
-        const sk = skillsParaDiag[i];
-        if (sk.id === skillEF06MA07.id) continue;
-        const lv = Math.random() > 0.4 ? "MASTERED" : "ALMOST";
+      // Masteries EF06MA08-10
+      for (const cod of ["EF06MA08","EF06MA09","EF06MA10"]) {
+        const sk = skillMapFrac[cod];
+        if (!sk) continue;
+        const lv = Math.random() > 0.35 ? "MASTERED" : "ALMOST";
         await db.eduSkillMastery.upsert({
           where: { studentId_skillId: { studentId: aluno.id, skillId: sk.id } },
           create: { networkId: rede.id, studentId: aluno.id, skillId: sk.id, level: lv, source: "DIAGNOSTIC" },
           update: { level: lv },
         }).catch(() => {});
       }
-    }
-    console.log(`  ok: 15 respostas ao diagnostico (6 erram EF06MA07; 4 com erro fracao 1/2+1/3)`);
 
-    // Histórico de 3 semanas (events)
+      // Alunos que erram EF06MA07 → prerequisito EF05MA04 marcado NOT_YET
+      if (erramEF06MA07.has(aluno.id) && skillEF05MA04) {
+        await db.eduSkillMastery.upsert({
+          where: { studentId_skillId: { studentId: aluno.id, skillId: skillEF05MA04.id } },
+          create: { networkId: rede.id, studentId: aluno.id, skillId: skillEF05MA04.id, level: "NOT_YET", source: "DIAGNOSTIC" },
+          update: { level: "NOT_YET" },
+        }).catch(() => {});
+      }
+    }
+    console.log(`  ok: 15 respostas (6 erram EF06MA07 → degrau EF05MA04; 4 com erro soma-num-e-den-separado)`);
+
+    // Trilha do degrau EF05MA04: atribuida aos 6 alunos que erraram EF06MA07
+    const trilhaDegrau = await db.eduTrack.findUnique({ where: { id: "SF-TRACK-EF05MA04" }, select: { id: true } }).catch(() => null);
+    if (trilhaDegrau && skillEF05MA04) {
+      for (const aluno of alunosQueResponderam.filter(a => erramEF06MA07.has(a.id))) {
+        await db.eduTrackAssignment.upsert({
+          where: { id: `assign-degrau-${aluno.id}` },
+          create: {
+            id: `assign-degrau-${aluno.id}`,
+            networkId: rede.id,
+            trackId: trilhaDegrau.id,
+            studentId: aluno.id,
+            classId: turma.id,
+            assignedBy: coordUser.id,
+            assignedAt: subDays(now, 14),
+            reason: "AUTO",
+          },
+          update: {},
+        }).catch(() => {});
+      }
+      // 2 dos 6 alunos completaram e chegaram em MASTERED
+      const alunosMastered = alunosQueResponderam.slice(0, 2).filter(a => erramEF06MA07.has(a.id));
+      for (const aluno of alunosMastered) {
+        await db.eduSkillMastery.upsert({
+          where: { studentId_skillId: { studentId: aluno.id, skillId: skillEF05MA04.id } },
+          create: { networkId: rede.id, studentId: aluno.id, skillId: skillEF05MA04.id, level: "MASTERED", source: "TRACK" },
+          update: { level: "MASTERED" },
+        }).catch(() => {});
+      }
+      console.log(`  ok: trilha degrau EF05MA04 atribuida a 6 alunos; 2 chegaram em MASTERED`);
+    }
+
+    // Historico de 3 semanas de pratica
     for (let w = 0; w < 3; w++) {
       for (const aluno of alunosQueResponderam.slice(0, 10)) {
-        for (const skill of skillsMA06.slice(0, 3)) {
+        for (const cod of ["EF06MA07","EF06MA08"]) {
+          const sk = skillMapFrac[cod];
+          if (!sk) continue;
           await db.eduSkillMasteryEvent.create({
             data: {
               networkId: rede.id,
               studentId: aluno.id,
-              skillId: skill.id,
+              skillId: sk.id,
               level: Math.random() > 0.5 ? "MASTERED" : "NOT_YET",
               source: "ACTIVITY",
               createdAt: subDays(now, 7 * (w + 1) + randomInt(0, 5)),
@@ -485,17 +580,16 @@ async function seedRedeB() {
         }
       }
     }
-    // 3 alunos sem eventos nos últimos 7 dias (práticam há mais de 7 dias)
-    // Eles simplesmente não têm eventos recentes — alunosExtra[16, 17, 18]
-    // Adicionar evento antigo para eles
+    // 3 alunos sem eventos recentes (alunosExtra[16, 17, 18])
     for (let idx = 16; idx <= 18 && idx < alunosExtra.length; idx++) {
       const aluno = alunosExtra[idx];
-      if (aluno && skillsMA06[0]) {
+      const sk = skillMapFrac["EF06MA07"];
+      if (aluno && sk) {
         await db.eduSkillMasteryEvent.create({
           data: {
             networkId: rede.id,
             studentId: aluno.id,
-            skillId: skillsMA06[0].id,
+            skillId: sk.id,
             level: "ALMOST",
             source: "ACTIVITY",
             createdAt: subDays(now, randomInt(10, 21)),

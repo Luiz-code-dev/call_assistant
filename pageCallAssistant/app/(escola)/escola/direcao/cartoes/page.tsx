@@ -60,10 +60,16 @@ function KitCard({ kit, onClose }: { kit: KitResult; onClose: () => void }) {
 
   return (
     <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4" onClick={onClose}>
-      <div className="bg-white rounded-2xl shadow-xl max-w-sm w-full p-6" onClick={(e) => e.stopPropagation()}>
-        <div ref={printRef}>
-          <h2 className="text-[#1F1A2E] font-bold text-lg mb-1">{kit.fullName}</h2>
-          <p className="text-[#5B5470] text-sm mb-4">Kit de acesso ao SpeakFlow Escolas</p>
+      <div className="bg-white rounded-2xl shadow-xl max-w-sm w-full flex flex-col max-h-[90vh]" onClick={(e) => e.stopPropagation()}>
+        {/* Título — sempre visível */}
+        <div className="px-6 pt-6 pb-2 shrink-0">
+          <h2 className="text-[#1F1A2E] font-bold text-lg mb-0.5">{kit.fullName}</h2>
+          <p className="text-[#5B5470] text-sm">Kit de acesso ao SpeakFlow Escolas</p>
+        </div>
+        {/* Área rolável */}
+        <div className="overflow-y-auto flex-1 px-6">
+        <div ref={printRef} className="pt-2">
+          <div className="mb-1" />
           <div className="flex justify-center mb-4">
             <QRCodeSVG value={kit.qrUrl} size={140} level="M" />
           </div>
@@ -94,7 +100,8 @@ function KitCard({ kit, onClose }: { kit: KitResult; onClose: () => void }) {
             </ol>
           </div>
         </div>
-        <div className="flex gap-2 mt-4">
+        </div>{/* fecha scrollable */}
+        <div className="flex gap-2 px-6 pb-6 pt-3 shrink-0 border-t border-[#E9E5F5]">
           <button onClick={printKit}
             className="flex-1 flex items-center justify-center gap-2 bg-[#6D28D9] hover:bg-[#5B21B6] text-white px-4 py-2.5 rounded-xl text-sm font-semibold min-h-[44px]">
             <Printer size={15} /> Imprimir / PDF

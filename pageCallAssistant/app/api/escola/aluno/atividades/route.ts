@@ -25,35 +25,75 @@ export async function GET(req: NextRequest) {
 
   const now = new Date();
 
-  const activities = await (prismaEdu as any).eduActivity.findMany({
+  // IDs de atividades referenciadas pelas trilhas ativas do aluno (biblioteca global)
+  const activeAssignments = await (prismaEdu as any).eduTrackAssignment.findMany({
     where: {
-      classSubjectId: { in: classSubjectIds },
-      networkId: ctx.networkId,   // A6: network guard
-      status: "PUBLISHED",
-      opensAt: { lte: now },
+      networkId: ctx.networkId,
+      endedAt: null,
+      OR: [{ classId: ctx.classId }, { studentId: ctx.studentId }],
+      track: { status: "APPROVED" },
     },
-    orderBy: [{ dueAt: "asc" }, { createdAt: "desc" }],
-    include: {
-      classSubject: { select: { id: true, subjectId: true } },
-      // A4: NUNCA retorna correctIndex/explanation antes da entrega
-      questions: {
-        orderBy: { order: "asc" },
-        select: { id: true, order: true, question: true, options: true },
-      },
-      submissions: {
-        where: { studentId: ctx.studentId },
-        orderBy: { attempt: "desc" },
-        take: 1,
-        select: {
-          id: true, attempt: true, status: true, aiStatus: true,
-          aiScore: true, teacherScore: true, aiFeedback: true,
-          submittedAt: true, evaluatedAt: true,
-        },
-      },
-    },
+    include: { track: { include: { items: { select: { activityId: true } } } } },
   });
+  const libraryActivityIds: string[] = Array.from(new Set<string>(
+    activeAssignments.flatMap((a: any) => a.track.items.map((i: any) => i.activityId as string))
+  ));
 
-  const subjectIds = Array.from(new Set(activities.map((a: any) => a.classSubject.subjectId as string)));
+  const ACTIVITY_INCLUDE = {
+    classSubject: { select: { id: true, subjectId: true } },
+    // A4: NUNCA retorna correctIndex/explanation antes da entrega
+    questions: {
+      orderBy: { order: "asc" as const },
+      select: { id: true, order: true, question: true, options: true },
+    },
+    submissions: {
+      where: { studentId: ctx.studentId },
+      orderBy: { attempt: "desc" as const },
+      take: 1,
+      select: {
+        id: true, attempt: true, status: true, aiStatus: true,
+        aiScore: true, teacherScore: true, aiFeedback: true,
+        submittedAt: true, evaluatedAt: true,
+      },
+    },
+  };
+
+  // Atividades da turma (networkId + classSubjectId)
+  const classActivities = classSubjectIds.length > 0
+    ? await (prismaEdu as any).eduActivity.findMany({
+        where: {
+          classSubjectId: { in: classSubjectIds },
+          networkId: ctx.networkId,
+          status: "PUBLISHED",
+          opensAt: { lte: now },
+        },
+        orderBy: [{ dueAt: "asc" }, { createdAt: "desc" }],
+        include: ACTIVITY_INCLUDE,
+      })
+    : [];
+
+  // Atividades de biblioteca (classSubjectId null) acessadas via trilha ativa
+  const libraryActivities = libraryActivityIds.length > 0
+    ? await (prismaEdu as any).eduActivity.findMany({
+        where: {
+          id: { in: libraryActivityIds },
+          classSubjectId: null,
+          status: "PUBLISHED",
+        },
+        include: ACTIVITY_INCLUDE,
+      })
+    : [];
+
+  // IDs de atividades de turma para evitar duplicatas
+  const classActivityIds = new Set(classActivities.map((a: any) => a.id as string));
+  const activities = [
+    ...classActivities,
+    ...libraryActivities.filter((a: any) => !classActivityIds.has(a.id)),
+  ];
+
+  const subjectIds = Array.from(new Set(
+    activities.flatMap((a: any) => a.classSubject?.subjectId ? [a.classSubject.subjectId as string] : [])
+  ));
   const subjects = subjectIds.length
     ? await (prismaEdu as any).eduSubject.findMany({
         where: { id: { in: subjectIds }, networkId: ctx.networkId },
@@ -65,7 +105,7 @@ export async function GET(req: NextRequest) {
   const result = activities
     .map((a: any) => {
       const sub = a.submissions[0] ?? null;
-      const subject = subjectMap[a.classSubject.subjectId] ?? null;
+      const subject = a.classSubject?.subjectId ? (subjectMap[a.classSubject.subjectId] ?? null) : null;
       const isDone = sub && ["SUBMITTED", "EVALUATED", "REVIEWED"].includes(sub.status);
       const isExpired = a.dueAt && new Date(a.dueAt) < now && !sub;
       return {
@@ -80,7 +120,7 @@ export async function GET(req: NextRequest) {
         dueAt: a.dueAt,
         opensAt: a.opensAt,
         subject: subject ? { id: subject.id, name: subject.name, color: subject.color } : null,
-        classSubjectId: a.classSubject.id,
+        classSubjectId: a.classSubject?.id ?? null,
         questions: a.type === "QUIZ" ? a.questions : [],
         submission: sub,
         isDone,

@@ -11,7 +11,7 @@ const FIGURES = [
   { id: "house",  label: "Casa",    svg: <svg viewBox="0 0 48 48" className="w-full h-full"><polygon points="24,6 42,22 38,22 38,42 10,42 10,22 6,22" fill="#0F766E"/></svg> },
   { id: "fish",   label: "Peixe",   svg: <svg viewBox="0 0 48 48" className="w-full h-full"><ellipse cx="22" cy="24" rx="14" ry="9" fill="#1D4ED8"/><polygon points="36,15 44,24 36,33" fill="#1D4ED8"/><circle cx="14" cy="21" r="2" fill="white"/></svg> },
   { id: "flower", label: "Flor",    svg: <svg viewBox="0 0 48 48" className="w-full h-full"><circle cx="24" cy="24" r="6" fill="#FBBF24"/>{[0,60,120,180,240,300].map((a,i)=><ellipse key={i} cx={24+11*Math.cos(a*Math.PI/180)} cy={24+11*Math.sin(a*Math.PI/180)} rx="6" ry="4" fill="#BE185D" transform={`rotate(${a},${24+11*Math.cos(a*Math.PI/180)},${24+11*Math.sin(a*Math.PI/180)})`}/>)}</svg> },
-  { id: "moon",   label: "Lua",     svg: <svg viewBox="0 0 48 48" className="w-full h-full"><path d="M30 8 A16 16 0 1 0 30 40 A12 12 0 1 1 30 8Z" fill="#6D28D9"/></svg> },
+  { id: "moon",   label: "Lua",     svg: <svg viewBox="0 0 48 48" className="w-full h-full"><path d="M32 10A16 16 0 1 0 32 38A14 14 0 1 1 32 10Z" fill="#6D28D9"/></svg> },
   { id: "drop",   label: "Gota",    svg: <svg viewBox="0 0 48 48" className="w-full h-full"><path d="M24 6 Q36 22 36 30 A12 12 0 0 1 12 30 Q12 22 24 6Z" fill="#0EA5E9"/></svg> },
   { id: "cloud",  label: "Nuvem",   svg: <svg viewBox="0 0 48 48" className="w-full h-full"><ellipse cx="20" cy="28" rx="12" ry="9" fill="#94A3B8"/><ellipse cx="30" cy="30" rx="10" ry="8" fill="#94A3B8"/><ellipse cx="24" cy="22" rx="9" ry="9" fill="#94A3B8"/></svg> },
 ];
@@ -123,6 +123,32 @@ function EntrarInner() {
     if (aulaCode.every(l => l !== "")) resolveAulaCode(aulaCode.join(""));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [aulaCode]);
+
+  // P3: teclado físico para o código da aula
+  useEffect(() => {
+    if (screen !== "aula-code") return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Backspace") {
+        setAulaCode(prev => {
+          const last = [...prev].reverse().findIndex(l => l !== "");
+          if (last === -1) return prev;
+          const idx = 5 - last;
+          const next = [...prev]; next[idx] = ""; return next;
+        });
+        return;
+      }
+      const key = e.key.toUpperCase();
+      if (AULA_KEYS.includes(key)) {
+        setAulaCode(prev => {
+          const idx = prev.findIndex(l => l === ""); if (idx === -1) return prev;
+          const next = [...prev]; next[idx] = key; return next;
+        });
+        setAulaError("");
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [screen]);
 
   function selectStudent(student: SessionStudent) {
     setSelectedStudent(student); setPin(""); setPinError(""); setFigSeq([]); setFigError("");
@@ -311,7 +337,7 @@ function EntrarInner() {
               </button>
             )}
             {pinError && <p className="text-[#B91C1C] text-sm mt-2">{pinError}</p>}
-            <p className="text-[#5B5470] text-xs mt-3">Esqueceu? Peca ao professor um PIN novo.</p>
+            <p className="text-[#5B5470] text-xs mt-3">Esqueceu? Peça para o seu responsável criar um PIN novo no app da família.</p>
           </div>
           <div className="grid gap-3" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
             {keys.map((k, i) => (

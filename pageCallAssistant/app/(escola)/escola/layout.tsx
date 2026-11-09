@@ -1,45 +1,73 @@
 import { headers } from "next/headers";
 import { setTenantDb } from "@/lib/escola/db";
-
 import EscAppShell from "@/components/escola/layout/EscAppShell";
 import { getEduContext } from "@/lib/escola/context";
 import { EduRole } from "@/lib/escola/types";
+import { prismaEdu } from "@/lib/escola/db";
+import { catalogDb } from "@/lib/escola/catalogo";
 
-// Páginas do aluno e da família NÃO usam o EscAppShell (barra lateral da equipe)
+// Páginas de aluno, família e rotas públicas NÃO usam o EscAppShell
 function isShellFreePath(pathname: string): boolean {
   return (
     pathname.startsWith("/escola/aluno") ||
     pathname.startsWith("/escola/familia") ||
     pathname.startsWith("/escola/entrar") ||
+    pathname.startsWith("/escola/convite") ||
     pathname === "/escola/inicio" ||
+    pathname === "/escola/painel" ||
     pathname === "/escola/termos" ||
-    pathname === "/escola/privacidade"
+    pathname === "/escola/privacidade" ||
+    pathname === "/escola/excluir-conta"
   );
 }
 
 async function getShellData() {
   try {
-    const ctx = await getEduContext(); // mesmo segredo do login e do middleware
+    const ctx = await getEduContext();
     if (!ctx) return null;
-    // enterWith dentro de getEduContext() não propaga para o caller — reaplicar aqui
     if (ctx.db) setTenantDb(ctx.db);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const prisma = ctx.db as any;
 
-    const user = await prisma.user.findUnique({ where: { id: ctx.userId }, select: { name: true, email: true } });
-    const userName = (user?.name || user?.email || "Usuário") as string;
+    let userName = "Usuário";
 
     if (ctx.role === "PLATFORM_ADMIN") {
+      // PLATFORM_ADMIN não tem banco tenant — busca nome no catálogo
+      try {
+        const catalog = catalogDb;
+        const admin = await catalog.platformAdmin.findFirst({
+          where: { isActive: true },
+          select: { name: true, email: true },
+        });
+        userName = admin?.name ?? admin?.email ?? "Admin";
+      } catch {
+        userName = "Admin";
+      }
       return { role: "PLATFORM_ADMIN" as EduRole, contextName: "Plataforma", userName };
     }
 
-    const network = await prisma.eduNetwork.findUnique({ where: { id: ctx.networkId }, select: { name: true } });
-    let contextName = (network?.name ?? "") as string;
-    if (ctx.schoolId) {
-      const school = await prisma.eduSchool.findUnique({ where: { id: ctx.schoolId }, select: { name: true } });
-      if (school?.name) contextName = school.name as string;
+    // Perfis de equipe escolar — usa EduUser no banco tenant
+    if (ctx.userId) {
+      const user = await prismaEdu.eduUser.findUnique({
+        where: { id: ctx.userId },
+        select: { name: true, email: true },
+      }).catch(() => null);
+      userName = user?.name ?? user?.email ?? "Usuário";
     }
-    return { role: ctx.role, contextName, userName };
+
+    const network = await prismaEdu.eduNetwork.findUnique({
+      where: { id: ctx.networkId },
+      select: { name: true },
+    }).catch(() => null);
+
+    let contextName = network?.name ?? "";
+    if (ctx.schoolId) {
+      const school = await prismaEdu.eduSchool.findUnique({
+        where: { id: ctx.schoolId },
+        select: { name: true },
+      }).catch(() => null);
+      if (school?.name) contextName = school.name;
+    }
+
+    return { role: ctx.role as EduRole, contextName, userName };
   } catch (err) {
     console.error("[escola/layout] getShellData error:", err);
     return null;
@@ -47,17 +75,18 @@ async function getShellData() {
 }
 
 export default async function EscolaAuthLayout({ children }: { children: React.ReactNode }) {
-  // Páginas de aluno e família não usam o shell da equipe
   const headersList = await headers();
   const pathname = headersList.get("x-pathname") ?? "";
+
   if (isShellFreePath(pathname)) {
     return <div className="theme-escola min-h-screen bg-[#F8F7FC]">{children}</div>;
   }
 
   const shellData = await getShellData();
   if (!shellData) {
-    return <div className="theme-escola min-h-screen">{children}</div>;
+    return <div className="theme-escola min-h-screen bg-[#F8F7FC]">{children}</div>;
   }
+
   return (
     <EscAppShell role={shellData.role} contextName={shellData.contextName} userName={shellData.userName}>
       {children}

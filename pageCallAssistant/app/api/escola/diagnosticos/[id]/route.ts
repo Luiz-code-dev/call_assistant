@@ -1,15 +1,15 @@
 /**
  * GET  /api/escola/diagnosticos/[id]  — detalhes + participação + resultado por habilidade
  * PATCH /api/escola/diagnosticos/[id] — abrir (OPEN) ou encerrar (CLOSED)
+ *
+ * Fonte de dados: EduAttemptSession (diagnóstico) → EduSkillMastery (nível de domínio).
+ * A mesma fonte usada pelo painel da rede (/api/escola/rede/habilidades-prioritarias).
  */
 import { NextRequest, NextResponse } from "next/server";
 import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { getEduContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { assignAfterDiagnostic } from "@/lib/escola/track-assignment";
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const P = prismaEdu as any;
 
 export async function GET(_req: NextRequest, { params }: { params: { id: string } }) {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
@@ -19,7 +19,7 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
   if (!["COORDINATOR","NETWORK_ADMIN","SCHOOL_ADMIN"].includes(ctx.role))
     return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 
-  const diag = await P.eduDiagnostic.findFirst({
+  const diag = await prismaEdu.eduDiagnostic.findFirst({
     where: { id: params.id, networkId: ctx.networkId },
     include: {
       items: {
@@ -31,41 +31,44 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
 
   if (!diag) return NextResponse.json({ error: "Diagnóstico não encontrado" }, { status: 404 });
 
-  // Participação: alunos que responderam ao diagnóstico (via EduSubmission com activityId dos itens)
-  const activityIds: string[] = diag.items.map((i: { activityId: string }) => i.activityId);
-  const submissions = activityIds.length
-    ? await P.eduSubmission.findMany({
-        where: { activityId: { in: activityIds }, networkId: ctx.networkId, status: { not: "IN_PROGRESS" } },
-        select: { studentId: true, activityId: true, masteryLevel: true },
-      }).catch(() => [])
-    : [];
+  // Alunos que completaram ao menos uma sessão deste diagnóstico
+  const sessions = await prismaEdu.eduAttemptSession.findMany({
+    where: { diagnosticId: params.id, networkId: ctx.networkId, completedAt: { not: null } },
+    select: { studentId: true, activityId: true },
+    distinct: ["studentId", "activityId"],
+  }).catch(() => [] as { studentId: string; activityId: string }[]);
 
-  // Deduplicar: um registro por (studentId, activityId) — mantém a tentativa de maior nível
-  const levelOrder: Record<string, number> = { MASTERED: 3, ALMOST: 2, NOT_YET: 1 };
-  const bestByStudentActivity = new Map<string, { masteryLevel: string | null }>();
-  for (const s of submissions as { studentId: string; activityId: string; masteryLevel: string | null }[]) {
-    const key = `${s.studentId}|${s.activityId}`;
-    const prev = bestByStudentActivity.get(key);
-    if (!prev || (levelOrder[s.masteryLevel ?? ""] ?? 0) > (levelOrder[prev.masteryLevel ?? ""] ?? 0)) {
-      bestByStudentActivity.set(key, s);
-    }
-  }
-  const dedupedSubs = Array.from(bestByStudentActivity.values()) as { studentId: string; activityId: string; masteryLevel: string | null }[];
+  type SessionRow = { studentId: string; activityId: string };
+  const responderam = new Set((sessions as SessionRow[]).map((s) => s.studentId));
+  const total = await prismaEdu.eduEnrollment.count({
+    where: { networkId: ctx.networkId, status: "ACTIVE" },
+  }).catch(() => 0);
 
-  const responderam = new Set(dedupedSubs.map((s) => s.studentId));
-  const total = await P.eduEnrollment.count({ where: { networkId: ctx.networkId, status: "ACTIVE" } }).catch(() => 0);
+  // Domínio por habilidade — via EduSkillMastery (mesma fonte do painel da rede)
+  type DiagItem = (typeof diag.items)[number];
+  const skillIds = diag.items.map((i: DiagItem) => i.skill.id);
+  const masteries = skillIds.length > 0
+    ? await prismaEdu.eduSkillMastery.findMany({
+        where: {
+          networkId: ctx.networkId,
+          skillId: { in: skillIds },
+          studentId: { in: Array.from(responderam) },
+        },
+        select: { studentId: true, skillId: true, level: true },
+      }).catch(() => [] as { studentId: string; skillId: string; level: string }[])
+    : [] as { studentId: string; skillId: string; level: string }[];
 
-  // Resultado por habilidade
-  const bySkill = diag.items.map((item: { activityId: string; skill: { id: string; code: string; shortLabel: string | null; description: string } }) => {
-    const subs = dedupedSubs.filter((s) => s.activityId === item.activityId);
-    const mastered = subs.filter(s => s.masteryLevel === "MASTERED").length;
-    const almost   = subs.filter(s => s.masteryLevel === "ALMOST").length;
-    const notYet   = subs.filter(s => s.masteryLevel === "NOT_YET").length;
-    const naoAval  = responderam.size - subs.length;
+  type MasteryRow = { studentId: string; skillId: string; level: string };
+  const bySkill = diag.items.map((item: DiagItem) => {
+    const itemMasteries = (masteries as MasteryRow[]).filter((m) => m.skillId === item.skill.id);
+    const mastered = itemMasteries.filter((m: MasteryRow) => m.level === "MASTERED").length;
+    const almost   = itemMasteries.filter((m: MasteryRow) => m.level === "ALMOST").length;
+    const notYet   = itemMasteries.filter((m: MasteryRow) => m.level === "NOT_YET").length;
+    const naoAval  = responderam.size - itemMasteries.length;
     return {
       skillCode: item.skill.code,
       skillLabel: item.skill.shortLabel ?? item.skill.description,
-      mastered, almost, notYet, naoAval,
+      mastered, almost, notYet, naoAval: Math.max(0, naoAval),
       total: responderam.size,
     };
   });
@@ -96,46 +99,38 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
   const status = action === "abrir" ? "OPEN" : action === "encerrar" ? "CLOSED" : null;
   if (!status) return NextResponse.json({ error: "Ação inválida" }, { status: 400 });
 
-  const diag = await P.eduDiagnostic.update({
+  const diag = await prismaEdu.eduDiagnostic.update({
     where: { id: params.id, networkId: ctx.networkId },
     data: { status },
   }).catch(() => null);
 
   if (!diag) return NextResponse.json({ error: "Diagnóstico não encontrado" }, { status: 404 });
 
-  // L4: ao encerrar, dispara atribuição AUTO/SUGGEST para cada aluno com NOT_YET
+  // Ao encerrar, dispara atribuição AUTO/SUGGEST para cada aluno com NOT_YET
   if (status === "CLOSED") {
     (async () => {
       try {
-        const fullDiag = await P.eduDiagnostic.findUnique({
+        const fullDiag = await prismaEdu.eduDiagnostic.findUnique({
           where: { id: params.id },
           include: { items: { select: { activityId: true, skillId: true } } },
         });
         if (!fullDiag) return;
 
-        const activityIds = fullDiag.items.map((i: { activityId: string }) => i.activityId);
+        type FDItem = { activityId: string; skillId: string };
+        const activityIds = fullDiag.items.map((i: FDItem) => i.activityId);
         if (!activityIds.length) return;
 
-        // Submissões NOT_YET agrupadas por aluno
-        const subs = await P.eduSubmission.findMany({
-          where: { activityId: { in: activityIds }, networkId: ctx.networkId, masteryLevel: "NOT_YET" },
-          select: { studentId: true, activityId: true },
-          distinct: ["studentId", "activityId"],
+        // Alunos que concluíram sessões com NOT_YET via EduSkillMastery
+        const skillIds = fullDiag.items.map((i: FDItem) => i.skillId);
+        const notYetMasteries = await prismaEdu.eduSkillMastery.findMany({
+          where: { networkId: ctx.networkId, skillId: { in: skillIds }, level: "NOT_YET" },
+          select: { studentId: true, skillId: true },
         });
 
-        // activityId → skillId
-        const actToSkill: Record<string, string> = {};
-        for (const item of fullDiag.items as { activityId: string; skillId: string }[]) {
-          actToSkill[item.activityId] = item.skillId;
-        }
-
-        // Agrupa NOT_YET skillIds por aluno
         const byStudent: Record<string, string[]> = {};
-        for (const s of subs as { studentId: string; activityId: string }[]) {
-          const skillId = actToSkill[s.activityId];
-          if (!skillId) continue;
-          if (!byStudent[s.studentId]) byStudent[s.studentId] = [];
-          if (!byStudent[s.studentId].includes(skillId)) byStudent[s.studentId].push(skillId);
+        for (const m of notYetMasteries) {
+          if (!byStudent[m.studentId]) byStudent[m.studentId] = [];
+          if (!byStudent[m.studentId].includes(m.skillId)) byStudent[m.studentId].push(m.skillId);
         }
 
         for (const [studentId, notYetSkillIds] of Object.entries(byStudent)) {

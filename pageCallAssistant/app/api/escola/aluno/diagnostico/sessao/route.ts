@@ -22,7 +22,6 @@ import { calcularDegrau, aplicarDegrau } from "@/lib/escola/diagnostico-degrau";
 import { recordMasteryEvent } from "@/lib/escola/mastery-event";
 import { assignAfterDiagnostic } from "@/lib/escola/track-assignment";
 
-const P = prismaEdu as any;
 const SESSION_HOURS = 4;
 const MIN_MS_PER_Q = 5_000;
 
@@ -53,7 +52,7 @@ export async function POST(req: NextRequest) {
     if (!diagnosticId) return NextResponse.json({ error: "diagnosticId obrigatório" }, { status: 400 });
 
     // Verifica se o diagnóstico está OPEN e pertence à rede
-    const diag = await P.eduDiagnostic.findFirst({
+    const diag = await prismaEdu.eduDiagnostic.findFirst({
       where: { id: diagnosticId, networkId: ctx.networkId, status: "OPEN" },
       include: { items: { orderBy: { order: "asc" }, include: { activity: { include: { questions: { orderBy: { order: "asc" } } } } } } },
     });
@@ -63,7 +62,7 @@ export async function POST(req: NextRequest) {
     if (!items.length) return NextResponse.json({ error: "Diagnóstico sem itens" }, { status: 422 });
 
     // Verifica se já existe sessão ativa
-    const existingSession = await P.eduAttemptSession.findUnique({
+    const existingSession = await prismaEdu.eduAttemptSession.findUnique({
       where: { studentId_activityId_diagnosticId: { studentId: ctx.studentId, activityId: items[0].activityId, diagnosticId } },
     });
     if (existingSession && !existingSession.completedAt) {
@@ -95,7 +94,7 @@ export async function POST(req: NextRequest) {
     const shuffleOrder = shuffleWithSeed(indices, seed);
 
     const expiresAt = new Date(Date.now() + SESSION_HOURS * 3_600_000);
-    const session = await P.eduAttemptSession.create({
+    const session = await prismaEdu.eduAttemptSession.create({
       data: {
         networkId: ctx.networkId,
         studentId: ctx.studentId,
@@ -131,7 +130,7 @@ export async function POST(req: NextRequest) {
     const { sessionId, selectedIndex, elapsedMs } = body as { sessionId: string; selectedIndex: number; elapsedMs: number };
     if (!sessionId || selectedIndex === undefined) return NextResponse.json({ error: "sessionId e selectedIndex obrigatórios" }, { status: 400 });
 
-    const session = await P.eduAttemptSession.findUnique({ where: { id: sessionId } });
+    const session = await prismaEdu.eduAttemptSession.findUnique({ where: { id: sessionId } });
     if (!session) return NextResponse.json({ error: "Sessão não encontrada" }, { status: 404 });
     if (session.studentId !== ctx.studentId || session.networkId !== ctx.networkId)
       return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
@@ -144,7 +143,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: `Resposta muito rápida. Mínimo ${session.minMsPerQuestion / 1000}s por questão.` }, { status: 429 });
     }
 
-    const diag = await P.eduDiagnostic.findUnique({
+    const diag = await prismaEdu.eduDiagnostic.findUnique({
       where: { id: session.diagnosticId },
       include: { items: { orderBy: { order: "asc" }, include: { activity: { include: { questions: { orderBy: { order: "asc" } } } }, skill: { select: { id: true, code: true } } } } },
     });
@@ -210,7 +209,7 @@ export async function POST(req: NextRequest) {
 
     if (isLast) {
       // Sessão concluída — grava resultado
-      await P.eduAttemptSession.update({
+      await prismaEdu.eduAttemptSession.update({
         where: { id: sessionId },
         data: { answers: newAnswers, completedAt: new Date(), lastActivityAt: new Date() },
       });
@@ -243,13 +242,13 @@ export async function POST(req: NextRequest) {
     }
 
     // Próxima questão
-    await P.eduAttemptSession.update({
+    await prismaEdu.eduAttemptSession.update({
       where: { id: sessionId },
       data: { answers: newAnswers, currentQuestion: nextQ, lastActivityAt: new Date() },
     });
 
     // Busca o próximo item (pode ter sido expandido pelo degrau)
-    const updatedDiag = await P.eduDiagnostic.findUnique({
+    const updatedDiag = await prismaEdu.eduDiagnostic.findUnique({
       where: { id: session.diagnosticId },
       include: { items: { orderBy: { order: "asc" }, include: { activity: { include: { questions: { orderBy: { order: "asc" } } } }, skill: { select: { code: true } } } } },
     });

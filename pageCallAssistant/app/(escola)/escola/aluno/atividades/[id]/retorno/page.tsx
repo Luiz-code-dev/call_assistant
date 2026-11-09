@@ -87,12 +87,23 @@ export default function RetornoPage() {
 
   return (
     <div className="min-h-screen bg-[#F8F7FC] relative">
-      {/* Animacao Domina! */}
+      {/* Selo Domina! */}
       {showDomina && (
         <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
-          <div className="bg-[#DCFCE7] border-2 border-[#86EFAC] rounded-3xl px-10 py-8 text-center animate-bounce shadow-2xl">
-            <p className="text-5xl font-extrabold text-[#166534]">Domina!</p>
-            <p className="text-[#166534] mt-2 text-lg">Habilidade conquistada</p>
+          <div className="relative bg-white border-4 border-[#166534] rounded-full w-52 h-52 flex flex-col items-center justify-center shadow-2xl animate-bounce">
+            {/* Estrelas decorativas */}
+            <svg className="absolute -top-4 -left-4 w-10 h-10" viewBox="0 0 40 40" aria-hidden="true">
+              <polygon points="20,2 25,15 38,15 28,23 32,37 20,29 8,37 12,23 2,15 15,15" fill="#FDE68A"/>
+            </svg>
+            <svg className="absolute -top-2 -right-6 w-7 h-7" viewBox="0 0 40 40" aria-hidden="true">
+              <polygon points="20,2 25,15 38,15 28,23 32,37 20,29 8,37 12,23 2,15 15,15" fill="#FDE68A"/>
+            </svg>
+            <svg className="absolute -bottom-3 -right-3 w-8 h-8" viewBox="0 0 40 40" aria-hidden="true">
+              <polygon points="20,2 25,15 38,15 28,23 32,37 20,29 8,37 12,23 2,15 15,15" fill="#FDE68A"/>
+            </svg>
+            <p className="text-6xl font-extrabold text-[#166534] leading-none">D</p>
+            <p className="text-2xl font-extrabold text-[#166534] -mt-1">Domina!</p>
+            <p className="text-xs text-[#166534] font-medium mt-1 opacity-80">Habilidade conquistada</p>
           </div>
         </div>
       )}
@@ -113,12 +124,24 @@ export default function RetornoPage() {
 
         {/* Aguardando avaliacao */}
         {isPending && (
-          <div className="rounded-xl border border-[#FDE68A] bg-[#FEF3C7] p-6 flex items-center gap-4">
-            <Clock className="size-8 text-[#92400E] shrink-0 animate-pulse" />
-            <div>
-              <p className="font-semibold text-[#92400E]">Analisando sua resposta...</p>
-              <p className="text-sm text-[#92400E] mt-0.5">Aguarde alguns segundos.</p>
+          <div className="rounded-xl border border-[#DDD6EE] bg-white p-6">
+            <div className="flex items-center gap-3 mb-3">
+              {/* Balao da IA com pontos de digitando */}
+              <div className="w-9 h-9 rounded-full bg-[#EDE9FE] flex items-center justify-center shrink-0">
+                <svg width="18" height="18" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                  <path d="M5 3h18a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3h-9l-6 4v-4H5a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Z" fill="#6D28D9"/>
+                  <g stroke="#fff" strokeWidth="2" strokeLinecap="round">
+                    <line x1="9" y1="10" x2="9" y2="14"/><line x1="14" y1="7.5" x2="14" y2="16.5"/><line x1="19" y1="10" x2="19" y2="14"/>
+                  </g>
+                </svg>
+              </div>
+              <div className="bg-[#F5F3FF] rounded-2xl rounded-tl-none px-4 py-3 inline-flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#6D28D9] animate-bounce" style={{ animationDelay: "0ms" }} />
+                <span className="w-2 h-2 rounded-full bg-[#6D28D9] animate-bounce" style={{ animationDelay: "150ms" }} />
+                <span className="w-2 h-2 rounded-full bg-[#6D28D9] animate-bounce" style={{ animationDelay: "300ms" }} />
+              </div>
             </div>
+            <p className="text-sm text-[#5B5470] pl-12">SpeakFlow esta analisando sua resposta...</p>
           </div>
         )}
 

@@ -78,7 +78,7 @@ export default function DiagnosticosPage() {
     <div className="min-h-screen bg-[#F8F7FC] p-4 max-w-2xl mx-auto">
       <div className="flex items-center justify-between mt-4 mb-6">
         <div>
-          <h1 className="text-[#1F1A2E] text-xl font-bold">Diagnosticos</h1>
+          <h1 className="text-[#1F1A2E] text-xl font-bold">Diagnósticos</h1>
           <p className="text-[#5B5470] text-xs mt-0.5">Identifique lacunas BNCC por turma</p>
         </div>
         <Link href="/escola/coordenacao/diagnosticos/novo"
@@ -88,17 +88,17 @@ export default function DiagnosticosPage() {
       </div>
 
       {loading ? (
-        <div className="text-[#5B5470] text-center py-16">Carregando diagnosticos...</div>
+        <div className="text-[#5B5470] text-center py-16">Carregando diagnósticos...</div>
       ) : (
         <>
           {/* Diagnosticos SpeakFlow (prontos) */}
           {speakflow.length > 0 && (
             <section className="mb-8">
               <div className="flex items-center gap-2 mb-3">
-                <h2 className="text-sm font-bold text-[#1F1A2E] uppercase tracking-wide">Diagnosticos SpeakFlow</h2>
+                <h2 className="text-sm font-bold text-[#1F1A2E] uppercase tracking-wide">DIAGNÓSTICOS SPEAKFLOW</h2>
                 <span className="bg-[#EDE9FE] text-[#6D28D9] text-xs font-semibold px-2 py-0.5 rounded-full">Prontos</span>
               </div>
-              <p className="text-xs text-[#5B5470] mb-3">Diagnosticos pre-elaborados pela equipe SpeakFlow, alinhados com a BNCC. Use "Abrir para a rede" para aplicar em turmas.</p>
+              <p className="text-xs text-[#5B5470] mb-3">Diagnósticos pré-elaborados pela equipe SpeakFlow, alinhados com a BNCC. Use "Abrir para a rede" para aplicar em turmas.</p>
               <div className="space-y-3">
                 {speakflow.map(d => (
                   <div key={d.id} className="bg-white rounded-2xl p-5 border-2 border-[#DDD6EE]">
@@ -183,8 +183,8 @@ export default function DiagnosticosPage() {
 
           {diagnostics.length === 0 && (
             <div className="text-center py-16 text-[#5B5470]">
-              <p>Nenhum diagnostico criado.</p>
-              <p className="text-sm mt-1">Crie um diagnostico para mapear o dominio das habilidades da turma.</p>
+              <p>Nenhum diagnóstico criado.</p>
+              <p className="text-sm mt-1">Crie um diagnóstico para mapear o domínio das habilidades da turma.</p>
             </div>
           )}
         </>

@@ -1168,8 +1168,8 @@ model EduInvite {
 
 model EduActivity {
   id             String            @id @default(cuid())
-  networkId      String
-  classSubjectId String
+  networkId      String?
+  classSubjectId String?
   topicId        String?
   assessmentId   String?
   type           EduActivityType
@@ -1182,10 +1182,12 @@ model EduActivity {
   opensAt        DateTime          @default(now())
   dueAt          DateTime?
   status         EduActivityStatus @default(DRAFT)
+  source         String?
+  reviewNote     String?
   createdById    String
   createdAt      DateTime          @default(now())
 
-  classSubject EduClassSubject   @relation(fields: [classSubjectId], references: [id])
+  classSubject EduClassSubject?  @relation(fields: [classSubjectId], references: [id])
   questions    EduQuizQuestion[]
   submissions  EduSubmission[]
 
