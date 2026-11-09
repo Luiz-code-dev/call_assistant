@@ -94,11 +94,21 @@ function tenantDb(envVar) {
   return new TenantClient({ datasources: { db: { url } } });
 }
 
-async function syncLogin(email, tenantId) {
+async function syncStaffLogin(email, tenantId) {
+  const id = email.toLowerCase().trim();
   await catalog.loginIndex.upsert({
-    where: { email },
-    create: { email, tenantId },
-    update: { tenantId },
+    where: { kind_identifier_tenantId: { kind: "STAFF", identifier: id, tenantId } },
+    create: { kind: "STAFF", identifier: id, tenantId },
+    update: {},
+  });
+}
+
+async function syncGuardianLogin(email, tenantId) {
+  const id = email.toLowerCase().trim();
+  await catalog.loginIndex.upsert({
+    where: { kind_identifier_tenantId: { kind: "GUARDIAN", identifier: id, tenantId } },
+    create: { kind: "GUARDIAN", identifier: id, tenantId },
+    update: {},
   });
 }
 
@@ -269,13 +279,13 @@ async function seedRedeB() {
     // coord.b
     const coordUser = await upsertUser(db, rede.id, "coord.b@speakflow.escola", "Coord Demo B");
     await upsertMembership(db, coordUser.id, rede.id, "COORDINATOR", null);
-    await syncLogin("coord.b@speakflow.escola", NETWORK_ID);
+    await syncStaffLogin("coord.b@speakflow.escola", NETWORK_ID);
     console.log("  ok: coord.b (COORDINATOR)");
 
     // direcao.b
     const direcaoUser = await upsertUser(db, rede.id, "direcao.b@speakflow.escola", "Direcao Demo B");
     await upsertMembership(db, direcaoUser.id, rede.id, "SCHOOL_ADMIN", escola.id);
-    await syncLogin("direcao.b@speakflow.escola", NETWORK_ID);
+    await syncStaffLogin("direcao.b@speakflow.escola", NETWORK_ID);
     console.log("  ok: direcao.b (SCHOOL_ADMIN)");
 
     const profMembro = await db.eduMembership.findFirst({ where: { networkId: rede.id, role: "TEACHER" } });
@@ -369,6 +379,20 @@ async function seedRedeB() {
       update: { status: "OPEN" },
     });
 
+    // Banco de questões para cada item do diagnóstico MA-06
+    // EduQuizQuestion é obrigatório — sem ela o endpoint /aluno/diagnostico/[id]
+    // retorna array vazio de perguntas e o aluno não consegue responder.
+    const QUESTOES_MA06 = [
+      { q: "Qual é o valor de 2/3 + 1/6?", opts: ["5/6","1/2","3/9","2/9"], c: 0, exp: "2/3 = 4/6, logo 4/6 + 1/6 = 5/6" },
+      { q: "Simplifique a fração 12/18.", opts: ["2/3","3/4","6/9","4/6"], c: 0, exp: "MDC(12,18)=6 → 12/18 = 2/3" },
+      { q: "Quanto é 1/2 + 1/3?", opts: ["5/6","2/5","3/5","2/6"], c: 0, exp: "1/2=3/6, 1/3=2/6, soma=5/6" },
+      { q: "Um número racional entre 1 e 2 é:", opts: ["3/2","5/2","1/4","0,25"], c: 0, exp: "3/2 = 1,5 está entre 1 e 2" },
+      { q: "Calcule 3/4 − 1/8.", opts: ["5/8","2/4","1/2","4/8"], c: 0, exp: "3/4=6/8, 6/8−1/8=5/8" },
+      { q: "Qual fração é equivalente a 0,75?", opts: ["3/4","7/5","3/5","4/3"], c: 0, exp: "0,75 = 75/100 = 3/4" },
+      { q: "Se um inteiro é dividido em 5 partes iguais, cada parte vale:", opts: ["1/5","5/1","1/4","2/5"], c: 0, exp: "1 ÷ 5 = 1/5" },
+      { q: "Qual é o resultado de 2 × (1/4)?", opts: ["1/2","2/4","1/8","3/4"], c: 0, exp: "2 × 1/4 = 2/4 = 1/2" },
+    ];
+
     // Itens do diagnóstico (8 habilidades para tamanho razoável)
     const skillsParaDiag = skillsMA06.slice(0, 8);
     for (let i = 0; i < skillsParaDiag.length; i++) {
@@ -390,13 +414,29 @@ async function seedRedeB() {
         },
         update: {},
       });
+      // Bug 4: criar EduQuizQuestion — sem ela o endpoint retorna perguntas vazias
+      const q = QUESTOES_MA06[i] ?? QUESTOES_MA06[0];
+      await db.eduQuizQuestion.upsert({
+        where: { id: `qz-diag-ma06-${i}` },
+        create: {
+          id: `qz-diag-ma06-${i}`,
+          activityId: atv.id,
+          order: 0,
+          question: q.q,
+          options: q.opts,
+          correctIndex: q.c,
+          explanation: q.exp,
+          skillId: skill.id,
+        },
+        update: {},
+      });
       await db.eduDiagnosticItem.upsert({
         where: { id: `item-diag-ma06-${i}` },
         create: { id: `item-diag-ma06-${i}`, diagnosticId: diag.id, skillId: skill.id, order: i, activityId: atv.id },
         update: {},
       });
     }
-    console.log(`  ok: diagnostico aberto com ${skillsParaDiag.length} itens`);
+    console.log(`  ok: diagnostico aberto com ${skillsParaDiag.length} itens e questoes`);
 
     // 15 respostas ao diagnóstico: Aluno Demo B Santos NAO responde
     // ~40% erram EF06MA07 → 6 de 15
@@ -510,6 +550,9 @@ async function seedRedeB() {
       },
       update: {},
     });
+    // Bug 3: registrar o guardian no LoginIndex do catálogo para que
+    // /api/escola/familia/login → findTenantsByLogin("GUARDIAN", ...) retorne a rede
+    await syncGuardianLogin("familia.b@speakflow.escola", NETWORK_ID);
     if (alunoB) {
       await db.eduGuardianLink.upsert({
         where: { guardianId_studentId: { guardianId: guardiaoId, studentId: alunoB.id } },
@@ -548,31 +591,24 @@ async function seedRedeB() {
 }
 
 // ── Seed Admin de Plataforma ─────────────────────────────────────────────────
+// findPlatformAdmin() le catalog.PlatformAdmin — nao EduPlatformAdmin do tenant.
 
 async function seedPlatformAdmin() {
   console.log("\n[seed-teste] Admin de plataforma");
-  const db01 = tenantDb("ESCOLAS_DB_01_URL");
   try {
-    await catalog.loginIndex.upsert({
+    await catalog.platformAdmin.upsert({
       where: { email: "admin.teste@speakflow.escola" },
-      create: { email: "admin.teste@speakflow.escola", tenantId: "PLATFORM" },
-      update: { tenantId: "PLATFORM" },
-    });
-    const adminUser = await db01.eduUser.upsert({
-      where: { id: "user-admin-teste" },
-      create: { id: "user-admin-teste", email: "admin.teste@speakflow.escola", name: "Admin Teste Plataforma", passwordHash: hashSenha(SENHA_ADMIN), networkId: "demo-rede-a" },
-      update: {},
-    });
-    await db01.eduPlatformAdmin.upsert({
-      where: { userId: adminUser.id },
-      create: { userId: adminUser.id, isActive: true },
+      create: {
+        email: "admin.teste@speakflow.escola",
+        name: "Admin Teste Plataforma",
+        passwordHash: hashSenha(SENHA_ADMIN),
+        isActive: true,
+      },
       update: { isActive: true },
     });
-    console.log("  ok: admin.teste@speakflow.escola (PLATFORM_ADMIN)");
+    console.log("  ok: admin.teste@speakflow.escola (PLATFORM_ADMIN no catalogo)");
   } catch (e) {
     console.error("  AVISO admin de plataforma:", e.message);
-  } finally {
-    await db01.$disconnect();
   }
 }
 

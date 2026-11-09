@@ -69,25 +69,41 @@ async function main() {
   for (const envVar of tenantVars) {
     const db = tenantDb(envVar);
     try {
-      // Ordem de deleção respeita FKs (mais dependentes primeiro)
+      // Ordem de deleção respeita FKs (mais dependentes primeiro).
+      // EduTermClosure tem onDelete: Restrict em EduTerm → deve vir antes.
+      // EduGradeEntry → EduAssessment → EduPlanUnit → EduTeachingPlan → EduTerm
+      // devem todos vir antes de EduSchoolYear.
       const models = [
+        // folhas sem filhos dependentes
         "eduSkillMasteryEvent","eduSkillMastery","eduAttemptSession",
         "eduSubmission","eduGuardianConsent","eduGuardianInvite","eduGuardianLink",
         "eduFamilyCode","eduGuardian","eduTrackProgress","eduTrackAssignment",
         "eduTeacherAlert","eduLessonObjective","eduLesson","eduSessionPresence",
-        "eduClassSession","eduDiagnosticItem","eduDiagnostic","eduTrackItem",
-        "eduTrack","eduSkillGuide","eduSkillPrerequisite","eduActivitySkill",
-        "eduActivity","eduEnrollment","eduStudent","eduAuditLog","eduImportBatch",
-        "eduInvite","eduClassSubject","eduClass","eduTeachingPlan","eduSchoolYear",
+        "eduClassSession","eduDiagnosticItem","eduDiagnostic",
+        "eduQuizQuestion","eduActivitySkill","eduActivity",
+        "eduTrackItem","eduTrack","eduSkillGuide","eduSkillPrerequisite",
+        "eduEnrollment","eduStudent","eduAuditLog","eduImportBatch","eduInvite",
+        // EduTermClosure tem Restrict em EduTerm — vem antes
+        "eduTermClosure",
+        // EduGradeEntry → EduAssessment → EduTerm → EduSchoolYear
+        "eduGradeEntry","eduAssessment",
+        // EduPlanUnit → EduTeachingPlan → EduSchoolYear
+        "eduPlanUnit","eduTeachingPlan",
+        "eduTerm",
+        "eduClassSubject","eduClass","eduSchoolYear",
         "eduSubject","eduSchool","eduMembership","eduUser","eduNetwork",
       ];
       let total = 0;
       for (const m of models) {
         try {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const r = await db[m].deleteMany({});
           if (r.count > 0) { console.log(`  ${envVar} ${m}: ${r.count} registros apagados`); total += r.count; }
-        } catch { /* modelo não existe nesta base */ }
+        } catch (e) {
+          // Propagar erros reais (FK violation, etc.); ignorar só "modelo inexistente"
+          if (!e.message.includes("does not exist") && !e.message.includes("Unknown model")) {
+            console.error(`  ERRO ao apagar ${m}: ${e.message}`);
+          }
+        }
       }
       console.log(`  ${envVar}: ${total} registros apagados no total`);
     } finally {
