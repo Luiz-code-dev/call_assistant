@@ -173,24 +173,21 @@ export async function assignAfterDiagnostic(
 ): Promise<PostDiagnosticResult> {
   const { networkId, studentId, notYetSkillIds, assignedBy } = input;
 
-  // Lê configuração da rede
-  const network = await p.eduNetwork.findUnique({
-    where: { id: networkId },
-    select: { trackAssignmentMode: true },
-  });
-  const mode: "AUTO" | "SUGGEST" = network?.trackAssignmentMode === "AUTO" ? "AUTO" : "SUGGEST";
+  // Reforço autônomo: a atribuição é sempre AUTO.
+  // O campo trackAssignmentMode existe no banco mas é ignorado no reforço.
+  const mode = "AUTO";
 
   const detalhes: PostDiagnosticResult["detalhes"] = [];
   let atribuidos = 0;
-  let sugeridos = 0;
+  const sugeridos = 0;
 
-  // Limita a 3 habilidades por componente (as mais básicas primeiro)
+  // Percorre todas as habilidades em NOT_YET (mais básica primeiro)
   const handled = new Set<string>();
-  for (const skillId of notYetSkillIds.slice(0, 3)) {
+  for (const skillId of notYetSkillIds) {
     if (handled.has(skillId)) continue;
     handled.add(skillId);
 
-    // Busca trilha aprovada que cobre a habilidade (preferência: networkId própria, depois null)
+    // Busca trilha aprovada que cobre a habilidade (preferência: rede, depois biblioteca)
     const track = await p.eduTrack.findFirst({
       where: {
         status: "APPROVED",
@@ -202,51 +199,23 @@ export async function assignAfterDiagnostic(
     });
 
     if (!track) {
+      console.error(`[track-assignment] sem_trilha para skillId=${skillId} networkId=${networkId}`);
       detalhes.push({ skillId, trackId: null, acao: "sem_trilha" });
       continue;
     }
 
-    if (mode === "AUTO") {
-      try {
-        const res = await assignTrackToStudents({
-          networkId,
-          trackId: track.id,
-          studentIds: [studentId],
-          assignedBy,
-        });
-        atribuidos += res.atribuidos;
-        detalhes.push({ skillId, trackId: track.id, acao: res.atribuidos > 0 ? "atribuido" : `pulado:${res.pulados[0]?.motivo}` });
-      } catch (e) {
-        detalhes.push({ skillId, trackId: track.id, acao: `erro:${(e as Error).message}` });
-      }
-    } else {
-      // SUGGEST: cria alerta para o professor
-      const enrollment = await p.eduEnrollment.findFirst({
-        where: { studentId, networkId },
-        select: { classId: true },
+    try {
+      const res = await assignTrackToStudents({
+        networkId,
+        trackId: track.id,
+        studentIds: [studentId],
+        assignedBy,
       });
-      if (enrollment) {
-        const classSubject = await p.eduClassSubject.findFirst({
-          where: { classId: enrollment.classId, subjectId: track.subjectId, networkId },
-          select: { teacherId: true },
-        });
-        if (classSubject?.teacherId) {
-          await p.eduTeacherAlert.create({
-            data: {
-              networkId,
-              teacherId: classSubject.teacherId,
-              studentId,
-              type: "TRACK_SUGGESTION",
-              message: `Diagnóstico: aluno precisa de reforço. Trilha sugerida para a habilidade.`,
-              metadata: { trackId: track.id, skillId, source: "DIAGNOSTIC" },
-            },
-          }).catch(() => null); // não falha o fluxo se o alerta não criar
-          sugeridos++;
-          detalhes.push({ skillId, trackId: track.id, acao: "sugerido" });
-          continue;
-        }
-      }
-      detalhes.push({ skillId, trackId: track.id, acao: "sugestao_sem_professor" });
+      atribuidos += res.atribuidos;
+      detalhes.push({ skillId, trackId: track.id, acao: res.atribuidos > 0 ? "atribuido" : `pulado:${res.pulados[0]?.motivo}` });
+    } catch (e) {
+      console.error(`[track-assignment] assignTrackToStudents:`, (e as Error).message);
+      detalhes.push({ skillId, trackId: track.id, acao: `erro:${(e as Error).message}` });
     }
   }
 

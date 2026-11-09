@@ -860,6 +860,10 @@ model EduDiagnosticItem {
   skillId      String
   order        Int
   activityId   String
+  /// NORMAL | DEGRAU_BANK (banco de itens do degrau, nao entra na sequencia normal)
+  role            String  @default("NORMAL")
+  /// true = item gravado pela logica antiga de degrau (compartilhado); ignorar
+  isDegrauLegacy  Boolean @default(false)
 
   diagnostic EduDiagnostic @relation(fields: [diagnosticId], references: [id], onDelete: Cascade)
   skill      EduSkill      @relation(fields: [skillId], references: [id])
@@ -1164,6 +1168,9 @@ model EduAttemptSession {
   completedAt     DateTime? @db.Timestamptz
   /// Salvo quando o aluno sai sem terminar (I6)
   resumeToken     String?  @unique
+  /// Itens do degrau por aluno: [{ activityId, skillCode, degrau, questions }]
+  /// Nunca grava no EduDiagnosticItem compartilhado.
+  extraItems      Json     @default("[]")
 
   @@unique([studentId, activityId, diagnosticId])
   @@index([networkId, studentId])

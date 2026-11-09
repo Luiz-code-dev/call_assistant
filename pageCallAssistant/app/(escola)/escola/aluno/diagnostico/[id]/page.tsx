@@ -1,17 +1,39 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { Volume2 } from "lucide-react";
+import { Volume2, ChevronRight, CheckCircle2, XCircle, ArrowRight } from "lucide-react";
 
-interface Opcao { text: string }
-interface Atividade { id: string; type: string; prompt: string; questions: { id: string; question: string; options: Opcao[] }[]; skillCode?: string }
+interface Opcao { text: string; misconceptionCode?: string }
+interface Atividade {
+  id: string; type: string; prompt: string;
+  questions: { id: string; question: string; options: Opcao[] }[];
+  skillCode?: string;
+  isDegrau?: boolean;
+}
 interface Estado {
   sessionId: string;
   questaoAtual: number;
   totalQuestoes: number;
   atividade: Atividade;
   degrauAplicado?: boolean;
+  degrauSkillCode?: string;
   retomada?: boolean;
+  retorno?: { isCorrect: boolean; explanation?: string; misconceptionCode?: string };
+}
+interface Resultado {
+  domina: string[];
+  quaseLa: string[];
+  aindaNao: string[];
+  degrauPath: string[];
+  habilidadePartida: string | null;
+  erroComum: string | null;
+  corretas: number;
+  total: number;
+}
+interface TrilhaAtribuida {
+  id: string;
+  title: string;
+  primeiraAtividadeId: string | null;
 }
 
 const STEP_MIN_MS = 5_000;
@@ -21,13 +43,13 @@ export default function DiagnosticoPage() {
   const router = useRouter();
 
   const [estado, setEstado] = useState<Estado | null>(null);
-  const [concluido, setConcluido] = useState(false);
+  const [resultado, setResultado] = useState<Resultado | null>(null);
+  const [trilha, setTrilha] = useState<TrilhaAtribuida | null>(null);
   const [loading, setLoading] = useState(true);
   const [erro, setErro] = useState("");
   const [respondendo, setRespondendo] = useState(false);
   const [avisoRapido, setAvisoRapido] = useState(false);
   const startedAtRef = useRef<number>(0);
-
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const iniciar = useCallback(async () => {
@@ -57,21 +79,13 @@ export default function DiagnosticoPage() {
         if (!audioRef.current) audioRef.current = new Audio();
         audioRef.current.src = url;
         audioRef.current.play().catch(() => {
-          // fallback speechSynthesis
-          if ("speechSynthesis" in window) {
-            const u = new SpeechSynthesisUtterance(texto);
-            u.lang = "pt-BR";
-            window.speechSynthesis.speak(u);
+          if (typeof window !== "undefined" && "speechSynthesis" in window) {
+            const utt = new SpeechSynthesisUtterance(texto);
+            utt.lang = "pt-BR";
+            window.speechSynthesis.speak(utt);
           }
         });
-      })
-      .catch(() => {
-        if ("speechSynthesis" in window) {
-          const u = new SpeechSynthesisUtterance(texto);
-          u.lang = "pt-BR";
-          window.speechSynthesis.speak(u);
-        }
-      });
+      }).catch(() => null);
   }
 
   async function responder(selectedIndex: number) {
@@ -79,7 +93,7 @@ export default function DiagnosticoPage() {
     const elapsed = Date.now() - startedAtRef.current;
     if (elapsed < STEP_MIN_MS) {
       setAvisoRapido(true);
-      setTimeout(() => setAvisoRapido(false), 2000);
+      setTimeout(() => setAvisoRapido(false), 2500);
       return;
     }
     setRespondendo(true);
@@ -91,7 +105,9 @@ export default function DiagnosticoPage() {
     const d = await r.json();
     if (!r.ok) { setErro(d.error ?? "Erro ao registrar resposta."); setRespondendo(false); return; }
     if (d.concluido) {
-      setConcluido(true);
+      setResultado(d.resultado ?? null);
+      setTrilha(d.trilha ?? null);
+      setEstado(null);
     } else {
       setEstado({ ...d, sessionId: estado.sessionId });
       startedAtRef.current = Date.now();
@@ -99,55 +115,137 @@ export default function DiagnosticoPage() {
     setRespondendo(false);
   }
 
+  // ── Tela de carregamento ───────────────────────────────────────────────────
   if (loading) return (
     <div className="min-h-screen bg-[#F8F7FC] flex items-center justify-center">
-      <div className="text-[#5B5470]">Preparando diagnóstico...</div>
+      <div className="text-[#5B5470] text-sm">Preparando diagnóstico...</div>
     </div>
   );
 
   if (erro) return (
     <div className="min-h-screen bg-[#F8F7FC] flex flex-col items-center justify-center gap-4 p-6 text-center">
-      <p className="text-[#B91C1C] font-medium">{erro}</p>
-      <button onClick={() => router.push("/escola/aluno")} className="text-[#6D28D9] underline text-sm">Voltar</button>
+      <XCircle className="size-10 text-[#B91C1C]" />
+      <p className="text-[#1F1A2E] font-medium">{erro}</p>
+      <button onClick={() => router.push("/escola/aluno")} className="text-[#6D28D9] underline text-sm">Voltar ao início</button>
     </div>
   );
 
-  if (concluido) return (
-    <div className="min-h-screen bg-[#F8F7FC] flex flex-col items-center justify-center gap-6 p-6 text-center max-w-md mx-auto">
-      <div className="w-20 h-20 rounded-full bg-[#EDE9FE] flex items-center justify-center mx-auto">
-        <span className="text-4xl">&#10003;</span>
-      </div>
-      <h1 className="text-[#1F1A2E] text-2xl font-bold">Pronto!</h1>
-      <p className="text-[#5B5470]">Sua trilha está sendo preparada. Em breve aparecerá no início.</p>
-      <button
-        onClick={() => router.push("/escola/aluno")}
-        className="w-full max-w-xs py-4 rounded-2xl bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-bold text-lg min-h-[52px] transition-colors"
-      >
-        Ir para o início
-      </button>
+  // ── Resultado ─────────────────────────────────────────────────────────────
+  if (resultado) return (
+    <div className="min-h-screen bg-[#F8F7FC]">
+      <header className="bg-white border-b border-[#E9E5F5] px-4 py-4">
+        <div className="max-w-lg mx-auto">
+          <div className="w-12 h-12 rounded-full bg-[#DCFCE7] flex items-center justify-center mb-3">
+            <CheckCircle2 className="size-6 text-[#166534]" />
+          </div>
+          <h1 className="text-[#1F1A2E] text-xl font-bold">Diagnóstico concluído!</h1>
+          <p className="text-[#5B5470] text-sm mt-1">
+            {resultado.corretas} de {resultado.total} questões certas
+          </p>
+        </div>
+      </header>
+
+      <main className="max-w-lg mx-auto px-4 py-6 space-y-4">
+        {/* O que você já domina */}
+        {resultado.domina.length > 0 && (
+          <div className="bg-[#DCFCE7] border border-[#166534]/20 rounded-2xl p-4">
+            <p className="text-xs font-semibold text-[#166534] uppercase tracking-wide mb-2">O que você já domina</p>
+            <p className="text-[#1F1A2E] text-sm">{resultado.domina.length} habilidade(s) dominada(s).</p>
+          </div>
+        )}
+
+        {/* Onde vamos começar */}
+        {resultado.aindaNao.length > 0 && (
+          <div className="bg-white border border-[#E9E5F5] rounded-2xl p-4">
+            <p className="text-xs font-semibold text-[#5B5470] uppercase tracking-wide mb-2">Onde vamos começar</p>
+            {resultado.degrauPath.length > 0 && (
+              <div className="flex items-center gap-2 flex-wrap mb-2">
+                {resultado.degrauPath.map((s, i) => (
+                  <span key={s} className="flex items-center gap-1 text-xs text-[#5B5470]">
+                    {i > 0 && <ChevronRight className="size-3" />}
+                    <span className="bg-[#EDE9FE] text-[#6D28D9] px-2 py-0.5 rounded-full font-medium">{s}</span>
+                  </span>
+                ))}
+              </div>
+            )}
+            <p className="text-sm text-[#1F1A2E]">
+              {resultado.habilidadePartida
+                ? `Vamos começar pelo pré-requisito (${resultado.habilidadePartida}) e subir degrau a degrau.`
+                : `Vamos trabalhar ${resultado.aindaNao.length} habilidade(s).`}
+            </p>
+          </div>
+        )}
+
+        {/* Erro mais comum */}
+        {resultado.erroComum && (
+          <div className="bg-[#FEF3C7] border border-[#FDE68A] rounded-2xl p-4 flex gap-3 items-start">
+            <div>
+              <p className="text-xs font-semibold text-[#92400E] uppercase tracking-wide mb-1">Um erro que vamos resolver juntos</p>
+              <p className="text-sm text-[#1F1A2E]">{resultado.erroComum}</p>
+            </div>
+            <button onClick={() => ouvir(resultado.erroComum ?? "")} className="shrink-0 p-2 rounded-lg bg-white/60 text-[#92400E] min-h-[44px] min-w-[44px] flex items-center justify-center">
+              <Volume2 className="size-4" />
+            </button>
+          </div>
+        )}
+
+        {/* Trilha atribuída */}
+        {trilha ? (
+          <div className="space-y-3">
+            <div className="bg-[#EDE9FE] border border-[#6D28D9]/20 rounded-2xl p-4">
+              <p className="text-xs font-semibold text-[#6D28D9] uppercase tracking-wide mb-1">Sua trilha está pronta</p>
+              <p className="font-semibold text-[#1F1A2E]">{trilha.title}</p>
+              <p className="text-xs text-[#5B5470] mt-1">5 etapas: relembrar, exemplo, praticar, aplicar e explicar</p>
+            </div>
+            <button
+              onClick={() => trilha.primeiraAtividadeId
+                ? router.push(`/escola/aluno/atividades/${trilha.primeiraAtividadeId}`)
+                : router.push("/escola/aluno/trilha")}
+              className="w-full py-4 rounded-2xl bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-bold text-base min-h-[52px] flex items-center justify-center gap-2 transition-colors"
+            >
+              Começar minha trilha <ArrowRight className="size-5" />
+            </button>
+          </div>
+        ) : (
+          <div className="bg-white border border-[#E9E5F5] rounded-2xl p-4 text-center">
+            <p className="text-sm text-[#5B5470]">Trilha sendo preparada. Volte em instantes.</p>
+          </div>
+        )}
+
+        <button
+          onClick={() => router.push("/escola/aluno")}
+          className="w-full py-3 rounded-2xl border border-[#E9E5F5] bg-white text-[#5B5470] font-medium text-sm min-h-[44px] transition-colors hover:border-[#6D28D9]"
+        >
+          Escolher outra matéria
+        </button>
+      </main>
     </div>
   );
 
   if (!estado) return null;
 
-  const { questaoAtual, totalQuestoes, atividade, degrauAplicado } = estado;
-  const questao = atividade.questions?.[0];
+  const { questaoAtual, totalQuestoes, atividade, degrauAplicado, degrauSkillCode } = estado;
+  const questao = atividade?.questions?.[0];
   const pct = Math.round(((questaoAtual - 1) / totalQuestoes) * 100);
 
   return (
     <div className="min-h-screen bg-[#F8F7FC] flex flex-col">
-      {/* Cabecalho */}
+      {/* Cabeçalho */}
       <header className="bg-white border-b border-[#E9E5F5] px-4 py-3">
         <div className="max-w-lg mx-auto">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-semibold text-[#5B5470] uppercase tracking-wide">DIAGNÓSTICO</span>
+            <span className="text-xs font-semibold text-[#5B5470] uppercase tracking-wide">
+              {atividade.isDegrau ? "BASE DO CONTEÚDO" : "DIAGNÓSTICO"}
+            </span>
             <span className="text-xs text-[#5B5470]">{questaoAtual} de {totalQuestoes}</span>
           </div>
           <div className="h-2 bg-[#E9E5F5] rounded-full overflow-hidden">
             <div className="h-full bg-[#6D28D9] rounded-full transition-all duration-500" style={{ width: `${pct}%` }} />
           </div>
-          {degrauAplicado && (
-            <p className="text-xs text-[#92400E] mt-1">Vamos verificar um conceito anterior para te ajudar melhor.</p>
+          {degrauAplicado && degrauSkillCode && (
+            <div className="mt-2 bg-[#FEF3C7] border border-[#FDE68A] rounded-xl px-3 py-2 text-xs text-[#92400E] font-medium">
+              Vamos dar um passo atrás para firmar a base — verificando {degrauSkillCode}.
+            </div>
           )}
         </div>
       </header>
@@ -161,44 +259,34 @@ export default function DiagnosticoPage() {
 
         {/* Enunciado */}
         <div className="bg-white border border-[#E9E5F5] rounded-2xl p-5 space-y-3">
-          {atividade.skillCode && (
-            <p className="text-xs font-semibold text-[#6D28D9] uppercase tracking-wide">{atividade.skillCode}</p>
-          )}
-          <div className="flex items-start gap-3">
-            <p className="text-[#1F1A2E] text-base leading-relaxed flex-1">{atividade.prompt}</p>
-            <button
-              onClick={() => ouvir(atividade.prompt + (questao ? " " + questao.question : ""))}
-              title="Ouvir enunciado"
-              className="shrink-0 p-2.5 rounded-xl bg-[#EDE9FE] text-[#6D28D9] hover:bg-[#DDD6EE] min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
-            >
-              <Volume2 size={18} />
+          <div className="flex items-start justify-between gap-3">
+            <p className="text-[#1F1A2E] font-medium leading-relaxed flex-1">
+              {atividade.prompt || questao?.question}
+            </p>
+            <button onClick={() => ouvir(atividade.prompt || questao?.question || "")}
+              className="shrink-0 p-2 rounded-lg bg-[#EDE9FE] text-[#6D28D9] min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-[#DDD6EE] transition-colors">
+              <Volume2 className="size-4" />
             </button>
           </div>
-          {questao && questao.question !== atividade.prompt && (
-            <p className="text-[#1F1A2E] font-semibold">{questao.question}</p>
+          {questao?.question && questao.question !== atividade.prompt && (
+            <p className="text-[#1F1A2E] text-sm leading-relaxed border-t border-[#E9E5F5] pt-3">{questao.question}</p>
           )}
         </div>
 
         {/* Alternativas */}
-        {questao && (
-          <div className="space-y-3">
-            {questao.options.map((op, i) => (
-              <button
-                key={i}
-                onClick={() => responder(i)}
-                disabled={respondendo}
-                className="w-full text-left bg-white border-2 border-[#E9E5F5] hover:border-[#6D28D9] hover:bg-[#F5F3FF] rounded-2xl px-5 py-4 text-[#1F1A2E] font-medium min-h-[52px] transition-all disabled:opacity-50"
-              >
-                <span className="text-[#6D28D9] font-bold mr-3">{String.fromCharCode(65 + i)}.</span>
-                {op.text}
-              </button>
-            ))}
-          </div>
-        )}
-
-        {respondendo && (
-          <p className="text-center text-[#5B5470] text-sm">Registrando resposta...</p>
-        )}
+        {questao?.options?.map((op, i) => (
+          <button
+            key={i}
+            disabled={respondendo}
+            onClick={() => responder(i)}
+            className={`w-full text-left rounded-2xl border-2 p-4 font-medium text-[#1F1A2E] min-h-[52px] transition-all
+              ${respondendo ? "opacity-60 cursor-not-allowed" : "hover:border-[#6D28D9] hover:bg-[#EDE9FE]/30 active:scale-[0.98]"}
+              border-[#E9E5F5] bg-white`}
+          >
+            <span className="text-[#6D28D9] font-bold mr-3">{String.fromCharCode(65 + i)}.</span>
+            {op.text}
+          </button>
+        ))}
       </main>
     </div>
   );
