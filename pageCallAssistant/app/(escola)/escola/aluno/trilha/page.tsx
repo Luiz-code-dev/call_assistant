@@ -98,10 +98,21 @@ export default function MinhaTrilhaPage() {
           </div>
         ) : ativas.length === 0 && concluidas.length === 0 ? (
           <div className="bg-white border border-[#E9E5F5] rounded-2xl p-8 text-center">
-            <BookOpen className="mx-auto mb-3 text-[#DDD6EE]" size={48} strokeWidth={1.5}/>
+            {/* Ilustracao: crianca lendo com estrelas */}
+            <svg viewBox="0 0 120 90" className="mx-auto mb-4 w-32 h-24" aria-hidden="true">
+              <rect x="20" y="55" width="80" height="28" rx="8" fill="#EDE9FE"/>
+              <rect x="30" y="62" width="25" height="4" rx="2" fill="#C4B5FD"/>
+              <rect x="30" y="70" width="40" height="4" rx="2" fill="#C4B5FD"/>
+              <rect x="30" y="78" width="30" height="4" rx="2" fill="#DDD6EE"/>
+              <circle cx="90" cy="38" r="18" fill="#F5F3FF" stroke="#DDD6EE" strokeWidth="2"/>
+              <text x="90" y="43" textAnchor="middle" fontSize="18" fill="#6D28D9">📖</text>
+              <circle cx="30" cy="22" r="4" fill="#FDE68A"/>
+              <circle cx="102" cy="18" r="3" fill="#FDE68A"/>
+              <circle cx="15" cy="40" r="2.5" fill="#C4B5FD"/>
+            </svg>
             <h2 className="text-[#1F1A2E] font-semibold">Nenhuma trilha por enquanto</h2>
-            <p className="text-[#5B5470] text-sm mt-1">Sua escola ainda não indicou uma trilha. Enquanto isso, veja sua evolução.</p>
-            <Link href="/escola/aluno/painel" className="mt-4 inline-block text-[#6D28D9] hover:underline text-sm">Ver minha evolução</Link>
+            <p className="text-[#5B5470] text-sm mt-1">Sua escola ainda nao indicou uma trilha. Enquanto isso, veja sua evolucao.</p>
+            <Link href="/escola/aluno/painel" className="mt-4 inline-block text-[#6D28D9] hover:underline text-sm">Ver minha evolucao</Link>
           </div>
         ) : null}
 
@@ -127,6 +138,25 @@ export default function MinhaTrilhaPage() {
 
 const STEP_LABELS = ["Relembrar", "Exemplo guiado", "Praticar", "Aplicar", "Explicar"];
 
+/** Anel SVG de progresso */
+function RingProgress({ pct, cor, concluida }: { pct: number; cor: string; concluida?: boolean }) {
+  const r = 28, cx = 32, cy = 32;
+  const circ = 2 * Math.PI * r;
+  const filled = (pct / 100) * circ;
+  return (
+    <svg width="64" height="64" viewBox="0 0 64 64" className="shrink-0" aria-hidden="true">
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke="#E9E5F5" strokeWidth="6" />
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke={cor} strokeWidth="6"
+        strokeLinecap="round" strokeDasharray={`${filled} ${circ}`}
+        transform="rotate(-90 32 32)" style={{ transition: "stroke-dasharray 0.4s ease" }} />
+      {concluida
+        ? <path d="M22 32l7 7 13-13" stroke={cor} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+        : <text x="32" y="37" textAnchor="middle" fontSize="13" fontWeight="700" fill={cor}>{pct}%</text>
+      }
+    </svg>
+  );
+}
+
 function TrilhaCard({ t, concluida }: { t: AtivaTrilha; concluida?: boolean }) {
   const cor = subjectColor(t.subjectId);
   const pct = t.totalItems > 0 ? Math.round((t.concluidos / t.totalItems) * 100) : 0;
@@ -136,21 +166,12 @@ function TrilhaCard({ t, concluida }: { t: AtivaTrilha; concluida?: boolean }) {
     <div className="bg-white border border-[#E9E5F5] rounded-xl overflow-hidden">
       <div className="h-1" style={{ background: cor }}/>
       <div className="p-4 space-y-3">
-        <div className="flex items-start justify-between gap-3">
-          <div className="flex-1 min-w-0">
+        <div className="flex items-start gap-3">
+          <RingProgress pct={pct} cor={cor} concluida={concluida} />
+          <div className="flex-1 min-w-0 pt-1">
             <h4 className="font-semibold text-[#1F1A2E] text-sm leading-tight truncate">{t.title}</h4>
             {t.skills[0] && <p className="text-xs text-[#5B5470] mt-0.5">{t.skills[0].shortLabel ?? t.skills[0].code}</p>}
-          </div>
-          {concluida && <CheckCircle size={18} className="text-[#16A34A] shrink-0"/>}
-        </div>
-
-        <div>
-          <div className="flex items-center justify-between text-xs text-[#5B5470] mb-1">
-            <span>{t.concluidos} de {t.totalItems} atividades</span>
-            <span>{pct}%</span>
-          </div>
-          <div className="h-1.5 bg-[#F8F7FC] rounded-full overflow-hidden border border-[#E9E5F5]">
-            <div className="h-full rounded-full" style={{ width: `${pct}%`, background: cor }}/>
+            <p className="text-xs text-[#5B5470] mt-1">{t.concluidos} de {t.totalItems} etapas</p>
           </div>
         </div>
 

@@ -121,20 +121,20 @@ export default function EscAppShell({ role, userName, contextName, children }: P
 
   function SidebarContent() {
     return (
-      <div className="flex flex-col h-full bg-white border-r border-gray-200">
+      <div className="flex flex-col h-full bg-white border-r border-[#E9E5F5]">
         {/* Logo */}
-        <div className="px-5 pt-5 pb-4 border-b border-gray-100 shrink-0">
+        <div className="px-5 pt-5 pb-4 border-b border-[#E9E5F5] shrink-0">
           <EscLogo />
         </div>
 
         {/* Profile chip */}
-        <div className="px-4 py-3 border-b border-gray-100 shrink-0">
-          <div className="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-gray-50 border border-gray-200">
-            <div className="w-7 h-7 rounded bg-indigo-100 text-indigo-700 text-[11px] font-bold flex items-center justify-center shrink-0">
+        <div className="px-4 py-3 border-b border-[#E9E5F5] shrink-0">
+          <div className="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-[#F5F3FF] border border-[#DDD6EE]">
+            <div className="w-7 h-7 rounded bg-[#EDE9FE] text-[#6D28D9] text-[11px] font-bold flex items-center justify-center shrink-0">
               {initials(userName)}
             </div>
             <div className="flex-1 min-w-0">
-              <div className="text-[13px] font-semibold text-gray-800 leading-tight truncate">
+              <div className="text-[13px] font-semibold text-[#1F1A2E] leading-tight truncate">
                 {ROLE_LABEL[role]}
               </div>
               {contextName && (
@@ -180,19 +180,19 @@ export default function EscAppShell({ role, userName, contextName, children }: P
         </nav>
 
         {/* Footer */}
-        <div className="px-4 py-4 border-t border-gray-100 space-y-3 shrink-0">
+        <div className="px-4 py-4 border-t border-[#E9E5F5] space-y-3 shrink-0">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-full bg-gray-200 text-[#5B5470] text-[11px] font-bold flex items-center justify-center shrink-0">
+            <div className="w-8 h-8 rounded-full bg-[#EDE9FE] text-[#6D28D9] text-[11px] font-bold flex items-center justify-center shrink-0">
               {initials(userName)}
             </div>
             <div className="flex-1 min-w-0">
-              <div className="text-[13px] font-medium text-gray-700 truncate">{userName}</div>
+              <div className="text-[13px] font-medium text-[#1F1A2E] truncate">{userName}</div>
             </div>
           </div>
           <form method="POST" action="/api/escola/auth/logout">
             <button
               type="submit"
-              className="flex items-center gap-2 text-[13px] text-[#5B5470] hover:text-red-500 transition-colors"
+              className="flex items-center gap-2 text-[13px] text-[#5B5470] hover:text-[#B91C1C] transition-colors"
             >
               <LogOut size={14} />
               Sair
@@ -230,9 +230,9 @@ export default function EscAppShell({ role, userName, contextName, children }: P
       {/* Main content area */}
       <div className="flex flex-col flex-1 min-w-0">
         {/* Mobile top bar */}
-        <header className="lg:hidden flex items-center justify-between px-4 py-3 bg-white border-b border-gray-200 shrink-0 h-[56px]">
+        <header className="lg:hidden flex items-center justify-between px-4 py-3 bg-white border-b border-[#E9E5F5] shrink-0 h-[56px]">
           <button
-            className="p-2 rounded-lg hover:bg-gray-100 min-w-[44px] min-h-[44px] flex items-center justify-center text-[#5B5470]"
+            className="p-2 rounded-lg hover:bg-[#F5F3FF] min-w-[44px] min-h-[44px] flex items-center justify-center text-[#5B5470]"
             onClick={() => setDrawerOpen(!drawerOpen)}
             aria-label="Menu"
           >
