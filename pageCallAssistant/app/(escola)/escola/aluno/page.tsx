@@ -135,11 +135,11 @@ export default function AlunoHomePage() {
                   <FlaskConical className="size-5 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-xs font-semibold text-[#6D28D9] uppercase tracking-wide">Diagnostico disponivel</p>
+                  <p className="text-xs font-semibold text-[#6D28D9] uppercase tracking-wide">DIAGNÓSTICO DISPONÍVEL</p>
                   <p className="font-bold text-[#1F1A2E] truncate">{d.title}</p>
-                  <p className="text-xs text-[#5B5470]">{d.totalQuestoes} questao(oes) — {d.gradeYear}º ano</p>
+                  <p className="text-xs text-[#5B5470]">{d.totalQuestoes} questões — {d.gradeYear}º ano</p>
                 </div>
-                <span className="shrink-0 bg-[#6D28D9] text-white text-xs font-bold px-3 py-1.5 rounded-xl min-h-[44px] flex items-center">Comecar</span>
+                <span className="shrink-0 bg-[#6D28D9] text-white text-xs font-bold px-3 py-1.5 rounded-xl min-h-[44px] flex items-center">Começar</span>
               </Link>
             ))}
           </section>
@@ -171,7 +171,7 @@ export default function AlunoHomePage() {
           {[
             { href: "/escola/aluno/trilha", icon: BookOpen, label: "Minha trilha" },
             { href: "/escola/aluno/atividades/historico", icon: ClipboardList, label: "Feitas" },
-            { href: "/escola/aluno/evolucao", icon: TrendingUp, label: "Evolucao" },
+            { href: "/escola/aluno/evolucao", icon: TrendingUp, label: "Evolução" },
           ].map(({ href, icon: Icon, label }) => (
             <Link key={href} href={href}
               className="flex flex-col items-center gap-2 rounded-xl p-4 border border-[#E9E5F5] bg-white text-center hover:border-[#6D28D9] hover:shadow-sm transition-all">
