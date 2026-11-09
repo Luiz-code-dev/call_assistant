@@ -124,6 +124,32 @@ function EntrarInner() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [aulaCode]);
 
+  // P3: teclado físico para o código da aula
+  useEffect(() => {
+    if (screen !== "aula-code") return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Backspace") {
+        setAulaCode(prev => {
+          const last = [...prev].reverse().findIndex(l => l !== "");
+          if (last === -1) return prev;
+          const idx = 5 - last;
+          const next = [...prev]; next[idx] = ""; return next;
+        });
+        return;
+      }
+      const key = e.key.toUpperCase();
+      if (AULA_KEYS.includes(key)) {
+        setAulaCode(prev => {
+          const idx = prev.findIndex(l => l === ""); if (idx === -1) return prev;
+          const next = [...prev]; next[idx] = key; return next;
+        });
+        setAulaError("");
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [screen]);
+
   function selectStudent(student: SessionStudent) {
     setSelectedStudent(student); setPin(""); setPinError(""); setFigSeq([]); setFigError("");
     if (session) setLoginCtx({ mode: "aula", studentId: student.id, sessionId: session.sessionId, nid: session.nid });
@@ -311,7 +337,7 @@ function EntrarInner() {
               </button>
             )}
             {pinError && <p className="text-[#B91C1C] text-sm mt-2">{pinError}</p>}
-            <p className="text-[#5B5470] text-xs mt-3">Esqueceu? Peca ao professor um PIN novo.</p>
+            <p className="text-[#5B5470] text-xs mt-3">Esqueceu? Peça para o seu responsável criar um PIN novo no app da família.</p>
           </div>
           <div className="grid gap-3" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
             {keys.map((k, i) => (
