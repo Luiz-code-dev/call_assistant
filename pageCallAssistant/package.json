@@ -30,7 +30,9 @@
     "escolas:test:int": "vitest run --config vitest.int.config.ts",
     "escolas:seed-teste": "node scripts/escolas/seed-teste-usabilidade.mjs",
     "escolas:reset-teste": "node scripts/escolas/reset-teste.mjs",
-    "escolas:inventario": "node scripts/escolas/inventario.mjs"
+    "escolas:inventario": "node scripts/escolas/inventario.mjs",
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1155.0",
@@ -76,6 +78,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@playwright/test": "^1.44.0",
     "@types/bcryptjs": "^2.4.6",
     "@types/node": "^22.0.0",
     "@types/pg": "^8.11.10",
