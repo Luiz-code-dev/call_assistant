@@ -281,9 +281,11 @@ async function seedRedeB() {
       update: { isActive: true },
     });
 
+    // P2.5: turma 6B → 2026
+    await db.eduSchoolYear.updateMany({ where: { networkId: rede.id, year: 2025 }, data: { isCurrent: false } }).catch(() => {});
     const anoLetivoB = await db.eduSchoolYear.upsert({
-      where: { networkId_year: { networkId: rede.id, year: 2025 } },
-      create: { networkId: rede.id, year: 2025, startsAt: new Date("2025-02-01"), endsAt: new Date("2025-12-15"), isCurrent: true },
+      where: { networkId_year: { networkId: rede.id, year: 2026 } },
+      create: { networkId: rede.id, year: 2026, startsAt: new Date("2026-02-01"), endsAt: new Date("2026-12-15"), isCurrent: true },
       update: { isCurrent: true },
     });
 
@@ -295,7 +297,7 @@ async function seedRedeB() {
         school: { connect: { id: escola.id } }, schoolYear: { connect: { id: anoLetivoB.id } }, networkId: rede.id,
         isActive: true, accessCode: "DEMB25",
       },
-      update: { isActive: true },
+      update: { isActive: true, schoolYear: { connect: { id: anoLetivoB.id } } },
     });
 
     await catalog.codeIndex.upsert({

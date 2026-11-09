@@ -29,16 +29,23 @@ export default async function DirecaoPage() {
     ? await P.eduEnrollment.count({ where: { classId: { in: classIds }, status: "ACTIVE" } })
     : 0;
 
-  // Famílias vinculadas — conta alunos distintos com pelo menos 1 vínculo ativo nesta escola
-  const comAcesso: number = classIds.length
-    ? await P.eduEnrollment.count({
-        where: {
-          classId: { in: classIds },
-          status: "ACTIVE",
-          student: { guardianLinks: { some: { isActive: true } } },
-        },
-      }).catch(() => 0)
-    : 0;
+  // Famílias vinculadas — mesma lógica da rota /api/escola/direcao/familias
+  // Busca via EduGuardianLink direto (evita nested-filter silencioso no Prisma)
+  let comAcesso = 0;
+  if (classIds.length) {
+    const enrolledIds: { studentId: string }[] = await P.eduEnrollment.findMany({
+      where: { classId: { in: classIds }, status: "ACTIVE" },
+      select: { studentId: true },
+    });
+    const studs = enrolledIds.map((e: { studentId: string }) => e.studentId);
+    if (studs.length) {
+      const links: { studentId: string }[] = await P.eduGuardianLink.findMany({
+        where: { studentId: { in: studs }, isActive: true, networkId: ctx.networkId },
+        select: { studentId: true },
+      }).catch(() => []);
+      comAcesso = new Set(links.map((l: { studentId: string }) => l.studentId)).size;
+    }
+  }
 
   const links = [
     { label: "Turmas e alunos", href: "/escola/direcao/turmas", icon: <Users size={20} className="text-[#6D28D9]" />, bg: "bg-[#EDE9FE]", desc: "Turmas, alunos, PINs e cartões" },
