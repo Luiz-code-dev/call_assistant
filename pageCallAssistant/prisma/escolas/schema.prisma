@@ -603,6 +603,8 @@ model EduActivity {
   derivedFromId  String?
   estMinutes     Int               @default(10)
   audioPromptUrl String?
+  /// Texto exato que o botão "Ouvir" lê (TTS)
+  audioScript    String? @db.Text
   imageUrl       String?
   /// Faixa etária/série (ex.: "EF6" para 6º ano EF)
   ageBand        String?
@@ -636,6 +638,8 @@ model EduQuizQuestion {
   objectiveId     String?
   /// Código do erro conceitual que a alternativa errada mais comum representa
   misconceptionCode String?
+  /// Variantes da questão: [{question, options, correctIndex}]
+  variants          Json    @default("[]")
 
   activity EduActivity @relation(fields: [activityId], references: [id], onDelete: Cascade)
 
