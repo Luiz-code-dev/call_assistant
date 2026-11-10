@@ -89,6 +89,29 @@ describe("assignTrackToStudents — regras", () => {
     expect(r.pulados).toEqual([{ studentId: "s2", motivo: expect.stringContaining("3 trilhas") }]);
   });
 
+  it("trilha concluída não ocupa vaga no limite de 3", async () => {
+    p.eduTrack.findUnique.mockResolvedValue(baseTrack({ networkId: null, subjectId: null, subjectCode: "CI" }));
+    const feita = [{ studentId: "s2", completedAt: new Date() }];
+    p.eduTrackAssignment.findMany.mockResolvedValue([
+      { studentId: "s2", trackId: "t_ci1", track: { subjectId: null, subjectCode: "CI" }, progress: feita },
+      { studentId: "s2", trackId: "t_ci2", track: { subjectId: null, subjectCode: "CI" } },
+      { studentId: "s2", trackId: "t_ci3", track: { subjectId: null, subjectCode: "CI" } },
+    ]);
+    const r = await assignTrackToStudents(baseInput());
+    expect(r.pulados).toEqual([]);
+  });
+
+  it("trilha da base entra mesmo com 3 ativas no componente (ignorarLimite)", async () => {
+    p.eduTrack.findUnique.mockResolvedValue(baseTrack({ networkId: null, subjectId: null, subjectCode: "CI" }));
+    p.eduTrackAssignment.findMany.mockResolvedValue([
+      { studentId: "s2", trackId: "t_ci1", track: { subjectId: null, subjectCode: "CI" } },
+      { studentId: "s2", trackId: "t_ci2", track: { subjectId: null, subjectCode: "CI" } },
+      { studentId: "s2", trackId: "t_ci3", track: { subjectId: null, subjectCode: "CI" } },
+    ]);
+    const r = await assignTrackToStudents({ ...baseInput(), ignorarLimite: true });
+    expect(r.pulados).toEqual([]);
+  });
+
   it("pula aluno com a mesma trilha já ativa", async () => {
     p.eduTrackAssignment.findMany.mockResolvedValue([
       { studentId: "s1", trackId: TRACK_ID, track: { subjectId: "subj1" } },

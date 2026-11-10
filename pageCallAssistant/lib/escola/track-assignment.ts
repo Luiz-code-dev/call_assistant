@@ -24,6 +24,8 @@ export interface AssignmentInput {
   force?: boolean;
   /** Se true, calcula as regras mas NÃO grava no banco. */
   dryRun?: boolean;
+  /** Trilha da base (o aluno esgotou as tentativas): entra mesmo acima do limite por componente */
+  ignorarLimite?: boolean;
 }
 
 export interface AssignmentResult {
@@ -66,14 +68,17 @@ export async function assignTrackToStudents(
   }
 
   // 3. Atribuições ativas existentes (duplicatas e contador por componente)
-  const activeAssignments: Array<{ studentId: string; track: { subjectId: string | null; subjectCode: string | null }; trackId: string }> =
+  const activeAssignments: Array<{ studentId: string; track: { subjectId: string | null; subjectCode: string | null }; trackId: string; progress?: Array<{ studentId: string; completedAt: Date | null }> }> =
     await p.eduTrackAssignment.findMany({
       where: {
         networkId,
         studentId: { in: studentIds },
         endedAt: null,
       },
-      select: { studentId: true, trackId: true, track: { select: { subjectId: true, subjectCode: true } } },
+      select: {
+        studentId: true, trackId: true, track: { select: { subjectId: true, subjectCode: true } },
+        progress: { select: { studentId: true, completedAt: true } },
+      },
     });
 
   // Componente da trilha: subjectCode (biblioteca) ou subjectId (trilha antiga da rede)
@@ -86,6 +91,9 @@ export async function assignTrackToStudents(
   for (const a of activeAssignments) {
     if (!activeTracksByStudent[a.studentId]) activeTracksByStudent[a.studentId] = new Set();
     activeTracksByStudent[a.studentId].add(a.trackId);
+    // Trilha concluída não ocupa vaga: senão, quem termina 3 trilhas não recebe mais nenhuma
+    const concluida = (a.progress ?? []).some((pr) => pr.studentId === a.studentId && pr.completedAt);
+    if (concluida) continue;
     const key = `${a.studentId}::${componente(a.track)}`;
     activeBySubject[key] = (activeBySubject[key] ?? 0) + 1;
   }
@@ -102,7 +110,7 @@ export async function assignTrackToStudents(
 
     // Regra: limite 3 por componente
     const key = `${studentId}::${componente(track)}`;
-    if ((activeBySubject[key] ?? 0) >= 3) {
+    if (!input.ignorarLimite && (activeBySubject[key] ?? 0) >= 3) {
       pulados.push({ studentId, motivo: "já tem 3 trilhas ativas neste componente" });
       continue;
     }

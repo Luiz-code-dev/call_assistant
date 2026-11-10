@@ -224,7 +224,7 @@ export default function DiagnosticoPage() {
                   <p className="text-[13px] leading-snug"><span className="font-bold text-[#166534]">O certo é:</span> <span className="text-[#1F1A2E]">{resultado.erroComum.questao.certa}</span></p>
                 </div>
               )}
-              <p className="text-sm text-[#1F1A2E] leading-relaxed">{resultado.erroComum.questao ? <><span className="font-bold">Por quê: </span>{resultado.erroComum.texto}</> : resultado.erroComum.texto}</p>
+              <p className="text-sm text-[#1F1A2E] leading-relaxed">{resultado.erroComum.questao ? <><span className="font-bold">Pense assim: </span>{resultado.erroComum.texto}</> : resultado.erroComum.texto}</p>
             </div>
             <button onClick={() => ouvir(resultado.erroComum?.texto ?? "")} aria-label="Ouvir"
               className="shrink-0 rounded-full bg-white text-[#92400E] min-h-[44px] min-w-[44px] flex items-center justify-center">

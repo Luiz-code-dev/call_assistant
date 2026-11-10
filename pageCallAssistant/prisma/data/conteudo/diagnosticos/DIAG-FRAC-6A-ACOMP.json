@@ -28,7 +28,7 @@
         }
       ],
       "correctIndex": 1,
-      "explanation": "MMC(5,8)=40. 3/5=24/40; 5/8=25/40. 5/8 é maior.",
+      "explanation": "Estão bem pertinho! Transformando os dois em quarenta avos: 3/5 = 24/40 e 5/8 = 25/40. Por um pedacinho, 5/8 ganha.",
       "role": "NORMAL"
     },
     {
@@ -53,7 +53,7 @@
         }
       ],
       "correctIndex": 3,
-      "explanation": "MMC=12. 2/3=8/12; 3/4=9/12; 5/6=10/12. Ordem crescente.",
+      "explanation": "Veja quanto falta para completar o inteiro: 2/3 falta 1/3, 3/4 falta 1/4, 5/6 falta só 1/6. Quem falta menos é maior.",
       "role": "NORMAL"
     },
     {
@@ -78,13 +78,13 @@
         }
       ],
       "correctIndex": 0,
-      "explanation": "5 dividido por 8 = 0,625.",
+      "explanation": "5/8 é 5 dividido por 8, que dá 0,625. Dica: metade de 1 é 0,5, e 5/8 é um pouco mais que a metade.",
       "role": "NORMAL"
     },
     {
       "id": "DA-FRAC6-EF06MA08-02",
       "skillCode": "EF06MA08",
-      "question": "Qual fração irredutivel equivale a 0,8?",
+      "question": "Qual fração irredutível equivale a 0,8?",
       "options": [
         {
           "text": "8/10 sem simplificar",
@@ -103,7 +103,7 @@
         }
       ],
       "correctIndex": 2,
-      "explanation": "0,8=8/10. MDC(8,10)=2. Resultado: 4/5.",
+      "explanation": "0,8 é oito décimos: 8/10. Dividindo 8 e 10 por 2, fica 4/5, que não dá mais para simplificar.",
       "role": "NORMAL"
     },
     {
@@ -128,7 +128,7 @@
         }
       ],
       "correctIndex": 1,
-      "explanation": "25 dividido por 5 = 5. 5 vezes 2 = 10.",
+      "explanation": "Primeiro divida 25 em 5 grupos: dá 5 em cada. Depois pegue 2 grupos: 5 + 5 = 10.",
       "role": "NORMAL"
     },
     {
@@ -153,7 +153,7 @@
         }
       ],
       "correctIndex": 3,
-      "explanation": "36 dividido por 3 = 12. 12 vezes 2 = 24.",
+      "explanation": "Divida 36 em 3 grupos: 12 em cada. Pegue 2 grupos: 12 + 12 = 24 alunos.",
       "role": "NORMAL"
     },
     {
@@ -178,32 +178,32 @@
         }
       ],
       "correctIndex": 0,
-      "explanation": "MMC(4,3)=12. 1/4=3/12; 1/3=4/12. Total: 7/12.",
+      "explanation": "Primeiro deixe os pedaços do mesmo tamanho, em doze avos: 1/4 = 3/12 e 1/3 = 4/12. Agora é só juntar: 7/12.",
       "role": "NORMAL"
     },
     {
       "id": "DA-FRAC6-EF06MA10-02",
       "skillCode": "EF06MA10",
-      "question": "Uma receita usa 3/4 de xicara de farinha. Já tem 1/3. Quanto falta?",
+      "question": "Uma receita usa 3/4 de xícara de farinha. Já tem 1/3. Quanto falta?",
       "options": [
         {
-          "text": "4/7 xicara",
+          "text": "4/7 xícara",
           "misconceptionCode": "soma-num-e-den-separado"
         },
         {
-          "text": "4/12 xicara",
+          "text": "4/12 xícara",
           "misconceptionCode": "nao-usa-mmc"
         },
         {
-          "text": "5/12 xicara"
+          "text": "5/12 xícara"
         },
         {
-          "text": "1/12 xicara",
+          "text": "1/12 xícara",
           "misconceptionCode": "subtrai-ao-inves-de-somar"
         }
       ],
       "correctIndex": 2,
-      "explanation": "3/4=9/12; 1/3=4/12. Falta: 9/12 menos 4/12 = 5/12.",
+      "explanation": "Deixe as partes do mesmo tamanho: 3/4 = 9/12 e 1/3 = 4/12. Faltam 9 - 4 = 5 pedaços: 5/12 de xícara.",
       "role": "NORMAL"
     },
     {
@@ -228,13 +228,13 @@
         }
       ],
       "correctIndex": 1,
-      "explanation": "Dividida em 5 partes iguais, 1 parte = 1/5.",
+      "explanation": "A caixa virou 5 partes iguais. Cada sacola é 1 das 5: 1/5.",
       "role": "DEGRAU_BANK"
     },
     {
       "id": "DA-FRAC6-EF05MA03-02",
       "skillCode": "EF05MA03",
-      "question": "Reta de 0 a 1 dividida em 4 partes. O segundo traco marca:",
+      "question": "Reta de 0 a 1 dividida em 4 partes. O segundo traço marca:",
       "options": [
         {
           "text": "4/2",
@@ -253,7 +253,7 @@
         }
       ],
       "correctIndex": 3,
-      "explanation": "4 partes: 1o=1/4, 2o=2/4.",
+      "explanation": "A reta foi cortada em 4 pedaços. Andando do 0, o 1º traço é 1/4 e o 2º traço é 2/4, que é a metade.",
       "role": "DEGRAU_BANK"
     },
     {
@@ -278,7 +278,7 @@
         }
       ],
       "correctIndex": 0,
-      "explanation": "Multiplica por 2: 4/6.",
+      "explanation": "Se você corta cada pedaço ao meio, fica com o dobro de pedaços, mas a quantidade de bolo é a mesma. 2 de 3 = 4 de 6.",
       "role": "DEGRAU_BANK"
     },
     {
@@ -303,7 +303,7 @@
         }
       ],
       "correctIndex": 2,
-      "explanation": "MDC(9,12)=3. 9/3=3, 12/3=4. Resultado: 3/4.",
+      "explanation": "9 e 12 cabem na tabuada do 3. Dividindo os dois por 3: 9/12 vira 3/4, a mesma quantidade com números menores.",
       "role": "DEGRAU_BANK"
     },
     {
@@ -328,7 +328,7 @@
         }
       ],
       "correctIndex": 1,
-      "explanation": "Com numerador 1: maior denominador = menor fração. 1/6 menor que 1/4.",
+      "explanation": "Quanto mais pessoas dividem a mesma pizza, menor fica cada pedaço. Dividir por 6 dá pedaço menor que por 4: 1/6 é menor.",
       "role": "DEGRAU_BANK"
     },
     {
@@ -353,7 +353,7 @@
         }
       ],
       "correctIndex": 3,
-      "explanation": "3 dividido por 5 = 0,6.",
+      "explanation": "3/5 é 3 dividido por 5. Dividindo 3 reais entre 5 amigos, cada um fica com 60 centavos: 0,6.",
       "role": "DEGRAU_BANK"
     },
     {
@@ -378,7 +378,7 @@
         }
       ],
       "correctIndex": 0,
-      "explanation": "8 partes iguais, 1 fatia = 1/8.",
+      "explanation": "O bolo virou 8 fatias iguais. Uma fatia é 1 parte das 8: 1/8. O número de baixo diz em quantas partes o bolo foi cortado.",
       "role": "DEGRAU_BANK"
     },
     {
@@ -403,12 +403,12 @@
         }
       ],
       "correctIndex": 2,
-      "explanation": "Um terço = 1/3.",
+      "explanation": "Um terço é dividir em 3 partes iguais e pegar 1, como um bolo para 3 amigos. Por isso 1/3.",
       "role": "DEGRAU_BANK"
     }
   ],
   "cycle": 2,
-  "version": 3,
+  "version": 4,
   "subjectCode": "MA",
   "subjectName": "Matemática",
   "gradeYear": 6,

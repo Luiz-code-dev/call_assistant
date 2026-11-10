@@ -28,7 +28,7 @@
         }
       ],
       "correctIndex": 1,
-      "explanation": "MMC(3,4)=12. 2/3=8/12; 3/4=9/12. 3/4 é maior.",
+      "explanation": "Veja quanto falta para o inteiro: a 2/3 falta 1/3, e a 3/4 falta só 1/4, um pedaço menor. Então 3/4 é maior.",
       "role": "NORMAL"
     },
     {
@@ -53,7 +53,7 @@
         }
       ],
       "correctIndex": 3,
-      "explanation": "MMC=12. 1/4=3/12; 1/2=6/12; 2/3=8/12. Ordem: 1/4 menor que 1/2 menor que 2/3.",
+      "explanation": "Pense numa pizza: 1/4 é um pedaço pequeno, 1/2 é metade, e 2/3 é mais da metade. Do menor ao maior: 1/4, 1/2, 2/3.",
       "role": "NORMAL"
     },
     {
@@ -78,13 +78,13 @@
         }
       ],
       "correctIndex": 0,
-      "explanation": "3 dividido por 4 = 0,75.",
+      "explanation": "3/4 é 3 dividido por 4. Pense em dinheiro: 3 reais divididos por 4 pessoas dá 75 centavos para cada, ou seja, 0,75.",
       "role": "NORMAL"
     },
     {
       "id": "DI-FRAC6-EF06MA08-02",
       "skillCode": "EF06MA08",
-      "question": "Qual fração irredutivel equivale a 0,6?",
+      "question": "Qual fração irredutível equivale a 0,6?",
       "options": [
         {
           "text": "6/10 não simplificada",
@@ -103,7 +103,7 @@
         }
       ],
       "correctIndex": 2,
-      "explanation": "0,6=6/10. MDC(6,10)=2. Resultado: 3/5.",
+      "explanation": "0,6 é seis décimos: 6/10. Dividindo 6 e 10 por 2, fica 3/5, a mesma quantidade com números menores.",
       "role": "NORMAL"
     },
     {
@@ -128,7 +128,7 @@
         }
       ],
       "correctIndex": 1,
-      "explanation": "40 dividido por 4 = 10. 10 vezes 3 = 30.",
+      "explanation": "Divida 40 em 4 grupos: 10 em cada. Pegue 3 grupos: 10 + 10 + 10 = 30.",
       "role": "NORMAL"
     },
     {
@@ -153,7 +153,7 @@
         }
       ],
       "correctIndex": 3,
-      "explanation": "300 dividido por 5 = 60. 60 vezes 2 = 120.",
+      "explanation": "Divida 300 em 5 grupos iguais: 60 em cada. Pegue 2 grupos: 60 + 60 = 120 alunos.",
       "role": "NORMAL"
     },
     {
@@ -178,13 +178,13 @@
         }
       ],
       "correctIndex": 0,
-      "explanation": "MMC(2,3)=6. 1/2=3/6; 1/3=2/6. Total: 5/6. Nunca some numerador e denominador separados.",
+      "explanation": "Não dá para somar pedaços de tamanhos diferentes. Corte tudo em sextos: 1/2 = 3/6 e 1/3 = 2/6. Juntando, 5/6. Nunca some os números de cima e os de baixo separados.",
       "role": "NORMAL"
     },
     {
       "id": "DI-FRAC6-EF06MA10-02",
       "skillCode": "EF06MA10",
-      "question": "Pedro andou 3/4 km de manha e 1/3 km de tarde. Quantos km no total?",
+      "question": "Pedro andou 3/4 km de manhã e 1/3 km de tarde. Quantos km no total?",
       "options": [
         {
           "text": "4/7 km, pois 3+1=4 e 4+3=7",
@@ -203,7 +203,7 @@
         }
       ],
       "correctIndex": 2,
-      "explanation": "3/4=9/12; 1/3=4/12. Total: 13/12 km.",
+      "explanation": "Para somar, os pedaços precisam ter o mesmo tamanho. Transforme os dois em doze avos: 9/12 + 4/12 = 13/12 km.",
       "role": "NORMAL"
     },
     {
@@ -228,13 +228,13 @@
         }
       ],
       "correctIndex": 1,
-      "explanation": "Dividida em 4 grupos iguais, 1 grupo = 1/4.",
+      "explanation": "A turma foi dividida em 4 grupos iguais. Um grupo é 1 de 4: 1/4. Cada grupo tem 5 alunos.",
       "role": "DEGRAU_BANK"
     },
     {
       "id": "DI-FRAC6-EF05MA03-02",
       "skillCode": "EF05MA03",
-      "question": "Na reta entre 0 e 1 dividida em 5 partes iguais, o terceiro traco marca:",
+      "question": "Na reta entre 0 e 1 dividida em 5 partes iguais, o terceiro traço marca:",
       "options": [
         {
           "text": "5/3",
@@ -253,7 +253,7 @@
         }
       ],
       "correctIndex": 3,
-      "explanation": "5 partes: 1o=1/5, 2o=2/5, 3o=3/5.",
+      "explanation": "Conte os pedacinhos andando na reta: 1º traço = 1/5, 2º = 2/5, 3º = 3/5. O número de cima é quantos passos você deu.",
       "role": "DEGRAU_BANK"
     },
     {
@@ -278,7 +278,7 @@
         }
       ],
       "correctIndex": 0,
-      "explanation": "Multiplica numerador e denominador por 2: 2/4.",
+      "explanation": "Imagine uma pizza: metade dela é o mesmo que 2 pedaços se você cortar em 4. O tamanho que você come não muda.",
       "role": "DEGRAU_BANK"
     },
     {
@@ -303,7 +303,7 @@
         }
       ],
       "correctIndex": 2,
-      "explanation": "MDC(6,8)=2. 6/2=3, 8/2=4. Resultado: 3/4.",
+      "explanation": "Procure um número que divide os dois. 6 e 8 dividem por 2: fica 3/4. É a mesma fração, só que mais \"enxuta\".",
       "role": "DEGRAU_BANK"
     },
     {
@@ -328,7 +328,7 @@
         }
       ],
       "correctIndex": 1,
-      "explanation": "Com numerador 1: maior denominador = menor fração.",
+      "explanation": "Imagine um bolo dividido entre 3 amigos e outro igual dividido entre 5. Com mais gente, cada pedaço fica menor. Então 1/5 é menor.",
       "role": "DEGRAU_BANK"
     },
     {
@@ -353,7 +353,7 @@
         }
       ],
       "correctIndex": 3,
-      "explanation": "2 dividido por 5 = 0,4.",
+      "explanation": "Fração é uma divisão: 2/5 é 2 dividido por 5, que dá 0,4. É como dividir 2 reais entre 5 amigos: 40 centavos para cada.",
       "role": "DEGRAU_BANK"
     },
     {
@@ -378,7 +378,7 @@
         }
       ],
       "correctIndex": 0,
-      "explanation": "4 partes iguais, comeu 1. Fração: 1/4.",
+      "explanation": "A pizza tem 4 pedaços e João comeu 1. Então ele comeu 1 de 4: 1/4.",
       "role": "DEGRAU_BANK"
     },
     {
@@ -403,12 +403,12 @@
         }
       ],
       "correctIndex": 2,
-      "explanation": "Metade = todo dividido em 2 partes iguais, você tem 1 = 1/2.",
+      "explanation": "Metade é dividir em 2 partes iguais e pegar 1. Por isso metade é 1/2, como meia pizza.",
       "role": "DEGRAU_BANK"
     }
   ],
   "cycle": 1,
-  "version": 3,
+  "version": 4,
   "subjectCode": "MA",
   "subjectName": "Matemática",
   "gradeYear": 6,

@@ -8,7 +8,7 @@
         "step": "relembrar",
         "type": "QUIZ",
         "title": "Relembrar: informação explícita",
-        "prompt": "Informação explícita e aquela que esta escrita diretamente no texto. Não precisa descobrir: só localizar.",
+        "prompt": "Informação explícita é aquela que está escrita diretamente no texto. Não precisa descobrir: só localizar.",
         "estMinutes": 4,
         "audioScript": "Mãe, fui na casa do Carlos fazer o trabalho de ciências. A mãe dele disse que posso jantar lá. Vou voltar antes das 20h. Deixei o número do Carlos na geladeira. Beijo, Pedro. Responda as perguntas sobre este bilhete.",
         "questions": [
@@ -32,7 +32,7 @@
               }
             ],
             "correctIndex": 1,
-            "explanation": "O bilhete diz claramente: \"fui na casa do Carlos\".",
+            "explanation": "A resposta está escrita no bilhete: \"fui na casa do Carlos\". Quando a resposta está no texto, é só voltar e procurar.",
             "variants": [
               {
                 "question": "Que trabalho Pedro foi fazer?",
@@ -98,7 +98,7 @@
               }
             ],
             "correctIndex": 3,
-            "explanation": "O bilhete diz: \"a mãe dele disse que posso jantar lá\". A mãe do Carlos autorizou.",
+            "explanation": "O bilhete conta: \"a mãe dele disse que posso jantar lá\". \"Dele\" é do Carlos, então foi a mãe do Carlos.",
             "variants": [
               {
                 "question": "Onde Pedro deixou o número do Carlos?",
@@ -164,7 +164,7 @@
               }
             ],
             "correctIndex": 0,
-            "explanation": "O bilhete mostra que Pedro se preocupou em avisar a mãe, escrevendo o bilhete e deixando o contato.",
+            "explanation": "Pedro escreveu o bilhete e deixou o número na geladeira para a mãe não ficar preocupada. Está tudo no texto.",
             "variants": [
               {
                 "question": "Qual trabalho Pedro foi fazer na casa do amigo?",
@@ -219,7 +219,7 @@
         "title": "Exemplo guiado: onde encontrar a informação no texto",
         "prompt": "Veja como localizar a informação exata que a questão pede.",
         "estMinutes": 5,
-        "audioScript": "Mariana chegou cedo na escola no primeiro dia do ano. A sala tinha novas mesas é um quadro verde bem grande. A professora escreveu o nome de cada aluno em um cartaz colorido. Depois pediu que cada um contasse uma coisa que gostava de fazer nas férias. Mariana falou que tinha aprendido a fazer pipa com o avô. A professora sorriu e disse que eles iam fazer uma pipa juntos na aula de artes. Responda as perguntas sobre este texto.",
+        "audioScript": "Mariana chegou cedo na escola no primeiro dia do ano. A sala tinha novas mesas e um quadro verde bem grande. A professora escreveu o nome de cada aluno em um cartaz colorido. Depois pediu que cada um contasse uma coisa que gostava de fazer nas férias. Mariana falou que tinha aprendido a fazer pipa com o avô. A professora sorriu e disse que eles iam fazer uma pipa juntos na aula de artes. Responda as perguntas sobre este texto.",
         "questions": [
           {
             "question": "O que a professora escreveu no quadro?",
@@ -241,7 +241,7 @@
               }
             ],
             "correctIndex": 2,
-            "explanation": "O texto diz: \"a professora escreveu o nome de cada aluno em um cartaz colorido\".",
+            "explanation": "Volte ao texto: a professora escreveu o nome de cada aluno num cartaz colorido.",
             "variants": [
               {
                 "question": "O que Mariana aprendeu nas férias?",
@@ -307,7 +307,7 @@
               }
             ],
             "correctIndex": 1,
-            "explanation": "O texto descreve: \"um quadro verde bem grande\".",
+            "explanation": "O texto descreve o quadro: verde e bem grande. Palavras que mostram como uma coisa é são pistas fáceis de achar.",
             "variants": [
               {
                 "question": "Que tipo de mesa tinha na sala?",
@@ -373,7 +373,7 @@
               }
             ],
             "correctIndex": 3,
-            "explanation": "O texto diz: \"a professora sorriu e disse que eles iam fazer uma pipa juntos na aula de artes\".",
+            "explanation": "O texto conta que a professora sorriu e disse que iam fazer uma pipa na aula de artes.",
             "variants": [
               {
                 "question": "Quem ensinou Mariana a fazer pipa?",
@@ -428,10 +428,10 @@
         "title": "Praticar: localizar informações no texto",
         "prompt": "Pratique localizar informações explícitas em diferentes tipos de texto.",
         "estMinutes": 7,
-        "audioScript": "Você vai precisar de: 1 lata de leite condensado, 2 colheres de chocolate em po e 1 colher de manteiga. Coloque tudo em uma panela e misture bem antes de ligar o fogo. Cozinhe em fogo baixo, mexendo sempre, por cerca de 10 minutos. Quando a mistura soltar do fundo da panela, esta pronto. Desligue o fogo, espere esfriar e sirva em potinhos. Rende 8 porções. Responda as perguntas sobre esta receita.",
+        "audioScript": "Você vai precisar de: 1 lata de leite condensado, 2 colheres de chocolate em pó e 1 colher de manteiga. Coloque tudo em uma panela e misture bem antes de ligar o fogo. Cozinhe em fogo baixo, mexendo sempre, por cerca de 10 minutos. Quando a mistura soltar do fundo da panela, está pronto. Desligue o fogo, espere esfriar e sirva em potinhos. Rende 8 porções. Responda as perguntas sobre esta receita.",
         "questions": [
           {
-            "question": "Quantas colheres de chocolate em po são necessarias?",
+            "question": "Quantas colheres de chocolate em pó são necessárias?",
             "options": [
               {
                 "text": "2 colheres"
@@ -450,7 +450,7 @@
               }
             ],
             "correctIndex": 0,
-            "explanation": "A receita lista: \"2 colheres de chocolate em po\".",
+            "explanation": "Na lista de ingredientes está escrito: 2 colheres de chocolate em pó. Receita é para ler com atenção!",
             "variants": [
               {
                 "question": "Qual é o tamanho do fogo para cozinhar?",
@@ -516,10 +516,10 @@
               }
             ],
             "correctIndex": 2,
-            "explanation": "A receita diz: \"misture bem antes de ligar o fogo\".",
+            "explanation": "A receita manda colocar tudo na panela e misturar bem antes de ligar o fogo. A ordem dos passos importa.",
             "variants": [
               {
-                "question": "Como você sabe que o brigadeiro esta pronto?",
+                "question": "Como você sabe que o brigadeiro está pronto?",
                 "options": [
                   {
                     "text": "Quando ficar grosso",
@@ -563,10 +563,10 @@
             ]
           },
           {
-            "question": "Qual é o ingrediente que da liga na receita (que faz juntar)?",
+            "question": "Qual é o ingrediente que dá liga na receita (que faz juntar)?",
             "options": [
               {
-                "text": "Chocolate em po",
+                "text": "Chocolate em pó",
                 "misconceptionCode": "informacao-distorcida"
               },
               {
@@ -582,7 +582,7 @@
               }
             ],
             "correctIndex": 1,
-            "explanation": "A receita usa 1 lata de leite condensado, que e o ingrediente de base. O texto lista todos os três ingredientes.",
+            "explanation": "O leite condensado é a base do brigadeiro: é ele que junta tudo e deixa a massa grudadinha.",
             "variants": [
               {
                 "question": "Por quanto tempo você cozinha a mistura?",
@@ -629,7 +629,7 @@
             ]
           },
           {
-            "question": "O que você deve fazer apos desligar o fogo?",
+            "question": "O que você deve fazer após desligar o fogo?",
             "options": [
               {
                 "text": "Mexer mais um pouco",
@@ -648,7 +648,7 @@
               }
             ],
             "correctIndex": 3,
-            "explanation": "O texto diz: \"desligue o fogo, espere esfriar e sirva em potinhos\".",
+            "explanation": "Depois de desligar o fogo, a receita diz: espere esfriar e sirva em potinhos.",
             "variants": [
               {
                 "question": "O que deve-se fazer enquanto cozinha?",
@@ -695,13 +695,13 @@
             ]
           },
           {
-            "question": "Qual dos ingredientes vc usa 1 lata?",
+            "question": "Qual dos ingredientes você usa 1 lata?",
             "options": [
               {
                 "text": "Leite condensado"
               },
               {
-                "text": "Chocolate em po",
+                "text": "Chocolate em pó",
                 "misconceptionCode": "informacao-distorcida"
               },
               {
@@ -714,13 +714,13 @@
               }
             ],
             "correctIndex": 0,
-            "explanation": "A receita lista: \"1 lata de leite condensado\".",
+            "explanation": "Na lista está \"1 lata de leite condensado\". Os outros ingredientes são medidos em colheres.",
             "variants": [
               {
-                "question": "Qual dos ingredientes vc usa 1 colher?",
+                "question": "Qual dos ingredientes você usa 1 colher?",
                 "options": [
                   {
-                    "text": "Chocolate em po",
+                    "text": "Chocolate em pó",
                     "misconceptionCode": "informacao-distorcida"
                   },
                   {
@@ -738,14 +738,14 @@
                 "correctIndex": 2
               },
               {
-                "question": "Qual dos ingredientes vc usa 2 colheres?",
+                "question": "Qual dos ingredientes você usa 2 colheres?",
                 "options": [
                   {
                     "text": "Manteiga",
                     "misconceptionCode": "informacao-distorcida"
                   },
                   {
-                    "text": "Chocolate em po"
+                    "text": "Chocolate em pó"
                   },
                   {
                     "text": "Leite condensado",
@@ -769,7 +769,7 @@
         "title": "Aplicar: localizar informação em diferentes contextos",
         "prompt": "Use a habilidade de localizar informações em textos de diferentes generos.",
         "estMinutes": 7,
-        "audioScript": "No pega-pega, um jogador e escolhido para ser o pegador. Os outros jogadores tentam correr sem ser tocados. Quando o pegador toca alguém, essa pessoa vira o novo pegador. Não vale tocar a mesma pessoa duas vezes seguidas. O jogo termina quando todos concordam em parar. O último pegador da rodada começa o próximo jogo. Responda as perguntas sobre as regras do jogo.",
+        "audioScript": "No pega-pega, um jogador é escolhido para ser o pegador. Os outros jogadores tentam correr sem ser tocados. Quando o pegador toca alguém, essa pessoa vira o novo pegador. Não vale tocar a mesma pessoa duas vezes seguidas. O jogo termina quando todos concordam em parar. O último pegador da rodada começa o próximo jogo. Responda as perguntas sobre as regras do jogo.",
         "questions": [
           {
             "question": "O que acontece quando o pegador toca alguém?",
@@ -791,7 +791,7 @@
               }
             ],
             "correctIndex": 2,
-            "explanation": "As regras dizem: \"quando o pegador toca alguém, essa pessoa vira o novo pegador\".",
+            "explanation": "As regras dizem: quem é tocado vira o novo pegador. Assim o jogo continua.",
             "variants": [
               {
                 "question": "O que não vale no pega-pega segundo as regras?",
@@ -845,7 +845,7 @@
                 "misconceptionCode": "informacao-nao-esta-no-texto"
               },
               {
-                "text": "Um jogador e escolhido para ser o pegador"
+                "text": "Um jogador é escolhido para ser o pegador"
               },
               {
                 "text": "O mais velho",
@@ -857,7 +857,7 @@
               }
             ],
             "correctIndex": 1,
-            "explanation": "As regras dizem: \"um jogador e escolhido para ser o pegador\".",
+            "explanation": "As regras dizem que um jogador é escolhido para ser o pegador no começo.",
             "variants": [
               {
                 "question": "O que os outros jogadores tentam fazer?",
@@ -923,7 +923,7 @@
               }
             ],
             "correctIndex": 3,
-            "explanation": "As regras dizem: \"o jogo termina quando todos concordam em parar\".",
+            "explanation": "As regras dizem que o jogo termina quando todos concordam em parar. Todos, não só um.",
             "variants": [
               {
                 "question": "O que faz uma pessoa se tornar o novo pegador?",
@@ -984,7 +984,7 @@
           "criteria": [
             {
               "code": "define-explicita",
-              "description": "Explica que informação explícita esta diretamente escrita no texto, sem precisar adivinhar"
+              "description": "Explica que informação explícita está diretamente escrita no texto, sem precisar adivinhar"
             },
             {
               "code": "diferencia-implicita",
@@ -995,14 +995,14 @@
               "description": "Da um exemplo correto de como encontrar uma informação explícita"
             }
           ],
-          "exemploBoaResposta": "Informação explícita e aquela que esta escrita diretamente no texto. Você só precisa ler e encontrar. Por exemplo, se o texto diz \"Pedro tem 10 anos\", a informação de que Pedro tem 10 anos e explícita: eu não precisei adivinhar nada, só li."
+          "exemploBoaResposta": "Informação explícita é aquela que está escrita diretamente no texto. Você só precisa ler e encontrar. Por exemplo, se o texto diz \"Pedro tem 10 anos\", a informação de que Pedro tem 10 anos é explícita: eu não precisei adivinhar nada, só li."
         }
       }
     ],
     "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
     "source": "SPEAKFLOW",
     "status": "APPROVED",
-    "version": 3,
+    "version": 5,
     "subjectCode": "LP",
     "gradeYear": 5
   },
@@ -1015,9 +1015,9 @@
         "step": "relembrar",
         "type": "QUIZ",
         "title": "Relembrar: o que é ideia central",
-        "prompt": "A ideia central e o assunto principal do texto. E sobre o que o texto fala mais.",
+        "prompt": "A ideia central é o assunto principal do texto. É sobre o que o texto fala mais.",
         "estMinutes": 4,
-        "audioScript": "O gato dormia embaixo da árvore quando o rato passou correndo. O gato abriu um olho, depois o outro. O rato parou, olhou para o gato e disse: \"Hoje não vai funcionar. Eu sei que você esta acordado.\" O gato fechou os olhos de novo e fingiu dormir. O rato riu e foi embora. No dia seguinte, o rato voltou pelo mesmo caminho. Desta vez, o gato estava dormindo de verdade. O rato passou sem fazer barulho e os dois nunca mais se viram. Responda sobre o texto.",
+        "audioScript": "O gato dormia embaixo da árvore quando o rato passou correndo. O gato abriu um olho, depois o outro. O rato parou, olhou para o gato e disse: \"Hoje não vai funcionar. Eu sei que você está acordado.\" O gato fechou os olhos de novo e fingiu dormir. O rato riu e foi embora. No dia seguinte, o rato voltou pelo mesmo caminho. Desta vez, o gato estava dormindo de verdade. O rato passou sem fazer barulho e os dois nunca mais se viram. Responda sobre o texto.",
         "questions": [
           {
             "question": "Qual é o assunto principal do texto sobre o gato e o rato?",
@@ -1039,7 +1039,7 @@
               }
             ],
             "correctIndex": 0,
-            "explanation": "O texto todo gira em torno da relação entre o gato e o rato, especialmente sobre as tentativas do gato de enganar o rato.",
+            "explanation": "Do começo ao fim, o texto mostra o gato e o rato e o que acontece entre eles. Esse é o assunto principal.",
             "variants": [
               {
                 "question": "Qual é o assunto principal do texto da escola?",
@@ -1105,13 +1105,13 @@
               }
             ],
             "correctIndex": 2,
-            "explanation": "A ideia central resume o texto todo. Você precisa entender o que o texto inteiro quer dizer.",
+            "explanation": "A ideia central resume o texto todo, não só uma parte. Pergunte: do que esse texto fala do começo ao fim?",
             "variants": [
               {
                 "question": "Como você pode verificar se achou a ideia central?",
                 "options": [
                   {
-                    "text": "Verificando se e a primeira frase",
+                    "text": "Verificando se é a primeira frase",
                     "misconceptionCode": "estrategia-so-inicio"
                   },
                   {
@@ -1129,7 +1129,7 @@
                 "correctIndex": 1
               },
               {
-                "question": "O que é um detalhe, em oposicao a ideia central?",
+                "question": "O que é um detalhe, em oposição a ideia central?",
                 "options": [
                   {
                     "text": "Qualquer informação do texto",
@@ -1155,11 +1155,11 @@
             "question": "No texto do gato e do rato, o fato de o rato rir é um:",
             "options": [
               {
-                "text": "Ideia central, pois e o ponto mais importante",
+                "text": "Ideia central, pois é o ponto mais importante",
                 "misconceptionCode": "detalhe-como-ideia-central"
               },
               {
-                "text": "Detalhe, pois ele ilustra a situação mas não e o tema principal"
+                "text": "Detalhe, pois ele ilustra a situação mas não é o tema principal"
               },
               {
                 "text": "Título do texto",
@@ -1171,7 +1171,7 @@
               }
             ],
             "correctIndex": 1,
-            "explanation": "O riso do rato é um detalhe que mostra a reacao dele. A ideia central e a relação entre os dois personagens.",
+            "explanation": "O riso do rato mostra a reação dele, mas a história não é sobre o riso. É um detalhe.",
             "variants": [
               {
                 "question": "No texto da escola, o fato de o quadro ser verde e:",
@@ -1189,7 +1189,7 @@
                     "misconceptionCode": "estrategia-frequencia"
                   },
                   {
-                    "text": "Um detalhe de descricao, não e a ideia central"
+                    "text": "Um detalhe de descrição, não é a ideia central"
                   }
                 ],
                 "correctIndex": 3
@@ -1198,7 +1198,7 @@
                 "question": "Na receita, o tempo de cozimento (10 minutos) e:",
                 "options": [
                   {
-                    "text": "Um detalhe das instrucoes, não e a ideia central"
+                    "text": "Um detalhe das instruções, não é a ideia central"
                   },
                   {
                     "text": "A ideia central da receita",
@@ -1226,7 +1226,7 @@
         "title": "Exemplo guiado: encontrando a ideia central",
         "prompt": "Veja como identificar a ideia central passo a passo.",
         "estMinutes": 5,
-        "audioScript": "A turma da professora Laura foi ao parque no sábado de manha. Eles levaram lanchinhos é um saco para o lixo. No parque, as crianças correram, brincaram de cabra-cega e observaram os pássaros. João encontrou uma borboleta azul e ficou parado por muito tempo olhando para ela. Na volta, a professora perguntou o que cada um tinha gostado mais. Quase todos falaram do lanchinho, mas João falou da borboleta. Leia e responda.",
+        "audioScript": "A turma da professora Laura foi ao parque no sábado de manhã. Eles levaram lanchinhos é um saco para o lixo. No parque, as crianças correram, brincaram de cabra-cega e observaram os pássaros. João encontrou uma borboleta azul e ficou parado por muito tempo olhando para ela. Na volta, a professora perguntou o que cada um tinha gostado mais. Quase todos falaram do lanchinho, mas João falou da borboleta. Leia e responda.",
         "questions": [
           {
             "question": "Qual é a ideia central do texto sobre o passeio no parque?",
@@ -1244,11 +1244,11 @@
                 "misconceptionCode": "informacao-nao-esta-no-texto"
               },
               {
-                "text": "A turma da professora Laura foi ao parque e teve experiencias diferentes"
+                "text": "A turma da professora Laura foi ao parque e teve experiências diferentes"
               }
             ],
             "correctIndex": 3,
-            "explanation": "O texto conta sobre o passeio todo da turma, com varios momentos. A ideia central e a experiência coletiva no parque.",
+            "explanation": "O texto inteiro conta o passeio da turma ao parque e o que cada um viveu. Essa é a ideia central.",
             "variants": [
               {
                 "question": "No texto do passeio, qual é o detalhe mais marcante para João?",
@@ -1314,7 +1314,7 @@
               }
             ],
             "correctIndex": 0,
-            "explanation": "Um bom resumo inclui o assunto principal. Esta frase cobre o passeio todo, incluindo o ponto final sobre as preferencias.",
+            "explanation": "Um bom resumo conta o principal em poucas palavras: a turma foi ao parque, brincou, observou a natureza e cada um gostou de uma coisa.",
             "variants": [
               {
                 "question": "Qual destas frases melhor resume o texto da receita?",
@@ -1361,7 +1361,7 @@
             ]
           },
           {
-            "question": "Você le um texto sobre a vida dos pinguins no Polo Sul. A ideia central e provavelmente:",
+            "question": "Você lê um texto sobre a vida dos pinguins no Polo Sul. A ideia central é provavelmente:",
             "options": [
               {
                 "text": "A temperatura do Polo Sul",
@@ -1380,10 +1380,10 @@
               }
             ],
             "correctIndex": 2,
-            "explanation": "Quando o título menciona \"vida dos pinguins\", a ideia central e sobre como eles vivem, não apenas um detalhe especifico.",
+            "explanation": "O título já dá a pista: se fala da vida dos pinguins no Polo Sul, o texto deve contar como eles vivem lá.",
             "variants": [
               {
-                "question": "Você le um texto sobre como reciclar papel em casa. A ideia central e:",
+                "question": "Você lê um texto sobre como reciclar papel em casa. A ideia central é:",
                 "options": [
                   {
                     "text": "Por que o papel e feito de árvore",
@@ -1404,7 +1404,7 @@
                 "correctIndex": 1
               },
               {
-                "question": "Você le um texto sobre o coelho que ganhou uma corrida. A ideia central e:",
+                "question": "Você lê um texto sobre o coelho que ganhou uma corrida. A ideia central é:",
                 "options": [
                   {
                     "text": "A cor do pelo do coelho",
@@ -1435,7 +1435,7 @@
         "title": "Praticar: identificar a ideia central",
         "prompt": "Pratique identificar a ideia central em diferentes textos.",
         "estMinutes": 7,
-        "audioScript": "O gato dormia embaixo da árvore quando o rato passou correndo. O gato abriu um olho, depois o outro. O rato parou, olhou para o gato e disse: \"Hoje não vai funcionar. Eu sei que você esta acordado.\" O gato fechou os olhos de novo e fingiu dormir. O rato riu e foi embora. No dia seguinte, o rato voltou pelo mesmo caminho. Desta vez, o gato estava dormindo de verdade. O rato passou sem fazer barulho e os dois nunca mais se viram. e Mariana chegou cedo na escola no primeiro dia do ano. A sala tinha novas mesas é um quadro verde bem grande. A professora escreveu o nome de cada aluno em um cartaz colorido. Depois pediu que cada um contasse uma coisa que gostava de fazer nas férias. Mariana falou que tinha aprendido a fazer pipa com o avô. A professora sorriu e disse que eles iam fazer uma pipa juntos na aula de artes. Responda as perguntas.",
+        "audioScript": "O gato dormia embaixo da árvore quando o rato passou correndo. O gato abriu um olho, depois o outro. O rato parou, olhou para o gato e disse: \"Hoje não vai funcionar. Eu sei que você está acordado.\" O gato fechou os olhos de novo e fingiu dormir. O rato riu e foi embora. No dia seguinte, o rato voltou pelo mesmo caminho. Desta vez, o gato estava dormindo de verdade. O rato passou sem fazer barulho e os dois nunca mais se viram. e Mariana chegou cedo na escola no primeiro dia do ano. A sala tinha novas mesas e um quadro verde bem grande. A professora escreveu o nome de cada aluno em um cartaz colorido. Depois pediu que cada um contasse uma coisa que gostava de fazer nas férias. Mariana falou que tinha aprendido a fazer pipa com o avô. A professora sorriu e disse que eles iam fazer uma pipa juntos na aula de artes. Responda as perguntas.",
         "questions": [
           {
             "question": "Qual é a ideia central do texto sobre o gato e o rato?",
@@ -1457,7 +1457,7 @@
               }
             ],
             "correctIndex": 1,
-            "explanation": "O texto conta sobre a tentativa de enganar e a esperteza do rato, que se torna o tema central.",
+            "explanation": "O texto conta que o gato tentou enganar o rato, mas o rato era esperto e escapou. Essa é a ideia que junta tudo.",
             "variants": [
               {
                 "question": "Qual é a ideia central do texto sobre o primeiro dia de aula?",
@@ -1523,10 +1523,10 @@
               }
             ],
             "correctIndex": 3,
-            "explanation": "A ideia central de \"aprender algo novo\" combina com uma história de aprendizado, como a de Mariana com o avô.",
+            "explanation": "Mariana aprendeu a fazer pipa com o avô: o texto é sobre aprender algo novo.",
             "variants": [
               {
-                "question": "Para qual texto a ideia central seria \"regras de convivencia\"?",
+                "question": "Para qual texto a ideia central seria \"regras de convivência\"?",
                 "options": [
                   {
                     "text": "Um texto sobre as regras do pega-pega"
@@ -1547,7 +1547,7 @@
                 "correctIndex": 0
               },
               {
-                "question": "Para qual texto a ideia central seria \"cuidado e comunicacao familiar\"?",
+                "question": "Para qual texto a ideia central seria \"cuidado e comunicação familiar\"?",
                 "options": [
                   {
                     "text": "O texto do primeiro dia de aula",
@@ -1573,7 +1573,7 @@
             "question": "No texto sobre o passeio, por que João se destacou dos outros?",
             "options": [
               {
-                "text": "Porque ele deu uma resposta diferente dos outros, falando da borboleta ao inves do lanchinho"
+                "text": "Porque ele deu uma resposta diferente dos outros, falando da borboleta ao invés do lanchinho"
               },
               {
                 "text": "Porque ele era o mais rápido",
@@ -1589,7 +1589,7 @@
               }
             ],
             "correctIndex": 0,
-            "explanation": "O texto diz que \"quase todos falaram do lanchinho, mas João falou da borboleta\". João se destacou pela observacao da natureza.",
+            "explanation": "Quase todos falaram do lanchinho, mas João falou da borboleta. Ele respondeu diferente dos outros.",
             "variants": [
               {
                 "question": "No texto do gato e o rato, o que mudou no segundo dia?",
@@ -1636,7 +1636,7 @@
             ]
           },
           {
-            "question": "Qual destas e a melhor ideia central para o texto do bilhete?",
+            "question": "Qual destas é a melhor ideia central para o texto do bilhete?",
             "options": [
               {
                 "text": "Pedro foi estudar com um amigo",
@@ -1655,7 +1655,7 @@
               }
             ],
             "correctIndex": 2,
-            "explanation": "A ideia principal do bilhete e a comunicacao responsável de Pedro, que avisou a mãe sobre tudo.",
+            "explanation": "O bilhete todo serve para Pedro avisar a mãe aonde foi e quando volta. A ideia central é essa comunicação responsável.",
             "variants": [
               {
                 "question": "Qual é a melhor ideia central para o texto da receita?",
@@ -1665,7 +1665,7 @@
                     "misconceptionCode": "detalhe-como-ideia-central"
                   },
                   {
-                    "text": "Instrucoes para fazer brigadeiro de colher em casa"
+                    "text": "Instruções para fazer brigadeiro de colher em casa"
                   },
                   {
                     "text": "Você precisa de uma panela",
@@ -1682,7 +1682,7 @@
                 "question": "Qual é a melhor ideia central para o texto das regras do jogo?",
                 "options": [
                   {
-                    "text": "O pegador e o mais rápido",
+                    "text": "O pegador é o mais rápido",
                     "misconceptionCode": "informacao-nao-esta-no-texto"
                   },
                   {
@@ -1710,7 +1710,7 @@
         "title": "Aplicar: ideia central em situações reais",
         "prompt": "Use sua habilidade de identificar ideias centrais em diferentes situações.",
         "estMinutes": 7,
-        "audioScript": "O gato dormia embaixo da árvore quando o rato passou correndo. O gato abriu um olho, depois o outro. O rato parou, olhou para o gato e disse: \"Hoje não vai funcionar. Eu sei que você esta acordado.\" O gato fechou os olhos de novo e fingiu dormir. O rato riu e foi embora. No dia seguinte, o rato voltou pelo mesmo caminho. Desta vez, o gato estava dormindo de verdade. O rato passou sem fazer barulho e os dois nunca mais se viram. Responda.",
+        "audioScript": "O gato dormia embaixo da árvore quando o rato passou correndo. O gato abriu um olho, depois o outro. O rato parou, olhou para o gato e disse: \"Hoje não vai funcionar. Eu sei que você está acordado.\" O gato fechou os olhos de novo e fingiu dormir. O rato riu e foi embora. No dia seguinte, o rato voltou pelo mesmo caminho. Desta vez, o gato estava dormindo de verdade. O rato passou sem fazer barulho e os dois nunca mais se viram. Responda.",
         "questions": [
           {
             "question": "Se você fosse escrever um título para o texto do gato e o rato, qual seria o melhor?",
@@ -1732,7 +1732,7 @@
               }
             ],
             "correctIndex": 1,
-            "explanation": "O título deve refletir a ideia central. A esperteza do rato e o tema que o texto desenvolve do início ao fim.",
+            "explanation": "Um bom título conta a ideia principal. A história é sobre como o rato foi esperto: \"A esperteza do rato\".",
             "variants": [
               {
                 "question": "Qual seria o melhor título para o texto do primeiro dia de aula?",
@@ -1798,7 +1798,7 @@
               }
             ],
             "correctIndex": 3,
-            "explanation": "Um bom resumo cobre a acao principal: a tentativa do gato, a esperteza do rato e o resultado.",
+            "explanation": "O resumo precisa ter o começo e o fim da história: o gato tentou enganar, o rato percebeu e escapou.",
             "variants": [
               {
                 "question": "Você quer resumir o texto da receita em uma frase. Qual seria a melhor?",
@@ -1807,7 +1807,7 @@
                     "text": "Uma receita simples de brigadeiro de colher com 3 ingredientes que rende 8 porções"
                   },
                   {
-                    "text": "Use chocolate em po",
+                    "text": "Use chocolate em pó",
                     "misconceptionCode": "detalhe-como-ideia-central"
                   },
                   {
@@ -1845,7 +1845,7 @@
             ]
           },
           {
-            "question": "Para qual destes propositos a habilidade de encontrar a ideia central é mais útil?",
+            "question": "Para qual destes propósitos a habilidade de encontrar a ideia central é mais útil?",
             "options": [
               {
                 "text": "Para resumir um texto ou contar para alguém do que se trata"
@@ -1864,7 +1864,7 @@
               }
             ],
             "correctIndex": 0,
-            "explanation": "A ideia central ajuda a entender e resumir o texto. E a habilidade de saber \"do que se trata\" aquilo que lemos.",
+            "explanation": "Saber a ideia central ajuda a resumir um texto ou contar para um amigo do que ele fala.",
             "variants": [
               {
                 "question": "Por que é importante identificar a ideia central de um texto?",
@@ -1914,7 +1914,7 @@
             "question": "No texto do passeio, qual é o contraste principal?",
             "options": [
               {
-                "text": "João e o mais rápido da turma",
+                "text": "João é o mais rápido da turma",
                 "misconceptionCode": "informacao-nao-esta-no-texto"
               },
               {
@@ -1930,7 +1930,7 @@
               }
             ],
             "correctIndex": 2,
-            "explanation": "O texto contrasta a resposta da maioria (lanchinho) com a resposta de João (borboleta), mostrando perspectivas diferentes.",
+            "explanation": "Contraste é diferença. A maioria gostou do lanchinho, mas João gostou da borboleta azul.",
             "variants": [
               {
                 "question": "No texto do gato e rato, o contraste principal e:",
@@ -1943,7 +1943,7 @@
                     "text": "O gato fingiu no primeiro dia e dormiu de verdade no segundo"
                   },
                   {
-                    "text": "O gato e bravo e o rato e timido",
+                    "text": "O gato é bravo e o rato é tímido",
                     "misconceptionCode": "informacao-distorcida"
                   },
                   {
@@ -1957,7 +1957,7 @@
                 "question": "No texto da escola, o contraste e:",
                 "options": [
                   {
-                    "text": "A sala e grande e o quadro e pequeno",
+                    "text": "A sala é grande e o quadro é pequeno",
                     "misconceptionCode": "informacao-distorcida"
                   },
                   {
@@ -2002,14 +2002,14 @@
               "description": "Mostra que entende que a ideia central é diferente de um detalhe especifico"
             }
           ],
-          "exemploBoaResposta": "Escolhi o texto do gato e o rato. A ideia central e que o rato era esperto o suficiente para perceber quando o gato estava fingindo. Eu sei disso porque o texto conta duas vezes a mesma situação: o gato tentou enganar o rato, mas o rato escapou nas duas, seja por esperteza ou sorte. O fato do gato dormir embaixo da árvore e só um detalhe, não o ponto principal."
+          "exemploBoaResposta": "Escolhi o texto do gato e o rato. A ideia central é que o rato era esperto o suficiente para perceber quando o gato estava fingindo. Eu sei disso porque o texto conta duas vezes a mesma situação: o gato tentou enganar o rato, mas o rato escapou nas duas, seja por esperteza ou sorte. O fato do gato dormir embaixo da árvore e só um detalhe, não o ponto principal."
         }
       }
     ],
     "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
     "source": "SPEAKFLOW",
     "status": "APPROVED",
-    "version": 3,
+    "version": 5,
     "subjectCode": "LP",
     "gradeYear": 5
   },
@@ -2022,7 +2022,7 @@
         "step": "relembrar",
         "type": "QUIZ",
         "title": "Relembrar: o que é informação implícita",
-        "prompt": "Informação implícita não esta escrita diretamente, mas você pode concluir pelo que esta no texto.",
+        "prompt": "Informação implícita não está escrita diretamente, mas você pode concluir pelo que está no texto.",
         "estMinutes": 4,
         "audioScript": "Mãe, fui na casa do Carlos fazer o trabalho de ciências. A mãe dele disse que posso jantar lá. Vou voltar antes das 20h. Deixei o número do Carlos na geladeira. Beijo, Pedro. Responda.",
         "questions": [
@@ -2046,7 +2046,7 @@
               }
             ],
             "correctIndex": 1,
-            "explanation": "Pedro não é chamado de responsável no texto, mas seu comportamento (escrever bilhete, deixar contato) permite inferir isso.",
+            "explanation": "O texto não diz \"Pedro é responsável\", mas ele avisou a mãe de tudo. É essa atitude que mostra.",
             "variants": [
               {
                 "question": "No texto do gato e rato, o que podemos inferir sobre o rato?",
@@ -2080,7 +2080,7 @@
                     "misconceptionCode": "informacao-implicita-explicita"
                   },
                   {
-                    "text": "Que Mariana e a melhor aluna",
+                    "text": "Que Mariana é a melhor aluna",
                     "misconceptionCode": "informacao-distorcida"
                   },
                   {
@@ -2108,14 +2108,14 @@
                 "misconceptionCode": "estrategia-frequencia"
               },
               {
-                "text": "Usar pistas do texto para chegar a uma conclusão que não esta escrita"
+                "text": "Usar pistas do texto para chegar a uma conclusão que não está escrita"
               }
             ],
             "correctIndex": 3,
-            "explanation": "Inferir e usar o que o texto conta para chegar a uma conclusão que o texto não diz diretamente.",
+            "explanation": "Inferir é como ser detetive: você junta as pistas do texto e descobre algo que não está escrito.",
             "variants": [
               {
-                "question": "Qual destas é uma inferencia (e não uma informação explícita)?",
+                "question": "Qual destas é uma inferência (e não uma informação explícita)?",
                 "options": [
                   {
                     "text": "Pedro se preocupa com a mãe, pois avisou sobre cada detalhe"
@@ -2136,7 +2136,7 @@
                 "correctIndex": 0
               },
               {
-                "question": "Qual destas é uma informação explícita (e não uma inferencia)?",
+                "question": "Qual destas é uma informação explícita (e não uma inferência)?",
                 "options": [
                   {
                     "text": "Pedro é um bom aluno",
@@ -2169,7 +2169,7 @@
                 "misconceptionCode": "informacao-distorcida"
               },
               {
-                "text": "Que João e o aluno favorito da professora",
+                "text": "Que João é o aluno favorito da professora",
                 "misconceptionCode": "inventa-informacao"
               },
               {
@@ -2178,7 +2178,7 @@
               }
             ],
             "correctIndex": 0,
-            "explanation": "O comportamento de João (ficar parado observando a borboleta por muito tempo) permite inferir que ele aprecia a natureza.",
+            "explanation": "João ficou muito tempo parado olhando a borboleta. Essa pista mostra que ele gosta de observar a natureza.",
             "variants": [
               {
                 "question": "No texto da receita, o que podemos inferir sobre o nivel de dificuldade?",
@@ -2192,7 +2192,7 @@
                     "misconceptionCode": "inventa-informacao"
                   },
                   {
-                    "text": "Que é uma receita simples, pois tem apenas 3 ingredientes e instrucoes diretas"
+                    "text": "Que é uma receita simples, pois tem apenas 3 ingredientes e instruções diretas"
                   },
                   {
                     "text": "Não é possível inferir",
@@ -2233,7 +2233,7 @@
         "title": "Exemplo guiado: chegando a conclusões com pistas do texto",
         "prompt": "Aprenda a usar pistas do texto para inferir informações implícitas.",
         "estMinutes": 5,
-        "audioScript": "A turma da professora Laura foi ao parque no sábado de manha. Eles levaram lanchinhos é um saco para o lixo. No parque, as crianças correram, brincaram de cabra-cega e observaram os pássaros. João encontrou uma borboleta azul e ficou parado por muito tempo olhando para ela. Na volta, a professora perguntou o que cada um tinha gostado mais. Quase todos falaram do lanchinho, mas João falou da borboleta. Responda.",
+        "audioScript": "A turma da professora Laura foi ao parque no sábado de manhã. Eles levaram lanchinhos é um saco para o lixo. No parque, as crianças correram, brincaram de cabra-cega e observaram os pássaros. João encontrou uma borboleta azul e ficou parado por muito tempo olhando para ela. Na volta, a professora perguntou o que cada um tinha gostado mais. Quase todos falaram do lanchinho, mas João falou da borboleta. Responda.",
         "questions": [
           {
             "question": "O texto diz que \"quase todos falaram do lanchinho, mas João falou da borboleta\". O que isso nos permite inferir?",
@@ -2255,7 +2255,7 @@
               }
             ],
             "correctIndex": 2,
-            "explanation": "O contraste entre João e os outros alunos mostra que ele tem uma perspectiva diferente, ligada a observacao da natureza.",
+            "explanation": "Se todo mundo falou do lanche e só João falou da borboleta, dá para perceber que ele se interessa pela natureza.",
             "variants": [
               {
                 "question": "O que podemos inferir sobre a professora Laura com base no passeio?",
@@ -2321,7 +2321,7 @@
               }
             ],
             "correctIndex": 1,
-            "explanation": "O fato de Pedro especificar o horário sugere que existe uma regra ou preocupacao sobre isso em casa.",
+            "explanation": "Por que avisar a hora certinha? Porque a família combinou um horário para voltar. É uma pista escondida.",
             "variants": [
               {
                 "question": "No texto da escola, o que podemos inferir quando a professora sorriu e fez a proposta de fazer pipa?",
@@ -2368,14 +2368,14 @@
             ]
           },
           {
-            "question": "Qual destas frases representa uma boa inferencia com base no texto do passeio?",
+            "question": "Qual destas frases representa uma boa inferência com base no texto do passeio?",
             "options": [
               {
                 "text": "\"A professora Laura mora perto do parque\"",
                 "misconceptionCode": "inventa-informacao"
               },
               {
-                "text": "\"João e o melhor aluno da turma\"",
+                "text": "\"João é o melhor aluno da turma\"",
                 "misconceptionCode": "inventa-informacao"
               },
               {
@@ -2387,10 +2387,10 @@
               }
             ],
             "correctIndex": 3,
-            "explanation": "A inferencia deve ser sustentada por pistas do texto. A professora organizar o passeio e perguntar sobre a experiência mostra seu cuidado com o aprendizado.",
+            "explanation": "A professora levou a turma ao parque para aprender fora da sala. Isso mostra que ela se importa com esse aprendizado.",
             "variants": [
               {
-                "question": "Qual inferencia e sustentada pelo texto do bilhete?",
+                "question": "Qual inferência e sustentada pelo texto do bilhete?",
                 "options": [
                   {
                     "text": "\"A mãe de Pedro confia nele o suficiente para ele sair sozinho\""
@@ -2411,7 +2411,7 @@
                 "correctIndex": 0
               },
               {
-                "question": "Qual inferencia e sustentada pelo texto do gato e rato?",
+                "question": "Qual inferência e sustentada pelo texto do gato e rato?",
                 "options": [
                   {
                     "text": "\"O gato e o rato são amigos\"",
@@ -2442,7 +2442,7 @@
         "title": "Praticar: inferir informações implícitas",
         "prompt": "Pratique inferir informações que o texto sugere sem dizer diretamente.",
         "estMinutes": 7,
-        "audioScript": "O gato dormia embaixo da árvore quando o rato passou correndo. O gato abriu um olho, depois o outro. O rato parou, olhou para o gato e disse: \"Hoje não vai funcionar. Eu sei que você esta acordado.\" O gato fechou os olhos de novo e fingiu dormir. O rato riu e foi embora. No dia seguinte, o rato voltou pelo mesmo caminho. Desta vez, o gato estava dormindo de verdade. O rato passou sem fazer barulho e os dois nunca mais se viram. Responda.",
+        "audioScript": "O gato dormia embaixo da árvore quando o rato passou correndo. O gato abriu um olho, depois o outro. O rato parou, olhou para o gato e disse: \"Hoje não vai funcionar. Eu sei que você está acordado.\" O gato fechou os olhos de novo e fingiu dormir. O rato riu e foi embora. No dia seguinte, o rato voltou pelo mesmo caminho. Desta vez, o gato estava dormindo de verdade. O rato passou sem fazer barulho e os dois nunca mais se viram. Responda.",
         "questions": [
           {
             "question": "No texto, o gato fechou os olhos de novo depois de o rato falar. O que isso sugere?",
@@ -2464,7 +2464,7 @@
               }
             ],
             "correctIndex": 0,
-            "explanation": "Fechar os olhos naquela situação sugere que o gato ainda estava tentando manter a aparencia de estar dormindo.",
+            "explanation": "Fechar os olhos depois de ser descoberto pode ser vergonha ou continuar fingindo. A pista está na atitude do gato.",
             "variants": [
               {
                 "question": "No segundo dia, o rato passou sem fazer barulho. O que isso sugere?",
@@ -2511,7 +2511,7 @@
             ]
           },
           {
-            "question": "Na receita, a instrucao diz \"mexendo sempre\". O que isso sugere sobre o que acontece se você não mexer?",
+            "question": "Na receita, a instrução diz \"mexendo sempre\". O que isso sugere sobre o que acontece se você não mexer?",
             "options": [
               {
                 "text": "A receita fica melhor",
@@ -2530,7 +2530,7 @@
               }
             ],
             "correctIndex": 2,
-            "explanation": "A instrucao de mexer sempre sugere que parar de mexer teria consequencias ruins, como queimar ou grudar.",
+            "explanation": "Se a receita manda mexer sempre, é porque, sem mexer, o doce gruda no fundo e queima.",
             "variants": [
               {
                 "question": "A receita diz \"espere esfriar e sirva em potinhos\". O que isso sugere?",
@@ -2596,7 +2596,7 @@
               }
             ],
             "correctIndex": 1,
-            "explanation": "O fato de precisar que \"todos\" concordem sugere uma dinamica de consenso, tipica de jogos informais.",
+            "explanation": "Se o jogo só acaba quando todos querem, ninguém ganha nem perde: é uma brincadeira para todos juntos.",
             "variants": [
               {
                 "question": "As regras dizem \"não vale tocar a mesma pessoa duas vezes seguidas\". O que isso sugere?",
@@ -2643,7 +2643,7 @@
             ]
           },
           {
-            "question": "No texto do gato e rato, o gato \"fechou os olhos de novo\". Qual das frases a seguir seria uma inferencia incorreta sobre isso?",
+            "question": "No texto do gato e rato, o gato \"fechou os olhos de novo\". Qual das frases a seguir seria uma inferência incorreta sobre isso?",
             "options": [
               {
                 "text": "\"O gato ainda não desistiu do plano\"",
@@ -2654,7 +2654,7 @@
                 "misconceptionCode": "inventa-informacao"
               },
               {
-                "text": "\"O gato quis manter a aparencia de estar dormindo\"",
+                "text": "\"O gato quis manter a aparência de estar dormindo\"",
                 "misconceptionCode": "inventa-informacao"
               },
               {
@@ -2662,13 +2662,13 @@
               }
             ],
             "correctIndex": 3,
-            "explanation": "A inferencia de que o gato desistiu para sempre não tem suporte no texto. O texto só mostra que ele fechou os olhos novamente.",
+            "explanation": "O texto não diz que o gato desistiu para sempre. Inventar isso não é inferir, é chutar.",
             "variants": [
               {
-                "question": "No bilhete, Pedro diz \"beijo\". O que seria uma inferencia incorreta?",
+                "question": "No bilhete, Pedro diz \"beijo\". O que seria uma inferência incorreta?",
                 "options": [
                   {
-                    "text": "\"Pedro e o filho mais novo da família\""
+                    "text": "\"Pedro é o filho mais novo da família\""
                   },
                   {
                     "text": "\"Pedro tem carinho pela mãe\"",
@@ -2686,7 +2686,7 @@
                 "correctIndex": 0
               },
               {
-                "question": "No texto da escola, Mariana foi a primeira a falar. O que seria uma inferencia incorreta?",
+                "question": "No texto da escola, Mariana foi a primeira a falar. O que seria uma inferência incorreta?",
                 "options": [
                   {
                     "text": "\"Mariana estava animada para contar sobre as férias\"",
@@ -2697,7 +2697,7 @@
                     "misconceptionCode": "inventa-informacao"
                   },
                   {
-                    "text": "\"Mariana e a aluna preferida da professora\""
+                    "text": "\"Mariana é a aluna preferida da professora\""
                   },
                   {
                     "text": "\"Mariana tem uma história interessante para contar\"",
@@ -2714,16 +2714,16 @@
         "id": "PK-EF35LP04-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar: inferencias em situações do cotidiano",
-        "prompt": "Pratique fazer inferencias em diferentes tipos de texto.",
+        "title": "Aplicar: inferências em situações do cotidiano",
+        "prompt": "Pratique fazer inferências em diferentes tipos de texto.",
         "estMinutes": 7,
-        "audioScript": "Mariana chegou cedo na escola no primeiro dia do ano. A sala tinha novas mesas é um quadro verde bem grande. A professora escreveu o nome de cada aluno em um cartaz colorido. Depois pediu que cada um contasse uma coisa que gostava de fazer nas férias. Mariana falou que tinha aprendido a fazer pipa com o avô. A professora sorriu e disse que eles iam fazer uma pipa juntos na aula de artes. Responda.",
+        "audioScript": "Mariana chegou cedo na escola no primeiro dia do ano. A sala tinha novas mesas e um quadro verde bem grande. A professora escreveu o nome de cada aluno em um cartaz colorido. Depois pediu que cada um contasse uma coisa que gostava de fazer nas férias. Mariana falou que tinha aprendido a fazer pipa com o avô. A professora sorriu e disse que eles iam fazer uma pipa juntos na aula de artes. Responda.",
         "questions": [
           {
-            "question": "Quando a professora sorriu e disse que iam fazer uma pipa na aula de artes, o que podemos inferir sobre seu metodo de ensino?",
+            "question": "Quando a professora sorriu e disse que iam fazer uma pipa na aula de artes, o que podemos inferir sobre seu método de ensino?",
             "options": [
               {
-                "text": "Que ela conecta as experiencias dos alunos com o conteudo da aula"
+                "text": "Que ela conecta as experiências dos alunos com o conteúdo da aula"
               },
               {
                 "text": "Que ela só ensina artes",
@@ -2739,7 +2739,7 @@
               }
             ],
             "correctIndex": 0,
-            "explanation": "A professora usou a história de Mariana como ponte para uma atividade. Isso sugere um metodo que conecta vida e aprendizagem.",
+            "explanation": "A professora usou o que Mariana contou para planejar a aula. Ela liga o que os alunos vivem com o que vão aprender.",
             "variants": [
               {
                 "question": "O fato de Mariana ter chegado cedo na escola no primeiro dia sugere:",
@@ -2770,7 +2770,7 @@
                     "misconceptionCode": "inventa-informacao"
                   },
                   {
-                    "text": "Que eles tem habitos de preservacao do ambiente"
+                    "text": "Que eles tem habitos de preservação do ambiente"
                   },
                   {
                     "text": "Que eles iam fazer um piquenique",
@@ -2786,7 +2786,7 @@
             ]
           },
           {
-            "question": "No texto do jogo, não e explicado como o primeiro pegador e escolhido. O que isso sugere?",
+            "question": "No texto do jogo, não é explicado como o primeiro pegador é escolhido. O que isso sugere?",
             "options": [
               {
                 "text": "Que qualquer um pode ser o primeiro pegador aleatorio",
@@ -2797,7 +2797,7 @@
                 "misconceptionCode": "inventa-informacao"
               },
               {
-                "text": "Que a escolha do primeiro pegador e deixada a criterio dos jogadores"
+                "text": "Que a escolha do primeiro pegador e deixada a critério dos jogadores"
               },
               {
                 "text": "Que não precisa de primeiro pegador",
@@ -2805,7 +2805,7 @@
               }
             ],
             "correctIndex": 2,
-            "explanation": "O texto não explica a escolha, o que implica que é uma decisao que os jogadores tomam antes do jogo começar.",
+            "explanation": "Se as regras não dizem como escolher, os próprios jogadores decidem do jeito que quiserem.",
             "variants": [
               {
                 "question": "No bilhete, Pedro deixou o número do Carlos na geladeira. O que podemos inferir?",
@@ -2829,7 +2829,7 @@
                 "correctIndex": 1
               },
               {
-                "question": "Na receita, a instrucao \"antes de ligar o fogo\" sugere:",
+                "question": "Na receita, a instrução \"antes de ligar o fogo\" sugere:",
                 "options": [
                   {
                     "text": "Que o fogo não importa para a receita",
@@ -2852,7 +2852,7 @@
             ]
           },
           {
-            "question": "Qual das seguintes é uma boa inferencia para o texto do gato e rato, e não uma invencao?",
+            "question": "Qual das seguintes é uma boa inferência para o texto do gato e rato, e não uma invenção?",
             "options": [
               {
                 "text": "\"O gato e o rato se tornaram amigos depois\"",
@@ -2871,10 +2871,10 @@
               }
             ],
             "correctIndex": 1,
-            "explanation": "Esta inferencia tem base no texto: o rato disse que sabia que o gato estava acordado, mostrando que ele reconhecia o padrao.",
+            "explanation": "Boa inferência tem pista no texto. O rato já conhecia o truque do gato fingindo dormir, por isso percebeu.",
             "variants": [
               {
-                "question": "Qual destas é uma boa inferencia sobre o texto do primeiro dia de aula?",
+                "question": "Qual destas é uma boa inferência sobre o texto do primeiro dia de aula?",
                 "options": [
                   {
                     "text": "\"A mãe de Mariana e professora\"",
@@ -2895,10 +2895,10 @@
                 "correctIndex": 3
               },
               {
-                "question": "Qual destas é uma boa inferencia sobre o texto do passeio?",
+                "question": "Qual destas é uma boa inferência sobre o texto do passeio?",
                 "options": [
                   {
-                    "text": "\"A professora Laura prepara atividades que incentivam a observacao e a reflexão\""
+                    "text": "\"A professora Laura prepara atividades que incentivam a observação e a reflexão\""
                   },
                   {
                     "text": "\"A professora mora no parque\"",
@@ -2909,7 +2909,7 @@
                     "misconceptionCode": "informacao-distorcida"
                   },
                   {
-                    "text": "\"João e o mais inteligente da turma\"",
+                    "text": "\"João é o mais inteligente da turma\"",
                     "misconceptionCode": "inventa-informacao"
                   }
                 ],
@@ -2923,7 +2923,7 @@
         "id": "PK-EF35LP04-A5",
         "step": "explicar",
         "type": "SPOKEN",
-        "title": "Explicar: como fazer uma inferencia",
+        "title": "Explicar: como fazer uma inferência",
         "prompt": "Explique com suas palavras o que é inferir e como você faz isso ao ler um texto. Use um exemplo de um dos textos que você leu.",
         "estMinutes": 5,
         "audioScript": "Explique com suas palavras o que é inferir e como você faz isso ao ler um texto. Use um exemplo de um dos textos que você leu.",
@@ -2932,7 +2932,7 @@
           "criteria": [
             {
               "code": "define-inferencia",
-              "description": "Explica que inferir e chegar a uma conclusão que não esta escrita, mas pode ser deduzida"
+              "description": "Explica que inferir é chegar a uma conclusão que não está escrita, mas pode ser deduzida"
             },
             {
               "code": "usa-pistas",
@@ -2940,17 +2940,17 @@
             },
             {
               "code": "exemplo-valido",
-              "description": "Da um exemplo correto de uma inferencia com base em um dos textos estudados"
+              "description": "Da um exemplo correto de uma inferência com base em um dos textos estudados"
             }
           ],
-          "exemploBoaResposta": "Inferir e quando eu chego a uma conclusão que o texto não diz diretamente, mas que da para perceber pelas pistas. Por exemplo, no texto do bilhete, Pedro não diz que e responsável, mas como ele escreveu um bilhete explicando tudo para a mãe, e porque deixou o número do Carlos, eu posso inferir que ele é um filho responsável."
+          "exemploBoaResposta": "Inferir é quando eu chego a uma conclusão que o texto não diz diretamente, mas que dá para perceber pelas pistas. Por exemplo, no texto do bilhete, Pedro não diz que é responsável, mas como ele escreveu um bilhete explicando tudo para a mãe, e porque deixou o número do Carlos, eu posso inferir que ele é um filho responsável."
         }
       }
     ],
     "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
     "source": "SPEAKFLOW",
     "status": "APPROVED",
-    "version": 3,
+    "version": 5,
     "subjectCode": "LP",
     "gradeYear": 5
   },
@@ -2968,7 +2968,7 @@
         "audioScript": "Vamos ver como descobrir o sentido de palavras que você não conhece usando o contexto da frase.",
         "questions": [
           {
-            "question": "\"O aluno foi assiduo durante todo o bimestre.\" A palavra \"assiduo\" provavelmente significa:",
+            "question": "\"O aluno foi assíduo durante todo o bimestre.\" A palavra \"assíduo\" provavelmente significa:",
             "options": [
               {
                 "text": "Atrasado e ausente",
@@ -2983,17 +2983,17 @@
                 "misconceptionCode": "nega-contexto"
               },
               {
-                "text": "Presente e pontual com frequencia"
+                "text": "Presente e pontual com frequência"
               }
             ],
             "correctIndex": 3,
-            "explanation": "A frase fala em \"durante todo o bimestre\", sugerindo que o aluno manteve uma qualidade ao longo do tempo: frequencia ou presenca.",
+            "explanation": "Quem é assíduo vai sempre, todo dia. \"Durante todo o bimestre\" é a pista: o aluno esteve presente sempre.",
             "variants": [
               {
                 "question": "\"O time jogou com galhardia e ganhou a partida.\" \"Galhardia\" provavelmente significa:",
                 "options": [
                   {
-                    "text": "Coragem e determinacao"
+                    "text": "Coragem e determinação"
                   },
                   {
                     "text": "Medo e nervosismo",
@@ -3011,7 +3011,7 @@
                 "correctIndex": 0
               },
               {
-                "question": "\"A criança ficou taciturna apos perder o brinquedo.\" \"Taciturna\" provavelmente significa:",
+                "question": "\"A criança ficou taciturna após perder o brinquedo.\" \"Taciturna\" provavelmente significa:",
                 "options": [
                   {
                     "text": "Alegre e animada",
@@ -3053,7 +3053,7 @@
               }
             ],
             "correctIndex": 0,
-            "explanation": "O contexto é tudo ao redor da palavra: outras palavras, o assunto do texto, o que acontece antes e depois.",
+            "explanation": "Leia as palavras em volta, como um detetive. Elas dão pistas do que a palavra difícil quer dizer.",
             "variants": [
               {
                 "question": "Se você não conhece uma palavra, o que é mais útil para descobrir o sentido?",
@@ -3119,7 +3119,7 @@
               }
             ],
             "correctIndex": 2,
-            "explanation": "A frase diz que \"não deixou passar nenhum detalhe\", o que confirma que \"atenta\" significa observando com cuidado.",
+            "explanation": "Quem não deixa passar nenhum detalhe está prestando muita atenção. Por isso atenta quer dizer cuidadosa, observando tudo.",
             "variants": [
               {
                 "question": "\"O gato se aproximou de forma furtiva, sem fazer barulho.\" \"Furtiva\" significa:",
@@ -3174,7 +3174,7 @@
         "title": "Exemplo guiado: usando o contexto para entender palavras",
         "prompt": "Veja como descobrir o sentido de palavras desconhecidas.",
         "estMinutes": 5,
-        "audioScript": "A turma da professora Laura foi ao parque no sábado de manha. Eles levaram lanchinhos é um saco para o lixo. No parque, as crianças correram, brincaram de cabra-cega e observaram os pássaros. João encontrou uma borboleta azul e ficou parado por muito tempo olhando para ela. Na volta, a professora perguntou o que cada um tinha gostado mais. Quase todos falaram do lanchinho, mas João falou da borboleta. Responda.",
+        "audioScript": "A turma da professora Laura foi ao parque no sábado de manhã. Eles levaram lanchinhos é um saco para o lixo. No parque, as crianças correram, brincaram de cabra-cega e observaram os pássaros. João encontrou uma borboleta azul e ficou parado por muito tempo olhando para ela. Na volta, a professora perguntou o que cada um tinha gostado mais. Quase todos falaram do lanchinho, mas João falou da borboleta. Responda.",
         "questions": [
           {
             "question": "No texto, João ficou \"parado por muito tempo observando\" a borboleta. A palavra \"observando\" aqui significa:",
@@ -3196,13 +3196,13 @@
               }
             ],
             "correctIndex": 1,
-            "explanation": "A descricao \"parado por muito tempo\" e o contexto de admiracao por uma borboleta confirmam que \"observando\" e olhar com atenção.",
+            "explanation": "Observar é olhar com atenção, sem pressa, como João fez com a borboleta.",
             "variants": [
               {
                 "question": "No texto, \"quase todos falaram do lanchinho\". A palavra \"quase\" aqui significa:",
                 "options": [
                   {
-                    "text": "Todos sem excecao",
+                    "text": "Todos sem exceção",
                     "misconceptionCode": "sentido-oposto"
                   },
                   {
@@ -3243,7 +3243,7 @@
             ]
           },
           {
-            "question": "\"João encontrou uma borboleta azul e ficou parado por muito tempo.\" A expressao \"ficou parado por muito tempo\" sugere que João estava:",
+            "question": "\"João encontrou uma borboleta azul e ficou parado por muito tempo.\" A expressão \"ficou parado por muito tempo\" sugere que João estava:",
             "options": [
               {
                 "text": "Com medo da borboleta",
@@ -3262,7 +3262,7 @@
               }
             ],
             "correctIndex": 3,
-            "explanation": "Ficar parado por muito tempo olhando algo, no contexto de um passeio agradável, sugere fascinacao ou admiracao.",
+            "explanation": "Quando a gente fica parado olhando muito tempo para algo, é porque ficou encantado. Foi o que aconteceu com João.",
             "variants": [
               {
                 "question": "No bilhete, Pedro diz \"vou voltar antes das 20h\". A palavra \"antes\" aqui significa:",
@@ -3286,14 +3286,14 @@
                 "correctIndex": 0
               },
               {
-                "question": "No texto do gato e rato, o rato disse: \"hoje não vai funcionar\". A expressao \"vai funcionar\" aqui se refere a:",
+                "question": "No texto do gato e rato, o rato disse: \"hoje não vai funcionar\". A expressão \"vai funcionar\" aqui se refere a:",
                 "options": [
                   {
                     "text": "O sono do gato",
                     "misconceptionCode": "sentido-nao-relacionado"
                   },
                   {
-                    "text": "A árvore onde o gato esta",
+                    "text": "A árvore onde o gato está",
                     "misconceptionCode": "sentido-nao-relacionado"
                   },
                   {
@@ -3309,7 +3309,7 @@
             ]
           },
           {
-            "question": "Na receita, \"cozinhe em fogo baixo, mexendo sempre, por cerca de 10 minutos.\" A expressao \"por cerca de\" indica:",
+            "question": "Na receita, \"cozinhe em fogo baixo, mexendo sempre, por cerca de 10 minutos.\" A expressão \"por cerca de\" indica:",
             "options": [
               {
                 "text": "Uma estimativa de tempo, não um valor exato"
@@ -3328,10 +3328,10 @@
               }
             ],
             "correctIndex": 0,
-            "explanation": "\"Por cerca de\" é uma expressao que indica aproximacao. O tempo pode variar um pouco.",
+            "explanation": "\"Cerca de\" quer dizer mais ou menos. Pode ser um pouco mais ou um pouco menos que 10 minutos.",
             "variants": [
               {
-                "question": "Na receita, \"quando a mistura soltar do fundo da panela, esta pronto.\" A palavra \"soltar\" aqui significa:",
+                "question": "Na receita, \"quando a mistura soltar do fundo da panela, está pronto.\" A palavra \"soltar\" aqui significa:",
                 "options": [
                   {
                     "text": "Cair fora da panela",
@@ -3405,7 +3405,7 @@
               }
             ],
             "correctIndex": 2,
-            "explanation": "\"Devorar\" um livro é uma expressao que significa ler com grande avidez. O contexto \"em um dia só\" confirma a rapidez e entusiasmo.",
+            "explanation": "Ninguém come livro! Devorar aqui quer dizer ler com muita vontade e bem rápido.",
             "variants": [
               {
                 "question": "\"O aluno ficou confuso com a explicação. O professor teve que clarificar o assunto.\" \"Clarificar\" provavelmente significa:",
@@ -3471,7 +3471,7 @@
               }
             ],
             "correctIndex": 1,
-            "explanation": "A oposicao com \"o time continuou mesmo assim\" sugere que a chuva era um desafio, portanto intensa.",
+            "explanation": "\"Mesmo assim\" mostra que era difícil jogar. Então a chuva estava forte: intensa.",
             "variants": [
               {
                 "question": "\"Depois do esforco, o atleta ficou exausto.\" A palavra \"exausto\" provavelmente significa:",
@@ -3498,7 +3498,7 @@
                 "question": "\"O discurso foi breve, mas muito impactante.\" A palavra \"breve\" aqui significa:",
                 "options": [
                   {
-                    "text": "Curto, de pouca duracao"
+                    "text": "Curto, de pouca duração"
                   },
                   {
                     "text": "Longo e detalhado",
@@ -3537,7 +3537,7 @@
               }
             ],
             "correctIndex": 3,
-            "explanation": "A situação de \"todos olharem\" sugere uma situação que causa desconforto ou vergonha, e \"encabulado\" captura isso.",
+            "explanation": "Quando todo mundo olha para a gente de uma vez, dá vergonha. Encabulado é envergonhado.",
             "variants": [
               {
                 "question": "\"A professora ficou radiante quando os alunos acertaram a resposta.\" \"Radiante\" provavelmente significa:",
@@ -3587,7 +3587,7 @@
             "question": "\"Apesar das adversidades, ela conseguiu completar o desafio.\" \"Adversidades\" provavelmente significa:",
             "options": [
               {
-                "text": "Dificuldades e obstaculos"
+                "text": "Dificuldades e obstáculos"
               },
               {
                 "text": "Ajudas e apoios",
@@ -3603,7 +3603,7 @@
               }
             ],
             "correctIndex": 0,
-            "explanation": "\"Apesar de\" sugere que havia algo que dificultava. E o contexto de \"conseguiu completar o desafio\" confirma que havia obstaculos.",
+            "explanation": "\"Apesar de\" mostra que havia algo atrapalhando. Adversidades são as dificuldades do caminho.",
             "variants": [
               {
                 "question": "\"O feijoeiro cresceu vigorosamente com a chuva.\" \"Vigorosamente\" provavelmente significa:",
@@ -3658,13 +3658,13 @@
         "title": "Aplicar: sentido de palavras em textos reais",
         "prompt": "Use o contexto para entender palavras em textos de diferentes generos.",
         "estMinutes": 7,
-        "audioScript": "No pega-pega, um jogador e escolhido para ser o pegador. Os outros jogadores tentam correr sem ser tocados. Quando o pegador toca alguém, essa pessoa vira o novo pegador. Não vale tocar a mesma pessoa duas vezes seguidas. O jogo termina quando todos concordam em parar. O último pegador da rodada começa o próximo jogo. Responda.",
+        "audioScript": "No pega-pega, um jogador é escolhido para ser o pegador. Os outros jogadores tentam correr sem ser tocados. Quando o pegador toca alguém, essa pessoa vira o novo pegador. Não vale tocar a mesma pessoa duas vezes seguidas. O jogo termina quando todos concordam em parar. O último pegador da rodada começa o próximo jogo. Responda.",
         "questions": [
           {
-            "question": "No texto do jogo, \"o jogador e escolhido para ser o pegador\". A palavra \"pegador\" aqui e:",
+            "question": "No texto do jogo, \"o jogador é escolhido para ser o pegador\". A palavra \"pegador\" aqui é:",
             "options": [
               {
-                "text": "Uma palavra difícil que não da para entender",
+                "text": "Uma palavra difícil que não dá para entender",
                 "misconceptionCode": "nega-contexto"
               },
               {
@@ -3680,7 +3680,7 @@
               }
             ],
             "correctIndex": 2,
-            "explanation": "O contexto do jogo deixa claro que \"pegador\" e quem tenta pegar os outros jogadores.",
+            "explanation": "Pegador é o nome que o jogo dá para quem corre atrás dos outros para pegar.",
             "variants": [
               {
                 "question": "No texto, \"os outros jogadores tentam correr sem ser tocados\". A palavra \"tocados\" aqui significa:",
@@ -3746,10 +3746,10 @@
               }
             ],
             "correctIndex": 1,
-            "explanation": "\"Ligar o fogo\" é uma expressao que significa acender o fogao. O contexto culinario deixa isso claro.",
+            "explanation": "Ligar o fogo é acender o fogão. Aqui ligar não é telefonar!",
             "variants": [
               {
-                "question": "Na receita, \"cozinhe em fogo baixo\". A expressao \"fogo baixo\" significa:",
+                "question": "Na receita, \"cozinhe em fogo baixo\". A expressão \"fogo baixo\" significa:",
                 "options": [
                   {
                     "text": "Fogo no chão",
@@ -3812,10 +3812,10 @@
               }
             ],
             "correctIndex": 3,
-            "explanation": "\"Fingiu\" indica que o gato não estava realmente dormindo, mas se comportava como se estivesse.",
+            "explanation": "Fingir é fazer de conta. O gato não estava dormindo de verdade, só queria enganar o rato.",
             "variants": [
               {
-                "question": "No texto, o rato \"passou correndo\". A expressao significa:",
+                "question": "No texto, o rato \"passou correndo\". A expressão significa:",
                 "options": [
                   {
                     "text": "Correu ao passar por aquele lugar"
@@ -3847,7 +3847,7 @@
                     "misconceptionCode": "sentido-oposto"
                   },
                   {
-                    "text": "Que Pedro já foi, esta lá agora"
+                    "text": "Que Pedro já foi, está lá agora"
                   },
                   {
                     "text": "Que Pedro quer ir",
@@ -3865,9 +3865,9 @@
         "step": "explicar",
         "type": "SPOKEN",
         "title": "Explicar: como descobrir o sentido de uma palavra pelo contexto",
-        "prompt": "Explique com suas palavras como você descobre o sentido de uma palavra que você não conhece quando esta lendo. Use um exemplo.",
+        "prompt": "Explique com suas palavras como você descobre o sentido de uma palavra que você não conhece quando está lendo. Use um exemplo.",
         "estMinutes": 5,
-        "audioScript": "Explique com suas palavras como você descobre o sentido de uma palavra que você não conhece quando esta lendo. Use um exemplo.",
+        "audioScript": "Explique com suas palavras como você descobre o sentido de uma palavra que você não conhece quando está lendo. Use um exemplo.",
         "rubric": {
           "type": "SPOKEN",
           "criteria": [
@@ -3884,14 +3884,14 @@
               "description": "Da um exemplo correto de como descobriu ou descobriria o sentido de uma palavra"
             }
           ],
-          "exemploBoaResposta": "Quando eu encontro uma palavra que não conheco, eu leio a frase toda para ver o que esta ao redor dela. Por exemplo, se eu ler \"o aluno ficou exausto depois da corrida\", eu sei que \"exausto\" quer dizer cansado porque a frase fala em corrida, que é um esforco fisico. Eu penso: que palavra faria sentido aqui? E a que melhor se encaixa vira o significado."
+          "exemploBoaResposta": "Quando eu encontro uma palavra que não conheço, eu leio a frase toda para ver o que está ao redor dela. Por exemplo, se eu ler \"o aluno ficou exausto depois da corrida\", eu sei que \"exausto\" quer dizer cansado porque a frase fala em corrida, que é um esforco fisico. Eu penso: que palavra faria sentido aqui? E a que melhor se encaixa vira o significado."
         }
       }
     ],
     "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
     "source": "SPEAKFLOW",
     "status": "APPROVED",
-    "version": 3,
+    "version": 5,
     "subjectCode": "LP",
     "gradeYear": 5
   }
