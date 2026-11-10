@@ -640,3 +640,17 @@ describe("Trilha na ordem: só a próxima etapa aparece para fazer", () => {
     expect(ids).not.toContain(track.items[2].activityId);
   });
 });
+
+describe("Irmãos na mesma escola: 5º e 6º ano da Escola Particular Demo B", () => {
+  it("a aluna do 5º Ano B vê as 8 matérias do 5º ano e a família B pode acompanhá-la", async () => {
+    const irma = await ctxDoSeed(dbB, "aluna5-demo-rede-b");
+    expect(irma.networkId).toBe(alunoB.networkId);
+    const r = await materias(irma);
+    expect(r.status, r.texto).toBe(200);
+    expect(r.body.materias.map((m: { codigo: string }) => m.codigo).sort()).toEqual([...COMPONENTES_5].sort());
+    // Mesma escola do irmão: a família pode ser ligada aos dois
+    const [escolaIrma, escolaIrmao] = await Promise.all([irma, alunoB].map(async (c) =>
+      (await dbB.eduClass.findUniqueOrThrow({ where: { id: c.classId } })).schoolId));
+    expect(escolaIrma).toBe(escolaIrmao);
+  });
+});

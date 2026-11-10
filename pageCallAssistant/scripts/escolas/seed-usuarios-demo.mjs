@@ -319,6 +319,33 @@ async function seedRedeB() {
       update: { status: "ACTIVE" },
     });
 
+    // Irmã do Aluno Demo B Santos, no 5º ano da mesma escola: a família acompanha os dois filhos
+    await db.eduClass.upsert({
+      where: { id: `turma5-${NETWORK_ID}` },
+      create: {
+        id: `turma5-${NETWORK_ID}`, name: "5º Ano B", gradeYear: 5,
+        stage: "ELEMENTARY_EARLY", shift: "MORNING",
+        school: { connect: { id: escola.id } }, schoolYear: { connect: { id: anoLetivoB.id } }, networkId: rede.id,
+        isActive: true, accessCode: "DEMB55",
+      },
+      update: { isActive: true, name: "5º Ano B", gradeYear: 5, stage: "ELEMENTARY_EARLY", schoolYear: { connect: { id: anoLetivoB.id } } },
+    });
+    await catalog.codeIndex.upsert({
+      where: { code: "DEMB55" },
+      create: { code: "DEMB55", kind: "CLASS_ACCESS", tenantId: NETWORK_ID },
+      update: {},
+    });
+    const irma = await db.eduStudent.upsert({
+      where: { id: `aluna5-${NETWORK_ID}` },
+      create: { id: `aluna5-${NETWORK_ID}`, fullName: "Bia Demo B Santos", enrollmentCode: "DEMO2027B5", networkId: rede.id, pinHash: hashPin("2468"), isActive: true },
+      update: { isActive: true },
+    });
+    await db.eduEnrollment.upsert({
+      where: { id: `enroll5-${NETWORK_ID}` },
+      create: { id: `enroll5-${NETWORK_ID}`, studentId: irma.id, classId: `turma5-${NETWORK_ID}`, schoolYearId: anoLetivoB.id, networkId: rede.id, status: "ACTIVE" },
+      update: { status: "ACTIVE" },
+    });
+
     const usuarios = [
       { email: "gestor.b@speakflow.escola", name: "Gestor Demo B", role: "NETWORK_ADMIN", school: null },
       { email: "prof.b@speakflow.escola",   name: "Prof Demo B",   role: "TEACHER",        school: escola.id },
@@ -347,6 +374,7 @@ async function seedRedeB() {
     });
 
     console.log(`  ✓ Aluno: "Aluno Demo B Santos" | código DEMB25 | PIN 5678`);
+    console.log(`  ✓ Aluna: "Bia Demo B Santos" (5º Ano B) | PIN 2468`);
   } finally {
     await db.$disconnect();
   }
@@ -378,6 +406,7 @@ async function main() {
 ║    gestor.b@speakflow.escola      NETWORK_ADMIN              ║
 ║    prof.b@speakflow.escola        TEACHER                    ║
 ║    Aluno: código DEMB25  PIN 5678                          ║
+║    Aluna 5º B (irmã): Bia Demo B Santos  PIN 2468          ║
 ╚══════════════════════════════════════════════════════════════╝
 `);
 }
