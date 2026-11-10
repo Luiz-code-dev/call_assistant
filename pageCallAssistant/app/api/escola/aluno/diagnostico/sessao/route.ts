@@ -144,7 +144,7 @@ export async function POST(req: NextRequest) {
       const pos = posicoes(existing.shuffleOrder as number[], extraItems.length);
       const idx = existing.currentQuestion;
       const atividade = atividadeParaAluno(pos[idx], items, extraItems);
-      return NextResponse.json({ sessionId: existing.id, questaoAtual: idx + 1, totalQuestoes: pos.length, atividade, retomada: true });
+      return NextResponse.json({ sessionId: existing.id, questaoAtual: idx + 1, totalQuestoes: pos.length, atividade, retomada: true, materia: diag.subjectCode ?? null });
     }
 
     const seed = Date.now() & 0xffffffff;
@@ -178,6 +178,7 @@ export async function POST(req: NextRequest) {
     const first = items[shuffleOrder[0]];
     return NextResponse.json({
       sessionId: session.id,
+      materia: diag.subjectCode ?? null,
       questaoAtual: 1,
       totalQuestoes: items.length,
       atividade: {

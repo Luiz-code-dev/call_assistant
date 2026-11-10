@@ -4,11 +4,12 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, AlertTriangle, RefreshCw } from "lucide-react";
 import FamilyShell from "@/components/escola/familia/FamilyShell";
+import { IconeMateria } from "@/components/escola/reforco-ui";
 
 const LEVELS = [
   { key: "MASTERED", label: "Domina", fg: "#166534", bg: "#DCFCE7" },
   { key: "ALMOST", label: "Quase lá", fg: "#92400E", bg: "#FEF3C7" },
-  { key: "NOT_YET", label: "Ainda não", fg: "#B91C1C", bg: "#FEE2E2" },
+  { key: "NOT_YET", label: "Praticando", fg: "#6D28D9", bg: "#EDE9FE" },
 ] as const;
 const lv = (k: string | null) => LEVELS.find((l) => l.key === k);
 
@@ -40,15 +41,15 @@ export default function EvolucaoCompleta() {
   return (
     <FamilyShell activeStudentId={studentId}>
       <div className="max-w-[760px] mx-auto space-y-4">
-        <Link href={`/escola/familia/${studentId}`} className="inline-flex items-center gap-1.5 text-[14px] text-[#6D28D9] font-medium"><ArrowLeft size={16} /> Voltar</Link>
+        <Link href={`/escola/familia/${studentId}`} className="inline-flex items-center gap-1.5 text-[14px] font-bold text-[#6D28D9] bg-white rounded-full px-3 min-h-[40px] shadow-sm"><ArrowLeft size={16} /> Voltar</Link>
 
         {loading ? (
-          <div className="space-y-3">{[0, 1, 2].map((i) => <div key={i} className="h-24 rounded-[20px] bg-[#EDE9FE] animate-pulse" />)}</div>
+          <div className="space-y-3">{[0, 1, 2].map((i) => <div key={i} className="h-24 rounded-3xl bg-white/70 animate-pulse" />)}</div>
         ) : error ? (
-          <div className="bg-white border border-[#E9E5F5] rounded-2xl px-6 py-12 text-center">
+          <div className="bg-white rounded-3xl shadow-[0_4px_18px_rgba(91,33,182,0.08)] px-6 py-12 text-center">
             <div className="w-14 h-14 rounded-xl bg-[#FEE2E2] flex items-center justify-center mx-auto mb-4"><AlertTriangle size={26} className="text-[#B91C1C]" /></div>
             <p className="text-[#1F1A2E] font-semibold mb-3">Não foi possível carregar. Tente de novo.</p>
-            <button onClick={load} className="inline-flex items-center gap-2 bg-[#6D28D9] text-white px-5 py-2.5 rounded-lg text-sm font-semibold"><RefreshCw size={15} /> Tentar de novo</button>
+            <button onClick={load} className="inline-flex items-center gap-2 bg-[#6D28D9] text-white px-5 min-h-[48px] rounded-2xl text-sm font-bold"><RefreshCw size={15} /> Tentar de novo</button>
           </div>
         ) : data ? (
           <>
@@ -58,11 +59,11 @@ export default function EvolucaoCompleta() {
             </div>
 
             {total === 0 ? (
-              <div className="bg-white border border-[#E9E5F5] rounded-[20px] p-6 text-center text-[#5B5470] text-sm">O diagnóstico ainda não foi feito. Assim que for realizado, você verá aqui as habilidades já dominadas e as que serão praticadas.</div>
+              <div className="bg-white rounded-3xl shadow-[0_4px_18px_rgba(91,33,182,0.08)] p-6 text-center text-[#5B5470] text-sm">O diagnóstico ainda não foi feito. Assim que for realizado, você verá aqui as habilidades já dominadas e as que serão praticadas.</div>
             ) : (
               <>
                 {/* Resumo barra empilhada */}
-                <div className="bg-white border border-[#E9E5F5] rounded-[20px] p-4">
+                <div className="bg-white rounded-3xl shadow-[0_4px_18px_rgba(91,33,182,0.08)] p-4">
                   <div className="flex h-3 rounded-full overflow-hidden mb-3">
                     {LEVELS.map((l) => total ? <div key={l.key} style={{ width: `${(data.resumo[l.key] / total) * 100}%`, backgroundColor: l.fg }} /> : null)}
                   </div>
@@ -83,8 +84,8 @@ export default function EvolucaoCompleta() {
                   const habs = c.habilidades.filter((h) => filtro === "TODAS" || h.level === filtro);
                   if (!habs.length) return null;
                   return (
-                    <div key={c.name} className="bg-white border border-[#E9E5F5] rounded-[20px] p-4">
-                      <h2 className="text-[14px] font-bold mb-3" style={{ color: c.color }}>{c.name}</h2>
+                    <div key={c.name} className="bg-white rounded-3xl shadow-[0_4px_18px_rgba(91,33,182,0.08)] p-4">
+                      <div className="flex items-center gap-3 mb-3"><IconeMateria chave={c.name} tamanho={40} /><h2 className="text-[16px] font-extrabold text-[#1F1A2E]">{c.name}</h2></div>
                       <div className="space-y-3">
                         {habs.map((h) => {
                           const cur = lv(h.level); const ini = lv(h.levelInicial);
@@ -93,7 +94,6 @@ export default function EvolucaoCompleta() {
                               <div className="flex-1">
                                 <p className="text-[14px] text-[#1F1A2E]">{h.label}</p>
                                 {ini && h.levelInicial !== h.level && <p className="text-[12px] text-[#5B5470] mt-0.5">desde o diagnóstico: {ini.label} → {cur?.label}</p>}
-                                <span className="text-[11px] text-[#9A93AD]">{h.code}</span>
                               </div>
                               {cur && <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full shrink-0" style={{ color: cur.fg, backgroundColor: cur.bg }}>{cur.label}</span>}
                             </div>

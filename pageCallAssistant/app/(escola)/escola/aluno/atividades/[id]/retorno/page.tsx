@@ -2,7 +2,8 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { ArrowLeft, CheckCircle2, Lightbulb, Quote, Mic, RefreshCw, Clock } from "lucide-react";
+import { CheckCircle2, Lightbulb, Quote, Mic, RefreshCw, Clock } from "lucide-react";
+import { Capa } from "@/components/escola/reforco-ui";
 
 interface AiFeedback {
   acertos: string[];
@@ -26,8 +27,8 @@ interface RetornoData {
 
 const LEVEL: Record<string, { label: string; fg: string; bg: string; border: string }> = {
   MASTERED: { label: "Domina",    fg: "#166534", bg: "#DCFCE7", border: "#86EFAC" },
-  ALMOST:   { label: "Quase la",  fg: "#92400E", bg: "#FEF3C7", border: "#FDE68A" },
-  NOT_YET:  { label: "Ainda nao", fg: "#B91C1C", bg: "#FEE2E2", border: "#FCA5A5" },
+  ALMOST:   { label: "Quase lá",  fg: "#92400E", bg: "#FEF3C7", border: "#FDE68A" },
+  NOT_YET:  { label: "Ainda não", fg: "#B91C1C", bg: "#FEE2E2", border: "#FCA5A5" },
 };
 
 export default function RetornoPage() {
@@ -69,14 +70,14 @@ export default function RetornoPage() {
   void prevLevel;
 
   if (loading) return (
-    <div className="min-h-screen flex items-center justify-center bg-[#F8F7FC]">
+    <div className="min-h-screen flex items-center justify-center bg-[#F6F4FE]">
       <RefreshCw className="size-6 text-[#6D28D9] animate-spin" />
     </div>
   );
 
   if (!data) return (
-    <div className="min-h-screen flex items-center justify-center bg-[#F8F7FC]">
-      <p className="text-[#5B5470]">Retorno nao encontrado.</p>
+    <div className="min-h-screen flex items-center justify-center bg-[#F6F4FE]">
+      <p className="text-[#5B5470]">Retorno não encontrado.</p>
     </div>
   );
 
@@ -86,7 +87,7 @@ export default function RetornoPage() {
   const nivel = masteryLevel ? LEVEL[masteryLevel] ?? null : null;
 
   return (
-    <div className="min-h-screen bg-[#F8F7FC] relative">
+    <div className="min-h-screen bg-[#F6F4FE] relative">
       {/* Selo Domina! */}
       {showDomina && (
         <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
@@ -108,23 +109,14 @@ export default function RetornoPage() {
         </div>
       )}
 
-      <header className="sticky top-0 z-10 border-b border-[#E9E5F5] bg-white">
-        <div className="max-w-2xl mx-auto px-4 py-3 flex items-center gap-3">
-          <button onClick={() => router.push("/escola/aluno")} className="p-1.5 rounded-lg hover:bg-[#F8F7FC] transition-colors">
-            <ArrowLeft className="size-5 text-[#5B5470]" />
-          </button>
-          <div className="flex-1 min-w-0">
-            <p className="text-xs text-[#5B5470]">Retorno da atividade</p>
-            <h1 className="font-semibold text-[#1F1A2E] truncate">{activity.title}</h1>
-          </div>
-        </div>
-      </header>
+      <Capa compacta titulo={activity.title} subtitulo="Retorno da atividade"
+        voltar={{ href: "/escola/aluno", texto: "Início" }} />
 
       <main className="max-w-2xl mx-auto px-4 py-6 space-y-4">
 
         {/* Aguardando avaliacao */}
         {isPending && (
-          <div className="rounded-xl border border-[#DDD6EE] bg-white p-6">
+          <div className="rounded-3xl bg-white shadow-[0_4px_18px_rgba(91,33,182,0.08)] p-6">
             <div className="flex items-center gap-3 mb-3">
               {/* Balao da IA com pontos de digitando */}
               <div className="w-9 h-9 rounded-full bg-[#EDE9FE] flex items-center justify-center shrink-0">
@@ -141,15 +133,15 @@ export default function RetornoPage() {
                 <span className="w-2 h-2 rounded-full bg-[#6D28D9] animate-bounce" style={{ animationDelay: "300ms" }} />
               </div>
             </div>
-            <p className="text-sm text-[#5B5470] pl-12">SpeakFlow esta analisando sua resposta...</p>
+            <p className="text-sm text-[#5B5470] pl-12">SpeakFlow está analisando sua resposta...</p>
           </div>
         )}
 
         {/* Nivel de dominio */}
         {nivel && (
-          <div className="rounded-xl border-2 p-5 flex items-center gap-4" style={{ background: nivel.bg, borderColor: nivel.border }}>
+          <div className="rounded-3xl border-2 p-5 flex items-center gap-4" style={{ background: nivel.bg, borderColor: nivel.border }}>
             <div className="flex-1">
-              <p className="text-xs font-semibold uppercase tracking-wide mb-1" style={{ color: nivel.fg }}>Nivel desta habilidade</p>
+              <p className="text-xs font-semibold uppercase tracking-wide mb-1" style={{ color: nivel.fg }}>Nível desta habilidade</p>
               <p className="text-2xl font-extrabold" style={{ color: nivel.fg }}>{nivel.label}</p>
             </div>
             {masteryLevel === "MASTERED" && <CheckCircle2 className="size-10 shrink-0" style={{ color: nivel.fg }} />}
@@ -158,18 +150,18 @@ export default function RetornoPage() {
 
         {/* Nota do professor (sem pontuacao) */}
         {teacherNote && (
-          <div className="rounded-xl border border-[#E9E5F5] bg-white p-4">
-            <p className="text-xs font-semibold text-[#5B5470] mb-1">Observacao do professor</p>
+          <div className="rounded-3xl bg-white shadow-[0_4px_18px_rgba(91,33,182,0.08)] p-4">
+            <p className="text-xs font-semibold text-[#5B5470] mb-1">Observação do professor</p>
             <p className="text-sm text-[#1F1A2E] italic">&ldquo;{teacherNote}&rdquo;</p>
           </div>
         )}
 
         {/* Transcricao (fala) */}
         {activity.type === "SPOKEN" && transcript && (
-          <div className="rounded-xl border border-[#E9E5F5] bg-white p-4">
+          <div className="rounded-3xl bg-white shadow-[0_4px_18px_rgba(91,33,182,0.08)] p-4">
             <div className="flex items-center gap-2 mb-2">
               <Mic className="size-4 text-[#6D28D9]" />
-              <span className="text-sm font-semibold text-[#1F1A2E]">O que voce disse</span>
+              <span className="text-sm font-semibold text-[#1F1A2E]">O que você disse</span>
             </div>
             <p className="text-sm text-[#5B5470] italic leading-relaxed">&ldquo;{transcript}&rdquo;</p>
           </div>
@@ -179,10 +171,10 @@ export default function RetornoPage() {
           <>
             {/* O que acertou */}
             {aiFeedback.acertos?.length > 0 && (
-              <div className="rounded-xl border border-[#E9E5F5] bg-white p-4">
+              <div className="rounded-3xl bg-white shadow-[0_4px_18px_rgba(91,33,182,0.08)] p-4">
                 <div className="flex items-center gap-2 mb-3">
                   <CheckCircle2 className="size-4 text-[#166534]" />
-                  <span className="text-sm font-semibold text-[#1F1A2E]">O que voce acertou</span>
+                  <span className="text-sm font-semibold text-[#1F1A2E]">O que você acertou</span>
                 </div>
                 <ul className="space-y-2">
                   {aiFeedback.acertos.map((a, i) => (
@@ -196,7 +188,7 @@ export default function RetornoPage() {
 
             {/* Como melhorar */}
             {aiFeedback.melhorar?.length > 0 && (
-              <div className="rounded-xl border border-[#E9E5F5] bg-white p-4">
+              <div className="rounded-3xl bg-white shadow-[0_4px_18px_rgba(91,33,182,0.08)] p-4">
                 <div className="flex items-center gap-2 mb-3">
                   <Lightbulb className="size-4 text-[#92400E]" />
                   <span className="text-sm font-semibold text-[#1F1A2E]">Como melhorar</span>
@@ -213,7 +205,7 @@ export default function RetornoPage() {
 
             {/* Exemplo */}
             {aiFeedback.exemplo && (
-              <div className="rounded-xl border border-[#E9E5F5] bg-white p-4">
+              <div className="rounded-3xl bg-white shadow-[0_4px_18px_rgba(91,33,182,0.08)] p-4">
                 <div className="flex items-center gap-2 mb-3">
                   <Quote className="size-4 text-[#6D28D9]" />
                   <span className="text-sm font-semibold text-[#1F1A2E]">Exemplo</span>
@@ -229,14 +221,18 @@ export default function RetornoPage() {
         {/* Tentar de novo */}
         {canRetry && (
           <button onClick={() => router.push(`/escola/aluno/atividades/${id}`)}
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-[#DDD6EE] font-medium text-[#1F1A2E] hover:border-[#6D28D9] transition-all min-h-[44px]">
+            className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl border-2 border-[#DDD6EE] bg-white font-medium text-[#1F1A2E] hover:border-[#6D28D9] transition-all min-h-[44px]">
             <RefreshCw className="size-4" />Tentar de novo (tentativa {data.attempt + 1} de {activity.maxAttempts})
           </button>
         )}
 
+        <button onClick={() => router.push("/escola/aluno/trilha")}
+          className="w-full py-4 rounded-2xl font-bold text-white bg-[#6D28D9] hover:bg-[#5B21B6] transition-colors min-h-[52px]">
+          Continuar minha trilha
+        </button>
         <button onClick={() => router.push("/escola/aluno")}
-          className="w-full py-4 rounded-2xl font-semibold text-white bg-[#6D28D9] hover:bg-[#5B21B6] transition-colors min-h-[52px]">
-          Voltar ao inicio
+          className="w-full py-3 rounded-2xl font-semibold text-[#5B5470] bg-white shadow-[0_2px_10px_rgba(91,33,182,0.08)] min-h-[48px]">
+          Voltar ao início
         </button>
       </main>
     </div>

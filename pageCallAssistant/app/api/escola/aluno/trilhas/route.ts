@@ -56,6 +56,7 @@ export async function GET() {
       trackId: a.track.id,
       title: tituloParaAluno(a.track.title),
       subjectId: a.track.subjectId,
+      subjectCode: a.track.subjectCode ?? null,
       gradeYear: a.track.gradeYear,
       skills: a.track.skills,
       totalItems,
@@ -82,7 +83,7 @@ export async function GET() {
   // Próximo passo: primeira atividade não feita da trilha ativa com prazo mais próximo
   let proximoPasso = null;
   for (const a of ativas as Array<{
-    assignmentId: string; trackId: string; title: string; subjectId: string;
+    assignmentId: string; trackId: string; title: string; subjectId: string; subjectCode: string | null;
     skills: { code: string; shortLabel: string | null }[];
     items: { id: string; order: number; activityId: string; estMinutes: number; done: boolean }[];
     totalItems: number; dueAt: Date | null;
@@ -94,6 +95,7 @@ export async function GET() {
         trackId: a.trackId,
         title: tituloParaAluno(a.title),
         subjectId: a.subjectId,
+        subjectCode: a.subjectCode,
         skills: a.skills,
         itemId: nextItem.id,
         activityId: nextItem.activityId,
