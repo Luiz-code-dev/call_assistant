@@ -1,8 +1,7 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import Link from "next/link";
-import { ArrowLeft, AlertTriangle, RefreshCw, MessageSquare } from "lucide-react";
+import { AlertTriangle, RefreshCw, MessageSquare } from "lucide-react";
 import FamilyShell from "@/components/escola/familia/FamilyShell";
 import { IconeMateria } from "@/components/escola/reforco-ui";
 
@@ -32,10 +31,8 @@ export default function RetornosTodos() {
   useEffect(() => { load(); }, [load]);
 
   return (
-    <FamilyShell activeStudentId={studentId}>
+    <FamilyShell activeStudentId={studentId} voltar={{ href: `/escola/familia/${studentId}`, texto: "Painel" }} titulo="Retornos recentes" subtitulo="O que acertou e o que pode melhorar em cada atividade.">
       <div className="max-w-[720px] mx-auto space-y-4">
-        <Link href={`/escola/familia/${studentId}`} className="inline-flex items-center gap-1.5 text-[14px] font-bold text-[#6D28D9] bg-white rounded-full px-3 min-h-[40px] shadow-sm"><ArrowLeft size={16} /> Voltar</Link>
-        <h1 className="text-[20px] font-extrabold text-[#1F1A2E] px-1">Retornos recentes</h1>
 
         {loading ? (
           <div className="space-y-3">{[0, 1, 2].map((i) => <div key={i} className="h-20 rounded-3xl bg-white/70 animate-pulse" />)}</div>

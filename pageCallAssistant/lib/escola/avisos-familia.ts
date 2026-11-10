@@ -21,7 +21,7 @@ import type { Aviso } from "@/lib/escola/avisos";
 
 /* eslint-disable @typescript-eslint/no-explicit-any -- cliente Prisma do tenant sem tipagem estática */
 
-export type TipoAvisoFamilia = "SEM_ESTUDO" | "ATENCAO" | "CONQUISTA";
+export type TipoAvisoFamilia = "SEM_ESTUDO" | "ATENCAO" | "CONQUISTA" | `NOVO_RESPONSAVEL:${string}`;
 
 const BADGE = "/escola-icons/aviso-badge.png";
 const VAPID_SUBJECT = process.env.VAPID_SUBJECT ?? "mailto:admin@speakf.com.br";
@@ -70,6 +70,17 @@ export function avisoConquista(nome: string, materia: string | null, trilha: str
     body: trilha ? `Concluiu "${trilha}"${m ? ` em ${m}` : ""}. Mande um elogio!` : "Mande um elogio pelo esforço!",
     url: `/escola/familia/${studentId}#recado`,
     icon: "/escola-icons/aviso-elogio.png", badge: BADGE, tag: `familia-conquista-${studentId}`, vibrate: [100, 50, 100, 50, 300],
+  };
+}
+
+export function avisoNovoResponsavel(nomeAluno: string, nomeNovo: string, parentesco: string, studentId: string): Aviso {
+  const n = primeiroNome(nomeAluno);
+  return {
+    tipo: "familia-novo-responsavel",
+    title: `Um novo responsável foi ligado a ${n}`,
+    body: `${primeiroNome(nomeNovo)} (${parentesco}) agora acompanha o reforço de ${n}. Se você não conhece essa pessoa, fale com a escola.`,
+    url: `/escola/familia/${studentId}`,
+    icon: "/escola-icons/aviso-lembrete.png", badge: BADGE, tag: `familia-novo-responsavel-${studentId}`, vibrate: [200, 100, 200],
   };
 }
 
@@ -133,10 +144,10 @@ async function emailParaResponsavel(guardian: { name: string; email: string | nu
  * Avisa todos os responsáveis ativos do aluno. Cada responsável recebe no máximo um
  * aviso de cada tipo por dia. Devolve quantos responsáveis foram avisados.
  */
-export async function avisarFamilia(db: any, networkId: string, studentId: string, tipo: TipoAvisoFamilia, aviso: Aviso, now = new Date()): Promise<number> {
+export async function avisarFamilia(db: any, networkId: string, studentId: string, tipo: TipoAvisoFamilia, aviso: Aviso, now = new Date(), exceto?: string): Promise<number> {
   const dia = diaSaoPaulo(now);
   const links: Array<{ guardianId: string }> = await db.eduGuardianLink.findMany({
-    where: { networkId, studentId, isActive: true }, select: { guardianId: true },
+    where: { networkId, studentId, isActive: true, ...(exceto ? { guardianId: { not: exceto } } : {}) }, select: { guardianId: true },
   });
   let avisados = 0;
   for (const { guardianId } of links) {

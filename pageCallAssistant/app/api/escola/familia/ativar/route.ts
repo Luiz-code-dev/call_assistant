@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { SignJWT } from "jose";
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { familySecret } from "@/lib/escola/secrets";
-import { hashFamilyCode, sameBirthDate } from "@/lib/escola/familia";
+import { sameBirthDate, MAX_GUARDIANS_PER_STUDENT } from "@/lib/escola/familia";
+import { acharCodigoFamilia, bloqueado, registrarErroData, usarCodigo } from "@/lib/escola/codigo-familia";
+import { avisarFamilia, avisoNovoResponsavel } from "@/lib/escola/avisos-familia";
 import { FAMILY_COOKIE } from "@/lib/escola/cookies";
 import { normalizePhone } from "@/lib/escola/phone";
 import { isAppClient, APP_FAMILY_SECONDS } from "@/lib/escola/app-auth";
@@ -25,6 +27,8 @@ const schema = z.object({
   aceitaWhatsapp: z.boolean().optional(),
 });
 
+const RELACAO: Record<string, string> = { MAE: "mãe", PAI: "pai", AVO_AVO: "avó ou avô", TIO_TIA: "tia ou tio", TUTOR_LEGAL: "tutor legal", OUTRO: "responsável" };
+
 export async function POST(req: NextRequest) {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
 
@@ -34,31 +38,39 @@ export async function POST(req: NextRequest) {
   const phoneNorm = guardianPhone ? (normalizePhone(guardianPhone) || null) : null;
   const passwordHash = senha ? await bcrypt.hash(senha, 10) : null;
 
-  // Acha o código pelo hash (busca O(1)); o código é por aluno (studentId único).
-  const codeHash = hashFamilyCode(familyCode);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const record = await (prismaEdu as any).eduFamilyCode.findFirst({ where: { codeHash } });
-  if (!record || record.activationsLeft <= 0 || record.expiresAt < new Date()) {
-    return NextResponse.json({ error: "Código inválido ou expirado" }, { status: 400 });
-  }
+  // Acha o código em qualquer rede (o catálogo diz qual base); o código é por aluno.
+  // Antes, sem contexto de rede, prismaEdu falhava e o primeiro acesso dava erro.
+  const achado = await acharCodigoFamilia(familyCode);
+  if (!achado) return NextResponse.json({ error: "Código inválido ou expirado. Peça uma ficha nova à escola." }, { status: 400 });
+  setTenantDb(achado.db);
+  const { record, student } = achado;
+  const minutos = bloqueado(record);
+  if (minutos) return NextResponse.json({ error: `Este código está bloqueado por segurança. Tente de novo em ${minutos} minutos.` }, { status: 429 });
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const student = await (prismaEdu as any).eduStudent.findFirst({ where: { id: record.studentId, isActive: true } });
-  // A data de nascimento confirma que a pessoa conhece o aluno (prova de posse do cartão + vínculo real).
-  if (!student || !sameBirthDate(birthDate, student.birthDate)) {
-    return NextResponse.json({ error: "Código ou data de nascimento não conferem" }, { status: 400 });
+  // A data de nascimento confirma que a pessoa conhece o aluno (prova de posse da ficha + vínculo real).
+  if (!student.birthDate) {
+    return NextResponse.json({ error: "A escola ainda não informou a data de nascimento deste aluno. Fale com a secretaria." }, { status: 400 });
+  }
+  if (!sameBirthDate(birthDate, student.birthDate)) {
+    return NextResponse.json({ error: await registrarErroData(achado.db, record) }, { status: 400 });
   }
 
   const networkId = student.networkId;
 
-  await (prismaEdu as any).eduFamilyCode.update({
-    where: { id: record.id },
-    data: { activationsLeft: record.activationsLeft - 1 },
-  });
-
   let guardian = await (prismaEdu as any).eduGuardian.findFirst({
     where: { networkId, ...(guardianEmail ? { email: guardianEmail } : { phone: phoneNorm }) },
   });
+  // Quem já tem senha entra com ela e usa "Adicionar filho": o primeiro acesso não troca a
+  // senha de uma conta existente (senão bastaria saber o e-mail de outra pessoa).
+  if (guardian?.passwordHash) {
+    return NextResponse.json({ error: "Esse e-mail ou WhatsApp já tem cadastro. Entre com a sua senha e toque em \"Adicionar filho\".", jaTemConta: true }, { status: 409 });
+  }
+  const vinculados = await (prismaEdu as any).eduGuardianLink.count({ where: { studentId: student.id, isActive: true, ...(guardian ? { guardianId: { not: guardian.id } } : {}) } });
+  if (vinculados >= MAX_GUARDIANS_PER_STUDENT) {
+    return NextResponse.json({ error: "Este aluno já tem o número máximo de responsáveis. Fale com a escola." }, { status: 409 });
+  }
+  await usarCodigo(achado.db, record);
+
   if (!guardian) {
     guardian = await (prismaEdu as any).eduGuardian.create({
       data: { networkId, name: guardianName, email: guardianEmail ?? null, phone: phoneNorm, ...(passwordHash ? { passwordHash } : {}), ...(aceitaWhatsapp && phoneNorm ? { whatsappOptInAt: new Date() } : {}) },
@@ -76,6 +88,10 @@ export async function POST(req: NextRequest) {
     create: { networkId, guardianId: guardian.id, studentId: student.id, relation, isActive: true },
     update: { isActive: true, relation, revokedAt: null, revokedById: null, revokeReason: null },
   });
+
+  // Quem já acompanhava o aluno fica sabendo do novo responsável
+  await avisarFamilia(achado.db, networkId, student.id, `NOVO_RESPONSAVEL:${guardian.id}`,
+    avisoNovoResponsavel(student.fullName, guardianName, RELACAO[relation] ?? "responsável", student.id), new Date(), guardian.id).catch(() => 0);
 
   await (prismaEdu as any).eduGuardianConsent.create({
     data: { guardianId: guardian.id, studentId: student.id, termsVersion, ip: consentIp ?? null },

@@ -1,15 +1,15 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import Link from "next/link";
-import { ArrowLeft, AlertTriangle, RefreshCw } from "lucide-react";
+import { AlertTriangle, RefreshCw } from "lucide-react";
 import FamilyShell from "@/components/escola/familia/FamilyShell";
+import { SemanaDoFilho } from "@/components/escola/familia/Acompanhamento";
 import { IconeMateria } from "@/components/escola/reforco-ui";
 
 const LEVELS = [
-  { key: "MASTERED", label: "Domina", fg: "#166534", bg: "#DCFCE7" },
-  { key: "ALMOST", label: "Quase lá", fg: "#92400E", bg: "#FEF3C7" },
-  { key: "NOT_YET", label: "Praticando", fg: "#6D28D9", bg: "#EDE9FE" },
+  { key: "MASTERED", label: "Domina", fg: "#166534", bg: "#DCFCE7", bar: "#16A34A" },
+  { key: "ALMOST", label: "Quase lá", fg: "#92400E", bg: "#FEF3C7", bar: "#F59E0B" },
+  { key: "NOT_YET", label: "Praticando", fg: "#6D28D9", bg: "#EDE9FE", bar: "#8B5CF6" },
 ] as const;
 const lv = (k: string | null) => LEVELS.find((l) => l.key === k);
 
@@ -39,9 +39,9 @@ export default function EvolucaoCompleta() {
   const total = data ? data.resumo.MASTERED + data.resumo.ALMOST + data.resumo.NOT_YET : 0;
 
   return (
-    <FamilyShell activeStudentId={studentId}>
+    <FamilyShell activeStudentId={studentId} voltar={{ href: `/escola/familia/${studentId}`, texto: "Painel" }}
+      titulo="Evolução" subtitulo={data ? [data.aluno.fullName, data.aluno.className].filter(Boolean).join(" · ") : undefined}>
       <div className="max-w-[760px] mx-auto space-y-4">
-        <Link href={`/escola/familia/${studentId}`} className="inline-flex items-center gap-1.5 text-[14px] font-bold text-[#6D28D9] bg-white rounded-full px-3 min-h-[40px] shadow-sm"><ArrowLeft size={16} /> Voltar</Link>
 
         {loading ? (
           <div className="space-y-3">{[0, 1, 2].map((i) => <div key={i} className="h-24 rounded-3xl bg-white/70 animate-pulse" />)}</div>
@@ -53,24 +53,44 @@ export default function EvolucaoCompleta() {
           </div>
         ) : data ? (
           <>
-            <div>
-              <h1 className="text-[20px] font-extrabold text-[#1F1A2E]">{data.aluno.fullName}</h1>
-              {data.aluno.className && <p className="text-[#5B5470] text-sm">{data.aluno.className}</p>}
-            </div>
-
             {total === 0 ? (
               <div className="bg-white rounded-3xl shadow-[0_4px_18px_rgba(91,33,182,0.08)] p-6 text-center text-[#5B5470] text-sm">O diagnóstico ainda não foi feito. Assim que for realizado, você verá aqui as habilidades já dominadas e as que serão praticadas.</div>
             ) : (
               <>
-                {/* Resumo barra empilhada */}
-                <div className="bg-white rounded-3xl shadow-[0_4px_18px_rgba(91,33,182,0.08)] p-4">
-                  <div className="flex h-3 rounded-full overflow-hidden mb-3">
-                    {LEVELS.map((l) => total ? <div key={l.key} style={{ width: `${(data.resumo[l.key] / total) * 100}%`, backgroundColor: l.fg }} /> : null)}
+                {/* Gráfico: como está em cada matéria */}
+                <section className="bg-white rounded-3xl shadow-[0_4px_18px_rgba(91,33,182,0.08)] p-5">
+                  <h2 className="text-[16px] font-extrabold text-[#1F1A2E]">Como está em cada matéria</h2>
+                  <p className="text-[12px] text-[#5B5470] mb-4">{total} {total === 1 ? "conteúdo acompanhado" : "conteúdos acompanhados"}</p>
+                  <div className="space-y-3">
+                    {data.componentes.map((c) => {
+                      const n = { MASTERED: 0, ALMOST: 0, NOT_YET: 0 } as Record<string, number>;
+                      for (const h of c.habilidades) if (n[h.level] !== undefined) n[h.level]++;
+                      const t = Math.max(1, n.MASTERED + n.ALMOST + n.NOT_YET);
+                      return (
+                        <div key={c.name}>
+                          <div className="flex items-center gap-2 mb-1.5">
+                            <IconeMateria chave={c.name} tamanho={26} />
+                            <span className="text-[14px] font-bold text-[#1F1A2E] flex-1 min-w-0 truncate">{c.name}</span>
+                            <span className="text-[12px] text-[#5B5470] shrink-0">{n.MASTERED} de {t} dominados</span>
+                          </div>
+                          <div className="flex h-4 rounded-full overflow-hidden bg-[#F3F0FB]">
+                            {LEVELS.map((l) => n[l.key] ? <div key={l.key} style={{ width: `${(n[l.key] / t) * 100}%`, backgroundColor: l.bar }} title={`${l.label}: ${n[l.key]}`} /> : null)}
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
-                  <div className="flex flex-wrap gap-2">
-                    {LEVELS.map((l) => <span key={l.key} className="text-[12px] font-semibold px-2.5 py-1 rounded-full" style={{ color: l.fg, backgroundColor: l.bg }}>{l.label} {data.resumo[l.key]}</span>)}
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {LEVELS.map((l) => (
+                      <span key={l.key} className="inline-flex items-center gap-1.5 text-[12px] font-semibold px-2.5 py-1 rounded-full" style={{ color: l.fg, backgroundColor: l.bg }}>
+                        <span className="inline-block size-2.5 rounded-sm" style={{ backgroundColor: l.bar }} />{l.label} {data.resumo[l.key]}
+                      </span>
+                    ))}
                   </div>
-                </div>
+                </section>
+
+                {/* Dia a dia */}
+                <SemanaDoFilho studentId={studentId} />
 
                 {/* Filtros */}
                 <div className="flex gap-2 flex-wrap">

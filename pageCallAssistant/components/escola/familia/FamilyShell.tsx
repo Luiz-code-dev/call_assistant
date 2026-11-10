@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, Settings, UserPlus, LogOut, X } from "lucide-react";
+import { Menu, Settings, UserPlus, LogOut, X, ChevronLeft } from "lucide-react";
 
 export interface FamilyChild {
   studentId: string; firstName: string; fullName: string;
@@ -13,16 +13,36 @@ export function useFilhos() {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("/api/escola/familia/filhos")
-      .then((r) => { if (!r.ok) throw new Error(); return r.json(); })
-      .then((d) => setData({ guardianFirstName: d.guardianFirstName ?? "", filhos: d.filhos ?? [] }))
-      .catch(() => setError(true))
-      .finally(() => setLoading(false));
+    // Tenta de novo sozinho algumas vezes: durante uma atualização do servidor a
+    // primeira chamada pode falhar por alguns segundos
+    let vivo = true;
+    (async () => {
+      for (let tentativa = 0; tentativa < 4 && vivo; tentativa++) {
+        try {
+          const r = await fetch("/api/escola/familia/filhos", { cache: "no-store" });
+          if (r.status === 401) { window.location.href = "/escola/familia/entrar"; return; }
+          if (r.ok) {
+            const d = await r.json();
+            if (vivo) { setData({ guardianFirstName: d.guardianFirstName ?? "", filhos: d.filhos ?? [] }); setLoading(false); }
+            return;
+          }
+        } catch { /* tenta de novo */ }
+        await new Promise((ok) => setTimeout(ok, 2500 * (tentativa + 1)));
+      }
+      if (vivo) { setError(true); setLoading(false); }
+    })();
+    return () => { vivo = false; };
   }, []);
   return { data, error, loading };
 }
 
-export default function FamilyShell({ activeStudentId, children }: { activeStudentId?: string; children: React.ReactNode }) {
+export default function FamilyShell({ activeStudentId, children, voltar, titulo, subtitulo }: {
+  activeStudentId?: string; children: React.ReactNode;
+  /** Botão de voltar dentro da capa (alinhado ao topo, sem cair por cima do conteúdo) */
+  voltar?: { href: string; texto?: string };
+  /** Título da página na capa; sem ele, mostra "Olá, ...!" */
+  titulo?: string; subtitulo?: string;
+}) {
   const { data } = useFilhos();
   const [menu, setMenu] = useState(false);
   const filhos = data?.filhos ?? [];
@@ -44,8 +64,13 @@ export default function FamilyShell({ activeStudentId, children }: { activeStude
               {menu ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
-          <h1 className="text-2xl font-extrabold mt-3">Olá, {data?.guardianFirstName || "família"}!</h1>
-          <p className="text-sm text-white/85 mt-1">Acompanhe o reforço do seu filho em todas as matérias.</p>
+          {voltar && (
+            <Link href={voltar.href} className="mt-3 inline-flex items-center gap-1 rounded-full bg-white/15 hover:bg-white/25 pl-2 pr-3 min-h-[40px] text-sm font-semibold">
+              <ChevronLeft className="size-4" />{voltar.texto ?? "Voltar"}
+            </Link>
+          )}
+          <h1 className="text-2xl font-extrabold mt-3">{titulo ?? `Olá, ${data?.guardianFirstName || "família"}!`}</h1>
+          <p className="text-sm text-white/85 mt-1">{subtitulo ?? (titulo ? "" : "Acompanhe o reforço do seu filho em todas as matérias.")}</p>
 
           {filhos.length > 1 && (
             <div className="mt-4 -mx-1 px-1 flex gap-2 overflow-x-auto">

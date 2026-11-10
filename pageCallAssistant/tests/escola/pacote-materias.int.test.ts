@@ -49,6 +49,9 @@ import { GET as getSemanaFamilia } from "@/app/api/escola/familia/filhos/[studen
 import { GET as getContato, POST as postContato } from "@/app/api/escola/familia/contato/route";
 import { POST as postAvisosFamilia } from "@/app/api/escola/familia/avisos/route";
 import { avisarFamilia, avisoConquista } from "@/lib/escola/avisos-familia";
+import { POST as postConferirCodigo } from "@/app/api/escola/familia/codigo/route";
+import { POST as postAtivar } from "@/app/api/escola/familia/ativar/route";
+import { nomeParcial } from "@/lib/escola/codigo-familia";
 import { POST as postCodigoAluno } from "@/app/api/escola/aluno/entrar/codigo-aluno/route";
 import { GET as getCartaoFamilia } from "@/app/api/escola/familia/filhos/[studentId]/cartao/route";
 import { garantirCodigoAluno, formatarCodigo } from "@/lib/escola/codigo-aluno";
@@ -576,6 +579,72 @@ describe("Reforço: o aluno entra com o código dele, sem código de turma", () 
     expect(await garantirCodigoAluno(dbB, colegaB.studentId, colegaB.networkId)).toBe(codigo);
     const entra = await postEntrar(post("http://localhost/api/escola/aluno/entrar", { mode: "codigo", code: formatarCodigo(codigo), pin: "2468" }));
     expect(entra.status).toBe(200);
+  });
+});
+
+describe("Ficha de acesso: o responsável lê o QR e só se liga ao próprio filho", () => {
+  const req = (url: string, b: unknown) => new NextRequest(url, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(b) });
+  const ativar = (b: Record<string, unknown>) => postAtivar(req("http://localhost/api/escola/familia/ativar", {
+    familyCode: "FAMB-6ANB", guardianName: "Responsável Teste QR", relation: "AVO_AVO", termsVersion: "v1.0", senha: "segredo123", ...b,
+  }));
+  const EMAIL = "teste.qr@speakflow.escola";
+  const limpar = async () => {
+    const g = await dbB.eduGuardian.findMany({ where: { email: EMAIL } });
+    for (const x of g) {
+      await dbB.eduGuardianConsent.deleteMany({ where: { guardianId: x.id } });
+      await dbB.eduGuardianLink.deleteMany({ where: { guardianId: x.id } });
+      await dbB.eduGuardianAlert.deleteMany({ where: { kind: `NOVO_RESPONSAVEL:${x.id}` } });
+      await dbB.eduGuardian.delete({ where: { id: x.id } });
+    }
+    await dbB.eduFamilyCode.updateMany({ where: { studentId: alunoB.studentId }, data: { failedCount: 0, lockedUntil: null } });
+  };
+
+  it("nome parcial: o responsável reconhece, um estranho não descobre", () => {
+    expect(nomeParcial("Bia Demo B Santos")).toBe("B** S*****");
+    expect(nomeParcial("Ana")).toBe("A**");
+  });
+
+  it("o QR mostra só as iniciais, a turma e a escola", async () => {
+    const r = await json(await postConferirCodigo(req("http://localhost/api/escola/familia/codigo", { codigo: "famb-6anb" })));
+    expect(r.status, r.texto).toBe(200);
+    const aluno = await dbB.eduStudent.findUniqueOrThrow({ where: { id: alunoB.studentId } });
+    expect(r.body.aluno).toBe(nomeParcial(aluno.fullName));
+    expect(r.body.turma).toBe("6º Ano B");
+    expect(r.body.temDataNascimento).toBe(true);
+    expect(r.texto).not.toContain(aluno.fullName);
+    expect(r.texto).not.toMatch(/studentId|birthDate|2015/);
+    const nao = await postConferirCodigo(req("http://localhost/api/escola/familia/codigo", { codigo: "ZZZZ-9999" }));
+    expect(nao.status).toBe(404);
+  });
+
+  it("data errada não liga; 5 erros bloqueiam o código", async () => {
+    await limpar();
+    const errada = await json(await ativar({ birthDate: "2015-03-13", guardianEmail: EMAIL }));
+    expect(errada.status).toBe(400);
+    expect(errada.body.error).toMatch(/não confere/);
+    for (let i = 0; i < 4; i++) await ativar({ birthDate: "2014-01-01", guardianEmail: EMAIL });
+    const travado = await ativar({ birthDate: "2015-03-12", guardianEmail: EMAIL });
+    expect(travado.status).toBe(429);
+    expect(await dbB.eduGuardian.count({ where: { email: EMAIL } })).toBe(0);
+    await limpar();
+  });
+
+  it("data certa liga ao filho e avisa quem já acompanhava", async () => {
+    await limpar();
+    const ok = await json(await ativar({ birthDate: "2015-03-12", guardianEmail: EMAIL, guardianPhone: "(71) 99876-0002", aceitaWhatsapp: true }));
+    expect(ok.status, ok.texto).toBe(200);
+    const g = await dbB.eduGuardian.findFirstOrThrow({ where: { email: EMAIL } });
+    expect(g.whatsappOptInAt).not.toBeNull();
+    expect(await dbB.eduGuardianLink.count({ where: { guardianId: g.id, studentId: alunoB.studentId, isActive: true } })).toBe(1);
+    const avisados = await dbB.eduGuardianAlert.count({ where: { studentId: alunoB.studentId, kind: `NOVO_RESPONSAVEL:${g.id}` } });
+    expect(avisados).toBeGreaterThanOrEqual(1);
+    expect(await dbB.eduGuardianAlert.count({ where: { guardianId: g.id, kind: `NOVO_RESPONSAVEL:${g.id}` } })).toBe(0);
+
+    // O mesmo e-mail de novo não troca a senha de quem já tem conta
+    const de_novo = await json(await ativar({ birthDate: "2015-03-12", guardianEmail: EMAIL, senha: "outrasenha" }));
+    expect(de_novo.status).toBe(409);
+    expect(de_novo.body.jaTemConta).toBe(true);
+    await limpar();
   });
 });
 

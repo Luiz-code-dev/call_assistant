@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import EscPageHeader from "@/components/escola/layout/EscPageHeader";
-import { School, Users, Mail, KeyRound } from "lucide-react";
+import { School, Users, Mail, KeyRound, Printer } from "lucide-react";
 
 export default async function PlataformaRedeDetalhePage({
   params,
@@ -46,6 +46,13 @@ export default async function PlataformaRedeDetalhePage({
         subtitle={`${network.city}, ${network.state}${!network.isActive ? " · Inativa" : ""}`}
         action={
           <div className="flex flex-wrap gap-2">
+          <Link
+            href={`/escola/plataforma/redes/${id}/fichas`}
+            className="inline-flex items-center gap-2 bg-violet-600 text-white hover:bg-violet-700 px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors min-h-[44px]"
+          >
+            <Printer size={15} />
+            Fichas de acesso (QR)
+          </Link>
           <a
             href={`/api/escola/plataforma/redes/${id}/codigos-alunos`}
             className="inline-flex items-center gap-2 bg-indigo-600 text-white hover:bg-indigo-700 px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors min-h-[44px]"
