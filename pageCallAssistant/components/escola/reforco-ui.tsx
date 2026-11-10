@@ -4,13 +4,14 @@
  * Só apresentação: nenhuma regra de negócio aqui.
  */
 import Link from "next/link";
-import type { ComponentType, ReactNode } from "react";
+import type { ReactNode } from "react";
 import {
   BookA, Calculator, FlaskConical, Landmark, Globe, Palette, Dumbbell, Languages, HeartHandshake,
   ChevronLeft, House, Route, ClipboardList, TrendingUp, Users, Settings,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-type Icone = ComponentType<{ className?: string; strokeWidth?: number; size?: number }>;
+type Icone = LucideIcon;
 
 export const MATERIAS: Record<string, { nome: string; cor: string; Icone: Icone }> = {
   LP: { nome: "Língua Portuguesa", cor: "#BE185D", Icone: BookA },

@@ -7,6 +7,7 @@ import {
   AlertCircle, RefreshCw, BookA, Calculator, Landmark, Globe, Palette, Dumbbell, Languages, HeartHandshake,
   Flame, Route, Play,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { NavAluno } from "@/components/escola/reforco-ui";
 
 interface Subject { id: string; name: string; color: string | null }
@@ -30,7 +31,7 @@ const TYPE_COLOR = { WRITTEN: "bg-[#EDE9FE] text-[#6D28D9]", SPOKEN: "bg-[#EDE9F
 const DIAS_SEMANA = ["S", "T", "Q", "Q", "S", "S", "D"];
 
 // Um ícone por matéria, sem repetir
-const ICONES_MATERIA: Record<string, React.ComponentType<{ className?: string; strokeWidth?: number }>> = {
+const ICONES_MATERIA: Record<string, LucideIcon> = {
   LP: BookA, MA: Calculator, CI: FlaskConical, HI: Landmark,
   GE: Globe, AR: Palette, EF: Dumbbell, LI: Languages, ER: HeartHandshake,
 };
