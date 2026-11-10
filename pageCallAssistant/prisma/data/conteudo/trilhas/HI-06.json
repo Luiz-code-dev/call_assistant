@@ -1,2450 +1,1890 @@
 [
   {
     "skillCode": "EF06HI01",
-    "title": "Trilha: Identificar diferentes formas de compreensão da noção (EF06HI01)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
     "subjectCode": "HI",
+    "subjectName": "História",
+    "gradeYear": 6,
+    "version": 2,
+    "title": "Trilha: Tempo histórico e periodização",
+    "tituloAluno": "Como a História divide o tempo",
     "activities": [
       {
-        "id": "PK-EF06HI01-A1",
+        "id": "PK2-EF06HI01-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Identificar diferentes formas de compreensão da noção",
-        "prompt": "Questão sobre Identificar diferentes formas de compreensão da noção.",
+        "title": "Relembrar: décadas, séculos e linha do tempo",
+        "prompt": "Vamos lembrar as unidades de tempo mais usadas na História.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre Identificar diferentes formas de compreensão da noção.",
-        "skillId": "EF06HI01",
+        "audioScript": "Vamos lembrar as unidades de tempo mais usadas na História. Pergunta 1. Um século tem quantos anos? A: Dez; B: Cem; C: Mil; D: Cinquenta. Pergunta 2. Numa linha do tempo, os fatos mais antigos ficam: A: No fim da linha, à direita; B: Em qualquer lugar; C: Fora da linha; D: No começo da linha, à esquerda. Pergunta 3. O que significa que um povo marca o tempo pela natureza? A: Que ele usa ciclos como a Lua, as chuvas e as colheitas; B: Que ele não sabe contar o tempo; C: Que ele usa só relógio; D: Que ele conta os séculos de trás para frente.",
         "questions": [
           {
-            "question": "Qual é a importância de estudar \"Identificar diferentes formas de compreensão da noção\" no 6º ano?",
+            "question": "Um século tem quantos anos?",
             "options": [
               {
-                "text": "Compreender como o passado influencia o presente e a identidade do povo"
+                "text": "Dez",
+                "misconceptionCode": "seculo-errado"
               },
               {
-                "text": "Decorar datas para provas",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Cem"
               },
               {
-                "text": "Saber apenas o nome dos reis",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Mil",
+                "misconceptionCode": "seculo-errado"
               },
               {
-                "text": "Não tem importância prática",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Cinquenta",
+                "misconceptionCode": "seculo-errado"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
+            "correctIndex": 1,
+            "explanation": "Século = 100 anos. Milênio = 1.000 anos. Década = 10 anos.",
             "variants": [
               {
-                "question": "O que é fonte histórica?",
+                "question": "Um milênio tem quantos anos?",
                 "options": [
                   {
-                    "text": "Todo registro ou objeto que nos informa sobre o passado"
+                    "text": "Cem",
+                    "misconceptionCode": "seculo-errado"
                   },
                   {
-                    "text": "Apenas livros escritos por historiadores",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Dez",
+                    "misconceptionCode": "seculo-errado"
                   },
                   {
-                    "text": "Somente fotografias antigas",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Dez mil",
+                    "misconceptionCode": "seculo-errado"
                   },
                   {
-                    "text": "Inventos do século XX",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Mil"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
+                "question": "Um século tem quantos anos?",
                 "options": [
                   {
-                    "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
+                    "text": "Cinquenta",
+                    "misconceptionCode": "seculo-errado"
                   },
                   {
-                    "text": "Porque apenas um deles sabe a verdade",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Mil",
+                    "misconceptionCode": "seculo-errado"
                   },
                   {
-                    "text": "Porque a história é inventada",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Cem"
                   },
                   {
-                    "text": "Porque só a versão escrita é válida",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Dez",
+                    "misconceptionCode": "seculo-errado"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF06HI01"
+            ]
           },
           {
-            "question": "Qual é a importância de estudar \"Identificar diferentes formas de compreensão da noção\" no 6º ano?",
+            "question": "Numa linha do tempo, os fatos mais antigos ficam:",
             "options": [
               {
-                "text": "Compreender como o passado influencia o presente e a identidade do povo"
+                "text": "No fim da linha, à direita",
+                "misconceptionCode": "ac-ao-contrario"
               },
               {
-                "text": "Decorar datas para provas",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Em qualquer lugar",
+                "misconceptionCode": "tudo-muda-junto"
               },
               {
-                "text": "Saber apenas o nome dos reis",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Fora da linha",
+                "misconceptionCode": "periodo-natural"
               },
               {
-                "text": "Não tem importância prática",
-                "misconceptionCode": "conteudo-errado"
+                "text": "No começo da linha, à esquerda"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "A linha do tempo vai do mais antigo para o mais recente.",
+            "variants": [
+              {
+                "question": "Na linha do tempo da sua vida, o seu nascimento fica:",
+                "options": [
+                  {
+                    "text": "No fim",
+                    "misconceptionCode": "ac-ao-contrario"
+                  },
+                  {
+                    "text": "No começo"
+                  },
+                  {
+                    "text": "No meio, sempre",
+                    "misconceptionCode": "tudo-muda-junto"
+                  },
+                  {
+                    "text": "Fora da linha",
+                    "misconceptionCode": "periodo-natural"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Numa linha do tempo, os fatos mais antigos ficam:",
+                "options": [
+                  {
+                    "text": "No começo da linha, à esquerda"
+                  },
+                  {
+                    "text": "Fora da linha",
+                    "misconceptionCode": "periodo-natural"
+                  },
+                  {
+                    "text": "Em qualquer lugar",
+                    "misconceptionCode": "tudo-muda-junto"
+                  },
+                  {
+                    "text": "No fim da linha, à direita",
+                    "misconceptionCode": "ac-ao-contrario"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "O que significa que um povo marca o tempo pela natureza?",
+            "options": [
+              {
+                "text": "Que ele usa ciclos como a Lua, as chuvas e as colheitas"
+              },
+              {
+                "text": "Que ele não sabe contar o tempo",
+                "misconceptionCode": "periodo-natural"
+              },
+              {
+                "text": "Que ele usa só relógio",
+                "misconceptionCode": "tudo-muda-junto"
+              },
+              {
+                "text": "Que ele conta os séculos de trás para frente",
+                "misconceptionCode": "ac-ao-contrario"
               }
             ],
             "correctIndex": 0,
-            "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
+            "explanation": "Ciclos da natureza foram os primeiros calendários.",
             "variants": [
               {
-                "question": "O que é fonte histórica?",
+                "question": "Contar os meses pelas fases da Lua é um exemplo de:",
                 "options": [
                   {
-                    "text": "Todo registro ou objeto que nos informa sobre o passado"
+                    "text": "Não contar o tempo",
+                    "misconceptionCode": "periodo-natural"
                   },
                   {
-                    "text": "Apenas livros escritos por historiadores",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Usar um relógio",
+                    "misconceptionCode": "tudo-muda-junto"
                   },
                   {
-                    "text": "Somente fotografias antigas",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Marcar o tempo pela natureza"
                   },
                   {
-                    "text": "Inventos do século XX",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Contar séculos",
+                    "misconceptionCode": "ac-ao-contrario"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
+                "question": "O que significa que um povo marca o tempo pela natureza?",
                 "options": [
                   {
-                    "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
+                    "text": "Que ele conta os séculos de trás para frente",
+                    "misconceptionCode": "ac-ao-contrario"
                   },
                   {
-                    "text": "Porque apenas um deles sabe a verdade",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Que ele usa ciclos como a Lua, as chuvas e as colheitas"
                   },
                   {
-                    "text": "Porque a história é inventada",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Que ele usa só relógio",
+                    "misconceptionCode": "tudo-muda-junto"
                   },
                   {
-                    "text": "Porque só a versão escrita é válida",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Que ele não sabe contar o tempo",
+                    "misconceptionCode": "periodo-natural"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06HI01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06HI01-A2",
+        "id": "PK2-EF06HI01-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Identificar diferentes formas de compreensão da noção",
-        "prompt": "Questão sobre Identificar diferentes formas de compreensão da noção.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Identificar diferentes formas de compreensão da noção.",
-        "skillId": "EF06HI01",
+        "title": "Exemplo guiado: descobrindo o século",
+        "prompt": "Regra prática para descobrir o século de um ano: se o ano não termina em 00, tire os dois últimos algarismos e some 1. Se termina em 00, só tire os dois zeros. Vamos fazer juntos.",
+        "estMinutes": 4,
+        "audioScript": "Regra prática para descobrir o século de um ano: se o ano não termina em 00, tire os dois últimos algarismos e some 1. Se termina em 00, só tire os dois zeros. Vamos fazer juntos. Pergunta 1. O Brasil foi invadido pelos portugueses em 1500. Qual é o século? A: Século XVI; B: Século XIV; C: Século L; D: Século XV. Pergunta 2. Em que século estamos, em 2026? A: Século XXI; B: Século XX; C: Século XXVI; D: Século II. Pergunta 3. Uma cidade foi fundada em 300 a.C. e outra em 100 a.C. Qual é a mais antiga? A: A de 100 a.C.; B: As duas têm a mesma idade; C: A de 300 a.C.; D: Não dá para saber antes de Cristo.",
         "questions": [
           {
-            "question": "Associado a \"Identificar diferentes formas de compreensão da noção\", o conceito de mudança histórica significa:",
+            "question": "O Brasil foi invadido pelos portugueses em 1500. Qual é o século?",
             "options": [
               {
-                "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
+                "text": "Século XVI",
+                "misconceptionCode": "seculo-errado"
               },
               {
-                "text": "Que tudo sempre permanece igual",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Século XIV",
+                "misconceptionCode": "seculo-errado"
               },
               {
-                "text": "Que apenas guerras geram mudanças",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Século L",
+                "misconceptionCode": "seculo-errado"
               },
               {
-                "text": "Que o presente é idêntico ao passado",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Século XV"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
+            "correctIndex": 3,
+            "explanation": "1500 termina em 00: tirando os zeros, fica 15. Século XV.",
             "variants": [
               {
-                "question": "O que são permanências históricas?",
+                "question": "Em que século está o ano 1900?",
                 "options": [
                   {
-                    "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
+                    "text": "Século XX",
+                    "misconceptionCode": "seculo-errado"
                   },
                   {
-                    "text": "Eventos que nunca aconteceram",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Século XIX"
                   },
                   {
-                    "text": "Somente as guerras da Antiguidade",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Século XVIII",
+                    "misconceptionCode": "seculo-errado"
                   },
                   {
-                    "text": "Festas e comemorações modernas",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Século XC",
+                    "misconceptionCode": "seculo-errado"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "O que diferencia a história oral da história escrita?",
+                "question": "O Brasil foi invadido pelos portugueses em 1500. Qual é o século?",
                 "options": [
                   {
-                    "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
+                    "text": "Século XV"
                   },
                   {
-                    "text": "A oral é sempre falsa",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Século L",
+                    "misconceptionCode": "seculo-errado"
                   },
                   {
-                    "text": "A escrita é menos confiável",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Século XIV",
+                    "misconceptionCode": "seculo-errado"
                   },
                   {
-                    "text": "Não há diferença",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Século XVI",
+                    "misconceptionCode": "seculo-errado"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06HI01"
+            ]
           },
           {
-            "question": "Associado a \"Identificar diferentes formas de compreensão da noção\", o conceito de mudança histórica significa:",
+            "question": "Em que século estamos, em 2026?",
             "options": [
               {
-                "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
+                "text": "Século XXI"
               },
               {
-                "text": "Que tudo sempre permanece igual",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Século XX",
+                "misconceptionCode": "seculo-errado"
               },
               {
-                "text": "Que apenas guerras geram mudanças",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Século XXVI",
+                "misconceptionCode": "seculo-errado"
               },
               {
-                "text": "Que o presente é idêntico ao passado",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Século II",
+                "misconceptionCode": "seculo-errado"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
+            "explanation": "2026 não termina em 00: tira o 26, fica 20, soma 1: século XXI.",
             "variants": [
               {
-                "question": "O que são permanências históricas?",
+                "question": "O ano de 1822, da Independência do Brasil, é de que século?",
                 "options": [
                   {
-                    "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
+                    "text": "Século XVIII",
+                    "misconceptionCode": "seculo-errado"
                   },
                   {
-                    "text": "Eventos que nunca aconteceram",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Século XXII",
+                    "misconceptionCode": "seculo-errado"
                   },
                   {
-                    "text": "Somente as guerras da Antiguidade",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Século XIX"
                   },
                   {
-                    "text": "Festas e comemorações modernas",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Século VIII",
+                    "misconceptionCode": "seculo-errado"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "Em que século estamos, em 2026?",
+                "options": [
+                  {
+                    "text": "Século II",
+                    "misconceptionCode": "seculo-errado"
+                  },
+                  {
+                    "text": "Século XXI"
+                  },
+                  {
+                    "text": "Século XXVI",
+                    "misconceptionCode": "seculo-errado"
+                  },
+                  {
+                    "text": "Século XX",
+                    "misconceptionCode": "seculo-errado"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Uma cidade foi fundada em 300 a.C. e outra em 100 a.C. Qual é a mais antiga?",
+            "options": [
+              {
+                "text": "A de 100 a.C.",
+                "misconceptionCode": "ac-ao-contrario"
+              },
+              {
+                "text": "As duas têm a mesma idade",
+                "misconceptionCode": "tudo-muda-junto"
+              },
+              {
+                "text": "A de 300 a.C."
+              },
+              {
+                "text": "Não dá para saber antes de Cristo",
+                "misconceptionCode": "periodo-natural"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "Antes de Cristo, quanto maior o número, mais antigo: 300 a.C. veio antes de 100 a.C.",
+            "variants": [
+              {
+                "question": "O que aconteceu primeiro: um fato em 50 a.C. ou um em 500 a.C.?",
+                "options": [
+                  {
+                    "text": "O de 500 a.C."
+                  },
+                  {
+                    "text": "O de 50 a.C.",
+                    "misconceptionCode": "ac-ao-contrario"
+                  },
+                  {
+                    "text": "Os dois ao mesmo tempo",
+                    "misconceptionCode": "tudo-muda-junto"
+                  },
+                  {
+                    "text": "Não dá para saber",
+                    "misconceptionCode": "periodo-natural"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que diferencia a história oral da história escrita?",
+                "question": "Uma cidade foi fundada em 300 a.C. e outra em 100 a.C. Qual é a mais antiga?",
                 "options": [
                   {
-                    "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
+                    "text": "Não dá para saber antes de Cristo",
+                    "misconceptionCode": "periodo-natural"
                   },
                   {
-                    "text": "A oral é sempre falsa",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "As duas têm a mesma idade",
+                    "misconceptionCode": "tudo-muda-junto"
                   },
                   {
-                    "text": "A escrita é menos confiável",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A de 100 a.C.",
+                    "misconceptionCode": "ac-ao-contrario"
                   },
                   {
-                    "text": "Não há diferença",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "A de 300 a.C."
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06HI01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06HI01-A3",
+        "id": "PK2-EF06HI01-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: Identificar diferentes formas de compreensão da noção",
-        "prompt": "Questão sobre Identificar diferentes formas de compreensão da noção.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Identificar diferentes formas de compreensão da noção.",
-        "skillId": "EF06HI01",
+        "title": "Praticar: períodos da História",
+        "prompt": "Os historiadores dividem a História em períodos para estudar melhor. Essas divisões são escolhas, não regras da natureza.",
+        "estMinutes": 5,
+        "audioScript": "Os historiadores dividem a História em períodos para estudar melhor. Essas divisões são escolhas, não regras da natureza. Pergunta 1. Por que a História é dividida em períodos, como Antiguidade e Idade Média? A: Para organizar o estudo, e essa divisão foi criada por historiadores; B: Porque as pessoas da época já sabiam que estavam na Idade Média; C: Porque tudo mudou de um dia para o outro; D: Porque cada período tem exatamente mil anos. Pergunta 2. Essa divisão em quatro idades foi pensada a partir da história da Europa. O que isso quer dizer? A: Que ela vale igual para todos os povos do mundo; B: Que antes da Europa não havia História; C: Que ela nem sempre serve bem para a história de outros povos; D: Que tudo no mundo mudou na mesma data. Pergunta 3. Quando um novo período começa, o que acontece com os costumes do período anterior? A: Todos desaparecem de uma vez; B: Muitos continuam, e outros mudam aos poucos; C: Nada muda; D: Todos voltam a ser como no começo. Pergunta 4. Um texto diz que um fato aconteceu no século III a.C. Isso significa que foi: A: Entre os anos 201 e 300 depois de Cristo; B: No ano 3; C: Há três anos; D: Entre os anos 300 e 201 antes de Cristo.",
         "questions": [
           {
-            "question": "Qual é a importância de estudar \"Identificar diferentes formas de compreensão da noção\" no 6º ano?",
+            "question": "Por que a História é dividida em períodos, como Antiguidade e Idade Média?",
             "options": [
               {
-                "text": "Compreender como o passado influencia o presente e a identidade do povo"
+                "text": "Para organizar o estudo, e essa divisão foi criada por historiadores"
               },
               {
-                "text": "Decorar datas para provas",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Porque as pessoas da época já sabiam que estavam na Idade Média",
+                "misconceptionCode": "periodo-natural"
               },
               {
-                "text": "Saber apenas o nome dos reis",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Porque tudo mudou de um dia para o outro",
+                "misconceptionCode": "tudo-muda-junto"
               },
               {
-                "text": "Não tem importância prática",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Porque cada período tem exatamente mil anos",
+                "misconceptionCode": "seculo-errado"
               }
             ],
             "correctIndex": 0,
-            "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
+            "explanation": "Períodos são criados depois, por historiadores, para organizar o estudo.",
             "variants": [
               {
-                "question": "O que é fonte histórica?",
+                "question": "Quem criou a divisão da História em Idade Antiga, Média, Moderna e Contemporânea?",
                 "options": [
                   {
-                    "text": "Todo registro ou objeto que nos informa sobre o passado"
+                    "text": "As pessoas de cada época, que já usavam esses nomes",
+                    "misconceptionCode": "periodo-natural"
                   },
                   {
-                    "text": "Apenas livros escritos por historiadores",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "A natureza",
+                    "misconceptionCode": "tudo-muda-junto"
                   },
                   {
-                    "text": "Somente fotografias antigas",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Historiadores europeus, depois dos fatos"
                   },
                   {
-                    "text": "Inventos do século XX",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Um único rei",
+                    "misconceptionCode": "seculo-errado"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
+                "question": "Por que a História é dividida em períodos, como Antiguidade e Idade Média?",
                 "options": [
                   {
-                    "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
+                    "text": "Porque cada período tem exatamente mil anos",
+                    "misconceptionCode": "seculo-errado"
                   },
                   {
-                    "text": "Porque apenas um deles sabe a verdade",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Para organizar o estudo, e essa divisão foi criada por historiadores"
                   },
                   {
-                    "text": "Porque a história é inventada",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Porque tudo mudou de um dia para o outro",
+                    "misconceptionCode": "tudo-muda-junto"
                   },
                   {
-                    "text": "Porque só a versão escrita é válida",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Porque as pessoas da época já sabiam que estavam na Idade Média",
+                    "misconceptionCode": "periodo-natural"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06HI01"
+            ]
           },
           {
-            "question": "Qual é a importância de estudar \"Identificar diferentes formas de compreensão da noção\" no 6º ano?",
+            "question": "Essa divisão em quatro idades foi pensada a partir da história da Europa. O que isso quer dizer?",
             "options": [
               {
-                "text": "Compreender como o passado influencia o presente e a identidade do povo"
+                "text": "Que ela vale igual para todos os povos do mundo",
+                "misconceptionCode": "periodo-natural"
               },
               {
-                "text": "Decorar datas para provas",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Que antes da Europa não havia História",
+                "misconceptionCode": "periodo-natural"
               },
               {
-                "text": "Saber apenas o nome dos reis",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Que ela nem sempre serve bem para a história de outros povos"
               },
               {
-                "text": "Não tem importância prática",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Que tudo no mundo mudou na mesma data",
+                "misconceptionCode": "tudo-muda-junto"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
+            "correctIndex": 2,
+            "explanation": "Povos indígenas, africanos e asiáticos têm histórias que não cabem nessa divisão europeia.",
             "variants": [
               {
-                "question": "O que é fonte histórica?",
+                "question": "Para estudar a história dos povos indígenas do Brasil, a divisão em Idade Média e Moderna:",
                 "options": [
                   {
-                    "text": "Todo registro ou objeto que nos informa sobre o passado"
+                    "text": "Pode não ser a melhor forma"
                   },
                   {
-                    "text": "Apenas livros escritos por historiadores",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "É a única possível",
+                    "misconceptionCode": "periodo-natural"
                   },
                   {
-                    "text": "Somente fotografias antigas",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Foi criada por eles",
+                    "misconceptionCode": "periodo-natural"
                   },
                   {
-                    "text": "Inventos do século XX",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Começa no ano zero",
+                    "misconceptionCode": "tudo-muda-junto"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
+                "question": "Essa divisão em quatro idades foi pensada a partir da história da Europa. O que isso quer dizer?",
                 "options": [
                   {
-                    "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
+                    "text": "Que tudo no mundo mudou na mesma data",
+                    "misconceptionCode": "tudo-muda-junto"
                   },
                   {
-                    "text": "Porque apenas um deles sabe a verdade",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Que antes da Europa não havia História",
+                    "misconceptionCode": "periodo-natural"
                   },
                   {
-                    "text": "Porque a história é inventada",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Que ela vale igual para todos os povos do mundo",
+                    "misconceptionCode": "periodo-natural"
                   },
                   {
-                    "text": "Porque só a versão escrita é válida",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Que ela nem sempre serve bem para a história de outros povos"
+                  }
+                ],
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "Quando um novo período começa, o que acontece com os costumes do período anterior?",
+            "options": [
+              {
+                "text": "Todos desaparecem de uma vez",
+                "misconceptionCode": "tudo-muda-junto"
+              },
+              {
+                "text": "Muitos continuam, e outros mudam aos poucos"
+              },
+              {
+                "text": "Nada muda",
+                "misconceptionCode": "periodo-natural"
+              },
+              {
+                "text": "Todos voltam a ser como no começo",
+                "misconceptionCode": "ac-ao-contrario"
+              }
+            ],
+            "correctIndex": 1,
+            "explanation": "Na História há rupturas (mudanças) e continuidades (o que permanece).",
+            "variants": [
+              {
+                "question": "O português que falamos veio do latim dos romanos. Isso é um exemplo de:",
+                "options": [
+                  {
+                    "text": "Ruptura total",
+                    "misconceptionCode": "tudo-muda-junto"
+                  },
+                  {
+                    "text": "Que nada mudou",
+                    "misconceptionCode": "periodo-natural"
+                  },
+                  {
+                    "text": "Que o latim nunca existiu",
+                    "misconceptionCode": "ac-ao-contrario"
+                  },
+                  {
+                    "text": "Continuidade na História"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Quando um novo período começa, o que acontece com os costumes do período anterior?",
+                "options": [
+                  {
+                    "text": "Todos voltam a ser como no começo",
+                    "misconceptionCode": "ac-ao-contrario"
+                  },
+                  {
+                    "text": "Nada muda",
+                    "misconceptionCode": "periodo-natural"
+                  },
+                  {
+                    "text": "Muitos continuam, e outros mudam aos poucos"
+                  },
+                  {
+                    "text": "Todos desaparecem de uma vez",
+                    "misconceptionCode": "tudo-muda-junto"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "Um texto diz que um fato aconteceu no século III a.C. Isso significa que foi:",
+            "options": [
+              {
+                "text": "Entre os anos 201 e 300 depois de Cristo",
+                "misconceptionCode": "ac-ao-contrario"
+              },
+              {
+                "text": "No ano 3",
+                "misconceptionCode": "seculo-errado"
+              },
+              {
+                "text": "Há três anos",
+                "misconceptionCode": "seculo-errado"
+              },
+              {
+                "text": "Entre os anos 300 e 201 antes de Cristo"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Antes de Cristo, os anos são contados para trás: o século III a.C. vai de 300 a 201 a.C.",
+            "variants": [
+              {
+                "question": "O século I a.C. corresponde aos anos:",
+                "options": [
+                  {
+                    "text": "De 1 a 100 depois de Cristo",
+                    "misconceptionCode": "ac-ao-contrario"
+                  },
+                  {
+                    "text": "De 100 a 1 antes de Cristo"
+                  },
+                  {
+                    "text": "Do ano 1000 ao 1100",
+                    "misconceptionCode": "seculo-errado"
+                  },
+                  {
+                    "text": "Só ao ano 1",
+                    "misconceptionCode": "seculo-errado"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Um texto diz que um fato aconteceu no século III a.C. Isso significa que foi:",
+                "options": [
+                  {
+                    "text": "Entre os anos 300 e 201 antes de Cristo"
+                  },
+                  {
+                    "text": "Há três anos",
+                    "misconceptionCode": "seculo-errado"
+                  },
+                  {
+                    "text": "No ano 3",
+                    "misconceptionCode": "seculo-errado"
+                  },
+                  {
+                    "text": "Entre os anos 201 e 300 depois de Cristo",
+                    "misconceptionCode": "ac-ao-contrario"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06HI01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06HI01-A4",
+        "id": "PK2-EF06HI01-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: Identificar diferentes formas de compreensão da noção",
-        "prompt": "Questão sobre Identificar diferentes formas de compreensão da noção.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Identificar diferentes formas de compreensão da noção.",
-        "skillId": "EF06HI01",
+        "title": "Aplicar: o tempo da cidade",
+        "prompt": "Agora use o tempo histórico para pensar na sua cidade e na sua família.",
+        "estMinutes": 4,
+        "audioScript": "Agora use o tempo histórico para pensar na sua cidade e na sua família. Pergunta 1. Salvador foi fundada em 1549. Em que século? A: Século XV; B: Século XVII; C: Século XVI; D: Século XLIX. Pergunta 2. A sua escola mudou o uniforme, mas manteve a festa junina de sempre. Isso mostra: A: Que tudo mudou; B: Uma mudança e uma continuidade ao mesmo tempo; C: Que nada mudou; D: Que a escola voltou no tempo. Pergunta 3. Se você fosse dividir a história da sua família em períodos, o que estaria fazendo? A: Descobrindo divisões que já existiam na natureza; B: Fazendo tudo mudar de uma vez; C: Contando os anos ao contrário; D: Uma escolha para organizar os acontecimentos.",
         "questions": [
           {
-            "question": "Associado a \"Identificar diferentes formas de compreensão da noção\", o conceito de mudança histórica significa:",
+            "question": "Salvador foi fundada em 1549. Em que século?",
             "options": [
               {
-                "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
+                "text": "Século XV",
+                "misconceptionCode": "seculo-errado"
               },
               {
-                "text": "Que tudo sempre permanece igual",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Século XVII",
+                "misconceptionCode": "seculo-errado"
               },
               {
-                "text": "Que apenas guerras geram mudanças",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Século XVI"
               },
               {
-                "text": "Que o presente é idêntico ao passado",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Século XLIX",
+                "misconceptionCode": "seculo-errado"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
+            "correctIndex": 2,
+            "explanation": "Tira o 49, fica 15, soma 1: século XVI.",
             "variants": [
               {
-                "question": "O que são permanências históricas?",
+                "question": "O Rio de Janeiro foi fundado em 1565. Em que século?",
                 "options": [
                   {
-                    "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
+                    "text": "Século XVI"
                   },
                   {
-                    "text": "Eventos que nunca aconteceram",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Século XV",
+                    "misconceptionCode": "seculo-errado"
                   },
                   {
-                    "text": "Somente as guerras da Antiguidade",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Século XVII",
+                    "misconceptionCode": "seculo-errado"
                   },
                   {
-                    "text": "Festas e comemorações modernas",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Século LXV",
+                    "misconceptionCode": "seculo-errado"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que diferencia a história oral da história escrita?",
+                "question": "Salvador foi fundada em 1549. Em que século?",
                 "options": [
                   {
-                    "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
+                    "text": "Século XLIX",
+                    "misconceptionCode": "seculo-errado"
                   },
                   {
-                    "text": "A oral é sempre falsa",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Século XVII",
+                    "misconceptionCode": "seculo-errado"
                   },
                   {
-                    "text": "A escrita é menos confiável",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Século XV",
+                    "misconceptionCode": "seculo-errado"
                   },
                   {
-                    "text": "Não há diferença",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Século XVI"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06HI01"
+            ]
           },
           {
-            "question": "Associado a \"Identificar diferentes formas de compreensão da noção\", o conceito de mudança histórica significa:",
+            "question": "A sua escola mudou o uniforme, mas manteve a festa junina de sempre. Isso mostra:",
             "options": [
               {
-                "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
+                "text": "Que tudo mudou",
+                "misconceptionCode": "tudo-muda-junto"
               },
               {
-                "text": "Que tudo sempre permanece igual",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Uma mudança e uma continuidade ao mesmo tempo"
               },
               {
-                "text": "Que apenas guerras geram mudanças",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Que nada mudou",
+                "misconceptionCode": "periodo-natural"
               },
               {
-                "text": "Que o presente é idêntico ao passado",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Que a escola voltou no tempo",
+                "misconceptionCode": "ac-ao-contrario"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
+            "correctIndex": 1,
+            "explanation": "A História é feita de mudanças e permanências que convivem.",
             "variants": [
               {
-                "question": "O que são permanências históricas?",
+                "question": "Sua família trocou o rádio pelo celular, mas continua almoçando junta no domingo. Isso mostra:",
                 "options": [
                   {
-                    "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
+                    "text": "Só mudança",
+                    "misconceptionCode": "tudo-muda-junto"
                   },
                   {
-                    "text": "Eventos que nunca aconteceram",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Só continuidade",
+                    "misconceptionCode": "periodo-natural"
                   },
                   {
-                    "text": "Somente as guerras da Antiguidade",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Que o tempo parou",
+                    "misconceptionCode": "ac-ao-contrario"
                   },
                   {
-                    "text": "Festas e comemorações modernas",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Mudança e continuidade"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "O que diferencia a história oral da história escrita?",
+                "question": "A sua escola mudou o uniforme, mas manteve a festa junina de sempre. Isso mostra:",
                 "options": [
                   {
-                    "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
+                    "text": "Que a escola voltou no tempo",
+                    "misconceptionCode": "ac-ao-contrario"
                   },
                   {
-                    "text": "A oral é sempre falsa",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Que nada mudou",
+                    "misconceptionCode": "periodo-natural"
                   },
                   {
-                    "text": "A escrita é menos confiável",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Uma mudança e uma continuidade ao mesmo tempo"
                   },
                   {
-                    "text": "Não há diferença",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Que tudo mudou",
+                    "misconceptionCode": "tudo-muda-junto"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "Se você fosse dividir a história da sua família em períodos, o que estaria fazendo?",
+            "options": [
+              {
+                "text": "Descobrindo divisões que já existiam na natureza",
+                "misconceptionCode": "periodo-natural"
+              },
+              {
+                "text": "Fazendo tudo mudar de uma vez",
+                "misconceptionCode": "tudo-muda-junto"
+              },
+              {
+                "text": "Contando os anos ao contrário",
+                "misconceptionCode": "ac-ao-contrario"
+              },
+              {
+                "text": "Uma escolha para organizar os acontecimentos"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "É o que os historiadores fazem: escolhem marcos para organizar o tempo.",
+            "variants": [
+              {
+                "question": "Dividir a sua vida em \"antes da escola\" e \"depois da escola\" é:",
+                "options": [
+                  {
+                    "text": "Um erro",
+                    "misconceptionCode": "periodo-natural"
+                  },
+                  {
+                    "text": "Uma forma de periodizar"
+                  },
+                  {
+                    "text": "Uma regra da natureza",
+                    "misconceptionCode": "tudo-muda-junto"
+                  },
+                  {
+                    "text": "Contar séculos",
+                    "misconceptionCode": "ac-ao-contrario"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Se você fosse dividir a história da sua família em períodos, o que estaria fazendo?",
+                "options": [
+                  {
+                    "text": "Uma escolha para organizar os acontecimentos"
+                  },
+                  {
+                    "text": "Contando os anos ao contrário",
+                    "misconceptionCode": "ac-ao-contrario"
+                  },
+                  {
+                    "text": "Fazendo tudo mudar de uma vez",
+                    "misconceptionCode": "tudo-muda-junto"
+                  },
+                  {
+                    "text": "Descobrindo divisões que já existiam na natureza",
+                    "misconceptionCode": "periodo-natural"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06HI01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06HI01-A5",
+        "id": "PK2-EF06HI01-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Identificar diferentes formas de compreensão da noção",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Identificar diferentes formas de compreensão da noção.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Identificar diferentes formas de compreensão da noção.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: periodizar a História",
+        "prompt": "Explique com as suas palavras por que os historiadores dividem a História em períodos e se essa divisão serve igual para todos os povos.",
+        "estMinutes": 6,
+        "audioScript": "Explique com as suas palavras por que os historiadores dividem a História em períodos e se essa divisão serve igual para todos os povos.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de Identificar diferentes formas de compreensão da noção",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "organizar",
+              "description": "Explica que a divisão serve para organizar o estudo"
+            },
+            {
+              "code": "escolha",
+              "description": "Mostra que os períodos foram criados por historiadores, e não são naturais"
+            },
+            {
+              "code": "diversidade",
+              "description": "Reconhece que a divisão europeia nem sempre serve para outros povos"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF06HI01"
+          "exemploBoaResposta": "Os historiadores dividem a História em períodos para organizar o estudo, como Antiguidade e Idade Média. Essa divisão foi criada depois, por eles, e foi pensada a partir da Europa. Para os povos indígenas ou africanos, ela nem sempre faz sentido."
+        }
       }
-    ]
+    ],
+    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
+    "source": "SPEAKFLOW",
+    "status": "APPROVED"
   },
   {
-    "skillCode": "EF06HI02",
-    "title": "Trilha: Identificar a gênese da produção do saber histórico (EF06HI02)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
+    "skillCode": "EF06HI12",
     "subjectCode": "HI",
+    "subjectName": "História",
+    "gradeYear": 6,
+    "version": 2,
+    "title": "Trilha: Cidadania na Grécia e em Roma antigas",
+    "tituloAluno": "Quem era cidadão na Grécia e em Roma",
     "activities": [
       {
-        "id": "PK-EF06HI02-A1",
+        "id": "PK2-EF06HI12-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Identificar a gênese da produção do saber histórico",
-        "prompt": "Questão sobre Identificar a gênese da produção do saber histórico.",
+        "title": "Relembrar: cidadania hoje",
+        "prompt": "Vamos lembrar como é a cidadania hoje no Brasil.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre Identificar a gênese da produção do saber histórico.",
-        "skillId": "EF06HI02",
+        "audioScript": "Vamos lembrar como é a cidadania hoje no Brasil. Pergunta 1. Hoje, no Brasil, os direitos valem para: A: Todas as pessoas, sem distinção; B: Só para os homens; C: Só para quem nasceu rico; D: Só para quem vota. Pergunta 2. Cidadania é: A: Só votar; B: Ter direitos só para alguns grupos; C: Ter direitos e deveres e participar da vida da comunidade; D: Ser igual a todos. Pergunta 3. Antes de 1932, as mulheres brasileiras podiam votar? A: Sim, sempre puderam; B: Não, esse direito foi conquistado em 1932; C: Só as mulheres ricas; D: Sim, antes dos homens.",
         "questions": [
           {
-            "question": "Qual é a importância de estudar \"Identificar a gênese da produção do saber histórico\" no 6º ano?",
+            "question": "Hoje, no Brasil, os direitos valem para:",
             "options": [
               {
-                "text": "Compreender como o passado influencia o presente e a identidade do povo"
+                "text": "Todas as pessoas, sem distinção"
               },
               {
-                "text": "Decorar datas para provas",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Só para os homens",
+                "misconceptionCode": "democracia-para-todos"
               },
               {
-                "text": "Saber apenas o nome dos reis",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Só para quem nasceu rico",
+                "misconceptionCode": "igual-a-hoje"
               },
               {
-                "text": "Não tem importância prática",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Só para quem vota",
+                "misconceptionCode": "confunde-grupos"
               }
             ],
             "correctIndex": 0,
-            "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
+            "explanation": "Hoje a lei garante direitos iguais para todos.",
             "variants": [
               {
-                "question": "O que é fonte histórica?",
+                "question": "Hoje, mulheres e homens no Brasil podem votar?",
                 "options": [
                   {
-                    "text": "Todo registro ou objeto que nos informa sobre o passado"
+                    "text": "Só os homens",
+                    "misconceptionCode": "democracia-para-todos"
                   },
                   {
-                    "text": "Apenas livros escritos por historiadores",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Só as mulheres",
+                    "misconceptionCode": "igual-a-hoje"
                   },
                   {
-                    "text": "Somente fotografias antigas",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Sim, os dois podem"
                   },
                   {
-                    "text": "Inventos do século XX",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Ninguém vota",
+                    "misconceptionCode": "confunde-grupos"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
+                "question": "Hoje, no Brasil, os direitos valem para:",
                 "options": [
                   {
-                    "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
+                    "text": "Só para quem vota",
+                    "misconceptionCode": "confunde-grupos"
                   },
                   {
-                    "text": "Porque apenas um deles sabe a verdade",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Todas as pessoas, sem distinção"
                   },
                   {
-                    "text": "Porque a história é inventada",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Só para quem nasceu rico",
+                    "misconceptionCode": "igual-a-hoje"
                   },
                   {
-                    "text": "Porque só a versão escrita é válida",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Só para os homens",
+                    "misconceptionCode": "democracia-para-todos"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06HI02"
+            ]
           },
           {
-            "question": "Qual é a importância de estudar \"Identificar a gênese da produção do saber histórico\" no 6º ano?",
+            "question": "Cidadania é:",
             "options": [
               {
-                "text": "Compreender como o passado influencia o presente e a identidade do povo"
+                "text": "Só votar",
+                "misconceptionCode": "igual-a-hoje"
               },
               {
-                "text": "Decorar datas para provas",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Ter direitos só para alguns grupos",
+                "misconceptionCode": "democracia-para-todos"
               },
               {
-                "text": "Saber apenas o nome dos reis",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Ter direitos e deveres e participar da vida da comunidade"
               },
               {
-                "text": "Não tem importância prática",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Ser igual a todos",
+                "misconceptionCode": "confunde-grupos"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
+            "correctIndex": 2,
+            "explanation": "Cidadania envolve direitos, deveres e participação.",
             "variants": [
               {
-                "question": "O que é fonte histórica?",
+                "question": "Qual destas é uma forma de cidadania?",
                 "options": [
                   {
-                    "text": "Todo registro ou objeto que nos informa sobre o passado"
+                    "text": "Participar das decisões da comunidade"
                   },
                   {
-                    "text": "Apenas livros escritos por historiadores",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Excluir quem é diferente",
+                    "misconceptionCode": "igual-a-hoje"
                   },
                   {
-                    "text": "Somente fotografias antigas",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Nunca opinar",
+                    "misconceptionCode": "democracia-para-todos"
                   },
                   {
-                    "text": "Inventos do século XX",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Só pagar contas",
+                    "misconceptionCode": "confunde-grupos"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
+                "question": "Cidadania é:",
                 "options": [
                   {
-                    "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
+                    "text": "Ser igual a todos",
+                    "misconceptionCode": "confunde-grupos"
                   },
                   {
-                    "text": "Porque apenas um deles sabe a verdade",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Ter direitos só para alguns grupos",
+                    "misconceptionCode": "democracia-para-todos"
                   },
                   {
-                    "text": "Porque a história é inventada",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Só votar",
+                    "misconceptionCode": "igual-a-hoje"
                   },
                   {
-                    "text": "Porque só a versão escrita é válida",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Ter direitos e deveres e participar da vida da comunidade"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "Antes de 1932, as mulheres brasileiras podiam votar?",
+            "options": [
+              {
+                "text": "Sim, sempre puderam",
+                "misconceptionCode": "igual-a-hoje"
+              },
+              {
+                "text": "Não, esse direito foi conquistado em 1932"
+              },
+              {
+                "text": "Só as mulheres ricas",
+                "misconceptionCode": "confunde-grupos"
+              },
+              {
+                "text": "Sim, antes dos homens",
+                "misconceptionCode": "democracia-para-todos"
               }
             ],
-            "skillId": "EF06HI02"
+            "correctIndex": 1,
+            "explanation": "Os direitos mudam com o tempo e muitos foram conquistados com luta.",
+            "variants": [
+              {
+                "question": "O direito de voto das mulheres no Brasil:",
+                "options": [
+                  {
+                    "text": "Sempre existiu",
+                    "misconceptionCode": "igual-a-hoje"
+                  },
+                  {
+                    "text": "Nunca existiu",
+                    "misconceptionCode": "confunde-grupos"
+                  },
+                  {
+                    "text": "Vale só para algumas",
+                    "misconceptionCode": "democracia-para-todos"
+                  },
+                  {
+                    "text": "Foi uma conquista, em 1932"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Antes de 1932, as mulheres brasileiras podiam votar?",
+                "options": [
+                  {
+                    "text": "Sim, antes dos homens",
+                    "misconceptionCode": "democracia-para-todos"
+                  },
+                  {
+                    "text": "Só as mulheres ricas",
+                    "misconceptionCode": "confunde-grupos"
+                  },
+                  {
+                    "text": "Não, esse direito foi conquistado em 1932"
+                  },
+                  {
+                    "text": "Sim, sempre puderam",
+                    "misconceptionCode": "igual-a-hoje"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06HI02-A2",
+        "id": "PK2-EF06HI12-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Identificar a gênese da produção do saber histórico",
-        "prompt": "Questão sobre Identificar a gênese da produção do saber histórico.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Identificar a gênese da produção do saber histórico.",
-        "skillId": "EF06HI02",
+        "title": "Exemplo guiado: quem votava em Atenas",
+        "prompt": "Em Atenas, há cerca de 2.500 anos, surgiu a democracia: os cidadãos se reuniam numa assembleia para decidir as leis. Mas nem todo mundo era cidadão. Vamos ver quem era.",
+        "estMinutes": 4,
+        "audioScript": "Em Atenas, há cerca de 2.500 anos, surgiu a democracia: os cidadãos se reuniam numa assembleia para decidir as leis. Mas nem todo mundo era cidadão. Vamos ver quem era. Pergunta 1. Quem podia participar da assembleia de Atenas? A: Todos os moradores da cidade; B: Homens e mulheres adultos; C: Homens adultos, livres e filhos de pais atenienses; D: Só os escravizados. Pergunta 2. Os metecos eram estrangeiros que moravam em Atenas. Eles eram cidadãos? A: Sim, todos os moradores eram; B: Não, mesmo trabalhando e pagando impostos; C: Sim, como os estrangeiros de hoje; D: Eles eram os chefes da cidade. Pergunta 3. Por que se diz que a democracia ateniense era excludente? A: Porque todos participavam igualmente; B: Porque era igual à democracia de hoje; C: Porque só os escravizados votavam; D: Porque a maior parte da população, como mulheres, estrangeiros e escravizados, não participava.",
         "questions": [
           {
-            "question": "Associado a \"Identificar a gênese da produção do saber histórico\", o conceito de mudança histórica significa:",
+            "question": "Quem podia participar da assembleia de Atenas?",
             "options": [
               {
-                "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
+                "text": "Todos os moradores da cidade",
+                "misconceptionCode": "democracia-para-todos"
               },
               {
-                "text": "Que tudo sempre permanece igual",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Homens e mulheres adultos",
+                "misconceptionCode": "igual-a-hoje"
               },
               {
-                "text": "Que apenas guerras geram mudanças",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Homens adultos, livres e filhos de pais atenienses"
               },
               {
-                "text": "Que o presente é idêntico ao passado",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Só os escravizados",
+                "misconceptionCode": "confunde-grupos"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
+            "correctIndex": 2,
+            "explanation": "A democracia ateniense era limitada: só uma parte da população era cidadã.",
             "variants": [
               {
-                "question": "O que são permanências históricas?",
+                "question": "Uma mulher ateniense podia votar na assembleia?",
                 "options": [
                   {
-                    "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
+                    "text": "Não"
                   },
                   {
-                    "text": "Eventos que nunca aconteceram",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Sim, como os homens",
+                    "misconceptionCode": "democracia-para-todos"
                   },
                   {
-                    "text": "Somente as guerras da Antiguidade",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Só se fosse rica",
+                    "misconceptionCode": "igual-a-hoje"
                   },
                   {
-                    "text": "Festas e comemorações modernas",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Sim, era obrigatório",
+                    "misconceptionCode": "confunde-grupos"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que diferencia a história oral da história escrita?",
+                "question": "Quem podia participar da assembleia de Atenas?",
                 "options": [
                   {
-                    "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
+                    "text": "Só os escravizados",
+                    "misconceptionCode": "confunde-grupos"
                   },
                   {
-                    "text": "A oral é sempre falsa",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Homens e mulheres adultos",
+                    "misconceptionCode": "igual-a-hoje"
                   },
                   {
-                    "text": "A escrita é menos confiável",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Todos os moradores da cidade",
+                    "misconceptionCode": "democracia-para-todos"
                   },
                   {
-                    "text": "Não há diferença",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Homens adultos, livres e filhos de pais atenienses"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06HI02"
+            ]
           },
           {
-            "question": "Associado a \"Identificar a gênese da produção do saber histórico\", o conceito de mudança histórica significa:",
+            "question": "Os metecos eram estrangeiros que moravam em Atenas. Eles eram cidadãos?",
             "options": [
               {
-                "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
+                "text": "Sim, todos os moradores eram",
+                "misconceptionCode": "democracia-para-todos"
               },
               {
-                "text": "Que tudo sempre permanece igual",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Não, mesmo trabalhando e pagando impostos"
               },
               {
-                "text": "Que apenas guerras geram mudanças",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Sim, como os estrangeiros de hoje",
+                "misconceptionCode": "igual-a-hoje"
               },
               {
-                "text": "Que o presente é idêntico ao passado",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Eles eram os chefes da cidade",
+                "misconceptionCode": "confunde-grupos"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
+            "correctIndex": 1,
+            "explanation": "Estrangeiros ficavam fora da cidadania, mesmo morando e trabalhando lá.",
             "variants": [
               {
-                "question": "O que são permanências históricas?",
+                "question": "Um comerciante estrangeiro que vivia em Atenas havia 20 anos podia votar?",
                 "options": [
                   {
-                    "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
+                    "text": "Sim",
+                    "misconceptionCode": "democracia-para-todos"
                   },
                   {
-                    "text": "Eventos que nunca aconteceram",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Só nas festas",
+                    "misconceptionCode": "igual-a-hoje"
                   },
                   {
-                    "text": "Somente as guerras da Antiguidade",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Sim, se fosse homem",
+                    "misconceptionCode": "confunde-grupos"
                   },
                   {
-                    "text": "Festas e comemorações modernas",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Não"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "O que diferencia a história oral da história escrita?",
+                "question": "Os metecos eram estrangeiros que moravam em Atenas. Eles eram cidadãos?",
                 "options": [
                   {
-                    "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
+                    "text": "Eles eram os chefes da cidade",
+                    "misconceptionCode": "confunde-grupos"
                   },
                   {
-                    "text": "A oral é sempre falsa",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Sim, como os estrangeiros de hoje",
+                    "misconceptionCode": "igual-a-hoje"
                   },
                   {
-                    "text": "A escrita é menos confiável",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Não, mesmo trabalhando e pagando impostos"
                   },
                   {
-                    "text": "Não há diferença",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Sim, todos os moradores eram",
+                    "misconceptionCode": "democracia-para-todos"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "Por que se diz que a democracia ateniense era excludente?",
+            "options": [
+              {
+                "text": "Porque todos participavam igualmente",
+                "misconceptionCode": "democracia-para-todos"
+              },
+              {
+                "text": "Porque era igual à democracia de hoje",
+                "misconceptionCode": "igual-a-hoje"
+              },
+              {
+                "text": "Porque só os escravizados votavam",
+                "misconceptionCode": "confunde-grupos"
+              },
+              {
+                "text": "Porque a maior parte da população, como mulheres, estrangeiros e escravizados, não participava"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Estima-se que só uma pequena parte dos moradores de Atenas fosse cidadã.",
+            "variants": [
+              {
+                "question": "A democracia de Atenas deixava de fora:",
+                "options": [
+                  {
+                    "text": "Só as crianças",
+                    "misconceptionCode": "democracia-para-todos"
+                  },
+                  {
+                    "text": "Mulheres, estrangeiros e escravizados"
+                  },
+                  {
+                    "text": "Ninguém",
+                    "misconceptionCode": "igual-a-hoje"
+                  },
+                  {
+                    "text": "Só os soldados",
+                    "misconceptionCode": "confunde-grupos"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Por que se diz que a democracia ateniense era excludente?",
+                "options": [
+                  {
+                    "text": "Porque a maior parte da população, como mulheres, estrangeiros e escravizados, não participava"
+                  },
+                  {
+                    "text": "Porque só os escravizados votavam",
+                    "misconceptionCode": "confunde-grupos"
+                  },
+                  {
+                    "text": "Porque era igual à democracia de hoje",
+                    "misconceptionCode": "igual-a-hoje"
+                  },
+                  {
+                    "text": "Porque todos participavam igualmente",
+                    "misconceptionCode": "democracia-para-todos"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06HI02"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06HI02-A3",
+        "id": "PK2-EF06HI12-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: Identificar a gênese da produção do saber histórico",
-        "prompt": "Questão sobre Identificar a gênese da produção do saber histórico.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Identificar a gênese da produção do saber histórico.",
-        "skillId": "EF06HI02",
+        "title": "Praticar: Roma e a luta por direitos",
+        "prompt": "Em Roma, a sociedade era dividida em patrícios (famílias ricas e antigas), plebeus (a maioria livre: comerciantes, artesãos, camponeses) e escravizados.",
+        "estMinutes": 5,
+        "audioScript": "Em Roma, a sociedade era dividida em patrícios (famílias ricas e antigas), plebeus (a maioria livre: comerciantes, artesãos, camponeses) e escravizados. Pergunta 1. No começo da República romana, quem tinha mais poder político? A: Os plebeus; B: Os patrícios; C: Os escravizados; D: Todos tinham o mesmo poder. Pergunta 2. Como os plebeus conseguiram mais direitos em Roma? A: Ganharam de presente dos patrícios, sem conflito; B: Sempre tiveram todos os direitos; C: Viraram escravizados; D: Lutando e pressionando, por exemplo, com revoltas e greves. Pergunta 3. As pessoas escravizadas em Roma eram cidadãs? A: Não, eram tratadas como propriedade e não tinham direitos políticos; B: Sim, como todos; C: Sim, eram as mais ricas; D: Tinham os mesmos direitos de hoje. Pergunta 4. Com o tempo, Roma passou a dar a cidadania a mais povos do império. Isso mostra que: A: A cidadania nunca muda; B: Todos já eram cidadãos desde o início; C: A cidadania pode mudar e se ampliar ao longo do tempo; D: Isso aconteceu sem nenhum conflito.",
         "questions": [
           {
-            "question": "Qual é a importância de estudar \"Identificar a gênese da produção do saber histórico\" no 6º ano?",
+            "question": "No começo da República romana, quem tinha mais poder político?",
             "options": [
               {
-                "text": "Compreender como o passado influencia o presente e a identidade do povo"
+                "text": "Os plebeus",
+                "misconceptionCode": "confunde-grupos"
               },
               {
-                "text": "Decorar datas para provas",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Os patrícios"
               },
               {
-                "text": "Saber apenas o nome dos reis",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Os escravizados",
+                "misconceptionCode": "confunde-grupos"
               },
               {
-                "text": "Não tem importância prática",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Todos tinham o mesmo poder",
+                "misconceptionCode": "democracia-para-todos"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
+            "correctIndex": 1,
+            "explanation": "Os patrícios controlavam o Senado e os principais cargos.",
             "variants": [
               {
-                "question": "O que é fonte histórica?",
+                "question": "O Senado romano, no início, era formado por:",
                 "options": [
                   {
-                    "text": "Todo registro ou objeto que nos informa sobre o passado"
+                    "text": "Plebeus",
+                    "misconceptionCode": "confunde-grupos"
                   },
                   {
-                    "text": "Apenas livros escritos por historiadores",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Escravizados",
+                    "misconceptionCode": "confunde-grupos"
                   },
                   {
-                    "text": "Somente fotografias antigas",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Estrangeiros",
+                    "misconceptionCode": "democracia-para-todos"
                   },
                   {
-                    "text": "Inventos do século XX",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Patrícios"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
+                "question": "No começo da República romana, quem tinha mais poder político?",
                 "options": [
                   {
-                    "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
+                    "text": "Todos tinham o mesmo poder",
+                    "misconceptionCode": "democracia-para-todos"
                   },
                   {
-                    "text": "Porque apenas um deles sabe a verdade",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Os escravizados",
+                    "misconceptionCode": "confunde-grupos"
                   },
                   {
-                    "text": "Porque a história é inventada",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Os patrícios"
                   },
                   {
-                    "text": "Porque só a versão escrita é válida",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Os plebeus",
+                    "misconceptionCode": "confunde-grupos"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF06HI02"
+            ]
           },
           {
-            "question": "Qual é a importância de estudar \"Identificar a gênese da produção do saber histórico\" no 6º ano?",
+            "question": "Como os plebeus conseguiram mais direitos em Roma?",
             "options": [
               {
-                "text": "Compreender como o passado influencia o presente e a identidade do povo"
+                "text": "Ganharam de presente dos patrícios, sem conflito",
+                "misconceptionCode": "roma-sem-conflito"
               },
               {
-                "text": "Decorar datas para provas",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Sempre tiveram todos os direitos",
+                "misconceptionCode": "igual-a-hoje"
               },
               {
-                "text": "Saber apenas o nome dos reis",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Viraram escravizados",
+                "misconceptionCode": "confunde-grupos"
               },
               {
-                "text": "Não tem importância prática",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Lutando e pressionando, por exemplo, com revoltas e greves"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Os plebeus chegaram a abandonar a cidade em protesto para conquistar direitos, como os tribunos da plebe.",
+            "variants": [
+              {
+                "question": "A criação dos tribunos da plebe, que defendiam os plebeus, foi:",
+                "options": [
+                  {
+                    "text": "Um presente dos patrícios",
+                    "misconceptionCode": "roma-sem-conflito"
+                  },
+                  {
+                    "text": "Resultado de lutas dos plebeus"
+                  },
+                  {
+                    "text": "Uma ideia dos escravizados",
+                    "misconceptionCode": "igual-a-hoje"
+                  },
+                  {
+                    "text": "Algo que sempre existiu",
+                    "misconceptionCode": "confunde-grupos"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Como os plebeus conseguiram mais direitos em Roma?",
+                "options": [
+                  {
+                    "text": "Lutando e pressionando, por exemplo, com revoltas e greves"
+                  },
+                  {
+                    "text": "Viraram escravizados",
+                    "misconceptionCode": "confunde-grupos"
+                  },
+                  {
+                    "text": "Sempre tiveram todos os direitos",
+                    "misconceptionCode": "igual-a-hoje"
+                  },
+                  {
+                    "text": "Ganharam de presente dos patrícios, sem conflito",
+                    "misconceptionCode": "roma-sem-conflito"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "As pessoas escravizadas em Roma eram cidadãs?",
+            "options": [
+              {
+                "text": "Não, eram tratadas como propriedade e não tinham direitos políticos"
+              },
+              {
+                "text": "Sim, como todos",
+                "misconceptionCode": "democracia-para-todos"
+              },
+              {
+                "text": "Sim, eram as mais ricas",
+                "misconceptionCode": "confunde-grupos"
+              },
+              {
+                "text": "Tinham os mesmos direitos de hoje",
+                "misconceptionCode": "igual-a-hoje"
               }
             ],
             "correctIndex": 0,
-            "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
+            "explanation": "A escravidão era parte da sociedade romana e excluía muitas pessoas da cidadania.",
             "variants": [
               {
-                "question": "O que é fonte histórica?",
+                "question": "Em Roma, uma pessoa escravizada podia votar?",
                 "options": [
                   {
-                    "text": "Todo registro ou objeto que nos informa sobre o passado"
+                    "text": "Sim",
+                    "misconceptionCode": "democracia-para-todos"
                   },
                   {
-                    "text": "Apenas livros escritos por historiadores",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Só os homens",
+                    "misconceptionCode": "confunde-grupos"
                   },
                   {
-                    "text": "Somente fotografias antigas",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Não"
                   },
                   {
-                    "text": "Inventos do século XX",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Só no Senado",
+                    "misconceptionCode": "igual-a-hoje"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "As pessoas escravizadas em Roma eram cidadãs?",
+                "options": [
+                  {
+                    "text": "Tinham os mesmos direitos de hoje",
+                    "misconceptionCode": "igual-a-hoje"
+                  },
+                  {
+                    "text": "Não, eram tratadas como propriedade e não tinham direitos políticos"
+                  },
+                  {
+                    "text": "Sim, eram as mais ricas",
+                    "misconceptionCode": "confunde-grupos"
+                  },
+                  {
+                    "text": "Sim, como todos",
+                    "misconceptionCode": "democracia-para-todos"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Com o tempo, Roma passou a dar a cidadania a mais povos do império. Isso mostra que:",
+            "options": [
+              {
+                "text": "A cidadania nunca muda",
+                "misconceptionCode": "igual-a-hoje"
+              },
+              {
+                "text": "Todos já eram cidadãos desde o início",
+                "misconceptionCode": "democracia-para-todos"
+              },
+              {
+                "text": "A cidadania pode mudar e se ampliar ao longo do tempo"
+              },
+              {
+                "text": "Isso aconteceu sem nenhum conflito",
+                "misconceptionCode": "roma-sem-conflito"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "Em 212, quase todos os homens livres do império viraram cidadãos romanos.",
+            "variants": [
+              {
+                "question": "O que a ampliação da cidadania em Roma mostra?",
+                "options": [
+                  {
+                    "text": "Que os direitos mudam com a história"
+                  },
+                  {
+                    "text": "Que os direitos nunca mudam",
+                    "misconceptionCode": "igual-a-hoje"
+                  },
+                  {
+                    "text": "Que todos sempre foram cidadãos",
+                    "misconceptionCode": "democracia-para-todos"
+                  },
+                  {
+                    "text": "Que só os patrícios contavam",
+                    "misconceptionCode": "roma-sem-conflito"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
+                "question": "Com o tempo, Roma passou a dar a cidadania a mais povos do império. Isso mostra que:",
                 "options": [
                   {
-                    "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
+                    "text": "Isso aconteceu sem nenhum conflito",
+                    "misconceptionCode": "roma-sem-conflito"
                   },
                   {
-                    "text": "Porque apenas um deles sabe a verdade",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Todos já eram cidadãos desde o início",
+                    "misconceptionCode": "democracia-para-todos"
                   },
                   {
-                    "text": "Porque a história é inventada",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A cidadania nunca muda",
+                    "misconceptionCode": "igual-a-hoje"
                   },
                   {
-                    "text": "Porque só a versão escrita é válida",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "A cidadania pode mudar e se ampliar ao longo do tempo"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06HI02"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06HI02-A4",
+        "id": "PK2-EF06HI12-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: Identificar a gênese da produção do saber histórico",
-        "prompt": "Questão sobre Identificar a gênese da produção do saber histórico.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Identificar a gênese da produção do saber histórico.",
-        "skillId": "EF06HI02",
+        "title": "Aplicar: comparando com hoje",
+        "prompt": "Compare a cidadania antiga com a de hoje.",
+        "estMinutes": 4,
+        "audioScript": "Compare a cidadania antiga com a de hoje. Pergunta 1. Uma diferença entre a cidadania de Atenas e a do Brasil de hoje é: A: Não há diferença nenhuma; B: Em Atenas todos votavam, e hoje não; C: Hoje só os patrícios votam; D: Hoje as mulheres votam; em Atenas, não. Pergunta 2. A palavra democracia vem do grego. Isso mostra que: A: Algumas ideias gregas continuam presentes, mas mudaram; B: A democracia grega era igual à nossa; C: Os gregos incluíam todos; D: A democracia surgiu no Brasil. Pergunta 3. Por que é importante estudar quem ficava de fora da cidadania antiga? A: Porque não há diferença com hoje; B: Porque todos eram cidadãos; C: Para entender que os direitos foram conquistados e podem ser ampliados; D: Porque os direitos chegaram sem conflitos.",
         "questions": [
           {
-            "question": "Associado a \"Identificar a gênese da produção do saber histórico\", o conceito de mudança histórica significa:",
+            "question": "Uma diferença entre a cidadania de Atenas e a do Brasil de hoje é:",
             "options": [
               {
-                "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
+                "text": "Não há diferença nenhuma",
+                "misconceptionCode": "igual-a-hoje"
               },
               {
-                "text": "Que tudo sempre permanece igual",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Em Atenas todos votavam, e hoje não",
+                "misconceptionCode": "democracia-para-todos"
               },
               {
-                "text": "Que apenas guerras geram mudanças",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Hoje só os patrícios votam",
+                "misconceptionCode": "confunde-grupos"
               },
               {
-                "text": "Que o presente é idêntico ao passado",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "Hoje as mulheres votam; em Atenas, não"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
+            "correctIndex": 3,
+            "explanation": "Comparar ajuda a ver como a cidadania se ampliou.",
             "variants": [
               {
-                "question": "O que são permanências históricas?",
+                "question": "O que temos hoje que não existia na Atenas antiga?",
                 "options": [
                   {
-                    "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
+                    "text": "Assembleias",
+                    "misconceptionCode": "igual-a-hoje"
                   },
                   {
-                    "text": "Eventos que nunca aconteceram",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Voto das mulheres e fim da escravidão"
                   },
                   {
-                    "text": "Somente as guerras da Antiguidade",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Leis",
+                    "misconceptionCode": "democracia-para-todos"
                   },
                   {
-                    "text": "Festas e comemorações modernas",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Cidades",
+                    "misconceptionCode": "confunde-grupos"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "O que diferencia a história oral da história escrita?",
+                "question": "Uma diferença entre a cidadania de Atenas e a do Brasil de hoje é:",
                 "options": [
                   {
-                    "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
+                    "text": "Hoje as mulheres votam; em Atenas, não"
                   },
                   {
-                    "text": "A oral é sempre falsa",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Hoje só os patrícios votam",
+                    "misconceptionCode": "confunde-grupos"
                   },
                   {
-                    "text": "A escrita é menos confiável",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Em Atenas todos votavam, e hoje não",
+                    "misconceptionCode": "democracia-para-todos"
                   },
                   {
-                    "text": "Não há diferença",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Não há diferença nenhuma",
+                    "misconceptionCode": "igual-a-hoje"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06HI02"
+            ]
           },
           {
-            "question": "Associado a \"Identificar a gênese da produção do saber histórico\", o conceito de mudança histórica significa:",
+            "question": "A palavra democracia vem do grego. Isso mostra que:",
             "options": [
               {
-                "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
+                "text": "Algumas ideias gregas continuam presentes, mas mudaram"
               },
               {
-                "text": "Que tudo sempre permanece igual",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "A democracia grega era igual à nossa",
+                "misconceptionCode": "igual-a-hoje"
               },
               {
-                "text": "Que apenas guerras geram mudanças",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Os gregos incluíam todos",
+                "misconceptionCode": "democracia-para-todos"
               },
               {
-                "text": "Que o presente é idêntico ao passado",
-                "misconceptionCode": "historia-cronologica-apenas"
+                "text": "A democracia surgiu no Brasil",
+                "misconceptionCode": "confunde-grupos"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
+            "explanation": "A palavra continua, mas o sentido se ampliou para incluir mais pessoas.",
             "variants": [
               {
-                "question": "O que são permanências históricas?",
+                "question": "A palavra \"plebiscito\", consulta em que o povo vota, vem de:",
                 "options": [
                   {
-                    "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
+                    "text": "Patrício",
+                    "misconceptionCode": "igual-a-hoje"
                   },
                   {
-                    "text": "Eventos que nunca aconteceram",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Atenas",
+                    "misconceptionCode": "democracia-para-todos"
                   },
                   {
-                    "text": "Somente as guerras da Antiguidade",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Plebe, a palavra romana para o povo"
                   },
                   {
-                    "text": "Festas e comemorações modernas",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Escravizado",
+                    "misconceptionCode": "confunde-grupos"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "A palavra democracia vem do grego. Isso mostra que:",
+                "options": [
+                  {
+                    "text": "A democracia surgiu no Brasil",
+                    "misconceptionCode": "confunde-grupos"
+                  },
+                  {
+                    "text": "Algumas ideias gregas continuam presentes, mas mudaram"
+                  },
+                  {
+                    "text": "Os gregos incluíam todos",
+                    "misconceptionCode": "democracia-para-todos"
+                  },
+                  {
+                    "text": "A democracia grega era igual à nossa",
+                    "misconceptionCode": "igual-a-hoje"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Por que é importante estudar quem ficava de fora da cidadania antiga?",
+            "options": [
+              {
+                "text": "Porque não há diferença com hoje",
+                "misconceptionCode": "igual-a-hoje"
+              },
+              {
+                "text": "Porque todos eram cidadãos",
+                "misconceptionCode": "democracia-para-todos"
+              },
+              {
+                "text": "Para entender que os direitos foram conquistados e podem ser ampliados"
+              },
+              {
+                "text": "Porque os direitos chegaram sem conflitos",
+                "misconceptionCode": "roma-sem-conflito"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "Conhecer as exclusões do passado ajuda a valorizar e ampliar os direitos hoje.",
+            "variants": [
+              {
+                "question": "Estudar a luta dos plebeus ajuda a entender que:",
+                "options": [
+                  {
+                    "text": "Direitos são conquistas"
+                  },
+                  {
+                    "text": "Direitos sempre existiram",
+                    "misconceptionCode": "igual-a-hoje"
+                  },
+                  {
+                    "text": "Ninguém lutou",
+                    "misconceptionCode": "democracia-para-todos"
+                  },
+                  {
+                    "text": "Só os ricos têm direitos",
+                    "misconceptionCode": "roma-sem-conflito"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que diferencia a história oral da história escrita?",
+                "question": "Por que é importante estudar quem ficava de fora da cidadania antiga?",
                 "options": [
                   {
-                    "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
+                    "text": "Porque os direitos chegaram sem conflitos",
+                    "misconceptionCode": "roma-sem-conflito"
                   },
                   {
-                    "text": "A oral é sempre falsa",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Porque todos eram cidadãos",
+                    "misconceptionCode": "democracia-para-todos"
                   },
                   {
-                    "text": "A escrita é menos confiável",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Porque não há diferença com hoje",
+                    "misconceptionCode": "igual-a-hoje"
                   },
                   {
-                    "text": "Não há diferença",
-                    "misconceptionCode": "historia-cronologica-apenas"
+                    "text": "Para entender que os direitos foram conquistados e podem ser ampliados"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06HI02"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06HI02-A5",
+        "id": "PK2-EF06HI12-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Identificar a gênese da produção do saber histórico",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Identificar a gênese da produção do saber histórico.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Identificar a gênese da produção do saber histórico.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: cidadania antiga e atual",
+        "prompt": "Explique com as suas palavras quem era cidadão em Atenas e quem ficava de fora. Depois compare com a cidadania no Brasil de hoje.",
+        "estMinutes": 6,
+        "audioScript": "Explique com as suas palavras quem era cidadão em Atenas e quem ficava de fora. Depois compare com a cidadania no Brasil de hoje.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de Identificar a gênese da produção do saber histórico",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "quem-era",
+              "description": "Diz que em Atenas só homens adultos, livres e atenienses eram cidadãos"
+            },
+            {
+              "code": "excluidos",
+              "description": "Cita grupos excluídos: mulheres, estrangeiros, escravizados"
+            },
+            {
+              "code": "comparacao",
+              "description": "Compara com hoje, mostrando que a cidadania se ampliou"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF06HI02"
+          "exemploBoaResposta": "Em Atenas, só eram cidadãos os homens adultos, livres e filhos de atenienses. Mulheres, estrangeiros e escravizados ficavam de fora. Hoje, no Brasil, todos têm direitos e mulheres e homens podem votar. A cidadania se ampliou com o tempo e com muitas lutas."
+        }
       }
-    ]
-  },
-  {
-    "skillCode": "EF06HI06",
-    "title": "Trilha: Identificar geograficamente as rotas de povoamento (EF06HI06)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
+    ],
     "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
-    "subjectCode": "HI",
-    "activities": [
-      {
-        "id": "PK-EF06HI06-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Identificar geograficamente as rotas de povoamento",
-        "prompt": "Questão sobre Identificar geograficamente as rotas de povoamento.",
-        "estMinutes": 4,
-        "audioScript": "Questão sobre Identificar geograficamente as rotas de povoamento.",
-        "skillId": "EF06HI06",
-        "questions": [
-          {
-            "question": "Qual é a importância de estudar \"Identificar geograficamente as rotas de povoamento\" no 6º ano?",
-            "options": [
-              {
-                "text": "Compreender como o passado influencia o presente e a identidade do povo"
-              },
-              {
-                "text": "Decorar datas para provas",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Saber apenas o nome dos reis",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Não tem importância prática",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
-            "variants": [
-              {
-                "question": "O que é fonte histórica?",
-                "options": [
-                  {
-                    "text": "Todo registro ou objeto que nos informa sobre o passado"
-                  },
-                  {
-                    "text": "Apenas livros escritos por historiadores",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Somente fotografias antigas",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Inventos do século XX",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
-                "options": [
-                  {
-                    "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
-                  },
-                  {
-                    "text": "Porque apenas um deles sabe a verdade",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Porque a história é inventada",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Porque só a versão escrita é válida",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06HI06"
-          },
-          {
-            "question": "Qual é a importância de estudar \"Identificar geograficamente as rotas de povoamento\" no 6º ano?",
-            "options": [
-              {
-                "text": "Compreender como o passado influencia o presente e a identidade do povo"
-              },
-              {
-                "text": "Decorar datas para provas",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Saber apenas o nome dos reis",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Não tem importância prática",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
-            "variants": [
-              {
-                "question": "O que é fonte histórica?",
-                "options": [
-                  {
-                    "text": "Todo registro ou objeto que nos informa sobre o passado"
-                  },
-                  {
-                    "text": "Apenas livros escritos por historiadores",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Somente fotografias antigas",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Inventos do século XX",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
-                "options": [
-                  {
-                    "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
-                  },
-                  {
-                    "text": "Porque apenas um deles sabe a verdade",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Porque a história é inventada",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Porque só a versão escrita é válida",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06HI06"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06HI06-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Identificar geograficamente as rotas de povoamento",
-        "prompt": "Questão sobre Identificar geograficamente as rotas de povoamento.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Identificar geograficamente as rotas de povoamento.",
-        "skillId": "EF06HI06",
-        "questions": [
-          {
-            "question": "Associado a \"Identificar geograficamente as rotas de povoamento\", o conceito de mudança histórica significa:",
-            "options": [
-              {
-                "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
-              },
-              {
-                "text": "Que tudo sempre permanece igual",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Que apenas guerras geram mudanças",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Que o presente é idêntico ao passado",
-                "misconceptionCode": "historia-cronologica-apenas"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
-            "variants": [
-              {
-                "question": "O que são permanências históricas?",
-                "options": [
-                  {
-                    "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
-                  },
-                  {
-                    "text": "Eventos que nunca aconteceram",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente as guerras da Antiguidade",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Festas e comemorações modernas",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que diferencia a história oral da história escrita?",
-                "options": [
-                  {
-                    "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
-                  },
-                  {
-                    "text": "A oral é sempre falsa",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "A escrita é menos confiável",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não há diferença",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06HI06"
-          },
-          {
-            "question": "Associado a \"Identificar geograficamente as rotas de povoamento\", o conceito de mudança histórica significa:",
-            "options": [
-              {
-                "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
-              },
-              {
-                "text": "Que tudo sempre permanece igual",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Que apenas guerras geram mudanças",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Que o presente é idêntico ao passado",
-                "misconceptionCode": "historia-cronologica-apenas"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
-            "variants": [
-              {
-                "question": "O que são permanências históricas?",
-                "options": [
-                  {
-                    "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
-                  },
-                  {
-                    "text": "Eventos que nunca aconteceram",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente as guerras da Antiguidade",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Festas e comemorações modernas",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que diferencia a história oral da história escrita?",
-                "options": [
-                  {
-                    "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
-                  },
-                  {
-                    "text": "A oral é sempre falsa",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "A escrita é menos confiável",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não há diferença",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06HI06"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06HI06-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar com exercícios: Identificar geograficamente as rotas de povoamento",
-        "prompt": "Questão sobre Identificar geograficamente as rotas de povoamento.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Identificar geograficamente as rotas de povoamento.",
-        "skillId": "EF06HI06",
-        "questions": [
-          {
-            "question": "Qual é a importância de estudar \"Identificar geograficamente as rotas de povoamento\" no 6º ano?",
-            "options": [
-              {
-                "text": "Compreender como o passado influencia o presente e a identidade do povo"
-              },
-              {
-                "text": "Decorar datas para provas",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Saber apenas o nome dos reis",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Não tem importância prática",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
-            "variants": [
-              {
-                "question": "O que é fonte histórica?",
-                "options": [
-                  {
-                    "text": "Todo registro ou objeto que nos informa sobre o passado"
-                  },
-                  {
-                    "text": "Apenas livros escritos por historiadores",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Somente fotografias antigas",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Inventos do século XX",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
-                "options": [
-                  {
-                    "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
-                  },
-                  {
-                    "text": "Porque apenas um deles sabe a verdade",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Porque a história é inventada",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Porque só a versão escrita é válida",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06HI06"
-          },
-          {
-            "question": "Qual é a importância de estudar \"Identificar geograficamente as rotas de povoamento\" no 6º ano?",
-            "options": [
-              {
-                "text": "Compreender como o passado influencia o presente e a identidade do povo"
-              },
-              {
-                "text": "Decorar datas para provas",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Saber apenas o nome dos reis",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Não tem importância prática",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
-            "variants": [
-              {
-                "question": "O que é fonte histórica?",
-                "options": [
-                  {
-                    "text": "Todo registro ou objeto que nos informa sobre o passado"
-                  },
-                  {
-                    "text": "Apenas livros escritos por historiadores",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Somente fotografias antigas",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Inventos do século XX",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
-                "options": [
-                  {
-                    "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
-                  },
-                  {
-                    "text": "Porque apenas um deles sabe a verdade",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Porque a história é inventada",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Porque só a versão escrita é válida",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06HI06"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06HI06-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar em situações reais: Identificar geograficamente as rotas de povoamento",
-        "prompt": "Questão sobre Identificar geograficamente as rotas de povoamento.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Identificar geograficamente as rotas de povoamento.",
-        "skillId": "EF06HI06",
-        "questions": [
-          {
-            "question": "Associado a \"Identificar geograficamente as rotas de povoamento\", o conceito de mudança histórica significa:",
-            "options": [
-              {
-                "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
-              },
-              {
-                "text": "Que tudo sempre permanece igual",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Que apenas guerras geram mudanças",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Que o presente é idêntico ao passado",
-                "misconceptionCode": "historia-cronologica-apenas"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
-            "variants": [
-              {
-                "question": "O que são permanências históricas?",
-                "options": [
-                  {
-                    "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
-                  },
-                  {
-                    "text": "Eventos que nunca aconteceram",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente as guerras da Antiguidade",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Festas e comemorações modernas",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que diferencia a história oral da história escrita?",
-                "options": [
-                  {
-                    "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
-                  },
-                  {
-                    "text": "A oral é sempre falsa",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "A escrita é menos confiável",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não há diferença",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06HI06"
-          },
-          {
-            "question": "Associado a \"Identificar geograficamente as rotas de povoamento\", o conceito de mudança histórica significa:",
-            "options": [
-              {
-                "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
-              },
-              {
-                "text": "Que tudo sempre permanece igual",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Que apenas guerras geram mudanças",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Que o presente é idêntico ao passado",
-                "misconceptionCode": "historia-cronologica-apenas"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
-            "variants": [
-              {
-                "question": "O que são permanências históricas?",
-                "options": [
-                  {
-                    "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
-                  },
-                  {
-                    "text": "Eventos que nunca aconteceram",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente as guerras da Antiguidade",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Festas e comemorações modernas",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que diferencia a história oral da história escrita?",
-                "options": [
-                  {
-                    "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
-                  },
-                  {
-                    "text": "A oral é sempre falsa",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "A escrita é menos confiável",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não há diferença",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06HI06"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06HI06-A5",
-        "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Identificar geograficamente as rotas de povoamento",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Identificar geograficamente as rotas de povoamento.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Identificar geograficamente as rotas de povoamento.",
-        "rubric": {
-          "criteria": [
-            "Menciona ao menos dois aspectos de Identificar geograficamente as rotas de povoamento",
-            "Usa vocabulário adequado ao ano escolar"
-          ],
-          "minScore": 60
-        },
-        "skillId": "EF06HI06"
-      }
-    ]
-  },
-  {
-    "skillCode": "EF06HI13",
-    "title": "Trilha: Conceituar “império” no mundo antigo (EF06HI13)",
     "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
-    "subjectCode": "HI",
-    "activities": [
-      {
-        "id": "PK-EF06HI13-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Conceituar “império” no mundo antigo",
-        "prompt": "Questão sobre Conceituar “império” no mundo antigo.",
-        "estMinutes": 4,
-        "audioScript": "Questão sobre Conceituar “império” no mundo antigo.",
-        "skillId": "EF06HI13",
-        "questions": [
-          {
-            "question": "Qual é a importância de estudar \"Conceituar “império” no mundo antigo\" no 6º ano?",
-            "options": [
-              {
-                "text": "Compreender como o passado influencia o presente e a identidade do povo"
-              },
-              {
-                "text": "Decorar datas para provas",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Saber apenas o nome dos reis",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Não tem importância prática",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
-            "variants": [
-              {
-                "question": "O que é fonte histórica?",
-                "options": [
-                  {
-                    "text": "Todo registro ou objeto que nos informa sobre o passado"
-                  },
-                  {
-                    "text": "Apenas livros escritos por historiadores",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Somente fotografias antigas",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Inventos do século XX",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
-                "options": [
-                  {
-                    "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
-                  },
-                  {
-                    "text": "Porque apenas um deles sabe a verdade",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Porque a história é inventada",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Porque só a versão escrita é válida",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06HI13"
-          },
-          {
-            "question": "Qual é a importância de estudar \"Conceituar “império” no mundo antigo\" no 6º ano?",
-            "options": [
-              {
-                "text": "Compreender como o passado influencia o presente e a identidade do povo"
-              },
-              {
-                "text": "Decorar datas para provas",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Saber apenas o nome dos reis",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Não tem importância prática",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
-            "variants": [
-              {
-                "question": "O que é fonte histórica?",
-                "options": [
-                  {
-                    "text": "Todo registro ou objeto que nos informa sobre o passado"
-                  },
-                  {
-                    "text": "Apenas livros escritos por historiadores",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Somente fotografias antigas",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Inventos do século XX",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
-                "options": [
-                  {
-                    "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
-                  },
-                  {
-                    "text": "Porque apenas um deles sabe a verdade",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Porque a história é inventada",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Porque só a versão escrita é válida",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06HI13"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06HI13-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Conceituar “império” no mundo antigo",
-        "prompt": "Questão sobre Conceituar “império” no mundo antigo.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Conceituar “império” no mundo antigo.",
-        "skillId": "EF06HI13",
-        "questions": [
-          {
-            "question": "Associado a \"Conceituar “império” no mundo antigo\", o conceito de mudança histórica significa:",
-            "options": [
-              {
-                "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
-              },
-              {
-                "text": "Que tudo sempre permanece igual",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Que apenas guerras geram mudanças",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Que o presente é idêntico ao passado",
-                "misconceptionCode": "historia-cronologica-apenas"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
-            "variants": [
-              {
-                "question": "O que são permanências históricas?",
-                "options": [
-                  {
-                    "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
-                  },
-                  {
-                    "text": "Eventos que nunca aconteceram",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente as guerras da Antiguidade",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Festas e comemorações modernas",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que diferencia a história oral da história escrita?",
-                "options": [
-                  {
-                    "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
-                  },
-                  {
-                    "text": "A oral é sempre falsa",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "A escrita é menos confiável",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não há diferença",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06HI13"
-          },
-          {
-            "question": "Associado a \"Conceituar “império” no mundo antigo\", o conceito de mudança histórica significa:",
-            "options": [
-              {
-                "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
-              },
-              {
-                "text": "Que tudo sempre permanece igual",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Que apenas guerras geram mudanças",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Que o presente é idêntico ao passado",
-                "misconceptionCode": "historia-cronologica-apenas"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
-            "variants": [
-              {
-                "question": "O que são permanências históricas?",
-                "options": [
-                  {
-                    "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
-                  },
-                  {
-                    "text": "Eventos que nunca aconteceram",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente as guerras da Antiguidade",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Festas e comemorações modernas",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que diferencia a história oral da história escrita?",
-                "options": [
-                  {
-                    "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
-                  },
-                  {
-                    "text": "A oral é sempre falsa",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "A escrita é menos confiável",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não há diferença",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06HI13"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06HI13-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar com exercícios: Conceituar “império” no mundo antigo",
-        "prompt": "Questão sobre Conceituar “império” no mundo antigo.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Conceituar “império” no mundo antigo.",
-        "skillId": "EF06HI13",
-        "questions": [
-          {
-            "question": "Qual é a importância de estudar \"Conceituar “império” no mundo antigo\" no 6º ano?",
-            "options": [
-              {
-                "text": "Compreender como o passado influencia o presente e a identidade do povo"
-              },
-              {
-                "text": "Decorar datas para provas",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Saber apenas o nome dos reis",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Não tem importância prática",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
-            "variants": [
-              {
-                "question": "O que é fonte histórica?",
-                "options": [
-                  {
-                    "text": "Todo registro ou objeto que nos informa sobre o passado"
-                  },
-                  {
-                    "text": "Apenas livros escritos por historiadores",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Somente fotografias antigas",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Inventos do século XX",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
-                "options": [
-                  {
-                    "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
-                  },
-                  {
-                    "text": "Porque apenas um deles sabe a verdade",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Porque a história é inventada",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Porque só a versão escrita é válida",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06HI13"
-          },
-          {
-            "question": "Qual é a importância de estudar \"Conceituar “império” no mundo antigo\" no 6º ano?",
-            "options": [
-              {
-                "text": "Compreender como o passado influencia o presente e a identidade do povo"
-              },
-              {
-                "text": "Decorar datas para provas",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Saber apenas o nome dos reis",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Não tem importância prática",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
-            "variants": [
-              {
-                "question": "O que é fonte histórica?",
-                "options": [
-                  {
-                    "text": "Todo registro ou objeto que nos informa sobre o passado"
-                  },
-                  {
-                    "text": "Apenas livros escritos por historiadores",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Somente fotografias antigas",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Inventos do século XX",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
-                "options": [
-                  {
-                    "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
-                  },
-                  {
-                    "text": "Porque apenas um deles sabe a verdade",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Porque a história é inventada",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Porque só a versão escrita é válida",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06HI13"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06HI13-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar em situações reais: Conceituar “império” no mundo antigo",
-        "prompt": "Questão sobre Conceituar “império” no mundo antigo.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Conceituar “império” no mundo antigo.",
-        "skillId": "EF06HI13",
-        "questions": [
-          {
-            "question": "Associado a \"Conceituar “império” no mundo antigo\", o conceito de mudança histórica significa:",
-            "options": [
-              {
-                "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
-              },
-              {
-                "text": "Que tudo sempre permanece igual",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Que apenas guerras geram mudanças",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Que o presente é idêntico ao passado",
-                "misconceptionCode": "historia-cronologica-apenas"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
-            "variants": [
-              {
-                "question": "O que são permanências históricas?",
-                "options": [
-                  {
-                    "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
-                  },
-                  {
-                    "text": "Eventos que nunca aconteceram",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente as guerras da Antiguidade",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Festas e comemorações modernas",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que diferencia a história oral da história escrita?",
-                "options": [
-                  {
-                    "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
-                  },
-                  {
-                    "text": "A oral é sempre falsa",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "A escrita é menos confiável",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não há diferença",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06HI13"
-          },
-          {
-            "question": "Associado a \"Conceituar “império” no mundo antigo\", o conceito de mudança histórica significa:",
-            "options": [
-              {
-                "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
-              },
-              {
-                "text": "Que tudo sempre permanece igual",
-                "misconceptionCode": "historia-cronologica-apenas"
-              },
-              {
-                "text": "Que apenas guerras geram mudanças",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Que o presente é idêntico ao passado",
-                "misconceptionCode": "historia-cronologica-apenas"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
-            "variants": [
-              {
-                "question": "O que são permanências históricas?",
-                "options": [
-                  {
-                    "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
-                  },
-                  {
-                    "text": "Eventos que nunca aconteceram",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente as guerras da Antiguidade",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "Festas e comemorações modernas",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que diferencia a história oral da história escrita?",
-                "options": [
-                  {
-                    "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
-                  },
-                  {
-                    "text": "A oral é sempre falsa",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  },
-                  {
-                    "text": "A escrita é menos confiável",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não há diferença",
-                    "misconceptionCode": "historia-cronologica-apenas"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06HI13"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06HI13-A5",
-        "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Conceituar “império” no mundo antigo",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Conceituar “império” no mundo antigo.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Conceituar “império” no mundo antigo.",
-        "rubric": {
-          "criteria": [
-            "Menciona ao menos dois aspectos de Conceituar “império” no mundo antigo",
-            "Usa vocabulário adequado ao ano escolar"
-          ],
-          "minScore": 60
-        },
-        "skillId": "EF06HI13"
-      }
-    ]
+    "status": "APPROVED"
   }
 ]

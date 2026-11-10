@@ -1,2450 +1,1890 @@
 [
   {
-    "skillCode": "EF69AR01",
-    "title": "Trilha: apreciar e analisar formas distintas das artes (EF69AR01)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
+    "skillCode": "EF69AR04",
     "subjectCode": "AR",
+    "subjectName": "Arte",
+    "gradeYear": 6,
+    "version": 2,
+    "title": "Trilha: Analisar elementos das artes visuais",
+    "tituloAluno": "Olhar uma obra como artista",
     "activities": [
       {
-        "id": "PK-EF69AR01-A1",
+        "id": "PK2-EF69AR04-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: apreciar e analisar formas distintas das artes",
-        "prompt": "Questão sobre apreciar e analisar formas distintas das artes.",
+        "title": "Relembrar: os elementos visuais",
+        "prompt": "Vamos lembrar os elementos básicos das artes visuais.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre apreciar e analisar formas distintas das artes.",
-        "skillId": "EF69AR01",
+        "audioScript": "Vamos lembrar os elementos básicos das artes visuais. Pergunta 1. Qual destes é um elemento das artes visuais? A: A linha; B: O enredo da história; C: O gosto do artista; D: O preço da obra. Pergunta 2. Textura numa obra é: A: A cor da obra; B: O tamanho da obra; C: Como a superfície parece ao toque, lisa ou áspera; D: Se a obra é bonita. Pergunta 3. Cores quentes são: A: Azul, verde e roxo; B: Vermelho, laranja e amarelo; C: Só o preto; D: As cores que eu acho mais bonitas.",
         "questions": [
           {
-            "question": "No tema \"apreciar e analisar formas distintas das artes\", qual das opções descreve uma linguagem artística?",
+            "question": "Qual destes é um elemento das artes visuais?",
             "options": [
               {
-                "text": "Uma forma de expressão humana que usa elementos estéticos para comunicar ideias e sentimentos"
+                "text": "A linha"
               },
               {
-                "text": "Apenas desenho técnico",
-                "misconceptionCode": "arte-so-visual"
+                "text": "O enredo da história",
+                "misconceptionCode": "descreve-sem-analisar"
               },
               {
-                "text": "Somente música clássica erudita",
-                "misconceptionCode": "arte-so-visual"
+                "text": "O gosto do artista",
+                "misconceptionCode": "gosto-como-analise"
               },
               {
-                "text": "Fotografias científicas",
-                "misconceptionCode": "conteudo-errado"
+                "text": "O preço da obra",
+                "misconceptionCode": "gosto-como-analise"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Linguagem artística é toda forma de expressão estética: visual, sonora, corporal, cênica.",
+            "explanation": "Ponto, linha, forma, cor, textura e espaço são elementos visuais.",
             "variants": [
               {
-                "question": "O que são elementos visuais básicos em Arte?",
+                "question": "Qual destes também é um elemento visual?",
                 "options": [
                   {
-                    "text": "Ponto, linha, forma, cor, textura e espaço"
+                    "text": "O título do livro",
+                    "misconceptionCode": "descreve-sem-analisar"
                   },
                   {
-                    "text": "Apenas cores quentes e frias",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "A opinião do público",
+                    "misconceptionCode": "gosto-como-analise"
                   },
                   {
-                    "text": "Somente o ponto",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A cor"
                   },
                   {
-                    "text": "Figuras geométricas perfeitas",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "O valor do quadro",
+                    "misconceptionCode": "gosto-como-analise"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "O que é apreciação estética?",
+                "question": "Qual destes é um elemento das artes visuais?",
                 "options": [
                   {
-                    "text": "A capacidade de observar, sentir e refletir sobre uma obra de arte"
+                    "text": "O preço da obra",
+                    "misconceptionCode": "gosto-como-analise"
                   },
                   {
-                    "text": "Apenas comprar obras caras",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "A linha"
                   },
                   {
-                    "text": "Criticar negativamente",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "O gosto do artista",
+                    "misconceptionCode": "gosto-como-analise"
                   },
                   {
-                    "text": "Copiar obras sem autoria",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "O enredo da história",
+                    "misconceptionCode": "descreve-sem-analisar"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF69AR01"
+            ]
           },
           {
-            "question": "No tema \"apreciar e analisar formas distintas das artes\", qual das opções descreve uma linguagem artística?",
+            "question": "Textura numa obra é:",
             "options": [
               {
-                "text": "Uma forma de expressão humana que usa elementos estéticos para comunicar ideias e sentimentos"
+                "text": "A cor da obra",
+                "misconceptionCode": "tom-cor"
               },
               {
-                "text": "Apenas desenho técnico",
-                "misconceptionCode": "arte-so-visual"
+                "text": "O tamanho da obra",
+                "misconceptionCode": "escala-tamanho-real"
               },
               {
-                "text": "Somente música clássica erudita",
-                "misconceptionCode": "arte-so-visual"
+                "text": "Como a superfície parece ao toque, lisa ou áspera"
               },
               {
-                "text": "Fotografias científicas",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Se a obra é bonita",
+                "misconceptionCode": "gosto-como-analise"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Linguagem artística é toda forma de expressão estética: visual, sonora, corporal, cênica.",
+            "correctIndex": 2,
+            "explanation": "Textura pode ser real (sente-se ao tocar) ou visual (parece ao olhar).",
             "variants": [
               {
-                "question": "O que são elementos visuais básicos em Arte?",
+                "question": "Uma pintura que parece ter pelos de animal, mesmo sendo lisa, tem:",
                 "options": [
                   {
-                    "text": "Ponto, linha, forma, cor, textura e espaço"
+                    "text": "Textura visual"
                   },
                   {
-                    "text": "Apenas cores quentes e frias",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Só cor",
+                    "misconceptionCode": "tom-cor"
                   },
                   {
-                    "text": "Somente o ponto",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Escala",
+                    "misconceptionCode": "escala-tamanho-real"
                   },
                   {
-                    "text": "Figuras geométricas perfeitas",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Nenhum elemento",
+                    "misconceptionCode": "gosto-como-analise"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que é apreciação estética?",
+                "question": "Textura numa obra é:",
                 "options": [
                   {
-                    "text": "A capacidade de observar, sentir e refletir sobre uma obra de arte"
+                    "text": "Se a obra é bonita",
+                    "misconceptionCode": "gosto-como-analise"
                   },
                   {
-                    "text": "Apenas comprar obras caras",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "O tamanho da obra",
+                    "misconceptionCode": "escala-tamanho-real"
                   },
                   {
-                    "text": "Criticar negativamente",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A cor da obra",
+                    "misconceptionCode": "tom-cor"
                   },
                   {
-                    "text": "Copiar obras sem autoria",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Como a superfície parece ao toque, lisa ou áspera"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "Cores quentes são:",
+            "options": [
+              {
+                "text": "Azul, verde e roxo",
+                "misconceptionCode": "tom-cor"
+              },
+              {
+                "text": "Vermelho, laranja e amarelo"
+              },
+              {
+                "text": "Só o preto",
+                "misconceptionCode": "tom-cor"
+              },
+              {
+                "text": "As cores que eu acho mais bonitas",
+                "misconceptionCode": "gosto-como-analise"
               }
             ],
-            "skillId": "EF69AR01"
+            "correctIndex": 1,
+            "explanation": "Cores quentes lembram calor e energia.",
+            "variants": [
+              {
+                "question": "Cores frias são:",
+                "options": [
+                  {
+                    "text": "Vermelho e laranja",
+                    "misconceptionCode": "tom-cor"
+                  },
+                  {
+                    "text": "As cores mais caras",
+                    "misconceptionCode": "tom-cor"
+                  },
+                  {
+                    "text": "Só o branco",
+                    "misconceptionCode": "gosto-como-analise"
+                  },
+                  {
+                    "text": "Azul, verde e roxo"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Cores quentes são:",
+                "options": [
+                  {
+                    "text": "As cores que eu acho mais bonitas",
+                    "misconceptionCode": "gosto-como-analise"
+                  },
+                  {
+                    "text": "Só o preto",
+                    "misconceptionCode": "tom-cor"
+                  },
+                  {
+                    "text": "Vermelho, laranja e amarelo"
+                  },
+                  {
+                    "text": "Azul, verde e roxo",
+                    "misconceptionCode": "tom-cor"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF69AR01-A2",
+        "id": "PK2-EF69AR04-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: apreciar e analisar formas distintas das artes",
-        "prompt": "Questão sobre apreciar e analisar formas distintas das artes.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre apreciar e analisar formas distintas das artes.",
-        "skillId": "EF69AR01",
+        "title": "Exemplo guiado: analisando uma pintura",
+        "prompt": "Imagine uma pintura de uma feira: no centro, uma vendedora grande com roupa vermelha; atrás, barracas pequenas em tons de azul; linhas diagonais nos toldos. Vamos analisar juntos.",
+        "estMinutes": 4,
+        "audioScript": "Imagine uma pintura de uma feira: no centro, uma vendedora grande com roupa vermelha; atrás, barracas pequenas em tons de azul; linhas diagonais nos toldos. Vamos analisar juntos. Pergunta 1. Por que a vendedora chama mais atenção? A: Porque é a pessoa mais simpática; B: Porque a feira vende frutas; C: Porque está no centro, é grande e tem cor quente; D: Porque o azul é mais forte que o vermelho. Pergunta 2. As barracas pequenas ao fundo dão a sensação de: A: Que as barracas são de brinquedo; B: Profundidade, de que estão longe; C: Que são mais importantes; D: Que a pintura é feia. Pergunta 3. As linhas diagonais dos toldos criam que efeito? A: Sensação de calma total; B: Mudança de cor; C: Nenhum efeito, são só toldos; D: Sensação de movimento e agitação.",
         "questions": [
           {
-            "question": "O que distingue arte popular de arte erudita?",
+            "question": "Por que a vendedora chama mais atenção?",
             "options": [
               {
-                "text": "Origem, contexto de produção e público — ambas têm valor cultural"
+                "text": "Porque é a pessoa mais simpática",
+                "misconceptionCode": "gosto-como-analise"
               },
               {
-                "text": "A erudita é sempre superior",
-                "misconceptionCode": "arte-so-visual"
+                "text": "Porque a feira vende frutas",
+                "misconceptionCode": "descreve-sem-analisar"
               },
               {
-                "text": "A popular não é arte de verdade",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Porque está no centro, é grande e tem cor quente"
               },
               {
-                "text": "Não há diferença",
-                "misconceptionCode": "arte-so-visual"
+                "text": "Porque o azul é mais forte que o vermelho",
+                "misconceptionCode": "tom-cor"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Arte popular e erudita são formas igualmente válidas de expressão cultural, com origens e contextos diferentes.",
+            "correctIndex": 2,
+            "explanation": "Posição central, tamanho maior e cor quente contrastando com o fundo frio destacam a figura.",
             "variants": [
               {
-                "question": "O que é patrimônio cultural imaterial?",
+                "question": "Num cartaz, o que faz um título se destacar?",
                 "options": [
                   {
-                    "text": "Tradições, saberes, festas e expressões culturais de um povo"
+                    "text": "Tamanho grande e cor que contrasta com o fundo"
                   },
                   {
-                    "text": "Apenas prédios históricos",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Ser um título simpático",
+                    "misconceptionCode": "gosto-como-analise"
                   },
                   {
-                    "text": "Somente objetos em museus",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Falar de um assunto bom",
+                    "misconceptionCode": "descreve-sem-analisar"
                   },
                   {
-                    "text": "Pinturas famosas",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Ter a mesma cor do fundo",
+                    "misconceptionCode": "tom-cor"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que caracteriza uma dança folclórica?",
+                "question": "Por que a vendedora chama mais atenção?",
                 "options": [
                   {
-                    "text": "Movimentos e ritmos transmitidos por gerações, ligados à cultura local"
+                    "text": "Porque o azul é mais forte que o vermelho",
+                    "misconceptionCode": "tom-cor"
                   },
                   {
-                    "text": "Coreografias criadas por uma única pessoa famosa",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Porque a feira vende frutas",
+                    "misconceptionCode": "descreve-sem-analisar"
                   },
                   {
-                    "text": "Dança sem significado cultural",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Porque é a pessoa mais simpática",
+                    "misconceptionCode": "gosto-como-analise"
                   },
                   {
-                    "text": "Exclusivamente dança clássica europeia",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Porque está no centro, é grande e tem cor quente"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF69AR01"
+            ]
           },
           {
-            "question": "O que distingue arte popular de arte erudita?",
+            "question": "As barracas pequenas ao fundo dão a sensação de:",
             "options": [
               {
-                "text": "Origem, contexto de produção e público — ambas têm valor cultural"
+                "text": "Que as barracas são de brinquedo",
+                "misconceptionCode": "escala-tamanho-real"
               },
               {
-                "text": "A erudita é sempre superior",
-                "misconceptionCode": "arte-so-visual"
+                "text": "Profundidade, de que estão longe"
               },
               {
-                "text": "A popular não é arte de verdade",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Que são mais importantes",
+                "misconceptionCode": "descreve-sem-analisar"
               },
               {
-                "text": "Não há diferença",
-                "misconceptionCode": "arte-so-visual"
+                "text": "Que a pintura é feia",
+                "misconceptionCode": "gosto-como-analise"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Arte popular e erudita são formas igualmente válidas de expressão cultural, com origens e contextos diferentes.",
+            "correctIndex": 1,
+            "explanation": "A escala menor indica distância: é um recurso de espaço.",
             "variants": [
               {
-                "question": "O que é patrimônio cultural imaterial?",
+                "question": "Numa foto, uma pessoa distante parece pequena. Isso acontece por causa:",
                 "options": [
                   {
-                    "text": "Tradições, saberes, festas e expressões culturais de um povo"
+                    "text": "Do tamanho real dela",
+                    "misconceptionCode": "escala-tamanho-real"
                   },
                   {
-                    "text": "Apenas prédios históricos",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Da cor da roupa",
+                    "misconceptionCode": "descreve-sem-analisar"
                   },
                   {
-                    "text": "Somente objetos em museus",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Do gosto do fotógrafo",
+                    "misconceptionCode": "gosto-como-analise"
                   },
                   {
-                    "text": "Pinturas famosas",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Da escala e da profundidade na imagem"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "O que caracteriza uma dança folclórica?",
+                "question": "As barracas pequenas ao fundo dão a sensação de:",
                 "options": [
                   {
-                    "text": "Movimentos e ritmos transmitidos por gerações, ligados à cultura local"
+                    "text": "Que a pintura é feia",
+                    "misconceptionCode": "gosto-como-analise"
                   },
                   {
-                    "text": "Coreografias criadas por uma única pessoa famosa",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Que são mais importantes",
+                    "misconceptionCode": "descreve-sem-analisar"
                   },
                   {
-                    "text": "Dança sem significado cultural",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Profundidade, de que estão longe"
                   },
                   {
-                    "text": "Exclusivamente dança clássica europeia",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Que as barracas são de brinquedo",
+                    "misconceptionCode": "escala-tamanho-real"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "As linhas diagonais dos toldos criam que efeito?",
+            "options": [
+              {
+                "text": "Sensação de calma total",
+                "misconceptionCode": "descreve-sem-analisar"
+              },
+              {
+                "text": "Mudança de cor",
+                "misconceptionCode": "tom-cor"
+              },
+              {
+                "text": "Nenhum efeito, são só toldos",
+                "misconceptionCode": "descreve-sem-analisar"
+              },
+              {
+                "text": "Sensação de movimento e agitação"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Diagonais costumam dar dinamismo; horizontais passam calma.",
+            "variants": [
+              {
+                "question": "Linhas horizontais numa paisagem de mar costumam passar sensação de:",
+                "options": [
+                  {
+                    "text": "Agitação",
+                    "misconceptionCode": "descreve-sem-analisar"
+                  },
+                  {
+                    "text": "Calma"
+                  },
+                  {
+                    "text": "Calor",
+                    "misconceptionCode": "tom-cor"
+                  },
+                  {
+                    "text": "Perigo",
+                    "misconceptionCode": "descreve-sem-analisar"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "As linhas diagonais dos toldos criam que efeito?",
+                "options": [
+                  {
+                    "text": "Sensação de movimento e agitação"
+                  },
+                  {
+                    "text": "Nenhum efeito, são só toldos",
+                    "misconceptionCode": "descreve-sem-analisar"
+                  },
+                  {
+                    "text": "Mudança de cor",
+                    "misconceptionCode": "tom-cor"
+                  },
+                  {
+                    "text": "Sensação de calma total",
+                    "misconceptionCode": "descreve-sem-analisar"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF69AR01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF69AR01-A3",
+        "id": "PK2-EF69AR04-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: apreciar e analisar formas distintas das artes",
-        "prompt": "Questão sobre apreciar e analisar formas distintas das artes.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre apreciar e analisar formas distintas das artes.",
-        "skillId": "EF69AR01",
+        "title": "Praticar: tom, escala e direção",
+        "prompt": "Analise os efeitos de cada elemento.",
+        "estMinutes": 5,
+        "audioScript": "Analise os efeitos de cada elemento. Pergunta 1. Um artista pintou o céu do azul-claro ao azul-escuro. Ele variou: A: A cor, trocando azul por outra; B: O tom da mesma cor; C: A escala do céu; D: A textura do céu. Pergunta 2. Uma escultura de uma formiga com 3 metros de altura chama atenção porque: A: Formigas são grandes assim na vida real; B: A cor da formiga é bonita; C: É só uma formiga; D: A escala muda a nossa percepção do objeto. Pergunta 3. Num grafite, o artista usou muitas cores vibrantes e contrastantes. Um efeito possível é: A: Chamar a atenção de quem passa na rua; B: Deixar a parede invisível; C: Nenhum, as cores são só enfeite; D: Ficar bonito para todo mundo. Pergunta 4. Qual destas frases é uma análise, e não só uma opinião? A: Eu amei essa pintura; B: A pintura mostra uma mulher; C: As linhas curvas e as cores suaves deixam a pintura tranquila; D: É a pintura mais bonita do mundo.",
         "questions": [
           {
-            "question": "No tema \"apreciar e analisar formas distintas das artes\", qual das opções descreve uma linguagem artística?",
+            "question": "Um artista pintou o céu do azul-claro ao azul-escuro. Ele variou:",
             "options": [
               {
-                "text": "Uma forma de expressão humana que usa elementos estéticos para comunicar ideias e sentimentos"
+                "text": "A cor, trocando azul por outra",
+                "misconceptionCode": "tom-cor"
               },
               {
-                "text": "Apenas desenho técnico",
-                "misconceptionCode": "arte-so-visual"
+                "text": "O tom da mesma cor"
               },
               {
-                "text": "Somente música clássica erudita",
-                "misconceptionCode": "arte-so-visual"
+                "text": "A escala do céu",
+                "misconceptionCode": "escala-tamanho-real"
               },
               {
-                "text": "Fotografias científicas",
-                "misconceptionCode": "conteudo-errado"
+                "text": "A textura do céu",
+                "misconceptionCode": "descreve-sem-analisar"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Linguagem artística é toda forma de expressão estética: visual, sonora, corporal, cênica.",
+            "correctIndex": 1,
+            "explanation": "Tom é o quanto a cor é clara ou escura.",
             "variants": [
               {
-                "question": "O que são elementos visuais básicos em Arte?",
+                "question": "Pintar uma maçã com vermelho-claro de um lado e vermelho-escuro do outro é variar:",
                 "options": [
                   {
-                    "text": "Ponto, linha, forma, cor, textura e espaço"
+                    "text": "A cor",
+                    "misconceptionCode": "tom-cor"
                   },
                   {
-                    "text": "Apenas cores quentes e frias",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "A escala",
+                    "misconceptionCode": "escala-tamanho-real"
                   },
                   {
-                    "text": "Somente o ponto",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A linha",
+                    "misconceptionCode": "descreve-sem-analisar"
                   },
                   {
-                    "text": "Figuras geométricas perfeitas",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "O tom"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "O que é apreciação estética?",
+                "question": "Um artista pintou o céu do azul-claro ao azul-escuro. Ele variou:",
                 "options": [
                   {
-                    "text": "A capacidade de observar, sentir e refletir sobre uma obra de arte"
+                    "text": "A textura do céu",
+                    "misconceptionCode": "descreve-sem-analisar"
                   },
                   {
-                    "text": "Apenas comprar obras caras",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "A escala do céu",
+                    "misconceptionCode": "escala-tamanho-real"
                   },
                   {
-                    "text": "Criticar negativamente",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "O tom da mesma cor"
                   },
                   {
-                    "text": "Copiar obras sem autoria",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "A cor, trocando azul por outra",
+                    "misconceptionCode": "tom-cor"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF69AR01"
+            ]
           },
           {
-            "question": "No tema \"apreciar e analisar formas distintas das artes\", qual das opções descreve uma linguagem artística?",
+            "question": "Uma escultura de uma formiga com 3 metros de altura chama atenção porque:",
             "options": [
               {
-                "text": "Uma forma de expressão humana que usa elementos estéticos para comunicar ideias e sentimentos"
+                "text": "Formigas são grandes assim na vida real",
+                "misconceptionCode": "escala-tamanho-real"
               },
               {
-                "text": "Apenas desenho técnico",
-                "misconceptionCode": "arte-so-visual"
+                "text": "A cor da formiga é bonita",
+                "misconceptionCode": "gosto-como-analise"
               },
               {
-                "text": "Somente música clássica erudita",
-                "misconceptionCode": "arte-so-visual"
+                "text": "É só uma formiga",
+                "misconceptionCode": "descreve-sem-analisar"
               },
               {
-                "text": "Fotografias científicas",
-                "misconceptionCode": "conteudo-errado"
+                "text": "A escala muda a nossa percepção do objeto"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Mudar a escala de algo conhecido provoca surpresa e reflexão.",
+            "variants": [
+              {
+                "question": "Uma cadeira gigante numa praça faz as pessoas se sentirem:",
+                "options": [
+                  {
+                    "text": "Do tamanho real",
+                    "misconceptionCode": "escala-tamanho-real"
+                  },
+                  {
+                    "text": "Pequenas, por causa da escala"
+                  },
+                  {
+                    "text": "Mais altas",
+                    "misconceptionCode": "gosto-como-analise"
+                  },
+                  {
+                    "text": "Sem efeito",
+                    "misconceptionCode": "descreve-sem-analisar"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Uma escultura de uma formiga com 3 metros de altura chama atenção porque:",
+                "options": [
+                  {
+                    "text": "A escala muda a nossa percepção do objeto"
+                  },
+                  {
+                    "text": "É só uma formiga",
+                    "misconceptionCode": "descreve-sem-analisar"
+                  },
+                  {
+                    "text": "A cor da formiga é bonita",
+                    "misconceptionCode": "gosto-como-analise"
+                  },
+                  {
+                    "text": "Formigas são grandes assim na vida real",
+                    "misconceptionCode": "escala-tamanho-real"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "Num grafite, o artista usou muitas cores vibrantes e contrastantes. Um efeito possível é:",
+            "options": [
+              {
+                "text": "Chamar a atenção de quem passa na rua"
+              },
+              {
+                "text": "Deixar a parede invisível",
+                "misconceptionCode": "tom-cor"
+              },
+              {
+                "text": "Nenhum, as cores são só enfeite",
+                "misconceptionCode": "descreve-sem-analisar"
+              },
+              {
+                "text": "Ficar bonito para todo mundo",
+                "misconceptionCode": "gosto-como-analise"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Linguagem artística é toda forma de expressão estética: visual, sonora, corporal, cênica.",
+            "explanation": "Analisar é dizer o efeito que o elemento produz, não só se é bonito.",
             "variants": [
               {
-                "question": "O que são elementos visuais básicos em Arte?",
+                "question": "Num cartaz de campanha, cores fortes e contrastantes servem para:",
                 "options": [
                   {
-                    "text": "Ponto, linha, forma, cor, textura e espaço"
+                    "text": "Ficar escondido",
+                    "misconceptionCode": "tom-cor"
                   },
                   {
-                    "text": "Apenas cores quentes e frias",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Parecer antigo",
+                    "misconceptionCode": "descreve-sem-analisar"
                   },
                   {
-                    "text": "Somente o ponto",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Ser visto de longe"
                   },
                   {
-                    "text": "Figuras geométricas perfeitas",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Não ter efeito",
+                    "misconceptionCode": "gosto-como-analise"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "Num grafite, o artista usou muitas cores vibrantes e contrastantes. Um efeito possível é:",
+                "options": [
+                  {
+                    "text": "Ficar bonito para todo mundo",
+                    "misconceptionCode": "gosto-como-analise"
+                  },
+                  {
+                    "text": "Chamar a atenção de quem passa na rua"
+                  },
+                  {
+                    "text": "Nenhum, as cores são só enfeite",
+                    "misconceptionCode": "descreve-sem-analisar"
+                  },
+                  {
+                    "text": "Deixar a parede invisível",
+                    "misconceptionCode": "tom-cor"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Qual destas frases é uma análise, e não só uma opinião?",
+            "options": [
+              {
+                "text": "Eu amei essa pintura",
+                "misconceptionCode": "gosto-como-analise"
+              },
+              {
+                "text": "A pintura mostra uma mulher",
+                "misconceptionCode": "descreve-sem-analisar"
+              },
+              {
+                "text": "As linhas curvas e as cores suaves deixam a pintura tranquila"
+              },
+              {
+                "text": "É a pintura mais bonita do mundo",
+                "misconceptionCode": "gosto-como-analise"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "A análise explica como os elementos criam efeitos.",
+            "variants": [
+              {
+                "question": "Qual frase analisa uma foto?",
+                "options": [
+                  {
+                    "text": "A luz forte vinda da esquerda cria sombras longas e um clima de fim de tarde"
+                  },
+                  {
+                    "text": "Gostei muito da foto",
+                    "misconceptionCode": "gosto-como-analise"
+                  },
+                  {
+                    "text": "É uma foto de rua",
+                    "misconceptionCode": "descreve-sem-analisar"
+                  },
+                  {
+                    "text": "A foto é feia",
+                    "misconceptionCode": "gosto-como-analise"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que é apreciação estética?",
+                "question": "Qual destas frases é uma análise, e não só uma opinião?",
                 "options": [
                   {
-                    "text": "A capacidade de observar, sentir e refletir sobre uma obra de arte"
+                    "text": "É a pintura mais bonita do mundo",
+                    "misconceptionCode": "gosto-como-analise"
                   },
                   {
-                    "text": "Apenas comprar obras caras",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "A pintura mostra uma mulher",
+                    "misconceptionCode": "descreve-sem-analisar"
                   },
                   {
-                    "text": "Criticar negativamente",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Eu amei essa pintura",
+                    "misconceptionCode": "gosto-como-analise"
                   },
                   {
-                    "text": "Copiar obras sem autoria",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "As linhas curvas e as cores suaves deixam a pintura tranquila"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF69AR01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF69AR01-A4",
+        "id": "PK2-EF69AR04-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: apreciar e analisar formas distintas das artes",
-        "prompt": "Questão sobre apreciar e analisar formas distintas das artes.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre apreciar e analisar formas distintas das artes.",
-        "skillId": "EF69AR01",
+        "title": "Aplicar: imagens do dia a dia",
+        "prompt": "Os elementos visuais estão em capas, propagandas, jogos e grafites.",
+        "estMinutes": 4,
+        "audioScript": "Os elementos visuais estão em capas, propagandas, jogos e grafites. Pergunta 1. A capa de um jogo de terror usa tons escuros e um pouco de vermelho. O efeito é: A: Passar alegria; B: Nenhum, é só a capa; C: Mostrar que o jogo é bom; D: Criar suspense e tensão. Pergunta 2. Num anúncio, o produto aparece enorme e a pessoa ao lado, pequena. O objetivo é: A: Destacar o produto usando a escala; B: Mostrar o tamanho real do produto; C: Esconder o produto; D: Mostrar que o produto é bonito. Pergunta 3. Você vai fazer um cartaz para a feira de ciências. Para o título ser visto de longe, use: A: Letras pequenas da mesma cor do fundo; B: A cor de que você mais gosta, sem pensar no fundo; C: Letras grandes e cor que contraste com o fundo; D: Letras do tamanho real das palavras.",
         "questions": [
           {
-            "question": "O que distingue arte popular de arte erudita?",
+            "question": "A capa de um jogo de terror usa tons escuros e um pouco de vermelho. O efeito é:",
             "options": [
               {
-                "text": "Origem, contexto de produção e público — ambas têm valor cultural"
+                "text": "Passar alegria",
+                "misconceptionCode": "tom-cor"
               },
               {
-                "text": "A erudita é sempre superior",
-                "misconceptionCode": "arte-so-visual"
+                "text": "Nenhum, é só a capa",
+                "misconceptionCode": "descreve-sem-analisar"
               },
               {
-                "text": "A popular não é arte de verdade",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Mostrar que o jogo é bom",
+                "misconceptionCode": "gosto-como-analise"
               },
               {
-                "text": "Não há diferença",
-                "misconceptionCode": "arte-so-visual"
+                "text": "Criar suspense e tensão"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Arte popular e erudita são formas igualmente válidas de expressão cultural, com origens e contextos diferentes.",
+            "correctIndex": 3,
+            "explanation": "Tons escuros e o vermelho em contraste criam um clima de tensão.",
             "variants": [
               {
-                "question": "O que é patrimônio cultural imaterial?",
+                "question": "A capa de um livro infantil alegre costuma usar:",
                 "options": [
                   {
-                    "text": "Tradições, saberes, festas e expressões culturais de um povo"
+                    "text": "Só preto",
+                    "misconceptionCode": "tom-cor"
                   },
                   {
-                    "text": "Apenas prédios históricos",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Cores claras e quentes"
                   },
                   {
-                    "text": "Somente objetos em museus",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Tons escuros",
+                    "misconceptionCode": "descreve-sem-analisar"
                   },
                   {
-                    "text": "Pinturas famosas",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Nenhuma cor",
+                    "misconceptionCode": "gosto-como-analise"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "O que caracteriza uma dança folclórica?",
+                "question": "A capa de um jogo de terror usa tons escuros e um pouco de vermelho. O efeito é:",
                 "options": [
                   {
-                    "text": "Movimentos e ritmos transmitidos por gerações, ligados à cultura local"
+                    "text": "Criar suspense e tensão"
                   },
                   {
-                    "text": "Coreografias criadas por uma única pessoa famosa",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Mostrar que o jogo é bom",
+                    "misconceptionCode": "gosto-como-analise"
                   },
                   {
-                    "text": "Dança sem significado cultural",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Nenhum, é só a capa",
+                    "misconceptionCode": "descreve-sem-analisar"
                   },
                   {
-                    "text": "Exclusivamente dança clássica europeia",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Passar alegria",
+                    "misconceptionCode": "tom-cor"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF69AR01"
+            ]
           },
           {
-            "question": "O que distingue arte popular de arte erudita?",
+            "question": "Num anúncio, o produto aparece enorme e a pessoa ao lado, pequena. O objetivo é:",
             "options": [
               {
-                "text": "Origem, contexto de produção e público — ambas têm valor cultural"
+                "text": "Destacar o produto usando a escala"
               },
               {
-                "text": "A erudita é sempre superior",
-                "misconceptionCode": "arte-so-visual"
+                "text": "Mostrar o tamanho real do produto",
+                "misconceptionCode": "escala-tamanho-real"
               },
               {
-                "text": "A popular não é arte de verdade",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Esconder o produto",
+                "misconceptionCode": "descreve-sem-analisar"
               },
               {
-                "text": "Não há diferença",
-                "misconceptionCode": "arte-so-visual"
+                "text": "Mostrar que o produto é bonito",
+                "misconceptionCode": "gosto-como-analise"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Arte popular e erudita são formas igualmente válidas de expressão cultural, com origens e contextos diferentes.",
+            "explanation": "A escala exagerada dirige o olhar para o que é mais importante.",
             "variants": [
               {
-                "question": "O que é patrimônio cultural imaterial?",
+                "question": "Por que o lanche na propaganda parece maior do que o que você recebe?",
                 "options": [
                   {
-                    "text": "Tradições, saberes, festas e expressões culturais de um povo"
+                    "text": "Porque ele é desse tamanho",
+                    "misconceptionCode": "escala-tamanho-real"
                   },
                   {
-                    "text": "Apenas prédios históricos",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Porque a cor muda o tamanho",
+                    "misconceptionCode": "descreve-sem-analisar"
                   },
                   {
-                    "text": "Somente objetos em museus",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Porque a imagem usa escala e enquadramento para destacar"
                   },
                   {
-                    "text": "Pinturas famosas",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Por acaso",
+                    "misconceptionCode": "gosto-como-analise"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "Num anúncio, o produto aparece enorme e a pessoa ao lado, pequena. O objetivo é:",
+                "options": [
+                  {
+                    "text": "Mostrar que o produto é bonito",
+                    "misconceptionCode": "gosto-como-analise"
+                  },
+                  {
+                    "text": "Destacar o produto usando a escala"
+                  },
+                  {
+                    "text": "Esconder o produto",
+                    "misconceptionCode": "descreve-sem-analisar"
+                  },
+                  {
+                    "text": "Mostrar o tamanho real do produto",
+                    "misconceptionCode": "escala-tamanho-real"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Você vai fazer um cartaz para a feira de ciências. Para o título ser visto de longe, use:",
+            "options": [
+              {
+                "text": "Letras pequenas da mesma cor do fundo",
+                "misconceptionCode": "tom-cor"
+              },
+              {
+                "text": "A cor de que você mais gosta, sem pensar no fundo",
+                "misconceptionCode": "gosto-como-analise"
+              },
+              {
+                "text": "Letras grandes e cor que contraste com o fundo"
+              },
+              {
+                "text": "Letras do tamanho real das palavras",
+                "misconceptionCode": "escala-tamanho-real"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "Contraste e escala garantem a leitura.",
+            "variants": [
+              {
+                "question": "Num cartaz com fundo amarelo, qual cor de letra fica mais legível?",
+                "options": [
+                  {
+                    "text": "Preto ou azul-escuro"
+                  },
+                  {
+                    "text": "Amarelo-claro",
+                    "misconceptionCode": "tom-cor"
+                  },
+                  {
+                    "text": "Branco",
+                    "misconceptionCode": "gosto-como-analise"
+                  },
+                  {
+                    "text": "Bege",
+                    "misconceptionCode": "escala-tamanho-real"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que caracteriza uma dança folclórica?",
+                "question": "Você vai fazer um cartaz para a feira de ciências. Para o título ser visto de longe, use:",
                 "options": [
                   {
-                    "text": "Movimentos e ritmos transmitidos por gerações, ligados à cultura local"
+                    "text": "Letras do tamanho real das palavras",
+                    "misconceptionCode": "escala-tamanho-real"
                   },
                   {
-                    "text": "Coreografias criadas por uma única pessoa famosa",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "A cor de que você mais gosta, sem pensar no fundo",
+                    "misconceptionCode": "gosto-como-analise"
                   },
                   {
-                    "text": "Dança sem significado cultural",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Letras pequenas da mesma cor do fundo",
+                    "misconceptionCode": "tom-cor"
                   },
                   {
-                    "text": "Exclusivamente dança clássica europeia",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Letras grandes e cor que contraste com o fundo"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF69AR01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF69AR01-A5",
+        "id": "PK2-EF69AR04-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: apreciar e analisar formas distintas das artes",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre apreciar e analisar formas distintas das artes.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre apreciar e analisar formas distintas das artes.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: analisando uma imagem",
+        "prompt": "Escolha uma imagem que você conhece (uma capa, um grafite, uma foto). Explique com as suas palavras dois elementos visuais dela e o efeito de cada um.",
+        "estMinutes": 6,
+        "audioScript": "Escolha uma imagem que você conhece (uma capa, um grafite, uma foto). Explique com as suas palavras dois elementos visuais dela e o efeito de cada um.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de apreciar e analisar formas distintas das artes",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "elementos",
+              "description": "Identifica dois elementos visuais da imagem"
+            },
+            {
+              "code": "efeito",
+              "description": "Explica o efeito que cada elemento produz"
+            },
+            {
+              "code": "analise",
+              "description": "Vai além do gosto pessoal e da simples descrição"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF69AR01"
+          "exemploBoaResposta": "Na capa do meu jogo favorito, o personagem aparece grande no centro, então ele chama a atenção primeiro. O fundo é escuro, em tons de roxo, e isso cria um clima de mistério. As linhas diagonais da espada dão ideia de movimento."
+        }
       }
-    ]
+    ],
+    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
+    "source": "SPEAKFLOW",
+    "status": "APPROVED"
   },
   {
-    "skillCode": "EF69AR16",
-    "title": "Trilha: por meio da apreciação musical (EF69AR16)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
+    "skillCode": "EF69AR20",
     "subjectCode": "AR",
+    "subjectName": "Arte",
+    "gradeYear": 6,
+    "version": 2,
+    "title": "Trilha: Elementos da música com tecnologia",
+    "tituloAluno": "Explorar a música em jogos e aplicativos",
     "activities": [
       {
-        "id": "PK-EF69AR16-A1",
+        "id": "PK2-EF69AR20-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: por meio da apreciação musical",
-        "prompt": "Questão sobre por meio da apreciação musical.",
+        "title": "Relembrar: os elementos da música",
+        "prompt": "Vamos lembrar os elementos da música.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre por meio da apreciação musical.",
-        "skillId": "EF69AR16",
+        "audioScript": "Vamos lembrar os elementos da música. Pergunta 1. Som grave e som agudo são diferenças de: A: Intensidade; B: Altura; C: Timbre; D: Ritmo. Pergunta 2. Som forte e som fraco são diferenças de: A: Altura; B: Melodia; C: Timbre; D: Intensidade. Pergunta 3. O que permite reconhecer se uma nota foi tocada num violão ou num teclado? A: O timbre; B: A intensidade; C: O ritmo; D: A altura.",
         "questions": [
           {
-            "question": "No tema \"por meio da apreciação musical\", qual das opções descreve uma linguagem artística?",
+            "question": "Som grave e som agudo são diferenças de:",
             "options": [
               {
-                "text": "Uma forma de expressão humana que usa elementos estéticos para comunicar ideias e sentimentos"
+                "text": "Intensidade",
+                "misconceptionCode": "altura-volume"
               },
               {
-                "text": "Apenas desenho técnico",
-                "misconceptionCode": "arte-so-visual"
+                "text": "Altura"
               },
               {
-                "text": "Somente música clássica erudita",
-                "misconceptionCode": "arte-so-visual"
+                "text": "Timbre",
+                "misconceptionCode": "timbre-volume"
               },
               {
-                "text": "Fotografias científicas",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Ritmo",
+                "misconceptionCode": "ritmo-melodia"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Linguagem artística é toda forma de expressão estética: visual, sonora, corporal, cênica.",
+            "correctIndex": 1,
+            "explanation": "Altura: grave (grosso) ou agudo (fino).",
             "variants": [
               {
-                "question": "O que são elementos visuais básicos em Arte?",
+                "question": "A diferença entre a voz fina de uma criança e a voz grossa de um adulto é principalmente de:",
                 "options": [
                   {
-                    "text": "Ponto, linha, forma, cor, textura e espaço"
+                    "text": "Intensidade",
+                    "misconceptionCode": "altura-volume"
                   },
                   {
-                    "text": "Apenas cores quentes e frias",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Ritmo",
+                    "misconceptionCode": "timbre-volume"
                   },
                   {
-                    "text": "Somente o ponto",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Duração",
+                    "misconceptionCode": "ritmo-melodia"
                   },
                   {
-                    "text": "Figuras geométricas perfeitas",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Altura"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "O que é apreciação estética?",
+                "question": "Som grave e som agudo são diferenças de:",
                 "options": [
                   {
-                    "text": "A capacidade de observar, sentir e refletir sobre uma obra de arte"
+                    "text": "Ritmo",
+                    "misconceptionCode": "ritmo-melodia"
                   },
                   {
-                    "text": "Apenas comprar obras caras",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Timbre",
+                    "misconceptionCode": "timbre-volume"
                   },
                   {
-                    "text": "Criticar negativamente",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Altura"
                   },
                   {
-                    "text": "Copiar obras sem autoria",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Intensidade",
+                    "misconceptionCode": "altura-volume"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF69AR16"
+            ]
           },
           {
-            "question": "No tema \"por meio da apreciação musical\", qual das opções descreve uma linguagem artística?",
+            "question": "Som forte e som fraco são diferenças de:",
             "options": [
               {
-                "text": "Uma forma de expressão humana que usa elementos estéticos para comunicar ideias e sentimentos"
+                "text": "Altura",
+                "misconceptionCode": "altura-volume"
               },
               {
-                "text": "Apenas desenho técnico",
-                "misconceptionCode": "arte-so-visual"
+                "text": "Melodia",
+                "misconceptionCode": "ritmo-melodia"
               },
               {
-                "text": "Somente música clássica erudita",
-                "misconceptionCode": "arte-so-visual"
+                "text": "Timbre",
+                "misconceptionCode": "timbre-volume"
               },
               {
-                "text": "Fotografias científicas",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Intensidade"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Intensidade é o volume.",
+            "variants": [
+              {
+                "question": "Gritar e sussurrar a mesma frase muda:",
+                "options": [
+                  {
+                    "text": "A altura",
+                    "misconceptionCode": "altura-volume"
+                  },
+                  {
+                    "text": "A intensidade"
+                  },
+                  {
+                    "text": "O timbre",
+                    "misconceptionCode": "ritmo-melodia"
+                  },
+                  {
+                    "text": "A melodia",
+                    "misconceptionCode": "timbre-volume"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Som forte e som fraco são diferenças de:",
+                "options": [
+                  {
+                    "text": "Intensidade"
+                  },
+                  {
+                    "text": "Timbre",
+                    "misconceptionCode": "timbre-volume"
+                  },
+                  {
+                    "text": "Melodia",
+                    "misconceptionCode": "ritmo-melodia"
+                  },
+                  {
+                    "text": "Altura",
+                    "misconceptionCode": "altura-volume"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "O que permite reconhecer se uma nota foi tocada num violão ou num teclado?",
+            "options": [
+              {
+                "text": "O timbre"
+              },
+              {
+                "text": "A intensidade",
+                "misconceptionCode": "timbre-volume"
+              },
+              {
+                "text": "O ritmo",
+                "misconceptionCode": "ritmo-melodia"
+              },
+              {
+                "text": "A altura",
+                "misconceptionCode": "altura-volume"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Linguagem artística é toda forma de expressão estética: visual, sonora, corporal, cênica.",
+            "explanation": "Timbre é a \"cor\" do som de cada instrumento.",
             "variants": [
               {
-                "question": "O que são elementos visuais básicos em Arte?",
+                "question": "O mesmo \"dó\" no piano e na flauta soa diferente por causa:",
                 "options": [
                   {
-                    "text": "Ponto, linha, forma, cor, textura e espaço"
+                    "text": "Da intensidade",
+                    "misconceptionCode": "timbre-volume"
                   },
                   {
-                    "text": "Apenas cores quentes e frias",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Do ritmo",
+                    "misconceptionCode": "ritmo-melodia"
                   },
                   {
-                    "text": "Somente o ponto",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Do timbre"
                   },
                   {
-                    "text": "Figuras geométricas perfeitas",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Da altura",
+                    "misconceptionCode": "altura-volume"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "O que é apreciação estética?",
+                "question": "O que permite reconhecer se uma nota foi tocada num violão ou num teclado?",
                 "options": [
                   {
-                    "text": "A capacidade de observar, sentir e refletir sobre uma obra de arte"
+                    "text": "A altura",
+                    "misconceptionCode": "altura-volume"
                   },
                   {
-                    "text": "Apenas comprar obras caras",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "O timbre"
                   },
                   {
-                    "text": "Criticar negativamente",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "O ritmo",
+                    "misconceptionCode": "ritmo-melodia"
                   },
                   {
-                    "text": "Copiar obras sem autoria",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "A intensidade",
+                    "misconceptionCode": "timbre-volume"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF69AR16"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF69AR16-A2",
+        "id": "PK2-EF69AR20-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: por meio da apreciação musical",
-        "prompt": "Questão sobre por meio da apreciação musical.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre por meio da apreciação musical.",
-        "skillId": "EF69AR16",
+        "title": "Exemplo guiado: no aplicativo de música",
+        "prompt": "Imagine um aplicativo de criar música no celular: tem uma faixa de bateria, uma faixa de teclado com a melodia e botões de volume e de instrumento. Vamos explorar juntos.",
+        "estMinutes": 4,
+        "audioScript": "Imagine um aplicativo de criar música no celular: tem uma faixa de bateria, uma faixa de teclado com a melodia e botões de volume e de instrumento. Vamos explorar juntos. Pergunta 1. A faixa da bateria, que repete \"tum-tá-tum-tum-tá\", é responsável principalmente por: A: A melodia; B: O timbre do teclado; C: A altura das notas; D: O ritmo. Pergunta 2. Você troca o instrumento da faixa de teclado para violino, sem mudar as notas. O que mudou? A: O timbre; B: A intensidade; C: A melodia; D: O ritmo da bateria. Pergunta 3. Você arrasta as notas da melodia para cima na tela. O que acontece? A: Elas ficam mais fortes; B: O instrumento muda; C: Elas ficam mais agudas; D: A batida fica mais rápida.",
         "questions": [
           {
-            "question": "O que distingue arte popular de arte erudita?",
+            "question": "A faixa da bateria, que repete \"tum-tá-tum-tum-tá\", é responsável principalmente por:",
             "options": [
               {
-                "text": "Origem, contexto de produção e público — ambas têm valor cultural"
+                "text": "A melodia",
+                "misconceptionCode": "ritmo-melodia"
               },
               {
-                "text": "A erudita é sempre superior",
-                "misconceptionCode": "arte-so-visual"
+                "text": "O timbre do teclado",
+                "misconceptionCode": "timbre-volume"
               },
               {
-                "text": "A popular não é arte de verdade",
-                "misconceptionCode": "conteudo-errado"
+                "text": "A altura das notas",
+                "misconceptionCode": "altura-volume"
               },
               {
-                "text": "Não há diferença",
-                "misconceptionCode": "arte-so-visual"
+                "text": "O ritmo"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Arte popular e erudita são formas igualmente válidas de expressão cultural, com origens e contextos diferentes.",
+            "correctIndex": 3,
+            "explanation": "A batida organiza as durações no tempo: o ritmo.",
             "variants": [
               {
-                "question": "O que é patrimônio cultural imaterial?",
+                "question": "Num aplicativo, a faixa que só tem batidas de tambor e palmas forma:",
                 "options": [
                   {
-                    "text": "Tradições, saberes, festas e expressões culturais de um povo"
+                    "text": "A melodia",
+                    "misconceptionCode": "ritmo-melodia"
                   },
                   {
-                    "text": "Apenas prédios históricos",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "A base rítmica"
                   },
                   {
-                    "text": "Somente objetos em museus",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A letra",
+                    "misconceptionCode": "timbre-volume"
                   },
                   {
-                    "text": "Pinturas famosas",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "A altura",
+                    "misconceptionCode": "altura-volume"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "O que caracteriza uma dança folclórica?",
+                "question": "A faixa da bateria, que repete \"tum-tá-tum-tum-tá\", é responsável principalmente por:",
                 "options": [
                   {
-                    "text": "Movimentos e ritmos transmitidos por gerações, ligados à cultura local"
+                    "text": "O ritmo"
                   },
                   {
-                    "text": "Coreografias criadas por uma única pessoa famosa",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "A altura das notas",
+                    "misconceptionCode": "altura-volume"
                   },
                   {
-                    "text": "Dança sem significado cultural",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "O timbre do teclado",
+                    "misconceptionCode": "timbre-volume"
                   },
                   {
-                    "text": "Exclusivamente dança clássica europeia",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "A melodia",
+                    "misconceptionCode": "ritmo-melodia"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF69AR16"
+            ]
           },
           {
-            "question": "O que distingue arte popular de arte erudita?",
+            "question": "Você troca o instrumento da faixa de teclado para violino, sem mudar as notas. O que mudou?",
             "options": [
               {
-                "text": "Origem, contexto de produção e público — ambas têm valor cultural"
+                "text": "O timbre"
               },
               {
-                "text": "A erudita é sempre superior",
-                "misconceptionCode": "arte-so-visual"
+                "text": "A intensidade",
+                "misconceptionCode": "timbre-volume"
               },
               {
-                "text": "A popular não é arte de verdade",
-                "misconceptionCode": "conteudo-errado"
+                "text": "A melodia",
+                "misconceptionCode": "ritmo-melodia"
               },
               {
-                "text": "Não há diferença",
-                "misconceptionCode": "arte-so-visual"
+                "text": "O ritmo da bateria",
+                "misconceptionCode": "ritmo-melodia"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Arte popular e erudita são formas igualmente válidas de expressão cultural, com origens e contextos diferentes.",
+            "explanation": "As notas são as mesmas; muda a \"voz\" do instrumento.",
             "variants": [
               {
-                "question": "O que é patrimônio cultural imaterial?",
+                "question": "Trocar o som de piano por som de guitarra no aplicativo muda:",
                 "options": [
                   {
-                    "text": "Tradições, saberes, festas e expressões culturais de um povo"
+                    "text": "A melodia",
+                    "misconceptionCode": "timbre-volume"
                   },
                   {
-                    "text": "Apenas prédios históricos",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "O ritmo",
+                    "misconceptionCode": "ritmo-melodia"
                   },
                   {
-                    "text": "Somente objetos em museus",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "O timbre"
                   },
                   {
-                    "text": "Pinturas famosas",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "O volume",
+                    "misconceptionCode": "ritmo-melodia"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "Você troca o instrumento da faixa de teclado para violino, sem mudar as notas. O que mudou?",
+                "options": [
+                  {
+                    "text": "O ritmo da bateria",
+                    "misconceptionCode": "ritmo-melodia"
+                  },
+                  {
+                    "text": "O timbre"
+                  },
+                  {
+                    "text": "A melodia",
+                    "misconceptionCode": "ritmo-melodia"
+                  },
+                  {
+                    "text": "A intensidade",
+                    "misconceptionCode": "timbre-volume"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Você arrasta as notas da melodia para cima na tela. O que acontece?",
+            "options": [
+              {
+                "text": "Elas ficam mais fortes",
+                "misconceptionCode": "altura-volume"
+              },
+              {
+                "text": "O instrumento muda",
+                "misconceptionCode": "timbre-volume"
+              },
+              {
+                "text": "Elas ficam mais agudas"
+              },
+              {
+                "text": "A batida fica mais rápida",
+                "misconceptionCode": "efeito-sem-elemento"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "Nos editores, subir a nota na tela aumenta a altura.",
+            "variants": [
+              {
+                "question": "Arrastar uma nota para baixo no editor deixa o som:",
+                "options": [
+                  {
+                    "text": "Mais grave"
+                  },
+                  {
+                    "text": "Mais fraco",
+                    "misconceptionCode": "altura-volume"
+                  },
+                  {
+                    "text": "Mais rápido",
+                    "misconceptionCode": "timbre-volume"
+                  },
+                  {
+                    "text": "Com outro instrumento",
+                    "misconceptionCode": "efeito-sem-elemento"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que caracteriza uma dança folclórica?",
+                "question": "Você arrasta as notas da melodia para cima na tela. O que acontece?",
                 "options": [
                   {
-                    "text": "Movimentos e ritmos transmitidos por gerações, ligados à cultura local"
+                    "text": "A batida fica mais rápida",
+                    "misconceptionCode": "efeito-sem-elemento"
                   },
                   {
-                    "text": "Coreografias criadas por uma única pessoa famosa",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "O instrumento muda",
+                    "misconceptionCode": "timbre-volume"
                   },
                   {
-                    "text": "Dança sem significado cultural",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Elas ficam mais fortes",
+                    "misconceptionCode": "altura-volume"
                   },
                   {
-                    "text": "Exclusivamente dança clássica europeia",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Elas ficam mais agudas"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF69AR16"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF69AR16-A3",
+        "id": "PK2-EF69AR20-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: por meio da apreciação musical",
-        "prompt": "Questão sobre por meio da apreciação musical.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre por meio da apreciação musical.",
-        "skillId": "EF69AR16",
+        "title": "Praticar: botões e elementos",
+        "prompt": "Cada ferramenta do aplicativo muda um elemento da música.",
+        "estMinutes": 5,
+        "audioScript": "Cada ferramenta do aplicativo muda um elemento da música. Pergunta 1. O controle chamado \"volume\" ou \"ganho\" muda: A: A intensidade; B: A altura; C: O timbre; D: A melodia. Pergunta 2. O controle de \"BPM\" (batidas por minuto) muda: A: O timbre do instrumento; B: A altura das notas; C: A velocidade do ritmo, o andamento; D: Nada importante. Pergunta 3. O efeito que deixa a voz \"de esquilo\", bem fina, muda principalmente: A: A intensidade; B: A altura; C: O ritmo; D: Nenhum elemento, é só um efeito engraçado. Pergunta 4. Num jogo de ritmo, você precisa apertar o botão no tempo certo das batidas. O jogo trabalha principalmente: A: A melodia; B: O timbre; C: A altura; D: O ritmo.",
         "questions": [
           {
-            "question": "No tema \"por meio da apreciação musical\", qual das opções descreve uma linguagem artística?",
+            "question": "O controle chamado \"volume\" ou \"ganho\" muda:",
             "options": [
               {
-                "text": "Uma forma de expressão humana que usa elementos estéticos para comunicar ideias e sentimentos"
+                "text": "A intensidade"
               },
               {
-                "text": "Apenas desenho técnico",
-                "misconceptionCode": "arte-so-visual"
+                "text": "A altura",
+                "misconceptionCode": "altura-volume"
               },
               {
-                "text": "Somente música clássica erudita",
-                "misconceptionCode": "arte-so-visual"
+                "text": "O timbre",
+                "misconceptionCode": "timbre-volume"
               },
               {
-                "text": "Fotografias científicas",
-                "misconceptionCode": "conteudo-errado"
+                "text": "A melodia",
+                "misconceptionCode": "ritmo-melodia"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Linguagem artística é toda forma de expressão estética: visual, sonora, corporal, cênica.",
+            "explanation": "Volume é intensidade.",
             "variants": [
               {
-                "question": "O que são elementos visuais básicos em Arte?",
+                "question": "Aumentar o \"volume\" de uma faixa a deixa:",
                 "options": [
                   {
-                    "text": "Ponto, linha, forma, cor, textura e espaço"
+                    "text": "Mais aguda",
+                    "misconceptionCode": "altura-volume"
                   },
                   {
-                    "text": "Apenas cores quentes e frias",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Com outro timbre",
+                    "misconceptionCode": "timbre-volume"
                   },
                   {
-                    "text": "Somente o ponto",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Mais forte"
                   },
                   {
-                    "text": "Figuras geométricas perfeitas",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Mais lenta",
+                    "misconceptionCode": "ritmo-melodia"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "O que é apreciação estética?",
+                "question": "O controle chamado \"volume\" ou \"ganho\" muda:",
                 "options": [
                   {
-                    "text": "A capacidade de observar, sentir e refletir sobre uma obra de arte"
+                    "text": "A melodia",
+                    "misconceptionCode": "ritmo-melodia"
                   },
                   {
-                    "text": "Apenas comprar obras caras",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "A intensidade"
                   },
                   {
-                    "text": "Criticar negativamente",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "O timbre",
+                    "misconceptionCode": "timbre-volume"
                   },
                   {
-                    "text": "Copiar obras sem autoria",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "A altura",
+                    "misconceptionCode": "altura-volume"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF69AR16"
+            ]
           },
           {
-            "question": "No tema \"por meio da apreciação musical\", qual das opções descreve uma linguagem artística?",
+            "question": "O controle de \"BPM\" (batidas por minuto) muda:",
             "options": [
               {
-                "text": "Uma forma de expressão humana que usa elementos estéticos para comunicar ideias e sentimentos"
+                "text": "O timbre do instrumento",
+                "misconceptionCode": "timbre-volume"
               },
               {
-                "text": "Apenas desenho técnico",
-                "misconceptionCode": "arte-so-visual"
+                "text": "A altura das notas",
+                "misconceptionCode": "altura-volume"
               },
               {
-                "text": "Somente música clássica erudita",
-                "misconceptionCode": "arte-so-visual"
+                "text": "A velocidade do ritmo, o andamento"
               },
               {
-                "text": "Fotografias científicas",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Nada importante",
+                "misconceptionCode": "efeito-sem-elemento"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Linguagem artística é toda forma de expressão estética: visual, sonora, corporal, cênica.",
+            "correctIndex": 2,
+            "explanation": "BPM maior deixa a música mais rápida.",
             "variants": [
               {
-                "question": "O que são elementos visuais básicos em Arte?",
+                "question": "Uma música de 140 BPM, comparada com uma de 70 BPM, é:",
                 "options": [
                   {
-                    "text": "Ponto, linha, forma, cor, textura e espaço"
+                    "text": "Mais rápida"
                   },
                   {
-                    "text": "Apenas cores quentes e frias",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Mais grave",
+                    "misconceptionCode": "timbre-volume"
                   },
                   {
-                    "text": "Somente o ponto",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Mais forte",
+                    "misconceptionCode": "altura-volume"
                   },
                   {
-                    "text": "Figuras geométricas perfeitas",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Com outro timbre",
+                    "misconceptionCode": "efeito-sem-elemento"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que é apreciação estética?",
+                "question": "O controle de \"BPM\" (batidas por minuto) muda:",
                 "options": [
                   {
-                    "text": "A capacidade de observar, sentir e refletir sobre uma obra de arte"
+                    "text": "Nada importante",
+                    "misconceptionCode": "efeito-sem-elemento"
                   },
                   {
-                    "text": "Apenas comprar obras caras",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "A altura das notas",
+                    "misconceptionCode": "altura-volume"
                   },
                   {
-                    "text": "Criticar negativamente",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "O timbre do instrumento",
+                    "misconceptionCode": "timbre-volume"
                   },
                   {
-                    "text": "Copiar obras sem autoria",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "A velocidade do ritmo, o andamento"
+                  }
+                ],
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "O efeito que deixa a voz \"de esquilo\", bem fina, muda principalmente:",
+            "options": [
+              {
+                "text": "A intensidade",
+                "misconceptionCode": "altura-volume"
+              },
+              {
+                "text": "A altura"
+              },
+              {
+                "text": "O ritmo",
+                "misconceptionCode": "ritmo-melodia"
+              },
+              {
+                "text": "Nenhum elemento, é só um efeito engraçado",
+                "misconceptionCode": "efeito-sem-elemento"
+              }
+            ],
+            "correctIndex": 1,
+            "explanation": "O efeito sobe a altura da voz.",
+            "variants": [
+              {
+                "question": "O efeito que deixa a voz \"de monstro\", bem grossa, muda:",
+                "options": [
+                  {
+                    "text": "A intensidade",
+                    "misconceptionCode": "altura-volume"
+                  },
+                  {
+                    "text": "O ritmo",
+                    "misconceptionCode": "ritmo-melodia"
+                  },
+                  {
+                    "text": "Nada",
+                    "misconceptionCode": "efeito-sem-elemento"
+                  },
+                  {
+                    "text": "A altura, deixando grave"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "O efeito que deixa a voz \"de esquilo\", bem fina, muda principalmente:",
+                "options": [
+                  {
+                    "text": "Nenhum elemento, é só um efeito engraçado",
+                    "misconceptionCode": "efeito-sem-elemento"
+                  },
+                  {
+                    "text": "O ritmo",
+                    "misconceptionCode": "ritmo-melodia"
+                  },
+                  {
+                    "text": "A altura"
+                  },
+                  {
+                    "text": "A intensidade",
+                    "misconceptionCode": "altura-volume"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "Num jogo de ritmo, você precisa apertar o botão no tempo certo das batidas. O jogo trabalha principalmente:",
+            "options": [
+              {
+                "text": "A melodia",
+                "misconceptionCode": "ritmo-melodia"
+              },
+              {
+                "text": "O timbre",
+                "misconceptionCode": "timbre-volume"
+              },
+              {
+                "text": "A altura",
+                "misconceptionCode": "altura-volume"
+              },
+              {
+                "text": "O ritmo"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Acertar o tempo das batidas é trabalhar o ritmo e a pulsação.",
+            "variants": [
+              {
+                "question": "Um jogo em que você canta e o microfone confere se acertou as notas trabalha:",
+                "options": [
+                  {
+                    "text": "Só o ritmo",
+                    "misconceptionCode": "ritmo-melodia"
+                  },
+                  {
+                    "text": "A melodia e a altura"
+                  },
+                  {
+                    "text": "Só o volume",
+                    "misconceptionCode": "timbre-volume"
+                  },
+                  {
+                    "text": "O timbre do controle",
+                    "misconceptionCode": "altura-volume"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Num jogo de ritmo, você precisa apertar o botão no tempo certo das batidas. O jogo trabalha principalmente:",
+                "options": [
+                  {
+                    "text": "O ritmo"
+                  },
+                  {
+                    "text": "A altura",
+                    "misconceptionCode": "altura-volume"
+                  },
+                  {
+                    "text": "O timbre",
+                    "misconceptionCode": "timbre-volume"
+                  },
+                  {
+                    "text": "A melodia",
+                    "misconceptionCode": "ritmo-melodia"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF69AR16"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF69AR16-A4",
+        "id": "PK2-EF69AR20-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: por meio da apreciação musical",
-        "prompt": "Questão sobre por meio da apreciação musical.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre por meio da apreciação musical.",
-        "skillId": "EF69AR16",
+        "title": "Aplicar: criando uma trilha sonora",
+        "prompt": "Você vai criar a trilha sonora de um vídeo da escola no aplicativo.",
+        "estMinutes": 4,
+        "audioScript": "Você vai criar a trilha sonora de um vídeo da escola no aplicativo. Pergunta 1. Para a cena de uma corrida, que mudança combina mais? A: Diminuir o volume até sumir; B: Trocar só para notas mais graves e lentas; C: Aumentar o BPM e deixar a batida mais forte; D: Tirar a bateria. Pergunta 2. Você quer que a melodia soe misteriosa. Uma escolha possível é: A: Só aumentar o volume; B: Usar notas graves e um timbre de sintetizador escuro; C: Usar só batidas de palmas; D: Apertar qualquer efeito, sem pensar no som. Pergunta 3. No fim do vídeo, você quer que a música vá sumindo devagar. Qual ferramenta usa? A: Deixar as notas mais agudas; B: Trocar o instrumento; C: Aumentar o BPM; D: Diminuir o volume aos poucos (fade out).",
         "questions": [
           {
-            "question": "O que distingue arte popular de arte erudita?",
+            "question": "Para a cena de uma corrida, que mudança combina mais?",
             "options": [
               {
-                "text": "Origem, contexto de produção e público — ambas têm valor cultural"
+                "text": "Diminuir o volume até sumir",
+                "misconceptionCode": "efeito-sem-elemento"
               },
               {
-                "text": "A erudita é sempre superior",
-                "misconceptionCode": "arte-so-visual"
+                "text": "Trocar só para notas mais graves e lentas",
+                "misconceptionCode": "altura-volume"
               },
               {
-                "text": "A popular não é arte de verdade",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Aumentar o BPM e deixar a batida mais forte"
               },
               {
-                "text": "Não há diferença",
-                "misconceptionCode": "arte-so-visual"
+                "text": "Tirar a bateria",
+                "misconceptionCode": "ritmo-melodia"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Arte popular e erudita são formas igualmente válidas de expressão cultural, com origens e contextos diferentes.",
+            "correctIndex": 2,
+            "explanation": "Ritmo rápido e intensidade maior passam energia.",
             "variants": [
               {
-                "question": "O que é patrimônio cultural imaterial?",
+                "question": "Para a cena de um pôr do sol tranquilo, combina:",
                 "options": [
                   {
-                    "text": "Tradições, saberes, festas e expressões culturais de um povo"
+                    "text": "BPM baixo e som suave"
                   },
                   {
-                    "text": "Apenas prédios históricos",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "BPM alto e som forte",
+                    "misconceptionCode": "efeito-sem-elemento"
                   },
                   {
-                    "text": "Somente objetos em museus",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Só bateria forte",
+                    "misconceptionCode": "altura-volume"
                   },
                   {
-                    "text": "Pinturas famosas",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Volume no máximo",
+                    "misconceptionCode": "ritmo-melodia"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que caracteriza uma dança folclórica?",
+                "question": "Para a cena de uma corrida, que mudança combina mais?",
                 "options": [
                   {
-                    "text": "Movimentos e ritmos transmitidos por gerações, ligados à cultura local"
+                    "text": "Tirar a bateria",
+                    "misconceptionCode": "ritmo-melodia"
                   },
                   {
-                    "text": "Coreografias criadas por uma única pessoa famosa",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Trocar só para notas mais graves e lentas",
+                    "misconceptionCode": "altura-volume"
                   },
                   {
-                    "text": "Dança sem significado cultural",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Diminuir o volume até sumir",
+                    "misconceptionCode": "efeito-sem-elemento"
                   },
                   {
-                    "text": "Exclusivamente dança clássica europeia",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Aumentar o BPM e deixar a batida mais forte"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF69AR16"
+            ]
           },
           {
-            "question": "O que distingue arte popular de arte erudita?",
+            "question": "Você quer que a melodia soe misteriosa. Uma escolha possível é:",
             "options": [
               {
-                "text": "Origem, contexto de produção e público — ambas têm valor cultural"
+                "text": "Só aumentar o volume",
+                "misconceptionCode": "altura-volume"
               },
               {
-                "text": "A erudita é sempre superior",
-                "misconceptionCode": "arte-so-visual"
+                "text": "Usar notas graves e um timbre de sintetizador escuro"
               },
               {
-                "text": "A popular não é arte de verdade",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Usar só batidas de palmas",
+                "misconceptionCode": "ritmo-melodia"
               },
               {
-                "text": "Não há diferença",
-                "misconceptionCode": "arte-so-visual"
+                "text": "Apertar qualquer efeito, sem pensar no som",
+                "misconceptionCode": "efeito-sem-elemento"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Arte popular e erudita são formas igualmente válidas de expressão cultural, com origens e contextos diferentes.",
+            "correctIndex": 1,
+            "explanation": "Altura grave e um timbre escuro ajudam a criar mistério.",
             "variants": [
               {
-                "question": "O que é patrimônio cultural imaterial?",
+                "question": "Para uma melodia alegre de festa, combina:",
                 "options": [
                   {
-                    "text": "Tradições, saberes, festas e expressões culturais de um povo"
+                    "text": "Só notas muito graves e lentas",
+                    "misconceptionCode": "altura-volume"
                   },
                   {
-                    "text": "Apenas prédios históricos",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Tirar a melodia",
+                    "misconceptionCode": "ritmo-melodia"
                   },
                   {
-                    "text": "Somente objetos em museus",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Volume zero",
+                    "misconceptionCode": "efeito-sem-elemento"
                   },
                   {
-                    "text": "Pinturas famosas",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Notas mais agudas e um timbre brilhante"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "O que caracteriza uma dança folclórica?",
+                "question": "Você quer que a melodia soe misteriosa. Uma escolha possível é:",
                 "options": [
                   {
-                    "text": "Movimentos e ritmos transmitidos por gerações, ligados à cultura local"
+                    "text": "Apertar qualquer efeito, sem pensar no som",
+                    "misconceptionCode": "efeito-sem-elemento"
                   },
                   {
-                    "text": "Coreografias criadas por uma única pessoa famosa",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Usar só batidas de palmas",
+                    "misconceptionCode": "ritmo-melodia"
                   },
                   {
-                    "text": "Dança sem significado cultural",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Usar notas graves e um timbre de sintetizador escuro"
                   },
                   {
-                    "text": "Exclusivamente dança clássica europeia",
-                    "misconceptionCode": "arte-so-visual"
+                    "text": "Só aumentar o volume",
+                    "misconceptionCode": "altura-volume"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "No fim do vídeo, você quer que a música vá sumindo devagar. Qual ferramenta usa?",
+            "options": [
+              {
+                "text": "Deixar as notas mais agudas",
+                "misconceptionCode": "altura-volume"
+              },
+              {
+                "text": "Trocar o instrumento",
+                "misconceptionCode": "timbre-volume"
+              },
+              {
+                "text": "Aumentar o BPM",
+                "misconceptionCode": "efeito-sem-elemento"
+              },
+              {
+                "text": "Diminuir o volume aos poucos (fade out)"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Fade out é a diminuição gradual da intensidade.",
+            "variants": [
+              {
+                "question": "Para a música começar baixinho e ir crescendo, você usa:",
+                "options": [
+                  {
+                    "text": "Notas mais graves",
+                    "misconceptionCode": "altura-volume"
+                  },
+                  {
+                    "text": "Fade in, aumentando o volume aos poucos"
+                  },
+                  {
+                    "text": "Trocar o timbre",
+                    "misconceptionCode": "timbre-volume"
+                  },
+                  {
+                    "text": "Diminuir o BPM",
+                    "misconceptionCode": "efeito-sem-elemento"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "No fim do vídeo, você quer que a música vá sumindo devagar. Qual ferramenta usa?",
+                "options": [
+                  {
+                    "text": "Diminuir o volume aos poucos (fade out)"
+                  },
+                  {
+                    "text": "Aumentar o BPM",
+                    "misconceptionCode": "efeito-sem-elemento"
+                  },
+                  {
+                    "text": "Trocar o instrumento",
+                    "misconceptionCode": "timbre-volume"
+                  },
+                  {
+                    "text": "Deixar as notas mais agudas",
+                    "misconceptionCode": "altura-volume"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF69AR16"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF69AR16-A5",
+        "id": "PK2-EF69AR20-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: por meio da apreciação musical",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre por meio da apreciação musical.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre por meio da apreciação musical.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: música e tecnologia",
+        "prompt": "Explique com as suas palavras três ferramentas de um aplicativo de música e que elemento musical cada uma muda.",
+        "estMinutes": 6,
+        "audioScript": "Explique com as suas palavras três ferramentas de um aplicativo de música e que elemento musical cada uma muda.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de por meio da apreciação musical",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "ferramentas",
+              "description": "Cita três ferramentas ou ações (volume, troca de instrumento, BPM, subir a nota)"
+            },
+            {
+              "code": "elementos",
+              "description": "Liga cada ferramenta ao elemento certo: intensidade, timbre, ritmo, altura"
+            },
+            {
+              "code": "distingue",
+              "description": "Não confunde altura com volume"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF69AR16"
+          "exemploBoaResposta": "O botão de volume muda a intensidade, se o som é forte ou fraco. Trocar o instrumento muda o timbre, que é o jeito de cada som. O BPM muda a velocidade do ritmo. Subir a nota na tela deixa o som mais agudo, que é a altura, e isso é diferente de deixar mais alto no volume."
+        }
       }
-    ]
-  },
-  {
-    "skillCode": "EF69AR09",
-    "title": "Trilha: Pesquisar e analisar diferentes formas de expressão (EF69AR09)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
+    ],
     "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
-    "subjectCode": "AR",
-    "activities": [
-      {
-        "id": "PK-EF69AR09-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Pesquisar e analisar diferentes formas de expressão",
-        "prompt": "Questão sobre Pesquisar e analisar diferentes formas de expressão.",
-        "estMinutes": 4,
-        "audioScript": "Questão sobre Pesquisar e analisar diferentes formas de expressão.",
-        "skillId": "EF69AR09",
-        "questions": [
-          {
-            "question": "No tema \"Pesquisar e analisar diferentes formas de expressão\", qual das opções descreve uma linguagem artística?",
-            "options": [
-              {
-                "text": "Uma forma de expressão humana que usa elementos estéticos para comunicar ideias e sentimentos"
-              },
-              {
-                "text": "Apenas desenho técnico",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "Somente música clássica erudita",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "Fotografias científicas",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Linguagem artística é toda forma de expressão estética: visual, sonora, corporal, cênica.",
-            "variants": [
-              {
-                "question": "O que são elementos visuais básicos em Arte?",
-                "options": [
-                  {
-                    "text": "Ponto, linha, forma, cor, textura e espaço"
-                  },
-                  {
-                    "text": "Apenas cores quentes e frias",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Somente o ponto",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Figuras geométricas perfeitas",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é apreciação estética?",
-                "options": [
-                  {
-                    "text": "A capacidade de observar, sentir e refletir sobre uma obra de arte"
-                  },
-                  {
-                    "text": "Apenas comprar obras caras",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Criticar negativamente",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Copiar obras sem autoria",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF69AR09"
-          },
-          {
-            "question": "No tema \"Pesquisar e analisar diferentes formas de expressão\", qual das opções descreve uma linguagem artística?",
-            "options": [
-              {
-                "text": "Uma forma de expressão humana que usa elementos estéticos para comunicar ideias e sentimentos"
-              },
-              {
-                "text": "Apenas desenho técnico",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "Somente música clássica erudita",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "Fotografias científicas",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Linguagem artística é toda forma de expressão estética: visual, sonora, corporal, cênica.",
-            "variants": [
-              {
-                "question": "O que são elementos visuais básicos em Arte?",
-                "options": [
-                  {
-                    "text": "Ponto, linha, forma, cor, textura e espaço"
-                  },
-                  {
-                    "text": "Apenas cores quentes e frias",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Somente o ponto",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Figuras geométricas perfeitas",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é apreciação estética?",
-                "options": [
-                  {
-                    "text": "A capacidade de observar, sentir e refletir sobre uma obra de arte"
-                  },
-                  {
-                    "text": "Apenas comprar obras caras",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Criticar negativamente",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Copiar obras sem autoria",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF69AR09"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF69AR09-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Pesquisar e analisar diferentes formas de expressão",
-        "prompt": "Questão sobre Pesquisar e analisar diferentes formas de expressão.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Pesquisar e analisar diferentes formas de expressão.",
-        "skillId": "EF69AR09",
-        "questions": [
-          {
-            "question": "O que distingue arte popular de arte erudita?",
-            "options": [
-              {
-                "text": "Origem, contexto de produção e público — ambas têm valor cultural"
-              },
-              {
-                "text": "A erudita é sempre superior",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "A popular não é arte de verdade",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Não há diferença",
-                "misconceptionCode": "arte-so-visual"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Arte popular e erudita são formas igualmente válidas de expressão cultural, com origens e contextos diferentes.",
-            "variants": [
-              {
-                "question": "O que é patrimônio cultural imaterial?",
-                "options": [
-                  {
-                    "text": "Tradições, saberes, festas e expressões culturais de um povo"
-                  },
-                  {
-                    "text": "Apenas prédios históricos",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Somente objetos em museus",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Pinturas famosas",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que caracteriza uma dança folclórica?",
-                "options": [
-                  {
-                    "text": "Movimentos e ritmos transmitidos por gerações, ligados à cultura local"
-                  },
-                  {
-                    "text": "Coreografias criadas por uma única pessoa famosa",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Dança sem significado cultural",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Exclusivamente dança clássica europeia",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF69AR09"
-          },
-          {
-            "question": "O que distingue arte popular de arte erudita?",
-            "options": [
-              {
-                "text": "Origem, contexto de produção e público — ambas têm valor cultural"
-              },
-              {
-                "text": "A erudita é sempre superior",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "A popular não é arte de verdade",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Não há diferença",
-                "misconceptionCode": "arte-so-visual"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Arte popular e erudita são formas igualmente válidas de expressão cultural, com origens e contextos diferentes.",
-            "variants": [
-              {
-                "question": "O que é patrimônio cultural imaterial?",
-                "options": [
-                  {
-                    "text": "Tradições, saberes, festas e expressões culturais de um povo"
-                  },
-                  {
-                    "text": "Apenas prédios históricos",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Somente objetos em museus",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Pinturas famosas",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que caracteriza uma dança folclórica?",
-                "options": [
-                  {
-                    "text": "Movimentos e ritmos transmitidos por gerações, ligados à cultura local"
-                  },
-                  {
-                    "text": "Coreografias criadas por uma única pessoa famosa",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Dança sem significado cultural",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Exclusivamente dança clássica europeia",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF69AR09"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF69AR09-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar com exercícios: Pesquisar e analisar diferentes formas de expressão",
-        "prompt": "Questão sobre Pesquisar e analisar diferentes formas de expressão.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Pesquisar e analisar diferentes formas de expressão.",
-        "skillId": "EF69AR09",
-        "questions": [
-          {
-            "question": "No tema \"Pesquisar e analisar diferentes formas de expressão\", qual das opções descreve uma linguagem artística?",
-            "options": [
-              {
-                "text": "Uma forma de expressão humana que usa elementos estéticos para comunicar ideias e sentimentos"
-              },
-              {
-                "text": "Apenas desenho técnico",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "Somente música clássica erudita",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "Fotografias científicas",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Linguagem artística é toda forma de expressão estética: visual, sonora, corporal, cênica.",
-            "variants": [
-              {
-                "question": "O que são elementos visuais básicos em Arte?",
-                "options": [
-                  {
-                    "text": "Ponto, linha, forma, cor, textura e espaço"
-                  },
-                  {
-                    "text": "Apenas cores quentes e frias",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Somente o ponto",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Figuras geométricas perfeitas",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é apreciação estética?",
-                "options": [
-                  {
-                    "text": "A capacidade de observar, sentir e refletir sobre uma obra de arte"
-                  },
-                  {
-                    "text": "Apenas comprar obras caras",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Criticar negativamente",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Copiar obras sem autoria",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF69AR09"
-          },
-          {
-            "question": "No tema \"Pesquisar e analisar diferentes formas de expressão\", qual das opções descreve uma linguagem artística?",
-            "options": [
-              {
-                "text": "Uma forma de expressão humana que usa elementos estéticos para comunicar ideias e sentimentos"
-              },
-              {
-                "text": "Apenas desenho técnico",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "Somente música clássica erudita",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "Fotografias científicas",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Linguagem artística é toda forma de expressão estética: visual, sonora, corporal, cênica.",
-            "variants": [
-              {
-                "question": "O que são elementos visuais básicos em Arte?",
-                "options": [
-                  {
-                    "text": "Ponto, linha, forma, cor, textura e espaço"
-                  },
-                  {
-                    "text": "Apenas cores quentes e frias",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Somente o ponto",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Figuras geométricas perfeitas",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é apreciação estética?",
-                "options": [
-                  {
-                    "text": "A capacidade de observar, sentir e refletir sobre uma obra de arte"
-                  },
-                  {
-                    "text": "Apenas comprar obras caras",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Criticar negativamente",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Copiar obras sem autoria",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF69AR09"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF69AR09-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar em situações reais: Pesquisar e analisar diferentes formas de expressão",
-        "prompt": "Questão sobre Pesquisar e analisar diferentes formas de expressão.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Pesquisar e analisar diferentes formas de expressão.",
-        "skillId": "EF69AR09",
-        "questions": [
-          {
-            "question": "O que distingue arte popular de arte erudita?",
-            "options": [
-              {
-                "text": "Origem, contexto de produção e público — ambas têm valor cultural"
-              },
-              {
-                "text": "A erudita é sempre superior",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "A popular não é arte de verdade",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Não há diferença",
-                "misconceptionCode": "arte-so-visual"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Arte popular e erudita são formas igualmente válidas de expressão cultural, com origens e contextos diferentes.",
-            "variants": [
-              {
-                "question": "O que é patrimônio cultural imaterial?",
-                "options": [
-                  {
-                    "text": "Tradições, saberes, festas e expressões culturais de um povo"
-                  },
-                  {
-                    "text": "Apenas prédios históricos",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Somente objetos em museus",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Pinturas famosas",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que caracteriza uma dança folclórica?",
-                "options": [
-                  {
-                    "text": "Movimentos e ritmos transmitidos por gerações, ligados à cultura local"
-                  },
-                  {
-                    "text": "Coreografias criadas por uma única pessoa famosa",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Dança sem significado cultural",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Exclusivamente dança clássica europeia",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF69AR09"
-          },
-          {
-            "question": "O que distingue arte popular de arte erudita?",
-            "options": [
-              {
-                "text": "Origem, contexto de produção e público — ambas têm valor cultural"
-              },
-              {
-                "text": "A erudita é sempre superior",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "A popular não é arte de verdade",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Não há diferença",
-                "misconceptionCode": "arte-so-visual"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Arte popular e erudita são formas igualmente válidas de expressão cultural, com origens e contextos diferentes.",
-            "variants": [
-              {
-                "question": "O que é patrimônio cultural imaterial?",
-                "options": [
-                  {
-                    "text": "Tradições, saberes, festas e expressões culturais de um povo"
-                  },
-                  {
-                    "text": "Apenas prédios históricos",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Somente objetos em museus",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Pinturas famosas",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que caracteriza uma dança folclórica?",
-                "options": [
-                  {
-                    "text": "Movimentos e ritmos transmitidos por gerações, ligados à cultura local"
-                  },
-                  {
-                    "text": "Coreografias criadas por uma única pessoa famosa",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Dança sem significado cultural",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Exclusivamente dança clássica europeia",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF69AR09"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF69AR09-A5",
-        "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Pesquisar e analisar diferentes formas de expressão",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Pesquisar e analisar diferentes formas de expressão.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Pesquisar e analisar diferentes formas de expressão.",
-        "rubric": {
-          "criteria": [
-            "Menciona ao menos dois aspectos de Pesquisar e analisar diferentes formas de expressão",
-            "Usa vocabulário adequado ao ano escolar"
-          ],
-          "minScore": 60
-        },
-        "skillId": "EF69AR09"
-      }
-    ]
-  },
-  {
-    "skillCode": "EF69AR24",
-    "title": "Trilha: Reconhecer e apreciar artistas e grupos de teatro (EF69AR24)",
     "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
-    "subjectCode": "AR",
-    "activities": [
-      {
-        "id": "PK-EF69AR24-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Reconhecer e apreciar artistas e grupos de teatro",
-        "prompt": "Questão sobre Reconhecer e apreciar artistas e grupos de teatro.",
-        "estMinutes": 4,
-        "audioScript": "Questão sobre Reconhecer e apreciar artistas e grupos de teatro.",
-        "skillId": "EF69AR24",
-        "questions": [
-          {
-            "question": "No tema \"Reconhecer e apreciar artistas e grupos de teatro\", qual das opções descreve uma linguagem artística?",
-            "options": [
-              {
-                "text": "Uma forma de expressão humana que usa elementos estéticos para comunicar ideias e sentimentos"
-              },
-              {
-                "text": "Apenas desenho técnico",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "Somente música clássica erudita",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "Fotografias científicas",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Linguagem artística é toda forma de expressão estética: visual, sonora, corporal, cênica.",
-            "variants": [
-              {
-                "question": "O que são elementos visuais básicos em Arte?",
-                "options": [
-                  {
-                    "text": "Ponto, linha, forma, cor, textura e espaço"
-                  },
-                  {
-                    "text": "Apenas cores quentes e frias",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Somente o ponto",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Figuras geométricas perfeitas",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é apreciação estética?",
-                "options": [
-                  {
-                    "text": "A capacidade de observar, sentir e refletir sobre uma obra de arte"
-                  },
-                  {
-                    "text": "Apenas comprar obras caras",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Criticar negativamente",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Copiar obras sem autoria",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF69AR24"
-          },
-          {
-            "question": "No tema \"Reconhecer e apreciar artistas e grupos de teatro\", qual das opções descreve uma linguagem artística?",
-            "options": [
-              {
-                "text": "Uma forma de expressão humana que usa elementos estéticos para comunicar ideias e sentimentos"
-              },
-              {
-                "text": "Apenas desenho técnico",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "Somente música clássica erudita",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "Fotografias científicas",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Linguagem artística é toda forma de expressão estética: visual, sonora, corporal, cênica.",
-            "variants": [
-              {
-                "question": "O que são elementos visuais básicos em Arte?",
-                "options": [
-                  {
-                    "text": "Ponto, linha, forma, cor, textura e espaço"
-                  },
-                  {
-                    "text": "Apenas cores quentes e frias",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Somente o ponto",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Figuras geométricas perfeitas",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é apreciação estética?",
-                "options": [
-                  {
-                    "text": "A capacidade de observar, sentir e refletir sobre uma obra de arte"
-                  },
-                  {
-                    "text": "Apenas comprar obras caras",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Criticar negativamente",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Copiar obras sem autoria",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF69AR24"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF69AR24-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Reconhecer e apreciar artistas e grupos de teatro",
-        "prompt": "Questão sobre Reconhecer e apreciar artistas e grupos de teatro.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Reconhecer e apreciar artistas e grupos de teatro.",
-        "skillId": "EF69AR24",
-        "questions": [
-          {
-            "question": "O que distingue arte popular de arte erudita?",
-            "options": [
-              {
-                "text": "Origem, contexto de produção e público — ambas têm valor cultural"
-              },
-              {
-                "text": "A erudita é sempre superior",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "A popular não é arte de verdade",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Não há diferença",
-                "misconceptionCode": "arte-so-visual"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Arte popular e erudita são formas igualmente válidas de expressão cultural, com origens e contextos diferentes.",
-            "variants": [
-              {
-                "question": "O que é patrimônio cultural imaterial?",
-                "options": [
-                  {
-                    "text": "Tradições, saberes, festas e expressões culturais de um povo"
-                  },
-                  {
-                    "text": "Apenas prédios históricos",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Somente objetos em museus",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Pinturas famosas",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que caracteriza uma dança folclórica?",
-                "options": [
-                  {
-                    "text": "Movimentos e ritmos transmitidos por gerações, ligados à cultura local"
-                  },
-                  {
-                    "text": "Coreografias criadas por uma única pessoa famosa",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Dança sem significado cultural",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Exclusivamente dança clássica europeia",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF69AR24"
-          },
-          {
-            "question": "O que distingue arte popular de arte erudita?",
-            "options": [
-              {
-                "text": "Origem, contexto de produção e público — ambas têm valor cultural"
-              },
-              {
-                "text": "A erudita é sempre superior",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "A popular não é arte de verdade",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Não há diferença",
-                "misconceptionCode": "arte-so-visual"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Arte popular e erudita são formas igualmente válidas de expressão cultural, com origens e contextos diferentes.",
-            "variants": [
-              {
-                "question": "O que é patrimônio cultural imaterial?",
-                "options": [
-                  {
-                    "text": "Tradições, saberes, festas e expressões culturais de um povo"
-                  },
-                  {
-                    "text": "Apenas prédios históricos",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Somente objetos em museus",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Pinturas famosas",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que caracteriza uma dança folclórica?",
-                "options": [
-                  {
-                    "text": "Movimentos e ritmos transmitidos por gerações, ligados à cultura local"
-                  },
-                  {
-                    "text": "Coreografias criadas por uma única pessoa famosa",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Dança sem significado cultural",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Exclusivamente dança clássica europeia",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF69AR24"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF69AR24-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar com exercícios: Reconhecer e apreciar artistas e grupos de teatro",
-        "prompt": "Questão sobre Reconhecer e apreciar artistas e grupos de teatro.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Reconhecer e apreciar artistas e grupos de teatro.",
-        "skillId": "EF69AR24",
-        "questions": [
-          {
-            "question": "No tema \"Reconhecer e apreciar artistas e grupos de teatro\", qual das opções descreve uma linguagem artística?",
-            "options": [
-              {
-                "text": "Uma forma de expressão humana que usa elementos estéticos para comunicar ideias e sentimentos"
-              },
-              {
-                "text": "Apenas desenho técnico",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "Somente música clássica erudita",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "Fotografias científicas",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Linguagem artística é toda forma de expressão estética: visual, sonora, corporal, cênica.",
-            "variants": [
-              {
-                "question": "O que são elementos visuais básicos em Arte?",
-                "options": [
-                  {
-                    "text": "Ponto, linha, forma, cor, textura e espaço"
-                  },
-                  {
-                    "text": "Apenas cores quentes e frias",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Somente o ponto",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Figuras geométricas perfeitas",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é apreciação estética?",
-                "options": [
-                  {
-                    "text": "A capacidade de observar, sentir e refletir sobre uma obra de arte"
-                  },
-                  {
-                    "text": "Apenas comprar obras caras",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Criticar negativamente",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Copiar obras sem autoria",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF69AR24"
-          },
-          {
-            "question": "No tema \"Reconhecer e apreciar artistas e grupos de teatro\", qual das opções descreve uma linguagem artística?",
-            "options": [
-              {
-                "text": "Uma forma de expressão humana que usa elementos estéticos para comunicar ideias e sentimentos"
-              },
-              {
-                "text": "Apenas desenho técnico",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "Somente música clássica erudita",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "Fotografias científicas",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Linguagem artística é toda forma de expressão estética: visual, sonora, corporal, cênica.",
-            "variants": [
-              {
-                "question": "O que são elementos visuais básicos em Arte?",
-                "options": [
-                  {
-                    "text": "Ponto, linha, forma, cor, textura e espaço"
-                  },
-                  {
-                    "text": "Apenas cores quentes e frias",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Somente o ponto",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Figuras geométricas perfeitas",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é apreciação estética?",
-                "options": [
-                  {
-                    "text": "A capacidade de observar, sentir e refletir sobre uma obra de arte"
-                  },
-                  {
-                    "text": "Apenas comprar obras caras",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Criticar negativamente",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Copiar obras sem autoria",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF69AR24"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF69AR24-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar em situações reais: Reconhecer e apreciar artistas e grupos de teatro",
-        "prompt": "Questão sobre Reconhecer e apreciar artistas e grupos de teatro.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Reconhecer e apreciar artistas e grupos de teatro.",
-        "skillId": "EF69AR24",
-        "questions": [
-          {
-            "question": "O que distingue arte popular de arte erudita?",
-            "options": [
-              {
-                "text": "Origem, contexto de produção e público — ambas têm valor cultural"
-              },
-              {
-                "text": "A erudita é sempre superior",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "A popular não é arte de verdade",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Não há diferença",
-                "misconceptionCode": "arte-so-visual"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Arte popular e erudita são formas igualmente válidas de expressão cultural, com origens e contextos diferentes.",
-            "variants": [
-              {
-                "question": "O que é patrimônio cultural imaterial?",
-                "options": [
-                  {
-                    "text": "Tradições, saberes, festas e expressões culturais de um povo"
-                  },
-                  {
-                    "text": "Apenas prédios históricos",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Somente objetos em museus",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Pinturas famosas",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que caracteriza uma dança folclórica?",
-                "options": [
-                  {
-                    "text": "Movimentos e ritmos transmitidos por gerações, ligados à cultura local"
-                  },
-                  {
-                    "text": "Coreografias criadas por uma única pessoa famosa",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Dança sem significado cultural",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Exclusivamente dança clássica europeia",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF69AR24"
-          },
-          {
-            "question": "O que distingue arte popular de arte erudita?",
-            "options": [
-              {
-                "text": "Origem, contexto de produção e público — ambas têm valor cultural"
-              },
-              {
-                "text": "A erudita é sempre superior",
-                "misconceptionCode": "arte-so-visual"
-              },
-              {
-                "text": "A popular não é arte de verdade",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Não há diferença",
-                "misconceptionCode": "arte-so-visual"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Arte popular e erudita são formas igualmente válidas de expressão cultural, com origens e contextos diferentes.",
-            "variants": [
-              {
-                "question": "O que é patrimônio cultural imaterial?",
-                "options": [
-                  {
-                    "text": "Tradições, saberes, festas e expressões culturais de um povo"
-                  },
-                  {
-                    "text": "Apenas prédios históricos",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Somente objetos em museus",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Pinturas famosas",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que caracteriza uma dança folclórica?",
-                "options": [
-                  {
-                    "text": "Movimentos e ritmos transmitidos por gerações, ligados à cultura local"
-                  },
-                  {
-                    "text": "Coreografias criadas por uma única pessoa famosa",
-                    "misconceptionCode": "arte-so-visual"
-                  },
-                  {
-                    "text": "Dança sem significado cultural",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Exclusivamente dança clássica europeia",
-                    "misconceptionCode": "arte-so-visual"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF69AR24"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF69AR24-A5",
-        "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Reconhecer e apreciar artistas e grupos de teatro",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Reconhecer e apreciar artistas e grupos de teatro.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Reconhecer e apreciar artistas e grupos de teatro.",
-        "rubric": {
-          "criteria": [
-            "Menciona ao menos dois aspectos de Reconhecer e apreciar artistas e grupos de teatro",
-            "Usa vocabulário adequado ao ano escolar"
-          ],
-          "minScore": 60
-        },
-        "skillId": "EF69AR24"
-      }
-    ]
+    "status": "APPROVED"
   }
 ]

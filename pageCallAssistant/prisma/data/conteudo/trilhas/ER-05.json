@@ -1,2450 +1,1890 @@
 [
   {
-    "skillCode": "EF05ER01",
-    "title": "Trilha: Identificar e respeitar acontecimentos sagrados (EF05ER01)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 5,
+    "skillCode": "EF05ER04",
     "subjectCode": "ER",
+    "subjectName": "Ensino Religioso",
+    "gradeYear": 5,
+    "version": 2,
+    "title": "Trilha: A tradição oral",
+    "tituloAluno": "Histórias que passam de geração em geração",
     "activities": [
       {
-        "id": "PK-EF05ER01-A1",
+        "id": "PK2-EF05ER04-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Identificar e respeitar acontecimentos sagrados",
-        "prompt": "Questão sobre Identificar e respeitar acontecimentos sagrados.",
+        "title": "Relembrar: histórias da família",
+        "prompt": "Muitas histórias que conhecemos foram contadas por pessoas mais velhas.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre Identificar e respeitar acontecimentos sagrados.",
-        "skillId": "EF05ER01",
+        "audioScript": "Muitas histórias que conhecemos foram contadas por pessoas mais velhas. Pergunta 1. Quando sua avó conta como era a infância dela, ela está: A: Escrevendo um livro; B: Passando uma memória de forma oral; C: Contando algo sem valor; D: Fazendo algo que só existia antigamente. Pergunta 2. O que significa \"tradição oral\"? A: Textos escritos em livros; B: Histórias inventadas que não importam; C: Algo que acabou há muito tempo; D: Conhecimentos e histórias passados pela fala, de geração em geração. Pergunta 3. A tradição oral existe ainda hoje? A: Sim, em famílias, comunidades e tradições religiosas; B: Não, acabou com a invenção da escrita; C: Só em livros antigos; D: Só numa religião.",
         "questions": [
           {
-            "question": "No tema \"Identificar e respeitar acontecimentos sagrados\", o que é diversidade religiosa?",
+            "question": "Quando sua avó conta como era a infância dela, ela está:",
             "options": [
               {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
+                "text": "Escrevendo um livro",
+                "misconceptionCode": "confunde-oral-escrita"
               },
               {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Passando uma memória de forma oral"
               },
               {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Contando algo sem valor",
+                "misconceptionCode": "oral-sem-valor"
               },
               {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Fazendo algo que só existia antigamente",
+                "misconceptionCode": "oral-so-antigo"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
+            "correctIndex": 1,
+            "explanation": "Contar de boca em boca é transmitir de forma oral.",
             "variants": [
               {
-                "question": "O que é laicidade do Estado?",
+                "question": "Uma cantiga de roda que você aprendeu ouvindo os mais velhos chegou até você pela:",
                 "options": [
                   {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
+                    "text": "Tradição escrita",
+                    "misconceptionCode": "confunde-oral-escrita"
                   },
                   {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Internet apenas",
+                    "misconceptionCode": "oral-sem-valor"
                   },
                   {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Escola de música",
+                    "misconceptionCode": "oral-so-antigo"
                   },
                   {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Tradição oral"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "O que é liberdade religiosa?",
+                "question": "Quando sua avó conta como era a infância dela, ela está:",
                 "options": [
                   {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
+                    "text": "Fazendo algo que só existia antigamente",
+                    "misconceptionCode": "oral-so-antigo"
                   },
                   {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Contando algo sem valor",
+                    "misconceptionCode": "oral-sem-valor"
                   },
                   {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Passando uma memória de forma oral"
                   },
                   {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Escrevendo um livro",
+                    "misconceptionCode": "confunde-oral-escrita"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF05ER01"
+            ]
           },
           {
-            "question": "No tema \"Identificar e respeitar acontecimentos sagrados\", o que é diversidade religiosa?",
+            "question": "O que significa \"tradição oral\"?",
             "options": [
               {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
+                "text": "Textos escritos em livros",
+                "misconceptionCode": "confunde-oral-escrita"
               },
               {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Histórias inventadas que não importam",
+                "misconceptionCode": "oral-sem-valor"
               },
               {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Algo que acabou há muito tempo",
+                "misconceptionCode": "oral-so-antigo"
               },
               {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Conhecimentos e histórias passados pela fala, de geração em geração"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Oral vem de boca: é o que se transmite falando e ouvindo.",
+            "variants": [
+              {
+                "question": "Aprender um provérbio ouvindo o seu avô é um exemplo de:",
+                "options": [
+                  {
+                    "text": "Tradição escrita",
+                    "misconceptionCode": "confunde-oral-escrita"
+                  },
+                  {
+                    "text": "Tradição oral"
+                  },
+                  {
+                    "text": "Leitura de jornal",
+                    "misconceptionCode": "oral-sem-valor"
+                  },
+                  {
+                    "text": "Algo sem importância",
+                    "misconceptionCode": "oral-so-antigo"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "O que significa \"tradição oral\"?",
+                "options": [
+                  {
+                    "text": "Conhecimentos e histórias passados pela fala, de geração em geração"
+                  },
+                  {
+                    "text": "Algo que acabou há muito tempo",
+                    "misconceptionCode": "oral-so-antigo"
+                  },
+                  {
+                    "text": "Histórias inventadas que não importam",
+                    "misconceptionCode": "oral-sem-valor"
+                  },
+                  {
+                    "text": "Textos escritos em livros",
+                    "misconceptionCode": "confunde-oral-escrita"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "A tradição oral existe ainda hoje?",
+            "options": [
+              {
+                "text": "Sim, em famílias, comunidades e tradições religiosas"
+              },
+              {
+                "text": "Não, acabou com a invenção da escrita",
+                "misconceptionCode": "oral-so-antigo"
+              },
+              {
+                "text": "Só em livros antigos",
+                "misconceptionCode": "confunde-oral-escrita"
+              },
+              {
+                "text": "Só numa religião",
+                "misconceptionCode": "oral-uma-cultura"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
+            "explanation": "Ainda hoje muitas comunidades ensinam histórias, cantos e rezas pela fala.",
             "variants": [
               {
-                "question": "O que é laicidade do Estado?",
+                "question": "Hoje em dia, as pessoas ainda aprendem cantos ouvindo outras pessoas?",
                 "options": [
                   {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
+                    "text": "Não, só pela leitura",
+                    "misconceptionCode": "oral-so-antigo"
                   },
                   {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Não, isso acabou",
+                    "misconceptionCode": "confunde-oral-escrita"
                   },
                   {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Sim, muitas comunidades fazem isso"
                   },
                   {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Só no passado",
+                    "misconceptionCode": "oral-uma-cultura"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "O que é liberdade religiosa?",
+                "question": "A tradição oral existe ainda hoje?",
                 "options": [
                   {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
+                    "text": "Só numa religião",
+                    "misconceptionCode": "oral-uma-cultura"
                   },
                   {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Sim, em famílias, comunidades e tradições religiosas"
                   },
                   {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Só em livros antigos",
+                    "misconceptionCode": "confunde-oral-escrita"
                   },
                   {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Não, acabou com a invenção da escrita",
+                    "misconceptionCode": "oral-so-antigo"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF05ER01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF05ER01-A2",
+        "id": "PK2-EF05ER04-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Identificar e respeitar acontecimentos sagrados",
-        "prompt": "Questão sobre Identificar e respeitar acontecimentos sagrados.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Identificar e respeitar acontecimentos sagrados.",
-        "skillId": "EF05ER01",
+        "title": "Exemplo guiado: os mais velhos contam",
+        "prompt": "Em muitas culturas, as pessoas mais velhas guardam e contam as histórias importantes da comunidade. Vamos ver juntos.",
+        "estMinutes": 4,
+        "audioScript": "Em muitas culturas, as pessoas mais velhas guardam e contam as histórias importantes da comunidade. Vamos ver juntos. Pergunta 1. Em muitos povos indígenas, os anciãos contam à noite as histórias do seu povo. Isso serve para: A: Passar o tempo sem importância; B: Substituir a escrita, que eles copiam; C: Algo que só acontecia no passado; D: Preservar a memória e os ensinamentos do povo. Pergunta 2. Nas religiões de matriz africana, como o candomblé, muitos ensinamentos são transmitidos: A: Pela fala, pelos cantos e pela convivência na comunidade; B: Só por livros escritos; C: De nenhuma forma; D: Apenas no passado. Pergunta 3. Antes de serem escritos, muitos textos sagrados foram: A: Escritos desde o primeiro dia; B: Esquecidos por todos; C: Contados e cantados oralmente por muito tempo; D: Usados por uma só cultura.",
         "questions": [
           {
-            "question": "O que são valores universais no contexto das religiões?",
+            "question": "Em muitos povos indígenas, os anciãos contam à noite as histórias do seu povo. Isso serve para:",
             "options": [
               {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
+                "text": "Passar o tempo sem importância",
+                "misconceptionCode": "oral-sem-valor"
               },
               {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Substituir a escrita, que eles copiam",
+                "misconceptionCode": "confunde-oral-escrita"
               },
               {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Algo que só acontecia no passado",
+                "misconceptionCode": "oral-so-antigo"
               },
               {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Preservar a memória e os ensinamentos do povo"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
+            "correctIndex": 3,
+            "explanation": "A fala dos anciãos guarda a história e os valores do povo.",
             "variants": [
               {
-                "question": "O que é intolerância religiosa?",
+                "question": "Por que os mais velhos são importantes na tradição oral?",
                 "options": [
                   {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
+                    "text": "Porque escrevem todos os livros",
+                    "misconceptionCode": "oral-sem-valor"
                   },
                   {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Porque guardam e ensinam as histórias da comunidade"
                   },
                   {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Não são importantes",
+                    "misconceptionCode": "confunde-oral-escrita"
                   },
                   {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Porque só eles podem falar",
+                    "misconceptionCode": "oral-so-antigo"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "Por que o diálogo inter-religioso é importante?",
+                "question": "Em muitos povos indígenas, os anciãos contam à noite as histórias do seu povo. Isso serve para:",
                 "options": [
                   {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
+                    "text": "Preservar a memória e os ensinamentos do povo"
                   },
                   {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Algo que só acontecia no passado",
+                    "misconceptionCode": "oral-so-antigo"
                   },
                   {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Substituir a escrita, que eles copiam",
+                    "misconceptionCode": "confunde-oral-escrita"
                   },
                   {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Passar o tempo sem importância",
+                    "misconceptionCode": "oral-sem-valor"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF05ER01"
+            ]
           },
           {
-            "question": "O que são valores universais no contexto das religiões?",
+            "question": "Nas religiões de matriz africana, como o candomblé, muitos ensinamentos são transmitidos:",
             "options": [
               {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
+                "text": "Pela fala, pelos cantos e pela convivência na comunidade"
               },
               {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Só por livros escritos",
+                "misconceptionCode": "confunde-oral-escrita"
               },
               {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
+                "text": "De nenhuma forma",
+                "misconceptionCode": "oral-sem-valor"
               },
               {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Apenas no passado",
+                "misconceptionCode": "oral-so-antigo"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
+            "explanation": "Cantos, rezas e histórias passam de geração em geração pela oralidade.",
             "variants": [
               {
-                "question": "O que é intolerância religiosa?",
+                "question": "Os cantos ensinados de geração em geração numa comunidade religiosa são exemplo de:",
                 "options": [
                   {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
+                    "text": "Tradição escrita",
+                    "misconceptionCode": "confunde-oral-escrita"
                   },
                   {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Algo sem valor",
+                    "misconceptionCode": "oral-sem-valor"
                   },
                   {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Tradição oral"
                   },
                   {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Algo que só existe em livro",
+                    "misconceptionCode": "oral-so-antigo"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "Nas religiões de matriz africana, como o candomblé, muitos ensinamentos são transmitidos:",
+                "options": [
+                  {
+                    "text": "Apenas no passado",
+                    "misconceptionCode": "oral-so-antigo"
+                  },
+                  {
+                    "text": "Pela fala, pelos cantos e pela convivência na comunidade"
+                  },
+                  {
+                    "text": "De nenhuma forma",
+                    "misconceptionCode": "oral-sem-valor"
+                  },
+                  {
+                    "text": "Só por livros escritos",
+                    "misconceptionCode": "confunde-oral-escrita"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Antes de serem escritos, muitos textos sagrados foram:",
+            "options": [
+              {
+                "text": "Escritos desde o primeiro dia",
+                "misconceptionCode": "confunde-oral-escrita"
+              },
+              {
+                "text": "Esquecidos por todos",
+                "misconceptionCode": "oral-sem-valor"
+              },
+              {
+                "text": "Contados e cantados oralmente por muito tempo"
+              },
+              {
+                "text": "Usados por uma só cultura",
+                "misconceptionCode": "oral-uma-cultura"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "Em várias tradições, os ensinamentos foram falados por gerações antes da escrita.",
+            "variants": [
+              {
+                "question": "Por que muitas histórias antigas chegaram até hoje, mesmo antes da escrita?",
+                "options": [
+                  {
+                    "text": "Porque foram contadas de geração em geração"
+                  },
+                  {
+                    "text": "Porque estavam na internet",
+                    "misconceptionCode": "confunde-oral-escrita"
+                  },
+                  {
+                    "text": "Por acaso",
+                    "misconceptionCode": "oral-sem-valor"
+                  },
+                  {
+                    "text": "Porque ninguém as contava",
+                    "misconceptionCode": "oral-uma-cultura"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que o diálogo inter-religioso é importante?",
+                "question": "Antes de serem escritos, muitos textos sagrados foram:",
                 "options": [
                   {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
+                    "text": "Usados por uma só cultura",
+                    "misconceptionCode": "oral-uma-cultura"
                   },
                   {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Esquecidos por todos",
+                    "misconceptionCode": "oral-sem-valor"
                   },
                   {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Escritos desde o primeiro dia",
+                    "misconceptionCode": "confunde-oral-escrita"
                   },
                   {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Contados e cantados oralmente por muito tempo"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF05ER01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF05ER01-A3",
+        "id": "PK2-EF05ER04-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: Identificar e respeitar acontecimentos sagrados",
-        "prompt": "Questão sobre Identificar e respeitar acontecimentos sagrados.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Identificar e respeitar acontecimentos sagrados.",
-        "skillId": "EF05ER01",
+        "title": "Praticar: oral em muitas culturas",
+        "prompt": "A tradição oral aparece em muitas culturas e religiões.",
+        "estMinutes": 5,
+        "audioScript": "A tradição oral aparece em muitas culturas e religiões. Pergunta 1. Qual afirmação está correta? A: Muitas culturas e tradições religiosas usam a tradição oral; B: Só uma religião usa a tradição oral; C: A tradição oral não tem valor; D: Tradição oral é o mesmo que livro. Pergunta 2. Por que é importante respeitar uma história contada oralmente por outra cultura? A: Não é importante, se não está escrita; B: Porque é igual à minha; C: Porque ela guarda a memória e os valores daquele povo; D: Porque é uma história do passado que acabou. Pergunta 3. Um griô é um contador de histórias em culturas da África Ocidental. O papel dele é: A: Escrever livros de história; B: Guardar e contar a história do seu povo pela fala e pela música; C: Contar histórias sem importância; D: Algo que só existiu há mil anos. Pergunta 4. Qual é uma diferença entre tradição oral e tradição escrita? A: Não há diferença; B: A oral não tem valor, a escrita sim; C: A oral é de uma religião e a escrita de outra; D: Na oral, o conhecimento passa pela fala; na escrita, pelo texto registrado.",
         "questions": [
           {
-            "question": "No tema \"Identificar e respeitar acontecimentos sagrados\", o que é diversidade religiosa?",
+            "question": "Qual afirmação está correta?",
             "options": [
               {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
+                "text": "Muitas culturas e tradições religiosas usam a tradição oral"
               },
               {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Só uma religião usa a tradição oral",
+                "misconceptionCode": "oral-uma-cultura"
               },
               {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
+                "text": "A tradição oral não tem valor",
+                "misconceptionCode": "oral-sem-valor"
               },
               {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Tradição oral é o mesmo que livro",
+                "misconceptionCode": "confunde-oral-escrita"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
+            "explanation": "Povos indígenas, comunidades afro-brasileiras, ciganas e muitas outras usam a oralidade.",
             "variants": [
               {
-                "question": "O que é laicidade do Estado?",
+                "question": "A tradição oral está presente em:",
                 "options": [
                   {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
+                    "text": "Uma cultura só",
+                    "misconceptionCode": "oral-uma-cultura"
                   },
                   {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Nenhuma cultura hoje",
+                    "misconceptionCode": "oral-sem-valor"
                   },
                   {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Muitas culturas diferentes"
                   },
                   {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Só nos livros",
+                    "misconceptionCode": "confunde-oral-escrita"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "O que é liberdade religiosa?",
+                "question": "Qual afirmação está correta?",
                 "options": [
                   {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
+                    "text": "Tradição oral é o mesmo que livro",
+                    "misconceptionCode": "confunde-oral-escrita"
                   },
                   {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Muitas culturas e tradições religiosas usam a tradição oral"
                   },
                   {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A tradição oral não tem valor",
+                    "misconceptionCode": "oral-sem-valor"
                   },
                   {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Só uma religião usa a tradição oral",
+                    "misconceptionCode": "oral-uma-cultura"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF05ER01"
+            ]
           },
           {
-            "question": "No tema \"Identificar e respeitar acontecimentos sagrados\", o que é diversidade religiosa?",
+            "question": "Por que é importante respeitar uma história contada oralmente por outra cultura?",
             "options": [
               {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
+                "text": "Não é importante, se não está escrita",
+                "misconceptionCode": "oral-sem-valor"
               },
               {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Porque é igual à minha",
+                "misconceptionCode": "oral-uma-cultura"
               },
               {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Porque ela guarda a memória e os valores daquele povo"
               },
               {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Porque é uma história do passado que acabou",
+                "misconceptionCode": "oral-so-antigo"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
+            "correctIndex": 2,
+            "explanation": "Respeitar a diversidade é reconhecer o valor das memórias de cada povo.",
             "variants": [
               {
-                "question": "O que é laicidade do Estado?",
+                "question": "Quando um colega conta uma história da tradição da família dele, você deve:",
                 "options": [
                   {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
+                    "text": "Ouvir com respeito"
                   },
                   {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Rir",
+                    "misconceptionCode": "oral-sem-valor"
                   },
                   {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Dizer que só vale se for escrita",
+                    "misconceptionCode": "oral-uma-cultura"
                   },
                   {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Mudar de assunto",
+                    "misconceptionCode": "oral-so-antigo"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que é liberdade religiosa?",
+                "question": "Por que é importante respeitar uma história contada oralmente por outra cultura?",
                 "options": [
                   {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
+                    "text": "Porque é uma história do passado que acabou",
+                    "misconceptionCode": "oral-so-antigo"
                   },
                   {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Porque é igual à minha",
+                    "misconceptionCode": "oral-uma-cultura"
                   },
                   {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Não é importante, se não está escrita",
+                    "misconceptionCode": "oral-sem-valor"
                   },
                   {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Porque ela guarda a memória e os valores daquele povo"
+                  }
+                ],
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "Um griô é um contador de histórias em culturas da África Ocidental. O papel dele é:",
+            "options": [
+              {
+                "text": "Escrever livros de história",
+                "misconceptionCode": "confunde-oral-escrita"
+              },
+              {
+                "text": "Guardar e contar a história do seu povo pela fala e pela música"
+              },
+              {
+                "text": "Contar histórias sem importância",
+                "misconceptionCode": "oral-sem-valor"
+              },
+              {
+                "text": "Algo que só existiu há mil anos",
+                "misconceptionCode": "oral-so-antigo"
+              }
+            ],
+            "correctIndex": 1,
+            "explanation": "Griôs preservam genealogias, histórias e ensinamentos pela oralidade.",
+            "variants": [
+              {
+                "question": "O griô ensina principalmente:",
+                "options": [
+                  {
+                    "text": "Só escrevendo",
+                    "misconceptionCode": "confunde-oral-escrita"
+                  },
+                  {
+                    "text": "Desenhando mapas",
+                    "misconceptionCode": "oral-sem-valor"
+                  },
+                  {
+                    "text": "Não ensina",
+                    "misconceptionCode": "oral-so-antigo"
+                  },
+                  {
+                    "text": "Falando e cantando"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Um griô é um contador de histórias em culturas da África Ocidental. O papel dele é:",
+                "options": [
+                  {
+                    "text": "Algo que só existiu há mil anos",
+                    "misconceptionCode": "oral-so-antigo"
+                  },
+                  {
+                    "text": "Contar histórias sem importância",
+                    "misconceptionCode": "oral-sem-valor"
+                  },
+                  {
+                    "text": "Guardar e contar a história do seu povo pela fala e pela música"
+                  },
+                  {
+                    "text": "Escrever livros de história",
+                    "misconceptionCode": "confunde-oral-escrita"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "Qual é uma diferença entre tradição oral e tradição escrita?",
+            "options": [
+              {
+                "text": "Não há diferença",
+                "misconceptionCode": "confunde-oral-escrita"
+              },
+              {
+                "text": "A oral não tem valor, a escrita sim",
+                "misconceptionCode": "oral-sem-valor"
+              },
+              {
+                "text": "A oral é de uma religião e a escrita de outra",
+                "misconceptionCode": "oral-uma-cultura"
+              },
+              {
+                "text": "Na oral, o conhecimento passa pela fala; na escrita, pelo texto registrado"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "As duas formas guardam memórias, de jeitos diferentes.",
+            "variants": [
+              {
+                "question": "Uma reza aprendida de ouvido e uma reza lida num livro mostram:",
+                "options": [
+                  {
+                    "text": "Duas tradições escritas",
+                    "misconceptionCode": "confunde-oral-escrita"
+                  },
+                  {
+                    "text": "Tradição oral e tradição escrita"
+                  },
+                  {
+                    "text": "Duas tradições orais",
+                    "misconceptionCode": "oral-sem-valor"
+                  },
+                  {
+                    "text": "Nenhuma tradição",
+                    "misconceptionCode": "oral-uma-cultura"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Qual é uma diferença entre tradição oral e tradição escrita?",
+                "options": [
+                  {
+                    "text": "Na oral, o conhecimento passa pela fala; na escrita, pelo texto registrado"
+                  },
+                  {
+                    "text": "A oral é de uma religião e a escrita de outra",
+                    "misconceptionCode": "oral-uma-cultura"
+                  },
+                  {
+                    "text": "A oral não tem valor, a escrita sim",
+                    "misconceptionCode": "oral-sem-valor"
+                  },
+                  {
+                    "text": "Não há diferença",
+                    "misconceptionCode": "confunde-oral-escrita"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF05ER01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF05ER01-A4",
+        "id": "PK2-EF05ER04-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: Identificar e respeitar acontecimentos sagrados",
-        "prompt": "Questão sobre Identificar e respeitar acontecimentos sagrados.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Identificar e respeitar acontecimentos sagrados.",
-        "skillId": "EF05ER01",
+        "title": "Aplicar: a memória da sua comunidade",
+        "prompt": "Pense nas histórias da sua família e da sua comunidade.",
+        "estMinutes": 4,
+        "audioScript": "Pense nas histórias da sua família e da sua comunidade. Pergunta 1. Para conhecer a história do seu bairro, uma boa ideia é: A: Achar que só vale o que está escrito; B: Perguntar só a quem tem a mesma religião que você; C: Conversar com os moradores mais antigos; D: Achar que ninguém mais lembra nada. Pergunta 2. Você gravou sua avó contando uma história da família. O que fez? A: Transformou a história em algo sem valor; B: Ajudou a preservar uma memória oral; C: Algo que só se fazia no passado; D: Tradição escrita, porque gravou. Pergunta 3. Por que os ensinamentos passados oralmente são importantes para muitas tradições religiosas? A: Não são importantes; B: Porque toda religião é igual; C: Porque substituem a escrita em todas elas; D: Porque mantêm vivos os valores e a memória do grupo.",
         "questions": [
           {
-            "question": "O que são valores universais no contexto das religiões?",
+            "question": "Para conhecer a história do seu bairro, uma boa ideia é:",
             "options": [
               {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
+                "text": "Achar que só vale o que está escrito",
+                "misconceptionCode": "oral-sem-valor"
               },
               {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Perguntar só a quem tem a mesma religião que você",
+                "misconceptionCode": "oral-uma-cultura"
               },
               {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Conversar com os moradores mais antigos"
               },
               {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Achar que ninguém mais lembra nada",
+                "misconceptionCode": "oral-so-antigo"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
+            "correctIndex": 2,
+            "explanation": "As lembranças dos moradores são fontes orais importantes.",
             "variants": [
               {
-                "question": "O que é intolerância religiosa?",
+                "question": "Para saber como era a festa da sua cidade antigamente, você pode:",
                 "options": [
                   {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
+                    "text": "Entrevistar pessoas mais velhas"
                   },
                   {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Achar que não dá para saber",
+                    "misconceptionCode": "oral-sem-valor"
                   },
                   {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Só ler a placa da praça",
+                    "misconceptionCode": "oral-uma-cultura"
                   },
                   {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Inventar",
+                    "misconceptionCode": "oral-so-antigo"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que o diálogo inter-religioso é importante?",
+                "question": "Para conhecer a história do seu bairro, uma boa ideia é:",
                 "options": [
                   {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
+                    "text": "Achar que ninguém mais lembra nada",
+                    "misconceptionCode": "oral-so-antigo"
                   },
                   {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Perguntar só a quem tem a mesma religião que você",
+                    "misconceptionCode": "oral-uma-cultura"
                   },
                   {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Achar que só vale o que está escrito",
+                    "misconceptionCode": "oral-sem-valor"
                   },
                   {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Conversar com os moradores mais antigos"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF05ER01"
+            ]
           },
           {
-            "question": "O que são valores universais no contexto das religiões?",
+            "question": "Você gravou sua avó contando uma história da família. O que fez?",
             "options": [
               {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
+                "text": "Transformou a história em algo sem valor",
+                "misconceptionCode": "oral-sem-valor"
               },
               {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Ajudou a preservar uma memória oral"
               },
               {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Algo que só se fazia no passado",
+                "misconceptionCode": "oral-so-antigo"
               },
               {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Tradição escrita, porque gravou",
+                "misconceptionCode": "confunde-oral-escrita"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
+            "correctIndex": 1,
+            "explanation": "Gravar ajuda a guardar a tradição oral.",
             "variants": [
               {
-                "question": "O que é intolerância religiosa?",
+                "question": "Fazer um vídeo com o seu avô contando como era a infância dele ajuda a:",
                 "options": [
                   {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
+                    "text": "Apagar a memória",
+                    "misconceptionCode": "oral-sem-valor"
                   },
                   {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Nada",
+                    "misconceptionCode": "oral-so-antigo"
                   },
                   {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Inventar uma história",
+                    "misconceptionCode": "confunde-oral-escrita"
                   },
                   {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Guardar a memória da família"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "Por que o diálogo inter-religioso é importante?",
+                "question": "Você gravou sua avó contando uma história da família. O que fez?",
                 "options": [
                   {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
+                    "text": "Tradição escrita, porque gravou",
+                    "misconceptionCode": "confunde-oral-escrita"
                   },
                   {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Algo que só se fazia no passado",
+                    "misconceptionCode": "oral-so-antigo"
                   },
                   {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Ajudou a preservar uma memória oral"
                   },
                   {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Transformou a história em algo sem valor",
+                    "misconceptionCode": "oral-sem-valor"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "Por que os ensinamentos passados oralmente são importantes para muitas tradições religiosas?",
+            "options": [
+              {
+                "text": "Não são importantes",
+                "misconceptionCode": "oral-sem-valor"
+              },
+              {
+                "text": "Porque toda religião é igual",
+                "misconceptionCode": "oral-uma-cultura"
+              },
+              {
+                "text": "Porque substituem a escrita em todas elas",
+                "misconceptionCode": "confunde-oral-escrita"
+              },
+              {
+                "text": "Porque mantêm vivos os valores e a memória do grupo"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "A oralidade fortalece a identidade e a memória de cada grupo.",
+            "variants": [
+              {
+                "question": "Contar às crianças as histórias de uma tradição serve para:",
+                "options": [
+                  {
+                    "text": "Nada",
+                    "misconceptionCode": "oral-sem-valor"
+                  },
+                  {
+                    "text": "Manter viva a memória daquele grupo"
+                  },
+                  {
+                    "text": "Esquecer o passado",
+                    "misconceptionCode": "oral-uma-cultura"
+                  },
+                  {
+                    "text": "Só divertir",
+                    "misconceptionCode": "confunde-oral-escrita"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Por que os ensinamentos passados oralmente são importantes para muitas tradições religiosas?",
+                "options": [
+                  {
+                    "text": "Porque mantêm vivos os valores e a memória do grupo"
+                  },
+                  {
+                    "text": "Porque substituem a escrita em todas elas",
+                    "misconceptionCode": "confunde-oral-escrita"
+                  },
+                  {
+                    "text": "Porque toda religião é igual",
+                    "misconceptionCode": "oral-uma-cultura"
+                  },
+                  {
+                    "text": "Não são importantes",
+                    "misconceptionCode": "oral-sem-valor"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF05ER01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF05ER01-A5",
+        "id": "PK2-EF05ER04-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Identificar e respeitar acontecimentos sagrados",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Identificar e respeitar acontecimentos sagrados.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Identificar e respeitar acontecimentos sagrados.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: tradição oral",
+        "prompt": "Explique com as suas palavras o que é tradição oral e por que ela é importante. Dê um exemplo da sua família ou de alguma cultura.",
+        "estMinutes": 6,
+        "audioScript": "Explique com as suas palavras o que é tradição oral e por que ela é importante. Dê um exemplo da sua família ou de alguma cultura.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de Identificar e respeitar acontecimentos sagrados",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "define",
+              "description": "Explica que é a transmissão de histórias e ensinamentos pela fala"
+            },
+            {
+              "code": "importancia",
+              "description": "Diz por que é importante: preservar memória, valores, identidade"
+            },
+            {
+              "code": "exemplo-respeito",
+              "description": "Dá um exemplo com respeito à cultura citada"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF05ER01"
+          "exemploBoaResposta": "Tradição oral é quando histórias, cantos e ensinamentos passam de uma pessoa para outra falando, de geração em geração. Ela é importante porque guarda a memória de um povo ou de uma família. Por exemplo, minha avó me conta como era a festa da cidade quando ela era criança."
+        }
       }
-    ]
+    ],
+    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
+    "source": "SPEAKFLOW",
+    "status": "APPROVED"
   },
   {
     "skillCode": "EF05ER02",
-    "title": "Trilha: Identificar mitos de criação em diferentes culturas (EF05ER02)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 5,
     "subjectCode": "ER",
+    "subjectName": "Ensino Religioso",
+    "gradeYear": 5,
+    "version": 2,
+    "title": "Trilha: Mitos de criação",
+    "tituloAluno": "Histórias sobre a origem do mundo",
     "activities": [
       {
-        "id": "PK-EF05ER02-A1",
+        "id": "PK2-EF05ER02-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Identificar mitos de criação em diferentes culturas",
-        "prompt": "Questão sobre Identificar mitos de criação em diferentes culturas.",
+        "title": "Relembrar: o que é uma narrativa",
+        "prompt": "Vamos lembrar o que são narrativas e por que as pessoas contam histórias.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre Identificar mitos de criação em diferentes culturas.",
-        "skillId": "EF05ER02",
+        "audioScript": "Vamos lembrar o que são narrativas e por que as pessoas contam histórias. Pergunta 1. Uma narrativa é: A: Uma história contada com personagens e acontecimentos; B: Uma mentira; C: Uma conta de matemática; D: Algo sem nenhum sentido. Pergunta 2. Por que os povos contam histórias sobre a origem das coisas? A: Para enganar as pessoas; B: Para fazer experiências de ciência; C: Para explicar o mundo e passar valores; D: Sem nenhum motivo. Pergunta 3. Todos os povos explicam a origem do mundo do mesmo jeito? A: Sim, só existe uma explicação; B: Não, cada cultura tem as suas narrativas; C: Sim, todos usam a mesma história; D: Não, porque nenhum povo pensa nisso.",
         "questions": [
           {
-            "question": "No tema \"Identificar mitos de criação em diferentes culturas\", o que é diversidade religiosa?",
+            "question": "Uma narrativa é:",
             "options": [
               {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
+                "text": "Uma história contada com personagens e acontecimentos"
               },
               {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Uma mentira",
+                "misconceptionCode": "mito-mentira"
               },
               {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Uma conta de matemática",
+                "misconceptionCode": "mito-ciencia"
               },
               {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Algo sem nenhum sentido",
+                "misconceptionCode": "mito-sem-sentido"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
+            "explanation": "Narrativas organizam acontecimentos numa história.",
             "variants": [
               {
-                "question": "O que é laicidade do Estado?",
+                "question": "Uma lenda contada na sua cidade é um tipo de:",
                 "options": [
                   {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
+                    "text": "Experiência de laboratório",
+                    "misconceptionCode": "mito-mentira"
                   },
                   {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Mapa",
+                    "misconceptionCode": "mito-ciencia"
                   },
                   {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Narrativa"
                   },
                   {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Receita",
+                    "misconceptionCode": "mito-sem-sentido"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "O que é liberdade religiosa?",
+                "question": "Uma narrativa é:",
                 "options": [
                   {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
+                    "text": "Algo sem nenhum sentido",
+                    "misconceptionCode": "mito-sem-sentido"
                   },
                   {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Uma história contada com personagens e acontecimentos"
                   },
                   {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Uma conta de matemática",
+                    "misconceptionCode": "mito-ciencia"
                   },
                   {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Uma mentira",
+                    "misconceptionCode": "mito-mentira"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF05ER02"
+            ]
           },
           {
-            "question": "No tema \"Identificar mitos de criação em diferentes culturas\", o que é diversidade religiosa?",
+            "question": "Por que os povos contam histórias sobre a origem das coisas?",
             "options": [
               {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
+                "text": "Para enganar as pessoas",
+                "misconceptionCode": "mito-mentira"
               },
               {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Para fazer experiências de ciência",
+                "misconceptionCode": "mito-ciencia"
               },
               {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Para explicar o mundo e passar valores"
               },
               {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Sem nenhum motivo",
+                "misconceptionCode": "mito-sem-sentido"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
+            "correctIndex": 2,
+            "explanation": "As narrativas ajudam a dar sentido à vida e ensinam valores.",
             "variants": [
               {
-                "question": "O que é laicidade do Estado?",
+                "question": "Uma história que explica por que devemos cuidar dos rios ensina:",
                 "options": [
                   {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
+                    "text": "Um valor"
                   },
                   {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Uma mentira",
+                    "misconceptionCode": "mito-mentira"
                   },
                   {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Uma fórmula",
+                    "misconceptionCode": "mito-ciencia"
                   },
                   {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Nada",
+                    "misconceptionCode": "mito-sem-sentido"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que é liberdade religiosa?",
+                "question": "Por que os povos contam histórias sobre a origem das coisas?",
                 "options": [
                   {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
+                    "text": "Sem nenhum motivo",
+                    "misconceptionCode": "mito-sem-sentido"
                   },
                   {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Para fazer experiências de ciência",
+                    "misconceptionCode": "mito-ciencia"
                   },
                   {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Para enganar as pessoas",
+                    "misconceptionCode": "mito-mentira"
                   },
                   {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Para explicar o mundo e passar valores"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "Todos os povos explicam a origem do mundo do mesmo jeito?",
+            "options": [
+              {
+                "text": "Sim, só existe uma explicação",
+                "misconceptionCode": "mito-unico"
+              },
+              {
+                "text": "Não, cada cultura tem as suas narrativas"
+              },
+              {
+                "text": "Sim, todos usam a mesma história",
+                "misconceptionCode": "mito-unico"
+              },
+              {
+                "text": "Não, porque nenhum povo pensa nisso",
+                "misconceptionCode": "mito-sem-sentido"
               }
             ],
-            "skillId": "EF05ER02"
+            "correctIndex": 1,
+            "explanation": "Há grande diversidade de narrativas sobre a origem do mundo.",
+            "variants": [
+              {
+                "question": "As narrativas sobre a origem do mundo são:",
+                "options": [
+                  {
+                    "text": "Iguais em todo lugar",
+                    "misconceptionCode": "mito-unico"
+                  },
+                  {
+                    "text": "Inexistentes",
+                    "misconceptionCode": "mito-unico"
+                  },
+                  {
+                    "text": "Só científicas",
+                    "misconceptionCode": "mito-sem-sentido"
+                  },
+                  {
+                    "text": "Diferentes em cada cultura"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Todos os povos explicam a origem do mundo do mesmo jeito?",
+                "options": [
+                  {
+                    "text": "Não, porque nenhum povo pensa nisso",
+                    "misconceptionCode": "mito-sem-sentido"
+                  },
+                  {
+                    "text": "Sim, todos usam a mesma história",
+                    "misconceptionCode": "mito-unico"
+                  },
+                  {
+                    "text": "Não, cada cultura tem as suas narrativas"
+                  },
+                  {
+                    "text": "Sim, só existe uma explicação",
+                    "misconceptionCode": "mito-unico"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF05ER02-A2",
+        "id": "PK2-EF05ER02-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Identificar mitos de criação em diferentes culturas",
-        "prompt": "Questão sobre Identificar mitos de criação em diferentes culturas.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Identificar mitos de criação em diferentes culturas.",
-        "skillId": "EF05ER02",
+        "title": "Exemplo guiado: mito não é mentira",
+        "prompt": "Nas tradições religiosas, a palavra mito tem um sentido especial: é uma narrativa sagrada que explica a origem do mundo, da vida e do ser humano. Vamos entender juntos.",
+        "estMinutes": 4,
+        "audioScript": "Nas tradições religiosas, a palavra mito tem um sentido especial: é uma narrativa sagrada que explica a origem do mundo, da vida e do ser humano. Vamos entender juntos. Pergunta 1. No estudo das religiões, mito significa: A: Uma mentira; B: Uma teoria científica; C: Uma narrativa sagrada que explica a origem e o sentido das coisas; D: Uma história sem sentido. Pergunta 2. Muitos povos indígenas têm narrativas sobre como surgiram os rios, as plantas e as pessoas. Essas narrativas: A: São mentiras; B: Explicam a origem do mundo e transmitem valores do povo; C: São iguais às de todas as culturas; D: Não ensinam nada. Pergunta 3. Qual é uma diferença entre mito de criação e explicação científica? A: Não há diferença; B: O mito é mentira e a ciência é verdade; C: Os dois são feitos em laboratório; D: O mito fala do sentido e do sagrado; a ciência investiga com observação e testes.",
         "questions": [
           {
-            "question": "O que são valores universais no contexto das religiões?",
+            "question": "No estudo das religiões, mito significa:",
             "options": [
               {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
+                "text": "Uma mentira",
+                "misconceptionCode": "mito-mentira"
               },
               {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Uma teoria científica",
+                "misconceptionCode": "mito-ciencia"
               },
               {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Uma narrativa sagrada que explica a origem e o sentido das coisas"
               },
               {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Uma história sem sentido",
+                "misconceptionCode": "mito-sem-sentido"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
+            "correctIndex": 2,
+            "explanation": "No dia a dia, às vezes se usa mito como mentira, mas aqui o sentido é outro.",
             "variants": [
               {
-                "question": "O que é intolerância religiosa?",
+                "question": "Quando a professora de Ensino Religioso fala em mito de criação, ela quer dizer:",
                 "options": [
                   {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
+                    "text": "Uma narrativa sagrada sobre a origem do mundo"
                   },
                   {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Uma mentira",
+                    "misconceptionCode": "mito-mentira"
                   },
                   {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Uma notícia falsa",
+                    "misconceptionCode": "mito-ciencia"
                   },
                   {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Uma explicação de laboratório",
+                    "misconceptionCode": "mito-sem-sentido"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que o diálogo inter-religioso é importante?",
+                "question": "No estudo das religiões, mito significa:",
                 "options": [
                   {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
+                    "text": "Uma história sem sentido",
+                    "misconceptionCode": "mito-sem-sentido"
                   },
                   {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Uma teoria científica",
+                    "misconceptionCode": "mito-ciencia"
                   },
                   {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Uma mentira",
+                    "misconceptionCode": "mito-mentira"
                   },
                   {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Uma narrativa sagrada que explica a origem e o sentido das coisas"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF05ER02"
+            ]
           },
           {
-            "question": "O que são valores universais no contexto das religiões?",
+            "question": "Muitos povos indígenas têm narrativas sobre como surgiram os rios, as plantas e as pessoas. Essas narrativas:",
             "options": [
               {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
+                "text": "São mentiras",
+                "misconceptionCode": "mito-mentira"
               },
               {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Explicam a origem do mundo e transmitem valores do povo"
               },
               {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
+                "text": "São iguais às de todas as culturas",
+                "misconceptionCode": "mito-unico"
               },
               {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Não ensinam nada",
+                "misconceptionCode": "mito-sem-sentido"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
+            "correctIndex": 1,
+            "explanation": "Elas ensinam a relação do povo com a natureza e com o sagrado.",
             "variants": [
               {
-                "question": "O que é intolerância religiosa?",
+                "question": "Uma narrativa indígena que conta como surgiu a mandioca ensina:",
                 "options": [
                   {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
+                    "text": "Uma mentira",
+                    "misconceptionCode": "mito-mentira"
                   },
                   {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Nada",
+                    "misconceptionCode": "mito-unico"
                   },
                   {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A receita de farinha",
+                    "misconceptionCode": "mito-sem-sentido"
                   },
                   {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Valores e a relação do povo com a natureza"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "Por que o diálogo inter-religioso é importante?",
+                "question": "Muitos povos indígenas têm narrativas sobre como surgiram os rios, as plantas e as pessoas. Essas narrativas:",
                 "options": [
                   {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
+                    "text": "Não ensinam nada",
+                    "misconceptionCode": "mito-sem-sentido"
                   },
                   {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "São iguais às de todas as culturas",
+                    "misconceptionCode": "mito-unico"
                   },
                   {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Explicam a origem do mundo e transmitem valores do povo"
                   },
                   {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "São mentiras",
+                    "misconceptionCode": "mito-mentira"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "Qual é uma diferença entre mito de criação e explicação científica?",
+            "options": [
+              {
+                "text": "Não há diferença",
+                "misconceptionCode": "mito-ciencia"
+              },
+              {
+                "text": "O mito é mentira e a ciência é verdade",
+                "misconceptionCode": "mito-mentira"
+              },
+              {
+                "text": "Os dois são feitos em laboratório",
+                "misconceptionCode": "mito-ciencia"
+              },
+              {
+                "text": "O mito fala do sentido e do sagrado; a ciência investiga com observação e testes"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "São formas diferentes de pensar a origem das coisas, com objetivos diferentes.",
+            "variants": [
+              {
+                "question": "A ciência estuda a origem da Terra usando:",
+                "options": [
+                  {
+                    "text": "Narrativas sagradas",
+                    "misconceptionCode": "mito-ciencia"
+                  },
+                  {
+                    "text": "Observações, medições e testes"
+                  },
+                  {
+                    "text": "Sonhos",
+                    "misconceptionCode": "mito-mentira"
+                  },
+                  {
+                    "text": "Nada",
+                    "misconceptionCode": "mito-ciencia"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Qual é uma diferença entre mito de criação e explicação científica?",
+                "options": [
+                  {
+                    "text": "O mito fala do sentido e do sagrado; a ciência investiga com observação e testes"
+                  },
+                  {
+                    "text": "Os dois são feitos em laboratório",
+                    "misconceptionCode": "mito-ciencia"
+                  },
+                  {
+                    "text": "O mito é mentira e a ciência é verdade",
+                    "misconceptionCode": "mito-mentira"
+                  },
+                  {
+                    "text": "Não há diferença",
+                    "misconceptionCode": "mito-ciencia"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF05ER02"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF05ER02-A3",
+        "id": "PK2-EF05ER02-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: Identificar mitos de criação em diferentes culturas",
-        "prompt": "Questão sobre Identificar mitos de criação em diferentes culturas.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Identificar mitos de criação em diferentes culturas.",
-        "skillId": "EF05ER02",
+        "title": "Praticar: narrativas de muitas culturas",
+        "prompt": "Diferentes culturas têm diferentes narrativas de criação.",
+        "estMinutes": 5,
+        "audioScript": "Diferentes culturas têm diferentes narrativas de criação. Pergunta 1. O livro do Gênesis, na Bíblia, traz uma narrativa da criação do mundo. Ele é importante para: A: Todas as culturas do mundo, do mesmo jeito; B: O judaísmo e o cristianismo; C: Ninguém, porque é um mito; D: Os cientistas, como teoria de laboratório. Pergunta 2. Se dois colegas contam narrativas de criação diferentes, de tradições diferentes, o correto é: A: Dizer que só existe uma certa; B: Dizer que as duas são mentira; C: Dizer que elas não ensinam nada; D: Respeitar as duas. Pergunta 3. Além de explicar a origem do mundo, os mitos de criação costumam: A: Ensinar valores e o jeito de viver de um grupo; B: Não ensinar nada; C: Provar uma teoria científica; D: Ser iguais em todas as culturas. Pergunta 4. Por que existem tantas narrativas de criação diferentes? A: Porque só uma é a verdadeira e as outras são cópias; B: Porque são todas mentira; C: Porque cada povo tem a sua história, a sua cultura e o seu modo de ver o mundo; D: Porque são experiências de ciência diferentes.",
         "questions": [
           {
-            "question": "No tema \"Identificar mitos de criação em diferentes culturas\", o que é diversidade religiosa?",
+            "question": "O livro do Gênesis, na Bíblia, traz uma narrativa da criação do mundo. Ele é importante para:",
             "options": [
               {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
+                "text": "Todas as culturas do mundo, do mesmo jeito",
+                "misconceptionCode": "mito-unico"
               },
               {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
+                "text": "O judaísmo e o cristianismo"
               },
               {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Ninguém, porque é um mito",
+                "misconceptionCode": "mito-mentira"
               },
               {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Os cientistas, como teoria de laboratório",
+                "misconceptionCode": "mito-ciencia"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
+            "correctIndex": 1,
+            "explanation": "O Gênesis faz parte das escrituras judaicas e cristãs.",
             "variants": [
               {
-                "question": "O que é laicidade do Estado?",
+                "question": "Uma narrativa de criação presente nas escrituras judaicas e cristãs é:",
                 "options": [
                   {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
+                    "text": "A da teoria do Big Bang",
+                    "misconceptionCode": "mito-unico"
                   },
                   {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Uma notícia de jornal",
+                    "misconceptionCode": "mito-mentira"
                   },
                   {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Uma história sem valor",
+                    "misconceptionCode": "mito-ciencia"
                   },
                   {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "A do livro do Gênesis"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "O que é liberdade religiosa?",
+                "question": "O livro do Gênesis, na Bíblia, traz uma narrativa da criação do mundo. Ele é importante para:",
                 "options": [
                   {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
+                    "text": "Os cientistas, como teoria de laboratório",
+                    "misconceptionCode": "mito-ciencia"
                   },
                   {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Ninguém, porque é um mito",
+                    "misconceptionCode": "mito-mentira"
                   },
                   {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "O judaísmo e o cristianismo"
                   },
                   {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Todas as culturas do mundo, do mesmo jeito",
+                    "misconceptionCode": "mito-unico"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF05ER02"
+            ]
           },
           {
-            "question": "No tema \"Identificar mitos de criação em diferentes culturas\", o que é diversidade religiosa?",
+            "question": "Se dois colegas contam narrativas de criação diferentes, de tradições diferentes, o correto é:",
             "options": [
               {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
+                "text": "Dizer que só existe uma certa",
+                "misconceptionCode": "mito-unico"
               },
               {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Dizer que as duas são mentira",
+                "misconceptionCode": "mito-mentira"
               },
               {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Dizer que elas não ensinam nada",
+                "misconceptionCode": "mito-sem-sentido"
               },
               {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Respeitar as duas"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Na escola, as tradições são estudadas com respeito, sem dizer qual é a certa.",
+            "variants": [
+              {
+                "question": "Quando ouvir uma narrativa de criação de outra cultura, você deve:",
+                "options": [
+                  {
+                    "text": "Dizer que é mentira",
+                    "misconceptionCode": "mito-unico"
+                  },
+                  {
+                    "text": "Ouvir com respeito"
+                  },
+                  {
+                    "text": "Rir",
+                    "misconceptionCode": "mito-mentira"
+                  },
+                  {
+                    "text": "Mudar de assunto",
+                    "misconceptionCode": "mito-sem-sentido"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Se dois colegas contam narrativas de criação diferentes, de tradições diferentes, o correto é:",
+                "options": [
+                  {
+                    "text": "Respeitar as duas"
+                  },
+                  {
+                    "text": "Dizer que elas não ensinam nada",
+                    "misconceptionCode": "mito-sem-sentido"
+                  },
+                  {
+                    "text": "Dizer que as duas são mentira",
+                    "misconceptionCode": "mito-mentira"
+                  },
+                  {
+                    "text": "Dizer que só existe uma certa",
+                    "misconceptionCode": "mito-unico"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "Além de explicar a origem do mundo, os mitos de criação costumam:",
+            "options": [
+              {
+                "text": "Ensinar valores e o jeito de viver de um grupo"
+              },
+              {
+                "text": "Não ensinar nada",
+                "misconceptionCode": "mito-sem-sentido"
+              },
+              {
+                "text": "Provar uma teoria científica",
+                "misconceptionCode": "mito-ciencia"
+              },
+              {
+                "text": "Ser iguais em todas as culturas",
+                "misconceptionCode": "mito-unico"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
+            "explanation": "Os mitos falam também de respeito, cuidado e relação com o sagrado.",
             "variants": [
               {
-                "question": "O que é laicidade do Estado?",
+                "question": "Uma narrativa em que o ser humano é criado para cuidar da terra ensina:",
                 "options": [
                   {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
+                    "text": "Nada",
+                    "misconceptionCode": "mito-sem-sentido"
                   },
                   {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Uma fórmula química",
+                    "misconceptionCode": "mito-ciencia"
                   },
                   {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A responsabilidade de cuidar da natureza"
                   },
                   {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "A destruir a natureza",
+                    "misconceptionCode": "mito-unico"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "Além de explicar a origem do mundo, os mitos de criação costumam:",
+                "options": [
+                  {
+                    "text": "Ser iguais em todas as culturas",
+                    "misconceptionCode": "mito-unico"
+                  },
+                  {
+                    "text": "Ensinar valores e o jeito de viver de um grupo"
+                  },
+                  {
+                    "text": "Provar uma teoria científica",
+                    "misconceptionCode": "mito-ciencia"
+                  },
+                  {
+                    "text": "Não ensinar nada",
+                    "misconceptionCode": "mito-sem-sentido"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Por que existem tantas narrativas de criação diferentes?",
+            "options": [
+              {
+                "text": "Porque só uma é a verdadeira e as outras são cópias",
+                "misconceptionCode": "mito-unico"
+              },
+              {
+                "text": "Porque são todas mentira",
+                "misconceptionCode": "mito-mentira"
+              },
+              {
+                "text": "Porque cada povo tem a sua história, a sua cultura e o seu modo de ver o mundo"
+              },
+              {
+                "text": "Porque são experiências de ciência diferentes",
+                "misconceptionCode": "mito-ciencia"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "A diversidade de narrativas reflete a diversidade dos povos.",
+            "variants": [
+              {
+                "question": "A diversidade de mitos de criação mostra:",
+                "options": [
+                  {
+                    "text": "A diversidade de culturas"
+                  },
+                  {
+                    "text": "Que só existe uma cultura",
+                    "misconceptionCode": "mito-unico"
+                  },
+                  {
+                    "text": "Que todos são mentira",
+                    "misconceptionCode": "mito-mentira"
+                  },
+                  {
+                    "text": "Que são todos iguais",
+                    "misconceptionCode": "mito-ciencia"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que é liberdade religiosa?",
+                "question": "Por que existem tantas narrativas de criação diferentes?",
                 "options": [
                   {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
+                    "text": "Porque são experiências de ciência diferentes",
+                    "misconceptionCode": "mito-ciencia"
                   },
                   {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Porque são todas mentira",
+                    "misconceptionCode": "mito-mentira"
                   },
                   {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Porque só uma é a verdadeira e as outras são cópias",
+                    "misconceptionCode": "mito-unico"
                   },
                   {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Porque cada povo tem a sua história, a sua cultura e o seu modo de ver o mundo"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF05ER02"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF05ER02-A4",
+        "id": "PK2-EF05ER02-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: Identificar mitos de criação em diferentes culturas",
-        "prompt": "Questão sobre Identificar mitos de criação em diferentes culturas.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Identificar mitos de criação em diferentes culturas.",
-        "skillId": "EF05ER02",
+        "title": "Aplicar: conversando sobre origens",
+        "prompt": "Pense em como conversar sobre esse tema com respeito.",
+        "estMinutes": 4,
+        "audioScript": "Pense em como conversar sobre esse tema com respeito. Pergunta 1. Seu primo diz: \"Mito é mentira\". Como explicar o sentido que aprendemos? A: Ele está certo; B: Mito é uma teoria científica; C: Mito não ensina nada; D: No estudo das religiões, mito é uma narrativa sagrada que dá sentido à vida de um povo. Pergunta 2. Na aula de Ciências você estuda a formação da Terra, e em Ensino Religioso, mitos de criação. Isso mostra que: A: São formas diferentes de pensar a origem do mundo; B: Uma delas é mentira; C: As duas são a mesma coisa; D: Só existe uma forma de explicar. Pergunta 3. Para um trabalho sobre mitos de criação, a melhor escolha é: A: Apresentar só uma, dizendo que é a única; B: Mostrar que todas são mentira; C: Pesquisar narrativas de várias culturas e apresentar com respeito; D: Dizer que nenhuma ensina nada.",
         "questions": [
           {
-            "question": "O que são valores universais no contexto das religiões?",
+            "question": "Seu primo diz: \"Mito é mentira\". Como explicar o sentido que aprendemos?",
             "options": [
               {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
+                "text": "Ele está certo",
+                "misconceptionCode": "mito-mentira"
               },
               {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Mito é uma teoria científica",
+                "misconceptionCode": "mito-ciencia"
               },
               {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Mito não ensina nada",
+                "misconceptionCode": "mito-sem-sentido"
               },
               {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
+                "text": "No estudo das religiões, mito é uma narrativa sagrada que dá sentido à vida de um povo"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
+            "correctIndex": 3,
+            "explanation": "O sentido religioso de mito é diferente do uso do dia a dia.",
             "variants": [
               {
-                "question": "O que é intolerância religiosa?",
+                "question": "Um amigo pergunta se uma narrativa indígena de criação é mentira. Você responde:",
                 "options": [
                   {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
+                    "text": "Sim, é mentira",
+                    "misconceptionCode": "mito-mentira"
                   },
                   {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "É uma narrativa sagrada daquele povo e merece respeito"
                   },
                   {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "É uma experiência de ciência",
+                    "misconceptionCode": "mito-ciencia"
                   },
                   {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Não tem nenhum valor",
+                    "misconceptionCode": "mito-sem-sentido"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "Por que o diálogo inter-religioso é importante?",
+                "question": "Seu primo diz: \"Mito é mentira\". Como explicar o sentido que aprendemos?",
                 "options": [
                   {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
+                    "text": "No estudo das religiões, mito é uma narrativa sagrada que dá sentido à vida de um povo"
                   },
                   {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Mito não ensina nada",
+                    "misconceptionCode": "mito-sem-sentido"
                   },
                   {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Mito é uma teoria científica",
+                    "misconceptionCode": "mito-ciencia"
                   },
                   {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Ele está certo",
+                    "misconceptionCode": "mito-mentira"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF05ER02"
+            ]
           },
           {
-            "question": "O que são valores universais no contexto das religiões?",
+            "question": "Na aula de Ciências você estuda a formação da Terra, e em Ensino Religioso, mitos de criação. Isso mostra que:",
             "options": [
               {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
+                "text": "São formas diferentes de pensar a origem do mundo"
               },
               {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Uma delas é mentira",
+                "misconceptionCode": "mito-mentira"
               },
               {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
+                "text": "As duas são a mesma coisa",
+                "misconceptionCode": "mito-ciencia"
               },
               {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Só existe uma forma de explicar",
+                "misconceptionCode": "mito-unico"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
+            "explanation": "Ciência e narrativas sagradas respondem a perguntas diferentes.",
             "variants": [
               {
-                "question": "O que é intolerância religiosa?",
+                "question": "Estudar ciência e conhecer mitos de criação na escola:",
                 "options": [
                   {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
+                    "text": "É proibido",
+                    "misconceptionCode": "mito-mentira"
                   },
                   {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "É a mesma coisa",
+                    "misconceptionCode": "mito-ciencia"
                   },
                   {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "É possível, porque são formas diferentes de conhecimento"
                   },
                   {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Não serve para nada",
+                    "misconceptionCode": "mito-unico"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "Na aula de Ciências você estuda a formação da Terra, e em Ensino Religioso, mitos de criação. Isso mostra que:",
+                "options": [
+                  {
+                    "text": "Só existe uma forma de explicar",
+                    "misconceptionCode": "mito-unico"
+                  },
+                  {
+                    "text": "São formas diferentes de pensar a origem do mundo"
+                  },
+                  {
+                    "text": "As duas são a mesma coisa",
+                    "misconceptionCode": "mito-ciencia"
+                  },
+                  {
+                    "text": "Uma delas é mentira",
+                    "misconceptionCode": "mito-mentira"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Para um trabalho sobre mitos de criação, a melhor escolha é:",
+            "options": [
+              {
+                "text": "Apresentar só uma, dizendo que é a única",
+                "misconceptionCode": "mito-unico"
+              },
+              {
+                "text": "Mostrar que todas são mentira",
+                "misconceptionCode": "mito-mentira"
+              },
+              {
+                "text": "Pesquisar narrativas de várias culturas e apresentar com respeito"
+              },
+              {
+                "text": "Dizer que nenhuma ensina nada",
+                "misconceptionCode": "mito-sem-sentido"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "Pesquisar várias culturas valoriza a diversidade.",
+            "variants": [
+              {
+                "question": "Num painel sobre a origem do mundo segundo várias culturas, o certo é:",
+                "options": [
+                  {
+                    "text": "Mostrar várias narrativas com respeito"
+                  },
+                  {
+                    "text": "Escolher a certa",
+                    "misconceptionCode": "mito-unico"
+                  },
+                  {
+                    "text": "Rir das diferentes",
+                    "misconceptionCode": "mito-mentira"
+                  },
+                  {
+                    "text": "Mostrar só a sua",
+                    "misconceptionCode": "mito-sem-sentido"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que o diálogo inter-religioso é importante?",
+                "question": "Para um trabalho sobre mitos de criação, a melhor escolha é:",
                 "options": [
                   {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
+                    "text": "Dizer que nenhuma ensina nada",
+                    "misconceptionCode": "mito-sem-sentido"
                   },
                   {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Mostrar que todas são mentira",
+                    "misconceptionCode": "mito-mentira"
                   },
                   {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Apresentar só uma, dizendo que é a única",
+                    "misconceptionCode": "mito-unico"
                   },
                   {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Pesquisar narrativas de várias culturas e apresentar com respeito"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF05ER02"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF05ER02-A5",
+        "id": "PK2-EF05ER02-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Identificar mitos de criação em diferentes culturas",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Identificar mitos de criação em diferentes culturas.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Identificar mitos de criação em diferentes culturas.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: mitos de criação",
+        "prompt": "Explique com as suas palavras o que é um mito de criação e por que ele é importante para um povo.",
+        "estMinutes": 6,
+        "audioScript": "Explique com as suas palavras o que é um mito de criação e por que ele é importante para um povo.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de Identificar mitos de criação em diferentes culturas",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "define",
+              "description": "Explica que é uma narrativa sagrada sobre a origem do mundo, da vida ou do ser humano"
+            },
+            {
+              "code": "nao-mentira",
+              "description": "Deixa claro que, nesse sentido, mito não é mentira"
+            },
+            {
+              "code": "valores",
+              "description": "Diz que o mito transmite valores ou dá sentido à vida do povo"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF05ER02"
+          "exemploBoaResposta": "Mito de criação é uma narrativa sagrada que um povo conta para explicar como surgiram o mundo, a natureza e as pessoas. Aqui, mito não quer dizer mentira. Ele é importante porque ensina os valores daquele povo, como cuidar da natureza."
+        }
       }
-    ]
-  },
-  {
-    "skillCode": "EF05ER04",
-    "title": "Trilha: Reconhecer a importância da tradição oral para preservar (EF05ER04)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
+    ],
     "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 5,
-    "subjectCode": "ER",
-    "activities": [
-      {
-        "id": "PK-EF05ER04-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Reconhecer a importância da tradição oral para preservar",
-        "prompt": "Questão sobre Reconhecer a importância da tradição oral para preservar.",
-        "estMinutes": 4,
-        "audioScript": "Questão sobre Reconhecer a importância da tradição oral para preservar.",
-        "skillId": "EF05ER04",
-        "questions": [
-          {
-            "question": "No tema \"Reconhecer a importância da tradição oral para preservar\", o que é diversidade religiosa?",
-            "options": [
-              {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
-              },
-              {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
-            "variants": [
-              {
-                "question": "O que é laicidade do Estado?",
-                "options": [
-                  {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
-                  },
-                  {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é liberdade religiosa?",
-                "options": [
-                  {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
-                  },
-                  {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05ER04"
-          },
-          {
-            "question": "No tema \"Reconhecer a importância da tradição oral para preservar\", o que é diversidade religiosa?",
-            "options": [
-              {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
-              },
-              {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
-            "variants": [
-              {
-                "question": "O que é laicidade do Estado?",
-                "options": [
-                  {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
-                  },
-                  {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é liberdade religiosa?",
-                "options": [
-                  {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
-                  },
-                  {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05ER04"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF05ER04-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Reconhecer a importância da tradição oral para preservar",
-        "prompt": "Questão sobre Reconhecer a importância da tradição oral para preservar.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Reconhecer a importância da tradição oral para preservar.",
-        "skillId": "EF05ER04",
-        "questions": [
-          {
-            "question": "O que são valores universais no contexto das religiões?",
-            "options": [
-              {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
-              },
-              {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
-            "variants": [
-              {
-                "question": "O que é intolerância religiosa?",
-                "options": [
-                  {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
-                  },
-                  {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o diálogo inter-religioso é importante?",
-                "options": [
-                  {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
-                  },
-                  {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05ER04"
-          },
-          {
-            "question": "O que são valores universais no contexto das religiões?",
-            "options": [
-              {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
-              },
-              {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
-            "variants": [
-              {
-                "question": "O que é intolerância religiosa?",
-                "options": [
-                  {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
-                  },
-                  {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o diálogo inter-religioso é importante?",
-                "options": [
-                  {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
-                  },
-                  {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05ER04"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF05ER04-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar com exercícios: Reconhecer a importância da tradição oral para preservar",
-        "prompt": "Questão sobre Reconhecer a importância da tradição oral para preservar.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Reconhecer a importância da tradição oral para preservar.",
-        "skillId": "EF05ER04",
-        "questions": [
-          {
-            "question": "No tema \"Reconhecer a importância da tradição oral para preservar\", o que é diversidade religiosa?",
-            "options": [
-              {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
-              },
-              {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
-            "variants": [
-              {
-                "question": "O que é laicidade do Estado?",
-                "options": [
-                  {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
-                  },
-                  {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é liberdade religiosa?",
-                "options": [
-                  {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
-                  },
-                  {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05ER04"
-          },
-          {
-            "question": "No tema \"Reconhecer a importância da tradição oral para preservar\", o que é diversidade religiosa?",
-            "options": [
-              {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
-              },
-              {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
-            "variants": [
-              {
-                "question": "O que é laicidade do Estado?",
-                "options": [
-                  {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
-                  },
-                  {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é liberdade religiosa?",
-                "options": [
-                  {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
-                  },
-                  {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05ER04"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF05ER04-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar em situações reais: Reconhecer a importância da tradição oral para preservar",
-        "prompt": "Questão sobre Reconhecer a importância da tradição oral para preservar.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Reconhecer a importância da tradição oral para preservar.",
-        "skillId": "EF05ER04",
-        "questions": [
-          {
-            "question": "O que são valores universais no contexto das religiões?",
-            "options": [
-              {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
-              },
-              {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
-            "variants": [
-              {
-                "question": "O que é intolerância religiosa?",
-                "options": [
-                  {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
-                  },
-                  {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o diálogo inter-religioso é importante?",
-                "options": [
-                  {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
-                  },
-                  {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05ER04"
-          },
-          {
-            "question": "O que são valores universais no contexto das religiões?",
-            "options": [
-              {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
-              },
-              {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
-            "variants": [
-              {
-                "question": "O que é intolerância religiosa?",
-                "options": [
-                  {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
-                  },
-                  {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o diálogo inter-religioso é importante?",
-                "options": [
-                  {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
-                  },
-                  {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05ER04"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF05ER04-A5",
-        "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Reconhecer a importância da tradição oral para preservar",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Reconhecer a importância da tradição oral para preservar.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Reconhecer a importância da tradição oral para preservar.",
-        "rubric": {
-          "criteria": [
-            "Menciona ao menos dois aspectos de Reconhecer a importância da tradição oral para preservar",
-            "Usa vocabulário adequado ao ano escolar"
-          ],
-          "minScore": 60
-        },
-        "skillId": "EF05ER04"
-      }
-    ]
-  },
-  {
-    "skillCode": "EF05ER05",
-    "title": "Trilha: Identificar elementos da tradição oral nas culturas (EF05ER05)",
     "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 5,
-    "subjectCode": "ER",
-    "activities": [
-      {
-        "id": "PK-EF05ER05-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Identificar elementos da tradição oral nas culturas",
-        "prompt": "Questão sobre Identificar elementos da tradição oral nas culturas.",
-        "estMinutes": 4,
-        "audioScript": "Questão sobre Identificar elementos da tradição oral nas culturas.",
-        "skillId": "EF05ER05",
-        "questions": [
-          {
-            "question": "No tema \"Identificar elementos da tradição oral nas culturas\", o que é diversidade religiosa?",
-            "options": [
-              {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
-              },
-              {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
-            "variants": [
-              {
-                "question": "O que é laicidade do Estado?",
-                "options": [
-                  {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
-                  },
-                  {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é liberdade religiosa?",
-                "options": [
-                  {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
-                  },
-                  {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05ER05"
-          },
-          {
-            "question": "No tema \"Identificar elementos da tradição oral nas culturas\", o que é diversidade religiosa?",
-            "options": [
-              {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
-              },
-              {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
-            "variants": [
-              {
-                "question": "O que é laicidade do Estado?",
-                "options": [
-                  {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
-                  },
-                  {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é liberdade religiosa?",
-                "options": [
-                  {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
-                  },
-                  {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05ER05"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF05ER05-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Identificar elementos da tradição oral nas culturas",
-        "prompt": "Questão sobre Identificar elementos da tradição oral nas culturas.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Identificar elementos da tradição oral nas culturas.",
-        "skillId": "EF05ER05",
-        "questions": [
-          {
-            "question": "O que são valores universais no contexto das religiões?",
-            "options": [
-              {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
-              },
-              {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
-            "variants": [
-              {
-                "question": "O que é intolerância religiosa?",
-                "options": [
-                  {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
-                  },
-                  {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o diálogo inter-religioso é importante?",
-                "options": [
-                  {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
-                  },
-                  {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05ER05"
-          },
-          {
-            "question": "O que são valores universais no contexto das religiões?",
-            "options": [
-              {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
-              },
-              {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
-            "variants": [
-              {
-                "question": "O que é intolerância religiosa?",
-                "options": [
-                  {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
-                  },
-                  {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o diálogo inter-religioso é importante?",
-                "options": [
-                  {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
-                  },
-                  {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05ER05"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF05ER05-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar com exercícios: Identificar elementos da tradição oral nas culturas",
-        "prompt": "Questão sobre Identificar elementos da tradição oral nas culturas.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Identificar elementos da tradição oral nas culturas.",
-        "skillId": "EF05ER05",
-        "questions": [
-          {
-            "question": "No tema \"Identificar elementos da tradição oral nas culturas\", o que é diversidade religiosa?",
-            "options": [
-              {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
-              },
-              {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
-            "variants": [
-              {
-                "question": "O que é laicidade do Estado?",
-                "options": [
-                  {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
-                  },
-                  {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é liberdade religiosa?",
-                "options": [
-                  {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
-                  },
-                  {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05ER05"
-          },
-          {
-            "question": "No tema \"Identificar elementos da tradição oral nas culturas\", o que é diversidade religiosa?",
-            "options": [
-              {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
-              },
-              {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
-            "variants": [
-              {
-                "question": "O que é laicidade do Estado?",
-                "options": [
-                  {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
-                  },
-                  {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é liberdade religiosa?",
-                "options": [
-                  {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
-                  },
-                  {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05ER05"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF05ER05-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar em situações reais: Identificar elementos da tradição oral nas culturas",
-        "prompt": "Questão sobre Identificar elementos da tradição oral nas culturas.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Identificar elementos da tradição oral nas culturas.",
-        "skillId": "EF05ER05",
-        "questions": [
-          {
-            "question": "O que são valores universais no contexto das religiões?",
-            "options": [
-              {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
-              },
-              {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
-            "variants": [
-              {
-                "question": "O que é intolerância religiosa?",
-                "options": [
-                  {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
-                  },
-                  {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o diálogo inter-religioso é importante?",
-                "options": [
-                  {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
-                  },
-                  {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05ER05"
-          },
-          {
-            "question": "O que são valores universais no contexto das religiões?",
-            "options": [
-              {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
-              },
-              {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
-            "variants": [
-              {
-                "question": "O que é intolerância religiosa?",
-                "options": [
-                  {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
-                  },
-                  {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o diálogo inter-religioso é importante?",
-                "options": [
-                  {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
-                  },
-                  {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05ER05"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF05ER05-A5",
-        "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Identificar elementos da tradição oral nas culturas",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Identificar elementos da tradição oral nas culturas.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Identificar elementos da tradição oral nas culturas.",
-        "rubric": {
-          "criteria": [
-            "Menciona ao menos dois aspectos de Identificar elementos da tradição oral nas culturas",
-            "Usa vocabulário adequado ao ano escolar"
-          ],
-          "minScore": 60
-        },
-        "skillId": "EF05ER05"
-      }
-    ]
+    "status": "APPROVED"
   }
 ]

@@ -1,1140 +1,223 @@
 {
-  "id": "DIAG-GE-6A",
+  "id": "DIAG2-GE-6A",
+  "version": 2,
   "titulo": "Diagnóstico de Geografia — 6º ano",
-  "descricao": "Avaliação diagnóstica de Geografia para o 6º ano.",
+  "descricao": "Cidades e natureza, ciclo da água e bacias hidrográficas no 6º ano, com degrau para o 5º ano.",
+  "subjectCode": "GE",
+  "subjectName": "Geografia",
+  "gradeYear": 6,
   "status": "APPROVED",
   "source": "SPEAKFLOW",
-  "subjectCode": "GE",
-  "gradeYear": 6,
   "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
+  "adaptive": true,
   "items": [
     {
-      "id": "DI-EF06GE01-01",
-      "skillCode": "EF06GE01",
-      "skillId": "EF06GE01",
-      "question": "No estudo de \"Comparar modificações das paisagens nos lugares de vivência\", o conceito de território significa:",
+      "id": "DI2-EF06GE07-01",
+      "skillCode": "EF06GE07",
+      "question": "Por que as cidades com muito asfalto alagam mais com chuva forte?",
       "options": [
         {
-          "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
+          "text": "Porque chove só nas cidades",
+          "misconceptionCode": "mudanca-sem-causa"
         },
         {
-          "text": "Apenas a área de um país",
-          "misconceptionCode": "territorio-so-pais"
+          "text": "Porque a água não consegue entrar no solo"
         },
         {
-          "text": "Qualquer área coberta por água",
-          "misconceptionCode": "conteudo-errado"
+          "text": "Porque a cidade não tem relação com a natureza",
+          "misconceptionCode": "cidade-separada-natureza"
         },
         {
-          "text": "O tamanho de uma cidade",
-          "misconceptionCode": "territorio-so-pais"
+          "text": "Por causa da comida do campo",
+          "misconceptionCode": "campo-independente"
+        }
+      ],
+      "correctIndex": 1,
+      "explanation": "Solo impermeável faz a água escorrer.",
+      "audioScript": "Pergunta 1. Por que as cidades com muito asfalto alagam mais com chuva forte? A: Porque chove só nas cidades; B: Porque a água não consegue entrar no solo; C: Porque a cidade não tem relação com a natureza; D: Por causa da comida do campo.",
+      "role": "NORMAL"
+    },
+    {
+      "id": "DI2-EF06GE07-02",
+      "skillCode": "EF06GE07",
+      "question": "De onde vem a maior parte dos alimentos que a cidade consome?",
+      "options": [
+        {
+          "text": "Dos próprios mercados, que produzem",
+          "misconceptionCode": "campo-independente"
+        },
+        {
+          "text": "Do asfalto",
+          "misconceptionCode": "mudanca-sem-causa"
+        },
+        {
+          "text": "A cidade não consome alimentos de fora",
+          "misconceptionCode": "cidade-separada-natureza"
+        },
+        {
+          "text": "Do campo"
+        }
+      ],
+      "correctIndex": 3,
+      "explanation": "A cidade depende do campo para comer.",
+      "audioScript": "Pergunta 1. De onde vem a maior parte dos alimentos que a cidade consome? A: Dos próprios mercados, que produzem; B: Do asfalto; C: A cidade não consome alimentos de fora; D: Do campo.",
+      "role": "NORMAL"
+    },
+    {
+      "id": "DI2-EF06GE04-01",
+      "skillCode": "EF06GE04",
+      "question": "As nuvens são formadas por:",
+      "options": [
+        {
+          "text": "Fumaça",
+          "misconceptionCode": "nuvem-fumaca"
+        },
+        {
+          "text": "Vapor que nunca vira água",
+          "misconceptionCode": "nuvem-fumaca"
+        },
+        {
+          "text": "Água que nunca evapora",
+          "misconceptionCode": "ciclo-linear"
+        },
+        {
+          "text": "Gotinhas de água"
+        }
+      ],
+      "correctIndex": 3,
+      "explanation": "O vapor esfria e condensa em gotinhas.",
+      "audioScript": "Pergunta 1. As nuvens são formadas por: A: Fumaça; B: Vapor que nunca vira água; C: Água que nunca evapora; D: Gotinhas de água.",
+      "role": "NORMAL"
+    },
+    {
+      "id": "DI2-EF06GE04-02",
+      "skillCode": "EF06GE04",
+      "question": "Uma bacia hidrográfica é:",
+      "options": [
+        {
+          "text": "O rio principal, seus afluentes e a área de terra ao redor"
+        },
+        {
+          "text": "Um único rio",
+          "misconceptionCode": "bacia-e-rio"
+        },
+        {
+          "text": "Só a nascente",
+          "misconceptionCode": "bacia-e-rio"
+        },
+        {
+          "text": "Só a chuva da cidade",
+          "misconceptionCode": "urbano-infiltra"
         }
       ],
       "correctIndex": 0,
-      "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
-      "variants": [
-        {
-          "question": "O que é lugar, em Geografia?",
-          "options": [
-            {
-              "text": "Espaço com significado afetivo e identidade para quem o vivencia"
-            },
-            {
-              "text": "Apenas coordenadas geográficas",
-              "misconceptionCode": "territorio-so-pais"
-            },
-            {
-              "text": "Um endereço qualquer",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Somente cidades grandes",
-              "misconceptionCode": "territorio-so-pais"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "Por que o espaço geográfico muda com o tempo?",
-          "options": [
-            {
-              "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
-            },
-            {
-              "text": "Ele nunca muda",
-              "misconceptionCode": "territorio-so-pais"
-            },
-            {
-              "text": "Apenas guerras mudam o espaço",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Só o clima o modifica",
-              "misconceptionCode": "territorio-so-pais"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "No estudo de \"Comparar modificações das paisagens nos lugares de vivência\", o conceito de território significa:"
+      "explanation": "A bacia é toda a área drenada pelos rios ligados entre si.",
+      "audioScript": "Pergunta 1. Uma bacia hidrográfica é: A: O rio principal, seus afluentes e a área de terra ao redor; B: Um único rio; C: Só a nascente; D: Só a chuva da cidade.",
+      "role": "NORMAL"
     },
     {
-      "id": "DI-EF06GE01-02",
-      "skillCode": "EF06GE01",
-      "skillId": "EF06GE01",
-      "question": "Qual recurso é essencial para representar o tema \"Comparar modificações das paisagens nos lugares de vivência\" em mapas?",
-      "options": [
-        {
-          "text": "Legenda, escala e orientação (rosa dos ventos)"
-        },
-        {
-          "text": "Apenas cores diferentes",
-          "misconceptionCode": "mapa-sem-legenda"
-        },
-        {
-          "text": "Desenhos artísticos sem referência",
-          "misconceptionCode": "conteudo-errado"
-        },
-        {
-          "text": "Somente o nome do local",
-          "misconceptionCode": "mapa-sem-legenda"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
-      "variants": [
-        {
-          "question": "O que indica a escala em um mapa?",
-          "options": [
-            {
-              "text": "A relação entre a distância no mapa e a distância real"
-            },
-            {
-              "text": "As cores utilizadas",
-              "misconceptionCode": "mapa-sem-legenda"
-            },
-            {
-              "text": "O nome do país",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "O tamanho do papel",
-              "misconceptionCode": "mapa-sem-legenda"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "O que é a legenda de um mapa?",
-          "options": [
-            {
-              "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
-            },
-            {
-              "text": "O título do mapa",
-              "misconceptionCode": "mapa-sem-legenda"
-            },
-            {
-              "text": "A data de criação",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "O nome do cartógrafo",
-              "misconceptionCode": "mapa-sem-legenda"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Qual recurso é essencial para representar o tema \"Comparar modificações das paisagens nos lugares de vivência\" em mapas?"
-    },
-    {
-      "id": "DI-EF06GE03-03",
-      "skillCode": "EF06GE03",
-      "skillId": "EF06GE03",
-      "question": "No estudo de \"Descrever os movimentos do planeta e sua relação\", o conceito de território significa:",
-      "options": [
-        {
-          "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
-        },
-        {
-          "text": "Apenas a área de um país",
-          "misconceptionCode": "territorio-so-pais"
-        },
-        {
-          "text": "Qualquer área coberta por água",
-          "misconceptionCode": "conteudo-errado"
-        },
-        {
-          "text": "O tamanho de uma cidade",
-          "misconceptionCode": "territorio-so-pais"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
-      "variants": [
-        {
-          "question": "O que é lugar, em Geografia?",
-          "options": [
-            {
-              "text": "Espaço com significado afetivo e identidade para quem o vivencia"
-            },
-            {
-              "text": "Apenas coordenadas geográficas",
-              "misconceptionCode": "territorio-so-pais"
-            },
-            {
-              "text": "Um endereço qualquer",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Somente cidades grandes",
-              "misconceptionCode": "territorio-so-pais"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "Por que o espaço geográfico muda com o tempo?",
-          "options": [
-            {
-              "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
-            },
-            {
-              "text": "Ele nunca muda",
-              "misconceptionCode": "territorio-so-pais"
-            },
-            {
-              "text": "Apenas guerras mudam o espaço",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Só o clima o modifica",
-              "misconceptionCode": "territorio-so-pais"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "No estudo de \"Descrever os movimentos do planeta e sua relação\", o conceito de território significa:"
-    },
-    {
-      "id": "DI-EF06GE03-04",
-      "skillCode": "EF06GE03",
-      "skillId": "EF06GE03",
-      "question": "Qual recurso é essencial para representar o tema \"Descrever os movimentos do planeta e sua relação\" em mapas?",
-      "options": [
-        {
-          "text": "Legenda, escala e orientação (rosa dos ventos)"
-        },
-        {
-          "text": "Apenas cores diferentes",
-          "misconceptionCode": "mapa-sem-legenda"
-        },
-        {
-          "text": "Desenhos artísticos sem referência",
-          "misconceptionCode": "conteudo-errado"
-        },
-        {
-          "text": "Somente o nome do local",
-          "misconceptionCode": "mapa-sem-legenda"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
-      "variants": [
-        {
-          "question": "O que indica a escala em um mapa?",
-          "options": [
-            {
-              "text": "A relação entre a distância no mapa e a distância real"
-            },
-            {
-              "text": "As cores utilizadas",
-              "misconceptionCode": "mapa-sem-legenda"
-            },
-            {
-              "text": "O nome do país",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "O tamanho do papel",
-              "misconceptionCode": "mapa-sem-legenda"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "O que é a legenda de um mapa?",
-          "options": [
-            {
-              "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
-            },
-            {
-              "text": "O título do mapa",
-              "misconceptionCode": "mapa-sem-legenda"
-            },
-            {
-              "text": "A data de criação",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "O nome do cartógrafo",
-              "misconceptionCode": "mapa-sem-legenda"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Qual recurso é essencial para representar o tema \"Descrever os movimentos do planeta e sua relação\" em mapas?"
-    },
-    {
-      "id": "DI-EF06GE06-05",
-      "skillCode": "EF06GE06",
-      "skillId": "EF06GE06",
-      "question": "No estudo de \"Identificar as características das paisagens transformadas\", o conceito de território significa:",
-      "options": [
-        {
-          "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
-        },
-        {
-          "text": "Apenas a área de um país",
-          "misconceptionCode": "territorio-so-pais"
-        },
-        {
-          "text": "Qualquer área coberta por água",
-          "misconceptionCode": "conteudo-errado"
-        },
-        {
-          "text": "O tamanho de uma cidade",
-          "misconceptionCode": "territorio-so-pais"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
-      "variants": [
-        {
-          "question": "O que é lugar, em Geografia?",
-          "options": [
-            {
-              "text": "Espaço com significado afetivo e identidade para quem o vivencia"
-            },
-            {
-              "text": "Apenas coordenadas geográficas",
-              "misconceptionCode": "territorio-so-pais"
-            },
-            {
-              "text": "Um endereço qualquer",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Somente cidades grandes",
-              "misconceptionCode": "territorio-so-pais"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "Por que o espaço geográfico muda com o tempo?",
-          "options": [
-            {
-              "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
-            },
-            {
-              "text": "Ele nunca muda",
-              "misconceptionCode": "territorio-so-pais"
-            },
-            {
-              "text": "Apenas guerras mudam o espaço",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Só o clima o modifica",
-              "misconceptionCode": "territorio-so-pais"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "No estudo de \"Identificar as características das paisagens transformadas\", o conceito de território significa:"
-    },
-    {
-      "id": "DI-EF06GE06-06",
-      "skillCode": "EF06GE06",
-      "skillId": "EF06GE06",
-      "question": "Qual recurso é essencial para representar o tema \"Identificar as características das paisagens transformadas\" em mapas?",
-      "options": [
-        {
-          "text": "Legenda, escala e orientação (rosa dos ventos)"
-        },
-        {
-          "text": "Apenas cores diferentes",
-          "misconceptionCode": "mapa-sem-legenda"
-        },
-        {
-          "text": "Desenhos artísticos sem referência",
-          "misconceptionCode": "conteudo-errado"
-        },
-        {
-          "text": "Somente o nome do local",
-          "misconceptionCode": "mapa-sem-legenda"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
-      "variants": [
-        {
-          "question": "O que indica a escala em um mapa?",
-          "options": [
-            {
-              "text": "A relação entre a distância no mapa e a distância real"
-            },
-            {
-              "text": "As cores utilizadas",
-              "misconceptionCode": "mapa-sem-legenda"
-            },
-            {
-              "text": "O nome do país",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "O tamanho do papel",
-              "misconceptionCode": "mapa-sem-legenda"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "O que é a legenda de um mapa?",
-          "options": [
-            {
-              "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
-            },
-            {
-              "text": "O título do mapa",
-              "misconceptionCode": "mapa-sem-legenda"
-            },
-            {
-              "text": "A data de criação",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "O nome do cartógrafo",
-              "misconceptionCode": "mapa-sem-legenda"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Qual recurso é essencial para representar o tema \"Identificar as características das paisagens transformadas\" em mapas?"
-    },
-    {
-      "id": "DI-EF06GE10-07",
-      "skillCode": "EF06GE10",
-      "skillId": "EF06GE10",
-      "question": "No estudo de \"Explicar as diferentes formas de uso do solo\", o conceito de território significa:",
-      "options": [
-        {
-          "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
-        },
-        {
-          "text": "Apenas a área de um país",
-          "misconceptionCode": "territorio-so-pais"
-        },
-        {
-          "text": "Qualquer área coberta por água",
-          "misconceptionCode": "conteudo-errado"
-        },
-        {
-          "text": "O tamanho de uma cidade",
-          "misconceptionCode": "territorio-so-pais"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
-      "variants": [
-        {
-          "question": "O que é lugar, em Geografia?",
-          "options": [
-            {
-              "text": "Espaço com significado afetivo e identidade para quem o vivencia"
-            },
-            {
-              "text": "Apenas coordenadas geográficas",
-              "misconceptionCode": "territorio-so-pais"
-            },
-            {
-              "text": "Um endereço qualquer",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Somente cidades grandes",
-              "misconceptionCode": "territorio-so-pais"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "Por que o espaço geográfico muda com o tempo?",
-          "options": [
-            {
-              "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
-            },
-            {
-              "text": "Ele nunca muda",
-              "misconceptionCode": "territorio-so-pais"
-            },
-            {
-              "text": "Apenas guerras mudam o espaço",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Só o clima o modifica",
-              "misconceptionCode": "territorio-so-pais"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "No estudo de \"Explicar as diferentes formas de uso do solo\", o conceito de território significa:"
-    },
-    {
-      "id": "DI-EF06GE10-08",
-      "skillCode": "EF06GE10",
-      "skillId": "EF06GE10",
-      "question": "Qual recurso é essencial para representar o tema \"Explicar as diferentes formas de uso do solo\" em mapas?",
-      "options": [
-        {
-          "text": "Legenda, escala e orientação (rosa dos ventos)"
-        },
-        {
-          "text": "Apenas cores diferentes",
-          "misconceptionCode": "mapa-sem-legenda"
-        },
-        {
-          "text": "Desenhos artísticos sem referência",
-          "misconceptionCode": "conteudo-errado"
-        },
-        {
-          "text": "Somente o nome do local",
-          "misconceptionCode": "mapa-sem-legenda"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
-      "variants": [
-        {
-          "question": "O que indica a escala em um mapa?",
-          "options": [
-            {
-              "text": "A relação entre a distância no mapa e a distância real"
-            },
-            {
-              "text": "As cores utilizadas",
-              "misconceptionCode": "mapa-sem-legenda"
-            },
-            {
-              "text": "O nome do país",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "O tamanho do papel",
-              "misconceptionCode": "mapa-sem-legenda"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "O que é a legenda de um mapa?",
-          "options": [
-            {
-              "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
-            },
-            {
-              "text": "O título do mapa",
-              "misconceptionCode": "mapa-sem-legenda"
-            },
-            {
-              "text": "A data de criação",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "O nome do cartógrafo",
-              "misconceptionCode": "mapa-sem-legenda"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Qual recurso é essencial para representar o tema \"Explicar as diferentes formas de uso do solo\" em mapas?"
-    },
-    {
-      "id": "DG-EF06GE01-01",
-      "skillCode": "EF05GE01",
-      "skillId": "EF05GE01",
-      "role": "DEGRAU_BANK",
-      "question": "No estudo de \"Descrever e analisar dinâmicas populacionais na Unidade\", o conceito de território significa:",
-      "options": [
-        {
-          "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
-        },
-        {
-          "text": "Apenas a área de um país",
-          "misconceptionCode": "territorio-so-pais"
-        },
-        {
-          "text": "Qualquer área coberta por água",
-          "misconceptionCode": "conteudo-errado"
-        },
-        {
-          "text": "O tamanho de uma cidade",
-          "misconceptionCode": "territorio-so-pais"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
-      "variants": [
-        {
-          "question": "O que é lugar, em Geografia?",
-          "options": [
-            {
-              "text": "Espaço com significado afetivo e identidade para quem o vivencia"
-            },
-            {
-              "text": "Apenas coordenadas geográficas",
-              "misconceptionCode": "territorio-so-pais"
-            },
-            {
-              "text": "Um endereço qualquer",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Somente cidades grandes",
-              "misconceptionCode": "territorio-so-pais"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "Por que o espaço geográfico muda com o tempo?",
-          "options": [
-            {
-              "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
-            },
-            {
-              "text": "Ele nunca muda",
-              "misconceptionCode": "territorio-so-pais"
-            },
-            {
-              "text": "Apenas guerras mudam o espaço",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Só o clima o modifica",
-              "misconceptionCode": "territorio-so-pais"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "No estudo de \"Descrever e analisar dinâmicas populacionais na Unidade\", o conceito de território significa:"
-    },
-    {
-      "id": "DG-EF06GE01-02",
-      "skillCode": "EF05GE01",
-      "skillId": "EF05GE01",
-      "role": "DEGRAU_BANK",
-      "question": "Qual recurso é essencial para representar o tema \"Descrever e analisar dinâmicas populacionais na Unidade\" em mapas?",
-      "options": [
-        {
-          "text": "Legenda, escala e orientação (rosa dos ventos)"
-        },
-        {
-          "text": "Apenas cores diferentes",
-          "misconceptionCode": "mapa-sem-legenda"
-        },
-        {
-          "text": "Desenhos artísticos sem referência",
-          "misconceptionCode": "conteudo-errado"
-        },
-        {
-          "text": "Somente o nome do local",
-          "misconceptionCode": "mapa-sem-legenda"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
-      "variants": [
-        {
-          "question": "O que indica a escala em um mapa?",
-          "options": [
-            {
-              "text": "A relação entre a distância no mapa e a distância real"
-            },
-            {
-              "text": "As cores utilizadas",
-              "misconceptionCode": "mapa-sem-legenda"
-            },
-            {
-              "text": "O nome do país",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "O tamanho do papel",
-              "misconceptionCode": "mapa-sem-legenda"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "O que é a legenda de um mapa?",
-          "options": [
-            {
-              "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
-            },
-            {
-              "text": "O título do mapa",
-              "misconceptionCode": "mapa-sem-legenda"
-            },
-            {
-              "text": "A data de criação",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "O nome do cartógrafo",
-              "misconceptionCode": "mapa-sem-legenda"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Qual recurso é essencial para representar o tema \"Descrever e analisar dinâmicas populacionais na Unidade\" em mapas?"
-    },
-    {
-      "id": "DG-EF06GE03-03",
+      "id": "DI2-EF05GE03-01",
       "skillCode": "EF05GE03",
-      "skillId": "EF05GE03",
-      "role": "DEGRAU_BANK",
-      "question": "No estudo de \"Identificar as formas e funções das cidades e analisar\", o conceito de território significa:",
+      "question": "Uma cidade cheia de pousadas, praias e passeios tem como função importante:",
       "options": [
         {
-          "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
+          "text": "Indústria",
+          "misconceptionCode": "funcao-trocada"
         },
         {
-          "text": "Apenas a área de um país",
-          "misconceptionCode": "territorio-so-pais"
+          "text": "Só moradia",
+          "misconceptionCode": "cidade-so-moradia"
         },
         {
-          "text": "Qualquer área coberta por água",
-          "misconceptionCode": "conteudo-errado"
+          "text": "Turismo"
         },
         {
-          "text": "O tamanho de uma cidade",
-          "misconceptionCode": "territorio-so-pais"
+          "text": "Agricultura",
+          "misconceptionCode": "funcao-trocada"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
-      "variants": [
-        {
-          "question": "O que é lugar, em Geografia?",
-          "options": [
-            {
-              "text": "Espaço com significado afetivo e identidade para quem o vivencia"
-            },
-            {
-              "text": "Apenas coordenadas geográficas",
-              "misconceptionCode": "territorio-so-pais"
-            },
-            {
-              "text": "Um endereço qualquer",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Somente cidades grandes",
-              "misconceptionCode": "territorio-so-pais"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "Por que o espaço geográfico muda com o tempo?",
-          "options": [
-            {
-              "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
-            },
-            {
-              "text": "Ele nunca muda",
-              "misconceptionCode": "territorio-so-pais"
-            },
-            {
-              "text": "Apenas guerras mudam o espaço",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Só o clima o modifica",
-              "misconceptionCode": "territorio-so-pais"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "No estudo de \"Identificar as formas e funções das cidades e analisar\", o conceito de território significa:"
+      "correctIndex": 2,
+      "explanation": "As pousadas e passeios mostram a função turística.",
+      "audioScript": "Pergunta 1. Uma cidade cheia de pousadas, praias e passeios tem como função importante: A: Indústria; B: Só moradia; C: Turismo; D: Agricultura.",
+      "role": "DEGRAU_BANK"
     },
     {
-      "id": "DG-EF06GE03-04",
+      "id": "DI2-EF05GE03-02",
       "skillCode": "EF05GE03",
-      "skillId": "EF05GE03",
-      "role": "DEGRAU_BANK",
-      "question": "Qual recurso é essencial para representar o tema \"Identificar as formas e funções das cidades e analisar\" em mapas?",
+      "question": "O crescimento rápido de uma cidade, sem planejamento, costuma trazer:",
       "options": [
         {
-          "text": "Legenda, escala e orientação (rosa dos ventos)"
+          "text": "Só benefícios",
+          "misconceptionCode": "crescer-so-bom"
         },
         {
-          "text": "Apenas cores diferentes",
-          "misconceptionCode": "mapa-sem-legenda"
+          "text": "Mais empregos, mas também trânsito e falta de moradia"
         },
         {
-          "text": "Desenhos artísticos sem referência",
-          "misconceptionCode": "conteudo-errado"
+          "text": "Só prejuízos",
+          "misconceptionCode": "crescer-so-ruim"
         },
         {
-          "text": "Somente o nome do local",
-          "misconceptionCode": "mapa-sem-legenda"
+          "text": "Nenhuma mudança",
+          "misconceptionCode": "cidade-so-moradia"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
-      "variants": [
-        {
-          "question": "O que indica a escala em um mapa?",
-          "options": [
-            {
-              "text": "A relação entre a distância no mapa e a distância real"
-            },
-            {
-              "text": "As cores utilizadas",
-              "misconceptionCode": "mapa-sem-legenda"
-            },
-            {
-              "text": "O nome do país",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "O tamanho do papel",
-              "misconceptionCode": "mapa-sem-legenda"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "O que é a legenda de um mapa?",
-          "options": [
-            {
-              "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
-            },
-            {
-              "text": "O título do mapa",
-              "misconceptionCode": "mapa-sem-legenda"
-            },
-            {
-              "text": "A data de criação",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "O nome do cartógrafo",
-              "misconceptionCode": "mapa-sem-legenda"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Qual recurso é essencial para representar o tema \"Identificar as formas e funções das cidades e analisar\" em mapas?"
+      "correctIndex": 1,
+      "explanation": "O crescimento traz mudanças boas e ruins.",
+      "audioScript": "Pergunta 1. O crescimento rápido de uma cidade, sem planejamento, costuma trazer: A: Só benefícios; B: Mais empregos, mas também trânsito e falta de moradia; C: Só prejuízos; D: Nenhuma mudança.",
+      "role": "DEGRAU_BANK"
     },
     {
-      "id": "DG-EF06GE06-05",
-      "skillCode": "EF05GE06",
-      "skillId": "EF05GE06",
-      "role": "DEGRAU_BANK",
-      "question": "No estudo de \"Identificar e comparar transformações dos meios\", o conceito de território significa:",
+      "id": "DI2-EF05GE10-01",
+      "skillCode": "EF05GE10",
+      "question": "Uma água bem transparente é sempre própria para beber?",
       "options": [
         {
-          "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
+          "text": "Sim, transparência é sinal de limpeza",
+          "misconceptionCode": "transparente-e-limpa"
         },
         {
-          "text": "Apenas a área de um país",
-          "misconceptionCode": "territorio-so-pais"
+          "text": "Sim, se não tiver lixo",
+          "misconceptionCode": "poluicao-so-lixo"
         },
         {
-          "text": "Qualquer área coberta por água",
-          "misconceptionCode": "conteudo-errado"
+          "text": "Sim, o rio sempre se limpa",
+          "misconceptionCode": "rio-limpa-sozinho"
         },
         {
-          "text": "O tamanho de uma cidade",
-          "misconceptionCode": "territorio-so-pais"
+          "text": "Não, pode ter micróbios que não se veem"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
-      "variants": [
-        {
-          "question": "O que é lugar, em Geografia?",
-          "options": [
-            {
-              "text": "Espaço com significado afetivo e identidade para quem o vivencia"
-            },
-            {
-              "text": "Apenas coordenadas geográficas",
-              "misconceptionCode": "territorio-so-pais"
-            },
-            {
-              "text": "Um endereço qualquer",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Somente cidades grandes",
-              "misconceptionCode": "territorio-so-pais"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "Por que o espaço geográfico muda com o tempo?",
-          "options": [
-            {
-              "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
-            },
-            {
-              "text": "Ele nunca muda",
-              "misconceptionCode": "territorio-so-pais"
-            },
-            {
-              "text": "Apenas guerras mudam o espaço",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Só o clima o modifica",
-              "misconceptionCode": "territorio-so-pais"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "No estudo de \"Identificar e comparar transformações dos meios\", o conceito de território significa:"
+      "correctIndex": 3,
+      "explanation": "Só água tratada é segura.",
+      "audioScript": "Pergunta 1. Uma água bem transparente é sempre própria para beber? A: Sim, transparência é sinal de limpeza; B: Sim, se não tiver lixo; C: Sim, o rio sempre se limpa; D: Não, pode ter micróbios que não se veem.",
+      "role": "DEGRAU_BANK"
     },
     {
-      "id": "DG-EF06GE06-06",
-      "skillCode": "EF05GE06",
-      "skillId": "EF05GE06",
-      "role": "DEGRAU_BANK",
-      "question": "Qual recurso é essencial para representar o tema \"Identificar e comparar transformações dos meios\" em mapas?",
+      "id": "DI2-EF05GE10-02",
+      "skillCode": "EF05GE10",
+      "question": "Qual é uma das maiores causas da poluição dos rios nas cidades brasileiras?",
       "options": [
         {
-          "text": "Legenda, escala e orientação (rosa dos ventos)"
+          "text": "O esgoto das casas sem tratamento"
         },
         {
-          "text": "Apenas cores diferentes",
-          "misconceptionCode": "mapa-sem-legenda"
+          "text": "Só as indústrias",
+          "misconceptionCode": "culpa-so-industria"
         },
         {
-          "text": "Desenhos artísticos sem referência",
-          "misconceptionCode": "conteudo-errado"
+          "text": "A água da chuva limpa",
+          "misconceptionCode": "rio-limpa-sozinho"
         },
         {
-          "text": "Somente o nome do local",
-          "misconceptionCode": "mapa-sem-legenda"
+          "text": "Os peixes",
+          "misconceptionCode": "poluicao-so-lixo"
         }
       ],
       "correctIndex": 0,
-      "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
-      "variants": [
-        {
-          "question": "O que indica a escala em um mapa?",
-          "options": [
-            {
-              "text": "A relação entre a distância no mapa e a distância real"
-            },
-            {
-              "text": "As cores utilizadas",
-              "misconceptionCode": "mapa-sem-legenda"
-            },
-            {
-              "text": "O nome do país",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "O tamanho do papel",
-              "misconceptionCode": "mapa-sem-legenda"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "O que é a legenda de um mapa?",
-          "options": [
-            {
-              "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
-            },
-            {
-              "text": "O título do mapa",
-              "misconceptionCode": "mapa-sem-legenda"
-            },
-            {
-              "text": "A data de criação",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "O nome do cartógrafo",
-              "misconceptionCode": "mapa-sem-legenda"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Qual recurso é essencial para representar o tema \"Identificar e comparar transformações dos meios\" em mapas?"
-    },
-    {
-      "id": "DG-EF06GE10-07",
-      "skillCode": "EF05GE11",
-      "skillId": "EF05GE11",
-      "role": "DEGRAU_BANK",
-      "question": "No estudo de \"Identificar e descrever problemas ambientais que ocorrem\", o conceito de território significa:",
-      "options": [
-        {
-          "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
-        },
-        {
-          "text": "Apenas a área de um país",
-          "misconceptionCode": "territorio-so-pais"
-        },
-        {
-          "text": "Qualquer área coberta por água",
-          "misconceptionCode": "conteudo-errado"
-        },
-        {
-          "text": "O tamanho de uma cidade",
-          "misconceptionCode": "territorio-so-pais"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
-      "variants": [
-        {
-          "question": "O que é lugar, em Geografia?",
-          "options": [
-            {
-              "text": "Espaço com significado afetivo e identidade para quem o vivencia"
-            },
-            {
-              "text": "Apenas coordenadas geográficas",
-              "misconceptionCode": "territorio-so-pais"
-            },
-            {
-              "text": "Um endereço qualquer",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Somente cidades grandes",
-              "misconceptionCode": "territorio-so-pais"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "Por que o espaço geográfico muda com o tempo?",
-          "options": [
-            {
-              "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
-            },
-            {
-              "text": "Ele nunca muda",
-              "misconceptionCode": "territorio-so-pais"
-            },
-            {
-              "text": "Apenas guerras mudam o espaço",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Só o clima o modifica",
-              "misconceptionCode": "territorio-so-pais"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "No estudo de \"Identificar e descrever problemas ambientais que ocorrem\", o conceito de território significa:"
-    },
-    {
-      "id": "DG-EF06GE10-08",
-      "skillCode": "EF05GE11",
-      "skillId": "EF05GE11",
-      "role": "DEGRAU_BANK",
-      "question": "Qual recurso é essencial para representar o tema \"Identificar e descrever problemas ambientais que ocorrem\" em mapas?",
-      "options": [
-        {
-          "text": "Legenda, escala e orientação (rosa dos ventos)"
-        },
-        {
-          "text": "Apenas cores diferentes",
-          "misconceptionCode": "mapa-sem-legenda"
-        },
-        {
-          "text": "Desenhos artísticos sem referência",
-          "misconceptionCode": "conteudo-errado"
-        },
-        {
-          "text": "Somente o nome do local",
-          "misconceptionCode": "mapa-sem-legenda"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
-      "variants": [
-        {
-          "question": "O que indica a escala em um mapa?",
-          "options": [
-            {
-              "text": "A relação entre a distância no mapa e a distância real"
-            },
-            {
-              "text": "As cores utilizadas",
-              "misconceptionCode": "mapa-sem-legenda"
-            },
-            {
-              "text": "O nome do país",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "O tamanho do papel",
-              "misconceptionCode": "mapa-sem-legenda"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "O que é a legenda de um mapa?",
-          "options": [
-            {
-              "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
-            },
-            {
-              "text": "O título do mapa",
-              "misconceptionCode": "mapa-sem-legenda"
-            },
-            {
-              "text": "A data de criação",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "O nome do cartógrafo",
-              "misconceptionCode": "mapa-sem-legenda"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Qual recurso é essencial para representar o tema \"Identificar e descrever problemas ambientais que ocorrem\" em mapas?"
+      "explanation": "O esgoto doméstico sem tratamento polui muitos rios.",
+      "audioScript": "Pergunta 1. Qual é uma das maiores causas da poluição dos rios nas cidades brasileiras? A: O esgoto das casas sem tratamento; B: Só as indústrias; C: A água da chuva limpa; D: Os peixes.",
+      "role": "DEGRAU_BANK"
     }
   ]
 }

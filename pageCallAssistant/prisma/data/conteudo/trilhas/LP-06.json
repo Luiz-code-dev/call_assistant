@@ -1,2450 +1,1890 @@
 [
   {
-    "skillCode": "EF06LP01",
-    "title": "Trilha: Reconhecer a impossibilidade de uma neutralidade absoluta (EF06LP01)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
+    "skillCode": "EF69LP03",
     "subjectCode": "LP",
+    "subjectName": "Língua Portuguesa",
+    "gradeYear": 6,
+    "version": 2,
+    "title": "Trilha: O fato central da notícia",
+    "tituloAluno": "Encontrar o fato principal de uma notícia",
     "activities": [
       {
-        "id": "PK-EF06LP01-A1",
+        "id": "PK2-EF69LP03-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Reconhecer a impossibilidade de uma neutralidade absoluta",
-        "prompt": "Questão sobre Reconhecer a impossibilidade de uma neutralidade absoluta.",
+        "title": "Relembrar: a ideia mais importante",
+        "prompt": "Antes da notícia, vamos lembrar: a ideia central é o assunto mais importante de um texto, aquilo que ele quer contar.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre Reconhecer a impossibilidade de uma neutralidade absoluta.",
-        "skillId": "EF06LP01",
+        "audioScript": "Antes da notícia, vamos lembrar: a ideia central é o assunto mais importante de um texto, aquilo que ele quer contar. Pergunta 1. Num texto que conta que \"o time da escola ganhou o campeonato depois de três anos tentando\", qual é a ideia central? A: O time da escola ganhou o campeonato; B: O time tentou por três anos; C: Os jogadores treinam muito; D: O campeonato é difícil. Pergunta 2. O que ajuda a descobrir a ideia central de um texto? A: Procurar a palavra mais difícil; B: Ler só o último parágrafo; C: Perguntar: qual é o assunto mais importante que o texto quer contar?; D: Pensar no que eu acho do assunto. Pergunta 3. Um texto diz: \"Choveu muito na cidade. As ruas alagaram e as aulas foram canceladas.\" Qual é o acontecimento principal? A: As aulas foram canceladas porque os alunos pediram; B: A chuva forte, que alagou ruas e cancelou aulas; C: As ruas da cidade são estreitas; D: Chuva é sempre ruim.",
         "questions": [
           {
-            "question": "No estudo de \"Reconhecer a impossibilidade de uma neutralidade absoluta\", o que é coesão textual?",
+            "question": "Num texto que conta que \"o time da escola ganhou o campeonato depois de três anos tentando\", qual é a ideia central?",
             "options": [
               {
-                "text": "Uso de conectivos e recursos linguísticos que ligam as partes do texto"
+                "text": "O time da escola ganhou o campeonato"
               },
               {
-                "text": "Apenas a pontuação correta",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "O time tentou por três anos",
+                "misconceptionCode": "detalhe-como-fato"
               },
               {
-                "text": "O tamanho do parágrafo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Os jogadores treinam muito",
+                "misconceptionCode": "informacao-de-fora"
               },
               {
-                "text": "A caligrafia do autor",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "O campeonato é difícil",
+                "misconceptionCode": "opiniao-como-fato"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Coesão é criada por conectivos, pronomes e outros recursos que articulam o texto.",
+            "explanation": "A ideia central é o acontecimento mais importante: a vitória no campeonato. Os três anos são um detalhe.",
             "variants": [
               {
-                "question": "O que é coerência textual?",
+                "question": "Num texto que conta que \"a cantina da escola passou a vender frutas no lugar de salgadinhos\", qual é a ideia central?",
                 "options": [
                   {
-                    "text": "Sentido lógico e consistente entre as ideias do texto"
+                    "text": "Frutas são gostosas",
+                    "misconceptionCode": "detalhe-como-fato"
                   },
                   {
-                    "text": "Ausência de erros ortográficos",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Os alunos preferem salgadinhos",
+                    "misconceptionCode": "informacao-de-fora"
                   },
                   {
-                    "text": "Número de palavras no texto",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A cantina trocou salgadinhos por frutas"
                   },
                   {
-                    "text": "Uso correto de vírgulas",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "A cantina fica perto do pátio",
+                    "misconceptionCode": "opiniao-como-fato"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "Qual palavra conecta uma causa a um efeito?",
+                "question": "Num texto que conta que \"o time da escola ganhou o campeonato depois de três anos tentando\", qual é a ideia central?",
                 "options": [
                   {
-                    "text": "'Porque' — indica a causa de algo"
+                    "text": "O campeonato é difícil",
+                    "misconceptionCode": "opiniao-como-fato"
                   },
                   {
-                    "text": "'Embora' — indica contraste",
-                    "misconceptionCode": "conector-adversativo"
+                    "text": "O time da escola ganhou o campeonato"
                   },
                   {
-                    "text": "'Mas' — indica oposição",
-                    "misconceptionCode": "conector-adversativo"
+                    "text": "Os jogadores treinam muito",
+                    "misconceptionCode": "informacao-de-fora"
                   },
                   {
-                    "text": "'Assim' — indica conclusão",
-                    "misconceptionCode": "conector-conclusivo"
+                    "text": "O time tentou por três anos",
+                    "misconceptionCode": "detalhe-como-fato"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06LP01"
+            ]
           },
           {
-            "question": "No estudo de \"Reconhecer a impossibilidade de uma neutralidade absoluta\", o que é coesão textual?",
+            "question": "O que ajuda a descobrir a ideia central de um texto?",
             "options": [
               {
-                "text": "Uso de conectivos e recursos linguísticos que ligam as partes do texto"
+                "text": "Procurar a palavra mais difícil",
+                "misconceptionCode": "detalhe-como-fato"
               },
               {
-                "text": "Apenas a pontuação correta",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "Ler só o último parágrafo",
+                "misconceptionCode": "troca-circunstancia"
               },
               {
-                "text": "O tamanho do parágrafo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Perguntar: qual é o assunto mais importante que o texto quer contar?"
               },
               {
-                "text": "A caligrafia do autor",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "Pensar no que eu acho do assunto",
+                "misconceptionCode": "opiniao-como-fato"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Coesão é criada por conectivos, pronomes e outros recursos que articulam o texto.",
+            "correctIndex": 2,
+            "explanation": "A ideia central responde à pergunta: sobre o que, principalmente, o texto fala?",
             "variants": [
               {
-                "question": "O que é coerência textual?",
+                "question": "Qual pergunta ajuda a achar a ideia central?",
                 "options": [
                   {
-                    "text": "Sentido lógico e consistente entre as ideias do texto"
+                    "text": "Do que o texto mais fala?"
                   },
                   {
-                    "text": "Ausência de erros ortográficos",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Qual é a palavra mais longa?",
+                    "misconceptionCode": "detalhe-como-fato"
                   },
                   {
-                    "text": "Número de palavras no texto",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Como termina a última frase?",
+                    "misconceptionCode": "troca-circunstancia"
                   },
                   {
-                    "text": "Uso correto de vírgulas",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Eu gostei do texto?",
+                    "misconceptionCode": "opiniao-como-fato"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Qual palavra conecta uma causa a um efeito?",
+                "question": "O que ajuda a descobrir a ideia central de um texto?",
                 "options": [
                   {
-                    "text": "'Porque' — indica a causa de algo"
+                    "text": "Pensar no que eu acho do assunto",
+                    "misconceptionCode": "opiniao-como-fato"
                   },
                   {
-                    "text": "'Embora' — indica contraste",
-                    "misconceptionCode": "conector-adversativo"
+                    "text": "Ler só o último parágrafo",
+                    "misconceptionCode": "troca-circunstancia"
                   },
                   {
-                    "text": "'Mas' — indica oposição",
-                    "misconceptionCode": "conector-adversativo"
+                    "text": "Procurar a palavra mais difícil",
+                    "misconceptionCode": "detalhe-como-fato"
                   },
                   {
-                    "text": "'Assim' — indica conclusão",
-                    "misconceptionCode": "conector-conclusivo"
+                    "text": "Perguntar: qual é o assunto mais importante que o texto quer contar?"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "Um texto diz: \"Choveu muito na cidade. As ruas alagaram e as aulas foram canceladas.\" Qual é o acontecimento principal?",
+            "options": [
+              {
+                "text": "As aulas foram canceladas porque os alunos pediram",
+                "misconceptionCode": "informacao-de-fora"
+              },
+              {
+                "text": "A chuva forte, que alagou ruas e cancelou aulas"
+              },
+              {
+                "text": "As ruas da cidade são estreitas",
+                "misconceptionCode": "detalhe-como-fato"
+              },
+              {
+                "text": "Chuva é sempre ruim",
+                "misconceptionCode": "opiniao-como-fato"
               }
             ],
-            "skillId": "EF06LP01"
+            "correctIndex": 1,
+            "explanation": "Tudo no texto vem da chuva forte: ela é o acontecimento principal, e os alagamentos e o cancelamento são consequências.",
+            "variants": [
+              {
+                "question": "Um texto diz: \"Faltou luz no bairro. As lojas fecharam mais cedo e o semáforo parou.\" Qual é o acontecimento principal?",
+                "options": [
+                  {
+                    "text": "As lojas fecham sempre cedo",
+                    "misconceptionCode": "informacao-de-fora"
+                  },
+                  {
+                    "text": "O semáforo é novo",
+                    "misconceptionCode": "detalhe-como-fato"
+                  },
+                  {
+                    "text": "Falta de luz é chata",
+                    "misconceptionCode": "opiniao-como-fato"
+                  },
+                  {
+                    "text": "A falta de luz no bairro"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Um texto diz: \"Choveu muito na cidade. As ruas alagaram e as aulas foram canceladas.\" Qual é o acontecimento principal?",
+                "options": [
+                  {
+                    "text": "Chuva é sempre ruim",
+                    "misconceptionCode": "opiniao-como-fato"
+                  },
+                  {
+                    "text": "As ruas da cidade são estreitas",
+                    "misconceptionCode": "detalhe-como-fato"
+                  },
+                  {
+                    "text": "A chuva forte, que alagou ruas e cancelou aulas"
+                  },
+                  {
+                    "text": "As aulas foram canceladas porque os alunos pediram",
+                    "misconceptionCode": "informacao-de-fora"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06LP01-A2",
+        "id": "PK2-EF69LP03-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Reconhecer a impossibilidade de uma neutralidade absoluta",
-        "prompt": "Questão sobre Reconhecer a impossibilidade de uma neutralidade absoluta.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Reconhecer a impossibilidade de uma neutralidade absoluta.",
-        "skillId": "EF06LP01",
+        "title": "Exemplo guiado: fato, quem, onde e quando",
+        "prompt": "Leia a notícia: \"Alunos de uma escola de Salvador plantaram 200 mudas de árvores nativas no parque da cidade, na manhã de sábado. A ação fez parte de um projeto de Ciências sobre a Mata Atlântica. Segundo a diretora, a turma vai voltar ao parque todo mês para regar as mudas.\" Vamos ler juntos e separar as partes da notícia.",
+        "estMinutes": 4,
+        "audioScript": "Leia a notícia: \"Alunos de uma escola de Salvador plantaram 200 mudas de árvores nativas no parque da cidade, na manhã de sábado. A ação fez parte de um projeto de Ciências sobre a Mata Atlântica. Segundo a diretora, a turma vai voltar ao parque todo mês para regar as mudas.\" Vamos ler juntos e separar as partes da notícia. Pergunta 1. Qual é o fato central dessa notícia? A: A diretora vai voltar ao parque; B: A Mata Atlântica está acabando; C: Alunos plantaram 200 mudas de árvores nativas no parque; D: Plantar árvores é a melhor coisa a fazer. Pergunta 2. Quando aconteceu o plantio? A: Todo mês; B: Na manhã de sábado; C: No parque da cidade; D: Durante a aula de Ciências da semana. Pergunta 3. Qual é uma consequência do fato, segundo a notícia? A: As árvores já estão grandes; B: O projeto é de Ciências; C: Os alunos são muito dedicados; D: A turma vai voltar ao parque todo mês para regar as mudas.",
         "questions": [
           {
-            "question": "O que distingue texto informativo de texto argumentativo?",
+            "question": "Qual é o fato central dessa notícia?",
             "options": [
               {
-                "text": "Informativo apresenta fatos; argumentativo defende um ponto de vista com razões"
+                "text": "A diretora vai voltar ao parque",
+                "misconceptionCode": "detalhe-como-fato"
               },
               {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "A Mata Atlântica está acabando",
+                "misconceptionCode": "informacao-de-fora"
               },
               {
-                "text": "O argumentativo não usa fatos",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Alunos plantaram 200 mudas de árvores nativas no parque"
               },
               {
-                "text": "O informativo é sempre mais longo",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "Plantar árvores é a melhor coisa a fazer",
+                "misconceptionCode": "opiniao-como-fato"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Texto informativo descreve/explica; argumentativo persuade com tese e argumentos.",
+            "correctIndex": 2,
+            "explanation": "O fato central é o que aconteceu: o plantio das 200 mudas. O resto completa a informação.",
             "variants": [
               {
-                "question": "O que é a tese em um texto argumentativo?",
+                "question": "Se você fosse contar essa notícia em uma frase, qual seria?",
                 "options": [
                   {
-                    "text": "A ideia principal que o autor defende no texto"
+                    "text": "Uma turma de Salvador plantou 200 mudas no parque"
                   },
                   {
-                    "text": "O título do texto",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "A diretora gosta de árvores",
+                    "misconceptionCode": "detalhe-como-fato"
                   },
                   {
-                    "text": "A conclusão do último parágrafo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "O parque fica longe da escola",
+                    "misconceptionCode": "informacao-de-fora"
                   },
                   {
-                    "text": "Uma lista de fatos",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "O projeto de Ciências é o mais legal",
+                    "misconceptionCode": "opiniao-como-fato"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que é um argumento em um texto?",
+                "question": "Qual é o fato central dessa notícia?",
                 "options": [
                   {
-                    "text": "Uma razão ou evidência que sustenta a tese do autor"
+                    "text": "Plantar árvores é a melhor coisa a fazer",
+                    "misconceptionCode": "opiniao-como-fato"
                   },
                   {
-                    "text": "Qualquer frase longa",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "A Mata Atlântica está acabando",
+                    "misconceptionCode": "informacao-de-fora"
                   },
                   {
-                    "text": "Uma opinião sem fundamento",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A diretora vai voltar ao parque",
+                    "misconceptionCode": "detalhe-como-fato"
                   },
                   {
-                    "text": "O parágrafo de abertura",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Alunos plantaram 200 mudas de árvores nativas no parque"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06LP01"
+            ]
           },
           {
-            "question": "O que distingue texto informativo de texto argumentativo?",
+            "question": "Quando aconteceu o plantio?",
             "options": [
               {
-                "text": "Informativo apresenta fatos; argumentativo defende um ponto de vista com razões"
+                "text": "Todo mês",
+                "misconceptionCode": "troca-circunstancia"
               },
               {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "Na manhã de sábado"
               },
               {
-                "text": "O argumentativo não usa fatos",
-                "misconceptionCode": "conteudo-errado"
+                "text": "No parque da cidade",
+                "misconceptionCode": "troca-circunstancia"
               },
               {
-                "text": "O informativo é sempre mais longo",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "Durante a aula de Ciências da semana",
+                "misconceptionCode": "informacao-de-fora"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Texto informativo descreve/explica; argumentativo persuade com tese e argumentos.",
+            "correctIndex": 1,
+            "explanation": "A notícia diz \"na manhã de sábado\". \"Todo mês\" é quando eles vão voltar para regar.",
             "variants": [
               {
-                "question": "O que é a tese em um texto argumentativo?",
+                "question": "Onde as mudas foram plantadas?",
                 "options": [
                   {
-                    "text": "A ideia principal que o autor defende no texto"
+                    "text": "Na manhã de sábado",
+                    "misconceptionCode": "troca-circunstancia"
                   },
                   {
-                    "text": "O título do texto",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "No pátio da escola",
+                    "misconceptionCode": "troca-circunstancia"
                   },
                   {
-                    "text": "A conclusão do último parágrafo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Na Mata Atlântica inteira",
+                    "misconceptionCode": "informacao-de-fora"
                   },
                   {
-                    "text": "Uma lista de fatos",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "No parque da cidade"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "O que é um argumento em um texto?",
+                "question": "Quando aconteceu o plantio?",
                 "options": [
                   {
-                    "text": "Uma razão ou evidência que sustenta a tese do autor"
+                    "text": "Durante a aula de Ciências da semana",
+                    "misconceptionCode": "informacao-de-fora"
                   },
                   {
-                    "text": "Qualquer frase longa",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "No parque da cidade",
+                    "misconceptionCode": "troca-circunstancia"
                   },
                   {
-                    "text": "Uma opinião sem fundamento",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Na manhã de sábado"
                   },
                   {
-                    "text": "O parágrafo de abertura",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Todo mês",
+                    "misconceptionCode": "troca-circunstancia"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "Qual é uma consequência do fato, segundo a notícia?",
+            "options": [
+              {
+                "text": "As árvores já estão grandes",
+                "misconceptionCode": "informacao-de-fora"
+              },
+              {
+                "text": "O projeto é de Ciências",
+                "misconceptionCode": "detalhe-como-fato"
+              },
+              {
+                "text": "Os alunos são muito dedicados",
+                "misconceptionCode": "opiniao-como-fato"
+              },
+              {
+                "text": "A turma vai voltar ao parque todo mês para regar as mudas"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Consequência é o que acontece por causa do fato: depois de plantar, eles vão cuidar das mudas.",
+            "variants": [
+              {
+                "question": "Por que os alunos plantaram as mudas?",
+                "options": [
+                  {
+                    "text": "Porque o parque estava fechado",
+                    "misconceptionCode": "informacao-de-fora"
+                  },
+                  {
+                    "text": "Porque fazia parte de um projeto de Ciências sobre a Mata Atlântica"
+                  },
+                  {
+                    "text": "Porque a diretora não gosta de árvores",
+                    "misconceptionCode": "detalhe-como-fato"
+                  },
+                  {
+                    "text": "Porque era o fim do ano",
+                    "misconceptionCode": "opiniao-como-fato"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Qual é uma consequência do fato, segundo a notícia?",
+                "options": [
+                  {
+                    "text": "A turma vai voltar ao parque todo mês para regar as mudas"
+                  },
+                  {
+                    "text": "Os alunos são muito dedicados",
+                    "misconceptionCode": "opiniao-como-fato"
+                  },
+                  {
+                    "text": "O projeto é de Ciências",
+                    "misconceptionCode": "detalhe-como-fato"
+                  },
+                  {
+                    "text": "As árvores já estão grandes",
+                    "misconceptionCode": "informacao-de-fora"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06LP01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06LP01-A3",
+        "id": "PK2-EF69LP03-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: Reconhecer a impossibilidade de uma neutralidade absoluta",
-        "prompt": "Questão sobre Reconhecer a impossibilidade de uma neutralidade absoluta.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Reconhecer a impossibilidade de uma neutralidade absoluta.",
-        "skillId": "EF06LP01",
+        "title": "Praticar: lendo outra notícia",
+        "prompt": "Leia a notícia: \"A biblioteca municipal de Feira de Santana vai abrir também aos domingos a partir de dezembro. A prefeitura informou que a mudança atende a um pedido dos moradores, que queriam mais tempo para ler e estudar. O horário de domingo será das 9h às 13h.\"",
+        "estMinutes": 5,
+        "audioScript": "Leia a notícia: \"A biblioteca municipal de Feira de Santana vai abrir também aos domingos a partir de dezembro. A prefeitura informou que a mudança atende a um pedido dos moradores, que queriam mais tempo para ler e estudar. O horário de domingo será das 9h às 13h.\" Pergunta 1. Qual é o fato central da notícia sobre a biblioteca? A: O horário será das 9h às 13h; B: A biblioteca vai abrir também aos domingos; C: Os moradores gostam muito de ler; D: A biblioteca vai ganhar livros novos. Pergunta 2. Por que a biblioteca vai abrir aos domingos? A: Porque é das 9h às 13h; B: Porque a biblioteca estava vazia; C: Porque domingo é o melhor dia para ler; D: Porque os moradores pediram mais tempo para ler e estudar. Pergunta 3. Quem deu a informação sobre a mudança? A: A prefeitura; B: Os moradores; C: Um jornal de outra cidade; D: O horário de domingo. Pergunta 4. A partir de quando a biblioteca abrirá aos domingos? A: Das 9h às 13h; B: Desde o ano passado; C: A partir de dezembro; D: Quando os moradores quiserem.",
         "questions": [
           {
-            "question": "No estudo de \"Reconhecer a impossibilidade de uma neutralidade absoluta\", o que é coesão textual?",
+            "question": "Qual é o fato central da notícia sobre a biblioteca?",
             "options": [
               {
-                "text": "Uso de conectivos e recursos linguísticos que ligam as partes do texto"
+                "text": "O horário será das 9h às 13h",
+                "misconceptionCode": "detalhe-como-fato"
               },
               {
-                "text": "Apenas a pontuação correta",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "A biblioteca vai abrir também aos domingos"
               },
               {
-                "text": "O tamanho do parágrafo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Os moradores gostam muito de ler",
+                "misconceptionCode": "opiniao-como-fato"
               },
               {
-                "text": "A caligrafia do autor",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "A biblioteca vai ganhar livros novos",
+                "misconceptionCode": "informacao-de-fora"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Coesão é criada por conectivos, pronomes e outros recursos que articulam o texto.",
+            "correctIndex": 1,
+            "explanation": "O que aconteceu de novo é a abertura aos domingos. O horário é um detalhe dessa mudança.",
             "variants": [
               {
-                "question": "O que é coerência textual?",
+                "question": "Que mudança a notícia anuncia?",
                 "options": [
                   {
-                    "text": "Sentido lógico e consistente entre as ideias do texto"
+                    "text": "A biblioteca vai fechar",
+                    "misconceptionCode": "detalhe-como-fato"
                   },
                   {
-                    "text": "Ausência de erros ortográficos",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "A prefeitura vai mudar de prédio",
+                    "misconceptionCode": "opiniao-como-fato"
                   },
                   {
-                    "text": "Número de palavras no texto",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Os livros vão ser vendidos",
+                    "misconceptionCode": "informacao-de-fora"
                   },
                   {
-                    "text": "Uso correto de vírgulas",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "A biblioteca passa a abrir aos domingos"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "Qual palavra conecta uma causa a um efeito?",
+                "question": "Qual é o fato central da notícia sobre a biblioteca?",
                 "options": [
                   {
-                    "text": "'Porque' — indica a causa de algo"
+                    "text": "A biblioteca vai ganhar livros novos",
+                    "misconceptionCode": "informacao-de-fora"
                   },
                   {
-                    "text": "'Embora' — indica contraste",
-                    "misconceptionCode": "conector-adversativo"
+                    "text": "Os moradores gostam muito de ler",
+                    "misconceptionCode": "opiniao-como-fato"
                   },
                   {
-                    "text": "'Mas' — indica oposição",
-                    "misconceptionCode": "conector-adversativo"
+                    "text": "A biblioteca vai abrir também aos domingos"
                   },
                   {
-                    "text": "'Assim' — indica conclusão",
-                    "misconceptionCode": "conector-conclusivo"
+                    "text": "O horário será das 9h às 13h",
+                    "misconceptionCode": "detalhe-como-fato"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF06LP01"
+            ]
           },
           {
-            "question": "No estudo de \"Reconhecer a impossibilidade de uma neutralidade absoluta\", o que é coesão textual?",
+            "question": "Por que a biblioteca vai abrir aos domingos?",
             "options": [
               {
-                "text": "Uso de conectivos e recursos linguísticos que ligam as partes do texto"
+                "text": "Porque é das 9h às 13h",
+                "misconceptionCode": "troca-circunstancia"
               },
               {
-                "text": "Apenas a pontuação correta",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "Porque a biblioteca estava vazia",
+                "misconceptionCode": "informacao-de-fora"
               },
               {
-                "text": "O tamanho do parágrafo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Porque domingo é o melhor dia para ler",
+                "misconceptionCode": "opiniao-como-fato"
               },
               {
-                "text": "A caligrafia do autor",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "Porque os moradores pediram mais tempo para ler e estudar"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "A notícia explica o motivo: atender a um pedido dos moradores.",
+            "variants": [
+              {
+                "question": "Quem pediu a mudança?",
+                "options": [
+                  {
+                    "text": "A biblioteca",
+                    "misconceptionCode": "troca-circunstancia"
+                  },
+                  {
+                    "text": "Os moradores"
+                  },
+                  {
+                    "text": "Dezembro",
+                    "misconceptionCode": "informacao-de-fora"
+                  },
+                  {
+                    "text": "Os escritores",
+                    "misconceptionCode": "opiniao-como-fato"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Por que a biblioteca vai abrir aos domingos?",
+                "options": [
+                  {
+                    "text": "Porque os moradores pediram mais tempo para ler e estudar"
+                  },
+                  {
+                    "text": "Porque domingo é o melhor dia para ler",
+                    "misconceptionCode": "opiniao-como-fato"
+                  },
+                  {
+                    "text": "Porque a biblioteca estava vazia",
+                    "misconceptionCode": "informacao-de-fora"
+                  },
+                  {
+                    "text": "Porque é das 9h às 13h",
+                    "misconceptionCode": "troca-circunstancia"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "Quem deu a informação sobre a mudança?",
+            "options": [
+              {
+                "text": "A prefeitura"
+              },
+              {
+                "text": "Os moradores",
+                "misconceptionCode": "troca-circunstancia"
+              },
+              {
+                "text": "Um jornal de outra cidade",
+                "misconceptionCode": "informacao-de-fora"
+              },
+              {
+                "text": "O horário de domingo",
+                "misconceptionCode": "detalhe-como-fato"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Coesão é criada por conectivos, pronomes e outros recursos que articulam o texto.",
+            "explanation": "A notícia diz: \"A prefeitura informou que...\". A prefeitura é a fonte da informação.",
             "variants": [
               {
-                "question": "O que é coerência textual?",
+                "question": "De quem é a frase \"a mudança atende a um pedido dos moradores\"?",
                 "options": [
                   {
-                    "text": "Sentido lógico e consistente entre as ideias do texto"
+                    "text": "Dos leitores do jornal",
+                    "misconceptionCode": "troca-circunstancia"
                   },
                   {
-                    "text": "Ausência de erros ortográficos",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Do horário de domingo",
+                    "misconceptionCode": "informacao-de-fora"
                   },
                   {
-                    "text": "Número de palavras no texto",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Da prefeitura"
                   },
                   {
-                    "text": "Uso correto de vírgulas",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Das escolas",
+                    "misconceptionCode": "detalhe-como-fato"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "Quem deu a informação sobre a mudança?",
+                "options": [
+                  {
+                    "text": "O horário de domingo",
+                    "misconceptionCode": "detalhe-como-fato"
+                  },
+                  {
+                    "text": "A prefeitura"
+                  },
+                  {
+                    "text": "Um jornal de outra cidade",
+                    "misconceptionCode": "informacao-de-fora"
+                  },
+                  {
+                    "text": "Os moradores",
+                    "misconceptionCode": "troca-circunstancia"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "A partir de quando a biblioteca abrirá aos domingos?",
+            "options": [
+              {
+                "text": "Das 9h às 13h",
+                "misconceptionCode": "troca-circunstancia"
+              },
+              {
+                "text": "Desde o ano passado",
+                "misconceptionCode": "informacao-de-fora"
+              },
+              {
+                "text": "A partir de dezembro"
+              },
+              {
+                "text": "Quando os moradores quiserem",
+                "misconceptionCode": "opiniao-como-fato"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "\"A partir de dezembro\" é quando a mudança começa. \"Das 9h às 13h\" é o horário.",
+            "variants": [
+              {
+                "question": "Qual é o horário de domingo?",
+                "options": [
+                  {
+                    "text": "Das 9h às 13h"
+                  },
+                  {
+                    "text": "A partir de dezembro",
+                    "misconceptionCode": "troca-circunstancia"
+                  },
+                  {
+                    "text": "O dia inteiro",
+                    "misconceptionCode": "informacao-de-fora"
+                  },
+                  {
+                    "text": "Só à noite",
+                    "misconceptionCode": "opiniao-como-fato"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Qual palavra conecta uma causa a um efeito?",
+                "question": "A partir de quando a biblioteca abrirá aos domingos?",
                 "options": [
                   {
-                    "text": "'Porque' — indica a causa de algo"
+                    "text": "Quando os moradores quiserem",
+                    "misconceptionCode": "opiniao-como-fato"
                   },
                   {
-                    "text": "'Embora' — indica contraste",
-                    "misconceptionCode": "conector-adversativo"
+                    "text": "Desde o ano passado",
+                    "misconceptionCode": "informacao-de-fora"
                   },
                   {
-                    "text": "'Mas' — indica oposição",
-                    "misconceptionCode": "conector-adversativo"
+                    "text": "Das 9h às 13h",
+                    "misconceptionCode": "troca-circunstancia"
                   },
                   {
-                    "text": "'Assim' — indica conclusão",
-                    "misconceptionCode": "conector-conclusivo"
+                    "text": "A partir de dezembro"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06LP01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06LP01-A4",
+        "id": "PK2-EF69LP03-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: Reconhecer a impossibilidade de uma neutralidade absoluta",
-        "prompt": "Questão sobre Reconhecer a impossibilidade de uma neutralidade absoluta.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Reconhecer a impossibilidade de uma neutralidade absoluta.",
-        "skillId": "EF06LP01",
+        "title": "Aplicar: notícia no dia a dia",
+        "prompt": "Agora pense em notícias que você poderia ler no celular ou no jornal do bairro.",
+        "estMinutes": 4,
+        "audioScript": "Agora pense em notícias que você poderia ler no celular ou no jornal do bairro. Pergunta 1. Uma manchete diz: \"Ônibus da linha 12 terá horário extra à noite\". Qual é o fato central? A: O ônibus é azul; B: À noite o trânsito é melhor; C: A linha 12 é a mais antiga; D: A linha 12 vai ganhar um horário extra à noite. Pergunta 2. Numa notícia, um morador diz: \"Acho que a nova praça ficou linda\". Isso é: A: A opinião de uma pessoa citada na notícia; B: O fato central da notícia; C: A data em que a praça abriu; D: Uma informação que não está no texto. Pergunta 3. Você quer contar a um amigo o que aconteceu numa notícia que leu. O que é mais importante dizer primeiro? A: A cor da foto da notícia; B: O que eu acho do assunto; C: O que aconteceu; D: Uma coisa que imaginei sobre o caso.",
         "questions": [
           {
-            "question": "O que distingue texto informativo de texto argumentativo?",
+            "question": "Uma manchete diz: \"Ônibus da linha 12 terá horário extra à noite\". Qual é o fato central?",
             "options": [
               {
-                "text": "Informativo apresenta fatos; argumentativo defende um ponto de vista com razões"
+                "text": "O ônibus é azul",
+                "misconceptionCode": "informacao-de-fora"
               },
               {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "À noite o trânsito é melhor",
+                "misconceptionCode": "opiniao-como-fato"
               },
               {
-                "text": "O argumentativo não usa fatos",
-                "misconceptionCode": "conteudo-errado"
+                "text": "A linha 12 é a mais antiga",
+                "misconceptionCode": "detalhe-como-fato"
               },
               {
-                "text": "O informativo é sempre mais longo",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "A linha 12 vai ganhar um horário extra à noite"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Texto informativo descreve/explica; argumentativo persuade com tese e argumentos.",
+            "correctIndex": 3,
+            "explanation": "A manchete resume o fato central: haverá um horário extra à noite.",
             "variants": [
               {
-                "question": "O que é a tese em um texto argumentativo?",
+                "question": "Uma manchete diz: \"Feira do bairro muda para a praça principal\". Qual é o fato central?",
                 "options": [
                   {
-                    "text": "A ideia principal que o autor defende no texto"
+                    "text": "A praça é bonita",
+                    "misconceptionCode": "informacao-de-fora"
                   },
                   {
-                    "text": "O título do texto",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "A feira vai funcionar na praça principal"
                   },
                   {
-                    "text": "A conclusão do último parágrafo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A feira vende frutas",
+                    "misconceptionCode": "opiniao-como-fato"
                   },
                   {
-                    "text": "Uma lista de fatos",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "O bairro é grande",
+                    "misconceptionCode": "detalhe-como-fato"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "O que é um argumento em um texto?",
+                "question": "Uma manchete diz: \"Ônibus da linha 12 terá horário extra à noite\". Qual é o fato central?",
                 "options": [
                   {
-                    "text": "Uma razão ou evidência que sustenta a tese do autor"
+                    "text": "A linha 12 vai ganhar um horário extra à noite"
                   },
                   {
-                    "text": "Qualquer frase longa",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "A linha 12 é a mais antiga",
+                    "misconceptionCode": "detalhe-como-fato"
                   },
                   {
-                    "text": "Uma opinião sem fundamento",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "À noite o trânsito é melhor",
+                    "misconceptionCode": "opiniao-como-fato"
                   },
                   {
-                    "text": "O parágrafo de abertura",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "O ônibus é azul",
+                    "misconceptionCode": "informacao-de-fora"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06LP01"
+            ]
           },
           {
-            "question": "O que distingue texto informativo de texto argumentativo?",
+            "question": "Numa notícia, um morador diz: \"Acho que a nova praça ficou linda\". Isso é:",
             "options": [
               {
-                "text": "Informativo apresenta fatos; argumentativo defende um ponto de vista com razões"
+                "text": "A opinião de uma pessoa citada na notícia"
               },
               {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "O fato central da notícia",
+                "misconceptionCode": "opiniao-como-fato"
               },
               {
-                "text": "O argumentativo não usa fatos",
-                "misconceptionCode": "conteudo-errado"
+                "text": "A data em que a praça abriu",
+                "misconceptionCode": "troca-circunstancia"
               },
               {
-                "text": "O informativo é sempre mais longo",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "Uma informação que não está no texto",
+                "misconceptionCode": "informacao-de-fora"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Texto informativo descreve/explica; argumentativo persuade com tese e argumentos.",
+            "explanation": "\"Acho que ficou linda\" é opinião. O fato seria, por exemplo, \"a praça foi inaugurada\".",
             "variants": [
               {
-                "question": "O que é a tese em um texto argumentativo?",
+                "question": "Numa notícia, uma aluna diz: \"Para mim, o campeonato foi o melhor do ano\". Isso é:",
                 "options": [
                   {
-                    "text": "A ideia principal que o autor defende no texto"
+                    "text": "O fato principal",
+                    "misconceptionCode": "opiniao-como-fato"
                   },
                   {
-                    "text": "O título do texto",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "O lugar do campeonato",
+                    "misconceptionCode": "troca-circunstancia"
                   },
                   {
-                    "text": "A conclusão do último parágrafo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Uma opinião"
                   },
                   {
-                    "text": "Uma lista de fatos",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "O resultado do jogo",
+                    "misconceptionCode": "informacao-de-fora"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "Numa notícia, um morador diz: \"Acho que a nova praça ficou linda\". Isso é:",
+                "options": [
+                  {
+                    "text": "Uma informação que não está no texto",
+                    "misconceptionCode": "informacao-de-fora"
+                  },
+                  {
+                    "text": "A opinião de uma pessoa citada na notícia"
+                  },
+                  {
+                    "text": "A data em que a praça abriu",
+                    "misconceptionCode": "troca-circunstancia"
+                  },
+                  {
+                    "text": "O fato central da notícia",
+                    "misconceptionCode": "opiniao-como-fato"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Você quer contar a um amigo o que aconteceu numa notícia que leu. O que é mais importante dizer primeiro?",
+            "options": [
+              {
+                "text": "A cor da foto da notícia",
+                "misconceptionCode": "detalhe-como-fato"
+              },
+              {
+                "text": "O que eu acho do assunto",
+                "misconceptionCode": "opiniao-como-fato"
+              },
+              {
+                "text": "O que aconteceu"
+              },
+              {
+                "text": "Uma coisa que imaginei sobre o caso",
+                "misconceptionCode": "informacao-de-fora"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "Quem conta uma notícia começa pelo fato central. Depois vêm os detalhes.",
+            "variants": [
+              {
+                "question": "Para resumir uma notícia, você começa por:",
+                "options": [
+                  {
+                    "text": "O fato principal"
+                  },
+                  {
+                    "text": "O nome do jornal",
+                    "misconceptionCode": "detalhe-como-fato"
+                  },
+                  {
+                    "text": "A sua opinião",
+                    "misconceptionCode": "opiniao-como-fato"
+                  },
+                  {
+                    "text": "O último detalhe",
+                    "misconceptionCode": "informacao-de-fora"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que é um argumento em um texto?",
+                "question": "Você quer contar a um amigo o que aconteceu numa notícia que leu. O que é mais importante dizer primeiro?",
                 "options": [
                   {
-                    "text": "Uma razão ou evidência que sustenta a tese do autor"
+                    "text": "Uma coisa que imaginei sobre o caso",
+                    "misconceptionCode": "informacao-de-fora"
                   },
                   {
-                    "text": "Qualquer frase longa",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "O que eu acho do assunto",
+                    "misconceptionCode": "opiniao-como-fato"
                   },
                   {
-                    "text": "Uma opinião sem fundamento",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A cor da foto da notícia",
+                    "misconceptionCode": "detalhe-como-fato"
                   },
                   {
-                    "text": "O parágrafo de abertura",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "O que aconteceu"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06LP01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06LP01-A5",
+        "id": "PK2-EF69LP03-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Reconhecer a impossibilidade de uma neutralidade absoluta",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Reconhecer a impossibilidade de uma neutralidade absoluta.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Reconhecer a impossibilidade de uma neutralidade absoluta.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: como achar o fato central",
+        "prompt": "Explique com as suas palavras como você descobre o fato central de uma notícia. Use um exemplo de notícia, que pode ser inventada.",
+        "estMinutes": 6,
+        "audioScript": "Explique com as suas palavras como você descobre o fato central de uma notícia. Use um exemplo de notícia, que pode ser inventada.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de Reconhecer a impossibilidade de uma neutralidade absoluta",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "define-fato-central",
+              "description": "Explica que o fato central é o acontecimento principal, o que aconteceu"
+            },
+            {
+              "code": "separa-detalhes",
+              "description": "Diferencia o fato central dos detalhes ou das opiniões"
+            },
+            {
+              "code": "exemplo-valido",
+              "description": "Dá um exemplo de notícia e aponta corretamente o fato central"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF06LP01"
+          "exemploBoaResposta": "Eu leio a notícia e pergunto: o que aconteceu? Isso é o fato central. Depois vejo quem, quando e onde, que são os detalhes. Por exemplo, na notícia \"A escola fez uma feira de livros no sábado\", o fato central é a feira de livros, e \"no sábado\" é quando aconteceu."
+        }
       }
-    ]
+    ],
+    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
+    "source": "SPEAKFLOW",
+    "status": "APPROVED"
   },
   {
-    "skillCode": "EF06LP04",
-    "title": "Trilha: Analisar a função e as flexões de substantivos e adjetivos (EF06LP04)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
+    "skillCode": "EF69LP05",
     "subjectCode": "LP",
+    "subjectName": "Língua Portuguesa",
+    "gradeYear": 6,
+    "version": 2,
+    "title": "Trilha: Humor e ironia em tirinhas",
+    "tituloAluno": "Entender a graça de uma tirinha",
     "activities": [
       {
-        "id": "PK-EF06LP04-A1",
+        "id": "PK2-EF69LP05-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Analisar a função e as flexões de substantivos e adjetivos",
-        "prompt": "Questão sobre Analisar a função e as flexões de substantivos e adjetivos.",
+        "title": "Relembrar: o que não está escrito",
+        "prompt": "Vamos lembrar: inferir é descobrir uma informação que não está escrita, usando as pistas do texto.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre Analisar a função e as flexões de substantivos e adjetivos.",
-        "skillId": "EF06LP04",
+        "audioScript": "Vamos lembrar: inferir é descobrir uma informação que não está escrita, usando as pistas do texto. Pergunta 1. \"Lucas entrou em casa todo molhado e com o guarda-chuva fechado na mão.\" O que dá para inferir? A: Lucas tomou banho de roupa; B: Choveu e Lucas não abriu o guarda-chuva; C: O guarda-chuva é novo; D: Lucas gosta de ficar molhado. Pergunta 2. O que é uma pista num texto? A: Uma palavra escrita em negrito; B: A frase que está no título; C: A opinião do leitor; D: Uma informação que ajuda a descobrir o que não foi dito. Pergunta 3. \"Quando a professora entrou, a sala ficou em silêncio na hora.\" O que dá para inferir? A: Os alunos estavam fazendo barulho antes; B: A professora estava sem voz; C: A sala é muito grande; D: Os alunos não gostam de silêncio.",
         "questions": [
           {
-            "question": "No estudo de \"Analisar a função e as flexões de substantivos e adjetivos\", o que é coesão textual?",
+            "question": "\"Lucas entrou em casa todo molhado e com o guarda-chuva fechado na mão.\" O que dá para inferir?",
             "options": [
               {
-                "text": "Uso de conectivos e recursos linguísticos que ligam as partes do texto"
+                "text": "Lucas tomou banho de roupa",
+                "misconceptionCode": "leitura-literal"
               },
               {
-                "text": "Apenas a pontuação correta",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "Choveu e Lucas não abriu o guarda-chuva"
               },
               {
-                "text": "O tamanho do parágrafo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "O guarda-chuva é novo",
+                "misconceptionCode": "graca-no-lugar-errado"
               },
               {
-                "text": "A caligrafia do autor",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "Lucas gosta de ficar molhado",
+                "misconceptionCode": "ironia-como-verdade"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Coesão é criada por conectivos, pronomes e outros recursos que articulam o texto.",
+            "correctIndex": 1,
+            "explanation": "As pistas (molhado, guarda-chuva fechado) mostram que choveu e ele não usou o guarda-chuva.",
             "variants": [
               {
-                "question": "O que é coerência textual?",
+                "question": "\"Ana chegou da praia com o nariz vermelho e a pele ardendo.\" O que dá para inferir?",
                 "options": [
                   {
-                    "text": "Sentido lógico e consistente entre as ideias do texto"
+                    "text": "Ana está gripada",
+                    "misconceptionCode": "leitura-literal"
                   },
                   {
-                    "text": "Ausência de erros ortográficos",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Ana pintou o nariz",
+                    "misconceptionCode": "graca-no-lugar-errado"
                   },
                   {
-                    "text": "Número de palavras no texto",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Ana adora ficar vermelha",
+                    "misconceptionCode": "ironia-como-verdade"
                   },
                   {
-                    "text": "Uso correto de vírgulas",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Ana tomou muito sol"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "Qual palavra conecta uma causa a um efeito?",
+                "question": "\"Lucas entrou em casa todo molhado e com o guarda-chuva fechado na mão.\" O que dá para inferir?",
                 "options": [
                   {
-                    "text": "'Porque' — indica a causa de algo"
+                    "text": "Lucas gosta de ficar molhado",
+                    "misconceptionCode": "ironia-como-verdade"
                   },
                   {
-                    "text": "'Embora' — indica contraste",
-                    "misconceptionCode": "conector-adversativo"
+                    "text": "O guarda-chuva é novo",
+                    "misconceptionCode": "graca-no-lugar-errado"
                   },
                   {
-                    "text": "'Mas' — indica oposição",
-                    "misconceptionCode": "conector-adversativo"
+                    "text": "Choveu e Lucas não abriu o guarda-chuva"
                   },
                   {
-                    "text": "'Assim' — indica conclusão",
-                    "misconceptionCode": "conector-conclusivo"
+                    "text": "Lucas tomou banho de roupa",
+                    "misconceptionCode": "leitura-literal"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF06LP04"
+            ]
           },
           {
-            "question": "No estudo de \"Analisar a função e as flexões de substantivos e adjetivos\", o que é coesão textual?",
+            "question": "O que é uma pista num texto?",
             "options": [
               {
-                "text": "Uso de conectivos e recursos linguísticos que ligam as partes do texto"
+                "text": "Uma palavra escrita em negrito",
+                "misconceptionCode": "graca-no-lugar-errado"
               },
               {
-                "text": "Apenas a pontuação correta",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "A frase que está no título",
+                "misconceptionCode": "leitura-literal"
               },
               {
-                "text": "O tamanho do parágrafo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "A opinião do leitor",
+                "misconceptionCode": "ironia-como-verdade"
               },
               {
-                "text": "A caligrafia do autor",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "Uma informação que ajuda a descobrir o que não foi dito"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Pistas são informações do texto que, juntas, permitem descobrir algo que não está escrito.",
+            "variants": [
+              {
+                "question": "Para inferir, você usa:",
+                "options": [
+                  {
+                    "text": "Só a primeira palavra",
+                    "misconceptionCode": "graca-no-lugar-errado"
+                  },
+                  {
+                    "text": "As pistas do texto e o que você já sabe"
+                  },
+                  {
+                    "text": "Só o título",
+                    "misconceptionCode": "leitura-literal"
+                  },
+                  {
+                    "text": "A opinião do autor",
+                    "misconceptionCode": "ironia-como-verdade"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "O que é uma pista num texto?",
+                "options": [
+                  {
+                    "text": "Uma informação que ajuda a descobrir o que não foi dito"
+                  },
+                  {
+                    "text": "A opinião do leitor",
+                    "misconceptionCode": "ironia-como-verdade"
+                  },
+                  {
+                    "text": "A frase que está no título",
+                    "misconceptionCode": "leitura-literal"
+                  },
+                  {
+                    "text": "Uma palavra escrita em negrito",
+                    "misconceptionCode": "graca-no-lugar-errado"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "\"Quando a professora entrou, a sala ficou em silêncio na hora.\" O que dá para inferir?",
+            "options": [
+              {
+                "text": "Os alunos estavam fazendo barulho antes"
+              },
+              {
+                "text": "A professora estava sem voz",
+                "misconceptionCode": "leitura-literal"
+              },
+              {
+                "text": "A sala é muito grande",
+                "misconceptionCode": "graca-no-lugar-errado"
+              },
+              {
+                "text": "Os alunos não gostam de silêncio",
+                "misconceptionCode": "ironia-como-verdade"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Coesão é criada por conectivos, pronomes e outros recursos que articulam o texto.",
+            "explanation": "Se a sala \"ficou em silêncio\", antes havia barulho.",
             "variants": [
               {
-                "question": "O que é coerência textual?",
+                "question": "\"Depois do jogo, o time voltou cantando e pulando no ônibus.\" O que dá para inferir?",
                 "options": [
                   {
-                    "text": "Sentido lógico e consistente entre as ideias do texto"
+                    "text": "O ônibus estava quebrado",
+                    "misconceptionCode": "leitura-literal"
                   },
                   {
-                    "text": "Ausência de erros ortográficos",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "O time perdeu",
+                    "misconceptionCode": "graca-no-lugar-errado"
                   },
                   {
-                    "text": "Número de palavras no texto",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "O time ganhou o jogo"
                   },
                   {
-                    "text": "Uso correto de vírgulas",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Os jogadores estavam cansados demais",
+                    "misconceptionCode": "ironia-como-verdade"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "Qual palavra conecta uma causa a um efeito?",
+                "question": "\"Quando a professora entrou, a sala ficou em silêncio na hora.\" O que dá para inferir?",
                 "options": [
                   {
-                    "text": "'Porque' — indica a causa de algo"
+                    "text": "Os alunos não gostam de silêncio",
+                    "misconceptionCode": "ironia-como-verdade"
                   },
                   {
-                    "text": "'Embora' — indica contraste",
-                    "misconceptionCode": "conector-adversativo"
+                    "text": "Os alunos estavam fazendo barulho antes"
                   },
                   {
-                    "text": "'Mas' — indica oposição",
-                    "misconceptionCode": "conector-adversativo"
+                    "text": "A sala é muito grande",
+                    "misconceptionCode": "graca-no-lugar-errado"
                   },
                   {
-                    "text": "'Assim' — indica conclusão",
-                    "misconceptionCode": "conector-conclusivo"
+                    "text": "A professora estava sem voz",
+                    "misconceptionCode": "leitura-literal"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06LP04"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06LP04-A2",
+        "id": "PK2-EF69LP05-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Analisar a função e as flexões de substantivos e adjetivos",
-        "prompt": "Questão sobre Analisar a função e as flexões de substantivos e adjetivos.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Analisar a função e as flexões de substantivos e adjetivos.",
-        "skillId": "EF06LP04",
+        "title": "Exemplo guiado: a tirinha do quarto",
+        "prompt": "Leia a tirinha descrita: no primeiro quadro, a mãe diz ao filho: \"Arrume o seu quarto, está uma bagunça!\". No segundo quadro, o menino aparece empurrando todos os brinquedos para debaixo da cama. No terceiro quadro, ele diz, sorrindo: \"Pronto, mãe! Não estou vendo bagunça nenhuma.\" Vamos descobrir juntos onde está a graça.",
+        "estMinutes": 4,
+        "audioScript": "Leia a tirinha descrita: no primeiro quadro, a mãe diz ao filho: \"Arrume o seu quarto, está uma bagunça!\". No segundo quadro, o menino aparece empurrando todos os brinquedos para debaixo da cama. No terceiro quadro, ele diz, sorrindo: \"Pronto, mãe! Não estou vendo bagunça nenhuma.\" Vamos descobrir juntos onde está a graça. Pergunta 1. O que a mãe pediu? A: Que o filho escondesse os brinquedos; B: Que o filho fosse brincar; C: Que o filho comprasse uma cama; D: Que o filho arrumasse o quarto. Pergunta 2. O que a imagem do segundo quadro mostra? A: O menino escondendo os brinquedos debaixo da cama; B: O menino guardando tudo nas caixas; C: A mãe arrumando o quarto; D: O menino dormindo. Pergunta 3. Onde está a graça da tirinha? A: A mãe estava brava; B: O menino tem muitos brinquedos; C: Ele diz que não vê bagunça porque escondeu tudo, e não porque arrumou; D: O quarto ficou arrumado de verdade.",
         "questions": [
           {
-            "question": "O que distingue texto informativo de texto argumentativo?",
+            "question": "O que a mãe pediu?",
             "options": [
               {
-                "text": "Informativo apresenta fatos; argumentativo defende um ponto de vista com razões"
+                "text": "Que o filho escondesse os brinquedos",
+                "misconceptionCode": "leitura-literal"
               },
               {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "Que o filho fosse brincar",
+                "misconceptionCode": "graca-no-lugar-errado"
               },
               {
-                "text": "O argumentativo não usa fatos",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Que o filho comprasse uma cama",
+                "misconceptionCode": "ignora-imagem"
               },
               {
-                "text": "O informativo é sempre mais longo",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "Que o filho arrumasse o quarto"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Texto informativo descreve/explica; argumentativo persuade com tese e argumentos.",
+            "correctIndex": 3,
+            "explanation": "A mãe pede para arrumar, ou seja, organizar o quarto.",
             "variants": [
               {
-                "question": "O que é a tese em um texto argumentativo?",
+                "question": "No primeiro quadro, o que a mãe quer?",
                 "options": [
                   {
-                    "text": "A ideia principal que o autor defende no texto"
+                    "text": "Os brinquedos novos",
+                    "misconceptionCode": "leitura-literal"
                   },
                   {
-                    "text": "O título do texto",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "O quarto arrumado"
                   },
                   {
-                    "text": "A conclusão do último parágrafo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Uma cama maior",
+                    "misconceptionCode": "graca-no-lugar-errado"
                   },
                   {
-                    "text": "Uma lista de fatos",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "O filho dormindo",
+                    "misconceptionCode": "ignora-imagem"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "O que é um argumento em um texto?",
+                "question": "O que a mãe pediu?",
                 "options": [
                   {
-                    "text": "Uma razão ou evidência que sustenta a tese do autor"
+                    "text": "Que o filho arrumasse o quarto"
                   },
                   {
-                    "text": "Qualquer frase longa",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Que o filho comprasse uma cama",
+                    "misconceptionCode": "ignora-imagem"
                   },
                   {
-                    "text": "Uma opinião sem fundamento",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Que o filho fosse brincar",
+                    "misconceptionCode": "graca-no-lugar-errado"
                   },
                   {
-                    "text": "O parágrafo de abertura",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Que o filho escondesse os brinquedos",
+                    "misconceptionCode": "leitura-literal"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06LP04"
+            ]
           },
           {
-            "question": "O que distingue texto informativo de texto argumentativo?",
+            "question": "O que a imagem do segundo quadro mostra?",
             "options": [
               {
-                "text": "Informativo apresenta fatos; argumentativo defende um ponto de vista com razões"
+                "text": "O menino escondendo os brinquedos debaixo da cama"
               },
               {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "O menino guardando tudo nas caixas",
+                "misconceptionCode": "ignora-imagem"
               },
               {
-                "text": "O argumentativo não usa fatos",
-                "misconceptionCode": "conteudo-errado"
+                "text": "A mãe arrumando o quarto",
+                "misconceptionCode": "ignora-imagem"
               },
               {
-                "text": "O informativo é sempre mais longo",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "O menino dormindo",
+                "misconceptionCode": "graca-no-lugar-errado"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Texto informativo descreve/explica; argumentativo persuade com tese e argumentos.",
+            "explanation": "A imagem mostra que ele só escondeu a bagunça. Sem olhar a imagem, a graça se perde.",
             "variants": [
               {
-                "question": "O que é a tese em um texto argumentativo?",
+                "question": "O menino resolveu a bagunça de verdade?",
                 "options": [
                   {
-                    "text": "A ideia principal que o autor defende no texto"
+                    "text": "Sim, ele guardou tudo no lugar",
+                    "misconceptionCode": "ignora-imagem"
                   },
                   {
-                    "text": "O título do texto",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Sim, a mãe ajudou",
+                    "misconceptionCode": "ignora-imagem"
                   },
                   {
-                    "text": "A conclusão do último parágrafo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Não, ele só escondeu a bagunça"
                   },
                   {
-                    "text": "Uma lista de fatos",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Não, ele jogou os brinquedos fora",
+                    "misconceptionCode": "graca-no-lugar-errado"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "O que a imagem do segundo quadro mostra?",
+                "options": [
+                  {
+                    "text": "O menino dormindo",
+                    "misconceptionCode": "graca-no-lugar-errado"
+                  },
+                  {
+                    "text": "O menino escondendo os brinquedos debaixo da cama"
+                  },
+                  {
+                    "text": "A mãe arrumando o quarto",
+                    "misconceptionCode": "ignora-imagem"
+                  },
+                  {
+                    "text": "O menino guardando tudo nas caixas",
+                    "misconceptionCode": "ignora-imagem"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Onde está a graça da tirinha?",
+            "options": [
+              {
+                "text": "A mãe estava brava",
+                "misconceptionCode": "graca-no-lugar-errado"
+              },
+              {
+                "text": "O menino tem muitos brinquedos",
+                "misconceptionCode": "graca-no-lugar-errado"
+              },
+              {
+                "text": "Ele diz que não vê bagunça porque escondeu tudo, e não porque arrumou"
+              },
+              {
+                "text": "O quarto ficou arrumado de verdade",
+                "misconceptionCode": "leitura-literal"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "O humor vem da diferença entre o que a mãe pediu (arrumar) e o que ele fez (esconder). A fala \"não estou vendo bagunça\" é verdadeira só porque a bagunça está escondida.",
+            "variants": [
+              {
+                "question": "Por que a fala \"Não estou vendo bagunça nenhuma\" é engraçada?",
+                "options": [
+                  {
+                    "text": "Porque a bagunça continua lá, só que escondida"
+                  },
+                  {
+                    "text": "Porque o menino é educado",
+                    "misconceptionCode": "graca-no-lugar-errado"
+                  },
+                  {
+                    "text": "Porque a mãe sorriu",
+                    "misconceptionCode": "graca-no-lugar-errado"
+                  },
+                  {
+                    "text": "Porque a cama é grande",
+                    "misconceptionCode": "leitura-literal"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que é um argumento em um texto?",
+                "question": "Onde está a graça da tirinha?",
                 "options": [
                   {
-                    "text": "Uma razão ou evidência que sustenta a tese do autor"
+                    "text": "O quarto ficou arrumado de verdade",
+                    "misconceptionCode": "leitura-literal"
                   },
                   {
-                    "text": "Qualquer frase longa",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "O menino tem muitos brinquedos",
+                    "misconceptionCode": "graca-no-lugar-errado"
                   },
                   {
-                    "text": "Uma opinião sem fundamento",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A mãe estava brava",
+                    "misconceptionCode": "graca-no-lugar-errado"
                   },
                   {
-                    "text": "O parágrafo de abertura",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Ele diz que não vê bagunça porque escondeu tudo, e não porque arrumou"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06LP04"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06LP04-A3",
+        "id": "PK2-EF69LP05-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: Analisar a função e as flexões de substantivos e adjetivos",
-        "prompt": "Questão sobre Analisar a função e as flexões de substantivos e adjetivos.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Analisar a função e as flexões de substantivos e adjetivos.",
-        "skillId": "EF06LP04",
+        "title": "Praticar: duplo sentido e ironia",
+        "prompt": "Leia cada situação e descubra de onde vem o humor.",
+        "estMinutes": 5,
+        "audioScript": "Leia cada situação e descubra de onde vem o humor. Pergunta 1. Na piada, o aluno diz: \"Professora, a senhora me castigaria por uma coisa que eu não fiz?\" Ela responde: \"Claro que não!\" E ele: \"Que bom, porque eu não fiz a lição.\" Onde está a graça? A: Ele usa a pergunta para escapar de não ter feito a lição; B: A professora é muito brava; C: O aluno fez a lição; D: A professora vai castigá-lo por algo que ele fez. Pergunta 2. Está chovendo forte e alguém diz: \"Que dia lindo para ir à praia!\" O que essa pessoa quer dizer? A: Que ela adora praia com chuva; B: Que o dia está ensolarado; C: Que o dia está ruim para ir à praia; D: Que a praia fica perto. Pergunta 3. Numa tirinha, o cachorro está todo sujo de lama e o dono diz: \"Que cachorro limpinho eu tenho!\" O que torna a fala irônica? A: O dono está feliz com a lama; B: A imagem mostra o contrário do que o dono diz; C: O cachorro é pequeno; D: O dono não enxerga o cachorro. Pergunta 4. Por que uma palavra com dois sentidos pode provocar humor? A: Porque palavras longas são engraçadas; B: Porque o leitor entende só o sentido comum; C: Porque o autor errou a palavra; D: Porque o leitor espera um sentido e a piada usa o outro.",
         "questions": [
           {
-            "question": "No estudo de \"Analisar a função e as flexões de substantivos e adjetivos\", o que é coesão textual?",
+            "question": "Na piada, o aluno diz: \"Professora, a senhora me castigaria por uma coisa que eu não fiz?\" Ela responde: \"Claro que não!\" E ele: \"Que bom, porque eu não fiz a lição.\" Onde está a graça?",
             "options": [
               {
-                "text": "Uso de conectivos e recursos linguísticos que ligam as partes do texto"
+                "text": "Ele usa a pergunta para escapar de não ter feito a lição"
               },
               {
-                "text": "Apenas a pontuação correta",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "A professora é muito brava",
+                "misconceptionCode": "graca-no-lugar-errado"
               },
               {
-                "text": "O tamanho do parágrafo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "O aluno fez a lição",
+                "misconceptionCode": "leitura-literal"
               },
               {
-                "text": "A caligrafia do autor",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "A professora vai castigá-lo por algo que ele fez",
+                "misconceptionCode": "ironia-como-verdade"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Coesão é criada por conectivos, pronomes e outros recursos que articulam o texto.",
+            "explanation": "A graça é o truque: \"uma coisa que eu não fiz\" parece ser algo inocente, mas é a lição que ele não fez.",
             "variants": [
               {
-                "question": "O que é coerência textual?",
+                "question": "Um menino pergunta ao pai: \"Pai, você assina no escuro?\" O pai diz: \"Assino.\" E o menino: \"Então apaga a luz e assina meu boletim.\" Onde está a graça?",
                 "options": [
                   {
-                    "text": "Sentido lógico e consistente entre as ideias do texto"
+                    "text": "O pai não sabe assinar",
+                    "misconceptionCode": "graca-no-lugar-errado"
                   },
                   {
-                    "text": "Ausência de erros ortográficos",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "A luz estava queimada",
+                    "misconceptionCode": "leitura-literal"
                   },
                   {
-                    "text": "Número de palavras no texto",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "O menino quer que o pai assine sem ver o boletim"
                   },
                   {
-                    "text": "Uso correto de vírgulas",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "O boletim é de outra pessoa",
+                    "misconceptionCode": "ironia-como-verdade"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "Qual palavra conecta uma causa a um efeito?",
+                "question": "Na piada, o aluno diz: \"Professora, a senhora me castigaria por uma coisa que eu não fiz?\" Ela responde: \"Claro que não!\" E ele: \"Que bom, porque eu não fiz a lição.\" Onde está a graça?",
                 "options": [
                   {
-                    "text": "'Porque' — indica a causa de algo"
+                    "text": "A professora vai castigá-lo por algo que ele fez",
+                    "misconceptionCode": "ironia-como-verdade"
                   },
                   {
-                    "text": "'Embora' — indica contraste",
-                    "misconceptionCode": "conector-adversativo"
+                    "text": "Ele usa a pergunta para escapar de não ter feito a lição"
                   },
                   {
-                    "text": "'Mas' — indica oposição",
-                    "misconceptionCode": "conector-adversativo"
+                    "text": "O aluno fez a lição",
+                    "misconceptionCode": "leitura-literal"
                   },
                   {
-                    "text": "'Assim' — indica conclusão",
-                    "misconceptionCode": "conector-conclusivo"
+                    "text": "A professora é muito brava",
+                    "misconceptionCode": "graca-no-lugar-errado"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06LP04"
+            ]
           },
           {
-            "question": "No estudo de \"Analisar a função e as flexões de substantivos e adjetivos\", o que é coesão textual?",
+            "question": "Está chovendo forte e alguém diz: \"Que dia lindo para ir à praia!\" O que essa pessoa quer dizer?",
             "options": [
               {
-                "text": "Uso de conectivos e recursos linguísticos que ligam as partes do texto"
+                "text": "Que ela adora praia com chuva",
+                "misconceptionCode": "ironia-como-verdade"
               },
               {
-                "text": "Apenas a pontuação correta",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "Que o dia está ensolarado",
+                "misconceptionCode": "leitura-literal"
               },
               {
-                "text": "O tamanho do parágrafo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Que o dia está ruim para ir à praia"
               },
               {
-                "text": "A caligrafia do autor",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "Que a praia fica perto",
+                "misconceptionCode": "graca-no-lugar-errado"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Coesão é criada por conectivos, pronomes e outros recursos que articulam o texto.",
+            "correctIndex": 2,
+            "explanation": "É ironia: a pessoa diz o contrário do que pensa para mostrar que o dia está ruim.",
             "variants": [
               {
-                "question": "O que é coerência textual?",
+                "question": "Depois de perder o ônibus, João diz: \"Ótimo, era tudo o que eu queria!\" O que ele quer dizer?",
                 "options": [
                   {
-                    "text": "Sentido lógico e consistente entre as ideias do texto"
+                    "text": "Que ficou chateado por perder o ônibus"
                   },
                   {
-                    "text": "Ausência de erros ortográficos",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Que queria muito perder o ônibus",
+                    "misconceptionCode": "ironia-como-verdade"
                   },
                   {
-                    "text": "Número de palavras no texto",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Que gosta de esperar",
+                    "misconceptionCode": "leitura-literal"
                   },
                   {
-                    "text": "Uso correto de vírgulas",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Que o ônibus estava cheio",
+                    "misconceptionCode": "graca-no-lugar-errado"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Qual palavra conecta uma causa a um efeito?",
+                "question": "Está chovendo forte e alguém diz: \"Que dia lindo para ir à praia!\" O que essa pessoa quer dizer?",
                 "options": [
                   {
-                    "text": "'Porque' — indica a causa de algo"
+                    "text": "Que a praia fica perto",
+                    "misconceptionCode": "graca-no-lugar-errado"
                   },
                   {
-                    "text": "'Embora' — indica contraste",
-                    "misconceptionCode": "conector-adversativo"
+                    "text": "Que o dia está ensolarado",
+                    "misconceptionCode": "leitura-literal"
                   },
                   {
-                    "text": "'Mas' — indica oposição",
-                    "misconceptionCode": "conector-adversativo"
+                    "text": "Que ela adora praia com chuva",
+                    "misconceptionCode": "ironia-como-verdade"
                   },
                   {
-                    "text": "'Assim' — indica conclusão",
-                    "misconceptionCode": "conector-conclusivo"
+                    "text": "Que o dia está ruim para ir à praia"
+                  }
+                ],
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "Numa tirinha, o cachorro está todo sujo de lama e o dono diz: \"Que cachorro limpinho eu tenho!\" O que torna a fala irônica?",
+            "options": [
+              {
+                "text": "O dono está feliz com a lama",
+                "misconceptionCode": "ironia-como-verdade"
+              },
+              {
+                "text": "A imagem mostra o contrário do que o dono diz"
+              },
+              {
+                "text": "O cachorro é pequeno",
+                "misconceptionCode": "graca-no-lugar-errado"
+              },
+              {
+                "text": "O dono não enxerga o cachorro",
+                "misconceptionCode": "leitura-literal"
+              }
+            ],
+            "correctIndex": 1,
+            "explanation": "A ironia aparece quando a fala contradiz o que a imagem mostra.",
+            "variants": [
+              {
+                "question": "Numa tirinha, a pia está cheia de louça suja e a irmã diz: \"Nossa, você lavou tudo mesmo!\" O que torna a fala irônica?",
+                "options": [
+                  {
+                    "text": "A irmã adora louça suja",
+                    "misconceptionCode": "ironia-como-verdade"
+                  },
+                  {
+                    "text": "A pia é nova",
+                    "misconceptionCode": "graca-no-lugar-errado"
+                  },
+                  {
+                    "text": "A irmã está com fome",
+                    "misconceptionCode": "leitura-literal"
+                  },
+                  {
+                    "text": "A pia cheia mostra que nada foi lavado"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Numa tirinha, o cachorro está todo sujo de lama e o dono diz: \"Que cachorro limpinho eu tenho!\" O que torna a fala irônica?",
+                "options": [
+                  {
+                    "text": "O dono não enxerga o cachorro",
+                    "misconceptionCode": "leitura-literal"
+                  },
+                  {
+                    "text": "O cachorro é pequeno",
+                    "misconceptionCode": "graca-no-lugar-errado"
+                  },
+                  {
+                    "text": "A imagem mostra o contrário do que o dono diz"
+                  },
+                  {
+                    "text": "O dono está feliz com a lama",
+                    "misconceptionCode": "ironia-como-verdade"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "Por que uma palavra com dois sentidos pode provocar humor?",
+            "options": [
+              {
+                "text": "Porque palavras longas são engraçadas",
+                "misconceptionCode": "graca-no-lugar-errado"
+              },
+              {
+                "text": "Porque o leitor entende só o sentido comum",
+                "misconceptionCode": "leitura-literal"
+              },
+              {
+                "text": "Porque o autor errou a palavra",
+                "misconceptionCode": "ironia-como-verdade"
+              },
+              {
+                "text": "Porque o leitor espera um sentido e a piada usa o outro"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "O humor nasce da surpresa: a gente pensa num sentido e descobre que era o outro.",
+            "variants": [
+              {
+                "question": "Na piada \"Por que o livro de Matemática ficou triste? Porque tinha muitos problemas\", a graça vem de:",
+                "options": [
+                  {
+                    "text": "O livro ser de Matemática",
+                    "misconceptionCode": "graca-no-lugar-errado"
+                  },
+                  {
+                    "text": "A palavra problemas, que tem dois sentidos"
+                  },
+                  {
+                    "text": "O livro ser velho",
+                    "misconceptionCode": "leitura-literal"
+                  },
+                  {
+                    "text": "A tristeza do aluno",
+                    "misconceptionCode": "ironia-como-verdade"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Por que uma palavra com dois sentidos pode provocar humor?",
+                "options": [
+                  {
+                    "text": "Porque o leitor espera um sentido e a piada usa o outro"
+                  },
+                  {
+                    "text": "Porque o autor errou a palavra",
+                    "misconceptionCode": "ironia-como-verdade"
+                  },
+                  {
+                    "text": "Porque o leitor entende só o sentido comum",
+                    "misconceptionCode": "leitura-literal"
+                  },
+                  {
+                    "text": "Porque palavras longas são engraçadas",
+                    "misconceptionCode": "graca-no-lugar-errado"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06LP04"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06LP04-A4",
+        "id": "PK2-EF69LP05-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: Analisar a função e as flexões de substantivos e adjetivos",
-        "prompt": "Questão sobre Analisar a função e as flexões de substantivos e adjetivos.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Analisar a função e as flexões de substantivos e adjetivos.",
-        "skillId": "EF06LP04",
+        "title": "Aplicar: humor no dia a dia",
+        "prompt": "Humor e ironia aparecem em memes, conversas e propagandas. Vamos ver alguns casos.",
+        "estMinutes": 4,
+        "audioScript": "Humor e ironia aparecem em memes, conversas e propagandas. Vamos ver alguns casos. Pergunta 1. Um meme mostra um gato deitado no sofá com a frase \"Segunda-feira, dia de muita energia\". Qual é o efeito? A: O gato está cheio de energia; B: O sofá é confortável; C: Ironia: a imagem mostra preguiça, o contrário da frase; D: É só uma foto de gato sem relação com a frase. Pergunta 2. Seu amigo chega 40 minutos atrasado e você diz: \"Chegou cedo, hein!\". O que você fez? A: Elogiou a pontualidade dele; B: Usou ironia para comentar o atraso; C: Falou do horário do relógio; D: Mudou de assunto. Pergunta 3. Para entender a graça de uma tirinha, o que você precisa fazer? A: Ler só as falas; B: Entender cada palavra ao pé da letra; C: Procurar o personagem mais bonito; D: Ler as falas junto com as imagens e perceber o que é inesperado.",
         "questions": [
           {
-            "question": "O que distingue texto informativo de texto argumentativo?",
+            "question": "Um meme mostra um gato deitado no sofá com a frase \"Segunda-feira, dia de muita energia\". Qual é o efeito?",
             "options": [
               {
-                "text": "Informativo apresenta fatos; argumentativo defende um ponto de vista com razões"
+                "text": "O gato está cheio de energia",
+                "misconceptionCode": "ironia-como-verdade"
               },
               {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "O sofá é confortável",
+                "misconceptionCode": "graca-no-lugar-errado"
               },
               {
-                "text": "O argumentativo não usa fatos",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Ironia: a imagem mostra preguiça, o contrário da frase"
               },
               {
-                "text": "O informativo é sempre mais longo",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "É só uma foto de gato sem relação com a frase",
+                "misconceptionCode": "ignora-imagem"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Texto informativo descreve/explica; argumentativo persuade com tese e argumentos.",
+            "correctIndex": 2,
+            "explanation": "A graça está no contraste entre a frase e a imagem do gato com preguiça.",
             "variants": [
               {
-                "question": "O que é a tese em um texto argumentativo?",
+                "question": "Um meme mostra um cachorro dormindo na mesa de estudos com a frase \"Estudando muito para a prova\". Qual é o efeito?",
                 "options": [
                   {
-                    "text": "A ideia principal que o autor defende no texto"
+                    "text": "Ironia: o cachorro está dormindo, não estudando"
                   },
                   {
-                    "text": "O título do texto",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "O cachorro estuda de verdade",
+                    "misconceptionCode": "ironia-como-verdade"
                   },
                   {
-                    "text": "A conclusão do último parágrafo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A mesa é bonita",
+                    "misconceptionCode": "graca-no-lugar-errado"
                   },
                   {
-                    "text": "Uma lista de fatos",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Não tem relação entre a frase e a foto",
+                    "misconceptionCode": "ignora-imagem"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que é um argumento em um texto?",
+                "question": "Um meme mostra um gato deitado no sofá com a frase \"Segunda-feira, dia de muita energia\". Qual é o efeito?",
                 "options": [
                   {
-                    "text": "Uma razão ou evidência que sustenta a tese do autor"
+                    "text": "É só uma foto de gato sem relação com a frase",
+                    "misconceptionCode": "ignora-imagem"
                   },
                   {
-                    "text": "Qualquer frase longa",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "O sofá é confortável",
+                    "misconceptionCode": "graca-no-lugar-errado"
                   },
                   {
-                    "text": "Uma opinião sem fundamento",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "O gato está cheio de energia",
+                    "misconceptionCode": "ironia-como-verdade"
                   },
                   {
-                    "text": "O parágrafo de abertura",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Ironia: a imagem mostra preguiça, o contrário da frase"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06LP04"
+            ]
           },
           {
-            "question": "O que distingue texto informativo de texto argumentativo?",
+            "question": "Seu amigo chega 40 minutos atrasado e você diz: \"Chegou cedo, hein!\". O que você fez?",
             "options": [
               {
-                "text": "Informativo apresenta fatos; argumentativo defende um ponto de vista com razões"
+                "text": "Elogiou a pontualidade dele",
+                "misconceptionCode": "ironia-como-verdade"
               },
               {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "Usou ironia para comentar o atraso"
               },
               {
-                "text": "O argumentativo não usa fatos",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Falou do horário do relógio",
+                "misconceptionCode": "leitura-literal"
               },
               {
-                "text": "O informativo é sempre mais longo",
-                "misconceptionCode": "lp-so-gramatica"
+                "text": "Mudou de assunto",
+                "misconceptionCode": "graca-no-lugar-errado"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Texto informativo descreve/explica; argumentativo persuade com tese e argumentos.",
+            "correctIndex": 1,
+            "explanation": "Dizer \"chegou cedo\" para quem atrasou é ironia: o sentido é o contrário.",
             "variants": [
               {
-                "question": "O que é a tese em um texto argumentativo?",
+                "question": "Sua irmã ganha o concurso de redação da escola e diz: \"Que desastre!\", rindo. O que ela fez?",
                 "options": [
                   {
-                    "text": "A ideia principal que o autor defende no texto"
+                    "text": "Ficou triste de verdade",
+                    "misconceptionCode": "ironia-como-verdade"
                   },
                   {
-                    "text": "O título do texto",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Contou um fato sobre desastres",
+                    "misconceptionCode": "leitura-literal"
                   },
                   {
-                    "text": "A conclusão do último parágrafo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Pediu ajuda",
+                    "misconceptionCode": "graca-no-lugar-errado"
                   },
                   {
-                    "text": "Uma lista de fatos",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Brincou dizendo o contrário do que sente"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "O que é um argumento em um texto?",
+                "question": "Seu amigo chega 40 minutos atrasado e você diz: \"Chegou cedo, hein!\". O que você fez?",
                 "options": [
                   {
-                    "text": "Uma razão ou evidência que sustenta a tese do autor"
+                    "text": "Mudou de assunto",
+                    "misconceptionCode": "graca-no-lugar-errado"
                   },
                   {
-                    "text": "Qualquer frase longa",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Falou do horário do relógio",
+                    "misconceptionCode": "leitura-literal"
                   },
                   {
-                    "text": "Uma opinião sem fundamento",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Usou ironia para comentar o atraso"
                   },
                   {
-                    "text": "O parágrafo de abertura",
-                    "misconceptionCode": "lp-so-gramatica"
+                    "text": "Elogiou a pontualidade dele",
+                    "misconceptionCode": "ironia-como-verdade"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "Para entender a graça de uma tirinha, o que você precisa fazer?",
+            "options": [
+              {
+                "text": "Ler só as falas",
+                "misconceptionCode": "ignora-imagem"
+              },
+              {
+                "text": "Entender cada palavra ao pé da letra",
+                "misconceptionCode": "leitura-literal"
+              },
+              {
+                "text": "Procurar o personagem mais bonito",
+                "misconceptionCode": "graca-no-lugar-errado"
+              },
+              {
+                "text": "Ler as falas junto com as imagens e perceber o que é inesperado"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Na tirinha, a fala e a imagem trabalham juntas, e o humor costuma estar no que surpreende.",
+            "variants": [
+              {
+                "question": "Qual é o melhor jeito de ler um meme?",
+                "options": [
+                  {
+                    "text": "Ler só a frase",
+                    "misconceptionCode": "ignora-imagem"
+                  },
+                  {
+                    "text": "Relacionar a frase com a imagem"
+                  },
+                  {
+                    "text": "Olhar só a imagem",
+                    "misconceptionCode": "leitura-literal"
+                  },
+                  {
+                    "text": "Contar as palavras",
+                    "misconceptionCode": "graca-no-lugar-errado"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Para entender a graça de uma tirinha, o que você precisa fazer?",
+                "options": [
+                  {
+                    "text": "Ler as falas junto com as imagens e perceber o que é inesperado"
+                  },
+                  {
+                    "text": "Procurar o personagem mais bonito",
+                    "misconceptionCode": "graca-no-lugar-errado"
+                  },
+                  {
+                    "text": "Entender cada palavra ao pé da letra",
+                    "misconceptionCode": "leitura-literal"
+                  },
+                  {
+                    "text": "Ler só as falas",
+                    "misconceptionCode": "ignora-imagem"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06LP04"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06LP04-A5",
+        "id": "PK2-EF69LP05-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Analisar a função e as flexões de substantivos e adjetivos",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Analisar a função e as flexões de substantivos e adjetivos.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Analisar a função e as flexões de substantivos e adjetivos.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: o que é ironia",
+        "prompt": "Explique com as suas palavras o que é ironia e conte um exemplo que você já viu ou ouviu.",
+        "estMinutes": 6,
+        "audioScript": "Explique com as suas palavras o que é ironia e conte um exemplo que você já viu ou ouviu.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de Analisar a função e as flexões de substantivos e adjetivos",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "define-ironia",
+              "description": "Explica que ironia é dizer o contrário do que se quer dizer"
+            },
+            {
+              "code": "pista-contexto",
+              "description": "Mostra que o contexto ou a imagem ajudam a perceber a ironia"
+            },
+            {
+              "code": "exemplo-valido",
+              "description": "Dá um exemplo de ironia correto"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF06LP04"
+          "exemploBoaResposta": "Ironia é quando a pessoa fala o contrário do que pensa, e a gente percebe pela situação. Por exemplo, quando está chovendo muito e alguém diz \"que dia lindo!\", ela quer dizer que o dia está feio."
+        }
       }
-    ]
-  },
-  {
-    "skillCode": "EF06LP07",
-    "title": "Trilha: períodos compostos por orações (EF06LP07)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
+    ],
     "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
-    "subjectCode": "LP",
-    "activities": [
-      {
-        "id": "PK-EF06LP07-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: períodos compostos por orações",
-        "prompt": "Questão sobre períodos compostos por orações.",
-        "estMinutes": 4,
-        "audioScript": "Questão sobre períodos compostos por orações.",
-        "skillId": "EF06LP07",
-        "questions": [
-          {
-            "question": "No estudo de \"períodos compostos por orações\", o que é coesão textual?",
-            "options": [
-              {
-                "text": "Uso de conectivos e recursos linguísticos que ligam as partes do texto"
-              },
-              {
-                "text": "Apenas a pontuação correta",
-                "misconceptionCode": "lp-so-gramatica"
-              },
-              {
-                "text": "O tamanho do parágrafo",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "A caligrafia do autor",
-                "misconceptionCode": "lp-so-gramatica"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Coesão é criada por conectivos, pronomes e outros recursos que articulam o texto.",
-            "variants": [
-              {
-                "question": "O que é coerência textual?",
-                "options": [
-                  {
-                    "text": "Sentido lógico e consistente entre as ideias do texto"
-                  },
-                  {
-                    "text": "Ausência de erros ortográficos",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "Número de palavras no texto",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Uso correto de vírgulas",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Qual palavra conecta uma causa a um efeito?",
-                "options": [
-                  {
-                    "text": "'Porque' — indica a causa de algo"
-                  },
-                  {
-                    "text": "'Embora' — indica contraste",
-                    "misconceptionCode": "conector-adversativo"
-                  },
-                  {
-                    "text": "'Mas' — indica oposição",
-                    "misconceptionCode": "conector-adversativo"
-                  },
-                  {
-                    "text": "'Assim' — indica conclusão",
-                    "misconceptionCode": "conector-conclusivo"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LP07"
-          },
-          {
-            "question": "No estudo de \"períodos compostos por orações\", o que é coesão textual?",
-            "options": [
-              {
-                "text": "Uso de conectivos e recursos linguísticos que ligam as partes do texto"
-              },
-              {
-                "text": "Apenas a pontuação correta",
-                "misconceptionCode": "lp-so-gramatica"
-              },
-              {
-                "text": "O tamanho do parágrafo",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "A caligrafia do autor",
-                "misconceptionCode": "lp-so-gramatica"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Coesão é criada por conectivos, pronomes e outros recursos que articulam o texto.",
-            "variants": [
-              {
-                "question": "O que é coerência textual?",
-                "options": [
-                  {
-                    "text": "Sentido lógico e consistente entre as ideias do texto"
-                  },
-                  {
-                    "text": "Ausência de erros ortográficos",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "Número de palavras no texto",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Uso correto de vírgulas",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Qual palavra conecta uma causa a um efeito?",
-                "options": [
-                  {
-                    "text": "'Porque' — indica a causa de algo"
-                  },
-                  {
-                    "text": "'Embora' — indica contraste",
-                    "misconceptionCode": "conector-adversativo"
-                  },
-                  {
-                    "text": "'Mas' — indica oposição",
-                    "misconceptionCode": "conector-adversativo"
-                  },
-                  {
-                    "text": "'Assim' — indica conclusão",
-                    "misconceptionCode": "conector-conclusivo"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LP07"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06LP07-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: períodos compostos por orações",
-        "prompt": "Questão sobre períodos compostos por orações.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre períodos compostos por orações.",
-        "skillId": "EF06LP07",
-        "questions": [
-          {
-            "question": "O que distingue texto informativo de texto argumentativo?",
-            "options": [
-              {
-                "text": "Informativo apresenta fatos; argumentativo defende um ponto de vista com razões"
-              },
-              {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "lp-so-gramatica"
-              },
-              {
-                "text": "O argumentativo não usa fatos",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "O informativo é sempre mais longo",
-                "misconceptionCode": "lp-so-gramatica"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Texto informativo descreve/explica; argumentativo persuade com tese e argumentos.",
-            "variants": [
-              {
-                "question": "O que é a tese em um texto argumentativo?",
-                "options": [
-                  {
-                    "text": "A ideia principal que o autor defende no texto"
-                  },
-                  {
-                    "text": "O título do texto",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "A conclusão do último parágrafo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Uma lista de fatos",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é um argumento em um texto?",
-                "options": [
-                  {
-                    "text": "Uma razão ou evidência que sustenta a tese do autor"
-                  },
-                  {
-                    "text": "Qualquer frase longa",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "Uma opinião sem fundamento",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O parágrafo de abertura",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LP07"
-          },
-          {
-            "question": "O que distingue texto informativo de texto argumentativo?",
-            "options": [
-              {
-                "text": "Informativo apresenta fatos; argumentativo defende um ponto de vista com razões"
-              },
-              {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "lp-so-gramatica"
-              },
-              {
-                "text": "O argumentativo não usa fatos",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "O informativo é sempre mais longo",
-                "misconceptionCode": "lp-so-gramatica"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Texto informativo descreve/explica; argumentativo persuade com tese e argumentos.",
-            "variants": [
-              {
-                "question": "O que é a tese em um texto argumentativo?",
-                "options": [
-                  {
-                    "text": "A ideia principal que o autor defende no texto"
-                  },
-                  {
-                    "text": "O título do texto",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "A conclusão do último parágrafo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Uma lista de fatos",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é um argumento em um texto?",
-                "options": [
-                  {
-                    "text": "Uma razão ou evidência que sustenta a tese do autor"
-                  },
-                  {
-                    "text": "Qualquer frase longa",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "Uma opinião sem fundamento",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O parágrafo de abertura",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LP07"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06LP07-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar com exercícios: períodos compostos por orações",
-        "prompt": "Questão sobre períodos compostos por orações.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre períodos compostos por orações.",
-        "skillId": "EF06LP07",
-        "questions": [
-          {
-            "question": "No estudo de \"períodos compostos por orações\", o que é coesão textual?",
-            "options": [
-              {
-                "text": "Uso de conectivos e recursos linguísticos que ligam as partes do texto"
-              },
-              {
-                "text": "Apenas a pontuação correta",
-                "misconceptionCode": "lp-so-gramatica"
-              },
-              {
-                "text": "O tamanho do parágrafo",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "A caligrafia do autor",
-                "misconceptionCode": "lp-so-gramatica"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Coesão é criada por conectivos, pronomes e outros recursos que articulam o texto.",
-            "variants": [
-              {
-                "question": "O que é coerência textual?",
-                "options": [
-                  {
-                    "text": "Sentido lógico e consistente entre as ideias do texto"
-                  },
-                  {
-                    "text": "Ausência de erros ortográficos",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "Número de palavras no texto",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Uso correto de vírgulas",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Qual palavra conecta uma causa a um efeito?",
-                "options": [
-                  {
-                    "text": "'Porque' — indica a causa de algo"
-                  },
-                  {
-                    "text": "'Embora' — indica contraste",
-                    "misconceptionCode": "conector-adversativo"
-                  },
-                  {
-                    "text": "'Mas' — indica oposição",
-                    "misconceptionCode": "conector-adversativo"
-                  },
-                  {
-                    "text": "'Assim' — indica conclusão",
-                    "misconceptionCode": "conector-conclusivo"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LP07"
-          },
-          {
-            "question": "No estudo de \"períodos compostos por orações\", o que é coesão textual?",
-            "options": [
-              {
-                "text": "Uso de conectivos e recursos linguísticos que ligam as partes do texto"
-              },
-              {
-                "text": "Apenas a pontuação correta",
-                "misconceptionCode": "lp-so-gramatica"
-              },
-              {
-                "text": "O tamanho do parágrafo",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "A caligrafia do autor",
-                "misconceptionCode": "lp-so-gramatica"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Coesão é criada por conectivos, pronomes e outros recursos que articulam o texto.",
-            "variants": [
-              {
-                "question": "O que é coerência textual?",
-                "options": [
-                  {
-                    "text": "Sentido lógico e consistente entre as ideias do texto"
-                  },
-                  {
-                    "text": "Ausência de erros ortográficos",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "Número de palavras no texto",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Uso correto de vírgulas",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Qual palavra conecta uma causa a um efeito?",
-                "options": [
-                  {
-                    "text": "'Porque' — indica a causa de algo"
-                  },
-                  {
-                    "text": "'Embora' — indica contraste",
-                    "misconceptionCode": "conector-adversativo"
-                  },
-                  {
-                    "text": "'Mas' — indica oposição",
-                    "misconceptionCode": "conector-adversativo"
-                  },
-                  {
-                    "text": "'Assim' — indica conclusão",
-                    "misconceptionCode": "conector-conclusivo"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LP07"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06LP07-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar em situações reais: períodos compostos por orações",
-        "prompt": "Questão sobre períodos compostos por orações.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre períodos compostos por orações.",
-        "skillId": "EF06LP07",
-        "questions": [
-          {
-            "question": "O que distingue texto informativo de texto argumentativo?",
-            "options": [
-              {
-                "text": "Informativo apresenta fatos; argumentativo defende um ponto de vista com razões"
-              },
-              {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "lp-so-gramatica"
-              },
-              {
-                "text": "O argumentativo não usa fatos",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "O informativo é sempre mais longo",
-                "misconceptionCode": "lp-so-gramatica"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Texto informativo descreve/explica; argumentativo persuade com tese e argumentos.",
-            "variants": [
-              {
-                "question": "O que é a tese em um texto argumentativo?",
-                "options": [
-                  {
-                    "text": "A ideia principal que o autor defende no texto"
-                  },
-                  {
-                    "text": "O título do texto",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "A conclusão do último parágrafo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Uma lista de fatos",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é um argumento em um texto?",
-                "options": [
-                  {
-                    "text": "Uma razão ou evidência que sustenta a tese do autor"
-                  },
-                  {
-                    "text": "Qualquer frase longa",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "Uma opinião sem fundamento",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O parágrafo de abertura",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LP07"
-          },
-          {
-            "question": "O que distingue texto informativo de texto argumentativo?",
-            "options": [
-              {
-                "text": "Informativo apresenta fatos; argumentativo defende um ponto de vista com razões"
-              },
-              {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "lp-so-gramatica"
-              },
-              {
-                "text": "O argumentativo não usa fatos",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "O informativo é sempre mais longo",
-                "misconceptionCode": "lp-so-gramatica"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Texto informativo descreve/explica; argumentativo persuade com tese e argumentos.",
-            "variants": [
-              {
-                "question": "O que é a tese em um texto argumentativo?",
-                "options": [
-                  {
-                    "text": "A ideia principal que o autor defende no texto"
-                  },
-                  {
-                    "text": "O título do texto",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "A conclusão do último parágrafo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Uma lista de fatos",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é um argumento em um texto?",
-                "options": [
-                  {
-                    "text": "Uma razão ou evidência que sustenta a tese do autor"
-                  },
-                  {
-                    "text": "Qualquer frase longa",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "Uma opinião sem fundamento",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O parágrafo de abertura",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LP07"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06LP07-A5",
-        "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: períodos compostos por orações",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre períodos compostos por orações.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre períodos compostos por orações.",
-        "rubric": {
-          "criteria": [
-            "Menciona ao menos dois aspectos de períodos compostos por orações",
-            "Usa vocabulário adequado ao ano escolar"
-          ],
-          "minScore": 60
-        },
-        "skillId": "EF06LP07"
-      }
-    ]
-  },
-  {
-    "skillCode": "EF06LP12",
-    "title": "Trilha: recursos de coesão referencial (EF06LP12)",
     "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
-    "subjectCode": "LP",
-    "activities": [
-      {
-        "id": "PK-EF06LP12-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: recursos de coesão referencial",
-        "prompt": "Questão sobre recursos de coesão referencial.",
-        "estMinutes": 4,
-        "audioScript": "Questão sobre recursos de coesão referencial.",
-        "skillId": "EF06LP12",
-        "questions": [
-          {
-            "question": "No estudo de \"recursos de coesão referencial\", o que é coesão textual?",
-            "options": [
-              {
-                "text": "Uso de conectivos e recursos linguísticos que ligam as partes do texto"
-              },
-              {
-                "text": "Apenas a pontuação correta",
-                "misconceptionCode": "lp-so-gramatica"
-              },
-              {
-                "text": "O tamanho do parágrafo",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "A caligrafia do autor",
-                "misconceptionCode": "lp-so-gramatica"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Coesão é criada por conectivos, pronomes e outros recursos que articulam o texto.",
-            "variants": [
-              {
-                "question": "O que é coerência textual?",
-                "options": [
-                  {
-                    "text": "Sentido lógico e consistente entre as ideias do texto"
-                  },
-                  {
-                    "text": "Ausência de erros ortográficos",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "Número de palavras no texto",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Uso correto de vírgulas",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Qual palavra conecta uma causa a um efeito?",
-                "options": [
-                  {
-                    "text": "'Porque' — indica a causa de algo"
-                  },
-                  {
-                    "text": "'Embora' — indica contraste",
-                    "misconceptionCode": "conector-adversativo"
-                  },
-                  {
-                    "text": "'Mas' — indica oposição",
-                    "misconceptionCode": "conector-adversativo"
-                  },
-                  {
-                    "text": "'Assim' — indica conclusão",
-                    "misconceptionCode": "conector-conclusivo"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LP12"
-          },
-          {
-            "question": "No estudo de \"recursos de coesão referencial\", o que é coesão textual?",
-            "options": [
-              {
-                "text": "Uso de conectivos e recursos linguísticos que ligam as partes do texto"
-              },
-              {
-                "text": "Apenas a pontuação correta",
-                "misconceptionCode": "lp-so-gramatica"
-              },
-              {
-                "text": "O tamanho do parágrafo",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "A caligrafia do autor",
-                "misconceptionCode": "lp-so-gramatica"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Coesão é criada por conectivos, pronomes e outros recursos que articulam o texto.",
-            "variants": [
-              {
-                "question": "O que é coerência textual?",
-                "options": [
-                  {
-                    "text": "Sentido lógico e consistente entre as ideias do texto"
-                  },
-                  {
-                    "text": "Ausência de erros ortográficos",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "Número de palavras no texto",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Uso correto de vírgulas",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Qual palavra conecta uma causa a um efeito?",
-                "options": [
-                  {
-                    "text": "'Porque' — indica a causa de algo"
-                  },
-                  {
-                    "text": "'Embora' — indica contraste",
-                    "misconceptionCode": "conector-adversativo"
-                  },
-                  {
-                    "text": "'Mas' — indica oposição",
-                    "misconceptionCode": "conector-adversativo"
-                  },
-                  {
-                    "text": "'Assim' — indica conclusão",
-                    "misconceptionCode": "conector-conclusivo"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LP12"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06LP12-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: recursos de coesão referencial",
-        "prompt": "Questão sobre recursos de coesão referencial.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre recursos de coesão referencial.",
-        "skillId": "EF06LP12",
-        "questions": [
-          {
-            "question": "O que distingue texto informativo de texto argumentativo?",
-            "options": [
-              {
-                "text": "Informativo apresenta fatos; argumentativo defende um ponto de vista com razões"
-              },
-              {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "lp-so-gramatica"
-              },
-              {
-                "text": "O argumentativo não usa fatos",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "O informativo é sempre mais longo",
-                "misconceptionCode": "lp-so-gramatica"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Texto informativo descreve/explica; argumentativo persuade com tese e argumentos.",
-            "variants": [
-              {
-                "question": "O que é a tese em um texto argumentativo?",
-                "options": [
-                  {
-                    "text": "A ideia principal que o autor defende no texto"
-                  },
-                  {
-                    "text": "O título do texto",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "A conclusão do último parágrafo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Uma lista de fatos",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é um argumento em um texto?",
-                "options": [
-                  {
-                    "text": "Uma razão ou evidência que sustenta a tese do autor"
-                  },
-                  {
-                    "text": "Qualquer frase longa",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "Uma opinião sem fundamento",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O parágrafo de abertura",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LP12"
-          },
-          {
-            "question": "O que distingue texto informativo de texto argumentativo?",
-            "options": [
-              {
-                "text": "Informativo apresenta fatos; argumentativo defende um ponto de vista com razões"
-              },
-              {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "lp-so-gramatica"
-              },
-              {
-                "text": "O argumentativo não usa fatos",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "O informativo é sempre mais longo",
-                "misconceptionCode": "lp-so-gramatica"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Texto informativo descreve/explica; argumentativo persuade com tese e argumentos.",
-            "variants": [
-              {
-                "question": "O que é a tese em um texto argumentativo?",
-                "options": [
-                  {
-                    "text": "A ideia principal que o autor defende no texto"
-                  },
-                  {
-                    "text": "O título do texto",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "A conclusão do último parágrafo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Uma lista de fatos",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é um argumento em um texto?",
-                "options": [
-                  {
-                    "text": "Uma razão ou evidência que sustenta a tese do autor"
-                  },
-                  {
-                    "text": "Qualquer frase longa",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "Uma opinião sem fundamento",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O parágrafo de abertura",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LP12"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06LP12-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar com exercícios: recursos de coesão referencial",
-        "prompt": "Questão sobre recursos de coesão referencial.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre recursos de coesão referencial.",
-        "skillId": "EF06LP12",
-        "questions": [
-          {
-            "question": "No estudo de \"recursos de coesão referencial\", o que é coesão textual?",
-            "options": [
-              {
-                "text": "Uso de conectivos e recursos linguísticos que ligam as partes do texto"
-              },
-              {
-                "text": "Apenas a pontuação correta",
-                "misconceptionCode": "lp-so-gramatica"
-              },
-              {
-                "text": "O tamanho do parágrafo",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "A caligrafia do autor",
-                "misconceptionCode": "lp-so-gramatica"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Coesão é criada por conectivos, pronomes e outros recursos que articulam o texto.",
-            "variants": [
-              {
-                "question": "O que é coerência textual?",
-                "options": [
-                  {
-                    "text": "Sentido lógico e consistente entre as ideias do texto"
-                  },
-                  {
-                    "text": "Ausência de erros ortográficos",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "Número de palavras no texto",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Uso correto de vírgulas",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Qual palavra conecta uma causa a um efeito?",
-                "options": [
-                  {
-                    "text": "'Porque' — indica a causa de algo"
-                  },
-                  {
-                    "text": "'Embora' — indica contraste",
-                    "misconceptionCode": "conector-adversativo"
-                  },
-                  {
-                    "text": "'Mas' — indica oposição",
-                    "misconceptionCode": "conector-adversativo"
-                  },
-                  {
-                    "text": "'Assim' — indica conclusão",
-                    "misconceptionCode": "conector-conclusivo"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LP12"
-          },
-          {
-            "question": "No estudo de \"recursos de coesão referencial\", o que é coesão textual?",
-            "options": [
-              {
-                "text": "Uso de conectivos e recursos linguísticos que ligam as partes do texto"
-              },
-              {
-                "text": "Apenas a pontuação correta",
-                "misconceptionCode": "lp-so-gramatica"
-              },
-              {
-                "text": "O tamanho do parágrafo",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "A caligrafia do autor",
-                "misconceptionCode": "lp-so-gramatica"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Coesão é criada por conectivos, pronomes e outros recursos que articulam o texto.",
-            "variants": [
-              {
-                "question": "O que é coerência textual?",
-                "options": [
-                  {
-                    "text": "Sentido lógico e consistente entre as ideias do texto"
-                  },
-                  {
-                    "text": "Ausência de erros ortográficos",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "Número de palavras no texto",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Uso correto de vírgulas",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Qual palavra conecta uma causa a um efeito?",
-                "options": [
-                  {
-                    "text": "'Porque' — indica a causa de algo"
-                  },
-                  {
-                    "text": "'Embora' — indica contraste",
-                    "misconceptionCode": "conector-adversativo"
-                  },
-                  {
-                    "text": "'Mas' — indica oposição",
-                    "misconceptionCode": "conector-adversativo"
-                  },
-                  {
-                    "text": "'Assim' — indica conclusão",
-                    "misconceptionCode": "conector-conclusivo"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LP12"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06LP12-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar em situações reais: recursos de coesão referencial",
-        "prompt": "Questão sobre recursos de coesão referencial.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre recursos de coesão referencial.",
-        "skillId": "EF06LP12",
-        "questions": [
-          {
-            "question": "O que distingue texto informativo de texto argumentativo?",
-            "options": [
-              {
-                "text": "Informativo apresenta fatos; argumentativo defende um ponto de vista com razões"
-              },
-              {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "lp-so-gramatica"
-              },
-              {
-                "text": "O argumentativo não usa fatos",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "O informativo é sempre mais longo",
-                "misconceptionCode": "lp-so-gramatica"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Texto informativo descreve/explica; argumentativo persuade com tese e argumentos.",
-            "variants": [
-              {
-                "question": "O que é a tese em um texto argumentativo?",
-                "options": [
-                  {
-                    "text": "A ideia principal que o autor defende no texto"
-                  },
-                  {
-                    "text": "O título do texto",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "A conclusão do último parágrafo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Uma lista de fatos",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é um argumento em um texto?",
-                "options": [
-                  {
-                    "text": "Uma razão ou evidência que sustenta a tese do autor"
-                  },
-                  {
-                    "text": "Qualquer frase longa",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "Uma opinião sem fundamento",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O parágrafo de abertura",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LP12"
-          },
-          {
-            "question": "O que distingue texto informativo de texto argumentativo?",
-            "options": [
-              {
-                "text": "Informativo apresenta fatos; argumentativo defende um ponto de vista com razões"
-              },
-              {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "lp-so-gramatica"
-              },
-              {
-                "text": "O argumentativo não usa fatos",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "O informativo é sempre mais longo",
-                "misconceptionCode": "lp-so-gramatica"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Texto informativo descreve/explica; argumentativo persuade com tese e argumentos.",
-            "variants": [
-              {
-                "question": "O que é a tese em um texto argumentativo?",
-                "options": [
-                  {
-                    "text": "A ideia principal que o autor defende no texto"
-                  },
-                  {
-                    "text": "O título do texto",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "A conclusão do último parágrafo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Uma lista de fatos",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é um argumento em um texto?",
-                "options": [
-                  {
-                    "text": "Uma razão ou evidência que sustenta a tese do autor"
-                  },
-                  {
-                    "text": "Qualquer frase longa",
-                    "misconceptionCode": "lp-so-gramatica"
-                  },
-                  {
-                    "text": "Uma opinião sem fundamento",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O parágrafo de abertura",
-                    "misconceptionCode": "lp-so-gramatica"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LP12"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06LP12-A5",
-        "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: recursos de coesão referencial",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre recursos de coesão referencial.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre recursos de coesão referencial.",
-        "rubric": {
-          "criteria": [
-            "Menciona ao menos dois aspectos de recursos de coesão referencial",
-            "Usa vocabulário adequado ao ano escolar"
-          ],
-          "minScore": 60
-        },
-        "skillId": "EF06LP12"
-      }
-    ]
+    "status": "APPROVED"
   }
 ]

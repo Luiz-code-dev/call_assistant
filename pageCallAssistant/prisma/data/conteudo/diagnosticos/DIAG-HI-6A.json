@@ -1,1140 +1,223 @@
 {
-  "id": "DIAG-HI-6A",
+  "id": "DIAG2-HI-6A",
+  "version": 2,
   "titulo": "Diagnóstico de História — 6º ano",
-  "descricao": "Avaliação diagnóstica de História para o 6º ano.",
+  "descricao": "Tempo histórico e cidadania na Grécia e em Roma antigas no 6º ano, com degrau para o 5º ano.",
+  "subjectCode": "HI",
+  "subjectName": "História",
+  "gradeYear": 6,
   "status": "APPROVED",
   "source": "SPEAKFLOW",
-  "subjectCode": "HI",
-  "gradeYear": 6,
   "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
+  "adaptive": true,
   "items": [
     {
-      "id": "DI-EF06HI01-01",
+      "id": "DI2-EF06HI01-01",
       "skillCode": "EF06HI01",
-      "skillId": "EF06HI01",
-      "question": "Qual é a importância de estudar \"Identificar diferentes formas de compreensão da noção\" no 6º ano?",
+      "question": "Em que século foi o ano de 1789?",
       "options": [
         {
-          "text": "Compreender como o passado influencia o presente e a identidade do povo"
+          "text": "Século XVII",
+          "misconceptionCode": "seculo-errado"
         },
         {
-          "text": "Decorar datas para provas",
-          "misconceptionCode": "historia-cronologica-apenas"
+          "text": "Século XIX",
+          "misconceptionCode": "seculo-errado"
         },
         {
-          "text": "Saber apenas o nome dos reis",
-          "misconceptionCode": "historia-cronologica-apenas"
+          "text": "Século XVIII"
         },
         {
-          "text": "Não tem importância prática",
-          "misconceptionCode": "conteudo-errado"
+          "text": "Século LXXXIX",
+          "misconceptionCode": "seculo-errado"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
-      "variants": [
-        {
-          "question": "O que é fonte histórica?",
-          "options": [
-            {
-              "text": "Todo registro ou objeto que nos informa sobre o passado"
-            },
-            {
-              "text": "Apenas livros escritos por historiadores",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Somente fotografias antigas",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Inventos do século XX",
-              "misconceptionCode": "conteudo-errado"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
-          "options": [
-            {
-              "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
-            },
-            {
-              "text": "Porque apenas um deles sabe a verdade",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Porque a história é inventada",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Porque só a versão escrita é válida",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Qual é a importância de estudar \"Identificar diferentes formas de compreensão da noção\" no 6º ano?"
+      "correctIndex": 2,
+      "explanation": "Tira o 89, fica 17, soma 1: século XVIII.",
+      "audioScript": "Pergunta 1. Em que século foi o ano de 1789? A: Século XVII; B: Século XIX; C: Século XVIII; D: Século LXXXIX.",
+      "role": "NORMAL"
     },
     {
-      "id": "DI-EF06HI01-02",
+      "id": "DI2-EF06HI01-02",
       "skillCode": "EF06HI01",
-      "skillId": "EF06HI01",
-      "question": "Associado a \"Identificar diferentes formas de compreensão da noção\", o conceito de mudança histórica significa:",
+      "question": "Um fato aconteceu em 200 a.C. e outro em 400 a.C. Qual veio primeiro?",
       "options": [
         {
-          "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
+          "text": "O de 200 a.C.",
+          "misconceptionCode": "ac-ao-contrario"
         },
         {
-          "text": "Que tudo sempre permanece igual",
-          "misconceptionCode": "historia-cronologica-apenas"
+          "text": "O de 400 a.C."
         },
         {
-          "text": "Que apenas guerras geram mudanças",
-          "misconceptionCode": "conteudo-errado"
+          "text": "Os dois juntos",
+          "misconceptionCode": "tudo-muda-junto"
         },
         {
-          "text": "Que o presente é idêntico ao passado",
-          "misconceptionCode": "historia-cronologica-apenas"
+          "text": "Não dá para saber",
+          "misconceptionCode": "periodo-natural"
+        }
+      ],
+      "correctIndex": 1,
+      "explanation": "Antes de Cristo, número maior é mais antigo.",
+      "audioScript": "Pergunta 1. Um fato aconteceu em 200 a.C. e outro em 400 a.C. Qual veio primeiro? A: O de 200 a.C.; B: O de 400 a.C.; C: Os dois juntos; D: Não dá para saber.",
+      "role": "NORMAL"
+    },
+    {
+      "id": "DI2-EF06HI12-01",
+      "skillCode": "EF06HI12",
+      "question": "Na democracia de Atenas, quem podia votar na assembleia?",
+      "options": [
+        {
+          "text": "Todos os moradores",
+          "misconceptionCode": "democracia-para-todos"
+        },
+        {
+          "text": "Homens e mulheres, como hoje",
+          "misconceptionCode": "igual-a-hoje"
+        },
+        {
+          "text": "Os estrangeiros e os escravizados",
+          "misconceptionCode": "confunde-grupos"
+        },
+        {
+          "text": "Só homens adultos, livres e atenienses"
+        }
+      ],
+      "correctIndex": 3,
+      "explanation": "A democracia ateniense era limitada a uma parte da população.",
+      "audioScript": "Pergunta 1. Na democracia de Atenas, quem podia votar na assembleia? A: Todos os moradores; B: Homens e mulheres, como hoje; C: Os estrangeiros e os escravizados; D: Só homens adultos, livres e atenienses.",
+      "role": "NORMAL"
+    },
+    {
+      "id": "DI2-EF06HI12-02",
+      "skillCode": "EF06HI12",
+      "question": "Os plebeus de Roma conseguiram mais direitos:",
+      "options": [
+        {
+          "text": "Com lutas e protestos contra os patrícios"
+        },
+        {
+          "text": "Sem nenhum conflito",
+          "misconceptionCode": "roma-sem-conflito"
+        },
+        {
+          "text": "Porque já nasciam com todos os direitos",
+          "misconceptionCode": "igual-a-hoje"
+        },
+        {
+          "text": "Porque eram escravizados",
+          "misconceptionCode": "confunde-grupos"
         }
       ],
       "correctIndex": 0,
-      "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
-      "variants": [
-        {
-          "question": "O que são permanências históricas?",
-          "options": [
-            {
-              "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
-            },
-            {
-              "text": "Eventos que nunca aconteceram",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Somente as guerras da Antiguidade",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Festas e comemorações modernas",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "O que diferencia a história oral da história escrita?",
-          "options": [
-            {
-              "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
-            },
-            {
-              "text": "A oral é sempre falsa",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "A escrita é menos confiável",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Não há diferença",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Associado a \"Identificar diferentes formas de compreensão da noção\", o conceito de mudança histórica significa:"
+      "explanation": "Os direitos dos plebeus foram conquistados.",
+      "audioScript": "Pergunta 1. Os plebeus de Roma conseguiram mais direitos: A: Com lutas e protestos contra os patrícios; B: Sem nenhum conflito; C: Porque já nasciam com todos os direitos; D: Porque eram escravizados.",
+      "role": "NORMAL"
     },
     {
-      "id": "DI-EF06HI02-03",
-      "skillCode": "EF06HI02",
-      "skillId": "EF06HI02",
-      "question": "Qual é a importância de estudar \"Identificar a gênese da produção do saber histórico\" no 6º ano?",
-      "options": [
-        {
-          "text": "Compreender como o passado influencia o presente e a identidade do povo"
-        },
-        {
-          "text": "Decorar datas para provas",
-          "misconceptionCode": "historia-cronologica-apenas"
-        },
-        {
-          "text": "Saber apenas o nome dos reis",
-          "misconceptionCode": "historia-cronologica-apenas"
-        },
-        {
-          "text": "Não tem importância prática",
-          "misconceptionCode": "conteudo-errado"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
-      "variants": [
-        {
-          "question": "O que é fonte histórica?",
-          "options": [
-            {
-              "text": "Todo registro ou objeto que nos informa sobre o passado"
-            },
-            {
-              "text": "Apenas livros escritos por historiadores",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Somente fotografias antigas",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Inventos do século XX",
-              "misconceptionCode": "conteudo-errado"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
-          "options": [
-            {
-              "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
-            },
-            {
-              "text": "Porque apenas um deles sabe a verdade",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Porque a história é inventada",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Porque só a versão escrita é válida",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Qual é a importância de estudar \"Identificar a gênese da produção do saber histórico\" no 6º ano?"
-    },
-    {
-      "id": "DI-EF06HI02-04",
-      "skillCode": "EF06HI02",
-      "skillId": "EF06HI02",
-      "question": "Associado a \"Identificar a gênese da produção do saber histórico\", o conceito de mudança histórica significa:",
-      "options": [
-        {
-          "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
-        },
-        {
-          "text": "Que tudo sempre permanece igual",
-          "misconceptionCode": "historia-cronologica-apenas"
-        },
-        {
-          "text": "Que apenas guerras geram mudanças",
-          "misconceptionCode": "conteudo-errado"
-        },
-        {
-          "text": "Que o presente é idêntico ao passado",
-          "misconceptionCode": "historia-cronologica-apenas"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
-      "variants": [
-        {
-          "question": "O que são permanências históricas?",
-          "options": [
-            {
-              "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
-            },
-            {
-              "text": "Eventos que nunca aconteceram",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Somente as guerras da Antiguidade",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Festas e comemorações modernas",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "O que diferencia a história oral da história escrita?",
-          "options": [
-            {
-              "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
-            },
-            {
-              "text": "A oral é sempre falsa",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "A escrita é menos confiável",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Não há diferença",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Associado a \"Identificar a gênese da produção do saber histórico\", o conceito de mudança histórica significa:"
-    },
-    {
-      "id": "DI-EF06HI06-05",
-      "skillCode": "EF06HI06",
-      "skillId": "EF06HI06",
-      "question": "Qual é a importância de estudar \"Identificar geograficamente as rotas de povoamento\" no 6º ano?",
-      "options": [
-        {
-          "text": "Compreender como o passado influencia o presente e a identidade do povo"
-        },
-        {
-          "text": "Decorar datas para provas",
-          "misconceptionCode": "historia-cronologica-apenas"
-        },
-        {
-          "text": "Saber apenas o nome dos reis",
-          "misconceptionCode": "historia-cronologica-apenas"
-        },
-        {
-          "text": "Não tem importância prática",
-          "misconceptionCode": "conteudo-errado"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
-      "variants": [
-        {
-          "question": "O que é fonte histórica?",
-          "options": [
-            {
-              "text": "Todo registro ou objeto que nos informa sobre o passado"
-            },
-            {
-              "text": "Apenas livros escritos por historiadores",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Somente fotografias antigas",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Inventos do século XX",
-              "misconceptionCode": "conteudo-errado"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
-          "options": [
-            {
-              "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
-            },
-            {
-              "text": "Porque apenas um deles sabe a verdade",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Porque a história é inventada",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Porque só a versão escrita é válida",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Qual é a importância de estudar \"Identificar geograficamente as rotas de povoamento\" no 6º ano?"
-    },
-    {
-      "id": "DI-EF06HI06-06",
-      "skillCode": "EF06HI06",
-      "skillId": "EF06HI06",
-      "question": "Associado a \"Identificar geograficamente as rotas de povoamento\", o conceito de mudança histórica significa:",
-      "options": [
-        {
-          "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
-        },
-        {
-          "text": "Que tudo sempre permanece igual",
-          "misconceptionCode": "historia-cronologica-apenas"
-        },
-        {
-          "text": "Que apenas guerras geram mudanças",
-          "misconceptionCode": "conteudo-errado"
-        },
-        {
-          "text": "Que o presente é idêntico ao passado",
-          "misconceptionCode": "historia-cronologica-apenas"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
-      "variants": [
-        {
-          "question": "O que são permanências históricas?",
-          "options": [
-            {
-              "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
-            },
-            {
-              "text": "Eventos que nunca aconteceram",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Somente as guerras da Antiguidade",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Festas e comemorações modernas",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "O que diferencia a história oral da história escrita?",
-          "options": [
-            {
-              "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
-            },
-            {
-              "text": "A oral é sempre falsa",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "A escrita é menos confiável",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Não há diferença",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Associado a \"Identificar geograficamente as rotas de povoamento\", o conceito de mudança histórica significa:"
-    },
-    {
-      "id": "DI-EF06HI13-07",
-      "skillCode": "EF06HI13",
-      "skillId": "EF06HI13",
-      "question": "Qual é a importância de estudar \"Conceituar “império” no mundo antigo\" no 6º ano?",
-      "options": [
-        {
-          "text": "Compreender como o passado influencia o presente e a identidade do povo"
-        },
-        {
-          "text": "Decorar datas para provas",
-          "misconceptionCode": "historia-cronologica-apenas"
-        },
-        {
-          "text": "Saber apenas o nome dos reis",
-          "misconceptionCode": "historia-cronologica-apenas"
-        },
-        {
-          "text": "Não tem importância prática",
-          "misconceptionCode": "conteudo-errado"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
-      "variants": [
-        {
-          "question": "O que é fonte histórica?",
-          "options": [
-            {
-              "text": "Todo registro ou objeto que nos informa sobre o passado"
-            },
-            {
-              "text": "Apenas livros escritos por historiadores",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Somente fotografias antigas",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Inventos do século XX",
-              "misconceptionCode": "conteudo-errado"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
-          "options": [
-            {
-              "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
-            },
-            {
-              "text": "Porque apenas um deles sabe a verdade",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Porque a história é inventada",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Porque só a versão escrita é válida",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Qual é a importância de estudar \"Conceituar “império” no mundo antigo\" no 6º ano?"
-    },
-    {
-      "id": "DI-EF06HI13-08",
-      "skillCode": "EF06HI13",
-      "skillId": "EF06HI13",
-      "question": "Associado a \"Conceituar “império” no mundo antigo\", o conceito de mudança histórica significa:",
-      "options": [
-        {
-          "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
-        },
-        {
-          "text": "Que tudo sempre permanece igual",
-          "misconceptionCode": "historia-cronologica-apenas"
-        },
-        {
-          "text": "Que apenas guerras geram mudanças",
-          "misconceptionCode": "conteudo-errado"
-        },
-        {
-          "text": "Que o presente é idêntico ao passado",
-          "misconceptionCode": "historia-cronologica-apenas"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
-      "variants": [
-        {
-          "question": "O que são permanências históricas?",
-          "options": [
-            {
-              "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
-            },
-            {
-              "text": "Eventos que nunca aconteceram",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Somente as guerras da Antiguidade",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Festas e comemorações modernas",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "O que diferencia a história oral da história escrita?",
-          "options": [
-            {
-              "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
-            },
-            {
-              "text": "A oral é sempre falsa",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "A escrita é menos confiável",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Não há diferença",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Associado a \"Conceituar “império” no mundo antigo\", o conceito de mudança histórica significa:"
-    },
-    {
-      "id": "DG-EF06HI01-01",
-      "skillCode": "EF05HI01",
-      "skillId": "EF05HI01",
-      "role": "DEGRAU_BANK",
-      "question": "Qual é a importância de estudar \"Identificar os processos de formação das culturas\" no 6º ano?",
-      "options": [
-        {
-          "text": "Compreender como o passado influencia o presente e a identidade do povo"
-        },
-        {
-          "text": "Decorar datas para provas",
-          "misconceptionCode": "historia-cronologica-apenas"
-        },
-        {
-          "text": "Saber apenas o nome dos reis",
-          "misconceptionCode": "historia-cronologica-apenas"
-        },
-        {
-          "text": "Não tem importância prática",
-          "misconceptionCode": "conteudo-errado"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
-      "variants": [
-        {
-          "question": "O que é fonte histórica?",
-          "options": [
-            {
-              "text": "Todo registro ou objeto que nos informa sobre o passado"
-            },
-            {
-              "text": "Apenas livros escritos por historiadores",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Somente fotografias antigas",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Inventos do século XX",
-              "misconceptionCode": "conteudo-errado"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
-          "options": [
-            {
-              "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
-            },
-            {
-              "text": "Porque apenas um deles sabe a verdade",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Porque a história é inventada",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Porque só a versão escrita é válida",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Qual é a importância de estudar \"Identificar os processos de formação das culturas\" no 6º ano?"
-    },
-    {
-      "id": "DG-EF06HI01-02",
-      "skillCode": "EF05HI01",
-      "skillId": "EF05HI01",
-      "role": "DEGRAU_BANK",
-      "question": "Associado a \"Identificar os processos de formação das culturas\", o conceito de mudança histórica significa:",
-      "options": [
-        {
-          "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
-        },
-        {
-          "text": "Que tudo sempre permanece igual",
-          "misconceptionCode": "historia-cronologica-apenas"
-        },
-        {
-          "text": "Que apenas guerras geram mudanças",
-          "misconceptionCode": "conteudo-errado"
-        },
-        {
-          "text": "Que o presente é idêntico ao passado",
-          "misconceptionCode": "historia-cronologica-apenas"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
-      "variants": [
-        {
-          "question": "O que são permanências históricas?",
-          "options": [
-            {
-              "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
-            },
-            {
-              "text": "Eventos que nunca aconteceram",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Somente as guerras da Antiguidade",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Festas e comemorações modernas",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "O que diferencia a história oral da história escrita?",
-          "options": [
-            {
-              "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
-            },
-            {
-              "text": "A oral é sempre falsa",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "A escrita é menos confiável",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Não há diferença",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Associado a \"Identificar os processos de formação das culturas\", o conceito de mudança histórica significa:"
-    },
-    {
-      "id": "DG-EF06HI02-03",
-      "skillCode": "EF05HI02",
-      "skillId": "EF05HI02",
-      "role": "DEGRAU_BANK",
-      "question": "Qual é a importância de estudar \"Identificar os mecanismos de organização do poder político\" no 6º ano?",
-      "options": [
-        {
-          "text": "Compreender como o passado influencia o presente e a identidade do povo"
-        },
-        {
-          "text": "Decorar datas para provas",
-          "misconceptionCode": "historia-cronologica-apenas"
-        },
-        {
-          "text": "Saber apenas o nome dos reis",
-          "misconceptionCode": "historia-cronologica-apenas"
-        },
-        {
-          "text": "Não tem importância prática",
-          "misconceptionCode": "conteudo-errado"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
-      "variants": [
-        {
-          "question": "O que é fonte histórica?",
-          "options": [
-            {
-              "text": "Todo registro ou objeto que nos informa sobre o passado"
-            },
-            {
-              "text": "Apenas livros escritos por historiadores",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Somente fotografias antigas",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Inventos do século XX",
-              "misconceptionCode": "conteudo-errado"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
-          "options": [
-            {
-              "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
-            },
-            {
-              "text": "Porque apenas um deles sabe a verdade",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Porque a história é inventada",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Porque só a versão escrita é válida",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Qual é a importância de estudar \"Identificar os mecanismos de organização do poder político\" no 6º ano?"
-    },
-    {
-      "id": "DG-EF06HI02-04",
-      "skillCode": "EF05HI02",
-      "skillId": "EF05HI02",
-      "role": "DEGRAU_BANK",
-      "question": "Associado a \"Identificar os mecanismos de organização do poder político\", o conceito de mudança histórica significa:",
-      "options": [
-        {
-          "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
-        },
-        {
-          "text": "Que tudo sempre permanece igual",
-          "misconceptionCode": "historia-cronologica-apenas"
-        },
-        {
-          "text": "Que apenas guerras geram mudanças",
-          "misconceptionCode": "conteudo-errado"
-        },
-        {
-          "text": "Que o presente é idêntico ao passado",
-          "misconceptionCode": "historia-cronologica-apenas"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
-      "variants": [
-        {
-          "question": "O que são permanências históricas?",
-          "options": [
-            {
-              "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
-            },
-            {
-              "text": "Eventos que nunca aconteceram",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Somente as guerras da Antiguidade",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Festas e comemorações modernas",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "O que diferencia a história oral da história escrita?",
-          "options": [
-            {
-              "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
-            },
-            {
-              "text": "A oral é sempre falsa",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "A escrita é menos confiável",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Não há diferença",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Associado a \"Identificar os mecanismos de organização do poder político\", o conceito de mudança histórica significa:"
-    },
-    {
-      "id": "DG-EF06HI06-05",
-      "skillCode": "EF05HI06",
-      "skillId": "EF05HI06",
-      "role": "DEGRAU_BANK",
-      "question": "Qual é a importância de estudar \"Comparar o uso de diferentes linguagens e tecnologias\" no 6º ano?",
-      "options": [
-        {
-          "text": "Compreender como o passado influencia o presente e a identidade do povo"
-        },
-        {
-          "text": "Decorar datas para provas",
-          "misconceptionCode": "historia-cronologica-apenas"
-        },
-        {
-          "text": "Saber apenas o nome dos reis",
-          "misconceptionCode": "historia-cronologica-apenas"
-        },
-        {
-          "text": "Não tem importância prática",
-          "misconceptionCode": "conteudo-errado"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
-      "variants": [
-        {
-          "question": "O que é fonte histórica?",
-          "options": [
-            {
-              "text": "Todo registro ou objeto que nos informa sobre o passado"
-            },
-            {
-              "text": "Apenas livros escritos por historiadores",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Somente fotografias antigas",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Inventos do século XX",
-              "misconceptionCode": "conteudo-errado"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
-          "options": [
-            {
-              "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
-            },
-            {
-              "text": "Porque apenas um deles sabe a verdade",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Porque a história é inventada",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Porque só a versão escrita é válida",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Qual é a importância de estudar \"Comparar o uso de diferentes linguagens e tecnologias\" no 6º ano?"
-    },
-    {
-      "id": "DG-EF06HI06-06",
-      "skillCode": "EF05HI06",
-      "skillId": "EF05HI06",
-      "role": "DEGRAU_BANK",
-      "question": "Associado a \"Comparar o uso de diferentes linguagens e tecnologias\", o conceito de mudança histórica significa:",
-      "options": [
-        {
-          "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
-        },
-        {
-          "text": "Que tudo sempre permanece igual",
-          "misconceptionCode": "historia-cronologica-apenas"
-        },
-        {
-          "text": "Que apenas guerras geram mudanças",
-          "misconceptionCode": "conteudo-errado"
-        },
-        {
-          "text": "Que o presente é idêntico ao passado",
-          "misconceptionCode": "historia-cronologica-apenas"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
-      "variants": [
-        {
-          "question": "O que são permanências históricas?",
-          "options": [
-            {
-              "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
-            },
-            {
-              "text": "Eventos que nunca aconteceram",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Somente as guerras da Antiguidade",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Festas e comemorações modernas",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "O que diferencia a história oral da história escrita?",
-          "options": [
-            {
-              "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
-            },
-            {
-              "text": "A oral é sempre falsa",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "A escrita é menos confiável",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Não há diferença",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Associado a \"Comparar o uso de diferentes linguagens e tecnologias\", o conceito de mudança histórica significa:"
-    },
-    {
-      "id": "DG-EF06HI13-07",
+      "id": "DI2-EF05HI08-01",
       "skillCode": "EF05HI08",
-      "skillId": "EF05HI08",
-      "role": "DEGRAU_BANK",
-      "question": "Qual é a importância de estudar \"Identificar formas de marcação da passagem do tempo\" no 6º ano?",
+      "question": "Antes do relógio, como as pessoas sabiam a parte do dia?",
       "options": [
         {
-          "text": "Compreender como o passado influencia o presente e a identidade do povo"
+          "text": "Não sabiam de jeito nenhum",
+          "misconceptionCode": "tempo-so-relogio"
         },
         {
-          "text": "Decorar datas para provas",
-          "misconceptionCode": "historia-cronologica-apenas"
+          "text": "Usando o mesmo calendário que usamos hoje",
+          "misconceptionCode": "calendario-unico"
         },
         {
-          "text": "Saber apenas o nome dos reis",
-          "misconceptionCode": "historia-cronologica-apenas"
+          "text": "Contando os séculos",
+          "misconceptionCode": "ordem-trocada"
         },
         {
-          "text": "Não tem importância prática",
-          "misconceptionCode": "conteudo-errado"
+          "text": "Observando a posição do Sol e as sombras"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "A História nos ajuda a compreender a construção das sociedades e das identidades.",
-      "variants": [
-        {
-          "question": "O que é fonte histórica?",
-          "options": [
-            {
-              "text": "Todo registro ou objeto que nos informa sobre o passado"
-            },
-            {
-              "text": "Apenas livros escritos por historiadores",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Somente fotografias antigas",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Inventos do século XX",
-              "misconceptionCode": "conteudo-errado"
-            }
-          ],
-          "correctIndex": 0
-        },
-        {
-          "question": "Por que diferentes povos podem ter visões diferentes sobre um mesmo evento histórico?",
-          "options": [
-            {
-              "text": "Porque cada grupo vive o evento de forma diferente e tem perspectivas distintas"
-            },
-            {
-              "text": "Porque apenas um deles sabe a verdade",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Porque a história é inventada",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Porque só a versão escrita é válida",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
-        }
-      ],
-      "audioScript": "Qual é a importância de estudar \"Identificar formas de marcação da passagem do tempo\" no 6º ano?"
+      "correctIndex": 3,
+      "explanation": "O Sol e as sombras sempre foram marcadores do tempo.",
+      "audioScript": "Pergunta 1. Antes do relógio, como as pessoas sabiam a parte do dia? A: Não sabiam de jeito nenhum; B: Usando o mesmo calendário que usamos hoje; C: Contando os séculos; D: Observando a posição do Sol e as sombras.",
+      "role": "DEGRAU_BANK"
     },
     {
-      "id": "DG-EF06HI13-08",
+      "id": "DI2-EF05HI08-02",
       "skillCode": "EF05HI08",
-      "skillId": "EF05HI08",
-      "role": "DEGRAU_BANK",
-      "question": "Associado a \"Identificar formas de marcação da passagem do tempo\", o conceito de mudança histórica significa:",
+      "question": "Um povo indígena organiza o ano pelas épocas de chuva e de colheita. Isso é:",
       "options": [
         {
-          "text": "Transformações nas formas de organização social, política e cultural ao longo do tempo"
+          "text": "Uma forma de marcar o tempo pela natureza"
         },
         {
-          "text": "Que tudo sempre permanece igual",
-          "misconceptionCode": "historia-cronologica-apenas"
+          "text": "Uma forma errada de contar o tempo",
+          "misconceptionCode": "calendario-unico"
         },
         {
-          "text": "Que apenas guerras geram mudanças",
-          "misconceptionCode": "conteudo-errado"
+          "text": "Um sinal de que eles não contam o tempo",
+          "misconceptionCode": "natureza-nao-marca"
         },
         {
-          "text": "Que o presente é idêntico ao passado",
-          "misconceptionCode": "historia-cronologica-apenas"
+          "text": "Um relógio",
+          "misconceptionCode": "tempo-so-relogio"
         }
       ],
       "correctIndex": 0,
-      "explanation": "Mudança histórica abrange transformações em todas as dimensões da sociedade.",
-      "variants": [
+      "explanation": "A natureza é um calendário usado por muitos povos.",
+      "audioScript": "Pergunta 1. Um povo indígena organiza o ano pelas épocas de chuva e de colheita. Isso é: A: Uma forma de marcar o tempo pela natureza; B: Uma forma errada de contar o tempo; C: Um sinal de que eles não contam o tempo; D: Um relógio.",
+      "role": "DEGRAU_BANK"
+    },
+    {
+      "id": "DI2-EF05HI04-01",
+      "skillCode": "EF05HI04",
+      "question": "Cidadania significa:",
+      "options": [
         {
-          "question": "O que são permanências históricas?",
-          "options": [
-            {
-              "text": "Aspectos que se mantêm ao longo do tempo, mesmo com as mudanças"
-            },
-            {
-              "text": "Eventos que nunca aconteceram",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Somente as guerras da Antiguidade",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "Festas e comemorações modernas",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
+          "text": "Apenas votar",
+          "misconceptionCode": "cidadania-so-votar"
         },
         {
-          "question": "O que diferencia a história oral da história escrita?",
-          "options": [
-            {
-              "text": "A história oral é transmitida pela fala e memória; a escrita, por documentos registrados"
-            },
-            {
-              "text": "A oral é sempre falsa",
-              "misconceptionCode": "historia-cronologica-apenas"
-            },
-            {
-              "text": "A escrita é menos confiável",
-              "misconceptionCode": "conteudo-errado"
-            },
-            {
-              "text": "Não há diferença",
-              "misconceptionCode": "historia-cronologica-apenas"
-            }
-          ],
-          "correctIndex": 0
+          "text": "Ter direitos só para alguns",
+          "misconceptionCode": "direito-de-alguns"
+        },
+        {
+          "text": "Todos pensarem igual",
+          "misconceptionCode": "igualdade-uniformidade"
+        },
+        {
+          "text": "Ter direitos e deveres e participar da comunidade"
         }
       ],
-      "audioScript": "Associado a \"Identificar formas de marcação da passagem do tempo\", o conceito de mudança histórica significa:"
+      "correctIndex": 3,
+      "explanation": "Cidadania é muito mais do que votar.",
+      "audioScript": "Pergunta 1. Cidadania significa: A: Apenas votar; B: Ter direitos só para alguns; C: Todos pensarem igual; D: Ter direitos e deveres e participar da comunidade.",
+      "role": "DEGRAU_BANK"
+    },
+    {
+      "id": "DI2-EF05HI04-02",
+      "skillCode": "EF05HI04",
+      "question": "Uma escola que coloca rampas e banheiros adaptados está garantindo:",
+      "options": [
+        {
+          "text": "O direito de todos de estudar ali"
+        },
+        {
+          "text": "Um privilégio para poucos",
+          "misconceptionCode": "direito-de-alguns"
+        },
+        {
+          "text": "Algo sem importância",
+          "misconceptionCode": "so-direitos"
+        },
+        {
+          "text": "O direito de votar",
+          "misconceptionCode": "cidadania-so-votar"
+        }
+      ],
+      "correctIndex": 0,
+      "explanation": "Acessibilidade garante direitos a pessoas com deficiência.",
+      "audioScript": "Pergunta 1. Uma escola que coloca rampas e banheiros adaptados está garantindo: A: O direito de todos de estudar ali; B: Um privilégio para poucos; C: Algo sem importância; D: O direito de votar.",
+      "role": "DEGRAU_BANK"
     }
   ]
 }

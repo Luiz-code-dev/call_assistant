@@ -1,2450 +1,2834 @@
 [
   {
-    "skillCode": "EF06LI01",
-    "title": "Trilha: Interagir em situações de intercâmbio oral (EF06LI01)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
+    "skillCode": "EF06LI17",
     "subjectCode": "LI",
+    "subjectName": "Língua Inglesa",
+    "gradeYear": 6,
+    "version": 2,
+    "title": "Trilha: Palavras do dia a dia em inglês",
+    "tituloAluno": "Palavras da escola, da família e da rotina",
     "activities": [
       {
-        "id": "PK-EF06LI01-A1",
+        "id": "PK2-EF06LI17-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Interagir em situações de intercâmbio oral",
-        "prompt": "Questão sobre Interagir em situações de intercâmbio oral.",
+        "title": "Relembrar: palavras que você já conhece",
+        "prompt": "Muitas palavras em inglês já aparecem no nosso dia a dia.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre Interagir em situações de intercâmbio oral.",
-        "skillId": "EF06LI01",
+        "audioScript": "Muitas palavras em inglês já aparecem no nosso dia a dia. Pergunta 1. Num videogame, aparece \"Game over\". O que significa? A: Jogo novo; B: Jogo por cima; C: Fim de jogo; D: Ganhe o jogo. Pergunta 2. O que significa \"school\"? A: Ônibus; B: Escola; C: Escova; D: Sala. Pergunta 3. Como se diz \"irmã\" em inglês? A: Brother; B: Mother; C: Cousin; D: Sister.",
         "questions": [
           {
-            "question": "No tema \"Interagir em situações de intercâmbio oral\", como se apresentar em inglês?",
+            "question": "Num videogame, aparece \"Game over\". O que significa?",
             "options": [
               {
-                "text": "'My name is [nome]. I am [idade] years old. I am from [cidade].'"
+                "text": "Jogo novo",
+                "misconceptionCode": "traduz-letra"
               },
               {
-                "text": "'I is [nome]. Me old [idade].'",
-                "misconceptionCode": "li-erro-verbo"
+                "text": "Jogo por cima",
+                "misconceptionCode": "traduz-letra"
               },
               {
-                "text": "'Name my is [nome].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Fim de jogo"
               },
               {
-                "text": "'[nome] am I. Years [idade].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Ganhe o jogo",
+                "misconceptionCode": "campo-trocado"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "'My name is' + 'I am' são as estruturas corretas para apresentação em inglês.",
+            "correctIndex": 2,
+            "explanation": "Game over quer dizer que o jogo acabou.",
             "variants": [
               {
-                "question": "Como perguntar o nome de alguém em inglês?",
+                "question": "No celular, o botão \"Delete\" serve para:",
                 "options": [
                   {
-                    "text": "'What is your name?'"
+                    "text": "Apagar"
                   },
                   {
-                    "text": "'What your name is?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Salvar",
+                    "misconceptionCode": "traduz-letra"
                   },
                   {
-                    "text": "'Your name what?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Abrir",
+                    "misconceptionCode": "traduz-letra"
                   },
                   {
-                    "text": "'Is what name you?'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Ligar",
+                    "misconceptionCode": "campo-trocado"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Como dizer sua idade em inglês? (10 anos)",
+                "question": "Num videogame, aparece \"Game over\". O que significa?",
                 "options": [
                   {
-                    "text": "'I am ten years old.'"
+                    "text": "Ganhe o jogo",
+                    "misconceptionCode": "campo-trocado"
                   },
                   {
-                    "text": "'I have ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Jogo por cima",
+                    "misconceptionCode": "traduz-letra"
                   },
                   {
-                    "text": "'Me ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Jogo novo",
+                    "misconceptionCode": "traduz-letra"
                   },
                   {
-                    "text": "'Ten years I am.'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Fim de jogo"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06LI01"
+            ]
           },
           {
-            "question": "No tema \"Interagir em situações de intercâmbio oral\", como se apresentar em inglês?",
+            "question": "O que significa \"school\"?",
             "options": [
               {
-                "text": "'My name is [nome]. I am [idade] years old. I am from [cidade].'"
+                "text": "Ônibus",
+                "misconceptionCode": "campo-trocado"
               },
               {
-                "text": "'I is [nome]. Me old [idade].'",
-                "misconceptionCode": "li-erro-verbo"
+                "text": "Escola"
               },
               {
-                "text": "'Name my is [nome].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Escova",
+                "misconceptionCode": "traduz-letra"
               },
               {
-                "text": "'[nome] am I. Years [idade].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Sala",
+                "misconceptionCode": "campo-trocado"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "'My name is' + 'I am' são as estruturas corretas para apresentação em inglês.",
+            "correctIndex": 1,
+            "explanation": "School é escola. A sala de aula é classroom.",
             "variants": [
               {
-                "question": "Como perguntar o nome de alguém em inglês?",
+                "question": "O que significa \"teacher\"?",
                 "options": [
                   {
-                    "text": "'What is your name?'"
+                    "text": "Aluno",
+                    "misconceptionCode": "campo-trocado"
                   },
                   {
-                    "text": "'What your name is?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Diretor do jogo",
+                    "misconceptionCode": "traduz-letra"
                   },
                   {
-                    "text": "'Your name what?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Livro",
+                    "misconceptionCode": "campo-trocado"
                   },
                   {
-                    "text": "'Is what name you?'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Professor ou professora"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "Como dizer sua idade em inglês? (10 anos)",
+                "question": "O que significa \"school\"?",
                 "options": [
                   {
-                    "text": "'I am ten years old.'"
+                    "text": "Sala",
+                    "misconceptionCode": "campo-trocado"
                   },
                   {
-                    "text": "'I have ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Escova",
+                    "misconceptionCode": "traduz-letra"
                   },
                   {
-                    "text": "'Me ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Escola"
                   },
                   {
-                    "text": "'Ten years I am.'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Ônibus",
+                    "misconceptionCode": "campo-trocado"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "Como se diz \"irmã\" em inglês?",
+            "options": [
+              {
+                "text": "Brother",
+                "misconceptionCode": "familia-trocada"
+              },
+              {
+                "text": "Mother",
+                "misconceptionCode": "familia-trocada"
+              },
+              {
+                "text": "Cousin",
+                "misconceptionCode": "familia-trocada"
+              },
+              {
+                "text": "Sister"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Sister é irmã; brother é irmão; mother é mãe; cousin é primo ou prima.",
+            "variants": [
+              {
+                "question": "Como se diz \"irmão\" em inglês?",
+                "options": [
+                  {
+                    "text": "Sister",
+                    "misconceptionCode": "familia-trocada"
+                  },
+                  {
+                    "text": "Brother"
+                  },
+                  {
+                    "text": "Father",
+                    "misconceptionCode": "familia-trocada"
+                  },
+                  {
+                    "text": "Grandma",
+                    "misconceptionCode": "familia-trocada"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Como se diz \"irmã\" em inglês?",
+                "options": [
+                  {
+                    "text": "Sister"
+                  },
+                  {
+                    "text": "Cousin",
+                    "misconceptionCode": "familia-trocada"
+                  },
+                  {
+                    "text": "Mother",
+                    "misconceptionCode": "familia-trocada"
+                  },
+                  {
+                    "text": "Brother",
+                    "misconceptionCode": "familia-trocada"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06LI01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06LI01-A2",
+        "id": "PK2-EF06LI17-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Interagir em situações de intercâmbio oral",
-        "prompt": "Questão sobre Interagir em situações de intercâmbio oral.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Interagir em situações de intercâmbio oral.",
-        "skillId": "EF06LI01",
+        "title": "Exemplo guiado: família e escola",
+        "prompt": "Vamos aprender juntos palavras da família e da escola.",
+        "estMinutes": 4,
+        "audioScript": "Vamos aprender juntos palavras da família e da escola. Pergunta 1. \"My parents\" quer dizer: A: Meus parentes; B: Meus pais; C: Meus amigos; D: Minhas partes. Pergunta 2. Qual destas palavras é uma matéria da escola? A: Soccer; B: Breakfast; C: Bedroom; D: Math. Pergunta 3. \"I have breakfast at seven\" quer dizer: A: Eu tomo café da manhã às sete; B: Eu tenho sete cafés; C: Eu quebro algo às sete; D: Eu almoço às sete.",
         "questions": [
           {
-            "question": "Como cumprimentar formalmente em inglês?",
+            "question": "\"My parents\" quer dizer:",
             "options": [
               {
-                "text": "'Good morning / Good afternoon / Good evening'"
+                "text": "Meus parentes",
+                "misconceptionCode": "falso-cognato"
               },
               {
-                "text": "'Hey! / Yo!'",
-                "misconceptionCode": "li-informal"
+                "text": "Meus pais"
               },
               {
-                "text": "'Morning good / Afternoon good'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Meus amigos",
+                "misconceptionCode": "campo-trocado"
               },
               {
-                "text": "'Bom dia' (em português)",
-                "misconceptionCode": "li-uso-pt"
+                "text": "Minhas partes",
+                "misconceptionCode": "traduz-letra"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "'Good morning/afternoon/evening' são cumprimentos formais em inglês.",
+            "correctIndex": 1,
+            "explanation": "Parents é falso cognato: parece parentes, mas significa pai e mãe.",
             "variants": [
               {
-                "question": "O que significa 'How are you?' em inglês?",
+                "question": "\"Grandparents\" quer dizer:",
                 "options": [
                   {
-                    "text": "Como você está?"
+                    "text": "Pais grandes",
+                    "misconceptionCode": "falso-cognato"
                   },
                   {
-                    "text": "Qual é o seu nome?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "Parentes distantes",
+                    "misconceptionCode": "campo-trocado"
                   },
                   {
-                    "text": "De onde você vem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "Tios",
+                    "misconceptionCode": "traduz-letra"
                   },
                   {
-                    "text": "Quanto anos você tem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "Avós"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "Como se diz 'obrigado' em inglês?",
+                "question": "\"My parents\" quer dizer:",
                 "options": [
                   {
-                    "text": "Thank you"
+                    "text": "Minhas partes",
+                    "misconceptionCode": "traduz-letra"
                   },
                   {
-                    "text": "Please",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Meus amigos",
+                    "misconceptionCode": "campo-trocado"
                   },
                   {
-                    "text": "Sorry",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Meus pais"
                   },
                   {
-                    "text": "Excuse me",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Meus parentes",
+                    "misconceptionCode": "falso-cognato"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF06LI01"
+            ]
           },
           {
-            "question": "Como cumprimentar formalmente em inglês?",
+            "question": "Qual destas palavras é uma matéria da escola?",
             "options": [
               {
-                "text": "'Good morning / Good afternoon / Good evening'"
+                "text": "Soccer",
+                "misconceptionCode": "campo-trocado"
               },
               {
-                "text": "'Hey! / Yo!'",
-                "misconceptionCode": "li-informal"
+                "text": "Breakfast",
+                "misconceptionCode": "campo-trocado"
               },
               {
-                "text": "'Morning good / Afternoon good'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Bedroom",
+                "misconceptionCode": "campo-trocado"
               },
               {
-                "text": "'Bom dia' (em português)",
-                "misconceptionCode": "li-uso-pt"
+                "text": "Math"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Math é Matemática. Soccer é futebol, breakfast é café da manhã, bedroom é quarto.",
+            "variants": [
+              {
+                "question": "Qual destas palavras é uma matéria escolar?",
+                "options": [
+                  {
+                    "text": "Basketball",
+                    "misconceptionCode": "campo-trocado"
+                  },
+                  {
+                    "text": "History"
+                  },
+                  {
+                    "text": "Lunch",
+                    "misconceptionCode": "campo-trocado"
+                  },
+                  {
+                    "text": "Kitchen",
+                    "misconceptionCode": "campo-trocado"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Qual destas palavras é uma matéria da escola?",
+                "options": [
+                  {
+                    "text": "Math"
+                  },
+                  {
+                    "text": "Bedroom",
+                    "misconceptionCode": "campo-trocado"
+                  },
+                  {
+                    "text": "Breakfast",
+                    "misconceptionCode": "campo-trocado"
+                  },
+                  {
+                    "text": "Soccer",
+                    "misconceptionCode": "campo-trocado"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "\"I have breakfast at seven\" quer dizer:",
+            "options": [
+              {
+                "text": "Eu tomo café da manhã às sete"
+              },
+              {
+                "text": "Eu tenho sete cafés",
+                "misconceptionCode": "traduz-letra"
+              },
+              {
+                "text": "Eu quebro algo às sete",
+                "misconceptionCode": "traduz-letra"
+              },
+              {
+                "text": "Eu almoço às sete",
+                "misconceptionCode": "campo-trocado"
               }
             ],
             "correctIndex": 0,
-            "explanation": "'Good morning/afternoon/evening' são cumprimentos formais em inglês.",
+            "explanation": "Have breakfast é tomar café da manhã. Não traduza palavra por palavra.",
             "variants": [
               {
-                "question": "O que significa 'How are you?' em inglês?",
+                "question": "\"I have lunch at noon\" quer dizer:",
                 "options": [
                   {
-                    "text": "Como você está?"
+                    "text": "Eu tenho um lanche à noite",
+                    "misconceptionCode": "traduz-letra"
                   },
                   {
-                    "text": "Qual é o seu nome?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "Eu janto cedo",
+                    "misconceptionCode": "traduz-letra"
                   },
                   {
-                    "text": "De onde você vem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "Eu almoço ao meio-dia"
                   },
                   {
-                    "text": "Quanto anos você tem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "Eu durmo ao meio-dia",
+                    "misconceptionCode": "campo-trocado"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "Como se diz 'obrigado' em inglês?",
+                "question": "\"I have breakfast at seven\" quer dizer:",
                 "options": [
                   {
-                    "text": "Thank you"
+                    "text": "Eu almoço às sete",
+                    "misconceptionCode": "campo-trocado"
                   },
                   {
-                    "text": "Please",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Eu tomo café da manhã às sete"
                   },
                   {
-                    "text": "Sorry",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Eu quebro algo às sete",
+                    "misconceptionCode": "traduz-letra"
                   },
                   {
-                    "text": "Excuse me",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Eu tenho sete cafés",
+                    "misconceptionCode": "traduz-letra"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06LI01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06LI01-A3",
+        "id": "PK2-EF06LI17-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: Interagir em situações de intercâmbio oral",
-        "prompt": "Questão sobre Interagir em situações de intercâmbio oral.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Interagir em situações de intercâmbio oral.",
-        "skillId": "EF06LI01",
+        "title": "Praticar: rotina e lazer",
+        "prompt": "Escolha o significado certo.",
+        "estMinutes": 5,
+        "audioScript": "Escolha o significado certo. Pergunta 1. \"Wake up\" significa: A: Dormir; B: Levantar a mão; C: Lavar o rosto; D: Acordar. Pergunta 2. \"Swimming\" é: A: Natação; B: Corrida; C: Futebol; D: Balanço. Pergunta 3. \"Library\" significa: A: Livraria; B: Liberdade; C: Biblioteca; D: Laboratório. Pergunta 4. \"Aunt\" é: A: Tio; B: Tia; C: Avó; D: Formiga.",
         "questions": [
           {
-            "question": "No tema \"Interagir em situações de intercâmbio oral\", como se apresentar em inglês?",
+            "question": "\"Wake up\" significa:",
             "options": [
               {
-                "text": "'My name is [nome]. I am [idade] years old. I am from [cidade].'"
+                "text": "Dormir",
+                "misconceptionCode": "campo-trocado"
               },
               {
-                "text": "'I is [nome]. Me old [idade].'",
-                "misconceptionCode": "li-erro-verbo"
+                "text": "Levantar a mão",
+                "misconceptionCode": "traduz-letra"
               },
               {
-                "text": "'Name my is [nome].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Lavar o rosto",
+                "misconceptionCode": "campo-trocado"
               },
               {
-                "text": "'[nome] am I. Years [idade].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Acordar"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "'My name is' + 'I am' são as estruturas corretas para apresentação em inglês.",
+            "correctIndex": 3,
+            "explanation": "Wake up é acordar. Go to bed é ir dormir.",
             "variants": [
               {
-                "question": "Como perguntar o nome de alguém em inglês?",
+                "question": "\"Go to bed\" significa:",
                 "options": [
                   {
-                    "text": "'What is your name?'"
+                    "text": "Acordar",
+                    "misconceptionCode": "campo-trocado"
                   },
                   {
-                    "text": "'What your name is?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Ir dormir"
                   },
                   {
-                    "text": "'Your name what?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Arrumar a cama",
+                    "misconceptionCode": "traduz-letra"
                   },
                   {
-                    "text": "'Is what name you?'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Ir à escola",
+                    "misconceptionCode": "campo-trocado"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "Como dizer sua idade em inglês? (10 anos)",
+                "question": "\"Wake up\" significa:",
                 "options": [
                   {
-                    "text": "'I am ten years old.'"
+                    "text": "Acordar"
                   },
                   {
-                    "text": "'I have ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Lavar o rosto",
+                    "misconceptionCode": "campo-trocado"
                   },
                   {
-                    "text": "'Me ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Levantar a mão",
+                    "misconceptionCode": "traduz-letra"
                   },
                   {
-                    "text": "'Ten years I am.'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Dormir",
+                    "misconceptionCode": "campo-trocado"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06LI01"
+            ]
           },
           {
-            "question": "No tema \"Interagir em situações de intercâmbio oral\", como se apresentar em inglês?",
+            "question": "\"Swimming\" é:",
             "options": [
               {
-                "text": "'My name is [nome]. I am [idade] years old. I am from [cidade].'"
+                "text": "Natação"
               },
               {
-                "text": "'I is [nome]. Me old [idade].'",
-                "misconceptionCode": "li-erro-verbo"
+                "text": "Corrida",
+                "misconceptionCode": "campo-trocado"
               },
               {
-                "text": "'Name my is [nome].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Futebol",
+                "misconceptionCode": "campo-trocado"
               },
               {
-                "text": "'[nome] am I. Years [idade].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Balanço",
+                "misconceptionCode": "traduz-letra"
               }
             ],
             "correctIndex": 0,
-            "explanation": "'My name is' + 'I am' são as estruturas corretas para apresentação em inglês.",
+            "explanation": "Swimming é natação; running é corrida; soccer é futebol.",
             "variants": [
               {
-                "question": "Como perguntar o nome de alguém em inglês?",
+                "question": "\"Running\" é:",
                 "options": [
                   {
-                    "text": "'What is your name?'"
+                    "text": "Natação",
+                    "misconceptionCode": "campo-trocado"
                   },
                   {
-                    "text": "'What your name is?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Leitura",
+                    "misconceptionCode": "campo-trocado"
                   },
                   {
-                    "text": "'Your name what?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Corrida"
                   },
                   {
-                    "text": "'Is what name you?'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Ciclismo",
+                    "misconceptionCode": "traduz-letra"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "\"Swimming\" é:",
+                "options": [
+                  {
+                    "text": "Balanço",
+                    "misconceptionCode": "traduz-letra"
+                  },
+                  {
+                    "text": "Natação"
+                  },
+                  {
+                    "text": "Futebol",
+                    "misconceptionCode": "campo-trocado"
+                  },
+                  {
+                    "text": "Corrida",
+                    "misconceptionCode": "campo-trocado"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "\"Library\" significa:",
+            "options": [
+              {
+                "text": "Livraria",
+                "misconceptionCode": "falso-cognato"
+              },
+              {
+                "text": "Liberdade",
+                "misconceptionCode": "traduz-letra"
+              },
+              {
+                "text": "Biblioteca"
+              },
+              {
+                "text": "Laboratório",
+                "misconceptionCode": "campo-trocado"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "Library é falso cognato: é biblioteca. Livraria é bookstore.",
+            "variants": [
+              {
+                "question": "Onde se pegam livros emprestados?",
+                "options": [
+                  {
+                    "text": "Library"
+                  },
+                  {
+                    "text": "Bookstore",
+                    "misconceptionCode": "falso-cognato"
+                  },
+                  {
+                    "text": "Kitchen",
+                    "misconceptionCode": "traduz-letra"
+                  },
+                  {
+                    "text": "Gym",
+                    "misconceptionCode": "campo-trocado"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Como dizer sua idade em inglês? (10 anos)",
+                "question": "\"Library\" significa:",
                 "options": [
                   {
-                    "text": "'I am ten years old.'"
+                    "text": "Laboratório",
+                    "misconceptionCode": "campo-trocado"
                   },
                   {
-                    "text": "'I have ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Liberdade",
+                    "misconceptionCode": "traduz-letra"
                   },
                   {
-                    "text": "'Me ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Livraria",
+                    "misconceptionCode": "falso-cognato"
                   },
                   {
-                    "text": "'Ten years I am.'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Biblioteca"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "\"Aunt\" é:",
+            "options": [
+              {
+                "text": "Tio",
+                "misconceptionCode": "familia-trocada"
+              },
+              {
+                "text": "Tia"
+              },
+              {
+                "text": "Avó",
+                "misconceptionCode": "familia-trocada"
+              },
+              {
+                "text": "Formiga",
+                "misconceptionCode": "traduz-letra"
               }
             ],
-            "skillId": "EF06LI01"
+            "correctIndex": 1,
+            "explanation": "Aunt é tia; uncle é tio; grandma é avó.",
+            "variants": [
+              {
+                "question": "\"Uncle\" é:",
+                "options": [
+                  {
+                    "text": "Tia",
+                    "misconceptionCode": "familia-trocada"
+                  },
+                  {
+                    "text": "Avô",
+                    "misconceptionCode": "familia-trocada"
+                  },
+                  {
+                    "text": "Primo",
+                    "misconceptionCode": "traduz-letra"
+                  },
+                  {
+                    "text": "Tio"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "\"Aunt\" é:",
+                "options": [
+                  {
+                    "text": "Formiga",
+                    "misconceptionCode": "traduz-letra"
+                  },
+                  {
+                    "text": "Avó",
+                    "misconceptionCode": "familia-trocada"
+                  },
+                  {
+                    "text": "Tia"
+                  },
+                  {
+                    "text": "Tio",
+                    "misconceptionCode": "familia-trocada"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06LI01-A4",
+        "id": "PK2-EF06LI17-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: Interagir em situações de intercâmbio oral",
-        "prompt": "Questão sobre Interagir em situações de intercâmbio oral.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Interagir em situações de intercâmbio oral.",
-        "skillId": "EF06LI01",
+        "title": "Aplicar: usando no dia a dia",
+        "prompt": "Use as palavras em situações reais.",
+        "estMinutes": 4,
+        "audioScript": "Use as palavras em situações reais. Pergunta 1. Seu amigo estrangeiro pergunta \"Where is the classroom?\". Ele quer saber: A: Onde fica a sala de aula; B: Onde fica a sala de jogos; C: Onde está a professora; D: Qual é a aula de hoje. Pergunta 2. Para dizer \"meus pais são professores\", você diz: A: My relatives are teachers; B: My parents are students; C: My parents are teachers; D: My brothers are teachers. Pergunta 3. Um cartaz na escola diz \"Science Fair\". É: A: Uma aula de esportes; B: Uma feira de ciências; C: Uma ciência justa; D: Um jogo de futebol.",
         "questions": [
           {
-            "question": "Como cumprimentar formalmente em inglês?",
+            "question": "Seu amigo estrangeiro pergunta \"Where is the classroom?\". Ele quer saber:",
             "options": [
               {
-                "text": "'Good morning / Good afternoon / Good evening'"
+                "text": "Onde fica a sala de aula"
               },
               {
-                "text": "'Hey! / Yo!'",
-                "misconceptionCode": "li-informal"
+                "text": "Onde fica a sala de jogos",
+                "misconceptionCode": "campo-trocado"
               },
               {
-                "text": "'Morning good / Afternoon good'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Onde está a professora",
+                "misconceptionCode": "campo-trocado"
               },
               {
-                "text": "'Bom dia' (em português)",
-                "misconceptionCode": "li-uso-pt"
+                "text": "Qual é a aula de hoje",
+                "misconceptionCode": "traduz-letra"
               }
             ],
             "correctIndex": 0,
-            "explanation": "'Good morning/afternoon/evening' são cumprimentos formais em inglês.",
+            "explanation": "Classroom é sala de aula.",
             "variants": [
               {
-                "question": "O que significa 'How are you?' em inglês?",
+                "question": "Ele pergunta \"Where is the bathroom?\". Ele quer saber:",
                 "options": [
                   {
-                    "text": "Como você está?"
+                    "text": "Onde fica a cozinha",
+                    "misconceptionCode": "campo-trocado"
                   },
                   {
-                    "text": "Qual é o seu nome?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "Onde é o recreio",
+                    "misconceptionCode": "campo-trocado"
                   },
                   {
-                    "text": "De onde você vem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "Onde fica o banheiro"
                   },
                   {
-                    "text": "Quanto anos você tem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "Onde está a banheira",
+                    "misconceptionCode": "traduz-letra"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "Como se diz 'obrigado' em inglês?",
+                "question": "Seu amigo estrangeiro pergunta \"Where is the classroom?\". Ele quer saber:",
                 "options": [
                   {
-                    "text": "Thank you"
+                    "text": "Qual é a aula de hoje",
+                    "misconceptionCode": "traduz-letra"
                   },
                   {
-                    "text": "Please",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Onde fica a sala de aula"
                   },
                   {
-                    "text": "Sorry",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Onde está a professora",
+                    "misconceptionCode": "campo-trocado"
                   },
                   {
-                    "text": "Excuse me",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Onde fica a sala de jogos",
+                    "misconceptionCode": "campo-trocado"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06LI01"
+            ]
           },
           {
-            "question": "Como cumprimentar formalmente em inglês?",
+            "question": "Para dizer \"meus pais são professores\", você diz:",
             "options": [
               {
-                "text": "'Good morning / Good afternoon / Good evening'"
+                "text": "My relatives are teachers",
+                "misconceptionCode": "falso-cognato"
               },
               {
-                "text": "'Hey! / Yo!'",
-                "misconceptionCode": "li-informal"
+                "text": "My parents are students",
+                "misconceptionCode": "campo-trocado"
               },
               {
-                "text": "'Morning good / Afternoon good'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "My parents are teachers"
               },
               {
-                "text": "'Bom dia' (em português)",
-                "misconceptionCode": "li-uso-pt"
+                "text": "My brothers are teachers",
+                "misconceptionCode": "familia-trocada"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "'Good morning/afternoon/evening' são cumprimentos formais em inglês.",
+            "correctIndex": 2,
+            "explanation": "Parents são os pais. Relatives são os parentes.",
             "variants": [
               {
-                "question": "O que significa 'How are you?' em inglês?",
+                "question": "Para dizer \"minha mãe é médica\", você diz:",
                 "options": [
                   {
-                    "text": "Como você está?"
+                    "text": "My mother is a doctor"
                   },
                   {
-                    "text": "Qual é o seu nome?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "My father is a doctor",
+                    "misconceptionCode": "falso-cognato"
                   },
                   {
-                    "text": "De onde você vem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "My mother is a teacher",
+                    "misconceptionCode": "campo-trocado"
                   },
                   {
-                    "text": "Quanto anos você tem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "My sister is a doctor",
+                    "misconceptionCode": "familia-trocada"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Como se diz 'obrigado' em inglês?",
+                "question": "Para dizer \"meus pais são professores\", você diz:",
                 "options": [
                   {
-                    "text": "Thank you"
+                    "text": "My brothers are teachers",
+                    "misconceptionCode": "familia-trocada"
                   },
                   {
-                    "text": "Please",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "My parents are students",
+                    "misconceptionCode": "campo-trocado"
                   },
                   {
-                    "text": "Sorry",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "My relatives are teachers",
+                    "misconceptionCode": "falso-cognato"
                   },
                   {
-                    "text": "Excuse me",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "My parents are teachers"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "Um cartaz na escola diz \"Science Fair\". É:",
+            "options": [
+              {
+                "text": "Uma aula de esportes",
+                "misconceptionCode": "campo-trocado"
+              },
+              {
+                "text": "Uma feira de ciências"
+              },
+              {
+                "text": "Uma ciência justa",
+                "misconceptionCode": "traduz-letra"
+              },
+              {
+                "text": "Um jogo de futebol",
+                "misconceptionCode": "campo-trocado"
               }
             ],
-            "skillId": "EF06LI01"
+            "correctIndex": 1,
+            "explanation": "Fair, aqui, é feira. Science é ciências.",
+            "variants": [
+              {
+                "question": "Um cartaz diz \"Book Fair\". É:",
+                "options": [
+                  {
+                    "text": "Um livro justo",
+                    "misconceptionCode": "campo-trocado"
+                  },
+                  {
+                    "text": "Uma aula de leitura",
+                    "misconceptionCode": "traduz-letra"
+                  },
+                  {
+                    "text": "Uma loja de brinquedos",
+                    "misconceptionCode": "campo-trocado"
+                  },
+                  {
+                    "text": "Uma feira de livros"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Um cartaz na escola diz \"Science Fair\". É:",
+                "options": [
+                  {
+                    "text": "Um jogo de futebol",
+                    "misconceptionCode": "campo-trocado"
+                  },
+                  {
+                    "text": "Uma ciência justa",
+                    "misconceptionCode": "traduz-letra"
+                  },
+                  {
+                    "text": "Uma feira de ciências"
+                  },
+                  {
+                    "text": "Uma aula de esportes",
+                    "misconceptionCode": "campo-trocado"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06LI01-A5",
+        "id": "PK2-EF06LI17-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Interagir em situações de intercâmbio oral",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Interagir em situações de intercâmbio oral.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Interagir em situações de intercâmbio oral.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: falsos cognatos",
+        "prompt": "Explique com as suas palavras o que é um falso cognato em inglês e dê um exemplo.",
+        "estMinutes": 6,
+        "audioScript": "Explique com as suas palavras o que é um falso cognato em inglês e dê um exemplo.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de Interagir em situações de intercâmbio oral",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "define",
+              "description": "Explica que é uma palavra parecida com o português, mas com outro sentido"
+            },
+            {
+              "code": "exemplo",
+              "description": "Dá um exemplo correto, como parents, library ou pretend"
+            },
+            {
+              "code": "cuidado",
+              "description": "Mostra que é preciso olhar o contexto e não só a aparência da palavra"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF06LI01"
+          "exemploBoaResposta": "Falso cognato é uma palavra em inglês que parece com uma do português, mas quer dizer outra coisa. Por exemplo, parents parece parentes, mas significa pais. Library parece livraria, mas é biblioteca. Por isso é bom olhar o contexto."
+        }
       }
-    ]
+    ],
+    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
+    "source": "SPEAKFLOW",
+    "status": "APPROVED"
   },
   {
-    "skillCode": "EF06LI02",
-    "title": "Trilha: perguntando e respondendo (EF06LI02)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
+    "skillCode": "EF06LI19",
     "subjectCode": "LI",
+    "subjectName": "Língua Inglesa",
+    "gradeYear": 6,
+    "version": 2,
+    "title": "Trilha: Verbo to be e rotina",
+    "tituloAluno": "Falar de quem você é e da sua rotina em inglês",
     "activities": [
       {
-        "id": "PK-EF06LI02-A1",
+        "id": "PK2-EF06LI19-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: perguntando e respondendo",
-        "prompt": "Questão sobre perguntando e respondendo.",
+        "title": "Relembrar: palavras da rotina",
+        "prompt": "Vamos lembrar algumas palavras da rotina.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre perguntando e respondendo.",
-        "skillId": "EF06LI02",
+        "audioScript": "Vamos lembrar algumas palavras da rotina. Pergunta 1. \"Wake up\" é: A: Dormir; B: Almoçar; C: Estudar; D: Acordar. Pergunta 2. \"Brush my teeth\" é: A: Escovar os dentes; B: Pentear o cabelo; C: Lavar as mãos; D: Tomar café. Pergunta 3. \"Do my homework\" é: A: Arrumar a casa; B: Trabalhar fora; C: Fazer a lição de casa; D: Ir para casa.",
         "questions": [
           {
-            "question": "No tema \"perguntando e respondendo\", como se apresentar em inglês?",
+            "question": "\"Wake up\" é:",
             "options": [
               {
-                "text": "'My name is [nome]. I am [idade] years old. I am from [cidade].'"
+                "text": "Dormir",
+                "misconceptionCode": "vocabulario-trocado"
               },
               {
-                "text": "'I is [nome]. Me old [idade].'",
-                "misconceptionCode": "li-erro-verbo"
+                "text": "Almoçar",
+                "misconceptionCode": "vocabulario-trocado"
               },
               {
-                "text": "'Name my is [nome].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Estudar",
+                "misconceptionCode": "vocabulario-trocado"
               },
               {
-                "text": "'[nome] am I. Years [idade].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Acordar"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "'My name is' + 'I am' são as estruturas corretas para apresentação em inglês.",
+            "correctIndex": 3,
+            "explanation": "Wake up é acordar.",
             "variants": [
               {
-                "question": "Como perguntar o nome de alguém em inglês?",
+                "question": "\"Have dinner\" é:",
                 "options": [
                   {
-                    "text": "'What is your name?'"
+                    "text": "Almoçar",
+                    "misconceptionCode": "vocabulario-trocado"
                   },
                   {
-                    "text": "'What your name is?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Jantar"
                   },
                   {
-                    "text": "'Your name what?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Acordar",
+                    "misconceptionCode": "vocabulario-trocado"
                   },
                   {
-                    "text": "'Is what name you?'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Tomar banho",
+                    "misconceptionCode": "vocabulario-trocado"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "Como dizer sua idade em inglês? (10 anos)",
+                "question": "\"Wake up\" é:",
                 "options": [
                   {
-                    "text": "'I am ten years old.'"
+                    "text": "Acordar"
                   },
                   {
-                    "text": "'I have ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Estudar",
+                    "misconceptionCode": "vocabulario-trocado"
                   },
                   {
-                    "text": "'Me ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Almoçar",
+                    "misconceptionCode": "vocabulario-trocado"
                   },
                   {
-                    "text": "'Ten years I am.'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Dormir",
+                    "misconceptionCode": "vocabulario-trocado"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06LI02"
+            ]
           },
           {
-            "question": "No tema \"perguntando e respondendo\", como se apresentar em inglês?",
+            "question": "\"Brush my teeth\" é:",
             "options": [
               {
-                "text": "'My name is [nome]. I am [idade] years old. I am from [cidade].'"
+                "text": "Escovar os dentes"
               },
               {
-                "text": "'I is [nome]. Me old [idade].'",
-                "misconceptionCode": "li-erro-verbo"
+                "text": "Pentear o cabelo",
+                "misconceptionCode": "vocabulario-trocado"
               },
               {
-                "text": "'Name my is [nome].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Lavar as mãos",
+                "misconceptionCode": "vocabulario-trocado"
               },
               {
-                "text": "'[nome] am I. Years [idade].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Tomar café",
+                "misconceptionCode": "vocabulario-trocado"
               }
             ],
             "correctIndex": 0,
-            "explanation": "'My name is' + 'I am' são as estruturas corretas para apresentação em inglês.",
+            "explanation": "Brush my teeth é escovar os dentes.",
             "variants": [
               {
-                "question": "Como perguntar o nome de alguém em inglês?",
+                "question": "\"Take a shower\" é:",
                 "options": [
                   {
-                    "text": "'What is your name?'"
+                    "text": "Escovar os dentes",
+                    "misconceptionCode": "vocabulario-trocado"
                   },
                   {
-                    "text": "'What your name is?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Ir à escola",
+                    "misconceptionCode": "vocabulario-trocado"
                   },
                   {
-                    "text": "'Your name what?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Tomar banho"
                   },
                   {
-                    "text": "'Is what name you?'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Ver TV",
+                    "misconceptionCode": "vocabulario-trocado"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "\"Brush my teeth\" é:",
+                "options": [
+                  {
+                    "text": "Tomar café",
+                    "misconceptionCode": "vocabulario-trocado"
+                  },
+                  {
+                    "text": "Escovar os dentes"
+                  },
+                  {
+                    "text": "Lavar as mãos",
+                    "misconceptionCode": "vocabulario-trocado"
+                  },
+                  {
+                    "text": "Pentear o cabelo",
+                    "misconceptionCode": "vocabulario-trocado"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "\"Do my homework\" é:",
+            "options": [
+              {
+                "text": "Arrumar a casa",
+                "misconceptionCode": "vocabulario-trocado"
+              },
+              {
+                "text": "Trabalhar fora",
+                "misconceptionCode": "vocabulario-trocado"
+              },
+              {
+                "text": "Fazer a lição de casa"
+              },
+              {
+                "text": "Ir para casa",
+                "misconceptionCode": "vocabulario-trocado"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "Homework é a lição de casa.",
+            "variants": [
+              {
+                "question": "\"Go to school\" é:",
+                "options": [
+                  {
+                    "text": "Ir à escola"
+                  },
+                  {
+                    "text": "Voltar da escola",
+                    "misconceptionCode": "vocabulario-trocado"
+                  },
+                  {
+                    "text": "Estudar em casa",
+                    "misconceptionCode": "vocabulario-trocado"
+                  },
+                  {
+                    "text": "Ir dormir",
+                    "misconceptionCode": "vocabulario-trocado"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Como dizer sua idade em inglês? (10 anos)",
+                "question": "\"Do my homework\" é:",
                 "options": [
                   {
-                    "text": "'I am ten years old.'"
+                    "text": "Ir para casa",
+                    "misconceptionCode": "vocabulario-trocado"
                   },
                   {
-                    "text": "'I have ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Trabalhar fora",
+                    "misconceptionCode": "vocabulario-trocado"
                   },
                   {
-                    "text": "'Me ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Arrumar a casa",
+                    "misconceptionCode": "vocabulario-trocado"
                   },
                   {
-                    "text": "'Ten years I am.'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Fazer a lição de casa"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06LI02"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06LI02-A2",
+        "id": "PK2-EF06LI19-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: perguntando e respondendo",
-        "prompt": "Questão sobre perguntando e respondendo.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre perguntando e respondendo.",
-        "skillId": "EF06LI02",
+        "title": "Exemplo guiado: am, is, are",
+        "prompt": "O verbo to be muda conforme a pessoa: I am, you are, he is, she is, it is, we are, they are. Vamos completar juntos.",
+        "estMinutes": 4,
+        "audioScript": "O verbo to be muda conforme a pessoa: I am, you are, he is, she is, it is, we are, they are. Vamos completar juntos. Pergunta 1. Complete: \"I ___ eleven years old.\" A: am; B: is; C: are; D: be. Pergunta 2. Complete: \"She ___ my best friend.\" A: am; B: are; C: is; D: be. Pergunta 3. Complete: \"We ___ in the same class.\" A: is; B: are; C: am; D: be.",
         "questions": [
           {
-            "question": "Como cumprimentar formalmente em inglês?",
+            "question": "Complete: \"I ___ eleven years old.\"",
             "options": [
               {
-                "text": "'Good morning / Good afternoon / Good evening'"
+                "text": "am"
               },
               {
-                "text": "'Hey! / Yo!'",
-                "misconceptionCode": "li-informal"
+                "text": "is",
+                "misconceptionCode": "be-concordancia"
               },
               {
-                "text": "'Morning good / Afternoon good'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "are",
+                "misconceptionCode": "be-concordancia"
               },
               {
-                "text": "'Bom dia' (em português)",
-                "misconceptionCode": "li-uso-pt"
+                "text": "be",
+                "misconceptionCode": "be-concordancia"
               }
             ],
             "correctIndex": 0,
-            "explanation": "'Good morning/afternoon/evening' são cumprimentos formais em inglês.",
+            "explanation": "Com I, usamos am: I am eleven years old.",
             "variants": [
               {
-                "question": "O que significa 'How are you?' em inglês?",
+                "question": "Complete: \"I ___ a student.\"",
                 "options": [
                   {
-                    "text": "Como você está?"
+                    "text": "is",
+                    "misconceptionCode": "be-concordancia"
                   },
                   {
-                    "text": "Qual é o seu nome?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "are",
+                    "misconceptionCode": "be-concordancia"
                   },
                   {
-                    "text": "De onde você vem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "am"
                   },
                   {
-                    "text": "Quanto anos você tem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "be",
+                    "misconceptionCode": "be-concordancia"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "Como se diz 'obrigado' em inglês?",
+                "question": "Complete: \"I ___ eleven years old.\"",
                 "options": [
                   {
-                    "text": "Thank you"
+                    "text": "be",
+                    "misconceptionCode": "be-concordancia"
                   },
                   {
-                    "text": "Please",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "am"
                   },
                   {
-                    "text": "Sorry",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "are",
+                    "misconceptionCode": "be-concordancia"
                   },
                   {
-                    "text": "Excuse me",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "is",
+                    "misconceptionCode": "be-concordancia"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06LI02"
+            ]
           },
           {
-            "question": "Como cumprimentar formalmente em inglês?",
+            "question": "Complete: \"She ___ my best friend.\"",
             "options": [
               {
-                "text": "'Good morning / Good afternoon / Good evening'"
+                "text": "am",
+                "misconceptionCode": "be-concordancia"
               },
               {
-                "text": "'Hey! / Yo!'",
-                "misconceptionCode": "li-informal"
+                "text": "are",
+                "misconceptionCode": "be-concordancia"
               },
               {
-                "text": "'Morning good / Afternoon good'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "is"
               },
               {
-                "text": "'Bom dia' (em português)",
-                "misconceptionCode": "li-uso-pt"
+                "text": "be",
+                "misconceptionCode": "be-concordancia"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "'Good morning/afternoon/evening' são cumprimentos formais em inglês.",
+            "correctIndex": 2,
+            "explanation": "Com she, he e it, usamos is.",
             "variants": [
               {
-                "question": "O que significa 'How are you?' em inglês?",
+                "question": "Complete: \"He ___ my brother.\"",
                 "options": [
                   {
-                    "text": "Como você está?"
+                    "text": "is"
                   },
                   {
-                    "text": "Qual é o seu nome?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "am",
+                    "misconceptionCode": "be-concordancia"
                   },
                   {
-                    "text": "De onde você vem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "are",
+                    "misconceptionCode": "be-concordancia"
                   },
                   {
-                    "text": "Quanto anos você tem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "be",
+                    "misconceptionCode": "be-concordancia"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Como se diz 'obrigado' em inglês?",
+                "question": "Complete: \"She ___ my best friend.\"",
                 "options": [
                   {
-                    "text": "Thank you"
+                    "text": "be",
+                    "misconceptionCode": "be-concordancia"
                   },
                   {
-                    "text": "Please",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "are",
+                    "misconceptionCode": "be-concordancia"
                   },
                   {
-                    "text": "Sorry",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "am",
+                    "misconceptionCode": "be-concordancia"
                   },
                   {
-                    "text": "Excuse me",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "is"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "Complete: \"We ___ in the same class.\"",
+            "options": [
+              {
+                "text": "is",
+                "misconceptionCode": "be-concordancia"
+              },
+              {
+                "text": "are"
+              },
+              {
+                "text": "am",
+                "misconceptionCode": "be-concordancia"
+              },
+              {
+                "text": "be",
+                "misconceptionCode": "be-concordancia"
               }
             ],
-            "skillId": "EF06LI02"
+            "correctIndex": 1,
+            "explanation": "Com we, you e they, usamos are.",
+            "variants": [
+              {
+                "question": "Complete: \"They ___ from Bahia.\"",
+                "options": [
+                  {
+                    "text": "is",
+                    "misconceptionCode": "be-concordancia"
+                  },
+                  {
+                    "text": "am",
+                    "misconceptionCode": "be-concordancia"
+                  },
+                  {
+                    "text": "be",
+                    "misconceptionCode": "be-concordancia"
+                  },
+                  {
+                    "text": "are"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Complete: \"We ___ in the same class.\"",
+                "options": [
+                  {
+                    "text": "be",
+                    "misconceptionCode": "be-concordancia"
+                  },
+                  {
+                    "text": "am",
+                    "misconceptionCode": "be-concordancia"
+                  },
+                  {
+                    "text": "are"
+                  },
+                  {
+                    "text": "is",
+                    "misconceptionCode": "be-concordancia"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06LI02-A3",
+        "id": "PK2-EF06LI19-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: perguntando e respondendo",
-        "prompt": "Questão sobre perguntando e respondendo.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre perguntando e respondendo.",
-        "skillId": "EF06LI02",
+        "title": "Praticar: descrevendo a rotina",
+        "prompt": "Para a rotina, usamos o presente simples. Com he, she e it, o verbo ganha s: I play, she plays.",
+        "estMinutes": 5,
+        "audioScript": "Para a rotina, usamos o presente simples. Com he, she e it, o verbo ganha s: I play, she plays. Pergunta 1. Qual frase sobre a rotina dela está correta? A: She play volleyball after school; B: She is play volleyball after school; C: She plays volleyball after school; D: She are plays volleyball after school. Pergunta 2. Qual frase sobre a sua manhã está correta? A: I am wake up at six; B: I wake up at six; C: I wakes up at six; D: I is wake up at six. Pergunta 3. Complete: \"My mother ___ breakfast at seven.\" A: have; B: is have; C: are has; D: has. Pergunta 4. Complete: \"My friends and I ___ soccer on Saturdays.\" A: play; B: plays; C: are play; D: is play.",
         "questions": [
           {
-            "question": "No tema \"perguntando e respondendo\", como se apresentar em inglês?",
+            "question": "Qual frase sobre a rotina dela está correta?",
             "options": [
               {
-                "text": "'My name is [nome]. I am [idade] years old. I am from [cidade].'"
+                "text": "She play volleyball after school",
+                "misconceptionCode": "esquece-s"
               },
               {
-                "text": "'I is [nome]. Me old [idade].'",
-                "misconceptionCode": "li-erro-verbo"
+                "text": "She is play volleyball after school",
+                "misconceptionCode": "be-com-verbo"
               },
               {
-                "text": "'Name my is [nome].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "She plays volleyball after school"
               },
               {
-                "text": "'[nome] am I. Years [idade].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "She are plays volleyball after school",
+                "misconceptionCode": "be-concordancia"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "'My name is' + 'I am' são as estruturas corretas para apresentação em inglês.",
+            "correctIndex": 2,
+            "explanation": "Com she, o verbo ganha s: plays. Não se usa is junto com play.",
             "variants": [
               {
-                "question": "Como perguntar o nome de alguém em inglês?",
+                "question": "Qual frase está correta?",
                 "options": [
                   {
-                    "text": "'What is your name?'"
+                    "text": "He watches TV at night"
                   },
                   {
-                    "text": "'What your name is?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "He watch TV at night",
+                    "misconceptionCode": "esquece-s"
                   },
                   {
-                    "text": "'Your name what?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "He is watch TV at night",
+                    "misconceptionCode": "be-com-verbo"
                   },
                   {
-                    "text": "'Is what name you?'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "He are watches TV at night",
+                    "misconceptionCode": "be-concordancia"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Como dizer sua idade em inglês? (10 anos)",
+                "question": "Qual frase sobre a rotina dela está correta?",
                 "options": [
                   {
-                    "text": "'I am ten years old.'"
+                    "text": "She are plays volleyball after school",
+                    "misconceptionCode": "be-concordancia"
                   },
                   {
-                    "text": "'I have ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "She is play volleyball after school",
+                    "misconceptionCode": "be-com-verbo"
                   },
                   {
-                    "text": "'Me ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "She play volleyball after school",
+                    "misconceptionCode": "esquece-s"
                   },
                   {
-                    "text": "'Ten years I am.'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "She plays volleyball after school"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06LI02"
+            ]
           },
           {
-            "question": "No tema \"perguntando e respondendo\", como se apresentar em inglês?",
+            "question": "Qual frase sobre a sua manhã está correta?",
             "options": [
               {
-                "text": "'My name is [nome]. I am [idade] years old. I am from [cidade].'"
+                "text": "I am wake up at six",
+                "misconceptionCode": "be-com-verbo"
               },
               {
-                "text": "'I is [nome]. Me old [idade].'",
-                "misconceptionCode": "li-erro-verbo"
+                "text": "I wake up at six"
               },
               {
-                "text": "'Name my is [nome].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "I wakes up at six",
+                "misconceptionCode": "esquece-s"
               },
               {
-                "text": "'[nome] am I. Years [idade].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "I is wake up at six",
+                "misconceptionCode": "be-concordancia"
+              }
+            ],
+            "correctIndex": 1,
+            "explanation": "Com I, o verbo fica sem s e sem am: I wake up.",
+            "variants": [
+              {
+                "question": "Qual frase está correta?",
+                "options": [
+                  {
+                    "text": "I am go to school by bus",
+                    "misconceptionCode": "be-com-verbo"
+                  },
+                  {
+                    "text": "I goes to school by bus",
+                    "misconceptionCode": "esquece-s"
+                  },
+                  {
+                    "text": "I is go to school by bus",
+                    "misconceptionCode": "be-concordancia"
+                  },
+                  {
+                    "text": "I go to school by bus"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Qual frase sobre a sua manhã está correta?",
+                "options": [
+                  {
+                    "text": "I is wake up at six",
+                    "misconceptionCode": "be-concordancia"
+                  },
+                  {
+                    "text": "I wakes up at six",
+                    "misconceptionCode": "esquece-s"
+                  },
+                  {
+                    "text": "I wake up at six"
+                  },
+                  {
+                    "text": "I am wake up at six",
+                    "misconceptionCode": "be-com-verbo"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "Complete: \"My mother ___ breakfast at seven.\"",
+            "options": [
+              {
+                "text": "have",
+                "misconceptionCode": "esquece-s"
+              },
+              {
+                "text": "is have",
+                "misconceptionCode": "be-com-verbo"
+              },
+              {
+                "text": "are has",
+                "misconceptionCode": "be-concordancia"
+              },
+              {
+                "text": "has"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Com my mother (she), have vira has.",
+            "variants": [
+              {
+                "question": "Complete: \"My father ___ to work by car.\"",
+                "options": [
+                  {
+                    "text": "go",
+                    "misconceptionCode": "esquece-s"
+                  },
+                  {
+                    "text": "goes"
+                  },
+                  {
+                    "text": "is go",
+                    "misconceptionCode": "be-com-verbo"
+                  },
+                  {
+                    "text": "are goes",
+                    "misconceptionCode": "be-concordancia"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Complete: \"My mother ___ breakfast at seven.\"",
+                "options": [
+                  {
+                    "text": "has"
+                  },
+                  {
+                    "text": "are has",
+                    "misconceptionCode": "be-concordancia"
+                  },
+                  {
+                    "text": "is have",
+                    "misconceptionCode": "be-com-verbo"
+                  },
+                  {
+                    "text": "have",
+                    "misconceptionCode": "esquece-s"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "Complete: \"My friends and I ___ soccer on Saturdays.\"",
+            "options": [
+              {
+                "text": "play"
+              },
+              {
+                "text": "plays",
+                "misconceptionCode": "esquece-s"
+              },
+              {
+                "text": "are play",
+                "misconceptionCode": "be-com-verbo"
+              },
+              {
+                "text": "is play",
+                "misconceptionCode": "be-concordancia"
               }
             ],
             "correctIndex": 0,
-            "explanation": "'My name is' + 'I am' são as estruturas corretas para apresentação em inglês.",
+            "explanation": "My friends and I é o mesmo que we: o verbo fica sem s.",
             "variants": [
               {
-                "question": "Como perguntar o nome de alguém em inglês?",
+                "question": "Complete: \"They ___ English on Mondays.\"",
                 "options": [
                   {
-                    "text": "'What is your name?'"
+                    "text": "studies",
+                    "misconceptionCode": "esquece-s"
                   },
                   {
-                    "text": "'What your name is?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "are study",
+                    "misconceptionCode": "be-com-verbo"
                   },
                   {
-                    "text": "'Your name what?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "study"
                   },
                   {
-                    "text": "'Is what name you?'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "is study",
+                    "misconceptionCode": "be-concordancia"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "Como dizer sua idade em inglês? (10 anos)",
+                "question": "Complete: \"My friends and I ___ soccer on Saturdays.\"",
                 "options": [
                   {
-                    "text": "'I am ten years old.'"
+                    "text": "is play",
+                    "misconceptionCode": "be-concordancia"
                   },
                   {
-                    "text": "'I have ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "play"
                   },
                   {
-                    "text": "'Me ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "are play",
+                    "misconceptionCode": "be-com-verbo"
                   },
                   {
-                    "text": "'Ten years I am.'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "plays",
+                    "misconceptionCode": "esquece-s"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06LI02"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06LI02-A4",
+        "id": "PK2-EF06LI19-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: perguntando e respondendo",
-        "prompt": "Questão sobre perguntando e respondendo.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre perguntando e respondendo.",
-        "skillId": "EF06LI02",
+        "title": "Aplicar: falando de você",
+        "prompt": "Agora use o que aprendeu para falar de você e de quem você conhece.",
+        "estMinutes": 4,
+        "audioScript": "Agora use o que aprendeu para falar de você e de quem você conhece. Pergunta 1. Você quer se apresentar. Qual frase está correta? A: Hi! I is Pedro and I is twelve; B: Hi! I am Pedro and I am twelve; C: Hi! I Pedro and I twelve; D: Hi! I am Pedro and I am play twelve. Pergunta 2. Você conta a rotina da sua irmã. Qual frase está correta? A: My sister study in the afternoon; B: My sister is study in the afternoon; C: My sister are studies in the afternoon; D: My sister studies in the afternoon. Pergunta 3. Um colega escreveu \"He is go to school at seven\". Como corrigir? A: He goes to school at seven; B: He go to school at seven; C: He are go to school at seven; D: He is goes to school at seven.",
         "questions": [
           {
-            "question": "Como cumprimentar formalmente em inglês?",
+            "question": "Você quer se apresentar. Qual frase está correta?",
             "options": [
               {
-                "text": "'Good morning / Good afternoon / Good evening'"
+                "text": "Hi! I is Pedro and I is twelve",
+                "misconceptionCode": "be-concordancia"
               },
               {
-                "text": "'Hey! / Yo!'",
-                "misconceptionCode": "li-informal"
+                "text": "Hi! I am Pedro and I am twelve"
               },
               {
-                "text": "'Morning good / Afternoon good'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Hi! I Pedro and I twelve",
+                "misconceptionCode": "be-concordancia"
               },
               {
-                "text": "'Bom dia' (em português)",
-                "misconceptionCode": "li-uso-pt"
+                "text": "Hi! I am Pedro and I am play twelve",
+                "misconceptionCode": "be-com-verbo"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "'Good morning/afternoon/evening' são cumprimentos formais em inglês.",
+            "correctIndex": 1,
+            "explanation": "Para se apresentar: I am + nome, I am + idade.",
             "variants": [
               {
-                "question": "O que significa 'How are you?' em inglês?",
+                "question": "Para dizer o seu nome e a sua cidade, você escreve:",
                 "options": [
                   {
-                    "text": "Como você está?"
+                    "text": "I is Bia and I lives in Recife",
+                    "misconceptionCode": "be-concordancia"
                   },
                   {
-                    "text": "Qual é o seu nome?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "I Bia and I live Recife",
+                    "misconceptionCode": "be-concordancia"
                   },
                   {
-                    "text": "De onde você vem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "I am Bia and I am live in Recife",
+                    "misconceptionCode": "be-com-verbo"
                   },
                   {
-                    "text": "Quanto anos você tem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "I am Bia and I live in Recife"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "Como se diz 'obrigado' em inglês?",
+                "question": "Você quer se apresentar. Qual frase está correta?",
                 "options": [
                   {
-                    "text": "Thank you"
+                    "text": "Hi! I am Pedro and I am play twelve",
+                    "misconceptionCode": "be-com-verbo"
                   },
                   {
-                    "text": "Please",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Hi! I Pedro and I twelve",
+                    "misconceptionCode": "be-concordancia"
                   },
                   {
-                    "text": "Sorry",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Hi! I am Pedro and I am twelve"
                   },
                   {
-                    "text": "Excuse me",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Hi! I is Pedro and I is twelve",
+                    "misconceptionCode": "be-concordancia"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF06LI02"
+            ]
           },
           {
-            "question": "Como cumprimentar formalmente em inglês?",
+            "question": "Você conta a rotina da sua irmã. Qual frase está correta?",
             "options": [
               {
-                "text": "'Good morning / Good afternoon / Good evening'"
+                "text": "My sister study in the afternoon",
+                "misconceptionCode": "esquece-s"
               },
               {
-                "text": "'Hey! / Yo!'",
-                "misconceptionCode": "li-informal"
+                "text": "My sister is study in the afternoon",
+                "misconceptionCode": "be-com-verbo"
               },
               {
-                "text": "'Morning good / Afternoon good'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "My sister are studies in the afternoon",
+                "misconceptionCode": "be-concordancia"
               },
               {
-                "text": "'Bom dia' (em português)",
-                "misconceptionCode": "li-uso-pt"
+                "text": "My sister studies in the afternoon"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Com my sister (she), study vira studies.",
+            "variants": [
+              {
+                "question": "Você conta a rotina do seu avô. Qual frase está correta?",
+                "options": [
+                  {
+                    "text": "My grandfather read the newspaper every day",
+                    "misconceptionCode": "esquece-s"
+                  },
+                  {
+                    "text": "My grandfather reads the newspaper every day"
+                  },
+                  {
+                    "text": "My grandfather is read the newspaper every day",
+                    "misconceptionCode": "be-com-verbo"
+                  },
+                  {
+                    "text": "My grandfather are reads the newspaper every day",
+                    "misconceptionCode": "be-concordancia"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Você conta a rotina da sua irmã. Qual frase está correta?",
+                "options": [
+                  {
+                    "text": "My sister studies in the afternoon"
+                  },
+                  {
+                    "text": "My sister are studies in the afternoon",
+                    "misconceptionCode": "be-concordancia"
+                  },
+                  {
+                    "text": "My sister is study in the afternoon",
+                    "misconceptionCode": "be-com-verbo"
+                  },
+                  {
+                    "text": "My sister study in the afternoon",
+                    "misconceptionCode": "esquece-s"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "Um colega escreveu \"He is go to school at seven\". Como corrigir?",
+            "options": [
+              {
+                "text": "He goes to school at seven"
+              },
+              {
+                "text": "He go to school at seven",
+                "misconceptionCode": "esquece-s"
+              },
+              {
+                "text": "He are go to school at seven",
+                "misconceptionCode": "be-concordancia"
+              },
+              {
+                "text": "He is goes to school at seven",
+                "misconceptionCode": "be-com-verbo"
               }
             ],
             "correctIndex": 0,
-            "explanation": "'Good morning/afternoon/evening' são cumprimentos formais em inglês.",
+            "explanation": "Para rotina, não se usa is com outro verbo; com he, o verbo ganha s: goes.",
             "variants": [
               {
-                "question": "O que significa 'How are you?' em inglês?",
+                "question": "Uma colega escreveu \"She is like music\". Como corrigir?",
                 "options": [
                   {
-                    "text": "Como você está?"
+                    "text": "She like music",
+                    "misconceptionCode": "esquece-s"
                   },
                   {
-                    "text": "Qual é o seu nome?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "She are like music",
+                    "misconceptionCode": "be-concordancia"
                   },
                   {
-                    "text": "De onde você vem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "She likes music"
                   },
                   {
-                    "text": "Quanto anos você tem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "She is likes music",
+                    "misconceptionCode": "be-com-verbo"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "Como se diz 'obrigado' em inglês?",
+                "question": "Um colega escreveu \"He is go to school at seven\". Como corrigir?",
                 "options": [
                   {
-                    "text": "Thank you"
+                    "text": "He is goes to school at seven",
+                    "misconceptionCode": "be-com-verbo"
                   },
                   {
-                    "text": "Please",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "He goes to school at seven"
                   },
                   {
-                    "text": "Sorry",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "He are go to school at seven",
+                    "misconceptionCode": "be-concordancia"
                   },
                   {
-                    "text": "Excuse me",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "He go to school at seven",
+                    "misconceptionCode": "esquece-s"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06LI02"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06LI02-A5",
+        "id": "PK2-EF06LI19-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: perguntando e respondendo",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre perguntando e respondendo.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre perguntando e respondendo.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: o verbo to be e a rotina",
+        "prompt": "Explique com as suas palavras quando se usa am, is e are, e por que se escreve \"she plays\" com s. Pode responder em português, com exemplos em inglês.",
+        "estMinutes": 6,
+        "audioScript": "Explique com as suas palavras quando se usa am, is e are, e por que se escreve \"she plays\" com s. Pode responder em português, com exemplos em inglês.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de perguntando e respondendo",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "formas-be",
+              "description": "Explica am com I, is com he/she/it e are com we/you/they"
+            },
+            {
+              "code": "terceira-pessoa",
+              "description": "Explica que, na rotina, o verbo ganha s com he, she e it"
+            },
+            {
+              "code": "exemplos",
+              "description": "Dá exemplos corretos em inglês"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF06LI02"
+          "exemploBoaResposta": "Eu uso am com I, como em I am Ana. Uso is com he, she e it, como em She is my friend. E uso are com we, you e they. Na rotina, quando é he, she ou it, o verbo ganha s: she plays soccer, he goes to school."
+        }
       }
-    ]
+    ],
+    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
+    "source": "SPEAKFLOW",
+    "status": "APPROVED"
   },
   {
     "skillCode": "EF06LI09",
-    "title": "Trilha: Localizar informações específicas em texto (EF06LI09)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
     "subjectCode": "LI",
+    "subjectName": "Língua Inglesa",
+    "gradeYear": 6,
+    "version": 2,
+    "title": "Trilha: Localizar informações em textos em inglês",
+    "tituloAluno": "Achar informações num texto em inglês",
     "activities": [
       {
-        "id": "PK-EF06LI09-A1",
+        "id": "PK2-EF06LI09-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Localizar informações específicas em texto",
-        "prompt": "Questão sobre Localizar informações específicas em texto.",
+        "title": "Relembrar: palavras-chave",
+        "prompt": "Para achar uma informação, procure no texto a palavra-chave da pergunta.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre Localizar informações específicas em texto.",
-        "skillId": "EF06LI09",
+        "audioScript": "Para achar uma informação, procure no texto a palavra-chave da pergunta. Pergunta 1. Numa pergunta \"How old is she?\", que informação você procura? A: O nome dela; B: A idade dela; C: A cidade dela; D: A cor favorita dela. Pergunta 2. \"What is your favorite subject?\" pergunta: A: Qual é o seu sujeito favorito; B: Qual é o seu esporte favorito; C: Quem é o seu professor; D: Qual é a sua matéria favorita. Pergunta 3. A palavra \"favorite\" é parecida com o português. Ela significa: A: Favorito; B: Favor; C: Fácil; D: Família.",
         "questions": [
           {
-            "question": "No tema \"Localizar informações específicas em texto\", como se apresentar em inglês?",
+            "question": "Numa pergunta \"How old is she?\", que informação você procura?",
             "options": [
               {
-                "text": "'My name is [nome]. I am [idade] years old. I am from [cidade].'"
+                "text": "O nome dela",
+                "misconceptionCode": "palavra-solta"
               },
               {
-                "text": "'I is [nome]. Me old [idade].'",
-                "misconceptionCode": "li-erro-verbo"
+                "text": "A idade dela"
               },
               {
-                "text": "'Name my is [nome].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "A cidade dela",
+                "misconceptionCode": "palavra-solta"
               },
               {
-                "text": "'[nome] am I. Years [idade].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "A cor favorita dela",
+                "misconceptionCode": "informacao-ausente"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "'My name is' + 'I am' são as estruturas corretas para apresentação em inglês.",
+            "correctIndex": 1,
+            "explanation": "How old pergunta a idade.",
             "variants": [
               {
-                "question": "Como perguntar o nome de alguém em inglês?",
+                "question": "\"Where does he live?\" pergunta:",
                 "options": [
                   {
-                    "text": "'What is your name?'"
+                    "text": "Quantos anos ele tem",
+                    "misconceptionCode": "palavra-solta"
                   },
                   {
-                    "text": "'What your name is?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "O nome dele",
+                    "misconceptionCode": "palavra-solta"
                   },
                   {
-                    "text": "'Your name what?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "O que ele come",
+                    "misconceptionCode": "informacao-ausente"
                   },
                   {
-                    "text": "'Is what name you?'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Onde ele mora"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "Como dizer sua idade em inglês? (10 anos)",
+                "question": "Numa pergunta \"How old is she?\", que informação você procura?",
                 "options": [
                   {
-                    "text": "'I am ten years old.'"
+                    "text": "A cor favorita dela",
+                    "misconceptionCode": "informacao-ausente"
                   },
                   {
-                    "text": "'I have ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "A cidade dela",
+                    "misconceptionCode": "palavra-solta"
                   },
                   {
-                    "text": "'Me ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "A idade dela"
                   },
                   {
-                    "text": "'Ten years I am.'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "O nome dela",
+                    "misconceptionCode": "palavra-solta"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF06LI09"
+            ]
           },
           {
-            "question": "No tema \"Localizar informações específicas em texto\", como se apresentar em inglês?",
+            "question": "\"What is your favorite subject?\" pergunta:",
             "options": [
               {
-                "text": "'My name is [nome]. I am [idade] years old. I am from [cidade].'"
+                "text": "Qual é o seu sujeito favorito",
+                "misconceptionCode": "cognato-errado"
               },
               {
-                "text": "'I is [nome]. Me old [idade].'",
-                "misconceptionCode": "li-erro-verbo"
+                "text": "Qual é o seu esporte favorito",
+                "misconceptionCode": "palavra-solta"
               },
               {
-                "text": "'Name my is [nome].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Quem é o seu professor",
+                "misconceptionCode": "informacao-ausente"
               },
               {
-                "text": "'[nome] am I. Years [idade].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Qual é a sua matéria favorita"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Subject, na escola, quer dizer matéria.",
+            "variants": [
+              {
+                "question": "\"What time do you go to school?\" pergunta:",
+                "options": [
+                  {
+                    "text": "Quanto tempo dura a escola",
+                    "misconceptionCode": "cognato-errado"
+                  },
+                  {
+                    "text": "A que horas você vai à escola"
+                  },
+                  {
+                    "text": "Qual é a sua escola",
+                    "misconceptionCode": "palavra-solta"
+                  },
+                  {
+                    "text": "Com quem você vai",
+                    "misconceptionCode": "informacao-ausente"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "\"What is your favorite subject?\" pergunta:",
+                "options": [
+                  {
+                    "text": "Qual é a sua matéria favorita"
+                  },
+                  {
+                    "text": "Quem é o seu professor",
+                    "misconceptionCode": "informacao-ausente"
+                  },
+                  {
+                    "text": "Qual é o seu esporte favorito",
+                    "misconceptionCode": "palavra-solta"
+                  },
+                  {
+                    "text": "Qual é o seu sujeito favorito",
+                    "misconceptionCode": "cognato-errado"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "A palavra \"favorite\" é parecida com o português. Ela significa:",
+            "options": [
+              {
+                "text": "Favorito"
+              },
+              {
+                "text": "Favor",
+                "misconceptionCode": "cognato-errado"
+              },
+              {
+                "text": "Fácil",
+                "misconceptionCode": "cognato-errado"
+              },
+              {
+                "text": "Família",
+                "misconceptionCode": "palavra-solta"
               }
             ],
             "correctIndex": 0,
-            "explanation": "'My name is' + 'I am' são as estruturas corretas para apresentação em inglês.",
+            "explanation": "Favorite é um cognato verdadeiro: significa favorito.",
             "variants": [
               {
-                "question": "Como perguntar o nome de alguém em inglês?",
+                "question": "A palavra \"music\" significa:",
                 "options": [
                   {
-                    "text": "'What is your name?'"
+                    "text": "Museu",
+                    "misconceptionCode": "cognato-errado"
                   },
                   {
-                    "text": "'What your name is?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Músculo",
+                    "misconceptionCode": "cognato-errado"
                   },
                   {
-                    "text": "'Your name what?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Música"
                   },
                   {
-                    "text": "'Is what name you?'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Mosquito",
+                    "misconceptionCode": "palavra-solta"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "Como dizer sua idade em inglês? (10 anos)",
+                "question": "A palavra \"favorite\" é parecida com o português. Ela significa:",
                 "options": [
                   {
-                    "text": "'I am ten years old.'"
+                    "text": "Família",
+                    "misconceptionCode": "palavra-solta"
                   },
                   {
-                    "text": "'I have ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Favorito"
                   },
                   {
-                    "text": "'Me ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Fácil",
+                    "misconceptionCode": "cognato-errado"
                   },
                   {
-                    "text": "'Ten years I am.'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Favor",
+                    "misconceptionCode": "cognato-errado"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06LI09"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06LI09-A2",
+        "id": "PK2-EF06LI09-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Localizar informações específicas em texto",
-        "prompt": "Questão sobre Localizar informações específicas em texto.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Localizar informações específicas em texto.",
-        "skillId": "EF06LI09",
+        "title": "Exemplo guiado: o texto do Lucas",
+        "prompt": "Leia o texto: \"Hi! My name is Lucas. I am eleven years old and I live in Salvador. I go to school in the morning. My favorite subject is Science. After school, I play soccer with my friends. My sister is Maria. She is eight. She likes music.\" Vamos procurar as informações juntos.",
+        "estMinutes": 4,
+        "audioScript": "Leia o texto: \"Hi! My name is Lucas. I am eleven years old and I live in Salvador. I go to school in the morning. My favorite subject is Science. After school, I play soccer with my friends. My sister is Maria. She is eight. She likes music.\" Vamos procurar as informações juntos. Pergunta 1. Quantos anos o Lucas tem? A: Oito; B: Doze; C: Sete; D: Onze. Pergunta 2. Qual é a matéria favorita do Lucas? A: Ciências; B: Música; C: Futebol; D: Matemática. Pergunta 3. O que a Maria gosta de fazer? A: Jogar futebol; B: Estudar Ciências; C: Música; D: Dançar.",
         "questions": [
           {
-            "question": "Como cumprimentar formalmente em inglês?",
+            "question": "Quantos anos o Lucas tem?",
             "options": [
               {
-                "text": "'Good morning / Good afternoon / Good evening'"
+                "text": "Oito",
+                "misconceptionCode": "pessoa-trocada"
               },
               {
-                "text": "'Hey! / Yo!'",
-                "misconceptionCode": "li-informal"
+                "text": "Doze",
+                "misconceptionCode": "informacao-ausente"
               },
               {
-                "text": "'Morning good / Afternoon good'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Sete",
+                "misconceptionCode": "informacao-ausente"
               },
               {
-                "text": "'Bom dia' (em português)",
-                "misconceptionCode": "li-uso-pt"
+                "text": "Onze"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "'Good morning/afternoon/evening' são cumprimentos formais em inglês.",
+            "correctIndex": 3,
+            "explanation": "O texto diz \"I am eleven years old\". Oito é a idade da Maria.",
             "variants": [
               {
-                "question": "O que significa 'How are you?' em inglês?",
+                "question": "Onde o Lucas mora?",
                 "options": [
                   {
-                    "text": "Como você está?"
+                    "text": "Em São Paulo",
+                    "misconceptionCode": "pessoa-trocada"
                   },
                   {
-                    "text": "Qual é o seu nome?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "Em Salvador"
                   },
                   {
-                    "text": "De onde você vem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "Na escola",
+                    "misconceptionCode": "informacao-ausente"
                   },
                   {
-                    "text": "Quanto anos você tem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "Com os amigos no clube",
+                    "misconceptionCode": "informacao-ausente"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "Como se diz 'obrigado' em inglês?",
+                "question": "Quantos anos o Lucas tem?",
                 "options": [
                   {
-                    "text": "Thank you"
+                    "text": "Onze"
                   },
                   {
-                    "text": "Please",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Sete",
+                    "misconceptionCode": "informacao-ausente"
                   },
                   {
-                    "text": "Sorry",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Doze",
+                    "misconceptionCode": "informacao-ausente"
                   },
                   {
-                    "text": "Excuse me",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Oito",
+                    "misconceptionCode": "pessoa-trocada"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06LI09"
+            ]
           },
           {
-            "question": "Como cumprimentar formalmente em inglês?",
+            "question": "Qual é a matéria favorita do Lucas?",
             "options": [
               {
-                "text": "'Good morning / Good afternoon / Good evening'"
+                "text": "Ciências"
               },
               {
-                "text": "'Hey! / Yo!'",
-                "misconceptionCode": "li-informal"
+                "text": "Música",
+                "misconceptionCode": "pessoa-trocada"
               },
               {
-                "text": "'Morning good / Afternoon good'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Futebol",
+                "misconceptionCode": "palavra-solta"
               },
               {
-                "text": "'Bom dia' (em português)",
-                "misconceptionCode": "li-uso-pt"
+                "text": "Matemática",
+                "misconceptionCode": "informacao-ausente"
               }
             ],
             "correctIndex": 0,
-            "explanation": "'Good morning/afternoon/evening' são cumprimentos formais em inglês.",
+            "explanation": "\"My favorite subject is Science.\" Música é do que a Maria gosta.",
             "variants": [
               {
-                "question": "O que significa 'How are you?' em inglês?",
+                "question": "Quando o Lucas vai à escola?",
                 "options": [
                   {
-                    "text": "Como você está?"
+                    "text": "À tarde",
+                    "misconceptionCode": "pessoa-trocada"
                   },
                   {
-                    "text": "Qual é o seu nome?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "À noite",
+                    "misconceptionCode": "palavra-solta"
                   },
                   {
-                    "text": "De onde você vem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "De manhã"
                   },
                   {
-                    "text": "Quanto anos você tem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "No sábado",
+                    "misconceptionCode": "informacao-ausente"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "Qual é a matéria favorita do Lucas?",
+                "options": [
+                  {
+                    "text": "Matemática",
+                    "misconceptionCode": "informacao-ausente"
+                  },
+                  {
+                    "text": "Ciências"
+                  },
+                  {
+                    "text": "Futebol",
+                    "misconceptionCode": "palavra-solta"
+                  },
+                  {
+                    "text": "Música",
+                    "misconceptionCode": "pessoa-trocada"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "O que a Maria gosta de fazer?",
+            "options": [
+              {
+                "text": "Jogar futebol",
+                "misconceptionCode": "pessoa-trocada"
+              },
+              {
+                "text": "Estudar Ciências",
+                "misconceptionCode": "pessoa-trocada"
+              },
+              {
+                "text": "Música"
+              },
+              {
+                "text": "Dançar",
+                "misconceptionCode": "informacao-ausente"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "\"She likes music.\" O futebol é do Lucas.",
+            "variants": [
+              {
+                "question": "Quem é a Maria?",
+                "options": [
+                  {
+                    "text": "A irmã do Lucas"
+                  },
+                  {
+                    "text": "A professora",
+                    "misconceptionCode": "pessoa-trocada"
+                  },
+                  {
+                    "text": "A mãe do Lucas",
+                    "misconceptionCode": "pessoa-trocada"
+                  },
+                  {
+                    "text": "Uma amiga do futebol",
+                    "misconceptionCode": "informacao-ausente"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Como se diz 'obrigado' em inglês?",
+                "question": "O que a Maria gosta de fazer?",
                 "options": [
                   {
-                    "text": "Thank you"
+                    "text": "Dançar",
+                    "misconceptionCode": "informacao-ausente"
                   },
                   {
-                    "text": "Please",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Estudar Ciências",
+                    "misconceptionCode": "pessoa-trocada"
                   },
                   {
-                    "text": "Sorry",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Jogar futebol",
+                    "misconceptionCode": "pessoa-trocada"
                   },
                   {
-                    "text": "Excuse me",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Música"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06LI09"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06LI09-A3",
+        "id": "PK2-EF06LI09-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: Localizar informações específicas em texto",
-        "prompt": "Questão sobre Localizar informações específicas em texto.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Localizar informações específicas em texto.",
-        "skillId": "EF06LI09",
+        "title": "Praticar: um convite",
+        "prompt": "Leia o convite: \"Birthday Party! Come to Julia's party on Saturday, June 15th, at 4 p.m. Address: 25 Flower Street. There will be cake, games and music. Please bring a gift!\"",
+        "estMinutes": 5,
+        "audioScript": "Leia o convite: \"Birthday Party! Come to Julia's party on Saturday, June 15th, at 4 p.m. Address: 25 Flower Street. There will be cake, games and music. Please bring a gift!\" Pergunta 1. De quem é a festa? A: Da Julia; B: Da Flower; C: De quem recebeu o convite; D: Da professora. Pergunta 2. Em que dia é a festa? A: Domingo, 15 de junho; B: Sábado, 25 de junho; C: Sábado, 15 de junho; D: Sexta, 4 de junho. Pergunta 3. Qual é o endereço? A: Rua Julia, número 15; B: Rua Flower, número 25; C: Rua Flower, número 15; D: Rua do Bolo, número 4. Pergunta 4. O que o convite pede para levar? A: Um bolo; B: Música; C: Jogos; D: Um presente.",
         "questions": [
           {
-            "question": "No tema \"Localizar informações específicas em texto\", como se apresentar em inglês?",
+            "question": "De quem é a festa?",
             "options": [
               {
-                "text": "'My name is [nome]. I am [idade] years old. I am from [cidade].'"
+                "text": "Da Julia"
               },
               {
-                "text": "'I is [nome]. Me old [idade].'",
-                "misconceptionCode": "li-erro-verbo"
+                "text": "Da Flower",
+                "misconceptionCode": "palavra-solta"
               },
               {
-                "text": "'Name my is [nome].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "De quem recebeu o convite",
+                "misconceptionCode": "pessoa-trocada"
               },
               {
-                "text": "'[nome] am I. Years [idade].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Da professora",
+                "misconceptionCode": "informacao-ausente"
               }
             ],
             "correctIndex": 0,
-            "explanation": "'My name is' + 'I am' são as estruturas corretas para apresentação em inglês.",
+            "explanation": "\"Julia's party\" é a festa da Julia.",
             "variants": [
               {
-                "question": "Como perguntar o nome de alguém em inglês?",
+                "question": "Que tipo de festa é?",
                 "options": [
                   {
-                    "text": "'What is your name?'"
+                    "text": "De casamento",
+                    "misconceptionCode": "palavra-solta"
                   },
                   {
-                    "text": "'What your name is?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Da escola",
+                    "misconceptionCode": "pessoa-trocada"
                   },
                   {
-                    "text": "'Your name what?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "De aniversário"
                   },
                   {
-                    "text": "'Is what name you?'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "De fim de ano",
+                    "misconceptionCode": "informacao-ausente"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "Como dizer sua idade em inglês? (10 anos)",
+                "question": "De quem é a festa?",
                 "options": [
                   {
-                    "text": "'I am ten years old.'"
+                    "text": "Da professora",
+                    "misconceptionCode": "informacao-ausente"
                   },
                   {
-                    "text": "'I have ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Da Julia"
                   },
                   {
-                    "text": "'Me ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "De quem recebeu o convite",
+                    "misconceptionCode": "pessoa-trocada"
                   },
                   {
-                    "text": "'Ten years I am.'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Da Flower",
+                    "misconceptionCode": "palavra-solta"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06LI09"
+            ]
           },
           {
-            "question": "No tema \"Localizar informações específicas em texto\", como se apresentar em inglês?",
+            "question": "Em que dia é a festa?",
             "options": [
               {
-                "text": "'My name is [nome]. I am [idade] years old. I am from [cidade].'"
+                "text": "Domingo, 15 de junho",
+                "misconceptionCode": "informacao-ausente"
               },
               {
-                "text": "'I is [nome]. Me old [idade].'",
-                "misconceptionCode": "li-erro-verbo"
+                "text": "Sábado, 25 de junho",
+                "misconceptionCode": "palavra-solta"
               },
               {
-                "text": "'Name my is [nome].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Sábado, 15 de junho"
               },
               {
-                "text": "'[nome] am I. Years [idade].'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Sexta, 4 de junho",
+                "misconceptionCode": "palavra-solta"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "'My name is' + 'I am' são as estruturas corretas para apresentação em inglês.",
+            "correctIndex": 2,
+            "explanation": "\"On Saturday, June 15th.\" O 25 é o número da casa e o 4 é a hora.",
             "variants": [
               {
-                "question": "Como perguntar o nome de alguém em inglês?",
+                "question": "A que horas começa a festa?",
                 "options": [
                   {
-                    "text": "'What is your name?'"
+                    "text": "Às 4 da tarde"
                   },
                   {
-                    "text": "'What your name is?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Às 15h",
+                    "misconceptionCode": "informacao-ausente"
                   },
                   {
-                    "text": "'Your name what?'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Às 25h",
+                    "misconceptionCode": "palavra-solta"
                   },
                   {
-                    "text": "'Is what name you?'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Às 4 da manhã",
+                    "misconceptionCode": "palavra-solta"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Como dizer sua idade em inglês? (10 anos)",
+                "question": "Em que dia é a festa?",
                 "options": [
                   {
-                    "text": "'I am ten years old.'"
+                    "text": "Sexta, 4 de junho",
+                    "misconceptionCode": "palavra-solta"
                   },
                   {
-                    "text": "'I have ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Sábado, 25 de junho",
+                    "misconceptionCode": "palavra-solta"
                   },
                   {
-                    "text": "'Me ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
+                    "text": "Domingo, 15 de junho",
+                    "misconceptionCode": "informacao-ausente"
                   },
                   {
-                    "text": "'Ten years I am.'",
-                    "misconceptionCode": "li-ordem-errada"
+                    "text": "Sábado, 15 de junho"
+                  }
+                ],
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "Qual é o endereço?",
+            "options": [
+              {
+                "text": "Rua Julia, número 15",
+                "misconceptionCode": "pessoa-trocada"
+              },
+              {
+                "text": "Rua Flower, número 25"
+              },
+              {
+                "text": "Rua Flower, número 15",
+                "misconceptionCode": "palavra-solta"
+              },
+              {
+                "text": "Rua do Bolo, número 4",
+                "misconceptionCode": "informacao-ausente"
+              }
+            ],
+            "correctIndex": 1,
+            "explanation": "\"Address: 25 Flower Street.\"",
+            "variants": [
+              {
+                "question": "O que tem a palavra \"Street\" no convite?",
+                "options": [
+                  {
+                    "text": "O nome da aniversariante",
+                    "misconceptionCode": "pessoa-trocada"
+                  },
+                  {
+                    "text": "O horário",
+                    "misconceptionCode": "palavra-solta"
+                  },
+                  {
+                    "text": "O presente",
+                    "misconceptionCode": "informacao-ausente"
+                  },
+                  {
+                    "text": "O nome da rua"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Qual é o endereço?",
+                "options": [
+                  {
+                    "text": "Rua do Bolo, número 4",
+                    "misconceptionCode": "informacao-ausente"
+                  },
+                  {
+                    "text": "Rua Flower, número 15",
+                    "misconceptionCode": "palavra-solta"
+                  },
+                  {
+                    "text": "Rua Flower, número 25"
+                  },
+                  {
+                    "text": "Rua Julia, número 15",
+                    "misconceptionCode": "pessoa-trocada"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "O que o convite pede para levar?",
+            "options": [
+              {
+                "text": "Um bolo",
+                "misconceptionCode": "palavra-solta"
+              },
+              {
+                "text": "Música",
+                "misconceptionCode": "palavra-solta"
+              },
+              {
+                "text": "Jogos",
+                "misconceptionCode": "palavra-solta"
+              },
+              {
+                "text": "Um presente"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "\"Please bring a gift\": traga um presente. Bolo, jogos e música vão estar lá.",
+            "variants": [
+              {
+                "question": "O que vai ter na festa, segundo o convite?",
+                "options": [
+                  {
+                    "text": "Piscina e pizza",
+                    "misconceptionCode": "palavra-solta"
+                  },
+                  {
+                    "text": "Bolo, jogos e música"
+                  },
+                  {
+                    "text": "Só bolo",
+                    "misconceptionCode": "palavra-solta"
+                  },
+                  {
+                    "text": "Filme e pipoca",
+                    "misconceptionCode": "palavra-solta"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "O que o convite pede para levar?",
+                "options": [
+                  {
+                    "text": "Um presente"
+                  },
+                  {
+                    "text": "Jogos",
+                    "misconceptionCode": "palavra-solta"
+                  },
+                  {
+                    "text": "Música",
+                    "misconceptionCode": "palavra-solta"
+                  },
+                  {
+                    "text": "Um bolo",
+                    "misconceptionCode": "palavra-solta"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06LI09"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06LI09-A4",
+        "id": "PK2-EF06LI09-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: Localizar informações específicas em texto",
-        "prompt": "Questão sobre Localizar informações específicas em texto.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Localizar informações específicas em texto.",
-        "skillId": "EF06LI09",
+        "title": "Aplicar: textos do dia a dia",
+        "prompt": "Textos em inglês aparecem em jogos, aplicativos e embalagens.",
+        "estMinutes": 4,
+        "audioScript": "Textos em inglês aparecem em jogos, aplicativos e embalagens. Pergunta 1. Numa embalagem de suco está escrito \"Orange juice. No sugar added.\" O que isso diz? A: Suco de laranja com muito açúcar; B: Suco de açúcar; C: Suco de laranja sem açúcar adicionado; D: Laranja para adicionar ao suco. Pergunta 2. Num jogo aparece: \"Level 3. You have 2 lives left.\" O que significa? A: Fase 2, restam 3 vidas; B: Fase 3, restam 2 vidas; C: Você tem 3 vidas e saiu do jogo; D: Você ganhou 2 fases. Pergunta 3. Num cartaz do museu: \"Open Monday to Friday, 9 a.m. to 5 p.m. Closed on weekends.\" Quando ele fecha? A: Às segundas-feiras; B: Às 9 da manhã; C: Nunca fecha; D: Nos fins de semana.",
         "questions": [
           {
-            "question": "Como cumprimentar formalmente em inglês?",
+            "question": "Numa embalagem de suco está escrito \"Orange juice. No sugar added.\" O que isso diz?",
             "options": [
               {
-                "text": "'Good morning / Good afternoon / Good evening'"
+                "text": "Suco de laranja com muito açúcar",
+                "misconceptionCode": "cognato-errado"
               },
               {
-                "text": "'Hey! / Yo!'",
-                "misconceptionCode": "li-informal"
+                "text": "Suco de açúcar",
+                "misconceptionCode": "palavra-solta"
               },
               {
-                "text": "'Morning good / Afternoon good'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Suco de laranja sem açúcar adicionado"
               },
               {
-                "text": "'Bom dia' (em português)",
-                "misconceptionCode": "li-uso-pt"
+                "text": "Laranja para adicionar ao suco",
+                "misconceptionCode": "palavra-solta"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "'Good morning/afternoon/evening' são cumprimentos formais em inglês.",
+            "correctIndex": 2,
+            "explanation": "No sugar added é \"sem açúcar adicionado\".",
             "variants": [
               {
-                "question": "O que significa 'How are you?' em inglês?",
+                "question": "Num pacote de biscoito: \"Chocolate cookies. 200 g.\" O que diz?",
                 "options": [
                   {
-                    "text": "Como você está?"
+                    "text": "Biscoitos de chocolate, 200 gramas"
                   },
                   {
-                    "text": "Qual é o seu nome?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "200 biscoitos de chocolate",
+                    "misconceptionCode": "cognato-errado"
                   },
                   {
-                    "text": "De onde você vem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "Chocolate para fazer biscoito",
+                    "misconceptionCode": "palavra-solta"
                   },
                   {
-                    "text": "Quanto anos você tem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "Biscoitos de 200 sabores",
+                    "misconceptionCode": "palavra-solta"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Como se diz 'obrigado' em inglês?",
+                "question": "Numa embalagem de suco está escrito \"Orange juice. No sugar added.\" O que isso diz?",
                 "options": [
                   {
-                    "text": "Thank you"
+                    "text": "Laranja para adicionar ao suco",
+                    "misconceptionCode": "palavra-solta"
                   },
                   {
-                    "text": "Please",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Suco de açúcar",
+                    "misconceptionCode": "palavra-solta"
                   },
                   {
-                    "text": "Sorry",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Suco de laranja com muito açúcar",
+                    "misconceptionCode": "cognato-errado"
                   },
                   {
-                    "text": "Excuse me",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Suco de laranja sem açúcar adicionado"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06LI09"
+            ]
           },
           {
-            "question": "Como cumprimentar formalmente em inglês?",
+            "question": "Num jogo aparece: \"Level 3. You have 2 lives left.\" O que significa?",
             "options": [
               {
-                "text": "'Good morning / Good afternoon / Good evening'"
+                "text": "Fase 2, restam 3 vidas",
+                "misconceptionCode": "palavra-solta"
               },
               {
-                "text": "'Hey! / Yo!'",
-                "misconceptionCode": "li-informal"
+                "text": "Fase 3, restam 2 vidas"
               },
               {
-                "text": "'Morning good / Afternoon good'",
-                "misconceptionCode": "li-ordem-errada"
+                "text": "Você tem 3 vidas e saiu do jogo",
+                "misconceptionCode": "cognato-errado"
               },
               {
-                "text": "'Bom dia' (em português)",
-                "misconceptionCode": "li-uso-pt"
+                "text": "Você ganhou 2 fases",
+                "misconceptionCode": "informacao-ausente"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "'Good morning/afternoon/evening' são cumprimentos formais em inglês.",
+            "correctIndex": 1,
+            "explanation": "Level é fase; lives left são vidas restantes.",
             "variants": [
               {
-                "question": "O que significa 'How are you?' em inglês?",
+                "question": "Aparece \"Level complete! Next level: 4\". Significa:",
                 "options": [
                   {
-                    "text": "Como você está?"
+                    "text": "Fase 4 perdida",
+                    "misconceptionCode": "palavra-solta"
                   },
                   {
-                    "text": "Qual é o seu nome?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "Jogo completo, sem mais fases",
+                    "misconceptionCode": "cognato-errado"
                   },
                   {
-                    "text": "De onde você vem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "Você tem 4 vidas",
+                    "misconceptionCode": "informacao-ausente"
                   },
                   {
-                    "text": "Quanto anos você tem?",
-                    "misconceptionCode": "li-confunde-saudacao"
+                    "text": "Fase completa! Próxima fase: 4"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "Como se diz 'obrigado' em inglês?",
+                "question": "Num jogo aparece: \"Level 3. You have 2 lives left.\" O que significa?",
                 "options": [
                   {
-                    "text": "Thank you"
+                    "text": "Você ganhou 2 fases",
+                    "misconceptionCode": "informacao-ausente"
                   },
                   {
-                    "text": "Please",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Você tem 3 vidas e saiu do jogo",
+                    "misconceptionCode": "cognato-errado"
                   },
                   {
-                    "text": "Sorry",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Fase 3, restam 2 vidas"
                   },
                   {
-                    "text": "Excuse me",
-                    "misconceptionCode": "li-confunde-educacao"
+                    "text": "Fase 2, restam 3 vidas",
+                    "misconceptionCode": "palavra-solta"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "Num cartaz do museu: \"Open Monday to Friday, 9 a.m. to 5 p.m. Closed on weekends.\" Quando ele fecha?",
+            "options": [
+              {
+                "text": "Às segundas-feiras",
+                "misconceptionCode": "palavra-solta"
+              },
+              {
+                "text": "Às 9 da manhã",
+                "misconceptionCode": "palavra-solta"
+              },
+              {
+                "text": "Nunca fecha",
+                "misconceptionCode": "informacao-ausente"
+              },
+              {
+                "text": "Nos fins de semana"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Closed on weekends: fechado nos fins de semana.",
+            "variants": [
+              {
+                "question": "Segundo o mesmo cartaz, a que horas o museu abre?",
+                "options": [
+                  {
+                    "text": "Às 5 da tarde",
+                    "misconceptionCode": "palavra-solta"
+                  },
+                  {
+                    "text": "Às 9 da manhã"
+                  },
+                  {
+                    "text": "Ao meio-dia",
+                    "misconceptionCode": "palavra-solta"
+                  },
+                  {
+                    "text": "À noite",
+                    "misconceptionCode": "informacao-ausente"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Num cartaz do museu: \"Open Monday to Friday, 9 a.m. to 5 p.m. Closed on weekends.\" Quando ele fecha?",
+                "options": [
+                  {
+                    "text": "Nos fins de semana"
+                  },
+                  {
+                    "text": "Nunca fecha",
+                    "misconceptionCode": "informacao-ausente"
+                  },
+                  {
+                    "text": "Às 9 da manhã",
+                    "misconceptionCode": "palavra-solta"
+                  },
+                  {
+                    "text": "Às segundas-feiras",
+                    "misconceptionCode": "palavra-solta"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06LI09"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06LI09-A5",
+        "id": "PK2-EF06LI09-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Localizar informações específicas em texto",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Localizar informações específicas em texto.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Localizar informações específicas em texto.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: como achar a informação",
+        "prompt": "Explique com as suas palavras como você faz para encontrar uma informação num texto em inglês, mesmo sem conhecer todas as palavras.",
+        "estMinutes": 6,
+        "audioScript": "Explique com as suas palavras como você faz para encontrar uma informação num texto em inglês, mesmo sem conhecer todas as palavras.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de Localizar informações específicas em texto",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "palavra-chave",
+              "description": "Fala em procurar a palavra-chave da pergunta no texto"
+            },
+            {
+              "code": "cognatos",
+              "description": "Cita o uso de palavras conhecidas ou parecidas com o português"
+            },
+            {
+              "code": "conferir",
+              "description": "Mostra que é preciso conferir a quem ou a quê a informação se refere"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF06LI09"
+          "exemploBoaResposta": "Primeiro eu vejo o que a pergunta quer saber, como a idade ou o lugar. Depois procuro no texto as palavras que conheço ou que parecem com o português, como favorite e music. E confiro se a informação é da pessoa certa, porque às vezes o texto fala de mais de uma pessoa."
+        }
       }
-    ]
-  },
-  {
-    "skillCode": "EF06LI13",
-    "title": "Trilha: Listar ideias para a produção de textos (EF06LI13)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
+    ],
     "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
-    "subjectCode": "LI",
-    "activities": [
-      {
-        "id": "PK-EF06LI13-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Listar ideias para a produção de textos",
-        "prompt": "Questão sobre Listar ideias para a produção de textos.",
-        "estMinutes": 4,
-        "audioScript": "Questão sobre Listar ideias para a produção de textos.",
-        "skillId": "EF06LI13",
-        "questions": [
-          {
-            "question": "No tema \"Listar ideias para a produção de textos\", como se apresentar em inglês?",
-            "options": [
-              {
-                "text": "'My name is [nome]. I am [idade] years old. I am from [cidade].'"
-              },
-              {
-                "text": "'I is [nome]. Me old [idade].'",
-                "misconceptionCode": "li-erro-verbo"
-              },
-              {
-                "text": "'Name my is [nome].'",
-                "misconceptionCode": "li-ordem-errada"
-              },
-              {
-                "text": "'[nome] am I. Years [idade].'",
-                "misconceptionCode": "li-ordem-errada"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "'My name is' + 'I am' são as estruturas corretas para apresentação em inglês.",
-            "variants": [
-              {
-                "question": "Como perguntar o nome de alguém em inglês?",
-                "options": [
-                  {
-                    "text": "'What is your name?'"
-                  },
-                  {
-                    "text": "'What your name is?'",
-                    "misconceptionCode": "li-ordem-errada"
-                  },
-                  {
-                    "text": "'Your name what?'",
-                    "misconceptionCode": "li-ordem-errada"
-                  },
-                  {
-                    "text": "'Is what name you?'",
-                    "misconceptionCode": "li-erro-verbo"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Como dizer sua idade em inglês? (10 anos)",
-                "options": [
-                  {
-                    "text": "'I am ten years old.'"
-                  },
-                  {
-                    "text": "'I have ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
-                  },
-                  {
-                    "text": "'Me ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
-                  },
-                  {
-                    "text": "'Ten years I am.'",
-                    "misconceptionCode": "li-ordem-errada"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LI13"
-          },
-          {
-            "question": "No tema \"Listar ideias para a produção de textos\", como se apresentar em inglês?",
-            "options": [
-              {
-                "text": "'My name is [nome]. I am [idade] years old. I am from [cidade].'"
-              },
-              {
-                "text": "'I is [nome]. Me old [idade].'",
-                "misconceptionCode": "li-erro-verbo"
-              },
-              {
-                "text": "'Name my is [nome].'",
-                "misconceptionCode": "li-ordem-errada"
-              },
-              {
-                "text": "'[nome] am I. Years [idade].'",
-                "misconceptionCode": "li-ordem-errada"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "'My name is' + 'I am' são as estruturas corretas para apresentação em inglês.",
-            "variants": [
-              {
-                "question": "Como perguntar o nome de alguém em inglês?",
-                "options": [
-                  {
-                    "text": "'What is your name?'"
-                  },
-                  {
-                    "text": "'What your name is?'",
-                    "misconceptionCode": "li-ordem-errada"
-                  },
-                  {
-                    "text": "'Your name what?'",
-                    "misconceptionCode": "li-ordem-errada"
-                  },
-                  {
-                    "text": "'Is what name you?'",
-                    "misconceptionCode": "li-erro-verbo"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Como dizer sua idade em inglês? (10 anos)",
-                "options": [
-                  {
-                    "text": "'I am ten years old.'"
-                  },
-                  {
-                    "text": "'I have ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
-                  },
-                  {
-                    "text": "'Me ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
-                  },
-                  {
-                    "text": "'Ten years I am.'",
-                    "misconceptionCode": "li-ordem-errada"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LI13"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06LI13-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Listar ideias para a produção de textos",
-        "prompt": "Questão sobre Listar ideias para a produção de textos.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Listar ideias para a produção de textos.",
-        "skillId": "EF06LI13",
-        "questions": [
-          {
-            "question": "Como cumprimentar formalmente em inglês?",
-            "options": [
-              {
-                "text": "'Good morning / Good afternoon / Good evening'"
-              },
-              {
-                "text": "'Hey! / Yo!'",
-                "misconceptionCode": "li-informal"
-              },
-              {
-                "text": "'Morning good / Afternoon good'",
-                "misconceptionCode": "li-ordem-errada"
-              },
-              {
-                "text": "'Bom dia' (em português)",
-                "misconceptionCode": "li-uso-pt"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "'Good morning/afternoon/evening' são cumprimentos formais em inglês.",
-            "variants": [
-              {
-                "question": "O que significa 'How are you?' em inglês?",
-                "options": [
-                  {
-                    "text": "Como você está?"
-                  },
-                  {
-                    "text": "Qual é o seu nome?",
-                    "misconceptionCode": "li-confunde-saudacao"
-                  },
-                  {
-                    "text": "De onde você vem?",
-                    "misconceptionCode": "li-confunde-saudacao"
-                  },
-                  {
-                    "text": "Quanto anos você tem?",
-                    "misconceptionCode": "li-confunde-saudacao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Como se diz 'obrigado' em inglês?",
-                "options": [
-                  {
-                    "text": "Thank you"
-                  },
-                  {
-                    "text": "Please",
-                    "misconceptionCode": "li-confunde-educacao"
-                  },
-                  {
-                    "text": "Sorry",
-                    "misconceptionCode": "li-confunde-educacao"
-                  },
-                  {
-                    "text": "Excuse me",
-                    "misconceptionCode": "li-confunde-educacao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LI13"
-          },
-          {
-            "question": "Como cumprimentar formalmente em inglês?",
-            "options": [
-              {
-                "text": "'Good morning / Good afternoon / Good evening'"
-              },
-              {
-                "text": "'Hey! / Yo!'",
-                "misconceptionCode": "li-informal"
-              },
-              {
-                "text": "'Morning good / Afternoon good'",
-                "misconceptionCode": "li-ordem-errada"
-              },
-              {
-                "text": "'Bom dia' (em português)",
-                "misconceptionCode": "li-uso-pt"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "'Good morning/afternoon/evening' são cumprimentos formais em inglês.",
-            "variants": [
-              {
-                "question": "O que significa 'How are you?' em inglês?",
-                "options": [
-                  {
-                    "text": "Como você está?"
-                  },
-                  {
-                    "text": "Qual é o seu nome?",
-                    "misconceptionCode": "li-confunde-saudacao"
-                  },
-                  {
-                    "text": "De onde você vem?",
-                    "misconceptionCode": "li-confunde-saudacao"
-                  },
-                  {
-                    "text": "Quanto anos você tem?",
-                    "misconceptionCode": "li-confunde-saudacao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Como se diz 'obrigado' em inglês?",
-                "options": [
-                  {
-                    "text": "Thank you"
-                  },
-                  {
-                    "text": "Please",
-                    "misconceptionCode": "li-confunde-educacao"
-                  },
-                  {
-                    "text": "Sorry",
-                    "misconceptionCode": "li-confunde-educacao"
-                  },
-                  {
-                    "text": "Excuse me",
-                    "misconceptionCode": "li-confunde-educacao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LI13"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06LI13-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar com exercícios: Listar ideias para a produção de textos",
-        "prompt": "Questão sobre Listar ideias para a produção de textos.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Listar ideias para a produção de textos.",
-        "skillId": "EF06LI13",
-        "questions": [
-          {
-            "question": "No tema \"Listar ideias para a produção de textos\", como se apresentar em inglês?",
-            "options": [
-              {
-                "text": "'My name is [nome]. I am [idade] years old. I am from [cidade].'"
-              },
-              {
-                "text": "'I is [nome]. Me old [idade].'",
-                "misconceptionCode": "li-erro-verbo"
-              },
-              {
-                "text": "'Name my is [nome].'",
-                "misconceptionCode": "li-ordem-errada"
-              },
-              {
-                "text": "'[nome] am I. Years [idade].'",
-                "misconceptionCode": "li-ordem-errada"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "'My name is' + 'I am' são as estruturas corretas para apresentação em inglês.",
-            "variants": [
-              {
-                "question": "Como perguntar o nome de alguém em inglês?",
-                "options": [
-                  {
-                    "text": "'What is your name?'"
-                  },
-                  {
-                    "text": "'What your name is?'",
-                    "misconceptionCode": "li-ordem-errada"
-                  },
-                  {
-                    "text": "'Your name what?'",
-                    "misconceptionCode": "li-ordem-errada"
-                  },
-                  {
-                    "text": "'Is what name you?'",
-                    "misconceptionCode": "li-erro-verbo"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Como dizer sua idade em inglês? (10 anos)",
-                "options": [
-                  {
-                    "text": "'I am ten years old.'"
-                  },
-                  {
-                    "text": "'I have ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
-                  },
-                  {
-                    "text": "'Me ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
-                  },
-                  {
-                    "text": "'Ten years I am.'",
-                    "misconceptionCode": "li-ordem-errada"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LI13"
-          },
-          {
-            "question": "No tema \"Listar ideias para a produção de textos\", como se apresentar em inglês?",
-            "options": [
-              {
-                "text": "'My name is [nome]. I am [idade] years old. I am from [cidade].'"
-              },
-              {
-                "text": "'I is [nome]. Me old [idade].'",
-                "misconceptionCode": "li-erro-verbo"
-              },
-              {
-                "text": "'Name my is [nome].'",
-                "misconceptionCode": "li-ordem-errada"
-              },
-              {
-                "text": "'[nome] am I. Years [idade].'",
-                "misconceptionCode": "li-ordem-errada"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "'My name is' + 'I am' são as estruturas corretas para apresentação em inglês.",
-            "variants": [
-              {
-                "question": "Como perguntar o nome de alguém em inglês?",
-                "options": [
-                  {
-                    "text": "'What is your name?'"
-                  },
-                  {
-                    "text": "'What your name is?'",
-                    "misconceptionCode": "li-ordem-errada"
-                  },
-                  {
-                    "text": "'Your name what?'",
-                    "misconceptionCode": "li-ordem-errada"
-                  },
-                  {
-                    "text": "'Is what name you?'",
-                    "misconceptionCode": "li-erro-verbo"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Como dizer sua idade em inglês? (10 anos)",
-                "options": [
-                  {
-                    "text": "'I am ten years old.'"
-                  },
-                  {
-                    "text": "'I have ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
-                  },
-                  {
-                    "text": "'Me ten years.'",
-                    "misconceptionCode": "li-erro-verbo"
-                  },
-                  {
-                    "text": "'Ten years I am.'",
-                    "misconceptionCode": "li-ordem-errada"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LI13"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06LI13-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar em situações reais: Listar ideias para a produção de textos",
-        "prompt": "Questão sobre Listar ideias para a produção de textos.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Listar ideias para a produção de textos.",
-        "skillId": "EF06LI13",
-        "questions": [
-          {
-            "question": "Como cumprimentar formalmente em inglês?",
-            "options": [
-              {
-                "text": "'Good morning / Good afternoon / Good evening'"
-              },
-              {
-                "text": "'Hey! / Yo!'",
-                "misconceptionCode": "li-informal"
-              },
-              {
-                "text": "'Morning good / Afternoon good'",
-                "misconceptionCode": "li-ordem-errada"
-              },
-              {
-                "text": "'Bom dia' (em português)",
-                "misconceptionCode": "li-uso-pt"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "'Good morning/afternoon/evening' são cumprimentos formais em inglês.",
-            "variants": [
-              {
-                "question": "O que significa 'How are you?' em inglês?",
-                "options": [
-                  {
-                    "text": "Como você está?"
-                  },
-                  {
-                    "text": "Qual é o seu nome?",
-                    "misconceptionCode": "li-confunde-saudacao"
-                  },
-                  {
-                    "text": "De onde você vem?",
-                    "misconceptionCode": "li-confunde-saudacao"
-                  },
-                  {
-                    "text": "Quanto anos você tem?",
-                    "misconceptionCode": "li-confunde-saudacao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Como se diz 'obrigado' em inglês?",
-                "options": [
-                  {
-                    "text": "Thank you"
-                  },
-                  {
-                    "text": "Please",
-                    "misconceptionCode": "li-confunde-educacao"
-                  },
-                  {
-                    "text": "Sorry",
-                    "misconceptionCode": "li-confunde-educacao"
-                  },
-                  {
-                    "text": "Excuse me",
-                    "misconceptionCode": "li-confunde-educacao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LI13"
-          },
-          {
-            "question": "Como cumprimentar formalmente em inglês?",
-            "options": [
-              {
-                "text": "'Good morning / Good afternoon / Good evening'"
-              },
-              {
-                "text": "'Hey! / Yo!'",
-                "misconceptionCode": "li-informal"
-              },
-              {
-                "text": "'Morning good / Afternoon good'",
-                "misconceptionCode": "li-ordem-errada"
-              },
-              {
-                "text": "'Bom dia' (em português)",
-                "misconceptionCode": "li-uso-pt"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "'Good morning/afternoon/evening' são cumprimentos formais em inglês.",
-            "variants": [
-              {
-                "question": "O que significa 'How are you?' em inglês?",
-                "options": [
-                  {
-                    "text": "Como você está?"
-                  },
-                  {
-                    "text": "Qual é o seu nome?",
-                    "misconceptionCode": "li-confunde-saudacao"
-                  },
-                  {
-                    "text": "De onde você vem?",
-                    "misconceptionCode": "li-confunde-saudacao"
-                  },
-                  {
-                    "text": "Quanto anos você tem?",
-                    "misconceptionCode": "li-confunde-saudacao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Como se diz 'obrigado' em inglês?",
-                "options": [
-                  {
-                    "text": "Thank you"
-                  },
-                  {
-                    "text": "Please",
-                    "misconceptionCode": "li-confunde-educacao"
-                  },
-                  {
-                    "text": "Sorry",
-                    "misconceptionCode": "li-confunde-educacao"
-                  },
-                  {
-                    "text": "Excuse me",
-                    "misconceptionCode": "li-confunde-educacao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06LI13"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06LI13-A5",
-        "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Listar ideias para a produção de textos",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Listar ideias para a produção de textos.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Listar ideias para a produção de textos.",
-        "rubric": {
-          "criteria": [
-            "Menciona ao menos dois aspectos de Listar ideias para a produção de textos",
-            "Usa vocabulário adequado ao ano escolar"
-          ],
-          "minScore": 60
-        },
-        "skillId": "EF06LI13"
-      }
-    ]
+    "source": "SPEAKFLOW",
+    "status": "APPROVED"
   }
 ]

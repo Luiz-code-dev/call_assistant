@@ -1,2450 +1,1890 @@
 [
   {
     "skillCode": "EF06ER01",
-    "title": "Trilha: Reconhecer o papel da tradição escrita na preservação (EF06ER01)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
     "subjectCode": "ER",
+    "subjectName": "Ensino Religioso",
+    "gradeYear": 6,
+    "version": 2,
+    "title": "Trilha: A tradição escrita",
+    "tituloAluno": "Textos escritos que guardam ensinamentos",
     "activities": [
       {
-        "id": "PK-EF06ER01-A1",
+        "id": "PK2-EF06ER01-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Reconhecer o papel da tradição escrita na preservação",
-        "prompt": "Questão sobre Reconhecer o papel da tradição escrita na preservação.",
+        "title": "Relembrar: oral e escrito",
+        "prompt": "Vamos lembrar o que já sabemos sobre a tradição oral.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre Reconhecer o papel da tradição escrita na preservação.",
-        "skillId": "EF06ER01",
+        "audioScript": "Vamos lembrar o que já sabemos sobre a tradição oral. Pergunta 1. O que é tradição oral? A: A transmissão de ensinamentos e histórias pela fala; B: Um texto escrito num livro; C: Algo que vale menos do que a escrita; D: A tradição de uma única religião. Pergunta 2. Antes de serem escritos, muitos ensinamentos religiosos eram: A: Já escritos desde o primeiro dia; B: Desconhecidos; C: Transmitidos oralmente; D: Exclusivos de uma só tradição. Pergunta 3. As tradições que transmitem seus ensinamentos principalmente pela fala: A: Valem menos; B: Têm o mesmo valor que as que usam textos escritos; C: Não existem mais; D: São todas iguais.",
         "questions": [
           {
-            "question": "No tema \"Reconhecer o papel da tradição escrita na preservação\", o que é diversidade religiosa?",
+            "question": "O que é tradição oral?",
             "options": [
               {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
+                "text": "A transmissão de ensinamentos e histórias pela fala"
               },
               {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Um texto escrito num livro",
+                "misconceptionCode": "escrita-sem-oral"
               },
               {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Algo que vale menos do que a escrita",
+                "misconceptionCode": "escrita-melhor"
               },
               {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
+                "text": "A tradição de uma única religião",
+                "misconceptionCode": "so-um-texto"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
+            "explanation": "Oral vem de boca: é o que se transmite falando.",
             "variants": [
               {
-                "question": "O que é laicidade do Estado?",
+                "question": "Aprender um canto ouvindo os mais velhos é:",
                 "options": [
                   {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
+                    "text": "Tradição escrita",
+                    "misconceptionCode": "escrita-sem-oral"
                   },
                   {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Algo sem valor",
+                    "misconceptionCode": "escrita-melhor"
                   },
                   {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Tradição oral"
                   },
                   {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Leitura",
+                    "misconceptionCode": "so-um-texto"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "O que é liberdade religiosa?",
+                "question": "O que é tradição oral?",
                 "options": [
                   {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
+                    "text": "A tradição de uma única religião",
+                    "misconceptionCode": "so-um-texto"
                   },
                   {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "A transmissão de ensinamentos e histórias pela fala"
                   },
                   {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Algo que vale menos do que a escrita",
+                    "misconceptionCode": "escrita-melhor"
                   },
                   {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Um texto escrito num livro",
+                    "misconceptionCode": "escrita-sem-oral"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06ER01"
+            ]
           },
           {
-            "question": "No tema \"Reconhecer o papel da tradição escrita na preservação\", o que é diversidade religiosa?",
+            "question": "Antes de serem escritos, muitos ensinamentos religiosos eram:",
             "options": [
               {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
+                "text": "Já escritos desde o primeiro dia",
+                "misconceptionCode": "escrita-sem-oral"
               },
               {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Desconhecidos",
+                "misconceptionCode": "escrita-melhor"
               },
               {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Transmitidos oralmente"
               },
               {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Exclusivos de uma só tradição",
+                "misconceptionCode": "so-um-texto"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
+            "correctIndex": 2,
+            "explanation": "Muitas tradições passaram pela oralidade antes da escrita.",
             "variants": [
               {
-                "question": "O que é laicidade do Estado?",
+                "question": "Por que muitas histórias sagradas foram contadas por séculos antes de serem escritas?",
                 "options": [
                   {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
+                    "text": "Porque eram passadas oralmente entre gerações"
                   },
                   {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Porque ninguém as conhecia",
+                    "misconceptionCode": "escrita-sem-oral"
                   },
                   {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Porque eram proibidas",
+                    "misconceptionCode": "escrita-melhor"
                   },
                   {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Porque não existiam",
+                    "misconceptionCode": "so-um-texto"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que é liberdade religiosa?",
+                "question": "Antes de serem escritos, muitos ensinamentos religiosos eram:",
                 "options": [
                   {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
+                    "text": "Exclusivos de uma só tradição",
+                    "misconceptionCode": "so-um-texto"
                   },
                   {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Desconhecidos",
+                    "misconceptionCode": "escrita-melhor"
                   },
                   {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Já escritos desde o primeiro dia",
+                    "misconceptionCode": "escrita-sem-oral"
                   },
                   {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Transmitidos oralmente"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "As tradições que transmitem seus ensinamentos principalmente pela fala:",
+            "options": [
+              {
+                "text": "Valem menos",
+                "misconceptionCode": "escrita-melhor"
+              },
+              {
+                "text": "Têm o mesmo valor que as que usam textos escritos"
+              },
+              {
+                "text": "Não existem mais",
+                "misconceptionCode": "escrita-sem-oral"
+              },
+              {
+                "text": "São todas iguais",
+                "misconceptionCode": "so-um-texto"
               }
             ],
-            "skillId": "EF06ER01"
+            "correctIndex": 1,
+            "explanation": "Oral ou escrita, cada forma guarda a memória de um grupo.",
+            "variants": [
+              {
+                "question": "Uma tradição indígena que ensina pela fala, comparada a uma que tem livro sagrado, é:",
+                "options": [
+                  {
+                    "text": "Menos importante",
+                    "misconceptionCode": "escrita-melhor"
+                  },
+                  {
+                    "text": "Errada",
+                    "misconceptionCode": "escrita-sem-oral"
+                  },
+                  {
+                    "text": "Igual em tudo",
+                    "misconceptionCode": "so-um-texto"
+                  },
+                  {
+                    "text": "Igualmente valiosa"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "As tradições que transmitem seus ensinamentos principalmente pela fala:",
+                "options": [
+                  {
+                    "text": "São todas iguais",
+                    "misconceptionCode": "so-um-texto"
+                  },
+                  {
+                    "text": "Não existem mais",
+                    "misconceptionCode": "escrita-sem-oral"
+                  },
+                  {
+                    "text": "Têm o mesmo valor que as que usam textos escritos"
+                  },
+                  {
+                    "text": "Valem menos",
+                    "misconceptionCode": "escrita-melhor"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06ER01-A2",
+        "id": "PK2-EF06ER01-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Reconhecer o papel da tradição escrita na preservação",
-        "prompt": "Questão sobre Reconhecer o papel da tradição escrita na preservação.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Reconhecer o papel da tradição escrita na preservação.",
-        "skillId": "EF06ER01",
+        "title": "Exemplo guiado: textos sagrados",
+        "prompt": "Várias tradições religiosas têm textos escritos que consideram sagrados. Vamos conhecer juntos alguns deles.",
+        "estMinutes": 4,
+        "audioScript": "Várias tradições religiosas têm textos escritos que consideram sagrados. Vamos conhecer juntos alguns deles. Pergunta 1. A Bíblia é o texto sagrado: A: Do islamismo; B: Do hinduísmo; C: Do cristianismo; D: De todas as religiões. Pergunta 2. O Alcorão é o texto sagrado: A: Do judaísmo; B: Do islamismo; C: Do budismo; D: De nenhuma religião. Pergunta 3. A Torá é um texto sagrado importante: A: Do islamismo; B: Do hinduísmo; C: Do budismo; D: Do judaísmo.",
         "questions": [
           {
-            "question": "O que são valores universais no contexto das religiões?",
+            "question": "A Bíblia é o texto sagrado:",
             "options": [
               {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
+                "text": "Do islamismo",
+                "misconceptionCode": "texto-religiao-trocada"
               },
               {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Do hinduísmo",
+                "misconceptionCode": "texto-religiao-trocada"
               },
               {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Do cristianismo"
               },
               {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
+                "text": "De todas as religiões",
+                "misconceptionCode": "so-um-texto"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
+            "correctIndex": 2,
+            "explanation": "A Bíblia reúne os textos sagrados dos cristãos.",
             "variants": [
               {
-                "question": "O que é intolerância religiosa?",
+                "question": "Os cristãos têm como texto sagrado:",
                 "options": [
                   {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
+                    "text": "A Bíblia"
                   },
                   {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "O Alcorão",
+                    "misconceptionCode": "texto-religiao-trocada"
                   },
                   {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Os Vedas",
+                    "misconceptionCode": "texto-religiao-trocada"
                   },
                   {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "O Tipitaka",
+                    "misconceptionCode": "so-um-texto"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que o diálogo inter-religioso é importante?",
+                "question": "A Bíblia é o texto sagrado:",
                 "options": [
                   {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
+                    "text": "De todas as religiões",
+                    "misconceptionCode": "so-um-texto"
                   },
                   {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Do hinduísmo",
+                    "misconceptionCode": "texto-religiao-trocada"
                   },
                   {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Do islamismo",
+                    "misconceptionCode": "texto-religiao-trocada"
                   },
                   {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Do cristianismo"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06ER01"
+            ]
           },
           {
-            "question": "O que são valores universais no contexto das religiões?",
+            "question": "O Alcorão é o texto sagrado:",
             "options": [
               {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
+                "text": "Do judaísmo",
+                "misconceptionCode": "texto-religiao-trocada"
               },
               {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Do islamismo"
               },
               {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Do budismo",
+                "misconceptionCode": "texto-religiao-trocada"
               },
               {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
+                "text": "De nenhuma religião",
+                "misconceptionCode": "so-um-texto"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
+            "correctIndex": 1,
+            "explanation": "O Alcorão é o livro sagrado dos muçulmanos.",
             "variants": [
               {
-                "question": "O que é intolerância religiosa?",
+                "question": "Os muçulmanos têm como texto sagrado:",
                 "options": [
                   {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
+                    "text": "A Torá",
+                    "misconceptionCode": "texto-religiao-trocada"
                   },
                   {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Os Vedas",
+                    "misconceptionCode": "texto-religiao-trocada"
                   },
                   {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A Bíblia apenas",
+                    "misconceptionCode": "so-um-texto"
                   },
                   {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "O Alcorão"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "Por que o diálogo inter-religioso é importante?",
+                "question": "O Alcorão é o texto sagrado:",
                 "options": [
                   {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
+                    "text": "De nenhuma religião",
+                    "misconceptionCode": "so-um-texto"
                   },
                   {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Do budismo",
+                    "misconceptionCode": "texto-religiao-trocada"
                   },
                   {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Do islamismo"
                   },
                   {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Do judaísmo",
+                    "misconceptionCode": "texto-religiao-trocada"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "A Torá é um texto sagrado importante:",
+            "options": [
+              {
+                "text": "Do islamismo",
+                "misconceptionCode": "texto-religiao-trocada"
+              },
+              {
+                "text": "Do hinduísmo",
+                "misconceptionCode": "texto-religiao-trocada"
+              },
+              {
+                "text": "Do budismo",
+                "misconceptionCode": "texto-religiao-trocada"
+              },
+              {
+                "text": "Do judaísmo"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "A Torá reúne os primeiros cinco livros das escrituras judaicas.",
+            "variants": [
+              {
+                "question": "Os Vedas são textos sagrados antigos:",
+                "options": [
+                  {
+                    "text": "Do cristianismo",
+                    "misconceptionCode": "texto-religiao-trocada"
+                  },
+                  {
+                    "text": "Do hinduísmo"
+                  },
+                  {
+                    "text": "Do islamismo",
+                    "misconceptionCode": "texto-religiao-trocada"
+                  },
+                  {
+                    "text": "Do judaísmo",
+                    "misconceptionCode": "texto-religiao-trocada"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "A Torá é um texto sagrado importante:",
+                "options": [
+                  {
+                    "text": "Do judaísmo"
+                  },
+                  {
+                    "text": "Do budismo",
+                    "misconceptionCode": "texto-religiao-trocada"
+                  },
+                  {
+                    "text": "Do hinduísmo",
+                    "misconceptionCode": "texto-religiao-trocada"
+                  },
+                  {
+                    "text": "Do islamismo",
+                    "misconceptionCode": "texto-religiao-trocada"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06ER01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06ER01-A3",
+        "id": "PK2-EF06ER01-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: Reconhecer o papel da tradição escrita na preservação",
-        "prompt": "Questão sobre Reconhecer o papel da tradição escrita na preservação.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Reconhecer o papel da tradição escrita na preservação.",
-        "skillId": "EF06ER01",
+        "title": "Praticar: por que escrever",
+        "prompt": "Pense no papel da escrita para as tradições religiosas.",
+        "estMinutes": 5,
+        "audioScript": "Pense no papel da escrita para as tradições religiosas. Pergunta 1. Por que muitas tradições religiosas registraram seus ensinamentos por escrito? A: Porque a fala não tem valor; B: Para preservar a memória e os ensinamentos ao longo do tempo; C: Porque nunca houve tradição oral antes; D: Porque todas usam o mesmo livro. Pergunta 2. Existe um único texto sagrado para toda a humanidade? A: Sim, todas usam o mesmo; B: Sim, a escrita é igual em todo lugar; C: Não, porque textos escritos não têm valor; D: Não, tradições diferentes têm textos diferentes. Pergunta 3. O Tipitaka reúne ensinamentos atribuídos a Buda. Ele é ligado: A: Ao budismo; B: Ao cristianismo; C: Ao islamismo; D: A todas as religiões. Pergunta 4. Uma tradição que só usa a oralidade, como muitas tradições indígenas, é: A: Uma tradição incompleta, porque não tem livro; B: Uma tradição que vai copiar um livro de outra; C: Uma tradição igualmente importante; D: Algo sem memória.",
         "questions": [
           {
-            "question": "No tema \"Reconhecer o papel da tradição escrita na preservação\", o que é diversidade religiosa?",
+            "question": "Por que muitas tradições religiosas registraram seus ensinamentos por escrito?",
             "options": [
               {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
+                "text": "Porque a fala não tem valor",
+                "misconceptionCode": "escrita-melhor"
               },
               {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Para preservar a memória e os ensinamentos ao longo do tempo"
               },
               {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Porque nunca houve tradição oral antes",
+                "misconceptionCode": "escrita-sem-oral"
               },
               {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Porque todas usam o mesmo livro",
+                "misconceptionCode": "so-um-texto"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
+            "correctIndex": 1,
+            "explanation": "A escrita ajuda a guardar e espalhar os ensinamentos.",
             "variants": [
               {
-                "question": "O que é laicidade do Estado?",
+                "question": "Um texto escrito ajuda uma tradição a:",
                 "options": [
                   {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
+                    "text": "Esquecer o passado",
+                    "misconceptionCode": "escrita-melhor"
                   },
                   {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Acabar com a oralidade",
+                    "misconceptionCode": "escrita-sem-oral"
                   },
                   {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Ter um só livro no mundo",
+                    "misconceptionCode": "so-um-texto"
                   },
                   {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Guardar e compartilhar seus ensinamentos"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "O que é liberdade religiosa?",
+                "question": "Por que muitas tradições religiosas registraram seus ensinamentos por escrito?",
                 "options": [
                   {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
+                    "text": "Porque todas usam o mesmo livro",
+                    "misconceptionCode": "so-um-texto"
                   },
                   {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Porque nunca houve tradição oral antes",
+                    "misconceptionCode": "escrita-sem-oral"
                   },
                   {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Para preservar a memória e os ensinamentos ao longo do tempo"
                   },
                   {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Porque a fala não tem valor",
+                    "misconceptionCode": "escrita-melhor"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF06ER01"
+            ]
           },
           {
-            "question": "No tema \"Reconhecer o papel da tradição escrita na preservação\", o que é diversidade religiosa?",
+            "question": "Existe um único texto sagrado para toda a humanidade?",
             "options": [
               {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
+                "text": "Sim, todas usam o mesmo",
+                "misconceptionCode": "so-um-texto"
               },
               {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Sim, a escrita é igual em todo lugar",
+                "misconceptionCode": "escrita-sem-oral"
               },
               {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Não, porque textos escritos não têm valor",
+                "misconceptionCode": "escrita-melhor"
               },
               {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Não, tradições diferentes têm textos diferentes"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Há muitos textos sagrados, ligados a tradições diferentes.",
+            "variants": [
+              {
+                "question": "Bíblia, Alcorão, Torá e Vedas mostram que:",
+                "options": [
+                  {
+                    "text": "Todas as religiões são iguais",
+                    "misconceptionCode": "so-um-texto"
+                  },
+                  {
+                    "text": "Há diversidade de textos sagrados"
+                  },
+                  {
+                    "text": "Só um é verdadeiro para a escola",
+                    "misconceptionCode": "escrita-sem-oral"
+                  },
+                  {
+                    "text": "Nenhum é importante",
+                    "misconceptionCode": "escrita-melhor"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Existe um único texto sagrado para toda a humanidade?",
+                "options": [
+                  {
+                    "text": "Não, tradições diferentes têm textos diferentes"
+                  },
+                  {
+                    "text": "Não, porque textos escritos não têm valor",
+                    "misconceptionCode": "escrita-melhor"
+                  },
+                  {
+                    "text": "Sim, a escrita é igual em todo lugar",
+                    "misconceptionCode": "escrita-sem-oral"
+                  },
+                  {
+                    "text": "Sim, todas usam o mesmo",
+                    "misconceptionCode": "so-um-texto"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "O Tipitaka reúne ensinamentos atribuídos a Buda. Ele é ligado:",
+            "options": [
+              {
+                "text": "Ao budismo"
+              },
+              {
+                "text": "Ao cristianismo",
+                "misconceptionCode": "texto-religiao-trocada"
+              },
+              {
+                "text": "Ao islamismo",
+                "misconceptionCode": "texto-religiao-trocada"
+              },
+              {
+                "text": "A todas as religiões",
+                "misconceptionCode": "so-um-texto"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
+            "explanation": "O Tipitaka é uma coleção de textos do budismo.",
             "variants": [
               {
-                "question": "O que é laicidade do Estado?",
+                "question": "Os ensinamentos atribuídos a Buda estão reunidos em textos:",
                 "options": [
                   {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
+                    "text": "Do judaísmo",
+                    "misconceptionCode": "texto-religiao-trocada"
                   },
                   {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Do hinduísmo apenas",
+                    "misconceptionCode": "texto-religiao-trocada"
                   },
                   {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Do budismo"
                   },
                   {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Do islamismo",
+                    "misconceptionCode": "so-um-texto"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "O Tipitaka reúne ensinamentos atribuídos a Buda. Ele é ligado:",
+                "options": [
+                  {
+                    "text": "A todas as religiões",
+                    "misconceptionCode": "so-um-texto"
+                  },
+                  {
+                    "text": "Ao budismo"
+                  },
+                  {
+                    "text": "Ao islamismo",
+                    "misconceptionCode": "texto-religiao-trocada"
+                  },
+                  {
+                    "text": "Ao cristianismo",
+                    "misconceptionCode": "texto-religiao-trocada"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Uma tradição que só usa a oralidade, como muitas tradições indígenas, é:",
+            "options": [
+              {
+                "text": "Uma tradição incompleta, porque não tem livro",
+                "misconceptionCode": "escrita-melhor"
+              },
+              {
+                "text": "Uma tradição que vai copiar um livro de outra",
+                "misconceptionCode": "so-um-texto"
+              },
+              {
+                "text": "Uma tradição igualmente importante"
+              },
+              {
+                "text": "Algo sem memória",
+                "misconceptionCode": "escrita-sem-oral"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "A ausência de escrita não diminui o valor de uma tradição.",
+            "variants": [
+              {
+                "question": "Sobre as tradições que não têm textos escritos, é correto dizer que:",
+                "options": [
+                  {
+                    "text": "Guardam a memória pela fala e têm grande valor"
+                  },
+                  {
+                    "text": "Não têm memória",
+                    "misconceptionCode": "escrita-melhor"
+                  },
+                  {
+                    "text": "Valem menos",
+                    "misconceptionCode": "so-um-texto"
+                  },
+                  {
+                    "text": "Não existem",
+                    "misconceptionCode": "escrita-sem-oral"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que é liberdade religiosa?",
+                "question": "Uma tradição que só usa a oralidade, como muitas tradições indígenas, é:",
                 "options": [
                   {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
+                    "text": "Algo sem memória",
+                    "misconceptionCode": "escrita-sem-oral"
                   },
                   {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Uma tradição que vai copiar um livro de outra",
+                    "misconceptionCode": "so-um-texto"
                   },
                   {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Uma tradição incompleta, porque não tem livro",
+                    "misconceptionCode": "escrita-melhor"
                   },
                   {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Uma tradição igualmente importante"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06ER01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06ER01-A4",
+        "id": "PK2-EF06ER01-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: Reconhecer o papel da tradição escrita na preservação",
-        "prompt": "Questão sobre Reconhecer o papel da tradição escrita na preservação.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Reconhecer o papel da tradição escrita na preservação.",
-        "skillId": "EF06ER01",
+        "title": "Aplicar: respeito na escola",
+        "prompt": "Pense em como lidar com a diversidade religiosa na escola.",
+        "estMinutes": 4,
+        "audioScript": "Pense em como lidar com a diversidade religiosa na escola. Pergunta 1. Um colega traz para a feira cultural um texto sagrado da tradição da família dele. Qual atitude é adequada? A: Dizer que o texto da sua religião é o único que vale; B: Dizer que só tradições escritas importam; C: Confundir o texto com o de outra religião sem perguntar; D: Ouvir e respeitar, mesmo que seja de outra tradição. Pergunta 2. A turma vai fazer um painel sobre textos sagrados. O que é mais correto? A: Apresentar textos de várias tradições, sem dizer que um é melhor; B: Mostrar só um texto, porque é o único; C: Dizer que tradições sem escrita não contam; D: Trocar os nomes das religiões. Pergunta 3. Sua avó lê em voz alta trechos do texto sagrado da tradição dela todos os domingos. Isso mostra que: A: A tradição oral acabou; B: Só o texto escrito tem valor; C: A tradição escrita e a oral podem andar juntas; D: Só existe um texto sagrado.",
         "questions": [
           {
-            "question": "O que são valores universais no contexto das religiões?",
+            "question": "Um colega traz para a feira cultural um texto sagrado da tradição da família dele. Qual atitude é adequada?",
             "options": [
               {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
+                "text": "Dizer que o texto da sua religião é o único que vale",
+                "misconceptionCode": "so-um-texto"
               },
               {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Dizer que só tradições escritas importam",
+                "misconceptionCode": "escrita-melhor"
               },
               {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Confundir o texto com o de outra religião sem perguntar",
+                "misconceptionCode": "texto-religiao-trocada"
               },
               {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Ouvir e respeitar, mesmo que seja de outra tradição"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
+            "correctIndex": 3,
+            "explanation": "Respeitar a diversidade é um valor importante na escola.",
             "variants": [
               {
-                "question": "O que é intolerância religiosa?",
+                "question": "Na feira cultural, há apresentações de várias tradições. A atitude certa é:",
                 "options": [
                   {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
+                    "text": "Respeitar só a sua",
+                    "misconceptionCode": "so-um-texto"
                   },
                   {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Respeitar todas"
                   },
                   {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Rir das diferentes",
+                    "misconceptionCode": "escrita-melhor"
                   },
                   {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Ignorar as tradições orais",
+                    "misconceptionCode": "texto-religiao-trocada"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "Por que o diálogo inter-religioso é importante?",
+                "question": "Um colega traz para a feira cultural um texto sagrado da tradição da família dele. Qual atitude é adequada?",
                 "options": [
                   {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
+                    "text": "Ouvir e respeitar, mesmo que seja de outra tradição"
                   },
                   {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Confundir o texto com o de outra religião sem perguntar",
+                    "misconceptionCode": "texto-religiao-trocada"
                   },
                   {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Dizer que só tradições escritas importam",
+                    "misconceptionCode": "escrita-melhor"
                   },
                   {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Dizer que o texto da sua religião é o único que vale",
+                    "misconceptionCode": "so-um-texto"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06ER01"
+            ]
           },
           {
-            "question": "O que são valores universais no contexto das religiões?",
+            "question": "A turma vai fazer um painel sobre textos sagrados. O que é mais correto?",
             "options": [
               {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
+                "text": "Apresentar textos de várias tradições, sem dizer que um é melhor"
               },
               {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Mostrar só um texto, porque é o único",
+                "misconceptionCode": "so-um-texto"
               },
               {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Dizer que tradições sem escrita não contam",
+                "misconceptionCode": "escrita-melhor"
               },
               {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Trocar os nomes das religiões",
+                "misconceptionCode": "texto-religiao-trocada"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
+            "explanation": "Na escola, o estudo das religiões é feito com respeito e sem preferência.",
             "variants": [
               {
-                "question": "O que é intolerância religiosa?",
+                "question": "Num trabalho escolar sobre religiões, o certo é:",
                 "options": [
                   {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
+                    "text": "Escolher a melhor religião",
+                    "misconceptionCode": "so-um-texto"
                   },
                   {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Falar mal das outras",
+                    "misconceptionCode": "escrita-melhor"
                   },
                   {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Apresentar com respeito e sem dizer qual é a melhor"
                   },
                   {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Falar só de uma",
+                    "misconceptionCode": "texto-religiao-trocada"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "A turma vai fazer um painel sobre textos sagrados. O que é mais correto?",
+                "options": [
+                  {
+                    "text": "Trocar os nomes das religiões",
+                    "misconceptionCode": "texto-religiao-trocada"
+                  },
+                  {
+                    "text": "Apresentar textos de várias tradições, sem dizer que um é melhor"
+                  },
+                  {
+                    "text": "Dizer que tradições sem escrita não contam",
+                    "misconceptionCode": "escrita-melhor"
+                  },
+                  {
+                    "text": "Mostrar só um texto, porque é o único",
+                    "misconceptionCode": "so-um-texto"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Sua avó lê em voz alta trechos do texto sagrado da tradição dela todos os domingos. Isso mostra que:",
+            "options": [
+              {
+                "text": "A tradição oral acabou",
+                "misconceptionCode": "escrita-sem-oral"
+              },
+              {
+                "text": "Só o texto escrito tem valor",
+                "misconceptionCode": "escrita-melhor"
+              },
+              {
+                "text": "A tradição escrita e a oral podem andar juntas"
+              },
+              {
+                "text": "Só existe um texto sagrado",
+                "misconceptionCode": "so-um-texto"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "Ler em voz alta une a escrita e a oralidade.",
+            "variants": [
+              {
+                "question": "Cantar em grupo um texto que está escrito num livro sagrado é um exemplo de:",
+                "options": [
+                  {
+                    "text": "Escrita e oralidade juntas"
+                  },
+                  {
+                    "text": "Só tradição escrita",
+                    "misconceptionCode": "escrita-sem-oral"
+                  },
+                  {
+                    "text": "Só tradição oral",
+                    "misconceptionCode": "escrita-melhor"
+                  },
+                  {
+                    "text": "Nenhuma tradição",
+                    "misconceptionCode": "so-um-texto"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que o diálogo inter-religioso é importante?",
+                "question": "Sua avó lê em voz alta trechos do texto sagrado da tradição dela todos os domingos. Isso mostra que:",
                 "options": [
                   {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
+                    "text": "Só existe um texto sagrado",
+                    "misconceptionCode": "so-um-texto"
                   },
                   {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Só o texto escrito tem valor",
+                    "misconceptionCode": "escrita-melhor"
                   },
                   {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A tradição oral acabou",
+                    "misconceptionCode": "escrita-sem-oral"
                   },
                   {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "A tradição escrita e a oral podem andar juntas"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06ER01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06ER01-A5",
+        "id": "PK2-EF06ER01-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Reconhecer o papel da tradição escrita na preservação",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Reconhecer o papel da tradição escrita na preservação.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Reconhecer o papel da tradição escrita na preservação.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: tradição escrita",
+        "prompt": "Explique com as suas palavras por que muitas tradições religiosas registraram seus ensinamentos por escrito e cite dois textos sagrados de tradições diferentes.",
+        "estMinutes": 6,
+        "audioScript": "Explique com as suas palavras por que muitas tradições religiosas registraram seus ensinamentos por escrito e cite dois textos sagrados de tradições diferentes.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de Reconhecer o papel da tradição escrita na preservação",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "funcao",
+              "description": "Explica que a escrita ajuda a preservar memórias e ensinamentos"
+            },
+            {
+              "code": "exemplos",
+              "description": "Cita dois textos sagrados ligados às tradições corretas"
+            },
+            {
+              "code": "respeito",
+              "description": "Mostra respeito às tradições, incluindo as orais"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF06ER01"
+          "exemploBoaResposta": "Muitas tradições escreveram seus ensinamentos para guardar a memória e passar para as próximas gerações. Por exemplo, a Bíblia é o texto sagrado do cristianismo e o Alcorão é o do islamismo. Mas as tradições que ensinam só pela fala também são importantes."
+        }
       }
-    ]
-  },
-  {
-    "skillCode": "EF06ER02",
-    "title": "Trilha: Reconhecer e valorizar a diversidade de textos religiosos (EF06ER02)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
+    ],
     "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
-    "subjectCode": "ER",
-    "activities": [
-      {
-        "id": "PK-EF06ER02-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Reconhecer e valorizar a diversidade de textos religiosos",
-        "prompt": "Questão sobre Reconhecer e valorizar a diversidade de textos religiosos.",
-        "estMinutes": 4,
-        "audioScript": "Questão sobre Reconhecer e valorizar a diversidade de textos religiosos.",
-        "skillId": "EF06ER02",
-        "questions": [
-          {
-            "question": "No tema \"Reconhecer e valorizar a diversidade de textos religiosos\", o que é diversidade religiosa?",
-            "options": [
-              {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
-              },
-              {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
-            "variants": [
-              {
-                "question": "O que é laicidade do Estado?",
-                "options": [
-                  {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
-                  },
-                  {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é liberdade religiosa?",
-                "options": [
-                  {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
-                  },
-                  {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06ER02"
-          },
-          {
-            "question": "No tema \"Reconhecer e valorizar a diversidade de textos religiosos\", o que é diversidade religiosa?",
-            "options": [
-              {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
-              },
-              {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
-            "variants": [
-              {
-                "question": "O que é laicidade do Estado?",
-                "options": [
-                  {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
-                  },
-                  {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é liberdade religiosa?",
-                "options": [
-                  {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
-                  },
-                  {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06ER02"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06ER02-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Reconhecer e valorizar a diversidade de textos religiosos",
-        "prompt": "Questão sobre Reconhecer e valorizar a diversidade de textos religiosos.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Reconhecer e valorizar a diversidade de textos religiosos.",
-        "skillId": "EF06ER02",
-        "questions": [
-          {
-            "question": "O que são valores universais no contexto das religiões?",
-            "options": [
-              {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
-              },
-              {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
-            "variants": [
-              {
-                "question": "O que é intolerância religiosa?",
-                "options": [
-                  {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
-                  },
-                  {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o diálogo inter-religioso é importante?",
-                "options": [
-                  {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
-                  },
-                  {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06ER02"
-          },
-          {
-            "question": "O que são valores universais no contexto das religiões?",
-            "options": [
-              {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
-              },
-              {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
-            "variants": [
-              {
-                "question": "O que é intolerância religiosa?",
-                "options": [
-                  {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
-                  },
-                  {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o diálogo inter-religioso é importante?",
-                "options": [
-                  {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
-                  },
-                  {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06ER02"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06ER02-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar com exercícios: Reconhecer e valorizar a diversidade de textos religiosos",
-        "prompt": "Questão sobre Reconhecer e valorizar a diversidade de textos religiosos.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Reconhecer e valorizar a diversidade de textos religiosos.",
-        "skillId": "EF06ER02",
-        "questions": [
-          {
-            "question": "No tema \"Reconhecer e valorizar a diversidade de textos religiosos\", o que é diversidade religiosa?",
-            "options": [
-              {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
-              },
-              {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
-            "variants": [
-              {
-                "question": "O que é laicidade do Estado?",
-                "options": [
-                  {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
-                  },
-                  {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é liberdade religiosa?",
-                "options": [
-                  {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
-                  },
-                  {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06ER02"
-          },
-          {
-            "question": "No tema \"Reconhecer e valorizar a diversidade de textos religiosos\", o que é diversidade religiosa?",
-            "options": [
-              {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
-              },
-              {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
-            "variants": [
-              {
-                "question": "O que é laicidade do Estado?",
-                "options": [
-                  {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
-                  },
-                  {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é liberdade religiosa?",
-                "options": [
-                  {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
-                  },
-                  {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06ER02"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06ER02-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar em situações reais: Reconhecer e valorizar a diversidade de textos religiosos",
-        "prompt": "Questão sobre Reconhecer e valorizar a diversidade de textos religiosos.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Reconhecer e valorizar a diversidade de textos religiosos.",
-        "skillId": "EF06ER02",
-        "questions": [
-          {
-            "question": "O que são valores universais no contexto das religiões?",
-            "options": [
-              {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
-              },
-              {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
-            "variants": [
-              {
-                "question": "O que é intolerância religiosa?",
-                "options": [
-                  {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
-                  },
-                  {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o diálogo inter-religioso é importante?",
-                "options": [
-                  {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
-                  },
-                  {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06ER02"
-          },
-          {
-            "question": "O que são valores universais no contexto das religiões?",
-            "options": [
-              {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
-              },
-              {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
-            "variants": [
-              {
-                "question": "O que é intolerância religiosa?",
-                "options": [
-                  {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
-                  },
-                  {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o diálogo inter-religioso é importante?",
-                "options": [
-                  {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
-                  },
-                  {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06ER02"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06ER02-A5",
-        "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Reconhecer e valorizar a diversidade de textos religiosos",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Reconhecer e valorizar a diversidade de textos religiosos.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Reconhecer e valorizar a diversidade de textos religiosos.",
-        "rubric": {
-          "criteria": [
-            "Menciona ao menos dois aspectos de Reconhecer e valorizar a diversidade de textos religiosos",
-            "Usa vocabulário adequado ao ano escolar"
-          ],
-          "minScore": 60
-        },
-        "skillId": "EF06ER02"
-      }
-    ]
-  },
-  {
-    "skillCode": "EF06ER04",
-    "title": "Trilha: Reconhecer que os textos escritos são utilizados (EF06ER04)",
     "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
-    "subjectCode": "ER",
-    "activities": [
-      {
-        "id": "PK-EF06ER04-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Reconhecer que os textos escritos são utilizados",
-        "prompt": "Questão sobre Reconhecer que os textos escritos são utilizados.",
-        "estMinutes": 4,
-        "audioScript": "Questão sobre Reconhecer que os textos escritos são utilizados.",
-        "skillId": "EF06ER04",
-        "questions": [
-          {
-            "question": "No tema \"Reconhecer que os textos escritos são utilizados\", o que é diversidade religiosa?",
-            "options": [
-              {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
-              },
-              {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
-            "variants": [
-              {
-                "question": "O que é laicidade do Estado?",
-                "options": [
-                  {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
-                  },
-                  {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é liberdade religiosa?",
-                "options": [
-                  {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
-                  },
-                  {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06ER04"
-          },
-          {
-            "question": "No tema \"Reconhecer que os textos escritos são utilizados\", o que é diversidade religiosa?",
-            "options": [
-              {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
-              },
-              {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
-            "variants": [
-              {
-                "question": "O que é laicidade do Estado?",
-                "options": [
-                  {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
-                  },
-                  {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é liberdade religiosa?",
-                "options": [
-                  {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
-                  },
-                  {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06ER04"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06ER04-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Reconhecer que os textos escritos são utilizados",
-        "prompt": "Questão sobre Reconhecer que os textos escritos são utilizados.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Reconhecer que os textos escritos são utilizados.",
-        "skillId": "EF06ER04",
-        "questions": [
-          {
-            "question": "O que são valores universais no contexto das religiões?",
-            "options": [
-              {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
-              },
-              {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
-            "variants": [
-              {
-                "question": "O que é intolerância religiosa?",
-                "options": [
-                  {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
-                  },
-                  {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o diálogo inter-religioso é importante?",
-                "options": [
-                  {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
-                  },
-                  {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06ER04"
-          },
-          {
-            "question": "O que são valores universais no contexto das religiões?",
-            "options": [
-              {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
-              },
-              {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
-            "variants": [
-              {
-                "question": "O que é intolerância religiosa?",
-                "options": [
-                  {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
-                  },
-                  {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o diálogo inter-religioso é importante?",
-                "options": [
-                  {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
-                  },
-                  {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06ER04"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06ER04-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar com exercícios: Reconhecer que os textos escritos são utilizados",
-        "prompt": "Questão sobre Reconhecer que os textos escritos são utilizados.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Reconhecer que os textos escritos são utilizados.",
-        "skillId": "EF06ER04",
-        "questions": [
-          {
-            "question": "No tema \"Reconhecer que os textos escritos são utilizados\", o que é diversidade religiosa?",
-            "options": [
-              {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
-              },
-              {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
-            "variants": [
-              {
-                "question": "O que é laicidade do Estado?",
-                "options": [
-                  {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
-                  },
-                  {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é liberdade religiosa?",
-                "options": [
-                  {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
-                  },
-                  {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06ER04"
-          },
-          {
-            "question": "No tema \"Reconhecer que os textos escritos são utilizados\", o que é diversidade religiosa?",
-            "options": [
-              {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
-              },
-              {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
-            "variants": [
-              {
-                "question": "O que é laicidade do Estado?",
-                "options": [
-                  {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
-                  },
-                  {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é liberdade religiosa?",
-                "options": [
-                  {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
-                  },
-                  {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06ER04"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06ER04-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar em situações reais: Reconhecer que os textos escritos são utilizados",
-        "prompt": "Questão sobre Reconhecer que os textos escritos são utilizados.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Reconhecer que os textos escritos são utilizados.",
-        "skillId": "EF06ER04",
-        "questions": [
-          {
-            "question": "O que são valores universais no contexto das religiões?",
-            "options": [
-              {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
-              },
-              {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
-            "variants": [
-              {
-                "question": "O que é intolerância religiosa?",
-                "options": [
-                  {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
-                  },
-                  {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o diálogo inter-religioso é importante?",
-                "options": [
-                  {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
-                  },
-                  {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06ER04"
-          },
-          {
-            "question": "O que são valores universais no contexto das religiões?",
-            "options": [
-              {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
-              },
-              {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
-              },
-              {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
-            "variants": [
-              {
-                "question": "O que é intolerância religiosa?",
-                "options": [
-                  {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
-                  },
-                  {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o diálogo inter-religioso é importante?",
-                "options": [
-                  {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
-                  },
-                  {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
-                  },
-                  {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06ER04"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06ER04-A5",
-        "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Reconhecer que os textos escritos são utilizados",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Reconhecer que os textos escritos são utilizados.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Reconhecer que os textos escritos são utilizados.",
-        "rubric": {
-          "criteria": [
-            "Menciona ao menos dois aspectos de Reconhecer que os textos escritos são utilizados",
-            "Usa vocabulário adequado ao ano escolar"
-          ],
-          "minScore": 60
-        },
-        "skillId": "EF06ER04"
-      }
-    ]
+    "status": "APPROVED"
   },
   {
     "skillCode": "EF06ER07",
-    "title": "Trilha: rito e símbolo (EF06ER07)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
     "subjectCode": "ER",
+    "subjectName": "Ensino Religioso",
+    "gradeYear": 6,
+    "version": 2,
+    "title": "Trilha: Mito, rito e símbolo",
+    "tituloAluno": "Mitos, ritos e símbolos nas celebrações",
     "activities": [
       {
-        "id": "PK-EF06ER07-A1",
+        "id": "PK2-EF06ER07-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: rito e símbolo",
-        "prompt": "Questão sobre rito e símbolo.",
+        "title": "Relembrar: o que é mito",
+        "prompt": "Vamos lembrar o que é um mito no estudo das religiões.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre rito e símbolo.",
-        "skillId": "EF06ER07",
+        "audioScript": "Vamos lembrar o que é um mito no estudo das religiões. Pergunta 1. No estudo das religiões, mito é: A: Uma celebração com gestos e cantos; B: Uma narrativa sagrada; C: Um objeto sagrado; D: Uma mentira. Pergunta 2. Os mitos de criação explicam: A: Como fazer uma celebração; B: O desenho de um símbolo; C: Nada; D: A origem do mundo, da natureza ou do ser humano. Pergunta 3. Diferentes tradições têm mitos diferentes? A: Sim, cada tradição tem as suas narrativas; B: Não, todas têm o mesmo mito; C: Não, mito é só de uma cultura; D: Mito é o mesmo que rito.",
         "questions": [
           {
-            "question": "No tema \"rito e símbolo\", o que é diversidade religiosa?",
+            "question": "No estudo das religiões, mito é:",
             "options": [
               {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
+                "text": "Uma celebração com gestos e cantos",
+                "misconceptionCode": "rito-mito"
               },
               {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Uma narrativa sagrada"
               },
               {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Um objeto sagrado",
+                "misconceptionCode": "simbolo-objeto"
               },
               {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Uma mentira",
+                "misconceptionCode": "rito-sem-relacao"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
+            "correctIndex": 1,
+            "explanation": "Mito é a narrativa; o rito é a celebração; o símbolo é o sinal.",
             "variants": [
               {
-                "question": "O que é laicidade do Estado?",
+                "question": "Uma narrativa sagrada sobre a origem do mundo é:",
                 "options": [
                   {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
+                    "text": "Um rito",
+                    "misconceptionCode": "rito-mito"
                   },
                   {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Um símbolo",
+                    "misconceptionCode": "simbolo-objeto"
                   },
                   {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Uma lei",
+                    "misconceptionCode": "rito-sem-relacao"
                   },
                   {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Um mito"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "O que é liberdade religiosa?",
+                "question": "No estudo das religiões, mito é:",
                 "options": [
                   {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
+                    "text": "Uma mentira",
+                    "misconceptionCode": "rito-sem-relacao"
                   },
                   {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Um objeto sagrado",
+                    "misconceptionCode": "simbolo-objeto"
                   },
                   {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Uma narrativa sagrada"
                   },
                   {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Uma celebração com gestos e cantos",
+                    "misconceptionCode": "rito-mito"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF06ER07"
+            ]
           },
           {
-            "question": "No tema \"rito e símbolo\", o que é diversidade religiosa?",
+            "question": "Os mitos de criação explicam:",
             "options": [
               {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
+                "text": "Como fazer uma celebração",
+                "misconceptionCode": "rito-mito"
               },
               {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
+                "text": "O desenho de um símbolo",
+                "misconceptionCode": "simbolo-objeto"
               },
               {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Nada",
+                "misconceptionCode": "rito-sem-relacao"
               },
               {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
+                "text": "A origem do mundo, da natureza ou do ser humano"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Eles dão sentido à origem das coisas.",
+            "variants": [
+              {
+                "question": "Uma narrativa que conta como surgiram as estrelas é um mito:",
+                "options": [
+                  {
+                    "text": "De rito",
+                    "misconceptionCode": "rito-mito"
+                  },
+                  {
+                    "text": "De criação"
+                  },
+                  {
+                    "text": "De símbolo",
+                    "misconceptionCode": "simbolo-objeto"
+                  },
+                  {
+                    "text": "Científico",
+                    "misconceptionCode": "rito-sem-relacao"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Os mitos de criação explicam:",
+                "options": [
+                  {
+                    "text": "A origem do mundo, da natureza ou do ser humano"
+                  },
+                  {
+                    "text": "Nada",
+                    "misconceptionCode": "rito-sem-relacao"
+                  },
+                  {
+                    "text": "O desenho de um símbolo",
+                    "misconceptionCode": "simbolo-objeto"
+                  },
+                  {
+                    "text": "Como fazer uma celebração",
+                    "misconceptionCode": "rito-mito"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "Diferentes tradições têm mitos diferentes?",
+            "options": [
+              {
+                "text": "Sim, cada tradição tem as suas narrativas"
+              },
+              {
+                "text": "Não, todas têm o mesmo mito",
+                "misconceptionCode": "simbolo-trocado"
+              },
+              {
+                "text": "Não, mito é só de uma cultura",
+                "misconceptionCode": "simbolo-trocado"
+              },
+              {
+                "text": "Mito é o mesmo que rito",
+                "misconceptionCode": "rito-mito"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
+            "explanation": "A diversidade de narrativas acompanha a diversidade de povos.",
             "variants": [
               {
-                "question": "O que é laicidade do Estado?",
+                "question": "As narrativas sagradas do mundo são:",
                 "options": [
                   {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
+                    "text": "Todas iguais",
+                    "misconceptionCode": "simbolo-trocado"
                   },
                   {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "De um só povo",
+                    "misconceptionCode": "simbolo-trocado"
                   },
                   {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Muito diversas"
                   },
                   {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "O mesmo que ritos",
+                    "misconceptionCode": "rito-mito"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "O que é liberdade religiosa?",
+                "question": "Diferentes tradições têm mitos diferentes?",
                 "options": [
                   {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
+                    "text": "Mito é o mesmo que rito",
+                    "misconceptionCode": "rito-mito"
                   },
                   {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Sim, cada tradição tem as suas narrativas"
                   },
                   {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Não, mito é só de uma cultura",
+                    "misconceptionCode": "simbolo-trocado"
                   },
                   {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Não, todas têm o mesmo mito",
+                    "misconceptionCode": "simbolo-trocado"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06ER07"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06ER07-A2",
+        "id": "PK2-EF06ER07-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: rito e símbolo",
-        "prompt": "Questão sobre rito e símbolo.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre rito e símbolo.",
-        "skillId": "EF06ER07",
+        "title": "Exemplo guiado: rito e símbolo",
+        "prompt": "Rito é uma ação celebrativa repetida, com gestos, palavras, músicas e comidas. Símbolo é um sinal que representa algo importante para uma tradição. Vamos ver juntos.",
+        "estMinutes": 4,
+        "audioScript": "Rito é uma ação celebrativa repetida, com gestos, palavras, músicas e comidas. Símbolo é um sinal que representa algo importante para uma tradição. Vamos ver juntos. Pergunta 1. Um casamento celebrado numa igreja, num templo ou num terreiro é um exemplo de: A: Mito; B: Símbolo apenas; C: Algo sem relação com a tradição; D: Rito. Pergunta 2. A cruz, para os cristãos, é: A: Um símbolo; B: Um rito; C: Só um objeto de madeira, sem significado; D: Um símbolo do judaísmo. Pergunta 3. Na Páscoa cristã, a celebração relembra a narrativa da ressurreição de Jesus. Isso mostra que: A: Rito e narrativa não têm relação; B: A Páscoa é um símbolo; C: O rito pode relembrar um mito, uma narrativa sagrada; D: A Páscoa é só judaica.",
         "questions": [
           {
-            "question": "O que são valores universais no contexto das religiões?",
+            "question": "Um casamento celebrado numa igreja, num templo ou num terreiro é um exemplo de:",
             "options": [
               {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
+                "text": "Mito",
+                "misconceptionCode": "rito-mito"
               },
               {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Símbolo apenas",
+                "misconceptionCode": "simbolo-objeto"
               },
               {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Algo sem relação com a tradição",
+                "misconceptionCode": "rito-sem-relacao"
               },
               {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Rito"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
+            "correctIndex": 3,
+            "explanation": "É uma celebração com gestos e palavras que se repetem: um rito.",
             "variants": [
               {
-                "question": "O que é intolerância religiosa?",
+                "question": "Uma cerimônia de batizado é um exemplo de:",
                 "options": [
                   {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
+                    "text": "Mito",
+                    "misconceptionCode": "rito-mito"
                   },
                   {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Rito"
                   },
                   {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Símbolo apenas",
+                    "misconceptionCode": "simbolo-objeto"
                   },
                   {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Narrativa",
+                    "misconceptionCode": "rito-sem-relacao"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "Por que o diálogo inter-religioso é importante?",
+                "question": "Um casamento celebrado numa igreja, num templo ou num terreiro é um exemplo de:",
                 "options": [
                   {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
+                    "text": "Rito"
                   },
                   {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Algo sem relação com a tradição",
+                    "misconceptionCode": "rito-sem-relacao"
                   },
                   {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Símbolo apenas",
+                    "misconceptionCode": "simbolo-objeto"
                   },
                   {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Mito",
+                    "misconceptionCode": "rito-mito"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06ER07"
+            ]
           },
           {
-            "question": "O que são valores universais no contexto das religiões?",
+            "question": "A cruz, para os cristãos, é:",
             "options": [
               {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
+                "text": "Um símbolo"
               },
               {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Um rito",
+                "misconceptionCode": "rito-mito"
               },
               {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Só um objeto de madeira, sem significado",
+                "misconceptionCode": "simbolo-objeto"
               },
               {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Um símbolo do judaísmo",
+                "misconceptionCode": "simbolo-trocado"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
+            "explanation": "A cruz representa a fé cristã; não é só um objeto.",
             "variants": [
               {
-                "question": "O que é intolerância religiosa?",
+                "question": "A estrela de Davi é um símbolo ligado:",
                 "options": [
                   {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
+                    "text": "Ao budismo",
+                    "misconceptionCode": "rito-mito"
                   },
                   {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Ao islamismo",
+                    "misconceptionCode": "simbolo-objeto"
                   },
                   {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Ao judaísmo"
                   },
                   {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Ao hinduísmo",
+                    "misconceptionCode": "simbolo-trocado"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "A cruz, para os cristãos, é:",
+                "options": [
+                  {
+                    "text": "Um símbolo do judaísmo",
+                    "misconceptionCode": "simbolo-trocado"
+                  },
+                  {
+                    "text": "Um símbolo"
+                  },
+                  {
+                    "text": "Só um objeto de madeira, sem significado",
+                    "misconceptionCode": "simbolo-objeto"
+                  },
+                  {
+                    "text": "Um rito",
+                    "misconceptionCode": "rito-mito"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Na Páscoa cristã, a celebração relembra a narrativa da ressurreição de Jesus. Isso mostra que:",
+            "options": [
+              {
+                "text": "Rito e narrativa não têm relação",
+                "misconceptionCode": "rito-sem-relacao"
+              },
+              {
+                "text": "A Páscoa é um símbolo",
+                "misconceptionCode": "simbolo-objeto"
+              },
+              {
+                "text": "O rito pode relembrar um mito, uma narrativa sagrada"
+              },
+              {
+                "text": "A Páscoa é só judaica",
+                "misconceptionCode": "simbolo-trocado"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "Muitos ritos atualizam ou relembram narrativas sagradas.",
+            "variants": [
+              {
+                "question": "No Pessach, a Páscoa judaica, as famílias relembram a narrativa da saída do Egito. Isso mostra:",
+                "options": [
+                  {
+                    "text": "Um rito ligado a uma narrativa sagrada"
+                  },
+                  {
+                    "text": "Um rito sem relação com narrativa",
+                    "misconceptionCode": "rito-sem-relacao"
+                  },
+                  {
+                    "text": "Um símbolo sem sentido",
+                    "misconceptionCode": "simbolo-objeto"
+                  },
+                  {
+                    "text": "Uma festa cristã",
+                    "misconceptionCode": "simbolo-trocado"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que o diálogo inter-religioso é importante?",
+                "question": "Na Páscoa cristã, a celebração relembra a narrativa da ressurreição de Jesus. Isso mostra que:",
                 "options": [
                   {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
+                    "text": "A Páscoa é só judaica",
+                    "misconceptionCode": "simbolo-trocado"
                   },
                   {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "A Páscoa é um símbolo",
+                    "misconceptionCode": "simbolo-objeto"
                   },
                   {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Rito e narrativa não têm relação",
+                    "misconceptionCode": "rito-sem-relacao"
                   },
                   {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "O rito pode relembrar um mito, uma narrativa sagrada"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06ER07"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06ER07-A3",
+        "id": "PK2-EF06ER07-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: rito e símbolo",
-        "prompt": "Questão sobre rito e símbolo.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre rito e símbolo.",
-        "skillId": "EF06ER07",
+        "title": "Praticar: mito, rito e símbolo juntos",
+        "prompt": "Classifique e relacione mito, rito e símbolo.",
+        "estMinutes": 5,
+        "audioScript": "Classifique e relacione mito, rito e símbolo. Pergunta 1. Acender velas durante o Hanucá, festa judaica, é: A: Um rito com símbolos; B: Um mito; C: Algo sem relação com a tradição; D: Uma festa cristã. Pergunta 2. O jejum durante o Ramadã é uma prática: A: Do budismo; B: Do hinduísmo; C: Do islamismo; D: Que não é rito. Pergunta 3. Por que se diz que o símbolo não é só um objeto? A: Porque é sempre caro; B: Porque representa algo sagrado e cheio de significado para o grupo; C: Porque é um rito; D: Porque é igual em todas as tradições. Pergunta 4. A roda do Dharma é um símbolo ligado: A: Ao cristianismo; B: Ao judaísmo; C: Ao islamismo; D: Ao budismo.",
         "questions": [
           {
-            "question": "No tema \"rito e símbolo\", o que é diversidade religiosa?",
+            "question": "Acender velas durante o Hanucá, festa judaica, é:",
             "options": [
               {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
+                "text": "Um rito com símbolos"
               },
               {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Um mito",
+                "misconceptionCode": "rito-mito"
               },
               {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Algo sem relação com a tradição",
+                "misconceptionCode": "rito-sem-relacao"
               },
               {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Uma festa cristã",
+                "misconceptionCode": "simbolo-trocado"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
+            "explanation": "Acender as velas é a ação do rito; as luzes são símbolos.",
             "variants": [
               {
-                "question": "O que é laicidade do Estado?",
+                "question": "No Diwali, festa hindu das luzes, acender lamparinas é:",
                 "options": [
                   {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
+                    "text": "Um mito",
+                    "misconceptionCode": "rito-mito"
                   },
                   {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Uma festa islâmica",
+                    "misconceptionCode": "rito-sem-relacao"
                   },
                   {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Um rito com símbolos"
                   },
                   {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Algo sem sentido",
+                    "misconceptionCode": "simbolo-trocado"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "O que é liberdade religiosa?",
+                "question": "Acender velas durante o Hanucá, festa judaica, é:",
                 "options": [
                   {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
+                    "text": "Uma festa cristã",
+                    "misconceptionCode": "simbolo-trocado"
                   },
                   {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Um rito com símbolos"
                   },
                   {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Algo sem relação com a tradição",
+                    "misconceptionCode": "rito-sem-relacao"
                   },
                   {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Um mito",
+                    "misconceptionCode": "rito-mito"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06ER07"
+            ]
           },
           {
-            "question": "No tema \"rito e símbolo\", o que é diversidade religiosa?",
+            "question": "O jejum durante o Ramadã é uma prática:",
             "options": [
               {
-                "text": "A existência de diferentes crenças, práticas e tradições espirituais no mundo"
+                "text": "Do budismo",
+                "misconceptionCode": "simbolo-trocado"
               },
               {
-                "text": "Apenas as religiões mais antigas",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Do hinduísmo",
+                "misconceptionCode": "simbolo-trocado"
               },
               {
-                "text": "A ausência de religião",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Do islamismo"
               },
               {
-                "text": "Somente o cristianismo e o islamismo",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Que não é rito",
+                "misconceptionCode": "rito-mito"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Diversidade religiosa reconhece e respeita todas as formas de crença e espiritualidade.",
+            "correctIndex": 2,
+            "explanation": "O Ramadã é o mês sagrado de jejum para os muçulmanos.",
             "variants": [
               {
-                "question": "O que é laicidade do Estado?",
+                "question": "Os muçulmanos fazem jejum durante o mês do:",
                 "options": [
                   {
-                    "text": "Separação entre o Estado e as instituições religiosas, garantindo liberdade de crença"
+                    "text": "Ramadã"
                   },
                   {
-                    "text": "Proibição de qualquer religião",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Diwali",
+                    "misconceptionCode": "simbolo-trocado"
                   },
                   {
-                    "text": "Adoção de uma religião oficial pelo governo",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Hanucá",
+                    "misconceptionCode": "simbolo-trocado"
                   },
                   {
-                    "text": "Obrigação de seguir uma tradição espiritual",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Natal",
+                    "misconceptionCode": "rito-mito"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que é liberdade religiosa?",
+                "question": "O jejum durante o Ramadã é uma prática:",
                 "options": [
                   {
-                    "text": "O direito de cada pessoa escolher, praticar ou não ter religião, sem discriminação"
+                    "text": "Que não é rito",
+                    "misconceptionCode": "rito-mito"
                   },
                   {
-                    "text": "A obrigação de seguir a religião dos pais",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Do hinduísmo",
+                    "misconceptionCode": "simbolo-trocado"
                   },
                   {
-                    "text": "Mudar de crença é proibido",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Do budismo",
+                    "misconceptionCode": "simbolo-trocado"
                   },
                   {
-                    "text": "Liberdade só para religiões antigas",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Do islamismo"
+                  }
+                ],
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "Por que se diz que o símbolo não é só um objeto?",
+            "options": [
+              {
+                "text": "Porque é sempre caro",
+                "misconceptionCode": "simbolo-objeto"
+              },
+              {
+                "text": "Porque representa algo sagrado e cheio de significado para o grupo"
+              },
+              {
+                "text": "Porque é um rito",
+                "misconceptionCode": "rito-mito"
+              },
+              {
+                "text": "Porque é igual em todas as tradições",
+                "misconceptionCode": "simbolo-trocado"
+              }
+            ],
+            "correctIndex": 1,
+            "explanation": "O valor do símbolo está no que ele representa.",
+            "variants": [
+              {
+                "question": "Uma vela acesa numa celebração pode representar:",
+                "options": [
+                  {
+                    "text": "Só que ficou escuro",
+                    "misconceptionCode": "simbolo-objeto"
+                  },
+                  {
+                    "text": "Nada",
+                    "misconceptionCode": "rito-mito"
+                  },
+                  {
+                    "text": "O preço da vela",
+                    "misconceptionCode": "simbolo-trocado"
+                  },
+                  {
+                    "text": "Luz, fé ou esperança para aquela tradição"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Por que se diz que o símbolo não é só um objeto?",
+                "options": [
+                  {
+                    "text": "Porque é igual em todas as tradições",
+                    "misconceptionCode": "simbolo-trocado"
+                  },
+                  {
+                    "text": "Porque é um rito",
+                    "misconceptionCode": "rito-mito"
+                  },
+                  {
+                    "text": "Porque representa algo sagrado e cheio de significado para o grupo"
+                  },
+                  {
+                    "text": "Porque é sempre caro",
+                    "misconceptionCode": "simbolo-objeto"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "A roda do Dharma é um símbolo ligado:",
+            "options": [
+              {
+                "text": "Ao cristianismo",
+                "misconceptionCode": "simbolo-trocado"
+              },
+              {
+                "text": "Ao judaísmo",
+                "misconceptionCode": "simbolo-trocado"
+              },
+              {
+                "text": "Ao islamismo",
+                "misconceptionCode": "simbolo-trocado"
+              },
+              {
+                "text": "Ao budismo"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "A roda representa os ensinamentos de Buda.",
+            "variants": [
+              {
+                "question": "O símbolo Om é muito importante:",
+                "options": [
+                  {
+                    "text": "No islamismo",
+                    "misconceptionCode": "simbolo-trocado"
+                  },
+                  {
+                    "text": "No hinduísmo"
+                  },
+                  {
+                    "text": "No judaísmo",
+                    "misconceptionCode": "simbolo-trocado"
+                  },
+                  {
+                    "text": "No cristianismo",
+                    "misconceptionCode": "simbolo-trocado"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "A roda do Dharma é um símbolo ligado:",
+                "options": [
+                  {
+                    "text": "Ao budismo"
+                  },
+                  {
+                    "text": "Ao islamismo",
+                    "misconceptionCode": "simbolo-trocado"
+                  },
+                  {
+                    "text": "Ao judaísmo",
+                    "misconceptionCode": "simbolo-trocado"
+                  },
+                  {
+                    "text": "Ao cristianismo",
+                    "misconceptionCode": "simbolo-trocado"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06ER07"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06ER07-A4",
+        "id": "PK2-EF06ER07-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: rito e símbolo",
-        "prompt": "Questão sobre rito e símbolo.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre rito e símbolo.",
-        "skillId": "EF06ER07",
+        "title": "Aplicar: celebrações perto de você",
+        "prompt": "Pense nas celebrações que você conhece.",
+        "estMinutes": 4,
+        "audioScript": "Pense nas celebrações que você conhece. Pergunta 1. Numa festa de aniversário, soprar as velas do bolo é um gesto que se repete todo ano. Ele se parece com um rito porque: A: É uma narrativa; B: É só um objeto; C: É uma ação repetida, com gestos e significado; D: Não tem nenhum significado. Pergunta 2. Na feira cultural, um colega explica um símbolo da tradição da família dele. Qual atitude é adequada? A: Dizer que é só um objeto sem valor; B: Ouvir e perguntar com respeito; C: Dizer que é de outra religião sem saber; D: Rir. Pergunta 3. Qual opção relaciona corretamente mito, rito e símbolo? A: O mito é a vela, o rito é a narrativa; B: Os símbolos não têm relação com os ritos; C: O símbolo é só um enfeite; D: Uma narrativa sagrada é relembrada numa celebração que usa velas e cantos.",
         "questions": [
           {
-            "question": "O que são valores universais no contexto das religiões?",
+            "question": "Numa festa de aniversário, soprar as velas do bolo é um gesto que se repete todo ano. Ele se parece com um rito porque:",
             "options": [
               {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
+                "text": "É uma narrativa",
+                "misconceptionCode": "rito-mito"
               },
               {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
+                "text": "É só um objeto",
+                "misconceptionCode": "simbolo-objeto"
               },
               {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
+                "text": "É uma ação repetida, com gestos e significado"
               },
               {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Não tem nenhum significado",
+                "misconceptionCode": "rito-sem-relacao"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
+            "correctIndex": 2,
+            "explanation": "Ritos são ações repetidas com significado; nem todo rito é religioso.",
             "variants": [
               {
-                "question": "O que é intolerância religiosa?",
+                "question": "Cantar parabéns todo ano é parecido com um rito porque:",
                 "options": [
                   {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
+                    "text": "É uma ação que se repete e tem significado"
                   },
                   {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "É um mito",
+                    "misconceptionCode": "rito-mito"
                   },
                   {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "É um símbolo",
+                    "misconceptionCode": "simbolo-objeto"
                   },
                   {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Não tem significado",
+                    "misconceptionCode": "rito-sem-relacao"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que o diálogo inter-religioso é importante?",
+                "question": "Numa festa de aniversário, soprar as velas do bolo é um gesto que se repete todo ano. Ele se parece com um rito porque:",
                 "options": [
                   {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
+                    "text": "Não tem nenhum significado",
+                    "misconceptionCode": "rito-sem-relacao"
                   },
                   {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "É só um objeto",
+                    "misconceptionCode": "simbolo-objeto"
                   },
                   {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "É uma narrativa",
+                    "misconceptionCode": "rito-mito"
                   },
                   {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "É uma ação repetida, com gestos e significado"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06ER07"
+            ]
           },
           {
-            "question": "O que são valores universais no contexto das religiões?",
+            "question": "Na feira cultural, um colega explica um símbolo da tradição da família dele. Qual atitude é adequada?",
             "options": [
               {
-                "text": "Princípios como amor, respeito, justiça e solidariedade presentes em diversas tradições"
+                "text": "Dizer que é só um objeto sem valor",
+                "misconceptionCode": "simbolo-objeto"
               },
               {
-                "text": "Regras específicas de uma só religião",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Ouvir e perguntar com respeito"
               },
               {
-                "text": "Leis governamentais",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Dizer que é de outra religião sem saber",
+                "misconceptionCode": "simbolo-trocado"
               },
               {
-                "text": "Apenas mandamentos escritos",
-                "misconceptionCode": "er-so-religiao"
+                "text": "Rir",
+                "misconceptionCode": "rito-sem-relacao"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Valores como amor e respeito aparecem em múltiplas tradições religiosas e espirituais.",
+            "correctIndex": 1,
+            "explanation": "Respeito à diversidade religiosa é um valor importante.",
             "variants": [
               {
-                "question": "O que é intolerância religiosa?",
+                "question": "Se não souber o que um símbolo representa, você deve:",
                 "options": [
                   {
-                    "text": "Desrespeito, discriminação ou violência contra pessoas por suas crenças"
+                    "text": "Inventar",
+                    "misconceptionCode": "simbolo-objeto"
                   },
                   {
-                    "text": "Preferir uma religião às outras",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Rir",
+                    "misconceptionCode": "simbolo-trocado"
                   },
                   {
-                    "text": "Não ter religião alguma",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Dizer que não vale nada",
+                    "misconceptionCode": "rito-sem-relacao"
                   },
                   {
-                    "text": "Estudar religiões diferentes da sua",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Perguntar com respeito"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "Por que o diálogo inter-religioso é importante?",
+                "question": "Na feira cultural, um colega explica um símbolo da tradição da família dele. Qual atitude é adequada?",
                 "options": [
                   {
-                    "text": "Promove entendimento, respeito e paz entre pessoas de diferentes crenças"
+                    "text": "Rir",
+                    "misconceptionCode": "rito-sem-relacao"
                   },
                   {
-                    "text": "Porque prova que uma religião é melhor",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Dizer que é de outra religião sem saber",
+                    "misconceptionCode": "simbolo-trocado"
                   },
                   {
-                    "text": "Para eliminar diferenças",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Ouvir e perguntar com respeito"
                   },
                   {
-                    "text": "Não tem importância prática",
-                    "misconceptionCode": "er-so-religiao"
+                    "text": "Dizer que é só um objeto sem valor",
+                    "misconceptionCode": "simbolo-objeto"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "Qual opção relaciona corretamente mito, rito e símbolo?",
+            "options": [
+              {
+                "text": "O mito é a vela, o rito é a narrativa",
+                "misconceptionCode": "rito-mito"
+              },
+              {
+                "text": "Os símbolos não têm relação com os ritos",
+                "misconceptionCode": "rito-sem-relacao"
+              },
+              {
+                "text": "O símbolo é só um enfeite",
+                "misconceptionCode": "simbolo-objeto"
+              },
+              {
+                "text": "Uma narrativa sagrada é relembrada numa celebração que usa velas e cantos"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "O mito dá sentido, o rito celebra e os símbolos expressam.",
+            "variants": [
+              {
+                "question": "Numa celebração, a narrativa contada, os gestos e a luz das velas são:",
+                "options": [
+                  {
+                    "text": "Rito, mito e símbolo, nessa ordem",
+                    "misconceptionCode": "rito-mito"
+                  },
+                  {
+                    "text": "Mito, rito e símbolo"
+                  },
+                  {
+                    "text": "Só símbolos",
+                    "misconceptionCode": "rito-sem-relacao"
+                  },
+                  {
+                    "text": "Nada relacionado",
+                    "misconceptionCode": "simbolo-objeto"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Qual opção relaciona corretamente mito, rito e símbolo?",
+                "options": [
+                  {
+                    "text": "Uma narrativa sagrada é relembrada numa celebração que usa velas e cantos"
+                  },
+                  {
+                    "text": "O símbolo é só um enfeite",
+                    "misconceptionCode": "simbolo-objeto"
+                  },
+                  {
+                    "text": "Os símbolos não têm relação com os ritos",
+                    "misconceptionCode": "rito-sem-relacao"
+                  },
+                  {
+                    "text": "O mito é a vela, o rito é a narrativa",
+                    "misconceptionCode": "rito-mito"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06ER07"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06ER07-A5",
+        "id": "PK2-EF06ER07-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: rito e símbolo",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre rito e símbolo.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre rito e símbolo.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: mito, rito e símbolo",
+        "prompt": "Explique com as suas palavras o que é mito, o que é rito e o que é símbolo. Dê um exemplo que mostre os três juntos, de qualquer tradição.",
+        "estMinutes": 6,
+        "audioScript": "Explique com as suas palavras o que é mito, o que é rito e o que é símbolo. Dê um exemplo que mostre os três juntos, de qualquer tradição.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de rito e símbolo",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "define-tres",
+              "description": "Define corretamente mito, rito e símbolo"
+            },
+            {
+              "code": "relacao",
+              "description": "Mostra a relação entre eles numa celebração"
+            },
+            {
+              "code": "respeito",
+              "description": "Fala da tradição com respeito"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF06ER07"
+          "exemploBoaResposta": "Mito é uma narrativa sagrada, rito é a celebração com gestos que se repetem e símbolo é um sinal que representa algo sagrado. Por exemplo, no Hanucá, as famílias judaicas relembram uma narrativa da sua tradição e acendem velas: a narrativa é o mito, acender as velas é o rito e a luz é o símbolo."
+        }
       }
-    ]
+    ],
+    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
+    "source": "SPEAKFLOW",
+    "status": "APPROVED"
   }
 ]

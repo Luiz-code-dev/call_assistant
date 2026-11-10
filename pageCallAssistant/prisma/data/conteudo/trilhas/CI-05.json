@@ -1,2450 +1,1890 @@
 [
   {
     "skillCode": "EF05CI01",
-    "title": "Trilha: Explorar fenômenos da vida cotidiana que evidenciem (EF05CI01)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 5,
     "subjectCode": "CI",
+    "subjectName": "Ciências",
+    "gradeYear": 5,
+    "version": 2,
+    "title": "Trilha: Propriedades dos materiais",
+    "tituloAluno": "Do que as coisas são feitas e como se comportam",
     "activities": [
       {
-        "id": "PK-EF05CI01-A1",
+        "id": "PK2-EF05CI01-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Explorar fenômenos da vida cotidiana que evidenciem",
-        "prompt": "Questão sobre Explorar fenômenos da vida cotidiana que evidenciem.",
+        "title": "Relembrar: materiais do dia a dia",
+        "prompt": "As coisas ao nosso redor são feitas de materiais diferentes: metal, plástico, madeira, vidro, borracha.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre Explorar fenômenos da vida cotidiana que evidenciem.",
-        "skillId": "EF05CI01",
+        "audioScript": "As coisas ao nosso redor são feitas de materiais diferentes: metal, plástico, madeira, vidro, borracha. Pergunta 1. De que material costuma ser feita uma panela? A: Metal; B: Papel; C: Lã; D: Isopor. Pergunta 2. Por que o fio elétrico tem uma capa de plástico? A: Porque o plástico deixa o fio mais bonito; B: Porque o plástico conduz a eletricidade; C: Porque o plástico não deixa a eletricidade passar e protege as pessoas; D: Porque o plástico esquenta o fio. Pergunta 3. O que um ímã atrai? A: Qualquer metal; B: Alguns metais, como o ferro; C: Madeira e plástico; D: Tudo o que é pesado.",
         "questions": [
           {
-            "question": "Qual das opções descreve corretamente o tema \"Explorar fenômenos da vida cotidiana que evidenciem\" para o 5º ano?",
+            "question": "De que material costuma ser feita uma panela?",
             "options": [
               {
-                "text": "É um conceito central de Ciências do 5º ano que explica fenômenos naturais observáveis"
+                "text": "Metal"
               },
               {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
+                "text": "Papel",
+                "misconceptionCode": "propriedade-trocada"
               },
               {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Lã",
+                "misconceptionCode": "propriedade-trocada"
               },
               {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
+                "text": "Isopor",
+                "misconceptionCode": "propriedade-trocada"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Explorar fenômenos da vida cotidiana que evidenciem é um conteúdo fundamental de Ciências do 5º ano conforme a BNCC.",
+            "explanation": "A panela é de metal porque ele aguenta o fogo e conduz bem o calor até a comida.",
             "variants": [
               {
-                "question": "Em qual etapa da BNCC encontramos \"Explorar fenômenos da vida cotidiana que evidenciem\"?",
+                "question": "De que material costuma ser feito o cabo da panela?",
                 "options": [
                   {
-                    "text": "5º ano do Ensino Fundamental"
+                    "text": "Metal fino",
+                    "misconceptionCode": "propriedade-trocada"
                   },
                   {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Papel",
+                    "misconceptionCode": "propriedade-trocada"
                   },
                   {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Plástico duro ou madeira"
                   },
                   {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Vidro",
+                    "misconceptionCode": "propriedade-trocada"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "Por que \"Explorar fenômenos da vida cotidiana que evidenciem\" é importante de aprender no 5º ano?",
+                "question": "De que material costuma ser feita uma panela?",
                 "options": [
                   {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
+                    "text": "Isopor",
+                    "misconceptionCode": "propriedade-trocada"
                   },
                   {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Metal"
                   },
                   {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Lã",
+                    "misconceptionCode": "propriedade-trocada"
                   },
                   {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Papel",
+                    "misconceptionCode": "propriedade-trocada"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF05CI01"
+            ]
           },
           {
-            "question": "Qual das opções descreve corretamente o tema \"Explorar fenômenos da vida cotidiana que evidenciem\" para o 5º ano?",
+            "question": "Por que o fio elétrico tem uma capa de plástico?",
             "options": [
               {
-                "text": "É um conceito central de Ciências do 5º ano que explica fenômenos naturais observáveis"
+                "text": "Porque o plástico deixa o fio mais bonito",
+                "misconceptionCode": "propriedade-trocada"
               },
               {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
+                "text": "Porque o plástico conduz a eletricidade",
+                "misconceptionCode": "propriedade-trocada"
               },
               {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Porque o plástico não deixa a eletricidade passar e protege as pessoas"
               },
               {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
+                "text": "Porque o plástico esquenta o fio",
+                "misconceptionCode": "frio-e-material"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Explorar fenômenos da vida cotidiana que evidenciem é um conteúdo fundamental de Ciências do 5º ano conforme a BNCC.",
+            "correctIndex": 2,
+            "explanation": "O plástico é isolante: ele não conduz eletricidade. Por isso protege quem encosta no fio.",
             "variants": [
               {
-                "question": "Em qual etapa da BNCC encontramos \"Explorar fenômenos da vida cotidiana que evidenciem\"?",
+                "question": "Por que as ferramentas de eletricista têm cabo de borracha?",
                 "options": [
                   {
-                    "text": "5º ano do Ensino Fundamental"
+                    "text": "Porque a borracha não conduz eletricidade"
                   },
                   {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Porque a borracha é mais pesada",
+                    "misconceptionCode": "propriedade-trocada"
                   },
                   {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Porque a borracha atrai ímã",
+                    "misconceptionCode": "propriedade-trocada"
                   },
                   {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Porque a borracha esquenta",
+                    "misconceptionCode": "frio-e-material"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que \"Explorar fenômenos da vida cotidiana que evidenciem\" é importante de aprender no 5º ano?",
+                "question": "Por que o fio elétrico tem uma capa de plástico?",
                 "options": [
                   {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
+                    "text": "Porque o plástico esquenta o fio",
+                    "misconceptionCode": "frio-e-material"
                   },
                   {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Porque o plástico conduz a eletricidade",
+                    "misconceptionCode": "propriedade-trocada"
                   },
                   {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Porque o plástico deixa o fio mais bonito",
+                    "misconceptionCode": "propriedade-trocada"
                   },
                   {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Porque o plástico não deixa a eletricidade passar e protege as pessoas"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "O que um ímã atrai?",
+            "options": [
+              {
+                "text": "Qualquer metal",
+                "misconceptionCode": "todo-metal-ima"
+              },
+              {
+                "text": "Alguns metais, como o ferro"
+              },
+              {
+                "text": "Madeira e plástico",
+                "misconceptionCode": "propriedade-trocada"
+              },
+              {
+                "text": "Tudo o que é pesado",
+                "misconceptionCode": "pesado-afunda"
               }
             ],
-            "skillId": "EF05CI01"
+            "correctIndex": 1,
+            "explanation": "O ímã atrai materiais com ferro. Alumínio e cobre, por exemplo, não são atraídos.",
+            "variants": [
+              {
+                "question": "Qual destes objetos o ímã atrai?",
+                "options": [
+                  {
+                    "text": "Uma lata de alumínio",
+                    "misconceptionCode": "todo-metal-ima"
+                  },
+                  {
+                    "text": "Uma borracha",
+                    "misconceptionCode": "propriedade-trocada"
+                  },
+                  {
+                    "text": "Uma moeda de papelão",
+                    "misconceptionCode": "pesado-afunda"
+                  },
+                  {
+                    "text": "Um prego de ferro"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "O que um ímã atrai?",
+                "options": [
+                  {
+                    "text": "Tudo o que é pesado",
+                    "misconceptionCode": "pesado-afunda"
+                  },
+                  {
+                    "text": "Madeira e plástico",
+                    "misconceptionCode": "propriedade-trocada"
+                  },
+                  {
+                    "text": "Alguns metais, como o ferro"
+                  },
+                  {
+                    "text": "Qualquer metal",
+                    "misconceptionCode": "todo-metal-ima"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF05CI01-A2",
+        "id": "PK2-EF05CI01-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Explorar fenômenos da vida cotidiana que evidenciem",
-        "prompt": "Questão sobre Explorar fenômenos da vida cotidiana que evidenciem.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Explorar fenômenos da vida cotidiana que evidenciem.",
-        "skillId": "EF05CI01",
+        "title": "Exemplo guiado: testando com a colher",
+        "prompt": "Imagine uma xícara de chá quente com duas colheres dentro: uma de metal e uma de plástico. Vamos pensar juntos no que acontece.",
+        "estMinutes": 4,
+        "audioScript": "Imagine uma xícara de chá quente com duas colheres dentro: uma de metal e uma de plástico. Vamos pensar juntos no que acontece. Pergunta 1. Depois de alguns minutos, qual cabo fica mais quente? A: O da colher de plástico; B: Os dois ficam iguais; C: O da colher de metal; D: Nenhum esquenta. Pergunta 2. Ao tocar uma grade de metal e um banco de madeira na mesma sombra, o metal parece mais frio. Por quê? A: Porque o metal é sempre frio; B: Porque o metal tira o calor da mão mais rápido; C: Porque a madeira está no sol; D: Porque o metal é mais pesado. Pergunta 3. Que propriedade do metal a xícara de chá mostrou? A: Ele é atraído por ímã; B: Ele flutua na água; C: Ele é flexível; D: Ele conduz bem o calor.",
         "questions": [
           {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Explorar fenômenos da vida cotidiana que evidenciem\"?",
+            "question": "Depois de alguns minutos, qual cabo fica mais quente?",
             "options": [
               {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
+                "text": "O da colher de plástico",
+                "misconceptionCode": "propriedade-trocada"
               },
               {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Os dois ficam iguais",
+                "misconceptionCode": "frio-e-material"
               },
               {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "O da colher de metal"
               },
               {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Nenhum esquenta",
+                "misconceptionCode": "frio-e-material"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
+            "correctIndex": 2,
+            "explanation": "O metal conduz calor muito melhor que o plástico. O calor do chá sobe pela colher até o cabo.",
             "variants": [
               {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Explorar fenômenos da vida cotidiana que evidenciem\"?",
+                "question": "Se você colocar uma colher de madeira e uma de metal na sopa quente, qual esquenta mais rápido?",
                 "options": [
                   {
-                    "text": "Experimentos, registros e análise de evidências"
+                    "text": "A de metal"
                   },
                   {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "A de madeira",
+                    "misconceptionCode": "propriedade-trocada"
                   },
                   {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "As duas ao mesmo tempo",
+                    "misconceptionCode": "frio-e-material"
                   },
                   {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Nenhuma das duas",
+                    "misconceptionCode": "frio-e-material"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O método científico começa com:",
+                "question": "Depois de alguns minutos, qual cabo fica mais quente?",
                 "options": [
                   {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
+                    "text": "Nenhum esquenta",
+                    "misconceptionCode": "frio-e-material"
                   },
                   {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Os dois ficam iguais",
+                    "misconceptionCode": "frio-e-material"
                   },
                   {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "O da colher de plástico",
+                    "misconceptionCode": "propriedade-trocada"
                   },
                   {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "O da colher de metal"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF05CI01"
+            ]
           },
           {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Explorar fenômenos da vida cotidiana que evidenciem\"?",
+            "question": "Ao tocar uma grade de metal e um banco de madeira na mesma sombra, o metal parece mais frio. Por quê?",
             "options": [
               {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
+                "text": "Porque o metal é sempre frio",
+                "misconceptionCode": "frio-e-material"
               },
               {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Porque o metal tira o calor da mão mais rápido"
               },
               {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Porque a madeira está no sol",
+                "misconceptionCode": "propriedade-trocada"
               },
               {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Porque o metal é mais pesado",
+                "misconceptionCode": "pesado-afunda"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
+            "correctIndex": 1,
+            "explanation": "Os dois estão na mesma temperatura. O metal conduz o calor da mão mais rápido, por isso a sensação é de frio.",
             "variants": [
               {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Explorar fenômenos da vida cotidiana que evidenciem\"?",
+                "question": "Por que o piso de cerâmica parece mais frio que o tapete no mesmo quarto?",
                 "options": [
                   {
-                    "text": "Experimentos, registros e análise de evidências"
+                    "text": "Porque a cerâmica é sempre gelada",
+                    "misconceptionCode": "frio-e-material"
                   },
                   {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Porque o tapete é mais pesado",
+                    "misconceptionCode": "propriedade-trocada"
                   },
                   {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Porque o tapete atrai ímã",
+                    "misconceptionCode": "pesado-afunda"
                   },
                   {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Porque a cerâmica conduz o calor do pé mais rápido"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "O método científico começa com:",
+                "question": "Ao tocar uma grade de metal e um banco de madeira na mesma sombra, o metal parece mais frio. Por quê?",
                 "options": [
                   {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
+                    "text": "Porque o metal é mais pesado",
+                    "misconceptionCode": "pesado-afunda"
                   },
                   {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Porque a madeira está no sol",
+                    "misconceptionCode": "propriedade-trocada"
                   },
                   {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Porque o metal tira o calor da mão mais rápido"
                   },
                   {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Porque o metal é sempre frio",
+                    "misconceptionCode": "frio-e-material"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "Que propriedade do metal a xícara de chá mostrou?",
+            "options": [
+              {
+                "text": "Ele é atraído por ímã",
+                "misconceptionCode": "todo-metal-ima"
+              },
+              {
+                "text": "Ele flutua na água",
+                "misconceptionCode": "pesado-afunda"
+              },
+              {
+                "text": "Ele é flexível",
+                "misconceptionCode": "propriedade-trocada"
+              },
+              {
+                "text": "Ele conduz bem o calor"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "O teste mostrou a condução de calor (condutibilidade térmica).",
+            "variants": [
+              {
+                "question": "Que propriedade a capa de plástico do fio mostra?",
+                "options": [
+                  {
+                    "text": "Ela é atraída por ímã",
+                    "misconceptionCode": "todo-metal-ima"
+                  },
+                  {
+                    "text": "Ela não conduz eletricidade"
+                  },
+                  {
+                    "text": "Ela afunda na água",
+                    "misconceptionCode": "pesado-afunda"
+                  },
+                  {
+                    "text": "Ela conduz calor muito bem",
+                    "misconceptionCode": "propriedade-trocada"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Que propriedade do metal a xícara de chá mostrou?",
+                "options": [
+                  {
+                    "text": "Ele conduz bem o calor"
+                  },
+                  {
+                    "text": "Ele é flexível",
+                    "misconceptionCode": "propriedade-trocada"
+                  },
+                  {
+                    "text": "Ele flutua na água",
+                    "misconceptionCode": "pesado-afunda"
+                  },
+                  {
+                    "text": "Ele é atraído por ímã",
+                    "misconceptionCode": "todo-metal-ima"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF05CI01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF05CI01-A3",
+        "id": "PK2-EF05CI01-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: Explorar fenômenos da vida cotidiana que evidenciem",
-        "prompt": "Questão sobre Explorar fenômenos da vida cotidiana que evidenciem.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Explorar fenômenos da vida cotidiana que evidenciem.",
-        "skillId": "EF05CI01",
+        "title": "Praticar: propriedades em ação",
+        "prompt": "Responda pensando no que cada material faz.",
+        "estMinutes": 5,
+        "audioScript": "Responda pensando no que cada material faz. Pergunta 1. Uma rolha grande e um clipe pequeno são colocados na água. O que acontece? A: A rolha afunda porque é maior; B: A rolha flutua e o clipe afunda; C: Os dois afundam; D: Os dois flutuam. Pergunta 2. Qual material é melhor para fazer o cabo de uma chaleira? A: Ferro; B: Alumínio; C: Vidro fino; D: Plástico resistente ao calor. Pergunta 3. Por que o ímã não atrai uma lata de refrigerante de alumínio? A: Porque o alumínio não é atraído por ímã; B: Porque a lata está vazia; C: Porque todo metal é atraído, mas a lata é leve; D: Porque a lata está fria. Pergunta 4. Que propriedade faz o vidro ser bom para janelas? A: Ele conduz eletricidade; B: Ele é atraído por ímã; C: Ele é transparente e deixa a luz passar; D: Ele é flexível como borracha.",
         "questions": [
           {
-            "question": "Qual das opções descreve corretamente o tema \"Explorar fenômenos da vida cotidiana que evidenciem\" para o 5º ano?",
+            "question": "Uma rolha grande e um clipe pequeno são colocados na água. O que acontece?",
             "options": [
               {
-                "text": "É um conceito central de Ciências do 5º ano que explica fenômenos naturais observáveis"
+                "text": "A rolha afunda porque é maior",
+                "misconceptionCode": "pesado-afunda"
               },
               {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
+                "text": "A rolha flutua e o clipe afunda"
               },
               {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Os dois afundam",
+                "misconceptionCode": "pesado-afunda"
               },
               {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
+                "text": "Os dois flutuam",
+                "misconceptionCode": "propriedade-trocada"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Explorar fenômenos da vida cotidiana que evidenciem é um conteúdo fundamental de Ciências do 5º ano conforme a BNCC.",
+            "correctIndex": 1,
+            "explanation": "Afundar ou flutuar depende do material, não do tamanho. A cortiça da rolha flutua; o metal do clipe afunda.",
             "variants": [
               {
-                "question": "Em qual etapa da BNCC encontramos \"Explorar fenômenos da vida cotidiana que evidenciem\"?",
+                "question": "Um tronco grande e uma pedrinha caem no rio. O que acontece?",
                 "options": [
                   {
-                    "text": "5º ano do Ensino Fundamental"
+                    "text": "O tronco afunda por ser maior",
+                    "misconceptionCode": "pesado-afunda"
                   },
                   {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Os dois afundam",
+                    "misconceptionCode": "pesado-afunda"
                   },
                   {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Os dois flutuam",
+                    "misconceptionCode": "propriedade-trocada"
                   },
                   {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "O tronco flutua e a pedrinha afunda"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "Por que \"Explorar fenômenos da vida cotidiana que evidenciem\" é importante de aprender no 5º ano?",
+                "question": "Uma rolha grande e um clipe pequeno são colocados na água. O que acontece?",
                 "options": [
                   {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
+                    "text": "Os dois flutuam",
+                    "misconceptionCode": "propriedade-trocada"
                   },
                   {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Os dois afundam",
+                    "misconceptionCode": "pesado-afunda"
                   },
                   {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A rolha flutua e o clipe afunda"
                   },
                   {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "A rolha afunda porque é maior",
+                    "misconceptionCode": "pesado-afunda"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF05CI01"
+            ]
           },
           {
-            "question": "Qual das opções descreve corretamente o tema \"Explorar fenômenos da vida cotidiana que evidenciem\" para o 5º ano?",
+            "question": "Qual material é melhor para fazer o cabo de uma chaleira?",
             "options": [
               {
-                "text": "É um conceito central de Ciências do 5º ano que explica fenômenos naturais observáveis"
+                "text": "Ferro",
+                "misconceptionCode": "propriedade-trocada"
               },
               {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
+                "text": "Alumínio",
+                "misconceptionCode": "todo-metal-ima"
               },
               {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Vidro fino",
+                "misconceptionCode": "propriedade-trocada"
               },
               {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
+                "text": "Plástico resistente ao calor"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "O cabo precisa ser de um material que não conduz bem o calor, para não queimar a mão.",
+            "variants": [
+              {
+                "question": "Qual material é melhor para uma luva de cozinha?",
+                "options": [
+                  {
+                    "text": "Papel-alumínio",
+                    "misconceptionCode": "propriedade-trocada"
+                  },
+                  {
+                    "text": "Tecido grosso"
+                  },
+                  {
+                    "text": "Metal",
+                    "misconceptionCode": "todo-metal-ima"
+                  },
+                  {
+                    "text": "Plástico fino",
+                    "misconceptionCode": "propriedade-trocada"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Qual material é melhor para fazer o cabo de uma chaleira?",
+                "options": [
+                  {
+                    "text": "Plástico resistente ao calor"
+                  },
+                  {
+                    "text": "Vidro fino",
+                    "misconceptionCode": "propriedade-trocada"
+                  },
+                  {
+                    "text": "Alumínio",
+                    "misconceptionCode": "todo-metal-ima"
+                  },
+                  {
+                    "text": "Ferro",
+                    "misconceptionCode": "propriedade-trocada"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "Por que o ímã não atrai uma lata de refrigerante de alumínio?",
+            "options": [
+              {
+                "text": "Porque o alumínio não é atraído por ímã"
+              },
+              {
+                "text": "Porque a lata está vazia",
+                "misconceptionCode": "pesado-afunda"
+              },
+              {
+                "text": "Porque todo metal é atraído, mas a lata é leve",
+                "misconceptionCode": "todo-metal-ima"
+              },
+              {
+                "text": "Porque a lata está fria",
+                "misconceptionCode": "frio-e-material"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Explorar fenômenos da vida cotidiana que evidenciem é um conteúdo fundamental de Ciências do 5º ano conforme a BNCC.",
+            "explanation": "Nem todo metal é atraído por ímã. O ferro é atraído; o alumínio não.",
             "variants": [
               {
-                "question": "Em qual etapa da BNCC encontramos \"Explorar fenômenos da vida cotidiana que evidenciem\"?",
+                "question": "Uma colher de aço com ferro e uma de alumínio estão na mesa. Qual o ímã atrai?",
                 "options": [
                   {
-                    "text": "5º ano do Ensino Fundamental"
+                    "text": "A de alumínio",
+                    "misconceptionCode": "pesado-afunda"
                   },
                   {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "As duas",
+                    "misconceptionCode": "todo-metal-ima"
                   },
                   {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A de aço com ferro"
                   },
                   {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Nenhuma",
+                    "misconceptionCode": "frio-e-material"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "Por que o ímã não atrai uma lata de refrigerante de alumínio?",
+                "options": [
+                  {
+                    "text": "Porque a lata está fria",
+                    "misconceptionCode": "frio-e-material"
+                  },
+                  {
+                    "text": "Porque o alumínio não é atraído por ímã"
+                  },
+                  {
+                    "text": "Porque todo metal é atraído, mas a lata é leve",
+                    "misconceptionCode": "todo-metal-ima"
+                  },
+                  {
+                    "text": "Porque a lata está vazia",
+                    "misconceptionCode": "pesado-afunda"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Que propriedade faz o vidro ser bom para janelas?",
+            "options": [
+              {
+                "text": "Ele conduz eletricidade",
+                "misconceptionCode": "propriedade-trocada"
+              },
+              {
+                "text": "Ele é atraído por ímã",
+                "misconceptionCode": "todo-metal-ima"
+              },
+              {
+                "text": "Ele é transparente e deixa a luz passar"
+              },
+              {
+                "text": "Ele é flexível como borracha",
+                "misconceptionCode": "propriedade-trocada"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "A janela precisa deixar a luz entrar. A transparência do vidro faz isso.",
+            "variants": [
+              {
+                "question": "Que propriedade faz a borracha ser boa para o pneu?",
+                "options": [
+                  {
+                    "text": "Ela é flexível e resistente"
+                  },
+                  {
+                    "text": "Ela é transparente",
+                    "misconceptionCode": "propriedade-trocada"
+                  },
+                  {
+                    "text": "Ela conduz eletricidade",
+                    "misconceptionCode": "todo-metal-ima"
+                  },
+                  {
+                    "text": "Ela é atraída por ímã",
+                    "misconceptionCode": "propriedade-trocada"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que \"Explorar fenômenos da vida cotidiana que evidenciem\" é importante de aprender no 5º ano?",
+                "question": "Que propriedade faz o vidro ser bom para janelas?",
                 "options": [
                   {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
+                    "text": "Ele é flexível como borracha",
+                    "misconceptionCode": "propriedade-trocada"
                   },
                   {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Ele é atraído por ímã",
+                    "misconceptionCode": "todo-metal-ima"
                   },
                   {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Ele conduz eletricidade",
+                    "misconceptionCode": "propriedade-trocada"
                   },
                   {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Ele é transparente e deixa a luz passar"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF05CI01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF05CI01-A4",
+        "id": "PK2-EF05CI01-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: Explorar fenômenos da vida cotidiana que evidenciem",
-        "prompt": "Questão sobre Explorar fenômenos da vida cotidiana que evidenciem.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Explorar fenômenos da vida cotidiana que evidenciem.",
-        "skillId": "EF05CI01",
+        "title": "Aplicar: materiais em casa",
+        "prompt": "Agora use o que aprendeu em situações de casa.",
+        "estMinutes": 4,
+        "audioScript": "Agora use o que aprendeu em situações de casa. Pergunta 1. Você vai mexer uma panela no fogo. Qual colher é mais segura para a mão? A: A de metal; B: Tanto faz; C: A de metal mais fina; D: A de madeira. Pergunta 2. Você deixou cair alfinetes no tapete. O que ajuda a juntar todos? A: Um ímã; B: Uma régua de plástico; C: Uma esponja molhada; D: Um pedaço de vidro. Pergunta 3. Por que não se deve encostar uma tesoura de metal na tomada? A: Porque a tesoura pode enferrujar; B: Porque a tesoura é fria; C: Porque o metal conduz eletricidade e pode dar choque; D: Porque a tesoura é pesada.",
         "questions": [
           {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Explorar fenômenos da vida cotidiana que evidenciem\"?",
+            "question": "Você vai mexer uma panela no fogo. Qual colher é mais segura para a mão?",
             "options": [
               {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
+                "text": "A de metal",
+                "misconceptionCode": "propriedade-trocada"
               },
               {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Tanto faz",
+                "misconceptionCode": "frio-e-material"
               },
               {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "A de metal mais fina",
+                "misconceptionCode": "propriedade-trocada"
               },
               {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "A de madeira"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
+            "correctIndex": 3,
+            "explanation": "A madeira conduz pouco calor, então o cabo não esquenta tanto.",
             "variants": [
               {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Explorar fenômenos da vida cotidiana que evidenciem\"?",
+                "question": "Para mexer um doce quente por muito tempo, qual colher protege melhor a mão?",
                 "options": [
                   {
-                    "text": "Experimentos, registros e análise de evidências"
+                    "text": "A de ferro",
+                    "misconceptionCode": "propriedade-trocada"
                   },
                   {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "A de silicone"
                   },
                   {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "A de alumínio",
+                    "misconceptionCode": "frio-e-material"
                   },
                   {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Tanto faz",
+                    "misconceptionCode": "propriedade-trocada"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "O método científico começa com:",
+                "question": "Você vai mexer uma panela no fogo. Qual colher é mais segura para a mão?",
                 "options": [
                   {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
+                    "text": "A de madeira"
                   },
                   {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "A de metal mais fina",
+                    "misconceptionCode": "propriedade-trocada"
                   },
                   {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Tanto faz",
+                    "misconceptionCode": "frio-e-material"
                   },
                   {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A de metal",
+                    "misconceptionCode": "propriedade-trocada"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF05CI01"
+            ]
           },
           {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Explorar fenômenos da vida cotidiana que evidenciem\"?",
+            "question": "Você deixou cair alfinetes no tapete. O que ajuda a juntar todos?",
             "options": [
               {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
+                "text": "Um ímã"
               },
               {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Uma régua de plástico",
+                "misconceptionCode": "propriedade-trocada"
               },
               {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Uma esponja molhada",
+                "misconceptionCode": "pesado-afunda"
               },
               {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Um pedaço de vidro",
+                "misconceptionCode": "propriedade-trocada"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
+            "explanation": "Os alfinetes têm ferro, por isso o ímã os atrai.",
             "variants": [
               {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Explorar fenômenos da vida cotidiana que evidenciem\"?",
+                "question": "Clipes de ferro se misturaram com botões de plástico. Como separar rápido?",
                 "options": [
                   {
-                    "text": "Experimentos, registros e análise de evidências"
+                    "text": "Jogar tudo na água",
+                    "misconceptionCode": "propriedade-trocada"
                   },
                   {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Usar uma peneira",
+                    "misconceptionCode": "pesado-afunda"
                   },
                   {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Passar um ímã por cima"
                   },
                   {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Soprar com força",
+                    "misconceptionCode": "propriedade-trocada"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "Você deixou cair alfinetes no tapete. O que ajuda a juntar todos?",
+                "options": [
+                  {
+                    "text": "Um pedaço de vidro",
+                    "misconceptionCode": "propriedade-trocada"
+                  },
+                  {
+                    "text": "Um ímã"
+                  },
+                  {
+                    "text": "Uma esponja molhada",
+                    "misconceptionCode": "pesado-afunda"
+                  },
+                  {
+                    "text": "Uma régua de plástico",
+                    "misconceptionCode": "propriedade-trocada"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Por que não se deve encostar uma tesoura de metal na tomada?",
+            "options": [
+              {
+                "text": "Porque a tesoura pode enferrujar",
+                "misconceptionCode": "propriedade-trocada"
+              },
+              {
+                "text": "Porque a tesoura é fria",
+                "misconceptionCode": "frio-e-material"
+              },
+              {
+                "text": "Porque o metal conduz eletricidade e pode dar choque"
+              },
+              {
+                "text": "Porque a tesoura é pesada",
+                "misconceptionCode": "pesado-afunda"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "Metais conduzem eletricidade. A corrente passaria pela tesoura até a mão.",
+            "variants": [
+              {
+                "question": "Por que é perigoso empinar pipa com linha de metal perto de fios de luz?",
+                "options": [
+                  {
+                    "text": "Porque o metal conduz eletricidade"
+                  },
+                  {
+                    "text": "Porque a linha é pesada",
+                    "misconceptionCode": "propriedade-trocada"
+                  },
+                  {
+                    "text": "Porque o metal é frio",
+                    "misconceptionCode": "frio-e-material"
+                  },
+                  {
+                    "text": "Porque a pipa voa mais",
+                    "misconceptionCode": "pesado-afunda"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O método científico começa com:",
+                "question": "Por que não se deve encostar uma tesoura de metal na tomada?",
                 "options": [
                   {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
+                    "text": "Porque a tesoura é pesada",
+                    "misconceptionCode": "pesado-afunda"
                   },
                   {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Porque a tesoura é fria",
+                    "misconceptionCode": "frio-e-material"
                   },
                   {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Porque a tesoura pode enferrujar",
+                    "misconceptionCode": "propriedade-trocada"
                   },
                   {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Porque o metal conduz eletricidade e pode dar choque"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF05CI01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF05CI01-A5",
+        "id": "PK2-EF05CI01-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Explorar fenômenos da vida cotidiana que evidenciem",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Explorar fenômenos da vida cotidiana que evidenciem.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Explorar fenômenos da vida cotidiana que evidenciem.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: por que o metal parece frio",
+        "prompt": "Explique com as suas palavras por que uma colher de metal esquenta rápido no chá quente, e dê um outro exemplo de material que conduz ou não conduz calor.",
+        "estMinutes": 6,
+        "audioScript": "Explique com as suas palavras por que uma colher de metal esquenta rápido no chá quente, e dê um outro exemplo de material que conduz ou não conduz calor.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de Explorar fenômenos da vida cotidiana que evidenciem",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "conducao",
+              "description": "Explica que o metal conduz bem o calor"
+            },
+            {
+              "code": "comparacao",
+              "description": "Compara com um material que conduz pouco calor, como plástico ou madeira"
+            },
+            {
+              "code": "exemplo-valido",
+              "description": "Dá um exemplo correto do dia a dia"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF05CI01"
+          "exemploBoaResposta": "A colher de metal esquenta rápido porque o metal conduz bem o calor: o calor do chá passa por ela até o cabo. Se a colher fosse de madeira, ela esquentaria pouco. É por isso que o cabo da panela é de plástico ou de madeira."
+        }
       }
-    ]
+    ],
+    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
+    "source": "SPEAKFLOW",
+    "status": "APPROVED"
   },
   {
-    "skillCode": "EF05CI02",
-    "title": "Trilha: Aplicar os conhecimentos sobre as mudanças de estado físico (EF05CI02)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 5,
+    "skillCode": "EF05CI11",
     "subjectCode": "CI",
+    "subjectName": "Ciências",
+    "gradeYear": 5,
+    "version": 2,
+    "title": "Trilha: Rotação da Terra, dia e noite",
+    "tituloAluno": "Por que existe dia e noite",
     "activities": [
       {
-        "id": "PK-EF05CI02-A1",
+        "id": "PK2-EF05CI11-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Aplicar os conhecimentos sobre as mudanças de estado físico",
-        "prompt": "Questão sobre Aplicar os conhecimentos sobre as mudanças de estado físico.",
+        "title": "Relembrar: o Sol no céu",
+        "prompt": "Vamos lembrar como o Sol parece se mover no céu durante o dia.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre Aplicar os conhecimentos sobre as mudanças de estado físico.",
-        "skillId": "EF05CI02",
+        "audioScript": "Vamos lembrar como o Sol parece se mover no céu durante o dia. Pergunta 1. De que lado o Sol aparece de manhã? A: Do lado oeste; B: Sempre bem em cima da cabeça; C: Do lado leste, o nascente; D: Em qualquer lado, depende do dia. Pergunta 2. Ao meio-dia, onde o Sol costuma estar? A: Perto do chão, no leste; B: Bem alto no céu; C: Escondido atrás da Lua; D: Embaixo da Terra. Pergunta 3. O que acontece com o Sol à noite? A: Ele apaga; B: Ele se esconde atrás das nuvens; C: Ele dá a volta na Terra; D: Ele continua brilhando, mas o nosso lado da Terra está virado para longe dele.",
         "questions": [
           {
-            "question": "Qual das opções descreve corretamente o tema \"Aplicar os conhecimentos sobre as mudanças de estado físico\" para o 5º ano?",
+            "question": "De que lado o Sol aparece de manhã?",
             "options": [
               {
-                "text": "É um conceito central de Ciências do 5º ano que explica fenômenos naturais observáveis"
+                "text": "Do lado oeste",
+                "misconceptionCode": "rotacao-translacao"
               },
               {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
+                "text": "Sempre bem em cima da cabeça",
+                "misconceptionCode": "sol-gira-terra"
               },
               {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Do lado leste, o nascente"
               },
               {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
+                "text": "Em qualquer lado, depende do dia",
+                "misconceptionCode": "duracao-errada"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Aplicar os conhecimentos sobre as mudanças de estado físico é um conteúdo fundamental de Ciências do 5º ano conforme a BNCC.",
+            "correctIndex": 2,
+            "explanation": "O Sol nasce no lado leste e se põe no lado oeste.",
             "variants": [
               {
-                "question": "Em qual etapa da BNCC encontramos \"Aplicar os conhecimentos sobre as mudanças de estado físico\"?",
+                "question": "De que lado o Sol se põe no fim da tarde?",
                 "options": [
                   {
-                    "text": "5º ano do Ensino Fundamental"
+                    "text": "Do lado oeste, o poente"
                   },
                   {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Do lado leste",
+                    "misconceptionCode": "rotacao-translacao"
                   },
                   {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Sempre no norte",
+                    "misconceptionCode": "sol-gira-terra"
                   },
                   {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Em qualquer lado",
+                    "misconceptionCode": "duracao-errada"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que \"Aplicar os conhecimentos sobre as mudanças de estado físico\" é importante de aprender no 5º ano?",
+                "question": "De que lado o Sol aparece de manhã?",
                 "options": [
                   {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
+                    "text": "Em qualquer lado, depende do dia",
+                    "misconceptionCode": "duracao-errada"
                   },
                   {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Sempre bem em cima da cabeça",
+                    "misconceptionCode": "sol-gira-terra"
                   },
                   {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Do lado oeste",
+                    "misconceptionCode": "rotacao-translacao"
                   },
                   {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Do lado leste, o nascente"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF05CI02"
+            ]
           },
           {
-            "question": "Qual das opções descreve corretamente o tema \"Aplicar os conhecimentos sobre as mudanças de estado físico\" para o 5º ano?",
+            "question": "Ao meio-dia, onde o Sol costuma estar?",
             "options": [
               {
-                "text": "É um conceito central de Ciências do 5º ano que explica fenômenos naturais observáveis"
+                "text": "Perto do chão, no leste",
+                "misconceptionCode": "duracao-errada"
               },
               {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
+                "text": "Bem alto no céu"
               },
               {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Escondido atrás da Lua",
+                "misconceptionCode": "sol-apaga"
               },
               {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
+                "text": "Embaixo da Terra",
+                "misconceptionCode": "sol-gira-terra"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Aplicar os conhecimentos sobre as mudanças de estado físico é um conteúdo fundamental de Ciências do 5º ano conforme a BNCC.",
+            "correctIndex": 1,
+            "explanation": "Perto do meio-dia o Sol fica no ponto mais alto do céu.",
             "variants": [
               {
-                "question": "Em qual etapa da BNCC encontramos \"Aplicar os conhecimentos sobre as mudanças de estado físico\"?",
+                "question": "Quando a sua sombra fica bem curta, o Sol está:",
                 "options": [
                   {
-                    "text": "5º ano do Ensino Fundamental"
+                    "text": "Nascendo",
+                    "misconceptionCode": "duracao-errada"
                   },
                   {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Se pondo",
+                    "misconceptionCode": "sol-apaga"
                   },
                   {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Apagado",
+                    "misconceptionCode": "sol-gira-terra"
                   },
                   {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Alto no céu, perto do meio-dia"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "Por que \"Aplicar os conhecimentos sobre as mudanças de estado físico\" é importante de aprender no 5º ano?",
+                "question": "Ao meio-dia, onde o Sol costuma estar?",
                 "options": [
                   {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
+                    "text": "Embaixo da Terra",
+                    "misconceptionCode": "sol-gira-terra"
                   },
                   {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Escondido atrás da Lua",
+                    "misconceptionCode": "sol-apaga"
                   },
                   {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Bem alto no céu"
                   },
                   {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Perto do chão, no leste",
+                    "misconceptionCode": "duracao-errada"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "O que acontece com o Sol à noite?",
+            "options": [
+              {
+                "text": "Ele apaga",
+                "misconceptionCode": "sol-apaga"
+              },
+              {
+                "text": "Ele se esconde atrás das nuvens",
+                "misconceptionCode": "sol-apaga"
+              },
+              {
+                "text": "Ele dá a volta na Terra",
+                "misconceptionCode": "sol-gira-terra"
+              },
+              {
+                "text": "Ele continua brilhando, mas o nosso lado da Terra está virado para longe dele"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "O Sol nunca apaga. À noite, a parte da Terra onde estamos não está virada para ele.",
+            "variants": [
+              {
+                "question": "Quando é noite no Brasil, o que acontece do outro lado da Terra?",
+                "options": [
+                  {
+                    "text": "Lá também é noite",
+                    "misconceptionCode": "sol-apaga"
+                  },
+                  {
+                    "text": "Lá é dia, porque está virado para o Sol"
+                  },
+                  {
+                    "text": "Lá o Sol está apagado",
+                    "misconceptionCode": "sol-apaga"
+                  },
+                  {
+                    "text": "Lá não tem Sol",
+                    "misconceptionCode": "sol-gira-terra"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "O que acontece com o Sol à noite?",
+                "options": [
+                  {
+                    "text": "Ele continua brilhando, mas o nosso lado da Terra está virado para longe dele"
+                  },
+                  {
+                    "text": "Ele dá a volta na Terra",
+                    "misconceptionCode": "sol-gira-terra"
+                  },
+                  {
+                    "text": "Ele se esconde atrás das nuvens",
+                    "misconceptionCode": "sol-apaga"
+                  },
+                  {
+                    "text": "Ele apaga",
+                    "misconceptionCode": "sol-apaga"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF05CI02"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF05CI02-A2",
+        "id": "PK2-EF05CI11-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Aplicar os conhecimentos sobre as mudanças de estado físico",
-        "prompt": "Questão sobre Aplicar os conhecimentos sobre as mudanças de estado físico.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Aplicar os conhecimentos sobre as mudanças de estado físico.",
-        "skillId": "EF05CI02",
+        "title": "Exemplo guiado: a bola e a lanterna",
+        "prompt": "Imagine uma lanterna acesa (o Sol) e uma bola (a Terra) girando devagar em torno de si mesma. Vamos pensar juntos.",
+        "estMinutes": 4,
+        "audioScript": "Imagine uma lanterna acesa (o Sol) e uma bola (a Terra) girando devagar em torno de si mesma. Vamos pensar juntos. Pergunta 1. A parte da bola virada para a lanterna representa: A: A noite; B: O dia; C: O inverno; D: O Sol apagado. Pergunta 2. O que faz um ponto da bola passar do claro para o escuro? A: A lanterna andar em volta da bola; B: A bola dar uma volta na lanterna; C: A lanterna apagar; D: A bola girar em torno de si mesma. Pergunta 3. Quanto tempo a Terra leva para dar uma volta completa em torno de si mesma? A: Cerca de 24 horas, um dia; B: Um ano; C: Uma semana; D: Uma hora.",
         "questions": [
           {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Aplicar os conhecimentos sobre as mudanças de estado físico\"?",
+            "question": "A parte da bola virada para a lanterna representa:",
             "options": [
               {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
+                "text": "A noite",
+                "misconceptionCode": "rotacao-translacao"
               },
               {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "O dia"
               },
               {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "O inverno",
+                "misconceptionCode": "duracao-errada"
               },
               {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "O Sol apagado",
+                "misconceptionCode": "sol-apaga"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
+            "correctIndex": 1,
+            "explanation": "A parte iluminada é onde é dia; a parte escura é onde é noite.",
             "variants": [
               {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Aplicar os conhecimentos sobre as mudanças de estado físico\"?",
+                "question": "A parte da bola que fica escura representa:",
                 "options": [
                   {
-                    "text": "Experimentos, registros e análise de evidências"
+                    "text": "O dia",
+                    "misconceptionCode": "rotacao-translacao"
                   },
                   {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "O verão",
+                    "misconceptionCode": "duracao-errada"
                   },
                   {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "O meio-dia",
+                    "misconceptionCode": "sol-apaga"
                   },
                   {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A noite"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "O método científico começa com:",
+                "question": "A parte da bola virada para a lanterna representa:",
                 "options": [
                   {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
+                    "text": "O Sol apagado",
+                    "misconceptionCode": "sol-apaga"
                   },
                   {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "O inverno",
+                    "misconceptionCode": "duracao-errada"
                   },
                   {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "O dia"
                   },
                   {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A noite",
+                    "misconceptionCode": "rotacao-translacao"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF05CI02"
+            ]
           },
           {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Aplicar os conhecimentos sobre as mudanças de estado físico\"?",
+            "question": "O que faz um ponto da bola passar do claro para o escuro?",
             "options": [
               {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
+                "text": "A lanterna andar em volta da bola",
+                "misconceptionCode": "sol-gira-terra"
               },
               {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "A bola dar uma volta na lanterna",
+                "misconceptionCode": "rotacao-translacao"
               },
               {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "A lanterna apagar",
+                "misconceptionCode": "sol-apaga"
               },
               {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "A bola girar em torno de si mesma"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "O giro da bola em torno de si mesma (rotação) faz o ponto entrar e sair da luz.",
+            "variants": [
+              {
+                "question": "Na vida real, o que causa o dia e a noite?",
+                "options": [
+                  {
+                    "text": "O Sol girando em volta da Terra",
+                    "misconceptionCode": "sol-gira-terra"
+                  },
+                  {
+                    "text": "A rotação da Terra"
+                  },
+                  {
+                    "text": "A translação da Terra",
+                    "misconceptionCode": "rotacao-translacao"
+                  },
+                  {
+                    "text": "O Sol apagando",
+                    "misconceptionCode": "sol-apaga"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "O que faz um ponto da bola passar do claro para o escuro?",
+                "options": [
+                  {
+                    "text": "A bola girar em torno de si mesma"
+                  },
+                  {
+                    "text": "A lanterna apagar",
+                    "misconceptionCode": "sol-apaga"
+                  },
+                  {
+                    "text": "A bola dar uma volta na lanterna",
+                    "misconceptionCode": "rotacao-translacao"
+                  },
+                  {
+                    "text": "A lanterna andar em volta da bola",
+                    "misconceptionCode": "sol-gira-terra"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "Quanto tempo a Terra leva para dar uma volta completa em torno de si mesma?",
+            "options": [
+              {
+                "text": "Cerca de 24 horas, um dia"
+              },
+              {
+                "text": "Um ano",
+                "misconceptionCode": "rotacao-translacao"
+              },
+              {
+                "text": "Uma semana",
+                "misconceptionCode": "duracao-errada"
+              },
+              {
+                "text": "Uma hora",
+                "misconceptionCode": "duracao-errada"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
+            "explanation": "Uma rotação completa dura cerca de 24 horas. Uma volta em torno do Sol (translação) dura um ano.",
             "variants": [
               {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Aplicar os conhecimentos sobre as mudanças de estado físico\"?",
+                "question": "Uma volta completa da Terra em torno de si mesma corresponde a:",
                 "options": [
                   {
-                    "text": "Experimentos, registros e análise de evidências"
+                    "text": "Um mês",
+                    "misconceptionCode": "rotacao-translacao"
                   },
                   {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Um ano",
+                    "misconceptionCode": "duracao-errada"
                   },
                   {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Um dia"
                   },
                   {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Uma estação",
+                    "misconceptionCode": "duracao-errada"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "O método científico começa com:",
+                "question": "Quanto tempo a Terra leva para dar uma volta completa em torno de si mesma?",
                 "options": [
                   {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
+                    "text": "Uma hora",
+                    "misconceptionCode": "duracao-errada"
                   },
                   {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Cerca de 24 horas, um dia"
                   },
                   {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Uma semana",
+                    "misconceptionCode": "duracao-errada"
                   },
                   {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Um ano",
+                    "misconceptionCode": "rotacao-translacao"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF05CI02"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF05CI02-A3",
+        "id": "PK2-EF05CI11-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: Aplicar os conhecimentos sobre as mudanças de estado físico",
-        "prompt": "Questão sobre Aplicar os conhecimentos sobre as mudanças de estado físico.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Aplicar os conhecimentos sobre as mudanças de estado físico.",
-        "skillId": "EF05CI02",
+        "title": "Praticar: rotação na prática",
+        "prompt": "Responda pensando na Terra girando.",
+        "estMinutes": 5,
+        "audioScript": "Responda pensando na Terra girando. Pergunta 1. Por que parece que o Sol anda no céu de leste para oeste? A: Porque o Sol dá a volta na Terra todo dia; B: Porque a Terra dá a volta no Sol todo dia; C: Porque o vento empurra o Sol; D: Porque a Terra gira, e nós giramos junto com ela. Pergunta 2. O nome do movimento da Terra em torno de si mesma é: A: Rotação; B: Translação; C: Órbita do Sol; D: Eclipse. Pergunta 3. As estrelas também parecem se mover no céu durante a noite. Por quê? A: Porque as estrelas giram em volta da Terra; B: Porque as estrelas apagam e acendem; C: Pelo mesmo motivo do Sol: a rotação da Terra; D: Porque a Terra dá a volta no Sol a cada noite. Pergunta 4. Quando é meio-dia em Salvador, é noite no Japão. Por quê? A: Porque o Sol já apagou no Japão; B: Porque o Japão está no lado da Terra que não está virado para o Sol; C: Porque o Japão não recebe luz do Sol; D: Porque lá o ano é diferente.",
         "questions": [
           {
-            "question": "Qual das opções descreve corretamente o tema \"Aplicar os conhecimentos sobre as mudanças de estado físico\" para o 5º ano?",
+            "question": "Por que parece que o Sol anda no céu de leste para oeste?",
             "options": [
               {
-                "text": "É um conceito central de Ciências do 5º ano que explica fenômenos naturais observáveis"
+                "text": "Porque o Sol dá a volta na Terra todo dia",
+                "misconceptionCode": "sol-gira-terra"
               },
               {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
+                "text": "Porque a Terra dá a volta no Sol todo dia",
+                "misconceptionCode": "rotacao-translacao"
               },
               {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Porque o vento empurra o Sol",
+                "misconceptionCode": "sol-apaga"
               },
               {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
+                "text": "Porque a Terra gira, e nós giramos junto com ela"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Aplicar os conhecimentos sobre as mudanças de estado físico é um conteúdo fundamental de Ciências do 5º ano conforme a BNCC.",
+            "correctIndex": 3,
+            "explanation": "O movimento é aparente: quem gira é a Terra. É como olhar a paisagem de dentro de um carro andando.",
             "variants": [
               {
-                "question": "Em qual etapa da BNCC encontramos \"Aplicar os conhecimentos sobre as mudanças de estado físico\"?",
+                "question": "Dentro de um carro andando, as árvores parecem ir para trás. Isso lembra:",
                 "options": [
                   {
-                    "text": "5º ano do Ensino Fundamental"
+                    "text": "O Sol girando em volta da Terra",
+                    "misconceptionCode": "sol-gira-terra"
                   },
                   {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "O movimento aparente do Sol causado pela rotação da Terra"
                   },
                   {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A translação",
+                    "misconceptionCode": "rotacao-translacao"
                   },
                   {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "O Sol se apagando",
+                    "misconceptionCode": "sol-apaga"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "Por que \"Aplicar os conhecimentos sobre as mudanças de estado físico\" é importante de aprender no 5º ano?",
+                "question": "Por que parece que o Sol anda no céu de leste para oeste?",
                 "options": [
                   {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
+                    "text": "Porque a Terra gira, e nós giramos junto com ela"
                   },
                   {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Porque o vento empurra o Sol",
+                    "misconceptionCode": "sol-apaga"
                   },
                   {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Porque a Terra dá a volta no Sol todo dia",
+                    "misconceptionCode": "rotacao-translacao"
                   },
                   {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Porque o Sol dá a volta na Terra todo dia",
+                    "misconceptionCode": "sol-gira-terra"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF05CI02"
+            ]
           },
           {
-            "question": "Qual das opções descreve corretamente o tema \"Aplicar os conhecimentos sobre as mudanças de estado físico\" para o 5º ano?",
+            "question": "O nome do movimento da Terra em torno de si mesma é:",
             "options": [
               {
-                "text": "É um conceito central de Ciências do 5º ano que explica fenômenos naturais observáveis"
+                "text": "Rotação"
               },
               {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
+                "text": "Translação",
+                "misconceptionCode": "rotacao-translacao"
               },
               {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Órbita do Sol",
+                "misconceptionCode": "sol-gira-terra"
               },
               {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
+                "text": "Eclipse",
+                "misconceptionCode": "sol-apaga"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Aplicar os conhecimentos sobre as mudanças de estado físico é um conteúdo fundamental de Ciências do 5º ano conforme a BNCC.",
+            "explanation": "Rotação é girar em torno de si mesma. Translação é dar a volta em torno do Sol.",
             "variants": [
               {
-                "question": "Em qual etapa da BNCC encontramos \"Aplicar os conhecimentos sobre as mudanças de estado físico\"?",
+                "question": "O movimento que causa o dia e a noite se chama:",
                 "options": [
                   {
-                    "text": "5º ano do Ensino Fundamental"
+                    "text": "Translação",
+                    "misconceptionCode": "rotacao-translacao"
                   },
                   {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Fase da Lua",
+                    "misconceptionCode": "sol-gira-terra"
                   },
                   {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Rotação"
                   },
                   {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Eclipse",
+                    "misconceptionCode": "sol-apaga"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "O nome do movimento da Terra em torno de si mesma é:",
+                "options": [
+                  {
+                    "text": "Eclipse",
+                    "misconceptionCode": "sol-apaga"
+                  },
+                  {
+                    "text": "Rotação"
+                  },
+                  {
+                    "text": "Órbita do Sol",
+                    "misconceptionCode": "sol-gira-terra"
+                  },
+                  {
+                    "text": "Translação",
+                    "misconceptionCode": "rotacao-translacao"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "As estrelas também parecem se mover no céu durante a noite. Por quê?",
+            "options": [
+              {
+                "text": "Porque as estrelas giram em volta da Terra",
+                "misconceptionCode": "sol-gira-terra"
+              },
+              {
+                "text": "Porque as estrelas apagam e acendem",
+                "misconceptionCode": "sol-apaga"
+              },
+              {
+                "text": "Pelo mesmo motivo do Sol: a rotação da Terra"
+              },
+              {
+                "text": "Porque a Terra dá a volta no Sol a cada noite",
+                "misconceptionCode": "rotacao-translacao"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "A rotação faz o céu inteiro parecer girar, com o Sol de dia e as estrelas à noite.",
+            "variants": [
+              {
+                "question": "Se você fotografar o céu à noite por horas, as estrelas aparecem fazendo arcos. Isso mostra:",
+                "options": [
+                  {
+                    "text": "A rotação da Terra"
+                  },
+                  {
+                    "text": "Que as estrelas caem",
+                    "misconceptionCode": "sol-gira-terra"
+                  },
+                  {
+                    "text": "Que a Lua empurra as estrelas",
+                    "misconceptionCode": "sol-apaga"
+                  },
+                  {
+                    "text": "Que o Sol volta à noite",
+                    "misconceptionCode": "rotacao-translacao"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que \"Aplicar os conhecimentos sobre as mudanças de estado físico\" é importante de aprender no 5º ano?",
+                "question": "As estrelas também parecem se mover no céu durante a noite. Por quê?",
                 "options": [
                   {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
+                    "text": "Porque a Terra dá a volta no Sol a cada noite",
+                    "misconceptionCode": "rotacao-translacao"
                   },
                   {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Porque as estrelas apagam e acendem",
+                    "misconceptionCode": "sol-apaga"
                   },
                   {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Porque as estrelas giram em volta da Terra",
+                    "misconceptionCode": "sol-gira-terra"
                   },
                   {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Pelo mesmo motivo do Sol: a rotação da Terra"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "Quando é meio-dia em Salvador, é noite no Japão. Por quê?",
+            "options": [
+              {
+                "text": "Porque o Sol já apagou no Japão",
+                "misconceptionCode": "sol-apaga"
+              },
+              {
+                "text": "Porque o Japão está no lado da Terra que não está virado para o Sol"
+              },
+              {
+                "text": "Porque o Japão não recebe luz do Sol",
+                "misconceptionCode": "sol-gira-terra"
+              },
+              {
+                "text": "Porque lá o ano é diferente",
+                "misconceptionCode": "duracao-errada"
               }
             ],
-            "skillId": "EF05CI02"
+            "correctIndex": 1,
+            "explanation": "Ao mesmo tempo, metade da Terra está iluminada e a outra metade, no escuro.",
+            "variants": [
+              {
+                "question": "Por que, numa chamada de vídeo, um primo no outro lado do mundo está indo dormir quando você acorda?",
+                "options": [
+                  {
+                    "text": "Porque ele dorme cedo",
+                    "misconceptionCode": "sol-apaga"
+                  },
+                  {
+                    "text": "Porque o Sol apaga lá",
+                    "misconceptionCode": "sol-gira-terra"
+                  },
+                  {
+                    "text": "Porque lá não tem Sol",
+                    "misconceptionCode": "duracao-errada"
+                  },
+                  {
+                    "text": "Porque a Terra gira e cada lugar recebe luz em horários diferentes"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Quando é meio-dia em Salvador, é noite no Japão. Por quê?",
+                "options": [
+                  {
+                    "text": "Porque lá o ano é diferente",
+                    "misconceptionCode": "duracao-errada"
+                  },
+                  {
+                    "text": "Porque o Japão não recebe luz do Sol",
+                    "misconceptionCode": "sol-gira-terra"
+                  },
+                  {
+                    "text": "Porque o Japão está no lado da Terra que não está virado para o Sol"
+                  },
+                  {
+                    "text": "Porque o Sol já apagou no Japão",
+                    "misconceptionCode": "sol-apaga"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF05CI02-A4",
+        "id": "PK2-EF05CI11-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: Aplicar os conhecimentos sobre as mudanças de estado físico",
-        "prompt": "Questão sobre Aplicar os conhecimentos sobre as mudanças de estado físico.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Aplicar os conhecimentos sobre as mudanças de estado físico.",
-        "skillId": "EF05CI02",
+        "title": "Aplicar: dia e noite na vida",
+        "prompt": "Use o que aprendeu em situações do dia a dia.",
+        "estMinutes": 4,
+        "audioScript": "Use o que aprendeu em situações do dia a dia. Pergunta 1. Você quer que o sol da manhã entre no seu quarto. Para que lado a janela deve estar virada? A: Para o leste; B: Para o oeste; C: Tanto faz, o Sol aparece em todo lado; D: Para o lado onde o Sol apaga. Pergunta 2. Um amigo diz: \"À noite o Sol vai dormir atrás das montanhas\". O que você responde? A: Ele tem razão; B: O Sol vai para o outro lado da Terra dando a volta nela; C: O Sol não dorme: a Terra girou e o nosso lado ficou longe dele; D: A Terra deu a volta no Sol. Pergunta 3. Se a Terra parasse de girar, o que aconteceria com o dia e a noite? A: Nada mudaria, porque o Sol continuaria girando; B: Um lado ficaria sempre de dia e o outro sempre de noite; C: Seria sempre noite em todo lugar; D: O ano ficaria mais curto.",
         "questions": [
           {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Aplicar os conhecimentos sobre as mudanças de estado físico\"?",
+            "question": "Você quer que o sol da manhã entre no seu quarto. Para que lado a janela deve estar virada?",
             "options": [
               {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
+                "text": "Para o leste"
               },
               {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Para o oeste",
+                "misconceptionCode": "rotacao-translacao"
               },
               {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Tanto faz, o Sol aparece em todo lado",
+                "misconceptionCode": "sol-gira-terra"
               },
               {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Para o lado onde o Sol apaga",
+                "misconceptionCode": "sol-apaga"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
+            "explanation": "O Sol nasce no leste, então a janela virada para o leste recebe o sol da manhã.",
             "variants": [
               {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Aplicar os conhecimentos sobre as mudanças de estado físico\"?",
+                "question": "Para ver o pôr do sol da praia, você deve olhar para:",
                 "options": [
                   {
-                    "text": "Experimentos, registros e análise de evidências"
+                    "text": "O leste",
+                    "misconceptionCode": "rotacao-translacao"
                   },
                   {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "O sul",
+                    "misconceptionCode": "sol-gira-terra"
                   },
                   {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "O oeste"
                   },
                   {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Para cima",
+                    "misconceptionCode": "sol-apaga"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "O método científico começa com:",
+                "question": "Você quer que o sol da manhã entre no seu quarto. Para que lado a janela deve estar virada?",
                 "options": [
                   {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
+                    "text": "Para o lado onde o Sol apaga",
+                    "misconceptionCode": "sol-apaga"
                   },
                   {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Para o leste"
                   },
                   {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Tanto faz, o Sol aparece em todo lado",
+                    "misconceptionCode": "sol-gira-terra"
                   },
                   {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Para o oeste",
+                    "misconceptionCode": "rotacao-translacao"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF05CI02"
+            ]
           },
           {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Aplicar os conhecimentos sobre as mudanças de estado físico\"?",
+            "question": "Um amigo diz: \"À noite o Sol vai dormir atrás das montanhas\". O que você responde?",
             "options": [
               {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
+                "text": "Ele tem razão",
+                "misconceptionCode": "sol-apaga"
               },
               {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "O Sol vai para o outro lado da Terra dando a volta nela",
+                "misconceptionCode": "sol-gira-terra"
               },
               {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "O Sol não dorme: a Terra girou e o nosso lado ficou longe dele"
               },
               {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "A Terra deu a volta no Sol",
+                "misconceptionCode": "rotacao-translacao"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
+            "correctIndex": 2,
+            "explanation": "Quem se move é a Terra. O Sol continua brilhando o tempo todo.",
             "variants": [
               {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Aplicar os conhecimentos sobre as mudanças de estado físico\"?",
+                "question": "Uma criança pequena pergunta para onde o Sol vai à noite. A melhor resposta é:",
                 "options": [
                   {
-                    "text": "Experimentos, registros e análise de evidências"
+                    "text": "Ele continua lá; a Terra girou e o nosso lado ficou no escuro"
                   },
                   {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Ele apaga para descansar",
+                    "misconceptionCode": "sol-apaga"
                   },
                   {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Ele vai dormir no mar",
+                    "misconceptionCode": "sol-gira-terra"
                   },
                   {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Ele dá a volta na Terra",
+                    "misconceptionCode": "rotacao-translacao"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O método científico começa com:",
+                "question": "Um amigo diz: \"À noite o Sol vai dormir atrás das montanhas\". O que você responde?",
                 "options": [
                   {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
+                    "text": "A Terra deu a volta no Sol",
+                    "misconceptionCode": "rotacao-translacao"
                   },
                   {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "O Sol vai para o outro lado da Terra dando a volta nela",
+                    "misconceptionCode": "sol-gira-terra"
                   },
                   {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Ele tem razão",
+                    "misconceptionCode": "sol-apaga"
                   },
                   {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "O Sol não dorme: a Terra girou e o nosso lado ficou longe dele"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "Se a Terra parasse de girar, o que aconteceria com o dia e a noite?",
+            "options": [
+              {
+                "text": "Nada mudaria, porque o Sol continuaria girando",
+                "misconceptionCode": "sol-gira-terra"
+              },
+              {
+                "text": "Um lado ficaria sempre de dia e o outro sempre de noite"
+              },
+              {
+                "text": "Seria sempre noite em todo lugar",
+                "misconceptionCode": "sol-apaga"
+              },
+              {
+                "text": "O ano ficaria mais curto",
+                "misconceptionCode": "duracao-errada"
               }
             ],
-            "skillId": "EF05CI02"
+            "correctIndex": 1,
+            "explanation": "Sem rotação, cada lugar ficaria sempre virado do mesmo jeito para o Sol.",
+            "variants": [
+              {
+                "question": "Se a Terra girasse mais devagar, o dia ficaria:",
+                "options": [
+                  {
+                    "text": "Mais curto",
+                    "misconceptionCode": "sol-gira-terra"
+                  },
+                  {
+                    "text": "Igual",
+                    "misconceptionCode": "sol-apaga"
+                  },
+                  {
+                    "text": "Sem Sol",
+                    "misconceptionCode": "duracao-errada"
+                  },
+                  {
+                    "text": "Mais longo"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Se a Terra parasse de girar, o que aconteceria com o dia e a noite?",
+                "options": [
+                  {
+                    "text": "O ano ficaria mais curto",
+                    "misconceptionCode": "duracao-errada"
+                  },
+                  {
+                    "text": "Seria sempre noite em todo lugar",
+                    "misconceptionCode": "sol-apaga"
+                  },
+                  {
+                    "text": "Um lado ficaria sempre de dia e o outro sempre de noite"
+                  },
+                  {
+                    "text": "Nada mudaria, porque o Sol continuaria girando",
+                    "misconceptionCode": "sol-gira-terra"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF05CI02-A5",
+        "id": "PK2-EF05CI11-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Aplicar os conhecimentos sobre as mudanças de estado físico",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Aplicar os conhecimentos sobre as mudanças de estado físico.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Aplicar os conhecimentos sobre as mudanças de estado físico.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: dia e noite",
+        "prompt": "Explique com as suas palavras por que existe dia e noite. Se quiser, conte como faria isso com uma lanterna e uma bola.",
+        "estMinutes": 6,
+        "audioScript": "Explique com as suas palavras por que existe dia e noite. Se quiser, conte como faria isso com uma lanterna e uma bola.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de Aplicar os conhecimentos sobre as mudanças de estado físico",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "rotacao",
+              "description": "Explica que a Terra gira em torno de si mesma (rotação)"
+            },
+            {
+              "code": "lado-iluminado",
+              "description": "Diz que o lado virado para o Sol é dia e o outro é noite"
+            },
+            {
+              "code": "sol-nao-gira",
+              "description": "Deixa claro que não é o Sol que gira em volta da Terra nem que ele apaga"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF05CI02"
+          "exemploBoaResposta": "Existe dia e noite porque a Terra gira em torno dela mesma. O lado que está virado para o Sol fica claro e é dia; o outro lado fica escuro e é noite. O Sol não apaga e não dá a volta na Terra: é a Terra que gira, como uma bola girando na frente de uma lanterna."
+        }
       }
-    ]
-  },
-  {
-    "skillCode": "EF05CI07",
-    "title": "Trilha: Justificar a relação entre o funcionamento do sistema (EF05CI07)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
+    ],
     "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 5,
-    "subjectCode": "CI",
-    "activities": [
-      {
-        "id": "PK-EF05CI07-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Justificar a relação entre o funcionamento do sistema",
-        "prompt": "Questão sobre Justificar a relação entre o funcionamento do sistema.",
-        "estMinutes": 4,
-        "audioScript": "Questão sobre Justificar a relação entre o funcionamento do sistema.",
-        "skillId": "EF05CI07",
-        "questions": [
-          {
-            "question": "Qual das opções descreve corretamente o tema \"Justificar a relação entre o funcionamento do sistema\" para o 5º ano?",
-            "options": [
-              {
-                "text": "É um conceito central de Ciências do 5º ano que explica fenômenos naturais observáveis"
-              },
-              {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
-              },
-              {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Justificar a relação entre o funcionamento do sistema é um conteúdo fundamental de Ciências do 5º ano conforme a BNCC.",
-            "variants": [
-              {
-                "question": "Em qual etapa da BNCC encontramos \"Justificar a relação entre o funcionamento do sistema\"?",
-                "options": [
-                  {
-                    "text": "5º ano do Ensino Fundamental"
-                  },
-                  {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que \"Justificar a relação entre o funcionamento do sistema\" é importante de aprender no 5º ano?",
-                "options": [
-                  {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
-                  },
-                  {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05CI07"
-          },
-          {
-            "question": "Qual das opções descreve corretamente o tema \"Justificar a relação entre o funcionamento do sistema\" para o 5º ano?",
-            "options": [
-              {
-                "text": "É um conceito central de Ciências do 5º ano que explica fenômenos naturais observáveis"
-              },
-              {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
-              },
-              {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Justificar a relação entre o funcionamento do sistema é um conteúdo fundamental de Ciências do 5º ano conforme a BNCC.",
-            "variants": [
-              {
-                "question": "Em qual etapa da BNCC encontramos \"Justificar a relação entre o funcionamento do sistema\"?",
-                "options": [
-                  {
-                    "text": "5º ano do Ensino Fundamental"
-                  },
-                  {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que \"Justificar a relação entre o funcionamento do sistema\" é importante de aprender no 5º ano?",
-                "options": [
-                  {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
-                  },
-                  {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05CI07"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF05CI07-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Justificar a relação entre o funcionamento do sistema",
-        "prompt": "Questão sobre Justificar a relação entre o funcionamento do sistema.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Justificar a relação entre o funcionamento do sistema.",
-        "skillId": "EF05CI07",
-        "questions": [
-          {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Justificar a relação entre o funcionamento do sistema\"?",
-            "options": [
-              {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
-              },
-              {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
-            "variants": [
-              {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Justificar a relação entre o funcionamento do sistema\"?",
-                "options": [
-                  {
-                    "text": "Experimentos, registros e análise de evidências"
-                  },
-                  {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O método científico começa com:",
-                "options": [
-                  {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
-                  },
-                  {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05CI07"
-          },
-          {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Justificar a relação entre o funcionamento do sistema\"?",
-            "options": [
-              {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
-              },
-              {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
-            "variants": [
-              {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Justificar a relação entre o funcionamento do sistema\"?",
-                "options": [
-                  {
-                    "text": "Experimentos, registros e análise de evidências"
-                  },
-                  {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O método científico começa com:",
-                "options": [
-                  {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
-                  },
-                  {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05CI07"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF05CI07-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar com exercícios: Justificar a relação entre o funcionamento do sistema",
-        "prompt": "Questão sobre Justificar a relação entre o funcionamento do sistema.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Justificar a relação entre o funcionamento do sistema.",
-        "skillId": "EF05CI07",
-        "questions": [
-          {
-            "question": "Qual das opções descreve corretamente o tema \"Justificar a relação entre o funcionamento do sistema\" para o 5º ano?",
-            "options": [
-              {
-                "text": "É um conceito central de Ciências do 5º ano que explica fenômenos naturais observáveis"
-              },
-              {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
-              },
-              {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Justificar a relação entre o funcionamento do sistema é um conteúdo fundamental de Ciências do 5º ano conforme a BNCC.",
-            "variants": [
-              {
-                "question": "Em qual etapa da BNCC encontramos \"Justificar a relação entre o funcionamento do sistema\"?",
-                "options": [
-                  {
-                    "text": "5º ano do Ensino Fundamental"
-                  },
-                  {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que \"Justificar a relação entre o funcionamento do sistema\" é importante de aprender no 5º ano?",
-                "options": [
-                  {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
-                  },
-                  {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05CI07"
-          },
-          {
-            "question": "Qual das opções descreve corretamente o tema \"Justificar a relação entre o funcionamento do sistema\" para o 5º ano?",
-            "options": [
-              {
-                "text": "É um conceito central de Ciências do 5º ano que explica fenômenos naturais observáveis"
-              },
-              {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
-              },
-              {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Justificar a relação entre o funcionamento do sistema é um conteúdo fundamental de Ciências do 5º ano conforme a BNCC.",
-            "variants": [
-              {
-                "question": "Em qual etapa da BNCC encontramos \"Justificar a relação entre o funcionamento do sistema\"?",
-                "options": [
-                  {
-                    "text": "5º ano do Ensino Fundamental"
-                  },
-                  {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que \"Justificar a relação entre o funcionamento do sistema\" é importante de aprender no 5º ano?",
-                "options": [
-                  {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
-                  },
-                  {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05CI07"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF05CI07-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar em situações reais: Justificar a relação entre o funcionamento do sistema",
-        "prompt": "Questão sobre Justificar a relação entre o funcionamento do sistema.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Justificar a relação entre o funcionamento do sistema.",
-        "skillId": "EF05CI07",
-        "questions": [
-          {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Justificar a relação entre o funcionamento do sistema\"?",
-            "options": [
-              {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
-              },
-              {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
-            "variants": [
-              {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Justificar a relação entre o funcionamento do sistema\"?",
-                "options": [
-                  {
-                    "text": "Experimentos, registros e análise de evidências"
-                  },
-                  {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O método científico começa com:",
-                "options": [
-                  {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
-                  },
-                  {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05CI07"
-          },
-          {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Justificar a relação entre o funcionamento do sistema\"?",
-            "options": [
-              {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
-              },
-              {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
-            "variants": [
-              {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Justificar a relação entre o funcionamento do sistema\"?",
-                "options": [
-                  {
-                    "text": "Experimentos, registros e análise de evidências"
-                  },
-                  {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O método científico começa com:",
-                "options": [
-                  {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
-                  },
-                  {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05CI07"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF05CI07-A5",
-        "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Justificar a relação entre o funcionamento do sistema",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Justificar a relação entre o funcionamento do sistema.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Justificar a relação entre o funcionamento do sistema.",
-        "rubric": {
-          "criteria": [
-            "Menciona ao menos dois aspectos de Justificar a relação entre o funcionamento do sistema",
-            "Usa vocabulário adequado ao ano escolar"
-          ],
-          "minScore": 60
-        },
-        "skillId": "EF05CI07"
-      }
-    ]
-  },
-  {
-    "skillCode": "EF05CI09",
-    "title": "Trilha: Discutir a ocorrência de distúrbios nutricionais (EF05CI09)",
     "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 5,
-    "subjectCode": "CI",
-    "activities": [
-      {
-        "id": "PK-EF05CI09-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Discutir a ocorrência de distúrbios nutricionais",
-        "prompt": "Questão sobre Discutir a ocorrência de distúrbios nutricionais.",
-        "estMinutes": 4,
-        "audioScript": "Questão sobre Discutir a ocorrência de distúrbios nutricionais.",
-        "skillId": "EF05CI09",
-        "questions": [
-          {
-            "question": "Qual das opções descreve corretamente o tema \"Discutir a ocorrência de distúrbios nutricionais\" para o 5º ano?",
-            "options": [
-              {
-                "text": "É um conceito central de Ciências do 5º ano que explica fenômenos naturais observáveis"
-              },
-              {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
-              },
-              {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Discutir a ocorrência de distúrbios nutricionais é um conteúdo fundamental de Ciências do 5º ano conforme a BNCC.",
-            "variants": [
-              {
-                "question": "Em qual etapa da BNCC encontramos \"Discutir a ocorrência de distúrbios nutricionais\"?",
-                "options": [
-                  {
-                    "text": "5º ano do Ensino Fundamental"
-                  },
-                  {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que \"Discutir a ocorrência de distúrbios nutricionais\" é importante de aprender no 5º ano?",
-                "options": [
-                  {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
-                  },
-                  {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05CI09"
-          },
-          {
-            "question": "Qual das opções descreve corretamente o tema \"Discutir a ocorrência de distúrbios nutricionais\" para o 5º ano?",
-            "options": [
-              {
-                "text": "É um conceito central de Ciências do 5º ano que explica fenômenos naturais observáveis"
-              },
-              {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
-              },
-              {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Discutir a ocorrência de distúrbios nutricionais é um conteúdo fundamental de Ciências do 5º ano conforme a BNCC.",
-            "variants": [
-              {
-                "question": "Em qual etapa da BNCC encontramos \"Discutir a ocorrência de distúrbios nutricionais\"?",
-                "options": [
-                  {
-                    "text": "5º ano do Ensino Fundamental"
-                  },
-                  {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que \"Discutir a ocorrência de distúrbios nutricionais\" é importante de aprender no 5º ano?",
-                "options": [
-                  {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
-                  },
-                  {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05CI09"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF05CI09-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Discutir a ocorrência de distúrbios nutricionais",
-        "prompt": "Questão sobre Discutir a ocorrência de distúrbios nutricionais.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Discutir a ocorrência de distúrbios nutricionais.",
-        "skillId": "EF05CI09",
-        "questions": [
-          {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Discutir a ocorrência de distúrbios nutricionais\"?",
-            "options": [
-              {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
-              },
-              {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
-            "variants": [
-              {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Discutir a ocorrência de distúrbios nutricionais\"?",
-                "options": [
-                  {
-                    "text": "Experimentos, registros e análise de evidências"
-                  },
-                  {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O método científico começa com:",
-                "options": [
-                  {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
-                  },
-                  {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05CI09"
-          },
-          {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Discutir a ocorrência de distúrbios nutricionais\"?",
-            "options": [
-              {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
-              },
-              {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
-            "variants": [
-              {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Discutir a ocorrência de distúrbios nutricionais\"?",
-                "options": [
-                  {
-                    "text": "Experimentos, registros e análise de evidências"
-                  },
-                  {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O método científico começa com:",
-                "options": [
-                  {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
-                  },
-                  {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05CI09"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF05CI09-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar com exercícios: Discutir a ocorrência de distúrbios nutricionais",
-        "prompt": "Questão sobre Discutir a ocorrência de distúrbios nutricionais.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Discutir a ocorrência de distúrbios nutricionais.",
-        "skillId": "EF05CI09",
-        "questions": [
-          {
-            "question": "Qual das opções descreve corretamente o tema \"Discutir a ocorrência de distúrbios nutricionais\" para o 5º ano?",
-            "options": [
-              {
-                "text": "É um conceito central de Ciências do 5º ano que explica fenômenos naturais observáveis"
-              },
-              {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
-              },
-              {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Discutir a ocorrência de distúrbios nutricionais é um conteúdo fundamental de Ciências do 5º ano conforme a BNCC.",
-            "variants": [
-              {
-                "question": "Em qual etapa da BNCC encontramos \"Discutir a ocorrência de distúrbios nutricionais\"?",
-                "options": [
-                  {
-                    "text": "5º ano do Ensino Fundamental"
-                  },
-                  {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que \"Discutir a ocorrência de distúrbios nutricionais\" é importante de aprender no 5º ano?",
-                "options": [
-                  {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
-                  },
-                  {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05CI09"
-          },
-          {
-            "question": "Qual das opções descreve corretamente o tema \"Discutir a ocorrência de distúrbios nutricionais\" para o 5º ano?",
-            "options": [
-              {
-                "text": "É um conceito central de Ciências do 5º ano que explica fenômenos naturais observáveis"
-              },
-              {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
-              },
-              {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Discutir a ocorrência de distúrbios nutricionais é um conteúdo fundamental de Ciências do 5º ano conforme a BNCC.",
-            "variants": [
-              {
-                "question": "Em qual etapa da BNCC encontramos \"Discutir a ocorrência de distúrbios nutricionais\"?",
-                "options": [
-                  {
-                    "text": "5º ano do Ensino Fundamental"
-                  },
-                  {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que \"Discutir a ocorrência de distúrbios nutricionais\" é importante de aprender no 5º ano?",
-                "options": [
-                  {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
-                  },
-                  {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05CI09"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF05CI09-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar em situações reais: Discutir a ocorrência de distúrbios nutricionais",
-        "prompt": "Questão sobre Discutir a ocorrência de distúrbios nutricionais.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Discutir a ocorrência de distúrbios nutricionais.",
-        "skillId": "EF05CI09",
-        "questions": [
-          {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Discutir a ocorrência de distúrbios nutricionais\"?",
-            "options": [
-              {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
-              },
-              {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
-            "variants": [
-              {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Discutir a ocorrência de distúrbios nutricionais\"?",
-                "options": [
-                  {
-                    "text": "Experimentos, registros e análise de evidências"
-                  },
-                  {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O método científico começa com:",
-                "options": [
-                  {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
-                  },
-                  {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05CI09"
-          },
-          {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Discutir a ocorrência de distúrbios nutricionais\"?",
-            "options": [
-              {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
-              },
-              {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
-            "variants": [
-              {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Discutir a ocorrência de distúrbios nutricionais\"?",
-                "options": [
-                  {
-                    "text": "Experimentos, registros e análise de evidências"
-                  },
-                  {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O método científico começa com:",
-                "options": [
-                  {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
-                  },
-                  {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF05CI09"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF05CI09-A5",
-        "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Discutir a ocorrência de distúrbios nutricionais",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Discutir a ocorrência de distúrbios nutricionais.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Discutir a ocorrência de distúrbios nutricionais.",
-        "rubric": {
-          "criteria": [
-            "Menciona ao menos dois aspectos de Discutir a ocorrência de distúrbios nutricionais",
-            "Usa vocabulário adequado ao ano escolar"
-          ],
-          "minScore": 60
-        },
-        "skillId": "EF05CI09"
-      }
-    ]
+    "status": "APPROVED"
   }
 ]

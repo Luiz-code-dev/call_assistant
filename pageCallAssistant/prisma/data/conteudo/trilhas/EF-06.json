@@ -1,2450 +1,1890 @@
 [
   {
-    "skillCode": "EF67EF01",
-    "title": "Trilha: na escola e fora dela (EF67EF01)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
+    "skillCode": "EF67EF08",
     "subjectCode": "EF",
+    "subjectName": "Educação Física",
+    "gradeYear": 6,
+    "version": 2,
+    "title": "Trilha: Capacidades físicas",
+    "tituloAluno": "Força, velocidade, resistência e flexibilidade",
     "activities": [
       {
-        "id": "PK-EF67EF01-A1",
+        "id": "PK2-EF67EF08-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: na escola e fora dela",
-        "prompt": "Questão sobre na escola e fora dela.",
+        "title": "Relembrar: movimentos da ginástica",
+        "prompt": "Vamos lembrar os elementos da ginástica que você já conhece.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre na escola e fora dela.",
-        "skillId": "EF67EF01",
+        "audioScript": "Vamos lembrar os elementos da ginástica que você já conhece. Pergunta 1. Manter o corpo parado num pé só é: A: Força; B: Equilíbrio; C: Velocidade; D: Flexibilidade. Pergunta 2. Antes de exercícios, aquecer serve para: A: Cansar o corpo antes; B: Nada; C: Ficar mais forte na hora; D: Preparar o corpo e evitar lesões. Pergunta 3. Encostar as mãos nos pés com as pernas esticadas depende de: A: Flexibilidade; B: Força; C: Velocidade; D: Resistência.",
         "questions": [
           {
-            "question": "No tema \"na escola e fora dela\", qual é o objetivo principal da Educação Física escolar?",
+            "question": "Manter o corpo parado num pé só é:",
             "options": [
               {
-                "text": "Desenvolver habilidades motoras, saúde e valores por meio de práticas corporais"
+                "text": "Força",
+                "misconceptionCode": "forca-resistencia"
               },
               {
-                "text": "Apenas vencer competições esportivas",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Equilíbrio"
               },
               {
-                "text": "Eliminar alunos com menos aptidão",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Velocidade",
+                "misconceptionCode": "velocidade-resistencia"
               },
               {
-                "text": "Substituir outras disciplinas",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Flexibilidade",
+                "misconceptionCode": "flexibilidade-forca"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Educação Física escolar desenvolve corpo, saúde, cooperação e cultura de movimento.",
+            "correctIndex": 1,
+            "explanation": "Equilíbrio é manter o corpo estável.",
             "variants": [
               {
-                "question": "O que é cultura corporal de movimento?",
+                "question": "Andar numa trave baixa sem cair exige:",
                 "options": [
                   {
-                    "text": "Conjunto de práticas corporais com significado cultural: esportes, danças, lutas, ginásticas"
+                    "text": "Velocidade",
+                    "misconceptionCode": "forca-resistencia"
                   },
                   {
-                    "text": "Apenas exercícios de musculação",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Só força",
+                    "misconceptionCode": "velocidade-resistencia"
                   },
                   {
-                    "text": "Somente corrida e natação",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Flexibilidade",
+                    "misconceptionCode": "flexibilidade-forca"
                   },
                   {
-                    "text": "Atividades exclusivamente competitivas",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Equilíbrio"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "Por que o fair play (jogo limpo) é importante no esporte?",
+                "question": "Manter o corpo parado num pé só é:",
                 "options": [
                   {
-                    "text": "Porque promove respeito, honestidade e convivência saudável entre os participantes"
+                    "text": "Flexibilidade",
+                    "misconceptionCode": "flexibilidade-forca"
                   },
                   {
-                    "text": "Porque permite ganhar de qualquer forma",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Velocidade",
+                    "misconceptionCode": "velocidade-resistencia"
                   },
                   {
-                    "text": "Porque não existe no esporte profissional",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Equilíbrio"
                   },
                   {
-                    "text": "Porque elimina a competição",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Força",
+                    "misconceptionCode": "forca-resistencia"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF67EF01"
+            ]
           },
           {
-            "question": "No tema \"na escola e fora dela\", qual é o objetivo principal da Educação Física escolar?",
+            "question": "Antes de exercícios, aquecer serve para:",
             "options": [
               {
-                "text": "Desenvolver habilidades motoras, saúde e valores por meio de práticas corporais"
+                "text": "Cansar o corpo antes",
+                "misconceptionCode": "sensacao-errada"
               },
               {
-                "text": "Apenas vencer competições esportivas",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Nada",
+                "misconceptionCode": "sensacao-errada"
               },
               {
-                "text": "Eliminar alunos com menos aptidão",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Ficar mais forte na hora",
+                "misconceptionCode": "forca-resistencia"
               },
               {
-                "text": "Substituir outras disciplinas",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Preparar o corpo e evitar lesões"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "O aquecimento prepara músculos, coração e articulações.",
+            "variants": [
+              {
+                "question": "Por que se aquece antes de correr?",
+                "options": [
+                  {
+                    "text": "Para se cansar",
+                    "misconceptionCode": "sensacao-errada"
+                  },
+                  {
+                    "text": "Para preparar os músculos"
+                  },
+                  {
+                    "text": "Para perder tempo",
+                    "misconceptionCode": "sensacao-errada"
+                  },
+                  {
+                    "text": "Não precisa",
+                    "misconceptionCode": "forca-resistencia"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Antes de exercícios, aquecer serve para:",
+                "options": [
+                  {
+                    "text": "Preparar o corpo e evitar lesões"
+                  },
+                  {
+                    "text": "Ficar mais forte na hora",
+                    "misconceptionCode": "forca-resistencia"
+                  },
+                  {
+                    "text": "Nada",
+                    "misconceptionCode": "sensacao-errada"
+                  },
+                  {
+                    "text": "Cansar o corpo antes",
+                    "misconceptionCode": "sensacao-errada"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "Encostar as mãos nos pés com as pernas esticadas depende de:",
+            "options": [
+              {
+                "text": "Flexibilidade"
+              },
+              {
+                "text": "Força",
+                "misconceptionCode": "flexibilidade-forca"
+              },
+              {
+                "text": "Velocidade",
+                "misconceptionCode": "velocidade-resistencia"
+              },
+              {
+                "text": "Resistência",
+                "misconceptionCode": "forca-resistencia"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Educação Física escolar desenvolve corpo, saúde, cooperação e cultura de movimento.",
+            "explanation": "Flexibilidade é a amplitude de movimento das articulações.",
             "variants": [
               {
-                "question": "O que é cultura corporal de movimento?",
+                "question": "Abrir as pernas no espacate depende de:",
                 "options": [
                   {
-                    "text": "Conjunto de práticas corporais com significado cultural: esportes, danças, lutas, ginásticas"
+                    "text": "Velocidade",
+                    "misconceptionCode": "flexibilidade-forca"
                   },
                   {
-                    "text": "Apenas exercícios de musculação",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Força nos braços",
+                    "misconceptionCode": "velocidade-resistencia"
                   },
                   {
-                    "text": "Somente corrida e natação",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Flexibilidade"
                   },
                   {
-                    "text": "Atividades exclusivamente competitivas",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Resistência",
+                    "misconceptionCode": "forca-resistencia"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "Por que o fair play (jogo limpo) é importante no esporte?",
+                "question": "Encostar as mãos nos pés com as pernas esticadas depende de:",
                 "options": [
                   {
-                    "text": "Porque promove respeito, honestidade e convivência saudável entre os participantes"
+                    "text": "Resistência",
+                    "misconceptionCode": "forca-resistencia"
                   },
                   {
-                    "text": "Porque permite ganhar de qualquer forma",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Flexibilidade"
                   },
                   {
-                    "text": "Porque não existe no esporte profissional",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Velocidade",
+                    "misconceptionCode": "velocidade-resistencia"
                   },
                   {
-                    "text": "Porque elimina a competição",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Força",
+                    "misconceptionCode": "flexibilidade-forca"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF67EF01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF67EF01-A2",
+        "id": "PK2-EF67EF08-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: na escola e fora dela",
-        "prompt": "Questão sobre na escola e fora dela.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre na escola e fora dela.",
-        "skillId": "EF67EF01",
+        "title": "Exemplo guiado: cada exercício, uma capacidade",
+        "prompt": "Vamos ligar juntos cada exercício à capacidade física que ele mais trabalha.",
+        "estMinutes": 4,
+        "audioScript": "Vamos ligar juntos cada exercício à capacidade física que ele mais trabalha. Pergunta 1. Uma corrida de 50 metros, o mais rápido possível, trabalha principalmente: A: Resistência; B: Flexibilidade; C: Equilíbrio parado; D: Velocidade. Pergunta 2. Correr devagar durante 20 minutos sem parar trabalha principalmente: A: Resistência; B: Velocidade; C: Força; D: Flexibilidade. Pergunta 3. Levantar uma mochila pesada do chão ou fazer flexões trabalha principalmente: A: Resistência; B: Flexibilidade; C: Força; D: Velocidade.",
         "questions": [
           {
-            "question": "Qual é a diferença entre esporte de rendimento e esporte de participação?",
+            "question": "Uma corrida de 50 metros, o mais rápido possível, trabalha principalmente:",
             "options": [
               {
-                "text": "O rendimento foca em alto desempenho e resultados; o de participação, em saúde e prazer"
+                "text": "Resistência",
+                "misconceptionCode": "velocidade-resistencia"
               },
               {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Flexibilidade",
+                "misconceptionCode": "flexibilidade-forca"
               },
               {
-                "text": "O de participação não é esporte",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Equilíbrio parado",
+                "misconceptionCode": "sensacao-errada"
               },
               {
-                "text": "Só o rendimento tem regras",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Velocidade"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Esporte de rendimento busca máximo desempenho; esporte de participação busca bem-estar e inclusão.",
+            "correctIndex": 3,
+            "explanation": "Distância curta e máximo de rapidez: velocidade.",
             "variants": [
               {
-                "question": "O que são habilidades motoras básicas?",
+                "question": "Fugir rápido no pega-pega trabalha:",
                 "options": [
                   {
-                    "text": "Movimentos fundamentais como correr, saltar, arremessar e rolar"
+                    "text": "Resistência",
+                    "misconceptionCode": "velocidade-resistencia"
                   },
                   {
-                    "text": "Apenas habilidades de atletas profissionais",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Velocidade"
                   },
                   {
-                    "text": "Movimentos exclusivos de adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Flexibilidade",
+                    "misconceptionCode": "flexibilidade-forca"
                   },
                   {
-                    "text": "Somente nadar e pedalar",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Força",
+                    "misconceptionCode": "sensacao-errada"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "O que é atividade física de intensidade moderada?",
+                "question": "Uma corrida de 50 metros, o mais rápido possível, trabalha principalmente:",
                 "options": [
                   {
-                    "text": "Exercício que aumenta a frequência cardíaca mas permite conversar"
+                    "text": "Velocidade"
                   },
                   {
-                    "text": "Apenas descanso e caminhada lenta",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Equilíbrio parado",
+                    "misconceptionCode": "sensacao-errada"
                   },
                   {
-                    "text": "Exercícios exclusivamente competitivos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Flexibilidade",
+                    "misconceptionCode": "flexibilidade-forca"
                   },
                   {
-                    "text": "Atividade que causa exaustão total",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Resistência",
+                    "misconceptionCode": "velocidade-resistencia"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF67EF01"
+            ]
           },
           {
-            "question": "Qual é a diferença entre esporte de rendimento e esporte de participação?",
+            "question": "Correr devagar durante 20 minutos sem parar trabalha principalmente:",
             "options": [
               {
-                "text": "O rendimento foca em alto desempenho e resultados; o de participação, em saúde e prazer"
+                "text": "Resistência"
               },
               {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Velocidade",
+                "misconceptionCode": "velocidade-resistencia"
               },
               {
-                "text": "O de participação não é esporte",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Força",
+                "misconceptionCode": "forca-resistencia"
               },
               {
-                "text": "Só o rendimento tem regras",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Flexibilidade",
+                "misconceptionCode": "flexibilidade-forca"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Esporte de rendimento busca máximo desempenho; esporte de participação busca bem-estar e inclusão.",
+            "explanation": "Aguentar um esforço por muito tempo é resistência.",
             "variants": [
               {
-                "question": "O que são habilidades motoras básicas?",
+                "question": "Nadar devagar por muito tempo trabalha:",
                 "options": [
                   {
-                    "text": "Movimentos fundamentais como correr, saltar, arremessar e rolar"
+                    "text": "Velocidade",
+                    "misconceptionCode": "velocidade-resistencia"
                   },
                   {
-                    "text": "Apenas habilidades de atletas profissionais",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Flexibilidade",
+                    "misconceptionCode": "forca-resistencia"
                   },
                   {
-                    "text": "Movimentos exclusivos de adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Resistência"
                   },
                   {
-                    "text": "Somente nadar e pedalar",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Equilíbrio",
+                    "misconceptionCode": "flexibilidade-forca"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "Correr devagar durante 20 minutos sem parar trabalha principalmente:",
+                "options": [
+                  {
+                    "text": "Flexibilidade",
+                    "misconceptionCode": "flexibilidade-forca"
+                  },
+                  {
+                    "text": "Resistência"
+                  },
+                  {
+                    "text": "Força",
+                    "misconceptionCode": "forca-resistencia"
+                  },
+                  {
+                    "text": "Velocidade",
+                    "misconceptionCode": "velocidade-resistencia"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Levantar uma mochila pesada do chão ou fazer flexões trabalha principalmente:",
+            "options": [
+              {
+                "text": "Resistência",
+                "misconceptionCode": "forca-resistencia"
+              },
+              {
+                "text": "Flexibilidade",
+                "misconceptionCode": "flexibilidade-forca"
+              },
+              {
+                "text": "Força"
+              },
+              {
+                "text": "Velocidade",
+                "misconceptionCode": "velocidade-resistencia"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "Força é a capacidade de vencer um peso ou uma resistência.",
+            "variants": [
+              {
+                "question": "Puxar a corda no cabo de guerra trabalha:",
+                "options": [
+                  {
+                    "text": "Força"
+                  },
+                  {
+                    "text": "Flexibilidade",
+                    "misconceptionCode": "forca-resistencia"
+                  },
+                  {
+                    "text": "Velocidade",
+                    "misconceptionCode": "flexibilidade-forca"
+                  },
+                  {
+                    "text": "Equilíbrio",
+                    "misconceptionCode": "velocidade-resistencia"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que é atividade física de intensidade moderada?",
+                "question": "Levantar uma mochila pesada do chão ou fazer flexões trabalha principalmente:",
                 "options": [
                   {
-                    "text": "Exercício que aumenta a frequência cardíaca mas permite conversar"
+                    "text": "Velocidade",
+                    "misconceptionCode": "velocidade-resistencia"
                   },
                   {
-                    "text": "Apenas descanso e caminhada lenta",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Flexibilidade",
+                    "misconceptionCode": "flexibilidade-forca"
                   },
                   {
-                    "text": "Exercícios exclusivamente competitivos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Resistência",
+                    "misconceptionCode": "forca-resistencia"
                   },
                   {
-                    "text": "Atividade que causa exaustão total",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Força"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF67EF01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF67EF01-A3",
+        "id": "PK2-EF67EF08-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: na escola e fora dela",
-        "prompt": "Questão sobre na escola e fora dela.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre na escola e fora dela.",
-        "skillId": "EF67EF01",
+        "title": "Praticar: capacidades e sensações",
+        "prompt": "Identifique a capacidade e entenda o que o corpo sente.",
+        "estMinutes": 5,
+        "audioScript": "Identifique a capacidade e entenda o que o corpo sente. Pergunta 1. Alongar as pernas depois da aula trabalha: A: Flexibilidade; B: Força; C: Velocidade; D: Resistência. Pergunta 2. Durante uma corrida, o coração bate mais rápido. Isso é: A: Sinal de doença; B: Sinal de que o exercício está errado; C: Normal: o corpo precisa de mais oxigênio nos músculos; D: Sinal de que o corpo parou. Pergunta 3. Fazer 10 abdominais seguidos e aguentar 30 segundos em prancha trabalham: A: Só velocidade; B: Força e resistência muscular; C: Só flexibilidade; D: Nenhuma capacidade. Pergunta 4. Mudar de direção rápido para driblar um colega trabalha: A: Flexibilidade; B: Resistência; C: Força; D: Agilidade.",
         "questions": [
           {
-            "question": "No tema \"na escola e fora dela\", qual é o objetivo principal da Educação Física escolar?",
+            "question": "Alongar as pernas depois da aula trabalha:",
             "options": [
               {
-                "text": "Desenvolver habilidades motoras, saúde e valores por meio de práticas corporais"
+                "text": "Flexibilidade"
               },
               {
-                "text": "Apenas vencer competições esportivas",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Força",
+                "misconceptionCode": "flexibilidade-forca"
               },
               {
-                "text": "Eliminar alunos com menos aptidão",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Velocidade",
+                "misconceptionCode": "velocidade-resistencia"
               },
               {
-                "text": "Substituir outras disciplinas",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Resistência",
+                "misconceptionCode": "forca-resistencia"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Educação Física escolar desenvolve corpo, saúde, cooperação e cultura de movimento.",
+            "explanation": "Alongamento aumenta a amplitude de movimento.",
             "variants": [
               {
-                "question": "O que é cultura corporal de movimento?",
+                "question": "Uma aula de ioga com muitas posturas de alongamento trabalha principalmente:",
                 "options": [
                   {
-                    "text": "Conjunto de práticas corporais com significado cultural: esportes, danças, lutas, ginásticas"
+                    "text": "Velocidade",
+                    "misconceptionCode": "flexibilidade-forca"
                   },
                   {
-                    "text": "Apenas exercícios de musculação",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Força explosiva",
+                    "misconceptionCode": "velocidade-resistencia"
                   },
                   {
-                    "text": "Somente corrida e natação",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Flexibilidade"
                   },
                   {
-                    "text": "Atividades exclusivamente competitivas",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Resistência de corrida",
+                    "misconceptionCode": "forca-resistencia"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "Por que o fair play (jogo limpo) é importante no esporte?",
+                "question": "Alongar as pernas depois da aula trabalha:",
                 "options": [
                   {
-                    "text": "Porque promove respeito, honestidade e convivência saudável entre os participantes"
+                    "text": "Resistência",
+                    "misconceptionCode": "forca-resistencia"
                   },
                   {
-                    "text": "Porque permite ganhar de qualquer forma",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Flexibilidade"
                   },
                   {
-                    "text": "Porque não existe no esporte profissional",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Velocidade",
+                    "misconceptionCode": "velocidade-resistencia"
                   },
                   {
-                    "text": "Porque elimina a competição",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Força",
+                    "misconceptionCode": "flexibilidade-forca"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF67EF01"
+            ]
           },
           {
-            "question": "No tema \"na escola e fora dela\", qual é o objetivo principal da Educação Física escolar?",
+            "question": "Durante uma corrida, o coração bate mais rápido. Isso é:",
             "options": [
               {
-                "text": "Desenvolver habilidades motoras, saúde e valores por meio de práticas corporais"
+                "text": "Sinal de doença",
+                "misconceptionCode": "sensacao-errada"
               },
               {
-                "text": "Apenas vencer competições esportivas",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Sinal de que o exercício está errado",
+                "misconceptionCode": "sensacao-errada"
               },
               {
-                "text": "Eliminar alunos com menos aptidão",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Normal: o corpo precisa de mais oxigênio nos músculos"
               },
               {
-                "text": "Substituir outras disciplinas",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Sinal de que o corpo parou",
+                "misconceptionCode": "sensacao-errada"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Educação Física escolar desenvolve corpo, saúde, cooperação e cultura de movimento.",
+            "correctIndex": 2,
+            "explanation": "O coração acelera para levar mais sangue e oxigênio aos músculos.",
             "variants": [
               {
-                "question": "O que é cultura corporal de movimento?",
+                "question": "Por que respiramos mais rápido ao pular corda?",
                 "options": [
                   {
-                    "text": "Conjunto de práticas corporais com significado cultural: esportes, danças, lutas, ginásticas"
+                    "text": "Porque os músculos precisam de mais oxigênio"
                   },
                   {
-                    "text": "Apenas exercícios de musculação",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Porque o ar acabou",
+                    "misconceptionCode": "sensacao-errada"
                   },
                   {
-                    "text": "Somente corrida e natação",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Porque é sinal de doença",
+                    "misconceptionCode": "sensacao-errada"
                   },
                   {
-                    "text": "Atividades exclusivamente competitivas",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Porque esquecemos de respirar",
+                    "misconceptionCode": "sensacao-errada"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que o fair play (jogo limpo) é importante no esporte?",
+                "question": "Durante uma corrida, o coração bate mais rápido. Isso é:",
                 "options": [
                   {
-                    "text": "Porque promove respeito, honestidade e convivência saudável entre os participantes"
+                    "text": "Sinal de que o corpo parou",
+                    "misconceptionCode": "sensacao-errada"
                   },
                   {
-                    "text": "Porque permite ganhar de qualquer forma",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Sinal de que o exercício está errado",
+                    "misconceptionCode": "sensacao-errada"
                   },
                   {
-                    "text": "Porque não existe no esporte profissional",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Sinal de doença",
+                    "misconceptionCode": "sensacao-errada"
                   },
                   {
-                    "text": "Porque elimina a competição",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Normal: o corpo precisa de mais oxigênio nos músculos"
+                  }
+                ],
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "Fazer 10 abdominais seguidos e aguentar 30 segundos em prancha trabalham:",
+            "options": [
+              {
+                "text": "Só velocidade",
+                "misconceptionCode": "velocidade-resistencia"
+              },
+              {
+                "text": "Força e resistência muscular"
+              },
+              {
+                "text": "Só flexibilidade",
+                "misconceptionCode": "flexibilidade-forca"
+              },
+              {
+                "text": "Nenhuma capacidade",
+                "misconceptionCode": "sensacao-errada"
+              }
+            ],
+            "correctIndex": 1,
+            "explanation": "A prancha exige força para sustentar e resistência para aguentar o tempo.",
+            "variants": [
+              {
+                "question": "Ficar pendurado na barra por bastante tempo trabalha:",
+                "options": [
+                  {
+                    "text": "Só velocidade",
+                    "misconceptionCode": "velocidade-resistencia"
+                  },
+                  {
+                    "text": "Só flexibilidade",
+                    "misconceptionCode": "flexibilidade-forca"
+                  },
+                  {
+                    "text": "Nenhuma",
+                    "misconceptionCode": "sensacao-errada"
+                  },
+                  {
+                    "text": "Força e resistência"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Fazer 10 abdominais seguidos e aguentar 30 segundos em prancha trabalham:",
+                "options": [
+                  {
+                    "text": "Nenhuma capacidade",
+                    "misconceptionCode": "sensacao-errada"
+                  },
+                  {
+                    "text": "Só flexibilidade",
+                    "misconceptionCode": "flexibilidade-forca"
+                  },
+                  {
+                    "text": "Força e resistência muscular"
+                  },
+                  {
+                    "text": "Só velocidade",
+                    "misconceptionCode": "velocidade-resistencia"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "Mudar de direção rápido para driblar um colega trabalha:",
+            "options": [
+              {
+                "text": "Flexibilidade",
+                "misconceptionCode": "flexibilidade-forca"
+              },
+              {
+                "text": "Resistência",
+                "misconceptionCode": "velocidade-resistencia"
+              },
+              {
+                "text": "Força",
+                "misconceptionCode": "forca-resistencia"
+              },
+              {
+                "text": "Agilidade"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Agilidade é mudar de direção e de posição com rapidez.",
+            "variants": [
+              {
+                "question": "Desviar das bolas na queimada exige:",
+                "options": [
+                  {
+                    "text": "Flexibilidade",
+                    "misconceptionCode": "flexibilidade-forca"
+                  },
+                  {
+                    "text": "Agilidade"
+                  },
+                  {
+                    "text": "Resistência de longa distância",
+                    "misconceptionCode": "velocidade-resistencia"
+                  },
+                  {
+                    "text": "Força máxima",
+                    "misconceptionCode": "forca-resistencia"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Mudar de direção rápido para driblar um colega trabalha:",
+                "options": [
+                  {
+                    "text": "Agilidade"
+                  },
+                  {
+                    "text": "Força",
+                    "misconceptionCode": "forca-resistencia"
+                  },
+                  {
+                    "text": "Resistência",
+                    "misconceptionCode": "velocidade-resistencia"
+                  },
+                  {
+                    "text": "Flexibilidade",
+                    "misconceptionCode": "flexibilidade-forca"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF67EF01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF67EF01-A4",
+        "id": "PK2-EF67EF08-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: na escola e fora dela",
-        "prompt": "Questão sobre na escola e fora dela.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre na escola e fora dela.",
-        "skillId": "EF67EF01",
+        "title": "Aplicar: exercício no dia a dia",
+        "prompt": "Pense em como usar as capacidades físicas na sua vida.",
+        "estMinutes": 4,
+        "audioScript": "Pense em como usar as capacidades físicas na sua vida. Pergunta 1. Você quer conseguir correr a gincana inteira sem cansar tanto. O que treinar? A: Só velocidade, em tiros curtos; B: Só alongamento; C: Resistência, com corridas leves e mais longas; D: Só levantar peso. Pergunta 2. Depois de um jogo, a perna fica um pouco dolorida no dia seguinte. Isso pode ser: A: Sinal de que nunca mais deve fazer exercício; B: Normal, se for leve; se for forte, é preciso descansar e avisar um adulto; C: Sinal de que treinou pouco; D: Sempre um machucado grave. Pergunta 3. Qual destas é uma atividade física do dia a dia, sem ser esporte? A: Só correr numa competição; B: Ficar sentado jogando videogame; C: Só fazer alongamento de atleta; D: Subir escadas e andar até a escola.",
         "questions": [
           {
-            "question": "Qual é a diferença entre esporte de rendimento e esporte de participação?",
+            "question": "Você quer conseguir correr a gincana inteira sem cansar tanto. O que treinar?",
             "options": [
               {
-                "text": "O rendimento foca em alto desempenho e resultados; o de participação, em saúde e prazer"
+                "text": "Só velocidade, em tiros curtos",
+                "misconceptionCode": "velocidade-resistencia"
               },
               {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Só alongamento",
+                "misconceptionCode": "flexibilidade-forca"
               },
               {
-                "text": "O de participação não é esporte",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Resistência, com corridas leves e mais longas"
               },
               {
-                "text": "Só o rendimento tem regras",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Só levantar peso",
+                "misconceptionCode": "forca-resistencia"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Esporte de rendimento busca máximo desempenho; esporte de participação busca bem-estar e inclusão.",
+            "correctIndex": 2,
+            "explanation": "Para aguentar mais tempo, treina-se a resistência.",
             "variants": [
               {
-                "question": "O que são habilidades motoras básicas?",
+                "question": "Para aguentar um passeio de bicicleta longo, treine:",
                 "options": [
                   {
-                    "text": "Movimentos fundamentais como correr, saltar, arremessar e rolar"
+                    "text": "Resistência"
                   },
                   {
-                    "text": "Apenas habilidades de atletas profissionais",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Só velocidade",
+                    "misconceptionCode": "velocidade-resistencia"
                   },
                   {
-                    "text": "Movimentos exclusivos de adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Só flexibilidade",
+                    "misconceptionCode": "flexibilidade-forca"
                   },
                   {
-                    "text": "Somente nadar e pedalar",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Só força nos braços",
+                    "misconceptionCode": "forca-resistencia"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que é atividade física de intensidade moderada?",
+                "question": "Você quer conseguir correr a gincana inteira sem cansar tanto. O que treinar?",
                 "options": [
                   {
-                    "text": "Exercício que aumenta a frequência cardíaca mas permite conversar"
+                    "text": "Só levantar peso",
+                    "misconceptionCode": "forca-resistencia"
                   },
                   {
-                    "text": "Apenas descanso e caminhada lenta",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Só alongamento",
+                    "misconceptionCode": "flexibilidade-forca"
                   },
                   {
-                    "text": "Exercícios exclusivamente competitivos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Só velocidade, em tiros curtos",
+                    "misconceptionCode": "velocidade-resistencia"
                   },
                   {
-                    "text": "Atividade que causa exaustão total",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Resistência, com corridas leves e mais longas"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF67EF01"
+            ]
           },
           {
-            "question": "Qual é a diferença entre esporte de rendimento e esporte de participação?",
+            "question": "Depois de um jogo, a perna fica um pouco dolorida no dia seguinte. Isso pode ser:",
             "options": [
               {
-                "text": "O rendimento foca em alto desempenho e resultados; o de participação, em saúde e prazer"
+                "text": "Sinal de que nunca mais deve fazer exercício",
+                "misconceptionCode": "sensacao-errada"
               },
               {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Normal, se for leve; se for forte, é preciso descansar e avisar um adulto"
               },
               {
-                "text": "O de participação não é esporte",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Sinal de que treinou pouco",
+                "misconceptionCode": "sensacao-errada"
               },
               {
-                "text": "Só o rendimento tem regras",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Sempre um machucado grave",
+                "misconceptionCode": "sensacao-errada"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Esporte de rendimento busca máximo desempenho; esporte de participação busca bem-estar e inclusão.",
+            "correctIndex": 1,
+            "explanation": "Um leve desconforto é comum; dor forte merece atenção.",
             "variants": [
               {
-                "question": "O que são habilidades motoras básicas?",
+                "question": "Se sentir tontura forte durante o exercício, você deve:",
                 "options": [
                   {
-                    "text": "Movimentos fundamentais como correr, saltar, arremessar e rolar"
+                    "text": "Continuar mais rápido",
+                    "misconceptionCode": "sensacao-errada"
                   },
                   {
-                    "text": "Apenas habilidades de atletas profissionais",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Fingir que não é nada",
+                    "misconceptionCode": "sensacao-errada"
                   },
                   {
-                    "text": "Movimentos exclusivos de adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Correr para casa sozinho",
+                    "misconceptionCode": "sensacao-errada"
                   },
                   {
-                    "text": "Somente nadar e pedalar",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Parar e avisar um adulto"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "O que é atividade física de intensidade moderada?",
+                "question": "Depois de um jogo, a perna fica um pouco dolorida no dia seguinte. Isso pode ser:",
                 "options": [
                   {
-                    "text": "Exercício que aumenta a frequência cardíaca mas permite conversar"
+                    "text": "Sempre um machucado grave",
+                    "misconceptionCode": "sensacao-errada"
                   },
                   {
-                    "text": "Apenas descanso e caminhada lenta",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Sinal de que treinou pouco",
+                    "misconceptionCode": "sensacao-errada"
                   },
                   {
-                    "text": "Exercícios exclusivamente competitivos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Normal, se for leve; se for forte, é preciso descansar e avisar um adulto"
                   },
                   {
-                    "text": "Atividade que causa exaustão total",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Sinal de que nunca mais deve fazer exercício",
+                    "misconceptionCode": "sensacao-errada"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "Qual destas é uma atividade física do dia a dia, sem ser esporte?",
+            "options": [
+              {
+                "text": "Só correr numa competição",
+                "misconceptionCode": "velocidade-resistencia"
+              },
+              {
+                "text": "Ficar sentado jogando videogame",
+                "misconceptionCode": "sensacao-errada"
+              },
+              {
+                "text": "Só fazer alongamento de atleta",
+                "misconceptionCode": "flexibilidade-forca"
+              },
+              {
+                "text": "Subir escadas e andar até a escola"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Atividade física é todo movimento do corpo que gasta energia; exercício é a atividade planejada.",
+            "variants": [
+              {
+                "question": "Varrer a casa e andar de bicicleta até a padaria são:",
+                "options": [
+                  {
+                    "text": "Esportes de competição",
+                    "misconceptionCode": "velocidade-resistencia"
+                  },
+                  {
+                    "text": "Atividades físicas do dia a dia"
+                  },
+                  {
+                    "text": "Exercícios só de força",
+                    "misconceptionCode": "sensacao-errada"
+                  },
+                  {
+                    "text": "Nenhum movimento",
+                    "misconceptionCode": "flexibilidade-forca"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Qual destas é uma atividade física do dia a dia, sem ser esporte?",
+                "options": [
+                  {
+                    "text": "Subir escadas e andar até a escola"
+                  },
+                  {
+                    "text": "Só fazer alongamento de atleta",
+                    "misconceptionCode": "flexibilidade-forca"
+                  },
+                  {
+                    "text": "Ficar sentado jogando videogame",
+                    "misconceptionCode": "sensacao-errada"
+                  },
+                  {
+                    "text": "Só correr numa competição",
+                    "misconceptionCode": "velocidade-resistencia"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF67EF01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF67EF01-A5",
+        "id": "PK2-EF67EF08-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: na escola e fora dela",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre na escola e fora dela.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre na escola e fora dela.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: capacidades físicas",
+        "prompt": "Explique com as suas palavras a diferença entre velocidade e resistência, com um exemplo de exercício para cada uma.",
+        "estMinutes": 6,
+        "audioScript": "Explique com as suas palavras a diferença entre velocidade e resistência, com um exemplo de exercício para cada uma.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de na escola e fora dela",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "velocidade",
+              "description": "Explica velocidade como fazer algo o mais rápido possível, em pouco tempo"
+            },
+            {
+              "code": "resistencia",
+              "description": "Explica resistência como aguentar um esforço por muito tempo"
+            },
+            {
+              "code": "exemplos",
+              "description": "Dá exemplos corretos de exercícios"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF67EF01"
+          "exemploBoaResposta": "Velocidade é fazer o movimento o mais rápido possível, como correr 50 metros numa corrida. Resistência é aguentar o esforço por muito tempo, como correr devagar 20 minutos sem parar. Os dois são capacidades físicas diferentes."
+        }
       }
-    ]
+    ],
+    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
+    "source": "SPEAKFLOW",
+    "status": "APPROVED"
   },
   {
-    "skillCode": "EF67EF04",
-    "title": "Trilha: Praticar um ou mais esportes de marca (EF67EF04)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
+    "skillCode": "EF67EF03",
     "subjectCode": "EF",
+    "subjectName": "Educação Física",
+    "gradeYear": 6,
+    "version": 2,
+    "title": "Trilha: Esportes de marca, precisão, invasão e técnico-combinatórios",
+    "tituloAluno": "Como os esportes se organizam",
     "activities": [
       {
-        "id": "PK-EF67EF04-A1",
+        "id": "PK2-EF67EF03-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Praticar um ou mais esportes de marca",
-        "prompt": "Questão sobre Praticar um ou mais esportes de marca.",
+        "title": "Relembrar: rede, invasão e taco",
+        "prompt": "Vamos lembrar os grupos que você já conhece.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre Praticar um ou mais esportes de marca.",
-        "skillId": "EF67EF04",
+        "audioScript": "Vamos lembrar os grupos que você já conhece. Pergunta 1. Futebol e handebol são esportes de: A: Rede; B: Marca; C: Invasão; D: Técnico-combinatório. Pergunta 2. Vôlei e tênis são esportes de: A: Invasão; B: Rede; C: Precisão; D: Marca. Pergunta 3. Para classificar um esporte, o mais importante é observar: A: Se usa bola ou não; B: A cor do uniforme; C: O tamanho da quadra apenas; D: Como se vence o jogo.",
         "questions": [
           {
-            "question": "No tema \"Praticar um ou mais esportes de marca\", qual é o objetivo principal da Educação Física escolar?",
+            "question": "Futebol e handebol são esportes de:",
             "options": [
               {
-                "text": "Desenvolver habilidades motoras, saúde e valores por meio de práticas corporais"
+                "text": "Rede",
+                "misconceptionCode": "invasao-rede"
               },
               {
-                "text": "Apenas vencer competições esportivas",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Marca",
+                "misconceptionCode": "marca-precisao"
               },
               {
-                "text": "Eliminar alunos com menos aptidão",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Invasão"
               },
               {
-                "text": "Substituir outras disciplinas",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Técnico-combinatório",
+                "misconceptionCode": "tecnico-marca"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Educação Física escolar desenvolve corpo, saúde, cooperação e cultura de movimento.",
+            "correctIndex": 2,
+            "explanation": "Os times jogam no mesmo espaço para marcar no alvo do outro.",
             "variants": [
               {
-                "question": "O que é cultura corporal de movimento?",
+                "question": "O polo aquático, em que os times tentam fazer gol na piscina, é de:",
                 "options": [
                   {
-                    "text": "Conjunto de práticas corporais com significado cultural: esportes, danças, lutas, ginásticas"
+                    "text": "Invasão"
                   },
                   {
-                    "text": "Apenas exercícios de musculação",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Rede",
+                    "misconceptionCode": "invasao-rede"
                   },
                   {
-                    "text": "Somente corrida e natação",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Marca",
+                    "misconceptionCode": "marca-precisao"
                   },
                   {
-                    "text": "Atividades exclusivamente competitivas",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Precisão",
+                    "misconceptionCode": "tecnico-marca"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que o fair play (jogo limpo) é importante no esporte?",
+                "question": "Futebol e handebol são esportes de:",
                 "options": [
                   {
-                    "text": "Porque promove respeito, honestidade e convivência saudável entre os participantes"
+                    "text": "Técnico-combinatório",
+                    "misconceptionCode": "tecnico-marca"
                   },
                   {
-                    "text": "Porque permite ganhar de qualquer forma",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Marca",
+                    "misconceptionCode": "marca-precisao"
                   },
                   {
-                    "text": "Porque não existe no esporte profissional",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Rede",
+                    "misconceptionCode": "invasao-rede"
                   },
                   {
-                    "text": "Porque elimina a competição",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Invasão"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF67EF04"
+            ]
           },
           {
-            "question": "No tema \"Praticar um ou mais esportes de marca\", qual é o objetivo principal da Educação Física escolar?",
+            "question": "Vôlei e tênis são esportes de:",
             "options": [
               {
-                "text": "Desenvolver habilidades motoras, saúde e valores por meio de práticas corporais"
+                "text": "Invasão",
+                "misconceptionCode": "invasao-rede"
               },
               {
-                "text": "Apenas vencer competições esportivas",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Rede"
               },
               {
-                "text": "Eliminar alunos com menos aptidão",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Precisão",
+                "misconceptionCode": "marca-precisao"
               },
               {
-                "text": "Substituir outras disciplinas",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Marca",
+                "misconceptionCode": "marca-precisao"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Educação Física escolar desenvolve corpo, saúde, cooperação e cultura de movimento.",
+            "correctIndex": 1,
+            "explanation": "Os jogadores ficam separados por uma rede.",
             "variants": [
               {
-                "question": "O que é cultura corporal de movimento?",
+                "question": "O vôlei de praia é um esporte de:",
                 "options": [
                   {
-                    "text": "Conjunto de práticas corporais com significado cultural: esportes, danças, lutas, ginásticas"
+                    "text": "Invasão",
+                    "misconceptionCode": "invasao-rede"
                   },
                   {
-                    "text": "Apenas exercícios de musculação",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Marca",
+                    "misconceptionCode": "marca-precisao"
                   },
                   {
-                    "text": "Somente corrida e natação",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Técnico-combinatório",
+                    "misconceptionCode": "marca-precisao"
                   },
                   {
-                    "text": "Atividades exclusivamente competitivas",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Rede"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "Por que o fair play (jogo limpo) é importante no esporte?",
+                "question": "Vôlei e tênis são esportes de:",
                 "options": [
                   {
-                    "text": "Porque promove respeito, honestidade e convivência saudável entre os participantes"
+                    "text": "Marca",
+                    "misconceptionCode": "marca-precisao"
                   },
                   {
-                    "text": "Porque permite ganhar de qualquer forma",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Precisão",
+                    "misconceptionCode": "marca-precisao"
                   },
                   {
-                    "text": "Porque não existe no esporte profissional",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Rede"
                   },
                   {
-                    "text": "Porque elimina a competição",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Invasão",
+                    "misconceptionCode": "invasao-rede"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "Para classificar um esporte, o mais importante é observar:",
+            "options": [
+              {
+                "text": "Se usa bola ou não",
+                "misconceptionCode": "criterio-errado"
+              },
+              {
+                "text": "A cor do uniforme",
+                "misconceptionCode": "criterio-errado"
+              },
+              {
+                "text": "O tamanho da quadra apenas",
+                "misconceptionCode": "criterio-errado"
+              },
+              {
+                "text": "Como se vence o jogo"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "O jeito de vencer define o grupo, não o material.",
+            "variants": [
+              {
+                "question": "Basquete e vôlei usam bola, mas são de grupos diferentes porque:",
+                "options": [
+                  {
+                    "text": "Um é mais famoso",
+                    "misconceptionCode": "criterio-errado"
+                  },
+                  {
+                    "text": "Vence-se de formas diferentes"
+                  },
+                  {
+                    "text": "A bola tem cor diferente",
+                    "misconceptionCode": "criterio-errado"
+                  },
+                  {
+                    "text": "Na verdade são do mesmo grupo",
+                    "misconceptionCode": "criterio-errado"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Para classificar um esporte, o mais importante é observar:",
+                "options": [
+                  {
+                    "text": "Como se vence o jogo"
+                  },
+                  {
+                    "text": "O tamanho da quadra apenas",
+                    "misconceptionCode": "criterio-errado"
+                  },
+                  {
+                    "text": "A cor do uniforme",
+                    "misconceptionCode": "criterio-errado"
+                  },
+                  {
+                    "text": "Se usa bola ou não",
+                    "misconceptionCode": "criterio-errado"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF67EF04"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF67EF04-A2",
+        "id": "PK2-EF67EF03-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Praticar um ou mais esportes de marca",
-        "prompt": "Questão sobre Praticar um ou mais esportes de marca.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Praticar um ou mais esportes de marca.",
-        "skillId": "EF67EF04",
+        "title": "Exemplo guiado: marca e precisão",
+        "prompt": "Vamos conhecer juntos dois grupos novos: marca e precisão.",
+        "estMinutes": 4,
+        "audioScript": "Vamos conhecer juntos dois grupos novos: marca e precisão. Pergunta 1. Nos 100 metros rasos, vence quem chega primeiro, no menor tempo. É um esporte de: A: Precisão; B: Marca; C: Invasão; D: Técnico-combinatório. Pergunta 2. No tiro com arco, vence quem acerta mais perto do centro do alvo. É de: A: Marca; B: Invasão; C: Técnico-combinatório; D: Precisão. Pergunta 3. Na natação, vence quem nada a distância no menor tempo. É de: A: Marca; B: Precisão; C: Técnico-combinatório; D: Rede.",
         "questions": [
           {
-            "question": "Qual é a diferença entre esporte de rendimento e esporte de participação?",
+            "question": "Nos 100 metros rasos, vence quem chega primeiro, no menor tempo. É um esporte de:",
             "options": [
               {
-                "text": "O rendimento foca em alto desempenho e resultados; o de participação, em saúde e prazer"
+                "text": "Precisão",
+                "misconceptionCode": "marca-precisao"
               },
               {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Marca"
               },
               {
-                "text": "O de participação não é esporte",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Invasão",
+                "misconceptionCode": "invasao-rede"
               },
               {
-                "text": "Só o rendimento tem regras",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Técnico-combinatório",
+                "misconceptionCode": "tecnico-marca"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Esporte de rendimento busca máximo desempenho; esporte de participação busca bem-estar e inclusão.",
+            "correctIndex": 1,
+            "explanation": "Nos esportes de marca, o resultado é medido: tempo, distância ou peso.",
             "variants": [
               {
-                "question": "O que são habilidades motoras básicas?",
+                "question": "No salto em distância, vence quem pula mais longe. É de:",
                 "options": [
                   {
-                    "text": "Movimentos fundamentais como correr, saltar, arremessar e rolar"
+                    "text": "Precisão",
+                    "misconceptionCode": "marca-precisao"
                   },
                   {
-                    "text": "Apenas habilidades de atletas profissionais",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Invasão",
+                    "misconceptionCode": "invasao-rede"
                   },
                   {
-                    "text": "Movimentos exclusivos de adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Rede",
+                    "misconceptionCode": "tecnico-marca"
                   },
                   {
-                    "text": "Somente nadar e pedalar",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Marca"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "O que é atividade física de intensidade moderada?",
+                "question": "Nos 100 metros rasos, vence quem chega primeiro, no menor tempo. É um esporte de:",
                 "options": [
                   {
-                    "text": "Exercício que aumenta a frequência cardíaca mas permite conversar"
+                    "text": "Técnico-combinatório",
+                    "misconceptionCode": "tecnico-marca"
                   },
                   {
-                    "text": "Apenas descanso e caminhada lenta",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Invasão",
+                    "misconceptionCode": "invasao-rede"
                   },
                   {
-                    "text": "Exercícios exclusivamente competitivos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Marca"
                   },
                   {
-                    "text": "Atividade que causa exaustão total",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Precisão",
+                    "misconceptionCode": "marca-precisao"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF67EF04"
+            ]
           },
           {
-            "question": "Qual é a diferença entre esporte de rendimento e esporte de participação?",
+            "question": "No tiro com arco, vence quem acerta mais perto do centro do alvo. É de:",
             "options": [
               {
-                "text": "O rendimento foca em alto desempenho e resultados; o de participação, em saúde e prazer"
+                "text": "Marca",
+                "misconceptionCode": "marca-precisao"
               },
               {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Invasão",
+                "misconceptionCode": "invasao-rede"
               },
               {
-                "text": "O de participação não é esporte",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Técnico-combinatório",
+                "misconceptionCode": "tecnico-marca"
               },
               {
-                "text": "Só o rendimento tem regras",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Precisão"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Nos esportes de precisão, o objetivo é acertar um alvo.",
+            "variants": [
+              {
+                "question": "Na bocha, as bolas devem ficar o mais perto possível de uma bolinha-alvo. É de:",
+                "options": [
+                  {
+                    "text": "Marca",
+                    "misconceptionCode": "marca-precisao"
+                  },
+                  {
+                    "text": "Precisão"
+                  },
+                  {
+                    "text": "Invasão",
+                    "misconceptionCode": "invasao-rede"
+                  },
+                  {
+                    "text": "Rede",
+                    "misconceptionCode": "tecnico-marca"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "No tiro com arco, vence quem acerta mais perto do centro do alvo. É de:",
+                "options": [
+                  {
+                    "text": "Precisão"
+                  },
+                  {
+                    "text": "Técnico-combinatório",
+                    "misconceptionCode": "tecnico-marca"
+                  },
+                  {
+                    "text": "Invasão",
+                    "misconceptionCode": "invasao-rede"
+                  },
+                  {
+                    "text": "Marca",
+                    "misconceptionCode": "marca-precisao"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "Na natação, vence quem nada a distância no menor tempo. É de:",
+            "options": [
+              {
+                "text": "Marca"
+              },
+              {
+                "text": "Precisão",
+                "misconceptionCode": "marca-precisao"
+              },
+              {
+                "text": "Técnico-combinatório",
+                "misconceptionCode": "tecnico-marca"
+              },
+              {
+                "text": "Rede",
+                "misconceptionCode": "invasao-rede"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Esporte de rendimento busca máximo desempenho; esporte de participação busca bem-estar e inclusão.",
+            "explanation": "O tempo é a marca.",
             "variants": [
               {
-                "question": "O que são habilidades motoras básicas?",
+                "question": "No arremesso de peso, vence quem lança mais longe. É de:",
                 "options": [
                   {
-                    "text": "Movimentos fundamentais como correr, saltar, arremessar e rolar"
+                    "text": "Precisão",
+                    "misconceptionCode": "marca-precisao"
                   },
                   {
-                    "text": "Apenas habilidades de atletas profissionais",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Invasão",
+                    "misconceptionCode": "tecnico-marca"
                   },
                   {
-                    "text": "Movimentos exclusivos de adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Marca"
                   },
                   {
-                    "text": "Somente nadar e pedalar",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Técnico-combinatório",
+                    "misconceptionCode": "invasao-rede"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "O que é atividade física de intensidade moderada?",
+                "question": "Na natação, vence quem nada a distância no menor tempo. É de:",
                 "options": [
                   {
-                    "text": "Exercício que aumenta a frequência cardíaca mas permite conversar"
+                    "text": "Rede",
+                    "misconceptionCode": "invasao-rede"
                   },
                   {
-                    "text": "Apenas descanso e caminhada lenta",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Marca"
                   },
                   {
-                    "text": "Exercícios exclusivamente competitivos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Técnico-combinatório",
+                    "misconceptionCode": "tecnico-marca"
                   },
                   {
-                    "text": "Atividade que causa exaustão total",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Precisão",
+                    "misconceptionCode": "marca-precisao"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF67EF04"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF67EF04-A3",
+        "id": "PK2-EF67EF03-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: Praticar um ou mais esportes de marca",
-        "prompt": "Questão sobre Praticar um ou mais esportes de marca.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Praticar um ou mais esportes de marca.",
-        "skillId": "EF67EF04",
+        "title": "Praticar: técnico-combinatórios e revisão",
+        "prompt": "Nos esportes técnico-combinatórios, juízes avaliam a execução e a beleza dos movimentos.",
+        "estMinutes": 5,
+        "audioScript": "Nos esportes técnico-combinatórios, juízes avaliam a execução e a beleza dos movimentos. Pergunta 1. A ginástica artística, em que juízes pontuam a execução dos movimentos, é um esporte: A: De marca; B: De precisão; C: De invasão; D: Técnico-combinatório. Pergunta 2. O boliche, em que se tenta derrubar os pinos, é um esporte de: A: Precisão; B: Marca; C: Invasão; D: Técnico-combinatório. Pergunta 3. A ginástica de trampolim, em que juízes avaliam as acrobacias, é um esporte: A: De marca, porque usa uma cama elástica; B: De precisão; C: Técnico-combinatório; D: De invasão. Pergunta 4. O rúgbi, em que o time leva a bola até a área do adversário, é de: A: Rede; B: Invasão; C: Marca; D: Técnico-combinatório.",
         "questions": [
           {
-            "question": "No tema \"Praticar um ou mais esportes de marca\", qual é o objetivo principal da Educação Física escolar?",
+            "question": "A ginástica artística, em que juízes pontuam a execução dos movimentos, é um esporte:",
             "options": [
               {
-                "text": "Desenvolver habilidades motoras, saúde e valores por meio de práticas corporais"
+                "text": "De marca",
+                "misconceptionCode": "tecnico-marca"
               },
               {
-                "text": "Apenas vencer competições esportivas",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "De precisão",
+                "misconceptionCode": "marca-precisao"
               },
               {
-                "text": "Eliminar alunos com menos aptidão",
-                "misconceptionCode": "conteudo-errado"
+                "text": "De invasão",
+                "misconceptionCode": "invasao-rede"
               },
               {
-                "text": "Substituir outras disciplinas",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Técnico-combinatório"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Educação Física escolar desenvolve corpo, saúde, cooperação e cultura de movimento.",
+            "correctIndex": 3,
+            "explanation": "Ali vence a melhor execução técnica e artística, avaliada pelos juízes.",
             "variants": [
               {
-                "question": "O que é cultura corporal de movimento?",
+                "question": "Os saltos ornamentais na piscina são esportes:",
                 "options": [
                   {
-                    "text": "Conjunto de práticas corporais com significado cultural: esportes, danças, lutas, ginásticas"
+                    "text": "De marca",
+                    "misconceptionCode": "tecnico-marca"
                   },
                   {
-                    "text": "Apenas exercícios de musculação",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Técnico-combinatórios"
                   },
                   {
-                    "text": "Somente corrida e natação",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "De invasão",
+                    "misconceptionCode": "marca-precisao"
                   },
                   {
-                    "text": "Atividades exclusivamente competitivas",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "De rede",
+                    "misconceptionCode": "invasao-rede"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "Por que o fair play (jogo limpo) é importante no esporte?",
+                "question": "A ginástica artística, em que juízes pontuam a execução dos movimentos, é um esporte:",
                 "options": [
                   {
-                    "text": "Porque promove respeito, honestidade e convivência saudável entre os participantes"
+                    "text": "Técnico-combinatório"
                   },
                   {
-                    "text": "Porque permite ganhar de qualquer forma",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "De invasão",
+                    "misconceptionCode": "invasao-rede"
                   },
                   {
-                    "text": "Porque não existe no esporte profissional",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "De precisão",
+                    "misconceptionCode": "marca-precisao"
                   },
                   {
-                    "text": "Porque elimina a competição",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "De marca",
+                    "misconceptionCode": "tecnico-marca"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF67EF04"
+            ]
           },
           {
-            "question": "No tema \"Praticar um ou mais esportes de marca\", qual é o objetivo principal da Educação Física escolar?",
+            "question": "O boliche, em que se tenta derrubar os pinos, é um esporte de:",
             "options": [
               {
-                "text": "Desenvolver habilidades motoras, saúde e valores por meio de práticas corporais"
+                "text": "Precisão"
               },
               {
-                "text": "Apenas vencer competições esportivas",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Marca",
+                "misconceptionCode": "marca-precisao"
               },
               {
-                "text": "Eliminar alunos com menos aptidão",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Invasão",
+                "misconceptionCode": "invasao-rede"
               },
               {
-                "text": "Substituir outras disciplinas",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Técnico-combinatório",
+                "misconceptionCode": "tecnico-marca"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Educação Física escolar desenvolve corpo, saúde, cooperação e cultura de movimento.",
+            "explanation": "Acertar os pinos é acertar um alvo.",
             "variants": [
               {
-                "question": "O que é cultura corporal de movimento?",
+                "question": "O golfe, em que se tenta acertar a bola no buraco com poucas tacadas, é de:",
                 "options": [
                   {
-                    "text": "Conjunto de práticas corporais com significado cultural: esportes, danças, lutas, ginásticas"
+                    "text": "Marca",
+                    "misconceptionCode": "marca-precisao"
                   },
                   {
-                    "text": "Apenas exercícios de musculação",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Invasão",
+                    "misconceptionCode": "invasao-rede"
                   },
                   {
-                    "text": "Somente corrida e natação",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Precisão"
                   },
                   {
-                    "text": "Atividades exclusivamente competitivas",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Rede",
+                    "misconceptionCode": "tecnico-marca"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "O boliche, em que se tenta derrubar os pinos, é um esporte de:",
+                "options": [
+                  {
+                    "text": "Técnico-combinatório",
+                    "misconceptionCode": "tecnico-marca"
+                  },
+                  {
+                    "text": "Precisão"
+                  },
+                  {
+                    "text": "Invasão",
+                    "misconceptionCode": "invasao-rede"
+                  },
+                  {
+                    "text": "Marca",
+                    "misconceptionCode": "marca-precisao"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "A ginástica de trampolim, em que juízes avaliam as acrobacias, é um esporte:",
+            "options": [
+              {
+                "text": "De marca, porque usa uma cama elástica",
+                "misconceptionCode": "criterio-errado"
+              },
+              {
+                "text": "De precisão",
+                "misconceptionCode": "marca-precisao"
+              },
+              {
+                "text": "Técnico-combinatório"
+              },
+              {
+                "text": "De invasão",
+                "misconceptionCode": "invasao-rede"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "As acrobacias são avaliadas pelos juízes pela execução.",
+            "variants": [
+              {
+                "question": "O nado artístico, avaliado por juízes, é:",
+                "options": [
+                  {
+                    "text": "Técnico-combinatório"
+                  },
+                  {
+                    "text": "De marca, porque é na piscina",
+                    "misconceptionCode": "criterio-errado"
+                  },
+                  {
+                    "text": "De invasão",
+                    "misconceptionCode": "marca-precisao"
+                  },
+                  {
+                    "text": "De precisão",
+                    "misconceptionCode": "invasao-rede"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que o fair play (jogo limpo) é importante no esporte?",
+                "question": "A ginástica de trampolim, em que juízes avaliam as acrobacias, é um esporte:",
                 "options": [
                   {
-                    "text": "Porque promove respeito, honestidade e convivência saudável entre os participantes"
+                    "text": "De invasão",
+                    "misconceptionCode": "invasao-rede"
                   },
                   {
-                    "text": "Porque permite ganhar de qualquer forma",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "De precisão",
+                    "misconceptionCode": "marca-precisao"
                   },
                   {
-                    "text": "Porque não existe no esporte profissional",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "De marca, porque usa uma cama elástica",
+                    "misconceptionCode": "criterio-errado"
                   },
                   {
-                    "text": "Porque elimina a competição",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Técnico-combinatório"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "O rúgbi, em que o time leva a bola até a área do adversário, é de:",
+            "options": [
+              {
+                "text": "Rede",
+                "misconceptionCode": "invasao-rede"
+              },
+              {
+                "text": "Invasão"
+              },
+              {
+                "text": "Marca",
+                "misconceptionCode": "marca-precisao"
+              },
+              {
+                "text": "Técnico-combinatório",
+                "misconceptionCode": "tecnico-marca"
               }
             ],
-            "skillId": "EF67EF04"
+            "correctIndex": 1,
+            "explanation": "Ocupar o campo do adversário para pontuar é invasão.",
+            "variants": [
+              {
+                "question": "O futsal é um esporte de:",
+                "options": [
+                  {
+                    "text": "Rede",
+                    "misconceptionCode": "invasao-rede"
+                  },
+                  {
+                    "text": "Precisão",
+                    "misconceptionCode": "marca-precisao"
+                  },
+                  {
+                    "text": "Marca",
+                    "misconceptionCode": "tecnico-marca"
+                  },
+                  {
+                    "text": "Invasão"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "O rúgbi, em que o time leva a bola até a área do adversário, é de:",
+                "options": [
+                  {
+                    "text": "Técnico-combinatório",
+                    "misconceptionCode": "tecnico-marca"
+                  },
+                  {
+                    "text": "Marca",
+                    "misconceptionCode": "marca-precisao"
+                  },
+                  {
+                    "text": "Invasão"
+                  },
+                  {
+                    "text": "Rede",
+                    "misconceptionCode": "invasao-rede"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF67EF04-A4",
+        "id": "PK2-EF67EF03-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: Praticar um ou mais esportes de marca",
-        "prompt": "Questão sobre Praticar um ou mais esportes de marca.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Praticar um ou mais esportes de marca.",
-        "skillId": "EF67EF04",
+        "title": "Aplicar: esportes na escola",
+        "prompt": "Agora organize atividades na escola.",
+        "estMinutes": 4,
+        "audioScript": "Agora organize atividades na escola. Pergunta 1. A turma vai medir quem arremessa uma bola de papel mais longe. É uma atividade de: A: Marca; B: Precisão; C: Invasão; D: Técnico-combinatório. Pergunta 2. A turma vai jogar bolinhas de meia para dentro de baldes a 3 metros. É uma atividade de: A: Marca; B: Invasão; C: Precisão; D: Técnico-combinatório. Pergunta 3. Num esporte coletivo de invasão, o que mais ajuda o time a ir bem? A: Cada um jogar sozinho; B: Trabalhar em equipe, passando a bola e ocupando os espaços; C: Só o jogador mais rápido jogar; D: Ficar todos parados atrás da rede.",
         "questions": [
           {
-            "question": "Qual é a diferença entre esporte de rendimento e esporte de participação?",
+            "question": "A turma vai medir quem arremessa uma bola de papel mais longe. É uma atividade de:",
             "options": [
               {
-                "text": "O rendimento foca em alto desempenho e resultados; o de participação, em saúde e prazer"
+                "text": "Marca"
               },
               {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Precisão",
+                "misconceptionCode": "marca-precisao"
               },
               {
-                "text": "O de participação não é esporte",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Invasão",
+                "misconceptionCode": "invasao-rede"
               },
               {
-                "text": "Só o rendimento tem regras",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Técnico-combinatório",
+                "misconceptionCode": "tecnico-marca"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Esporte de rendimento busca máximo desempenho; esporte de participação busca bem-estar e inclusão.",
+            "explanation": "O resultado é a distância medida.",
             "variants": [
               {
-                "question": "O que são habilidades motoras básicas?",
+                "question": "Cronometrar quem pula corda mais vezes em 30 segundos é uma atividade de:",
                 "options": [
                   {
-                    "text": "Movimentos fundamentais como correr, saltar, arremessar e rolar"
+                    "text": "Precisão",
+                    "misconceptionCode": "marca-precisao"
                   },
                   {
-                    "text": "Apenas habilidades de atletas profissionais",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Invasão",
+                    "misconceptionCode": "invasao-rede"
                   },
                   {
-                    "text": "Movimentos exclusivos de adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Marca"
                   },
                   {
-                    "text": "Somente nadar e pedalar",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Rede",
+                    "misconceptionCode": "tecnico-marca"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "O que é atividade física de intensidade moderada?",
+                "question": "A turma vai medir quem arremessa uma bola de papel mais longe. É uma atividade de:",
                 "options": [
                   {
-                    "text": "Exercício que aumenta a frequência cardíaca mas permite conversar"
+                    "text": "Técnico-combinatório",
+                    "misconceptionCode": "tecnico-marca"
                   },
                   {
-                    "text": "Apenas descanso e caminhada lenta",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Marca"
                   },
                   {
-                    "text": "Exercícios exclusivamente competitivos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Invasão",
+                    "misconceptionCode": "invasao-rede"
                   },
                   {
-                    "text": "Atividade que causa exaustão total",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Precisão",
+                    "misconceptionCode": "marca-precisao"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF67EF04"
+            ]
           },
           {
-            "question": "Qual é a diferença entre esporte de rendimento e esporte de participação?",
+            "question": "A turma vai jogar bolinhas de meia para dentro de baldes a 3 metros. É uma atividade de:",
             "options": [
               {
-                "text": "O rendimento foca em alto desempenho e resultados; o de participação, em saúde e prazer"
+                "text": "Marca",
+                "misconceptionCode": "marca-precisao"
               },
               {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Invasão",
+                "misconceptionCode": "invasao-rede"
               },
               {
-                "text": "O de participação não é esporte",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Precisão"
               },
               {
-                "text": "Só o rendimento tem regras",
-                "misconceptionCode": "ef-so-competicao"
+                "text": "Técnico-combinatório",
+                "misconceptionCode": "tecnico-marca"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Esporte de rendimento busca máximo desempenho; esporte de participação busca bem-estar e inclusão.",
+            "correctIndex": 2,
+            "explanation": "Acertar o balde é acertar um alvo.",
             "variants": [
               {
-                "question": "O que são habilidades motoras básicas?",
+                "question": "Derrubar garrafas com uma bola, como num boliche de garrafa, é de:",
                 "options": [
                   {
-                    "text": "Movimentos fundamentais como correr, saltar, arremessar e rolar"
+                    "text": "Precisão"
                   },
                   {
-                    "text": "Apenas habilidades de atletas profissionais",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Marca",
+                    "misconceptionCode": "marca-precisao"
                   },
                   {
-                    "text": "Movimentos exclusivos de adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Invasão",
+                    "misconceptionCode": "invasao-rede"
                   },
                   {
-                    "text": "Somente nadar e pedalar",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Rede",
+                    "misconceptionCode": "tecnico-marca"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que é atividade física de intensidade moderada?",
+                "question": "A turma vai jogar bolinhas de meia para dentro de baldes a 3 metros. É uma atividade de:",
                 "options": [
                   {
-                    "text": "Exercício que aumenta a frequência cardíaca mas permite conversar"
+                    "text": "Técnico-combinatório",
+                    "misconceptionCode": "tecnico-marca"
                   },
                   {
-                    "text": "Apenas descanso e caminhada lenta",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Invasão",
+                    "misconceptionCode": "invasao-rede"
                   },
                   {
-                    "text": "Exercícios exclusivamente competitivos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Marca",
+                    "misconceptionCode": "marca-precisao"
                   },
                   {
-                    "text": "Atividade que causa exaustão total",
-                    "misconceptionCode": "ef-so-competicao"
+                    "text": "Precisão"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "Num esporte coletivo de invasão, o que mais ajuda o time a ir bem?",
+            "options": [
+              {
+                "text": "Cada um jogar sozinho",
+                "misconceptionCode": "criterio-errado"
+              },
+              {
+                "text": "Trabalhar em equipe, passando a bola e ocupando os espaços"
+              },
+              {
+                "text": "Só o jogador mais rápido jogar",
+                "misconceptionCode": "criterio-errado"
+              },
+              {
+                "text": "Ficar todos parados atrás da rede",
+                "misconceptionCode": "invasao-rede"
               }
             ],
-            "skillId": "EF67EF04"
+            "correctIndex": 1,
+            "explanation": "Nos esportes coletivos, cooperação é parte da estratégia.",
+            "variants": [
+              {
+                "question": "Em um jogo de handebol, passar a bola para um colega livre é:",
+                "options": [
+                  {
+                    "text": "Errado, deve-se jogar sozinho",
+                    "misconceptionCode": "criterio-errado"
+                  },
+                  {
+                    "text": "Proibido",
+                    "misconceptionCode": "criterio-errado"
+                  },
+                  {
+                    "text": "Coisa de esporte de rede",
+                    "misconceptionCode": "invasao-rede"
+                  },
+                  {
+                    "text": "Uma boa estratégia coletiva"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Num esporte coletivo de invasão, o que mais ajuda o time a ir bem?",
+                "options": [
+                  {
+                    "text": "Ficar todos parados atrás da rede",
+                    "misconceptionCode": "invasao-rede"
+                  },
+                  {
+                    "text": "Só o jogador mais rápido jogar",
+                    "misconceptionCode": "criterio-errado"
+                  },
+                  {
+                    "text": "Trabalhar em equipe, passando a bola e ocupando os espaços"
+                  },
+                  {
+                    "text": "Cada um jogar sozinho",
+                    "misconceptionCode": "criterio-errado"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF67EF04-A5",
+        "id": "PK2-EF67EF03-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Praticar um ou mais esportes de marca",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Praticar um ou mais esportes de marca.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Praticar um ou mais esportes de marca.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: como se vence",
+        "prompt": "Explique com as suas palavras a diferença entre um esporte de marca e um esporte de precisão. Dê um exemplo de cada.",
+        "estMinutes": 6,
+        "audioScript": "Explique com as suas palavras a diferença entre um esporte de marca e um esporte de precisão. Dê um exemplo de cada.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de Praticar um ou mais esportes de marca",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "marca",
+              "description": "Explica que no esporte de marca o resultado é medido em tempo, distância ou peso"
+            },
+            {
+              "code": "precisao",
+              "description": "Explica que no esporte de precisão o objetivo é acertar um alvo"
+            },
+            {
+              "code": "exemplos",
+              "description": "Dá um exemplo correto de cada"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF67EF04"
+          "exemploBoaResposta": "No esporte de marca, vence quem tem o melhor resultado medido, como o menor tempo na corrida de 100 metros ou a maior distância no salto. No esporte de precisão, vence quem acerta melhor um alvo, como no tiro com arco ou no boliche."
+        }
       }
-    ]
-  },
-  {
-    "skillCode": "EF67EF07",
-    "title": "Trilha: Propor e produzir alternativas para experimentação (EF67EF07)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
+    ],
     "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
-    "subjectCode": "EF",
-    "activities": [
-      {
-        "id": "PK-EF67EF07-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Propor e produzir alternativas para experimentação",
-        "prompt": "Questão sobre Propor e produzir alternativas para experimentação.",
-        "estMinutes": 4,
-        "audioScript": "Questão sobre Propor e produzir alternativas para experimentação.",
-        "skillId": "EF67EF07",
-        "questions": [
-          {
-            "question": "No tema \"Propor e produzir alternativas para experimentação\", qual é o objetivo principal da Educação Física escolar?",
-            "options": [
-              {
-                "text": "Desenvolver habilidades motoras, saúde e valores por meio de práticas corporais"
-              },
-              {
-                "text": "Apenas vencer competições esportivas",
-                "misconceptionCode": "ef-so-competicao"
-              },
-              {
-                "text": "Eliminar alunos com menos aptidão",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Substituir outras disciplinas",
-                "misconceptionCode": "ef-so-competicao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Educação Física escolar desenvolve corpo, saúde, cooperação e cultura de movimento.",
-            "variants": [
-              {
-                "question": "O que é cultura corporal de movimento?",
-                "options": [
-                  {
-                    "text": "Conjunto de práticas corporais com significado cultural: esportes, danças, lutas, ginásticas"
-                  },
-                  {
-                    "text": "Apenas exercícios de musculação",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Somente corrida e natação",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Atividades exclusivamente competitivas",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o fair play (jogo limpo) é importante no esporte?",
-                "options": [
-                  {
-                    "text": "Porque promove respeito, honestidade e convivência saudável entre os participantes"
-                  },
-                  {
-                    "text": "Porque permite ganhar de qualquer forma",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Porque não existe no esporte profissional",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Porque elimina a competição",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF67EF07"
-          },
-          {
-            "question": "No tema \"Propor e produzir alternativas para experimentação\", qual é o objetivo principal da Educação Física escolar?",
-            "options": [
-              {
-                "text": "Desenvolver habilidades motoras, saúde e valores por meio de práticas corporais"
-              },
-              {
-                "text": "Apenas vencer competições esportivas",
-                "misconceptionCode": "ef-so-competicao"
-              },
-              {
-                "text": "Eliminar alunos com menos aptidão",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Substituir outras disciplinas",
-                "misconceptionCode": "ef-so-competicao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Educação Física escolar desenvolve corpo, saúde, cooperação e cultura de movimento.",
-            "variants": [
-              {
-                "question": "O que é cultura corporal de movimento?",
-                "options": [
-                  {
-                    "text": "Conjunto de práticas corporais com significado cultural: esportes, danças, lutas, ginásticas"
-                  },
-                  {
-                    "text": "Apenas exercícios de musculação",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Somente corrida e natação",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Atividades exclusivamente competitivas",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o fair play (jogo limpo) é importante no esporte?",
-                "options": [
-                  {
-                    "text": "Porque promove respeito, honestidade e convivência saudável entre os participantes"
-                  },
-                  {
-                    "text": "Porque permite ganhar de qualquer forma",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Porque não existe no esporte profissional",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Porque elimina a competição",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF67EF07"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF67EF07-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Propor e produzir alternativas para experimentação",
-        "prompt": "Questão sobre Propor e produzir alternativas para experimentação.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Propor e produzir alternativas para experimentação.",
-        "skillId": "EF67EF07",
-        "questions": [
-          {
-            "question": "Qual é a diferença entre esporte de rendimento e esporte de participação?",
-            "options": [
-              {
-                "text": "O rendimento foca em alto desempenho e resultados; o de participação, em saúde e prazer"
-              },
-              {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "ef-so-competicao"
-              },
-              {
-                "text": "O de participação não é esporte",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Só o rendimento tem regras",
-                "misconceptionCode": "ef-so-competicao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Esporte de rendimento busca máximo desempenho; esporte de participação busca bem-estar e inclusão.",
-            "variants": [
-              {
-                "question": "O que são habilidades motoras básicas?",
-                "options": [
-                  {
-                    "text": "Movimentos fundamentais como correr, saltar, arremessar e rolar"
-                  },
-                  {
-                    "text": "Apenas habilidades de atletas profissionais",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Movimentos exclusivos de adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente nadar e pedalar",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é atividade física de intensidade moderada?",
-                "options": [
-                  {
-                    "text": "Exercício que aumenta a frequência cardíaca mas permite conversar"
-                  },
-                  {
-                    "text": "Apenas descanso e caminhada lenta",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Exercícios exclusivamente competitivos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Atividade que causa exaustão total",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF67EF07"
-          },
-          {
-            "question": "Qual é a diferença entre esporte de rendimento e esporte de participação?",
-            "options": [
-              {
-                "text": "O rendimento foca em alto desempenho e resultados; o de participação, em saúde e prazer"
-              },
-              {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "ef-so-competicao"
-              },
-              {
-                "text": "O de participação não é esporte",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Só o rendimento tem regras",
-                "misconceptionCode": "ef-so-competicao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Esporte de rendimento busca máximo desempenho; esporte de participação busca bem-estar e inclusão.",
-            "variants": [
-              {
-                "question": "O que são habilidades motoras básicas?",
-                "options": [
-                  {
-                    "text": "Movimentos fundamentais como correr, saltar, arremessar e rolar"
-                  },
-                  {
-                    "text": "Apenas habilidades de atletas profissionais",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Movimentos exclusivos de adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente nadar e pedalar",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é atividade física de intensidade moderada?",
-                "options": [
-                  {
-                    "text": "Exercício que aumenta a frequência cardíaca mas permite conversar"
-                  },
-                  {
-                    "text": "Apenas descanso e caminhada lenta",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Exercícios exclusivamente competitivos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Atividade que causa exaustão total",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF67EF07"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF67EF07-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar com exercícios: Propor e produzir alternativas para experimentação",
-        "prompt": "Questão sobre Propor e produzir alternativas para experimentação.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Propor e produzir alternativas para experimentação.",
-        "skillId": "EF67EF07",
-        "questions": [
-          {
-            "question": "No tema \"Propor e produzir alternativas para experimentação\", qual é o objetivo principal da Educação Física escolar?",
-            "options": [
-              {
-                "text": "Desenvolver habilidades motoras, saúde e valores por meio de práticas corporais"
-              },
-              {
-                "text": "Apenas vencer competições esportivas",
-                "misconceptionCode": "ef-so-competicao"
-              },
-              {
-                "text": "Eliminar alunos com menos aptidão",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Substituir outras disciplinas",
-                "misconceptionCode": "ef-so-competicao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Educação Física escolar desenvolve corpo, saúde, cooperação e cultura de movimento.",
-            "variants": [
-              {
-                "question": "O que é cultura corporal de movimento?",
-                "options": [
-                  {
-                    "text": "Conjunto de práticas corporais com significado cultural: esportes, danças, lutas, ginásticas"
-                  },
-                  {
-                    "text": "Apenas exercícios de musculação",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Somente corrida e natação",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Atividades exclusivamente competitivas",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o fair play (jogo limpo) é importante no esporte?",
-                "options": [
-                  {
-                    "text": "Porque promove respeito, honestidade e convivência saudável entre os participantes"
-                  },
-                  {
-                    "text": "Porque permite ganhar de qualquer forma",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Porque não existe no esporte profissional",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Porque elimina a competição",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF67EF07"
-          },
-          {
-            "question": "No tema \"Propor e produzir alternativas para experimentação\", qual é o objetivo principal da Educação Física escolar?",
-            "options": [
-              {
-                "text": "Desenvolver habilidades motoras, saúde e valores por meio de práticas corporais"
-              },
-              {
-                "text": "Apenas vencer competições esportivas",
-                "misconceptionCode": "ef-so-competicao"
-              },
-              {
-                "text": "Eliminar alunos com menos aptidão",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Substituir outras disciplinas",
-                "misconceptionCode": "ef-so-competicao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Educação Física escolar desenvolve corpo, saúde, cooperação e cultura de movimento.",
-            "variants": [
-              {
-                "question": "O que é cultura corporal de movimento?",
-                "options": [
-                  {
-                    "text": "Conjunto de práticas corporais com significado cultural: esportes, danças, lutas, ginásticas"
-                  },
-                  {
-                    "text": "Apenas exercícios de musculação",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Somente corrida e natação",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Atividades exclusivamente competitivas",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o fair play (jogo limpo) é importante no esporte?",
-                "options": [
-                  {
-                    "text": "Porque promove respeito, honestidade e convivência saudável entre os participantes"
-                  },
-                  {
-                    "text": "Porque permite ganhar de qualquer forma",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Porque não existe no esporte profissional",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Porque elimina a competição",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF67EF07"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF67EF07-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar em situações reais: Propor e produzir alternativas para experimentação",
-        "prompt": "Questão sobre Propor e produzir alternativas para experimentação.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Propor e produzir alternativas para experimentação.",
-        "skillId": "EF67EF07",
-        "questions": [
-          {
-            "question": "Qual é a diferença entre esporte de rendimento e esporte de participação?",
-            "options": [
-              {
-                "text": "O rendimento foca em alto desempenho e resultados; o de participação, em saúde e prazer"
-              },
-              {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "ef-so-competicao"
-              },
-              {
-                "text": "O de participação não é esporte",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Só o rendimento tem regras",
-                "misconceptionCode": "ef-so-competicao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Esporte de rendimento busca máximo desempenho; esporte de participação busca bem-estar e inclusão.",
-            "variants": [
-              {
-                "question": "O que são habilidades motoras básicas?",
-                "options": [
-                  {
-                    "text": "Movimentos fundamentais como correr, saltar, arremessar e rolar"
-                  },
-                  {
-                    "text": "Apenas habilidades de atletas profissionais",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Movimentos exclusivos de adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente nadar e pedalar",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é atividade física de intensidade moderada?",
-                "options": [
-                  {
-                    "text": "Exercício que aumenta a frequência cardíaca mas permite conversar"
-                  },
-                  {
-                    "text": "Apenas descanso e caminhada lenta",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Exercícios exclusivamente competitivos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Atividade que causa exaustão total",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF67EF07"
-          },
-          {
-            "question": "Qual é a diferença entre esporte de rendimento e esporte de participação?",
-            "options": [
-              {
-                "text": "O rendimento foca em alto desempenho e resultados; o de participação, em saúde e prazer"
-              },
-              {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "ef-so-competicao"
-              },
-              {
-                "text": "O de participação não é esporte",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Só o rendimento tem regras",
-                "misconceptionCode": "ef-so-competicao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Esporte de rendimento busca máximo desempenho; esporte de participação busca bem-estar e inclusão.",
-            "variants": [
-              {
-                "question": "O que são habilidades motoras básicas?",
-                "options": [
-                  {
-                    "text": "Movimentos fundamentais como correr, saltar, arremessar e rolar"
-                  },
-                  {
-                    "text": "Apenas habilidades de atletas profissionais",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Movimentos exclusivos de adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente nadar e pedalar",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é atividade física de intensidade moderada?",
-                "options": [
-                  {
-                    "text": "Exercício que aumenta a frequência cardíaca mas permite conversar"
-                  },
-                  {
-                    "text": "Apenas descanso e caminhada lenta",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Exercícios exclusivamente competitivos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Atividade que causa exaustão total",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF67EF07"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF67EF07-A5",
-        "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Propor e produzir alternativas para experimentação",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Propor e produzir alternativas para experimentação.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Propor e produzir alternativas para experimentação.",
-        "rubric": {
-          "criteria": [
-            "Menciona ao menos dois aspectos de Propor e produzir alternativas para experimentação",
-            "Usa vocabulário adequado ao ano escolar"
-          ],
-          "minScore": 60
-        },
-        "skillId": "EF67EF07"
-      }
-    ]
-  },
-  {
-    "skillCode": "EF67EF10",
-    "title": "Trilha: Diferenciar exercício físico de atividade física e propor (EF67EF10)",
     "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
-    "subjectCode": "EF",
-    "activities": [
-      {
-        "id": "PK-EF67EF10-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Diferenciar exercício físico de atividade física e propor",
-        "prompt": "Questão sobre Diferenciar exercício físico de atividade física e propor.",
-        "estMinutes": 4,
-        "audioScript": "Questão sobre Diferenciar exercício físico de atividade física e propor.",
-        "skillId": "EF67EF10",
-        "questions": [
-          {
-            "question": "No tema \"Diferenciar exercício físico de atividade física e propor\", qual é o objetivo principal da Educação Física escolar?",
-            "options": [
-              {
-                "text": "Desenvolver habilidades motoras, saúde e valores por meio de práticas corporais"
-              },
-              {
-                "text": "Apenas vencer competições esportivas",
-                "misconceptionCode": "ef-so-competicao"
-              },
-              {
-                "text": "Eliminar alunos com menos aptidão",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Substituir outras disciplinas",
-                "misconceptionCode": "ef-so-competicao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Educação Física escolar desenvolve corpo, saúde, cooperação e cultura de movimento.",
-            "variants": [
-              {
-                "question": "O que é cultura corporal de movimento?",
-                "options": [
-                  {
-                    "text": "Conjunto de práticas corporais com significado cultural: esportes, danças, lutas, ginásticas"
-                  },
-                  {
-                    "text": "Apenas exercícios de musculação",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Somente corrida e natação",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Atividades exclusivamente competitivas",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o fair play (jogo limpo) é importante no esporte?",
-                "options": [
-                  {
-                    "text": "Porque promove respeito, honestidade e convivência saudável entre os participantes"
-                  },
-                  {
-                    "text": "Porque permite ganhar de qualquer forma",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Porque não existe no esporte profissional",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Porque elimina a competição",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF67EF10"
-          },
-          {
-            "question": "No tema \"Diferenciar exercício físico de atividade física e propor\", qual é o objetivo principal da Educação Física escolar?",
-            "options": [
-              {
-                "text": "Desenvolver habilidades motoras, saúde e valores por meio de práticas corporais"
-              },
-              {
-                "text": "Apenas vencer competições esportivas",
-                "misconceptionCode": "ef-so-competicao"
-              },
-              {
-                "text": "Eliminar alunos com menos aptidão",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Substituir outras disciplinas",
-                "misconceptionCode": "ef-so-competicao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Educação Física escolar desenvolve corpo, saúde, cooperação e cultura de movimento.",
-            "variants": [
-              {
-                "question": "O que é cultura corporal de movimento?",
-                "options": [
-                  {
-                    "text": "Conjunto de práticas corporais com significado cultural: esportes, danças, lutas, ginásticas"
-                  },
-                  {
-                    "text": "Apenas exercícios de musculação",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Somente corrida e natação",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Atividades exclusivamente competitivas",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o fair play (jogo limpo) é importante no esporte?",
-                "options": [
-                  {
-                    "text": "Porque promove respeito, honestidade e convivência saudável entre os participantes"
-                  },
-                  {
-                    "text": "Porque permite ganhar de qualquer forma",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Porque não existe no esporte profissional",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Porque elimina a competição",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF67EF10"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF67EF10-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Diferenciar exercício físico de atividade física e propor",
-        "prompt": "Questão sobre Diferenciar exercício físico de atividade física e propor.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Diferenciar exercício físico de atividade física e propor.",
-        "skillId": "EF67EF10",
-        "questions": [
-          {
-            "question": "Qual é a diferença entre esporte de rendimento e esporte de participação?",
-            "options": [
-              {
-                "text": "O rendimento foca em alto desempenho e resultados; o de participação, em saúde e prazer"
-              },
-              {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "ef-so-competicao"
-              },
-              {
-                "text": "O de participação não é esporte",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Só o rendimento tem regras",
-                "misconceptionCode": "ef-so-competicao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Esporte de rendimento busca máximo desempenho; esporte de participação busca bem-estar e inclusão.",
-            "variants": [
-              {
-                "question": "O que são habilidades motoras básicas?",
-                "options": [
-                  {
-                    "text": "Movimentos fundamentais como correr, saltar, arremessar e rolar"
-                  },
-                  {
-                    "text": "Apenas habilidades de atletas profissionais",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Movimentos exclusivos de adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente nadar e pedalar",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é atividade física de intensidade moderada?",
-                "options": [
-                  {
-                    "text": "Exercício que aumenta a frequência cardíaca mas permite conversar"
-                  },
-                  {
-                    "text": "Apenas descanso e caminhada lenta",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Exercícios exclusivamente competitivos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Atividade que causa exaustão total",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF67EF10"
-          },
-          {
-            "question": "Qual é a diferença entre esporte de rendimento e esporte de participação?",
-            "options": [
-              {
-                "text": "O rendimento foca em alto desempenho e resultados; o de participação, em saúde e prazer"
-              },
-              {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "ef-so-competicao"
-              },
-              {
-                "text": "O de participação não é esporte",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Só o rendimento tem regras",
-                "misconceptionCode": "ef-so-competicao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Esporte de rendimento busca máximo desempenho; esporte de participação busca bem-estar e inclusão.",
-            "variants": [
-              {
-                "question": "O que são habilidades motoras básicas?",
-                "options": [
-                  {
-                    "text": "Movimentos fundamentais como correr, saltar, arremessar e rolar"
-                  },
-                  {
-                    "text": "Apenas habilidades de atletas profissionais",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Movimentos exclusivos de adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente nadar e pedalar",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é atividade física de intensidade moderada?",
-                "options": [
-                  {
-                    "text": "Exercício que aumenta a frequência cardíaca mas permite conversar"
-                  },
-                  {
-                    "text": "Apenas descanso e caminhada lenta",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Exercícios exclusivamente competitivos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Atividade que causa exaustão total",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF67EF10"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF67EF10-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar com exercícios: Diferenciar exercício físico de atividade física e propor",
-        "prompt": "Questão sobre Diferenciar exercício físico de atividade física e propor.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Diferenciar exercício físico de atividade física e propor.",
-        "skillId": "EF67EF10",
-        "questions": [
-          {
-            "question": "No tema \"Diferenciar exercício físico de atividade física e propor\", qual é o objetivo principal da Educação Física escolar?",
-            "options": [
-              {
-                "text": "Desenvolver habilidades motoras, saúde e valores por meio de práticas corporais"
-              },
-              {
-                "text": "Apenas vencer competições esportivas",
-                "misconceptionCode": "ef-so-competicao"
-              },
-              {
-                "text": "Eliminar alunos com menos aptidão",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Substituir outras disciplinas",
-                "misconceptionCode": "ef-so-competicao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Educação Física escolar desenvolve corpo, saúde, cooperação e cultura de movimento.",
-            "variants": [
-              {
-                "question": "O que é cultura corporal de movimento?",
-                "options": [
-                  {
-                    "text": "Conjunto de práticas corporais com significado cultural: esportes, danças, lutas, ginásticas"
-                  },
-                  {
-                    "text": "Apenas exercícios de musculação",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Somente corrida e natação",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Atividades exclusivamente competitivas",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o fair play (jogo limpo) é importante no esporte?",
-                "options": [
-                  {
-                    "text": "Porque promove respeito, honestidade e convivência saudável entre os participantes"
-                  },
-                  {
-                    "text": "Porque permite ganhar de qualquer forma",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Porque não existe no esporte profissional",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Porque elimina a competição",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF67EF10"
-          },
-          {
-            "question": "No tema \"Diferenciar exercício físico de atividade física e propor\", qual é o objetivo principal da Educação Física escolar?",
-            "options": [
-              {
-                "text": "Desenvolver habilidades motoras, saúde e valores por meio de práticas corporais"
-              },
-              {
-                "text": "Apenas vencer competições esportivas",
-                "misconceptionCode": "ef-so-competicao"
-              },
-              {
-                "text": "Eliminar alunos com menos aptidão",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Substituir outras disciplinas",
-                "misconceptionCode": "ef-so-competicao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Educação Física escolar desenvolve corpo, saúde, cooperação e cultura de movimento.",
-            "variants": [
-              {
-                "question": "O que é cultura corporal de movimento?",
-                "options": [
-                  {
-                    "text": "Conjunto de práticas corporais com significado cultural: esportes, danças, lutas, ginásticas"
-                  },
-                  {
-                    "text": "Apenas exercícios de musculação",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Somente corrida e natação",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Atividades exclusivamente competitivas",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o fair play (jogo limpo) é importante no esporte?",
-                "options": [
-                  {
-                    "text": "Porque promove respeito, honestidade e convivência saudável entre os participantes"
-                  },
-                  {
-                    "text": "Porque permite ganhar de qualquer forma",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Porque não existe no esporte profissional",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Porque elimina a competição",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF67EF10"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF67EF10-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar em situações reais: Diferenciar exercício físico de atividade física e propor",
-        "prompt": "Questão sobre Diferenciar exercício físico de atividade física e propor.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Diferenciar exercício físico de atividade física e propor.",
-        "skillId": "EF67EF10",
-        "questions": [
-          {
-            "question": "Qual é a diferença entre esporte de rendimento e esporte de participação?",
-            "options": [
-              {
-                "text": "O rendimento foca em alto desempenho e resultados; o de participação, em saúde e prazer"
-              },
-              {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "ef-so-competicao"
-              },
-              {
-                "text": "O de participação não é esporte",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Só o rendimento tem regras",
-                "misconceptionCode": "ef-so-competicao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Esporte de rendimento busca máximo desempenho; esporte de participação busca bem-estar e inclusão.",
-            "variants": [
-              {
-                "question": "O que são habilidades motoras básicas?",
-                "options": [
-                  {
-                    "text": "Movimentos fundamentais como correr, saltar, arremessar e rolar"
-                  },
-                  {
-                    "text": "Apenas habilidades de atletas profissionais",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Movimentos exclusivos de adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente nadar e pedalar",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é atividade física de intensidade moderada?",
-                "options": [
-                  {
-                    "text": "Exercício que aumenta a frequência cardíaca mas permite conversar"
-                  },
-                  {
-                    "text": "Apenas descanso e caminhada lenta",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Exercícios exclusivamente competitivos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Atividade que causa exaustão total",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF67EF10"
-          },
-          {
-            "question": "Qual é a diferença entre esporte de rendimento e esporte de participação?",
-            "options": [
-              {
-                "text": "O rendimento foca em alto desempenho e resultados; o de participação, em saúde e prazer"
-              },
-              {
-                "text": "São exatamente iguais",
-                "misconceptionCode": "ef-so-competicao"
-              },
-              {
-                "text": "O de participação não é esporte",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Só o rendimento tem regras",
-                "misconceptionCode": "ef-so-competicao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Esporte de rendimento busca máximo desempenho; esporte de participação busca bem-estar e inclusão.",
-            "variants": [
-              {
-                "question": "O que são habilidades motoras básicas?",
-                "options": [
-                  {
-                    "text": "Movimentos fundamentais como correr, saltar, arremessar e rolar"
-                  },
-                  {
-                    "text": "Apenas habilidades de atletas profissionais",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Movimentos exclusivos de adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente nadar e pedalar",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é atividade física de intensidade moderada?",
-                "options": [
-                  {
-                    "text": "Exercício que aumenta a frequência cardíaca mas permite conversar"
-                  },
-                  {
-                    "text": "Apenas descanso e caminhada lenta",
-                    "misconceptionCode": "ef-so-competicao"
-                  },
-                  {
-                    "text": "Exercícios exclusivamente competitivos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Atividade que causa exaustão total",
-                    "misconceptionCode": "ef-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF67EF10"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF67EF10-A5",
-        "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Diferenciar exercício físico de atividade física e propor",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Diferenciar exercício físico de atividade física e propor.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Diferenciar exercício físico de atividade física e propor.",
-        "rubric": {
-          "criteria": [
-            "Menciona ao menos dois aspectos de Diferenciar exercício físico de atividade física e propor",
-            "Usa vocabulário adequado ao ano escolar"
-          ],
-          "minScore": 60
-        },
-        "skillId": "EF67EF10"
-      }
-    ]
+    "status": "APPROVED"
   }
 ]

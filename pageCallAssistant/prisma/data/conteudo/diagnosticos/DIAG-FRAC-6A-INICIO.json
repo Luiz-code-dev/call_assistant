@@ -1,7 +1,7 @@
 {
   "id": "DIAG-FRAC-6A-INICIO",
   "titulo": "Diagnóstico de Frações — 6º ano (início do bimestre)",
-  "descricao": "Avaliacao diagnostica de fracoes para o 6º ano, aplicada no início do bimestre.",
+  "descricao": "Avaliação diagnóstica de frações para o 6º ano, aplicada no início do bimestre.",
   "status": "APPROVED",
   "source": "SPEAKFLOW",
   "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
@@ -9,17 +9,17 @@
     {
       "id": "DI-FRAC6-EF06MA07-01",
       "skillCode": "EF06MA07",
-      "question": "Qual e maior: 2/3 ou 3/4?",
+      "question": "Qual é maior: 2/3 ou 3/4?",
       "options": [
-        {
-          "text": "3/4, pois 2/3=8/12 e 3/4=9/12"
-        },
         {
           "text": "2/3, pois 2 menor que 3",
           "misconceptionCode": "soma-num-e-den-separado"
         },
         {
-          "text": "Sao iguais",
+          "text": "3/4, pois 2/3=8/12 e 3/4=9/12"
+        },
+        {
+          "text": "São iguais",
           "misconceptionCode": "nao-usa-mmc"
         },
         {
@@ -27,17 +27,15 @@
           "misconceptionCode": "maior-denominador-maior-fracao"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "MMC(3,4)=12. 2/3=8/12; 3/4=9/12. 3/4 e maior."
+      "correctIndex": 1,
+      "explanation": "MMC(3,4)=12. 2/3=8/12; 3/4=9/12. 3/4 é maior.",
+      "role": "NORMAL"
     },
     {
       "id": "DI-FRAC6-EF06MA07-02",
       "skillCode": "EF06MA07",
       "question": "Ordene do menor ao maior: 1/2, 2/3, 1/4.",
       "options": [
-        {
-          "text": "1/4 menor que 1/2 menor que 2/3"
-        },
         {
           "text": "1/2 menor que 1/4 menor que 2/3",
           "misconceptionCode": "maior-denominador-maior-fracao"
@@ -47,12 +45,16 @@
           "misconceptionCode": "soma-num-e-den-separado"
         },
         {
-          "text": "Sao iguais",
+          "text": "São iguais",
           "misconceptionCode": "nao-usa-mmc"
+        },
+        {
+          "text": "1/4 menor que 1/2 menor que 2/3"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "MMC=12. 1/4=3/12; 1/2=6/12; 2/3=8/12. Ordem: 1/4 menor que 1/2 menor que 2/3."
+      "correctIndex": 3,
+      "explanation": "MMC=12. 1/4=3/12; 1/2=6/12; 2/3=8/12. Ordem: 1/4 menor que 1/2 menor que 2/3.",
+      "role": "NORMAL"
     },
     {
       "id": "DI-FRAC6-EF06MA08-01",
@@ -76,18 +78,16 @@
         }
       ],
       "correctIndex": 0,
-      "explanation": "3 dividido por 4 = 0,75."
+      "explanation": "3 dividido por 4 = 0,75.",
+      "role": "NORMAL"
     },
     {
       "id": "DI-FRAC6-EF06MA08-02",
       "skillCode": "EF06MA08",
-      "question": "Qual fracao irredutivel equivale a 0,6?",
+      "question": "Qual fração irredutivel equivale a 0,6?",
       "options": [
         {
-          "text": "3/5"
-        },
-        {
-          "text": "6/10 nao simplificada",
+          "text": "6/10 não simplificada",
           "misconceptionCode": "decimal-nao-e-fracao"
         },
         {
@@ -95,24 +95,28 @@
           "misconceptionCode": "confunde-parte-inteira"
         },
         {
+          "text": "3/5"
+        },
+        {
           "text": "0/6",
           "misconceptionCode": "decimal-invertido"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "0,6=6/10. MDC(6,10)=2. Resultado: 3/5."
+      "correctIndex": 2,
+      "explanation": "0,6=6/10. MDC(6,10)=2. Resultado: 3/5.",
+      "role": "NORMAL"
     },
     {
       "id": "DI-FRAC6-EF06MA09-01",
       "skillCode": "EF06MA09",
-      "question": "Qual e 3/4 de 40?",
+      "question": "Qual é 3/4 de 40?",
       "options": [
         {
-          "text": "30"
+          "text": "10, só 1/4 de 40",
+          "misconceptionCode": "fracao-quantid-subtrai"
         },
         {
-          "text": "10, so 1/4 de 40",
-          "misconceptionCode": "fracao-quantid-subtrai"
+          "text": "30"
         },
         {
           "text": "160",
@@ -123,17 +127,15 @@
           "misconceptionCode": "fracao-quantid-soma"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "40 dividido por 4 = 10. 10 vezes 3 = 30."
+      "correctIndex": 1,
+      "explanation": "40 dividido por 4 = 10. 10 vezes 3 = 30.",
+      "role": "NORMAL"
     },
     {
       "id": "DI-FRAC6-EF06MA09-02",
       "skillCode": "EF06MA09",
       "question": "Uma escola tem 300 alunos. 2/5 praticam atletismo. Quantos?",
       "options": [
-        {
-          "text": "120"
-        },
         {
           "text": "1500",
           "misconceptionCode": "fracao-quantid-multiplica"
@@ -145,15 +147,19 @@
         {
           "text": "305",
           "misconceptionCode": "fracao-quantid-soma"
+        },
+        {
+          "text": "120"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "300 dividido por 5 = 60. 60 vezes 2 = 120."
+      "correctIndex": 3,
+      "explanation": "300 dividido por 5 = 60. 60 vezes 2 = 120.",
+      "role": "NORMAL"
     },
     {
       "id": "DI-FRAC6-EF06MA10-01",
       "skillCode": "EF06MA10",
-      "question": "Quanto e 1/2 + 1/3?",
+      "question": "Quanto é 1/2 + 1/3?",
       "options": [
         {
           "text": "5/6"
@@ -172,16 +178,14 @@
         }
       ],
       "correctIndex": 0,
-      "explanation": "MMC(2,3)=6. 1/2=3/6; 1/3=2/6. Total: 5/6. Nunca some numerador e denominador separados."
+      "explanation": "MMC(2,3)=6. 1/2=3/6; 1/3=2/6. Total: 5/6. Nunca some numerador e denominador separados.",
+      "role": "NORMAL"
     },
     {
       "id": "DI-FRAC6-EF06MA10-02",
       "skillCode": "EF06MA10",
       "question": "Pedro andou 3/4 km de manha e 1/3 km de tarde. Quantos km no total?",
       "options": [
-        {
-          "text": "13/12 km"
-        },
         {
           "text": "4/7 km, pois 3+1=4 e 4+3=7",
           "misconceptionCode": "soma-num-e-den-separado"
@@ -191,24 +195,28 @@
           "misconceptionCode": "subtrai-ao-inves-de-somar"
         },
         {
+          "text": "13/12 km"
+        },
+        {
           "text": "9/12 km",
           "misconceptionCode": "nao-usa-mmc"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "3/4=9/12; 1/3=4/12. Total: 13/12 km."
+      "correctIndex": 2,
+      "explanation": "3/4=9/12; 1/3=4/12. Total: 13/12 km.",
+      "role": "NORMAL"
     },
     {
       "id": "DI-FRAC6-EF05MA03-01",
       "skillCode": "EF05MA03",
-      "question": "Uma turma de 20 alunos em 4 grupos iguais. Que fracao e 1 grupo?",
+      "question": "Uma turma de 20 alunos em 4 grupos iguais. Que fração é 1 grupo?",
       "options": [
-        {
-          "text": "1/4"
-        },
         {
           "text": "5/20",
           "misconceptionCode": "numerador-e-posicao"
+        },
+        {
+          "text": "1/4"
         },
         {
           "text": "4/20",
@@ -219,17 +227,15 @@
           "misconceptionCode": "reta-sem-escala"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "Dividida em 4 grupos iguais, 1 grupo = 1/4."
+      "correctIndex": 1,
+      "explanation": "Dividida em 4 grupos iguais, 1 grupo = 1/4.",
+      "role": "DEGRAU_BANK"
     },
     {
       "id": "DI-FRAC6-EF05MA03-02",
       "skillCode": "EF05MA03",
       "question": "Na reta entre 0 e 1 dividida em 5 partes iguais, o terceiro traco marca:",
       "options": [
-        {
-          "text": "3/5"
-        },
         {
           "text": "5/3",
           "misconceptionCode": "confunde-num-den"
@@ -241,15 +247,19 @@
         {
           "text": "4/5",
           "misconceptionCode": "numerador-e-posicao"
+        },
+        {
+          "text": "3/5"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "5 partes: 1o=1/5, 2o=2/5, 3o=3/5."
+      "correctIndex": 3,
+      "explanation": "5 partes: 1o=1/5, 2o=2/5, 3o=3/5.",
+      "role": "DEGRAU_BANK"
     },
     {
       "id": "DI-FRAC6-EF05MA04-01",
       "skillCode": "EF05MA04",
-      "question": "1/2 e equivalente a 2/4?",
+      "question": "1/2 é equivalente a 2/4?",
       "options": [
         {
           "text": "Sim, 1x2=2 e 2x2=4"
@@ -268,7 +278,8 @@
         }
       ],
       "correctIndex": 0,
-      "explanation": "Multiplica numerador e denominador por 2: 2/4."
+      "explanation": "Multiplica numerador e denominador por 2: 2/4.",
+      "role": "DEGRAU_BANK"
     },
     {
       "id": "DI-FRAC6-EF05MA04-02",
@@ -276,56 +287,55 @@
       "question": "Forma mais simplificada de 6/8:",
       "options": [
         {
-          "text": "3/4"
-        },
-        {
           "text": "4/8",
           "misconceptionCode": "simplifica-so-num"
         },
         {
-          "text": "6/8 ja e simples",
+          "text": "6/8 já é simples",
           "misconceptionCode": "equivalencia-visual-apenas"
+        },
+        {
+          "text": "3/4"
         },
         {
           "text": "1/2",
           "misconceptionCode": "mmc-nao-e-necessario"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "MDC(6,8)=2. 6/2=3, 8/2=4. Resultado: 3/4."
+      "correctIndex": 2,
+      "explanation": "MDC(6,8)=2. 6/2=3, 8/2=4. Resultado: 3/4.",
+      "role": "DEGRAU_BANK"
     },
     {
       "id": "DI-FRAC6-EF05MA05-01",
       "skillCode": "EF05MA05",
-      "question": "Qual e menor: 1/3 ou 1/5?",
+      "question": "Qual é menor: 1/3 ou 1/5?",
       "options": [
-        {
-          "text": "1/5, cada quinto e menor que cada terco"
-        },
         {
           "text": "1/3, pois 3 menor que 5",
           "misconceptionCode": "maior-denominador-maior-fracao"
         },
         {
-          "text": "Sao iguais",
+          "text": "1/5, cada quinto é menor que cada terço"
+        },
+        {
+          "text": "São iguais",
           "misconceptionCode": "compara-num-separado"
         },
         {
-          "text": "1/5, e maior",
+          "text": "1/5, é maior",
           "misconceptionCode": "decimal-sem-converter"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "Com numerador 1: maior denominador = menor fracao."
+      "correctIndex": 1,
+      "explanation": "Com numerador 1: maior denominador = menor fração.",
+      "role": "DEGRAU_BANK"
     },
     {
       "id": "DI-FRAC6-EF05MA05-02",
       "skillCode": "EF05MA05",
       "question": "Qual decimal equivale a 2/5?",
       "options": [
-        {
-          "text": "0,4"
-        },
         {
           "text": "0,25",
           "misconceptionCode": "decimal-sem-converter"
@@ -337,15 +347,19 @@
         {
           "text": "2,5",
           "misconceptionCode": "maior-denominador-maior-fracao"
+        },
+        {
+          "text": "0,4"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "2 dividido por 5 = 0,4."
+      "correctIndex": 3,
+      "explanation": "2 dividido por 5 = 0,4.",
+      "role": "DEGRAU_BANK"
     },
     {
       "id": "DI-FRAC6-EF04MA09-01",
       "skillCode": "EF04MA09",
-      "question": "Uma pizza foi cortada em 4 partes iguais. Joao comeu 1 pedaco. Que fracao?",
+      "question": "Uma pizza foi cortada em 4 partes iguais. João comeu 1 pedaço. Que fração?",
       "options": [
         {
           "text": "1/4"
@@ -364,16 +378,14 @@
         }
       ],
       "correctIndex": 0,
-      "explanation": "4 partes iguais, comeu 1. Fracao: 1/4."
+      "explanation": "4 partes iguais, comeu 1. Fração: 1/4.",
+      "role": "DEGRAU_BANK"
     },
     {
       "id": "DI-FRAC6-EF04MA09-02",
       "skillCode": "EF04MA09",
-      "question": "Qual fracao representa metade?",
+      "question": "Qual fração representa metade?",
       "options": [
-        {
-          "text": "1/2"
-        },
         {
           "text": "2/1",
           "misconceptionCode": "confunde-num-den"
@@ -383,12 +395,21 @@
           "misconceptionCode": "todo-nao-e-inteiro"
         },
         {
+          "text": "1/2"
+        },
+        {
           "text": "2/4",
           "misconceptionCode": "parte-sem-partes-iguais"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "Metade = todo dividido em 2 partes iguais, voce tem 1 = 1/2."
+      "correctIndex": 2,
+      "explanation": "Metade = todo dividido em 2 partes iguais, você tem 1 = 1/2.",
+      "role": "DEGRAU_BANK"
     }
-  ]
+  ],
+  "version": 2,
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 6,
+  "adaptive": true
 }

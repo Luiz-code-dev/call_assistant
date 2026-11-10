@@ -1,7 +1,7 @@
 {
   "id": "DIAG-FRAC-6A-ACOMP",
   "titulo": "Diagnóstico de Frações — 6º ano (acompanhamento)",
-  "descricao": "Avaliacao de acompanhamento para verificar evolucao em fracoes no 6º ano.",
+  "descricao": "Avaliação de acompanhamento para verificar evolucao em frações no 6º ano.",
   "status": "APPROVED",
   "source": "SPEAKFLOW",
   "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
@@ -9,17 +9,17 @@
     {
       "id": "DA-FRAC6-EF06MA07-01",
       "skillCode": "EF06MA07",
-      "question": "Qual e maior: 3/5 ou 5/8?",
+      "question": "Qual é maior: 3/5 ou 5/8?",
       "options": [
-        {
-          "text": "5/8, pois 3/5=24/40 e 5/8=25/40"
-        },
         {
           "text": "3/5, pois 3 menor que 5",
           "misconceptionCode": "soma-num-e-den-separado"
         },
         {
-          "text": "Sao iguais",
+          "text": "5/8, pois 3/5=24/40 e 5/8=25/40"
+        },
+        {
+          "text": "São iguais",
           "misconceptionCode": "nao-usa-mmc"
         },
         {
@@ -27,17 +27,15 @@
           "misconceptionCode": "maior-denominador-maior-fracao"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "MMC(5,8)=40. 3/5=24/40; 5/8=25/40. 5/8 e maior."
+      "correctIndex": 1,
+      "explanation": "MMC(5,8)=40. 3/5=24/40; 5/8=25/40. 5/8 é maior.",
+      "role": "NORMAL"
     },
     {
       "id": "DA-FRAC6-EF06MA07-02",
       "skillCode": "EF06MA07",
       "question": "Ordene do menor ao maior: 2/3, 3/4, 5/6.",
       "options": [
-        {
-          "text": "2/3 menor que 3/4 menor que 5/6"
-        },
         {
           "text": "5/6 menor que 3/4 menor que 2/3",
           "misconceptionCode": "maior-denominador-maior-fracao"
@@ -47,12 +45,16 @@
           "misconceptionCode": "soma-num-e-den-separado"
         },
         {
-          "text": "Sao iguais",
+          "text": "São iguais",
           "misconceptionCode": "nao-usa-mmc"
+        },
+        {
+          "text": "2/3 menor que 3/4 menor que 5/6"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "MMC=12. 2/3=8/12; 3/4=9/12; 5/6=10/12. Ordem crescente."
+      "correctIndex": 3,
+      "explanation": "MMC=12. 2/3=8/12; 3/4=9/12; 5/6=10/12. Ordem crescente.",
+      "role": "NORMAL"
     },
     {
       "id": "DA-FRAC6-EF06MA08-01",
@@ -76,16 +78,14 @@
         }
       ],
       "correctIndex": 0,
-      "explanation": "5 dividido por 8 = 0,625."
+      "explanation": "5 dividido por 8 = 0,625.",
+      "role": "NORMAL"
     },
     {
       "id": "DA-FRAC6-EF06MA08-02",
       "skillCode": "EF06MA08",
-      "question": "Qual fracao irredutivel equivale a 0,8?",
+      "question": "Qual fração irredutivel equivale a 0,8?",
       "options": [
-        {
-          "text": "4/5"
-        },
         {
           "text": "8/10 sem simplificar",
           "misconceptionCode": "decimal-nao-e-fracao"
@@ -95,24 +95,28 @@
           "misconceptionCode": "confunde-parte-inteira"
         },
         {
+          "text": "4/5"
+        },
+        {
           "text": "0/8",
           "misconceptionCode": "decimal-invertido"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "0,8=8/10. MDC(8,10)=2. Resultado: 4/5."
+      "correctIndex": 2,
+      "explanation": "0,8=8/10. MDC(8,10)=2. Resultado: 4/5.",
+      "role": "NORMAL"
     },
     {
       "id": "DA-FRAC6-EF06MA09-01",
       "skillCode": "EF06MA09",
-      "question": "Qual e 2/5 de 25?",
+      "question": "Qual é 2/5 de 25?",
       "options": [
         {
-          "text": "10"
+          "text": "5, só 1/5",
+          "misconceptionCode": "fracao-quantid-subtrai"
         },
         {
-          "text": "5, so 1/5",
-          "misconceptionCode": "fracao-quantid-subtrai"
+          "text": "10"
         },
         {
           "text": "125",
@@ -123,17 +127,15 @@
           "misconceptionCode": "fracao-quantid-soma"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "25 dividido por 5 = 5. 5 vezes 2 = 10."
+      "correctIndex": 1,
+      "explanation": "25 dividido por 5 = 5. 5 vezes 2 = 10.",
+      "role": "NORMAL"
     },
     {
       "id": "DA-FRAC6-EF06MA09-02",
       "skillCode": "EF06MA09",
       "question": "Uma turma tem 36 alunos. 2/3 fizeram a atividade. Quantos?",
       "options": [
-        {
-          "text": "24"
-        },
         {
           "text": "216",
           "misconceptionCode": "fracao-quantid-multiplica"
@@ -145,15 +147,19 @@
         {
           "text": "38",
           "misconceptionCode": "fracao-quantid-soma"
+        },
+        {
+          "text": "24"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "36 dividido por 3 = 12. 12 vezes 2 = 24."
+      "correctIndex": 3,
+      "explanation": "36 dividido por 3 = 12. 12 vezes 2 = 24.",
+      "role": "NORMAL"
     },
     {
       "id": "DA-FRAC6-EF06MA10-01",
       "skillCode": "EF06MA10",
-      "question": "Quanto e 1/4 + 1/3?",
+      "question": "Quanto é 1/4 + 1/3?",
       "options": [
         {
           "text": "7/12"
@@ -172,16 +178,14 @@
         }
       ],
       "correctIndex": 0,
-      "explanation": "MMC(4,3)=12. 1/4=3/12; 1/3=4/12. Total: 7/12."
+      "explanation": "MMC(4,3)=12. 1/4=3/12; 1/3=4/12. Total: 7/12.",
+      "role": "NORMAL"
     },
     {
       "id": "DA-FRAC6-EF06MA10-02",
       "skillCode": "EF06MA10",
-      "question": "Uma receita usa 3/4 de xicara de farinha. Ja tem 1/3. Quanto falta?",
+      "question": "Uma receita usa 3/4 de xicara de farinha. Já tem 1/3. Quanto falta?",
       "options": [
-        {
-          "text": "5/12 xicara"
-        },
         {
           "text": "4/7 xicara",
           "misconceptionCode": "soma-num-e-den-separado"
@@ -191,24 +195,28 @@
           "misconceptionCode": "nao-usa-mmc"
         },
         {
+          "text": "5/12 xicara"
+        },
+        {
           "text": "1/12 xicara",
           "misconceptionCode": "subtrai-ao-inves-de-somar"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "3/4=9/12; 1/3=4/12. Falta: 9/12 menos 4/12 = 5/12."
+      "correctIndex": 2,
+      "explanation": "3/4=9/12; 1/3=4/12. Falta: 9/12 menos 4/12 = 5/12.",
+      "role": "NORMAL"
     },
     {
       "id": "DA-FRAC6-EF05MA03-01",
       "skillCode": "EF05MA03",
-      "question": "Uma caixa foi dividida em 5 sacolas iguais. Que fracao e 1 sacola?",
+      "question": "Uma caixa foi dividida em 5 sacolas iguais. Que fração é 1 sacola?",
       "options": [
-        {
-          "text": "1/5"
-        },
         {
           "text": "5/1",
           "misconceptionCode": "numerador-e-posicao"
+        },
+        {
+          "text": "1/5"
         },
         {
           "text": "5/5",
@@ -219,17 +227,15 @@
           "misconceptionCode": "reta-sem-escala"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "Dividida em 5 partes iguais, 1 parte = 1/5."
+      "correctIndex": 1,
+      "explanation": "Dividida em 5 partes iguais, 1 parte = 1/5.",
+      "role": "DEGRAU_BANK"
     },
     {
       "id": "DA-FRAC6-EF05MA03-02",
       "skillCode": "EF05MA03",
       "question": "Reta de 0 a 1 dividida em 4 partes. O segundo traco marca:",
       "options": [
-        {
-          "text": "2/4"
-        },
         {
           "text": "4/2",
           "misconceptionCode": "confunde-num-den"
@@ -241,15 +247,19 @@
         {
           "text": "3/4",
           "misconceptionCode": "numerador-e-posicao"
+        },
+        {
+          "text": "2/4"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "4 partes: 1o=1/4, 2o=2/4."
+      "correctIndex": 3,
+      "explanation": "4 partes: 1o=1/4, 2o=2/4.",
+      "role": "DEGRAU_BANK"
     },
     {
       "id": "DA-FRAC6-EF05MA04-01",
       "skillCode": "EF05MA04",
-      "question": "2/3 e equivalente a 4/6?",
+      "question": "2/3 é equivalente a 4/6?",
       "options": [
         {
           "text": "Sim, 2x2=4 e 3x2=6"
@@ -268,7 +278,8 @@
         }
       ],
       "correctIndex": 0,
-      "explanation": "Multiplica por 2: 4/6."
+      "explanation": "Multiplica por 2: 4/6.",
+      "role": "DEGRAU_BANK"
     },
     {
       "id": "DA-FRAC6-EF05MA04-02",
@@ -276,56 +287,55 @@
       "question": "Forma mais simplificada de 9/12:",
       "options": [
         {
-          "text": "3/4"
-        },
-        {
           "text": "3/12",
           "misconceptionCode": "simplifica-so-num"
         },
         {
-          "text": "9/12 ja e simples",
+          "text": "9/12 já é simples",
           "misconceptionCode": "equivalencia-visual-apenas"
+        },
+        {
+          "text": "3/4"
         },
         {
           "text": "1/3",
           "misconceptionCode": "mmc-nao-e-necessario"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "MDC(9,12)=3. 9/3=3, 12/3=4. Resultado: 3/4."
+      "correctIndex": 2,
+      "explanation": "MDC(9,12)=3. 9/3=3, 12/3=4. Resultado: 3/4.",
+      "role": "DEGRAU_BANK"
     },
     {
       "id": "DA-FRAC6-EF05MA05-01",
       "skillCode": "EF05MA05",
-      "question": "Qual e menor: 1/4 ou 1/6?",
+      "question": "Qual é menor: 1/4 ou 1/6?",
       "options": [
-        {
-          "text": "1/6, cada sexto e menor que cada quarto"
-        },
         {
           "text": "1/4, pois 4 menor que 6",
           "misconceptionCode": "maior-denominador-maior-fracao"
         },
         {
-          "text": "Sao iguais",
+          "text": "1/6, cada sexto é menor que cada quarto"
+        },
+        {
+          "text": "São iguais",
           "misconceptionCode": "compara-num-separado"
         },
         {
-          "text": "1/6, e maior",
+          "text": "1/6, é maior",
           "misconceptionCode": "decimal-sem-converter"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "Com numerador 1: maior denominador = menor fracao. 1/6 menor que 1/4."
+      "correctIndex": 1,
+      "explanation": "Com numerador 1: maior denominador = menor fração. 1/6 menor que 1/4.",
+      "role": "DEGRAU_BANK"
     },
     {
       "id": "DA-FRAC6-EF05MA05-02",
       "skillCode": "EF05MA05",
       "question": "Qual decimal equivale a 3/5?",
       "options": [
-        {
-          "text": "0,6"
-        },
         {
           "text": "0,35",
           "misconceptionCode": "decimal-sem-converter"
@@ -337,15 +347,19 @@
         {
           "text": "3,5",
           "misconceptionCode": "maior-denominador-maior-fracao"
+        },
+        {
+          "text": "0,6"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "3 dividido por 5 = 0,6."
+      "correctIndex": 3,
+      "explanation": "3 dividido por 5 = 0,6.",
+      "role": "DEGRAU_BANK"
     },
     {
       "id": "DA-FRAC6-EF04MA09-01",
       "skillCode": "EF04MA09",
-      "question": "Um bolo foi cortado em 8 fatias iguais. Que fracao e 1 fatia?",
+      "question": "Um bolo foi cortado em 8 fatias iguais. Que fração é 1 fatia?",
       "options": [
         {
           "text": "1/8"
@@ -364,16 +378,14 @@
         }
       ],
       "correctIndex": 0,
-      "explanation": "8 partes iguais, 1 fatia = 1/8."
+      "explanation": "8 partes iguais, 1 fatia = 1/8.",
+      "role": "DEGRAU_BANK"
     },
     {
       "id": "DA-FRAC6-EF04MA09-02",
       "skillCode": "EF04MA09",
-      "question": "Qual fracao representa um terco?",
+      "question": "Qual fração representa um terço?",
       "options": [
-        {
-          "text": "1/3"
-        },
         {
           "text": "3/1",
           "misconceptionCode": "confunde-num-den"
@@ -383,12 +395,21 @@
           "misconceptionCode": "todo-nao-e-inteiro"
         },
         {
+          "text": "1/3"
+        },
+        {
           "text": "2/3",
           "misconceptionCode": "parte-sem-partes-iguais"
         }
       ],
-      "correctIndex": 0,
-      "explanation": "Um terco = 1/3."
+      "correctIndex": 2,
+      "explanation": "Um terço = 1/3.",
+      "role": "DEGRAU_BANK"
     }
-  ]
+  ],
+  "version": 2,
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 6,
+  "adaptive": true
 }
