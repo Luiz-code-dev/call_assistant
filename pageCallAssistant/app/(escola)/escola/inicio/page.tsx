@@ -11,7 +11,7 @@ export default function InicioPage() {
   // Decisao no servidor (os cookies sao httpOnly; JS no cliente nunca os le).
   const c = cookies();
   if (c.get(STAFF_COOKIE)) redirect("/escola/painel");
-  if (c.get(STUDENT_COOKIE)) redirect("/escola/aluno/trilha");
+  if (c.get(STUDENT_COOKIE)) redirect("/escola/aluno");
   if (c.get(FAMILY_COOKIE)) redirect("/escola/familia");
 
   const familyEnabled = envFlag(process.env.FEATURE_ESCOLAS_FAMILIA, true);

@@ -77,6 +77,8 @@ export function ServiceWorkerRegister() {
           });
 
           // ── Push notifications ──────────────────────────────
+          // O convite de notificações é do SpeakFlow IA (mensagens, Circles): não aparece no Escolas
+          if (window.location.pathname.startsWith("/escola")) return;
           if (!("Notification" in window) || !("PushManager" in window)) return;
 
           if (Notification.permission === "granted") {

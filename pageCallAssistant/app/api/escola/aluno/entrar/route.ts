@@ -175,7 +175,7 @@ export async function POST(req: NextRequest) {
   const studentSeconds = remember ? APP_STUDENT_HOME_SECONDS : APP_STUDENT_SECONDS;
 
   const token = await issueStudentToken(student, classId!, enrollmentId!, studentSeconds);
-  const res = NextResponse.json({ ok: true, redirect: "/escola/aluno/painel", ...(appClient ? { token } : {}) });
+  const res = NextResponse.json({ ok: true, redirect: "/escola/aluno", ...(appClient ? { token } : {}) });
   res.cookies.set(STUDENT_COOKIE, token, { httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", path: "/", maxAge: studentSeconds });
 
   if (remember) {

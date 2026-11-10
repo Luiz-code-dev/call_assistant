@@ -179,7 +179,7 @@ function EntrarInner() {
     });
     const d = await r.json();
     if (!r.ok) { setPinError(d.error ?? "PIN incorreto. Tente de novo."); setPin(""); return; }
-    router.replace("/escola/aluno/trilha");
+    router.replace("/escola/aluno");
   }
 
   async function submitFigures(seq: string[]) {
@@ -190,7 +190,7 @@ function EntrarInner() {
     });
     const d = await r.json();
     if (!r.ok) { setFigError("Quase! Tente de novo."); setFigSeq([]); return; }
-    router.replace("/escola/aluno/trilha");
+    router.replace("/escola/aluno");
   }
 
   const headerName = selectedStudent?.display.split(" ")[0] ?? "";
