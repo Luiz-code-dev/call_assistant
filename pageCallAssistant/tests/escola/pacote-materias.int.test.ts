@@ -528,6 +528,9 @@ describe("Família acompanha de perto: semana, contato e avisos", () => {
     expect(segundo).toBe(0);
     expect(await dbB.eduGuardianAlert.count({ where: { guardianId, studentId: alunoB.studentId, kind: "CONQUISTA", day: "2031-01-15" } })).toBe(1);
     await dbB.eduGuardianAlert.deleteMany({ where: { studentId: alunoB.studentId, day: "2031-01-15" } });
+  });
+});
+
 describe("Reforço: o aluno entra com o código dele, sem código de turma", () => {
   const post = (url: string, body: unknown) => new NextRequest(url, {
     method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body),
