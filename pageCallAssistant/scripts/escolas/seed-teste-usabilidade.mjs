@@ -626,6 +626,15 @@ async function seedRedeB() {
         update: { isActive: true },
       });
     }
+    // A irmã do 5º Ano B (seed-usuarios-demo) também é filha da família B
+    const irmaB = await db.eduStudent.findUnique({ where: { id: `aluna5-${NETWORK_ID}` } }).catch(() => null);
+    if (irmaB) {
+      await db.eduGuardianLink.upsert({
+        where: { guardianId_studentId: { guardianId: guardiaoId, studentId: irmaB.id } },
+        create: { networkId: rede.id, guardianId: guardiaoId, studentId: irmaB.id, relation: "PAI", isActive: true },
+        update: { isActive: true },
+      });
+    }
 
     // Convite pendente para outro responsável
     const tokenRaw = randomBytes(32).toString("hex");
