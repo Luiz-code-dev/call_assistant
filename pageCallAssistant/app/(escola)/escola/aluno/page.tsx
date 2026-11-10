@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { NavAluno } from "@/components/escola/reforco-ui";
-import { RecadoDaFamilia, AgendaDeHoje } from "@/components/escola/aluno/RecadosAluno";
+import { RecadoDaFamilia, AgendaDeHoje, AtivarAvisos } from "@/components/escola/aluno/RecadosAluno";
 
 interface Subject { id: string; name: string; color: string | null }
 interface Submission { id: string; status: string; evaluatedAt: string | null; masteryLevel: string | null }
@@ -233,6 +233,7 @@ export default function AlunoHomePage() {
         {/* Recado da família e horário de hoje */}
         <RecadoDaFamilia />
         <AgendaDeHoje />
+        <AtivarAvisos />
 
         {/* Continuar */}
         {emTrilha && (

@@ -44,6 +44,7 @@ import { GET as getRecadosFamilia, POST as postRecadoFamilia } from "@/app/api/e
 import { GET as getAgendaFamilia, POST as postAgendaFamilia, DELETE as deleteAgendaFamilia } from "@/app/api/escola/familia/filhos/[studentId]/agenda/route";
 import { GET as getRecadosAluno, POST as postRecadoLido } from "@/app/api/escola/aluno/recados/route";
 import { GET as getAgendaAluno } from "@/app/api/escola/aluno/agenda/route";
+import { POST as postAvisos } from "@/app/api/escola/aluno/avisos/route";
 
 const URL_A = process.env.ESCOLAS_DB_01_URL ?? "";
 const URL_B = process.env.ESCOLAS_DB_02_URL ?? "";
@@ -569,5 +570,42 @@ describe("Recado e agenda da família, vistos pelo aluno", () => {
     expect(removido.body.itens).toHaveLength(6);
     const lista = await json(await getAgendaFamilia(new Request("http://localhost"), params));
     expect(lista.body.itens).toHaveLength(6);
+  });
+});
+
+describe("Agenda sem repetição e avisos do aluno", () => {
+  const corpo = (b: unknown) => new Request("http://localhost", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(b) });
+
+  it("o mesmo dia e hora não entram duas vezes; só os dias novos entram", async () => {
+    const guardianId = await responsavelDoAlunoB();
+    estado.familia = { guardianId, networkId: alunoB.networkId, db: dbB };
+    await dbB.eduStudyPlanItem.deleteMany({ where: { studentId: alunoB.studentId } });
+    const params = { params: { studentId: alunoB.studentId } };
+    const a = await json(await postAgendaFamilia(corpo({ weekdays: [0, 2], time: "10:25", minutes: 20 }), params));
+    expect(a.status, a.texto).toBe(201);
+    const repetido = await json(await postAgendaFamilia(corpo({ weekdays: [0, 2], time: "10:25", minutes: 20 }), params));
+    expect(repetido.status).toBe(409);
+    const parte = await json(await postAgendaFamilia(corpo({ weekdays: [0, 2, 4], time: "10:25", minutes: 20 }), params));
+    expect(parte.status).toBe(201);
+    expect(parte.body.itens).toHaveLength(3);
+    const ids = parte.body.itens.map((i: { id: string }) => i.id).join(",");
+    const fora = await json(await deleteAgendaFamilia(new Request(`http://localhost/?ids=${ids}`, { method: "DELETE" }), params));
+    expect(fora.body.itens).toHaveLength(0);
+  });
+
+  it("o aluno inscreve o aparelho para avisos; inscrição inválida é recusada", async () => {
+    estado.ctx = alunoB;
+    const ruim = await json(await postAvisos(corpo({ endpoint: "http://x" })));
+    expect(ruim.status).toBe(400);
+    const endpoint = `https://push.exemplo.test/${alunoB.studentId}`;
+    const ok = await json(await postAvisos(corpo({ endpoint, keys: { p256dh: "chave", auth: "segredo" } })));
+    expect(ok.status, ok.texto).toBe(201);
+    // O mesmo aparelho passa para outro aluno (aparelho de casa): fica uma inscrição só
+    estado.ctx = colegaB;
+    await postAvisos(corpo({ endpoint, keys: { p256dh: "chave", auth: "segredo" } }));
+    const subs = await dbB.eduPushSubscription.findMany({ where: { endpoint } });
+    expect(subs).toHaveLength(1);
+    expect(subs[0].studentId).toBe(colegaB.studentId);
+    await dbB.eduPushSubscription.deleteMany({ where: { endpoint } });
   });
 });

@@ -8,7 +8,8 @@ import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { getFamilyContext } from "@/lib/escola/family-context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { guardianOwnsStudent } from "@/lib/escola/family-guard";
-import { validarRecado, MAX_RECADOS_POR_DIA } from "@/lib/escola/recados";
+import { validarRecado, MAX_RECADOS_POR_DIA, primeiroNome } from "@/lib/escola/recados";
+import { enviarAviso, avisoDeRecado } from "@/lib/escola/avisos";
 
 /* eslint-disable @typescript-eslint/no-explicit-any -- cliente Prisma do tenant sem tipagem estática */
 
@@ -52,5 +53,9 @@ export async function POST(req: Request, { params }: { params: { studentId: stri
     data: { networkId: ctx!.networkId, guardianId: ctx!.guardianId, studentId: params.studentId, kind: v.kind, text: v.text },
     select: { id: true, kind: true, text: true, createdAt: true },
   });
-  return NextResponse.json({ recado: { ...r, lido: false, meu: true } }, { status: 201 });
+  // Aviso no celular do aluno, com título e ícone do tipo de recado
+  const g = await P.eduGuardian.findUnique({ where: { id: ctx!.guardianId }, select: { name: true } }).catch(() => null);
+  const avisados = await enviarAviso(P, ctx!.networkId, params.studentId, avisoDeRecado(v.kind, v.text, primeiroNome(g?.name)))
+    .catch((err: Error) => { console.error("[familia/recados] aviso:", err.message); return 0; });
+  return NextResponse.json({ recado: { ...r, lido: false, meu: true }, avisado: avisados > 0 }, { status: 201 });
 }
