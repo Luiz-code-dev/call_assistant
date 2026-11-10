@@ -1,4 +1,4 @@
-const CACHE = "speakflow-v9";
+const CACHE = "speakflow-v10";
 const ESCOLA_CACHE = "speakflow-escola-v2";
 
 self.addEventListener("install", (event) => {
@@ -44,7 +44,12 @@ self.addEventListener("push", (event) => {
   const icon  = data.icon  || "/icon.svg";
   const url   = data.url   || "/home";
 
-  event.waitUntil(
+  // Telas abertas do app ficam sabendo do aviso e buscam os dados de novo (recado novo aparece sem recarregar)
+  const avisarTelas = self.clients.matchAll({ type: "window", includeUncontrolled: true })
+    .then((list) => list.forEach((c) => c.postMessage({ type: "sf-aviso", tipo: data.tipo || null })))
+    .catch(() => {});
+
+  event.waitUntil(Promise.all([avisarTelas,
     self.registration.showNotification(title, {
       body,
       icon,
@@ -53,7 +58,7 @@ self.addEventListener("push", (event) => {
       vibrate: Array.isArray(data.vibrate) ? data.vibrate : [200, 100, 200],
       ...(data.tag ? { tag: data.tag, renotify: true } : {}),
     })
-  );
+  ]));
 });
 
 self.addEventListener("notificationclick", (event) => {
@@ -62,7 +67,11 @@ self.addEventListener("notificationclick", (event) => {
   event.waitUntil(
     clients.matchAll({ type: "window", includeUncontrolled: true }).then((list) => {
       const found = list.find((c) => c.url.includes(url));
-      if (found) return found.focus();
+      // Tela já aberta: recarrega na página do aviso antes de mostrar, para o conteúdo novo aparecer
+      if (found) {
+        if ("navigate" in found) return found.navigate(url).then((c) => (c || found).focus()).catch(() => found.focus());
+        return found.focus();
+      }
       return clients.openWindow(url);
     })
   );
