@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import EscPageHeader from "@/components/escola/layout/EscPageHeader";
-import { School, Users, Mail } from "lucide-react";
+import { School, Users, Mail, KeyRound } from "lucide-react";
 
 export default async function PlataformaRedeDetalhePage({
   params,
@@ -45,6 +45,14 @@ export default async function PlataformaRedeDetalhePage({
         title={network.name}
         subtitle={`${network.city}, ${network.state}${!network.isActive ? " · Inativa" : ""}`}
         action={
+          <div className="flex flex-wrap gap-2">
+          <a
+            href={`/api/escola/plataforma/redes/${id}/codigos-alunos`}
+            className="inline-flex items-center gap-2 bg-indigo-600 text-white hover:bg-indigo-700 px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors min-h-[44px]"
+          >
+            <KeyRound size={15} />
+            Baixar códigos dos alunos
+          </a>
           <Link
             href="/escola/plataforma/convites"
             className="inline-flex items-center gap-2 border border-indigo-600 text-indigo-600 hover:bg-indigo-50 px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors min-h-[44px]"
@@ -52,6 +60,7 @@ export default async function PlataformaRedeDetalhePage({
             <Mail size={15} />
             Convidar gestor
           </Link>
+          </div>
         }
       />
 
