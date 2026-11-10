@@ -75,7 +75,7 @@ function atividadeParaAluno(p: Posicao | undefined, items: ItemNormal[], extras:
     return extra ? {
       id: extra.activityId,
       type: "QUIZ",
-      prompt: extra.questions[0]?.question ?? "",
+      prompt: "", // a questão já traz o enunciado
       questions: extra.questions.map(questaoParaAluno),
       skillCode: extra.skillCode,
       isDegrau: true,
@@ -85,7 +85,7 @@ function atividadeParaAluno(p: Posicao | undefined, items: ItemNormal[], extras:
   return item ? {
     id: item.activity.id,
     type: item.activity.type,
-    prompt: item.activity.prompt,
+    prompt: promptParaAluno(item.activity.prompt, item.activity.questions[0]?.question),
     questions: item.activity.questions.map(questaoParaAluno),
     skillCode: item.skill.code,
   } : null;
@@ -182,7 +182,7 @@ export async function POST(req: NextRequest) {
       atividade: {
         id: first.activity.id,
         type: first.activity.type,
-        prompt: first.activity.prompt,
+        prompt: promptParaAluno(first.activity.prompt, first.activity.questions[0]?.question),
         questions: first.activity.questions.map(questaoParaAluno),
         skillCode: first.skill.code,
       },
@@ -552,4 +552,18 @@ async function textoDoErroComum(
   const erros = Array.isArray(guide?.commonErrors) ? (guide!.commonErrors as Array<{ code?: string; description?: string }>) : [];
   const desc = erros.find((e) => e.code === code)?.description;
   return desc ? { texto: `Fique de olho neste erro comum: ${desc.charAt(0).toLowerCase()}${desc.slice(1)}.`, exemplo: "" } : null;
+}
+
+
+/**
+ * Texto de apoio acima da questão. Nunca mostra ao aluno o enunciado genérico
+ * antigo ("Resolva o problema relacionado a EF06MA03.") nem código BNCC, e não
+ * repete o enunciado quando o prompt é igual à própria questão.
+ */
+function promptParaAluno(prompt: string | null | undefined, question: string | null | undefined): string {
+  const p = (prompt ?? "").trim();
+  if (!p) return "";
+  if (/relacionad[oa] a\s+EF\d/i.test(p) || /\bEF\d{2}[A-Z]{2}\d{2}\b/.test(p)) return "";
+  if (question && p === question.trim()) return "";
+  return p;
 }
