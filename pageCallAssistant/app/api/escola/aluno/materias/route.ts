@@ -82,7 +82,7 @@ export async function GET() {
     const subjectIdsParaCodigos = Object.keys(codeBySubjectId);
 
     // Diagnósticos: biblioteca (subjectCode) + rede (subjectCode ou subjectId)
-    type DiagRow = { id: string; subjectCode: string | null; subjectId: string | null; status: string; networkId: string | null };
+    type DiagRow = { id: string; subjectCode: string | null; subjectId: string | null; status: string; networkId: string | null; cycle: number; title: string };
     const diagsRaw: DiagRow[] = await (db as any).eduDiagnostic.findMany({
       where: {
         gradeYear,
@@ -98,10 +98,15 @@ export async function GET() {
             : []),
         ],
       },
-      select: { id: true, subjectCode: true, subjectId: true, status: true, networkId: true },
+      select: { id: true, subjectCode: true, subjectId: true, status: true, networkId: true, cycle: true, title: true },
+      // Diagnóstico de partida antes do de acompanhamento: ciclo menor primeiro,
+      // e o título "acompanhamento" por último (ordem estável por id)
+      orderBy: [{ cycle: "asc" }, { id: "asc" }],
     });
 
     // Normaliza subjectCode: biblioteca já tem; rede resolve pelo subjectId
+    const ehAcompanhamento = (d: DiagRow) => /acompanhamento/i.test(d.title);
+    diagsRaw.sort((a, b) => Number(ehAcompanhamento(a)) - Number(ehAcompanhamento(b)));
     const diags = diagsRaw.map((d) => ({
       ...d,
       subjectCode: d.subjectCode ?? (d.subjectId ? codeBySubjectId[d.subjectId] ?? null : null),
@@ -117,7 +122,7 @@ export async function GET() {
     // Trilhas ativas por subjectCode
     type TaRow = { track: { subjectCode: string | null; subjectId: string | null; title: string } | null };
     const trilhasAtivas: TaRow[] = await (db as any).eduTrackAssignment.findMany({
-      where: { studentId: ctx.studentId, networkId: ctx.networkId, endedAt: null },
+      where: { studentId: ctx.studentId, networkId: ctx.networkId, endedAt: null, track: { status: "APPROVED" } },
       select: { track: { select: { subjectCode: true, subjectId: true, title: true } } },
     });
     const trilhaPorMateria: Record<string, string> = {};

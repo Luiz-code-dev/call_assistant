@@ -386,48 +386,15 @@ async function seedRedeB() {
     }
     console.log(`  ok: ${trilhasDraft.length} trilhas MA-06 → APPROVED`);
 
-    // Diagnóstico de Frações — 6º ano (início do bimestre) — substitui diag-teste-ma06-rede-b
-    const diagId = "diag-fracoes-6a-rede-b";
-    const matSubjectForDiag = matSubjectB ?? await db.eduSubject.findFirst({ where: { name: { contains: "atem" } } });
-    const diag = await db.eduDiagnostic.upsert({
-      where: { id: diagId },
-      create: {
-        id: diagId,
-        networkId: rede.id,
-        subjectId: matSubjectForDiag?.id ?? "sem-disciplina",
-        gradeYear: 6,
-        title: "Diagnostico de Fracoes — 6o ano (inicio do bimestre)",
-        cycle: 1,
-        status: "OPEN",
-        opensAt: new Date(),
-        createdById: coordUser.id,
-        source: "SPEAKFLOW",
-      },
-      update: { status: "OPEN" },
-    });
+    // Diagnóstico de Frações do 6º ano: o do pacote (DIAG-FRAC-6A-INICIO, biblioteca SpeakFlow).
+    // O diagnóstico próprio que este seed criava (sem acento e com a certa sempre na primeira
+    // alternativa) fica ARCHIVED: era o que aparecia no celular do aluno.
+    const diagAntigo = await db.eduDiagnostic.findUnique({ where: { id: "diag-fracoes-6a-rede-b" }, select: { id: true, status: true } });
+    if (diagAntigo && diagAntigo.status !== "ARCHIVED") {
+      await db.eduDiagnostic.update({ where: { id: diagAntigo.id }, data: { status: "ARCHIVED" } });
+      console.log("  ok: diag-fracoes-6a-rede-b ARCHIVED (substituído por DIAG-FRAC-6A-INICIO)");
+    }
 
-    // Questoes do diagnostico de Fracoes (habilidades EF06MA07, EF06MA08, EF06MA09, EF06MA10)
-    // Cada habilidade tem 2 questoes — total 8 itens para o 6o ano
-    const QUESTOES_FRAC = {
-      "EF06MA07": [
-        { q: "Qual das fracoes a seguir e a maior?", opts: ["3/4","1/2","2/5","1/3"], c: 0, exp: "3/4=0,75 e a maior entre as opcoes." },
-        { q: "2/6 e 1/3 sao equivalentes?", opts: ["Sim, 2/6 = 1/3","Nao, denominadores diferentes","Sim, mas so se forem positivas","Nao, 2 diferente de 1"], c: 0, exp: "2/6 dividido por 2/2 = 1/3. Sao equivalentes." },
-      ],
-      "EF06MA08": [
-        { q: "Qual decimal equivale a 3/4?", opts: ["0,75","0,34","0,43","7,5"], c: 0, exp: "3 dividido por 4 = 0,75." },
-        { q: "0,6 pode ser escrito como fracao:", opts: ["3/5","6/100","1/6","6/5"], c: 0, exp: "0,6 = 6/10 = 3/5 (simplificando)." },
-      ],
-      "EF06MA09": [
-        { q: "Qual e 1/4 de 20?", opts: ["5","4","10","8"], c: 0, exp: "20 dividido por 4 = 5." },
-        { q: "Pedro tem 24 figurinhas. Ele deu 1/3 para a irma. Quantas deu?", opts: ["8","6","12","3"], c: 0, exp: "1/3 de 24 = 24 dividido por 3 = 8." },
-      ],
-      "EF06MA10": [
-        { q: "Quanto e 1/2 + 1/3?", opts: ["5/6","2/5","3/5","2/6"], c: 0, exp: "1/2=3/6, 1/3=2/6, soma=5/6." },
-        { q: "Quanto e 3/4 - 1/4?", opts: ["2/4","1/2","3/8","1/4"], c: 0, exp: "3/4 - 1/4 = 2/4 = 1/2." },
-      ],
-    };
-
-    // Habilidades do 6o ano de Fracoes na ordem do diagnostico
     const codigosFrac6 = ["EF06MA07","EF06MA08","EF06MA09","EF06MA10"];
     const skillsFrac6 = await db.eduSkill.findMany({
       where: { code: { in: codigosFrac6 } },
@@ -435,57 +402,23 @@ async function seedRedeB() {
     });
     const skillMapFrac = Object.fromEntries(skillsFrac6.map(s => [s.code, s]));
 
-    let diagItemIdx = 0;
-    for (const cod of codigosFrac6) {
-      const skill = skillMapFrac[cod];
-      if (!skill) { console.log(`  AVISO: habilidade ${cod} nao encontrada`); continue; }
-      const qs = QUESTOES_FRAC[cod] ?? [];
-      for (let qi = 0; qi < qs.length; qi++) {
-        const q = qs[qi];
-        const atvId = `ativ-diag-frac-${cod}-${qi}`;
-        await db.eduActivity.upsert({
-          where: { id: atvId },
-          create: {
-            id: atvId,
-            networkId: rede.id,
-            classSubjectId: null,
-            type: "QUIZ",
-            title: `Diagnostico Fracoes — ${cod} Q${qi+1}`,
-            prompt: q.q,
-            rubric: { type: "quiz" },
-            maxScore: 10,
-            maxAttempts: 1,
-            status: "PUBLISHED",
-            source: "SPEAKFLOW",
-            createdById: coordUser.id,
+    const diag = await db.eduDiagnostic.findUnique({
+      where: { id: "DIAG-FRAC-6A-INICIO" },
+      include: {
+        items: {
+          where: { role: "NORMAL", isDegrauLegacy: false },
+          orderBy: { order: "asc" },
+          include: {
+            skill: { select: { id: true, code: true } },
+            activity: { include: { questions: { orderBy: { order: "asc" }, take: 1 } } },
           },
-          update: {},
-        });
-        const qId = `qz-diag-frac-${cod}-${qi}`;
-        await db.eduQuizQuestion.upsert({
-          where: { id: qId },
-          create: {
-            id: qId,
-            activityId: atvId,
-            order: 0,
-            question: q.q,
-            options: q.opts,
-            correctIndex: q.c,
-            explanation: q.exp,
-            skillId: skill.id,
-          },
-          update: {},
-        });
-        const itemId = `item-diag-frac-${cod}-${qi}`;
-        await db.eduDiagnosticItem.upsert({
-          where: { id: itemId },
-          create: { id: itemId, diagnosticId: diag.id, skillId: skill.id, order: diagItemIdx, activityId: atvId },
-          update: {},
-        });
-        diagItemIdx++;
-      }
+        },
+      },
+    });
+    if (!diag || diag.status !== "APPROVED" || diag.items.length === 0) {
+      throw new Error("DIAG-FRAC-6A-INICIO não importado: rode o conteudo-pacote-import.mjs antes deste seed");
     }
-    console.log(`  ok: diagnostico de Fracoes aberto com ${diagItemIdx} itens`);
+    console.log(`  ok: diagnóstico de Frações do pacote (${diag.id}) com ${diag.items.length} itens`);
 
     // 15 respostas ao diagnostico: Aluno Demo B Santos NAO responde
     // 6 de 15 erram EF06MA07 → caem no degrau EF05MA04
@@ -529,6 +462,44 @@ async function seedRedeB() {
       }
     }
     console.log(`  ok: 15 respostas (6 erram EF06MA07 → degrau EF05MA04; 4 com erro soma-num-e-den-separado)`);
+
+    // Respostas dos 15 colegas ao DIAG-FRAC-6A-INICIO, gravadas como sessões concluídas.
+    // A alternativa é escolhida pelo texto, nunca pelo índice: a posição da certa varia.
+    const textoOpcao = (o) => (typeof o === "string" ? o : o?.text ?? "");
+    const escolher = (q, texto) => {
+      const idx = (q.options ?? []).findIndex((o) => textoOpcao(o).trim() === texto);
+      if (idx < 0) throw new Error(`alternativa "${texto}" não encontrada em "${q.question}"`);
+      return idx;
+    };
+    const ordemSeed = diag.items.map((_, i) => i);
+    for (const aluno of alunosQueResponderam) {
+      const answers = diag.items.map((item, qIdx) => {
+        const q = item.activity.questions[0];
+        const certa = textoOpcao(q.options[q.correctIndex]);
+        let texto = certa;
+        if (erroFracaoIds.has(aluno.id) && /1\/2 \+ 1\/3/.test(q.question)) {
+          texto = "2/5";
+        } else if (erramEF06MA07.has(aluno.id) && item.skill.code === "EF06MA07") {
+          // primeira alternativa errada com erro comum
+          texto = textoOpcao(q.options.find((o, i) => i !== q.correctIndex && o?.misconceptionCode) ?? q.options.find((_, i) => i !== q.correctIndex));
+        }
+        const selectedIndex = escolher(q, texto);
+        const opcao = q.options[selectedIndex];
+        return {
+          qIdx, activityId: item.activityId, skillCode: item.skill.code, skillId: item.skill.id,
+          selectedIndex, isCorrect: selectedIndex === q.correctIndex,
+          misconceptionCode: selectedIndex === q.correctIndex ? null : (opcao?.misconceptionCode ?? null),
+          elapsedMs: 20_000, answeredAt: subDays(now, 14).toISOString(),
+        };
+      });
+      const sessId = `seed-sess-frac6-${aluno.id}`;
+      const sessData = {
+        networkId: rede.id, studentId: aluno.id, activityId: diag.items[0].activityId, diagnosticId: diag.id,
+        currentQuestion: answers.length, shuffleOrder: ordemSeed, extraItems: [], answers,
+        minMsPerQuestion: 5000, expiresAt: subDays(now, 13), completedAt: subDays(now, 14),
+      };
+      await db.eduAttemptSession.upsert({ where: { id: sessId }, create: { id: sessId, ...sessData }, update: sessData });
+    }
 
     // Trilha do degrau EF05MA04: atribuida aos 6 alunos que erraram EF06MA07
     const trilhaDegrau = await db.eduTrack.findUnique({ where: { id: "SF-TRACK-EF05MA04" }, select: { id: true } }).catch(() => null);

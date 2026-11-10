@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { Volume2, ChevronRight, CheckCircle2, XCircle, ArrowRight } from "lucide-react";
 
-interface Opcao { text: string; misconceptionCode?: string }
+interface Opcao { text: string }
 interface Atividade {
   id: string; type: string; prompt: string;
   questions: { id: string; question: string; options: Opcao[] }[];
@@ -18,7 +18,7 @@ interface Estado {
   degrauAplicado?: boolean;
   degrauSkillCode?: string;
   retomada?: boolean;
-  retorno?: { isCorrect: boolean; explanation?: string; misconceptionCode?: string };
+  retorno?: { isCorrect: boolean; explanation?: string };
 }
 interface Resultado {
   domina: string[];
