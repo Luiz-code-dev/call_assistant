@@ -17,6 +17,8 @@ const TIPOS: Record<Tipo, { label: string; Icone: typeof Heart; cor: string; fun
   SUGESTAO: { label: "Sugestão", Icone: Lightbulb, cor: "#B45309", fundo: "#FEF3C7", sugestoes: () => ["Que tal começar o diagnóstico de outra matéria?", "Explique para mim o que você aprendeu hoje."] },
 };
 const DIAS = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
+const HORAS = Array.from({ length: 17 }, (_, i) => String(i + 6).padStart(2, "0")); // 06 a 22
+const MINUTOS = ["00", "10", "15", "20", "30", "40", "45", "50"];
 const CARTAO = "bg-white rounded-3xl p-5 shadow-[0_4px_18px_rgba(91,33,182,0.08)]";
 
 function quando(iso: string) {
@@ -169,7 +171,8 @@ export function AgendaDoFilho({ studentId, nome }: { studentId: string; nome: st
   }
 
   const grupos = agrupar(itens);
-  const campo = "mt-1 block w-full min-w-0 h-12 appearance-none rounded-xl border-[1.5px] border-[#DDD6EE] bg-white px-3 text-[15px] text-[#1F1A2E] focus:border-[#6D28D9] outline-none";
+  const campoBase = "block w-full min-w-0 h-12 appearance-none rounded-xl border-[1.5px] border-[#DDD6EE] bg-white px-3 text-[15px] text-[#1F1A2E] focus:border-[#6D28D9] outline-none";
+  const campo = "mt-1 " + campoBase;
 
   return (
     <section className={CARTAO}>
@@ -195,9 +198,18 @@ export function AgendaDoFilho({ studentId, nome }: { studentId: string; nome: st
               })}
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-[3fr_2fr] gap-3">
             <label className="block min-w-0 text-[12px] font-bold text-[#5B5470]">Horário
-              <input type="time" value={hora} onChange={(e) => setHora(e.target.value)} className={campo} />
+              {/* Hora e minuto em listas: o campo de hora do iPhone desalinhava o número */}
+              <span className="mt-1 grid grid-cols-[1fr_auto_1fr] items-center gap-1">
+                <select aria-label="Hora" value={hora.slice(0, 2)} onChange={(e) => setHora(`${e.target.value}:${hora.slice(3, 5)}`)} className={campoBase + " px-2 text-center"}>
+                  {HORAS.map((h) => <option key={h} value={h}>{h}</option>)}
+                </select>
+                <span className="text-[18px] font-extrabold text-[#1F1A2E]">:</span>
+                <select aria-label="Minutos" value={hora.slice(3, 5)} onChange={(e) => setHora(`${hora.slice(0, 2)}:${e.target.value}`)} className={campoBase + " px-2 text-center"}>
+                  {(MINUTOS.includes(hora.slice(3, 5)) ? MINUTOS : [...MINUTOS, hora.slice(3, 5)].sort()).map((m) => <option key={m} value={m}>{m}</option>)}
+                </select>
+              </span>
             </label>
             <label className="block min-w-0 text-[12px] font-bold text-[#5B5470]">Duração
               <select value={minutos} onChange={(e) => setMinutos(Number(e.target.value))} className={campo}>

@@ -34,6 +34,19 @@ function corDe(t: { subjectCode?: string | null; subjectId: string | null }) {
 function nomeMateria(t: { subjectCode?: string | null; subjectId: string | null }) {
   return materiaDe(t.subjectCode ?? t.subjectId)?.nome ?? "";
 }
+/** Agrupa por matéria; a matéria da trilha mexida por último vem primeiro */
+function porMateria(lista: AtivaTrilha[]): { codigo: string; trilhas: AtivaTrilha[] }[] {
+  const grupos = new Map<string, AtivaTrilha[]>();
+  for (const t of lista) {
+    const codigo = t.subjectCode ?? t.subjectId ?? "";
+    grupos.set(codigo, [...(grupos.get(codigo) ?? []), t]);
+  }
+  const recente = (t: AtivaTrilha) => (t.lastActivityAt ? +new Date(t.lastActivityAt) : 0);
+  return Array.from(grupos.entries())
+    .map(([codigo, trilhas]) => ({ codigo, trilhas: [...trilhas].sort((x, y) => recente(y) - recente(x)) }))
+    .sort((x, y) => recente(y.trilhas[0]) - recente(x.trilhas[0]) || (materiaDe(x.codigo)?.nome ?? "").localeCompare(materiaDe(y.codigo)?.nome ?? ""));
+}
+
 function linkAtividade(activityId: string, assignmentId: string, itemId: string) {
   return `/escola/aluno/atividades/${activityId}?assignmentId=${assignmentId}&itemId=${itemId}`;
 }
@@ -118,13 +131,22 @@ export default function MinhaTrilhaPage() {
           </section>
         )}
 
-        {/* Trilhas em andamento */}
-        {ativas.length > 0 && (
-          <section className="space-y-3">
-            <h3 className="text-lg font-extrabold text-[#1F1A2E] px-1">Em andamento</h3>
-            {ativas.map(a => <TrilhaCard key={a.assignmentId} t={a}/>)}
-          </section>
-        )}
+        {/* Trilhas em andamento, separadas por matéria */}
+        {porMateria(ativas).map(({ codigo, trilhas }) => {
+          const m = materiaDe(codigo);
+          return (
+            <section key={codigo} className="space-y-3">
+              <div className="flex items-center gap-2 px-1">
+                <IconeMateria chave={codigo} tamanho={32} />
+                <h3 className="text-lg font-extrabold text-[#1F1A2E] flex-1">{m?.nome ?? "Outras trilhas"}</h3>
+                <span className="text-[12px] font-bold rounded-full px-2.5 py-1" style={{ background: (m?.cor ?? "#6D28D9") + "18", color: m?.cor ?? "#6D28D9" }}>
+                  {trilhas.length} {trilhas.length === 1 ? "trilha" : "trilhas"}
+                </span>
+              </div>
+              {trilhas.map(a => <TrilhaCard key={a.assignmentId} t={a}/>)}
+            </section>
+          );
+        })}
 
         {/* Trilhas concluídas */}
         {concluidas.length > 0 && (

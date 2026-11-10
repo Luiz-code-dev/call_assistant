@@ -609,3 +609,34 @@ describe("Agenda sem repetição e avisos do aluno", () => {
     await dbB.eduPushSubscription.deleteMany({ where: { endpoint } });
   });
 });
+
+describe("Trilha na ordem: só a próxima etapa aparece para fazer", () => {
+  it("depois do diagnóstico, só a etapa 1 de cada trilha está na lista; acertando, aparece a 2", async () => {
+    const c = alunoB;
+    await limparReforco(c);
+    await c.db.eduSubmission.deleteMany({ where: { studentId: c.studentId } });
+    const r = await materias(c);
+    const ma = (r.body.materias as Array<{ codigo: string; diagnosticoId: string }>).find((m) => m.codigo === "MA")!;
+    const { final } = await responderTudo(c, ma.diagnosticoId, (_p, g) => errada(g));
+    const primeira = (final.trilha as { primeiraAtividadeId: string }).primeiraAtividadeId;
+    const track = await c.db.eduTrack.findFirstOrThrow({ where: { items: { some: { activityId: primeira } } }, include: { items: { orderBy: { order: "asc" } } } });
+    const lista = async () => {
+      estado.ctx = c;
+      const l = await json(await getAtividades(new NextRequest("http://localhost/api/escola/aluno/atividades?filter=todo")));
+      return (l.body.atividades as Array<{ id: string }>).map((a) => a.id);
+    };
+    let ids = await lista();
+    expect(ids).toContain(track.items[0].activityId);
+    for (const it of track.items.slice(1)) expect(ids, `etapa ${it.order + 1} não aparece antes da hora`).not.toContain(it.activityId);
+
+    const qs = await c.db.eduQuizQuestion.findMany({ where: { activityId: primeira }, orderBy: { order: "asc" } });
+    estado.ctx = c;
+    await postEnviar(new NextRequest(`http://localhost/api/escola/aluno/atividades/${primeira}/enviar`, {
+      method: "POST", headers: { "content-type": "application/json" },
+      body: JSON.stringify({ quizAnswers: qs.map((q) => ({ questionId: q.id, selectedIndex: q.correctIndex })) }),
+    }), { params: { id: primeira } });
+    ids = await lista();
+    expect(ids).toContain(track.items[1].activityId);
+    expect(ids).not.toContain(track.items[2].activityId);
+  });
+});

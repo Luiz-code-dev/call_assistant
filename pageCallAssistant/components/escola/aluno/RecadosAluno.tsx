@@ -33,7 +33,7 @@ function useAtualizar(carregar: () => void) {
 
 type Tipo = "ELOGIO" | "LEMBRETE" | "SUGESTAO";
 interface Recado { id: string; kind: Tipo; text: string; createdAt: string; lido: boolean; de: string }
-interface ItemAgenda { id: string; weekday: number; time: string; subjectCode: string | null; minutes: number }
+interface ItemAgenda { id: string; weekday: number; time: string; subjectCode: string | null; minutes: number; destino?: { titulo: string; materia: string | null; subjectCode: string | null; href: string } | null }
 
 const TIPOS: Record<Tipo, { titulo: string; Icone: typeof Heart; cor: string; fundo: string; resposta: string }> = {
   ELOGIO: { titulo: "Um elogio para você", Icone: Heart, cor: "#BE185D", fundo: "linear-gradient(135deg, #FCE7F3, #FFF1F7)", resposta: "Obrigado!" },
@@ -94,16 +94,20 @@ export function AgendaDeHoje() {
       <p className="text-sm font-bold text-[#1F1A2E] mb-2 flex items-center gap-2"><CalendarDays className="size-4 text-[#6D28D9]" />Hoje na sua agenda</p>
       <ul className="space-y-2">
         {hoje.map((i) => {
-          const m = materiaDe(i.subjectCode);
+          const m = materiaDe(i.destino?.subjectCode ?? i.subjectCode);
           const cor = m?.cor ?? "#6D28D9";
+          const href = i.destino?.href ?? (i.subjectCode ? "/escola/aluno" : "/escola/aluno/trilha");
           return (
             <li key={i.id}>
-              <Link href={m ? "/escola/aluno" : "/escola/aluno/trilha"} className="flex items-center gap-3 rounded-2xl p-2.5" style={{ background: cor + "12" }}>
-                <span className="rounded-xl px-2.5 py-1.5 text-[13px] font-extrabold text-white inline-flex items-center gap-1" style={{ background: cor }}>
+              <Link href={href} className="flex items-center gap-3 rounded-2xl p-2.5" style={{ background: cor + "12" }}>
+                <span className="rounded-xl px-2.5 py-1.5 text-[13px] font-extrabold text-white inline-flex items-center gap-1 shrink-0" style={{ background: cor }}>
                   <Clock className="size-3.5" />{i.time}
                 </span>
-                <span className="flex-1 min-w-0 text-[14px] font-semibold text-[#1F1A2E]">{m?.nome ?? "Sua trilha"} · {i.minutes} min</span>
-                <Play className="size-4 fill-current shrink-0" style={{ color: cor }} />
+                <span className="flex-1 min-w-0">
+                  <span className="block text-[14px] font-bold text-[#1F1A2E] leading-snug line-clamp-2">{i.destino?.titulo ?? m?.nome ?? "Sua trilha"}</span>
+                  <span className="block text-[12px] text-[#5B5470]">{[m?.nome ?? (i.subjectCode ? null : "Trilha do dia"), `${i.minutes} min`].filter(Boolean).join(" · ")}</span>
+                </span>
+                <span className="w-9 h-9 rounded-full flex items-center justify-center text-white shrink-0" style={{ background: cor }}><Play className="size-4 fill-current" /></span>
               </Link>
             </li>
           );
