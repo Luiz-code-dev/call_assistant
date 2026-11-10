@@ -271,6 +271,35 @@ model EduPushSubscription {
   @@index([networkId, studentId])
 }
 
+/// Aparelho do responsável inscrito para receber avisos do reforço (web push)
+model EduGuardianPushSubscription {
+  id         String   @id @default(cuid())
+  networkId  String
+  guardianId String
+  endpoint   String   @unique
+  p256dh     String
+  auth       String
+  createdAt  DateTime @default(now()) @db.Timestamptz
+
+  @@index([networkId, guardianId])
+}
+
+/// Aviso enviado ao responsável: no máximo um por tipo, filho e dia (dia no fuso de São Paulo)
+model EduGuardianAlert {
+  id         String   @id @default(cuid())
+  networkId  String
+  guardianId String
+  studentId  String
+  kind       String
+  day        String
+  title      String
+  body       String
+  createdAt  DateTime @default(now()) @db.Timestamptz
+
+  @@unique([guardianId, studentId, kind, day])
+  @@index([networkId, studentId])
+}
+
 /// Agenda de estudos que a família monta: um item por dia da semana (0 = segunda)
 model EduStudyPlanItem {
   id          String   @id @default(cuid())
@@ -1077,6 +1106,10 @@ model EduGuardian {
   loginLockedUntil    DateTime?
   resetTokenHash      String?   @unique
   resetTokenExpiresAt DateTime?
+  /// Quando o responsável autorizou receber avisos do reforço pelo WhatsApp (número em phone)
+  whatsappOptInAt     DateTime? @db.Timestamptz
+  /// O responsável pediu para não receber os avisos do reforço por e-mail
+  emailAlertsOff      Boolean   @default(false)
   createdAt           DateTime  @default(now())
 
   user     EduUser?             @relation(fields: [userId], references: [id])

@@ -10,17 +10,18 @@ const inputCls = "w-full bg-white text-[#1F1A2E] rounded-2xl px-4 py-3.5 border-
 
 export default function FamiliaPrimeiroAcesso() {
   const [f, setF] = useState({ familyCode: "", birthDate: "", guardianName: "", guardianPhone: "", guardianEmail: "", senha: "", relation: "MAE" });
+  const [aceitaWhatsapp, setAceitaWhatsapp] = useState(true);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => setF((p) => ({ ...p, [k]: e.target.value }));
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault(); setLoading(true); setError("");
-    if (!f.guardianEmail && !f.guardianPhone) { setError("Informe um e-mail ou celular para poder entrar depois."); setLoading(false); return; }
+    if (!f.guardianEmail && !f.guardianPhone) { setError("Informe um e-mail ou WhatsApp para poder entrar depois."); setLoading(false); return; }
     try {
       const r = await fetch("/api/escola/familia/ativar", {
         method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ familyCode: f.familyCode, birthDate: f.birthDate, guardianName: f.guardianName, guardianEmail: f.guardianEmail || undefined, guardianPhone: f.guardianPhone || undefined, senha: f.senha, relation: f.relation, termsVersion: "v1.0" }),
+        body: JSON.stringify({ familyCode: f.familyCode, birthDate: f.birthDate, guardianName: f.guardianName, guardianEmail: f.guardianEmail || undefined, guardianPhone: f.guardianPhone || undefined, senha: f.senha, relation: f.relation, termsVersion: "v1.0", aceitaWhatsapp: !!f.guardianPhone && aceitaWhatsapp }),
       });
       const data = await r.json();
       if (!r.ok) { setError(data.error ?? "Erro ao entrar"); setLoading(false); return; }
@@ -42,10 +43,12 @@ export default function FamiliaPrimeiroAcesso() {
           <div><label className="text-[#1F1A2E] text-sm font-medium block mb-1">Data de nascimento do aluno</label><input value={f.birthDate} onChange={set("birthDate")} required type="date" className={inputCls} /><p className="text-[#5B5470] text-xs mt-1">As duas informações juntas confirmam que você tem o cartão do seu filho.</p></div>
           <div><label className="text-[#1F1A2E] text-sm font-medium block mb-1">Seu nome completo</label><input value={f.guardianName} onChange={set("guardianName")} required placeholder="Nome do responsável" className={inputCls} /></div>
           <div><label className="text-[#1F1A2E] text-sm font-medium block mb-1">Grau de parentesco</label><select value={f.relation} onChange={set("relation")} className={inputCls}>{RELATIONS.map((r) => <option key={r.value} value={r.value}>{r.label}</option>)}</select></div>
-          <div className="grid grid-cols-2 gap-3">
-            <div><label className="text-[#1F1A2E] text-sm font-medium block mb-1">Celular</label><input value={f.guardianPhone} onChange={set("guardianPhone")} placeholder="(e-mail ou celular)" className={inputCls} /></div>
-            <div><label className="text-[#1F1A2E] text-sm font-medium block mb-1">E-mail</label><input value={f.guardianEmail} onChange={set("guardianEmail")} type="email" placeholder="(e-mail ou celular)" className={inputCls} /></div>
-          </div>
+          <div><label className="text-[#1F1A2E] text-sm font-medium block mb-1">Seu WhatsApp</label><input value={f.guardianPhone} onChange={set("guardianPhone")} type="tel" inputMode="tel" placeholder="(71) 98765-4321" className={inputCls} /></div>
+          <div><label className="text-[#1F1A2E] text-sm font-medium block mb-1">Seu e-mail</label><input value={f.guardianEmail} onChange={set("guardianEmail")} type="email" placeholder="voce@email.com" className={inputCls} /></div>
+          <label className="flex items-start gap-3 rounded-2xl bg-[#F6F4FE] p-3 cursor-pointer">
+            <input type="checkbox" checked={aceitaWhatsapp} onChange={(e) => setAceitaWhatsapp(e.target.checked)} className="mt-0.5 size-5 accent-[#6D28D9] shrink-0" />
+            <span className="text-[13px] text-[#1F1A2E] leading-snug">Quero receber avisos do reforço do meu filho pelo WhatsApp e pelo e-mail: quando ficar sem estudar, quando precisar de ajuda e quando tiver uma conquista.</span>
+          </label>
           <div><label className="text-[#1F1A2E] text-sm font-medium block mb-1">Crie uma senha</label><input value={f.senha} onChange={set("senha")} required type="password" minLength={6} placeholder="Mínimo 6 caracteres" className={inputCls} /><p className="text-[#5B5470] text-xs mt-1">Use essa senha com seu e-mail/celular para entrar nas próximas vezes.</p></div>
           {error && <p className="text-[#B91C1C] text-sm text-center">{error}</p>}
           <p className="text-[#5B5470] text-xs text-center">Ao continuar, você concorda com os <a href="/escola/privacidade" className="underline" target="_blank">termos de privacidade</a>.</p>

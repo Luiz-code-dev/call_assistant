@@ -21,6 +21,8 @@ const schema = z.object({
   relation: z.enum(["MAE", "PAI", "AVO_AVO", "TIO_TIA", "TUTOR_LEGAL", "OUTRO"]),
   termsVersion: z.string().min(1),
   consentIp: z.string().optional(),
+  // Autorização para avisos do reforço pelo WhatsApp (o número é o guardianPhone)
+  aceitaWhatsapp: z.boolean().optional(),
 });
 
 export async function POST(req: NextRequest) {
@@ -28,7 +30,7 @@ export async function POST(req: NextRequest) {
 
   const parsed = schema.safeParse(await req.json());
   if (!parsed.success) return NextResponse.json({ error: "Dados inválidos", details: parsed.error.flatten() }, { status: 400 });
-  const { familyCode, birthDate, guardianName, guardianEmail, guardianPhone, senha, relation, termsVersion, consentIp } = parsed.data;
+  const { familyCode, birthDate, guardianName, guardianEmail, guardianPhone, senha, relation, termsVersion, consentIp, aceitaWhatsapp } = parsed.data;
   const phoneNorm = guardianPhone ? (normalizePhone(guardianPhone) || null) : null;
   const passwordHash = senha ? await bcrypt.hash(senha, 10) : null;
 
@@ -59,11 +61,14 @@ export async function POST(req: NextRequest) {
   });
   if (!guardian) {
     guardian = await (prismaEdu as any).eduGuardian.create({
-      data: { networkId, name: guardianName, email: guardianEmail ?? null, phone: phoneNorm, ...(passwordHash ? { passwordHash } : {}) },
+      data: { networkId, name: guardianName, email: guardianEmail ?? null, phone: phoneNorm, ...(passwordHash ? { passwordHash } : {}), ...(aceitaWhatsapp && phoneNorm ? { whatsappOptInAt: new Date() } : {}) },
     });
-  } else if (passwordHash) {
+  } else if (passwordHash || (aceitaWhatsapp && phoneNorm)) {
     // Primeiro acesso define/atualiza a senha do responsavel existente.
-    guardian = await (prismaEdu as any).eduGuardian.update({ where: { id: guardian.id }, data: { passwordHash } });
+    guardian = await (prismaEdu as any).eduGuardian.update({
+      where: { id: guardian.id },
+      data: { ...(passwordHash ? { passwordHash } : {}), ...(aceitaWhatsapp && phoneNorm ? { phone: guardian.phone ?? phoneNorm, whatsappOptInAt: new Date() } : {}) },
+    });
   }
 
   await (prismaEdu as any).eduGuardianLink.upsert({

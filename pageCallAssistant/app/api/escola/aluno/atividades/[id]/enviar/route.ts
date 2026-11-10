@@ -10,6 +10,7 @@ import { recordMasteryEvent, extractMisconceptionCodes } from "@/lib/escola/mast
 import { alunoPodeAbrirAtividade, contextoPedagogico } from "@/lib/escola/atividade-acesso";
 import { registrarEtapa, type ResultadoEtapa } from "@/lib/escola/trilha-progresso";
 import { avaliarEntrega } from "@/lib/escola/avaliar-entrega";
+import { avisosDaEntrega } from "@/lib/escola/avisos-familia";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -207,9 +208,12 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   }
   // WRITTEN/SPOKEN: avalia na hora (o aluno espera poucos segundos); se falhar,
   // fica PENDING e o cron tenta de novo
+  let nivelEscrita: "MASTERED" | "ALMOST" | "NOT_YET" | null = null;
   if (activity.type !== "QUIZ") {
-    await avaliarEntrega(prismaEdu, submission.id).catch((err: Error) =>
-      console.error(`[aluno/enviar] avaliação ${submission.id}:`, err.message));
+    nivelEscrita = await avaliarEntrega(prismaEdu, submission.id).catch((err: Error) => {
+      console.error(`[aluno/enviar] avaliação ${submission.id}:`, err.message);
+      return null;
+    });
   }
 
   // Trilha: marca a etapa (ou espera nova tentativa) e, esgotadas as tentativas em
@@ -221,6 +225,9 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
       tentativasRestantes: Number(activity.maxAttempts) - attempt,
     }).catch((err: Error) => { console.error(`[aluno/enviar] trilha ${params.id}:`, err.message); return null; });
   }
+
+  // Família: conquista (trilha concluída) e atenção (travou no assunto). Nunca falha a entrega.
+  await avisosDaEntrega(ctx.db ?? prismaEdu, ctx, activity, activity.type === "QUIZ" ? nivelQuiz : nivelEscrita, trilha);
 
   return NextResponse.json({ submissionId: submission.id, status: "SUBMITTED", trilha });
 }

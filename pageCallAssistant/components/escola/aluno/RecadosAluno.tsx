@@ -126,7 +126,12 @@ function chaveParaBytes(base64: string) {
 type EstadoAvisos = "carregando" | "oferecer" | "instalar-iphone" | "bloqueado" | "ativo" | "indisponivel";
 
 /** Cartão para o aluno ativar os avisos no celular (recados da família e hora de estudar) */
-export function AtivarAvisos() {
+export function AtivarAvisos({
+  api = "/api/escola/aluno/avisos",
+  titulo = "Receba avisos no celular",
+  descricao = "Recados da sua família e o lembrete da hora de estudar.",
+  bloqueado = "Os avisos foram bloqueados neste celular. Peça ajuda a um adulto para liberar nas configurações do navegador.",
+}: { api?: string; titulo?: string; descricao?: string; bloqueado?: string } = {}) {
   const [estado, setEstado] = useState<EstadoAvisos>("carregando");
   const [ocupado, setOcupado] = useState(false);
 
@@ -143,25 +148,26 @@ export function AtivarAvisos() {
         const sub = await reg?.pushManager.getSubscription();
         if (sub && Notification.permission === "granted") {
           // Garante que o servidor conhece este aparelho para este aluno
-          await fetch("/api/escola/aluno/avisos", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(sub.toJSON()) }).catch(() => {});
+          await fetch(api, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(sub.toJSON()) }).catch(() => {});
           setEstado("ativo"); return;
         }
         setEstado("oferecer");
       } catch { setEstado("indisponivel"); }
     })();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function ativar() {
     setOcupado(true);
     try {
-      const cfg = await fetch("/api/escola/aluno/avisos").then((r) => r.json());
+      const cfg = await fetch(api).then((r) => r.json());
       if (!cfg?.disponivel || !cfg?.chave) { setEstado("indisponivel"); return; }
       const perm = await Notification.requestPermission();
       if (perm !== "granted") { setEstado(perm === "denied" ? "bloqueado" : "oferecer"); return; }
       const reg = (await navigator.serviceWorker.getRegistration()) ?? (await navigator.serviceWorker.register("/sw.js", { scope: "/" }));
       await navigator.serviceWorker.ready;
       const sub = (await reg.pushManager.getSubscription()) ?? (await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: chaveParaBytes(cfg.chave) }));
-      const r = await fetch("/api/escola/aluno/avisos", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(sub.toJSON()) });
+      const r = await fetch(api, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(sub.toJSON()) });
       setEstado(r.ok ? "ativo" : "oferecer");
     } catch {
       setEstado("oferecer");
@@ -175,8 +181,8 @@ export function AtivarAvisos() {
       <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#6D28D9] to-[#8B5CF6] text-white flex items-center justify-center shrink-0"><Bell className="size-5" /></div>
       <div className="flex-1 min-w-0">
         {estado === "oferecer" && (<>
-          <p className="text-sm font-extrabold text-[#1F1A2E]">Receba avisos no celular</p>
-          <p className="text-[13px] text-[#5B5470] leading-snug mt-0.5">Recados da sua família e o lembrete da hora de estudar.</p>
+          <p className="text-sm font-extrabold text-[#1F1A2E]">{titulo}</p>
+          <p className="text-[13px] text-[#5B5470] leading-snug mt-0.5">{descricao}</p>
           <button onClick={ativar} disabled={ocupado} className="mt-3 rounded-full bg-[#6D28D9] text-white text-[13px] font-bold px-4 min-h-[40px] disabled:opacity-50">
             {ocupado ? "Ativando..." : "Ativar avisos"}
           </button>
@@ -187,7 +193,7 @@ export function AtivarAvisos() {
         </>)}
         {estado === "bloqueado" && (<>
           <p className="text-sm font-extrabold text-[#1F1A2E]">Avisos bloqueados</p>
-          <p className="text-[13px] text-[#5B5470] leading-snug mt-0.5">Os avisos foram bloqueados neste celular. Peça ajuda a um adulto para liberar nas configurações do navegador.</p>
+          <p className="text-[13px] text-[#5B5470] leading-snug mt-0.5">{bloqueado}</p>
         </>)}
       </div>
     </section>
