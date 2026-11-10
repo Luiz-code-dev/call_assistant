@@ -3,6 +3,7 @@ import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { alunoPodeAbrirAtividade } from "@/lib/escola/atividade-acesso";
+import { baseAtribuida } from "@/lib/escola/trilha-progresso";
 
 export const runtime = "nodejs";
 
@@ -33,6 +34,11 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
 
   if (!submission) return NextResponse.json({ error: "Entrega não encontrada" }, { status: 404 });
 
+  // Tentativas esgotadas em "Ainda não": a tela mostra a trilha da base que foi atribuída
+  const base = submission.masteryLevel === "NOT_YET" && submission.attempt >= activity.maxAttempts
+    ? await baseAtribuida(ctx, params.id).catch(() => null)
+    : null;
+
   return NextResponse.json({
     submissionId: submission.id,
     attempt: submission.attempt,
@@ -48,5 +54,6 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
     evaluatedAt: submission.evaluatedAt,
     reviewedAt: submission.reviewedAt,
     activity,
+    base,
   });
 }

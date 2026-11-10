@@ -316,7 +316,7 @@ export default function DiagnosticoPage() {
             <p className="text-[#1F1A2E] text-[17px] font-semibold leading-relaxed flex-1">
               {atividade.prompt || questao?.question}
             </p>
-            <button onClick={() => ouvir(atividade.prompt || questao?.question || "")} aria-label="Ouvir"
+            <button onClick={() => ouvir(`${atividade.prompt || questao?.question || ""} ${(questao?.options ?? []).map((op, i) => `Alternativa ${String.fromCharCode(65 + i)}: ${op.text}.`).join(" ")}`)} aria-label="Ouvir"
               className="shrink-0 rounded-full min-h-[44px] min-w-[44px] flex items-center justify-center" style={{ background: cor + "18", color: cor }}>
               <Volume2 className="size-5" />
             </button>
