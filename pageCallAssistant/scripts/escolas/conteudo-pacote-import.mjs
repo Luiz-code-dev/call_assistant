@@ -235,6 +235,14 @@ async function importTrilhas(db) {
         const trackId = `SF-TRACK-${trilha.skillCode}`;
         const existing = await db.eduTrack.findUnique({ where: { id: trackId } });
         const version = trilha.version ?? 1;
+        // Itens que não são deste pacote saem da trilha (ex.: os "-I0..-I4" que o
+        // conteudo-import antigo criou para a mesma trilha): o aluno via 10 etapas e
+        // a primeira apontava para uma atividade em rascunho ("Atividade não encontrada").
+        const esperados = (trilha.activities ?? []).map((_, i) => `SF-ITEM-${trilha.skillCode}-${i}`);
+        if (existing) {
+          const extras = await db.eduTrackItem.deleteMany({ where: { trackId, id: { notIn: esperados } } });
+          if (extras.count) console.log(`  [trilhas] ${trackId}: ${extras.count} item(ns) de fora do pacote removido(s)`);
+        }
         if (!podeAtualizar(existing, version)) { n++; continue; }
         const gradeYear = trilha.gradeYear ?? (Number(trilha.skillCode.slice(2, 4)) >= 10 ? Number(trilha.skillCode[3]) : Number(trilha.skillCode.slice(2, 4)));
         const meta = { skillId: sid, subjectCode: trilha.subjectCode, gradeYear, version };

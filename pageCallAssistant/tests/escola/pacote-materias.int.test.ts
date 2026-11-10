@@ -376,3 +376,33 @@ describe("Cobertura do conteúdo importado (bases db01 e db02)", () => {
     }
   }
 });
+
+describe("Trilhas da biblioteca: só as etapas do pacote, todas publicadas", () => {
+  for (const [nome, db] of [["db01", dbA], ["db02", dbB]] as const) {
+    it(`${nome}: cada trilha SF-TRACK tem itens SF-ITEM, em ordem, e toda atividade abre`, async () => {
+      const tracks = await db.eduTrack.findMany({
+        where: { networkId: null, status: "APPROVED", id: { startsWith: "SF-TRACK-" } },
+        include: { items: { orderBy: { order: "asc" } } },
+      });
+      expect(tracks.length).toBeGreaterThan(0);
+      const problemas: string[] = [];
+      for (const t of tracks) {
+        if (t.items.length === 0) problemas.push(`${t.id}: sem etapas`);
+        const codigo = t.id.slice("SF-TRACK-".length);
+        t.items.forEach((it, i) => {
+          if (it.id !== `SF-ITEM-${codigo}-${i}` || it.order !== i) problemas.push(`${t.id}: item ${it.id} (ordem ${it.order})`);
+        });
+        const acts = await db.eduActivity.findMany({
+          where: { id: { in: t.items.map((i) => i.activityId) } },
+          select: { id: true, status: true },
+        });
+        for (const it of t.items) {
+          const a = acts.find((x) => x.id === it.activityId);
+          if (!a) problemas.push(`${t.id}: atividade ${it.activityId} não existe`);
+          else if (a.status !== "PUBLISHED") problemas.push(`${t.id}: atividade ${a.id} está ${a.status}`);
+        }
+      }
+      expect(problemas, problemas.slice(0, 10).join("\n")).toEqual([]);
+    });
+  }
+});

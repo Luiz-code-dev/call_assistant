@@ -20,6 +20,14 @@ import { fileURLToPath } from "node:url";
 
 // Únicos arquivos de trilhas, fichas e diagnósticos que este importador lê
 const ARQUIVOS_LEGADOS = new Set(["MA-06.json"]);
+// Habilidades com trilha nos arquivos do pacote (todos os outros arquivos de trilhas/)
+const SKILLS_DO_PACOTE = new Set(
+  existsSync(join(DATA_DIR, "trilhas"))
+    ? readdirSync(join(DATA_DIR, "trilhas"))
+        .filter((f) => f.endsWith(".json") && !ARQUIVOS_LEGADOS.has(f))
+        .flatMap((f) => JSON.parse(readFileSync(join(DATA_DIR, "trilhas", f), "utf8")).map((t) => t.skillCode))
+    : [],
+);
 import { PrismaClient } from "@prisma/escolas";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -139,6 +147,8 @@ async function importTrilhas(db) {
       const skill = await db.eduSkill.findUnique({ where: { code: trilha.skillCode }, select: { id: true } });
       if (!skill) throw new Error(`Habilidade não encontrada: ${trilha.skillCode}`);
 
+      // Habilidade que o pacote novo cobre: a trilha é do conteudo-pacote-import, não daqui
+      if (SKILLS_DO_PACOTE.has(trilha.skillCode)) { n++; continue; }
       const trackId = `SF-TRACK-${trilha.skillCode}`;
       const existingTrack = await db.eduTrack.findUnique({ where: { id: trackId }, select: { id: true, status: true } });
       if (existingTrack?.status === "APPROVED") { n++; continue; }
