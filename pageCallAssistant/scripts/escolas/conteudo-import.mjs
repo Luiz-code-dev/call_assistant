@@ -20,19 +20,25 @@ import { fileURLToPath } from "node:url";
 
 // Únicos arquivos de trilhas, fichas e diagnósticos que este importador lê
 const ARQUIVOS_LEGADOS = new Set(["MA-06.json"]);
-// Habilidades com trilha nos arquivos do pacote (todos os outros arquivos de trilhas/)
-const SKILLS_DO_PACOTE = new Set(
-  existsSync(join(DATA_DIR, "trilhas"))
-    ? readdirSync(join(DATA_DIR, "trilhas"))
-        .filter((f) => f.endsWith(".json") && !ARQUIVOS_LEGADOS.has(f))
-        .flatMap((f) => JSON.parse(readFileSync(join(DATA_DIR, "trilhas", f), "utf8")).map((t) => t.skillCode))
-    : [],
-);
+
 import { PrismaClient } from "@prisma/escolas";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..", "..");
 const DATA_DIR = join(ROOT, "prisma", "data", "conteudo");
+// Habilidades com trilha nos arquivos do pacote (todos os outros arquivos de trilhas/)
+const SKILLS_DO_PACOTE = new Set(
+  existsSync(join(DATA_DIR, "trilhas"))
+    ? readdirSync(join(DATA_DIR, "trilhas"))
+        .filter((f) => f.endsWith(".json") && !ARQUIVOS_LEGADOS.has(f))
+        .flatMap((f) => {
+          try {
+            const j = JSON.parse(readFileSync(join(DATA_DIR, "trilhas", f), "utf8"));
+            return Array.isArray(j) ? j.map((t) => t.skillCode).filter(Boolean) : [];
+          } catch { return []; }
+        })
+    : [],
+);
 const LOCK_ID = 2002; // pg_advisory_lock id único
 
 function tenantDb(envVar) {
