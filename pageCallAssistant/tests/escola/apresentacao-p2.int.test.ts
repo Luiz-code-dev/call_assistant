@@ -80,12 +80,17 @@ describe("P2 — /api/escola/rede/indicadores", () => {
 describe("P3 — Acentos obrigatórios presentes", () => {
   const checks: [string, string[]][] = [
     [
+      // A tela inicial foi redesenhada: o menu inferior (com "Evolução") fica no componente compartilhado
       "app/(escola)/escola/aluno/page.tsx",
-      ["DIAGNÓSTICO DISPONÍVEL", "questões", "Começar", "Evolução"],
+      ["Suas matérias", "Começar", "Último retorno", "Escolha uma matéria"],
+    ],
+    [
+      "components/escola/reforco-ui.tsx",
+      ["Início", "Evolução", "Matemática", "Língua Portuguesa", "Ciências", "História", "Educação Física", "Quase lá"],
     ],
     [
       "app/(escola)/escola/aluno/diagnostico/[id]/page.tsx",
-      ["diagnóstico", "DIAGNÓSTICO", "questão", "atenção"],
+      ["diagnóstico", "Você terminou", "questão", "atenção", "Você começa aqui"],
     ],
     [
       "app/(escola)/escola/coordenacao/diagnosticos/page.tsx",
