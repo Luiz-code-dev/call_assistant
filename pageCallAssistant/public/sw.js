@@ -39,16 +39,19 @@ self.addEventListener("push", (event) => {
   const data = event.data ? event.data.json() : {};
   const title = data.title || "SpeakFlow Network";
   const body  = data.body  || "Novo desafio disponível no seu Circle!";
-  const icon  = "/icon.svg";
+  // Ícone, grupo e vibração podem vir no aviso (SpeakFlow Escolas manda um por tipo);
+  // sem eles, fica tudo como antes
+  const icon  = data.icon  || "/icon.svg";
   const url   = data.url   || "/home";
 
   event.waitUntil(
     self.registration.showNotification(title, {
       body,
       icon,
-      badge: icon,
+      badge: data.badge || icon,
       data: { url },
-      vibrate: [200, 100, 200],
+      vibrate: Array.isArray(data.vibrate) ? data.vibrate : [200, 100, 200],
+      ...(data.tag ? { tag: data.tag, renotify: true } : {}),
     })
   );
 });

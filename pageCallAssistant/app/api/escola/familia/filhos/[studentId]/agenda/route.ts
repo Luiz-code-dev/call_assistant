@@ -47,9 +47,15 @@ export async function POST(req: Request, { params }: { params: { studentId: stri
   const P = db as any;
   const v = validarAgenda(await req.json().catch(() => null));
   if ("erro" in v) return NextResponse.json({ error: v.erro }, { status: 400 });
-  const atuais = await P.eduStudyPlanItem.count({ where: { networkId: ctx!.networkId, studentId: params.studentId, isActive: true } });
-  if (atuais + v.weekdays.length > MAX_ITENS) return NextResponse.json({ error: "A agenda já está cheia." }, { status: 400 });
-  for (const weekday of v.weekdays) {
+  const ativos: Array<{ weekday: number; time: string }> = await P.eduStudyPlanItem.findMany({
+    where: { networkId: ctx!.networkId, studentId: params.studentId, isActive: true },
+    select: { weekday: true, time: true },
+  });
+  // Mesmo dia e mesma hora não repete: só entram os dias que ainda não têm esse horário
+  const novos = v.weekdays.filter((d) => !ativos.some((a) => a.weekday === d && a.time === v.time));
+  if (!novos.length) return NextResponse.json({ error: "Esse horário já está na agenda nesses dias." }, { status: 409 });
+  if (ativos.length + novos.length > MAX_ITENS) return NextResponse.json({ error: "A agenda já está cheia." }, { status: 400 });
+  for (const weekday of novos) {
     await P.eduStudyPlanItem.create({
       data: { networkId: ctx!.networkId, guardianId: ctx!.guardianId, studentId: params.studentId, weekday, time: v.time, subjectCode: v.subjectCode, minutes: v.minutes },
     });
@@ -61,8 +67,10 @@ export async function DELETE(req: Request, { params }: { params: { studentId: st
   const { ctx, db, erro } = await contexto(params.studentId);
   if (erro) return erro;
   const P = db as any;
-  const id = new URL(req.url).searchParams.get("id");
-  if (!id) return NextResponse.json({ error: "Item não informado." }, { status: 400 });
-  await P.eduStudyPlanItem.updateMany({ where: { id, networkId: ctx!.networkId, studentId: params.studentId }, data: { isActive: false } });
+  // ?ids=a,b,c remove um horário inteiro (todos os dias dele); ?id= continua valendo
+  const u = new URL(req.url).searchParams;
+  const ids = (u.get("ids") ?? u.get("id") ?? "").split(",").map((x) => x.trim()).filter(Boolean).slice(0, MAX_ITENS);
+  if (!ids.length) return NextResponse.json({ error: "Item não informado." }, { status: 400 });
+  await P.eduStudyPlanItem.updateMany({ where: { id: { in: ids }, networkId: ctx!.networkId, studentId: params.studentId }, data: { isActive: false } });
   return NextResponse.json({ itens: await listar(P, ctx!.networkId, params.studentId) });
 }

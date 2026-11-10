@@ -258,6 +258,19 @@ model EduFamilyMessage {
   @@index([networkId, studentId, createdAt])
 }
 
+/// Aparelho do aluno que aceitou receber avisos (web push)
+model EduPushSubscription {
+  id        String   @id @default(cuid())
+  networkId String
+  studentId String
+  endpoint  String   @unique
+  p256dh    String
+  auth      String
+  createdAt DateTime @default(now()) @db.Timestamptz
+
+  @@index([networkId, studentId])
+}
+
 /// Agenda de estudos que a família monta: um item por dia da semana (0 = segunda)
 model EduStudyPlanItem {
   id          String   @id @default(cuid())
@@ -270,6 +283,8 @@ model EduStudyPlanItem {
   subjectCode String?
   minutes     Int      @default(20)
   isActive    Boolean  @default(true)
+  /// Dia (AAAA-MM-DD, São Paulo) em que o lembrete já foi enviado
+  lastNotifiedOn String?
   createdAt   DateTime @default(now()) @db.Timestamptz
   updatedAt   DateTime @default(now()) @updatedAt @db.Timestamptz
 

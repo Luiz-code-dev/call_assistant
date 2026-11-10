@@ -89,3 +89,80 @@ export function AgendaDeHoje() {
     </section>
   );
 }
+
+function chaveParaBytes(base64: string) {
+  const pad = "=".repeat((4 - (base64.length % 4)) % 4);
+  const b = atob((base64 + pad).replace(/-/g, "+").replace(/_/g, "/"));
+  return Uint8Array.from(b, (c) => c.charCodeAt(0));
+}
+
+type EstadoAvisos = "carregando" | "oferecer" | "instalar-iphone" | "bloqueado" | "ativo" | "indisponivel";
+
+/** Cartão para o aluno ativar os avisos no celular (recados da família e hora de estudar) */
+export function AtivarAvisos() {
+  const [estado, setEstado] = useState<EstadoAvisos>("carregando");
+  const [ocupado, setOcupado] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
+        const instalado = window.matchMedia?.("(display-mode: standalone)").matches || (navigator as unknown as { standalone?: boolean }).standalone === true;
+        if (!("serviceWorker" in navigator) || !("PushManager" in window) || !("Notification" in window)) {
+          setEstado(ios && !instalado ? "instalar-iphone" : "indisponivel"); return;
+        }
+        if (Notification.permission === "denied") { setEstado("bloqueado"); return; }
+        const reg = await navigator.serviceWorker.getRegistration();
+        const sub = await reg?.pushManager.getSubscription();
+        if (sub && Notification.permission === "granted") {
+          // Garante que o servidor conhece este aparelho para este aluno
+          await fetch("/api/escola/aluno/avisos", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(sub.toJSON()) }).catch(() => {});
+          setEstado("ativo"); return;
+        }
+        setEstado("oferecer");
+      } catch { setEstado("indisponivel"); }
+    })();
+  }, []);
+
+  async function ativar() {
+    setOcupado(true);
+    try {
+      const cfg = await fetch("/api/escola/aluno/avisos").then((r) => r.json());
+      if (!cfg?.disponivel || !cfg?.chave) { setEstado("indisponivel"); return; }
+      const perm = await Notification.requestPermission();
+      if (perm !== "granted") { setEstado(perm === "denied" ? "bloqueado" : "oferecer"); return; }
+      const reg = (await navigator.serviceWorker.getRegistration()) ?? (await navigator.serviceWorker.register("/sw.js", { scope: "/" }));
+      await navigator.serviceWorker.ready;
+      const sub = (await reg.pushManager.getSubscription()) ?? (await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: chaveParaBytes(cfg.chave) }));
+      const r = await fetch("/api/escola/aluno/avisos", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(sub.toJSON()) });
+      setEstado(r.ok ? "ativo" : "oferecer");
+    } catch {
+      setEstado("oferecer");
+    } finally { setOcupado(false); }
+  }
+
+  if (estado === "carregando" || estado === "ativo" || estado === "indisponivel") return null;
+
+  return (
+    <section className="rounded-3xl bg-white p-4 shadow-[0_4px_18px_rgba(91,33,182,0.08)] flex items-start gap-3">
+      <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#6D28D9] to-[#8B5CF6] text-white flex items-center justify-center shrink-0"><Bell className="size-5" /></div>
+      <div className="flex-1 min-w-0">
+        {estado === "oferecer" && (<>
+          <p className="text-sm font-extrabold text-[#1F1A2E]">Receba avisos no celular</p>
+          <p className="text-[13px] text-[#5B5470] leading-snug mt-0.5">Recados da sua família e o lembrete da hora de estudar.</p>
+          <button onClick={ativar} disabled={ocupado} className="mt-3 rounded-full bg-[#6D28D9] text-white text-[13px] font-bold px-4 min-h-[40px] disabled:opacity-50">
+            {ocupado ? "Ativando..." : "Ativar avisos"}
+          </button>
+        </>)}
+        {estado === "instalar-iphone" && (<>
+          <p className="text-sm font-extrabold text-[#1F1A2E]">Avisos no iPhone</p>
+          <p className="text-[13px] text-[#5B5470] leading-snug mt-0.5">Para receber os avisos, adicione o app à tela de início: toque em Compartilhar e depois em "Adicionar à Tela de Início". Abra o app por lá e ative os avisos.</p>
+        </>)}
+        {estado === "bloqueado" && (<>
+          <p className="text-sm font-extrabold text-[#1F1A2E]">Avisos bloqueados</p>
+          <p className="text-[13px] text-[#5B5470] leading-snug mt-0.5">Os avisos foram bloqueados neste celular. Peça ajuda a um adulto para liberar nas configurações do navegador.</p>
+        </>)}
+      </div>
+    </section>
+  );
+}
