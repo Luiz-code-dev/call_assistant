@@ -13,6 +13,7 @@ import { NextResponse } from "next/server";
 import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { prismaEdu, setTenantDb } from "@/lib/escola/db";
+import { tituloParaAluno } from "@/lib/escola/texto-aluno";
 
 type PrismaAny = typeof prismaEdu & Record<string, unknown>;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- cliente Prisma de tenant gerado dinamicamente não tem tipagem estática
@@ -126,7 +127,7 @@ export async function GET() {
     for (const ta of trilhasAtivas) {
       if (!ta.track) continue;
       const sc = ta.track.subjectCode ?? (ta.track.subjectId ? codeBySubjectId[ta.track.subjectId] ?? null : null);
-      if (sc) trilhaPorMateria[sc] = ta.track.title;
+      if (sc) trilhaPorMateria[sc] = tituloParaAluno(ta.track.title);
     }
 
     // Monta resposta por componente

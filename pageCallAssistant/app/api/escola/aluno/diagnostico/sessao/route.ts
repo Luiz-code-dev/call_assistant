@@ -23,6 +23,7 @@ import { calcularDegrau, deveDescerDegrau } from "@/lib/escola/diagnostico-degra
 import { questaoParaAluno } from "@/lib/escola/opcoes-aluno";
 import { recordMasteryEvent } from "@/lib/escola/mastery-event";
 import { assignAfterDiagnostic } from "@/lib/escola/track-assignment";
+import { tituloParaAluno } from "@/lib/escola/texto-aluno";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const P = prismaEdu as any;
@@ -437,7 +438,7 @@ export async function POST(req: NextRequest) {
               if (track) {
                 trilhaAtribuida = {
                   id: track.id,
-                  title: track.title,
+                  title: tituloParaAluno(track.title),
                   primeiraAtividadeId: track.items[0]?.activityId ?? null,
                 };
               }
@@ -529,7 +530,7 @@ async function nomesDasHabilidades(skillIds: string[]): Promise<Record<string, H
   const out: Record<string, HabilidadeAluno> = {};
   for (const s of skills) {
     const t = tracks.find((tr) => tr.skillIds.includes(s.id));
-    const titulo = t ? t.title.replace(/^Trilha:\s*/i, "") : (s.shortLabel ?? s.description.split(/[,.;]/)[0]);
+    const titulo = t ? tituloParaAluno(t.title) : (s.shortLabel ?? s.description.split(/[,.;]/)[0]);
     out[s.id] = { code: s.code, tituloAluno: titulo, ano: t?.gradeYear ?? (s.gradeYears.length ? Math.max(...s.gradeYears) : null) };
   }
   return out;
