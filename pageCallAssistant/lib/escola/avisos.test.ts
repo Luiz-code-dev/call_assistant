@@ -20,6 +20,13 @@ describe("avisos: um por tipo", () => {
     expect(a.icon).toContain("agenda");
     expect(avisoDeAgenda({ time: "18:30", subjectCode: null, minutes: 20 }).url).toBe("/escola/aluno/trilha");
   });
+  it("agenda com destino: o aviso leva direto à etapa da trilha e diz qual é", () => {
+    const a = avisoDeAgenda({ time: "17:00", subjectCode: null, minutes: 20 },
+      { titulo: "Frações equivalentes", materia: "Matemática", href: "/escola/aluno/atividades/x?assignmentId=a&itemId=i" });
+    expect(a.title).toBe("Hora de estudar Matemática");
+    expect(a.body).toContain("Frações equivalentes");
+    expect(a.url).toBe("/escola/aluno/atividades/x?assignmentId=a&itemId=i");
+  });
   it("recado longo é cortado para caber no aviso", () => {
     expect(avisoDeRecado("ELOGIO", "a".repeat(240), "").body.length).toBeLessThanOrEqual(140);
   });

@@ -32,15 +32,21 @@ export function avisoDeRecado(kind: string, texto: string, de: string): Aviso {
   }
 }
 
-export function avisoDeAgenda(item: { time: string; subjectCode: string | null; minutes: number }): Aviso {
-  const materia = item.subjectCode ? subjectInfo(item.subjectCode).name : "";
+export function avisoDeAgenda(
+  item: { time: string; subjectCode: string | null; minutes: number },
+  destino?: { titulo: string; materia: string | null; href: string } | null,
+): Aviso {
+  const materia = destino?.materia ?? (item.subjectCode ? subjectInfo(item.subjectCode).name : "");
+  const oque = destino?.titulo && destino.titulo !== materia ? destino.titulo : "";
   return {
     tipo: "agenda",
     title: materia ? `Hora de estudar ${materia}` : "Hora de praticar",
-    body: materia
-      ? `Combinado para as ${item.time}: ${item.minutes} minutos de ${materia}. Bora começar?`
-      : `Combinado para as ${item.time}: ${item.minutes} minutos na sua trilha. Bora começar?`,
-    url: item.subjectCode ? "/escola/aluno" : "/escola/aluno/trilha",
+    body: oque
+      ? `Combinado para as ${item.time}: ${item.minutes} minutos de ${oque}. Bora começar?`
+      : materia
+        ? `Combinado para as ${item.time}: ${item.minutes} minutos de ${materia}. Bora começar?`
+        : `Combinado para as ${item.time}: ${item.minutes} minutos na sua trilha. Bora começar?`,
+    url: destino?.href ?? (item.subjectCode ? "/escola/aluno" : "/escola/aluno/trilha"),
     icon: "/escola-icons/aviso-agenda.png", badge: BADGE, tag: `agenda-${item.time}`, vibrate: [200, 100, 200, 100, 200],
   };
 }

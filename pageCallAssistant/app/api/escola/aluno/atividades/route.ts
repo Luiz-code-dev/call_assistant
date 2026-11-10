@@ -35,10 +35,21 @@ export async function GET(req: NextRequest) {
       OR: [{ classId: ctx.classId }, { studentId: ctx.studentId }],
       track: { status: "APPROVED" },
     },
-    include: { track: { include: { items: { select: { activityId: true } } } } },
+    include: {
+      track: { include: { items: { orderBy: { order: "asc" }, select: { id: true, activityId: true } } } },
+      progress: { where: { studentId: ctx.studentId }, select: { completedItemIds: true } },
+    },
   });
+  // A fazer: só a próxima etapa de cada trilha, para o aluno seguir a ordem
+  // (antes vinham as 5 etapas juntas e dava para fazer "Explicar" antes de "Relembrar").
+  // Feitas e histórico: todas as etapas da trilha.
   const libraryActivityIds: string[] = Array.from(new Set<string>(
-    activeAssignments.flatMap((a: any) => a.track.items.map((i: any) => i.activityId as string))
+    activeAssignments.flatMap((a: any) => {
+      if (filter !== "todo") return a.track.items.map((i: any) => i.activityId as string);
+      const feitos: string[] = a.progress?.[0]?.completedItemIds ?? [];
+      const proximo = a.track.items.find((i: any) => !feitos.includes(i.id));
+      return proximo ? [proximo.activityId as string] : [];
+    })
   ));
 
   const ACTIVITY_INCLUDE = {

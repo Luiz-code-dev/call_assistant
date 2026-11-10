@@ -7,6 +7,7 @@ import { catalogDb } from "@/lib/escola/catalogo";
 import { getTenantDb } from "@/lib/escola/tenant-db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { enviarAviso, avisoDeAgenda, avisosConfigurados } from "@/lib/escola/avisos";
+import { destinoDoEstudo } from "@/lib/escola/destino-estudo";
 
 const JANELA_MIN = 15;
 let iniciado = false;
@@ -54,7 +55,8 @@ export async function avisarAgenda(now = new Date()): Promise<number> {
         data: { lastNotifiedOn: dia },
       }).catch(() => ({ count: 0 }));
       if (!marcado.count) continue;
-      enviados += await enviarAviso(db, rede.id, item.studentId, avisoDeAgenda(item)).catch(() => 0);
+      const destino = await destinoDoEstudo(db, rede.id, item.studentId, item.subjectCode).catch(() => null);
+      enviados += await enviarAviso(db, rede.id, item.studentId, avisoDeAgenda(item, destino)).catch(() => 0);
     }
   }
   return enviados;
