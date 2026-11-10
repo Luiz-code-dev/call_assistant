@@ -11,7 +11,7 @@
  *   prisma/data/conteudo/trilhas/<COMP>-<ANO>.json
  *   prisma/data/conteudo/diagnosticos/DIAG-<COMP>-<ANO>.json
  */
-import { writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { writeFileSync, mkdirSync, existsSync, readFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -23,185 +23,53 @@ const DIAG_DIR    = join(ROOT, "prisma", "data", "conteudo", "diagnosticos");
 mkdirSync(TRILHAS_DIR, { recursive: true });
 mkdirSync(DIAG_DIR,    { recursive: true });
 
-// ── Mapa de componentes por ano ────────────────────────────────────────────
-const PACOTES = [
-  // 5o ano — faltam CI, HI, GE, AR, EF, ER
-  { comp: "CI", ano: 5, gradeYear: 5, nomeComp: "Ciências",
-    habilidades: [
-      { code:"EF05CI01", titulo:"Propriedades dos materiais",
-        pre: { code:"EF04CI01", titulo:"Materiais do cotidiano" } },
-      { code:"EF05CI02", titulo:"Ciclo da água",
-        pre: { code:"EF04CI04", titulo:"Agua nos seres vivos" } },
-      { code:"EF05CI07", titulo:"Cadeia alimentar",
-        pre: { code:"EF04CI06", titulo:"Seres vivos e ambiente" } },
-      { code:"EF05CI09", titulo:"Sistema solar",
-        pre: { code:"EF04CI11", titulo:"Fases da Lua" } },
-    ],
-  },
-  { comp: "HI", ano: 5, gradeYear: 5, nomeComp: "História",
-    habilidades: [
-      { code:"EF05HI01", titulo:"Brasil colonial e escravidão",
-        pre: { code:"EF04HI01", titulo:"Diferentes sujeitos da historia" } },
-      { code:"EF05HI02", titulo:"Resistência indígena e africana",
-        pre: { code:"EF04HI06", titulo:"Trabalho escravo e livre" } },
-      { code:"EF05HI06", titulo:"Independência do Brasil",
-        pre: { code:"EF04HI07", titulo:"Diferentes grupos sociais" } },
-      { code:"EF05HI08", titulo:"Proclamação da República",
-        pre: { code:"EF04HI09", titulo:"Modernizacao e industrializacao" } },
-    ],
-  },
-  { comp: "GE", ano: 5, gradeYear: 5, nomeComp: "Geografia",
-    habilidades: [
-      { code:"EF05GE01", titulo:"Território brasileiro e fronteiras",
-        pre: { code:"EF04GE01", titulo:"Localizacao e representacao" } },
-      { code:"EF05GE03", titulo:"Tipos de relevo e hidrografia",
-        pre: { code:"EF04GE03", titulo:"Paisagens naturais e humanas" } },
-      { code:"EF05GE06", titulo:"Biomas brasileiros",
-        pre: { code:"EF04GE06", titulo:"Vegetacao e clima" } },
-      { code:"EF05GE11", titulo:"Desigualdade regional no Brasil",
-        pre: { code:"EF04GE11", titulo:"Regioes e municipios" } },
-    ],
-  },
-  { comp: "AR", ano: 5, gradeYear: 5, nomeComp: "Arte",
-    habilidades: [
-      { code:"EF05AR01", titulo:"Elementos das artes visuais",
-        pre: { code:"EF04AR01", titulo:"Ponto, linha e forma" } },
-      { code:"EF05AR04", titulo:"Ritmo e melodia na música",
-        pre: { code:"EF04AR14", titulo:"Som e silencio" } },
-      { code:"EF05AR07", titulo:"Dança: movimentos e expressões",
-        pre: { code:"EF04AR07", titulo:"Corpo e movimento" } },
-      { code:"EF05AR10", titulo:"Teatro: texto dramático",
-        pre: { code:"EF04AR10", titulo:"Personagem e cena" } },
-    ],
-  },
-  { comp: "EF", ano: 5, gradeYear: 5, nomeComp: "Educação Física",
-    habilidades: [
-      { code:"EF35EF01", titulo:"Esportes: regras e fundamentos",
-        pre: { code:"EF12EF01", titulo:"Brincadeiras e jogos basicos" } },
-      { code:"EF35EF04", titulo:"Lutas: princípios e segurança",
-        pre: { code:"EF12EF04", titulo:"Movimentos e equilibrio" } },
-      { code:"EF35EF07", titulo:"Ginástica: equilíbrio e coordenação",
-        pre: { code:"EF12EF07", titulo:"Habilidades motoras basicas" } },
-      { code:"EF35EF12", titulo:"Práticas corporais de aventura",
-        pre: { code:"EF12EF11", titulo:"Atividades na natureza" } },
-    ],
-  },
-  { comp: "ER", ano: 5, gradeYear: 5, nomeComp: "Ensino Religioso",
-    habilidades: [
-      { code:"EF05ER01", titulo:"Tradições e práticas religiosas",
-        pre: { code:"EF04ER01", titulo:"Diversidade religiosa" } },
-      { code:"EF05ER02", titulo:"Narrativas sagradas",
-        pre: { code:"EF04ER02", titulo:"Mitos e cosmogonias" } },
-      { code:"EF05ER04", titulo:"Ritos e celebrações",
-        pre: { code:"EF04ER04", titulo:"Simbolos e rituais" } },
-      { code:"EF05ER09", titulo:"Ética e solidariedade",
-        pre: { code:"EF04ER09", titulo:"Valores e convivencia" } },
-    ],
-  },
-  // 6o ano — faltam LP, CI, HI, GE, AR, EF, LI, ER
-  { comp: "LP", ano: 6, gradeYear: 6, nomeComp: "Língua Portuguesa",
-    habilidades: [
-      { code:"EF06LP01", titulo:"Leitura de textos argumentativos",
-        pre: { code:"EF05LP01", titulo:"Estrategias de leitura" } },
-      { code:"EF06LP04", titulo:"Análise de texto: coesão e coerência",
-        pre: { code:"EF05LP04", titulo:"Elementos textuais" } },
-      { code:"EF06LP07", titulo:"Gêneros discursivos: notícia e artigo",
-        pre: { code:"EF05LP07", titulo:"Generos do cotidiano" } },
-      { code:"EF06LP12", titulo:"Produção de texto: dissertação",
-        pre: { code:"EF05LP12", titulo:"Producao narrativa" } },
-    ],
-  },
-  { comp: "CI", ano: 6, gradeYear: 6, nomeComp: "Ciências",
-    habilidades: [
-      { code:"EF06CI01", titulo:"Misturas homogêneas e heterogêneas",
-        pre: { code:"EF05CI01", titulo:"Propriedades dos materiais" } },
-      { code:"EF06CI03", titulo:"Composição do ar e poluição",
-        pre: { code:"EF05CI02", titulo:"Ciclo da agua" } },
-      { code:"EF06CI06", titulo:"Composição e propriedades do solo",
-        pre: { code:"EF05CI07", titulo:"Cadeia alimentar" } },
-      { code:"EF06CI10", titulo:"Movimentos da Terra: rotação e translação",
-        pre: { code:"EF05CI09", titulo:"Sistema solar" } },
-    ],
-  },
-  { comp: "HI", ano: 6, gradeYear: 6, nomeComp: "História",
-    habilidades: [
-      { code:"EF06HI01", titulo:"Pré-história e primeiros humanos",
-        pre: { code:"EF05HI01", titulo:"Brasil colonial" } },
-      { code:"EF06HI02", titulo:"Mesopotâmia e primeiras civilizações",
-        pre: { code:"EF05HI02", titulo:"Resistencia indigena" } },
-      { code:"EF06HI06", titulo:"Grécia antiga: democracia e cultura",
-        pre: { code:"EF05HI06", titulo:"Independencia do Brasil" } },
-      { code:"EF06HI13", titulo:"Roma antiga: república e império",
-        pre: { code:"EF05HI08", titulo:"Proclamacao da Republica" } },
-    ],
-  },
-  { comp: "GE", ano: 6, gradeYear: 6, nomeComp: "Geografia",
-    habilidades: [
-      { code:"EF06GE01", titulo:"Mundo contemporâneo e globalização",
-        pre: { code:"EF05GE01", titulo:"Territorio brasileiro" } },
-      { code:"EF06GE03", titulo:"Natureza e sociedade: relação humana",
-        pre: { code:"EF05GE03", titulo:"Relevo e hidrografia" } },
-      { code:"EF06GE06", titulo:"Climas e formações vegetais do mundo",
-        pre: { code:"EF05GE06", titulo:"Biomas brasileiros" } },
-      { code:"EF06GE10", titulo:"Distribuição da população mundial",
-        pre: { code:"EF05GE11", titulo:"Desigualdade regional" } },
-    ],
-  },
-  { comp: "AR", ano: 6, gradeYear: 6, nomeComp: "Arte",
-    habilidades: [
-      { code:"EF06AR01", titulo:"Arte renascentista e perspectiva",
-        pre: { code:"EF05AR01", titulo:"Elementos das artes visuais" } },
-      { code:"EF06AR04", titulo:"Música: notação e estrutura",
-        pre: { code:"EF05AR04", titulo:"Ritmo e melodia" } },
-      { code:"EF06AR07", titulo:"Dança: coreografia e expressão cultural",
-        pre: { code:"EF05AR07", titulo:"Danca: movimentos" } },
-      { code:"EF06AR10", titulo:"Teatro: dramaturgia e encenação",
-        pre: { code:"EF05AR10", titulo:"Teatro: texto dramatico" } },
-    ],
-  },
-  { comp: "EF", ano: 6, gradeYear: 6, nomeComp: "Educação Física",
-    habilidades: [
-      { code:"EF69EF01", titulo:"Esportes coletivos: táticas e cooperação",
-        pre: { code:"EF35EF01", titulo:"Esportes: regras" } },
-      { code:"EF69EF04", titulo:"Lutas: história e valores culturais",
-        pre: { code:"EF35EF04", titulo:"Lutas: principios" } },
-      { code:"EF69EF07", titulo:"Ginástica: ritmo e performance",
-        pre: { code:"EF35EF07", titulo:"Ginastica: equilibrio" } },
-      { code:"EF69EF10", titulo:"Práticas integrativas e meditação",
-        pre: { code:"EF35EF12", titulo:"Praticas corporais" } },
-    ],
-  },
-  { comp: "LI", ano: 6, gradeYear: 6, nomeComp: "Língua Inglesa",
-    habilidades: [
-      { code:"EF06LI01", titulo:"Apresentações pessoais em inglês",
-        pre: { code:"EF05LI01", titulo:"Palavras em ingles no cotidiano" } },
-      { code:"EF06LI02", titulo:"Cumprimentos e expressões básicas",
-        pre: { code:"EF05LI02", titulo:"Instrucoes simples" } },
-      { code:"EF06LI09", titulo:"Números, datas e horas em inglês",
-        pre: { code:"EF05LI09", titulo:"Numeros em ingles" } },
-      { code:"EF06LI13", titulo:"Cores, formas e descrições simples",
-        pre: { code:"EF05LI13", titulo:"Palavras descritivas" } },
-    ],
-  },
-  { comp: "ER", ano: 6, gradeYear: 6, nomeComp: "Ensino Religioso",
-    habilidades: [
-      { code:"EF06ER01", titulo:"Tradições religiosas no mundo",
-        pre: { code:"EF05ER01", titulo:"Tradicoes e praticas religiosas" } },
-      { code:"EF06ER02", titulo:"Narrativas de criação nas religiões",
-        pre: { code:"EF05ER02", titulo:"Narrativas sagradas" } },
-      { code:"EF06ER04", titulo:"Ritos de passagem e celebrações",
-        pre: { code:"EF05ER04", titulo:"Ritos e celebracoes" } },
-      { code:"EF06ER09", titulo:"Liderança e ética religiosa",
-        pre: { code:"EF05ER09", titulo:"Etica e solidariedade" } },
-    ],
-  },
+// ── BNCC: títulos vêm do bncc-ef.csv; código inexistente aborta ──────────
+const CSV_PATHS = [join(ROOT, "prisma", "data", "bncc-ef.csv")];
+const CSV_PATH = CSV_PATHS.find((p) => existsSync(p));
+if (!CSV_PATH) throw new Error("bncc-ef.csv não encontrado: " + CSV_PATHS.join(", "));
+const BNCC = {};
+for (const linha of readFileSync(CSV_PATH, "utf8").split(/\r?\n/).slice(1)) {
+  const m = linha.match(/^([A-Z0-9]+),([A-Z]+),/);
+  if (!m) continue;
+  const label = linha.slice(linha.lastIndexOf(",") + 1).replace(/^"|"$/g, "").trim();
+  BNCC[m[1]] = { comp: m[2], label };
+}
+function hab(code, comp) {
+  const b = BNCC[code];
+  if (!b) throw new Error(`Código BNCC inexistente no bncc-ef.csv: ${code}`);
+  if (b.comp !== comp) throw new Error(`${code} é de ${b.comp}, não de ${comp}`);
+  return { code, titulo: b.label };
+}
+
+// [componente, ano, nome, [[habilidade, pré-requisito], ...]]
+const SPEC = [
+  ["CI", 5, "Ciências",          [["EF05CI01","EF04CI01"],["EF05CI02","EF04CI04"],["EF05CI07","EF04CI06"],["EF05CI09","EF04CI11"]]],
+  ["HI", 5, "História",          [["EF05HI01","EF04HI01"],["EF05HI02","EF04HI06"],["EF05HI06","EF04HI07"],["EF05HI08","EF04HI09"]]],
+  ["GE", 5, "Geografia",         [["EF05GE01","EF04GE01"],["EF05GE03","EF04GE03"],["EF05GE06","EF04GE06"],["EF05GE11","EF04GE11"]]],
+  ["AR", 5, "Arte",              [["EF15AR01","EF15AR02"],["EF15AR13","EF15AR14"],["EF15AR08","EF15AR09"],["EF15AR18","EF15AR19"]]],
+  ["EF", 5, "Educação Física",   [["EF35EF01","EF12EF01"],["EF35EF04","EF12EF04"],["EF35EF07","EF12EF07"],["EF35EF12","EF12EF11"]]],
+  ["ER", 5, "Ensino Religioso",  [["EF05ER01","EF04ER01"],["EF05ER02","EF04ER02"],["EF05ER04","EF04ER04"],["EF05ER05","EF04ER05"]]],
+  ["LP", 6, "Língua Portuguesa", [["EF06LP01","EF05LP01"],["EF06LP04","EF05LP04"],["EF06LP07","EF05LP07"],["EF06LP12","EF05LP12"]]],
+  ["CI", 6, "Ciências",          [["EF06CI01","EF05CI01"],["EF06CI03","EF05CI02"],["EF06CI06","EF05CI07"],["EF06CI10","EF05CI09"]]],
+  ["HI", 6, "História",          [["EF06HI01","EF05HI01"],["EF06HI02","EF05HI02"],["EF06HI06","EF05HI06"],["EF06HI13","EF05HI08"]]],
+  ["GE", 6, "Geografia",         [["EF06GE01","EF05GE01"],["EF06GE03","EF05GE03"],["EF06GE06","EF05GE06"],["EF06GE10","EF05GE11"]]],
+  ["AR", 6, "Arte",              [["EF69AR01","EF15AR01"],["EF69AR16","EF15AR13"],["EF69AR09","EF15AR08"],["EF69AR24","EF15AR18"]]],
+  ["EF", 6, "Educação Física",   [["EF67EF01","EF35EF01"],["EF67EF04","EF35EF04"],["EF67EF07","EF35EF07"],["EF67EF10","EF35EF12"]]],
+  // Língua Inglesa começa no 6º ano: não há ano anterior; o degrau usa habilidades básicas do próprio 6º
+  ["LI", 6, "Língua Inglesa",    [["EF06LI01","EF06LI03"],["EF06LI02","EF06LI04"],["EF06LI09","EF06LI08"],["EF06LI13","EF06LI12"]]],
+  ["ER", 6, "Ensino Religioso",  [["EF06ER01","EF05ER01"],["EF06ER02","EF05ER02"],["EF06ER04","EF05ER04"],["EF06ER07","EF05ER07"]]],
 ];
+
+const PACOTES = SPEC.map(([comp, ano, nomeComp, pares]) => ({
+  comp, ano, gradeYear: ano, nomeComp,
+  habilidades: pares.map(([h, pre]) => ({ ...hab(h, comp), comp, ano, pre: { ...hab(pre, comp), comp, ano } })),
+}));
 
 // ── Helpers de geração de questões ────────────────────────────────────────
 function geraQuestao(habilidade, indice, numHab) {
   const { code, titulo } = habilidade;
-  const comp = code.substring(2, 4).toUpperCase(); // MA, CI, etc.
-  const ano  = code.substring(4, 6);              // 05, 06
+  const comp = habilidade.comp;
+  const ano  = String(habilidade.ano ?? "").padStart(2, "0");
 
   // Questões genéricas mas válidas por componente
   const banco = questoesPorComp(comp, ano, titulo, code);
@@ -838,14 +706,13 @@ function geraDiagnosticoItem(habilidade, indice) {
 }
 
 function geraDegrauItem(habilidade, indice) {
-  const questao = geraQuestao(habilidade, indice + 20, 2);
+  const questao = geraQuestao(habilidade.pre, indice + 20, 2);
   return {
     id: `DG-${habilidade.code}-${String(indice + 1).padStart(2, "0")}`,
     skillCode: habilidade.pre.code,
     skillId: habilidade.pre.code,
     role: "DEGRAU_BANK",
     ...questao,
-    question: `[Pré-requisito: ${habilidade.pre.titulo}] ${questao.question}`,
     audioScript: questao.question,
   };
 }
@@ -887,8 +754,8 @@ for (const pacote of PACOTES) {
   const trilhasFile = join(TRILHAS_DIR, `${comp}-${String(ano).padStart(2, "0")}.json`);
   const diagFile    = join(DIAG_DIR,    `DIAG-${comp}-${ano}A.json`);
 
-  // Trilhas
-  if (!existsSync(trilhasFile)) {
+  // Arquivos deste gerador são sempre regravados (fonte única)
+  if (true) {
     const trilhas = habilidades.map((h) => geraTrilha(h, comp, ano));
     writeFileSync(trilhasFile, JSON.stringify(trilhas, null, 2), "utf8");
     console.log(`  [GERADO] trilhas/${comp}-${ano}.json (${trilhas.length} trilhas)`);
@@ -898,8 +765,7 @@ for (const pacote of PACOTES) {
     pulados++;
   }
 
-  // Diagnóstico
-  if (!existsSync(diagFile)) {
+  if (true) {
     const diag = geraDiagnostico(pacote);
     writeFileSync(diagFile, JSON.stringify(diag, null, 2), "utf8");
     console.log(`  [GERADO] diagnosticos/DIAG-${comp}-${ano}A.json (${diag.items.length} itens)`);
