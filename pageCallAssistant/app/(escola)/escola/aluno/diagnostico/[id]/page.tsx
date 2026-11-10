@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { Volume2, ChevronRight, CheckCircle2, XCircle, ArrowRight } from "lucide-react";
 
-interface Opcao { text: string; misconceptionCode?: string }
+interface Opcao { text: string }
 interface Atividade {
   id: string; type: string; prompt: string;
   questions: { id: string; question: string; options: Opcao[] }[];
@@ -18,17 +18,16 @@ interface Estado {
   degrauAplicado?: boolean;
   degrauSkillCode?: string;
   retomada?: boolean;
-  retorno?: { isCorrect: boolean; explanation?: string; misconceptionCode?: string };
+  retorno?: { isCorrect: boolean; explanation?: string };
 }
+interface HabilidadeAluno { code: string; tituloAluno: string; ano: number | null; nivel?: "AINDA_NAO" | "QUASE_LA" | "DOMINA" }
 interface Resultado {
-  domina: string[];
-  quaseLa: string[];
-  aindaNao: string[];
-  degrauPath: string[];
-  habilidadePartida: string | null;
-  erroComum: string | null;
-  corretas: number;
-  total: number;
+  domina: HabilidadeAluno[];
+  quaseLa: HabilidadeAluno[];
+  aindaNao: HabilidadeAluno[];
+  degrau: HabilidadeAluno[];
+  habilidadePartida: HabilidadeAluno | null;
+  erroComum: { texto: string; exemplo: string } | null;
 }
 interface TrilhaAtribuida {
   id: string;
@@ -138,19 +137,24 @@ export default function DiagnosticoPage() {
           <div className="w-12 h-12 rounded-full bg-[#DCFCE7] flex items-center justify-center mb-3">
             <CheckCircle2 className="size-6 text-[#166534]" />
           </div>
-          <h1 className="text-[#1F1A2E] text-xl font-bold">Diagnóstico concluído!</h1>
-          <p className="text-[#5B5470] text-sm mt-1">
-            {resultado.corretas} de {resultado.total} questões certas
-          </p>
+          <h1 className="text-[#1F1A2E] text-xl font-bold">Você terminou o diagnóstico!</h1>
+          <p className="text-[#5B5470] text-sm mt-1">Agora você sabe por onde começar.</p>
         </div>
       </header>
 
       <main className="max-w-lg mx-auto px-4 py-6 space-y-4">
         {/* O que você já domina */}
-        {resultado.domina.length > 0 && (
-          <div className="bg-[#DCFCE7] border border-[#166534]/20 rounded-2xl p-4">
-            <p className="text-xs font-semibold text-[#166534] uppercase tracking-wide mb-2">O que você já domina</p>
-            <p className="text-[#1F1A2E] text-sm">{resultado.domina.length} habilidade(s) dominada(s).</p>
+        {(resultado.domina.length > 0 || resultado.quaseLa.length > 0) && (
+          <div className="bg-white border border-[#E9E5F5] rounded-2xl p-4">
+            <p className="text-xs font-semibold text-[#166534] uppercase tracking-wide mb-2">O que você já sabe</p>
+            <div className="flex flex-wrap gap-2">
+              {resultado.domina.map((h) => (
+                <span key={h.code} className="bg-[#DCFCE7] text-[#166534] px-2.5 py-1 rounded-full text-xs font-medium">Domina: {h.tituloAluno}</span>
+              ))}
+              {resultado.quaseLa.map((h) => (
+                <span key={h.code} className="bg-[#FEF3C7] text-[#92400E] px-2.5 py-1 rounded-full text-xs font-medium">Quase lá: {h.tituloAluno}</span>
+              ))}
+            </div>
           </div>
         )}
 
@@ -158,20 +162,20 @@ export default function DiagnosticoPage() {
         {resultado.aindaNao.length > 0 && (
           <div className="bg-white border border-[#E9E5F5] rounded-2xl p-4">
             <p className="text-xs font-semibold text-[#5B5470] uppercase tracking-wide mb-2">Onde vamos começar</p>
-            {resultado.degrauPath.length > 0 && (
+            {resultado.degrau.length > 1 && (
               <div className="flex items-center gap-2 flex-wrap mb-2">
-                {resultado.degrauPath.map((s, i) => (
-                  <span key={s} className="flex items-center gap-1 text-xs text-[#5B5470]">
+                {resultado.degrau.map((h, i) => (
+                  <span key={h.code} className="flex items-center gap-1 text-xs text-[#5B5470]">
                     {i > 0 && <ChevronRight className="size-3" />}
-                    <span className="bg-[#EDE9FE] text-[#6D28D9] px-2 py-0.5 rounded-full font-medium">{s}</span>
+                    <span className="bg-[#EDE9FE] text-[#6D28D9] px-2 py-0.5 rounded-full font-medium">{h.ano ? `${h.ano}º ano` : h.tituloAluno}</span>
                   </span>
                 ))}
               </div>
             )}
             <p className="text-sm text-[#1F1A2E]">
               {resultado.habilidadePartida
-                ? `Vamos começar pelo pré-requisito (${resultado.habilidadePartida}) e subir degrau a degrau.`
-                : `Vamos trabalhar ${resultado.aindaNao.length} habilidade(s).`}
+                ? `Vamos começar por: ${resultado.habilidadePartida.tituloAluno}. Firmando essa base, você sobe degrau a degrau.`
+                : `Vamos praticar: ${resultado.aindaNao.map((h) => h.tituloAluno).join(", ")}.`}
             </p>
           </div>
         )}
@@ -181,9 +185,9 @@ export default function DiagnosticoPage() {
           <div className="bg-[#FEF3C7] border border-[#FDE68A] rounded-2xl p-4 flex gap-3 items-start">
             <div>
               <p className="text-xs font-semibold text-[#92400E] uppercase tracking-wide mb-1">Um erro que vamos resolver juntos</p>
-              <p className="text-sm text-[#1F1A2E]">{resultado.erroComum}</p>
+              <p className="text-sm text-[#1F1A2E]">{resultado.erroComum.texto}</p>
             </div>
-            <button onClick={() => ouvir(resultado.erroComum ?? "")} className="shrink-0 p-2 rounded-lg bg-white/60 text-[#92400E] min-h-[44px] min-w-[44px] flex items-center justify-center">
+            <button onClick={() => ouvir(resultado.erroComum?.texto ?? "")} className="shrink-0 p-2 rounded-lg bg-white/60 text-[#92400E] min-h-[44px] min-w-[44px] flex items-center justify-center">
               <Volume2 className="size-4" />
             </button>
           </div>

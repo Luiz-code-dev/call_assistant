@@ -25,6 +25,10 @@ export interface DegrauInput {
   skillCode: string;     // habilidade que ficou em NOT_YET
   currentItemCount: number;   // itens já no diagnóstico deste aluno
   currentMinutes: number;     // tempo estimado acumulado
+  /** Nível do degrau que será criado (1 = primeiro passo atrás). Padrão 1. */
+  nivel?: number;
+  /** Atividades que já estão na sessão do aluno (não repetir). */
+  excluirActivityIds?: string[];
 }
 
 export interface DegrauResult {
@@ -52,102 +56,121 @@ export async function getApprovedPrereqs(
       OR: [{ networkId: null }, { networkId }],
     },
     orderBy: { weight: "desc" },
-    include: { prerequisiteSkill: { select: { id: true, code: true } } },
+    include: { prerequisite: { select: { id: true, code: true } } }, // a relação no schema se chama "prerequisite"
   });
-  return rows.map((r: { weight: number; prerequisiteSkill: { id: string; code: string } }) => ({
-    skillId: r.prerequisiteSkill.id,
-    skillCode: r.prerequisiteSkill.code,
+  return rows.map((r: { weight: number; prerequisite: { id: string; code: string } }) => ({
+    skillId: r.prerequisite.id,
+    skillCode: r.prerequisite.code,
     weight: r.weight,
   }));
 }
 
 /**
- * Encontra uma atividade de diagnóstico publicada para a habilidade,
- * que ainda não foi respondida pelo aluno neste diagnóstico.
+ * Atividades de quiz para o degrau de uma habilidade de pré-requisito.
+ *
+ * Ordem de busca:
+ *   1. itens DEGRAU_BANK do próprio diagnóstico, daquela habilidade;
+ *   2. só depois, qualquer outra atividade de quiz publicada da habilidade
+ *      (SpeakFlow ou da rede).
+ * Nunca repete atividade que já está na sessão do aluno.
  */
-async function findDiagnosticActivity(
+export async function findDegrauActivities(
   networkId: string,
   skillId: string,
   diagnosticId: string,
-  studentId: string
-): Promise<{ id: string; estMinutes: number } | null> {
-  // Busca atividades de diagnóstico para a habilidade (conteúdo SpeakFlow ou da rede)
-  const acts = await p.eduActivity.findMany({
+  excluir: Set<string>,
+  quantidade: number,
+  apenasBanco = false
+): Promise<Array<{ id: string; estMinutes: number }>> {
+  const escolhidas: Array<{ id: string; estMinutes: number }> = [];
+  if (quantidade <= 0) return escolhidas;
+
+  const banco: Array<{ activityId: string; activity: { estMinutes: number | null } }> = await p.eduDiagnosticItem.findMany({
+    where: { diagnosticId, skillId, role: "DEGRAU_BANK", isDegrauLegacy: false },
+    orderBy: { order: "asc" },
+    select: { activityId: true, activity: { select: { estMinutes: true } } },
+  });
+  for (const b of banco) {
+    if (escolhidas.length >= quantidade) return escolhidas;
+    if (excluir.has(b.activityId) || escolhidas.some((e) => e.id === b.activityId)) continue;
+    escolhidas.push({ id: b.activityId, estMinutes: b.activity?.estMinutes ?? 2 });
+  }
+  if (escolhidas.length >= quantidade || apenasBanco) return escolhidas;
+
+  const outras: Array<{ id: string; estMinutes: number | null }> = await p.eduActivity.findMany({
     where: {
-      networkId: networkId === "null" ? null : { in: [networkId, null] },
+      // "in" não aceita null no Prisma: rede do aluno OU conteúdo SpeakFlow (networkId null)
+      OR: [{ networkId }, { networkId: null }],
       skillIds: { has: skillId },
-      type: { in: ["QUIZ", "WRITTEN"] },
+      type: "QUIZ",
       status: "PUBLISHED",
     },
+    orderBy: { id: "asc" },
     select: { id: true, estMinutes: true },
-    take: 5,
+    take: 20,
   });
-  if (!acts.length) return null;
-
-  // Filtra as que o aluno já respondeu neste diagnóstico
-  // (submissões existentes para qualquer atividade deste diagnóstico)
-  const diagItems = await p.eduDiagnosticItem.findMany({
-    where: { diagnosticId },
-    select: { activityId: true },
-  });
-  const diagActIds = new Set(diagItems.map((i: { activityId: string }) => i.activityId));
-
-  const subs = await p.eduSubmission.findMany({
-    where: {
-      studentId,
-      networkId,
-      activityId: { in: Array.from(diagActIds) },
-      status: { not: "IN_PROGRESS" },
-    },
-    select: { activityId: true },
-  });
-  const doneIds = new Set(subs.map((s: { activityId: string }) => s.activityId));
-
-  return acts.find((a: { id: string }) => !doneIds.has(a.id)) ?? null;
+  for (const a of outras) {
+    if (escolhidas.length >= quantidade) break;
+    if (excluir.has(a.id) || escolhidas.some((e) => e.id === a.id)) continue;
+    escolhidas.push({ id: a.id, estMinutes: a.estMinutes ?? 2 });
+  }
+  return escolhidas;
 }
 
 /**
- * Executa o degrau para uma habilidade que ficou em NOT_YET.
- * Retorna a lista de itens que devem ser adicionados ao diagnóstico do aluno.
+ * Um passo do degrau para uma habilidade que ficou em NOT_YET:
+ * escolhe o pré-requisito APPROVED de maior peso e até 2 atividades dele.
+ * Descer mais um nível é decisão de quem chama, depois que o aluno
+ * responder o degrau (no máximo MAX_DEGRAUS).
  */
 export async function calcularDegrau(input: DegrauInput): Promise<DegrauResult> {
-  const { networkId, diagnosticId, studentId, skillCode, currentItemCount, currentMinutes } = input;
+  const { networkId, diagnosticId, skillCode, currentItemCount, currentMinutes } = input;
+  const nivel = input.nivel ?? 1;
+  const result: DegrauResult = { added: [], prereqs: [] };
+  if (nivel > MAX_DEGRAUS || currentItemCount >= MAX_ITENS || currentMinutes >= MAX_MINUTOS) return result;
 
   const skill = await p.eduSkill.findUnique({ where: { code: skillCode }, select: { id: true } });
-  if (!skill) return { added: [], prereqs: [] };
+  if (!skill) return result;
 
-  const result: DegrauResult = { added: [], prereqs: [] };
-  let itemCount = currentItemCount;
-  let minutes = currentMinutes;
-  let currentSkillId = skill.id;
+  const prereqs = await getApprovedPrereqs(networkId, skill.id);
+  const excluir = new Set(input.excluirActivityIds ?? []);
+  const vagas = Math.min(2, MAX_ITENS - currentItemCount);
 
-  for (let degrau = 1; degrau <= MAX_DEGRAUS; degrau++) {
-    if (itemCount >= MAX_ITENS || minutes >= MAX_MINUTOS) break;
-
-    const prereqs = await getApprovedPrereqs(networkId, currentSkillId);
-    if (!prereqs.length) break;
-
-    const best = prereqs[0]; // maior peso
-    result.prereqs.push(best);
-
-    // Tenta adicionar 1 ou 2 itens do pré-requisito
-    const toAdd = Math.min(2, MAX_ITENS - itemCount);
-    let added = 0;
-    for (let i = 0; i < toAdd && minutes < MAX_MINUTOS; i++) {
-      const act = await findDiagnosticActivity(networkId, best.skillId, diagnosticId, studentId);
-      if (!act) break;
-
-      result.added.push({ activityId: act.id, skillCode: best.skillCode, degrau });
-      itemCount++;
-      minutes += act.estMinutes ?? 5;
-      added++;
+  // 1ª passada: o pré-requisito de maior peso que tem questões no banco do degrau
+  //   (um pré-requisito do mesmo ano costuma já estar na sequência normal e não tem banco);
+  // 2ª passada: o de maior peso com qualquer outra atividade de quiz.
+  for (const apenasBanco of [true, false]) {
+    for (const prereq of prereqs) {
+      const acts = await findDegrauActivities(networkId, prereq.skillId, diagnosticId, excluir, vagas, apenasBanco);
+      if (!acts.length) continue;
+      result.prereqs.push(prereq);
+      let minutos = currentMinutes;
+      for (const act of acts) {
+        if (minutos >= MAX_MINUTOS) break;
+        result.added.push({ activityId: act.id, skillCode: prereq.skillCode, degrau: nivel });
+        minutos += act.estMinutes;
+      }
+      return result;
     }
-
-    if (added === 0) break;
-    currentSkillId = best.skillId; // próximo degrau parte daqui
   }
-
   return result;
+}
+
+/**
+ * Regra para descer um degrau a partir de uma resposta errada:
+ * o aluno errou as 2 questões da habilidade, ou errou 1 marcando uma
+ * alternativa com erro comum (misconceptionCode).
+ */
+export function deveDescerDegrau(input: {
+  acertou: boolean;
+  temErroComum: boolean;
+  errosNaHabilidade: number;
+  nivelAtual: number;
+  jaDesceuDestaHabilidade: boolean;
+}): boolean {
+  if (input.acertou || input.jaDesceuDestaHabilidade) return false;
+  if (input.nivelAtual >= MAX_DEGRAUS) return false;
+  return input.errosNaHabilidade >= 2 || input.temErroComum;
 }
 
 /**

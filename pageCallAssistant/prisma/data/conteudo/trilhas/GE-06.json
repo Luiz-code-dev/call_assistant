@@ -1,2450 +1,1890 @@
 [
   {
-    "skillCode": "EF06GE01",
-    "title": "Trilha: Comparar modificações das paisagens nos lugares de vivência (EF06GE01)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
+    "skillCode": "EF06GE07",
     "subjectCode": "GE",
+    "subjectName": "Geografia",
+    "gradeYear": 6,
+    "version": 2,
+    "title": "Trilha: As cidades e a natureza",
+    "tituloAluno": "Como as cidades mudam a natureza",
     "activities": [
       {
-        "id": "PK-EF06GE01-A1",
+        "id": "PK2-EF06GE07-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Comparar modificações das paisagens nos lugares de vivência",
-        "prompt": "Questão sobre Comparar modificações das paisagens nos lugares de vivência.",
+        "title": "Relembrar: funções da cidade",
+        "prompt": "Vamos lembrar o que existe numa cidade e para que ela serve.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre Comparar modificações das paisagens nos lugares de vivência.",
-        "skillId": "EF06GE01",
+        "audioScript": "Vamos lembrar o que existe numa cidade e para que ela serve. Pergunta 1. Uma cidade serve para: A: Só para morar; B: Só para plantar; C: Só para poluir; D: Morar, trabalhar, comprar e usar serviços. Pergunta 2. Quando uma cidade cresce sem planejamento, pode acontecer: A: Trânsito, falta de moradia e problemas ambientais; B: Nada muda; C: Só coisas boas; D: Só a poluição do ar e mais nada. Pergunta 3. Onde costuma ser produzida a maior parte dos alimentos que a cidade consome? A: No centro da cidade; B: Nos supermercados; C: No campo, na zona rural; D: Nas fábricas de roupa.",
         "questions": [
           {
-            "question": "No estudo de \"Comparar modificações das paisagens nos lugares de vivência\", o conceito de território significa:",
+            "question": "Uma cidade serve para:",
             "options": [
               {
-                "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
+                "text": "Só para morar",
+                "misconceptionCode": "cidade-separada-natureza"
               },
               {
-                "text": "Apenas a área de um país",
-                "misconceptionCode": "territorio-so-pais"
+                "text": "Só para plantar",
+                "misconceptionCode": "campo-independente"
               },
               {
-                "text": "Qualquer área coberta por água",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Só para poluir",
+                "misconceptionCode": "so-poluicao"
               },
               {
-                "text": "O tamanho de uma cidade",
-                "misconceptionCode": "territorio-so-pais"
+                "text": "Morar, trabalhar, comprar e usar serviços"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
+            "correctIndex": 3,
+            "explanation": "As cidades concentram moradias, empregos, comércio e serviços.",
             "variants": [
               {
-                "question": "O que é lugar, em Geografia?",
+                "question": "Qual é uma função de uma cidade?",
                 "options": [
                   {
-                    "text": "Espaço com significado afetivo e identidade para quem o vivencia"
+                    "text": "Só abrigar animais",
+                    "misconceptionCode": "cidade-separada-natureza"
                   },
                   {
-                    "text": "Apenas coordenadas geográficas",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Oferecer comércio e serviços"
                   },
                   {
-                    "text": "Um endereço qualquer",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Só produzir alimentos",
+                    "misconceptionCode": "campo-independente"
                   },
                   {
-                    "text": "Somente cidades grandes",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Nenhuma",
+                    "misconceptionCode": "so-poluicao"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "Por que o espaço geográfico muda com o tempo?",
+                "question": "Uma cidade serve para:",
                 "options": [
                   {
-                    "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
+                    "text": "Morar, trabalhar, comprar e usar serviços"
                   },
                   {
-                    "text": "Ele nunca muda",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Só para poluir",
+                    "misconceptionCode": "so-poluicao"
                   },
                   {
-                    "text": "Apenas guerras mudam o espaço",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Só para plantar",
+                    "misconceptionCode": "campo-independente"
                   },
                   {
-                    "text": "Só o clima o modifica",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Só para morar",
+                    "misconceptionCode": "cidade-separada-natureza"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06GE01"
+            ]
           },
           {
-            "question": "No estudo de \"Comparar modificações das paisagens nos lugares de vivência\", o conceito de território significa:",
+            "question": "Quando uma cidade cresce sem planejamento, pode acontecer:",
             "options": [
               {
-                "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
+                "text": "Trânsito, falta de moradia e problemas ambientais"
               },
               {
-                "text": "Apenas a área de um país",
-                "misconceptionCode": "territorio-so-pais"
+                "text": "Nada muda",
+                "misconceptionCode": "mudanca-sem-causa"
               },
               {
-                "text": "Qualquer área coberta por água",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Só coisas boas",
+                "misconceptionCode": "cidade-separada-natureza"
               },
               {
-                "text": "O tamanho de uma cidade",
-                "misconceptionCode": "territorio-so-pais"
+                "text": "Só a poluição do ar e mais nada",
+                "misconceptionCode": "so-poluicao"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
+            "explanation": "O crescimento traz oportunidades e problemas.",
             "variants": [
               {
-                "question": "O que é lugar, em Geografia?",
+                "question": "Uma consequência do crescimento sem planejamento é:",
                 "options": [
                   {
-                    "text": "Espaço com significado afetivo e identidade para quem o vivencia"
+                    "text": "Mais florestas no centro",
+                    "misconceptionCode": "mudanca-sem-causa"
                   },
                   {
-                    "text": "Apenas coordenadas geográficas",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Menos gente",
+                    "misconceptionCode": "cidade-separada-natureza"
                   },
                   {
-                    "text": "Um endereço qualquer",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Bairros sem saneamento"
                   },
                   {
-                    "text": "Somente cidades grandes",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Nenhuma",
+                    "misconceptionCode": "so-poluicao"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "Quando uma cidade cresce sem planejamento, pode acontecer:",
+                "options": [
+                  {
+                    "text": "Só a poluição do ar e mais nada",
+                    "misconceptionCode": "so-poluicao"
+                  },
+                  {
+                    "text": "Trânsito, falta de moradia e problemas ambientais"
+                  },
+                  {
+                    "text": "Só coisas boas",
+                    "misconceptionCode": "cidade-separada-natureza"
+                  },
+                  {
+                    "text": "Nada muda",
+                    "misconceptionCode": "mudanca-sem-causa"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Onde costuma ser produzida a maior parte dos alimentos que a cidade consome?",
+            "options": [
+              {
+                "text": "No centro da cidade",
+                "misconceptionCode": "campo-independente"
+              },
+              {
+                "text": "Nos supermercados",
+                "misconceptionCode": "campo-independente"
+              },
+              {
+                "text": "No campo, na zona rural"
+              },
+              {
+                "text": "Nas fábricas de roupa",
+                "misconceptionCode": "mudanca-sem-causa"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "O mercado vende, mas o alimento é plantado ou criado no campo.",
+            "variants": [
+              {
+                "question": "De onde vem o arroz que se compra no mercado?",
+                "options": [
+                  {
+                    "text": "De plantações na zona rural"
+                  },
+                  {
+                    "text": "Do próprio mercado",
+                    "misconceptionCode": "campo-independente"
+                  },
+                  {
+                    "text": "De prédios da cidade",
+                    "misconceptionCode": "campo-independente"
+                  },
+                  {
+                    "text": "Da fábrica de embalagens",
+                    "misconceptionCode": "mudanca-sem-causa"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que o espaço geográfico muda com o tempo?",
+                "question": "Onde costuma ser produzida a maior parte dos alimentos que a cidade consome?",
                 "options": [
                   {
-                    "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
+                    "text": "Nas fábricas de roupa",
+                    "misconceptionCode": "mudanca-sem-causa"
                   },
                   {
-                    "text": "Ele nunca muda",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Nos supermercados",
+                    "misconceptionCode": "campo-independente"
                   },
                   {
-                    "text": "Apenas guerras mudam o espaço",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "No centro da cidade",
+                    "misconceptionCode": "campo-independente"
                   },
                   {
-                    "text": "Só o clima o modifica",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "No campo, na zona rural"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06GE01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06GE01-A2",
+        "id": "PK2-EF06GE07-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Comparar modificações das paisagens nos lugares de vivência",
-        "prompt": "Questão sobre Comparar modificações das paisagens nos lugares de vivência.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Comparar modificações das paisagens nos lugares de vivência.",
-        "skillId": "EF06GE01",
+        "title": "Exemplo guiado: o rio que virou avenida",
+        "prompt": "Imagine um rio que corria entre árvores. A cidade cresceu ao redor, e o rio foi canalizado e coberto por uma avenida. Vamos analisar juntos.",
+        "estMinutes": 4,
+        "audioScript": "Imagine um rio que corria entre árvores. A cidade cresceu ao redor, e o rio foi canalizado e coberto por uma avenida. Vamos analisar juntos. Pergunta 1. O que aconteceu com a vegetação nas margens do rio? A: Foi retirada para construir ruas e casas; B: Cresceu mais; C: Mudou de lugar sozinha; D: Nada aconteceu com ela. Pergunta 2. Com o asfalto e o concreto, o que acontece com a água da chuva? A: Ela infiltra mais no solo; B: Ela desaparece; C: Ela escorre mais rápido e infiltra menos no solo; D: Nada muda. Pergunta 3. Essa mudança no rio foi causada por: A: A própria natureza, sem relação com as pessoas; B: Ação humana, com o crescimento da cidade; C: A poluição do ar e mais nada; D: O campo.",
         "questions": [
           {
-            "question": "Qual recurso é essencial para representar o tema \"Comparar modificações das paisagens nos lugares de vivência\" em mapas?",
+            "question": "O que aconteceu com a vegetação nas margens do rio?",
             "options": [
               {
-                "text": "Legenda, escala e orientação (rosa dos ventos)"
+                "text": "Foi retirada para construir ruas e casas"
               },
               {
-                "text": "Apenas cores diferentes",
-                "misconceptionCode": "mapa-sem-legenda"
+                "text": "Cresceu mais",
+                "misconceptionCode": "mudanca-sem-causa"
               },
               {
-                "text": "Desenhos artísticos sem referência",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Mudou de lugar sozinha",
+                "misconceptionCode": "mudanca-sem-causa"
               },
               {
-                "text": "Somente o nome do local",
-                "misconceptionCode": "mapa-sem-legenda"
+                "text": "Nada aconteceu com ela",
+                "misconceptionCode": "cidade-separada-natureza"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
+            "explanation": "A ocupação urbana retirou a mata ciliar, a vegetação da margem.",
             "variants": [
               {
-                "question": "O que indica a escala em um mapa?",
+                "question": "Por que muitas margens de rios urbanos não têm mais árvores?",
                 "options": [
                   {
-                    "text": "A relação entre a distância no mapa e a distância real"
+                    "text": "Porque as árvores não gostam de rio",
+                    "misconceptionCode": "mudanca-sem-causa"
                   },
                   {
-                    "text": "As cores utilizadas",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Porque a chuva levou todas",
+                    "misconceptionCode": "mudanca-sem-causa"
                   },
                   {
-                    "text": "O nome do país",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Porque foram ocupadas por construções"
                   },
                   {
-                    "text": "O tamanho do papel",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Porque o rio mudou de cor",
+                    "misconceptionCode": "cidade-separada-natureza"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "O que é a legenda de um mapa?",
+                "question": "O que aconteceu com a vegetação nas margens do rio?",
                 "options": [
                   {
-                    "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
+                    "text": "Nada aconteceu com ela",
+                    "misconceptionCode": "cidade-separada-natureza"
                   },
                   {
-                    "text": "O título do mapa",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Foi retirada para construir ruas e casas"
                   },
                   {
-                    "text": "A data de criação",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Mudou de lugar sozinha",
+                    "misconceptionCode": "mudanca-sem-causa"
                   },
                   {
-                    "text": "O nome do cartógrafo",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Cresceu mais",
+                    "misconceptionCode": "mudanca-sem-causa"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06GE01"
+            ]
           },
           {
-            "question": "Qual recurso é essencial para representar o tema \"Comparar modificações das paisagens nos lugares de vivência\" em mapas?",
+            "question": "Com o asfalto e o concreto, o que acontece com a água da chuva?",
             "options": [
               {
-                "text": "Legenda, escala e orientação (rosa dos ventos)"
+                "text": "Ela infiltra mais no solo",
+                "misconceptionCode": "mudanca-sem-causa"
               },
               {
-                "text": "Apenas cores diferentes",
-                "misconceptionCode": "mapa-sem-legenda"
+                "text": "Ela desaparece",
+                "misconceptionCode": "cidade-separada-natureza"
               },
               {
-                "text": "Desenhos artísticos sem referência",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Ela escorre mais rápido e infiltra menos no solo"
               },
               {
-                "text": "Somente o nome do local",
-                "misconceptionCode": "mapa-sem-legenda"
+                "text": "Nada muda",
+                "misconceptionCode": "mudanca-sem-causa"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
+            "correctIndex": 2,
+            "explanation": "Solo coberto é impermeável: a água não entra e corre para as ruas e rios.",
             "variants": [
               {
-                "question": "O que indica a escala em um mapa?",
+                "question": "Por que as ruas de uma cidade muito asfaltada alagam com chuva forte?",
                 "options": [
                   {
-                    "text": "A relação entre a distância no mapa e a distância real"
+                    "text": "Porque a água não consegue entrar no solo"
                   },
                   {
-                    "text": "As cores utilizadas",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Porque chove mais na cidade",
+                    "misconceptionCode": "mudanca-sem-causa"
                   },
                   {
-                    "text": "O nome do país",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Porque o asfalto produz água",
+                    "misconceptionCode": "cidade-separada-natureza"
                   },
                   {
-                    "text": "O tamanho do papel",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Porque não há rios",
+                    "misconceptionCode": "mudanca-sem-causa"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que é a legenda de um mapa?",
+                "question": "Com o asfalto e o concreto, o que acontece com a água da chuva?",
                 "options": [
                   {
-                    "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
+                    "text": "Nada muda",
+                    "misconceptionCode": "mudanca-sem-causa"
                   },
                   {
-                    "text": "O título do mapa",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Ela desaparece",
+                    "misconceptionCode": "cidade-separada-natureza"
                   },
                   {
-                    "text": "A data de criação",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Ela infiltra mais no solo",
+                    "misconceptionCode": "mudanca-sem-causa"
                   },
                   {
-                    "text": "O nome do cartógrafo",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Ela escorre mais rápido e infiltra menos no solo"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "Essa mudança no rio foi causada por:",
+            "options": [
+              {
+                "text": "A própria natureza, sem relação com as pessoas",
+                "misconceptionCode": "mudanca-sem-causa"
+              },
+              {
+                "text": "Ação humana, com o crescimento da cidade"
+              },
+              {
+                "text": "A poluição do ar e mais nada",
+                "misconceptionCode": "so-poluicao"
+              },
+              {
+                "text": "O campo",
+                "misconceptionCode": "campo-independente"
               }
             ],
-            "skillId": "EF06GE01"
+            "correctIndex": 1,
+            "explanation": "As transformações vieram das obras e da ocupação humana.",
+            "variants": [
+              {
+                "question": "Quem transformou o rio em canal sob a avenida?",
+                "options": [
+                  {
+                    "text": "O próprio rio",
+                    "misconceptionCode": "mudanca-sem-causa"
+                  },
+                  {
+                    "text": "Os animais",
+                    "misconceptionCode": "so-poluicao"
+                  },
+                  {
+                    "text": "Ninguém, aconteceu sozinho",
+                    "misconceptionCode": "campo-independente"
+                  },
+                  {
+                    "text": "As pessoas, com obras para a cidade crescer"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Essa mudança no rio foi causada por:",
+                "options": [
+                  {
+                    "text": "O campo",
+                    "misconceptionCode": "campo-independente"
+                  },
+                  {
+                    "text": "A poluição do ar e mais nada",
+                    "misconceptionCode": "so-poluicao"
+                  },
+                  {
+                    "text": "Ação humana, com o crescimento da cidade"
+                  },
+                  {
+                    "text": "A própria natureza, sem relação com as pessoas",
+                    "misconceptionCode": "mudanca-sem-causa"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06GE01-A3",
+        "id": "PK2-EF06GE07-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: Comparar modificações das paisagens nos lugares de vivência",
-        "prompt": "Questão sobre Comparar modificações das paisagens nos lugares de vivência.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Comparar modificações das paisagens nos lugares de vivência.",
-        "skillId": "EF06GE01",
+        "title": "Praticar: cidade e natureza",
+        "prompt": "A cidade transforma a natureza e também depende dela.",
+        "estMinutes": 5,
+        "audioScript": "A cidade transforma a natureza e também depende dela. Pergunta 1. De onde vem a água que chega às torneiras da cidade? A: Do próprio cano, que produz água; B: Do supermercado; C: De rios, represas ou poços, muitas vezes fora da cidade; D: Ela aparece sozinha. Pergunta 2. Por que as cidades dependem do campo? A: Não dependem, produzem tudo sozinhas; B: Porque recebem de lá alimentos e matérias-primas; C: Só por causa da poluição; D: Porque o campo fica dentro da cidade. Pergunta 3. Ilha de calor é quando o centro da cidade fica mais quente que os arredores. Uma causa é: A: Mais árvores no centro; B: A cidade não ter relação com a natureza; C: A produção de alimentos no campo; D: Muito concreto e asfalto e pouca vegetação. Pergunta 4. Além da poluição, a cidade muda a natureza quando: A: Retira a vegetação, aterra áreas e muda o curso dos rios; B: A cidade só causa poluição, nada mais; C: Nunca muda a natureza; D: A natureza muda sozinha.",
         "questions": [
           {
-            "question": "No estudo de \"Comparar modificações das paisagens nos lugares de vivência\", o conceito de território significa:",
+            "question": "De onde vem a água que chega às torneiras da cidade?",
             "options": [
               {
-                "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
+                "text": "Do próprio cano, que produz água",
+                "misconceptionCode": "cidade-separada-natureza"
               },
               {
-                "text": "Apenas a área de um país",
-                "misconceptionCode": "territorio-so-pais"
+                "text": "Do supermercado",
+                "misconceptionCode": "campo-independente"
               },
               {
-                "text": "Qualquer área coberta por água",
-                "misconceptionCode": "conteudo-errado"
+                "text": "De rios, represas ou poços, muitas vezes fora da cidade"
               },
               {
-                "text": "O tamanho de uma cidade",
-                "misconceptionCode": "territorio-so-pais"
+                "text": "Ela aparece sozinha",
+                "misconceptionCode": "mudanca-sem-causa"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
+            "correctIndex": 2,
+            "explanation": "A cidade depende de fontes de água da natureza.",
             "variants": [
               {
-                "question": "O que é lugar, em Geografia?",
+                "question": "Uma represa que abastece a cidade mostra que:",
                 "options": [
                   {
-                    "text": "Espaço com significado afetivo e identidade para quem o vivencia"
+                    "text": "A cidade depende da natureza"
                   },
                   {
-                    "text": "Apenas coordenadas geográficas",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "A cidade não precisa de natureza",
+                    "misconceptionCode": "cidade-separada-natureza"
                   },
                   {
-                    "text": "Um endereço qualquer",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A água nasce no cano",
+                    "misconceptionCode": "campo-independente"
                   },
                   {
-                    "text": "Somente cidades grandes",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "A represa é só para lazer",
+                    "misconceptionCode": "mudanca-sem-causa"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que o espaço geográfico muda com o tempo?",
+                "question": "De onde vem a água que chega às torneiras da cidade?",
                 "options": [
                   {
-                    "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
+                    "text": "Ela aparece sozinha",
+                    "misconceptionCode": "mudanca-sem-causa"
                   },
                   {
-                    "text": "Ele nunca muda",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Do supermercado",
+                    "misconceptionCode": "campo-independente"
                   },
                   {
-                    "text": "Apenas guerras mudam o espaço",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Do próprio cano, que produz água",
+                    "misconceptionCode": "cidade-separada-natureza"
                   },
                   {
-                    "text": "Só o clima o modifica",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "De rios, represas ou poços, muitas vezes fora da cidade"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06GE01"
+            ]
           },
           {
-            "question": "No estudo de \"Comparar modificações das paisagens nos lugares de vivência\", o conceito de território significa:",
+            "question": "Por que as cidades dependem do campo?",
             "options": [
               {
-                "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
+                "text": "Não dependem, produzem tudo sozinhas",
+                "misconceptionCode": "campo-independente"
               },
               {
-                "text": "Apenas a área de um país",
-                "misconceptionCode": "territorio-so-pais"
+                "text": "Porque recebem de lá alimentos e matérias-primas"
               },
               {
-                "text": "Qualquer área coberta por água",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Só por causa da poluição",
+                "misconceptionCode": "so-poluicao"
               },
               {
-                "text": "O tamanho de uma cidade",
-                "misconceptionCode": "territorio-so-pais"
+                "text": "Porque o campo fica dentro da cidade",
+                "misconceptionCode": "cidade-separada-natureza"
+              }
+            ],
+            "correctIndex": 1,
+            "explanation": "Alimentos, algodão, madeira e muitas matérias-primas vêm do campo.",
+            "variants": [
+              {
+                "question": "O algodão da sua camiseta veio:",
+                "options": [
+                  {
+                    "text": "Da loja",
+                    "misconceptionCode": "campo-independente"
+                  },
+                  {
+                    "text": "Do shopping",
+                    "misconceptionCode": "so-poluicao"
+                  },
+                  {
+                    "text": "Do asfalto",
+                    "misconceptionCode": "cidade-separada-natureza"
+                  },
+                  {
+                    "text": "De uma plantação no campo"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Por que as cidades dependem do campo?",
+                "options": [
+                  {
+                    "text": "Porque o campo fica dentro da cidade",
+                    "misconceptionCode": "cidade-separada-natureza"
+                  },
+                  {
+                    "text": "Só por causa da poluição",
+                    "misconceptionCode": "so-poluicao"
+                  },
+                  {
+                    "text": "Porque recebem de lá alimentos e matérias-primas"
+                  },
+                  {
+                    "text": "Não dependem, produzem tudo sozinhas",
+                    "misconceptionCode": "campo-independente"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "Ilha de calor é quando o centro da cidade fica mais quente que os arredores. Uma causa é:",
+            "options": [
+              {
+                "text": "Mais árvores no centro",
+                "misconceptionCode": "mudanca-sem-causa"
+              },
+              {
+                "text": "A cidade não ter relação com a natureza",
+                "misconceptionCode": "cidade-separada-natureza"
+              },
+              {
+                "text": "A produção de alimentos no campo",
+                "misconceptionCode": "campo-independente"
+              },
+              {
+                "text": "Muito concreto e asfalto e pouca vegetação"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Concreto e asfalto absorvem calor; árvores ajudam a refrescar.",
+            "variants": [
+              {
+                "question": "Plantar árvores nas ruas ajuda a:",
+                "options": [
+                  {
+                    "text": "Aumentar o calor",
+                    "misconceptionCode": "mudanca-sem-causa"
+                  },
+                  {
+                    "text": "Diminuir o calor na cidade"
+                  },
+                  {
+                    "text": "Alagar as ruas",
+                    "misconceptionCode": "cidade-separada-natureza"
+                  },
+                  {
+                    "text": "Nada",
+                    "misconceptionCode": "campo-independente"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Ilha de calor é quando o centro da cidade fica mais quente que os arredores. Uma causa é:",
+                "options": [
+                  {
+                    "text": "Muito concreto e asfalto e pouca vegetação"
+                  },
+                  {
+                    "text": "A produção de alimentos no campo",
+                    "misconceptionCode": "campo-independente"
+                  },
+                  {
+                    "text": "A cidade não ter relação com a natureza",
+                    "misconceptionCode": "cidade-separada-natureza"
+                  },
+                  {
+                    "text": "Mais árvores no centro",
+                    "misconceptionCode": "mudanca-sem-causa"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "Além da poluição, a cidade muda a natureza quando:",
+            "options": [
+              {
+                "text": "Retira a vegetação, aterra áreas e muda o curso dos rios"
+              },
+              {
+                "text": "A cidade só causa poluição, nada mais",
+                "misconceptionCode": "so-poluicao"
+              },
+              {
+                "text": "Nunca muda a natureza",
+                "misconceptionCode": "cidade-separada-natureza"
+              },
+              {
+                "text": "A natureza muda sozinha",
+                "misconceptionCode": "mudanca-sem-causa"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
+            "explanation": "A relação cidade e natureza vai além da poluição.",
             "variants": [
               {
-                "question": "O que é lugar, em Geografia?",
+                "question": "Aterrar um manguezal para construir um porto é um exemplo de:",
                 "options": [
                   {
-                    "text": "Espaço com significado afetivo e identidade para quem o vivencia"
+                    "text": "Poluição do ar",
+                    "misconceptionCode": "so-poluicao"
                   },
                   {
-                    "text": "Apenas coordenadas geográficas",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Algo que não muda a natureza",
+                    "misconceptionCode": "cidade-separada-natureza"
                   },
                   {
-                    "text": "Um endereço qualquer",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Transformação da natureza pela cidade"
                   },
                   {
-                    "text": "Somente cidades grandes",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Produção no campo",
+                    "misconceptionCode": "mudanca-sem-causa"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "Por que o espaço geográfico muda com o tempo?",
+                "question": "Além da poluição, a cidade muda a natureza quando:",
                 "options": [
                   {
-                    "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
+                    "text": "A natureza muda sozinha",
+                    "misconceptionCode": "mudanca-sem-causa"
                   },
                   {
-                    "text": "Ele nunca muda",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Retira a vegetação, aterra áreas e muda o curso dos rios"
                   },
                   {
-                    "text": "Apenas guerras mudam o espaço",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Nunca muda a natureza",
+                    "misconceptionCode": "cidade-separada-natureza"
                   },
                   {
-                    "text": "Só o clima o modifica",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "A cidade só causa poluição, nada mais",
+                    "misconceptionCode": "so-poluicao"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06GE01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06GE01-A4",
+        "id": "PK2-EF06GE07-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: Comparar modificações das paisagens nos lugares de vivência",
-        "prompt": "Questão sobre Comparar modificações das paisagens nos lugares de vivência.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Comparar modificações das paisagens nos lugares de vivência.",
-        "skillId": "EF06GE01",
+        "title": "Aplicar: sua cidade e a natureza",
+        "prompt": "Agora pense na sua cidade.",
+        "estMinutes": 4,
+        "audioScript": "Agora pense na sua cidade. Pergunta 1. O que a cidade pode fazer para diminuir os alagamentos? A: Asfaltar ainda mais; B: Criar áreas verdes e de solo permeável, como parques; C: Nada, alagamento é natural; D: Diminuir a comida que vem do campo. Pergunta 2. Um bairro novo foi construído no lugar de uma mata. Uma consequência é: A: Mais mata no bairro; B: Nenhuma mudança na natureza; C: Só mais poluição do ar; D: Menos sombra e mais calor, além de animais sem abrigo. Pergunta 3. Por que proteger as nascentes de um rio interessa a quem mora na cidade? A: Porque a água da cidade depende delas; B: Não interessa, a cidade não usa natureza; C: Só interessa a quem mora no campo; D: Porque a poluição é o único problema.",
         "questions": [
           {
-            "question": "Qual recurso é essencial para representar o tema \"Comparar modificações das paisagens nos lugares de vivência\" em mapas?",
+            "question": "O que a cidade pode fazer para diminuir os alagamentos?",
             "options": [
               {
-                "text": "Legenda, escala e orientação (rosa dos ventos)"
+                "text": "Asfaltar ainda mais",
+                "misconceptionCode": "mudanca-sem-causa"
               },
               {
-                "text": "Apenas cores diferentes",
-                "misconceptionCode": "mapa-sem-legenda"
+                "text": "Criar áreas verdes e de solo permeável, como parques"
               },
               {
-                "text": "Desenhos artísticos sem referência",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Nada, alagamento é natural",
+                "misconceptionCode": "mudanca-sem-causa"
               },
               {
-                "text": "Somente o nome do local",
-                "misconceptionCode": "mapa-sem-legenda"
+                "text": "Diminuir a comida que vem do campo",
+                "misconceptionCode": "campo-independente"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
+            "correctIndex": 1,
+            "explanation": "Solo com plantas absorve a água da chuva.",
             "variants": [
               {
-                "question": "O que indica a escala em um mapa?",
+                "question": "Calçadas com grama ou blocos com furos ajudam a:",
                 "options": [
                   {
-                    "text": "A relação entre a distância no mapa e a distância real"
+                    "text": "Esquentar a rua",
+                    "misconceptionCode": "mudanca-sem-causa"
                   },
                   {
-                    "text": "As cores utilizadas",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Alagar mais",
+                    "misconceptionCode": "mudanca-sem-causa"
                   },
                   {
-                    "text": "O nome do país",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Nada",
+                    "misconceptionCode": "campo-independente"
                   },
                   {
-                    "text": "O tamanho do papel",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "A água da chuva entrar no solo"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "O que é a legenda de um mapa?",
+                "question": "O que a cidade pode fazer para diminuir os alagamentos?",
                 "options": [
                   {
-                    "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
+                    "text": "Diminuir a comida que vem do campo",
+                    "misconceptionCode": "campo-independente"
                   },
                   {
-                    "text": "O título do mapa",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Nada, alagamento é natural",
+                    "misconceptionCode": "mudanca-sem-causa"
                   },
                   {
-                    "text": "A data de criação",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Criar áreas verdes e de solo permeável, como parques"
                   },
                   {
-                    "text": "O nome do cartógrafo",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Asfaltar ainda mais",
+                    "misconceptionCode": "mudanca-sem-causa"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF06GE01"
+            ]
           },
           {
-            "question": "Qual recurso é essencial para representar o tema \"Comparar modificações das paisagens nos lugares de vivência\" em mapas?",
+            "question": "Um bairro novo foi construído no lugar de uma mata. Uma consequência é:",
             "options": [
               {
-                "text": "Legenda, escala e orientação (rosa dos ventos)"
+                "text": "Mais mata no bairro",
+                "misconceptionCode": "mudanca-sem-causa"
               },
               {
-                "text": "Apenas cores diferentes",
-                "misconceptionCode": "mapa-sem-legenda"
+                "text": "Nenhuma mudança na natureza",
+                "misconceptionCode": "cidade-separada-natureza"
               },
               {
-                "text": "Desenhos artísticos sem referência",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Só mais poluição do ar",
+                "misconceptionCode": "so-poluicao"
               },
               {
-                "text": "Somente o nome do local",
-                "misconceptionCode": "mapa-sem-legenda"
+                "text": "Menos sombra e mais calor, além de animais sem abrigo"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Retirar a mata muda o clima local e a vida dos animais.",
+            "variants": [
+              {
+                "question": "Quando uma mata é derrubada para fazer casas, os animais que viviam ali:",
+                "options": [
+                  {
+                    "text": "Ficam melhor",
+                    "misconceptionCode": "mudanca-sem-causa"
+                  },
+                  {
+                    "text": "Perdem o lugar onde viviam"
+                  },
+                  {
+                    "text": "Não são afetados",
+                    "misconceptionCode": "cidade-separada-natureza"
+                  },
+                  {
+                    "text": "Vão para o supermercado",
+                    "misconceptionCode": "so-poluicao"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Um bairro novo foi construído no lugar de uma mata. Uma consequência é:",
+                "options": [
+                  {
+                    "text": "Menos sombra e mais calor, além de animais sem abrigo"
+                  },
+                  {
+                    "text": "Só mais poluição do ar",
+                    "misconceptionCode": "so-poluicao"
+                  },
+                  {
+                    "text": "Nenhuma mudança na natureza",
+                    "misconceptionCode": "cidade-separada-natureza"
+                  },
+                  {
+                    "text": "Mais mata no bairro",
+                    "misconceptionCode": "mudanca-sem-causa"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "Por que proteger as nascentes de um rio interessa a quem mora na cidade?",
+            "options": [
+              {
+                "text": "Porque a água da cidade depende delas"
+              },
+              {
+                "text": "Não interessa, a cidade não usa natureza",
+                "misconceptionCode": "cidade-separada-natureza"
+              },
+              {
+                "text": "Só interessa a quem mora no campo",
+                "misconceptionCode": "campo-independente"
+              },
+              {
+                "text": "Porque a poluição é o único problema",
+                "misconceptionCode": "so-poluicao"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
+            "explanation": "Sem nascentes protegidas, falta água para todos.",
             "variants": [
               {
-                "question": "O que indica a escala em um mapa?",
+                "question": "Se as nascentes que abastecem a represa secarem, a cidade:",
                 "options": [
                   {
-                    "text": "A relação entre a distância no mapa e a distância real"
+                    "text": "Não sente nada",
+                    "misconceptionCode": "cidade-separada-natureza"
                   },
                   {
-                    "text": "As cores utilizadas",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Produz água no cano",
+                    "misconceptionCode": "campo-independente"
                   },
                   {
-                    "text": "O nome do país",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Pode ficar sem água"
                   },
                   {
-                    "text": "O tamanho do papel",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Ganha mais água",
+                    "misconceptionCode": "so-poluicao"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "O que é a legenda de um mapa?",
+                "question": "Por que proteger as nascentes de um rio interessa a quem mora na cidade?",
                 "options": [
                   {
-                    "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
+                    "text": "Porque a poluição é o único problema",
+                    "misconceptionCode": "so-poluicao"
                   },
                   {
-                    "text": "O título do mapa",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Porque a água da cidade depende delas"
                   },
                   {
-                    "text": "A data de criação",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Só interessa a quem mora no campo",
+                    "misconceptionCode": "campo-independente"
                   },
                   {
-                    "text": "O nome do cartógrafo",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Não interessa, a cidade não usa natureza",
+                    "misconceptionCode": "cidade-separada-natureza"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06GE01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06GE01-A5",
+        "id": "PK2-EF06GE07-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Comparar modificações das paisagens nos lugares de vivência",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Comparar modificações das paisagens nos lugares de vivência.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Comparar modificações das paisagens nos lugares de vivência.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: cidade e natureza",
+        "prompt": "Explique com as suas palavras duas formas pelas quais a cidade muda a natureza e uma forma pela qual a cidade depende da natureza.",
+        "estMinutes": 6,
+        "audioScript": "Explique com as suas palavras duas formas pelas quais a cidade muda a natureza e uma forma pela qual a cidade depende da natureza.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de Comparar modificações das paisagens nos lugares de vivência",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "transformacao",
+              "description": "Cita duas transformações, como retirar vegetação, asfaltar ou canalizar rios"
+            },
+            {
+              "code": "dependencia",
+              "description": "Mostra que a cidade depende da natureza ou do campo (água, alimentos)"
+            },
+            {
+              "code": "acao-humana",
+              "description": "Deixa claro que as mudanças são causadas pela ação humana"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF06GE01"
+          "exemploBoaResposta": "A cidade muda a natureza quando tira as árvores para construir casas e quando cobre o solo com asfalto, e aí a água da chuva não entra no chão. Mas a cidade depende da natureza: a água da torneira vem de rios e represas, e a comida vem do campo."
+        }
       }
-    ]
+    ],
+    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
+    "source": "SPEAKFLOW",
+    "status": "APPROVED"
   },
   {
-    "skillCode": "EF06GE03",
-    "title": "Trilha: Descrever os movimentos do planeta e sua relação (EF06GE03)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
+    "skillCode": "EF06GE04",
     "subjectCode": "GE",
+    "subjectName": "Geografia",
+    "gradeYear": 6,
+    "version": 2,
+    "title": "Trilha: Ciclo da água e bacias hidrográficas",
+    "tituloAluno": "O caminho da água: chuva, rios e bacias",
     "activities": [
       {
-        "id": "PK-EF06GE03-A1",
+        "id": "PK2-EF06GE04-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Descrever os movimentos do planeta e sua relação",
-        "prompt": "Questão sobre Descrever os movimentos do planeta e sua relação.",
+        "title": "Relembrar: água limpa e poluída",
+        "prompt": "Vamos lembrar o que já sabemos sobre a água dos rios.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre Descrever os movimentos do planeta e sua relação.",
-        "skillId": "EF06GE03",
+        "audioScript": "Vamos lembrar o que já sabemos sobre a água dos rios. Pergunta 1. Uma água transparente pode estar poluída? A: Sim, pode ter micróbios ou produtos químicos invisíveis; B: Não, transparente é sempre limpa; C: Só se tiver lixo boiando; D: Não, rios se limpam sozinhos. Pergunta 2. O que acontece com o esgoto que chega a um rio sem tratamento? A: Ele evapora e some; B: Ele vira nuvem limpa; C: Ele polui a água e prejudica a vida no rio; D: Ele só afeta aquele ponto do rio. Pergunta 3. De onde vem a água que abastece as cidades? A: Ela é fabricada no cano; B: De rios, represas e águas subterrâneas; C: Das nuvens diretamente; D: De um único rio no mundo.",
         "questions": [
           {
-            "question": "No estudo de \"Descrever os movimentos do planeta e sua relação\", o conceito de território significa:",
+            "question": "Uma água transparente pode estar poluída?",
             "options": [
               {
-                "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
+                "text": "Sim, pode ter micróbios ou produtos químicos invisíveis"
               },
               {
-                "text": "Apenas a área de um país",
-                "misconceptionCode": "territorio-so-pais"
+                "text": "Não, transparente é sempre limpa",
+                "misconceptionCode": "nuvem-fumaca"
               },
               {
-                "text": "Qualquer área coberta por água",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Só se tiver lixo boiando",
+                "misconceptionCode": "bacia-e-rio"
               },
               {
-                "text": "O tamanho de uma cidade",
-                "misconceptionCode": "territorio-so-pais"
+                "text": "Não, rios se limpam sozinhos",
+                "misconceptionCode": "ciclo-linear"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
+            "explanation": "Poluição nem sempre é visível.",
             "variants": [
               {
-                "question": "O que é lugar, em Geografia?",
+                "question": "Por que a água do rio precisa ser tratada antes de chegar à torneira?",
                 "options": [
                   {
-                    "text": "Espaço com significado afetivo e identidade para quem o vivencia"
+                    "text": "Porque ela é azul",
+                    "misconceptionCode": "nuvem-fumaca"
                   },
                   {
-                    "text": "Apenas coordenadas geográficas",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Não precisa",
+                    "misconceptionCode": "bacia-e-rio"
                   },
                   {
-                    "text": "Um endereço qualquer",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Porque pode ter micróbios e sujeira que não se veem"
                   },
                   {
-                    "text": "Somente cidades grandes",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Porque o rio é muito largo",
+                    "misconceptionCode": "ciclo-linear"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "Por que o espaço geográfico muda com o tempo?",
+                "question": "Uma água transparente pode estar poluída?",
                 "options": [
                   {
-                    "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
+                    "text": "Não, rios se limpam sozinhos",
+                    "misconceptionCode": "ciclo-linear"
                   },
                   {
-                    "text": "Ele nunca muda",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Sim, pode ter micróbios ou produtos químicos invisíveis"
                   },
                   {
-                    "text": "Apenas guerras mudam o espaço",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Só se tiver lixo boiando",
+                    "misconceptionCode": "bacia-e-rio"
                   },
                   {
-                    "text": "Só o clima o modifica",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Não, transparente é sempre limpa",
+                    "misconceptionCode": "nuvem-fumaca"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06GE03"
+            ]
           },
           {
-            "question": "No estudo de \"Descrever os movimentos do planeta e sua relação\", o conceito de território significa:",
+            "question": "O que acontece com o esgoto que chega a um rio sem tratamento?",
             "options": [
               {
-                "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
+                "text": "Ele evapora e some",
+                "misconceptionCode": "ciclo-linear"
               },
               {
-                "text": "Apenas a área de um país",
-                "misconceptionCode": "territorio-so-pais"
+                "text": "Ele vira nuvem limpa",
+                "misconceptionCode": "nuvem-fumaca"
               },
               {
-                "text": "Qualquer área coberta por água",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Ele polui a água e prejudica a vida no rio"
               },
               {
-                "text": "O tamanho de uma cidade",
-                "misconceptionCode": "territorio-so-pais"
+                "text": "Ele só afeta aquele ponto do rio",
+                "misconceptionCode": "bacia-e-rio"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
+            "correctIndex": 2,
+            "explanation": "A poluição se espalha rio abaixo.",
             "variants": [
               {
-                "question": "O que é lugar, em Geografia?",
+                "question": "A poluição jogada num rio pequeno pode chegar:",
                 "options": [
                   {
-                    "text": "Espaço com significado afetivo e identidade para quem o vivencia"
+                    "text": "Ao rio maior em que ele deságua"
                   },
                   {
-                    "text": "Apenas coordenadas geográficas",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "A lugar nenhum",
+                    "misconceptionCode": "ciclo-linear"
                   },
                   {
-                    "text": "Um endereço qualquer",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Só à nascente",
+                    "misconceptionCode": "nuvem-fumaca"
                   },
                   {
-                    "text": "Somente cidades grandes",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Às nuvens limpas",
+                    "misconceptionCode": "bacia-e-rio"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que o espaço geográfico muda com o tempo?",
+                "question": "O que acontece com o esgoto que chega a um rio sem tratamento?",
                 "options": [
                   {
-                    "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
+                    "text": "Ele só afeta aquele ponto do rio",
+                    "misconceptionCode": "bacia-e-rio"
                   },
                   {
-                    "text": "Ele nunca muda",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Ele vira nuvem limpa",
+                    "misconceptionCode": "nuvem-fumaca"
                   },
                   {
-                    "text": "Apenas guerras mudam o espaço",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Ele evapora e some",
+                    "misconceptionCode": "ciclo-linear"
                   },
                   {
-                    "text": "Só o clima o modifica",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Ele polui a água e prejudica a vida no rio"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "De onde vem a água que abastece as cidades?",
+            "options": [
+              {
+                "text": "Ela é fabricada no cano",
+                "misconceptionCode": "ciclo-linear"
+              },
+              {
+                "text": "De rios, represas e águas subterrâneas"
+              },
+              {
+                "text": "Das nuvens diretamente",
+                "misconceptionCode": "nuvem-fumaca"
+              },
+              {
+                "text": "De um único rio no mundo",
+                "misconceptionCode": "bacia-e-rio"
               }
             ],
-            "skillId": "EF06GE03"
+            "correctIndex": 1,
+            "explanation": "A água vem de fontes naturais e passa por tratamento.",
+            "variants": [
+              {
+                "question": "Um poço artesiano retira água:",
+                "options": [
+                  {
+                    "text": "Das nuvens",
+                    "misconceptionCode": "ciclo-linear"
+                  },
+                  {
+                    "text": "Do asfalto",
+                    "misconceptionCode": "nuvem-fumaca"
+                  },
+                  {
+                    "text": "Do mar",
+                    "misconceptionCode": "bacia-e-rio"
+                  },
+                  {
+                    "text": "Do subsolo"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "De onde vem a água que abastece as cidades?",
+                "options": [
+                  {
+                    "text": "De um único rio no mundo",
+                    "misconceptionCode": "bacia-e-rio"
+                  },
+                  {
+                    "text": "Das nuvens diretamente",
+                    "misconceptionCode": "nuvem-fumaca"
+                  },
+                  {
+                    "text": "De rios, represas e águas subterrâneas"
+                  },
+                  {
+                    "text": "Ela é fabricada no cano",
+                    "misconceptionCode": "ciclo-linear"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06GE03-A2",
+        "id": "PK2-EF06GE04-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Descrever os movimentos do planeta e sua relação",
-        "prompt": "Questão sobre Descrever os movimentos do planeta e sua relação.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Descrever os movimentos do planeta e sua relação.",
-        "skillId": "EF06GE03",
+        "title": "Exemplo guiado: o caminho da água",
+        "prompt": "Vamos seguir juntos o caminho de uma gota de água no ciclo da água.",
+        "estMinutes": 4,
+        "audioScript": "Vamos seguir juntos o caminho de uma gota de água no ciclo da água. Pergunta 1. O Sol aquece a água do mar e dos rios. O que acontece? A: A água desaparece para sempre; B: A água vira fumaça; C: A água evapora e sobe como vapor; D: A água entra no solo. Pergunta 2. No alto, o vapor esfria. O que se forma? A: Fumaça; B: Nuvens, com gotinhas de água; C: Rios; D: Mais vapor invisível. Pergunta 3. Depois que chove, o que acontece com a água? A: Ela vai para o mar e fica lá para sempre; B: Toda ela infiltra, mesmo no asfalto; C: Ela vira nuvem na hora; D: Parte infiltra no solo, parte escorre para rios e depois evapora de novo.",
         "questions": [
           {
-            "question": "Qual recurso é essencial para representar o tema \"Descrever os movimentos do planeta e sua relação\" em mapas?",
+            "question": "O Sol aquece a água do mar e dos rios. O que acontece?",
             "options": [
               {
-                "text": "Legenda, escala e orientação (rosa dos ventos)"
+                "text": "A água desaparece para sempre",
+                "misconceptionCode": "ciclo-linear"
               },
               {
-                "text": "Apenas cores diferentes",
-                "misconceptionCode": "mapa-sem-legenda"
+                "text": "A água vira fumaça",
+                "misconceptionCode": "nuvem-fumaca"
               },
               {
-                "text": "Desenhos artísticos sem referência",
-                "misconceptionCode": "conteudo-errado"
+                "text": "A água evapora e sobe como vapor"
               },
               {
-                "text": "Somente o nome do local",
-                "misconceptionCode": "mapa-sem-legenda"
+                "text": "A água entra no solo",
+                "misconceptionCode": "urbano-infiltra"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
+            "correctIndex": 2,
+            "explanation": "É a evaporação: a água passa de líquido para vapor.",
             "variants": [
               {
-                "question": "O que indica a escala em um mapa?",
+                "question": "A roupa molhada no varal seca porque:",
                 "options": [
                   {
-                    "text": "A relação entre a distância no mapa e a distância real"
+                    "text": "A água evapora"
                   },
                   {
-                    "text": "As cores utilizadas",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "A água some para sempre",
+                    "misconceptionCode": "ciclo-linear"
                   },
                   {
-                    "text": "O nome do país",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A água vira fumaça",
+                    "misconceptionCode": "nuvem-fumaca"
                   },
                   {
-                    "text": "O tamanho do papel",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "O pano bebe a água",
+                    "misconceptionCode": "urbano-infiltra"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que é a legenda de um mapa?",
+                "question": "O Sol aquece a água do mar e dos rios. O que acontece?",
                 "options": [
                   {
-                    "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
+                    "text": "A água entra no solo",
+                    "misconceptionCode": "urbano-infiltra"
                   },
                   {
-                    "text": "O título do mapa",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "A água vira fumaça",
+                    "misconceptionCode": "nuvem-fumaca"
                   },
                   {
-                    "text": "A data de criação",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A água desaparece para sempre",
+                    "misconceptionCode": "ciclo-linear"
                   },
                   {
-                    "text": "O nome do cartógrafo",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "A água evapora e sobe como vapor"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06GE03"
+            ]
           },
           {
-            "question": "Qual recurso é essencial para representar o tema \"Descrever os movimentos do planeta e sua relação\" em mapas?",
+            "question": "No alto, o vapor esfria. O que se forma?",
             "options": [
               {
-                "text": "Legenda, escala e orientação (rosa dos ventos)"
+                "text": "Fumaça",
+                "misconceptionCode": "nuvem-fumaca"
               },
               {
-                "text": "Apenas cores diferentes",
-                "misconceptionCode": "mapa-sem-legenda"
+                "text": "Nuvens, com gotinhas de água"
               },
               {
-                "text": "Desenhos artísticos sem referência",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Rios",
+                "misconceptionCode": "bacia-e-rio"
               },
               {
-                "text": "Somente o nome do local",
-                "misconceptionCode": "mapa-sem-legenda"
+                "text": "Mais vapor invisível",
+                "misconceptionCode": "nuvem-fumaca"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
+            "correctIndex": 1,
+            "explanation": "É a condensação: o vapor vira gotinhas, que formam as nuvens.",
             "variants": [
               {
-                "question": "O que indica a escala em um mapa?",
+                "question": "As gotinhas que aparecem do lado de fora de um copo gelado são parecidas com:",
                 "options": [
                   {
-                    "text": "A relação entre a distância no mapa e a distância real"
+                    "text": "Fumaça",
+                    "misconceptionCode": "nuvem-fumaca"
                   },
                   {
-                    "text": "As cores utilizadas",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Chuva de pedra",
+                    "misconceptionCode": "bacia-e-rio"
                   },
                   {
-                    "text": "O nome do país",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Um rio",
+                    "misconceptionCode": "nuvem-fumaca"
                   },
                   {
-                    "text": "O tamanho do papel",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "A formação das nuvens"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "O que é a legenda de um mapa?",
+                "question": "No alto, o vapor esfria. O que se forma?",
                 "options": [
                   {
-                    "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
+                    "text": "Mais vapor invisível",
+                    "misconceptionCode": "nuvem-fumaca"
                   },
                   {
-                    "text": "O título do mapa",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Rios",
+                    "misconceptionCode": "bacia-e-rio"
                   },
                   {
-                    "text": "A data de criação",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Nuvens, com gotinhas de água"
                   },
                   {
-                    "text": "O nome do cartógrafo",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Fumaça",
+                    "misconceptionCode": "nuvem-fumaca"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "Depois que chove, o que acontece com a água?",
+            "options": [
+              {
+                "text": "Ela vai para o mar e fica lá para sempre",
+                "misconceptionCode": "ciclo-linear"
+              },
+              {
+                "text": "Toda ela infiltra, mesmo no asfalto",
+                "misconceptionCode": "urbano-infiltra"
+              },
+              {
+                "text": "Ela vira nuvem na hora",
+                "misconceptionCode": "nuvem-fumaca"
+              },
+              {
+                "text": "Parte infiltra no solo, parte escorre para rios e depois evapora de novo"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "O ciclo continua: infiltração, escoamento e nova evaporação.",
+            "variants": [
+              {
+                "question": "Por que se diz que a água faz um ciclo?",
+                "options": [
+                  {
+                    "text": "Porque ela só cai uma vez",
+                    "misconceptionCode": "ciclo-linear"
+                  },
+                  {
+                    "text": "Porque ela volta a evaporar e chover de novo"
+                  },
+                  {
+                    "text": "Porque ela some no mar",
+                    "misconceptionCode": "urbano-infiltra"
+                  },
+                  {
+                    "text": "Porque ela fica nas nuvens",
+                    "misconceptionCode": "nuvem-fumaca"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Depois que chove, o que acontece com a água?",
+                "options": [
+                  {
+                    "text": "Parte infiltra no solo, parte escorre para rios e depois evapora de novo"
+                  },
+                  {
+                    "text": "Ela vira nuvem na hora",
+                    "misconceptionCode": "nuvem-fumaca"
+                  },
+                  {
+                    "text": "Toda ela infiltra, mesmo no asfalto",
+                    "misconceptionCode": "urbano-infiltra"
+                  },
+                  {
+                    "text": "Ela vai para o mar e fica lá para sempre",
+                    "misconceptionCode": "ciclo-linear"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06GE03"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06GE03-A3",
+        "id": "PK2-EF06GE04-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: Descrever os movimentos do planeta e sua relação",
-        "prompt": "Questão sobre Descrever os movimentos do planeta e sua relação.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Descrever os movimentos do planeta e sua relação.",
-        "skillId": "EF06GE03",
+        "title": "Praticar: cidade, campo e bacias",
+        "prompt": "Agora compare a chuva na cidade e no campo, e conheça a bacia hidrográfica.",
+        "estMinutes": 5,
+        "audioScript": "Agora compare a chuva na cidade e no campo, e conheça a bacia hidrográfica. Pergunta 1. Onde a chuva infiltra mais no solo? A: Numa avenida asfaltada; B: Numa área com mata e solo descoberto, no campo; C: Num estacionamento de concreto; D: Igual em qualquer lugar. Pergunta 2. O que é uma bacia hidrográfica? A: Um rio só; B: Uma bacia de lavar roupa; C: Só a foz do rio; D: A área de terra drenada por um rio principal e seus afluentes. Pergunta 3. Onde nasce um rio? A: Na nascente; B: Na foz; C: No afluente; D: Nas nuvens, diretamente. Pergunta 4. Um afluente é: A: O rio principal; B: A nuvem que forma o rio; C: Um rio que deságua em outro rio maior; D: O lugar onde o rio nasce.",
         "questions": [
           {
-            "question": "No estudo de \"Descrever os movimentos do planeta e sua relação\", o conceito de território significa:",
+            "question": "Onde a chuva infiltra mais no solo?",
             "options": [
               {
-                "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
+                "text": "Numa avenida asfaltada",
+                "misconceptionCode": "urbano-infiltra"
               },
               {
-                "text": "Apenas a área de um país",
-                "misconceptionCode": "territorio-so-pais"
+                "text": "Numa área com mata e solo descoberto, no campo"
               },
               {
-                "text": "Qualquer área coberta por água",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Num estacionamento de concreto",
+                "misconceptionCode": "urbano-infiltra"
               },
               {
-                "text": "O tamanho de uma cidade",
-                "misconceptionCode": "territorio-so-pais"
+                "text": "Igual em qualquer lugar",
+                "misconceptionCode": "urbano-infiltra"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
+            "correctIndex": 1,
+            "explanation": "Vegetação e solo sem cobertura deixam a água entrar; asfalto impede.",
             "variants": [
               {
-                "question": "O que é lugar, em Geografia?",
+                "question": "Por que a chuva escorre mais na cidade do que no campo?",
                 "options": [
                   {
-                    "text": "Espaço com significado afetivo e identidade para quem o vivencia"
+                    "text": "Porque chove mais na cidade",
+                    "misconceptionCode": "urbano-infiltra"
                   },
                   {
-                    "text": "Apenas coordenadas geográficas",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Porque o campo não tem solo",
+                    "misconceptionCode": "urbano-infiltra"
                   },
                   {
-                    "text": "Um endereço qualquer",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Porque a cidade é mais alta",
+                    "misconceptionCode": "urbano-infiltra"
                   },
                   {
-                    "text": "Somente cidades grandes",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Porque o solo está coberto por asfalto e concreto"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "Por que o espaço geográfico muda com o tempo?",
+                "question": "Onde a chuva infiltra mais no solo?",
                 "options": [
                   {
-                    "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
+                    "text": "Igual em qualquer lugar",
+                    "misconceptionCode": "urbano-infiltra"
                   },
                   {
-                    "text": "Ele nunca muda",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Num estacionamento de concreto",
+                    "misconceptionCode": "urbano-infiltra"
                   },
                   {
-                    "text": "Apenas guerras mudam o espaço",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Numa área com mata e solo descoberto, no campo"
                   },
                   {
-                    "text": "Só o clima o modifica",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Numa avenida asfaltada",
+                    "misconceptionCode": "urbano-infiltra"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF06GE03"
+            ]
           },
           {
-            "question": "No estudo de \"Descrever os movimentos do planeta e sua relação\", o conceito de território significa:",
+            "question": "O que é uma bacia hidrográfica?",
             "options": [
               {
-                "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
+                "text": "Um rio só",
+                "misconceptionCode": "bacia-e-rio"
               },
               {
-                "text": "Apenas a área de um país",
-                "misconceptionCode": "territorio-so-pais"
+                "text": "Uma bacia de lavar roupa",
+                "misconceptionCode": "nuvem-fumaca"
               },
               {
-                "text": "Qualquer área coberta por água",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Só a foz do rio",
+                "misconceptionCode": "bacia-e-rio"
               },
               {
-                "text": "O tamanho de uma cidade",
-                "misconceptionCode": "territorio-so-pais"
+                "text": "A área de terra drenada por um rio principal e seus afluentes"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "A bacia inclui o rio principal, os rios menores que chegam nele e toda a área ao redor.",
+            "variants": [
+              {
+                "question": "A bacia do rio São Francisco inclui:",
+                "options": [
+                  {
+                    "text": "Só o rio São Francisco",
+                    "misconceptionCode": "bacia-e-rio"
+                  },
+                  {
+                    "text": "O rio São Francisco, seus afluentes e as terras ao redor"
+                  },
+                  {
+                    "text": "Só a foz no mar",
+                    "misconceptionCode": "nuvem-fumaca"
+                  },
+                  {
+                    "text": "Só a nascente",
+                    "misconceptionCode": "bacia-e-rio"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "O que é uma bacia hidrográfica?",
+                "options": [
+                  {
+                    "text": "A área de terra drenada por um rio principal e seus afluentes"
+                  },
+                  {
+                    "text": "Só a foz do rio",
+                    "misconceptionCode": "bacia-e-rio"
+                  },
+                  {
+                    "text": "Uma bacia de lavar roupa",
+                    "misconceptionCode": "nuvem-fumaca"
+                  },
+                  {
+                    "text": "Um rio só",
+                    "misconceptionCode": "bacia-e-rio"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "Onde nasce um rio?",
+            "options": [
+              {
+                "text": "Na nascente"
+              },
+              {
+                "text": "Na foz",
+                "misconceptionCode": "bacia-e-rio"
+              },
+              {
+                "text": "No afluente",
+                "misconceptionCode": "bacia-e-rio"
+              },
+              {
+                "text": "Nas nuvens, diretamente",
+                "misconceptionCode": "nuvem-fumaca"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
+            "explanation": "A nascente é o começo do rio; a foz é onde ele termina, no mar ou em outro rio.",
             "variants": [
               {
-                "question": "O que é lugar, em Geografia?",
+                "question": "O lugar onde um rio deságua no mar se chama:",
                 "options": [
                   {
-                    "text": "Espaço com significado afetivo e identidade para quem o vivencia"
+                    "text": "Nascente",
+                    "misconceptionCode": "bacia-e-rio"
                   },
                   {
-                    "text": "Apenas coordenadas geográficas",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Afluente",
+                    "misconceptionCode": "bacia-e-rio"
                   },
                   {
-                    "text": "Um endereço qualquer",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Foz"
                   },
                   {
-                    "text": "Somente cidades grandes",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Margem",
+                    "misconceptionCode": "nuvem-fumaca"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "Onde nasce um rio?",
+                "options": [
+                  {
+                    "text": "Nas nuvens, diretamente",
+                    "misconceptionCode": "nuvem-fumaca"
+                  },
+                  {
+                    "text": "Na nascente"
+                  },
+                  {
+                    "text": "No afluente",
+                    "misconceptionCode": "bacia-e-rio"
+                  },
+                  {
+                    "text": "Na foz",
+                    "misconceptionCode": "bacia-e-rio"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Um afluente é:",
+            "options": [
+              {
+                "text": "O rio principal",
+                "misconceptionCode": "bacia-e-rio"
+              },
+              {
+                "text": "A nuvem que forma o rio",
+                "misconceptionCode": "nuvem-fumaca"
+              },
+              {
+                "text": "Um rio que deságua em outro rio maior"
+              },
+              {
+                "text": "O lugar onde o rio nasce",
+                "misconceptionCode": "bacia-e-rio"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "Afluentes alimentam o rio principal da bacia.",
+            "variants": [
+              {
+                "question": "O rio Grande, que deságua no São Francisco, é para o São Francisco:",
+                "options": [
+                  {
+                    "text": "Um afluente"
+                  },
+                  {
+                    "text": "A nascente",
+                    "misconceptionCode": "bacia-e-rio"
+                  },
+                  {
+                    "text": "A foz",
+                    "misconceptionCode": "nuvem-fumaca"
+                  },
+                  {
+                    "text": "Uma nuvem",
+                    "misconceptionCode": "bacia-e-rio"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que o espaço geográfico muda com o tempo?",
+                "question": "Um afluente é:",
                 "options": [
                   {
-                    "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
+                    "text": "O lugar onde o rio nasce",
+                    "misconceptionCode": "bacia-e-rio"
                   },
                   {
-                    "text": "Ele nunca muda",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "A nuvem que forma o rio",
+                    "misconceptionCode": "nuvem-fumaca"
                   },
                   {
-                    "text": "Apenas guerras mudam o espaço",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "O rio principal",
+                    "misconceptionCode": "bacia-e-rio"
                   },
                   {
-                    "text": "Só o clima o modifica",
-                    "misconceptionCode": "territorio-so-pais"
+                    "text": "Um rio que deságua em outro rio maior"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06GE03"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06GE03-A4",
+        "id": "PK2-EF06GE04-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: Descrever os movimentos do planeta e sua relação",
-        "prompt": "Questão sobre Descrever os movimentos do planeta e sua relação.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Descrever os movimentos do planeta e sua relação.",
-        "skillId": "EF06GE03",
+        "title": "Aplicar: a água da sua região",
+        "prompt": "Pense na água da sua cidade e da sua região.",
+        "estMinutes": 4,
+        "audioScript": "Pense na água da sua cidade e da sua região. Pergunta 1. Se uma indústria poluir um afluente, o que pode acontecer com o rio principal? A: Nada, cada rio é separado; B: A poluição evapora antes; C: Vira nuvem limpa; D: A poluição pode chegar até ele. Pergunta 2. Por que proteger a mata perto das nascentes? A: Porque ela ajuda a água a infiltrar e mantém a nascente viva; B: Não faz diferença; C: Porque a mata produz nuvens de fumaça; D: Porque a nascente é só um rio pequeno sem importância. Pergunta 3. Por que muitas cidades fazem piscinões e parques que podem alagar? A: Porque na cidade a água infiltra tanto quanto no campo; B: Para a água ficar parada para sempre; C: Para guardar a água da chuva que não infiltra no asfalto; D: Para transformar a bacia num rio só.",
         "questions": [
           {
-            "question": "Qual recurso é essencial para representar o tema \"Descrever os movimentos do planeta e sua relação\" em mapas?",
+            "question": "Se uma indústria poluir um afluente, o que pode acontecer com o rio principal?",
             "options": [
               {
-                "text": "Legenda, escala e orientação (rosa dos ventos)"
+                "text": "Nada, cada rio é separado",
+                "misconceptionCode": "bacia-e-rio"
               },
               {
-                "text": "Apenas cores diferentes",
-                "misconceptionCode": "mapa-sem-legenda"
+                "text": "A poluição evapora antes",
+                "misconceptionCode": "ciclo-linear"
               },
               {
-                "text": "Desenhos artísticos sem referência",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Vira nuvem limpa",
+                "misconceptionCode": "nuvem-fumaca"
               },
               {
-                "text": "Somente o nome do local",
-                "misconceptionCode": "mapa-sem-legenda"
+                "text": "A poluição pode chegar até ele"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
+            "correctIndex": 3,
+            "explanation": "Todos os rios de uma bacia estão ligados.",
             "variants": [
               {
-                "question": "O que indica a escala em um mapa?",
+                "question": "Esgoto jogado num riacho perto da nascente pode afetar:",
                 "options": [
                   {
-                    "text": "A relação entre a distância no mapa e a distância real"
+                    "text": "Só aquele ponto",
+                    "misconceptionCode": "bacia-e-rio"
                   },
                   {
-                    "text": "As cores utilizadas",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Toda a bacia rio abaixo"
                   },
                   {
-                    "text": "O nome do país",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Nada",
+                    "misconceptionCode": "ciclo-linear"
                   },
                   {
-                    "text": "O tamanho do papel",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Só as nuvens",
+                    "misconceptionCode": "nuvem-fumaca"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "O que é a legenda de um mapa?",
+                "question": "Se uma indústria poluir um afluente, o que pode acontecer com o rio principal?",
                 "options": [
                   {
-                    "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
+                    "text": "A poluição pode chegar até ele"
                   },
                   {
-                    "text": "O título do mapa",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Vira nuvem limpa",
+                    "misconceptionCode": "nuvem-fumaca"
                   },
                   {
-                    "text": "A data de criação",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A poluição evapora antes",
+                    "misconceptionCode": "ciclo-linear"
                   },
                   {
-                    "text": "O nome do cartógrafo",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Nada, cada rio é separado",
+                    "misconceptionCode": "bacia-e-rio"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06GE03"
+            ]
           },
           {
-            "question": "Qual recurso é essencial para representar o tema \"Descrever os movimentos do planeta e sua relação\" em mapas?",
+            "question": "Por que proteger a mata perto das nascentes?",
             "options": [
               {
-                "text": "Legenda, escala e orientação (rosa dos ventos)"
+                "text": "Porque ela ajuda a água a infiltrar e mantém a nascente viva"
               },
               {
-                "text": "Apenas cores diferentes",
-                "misconceptionCode": "mapa-sem-legenda"
+                "text": "Não faz diferença",
+                "misconceptionCode": "urbano-infiltra"
               },
               {
-                "text": "Desenhos artísticos sem referência",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Porque a mata produz nuvens de fumaça",
+                "misconceptionCode": "nuvem-fumaca"
               },
               {
-                "text": "Somente o nome do local",
-                "misconceptionCode": "mapa-sem-legenda"
+                "text": "Porque a nascente é só um rio pequeno sem importância",
+                "misconceptionCode": "bacia-e-rio"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
+            "explanation": "Sem mata, a água escorre, o solo erode e a nascente pode secar.",
             "variants": [
               {
-                "question": "O que indica a escala em um mapa?",
+                "question": "Se a mata ao redor de uma nascente for derrubada, a nascente pode:",
                 "options": [
                   {
-                    "text": "A relação entre a distância no mapa e a distância real"
+                    "text": "Ficar mais forte",
+                    "misconceptionCode": "urbano-infiltra"
                   },
                   {
-                    "text": "As cores utilizadas",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Virar foz",
+                    "misconceptionCode": "nuvem-fumaca"
                   },
                   {
-                    "text": "O nome do país",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Secar"
                   },
                   {
-                    "text": "O tamanho do papel",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Não mudar",
+                    "misconceptionCode": "bacia-e-rio"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "Por que proteger a mata perto das nascentes?",
+                "options": [
+                  {
+                    "text": "Porque a nascente é só um rio pequeno sem importância",
+                    "misconceptionCode": "bacia-e-rio"
+                  },
+                  {
+                    "text": "Porque ela ajuda a água a infiltrar e mantém a nascente viva"
+                  },
+                  {
+                    "text": "Porque a mata produz nuvens de fumaça",
+                    "misconceptionCode": "nuvem-fumaca"
+                  },
+                  {
+                    "text": "Não faz diferença",
+                    "misconceptionCode": "urbano-infiltra"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Por que muitas cidades fazem piscinões e parques que podem alagar?",
+            "options": [
+              {
+                "text": "Porque na cidade a água infiltra tanto quanto no campo",
+                "misconceptionCode": "urbano-infiltra"
+              },
+              {
+                "text": "Para a água ficar parada para sempre",
+                "misconceptionCode": "ciclo-linear"
+              },
+              {
+                "text": "Para guardar a água da chuva que não infiltra no asfalto"
+              },
+              {
+                "text": "Para transformar a bacia num rio só",
+                "misconceptionCode": "bacia-e-rio"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "Na cidade, a água escorre rápido; é preciso guardá-la para evitar enchentes.",
+            "variants": [
+              {
+                "question": "Um parque que alaga de propósito na chuva forte serve para:",
+                "options": [
+                  {
+                    "text": "Segurar a água e evitar enchente nas ruas"
+                  },
+                  {
+                    "text": "Fazer a água sumir",
+                    "misconceptionCode": "urbano-infiltra"
+                  },
+                  {
+                    "text": "Criar nuvens",
+                    "misconceptionCode": "ciclo-linear"
+                  },
+                  {
+                    "text": "Nada",
+                    "misconceptionCode": "bacia-e-rio"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O que é a legenda de um mapa?",
+                "question": "Por que muitas cidades fazem piscinões e parques que podem alagar?",
                 "options": [
                   {
-                    "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
+                    "text": "Para transformar a bacia num rio só",
+                    "misconceptionCode": "bacia-e-rio"
                   },
                   {
-                    "text": "O título do mapa",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Para a água ficar parada para sempre",
+                    "misconceptionCode": "ciclo-linear"
                   },
                   {
-                    "text": "A data de criação",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Porque na cidade a água infiltra tanto quanto no campo",
+                    "misconceptionCode": "urbano-infiltra"
                   },
                   {
-                    "text": "O nome do cartógrafo",
-                    "misconceptionCode": "mapa-sem-legenda"
+                    "text": "Para guardar a água da chuva que não infiltra no asfalto"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06GE03"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06GE03-A5",
+        "id": "PK2-EF06GE04-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Descrever os movimentos do planeta e sua relação",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Descrever os movimentos do planeta e sua relação.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Descrever os movimentos do planeta e sua relação.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: o ciclo e a bacia",
+        "prompt": "Explique com as suas palavras o caminho da água no ciclo da água e por que a chuva escorre mais na cidade do que no campo.",
+        "estMinutes": 6,
+        "audioScript": "Explique com as suas palavras o caminho da água no ciclo da água e por que a chuva escorre mais na cidade do que no campo.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de Descrever os movimentos do planeta e sua relação",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "etapas",
+              "description": "Cita etapas do ciclo: evaporação, condensação, chuva, infiltração ou escoamento"
+            },
+            {
+              "code": "ciclo",
+              "description": "Mostra que a água volta a evaporar, ou seja, é um ciclo"
+            },
+            {
+              "code": "cidade-campo",
+              "description": "Explica que o asfalto e o concreto dificultam a infiltração"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF06GE03"
+          "exemploBoaResposta": "O Sol esquenta a água, que evapora. No alto ela esfria e vira nuvem. Depois cai como chuva: uma parte entra no solo e outra escorre para os rios, e depois evapora de novo. Na cidade, o asfalto não deixa a água entrar no chão, então ela escorre mais e pode alagar as ruas."
+        }
       }
-    ]
-  },
-  {
-    "skillCode": "EF06GE06",
-    "title": "Trilha: Identificar as características das paisagens transformadas (EF06GE06)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
+    ],
     "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
-    "subjectCode": "GE",
-    "activities": [
-      {
-        "id": "PK-EF06GE06-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Identificar as características das paisagens transformadas",
-        "prompt": "Questão sobre Identificar as características das paisagens transformadas.",
-        "estMinutes": 4,
-        "audioScript": "Questão sobre Identificar as características das paisagens transformadas.",
-        "skillId": "EF06GE06",
-        "questions": [
-          {
-            "question": "No estudo de \"Identificar as características das paisagens transformadas\", o conceito de território significa:",
-            "options": [
-              {
-                "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
-              },
-              {
-                "text": "Apenas a área de um país",
-                "misconceptionCode": "territorio-so-pais"
-              },
-              {
-                "text": "Qualquer área coberta por água",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "O tamanho de uma cidade",
-                "misconceptionCode": "territorio-so-pais"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
-            "variants": [
-              {
-                "question": "O que é lugar, em Geografia?",
-                "options": [
-                  {
-                    "text": "Espaço com significado afetivo e identidade para quem o vivencia"
-                  },
-                  {
-                    "text": "Apenas coordenadas geográficas",
-                    "misconceptionCode": "territorio-so-pais"
-                  },
-                  {
-                    "text": "Um endereço qualquer",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente cidades grandes",
-                    "misconceptionCode": "territorio-so-pais"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o espaço geográfico muda com o tempo?",
-                "options": [
-                  {
-                    "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
-                  },
-                  {
-                    "text": "Ele nunca muda",
-                    "misconceptionCode": "territorio-so-pais"
-                  },
-                  {
-                    "text": "Apenas guerras mudam o espaço",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Só o clima o modifica",
-                    "misconceptionCode": "territorio-so-pais"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06GE06"
-          },
-          {
-            "question": "No estudo de \"Identificar as características das paisagens transformadas\", o conceito de território significa:",
-            "options": [
-              {
-                "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
-              },
-              {
-                "text": "Apenas a área de um país",
-                "misconceptionCode": "territorio-so-pais"
-              },
-              {
-                "text": "Qualquer área coberta por água",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "O tamanho de uma cidade",
-                "misconceptionCode": "territorio-so-pais"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
-            "variants": [
-              {
-                "question": "O que é lugar, em Geografia?",
-                "options": [
-                  {
-                    "text": "Espaço com significado afetivo e identidade para quem o vivencia"
-                  },
-                  {
-                    "text": "Apenas coordenadas geográficas",
-                    "misconceptionCode": "territorio-so-pais"
-                  },
-                  {
-                    "text": "Um endereço qualquer",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente cidades grandes",
-                    "misconceptionCode": "territorio-so-pais"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o espaço geográfico muda com o tempo?",
-                "options": [
-                  {
-                    "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
-                  },
-                  {
-                    "text": "Ele nunca muda",
-                    "misconceptionCode": "territorio-so-pais"
-                  },
-                  {
-                    "text": "Apenas guerras mudam o espaço",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Só o clima o modifica",
-                    "misconceptionCode": "territorio-so-pais"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06GE06"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06GE06-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Identificar as características das paisagens transformadas",
-        "prompt": "Questão sobre Identificar as características das paisagens transformadas.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Identificar as características das paisagens transformadas.",
-        "skillId": "EF06GE06",
-        "questions": [
-          {
-            "question": "Qual recurso é essencial para representar o tema \"Identificar as características das paisagens transformadas\" em mapas?",
-            "options": [
-              {
-                "text": "Legenda, escala e orientação (rosa dos ventos)"
-              },
-              {
-                "text": "Apenas cores diferentes",
-                "misconceptionCode": "mapa-sem-legenda"
-              },
-              {
-                "text": "Desenhos artísticos sem referência",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o nome do local",
-                "misconceptionCode": "mapa-sem-legenda"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
-            "variants": [
-              {
-                "question": "O que indica a escala em um mapa?",
-                "options": [
-                  {
-                    "text": "A relação entre a distância no mapa e a distância real"
-                  },
-                  {
-                    "text": "As cores utilizadas",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  },
-                  {
-                    "text": "O nome do país",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O tamanho do papel",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é a legenda de um mapa?",
-                "options": [
-                  {
-                    "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
-                  },
-                  {
-                    "text": "O título do mapa",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  },
-                  {
-                    "text": "A data de criação",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O nome do cartógrafo",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06GE06"
-          },
-          {
-            "question": "Qual recurso é essencial para representar o tema \"Identificar as características das paisagens transformadas\" em mapas?",
-            "options": [
-              {
-                "text": "Legenda, escala e orientação (rosa dos ventos)"
-              },
-              {
-                "text": "Apenas cores diferentes",
-                "misconceptionCode": "mapa-sem-legenda"
-              },
-              {
-                "text": "Desenhos artísticos sem referência",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o nome do local",
-                "misconceptionCode": "mapa-sem-legenda"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
-            "variants": [
-              {
-                "question": "O que indica a escala em um mapa?",
-                "options": [
-                  {
-                    "text": "A relação entre a distância no mapa e a distância real"
-                  },
-                  {
-                    "text": "As cores utilizadas",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  },
-                  {
-                    "text": "O nome do país",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O tamanho do papel",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é a legenda de um mapa?",
-                "options": [
-                  {
-                    "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
-                  },
-                  {
-                    "text": "O título do mapa",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  },
-                  {
-                    "text": "A data de criação",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O nome do cartógrafo",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06GE06"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06GE06-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar com exercícios: Identificar as características das paisagens transformadas",
-        "prompt": "Questão sobre Identificar as características das paisagens transformadas.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Identificar as características das paisagens transformadas.",
-        "skillId": "EF06GE06",
-        "questions": [
-          {
-            "question": "No estudo de \"Identificar as características das paisagens transformadas\", o conceito de território significa:",
-            "options": [
-              {
-                "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
-              },
-              {
-                "text": "Apenas a área de um país",
-                "misconceptionCode": "territorio-so-pais"
-              },
-              {
-                "text": "Qualquer área coberta por água",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "O tamanho de uma cidade",
-                "misconceptionCode": "territorio-so-pais"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
-            "variants": [
-              {
-                "question": "O que é lugar, em Geografia?",
-                "options": [
-                  {
-                    "text": "Espaço com significado afetivo e identidade para quem o vivencia"
-                  },
-                  {
-                    "text": "Apenas coordenadas geográficas",
-                    "misconceptionCode": "territorio-so-pais"
-                  },
-                  {
-                    "text": "Um endereço qualquer",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente cidades grandes",
-                    "misconceptionCode": "territorio-so-pais"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o espaço geográfico muda com o tempo?",
-                "options": [
-                  {
-                    "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
-                  },
-                  {
-                    "text": "Ele nunca muda",
-                    "misconceptionCode": "territorio-so-pais"
-                  },
-                  {
-                    "text": "Apenas guerras mudam o espaço",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Só o clima o modifica",
-                    "misconceptionCode": "territorio-so-pais"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06GE06"
-          },
-          {
-            "question": "No estudo de \"Identificar as características das paisagens transformadas\", o conceito de território significa:",
-            "options": [
-              {
-                "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
-              },
-              {
-                "text": "Apenas a área de um país",
-                "misconceptionCode": "territorio-so-pais"
-              },
-              {
-                "text": "Qualquer área coberta por água",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "O tamanho de uma cidade",
-                "misconceptionCode": "territorio-so-pais"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
-            "variants": [
-              {
-                "question": "O que é lugar, em Geografia?",
-                "options": [
-                  {
-                    "text": "Espaço com significado afetivo e identidade para quem o vivencia"
-                  },
-                  {
-                    "text": "Apenas coordenadas geográficas",
-                    "misconceptionCode": "territorio-so-pais"
-                  },
-                  {
-                    "text": "Um endereço qualquer",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente cidades grandes",
-                    "misconceptionCode": "territorio-so-pais"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o espaço geográfico muda com o tempo?",
-                "options": [
-                  {
-                    "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
-                  },
-                  {
-                    "text": "Ele nunca muda",
-                    "misconceptionCode": "territorio-so-pais"
-                  },
-                  {
-                    "text": "Apenas guerras mudam o espaço",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Só o clima o modifica",
-                    "misconceptionCode": "territorio-so-pais"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06GE06"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06GE06-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar em situações reais: Identificar as características das paisagens transformadas",
-        "prompt": "Questão sobre Identificar as características das paisagens transformadas.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Identificar as características das paisagens transformadas.",
-        "skillId": "EF06GE06",
-        "questions": [
-          {
-            "question": "Qual recurso é essencial para representar o tema \"Identificar as características das paisagens transformadas\" em mapas?",
-            "options": [
-              {
-                "text": "Legenda, escala e orientação (rosa dos ventos)"
-              },
-              {
-                "text": "Apenas cores diferentes",
-                "misconceptionCode": "mapa-sem-legenda"
-              },
-              {
-                "text": "Desenhos artísticos sem referência",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o nome do local",
-                "misconceptionCode": "mapa-sem-legenda"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
-            "variants": [
-              {
-                "question": "O que indica a escala em um mapa?",
-                "options": [
-                  {
-                    "text": "A relação entre a distância no mapa e a distância real"
-                  },
-                  {
-                    "text": "As cores utilizadas",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  },
-                  {
-                    "text": "O nome do país",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O tamanho do papel",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é a legenda de um mapa?",
-                "options": [
-                  {
-                    "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
-                  },
-                  {
-                    "text": "O título do mapa",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  },
-                  {
-                    "text": "A data de criação",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O nome do cartógrafo",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06GE06"
-          },
-          {
-            "question": "Qual recurso é essencial para representar o tema \"Identificar as características das paisagens transformadas\" em mapas?",
-            "options": [
-              {
-                "text": "Legenda, escala e orientação (rosa dos ventos)"
-              },
-              {
-                "text": "Apenas cores diferentes",
-                "misconceptionCode": "mapa-sem-legenda"
-              },
-              {
-                "text": "Desenhos artísticos sem referência",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o nome do local",
-                "misconceptionCode": "mapa-sem-legenda"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
-            "variants": [
-              {
-                "question": "O que indica a escala em um mapa?",
-                "options": [
-                  {
-                    "text": "A relação entre a distância no mapa e a distância real"
-                  },
-                  {
-                    "text": "As cores utilizadas",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  },
-                  {
-                    "text": "O nome do país",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O tamanho do papel",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é a legenda de um mapa?",
-                "options": [
-                  {
-                    "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
-                  },
-                  {
-                    "text": "O título do mapa",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  },
-                  {
-                    "text": "A data de criação",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O nome do cartógrafo",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06GE06"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06GE06-A5",
-        "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Identificar as características das paisagens transformadas",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Identificar as características das paisagens transformadas.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Identificar as características das paisagens transformadas.",
-        "rubric": {
-          "criteria": [
-            "Menciona ao menos dois aspectos de Identificar as características das paisagens transformadas",
-            "Usa vocabulário adequado ao ano escolar"
-          ],
-          "minScore": 60
-        },
-        "skillId": "EF06GE06"
-      }
-    ]
-  },
-  {
-    "skillCode": "EF06GE10",
-    "title": "Trilha: Explicar as diferentes formas de uso do solo (EF06GE10)",
     "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
-    "subjectCode": "GE",
-    "activities": [
-      {
-        "id": "PK-EF06GE10-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Explicar as diferentes formas de uso do solo",
-        "prompt": "Questão sobre Explicar as diferentes formas de uso do solo.",
-        "estMinutes": 4,
-        "audioScript": "Questão sobre Explicar as diferentes formas de uso do solo.",
-        "skillId": "EF06GE10",
-        "questions": [
-          {
-            "question": "No estudo de \"Explicar as diferentes formas de uso do solo\", o conceito de território significa:",
-            "options": [
-              {
-                "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
-              },
-              {
-                "text": "Apenas a área de um país",
-                "misconceptionCode": "territorio-so-pais"
-              },
-              {
-                "text": "Qualquer área coberta por água",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "O tamanho de uma cidade",
-                "misconceptionCode": "territorio-so-pais"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
-            "variants": [
-              {
-                "question": "O que é lugar, em Geografia?",
-                "options": [
-                  {
-                    "text": "Espaço com significado afetivo e identidade para quem o vivencia"
-                  },
-                  {
-                    "text": "Apenas coordenadas geográficas",
-                    "misconceptionCode": "territorio-so-pais"
-                  },
-                  {
-                    "text": "Um endereço qualquer",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente cidades grandes",
-                    "misconceptionCode": "territorio-so-pais"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o espaço geográfico muda com o tempo?",
-                "options": [
-                  {
-                    "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
-                  },
-                  {
-                    "text": "Ele nunca muda",
-                    "misconceptionCode": "territorio-so-pais"
-                  },
-                  {
-                    "text": "Apenas guerras mudam o espaço",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Só o clima o modifica",
-                    "misconceptionCode": "territorio-so-pais"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06GE10"
-          },
-          {
-            "question": "No estudo de \"Explicar as diferentes formas de uso do solo\", o conceito de território significa:",
-            "options": [
-              {
-                "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
-              },
-              {
-                "text": "Apenas a área de um país",
-                "misconceptionCode": "territorio-so-pais"
-              },
-              {
-                "text": "Qualquer área coberta por água",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "O tamanho de uma cidade",
-                "misconceptionCode": "territorio-so-pais"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
-            "variants": [
-              {
-                "question": "O que é lugar, em Geografia?",
-                "options": [
-                  {
-                    "text": "Espaço com significado afetivo e identidade para quem o vivencia"
-                  },
-                  {
-                    "text": "Apenas coordenadas geográficas",
-                    "misconceptionCode": "territorio-so-pais"
-                  },
-                  {
-                    "text": "Um endereço qualquer",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente cidades grandes",
-                    "misconceptionCode": "territorio-so-pais"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o espaço geográfico muda com o tempo?",
-                "options": [
-                  {
-                    "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
-                  },
-                  {
-                    "text": "Ele nunca muda",
-                    "misconceptionCode": "territorio-so-pais"
-                  },
-                  {
-                    "text": "Apenas guerras mudam o espaço",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Só o clima o modifica",
-                    "misconceptionCode": "territorio-so-pais"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06GE10"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06GE10-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Explicar as diferentes formas de uso do solo",
-        "prompt": "Questão sobre Explicar as diferentes formas de uso do solo.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Explicar as diferentes formas de uso do solo.",
-        "skillId": "EF06GE10",
-        "questions": [
-          {
-            "question": "Qual recurso é essencial para representar o tema \"Explicar as diferentes formas de uso do solo\" em mapas?",
-            "options": [
-              {
-                "text": "Legenda, escala e orientação (rosa dos ventos)"
-              },
-              {
-                "text": "Apenas cores diferentes",
-                "misconceptionCode": "mapa-sem-legenda"
-              },
-              {
-                "text": "Desenhos artísticos sem referência",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o nome do local",
-                "misconceptionCode": "mapa-sem-legenda"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
-            "variants": [
-              {
-                "question": "O que indica a escala em um mapa?",
-                "options": [
-                  {
-                    "text": "A relação entre a distância no mapa e a distância real"
-                  },
-                  {
-                    "text": "As cores utilizadas",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  },
-                  {
-                    "text": "O nome do país",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O tamanho do papel",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é a legenda de um mapa?",
-                "options": [
-                  {
-                    "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
-                  },
-                  {
-                    "text": "O título do mapa",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  },
-                  {
-                    "text": "A data de criação",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O nome do cartógrafo",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06GE10"
-          },
-          {
-            "question": "Qual recurso é essencial para representar o tema \"Explicar as diferentes formas de uso do solo\" em mapas?",
-            "options": [
-              {
-                "text": "Legenda, escala e orientação (rosa dos ventos)"
-              },
-              {
-                "text": "Apenas cores diferentes",
-                "misconceptionCode": "mapa-sem-legenda"
-              },
-              {
-                "text": "Desenhos artísticos sem referência",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o nome do local",
-                "misconceptionCode": "mapa-sem-legenda"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
-            "variants": [
-              {
-                "question": "O que indica a escala em um mapa?",
-                "options": [
-                  {
-                    "text": "A relação entre a distância no mapa e a distância real"
-                  },
-                  {
-                    "text": "As cores utilizadas",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  },
-                  {
-                    "text": "O nome do país",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O tamanho do papel",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é a legenda de um mapa?",
-                "options": [
-                  {
-                    "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
-                  },
-                  {
-                    "text": "O título do mapa",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  },
-                  {
-                    "text": "A data de criação",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O nome do cartógrafo",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06GE10"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06GE10-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar com exercícios: Explicar as diferentes formas de uso do solo",
-        "prompt": "Questão sobre Explicar as diferentes formas de uso do solo.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Explicar as diferentes formas de uso do solo.",
-        "skillId": "EF06GE10",
-        "questions": [
-          {
-            "question": "No estudo de \"Explicar as diferentes formas de uso do solo\", o conceito de território significa:",
-            "options": [
-              {
-                "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
-              },
-              {
-                "text": "Apenas a área de um país",
-                "misconceptionCode": "territorio-so-pais"
-              },
-              {
-                "text": "Qualquer área coberta por água",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "O tamanho de uma cidade",
-                "misconceptionCode": "territorio-so-pais"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
-            "variants": [
-              {
-                "question": "O que é lugar, em Geografia?",
-                "options": [
-                  {
-                    "text": "Espaço com significado afetivo e identidade para quem o vivencia"
-                  },
-                  {
-                    "text": "Apenas coordenadas geográficas",
-                    "misconceptionCode": "territorio-so-pais"
-                  },
-                  {
-                    "text": "Um endereço qualquer",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente cidades grandes",
-                    "misconceptionCode": "territorio-so-pais"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o espaço geográfico muda com o tempo?",
-                "options": [
-                  {
-                    "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
-                  },
-                  {
-                    "text": "Ele nunca muda",
-                    "misconceptionCode": "territorio-so-pais"
-                  },
-                  {
-                    "text": "Apenas guerras mudam o espaço",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Só o clima o modifica",
-                    "misconceptionCode": "territorio-so-pais"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06GE10"
-          },
-          {
-            "question": "No estudo de \"Explicar as diferentes formas de uso do solo\", o conceito de território significa:",
-            "options": [
-              {
-                "text": "Espaço definido por relações de poder, cultura e identidade de um grupo"
-              },
-              {
-                "text": "Apenas a área de um país",
-                "misconceptionCode": "territorio-so-pais"
-              },
-              {
-                "text": "Qualquer área coberta por água",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "O tamanho de uma cidade",
-                "misconceptionCode": "territorio-so-pais"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Território envolve poder, identidade e cultura, não apenas limites físicos.",
-            "variants": [
-              {
-                "question": "O que é lugar, em Geografia?",
-                "options": [
-                  {
-                    "text": "Espaço com significado afetivo e identidade para quem o vivencia"
-                  },
-                  {
-                    "text": "Apenas coordenadas geográficas",
-                    "misconceptionCode": "territorio-so-pais"
-                  },
-                  {
-                    "text": "Um endereço qualquer",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Somente cidades grandes",
-                    "misconceptionCode": "territorio-so-pais"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o espaço geográfico muda com o tempo?",
-                "options": [
-                  {
-                    "text": "Porque as ações humanas e processos naturais transformam continuamente o espaço"
-                  },
-                  {
-                    "text": "Ele nunca muda",
-                    "misconceptionCode": "territorio-so-pais"
-                  },
-                  {
-                    "text": "Apenas guerras mudam o espaço",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Só o clima o modifica",
-                    "misconceptionCode": "territorio-so-pais"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06GE10"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06GE10-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar em situações reais: Explicar as diferentes formas de uso do solo",
-        "prompt": "Questão sobre Explicar as diferentes formas de uso do solo.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Explicar as diferentes formas de uso do solo.",
-        "skillId": "EF06GE10",
-        "questions": [
-          {
-            "question": "Qual recurso é essencial para representar o tema \"Explicar as diferentes formas de uso do solo\" em mapas?",
-            "options": [
-              {
-                "text": "Legenda, escala e orientação (rosa dos ventos)"
-              },
-              {
-                "text": "Apenas cores diferentes",
-                "misconceptionCode": "mapa-sem-legenda"
-              },
-              {
-                "text": "Desenhos artísticos sem referência",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o nome do local",
-                "misconceptionCode": "mapa-sem-legenda"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
-            "variants": [
-              {
-                "question": "O que indica a escala em um mapa?",
-                "options": [
-                  {
-                    "text": "A relação entre a distância no mapa e a distância real"
-                  },
-                  {
-                    "text": "As cores utilizadas",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  },
-                  {
-                    "text": "O nome do país",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O tamanho do papel",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é a legenda de um mapa?",
-                "options": [
-                  {
-                    "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
-                  },
-                  {
-                    "text": "O título do mapa",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  },
-                  {
-                    "text": "A data de criação",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O nome do cartógrafo",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06GE10"
-          },
-          {
-            "question": "Qual recurso é essencial para representar o tema \"Explicar as diferentes formas de uso do solo\" em mapas?",
-            "options": [
-              {
-                "text": "Legenda, escala e orientação (rosa dos ventos)"
-              },
-              {
-                "text": "Apenas cores diferentes",
-                "misconceptionCode": "mapa-sem-legenda"
-              },
-              {
-                "text": "Desenhos artísticos sem referência",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "Somente o nome do local",
-                "misconceptionCode": "mapa-sem-legenda"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Todo mapa precisa de legenda, escala e orientação para ser lido corretamente.",
-            "variants": [
-              {
-                "question": "O que indica a escala em um mapa?",
-                "options": [
-                  {
-                    "text": "A relação entre a distância no mapa e a distância real"
-                  },
-                  {
-                    "text": "As cores utilizadas",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  },
-                  {
-                    "text": "O nome do país",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O tamanho do papel",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é a legenda de um mapa?",
-                "options": [
-                  {
-                    "text": "Conjunto de símbolos e cores que explicam o que cada elemento representa"
-                  },
-                  {
-                    "text": "O título do mapa",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  },
-                  {
-                    "text": "A data de criação",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "O nome do cartógrafo",
-                    "misconceptionCode": "mapa-sem-legenda"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06GE10"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06GE10-A5",
-        "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Explicar as diferentes formas de uso do solo",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Explicar as diferentes formas de uso do solo.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Explicar as diferentes formas de uso do solo.",
-        "rubric": {
-          "criteria": [
-            "Menciona ao menos dois aspectos de Explicar as diferentes formas de uso do solo",
-            "Usa vocabulário adequado ao ano escolar"
-          ],
-          "minScore": 60
-        },
-        "skillId": "EF06GE10"
-      }
-    ]
+    "status": "APPROVED"
   }
 ]

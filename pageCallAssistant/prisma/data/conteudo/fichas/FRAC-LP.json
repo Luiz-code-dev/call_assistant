@@ -3,165 +3,342 @@
     "skillCode": "EF04MA09",
     "whatStudentDoes": "Reconhece e nomeia frações unitárias usuais (1/2, 1/3, 1/4, 1/5, 1/10), relacionando cada fração à parte de um inteiro dividido em partes iguais.",
     "commonErrors": [
-      { "code": "partes-desiguais", "description": "Conta partes sem verificar se são iguais: desenha um retângulo cortado de qualquer jeito e chama de terços" },
-      { "code": "confunde-num-den", "description": "Lê 1/4 como 'quatro de um' em vez de 'um de quatro'" },
-      { "code": "todo-nao-e-inteiro", "description": "Não percebe que o 'todo' precisa ser sempre o mesmo objeto para comparar frações" },
-      { "code": "fracao-so-e-pizza", "description": "Só reconhece fração em figuras circulares, não em retângulos, conjuntos ou retas" }
+      {
+        "code": "partes-desiguais",
+        "description": "Conta partes sem verificar se são iguais: desenha um retângulo cortado de qualquer jeito e chama de terços"
+      },
+      {
+        "code": "confunde-num-den",
+        "description": "Lê 1/4 como 'quatro de um' em vez de 'um de quatro'"
+      },
+      {
+        "code": "todo-nao-e-inteiro",
+        "description": "Não percebe que o 'todo' precisa ser sempre o mesmo objeto para comparar frações"
+      },
+      {
+        "code": "fracao-so-e-pizza",
+        "description": "Só reconhece fração em figuras circulares, não em retângulos, conjuntos ou retas"
+      }
     ],
-    "recommendedTypes": ["QUIZ"],
+    "recommendedTypes": [
+      "QUIZ"
+    ],
     "ageNotes": "Use objetos concretos partidos em partes iguais (dobraduras, barras de chocolate, fita). Para o 4º ano, focar nas frações 1/2, 1/3, 1/4 e 1/10.",
     "source": "SPEAKFLOW",
-    "status": "DRAFT"
+    "status": "APPROVED",
+    "version": 2
   },
   {
     "skillCode": "EF05MA03",
     "whatStudentDoes": "Identifica frações como representação de partes de inteiros e as representa na reta numérica, reconhecendo frações maiores que 1.",
     "commonErrors": [
-      { "code": "fracao-maior-1-impossivel", "description": "Acha impossível uma fração maior que 1, como 5/3" },
-      { "code": "reta-sem-escala", "description": "Marca 1/2 e 1/3 no mesmo ponto da reta por não dividir o intervalo corretamente" },
-      { "code": "numerador-e-posicao", "description": "Coloca 3/4 na marca do 3 em vez de dividir o inteiro em 4 partes" },
-      { "code": "denominador-maior-menor-fracao", "description": "Acha que 1/8 é maior que 1/4 porque 8 é maior que 4" }
+      {
+        "code": "fracao-maior-1-impossivel",
+        "description": "Acha impossível uma fração maior que 1, como 5/3"
+      },
+      {
+        "code": "reta-sem-escala",
+        "description": "Marca 1/2 e 1/3 no mesmo ponto da reta por não dividir o intervalo corretamente"
+      },
+      {
+        "code": "numerador-e-posicao",
+        "description": "Coloca 3/4 na marca do 3 em vez de dividir o inteiro em 4 partes"
+      },
+      {
+        "code": "denominador-maior-menor-fracao",
+        "description": "Acha que 1/8 é maior que 1/4 porque 8 é maior que 4"
+      }
     ],
-    "recommendedTypes": ["QUIZ"],
+    "recommendedTypes": [
+      "QUIZ"
+    ],
     "ageNotes": "Trabalhar a reta numérica com dobraduras: dobrar uma tira de papel para marcar os pontos físicos antes de transferir para a reta desenhada.",
     "source": "SPEAKFLOW",
-    "status": "DRAFT"
+    "status": "APPROVED",
+    "version": 2
   },
   {
     "skillCode": "EF05MA04",
     "whatStudentDoes": "Reconhece e gera frações equivalentes, simplifica frações e usa equivalência para comparar frações com denominadores diferentes.",
     "commonErrors": [
-      { "code": "soma-para-equivaler", "description": "Para obter equivalente de 1/2, adiciona 1 ao numerador e 1 ao denominador: 1/2 = 2/3" },
-      { "code": "simplifica-so-num", "description": "Divide só o numerador ou só o denominador ao simplificar" },
-      { "code": "equivalencia-visual-apenas", "description": "Reconhece equivalência em figuras mas não consegue calcular sem desenho" },
-      { "code": "mmc-nao-e-necessario", "description": "Não usa o MMC para encontrar denominador comum, tenta qualquer múltiplo" }
+      {
+        "code": "soma-para-equivaler",
+        "description": "Para obter equivalente de 1/2, adiciona 1 ao numerador e 1 ao denominador: 1/2 = 2/3"
+      },
+      {
+        "code": "simplifica-so-num",
+        "description": "Divide só o numerador ou só o denominador ao simplificar"
+      },
+      {
+        "code": "equivalencia-visual-apenas",
+        "description": "Reconhece equivalência em figuras mas não consegue calcular sem desenho"
+      },
+      {
+        "code": "mmc-nao-e-necessario",
+        "description": "Não usa o MMC para encontrar denominador comum, tenta qualquer múltiplo"
+      }
     ],
-    "recommendedTypes": ["QUIZ"],
+    "recommendedTypes": [
+      "QUIZ"
+    ],
     "ageNotes": "Materiais concretos como barras fracionárias ajudam muito. Mostrar que 1/2 = 2/4 = 3/6 sobrepondo as barras antes de formalizar o algoritmo.",
     "source": "SPEAKFLOW",
-    "status": "DRAFT"
+    "status": "APPROVED",
+    "version": 2
   },
   {
     "skillCode": "EF05MA05",
     "whatStudentDoes": "Compara e ordena frações e números decimais usando a reta numérica, conversões e equivalências.",
     "commonErrors": [
-      { "code": "compara-numerador-separado", "description": "Compara 2/3 e 3/4 olhando só para o numerador (3 > 2) sem igualar o denominador" },
-      { "code": "decimal-sem-converter", "description": "Não converte fração para decimal (ou vice-versa) antes de comparar, mistura os dois" },
-      { "code": "maior-denominador-menor-fracao", "description": "Acha que 1/5 é maior que 1/3 porque 5 > 3" }
+      {
+        "code": "compara-numerador-separado",
+        "description": "Compara 2/3 e 3/4 olhando só para o numerador (3 > 2) sem igualar o denominador"
+      },
+      {
+        "code": "decimal-sem-converter",
+        "description": "Não converte fração para decimal (ou vice-versa) antes de comparar, mistura os dois"
+      },
+      {
+        "code": "maior-denominador-menor-fracao",
+        "description": "Acha que 1/5 é maior que 1/3 porque 5 > 3"
+      }
     ],
-    "recommendedTypes": ["QUIZ"],
+    "recommendedTypes": [
+      "QUIZ"
+    ],
     "ageNotes": "Usar a reta numérica de 0 a 2 com marcações de frações e decimais sobrepostas. Para o 5º ano, focar em frações com denominadores até 10.",
     "source": "SPEAKFLOW",
-    "status": "DRAFT"
+    "status": "APPROVED",
+    "version": 2
   },
   {
     "skillCode": "EF06MA07",
     "whatStudentDoes": "Compara, ordena e representa frações na reta numérica; reconhece frações equivalentes; resolve situações que envolvem igualdade e comparação de frações.",
     "commonErrors": [
-      { "code": "soma-num-e-den-separado", "description": "Soma numerador com numerador e denominador com denominador: 1/2 + 1/3 = 2/5" },
-      { "code": "maior-denominador-maior-fracao", "description": "Acha que 1/8 é maior que 1/4 porque 8 é maior que 4" },
-      { "code": "fracao-nao-e-ponto-na-reta", "description": "Não consegue marcar 3/4 na reta porque não divide o inteiro em 4 partes iguais" },
-      { "code": "equivalencia-por-adicao", "description": "Tenta gerar frações equivalentes somando o mesmo valor ao numerador e ao denominador" },
-      { "code": "compara-sem-mmc", "description": "Compara 2/3 e 3/5 sem igualar os denominadores, olha só para os números" }
+      {
+        "code": "soma-num-e-den-separado",
+        "description": "Soma numerador com numerador e denominador com denominador: 1/2 + 1/3 = 2/5"
+      },
+      {
+        "code": "maior-denominador-maior-fracao",
+        "description": "Acha que 1/8 é maior que 1/4 porque 8 é maior que 4"
+      },
+      {
+        "code": "fracao-nao-e-ponto-na-reta",
+        "description": "Não consegue marcar 3/4 na reta porque não divide o inteiro em 4 partes iguais"
+      },
+      {
+        "code": "equivalencia-por-adicao",
+        "description": "Tenta gerar frações equivalentes somando o mesmo valor ao numerador e ao denominador"
+      },
+      {
+        "code": "compara-sem-mmc",
+        "description": "Compara 2/3 e 3/5 sem igualar os denominadores, olha só para os números"
+      }
     ],
-    "recommendedTypes": ["QUIZ", "AI_ACTIVITY"],
+    "recommendedTypes": [
+      "QUIZ",
+      "AI_ACTIVITY"
+    ],
     "ageNotes": "Reforçar com reta numérica física (régua dividida em frações). Para comparação, barras fracionárias sobrepostas tornam a equivalência concreta.",
     "source": "SPEAKFLOW",
-    "status": "DRAFT"
+    "status": "APPROVED",
+    "version": 2
   },
   {
     "skillCode": "EF06MA08",
     "whatStudentDoes": "Converte frações em números decimais e vice-versa; representa frações e decimais na reta numérica; reconhece dízimas periódicas simples.",
     "commonErrors": [
-      { "code": "decimal-vira-fracao-errada", "description": "Converte 0,3 como 3/10 mas converte 0,30 como 30/10 em vez de 30/100" },
-      { "code": "dizima-nao-e-racional", "description": "Acha que 1/3 = 0,333... não é exato, então prefere deixar como fração" },
-      { "code": "virgula-desloca-errado", "description": "Ao multiplicar por 10, desloca a vírgula para a esquerda" },
-      { "code": "denominador-so-potencia-10", "description": "Acha que toda fração pode ser escrita como decimal exato, incluindo 1/3 e 1/7" }
+      {
+        "code": "decimal-vira-fracao-errada",
+        "description": "Converte 0,3 como 3/10 mas converte 0,30 como 30/10 em vez de 30/100"
+      },
+      {
+        "code": "dizima-nao-e-racional",
+        "description": "Acha que 1/3 = 0,333... não é exato, então prefere deixar como fração"
+      },
+      {
+        "code": "virgula-desloca-errado",
+        "description": "Ao multiplicar por 10, desloca a vírgula para a esquerda"
+      },
+      {
+        "code": "denominador-so-potencia-10",
+        "description": "Acha que toda fração pode ser escrita como decimal exato, incluindo 1/3 e 1/7"
+      }
     ],
-    "recommendedTypes": ["QUIZ"],
+    "recommendedTypes": [
+      "QUIZ"
+    ],
     "ageNotes": "Trabalhar com dinheiro (centavos) e medidas (metros e centímetros) como contexto para decimais. Usar tabela de valor posicional estendida para décimos e centésimos.",
     "source": "SPEAKFLOW",
-    "status": "DRAFT"
+    "status": "APPROVED",
+    "version": 2
   },
   {
     "skillCode": "EF06MA09",
     "whatStudentDoes": "Calcula fração de uma quantidade inteira; resolve problemas que envolvem dividir um total em partes fracionárias.",
     "commonErrors": [
-      { "code": "multiplica-em-vez-de-dividir", "description": "Para calcular 1/4 de 20, multiplica 1/4 × 4 em vez de dividir 20 por 4" },
-      { "code": "fracao-do-numerador", "description": "Calcula 2/3 de 12 dividindo só por 3 e esquece de multiplicar por 2" },
-      { "code": "nao-reconhece-contexto", "description": "Não identifica que 'metade de 30 reais' é uma operação com fração" },
-      { "code": "resultado-maior-que-todo", "description": "Aceita resultado maior que o inteiro original sem perceber o erro" }
+      {
+        "code": "multiplica-em-vez-de-dividir",
+        "description": "Para calcular 1/4 de 20, multiplica 1/4 × 4 em vez de dividir 20 por 4"
+      },
+      {
+        "code": "fracao-do-numerador",
+        "description": "Calcula 2/3 de 12 dividindo só por 3 e esquece de multiplicar por 2"
+      },
+      {
+        "code": "nao-reconhece-contexto",
+        "description": "Não identifica que 'metade de 30 reais' é uma operação com fração"
+      },
+      {
+        "code": "resultado-maior-que-todo",
+        "description": "Aceita resultado maior que o inteiro original sem perceber o erro"
+      }
     ],
-    "recommendedTypes": ["QUIZ", "AI_ACTIVITY"],
+    "recommendedTypes": [
+      "QUIZ",
+      "AI_ACTIVITY"
+    ],
     "ageNotes": "Partir de contextos concretos: metade da turma, 1/3 das balas, 2/4 do caminho. O modelo 'dividir pelo denominador, multiplicar pelo numerador' funciona bem para o 6º ano.",
     "source": "SPEAKFLOW",
-    "status": "DRAFT"
+    "status": "APPROVED",
+    "version": 2
   },
   {
     "skillCode": "EF06MA10",
     "whatStudentDoes": "Realiza adição e subtração de frações com denominadores iguais e diferentes, usando equivalência e mínimo múltiplo comum.",
     "commonErrors": [
-      { "code": "soma-num-e-den-separado", "description": "Soma 1/2 + 1/3 como (1+1)/(2+3) = 2/5" },
-      { "code": "usa-denominador-qualquer", "description": "Usa qualquer múltiplo comum em vez do mínimo, gerando frações grandes e difíceis de simplificar" },
-      { "code": "nao-ajusta-numerador", "description": "Encontra o denominador comum mas não multiplica o numerador pelo mesmo fator" },
-      { "code": "subtrai-menor-do-maior", "description": "Em 1/4 - 3/4, subtrai 1 de 3 e dá 2/4, sem perceber que o resultado deveria ser negativo ou zero neste contexto" },
-      { "code": "simplifica-antes-de-operar", "description": "Simplifica cada fração separadamente antes de somar, chegando a denominadores diferentes" }
+      {
+        "code": "soma-num-e-den-separado",
+        "description": "Soma 1/2 + 1/3 como (1+1)/(2+3) = 2/5"
+      },
+      {
+        "code": "usa-denominador-qualquer",
+        "description": "Usa qualquer múltiplo comum em vez do mínimo, gerando frações grandes e difíceis de simplificar"
+      },
+      {
+        "code": "nao-ajusta-numerador",
+        "description": "Encontra o denominador comum mas não multiplica o numerador pelo mesmo fator"
+      },
+      {
+        "code": "subtrai-menor-do-maior",
+        "description": "Em 1/4 - 3/4, subtrai 1 de 3 e dá 2/4, sem perceber que o resultado deveria ser negativo ou zero neste contexto"
+      },
+      {
+        "code": "simplifica-antes-de-operar",
+        "description": "Simplifica cada fração separadamente antes de somar, chegando a denominadores diferentes"
+      }
     ],
-    "recommendedTypes": ["QUIZ", "AI_ACTIVITY"],
+    "recommendedTypes": [
+      "QUIZ",
+      "AI_ACTIVITY"
+    ],
     "ageNotes": "O erro mais comum é somar numeradores e denominadores separadamente. Começar com frações de mesmo denominador antes de introduzir o MMC.",
     "source": "SPEAKFLOW",
-    "status": "DRAFT"
+    "status": "APPROVED",
+    "version": 2
   },
   {
     "skillCode": "EF15LP03",
     "whatStudentDoes": "Encontra no texto informações que estão escritas de forma clara e direta, sem precisar deduzir.",
     "commonErrors": [
-      { "code": "busca-informacao-implicita", "description": "Responde com uma informação que precisa ser deduzida, não com o que está escrito diretamente" },
-      { "code": "nao-relê-o-trecho", "description": "Responde de memória sem verificar onde a informação aparece no texto" },
-      { "code": "confunde-detalhe-com-ideia", "description": "Troca um detalhe explícito por uma ideia geral que não está no texto" }
+      {
+        "code": "busca-informacao-implicita",
+        "description": "Responde com uma informação que precisa ser deduzida, não com o que está escrito diretamente"
+      },
+      {
+        "code": "nao-relê-o-trecho",
+        "description": "Responde de memória sem verificar onde a informação aparece no texto"
+      },
+      {
+        "code": "confunde-detalhe-com-ideia",
+        "description": "Troca um detalhe explícito por uma ideia geral que não está no texto"
+      }
     ],
-    "recommendedTypes": ["QUIZ"],
+    "recommendedTypes": [
+      "QUIZ"
+    ],
     "ageNotes": "Para os primeiros anos, usar textos curtos com uma informação por parágrafo. Ensinar a sublinhar a resposta no texto antes de marcar a alternativa.",
     "source": "SPEAKFLOW",
-    "status": "DRAFT"
+    "status": "APPROVED",
+    "version": 2
   },
   {
     "skillCode": "EF35LP03",
     "whatStudentDoes": "Identifica o assunto principal do texto ou de um parágrafo, distinguindo ideia central de detalhes secundários.",
     "commonErrors": [
-      { "code": "detalhe-como-ideia-central", "description": "Escolhe um detalhe curioso ou colorido do texto e diz que é o assunto principal" },
-      { "code": "ideia-muito-ampla", "description": "Generaliza demais: 'fala sobre animais' em vez de 'fala sobre como os polvos se camuflam'" },
-      { "code": "primeira-frase-e-tudo", "description": "Pensa que a ideia central é sempre a primeira frase, sem ler o texto inteiro" }
+      {
+        "code": "detalhe-como-ideia-central",
+        "description": "Escolhe um detalhe curioso ou colorido do texto e diz que é o assunto principal"
+      },
+      {
+        "code": "ideia-muito-ampla",
+        "description": "Generaliza demais: 'fala sobre animais' em vez de 'fala sobre como os polvos se camuflam'"
+      },
+      {
+        "code": "primeira-frase-e-tudo",
+        "description": "Pensa que a ideia central é sempre a primeira frase, sem ler o texto inteiro"
+      }
     ],
-    "recommendedTypes": ["QUIZ", "WRITTEN"],
+    "recommendedTypes": [
+      "QUIZ",
+      "WRITTEN"
+    ],
     "ageNotes": "Treinar a estratégia: 'Se eu fosse dar um título a este texto, qual seria?' Comparar dois títulos possíveis ajuda a distinguir ideia central de detalhe.",
     "source": "SPEAKFLOW",
-    "status": "DRAFT"
+    "status": "APPROVED",
+    "version": 2
   },
   {
     "skillCode": "EF35LP04",
     "whatStudentDoes": "Deduz informações que não estão ditas diretamente, usando pistas do texto e conhecimento de mundo.",
     "commonErrors": [
-      { "code": "inferencia-sem-base-no-texto", "description": "Inventa uma informação que não tem nenhuma pista no texto, apenas na imaginação" },
-      { "code": "confunde-explicito-com-implicito", "description": "Diz que 'está escrito' uma informação que na verdade precisa ser deduzida" },
-      { "code": "nao-conecta-pistas", "description": "Percebe pistas individuais mas não as conecta para chegar à conclusão" }
+      {
+        "code": "inferencia-sem-base-no-texto",
+        "description": "Inventa uma informação que não tem nenhuma pista no texto, apenas na imaginação"
+      },
+      {
+        "code": "confunde-explicito-com-implicito",
+        "description": "Diz que 'está escrito' uma informação que na verdade precisa ser deduzida"
+      },
+      {
+        "code": "nao-conecta-pistas",
+        "description": "Percebe pistas individuais mas não as conecta para chegar à conclusão"
+      }
     ],
-    "recommendedTypes": ["QUIZ", "WRITTEN"],
+    "recommendedTypes": [
+      "QUIZ",
+      "WRITTEN"
+    ],
     "ageNotes": "Trabalhar com textos que deixem pistas claras. A pergunta 'Como você sabe isso pelo texto?' ajuda o aluno a distinguir inferência fundamentada de invenção.",
     "source": "SPEAKFLOW",
-    "status": "DRAFT"
+    "status": "APPROVED",
+    "version": 2
   },
   {
     "skillCode": "EF35LP05",
     "whatStudentDoes": "Descobre o significado de uma palavra desconhecida usando o contexto da frase e do parágrafo.",
     "commonErrors": [
-      { "code": "ignora-contexto", "description": "Acha que não pode entender a palavra sem dicionário" },
-      { "code": "usa-so-o-som", "description": "Escolhe uma palavra parecida no som em vez de usar o sentido da frase" },
-      { "code": "sentido-isolado", "description": "Usa o sentido mais comum da palavra sem verificar se faz sentido no contexto" }
+      {
+        "code": "ignora-contexto",
+        "description": "Acha que não pode entender a palavra sem dicionário"
+      },
+      {
+        "code": "usa-so-o-som",
+        "description": "Escolhe uma palavra parecida no som em vez de usar o sentido da frase"
+      },
+      {
+        "code": "sentido-isolado",
+        "description": "Usa o sentido mais comum da palavra sem verificar se faz sentido no contexto"
+      }
     ],
-    "recommendedTypes": ["QUIZ", "WRITTEN"],
+    "recommendedTypes": [
+      "QUIZ",
+      "WRITTEN"
+    ],
     "ageNotes": "Treinar a estratégia: ler a frase com um substituto ('___') e perguntar 'que palavra faria sentido aqui?' Usar textos com vocabulário levemente acima do nível para criar oportunidades de inferência.",
     "source": "SPEAKFLOW",
-    "status": "DRAFT"
+    "status": "APPROVED",
+    "version": 2
   }
 ]

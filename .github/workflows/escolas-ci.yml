@@ -97,6 +97,10 @@ jobs:
       - name: Vitest
         run: npm test
 
+      # ── Validador do conteúdo: qualquer erro faz o CI falhar ────────────
+      - name: Validador de conteúdo (conteudo-pacote-validar)
+        run: node scripts/escolas/conteudo-pacote-validar.mjs
+
       # ── start.sh 1/3: primeira execução normal ──────────────────────────
       - name: "start.sh [1/3] — primeira execucao"
         env:
@@ -115,6 +119,10 @@ jobs:
           sh scripts/start.sh 2>&1 | tee /tmp/start-sh-1.log
           if grep -q "importacao de conteudo falhou" /tmp/start-sh-1.log; then
             echo "FAIL: importacao de conteudo falhou — revisar migracao ou script de conteudo"
+            exit 1
+          fi
+          if grep -q "importacao do pacote de demonstracao falhou" /tmp/start-sh-1.log; then
+            echo "FAIL: importacao do pacote de conteudo falhou — veja as linhas [ERRO] acima"
             exit 1
           fi
           echo "OK: conteudo importado sem erros"
@@ -146,6 +154,44 @@ jobs:
             --exit-code \
             && echo "OK: sem deriva no SpeakFlow AI" \
             || echo "WARN: schema do SpeakFlow AI diverge — debito pre-existente, nao causado por este PR"
+
+      # ── Importador do pacote: 2 execuções, sem duplicar, com as contagens ─
+      - name: "Importador do pacote × 2 — idempotência e contagens"
+        env:
+          ESCOLAS_DB_01_URL: "postgresql://postgres@127.0.0.1:5432/db01"
+          ESCOLAS_DB_02_URL: "postgresql://postgres@127.0.0.1:5432/db02"
+        run: |
+          contar() {
+            for db in db01 db02; do
+              psql -h 127.0.0.1 -U postgres -d "$db" -At -F ' ' -c "
+                SELECT '$db',
+                  (SELECT COUNT(*) FROM \"EduTrack\"      WHERE \"networkId\" IS NULL AND source = 'SPEAKFLOW' AND status = 'APPROVED'),
+                  (SELECT COUNT(*) FROM \"EduDiagnostic\" WHERE \"networkId\" IS NULL AND source = 'SPEAKFLOW' AND status = 'APPROVED'),
+                  (SELECT COUNT(*) FROM \"EduSkillGuide\" WHERE \"networkId\" IS NULL AND status = 'APPROVED'),
+                  (SELECT COUNT(*) FROM \"EduTrack\"), (SELECT COUNT(*) FROM \"EduTrackItem\"),
+                  (SELECT COUNT(*) FROM \"EduActivity\"), (SELECT COUNT(*) FROM \"EduQuizQuestion\"),
+                  (SELECT COUNT(*) FROM \"EduDiagnostic\"), (SELECT COUNT(*) FROM \"EduDiagnosticItem\"),
+                  (SELECT COUNT(*) FROM \"EduSkillGuide\"), (SELECT COUNT(*) FROM \"EduSkillPrerequisite\");"
+            done
+          }
+          echo "colunas: base trilhas_aprov diag_aprov fichas_aprov | EduTrack EduTrackItem EduActivity EduQuizQuestion EduDiagnostic EduDiagnosticItem EduSkillGuide EduSkillPrerequisite"
+
+          node scripts/escolas/conteudo-pacote-import.mjs
+          contar | tee /tmp/contagem-1.txt
+          node scripts/escolas/conteudo-pacote-import.mjs
+          contar | tee /tmp/contagem-2.txt
+
+          if ! diff -u /tmp/contagem-1.txt /tmp/contagem-2.txt; then
+            echo "FAIL: a segunda importação mudou as contagens — o importador não é idempotente"
+            exit 1
+          fi
+          while read -r base trilhas diags fichas resto; do
+            if [ "$trilhas" != "41" ] || [ "$diags" != "18" ] || [ "$fichas" != "41" ]; then
+              echo "FAIL: $base tem $trilhas trilhas, $diags diagnósticos e $fichas fichas APPROVED (esperado 41, 18 e 41)"
+              exit 1
+            fi
+          done < /tmp/contagem-2.txt
+          echo "OK: 41 trilhas, 18 diagnósticos e 41 fichas APPROVED nas duas bases; a segunda execução não duplicou nada"
 
       # ── start.sh 2/3: troca de senha + verificação de idempotência ───────
       - name: "start.sh [2/3] — troca de senha + idempotencia"
@@ -249,8 +295,49 @@ jobs:
           ESCOLAS_STUDENT_JWT_SECRET="$CI_STUDENT_JWT" \
           EDU_FAMILY_JWT_SECRET="$CI_FAMILY_JWT" \
           START_SERVER=false \
-          sh scripts/start.sh
+          sh scripts/start.sh 2>&1 | tee /tmp/start-sh-upgrade.log
+          if grep -q "importacao do pacote de demonstracao falhou" /tmp/start-sh-upgrade.log; then
+            echo "FAIL: importacao do pacote falhou no upgrade main→branch"
+            exit 1
+          fi
+          # O que a main tinha do gerador removido sai de circulação; ficam só os 41 + 18 do pacote
+          for db in db01_up db02_up; do
+            linha=$(psql -h 127.0.0.1 -U postgres -d "$db" -At -F ' ' -c "
+              SELECT (SELECT COUNT(*) FROM \"EduTrack\"      WHERE \"networkId\" IS NULL AND source = 'SPEAKFLOW' AND status = 'APPROVED'),
+                     (SELECT COUNT(*) FROM \"EduDiagnostic\" WHERE \"networkId\" IS NULL AND source = 'SPEAKFLOW' AND status = 'APPROVED'),
+                     (SELECT COUNT(*) FROM \"EduActivity\"   WHERE \"networkId\" IS NULL AND status = 'PUBLISHED' AND id ~ '^(PK|DI|DG)-EF[0-9]{2}[A-Z]{2}[0-9]{2}-(A[0-9]|[0-9]{2})$' AND COALESCE(version, 1) < 2);")
+            set -- $linha
+            trilhas=$1; diags=$2; velhos=$3
+            echo "[upgrade-test] $db: $trilhas trilhas e $diags diagnósticos APPROVED; $velhos atividades antigas publicadas"
+            if [ "$trilhas" != "41" ] || [ "$diags" != "18" ] || [ "$velhos" != "0" ]; then
+              echo "FAIL: $db depois do upgrade (esperado 41 trilhas, 18 diagnósticos e 0 atividades antigas publicadas)"
+              exit 1
+            fi
+          done
           echo "[upgrade-test] Upgrade main→branch simulado com sucesso"
+
+      # ── Seeds demo para os testes com aluno (o start.sh do CI não roda seed) ─
+      - name: "Seed demo + usuarios demo"
+        env:
+          ESCOLAS_CATALOG_URL: "postgresql://postgres@127.0.0.1:5432/catalogo"
+          ESCOLAS_DB_01_URL: "postgresql://postgres@127.0.0.1:5432/db01"
+          ESCOLAS_DB_02_URL: "postgresql://postgres@127.0.0.1:5432/db02"
+        run: |
+          node scripts/escolas/seed-demo.mjs
+          node scripts/escolas/seed-usuarios-demo.mjs | tail -5
+
+      # ── Reforço autônomo e pacote de matérias: bloqueia o CI ─────────────
+      - name: "Testes de integração — reforço e pacote de matérias (bloqueante)"
+        env:
+          TEST_PG_URL: "postgresql://postgres@127.0.0.1:5432"
+          ESCOLAS_APP_DB_PASSWORD: "${{ env.APP_PASS_2 }}"
+          ESCOLAS_CATALOG_URL: "postgresql://postgres@127.0.0.1:5432/catalogo"
+          ESCOLAS_DB_URL: "postgresql://postgres@127.0.0.1:5432/db01"
+          ESCOLAS_DB_01_URL: "postgresql://postgres@127.0.0.1:5432/db01"
+          ESCOLAS_DB_02_URL: "postgresql://postgres@127.0.0.1:5432/db02"
+          FEATURE_ESCOLAS: "true"
+          NEXT_PUBLIC_FEATURE_ESCOLAS: "true"
+        run: npx vitest run --config vitest.int.config.ts tests/escola/pacote-materias.int.test.ts tests/escola/reforco-autonomo.int.test.ts
 
       # ── Testes de integração ─────────────────────────────────────────────
       - name: Testes de integração (escolas)
@@ -263,6 +350,20 @@ jobs:
           ESCOLAS_DB_02_URL: "postgresql://postgres@127.0.0.1:5432/db02"
         run: npm run escolas:test:int
         continue-on-error: true
+
+      # ── Seed do teste de usabilidade: usa o DIAG-FRAC-6A-INICIO do pacote ─
+      - name: "Seed teste de usabilidade (diagnóstico do pacote)"
+        env:
+          ESCOLAS_CATALOG_URL: "postgresql://postgres@127.0.0.1:5432/catalogo"
+          ESCOLAS_DB_01_URL: "postgresql://postgres@127.0.0.1:5432/db01"
+          ESCOLAS_DB_02_URL: "postgresql://postgres@127.0.0.1:5432/db02"
+        run: |
+          node scripts/escolas/seed-teste-usabilidade.mjs
+          proprio=$(psql -h 127.0.0.1 -U postgres -d db02 -At -c "SELECT COUNT(*) FROM \"EduDiagnostic\" WHERE id = 'diag-fracoes-6a-rede-b' AND status <> 'ARCHIVED';")
+          sessoes=$(psql -h 127.0.0.1 -U postgres -d db02 -At -c "SELECT COUNT(*) FROM \"EduAttemptSession\" WHERE id LIKE 'seed-sess-frac6-%' AND \"diagnosticId\" = 'DIAG-FRAC-6A-INICIO' AND \"completedAt\" IS NOT NULL;")
+          echo "diagnóstico próprio ativo: $proprio | sessões dos colegas no DIAG-FRAC-6A-INICIO: $sessoes"
+          [ "$proprio" = "0" ] || { echo "FAIL: o seed ainda tem um diagnóstico de Frações próprio ativo"; exit 1; }
+          [ "$sessoes" -gt 0 ] || { echo "FAIL: o seed não gravou as respostas no diagnóstico do pacote"; exit 1; }
 
   # ─────────────────────────────────────────────────────────────────────────
   # Job 2: docker build + docker run (valida a imagem de produção real)
@@ -372,6 +473,10 @@ jobs:
             || { echo "FAIL: [check-role] nao encontrado no log"; exit 1; }
           if grep -q "importacao de conteudo falhou" /tmp/docker-run.log; then
             echo "FAIL: importacao de conteudo falhou no container de producao"
+            exit 1
+          fi
+          if grep -q "importacao do pacote de demonstracao falhou" /tmp/docker-run.log; then
+            echo "FAIL: importacao do pacote de conteudo falhou no container de producao"
             exit 1
           fi
           echo "OK: conteudo importado sem erros (docker)"

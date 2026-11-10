@@ -8,8 +8,14 @@
  * (NextRequest → handler → res.status / res.json()).
  */
 
-import { describe, it, expect } from "vitest";
-import { readFileSync, existsSync } from "fs";
+import { describe, it, expect, vi } from "vitest";
+
+// Sem request real: simula uma requisição sem cookie e sem Authorization (aluno não logado)
+vi.mock("next/headers", () => ({
+  cookies: () => ({ get: () => undefined, getAll: () => [], has: () => false }),
+  headers: () => new Headers(),
+}));
+import { readFileSync, existsSync, readdirSync } from "fs";
 import { join } from "path";
 import { NextRequest } from "next/server";
 
@@ -19,7 +25,6 @@ import { GET as getDiagPendente } from "@/app/api/escola/aluno/diagnostico/pende
 import { POST as postSessao } from "@/app/api/escola/aluno/diagnostico/sessao/route";
 
 const ROOT = join(__dirname, "..", "..");
-const TRILHAS_DIR = join(ROOT, "prisma", "data", "conteudo", "trilhas");
 const DIAG_DIR    = join(ROOT, "prisma", "data", "conteudo", "diagnosticos");
 
 // ── 1. Sem sessão — rotas autônomas retornam 401 (não 500) ────────────────
@@ -50,73 +55,36 @@ describe("Reforço autônomo — sem sessão da escola logada", () => {
   });
 });
 
-// ── 2. Cobertura de conteúdo por arquivo JSON ─────────────────────────────
-describe("Cobertura de conteúdo — 5º ano", () => {
-  const COMPS_5 = ["LP", "MA", "CI", "HI", "GE", "AR", "EF", "ER"];
+// ── 2. Cobertura de conteúdo nos arquivos do pacote ───────────────────────
+// Para cada componente obrigatório do 5º e do 6º ano: diagnóstico APPROVED com
+// 2 habilidades e, no 6º, banco do degrau. Língua Inglesa só existe no 6º.
+// (A mesma regra é conferida no banco, depois da importação, em pacote-materias.int.test.ts.)
+type ItemDiag = { skillCode: string; role?: string };
+type Diag = { id: string; status: string; subjectCode?: string; gradeYear?: number; items: ItemDiag[] };
+const diagnosticosDoPacote: Diag[] = existsSync(DIAG_DIR)
+  ? readdirSync(DIAG_DIR).filter((f) => f.endsWith(".json")).map((f) => JSON.parse(readFileSync(join(DIAG_DIR, f), "utf8")))
+  : [];
 
-  for (const comp of COMPS_5) {
-    it(`${comp} 5º: arquivo de trilhas existe com 4 trilhas`, () => {
-      // MA usa FRAC.json (8 trilhas) ou MA-05.json
-      const f1 = join(TRILHAS_DIR, `${comp}-05.json`);
-      const f2 = comp === "MA" ? join(TRILHAS_DIR, "FRAC.json") : null;
-      const f3 = comp === "LP" ? join(TRILHAS_DIR, "LP-05.json") : null;
-      const path = existsSync(f1) ? f1 : (f2 && existsSync(f2)) ? f2 : f3;
-      expect(path, `Arquivo de trilhas ${comp} 5º não encontrado`).toBeTruthy();
-      if (!path) return;
-      const data = JSON.parse(readFileSync(path, "utf8"));
-      expect(Array.isArray(data)).toBe(true);
-      expect(data.length).toBeGreaterThanOrEqual(4);
-    });
-
-    it(`${comp} 5º: diagnóstico APPROVED com banco de degrau`, () => {
-      const fileName = comp === "MA"
-        ? "DIAG-FRAC-5A.json"
-        : comp === "LP"
-          ? "DIAG-LP-5A.json"
-          : `DIAG-${comp}-5A.json`;
-      const path = join(DIAG_DIR, fileName);
-      expect(existsSync(path), `Diagnóstico ${fileName} não encontrado`).toBe(true);
-      const diag = JSON.parse(readFileSync(path, "utf8"));
-      expect(diag.status).toBe("APPROVED");
-      const degrauItems = diag.items.filter((i: { role?: string }) => i.role === "DEGRAU_BANK");
-      expect(degrauItems.length, `${fileName}: sem banco de degrau`).toBeGreaterThan(0);
-    });
-  }
-});
-
-describe("Cobertura de conteúdo — 6º ano", () => {
-  const COMPS_6 = ["LP", "MA", "CI", "HI", "GE", "AR", "EF", "LI", "ER"];
-
-  for (const comp of COMPS_6) {
-    it(`${comp} 6º: arquivo de trilhas existe com 4 trilhas`, () => {
-      const f1 = join(TRILHAS_DIR, `${comp}-06.json`);
-      const f2 = comp === "MA" ? join(TRILHAS_DIR, "FRAC.json") : null;
-      const path = existsSync(f1) ? f1 : (f2 && existsSync(f2)) ? f2 : null;
-      expect(path, `Arquivo de trilhas ${comp} 6º não encontrado`).toBeTruthy();
-      if (!path) return;
-      const data = JSON.parse(readFileSync(path, "utf8"));
-      expect(Array.isArray(data)).toBe(true);
-      expect(data.length).toBeGreaterThanOrEqual(4);
-    });
-
-    it(`${comp} 6º: diagnóstico APPROVED com banco de degrau`, () => {
-      const fileName = comp === "MA"
-        ? "DIAG-FRAC-6A-INICIO.json"
-        : `DIAG-${comp}-6A.json`;
-      const path = join(DIAG_DIR, fileName);
-      expect(existsSync(path), `Diagnóstico ${fileName} não encontrado`).toBe(true);
-      const diag = JSON.parse(readFileSync(path, "utf8"));
-      expect(diag.status).toBe("APPROVED");
-      const degrauItems = diag.items.filter((i: { role?: string }) => i.role === "DEGRAU_BANK");
-      expect(degrauItems.length, `${fileName}: sem banco de degrau`).toBeGreaterThan(0);
-    });
-  }
-});
+for (const [ano, comps] of [[5, ["LP", "MA", "CI", "HI", "GE", "AR", "EF", "ER"]], [6, ["LP", "MA", "CI", "HI", "GE", "AR", "EF", "LI", "ER"]]] as const) {
+  describe(`Cobertura de conteúdo — ${ano}º ano`, () => {
+    for (const comp of comps) {
+      it(`${comp} ${ano}º: diagnóstico APPROVED com 2 habilidades${ano === 6 ? " e banco do degrau" : ""}`, () => {
+        const candidatos = diagnosticosDoPacote.filter((d) => d.status === "APPROVED" && d.subjectCode === comp && d.gradeYear === ano);
+        const ok = candidatos.some((d) => {
+          const normais = new Set(d.items.filter((i) => (i.role ?? "NORMAL") === "NORMAL").map((i) => i.skillCode));
+          const banco = d.items.filter((i) => i.role === "DEGRAU_BANK").length;
+          return normais.size >= 2 && (ano === 5 || banco > 0);
+        });
+        expect(ok, `${comp} ${ano}º: ${candidatos.map((d) => d.id).join(", ") || "nenhum diagnóstico"}`).toBe(true);
+      });
+    }
+  });
+}
 
 // ── 3. Estrutura dos diagnósticos ─────────────────────────────────────────
 describe("Estrutura dos diagnósticos — skillId em todo item", () => {
   const diagFiles = existsSync(DIAG_DIR)
-    ? require("fs").readdirSync(DIAG_DIR).filter((f: string) => f.endsWith(".json"))
+    ? readdirSync(DIAG_DIR).filter((f: string) => f.endsWith(".json"))
     : [];
 
   for (const file of diagFiles) {

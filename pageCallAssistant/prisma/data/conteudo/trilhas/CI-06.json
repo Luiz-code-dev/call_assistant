@@ -1,2450 +1,1890 @@
 [
   {
     "skillCode": "EF06CI01",
-    "title": "Trilha: Classificar como homogênea ou heterogênea a mistura de dois (EF06CI01)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
     "subjectCode": "CI",
+    "subjectName": "Ciências",
+    "gradeYear": 6,
+    "version": 2,
+    "title": "Trilha: Misturas homogêneas e heterogêneas",
+    "tituloAluno": "Misturas: quando dá e quando não dá para ver as partes",
     "activities": [
       {
-        "id": "PK-EF06CI01-A1",
+        "id": "PK2-EF06CI01-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Classificar como homogênea ou heterogênea a mistura de dois",
-        "prompt": "Questão sobre Classificar como homogênea ou heterogênea a mistura de dois.",
+        "title": "Relembrar: materiais e água",
+        "prompt": "Vamos lembrar como alguns materiais se comportam na água.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre Classificar como homogênea ou heterogênea a mistura de dois.",
-        "skillId": "EF06CI01",
+        "audioScript": "Vamos lembrar como alguns materiais se comportam na água. Pergunta 1. O que acontece com o açúcar mexido num copo de água? A: Ele some e deixa de existir; B: Ele flutua por cima; C: Ele se dissolve e não dá mais para ver; D: Ele vira pedra no fundo. Pergunta 2. O que acontece quando se coloca óleo na água? A: O óleo se dissolve na água; B: O óleo fica por cima, separado da água; C: O óleo some; D: O óleo vai para o fundo e some. Pergunta 3. O que acontece com a areia mexida num copo de água? A: Ela se dissolve como o sal; B: Ela some; C: Ela flutua por cima como o óleo; D: Ela vai para o fundo e dá para ver.",
         "questions": [
           {
-            "question": "Qual das opções descreve corretamente o tema \"Classificar como homogênea ou heterogênea a mistura de dois\" para o 6º ano?",
+            "question": "O que acontece com o açúcar mexido num copo de água?",
             "options": [
               {
-                "text": "É um conceito central de Ciências do 6º ano que explica fenômenos naturais observáveis"
+                "text": "Ele some e deixa de existir",
+                "misconceptionCode": "sumiu-entao-nao-existe"
               },
               {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
+                "text": "Ele flutua por cima",
+                "misconceptionCode": "confunde-termos"
               },
               {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Ele se dissolve e não dá mais para ver"
               },
               {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
+                "text": "Ele vira pedra no fundo",
+                "misconceptionCode": "conta-ingredientes"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Classificar como homogênea ou heterogênea a mistura de dois é um conteúdo fundamental de Ciências do 6º ano conforme a BNCC.",
+            "correctIndex": 2,
+            "explanation": "O açúcar se espalha na água em partes tão pequenas que não dá para ver, mas ele continua lá: a água fica doce.",
             "variants": [
               {
-                "question": "Em qual etapa da BNCC encontramos \"Classificar como homogênea ou heterogênea a mistura de dois\"?",
+                "question": "Como você sabe que o sal continua na água depois de dissolvido?",
                 "options": [
                   {
-                    "text": "6º ano do Ensino Fundamental"
+                    "text": "A água fica salgada"
                   },
                   {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "A água fica azul",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
                   },
                   {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "O copo fica mais leve",
+                    "misconceptionCode": "confunde-termos"
                   },
                   {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Não dá para saber, ele sumiu",
+                    "misconceptionCode": "conta-ingredientes"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que \"Classificar como homogênea ou heterogênea a mistura de dois\" é importante de aprender no 6º ano?",
+                "question": "O que acontece com o açúcar mexido num copo de água?",
                 "options": [
                   {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
+                    "text": "Ele vira pedra no fundo",
+                    "misconceptionCode": "conta-ingredientes"
                   },
                   {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Ele flutua por cima",
+                    "misconceptionCode": "confunde-termos"
                   },
                   {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Ele some e deixa de existir",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
                   },
                   {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Ele se dissolve e não dá mais para ver"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06CI01"
+            ]
           },
           {
-            "question": "Qual das opções descreve corretamente o tema \"Classificar como homogênea ou heterogênea a mistura de dois\" para o 6º ano?",
+            "question": "O que acontece quando se coloca óleo na água?",
             "options": [
               {
-                "text": "É um conceito central de Ciências do 6º ano que explica fenômenos naturais observáveis"
+                "text": "O óleo se dissolve na água",
+                "misconceptionCode": "confunde-termos"
               },
               {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
+                "text": "O óleo fica por cima, separado da água"
               },
               {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
+                "text": "O óleo some",
+                "misconceptionCode": "sumiu-entao-nao-existe"
               },
               {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
+                "text": "O óleo vai para o fundo e some",
+                "misconceptionCode": "conta-ingredientes"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Classificar como homogênea ou heterogênea a mistura de dois é um conteúdo fundamental de Ciências do 6º ano conforme a BNCC.",
+            "correctIndex": 1,
+            "explanation": "Óleo e água não se misturam por completo: o óleo forma uma camada por cima.",
             "variants": [
               {
-                "question": "Em qual etapa da BNCC encontramos \"Classificar como homogênea ou heterogênea a mistura de dois\"?",
+                "question": "Ao lavar uma panela com óleo só com água, o que se vê?",
                 "options": [
                   {
-                    "text": "6º ano do Ensino Fundamental"
+                    "text": "O óleo dissolve todo",
+                    "misconceptionCode": "confunde-termos"
                   },
                   {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "A água fica doce",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
                   },
                   {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "O óleo vira água",
+                    "misconceptionCode": "conta-ingredientes"
                   },
                   {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Gotas de óleo boiando na água"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "Por que \"Classificar como homogênea ou heterogênea a mistura de dois\" é importante de aprender no 6º ano?",
+                "question": "O que acontece quando se coloca óleo na água?",
                 "options": [
                   {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
+                    "text": "O óleo vai para o fundo e some",
+                    "misconceptionCode": "conta-ingredientes"
                   },
                   {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "O óleo some",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
                   },
                   {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "O óleo fica por cima, separado da água"
                   },
                   {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "O óleo se dissolve na água",
+                    "misconceptionCode": "confunde-termos"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "O que acontece com a areia mexida num copo de água?",
+            "options": [
+              {
+                "text": "Ela se dissolve como o sal",
+                "misconceptionCode": "confunde-termos"
+              },
+              {
+                "text": "Ela some",
+                "misconceptionCode": "sumiu-entao-nao-existe"
+              },
+              {
+                "text": "Ela flutua por cima como o óleo",
+                "misconceptionCode": "conta-ingredientes"
+              },
+              {
+                "text": "Ela vai para o fundo e dá para ver"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "A areia não se dissolve: ela fica visível e se deposita no fundo.",
+            "variants": [
+              {
+                "question": "Terra mexida na água, depois de um tempo parada, fica:",
+                "options": [
+                  {
+                    "text": "Dissolvida e invisível",
+                    "misconceptionCode": "confunde-termos"
+                  },
+                  {
+                    "text": "No fundo do copo"
+                  },
+                  {
+                    "text": "Boiando por cima",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
+                  },
+                  {
+                    "text": "Desaparecida",
+                    "misconceptionCode": "conta-ingredientes"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "O que acontece com a areia mexida num copo de água?",
+                "options": [
+                  {
+                    "text": "Ela vai para o fundo e dá para ver"
+                  },
+                  {
+                    "text": "Ela flutua por cima como o óleo",
+                    "misconceptionCode": "conta-ingredientes"
+                  },
+                  {
+                    "text": "Ela some",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
+                  },
+                  {
+                    "text": "Ela se dissolve como o sal",
+                    "misconceptionCode": "confunde-termos"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06CI01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06CI01-A2",
+        "id": "PK2-EF06CI01-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Classificar como homogênea ou heterogênea a mistura de dois",
-        "prompt": "Questão sobre Classificar como homogênea ou heterogênea a mistura de dois.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Classificar como homogênea ou heterogênea a mistura de dois.",
-        "skillId": "EF06CI01",
+        "title": "Exemplo guiado: contando as fases",
+        "prompt": "Uma mistura é homogênea quando tem uma só fase (parece uma coisa só). É heterogênea quando tem duas ou mais fases (dá para ver as partes). Vamos classificar juntos.",
+        "estMinutes": 4,
+        "audioScript": "Uma mistura é homogênea quando tem uma só fase (parece uma coisa só). É heterogênea quando tem duas ou mais fases (dá para ver as partes). Vamos classificar juntos. Pergunta 1. Água com sal bem dissolvido é uma mistura: A: Heterogênea, porque tem dois ingredientes; B: Homogênea, porque tem uma só fase; C: Não é mistura, porque o sal sumiu; D: Heterogênea, porque a água é transparente. Pergunta 2. Água com óleo é uma mistura: A: Homogênea, porque é líquida; B: Homogênea, porque tem só dois ingredientes; C: Não é mistura, porque não se misturam; D: Heterogênea, porque se veem duas fases. Pergunta 3. Água, sal e óleo juntos formam quantas fases? A: Duas: a água salgada e o óleo; B: Três, uma para cada ingrediente; C: Uma só; D: Nenhuma, porque o sal sumiu.",
         "questions": [
           {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Classificar como homogênea ou heterogênea a mistura de dois\"?",
+            "question": "Água com sal bem dissolvido é uma mistura:",
             "options": [
               {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
+                "text": "Heterogênea, porque tem dois ingredientes",
+                "misconceptionCode": "conta-ingredientes"
               },
               {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Homogênea, porque tem uma só fase"
               },
               {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Não é mistura, porque o sal sumiu",
+                "misconceptionCode": "sumiu-entao-nao-existe"
               },
               {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Heterogênea, porque a água é transparente",
+                "misconceptionCode": "confunde-termos"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
+            "correctIndex": 1,
+            "explanation": "Olhando, só se vê uma fase. Tem dois ingredientes, mas o que conta é o número de fases.",
             "variants": [
               {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Classificar como homogênea ou heterogênea a mistura de dois\"?",
+                "question": "Suco em pó bem dissolvido na água é uma mistura:",
                 "options": [
                   {
-                    "text": "Experimentos, registros e análise de evidências"
+                    "text": "Heterogênea, porque tem cor",
+                    "misconceptionCode": "conta-ingredientes"
                   },
                   {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Heterogênea, porque tem dois ingredientes",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
                   },
                   {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Não é mistura",
+                    "misconceptionCode": "confunde-termos"
                   },
                   {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Homogênea"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "O método científico começa com:",
+                "question": "Água com sal bem dissolvido é uma mistura:",
                 "options": [
                   {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
+                    "text": "Heterogênea, porque a água é transparente",
+                    "misconceptionCode": "confunde-termos"
                   },
                   {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Não é mistura, porque o sal sumiu",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
                   },
                   {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Homogênea, porque tem uma só fase"
                   },
                   {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Heterogênea, porque tem dois ingredientes",
+                    "misconceptionCode": "conta-ingredientes"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF06CI01"
+            ]
           },
           {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Classificar como homogênea ou heterogênea a mistura de dois\"?",
+            "question": "Água com óleo é uma mistura:",
             "options": [
               {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
+                "text": "Homogênea, porque é líquida",
+                "misconceptionCode": "confunde-termos"
               },
               {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Homogênea, porque tem só dois ingredientes",
+                "misconceptionCode": "conta-ingredientes"
               },
               {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Não é mistura, porque não se misturam",
+                "misconceptionCode": "sumiu-entao-nao-existe"
               },
               {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Heterogênea, porque se veem duas fases"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Dá para ver a água e a camada de óleo: são duas fases.",
+            "variants": [
+              {
+                "question": "Água com areia é uma mistura:",
+                "options": [
+                  {
+                    "text": "Homogênea, porque a areia afunda",
+                    "misconceptionCode": "confunde-termos"
+                  },
+                  {
+                    "text": "Heterogênea"
+                  },
+                  {
+                    "text": "Homogênea, porque tem dois ingredientes",
+                    "misconceptionCode": "conta-ingredientes"
+                  },
+                  {
+                    "text": "Não é mistura",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Água com óleo é uma mistura:",
+                "options": [
+                  {
+                    "text": "Heterogênea, porque se veem duas fases"
+                  },
+                  {
+                    "text": "Não é mistura, porque não se misturam",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
+                  },
+                  {
+                    "text": "Homogênea, porque tem só dois ingredientes",
+                    "misconceptionCode": "conta-ingredientes"
+                  },
+                  {
+                    "text": "Homogênea, porque é líquida",
+                    "misconceptionCode": "confunde-termos"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "Água, sal e óleo juntos formam quantas fases?",
+            "options": [
+              {
+                "text": "Duas: a água salgada e o óleo"
+              },
+              {
+                "text": "Três, uma para cada ingrediente",
+                "misconceptionCode": "conta-ingredientes"
+              },
+              {
+                "text": "Uma só",
+                "misconceptionCode": "confunde-termos"
+              },
+              {
+                "text": "Nenhuma, porque o sal sumiu",
+                "misconceptionCode": "sumiu-entao-nao-existe"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
+            "explanation": "O sal se dissolve na água (uma fase) e o óleo fica por cima (outra fase).",
             "variants": [
               {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Classificar como homogênea ou heterogênea a mistura de dois\"?",
+                "question": "Água, açúcar e areia juntos formam quantas fases?",
                 "options": [
                   {
-                    "text": "Experimentos, registros e análise de evidências"
+                    "text": "Três",
+                    "misconceptionCode": "conta-ingredientes"
                   },
                   {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Uma",
+                    "misconceptionCode": "confunde-termos"
                   },
                   {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Duas: a água doce e a areia"
                   },
                   {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Nenhuma",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "O método científico começa com:",
+                "question": "Água, sal e óleo juntos formam quantas fases?",
                 "options": [
                   {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
+                    "text": "Nenhuma, porque o sal sumiu",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
                   },
                   {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Duas: a água salgada e o óleo"
                   },
                   {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Uma só",
+                    "misconceptionCode": "confunde-termos"
                   },
                   {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Três, uma para cada ingrediente",
+                    "misconceptionCode": "conta-ingredientes"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06CI01"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06CI01-A3",
+        "id": "PK2-EF06CI01-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: Classificar como homogênea ou heterogênea a mistura de dois",
-        "prompt": "Questão sobre Classificar como homogênea ou heterogênea a mistura de dois.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Classificar como homogênea ou heterogênea a mistura de dois.",
-        "skillId": "EF06CI01",
+        "title": "Praticar: classificando misturas",
+        "prompt": "Classifique cada mistura contando as fases.",
+        "estMinutes": 5,
+        "audioScript": "Classifique cada mistura contando as fases. Pergunta 1. O ar que respiramos (sem poeira) é uma mistura: A: Heterogênea, porque tem vários gases; B: Não é mistura; C: Heterogênea, porque é invisível; D: Homogênea. Pergunta 2. Um copo de suco de laranja com gomos é uma mistura: A: Heterogênea, porque dá para ver os gomos; B: Homogênea, porque é um suco; C: Homogênea, porque é laranja; D: Não é mistura. Pergunta 3. Água com corante azul bem misturado é uma mistura: A: Heterogênea, porque é colorida; B: Heterogênea, porque tem dois ingredientes; C: Homogênea, porque tem uma só fase; D: Não é mistura. Pergunta 4. Qual destas é uma mistura heterogênea? A: Água com açúcar dissolvido; B: Granito, a pedra em que se veem grãos de cores diferentes; C: Água pura; D: Café coado bem misturado.",
         "questions": [
           {
-            "question": "Qual das opções descreve corretamente o tema \"Classificar como homogênea ou heterogênea a mistura de dois\" para o 6º ano?",
+            "question": "O ar que respiramos (sem poeira) é uma mistura:",
             "options": [
               {
-                "text": "É um conceito central de Ciências do 6º ano que explica fenômenos naturais observáveis"
+                "text": "Heterogênea, porque tem vários gases",
+                "misconceptionCode": "conta-ingredientes"
               },
               {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
+                "text": "Não é mistura",
+                "misconceptionCode": "sumiu-entao-nao-existe"
               },
               {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Heterogênea, porque é invisível",
+                "misconceptionCode": "confunde-termos"
               },
               {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
+                "text": "Homogênea"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Classificar como homogênea ou heterogênea a mistura de dois é um conteúdo fundamental de Ciências do 6º ano conforme a BNCC.",
+            "correctIndex": 3,
+            "explanation": "O ar tem vários gases, mas eles formam uma fase só.",
             "variants": [
               {
-                "question": "Em qual etapa da BNCC encontramos \"Classificar como homogênea ou heterogênea a mistura de dois\"?",
+                "question": "O vinagre (água com ácido acético) é uma mistura:",
                 "options": [
                   {
-                    "text": "6º ano do Ensino Fundamental"
+                    "text": "Heterogênea, porque tem cheiro",
+                    "misconceptionCode": "conta-ingredientes"
                   },
                   {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Homogênea"
                   },
                   {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Heterogênea, porque tem dois componentes",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
                   },
                   {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Não é mistura",
+                    "misconceptionCode": "confunde-termos"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "Por que \"Classificar como homogênea ou heterogênea a mistura de dois\" é importante de aprender no 6º ano?",
+                "question": "O ar que respiramos (sem poeira) é uma mistura:",
                 "options": [
                   {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
+                    "text": "Homogênea"
                   },
                   {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Heterogênea, porque é invisível",
+                    "misconceptionCode": "confunde-termos"
                   },
                   {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Não é mistura",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
                   },
                   {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Heterogênea, porque tem vários gases",
+                    "misconceptionCode": "conta-ingredientes"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06CI01"
+            ]
           },
           {
-            "question": "Qual das opções descreve corretamente o tema \"Classificar como homogênea ou heterogênea a mistura de dois\" para o 6º ano?",
+            "question": "Um copo de suco de laranja com gomos é uma mistura:",
             "options": [
               {
-                "text": "É um conceito central de Ciências do 6º ano que explica fenômenos naturais observáveis"
+                "text": "Heterogênea, porque dá para ver os gomos"
               },
               {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
+                "text": "Homogênea, porque é um suco",
+                "misconceptionCode": "confunde-termos"
               },
               {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Homogênea, porque é laranja",
+                "misconceptionCode": "cor-define"
               },
               {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
+                "text": "Não é mistura",
+                "misconceptionCode": "sumiu-entao-nao-existe"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Classificar como homogênea ou heterogênea a mistura de dois é um conteúdo fundamental de Ciências do 6º ano conforme a BNCC.",
+            "explanation": "Os gomos são uma fase visível dentro do líquido.",
             "variants": [
               {
-                "question": "Em qual etapa da BNCC encontramos \"Classificar como homogênea ou heterogênea a mistura de dois\"?",
+                "question": "Uma salada de frutas é uma mistura:",
                 "options": [
                   {
-                    "text": "6º ano do Ensino Fundamental"
+                    "text": "Homogênea, porque é uma comida só",
+                    "misconceptionCode": "confunde-termos"
                   },
                   {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Homogênea, porque é colorida",
+                    "misconceptionCode": "cor-define"
                   },
                   {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Heterogênea"
                   },
                   {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Não é mistura",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "Um copo de suco de laranja com gomos é uma mistura:",
+                "options": [
+                  {
+                    "text": "Não é mistura",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
+                  },
+                  {
+                    "text": "Heterogênea, porque dá para ver os gomos"
+                  },
+                  {
+                    "text": "Homogênea, porque é laranja",
+                    "misconceptionCode": "cor-define"
+                  },
+                  {
+                    "text": "Homogênea, porque é um suco",
+                    "misconceptionCode": "confunde-termos"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Água com corante azul bem misturado é uma mistura:",
+            "options": [
+              {
+                "text": "Heterogênea, porque é colorida",
+                "misconceptionCode": "cor-define"
+              },
+              {
+                "text": "Heterogênea, porque tem dois ingredientes",
+                "misconceptionCode": "conta-ingredientes"
+              },
+              {
+                "text": "Homogênea, porque tem uma só fase"
+              },
+              {
+                "text": "Não é mistura",
+                "misconceptionCode": "sumiu-entao-nao-existe"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "A cor não define o tipo de mistura. Se a cor é igual em todo o copo, há uma fase só.",
+            "variants": [
+              {
+                "question": "Refrigerante sem gás, de cor escura, é uma mistura:",
+                "options": [
+                  {
+                    "text": "Homogênea"
+                  },
+                  {
+                    "text": "Heterogênea, porque é escuro",
+                    "misconceptionCode": "cor-define"
+                  },
+                  {
+                    "text": "Heterogênea, porque tem açúcar e água",
+                    "misconceptionCode": "conta-ingredientes"
+                  },
+                  {
+                    "text": "Não é mistura",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que \"Classificar como homogênea ou heterogênea a mistura de dois\" é importante de aprender no 6º ano?",
+                "question": "Água com corante azul bem misturado é uma mistura:",
                 "options": [
                   {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
+                    "text": "Não é mistura",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
                   },
                   {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Heterogênea, porque tem dois ingredientes",
+                    "misconceptionCode": "conta-ingredientes"
                   },
                   {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Heterogênea, porque é colorida",
+                    "misconceptionCode": "cor-define"
                   },
                   {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Homogênea, porque tem uma só fase"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "Qual destas é uma mistura heterogênea?",
+            "options": [
+              {
+                "text": "Água com açúcar dissolvido",
+                "misconceptionCode": "confunde-termos"
+              },
+              {
+                "text": "Granito, a pedra em que se veem grãos de cores diferentes"
+              },
+              {
+                "text": "Água pura",
+                "misconceptionCode": "sumiu-entao-nao-existe"
+              },
+              {
+                "text": "Café coado bem misturado",
+                "misconceptionCode": "cor-define"
               }
             ],
-            "skillId": "EF06CI01"
+            "correctIndex": 1,
+            "explanation": "No granito dá para ver grãos diferentes: há mais de uma fase.",
+            "variants": [
+              {
+                "question": "Qual destas é uma mistura homogênea?",
+                "options": [
+                  {
+                    "text": "Feijão com arroz",
+                    "misconceptionCode": "confunde-termos"
+                  },
+                  {
+                    "text": "Água com óleo",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
+                  },
+                  {
+                    "text": "Areia com pedrinhas",
+                    "misconceptionCode": "cor-define"
+                  },
+                  {
+                    "text": "Água com sal dissolvido"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Qual destas é uma mistura heterogênea?",
+                "options": [
+                  {
+                    "text": "Café coado bem misturado",
+                    "misconceptionCode": "cor-define"
+                  },
+                  {
+                    "text": "Água pura",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
+                  },
+                  {
+                    "text": "Granito, a pedra em que se veem grãos de cores diferentes"
+                  },
+                  {
+                    "text": "Água com açúcar dissolvido",
+                    "misconceptionCode": "confunde-termos"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06CI01-A4",
+        "id": "PK2-EF06CI01-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: Classificar como homogênea ou heterogênea a mistura de dois",
-        "prompt": "Questão sobre Classificar como homogênea ou heterogênea a mistura de dois.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Classificar como homogênea ou heterogênea a mistura de dois.",
-        "skillId": "EF06CI01",
+        "title": "Aplicar: misturas na cozinha",
+        "prompt": "Pense nas misturas que aparecem na cozinha.",
+        "estMinutes": 4,
+        "audioScript": "Pense nas misturas que aparecem na cozinha. Pergunta 1. Ao fazer limonada e o açúcar ficar no fundo sem dissolver, a mistura fica: A: Heterogênea, porque o açúcar aparece no fundo; B: Homogênea, porque é uma bebida; C: Homogênea, porque tem só três ingredientes; D: Sem açúcar, porque ele sumiu. Pergunta 2. O tempero de salada com azeite e vinagre, depois de parado, fica: A: Uma fase só, porque são líquidos; B: Uma fase só, porque tem pouco ingrediente; C: Separado em duas camadas; D: Sem azeite, porque ele dissolveu. Pergunta 3. Por que a água do mar parece uma coisa só, mesmo tendo sal? A: Porque o mar não tem sal de verdade; B: Porque o sal está dissolvido e a mistura é homogênea; C: Porque a água do mar é azul; D: Porque o sal é heterogêneo.",
         "questions": [
           {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Classificar como homogênea ou heterogênea a mistura de dois\"?",
+            "question": "Ao fazer limonada e o açúcar ficar no fundo sem dissolver, a mistura fica:",
             "options": [
               {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
+                "text": "Heterogênea, porque o açúcar aparece no fundo"
               },
               {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Homogênea, porque é uma bebida",
+                "misconceptionCode": "confunde-termos"
               },
               {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Homogênea, porque tem só três ingredientes",
+                "misconceptionCode": "conta-ingredientes"
               },
               {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Sem açúcar, porque ele sumiu",
+                "misconceptionCode": "sumiu-entao-nao-existe"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
+            "explanation": "Enquanto o açúcar está visível no fundo, há duas fases. Mexendo bem até dissolver, vira homogênea.",
             "variants": [
               {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Classificar como homogênea ou heterogênea a mistura de dois\"?",
+                "question": "Achocolatado mal mexido, com pó boiando no leite, é uma mistura:",
                 "options": [
                   {
-                    "text": "Experimentos, registros e análise de evidências"
+                    "text": "Homogênea, porque é marrom",
+                    "misconceptionCode": "confunde-termos"
                   },
                   {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Homogênea, porque é leite",
+                    "misconceptionCode": "conta-ingredientes"
                   },
                   {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Heterogênea"
                   },
                   {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Não é mistura",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "O método científico começa com:",
+                "question": "Ao fazer limonada e o açúcar ficar no fundo sem dissolver, a mistura fica:",
                 "options": [
                   {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
+                    "text": "Sem açúcar, porque ele sumiu",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
                   },
                   {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Heterogênea, porque o açúcar aparece no fundo"
                   },
                   {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Homogênea, porque tem só três ingredientes",
+                    "misconceptionCode": "conta-ingredientes"
                   },
                   {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Homogênea, porque é uma bebida",
+                    "misconceptionCode": "confunde-termos"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06CI01"
+            ]
           },
           {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Classificar como homogênea ou heterogênea a mistura de dois\"?",
+            "question": "O tempero de salada com azeite e vinagre, depois de parado, fica:",
             "options": [
               {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
+                "text": "Uma fase só, porque são líquidos",
+                "misconceptionCode": "confunde-termos"
               },
               {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Uma fase só, porque tem pouco ingrediente",
+                "misconceptionCode": "conta-ingredientes"
               },
               {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Separado em duas camadas"
               },
               {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Sem azeite, porque ele dissolveu",
+                "misconceptionCode": "sumiu-entao-nao-existe"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
+            "correctIndex": 2,
+            "explanation": "O azeite é um óleo: ele não se mistura com o vinagre e forma uma camada.",
             "variants": [
               {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Classificar como homogênea ou heterogênea a mistura de dois\"?",
+                "question": "Depois de um tempo parada, a sopa com gordura por cima tem:",
                 "options": [
                   {
-                    "text": "Experimentos, registros e análise de evidências"
+                    "text": "Duas fases"
                   },
                   {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Uma fase",
+                    "misconceptionCode": "confunde-termos"
                   },
                   {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Quatro fases, uma por ingrediente",
+                    "misconceptionCode": "conta-ingredientes"
                   },
                   {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Nenhuma fase",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O método científico começa com:",
+                "question": "O tempero de salada com azeite e vinagre, depois de parado, fica:",
                 "options": [
                   {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
+                    "text": "Sem azeite, porque ele dissolveu",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
                   },
                   {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Uma fase só, porque tem pouco ingrediente",
+                    "misconceptionCode": "conta-ingredientes"
                   },
                   {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Uma fase só, porque são líquidos",
+                    "misconceptionCode": "confunde-termos"
                   },
                   {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Separado em duas camadas"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "Por que a água do mar parece uma coisa só, mesmo tendo sal?",
+            "options": [
+              {
+                "text": "Porque o mar não tem sal de verdade",
+                "misconceptionCode": "sumiu-entao-nao-existe"
+              },
+              {
+                "text": "Porque o sal está dissolvido e a mistura é homogênea"
+              },
+              {
+                "text": "Porque a água do mar é azul",
+                "misconceptionCode": "cor-define"
+              },
+              {
+                "text": "Porque o sal é heterogêneo",
+                "misconceptionCode": "confunde-termos"
               }
             ],
-            "skillId": "EF06CI01"
+            "correctIndex": 1,
+            "explanation": "O sal dissolvido não aparece, mas continua lá: por isso a água do mar é salgada.",
+            "variants": [
+              {
+                "question": "Por que não se vê o açúcar no café adoçado?",
+                "options": [
+                  {
+                    "text": "Porque ele deixou de existir",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
+                  },
+                  {
+                    "text": "Porque o café é escuro",
+                    "misconceptionCode": "cor-define"
+                  },
+                  {
+                    "text": "Porque o açúcar é heterogêneo",
+                    "misconceptionCode": "confunde-termos"
+                  },
+                  {
+                    "text": "Porque ele se dissolveu e forma uma fase só com o café"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Por que a água do mar parece uma coisa só, mesmo tendo sal?",
+                "options": [
+                  {
+                    "text": "Porque o sal é heterogêneo",
+                    "misconceptionCode": "confunde-termos"
+                  },
+                  {
+                    "text": "Porque a água do mar é azul",
+                    "misconceptionCode": "cor-define"
+                  },
+                  {
+                    "text": "Porque o sal está dissolvido e a mistura é homogênea"
+                  },
+                  {
+                    "text": "Porque o mar não tem sal de verdade",
+                    "misconceptionCode": "sumiu-entao-nao-existe"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06CI01-A5",
+        "id": "PK2-EF06CI01-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Classificar como homogênea ou heterogênea a mistura de dois",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Classificar como homogênea ou heterogênea a mistura de dois.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Classificar como homogênea ou heterogênea a mistura de dois.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: homogênea ou heterogênea",
+        "prompt": "Explique com as suas palavras a diferença entre mistura homogênea e heterogênea, com um exemplo de cada uma.",
+        "estMinutes": 6,
+        "audioScript": "Explique com as suas palavras a diferença entre mistura homogênea e heterogênea, com um exemplo de cada uma.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de Classificar como homogênea ou heterogênea a mistura de dois",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "fases",
+              "description": "Usa a ideia de fases: uma fase na homogênea, mais de uma na heterogênea"
+            },
+            {
+              "code": "nao-e-ingrediente",
+              "description": "Mostra que o número de ingredientes não define o tipo de mistura"
+            },
+            {
+              "code": "exemplos",
+              "description": "Dá um exemplo correto de cada tipo"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF06CI01"
+          "exemploBoaResposta": "Na mistura homogênea, a gente vê uma coisa só, uma fase, como água com sal dissolvido. Na heterogênea, dá para ver as partes, como água com óleo, que fica em duas camadas. Não importa quantos ingredientes tem, e sim quantas fases a gente vê."
+        }
       }
-    ]
+    ],
+    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
+    "source": "SPEAKFLOW",
+    "status": "APPROVED"
   },
   {
-    "skillCode": "EF06CI03",
-    "title": "Trilha: Selecionar métodos mais adequados para a separação (EF06CI03)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
+    "skillCode": "EF06CI14",
     "subjectCode": "CI",
+    "subjectName": "Ciências",
+    "gradeYear": 6,
+    "version": 2,
+    "title": "Trilha: A sombra e os movimentos da Terra",
+    "tituloAluno": "O que a sombra conta sobre a Terra e o Sol",
     "activities": [
       {
-        "id": "PK-EF06CI03-A1",
+        "id": "PK2-EF06CI14-A1",
         "step": "relembrar",
         "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Selecionar métodos mais adequados para a separação",
-        "prompt": "Questão sobre Selecionar métodos mais adequados para a separação.",
+        "title": "Relembrar: rotação e translação",
+        "prompt": "Vamos lembrar os dois movimentos da Terra.",
         "estMinutes": 4,
-        "audioScript": "Questão sobre Selecionar métodos mais adequados para a separação.",
-        "skillId": "EF06CI03",
+        "audioScript": "Vamos lembrar os dois movimentos da Terra. Pergunta 1. Qual movimento da Terra dura cerca de 24 horas? A: Translação; B: Nenhum, a Terra fica parada; C: Rotação; D: O movimento do Sol em volta da Terra. Pergunta 2. Qual movimento da Terra dura cerca de um ano? A: Rotação; B: Translação, a volta em torno do Sol; C: O giro do Sol; D: A mudança de distância da Lua. Pergunta 3. O eixo da Terra, a linha imaginária em torno da qual ela gira, é: A: Perfeitamente reto em relação ao Sol; B: Inexistente; C: Virado sempre para a Lua; D: Inclinado.",
         "questions": [
           {
-            "question": "Qual das opções descreve corretamente o tema \"Selecionar métodos mais adequados para a separação\" para o 6º ano?",
+            "question": "Qual movimento da Terra dura cerca de 24 horas?",
             "options": [
               {
-                "text": "É um conceito central de Ciências do 6º ano que explica fenômenos naturais observáveis"
+                "text": "Translação",
+                "misconceptionCode": "confunde-movimentos"
               },
               {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
+                "text": "Nenhum, a Terra fica parada",
+                "misconceptionCode": "sombra-fixa"
               },
               {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Rotação"
               },
               {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
+                "text": "O movimento do Sol em volta da Terra",
+                "misconceptionCode": "sombra-mesmo-lado-sol"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Selecionar métodos mais adequados para a separação é um conteúdo fundamental de Ciências do 6º ano conforme a BNCC.",
+            "correctIndex": 2,
+            "explanation": "A rotação, em torno de si mesma, dura cerca de um dia.",
             "variants": [
               {
-                "question": "Em qual etapa da BNCC encontramos \"Selecionar métodos mais adequados para a separação\"?",
+                "question": "O movimento da Terra em torno de si mesma se chama:",
                 "options": [
                   {
-                    "text": "6º ano do Ensino Fundamental"
+                    "text": "Rotação"
                   },
                   {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Translação",
+                    "misconceptionCode": "confunde-movimentos"
                   },
                   {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Inclinação",
+                    "misconceptionCode": "sombra-fixa"
                   },
                   {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Eclipse",
+                    "misconceptionCode": "sombra-mesmo-lado-sol"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que \"Selecionar métodos mais adequados para a separação\" é importante de aprender no 6º ano?",
+                "question": "Qual movimento da Terra dura cerca de 24 horas?",
                 "options": [
                   {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
+                    "text": "O movimento do Sol em volta da Terra",
+                    "misconceptionCode": "sombra-mesmo-lado-sol"
                   },
                   {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Nenhum, a Terra fica parada",
+                    "misconceptionCode": "sombra-fixa"
                   },
                   {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Translação",
+                    "misconceptionCode": "confunde-movimentos"
                   },
                   {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Rotação"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               }
-            ],
-            "skillId": "EF06CI03"
+            ]
           },
           {
-            "question": "Qual das opções descreve corretamente o tema \"Selecionar métodos mais adequados para a separação\" para o 6º ano?",
+            "question": "Qual movimento da Terra dura cerca de um ano?",
             "options": [
               {
-                "text": "É um conceito central de Ciências do 6º ano que explica fenômenos naturais observáveis"
+                "text": "Rotação",
+                "misconceptionCode": "confunde-movimentos"
               },
               {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
+                "text": "Translação, a volta em torno do Sol"
               },
               {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
+                "text": "O giro do Sol",
+                "misconceptionCode": "sombra-mesmo-lado-sol"
               },
               {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
+                "text": "A mudança de distância da Lua",
+                "misconceptionCode": "distancia-causa-estacao"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Selecionar métodos mais adequados para a separação é um conteúdo fundamental de Ciências do 6º ano conforme a BNCC.",
+            "correctIndex": 1,
+            "explanation": "A translação é a volta completa da Terra em torno do Sol e dura cerca de 365 dias.",
             "variants": [
               {
-                "question": "Em qual etapa da BNCC encontramos \"Selecionar métodos mais adequados para a separação\"?",
+                "question": "Uma volta completa da Terra em torno do Sol dura:",
                 "options": [
                   {
-                    "text": "6º ano do Ensino Fundamental"
+                    "text": "Cerca de um dia",
+                    "misconceptionCode": "confunde-movimentos"
                   },
                   {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Cerca de um mês",
+                    "misconceptionCode": "sombra-mesmo-lado-sol"
                   },
                   {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Cerca de uma hora",
+                    "misconceptionCode": "distancia-causa-estacao"
                   },
                   {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Cerca de um ano"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "Por que \"Selecionar métodos mais adequados para a separação\" é importante de aprender no 6º ano?",
+                "question": "Qual movimento da Terra dura cerca de um ano?",
                 "options": [
                   {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
+                    "text": "A mudança de distância da Lua",
+                    "misconceptionCode": "distancia-causa-estacao"
                   },
                   {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "O giro do Sol",
+                    "misconceptionCode": "sombra-mesmo-lado-sol"
                   },
                   {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Translação, a volta em torno do Sol"
                   },
                   {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Rotação",
+                    "misconceptionCode": "confunde-movimentos"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
+          },
+          {
+            "question": "O eixo da Terra, a linha imaginária em torno da qual ela gira, é:",
+            "options": [
+              {
+                "text": "Perfeitamente reto em relação ao Sol",
+                "misconceptionCode": "distancia-causa-estacao"
+              },
+              {
+                "text": "Inexistente",
+                "misconceptionCode": "sombra-fixa"
+              },
+              {
+                "text": "Virado sempre para a Lua",
+                "misconceptionCode": "confunde-movimentos"
+              },
+              {
+                "text": "Inclinado"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "O eixo da Terra é inclinado. Essa inclinação ajuda a explicar as estações do ano.",
+            "variants": [
+              {
+                "question": "Por que o globo terrestre da escola costuma ficar torto no suporte?",
+                "options": [
+                  {
+                    "text": "Porque o suporte está quebrado",
+                    "misconceptionCode": "distancia-causa-estacao"
+                  },
+                  {
+                    "text": "Porque representa a inclinação do eixo da Terra"
+                  },
+                  {
+                    "text": "Porque a Terra é mais pesada embaixo",
+                    "misconceptionCode": "sombra-fixa"
+                  },
+                  {
+                    "text": "Para mostrar a Lua",
+                    "misconceptionCode": "confunde-movimentos"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "O eixo da Terra, a linha imaginária em torno da qual ela gira, é:",
+                "options": [
+                  {
+                    "text": "Inclinado"
+                  },
+                  {
+                    "text": "Virado sempre para a Lua",
+                    "misconceptionCode": "confunde-movimentos"
+                  },
+                  {
+                    "text": "Inexistente",
+                    "misconceptionCode": "sombra-fixa"
+                  },
+                  {
+                    "text": "Perfeitamente reto em relação ao Sol",
+                    "misconceptionCode": "distancia-causa-estacao"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06CI03"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06CI03-A2",
+        "id": "PK2-EF06CI14-A2",
         "step": "exemplo_guiado",
         "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Selecionar métodos mais adequados para a separação",
-        "prompt": "Questão sobre Selecionar métodos mais adequados para a separação.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Selecionar métodos mais adequados para a separação.",
-        "skillId": "EF06CI03",
+        "title": "Exemplo guiado: a vara ao sol",
+        "prompt": "Imagine uma vara fincada no pátio, num dia de sol. Vamos observar a sombra dela juntos ao longo do dia.",
+        "estMinutes": 4,
+        "audioScript": "Imagine uma vara fincada no pátio, num dia de sol. Vamos observar a sombra dela juntos ao longo do dia. Pergunta 1. De manhã cedo, com o Sol no leste, para onde aponta a sombra da vara? A: Para o leste, o lado do Sol; B: Para o oeste, o lado oposto ao Sol; C: Para cima; D: Ela não aparece de manhã. Pergunta 2. Perto do meio-dia, como fica a sombra? A: Bem comprida; B: Do mesmo tamanho da manhã; C: Do mesmo lado do Sol; D: Bem curta. Pergunta 3. O que essas mudanças da sombra ao longo do dia mostram? A: A rotação da Terra; B: A translação da Terra; C: Que o Sol gira em volta da vara; D: Que a sombra não muda.",
         "questions": [
           {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Selecionar métodos mais adequados para a separação\"?",
+            "question": "De manhã cedo, com o Sol no leste, para onde aponta a sombra da vara?",
             "options": [
               {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
+                "text": "Para o leste, o lado do Sol",
+                "misconceptionCode": "sombra-mesmo-lado-sol"
               },
               {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Para o oeste, o lado oposto ao Sol"
               },
               {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Para cima",
+                "misconceptionCode": "sombra-fixa"
               },
               {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Ela não aparece de manhã",
+                "misconceptionCode": "confunde-movimentos"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
+            "correctIndex": 1,
+            "explanation": "A sombra fica sempre do lado oposto à fonte de luz.",
             "variants": [
               {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Selecionar métodos mais adequados para a separação\"?",
+                "question": "No fim da tarde, com o Sol no oeste, a sombra aponta para:",
                 "options": [
                   {
-                    "text": "Experimentos, registros e análise de evidências"
+                    "text": "O oeste",
+                    "misconceptionCode": "sombra-mesmo-lado-sol"
                   },
                   {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "O Sol",
+                    "misconceptionCode": "sombra-fixa"
                   },
                   {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Lugar nenhum",
+                    "misconceptionCode": "confunde-movimentos"
                   },
                   {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "O leste"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
               },
               {
-                "question": "O método científico começa com:",
+                "question": "De manhã cedo, com o Sol no leste, para onde aponta a sombra da vara?",
                 "options": [
                   {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
+                    "text": "Ela não aparece de manhã",
+                    "misconceptionCode": "confunde-movimentos"
                   },
                   {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Para cima",
+                    "misconceptionCode": "sombra-fixa"
                   },
                   {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Para o oeste, o lado oposto ao Sol"
                   },
                   {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Para o leste, o lado do Sol",
+                    "misconceptionCode": "sombra-mesmo-lado-sol"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               }
-            ],
-            "skillId": "EF06CI03"
+            ]
           },
           {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Selecionar métodos mais adequados para a separação\"?",
+            "question": "Perto do meio-dia, como fica a sombra?",
             "options": [
               {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
+                "text": "Bem comprida",
+                "misconceptionCode": "sombra-fixa"
               },
               {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Do mesmo tamanho da manhã",
+                "misconceptionCode": "sombra-fixa"
               },
               {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Do mesmo lado do Sol",
+                "misconceptionCode": "sombra-mesmo-lado-sol"
               },
               {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Bem curta"
+              }
+            ],
+            "correctIndex": 3,
+            "explanation": "Com o Sol alto no céu, a sombra fica curta.",
+            "variants": [
+              {
+                "question": "Quando a sombra está mais comprida no dia?",
+                "options": [
+                  {
+                    "text": "Ao meio-dia",
+                    "misconceptionCode": "sombra-fixa"
+                  },
+                  {
+                    "text": "De manhã cedo e no fim da tarde"
+                  },
+                  {
+                    "text": "Sempre igual",
+                    "misconceptionCode": "sombra-fixa"
+                  },
+                  {
+                    "text": "Só no inverno",
+                    "misconceptionCode": "sombra-mesmo-lado-sol"
+                  }
+                ],
+                "correctIndex": 1
+              },
+              {
+                "question": "Perto do meio-dia, como fica a sombra?",
+                "options": [
+                  {
+                    "text": "Bem curta"
+                  },
+                  {
+                    "text": "Do mesmo lado do Sol",
+                    "misconceptionCode": "sombra-mesmo-lado-sol"
+                  },
+                  {
+                    "text": "Do mesmo tamanho da manhã",
+                    "misconceptionCode": "sombra-fixa"
+                  },
+                  {
+                    "text": "Bem comprida",
+                    "misconceptionCode": "sombra-fixa"
+                  }
+                ],
+                "correctIndex": 0
+              }
+            ]
+          },
+          {
+            "question": "O que essas mudanças da sombra ao longo do dia mostram?",
+            "options": [
+              {
+                "text": "A rotação da Terra"
+              },
+              {
+                "text": "A translação da Terra",
+                "misconceptionCode": "confunde-movimentos"
+              },
+              {
+                "text": "Que o Sol gira em volta da vara",
+                "misconceptionCode": "sombra-mesmo-lado-sol"
+              },
+              {
+                "text": "Que a sombra não muda",
+                "misconceptionCode": "sombra-fixa"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
+            "explanation": "Em um dia, a Terra gira, o Sol muda de posição no céu e a sombra muda de tamanho e direção.",
             "variants": [
               {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Selecionar métodos mais adequados para a separação\"?",
+                "question": "A sombra da vara girar em volta dela durante o dia é uma evidência de:",
                 "options": [
                   {
-                    "text": "Experimentos, registros e análise de evidências"
+                    "text": "Translação",
+                    "misconceptionCode": "confunde-movimentos"
                   },
                   {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Eclipse",
+                    "misconceptionCode": "sombra-mesmo-lado-sol"
                   },
                   {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Rotação da Terra"
                   },
                   {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Fase da Lua",
+                    "misconceptionCode": "sombra-fixa"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "O método científico começa com:",
+                "question": "O que essas mudanças da sombra ao longo do dia mostram?",
                 "options": [
                   {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
+                    "text": "Que a sombra não muda",
+                    "misconceptionCode": "sombra-fixa"
                   },
                   {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "A rotação da Terra"
                   },
                   {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Que o Sol gira em volta da vara",
+                    "misconceptionCode": "sombra-mesmo-lado-sol"
                   },
                   {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A translação da Terra",
+                    "misconceptionCode": "confunde-movimentos"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06CI03"
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06CI03-A3",
+        "id": "PK2-EF06CI14-A3",
         "step": "praticar",
         "type": "QUIZ",
-        "title": "Praticar com exercícios: Selecionar métodos mais adequados para a separação",
-        "prompt": "Questão sobre Selecionar métodos mais adequados para a separação.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Selecionar métodos mais adequados para a separação.",
-        "skillId": "EF06CI03",
+        "title": "Praticar: sombras ao longo do ano",
+        "prompt": "Agora imagine que alguém marcou a sombra da vara sempre ao meio-dia, durante o ano inteiro.",
+        "estMinutes": 5,
+        "audioScript": "Agora imagine que alguém marcou a sombra da vara sempre ao meio-dia, durante o ano inteiro. Pergunta 1. A sombra do meio-dia muda de tamanho ao longo do ano. O que isso mostra? A: Que a sombra é sempre igual; B: Que a Terra para de girar em algumas épocas; C: Que a Terra fica mais perto do Sol em julho; D: Que a altura do Sol no céu muda ao longo do ano. Pergunta 2. Qual é a principal causa das estações do ano? A: A inclinação do eixo da Terra durante a translação; B: A Terra ficar mais perto ou mais longe do Sol; C: A rotação da Terra; D: O Sol mudar de tamanho. Pergunta 3. Em um mesmo horário, a sombra de uma árvore e a de um poste ao lado apontam: A: Para lados opostos; B: Para o Sol; C: Para o mesmo lado; D: Cada uma para um lado qualquer. Pergunta 4. Por que os relógios de sol funcionam? A: Porque a sombra fica sempre parada; B: Porque a sombra muda de direção ao longo do dia por causa da rotação; C: Porque o Sol gira em volta do relógio; D: Porque a translação muda a sombra a cada hora.",
         "questions": [
           {
-            "question": "Qual das opções descreve corretamente o tema \"Selecionar métodos mais adequados para a separação\" para o 6º ano?",
+            "question": "A sombra do meio-dia muda de tamanho ao longo do ano. O que isso mostra?",
             "options": [
               {
-                "text": "É um conceito central de Ciências do 6º ano que explica fenômenos naturais observáveis"
+                "text": "Que a sombra é sempre igual",
+                "misconceptionCode": "sombra-fixa"
               },
               {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
+                "text": "Que a Terra para de girar em algumas épocas",
+                "misconceptionCode": "confunde-movimentos"
               },
               {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Que a Terra fica mais perto do Sol em julho",
+                "misconceptionCode": "distancia-causa-estacao"
               },
               {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
+                "text": "Que a altura do Sol no céu muda ao longo do ano"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Selecionar métodos mais adequados para a separação é um conteúdo fundamental de Ciências do 6º ano conforme a BNCC.",
+            "correctIndex": 3,
+            "explanation": "Ao longo do ano, o Sol do meio-dia fica mais alto ou mais baixo, por causa da inclinação do eixo durante a translação.",
             "variants": [
               {
-                "question": "Em qual etapa da BNCC encontramos \"Selecionar métodos mais adequados para a separação\"?",
+                "question": "Se a sombra do meio-dia é mais longa em junho que em dezembro num lugar do Sul do Brasil, isso indica que:",
                 "options": [
                   {
-                    "text": "6º ano do Ensino Fundamental"
+                    "text": "O Sol está mais longe em junho",
+                    "misconceptionCode": "sombra-fixa"
                   },
                   {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "O Sol do meio-dia está mais baixo em junho"
                   },
                   {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A Terra parou de girar",
+                    "misconceptionCode": "confunde-movimentos"
                   },
                   {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "A sombra não depende do Sol",
+                    "misconceptionCode": "distancia-causa-estacao"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               },
               {
-                "question": "Por que \"Selecionar métodos mais adequados para a separação\" é importante de aprender no 6º ano?",
+                "question": "A sombra do meio-dia muda de tamanho ao longo do ano. O que isso mostra?",
                 "options": [
                   {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
+                    "text": "Que a altura do Sol no céu muda ao longo do ano"
                   },
                   {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Que a Terra fica mais perto do Sol em julho",
+                    "misconceptionCode": "distancia-causa-estacao"
                   },
                   {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Que a Terra para de girar em algumas épocas",
+                    "misconceptionCode": "confunde-movimentos"
                   },
                   {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Que a sombra é sempre igual",
+                    "misconceptionCode": "sombra-fixa"
                   }
                 ],
                 "correctIndex": 0
               }
-            ],
-            "skillId": "EF06CI03"
+            ]
           },
           {
-            "question": "Qual das opções descreve corretamente o tema \"Selecionar métodos mais adequados para a separação\" para o 6º ano?",
+            "question": "Qual é a principal causa das estações do ano?",
             "options": [
               {
-                "text": "É um conceito central de Ciências do 6º ano que explica fenômenos naturais observáveis"
+                "text": "A inclinação do eixo da Terra durante a translação"
               },
               {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
+                "text": "A Terra ficar mais perto ou mais longe do Sol",
+                "misconceptionCode": "distancia-causa-estacao"
               },
               {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
+                "text": "A rotação da Terra",
+                "misconceptionCode": "confunde-movimentos"
               },
               {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
+                "text": "O Sol mudar de tamanho",
+                "misconceptionCode": "sombra-fixa"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Selecionar métodos mais adequados para a separação é um conteúdo fundamental de Ciências do 6º ano conforme a BNCC.",
+            "explanation": "A distância muda pouco. O que muda é como a luz do Sol chega a cada parte da Terra por causa da inclinação.",
             "variants": [
               {
-                "question": "Em qual etapa da BNCC encontramos \"Selecionar métodos mais adequados para a separação\"?",
+                "question": "Quando é verão no Brasil, é inverno na Europa. Isso mostra que a estação depende:",
                 "options": [
                   {
-                    "text": "6º ano do Ensino Fundamental"
+                    "text": "Da distância da Terra ao Sol",
+                    "misconceptionCode": "distancia-causa-estacao"
                   },
                   {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Da rotação",
+                    "misconceptionCode": "confunde-movimentos"
                   },
                   {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Da inclinação e da posição de cada hemisfério"
                   },
                   {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Do tamanho do Sol",
+                    "misconceptionCode": "sombra-fixa"
+                  }
+                ],
+                "correctIndex": 2
+              },
+              {
+                "question": "Qual é a principal causa das estações do ano?",
+                "options": [
+                  {
+                    "text": "O Sol mudar de tamanho",
+                    "misconceptionCode": "sombra-fixa"
+                  },
+                  {
+                    "text": "A inclinação do eixo da Terra durante a translação"
+                  },
+                  {
+                    "text": "A rotação da Terra",
+                    "misconceptionCode": "confunde-movimentos"
+                  },
+                  {
+                    "text": "A Terra ficar mais perto ou mais longe do Sol",
+                    "misconceptionCode": "distancia-causa-estacao"
+                  }
+                ],
+                "correctIndex": 1
+              }
+            ]
+          },
+          {
+            "question": "Em um mesmo horário, a sombra de uma árvore e a de um poste ao lado apontam:",
+            "options": [
+              {
+                "text": "Para lados opostos",
+                "misconceptionCode": "sombra-mesmo-lado-sol"
+              },
+              {
+                "text": "Para o Sol",
+                "misconceptionCode": "sombra-mesmo-lado-sol"
+              },
+              {
+                "text": "Para o mesmo lado"
+              },
+              {
+                "text": "Cada uma para um lado qualquer",
+                "misconceptionCode": "sombra-fixa"
+              }
+            ],
+            "correctIndex": 2,
+            "explanation": "Todas as sombras ficam do lado oposto ao Sol, ao mesmo tempo.",
+            "variants": [
+              {
+                "question": "No pátio, às 9h, a sombra das crianças aponta para o oeste. A sombra da cesta de basquete aponta para:",
+                "options": [
+                  {
+                    "text": "O oeste também"
+                  },
+                  {
+                    "text": "O leste",
+                    "misconceptionCode": "sombra-mesmo-lado-sol"
+                  },
+                  {
+                    "text": "O norte",
+                    "misconceptionCode": "sombra-mesmo-lado-sol"
+                  },
+                  {
+                    "text": "Para o Sol",
+                    "misconceptionCode": "sombra-fixa"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "Por que \"Selecionar métodos mais adequados para a separação\" é importante de aprender no 6º ano?",
+                "question": "Em um mesmo horário, a sombra de uma árvore e a de um poste ao lado apontam:",
                 "options": [
                   {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
+                    "text": "Cada uma para um lado qualquer",
+                    "misconceptionCode": "sombra-fixa"
                   },
                   {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
+                    "text": "Para o Sol",
+                    "misconceptionCode": "sombra-mesmo-lado-sol"
                   },
                   {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Para lados opostos",
+                    "misconceptionCode": "sombra-mesmo-lado-sol"
                   },
                   {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
+                    "text": "Para o mesmo lado"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "Por que os relógios de sol funcionam?",
+            "options": [
+              {
+                "text": "Porque a sombra fica sempre parada",
+                "misconceptionCode": "sombra-fixa"
+              },
+              {
+                "text": "Porque a sombra muda de direção ao longo do dia por causa da rotação"
+              },
+              {
+                "text": "Porque o Sol gira em volta do relógio",
+                "misconceptionCode": "sombra-mesmo-lado-sol"
+              },
+              {
+                "text": "Porque a translação muda a sombra a cada hora",
+                "misconceptionCode": "confunde-movimentos"
               }
             ],
-            "skillId": "EF06CI03"
+            "correctIndex": 1,
+            "explanation": "A sombra gira com as horas, e isso permite marcar o tempo.",
+            "variants": [
+              {
+                "question": "O relógio de sol marca as horas usando:",
+                "options": [
+                  {
+                    "text": "O tamanho do Sol",
+                    "misconceptionCode": "sombra-fixa"
+                  },
+                  {
+                    "text": "A distância até o Sol",
+                    "misconceptionCode": "sombra-mesmo-lado-sol"
+                  },
+                  {
+                    "text": "A translação de cada hora",
+                    "misconceptionCode": "confunde-movimentos"
+                  },
+                  {
+                    "text": "A posição da sombra, que muda com a rotação da Terra"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Por que os relógios de sol funcionam?",
+                "options": [
+                  {
+                    "text": "Porque a translação muda a sombra a cada hora",
+                    "misconceptionCode": "confunde-movimentos"
+                  },
+                  {
+                    "text": "Porque o Sol gira em volta do relógio",
+                    "misconceptionCode": "sombra-mesmo-lado-sol"
+                  },
+                  {
+                    "text": "Porque a sombra muda de direção ao longo do dia por causa da rotação"
+                  },
+                  {
+                    "text": "Porque a sombra fica sempre parada",
+                    "misconceptionCode": "sombra-fixa"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06CI03-A4",
+        "id": "PK2-EF06CI14-A4",
         "step": "aplicar",
         "type": "QUIZ",
-        "title": "Aplicar em situações reais: Selecionar métodos mais adequados para a separação",
-        "prompt": "Questão sobre Selecionar métodos mais adequados para a separação.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Selecionar métodos mais adequados para a separação.",
-        "skillId": "EF06CI03",
+        "title": "Aplicar: sombras no dia a dia",
+        "prompt": "Use o que aprendeu em situações reais.",
+        "estMinutes": 4,
+        "audioScript": "Use o que aprendeu em situações reais. Pergunta 1. Você quer estacionar a bicicleta na sombra de um muro às 16h. O muro fica entre o pátio e o oeste. De que lado do muro fica a sombra? A: Do lado leste do muro; B: Do lado oeste, onde está o Sol; C: Não há sombra à tarde; D: Dos dois lados igualmente. Pergunta 2. Um colega diz que no verão a Terra está mais perto do Sol, por isso faz calor. O que você responde? A: Ele está certo; B: O calor vem da rotação; C: A principal causa é a inclinação do eixo, não a distância; D: O verão acontece porque a sombra fica curta. Pergunta 3. Um fotógrafo quer sombras bem longas numa foto. Quando ele deve fotografar? A: Ao meio-dia; B: No começo da manhã ou no fim da tarde; C: Tanto faz o horário; D: Só no verão, ao meio-dia.",
         "questions": [
           {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Selecionar métodos mais adequados para a separação\"?",
+            "question": "Você quer estacionar a bicicleta na sombra de um muro às 16h. O muro fica entre o pátio e o oeste. De que lado do muro fica a sombra?",
             "options": [
               {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
+                "text": "Do lado leste do muro"
               },
               {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Do lado oeste, onde está o Sol",
+                "misconceptionCode": "sombra-mesmo-lado-sol"
               },
               {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "Não há sombra à tarde",
+                "misconceptionCode": "sombra-fixa"
               },
               {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "Dos dois lados igualmente",
+                "misconceptionCode": "sombra-fixa"
               }
             ],
             "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
+            "explanation": "À tarde o Sol está no oeste, então a sombra se forma no lado oposto, o leste.",
             "variants": [
               {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Selecionar métodos mais adequados para a separação\"?",
+                "question": "Às 8h, para ficar na sombra de uma árvore, você deve sentar no lado:",
                 "options": [
                   {
-                    "text": "Experimentos, registros e análise de evidências"
+                    "text": "Leste da árvore",
+                    "misconceptionCode": "sombra-mesmo-lado-sol"
                   },
                   {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Qualquer lado",
+                    "misconceptionCode": "sombra-fixa"
                   },
                   {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Oeste da árvore"
                   },
                   {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Embaixo do Sol",
+                    "misconceptionCode": "sombra-fixa"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 2
               },
               {
-                "question": "O método científico começa com:",
+                "question": "Você quer estacionar a bicicleta na sombra de um muro às 16h. O muro fica entre o pátio e o oeste. De que lado do muro fica a sombra?",
                 "options": [
                   {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
+                    "text": "Dos dois lados igualmente",
+                    "misconceptionCode": "sombra-fixa"
                   },
                   {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Do lado leste do muro"
                   },
                   {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Não há sombra à tarde",
+                    "misconceptionCode": "sombra-fixa"
                   },
                   {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Do lado oeste, onde está o Sol",
+                    "misconceptionCode": "sombra-mesmo-lado-sol"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 1
               }
-            ],
-            "skillId": "EF06CI03"
+            ]
           },
           {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Selecionar métodos mais adequados para a separação\"?",
+            "question": "Um colega diz que no verão a Terra está mais perto do Sol, por isso faz calor. O que você responde?",
             "options": [
               {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
+                "text": "Ele está certo",
+                "misconceptionCode": "distancia-causa-estacao"
               },
               {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "O calor vem da rotação",
+                "misconceptionCode": "confunde-movimentos"
               },
               {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
+                "text": "A principal causa é a inclinação do eixo, não a distância"
               },
               {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
+                "text": "O verão acontece porque a sombra fica curta",
+                "misconceptionCode": "sombra-fixa"
               }
             ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
+            "correctIndex": 2,
+            "explanation": "Se fosse a distância, os dois hemisférios teriam verão ao mesmo tempo, e não é o que acontece.",
             "variants": [
               {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Selecionar métodos mais adequados para a separação\"?",
+                "question": "Por que o Natal no Brasil é no verão e na Europa é no inverno?",
                 "options": [
                   {
-                    "text": "Experimentos, registros e análise de evidências"
+                    "text": "Por causa da inclinação do eixo da Terra"
                   },
                   {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Porque o Brasil está mais perto do Sol",
+                    "misconceptionCode": "distancia-causa-estacao"
                   },
                   {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Por causa da rotação",
+                    "misconceptionCode": "confunde-movimentos"
                   },
                   {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "Porque o Sol é maior no Brasil",
+                    "misconceptionCode": "sombra-fixa"
                   }
                 ],
                 "correctIndex": 0
               },
               {
-                "question": "O método científico começa com:",
+                "question": "Um colega diz que no verão a Terra está mais perto do Sol, por isso faz calor. O que você responde?",
                 "options": [
                   {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
+                    "text": "O verão acontece porque a sombra fica curta",
+                    "misconceptionCode": "sombra-fixa"
                   },
                   {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "O calor vem da rotação",
+                    "misconceptionCode": "confunde-movimentos"
                   },
                   {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
+                    "text": "Ele está certo",
+                    "misconceptionCode": "distancia-causa-estacao"
                   },
                   {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
+                    "text": "A principal causa é a inclinação do eixo, não a distância"
                   }
                 ],
-                "correctIndex": 0
+                "correctIndex": 3
+              }
+            ]
+          },
+          {
+            "question": "Um fotógrafo quer sombras bem longas numa foto. Quando ele deve fotografar?",
+            "options": [
+              {
+                "text": "Ao meio-dia",
+                "misconceptionCode": "sombra-fixa"
+              },
+              {
+                "text": "No começo da manhã ou no fim da tarde"
+              },
+              {
+                "text": "Tanto faz o horário",
+                "misconceptionCode": "sombra-fixa"
+              },
+              {
+                "text": "Só no verão, ao meio-dia",
+                "misconceptionCode": "distancia-causa-estacao"
               }
             ],
-            "skillId": "EF06CI03"
+            "correctIndex": 1,
+            "explanation": "Com o Sol baixo no céu, as sombras ficam compridas.",
+            "variants": [
+              {
+                "question": "Para uma foto quase sem sombra, o melhor horário é:",
+                "options": [
+                  {
+                    "text": "Às 6h",
+                    "misconceptionCode": "sombra-fixa"
+                  },
+                  {
+                    "text": "Às 17h30",
+                    "misconceptionCode": "sombra-fixa"
+                  },
+                  {
+                    "text": "Qualquer hora",
+                    "misconceptionCode": "distancia-causa-estacao"
+                  },
+                  {
+                    "text": "Perto do meio-dia"
+                  }
+                ],
+                "correctIndex": 3
+              },
+              {
+                "question": "Um fotógrafo quer sombras bem longas numa foto. Quando ele deve fotografar?",
+                "options": [
+                  {
+                    "text": "Só no verão, ao meio-dia",
+                    "misconceptionCode": "distancia-causa-estacao"
+                  },
+                  {
+                    "text": "Tanto faz o horário",
+                    "misconceptionCode": "sombra-fixa"
+                  },
+                  {
+                    "text": "No começo da manhã ou no fim da tarde"
+                  },
+                  {
+                    "text": "Ao meio-dia",
+                    "misconceptionCode": "sombra-fixa"
+                  }
+                ],
+                "correctIndex": 2
+              }
+            ]
           }
         ]
       },
       {
-        "id": "PK-EF06CI03-A5",
+        "id": "PK2-EF06CI14-A5",
         "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Selecionar métodos mais adequados para a separação",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Selecionar métodos mais adequados para a separação.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Selecionar métodos mais adequados para a separação.",
+        "type": "WRITTEN",
+        "allowSpoken": true,
+        "title": "Explicar: o que a sombra mostra",
+        "prompt": "Explique com as suas palavras o que acontece com a sombra de uma vara ao longo de um dia e o que isso mostra sobre a Terra.",
+        "estMinutes": 6,
+        "audioScript": "Explique com as suas palavras o que acontece com a sombra de uma vara ao longo de um dia e o que isso mostra sobre a Terra.",
         "rubric": {
+          "type": "WRITTEN",
           "criteria": [
-            "Menciona ao menos dois aspectos de Selecionar métodos mais adequados para a separação",
-            "Usa vocabulário adequado ao ano escolar"
+            {
+              "code": "muda-tamanho-direcao",
+              "description": "Diz que a sombra muda de tamanho e de direção ao longo do dia"
+            },
+            {
+              "code": "lado-oposto",
+              "description": "Explica que a sombra fica do lado oposto ao Sol"
+            },
+            {
+              "code": "rotacao",
+              "description": "Relaciona a mudança com a rotação da Terra"
+            }
           ],
-          "minScore": 60
-        },
-        "skillId": "EF06CI03"
+          "exemploBoaResposta": "De manhã a sombra é comprida e aponta para o oeste, porque o Sol está no leste. Ao meio-dia ela fica curta, e à tarde fica comprida de novo, apontando para o leste. Isso acontece porque a Terra gira, e o Sol muda de lugar no céu."
+        }
       }
-    ]
-  },
-  {
-    "skillCode": "EF06CI06",
-    "title": "Trilha: com base na análise de ilustrações e/ou modelos (EF06CI06)",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED",
+    ],
     "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
-    "subjectCode": "CI",
-    "activities": [
-      {
-        "id": "PK-EF06CI06-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: com base na análise de ilustrações e/ou modelos",
-        "prompt": "Questão sobre com base na análise de ilustrações e/ou modelos.",
-        "estMinutes": 4,
-        "audioScript": "Questão sobre com base na análise de ilustrações e/ou modelos.",
-        "skillId": "EF06CI06",
-        "questions": [
-          {
-            "question": "Qual das opções descreve corretamente o tema \"com base na análise de ilustrações e/ou modelos\" para o 6º ano?",
-            "options": [
-              {
-                "text": "É um conceito central de Ciências do 6º ano que explica fenômenos naturais observáveis"
-              },
-              {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
-              },
-              {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "com base na análise de ilustrações e/ou modelos é um conteúdo fundamental de Ciências do 6º ano conforme a BNCC.",
-            "variants": [
-              {
-                "question": "Em qual etapa da BNCC encontramos \"com base na análise de ilustrações e/ou modelos\"?",
-                "options": [
-                  {
-                    "text": "6º ano do Ensino Fundamental"
-                  },
-                  {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que \"com base na análise de ilustrações e/ou modelos\" é importante de aprender no 6º ano?",
-                "options": [
-                  {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
-                  },
-                  {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06CI06"
-          },
-          {
-            "question": "Qual das opções descreve corretamente o tema \"com base na análise de ilustrações e/ou modelos\" para o 6º ano?",
-            "options": [
-              {
-                "text": "É um conceito central de Ciências do 6º ano que explica fenômenos naturais observáveis"
-              },
-              {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
-              },
-              {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "com base na análise de ilustrações e/ou modelos é um conteúdo fundamental de Ciências do 6º ano conforme a BNCC.",
-            "variants": [
-              {
-                "question": "Em qual etapa da BNCC encontramos \"com base na análise de ilustrações e/ou modelos\"?",
-                "options": [
-                  {
-                    "text": "6º ano do Ensino Fundamental"
-                  },
-                  {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que \"com base na análise de ilustrações e/ou modelos\" é importante de aprender no 6º ano?",
-                "options": [
-                  {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
-                  },
-                  {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06CI06"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06CI06-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: com base na análise de ilustrações e/ou modelos",
-        "prompt": "Questão sobre com base na análise de ilustrações e/ou modelos.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre com base na análise de ilustrações e/ou modelos.",
-        "skillId": "EF06CI06",
-        "questions": [
-          {
-            "question": "Qual atitude científica está relacionada com o estudo de \"com base na análise de ilustrações e/ou modelos\"?",
-            "options": [
-              {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
-              },
-              {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
-            "variants": [
-              {
-                "question": "Qual ferramenta um cientista usaria para investigar \"com base na análise de ilustrações e/ou modelos\"?",
-                "options": [
-                  {
-                    "text": "Experimentos, registros e análise de evidências"
-                  },
-                  {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O método científico começa com:",
-                "options": [
-                  {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
-                  },
-                  {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06CI06"
-          },
-          {
-            "question": "Qual atitude científica está relacionada com o estudo de \"com base na análise de ilustrações e/ou modelos\"?",
-            "options": [
-              {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
-              },
-              {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
-            "variants": [
-              {
-                "question": "Qual ferramenta um cientista usaria para investigar \"com base na análise de ilustrações e/ou modelos\"?",
-                "options": [
-                  {
-                    "text": "Experimentos, registros e análise de evidências"
-                  },
-                  {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O método científico começa com:",
-                "options": [
-                  {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
-                  },
-                  {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06CI06"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06CI06-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar com exercícios: com base na análise de ilustrações e/ou modelos",
-        "prompt": "Questão sobre com base na análise de ilustrações e/ou modelos.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre com base na análise de ilustrações e/ou modelos.",
-        "skillId": "EF06CI06",
-        "questions": [
-          {
-            "question": "Qual das opções descreve corretamente o tema \"com base na análise de ilustrações e/ou modelos\" para o 6º ano?",
-            "options": [
-              {
-                "text": "É um conceito central de Ciências do 6º ano que explica fenômenos naturais observáveis"
-              },
-              {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
-              },
-              {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "com base na análise de ilustrações e/ou modelos é um conteúdo fundamental de Ciências do 6º ano conforme a BNCC.",
-            "variants": [
-              {
-                "question": "Em qual etapa da BNCC encontramos \"com base na análise de ilustrações e/ou modelos\"?",
-                "options": [
-                  {
-                    "text": "6º ano do Ensino Fundamental"
-                  },
-                  {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que \"com base na análise de ilustrações e/ou modelos\" é importante de aprender no 6º ano?",
-                "options": [
-                  {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
-                  },
-                  {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06CI06"
-          },
-          {
-            "question": "Qual das opções descreve corretamente o tema \"com base na análise de ilustrações e/ou modelos\" para o 6º ano?",
-            "options": [
-              {
-                "text": "É um conceito central de Ciências do 6º ano que explica fenômenos naturais observáveis"
-              },
-              {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
-              },
-              {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "com base na análise de ilustrações e/ou modelos é um conteúdo fundamental de Ciências do 6º ano conforme a BNCC.",
-            "variants": [
-              {
-                "question": "Em qual etapa da BNCC encontramos \"com base na análise de ilustrações e/ou modelos\"?",
-                "options": [
-                  {
-                    "text": "6º ano do Ensino Fundamental"
-                  },
-                  {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que \"com base na análise de ilustrações e/ou modelos\" é importante de aprender no 6º ano?",
-                "options": [
-                  {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
-                  },
-                  {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06CI06"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06CI06-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar em situações reais: com base na análise de ilustrações e/ou modelos",
-        "prompt": "Questão sobre com base na análise de ilustrações e/ou modelos.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre com base na análise de ilustrações e/ou modelos.",
-        "skillId": "EF06CI06",
-        "questions": [
-          {
-            "question": "Qual atitude científica está relacionada com o estudo de \"com base na análise de ilustrações e/ou modelos\"?",
-            "options": [
-              {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
-              },
-              {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
-            "variants": [
-              {
-                "question": "Qual ferramenta um cientista usaria para investigar \"com base na análise de ilustrações e/ou modelos\"?",
-                "options": [
-                  {
-                    "text": "Experimentos, registros e análise de evidências"
-                  },
-                  {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O método científico começa com:",
-                "options": [
-                  {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
-                  },
-                  {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06CI06"
-          },
-          {
-            "question": "Qual atitude científica está relacionada com o estudo de \"com base na análise de ilustrações e/ou modelos\"?",
-            "options": [
-              {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
-              },
-              {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
-            "variants": [
-              {
-                "question": "Qual ferramenta um cientista usaria para investigar \"com base na análise de ilustrações e/ou modelos\"?",
-                "options": [
-                  {
-                    "text": "Experimentos, registros e análise de evidências"
-                  },
-                  {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O método científico começa com:",
-                "options": [
-                  {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
-                  },
-                  {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06CI06"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06CI06-A5",
-        "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: com base na análise de ilustrações e/ou modelos",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre com base na análise de ilustrações e/ou modelos.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre com base na análise de ilustrações e/ou modelos.",
-        "rubric": {
-          "criteria": [
-            "Menciona ao menos dois aspectos de com base na análise de ilustrações e/ou modelos",
-            "Usa vocabulário adequado ao ano escolar"
-          ],
-          "minScore": 60
-        },
-        "skillId": "EF06CI06"
-      }
-    ]
-  },
-  {
-    "skillCode": "EF06CI10",
-    "title": "Trilha: Explicar como o funcionamento do sistema nervoso pode ser (EF06CI10)",
     "source": "SPEAKFLOW",
-    "status": "APPROVED",
-    "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
-    "gradeYear": 6,
-    "subjectCode": "CI",
-    "activities": [
-      {
-        "id": "PK-EF06CI10-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar conceitos básicos: Explicar como o funcionamento do sistema nervoso pode ser",
-        "prompt": "Questão sobre Explicar como o funcionamento do sistema nervoso pode ser.",
-        "estMinutes": 4,
-        "audioScript": "Questão sobre Explicar como o funcionamento do sistema nervoso pode ser.",
-        "skillId": "EF06CI10",
-        "questions": [
-          {
-            "question": "Qual das opções descreve corretamente o tema \"Explicar como o funcionamento do sistema nervoso pode ser\" para o 6º ano?",
-            "options": [
-              {
-                "text": "É um conceito central de Ciências do 6º ano que explica fenômenos naturais observáveis"
-              },
-              {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
-              },
-              {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Explicar como o funcionamento do sistema nervoso pode ser é um conteúdo fundamental de Ciências do 6º ano conforme a BNCC.",
-            "variants": [
-              {
-                "question": "Em qual etapa da BNCC encontramos \"Explicar como o funcionamento do sistema nervoso pode ser\"?",
-                "options": [
-                  {
-                    "text": "6º ano do Ensino Fundamental"
-                  },
-                  {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que \"Explicar como o funcionamento do sistema nervoso pode ser\" é importante de aprender no 6º ano?",
-                "options": [
-                  {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
-                  },
-                  {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06CI10"
-          },
-          {
-            "question": "Qual das opções descreve corretamente o tema \"Explicar como o funcionamento do sistema nervoso pode ser\" para o 6º ano?",
-            "options": [
-              {
-                "text": "É um conceito central de Ciências do 6º ano que explica fenômenos naturais observáveis"
-              },
-              {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
-              },
-              {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Explicar como o funcionamento do sistema nervoso pode ser é um conteúdo fundamental de Ciências do 6º ano conforme a BNCC.",
-            "variants": [
-              {
-                "question": "Em qual etapa da BNCC encontramos \"Explicar como o funcionamento do sistema nervoso pode ser\"?",
-                "options": [
-                  {
-                    "text": "6º ano do Ensino Fundamental"
-                  },
-                  {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que \"Explicar como o funcionamento do sistema nervoso pode ser\" é importante de aprender no 6º ano?",
-                "options": [
-                  {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
-                  },
-                  {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06CI10"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06CI10-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Ver um exemplo explicado passo a passo: Explicar como o funcionamento do sistema nervoso pode ser",
-        "prompt": "Questão sobre Explicar como o funcionamento do sistema nervoso pode ser.",
-        "estMinutes": 6,
-        "audioScript": "Questão sobre Explicar como o funcionamento do sistema nervoso pode ser.",
-        "skillId": "EF06CI10",
-        "questions": [
-          {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Explicar como o funcionamento do sistema nervoso pode ser\"?",
-            "options": [
-              {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
-              },
-              {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
-            "variants": [
-              {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Explicar como o funcionamento do sistema nervoso pode ser\"?",
-                "options": [
-                  {
-                    "text": "Experimentos, registros e análise de evidências"
-                  },
-                  {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O método científico começa com:",
-                "options": [
-                  {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
-                  },
-                  {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06CI10"
-          },
-          {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Explicar como o funcionamento do sistema nervoso pode ser\"?",
-            "options": [
-              {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
-              },
-              {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
-            "variants": [
-              {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Explicar como o funcionamento do sistema nervoso pode ser\"?",
-                "options": [
-                  {
-                    "text": "Experimentos, registros e análise de evidências"
-                  },
-                  {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O método científico começa com:",
-                "options": [
-                  {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
-                  },
-                  {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06CI10"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06CI10-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar com exercícios: Explicar como o funcionamento do sistema nervoso pode ser",
-        "prompt": "Questão sobre Explicar como o funcionamento do sistema nervoso pode ser.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Explicar como o funcionamento do sistema nervoso pode ser.",
-        "skillId": "EF06CI10",
-        "questions": [
-          {
-            "question": "Qual das opções descreve corretamente o tema \"Explicar como o funcionamento do sistema nervoso pode ser\" para o 6º ano?",
-            "options": [
-              {
-                "text": "É um conceito central de Ciências do 6º ano que explica fenômenos naturais observáveis"
-              },
-              {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
-              },
-              {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Explicar como o funcionamento do sistema nervoso pode ser é um conteúdo fundamental de Ciências do 6º ano conforme a BNCC.",
-            "variants": [
-              {
-                "question": "Em qual etapa da BNCC encontramos \"Explicar como o funcionamento do sistema nervoso pode ser\"?",
-                "options": [
-                  {
-                    "text": "6º ano do Ensino Fundamental"
-                  },
-                  {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que \"Explicar como o funcionamento do sistema nervoso pode ser\" é importante de aprender no 6º ano?",
-                "options": [
-                  {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
-                  },
-                  {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06CI10"
-          },
-          {
-            "question": "Qual das opções descreve corretamente o tema \"Explicar como o funcionamento do sistema nervoso pode ser\" para o 6º ano?",
-            "options": [
-              {
-                "text": "É um conceito central de Ciências do 6º ano que explica fenômenos naturais observáveis"
-              },
-              {
-                "text": "É um tema exclusivo do Ensino Médio",
-                "misconceptionCode": "nao-pertence-ao-ano"
-              },
-              {
-                "text": "Não faz parte da BNCC de Ciências",
-                "misconceptionCode": "conteudo-errado"
-              },
-              {
-                "text": "É idêntico ao conteúdo do 1º ano",
-                "misconceptionCode": "confunde-anos"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Explicar como o funcionamento do sistema nervoso pode ser é um conteúdo fundamental de Ciências do 6º ano conforme a BNCC.",
-            "variants": [
-              {
-                "question": "Em qual etapa da BNCC encontramos \"Explicar como o funcionamento do sistema nervoso pode ser\"?",
-                "options": [
-                  {
-                    "text": "6º ano do Ensino Fundamental"
-                  },
-                  {
-                    "text": "Ensino Médio",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Educação Infantil",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "Ensino Superior",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que \"Explicar como o funcionamento do sistema nervoso pode ser\" é importante de aprender no 6º ano?",
-                "options": [
-                  {
-                    "text": "Ajuda a entender fenômenos do mundo natural com base em evidências"
-                  },
-                  {
-                    "text": "Não tem relação com a vida cotidiana",
-                    "misconceptionCode": "nao-pertence-ao-ano"
-                  },
-                  {
-                    "text": "Só é relevante para adultos",
-                    "misconceptionCode": "conteudo-errado"
-                  },
-                  {
-                    "text": "É um tema decorativo sem aplicação prática",
-                    "misconceptionCode": "confunde-anos"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06CI10"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06CI10-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar em situações reais: Explicar como o funcionamento do sistema nervoso pode ser",
-        "prompt": "Questão sobre Explicar como o funcionamento do sistema nervoso pode ser.",
-        "estMinutes": 8,
-        "audioScript": "Questão sobre Explicar como o funcionamento do sistema nervoso pode ser.",
-        "skillId": "EF06CI10",
-        "questions": [
-          {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Explicar como o funcionamento do sistema nervoso pode ser\"?",
-            "options": [
-              {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
-              },
-              {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
-            "variants": [
-              {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Explicar como o funcionamento do sistema nervoso pode ser\"?",
-                "options": [
-                  {
-                    "text": "Experimentos, registros e análise de evidências"
-                  },
-                  {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O método científico começa com:",
-                "options": [
-                  {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
-                  },
-                  {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06CI10"
-          },
-          {
-            "question": "Qual atitude científica está relacionada com o estudo de \"Explicar como o funcionamento do sistema nervoso pode ser\"?",
-            "options": [
-              {
-                "text": "Observar, registrar e comparar dados sobre o fenômeno"
-              },
-              {
-                "text": "Apenas memorizar o nome do conceito",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Aceitar qualquer explicação sem questionar",
-                "misconceptionCode": "nao-usa-evidencia"
-              },
-              {
-                "text": "Ignorar o fenômeno por ser complexo",
-                "misconceptionCode": "conteudo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Ciências exige observação, registro e comparação de dados.",
-            "variants": [
-              {
-                "question": "Qual ferramenta um cientista usaria para investigar \"Explicar como o funcionamento do sistema nervoso pode ser\"?",
-                "options": [
-                  {
-                    "text": "Experimentos, registros e análise de evidências"
-                  },
-                  {
-                    "text": "Apenas livros de ficção",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Suposições sem verificação",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "Nenhuma — não é possível investigar",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O método científico começa com:",
-                "options": [
-                  {
-                    "text": "Uma observação ou pergunta sobre um fenômeno"
-                  },
-                  {
-                    "text": "Uma conclusão pronta",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "A memorização de fórmulas",
-                    "misconceptionCode": "nao-usa-evidencia"
-                  },
-                  {
-                    "text": "O resultado de outra pessoa",
-                    "misconceptionCode": "conteudo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ],
-            "skillId": "EF06CI10"
-          }
-        ]
-      },
-      {
-        "id": "PK-EF06CI10-A5",
-        "step": "explicar",
-        "type": "SPOKEN",
-        "title": "Explicar com suas palavras: Explicar como o funcionamento do sistema nervoso pode ser",
-        "prompt": "Explique com suas próprias palavras o que aprendeu sobre Explicar como o funcionamento do sistema nervoso pode ser.",
-        "estMinutes": 10,
-        "audioScript": "Explique com suas próprias palavras o que aprendeu sobre Explicar como o funcionamento do sistema nervoso pode ser.",
-        "rubric": {
-          "criteria": [
-            "Menciona ao menos dois aspectos de Explicar como o funcionamento do sistema nervoso pode ser",
-            "Usa vocabulário adequado ao ano escolar"
-          ],
-          "minScore": 60
-        },
-        "skillId": "EF06CI10"
-      }
-    ]
+    "status": "APPROVED"
   }
 ]

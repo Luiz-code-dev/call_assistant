@@ -187,7 +187,7 @@ async function seedRedeA() {
         school: { connect: { id: escola.id } }, schoolYear: { connect: { id: anoLetivoA.id } }, networkId: rede.id,
         isActive: true, accessCode: "DEMA25",
       },
-      update: { isActive: true },
+      update: { isActive: true, name: "5º Ano A", gradeYear: 5, stage: "ELEMENTARY_EARLY" },
     });
 
     await catalog.codeIndex.upsert({
@@ -297,7 +297,8 @@ async function seedRedeB() {
         school: { connect: { id: escola.id } }, schoolYear: { connect: { id: anoLetivoB.id } }, networkId: rede.id,
         isActive: true, accessCode: "DEMB25",
       },
-      update: { isActive: true, schoolYear: { connect: { id: anoLetivoB.id } } },
+      // O seed-demo antigo cria esta turma como "5º Ano A": corrige nome, ano e etapa
+      update: { isActive: true, name: "6º Ano B", gradeYear: 6, stage: "ELEMENTARY_LATE", shift: "AFTERNOON", schoolYear: { connect: { id: anoLetivoB.id } } },
     });
 
     await catalog.codeIndex.upsert({

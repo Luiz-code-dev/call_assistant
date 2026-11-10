@@ -8,11 +8,18 @@
  *
  * Controle de idempotência: id estável por item (ex.: SF-PREREQ-EF06MA07-EF05MA07).
  * Nada passa a APPROVED sem aprovação humana no Estúdio.
+ *
+ * Os pacotes (Frações, Leitura e todas as matérias) são do
+ * conteudo-pacote-import.mjs. Este importador só cuida dos arquivos legados
+ * abaixo; se lesse os do pacote, criaria itens de diagnóstico duplicados e sem role.
  */
 
 import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+
+// Únicos arquivos de trilhas, fichas e diagnósticos que este importador lê
+const ARQUIVOS_LEGADOS = new Set(["MA-06.json"]);
 import { PrismaClient } from "@prisma/escolas";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -80,7 +87,7 @@ async function importFichas(db) {
   const fichasDir = join(DATA_DIR, "fichas");
   if (!existsSync(fichasDir)) return;
 
-  const files = readdirSync(fichasDir).filter(f => f.endsWith(".json"));
+  const files = readdirSync(fichasDir).filter(f => ARQUIVOS_LEGADOS.has(f));
   let n = 0;
 
   for (const file of files) {
@@ -124,7 +131,7 @@ async function importFichas(db) {
 async function importTrilhas(db) {
   const trilhasDir = join(DATA_DIR, "trilhas");
   if (!existsSync(trilhasDir)) return;
-  const files = readdirSync(trilhasDir).filter(f => f.endsWith(".json"));
+  const files = readdirSync(trilhasDir).filter(f => ARQUIVOS_LEGADOS.has(f));
   let n = 0;
   for (const file of files) {
     const trilhas = JSON.parse(readFileSync(join(trilhasDir, file), "utf8"));
@@ -207,7 +214,7 @@ async function importTrilhas(db) {
 async function importDiagnosticos(db) {
   const diagDir = join(DATA_DIR, "diagnosticos");
   if (!existsSync(diagDir)) return;
-  const files = readdirSync(diagDir).filter(f => f.endsWith(".json"));
+  const files = readdirSync(diagDir).filter(f => ARQUIVOS_LEGADOS.has(f));
   let n = 0;
   for (const file of files) {
     const raw = JSON.parse(readFileSync(join(diagDir, file), "utf8"));

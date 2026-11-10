@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { prismaEdu, setTenantDb } from "@/lib/escola/db";
+import { textosDasOpcoes } from "@/lib/escola/opcoes-aluno";
 
 export const runtime = "nodejs";
 
@@ -121,7 +122,12 @@ export async function GET(req: NextRequest) {
         opensAt: a.opensAt,
         subject: subject ? { id: subject.id, name: subject.name, color: subject.color } : null,
         classSubjectId: a.classSubject?.id ?? null,
-        questions: a.type === "QUIZ" ? a.questions : [],
+        // Só o texto das alternativas: misconceptionCode e correctIndex ficam no servidor
+        questions: a.type === "QUIZ"
+          ? a.questions.map((q: { id: string; order: number; question: string; options: unknown }) => ({
+              id: q.id, order: q.order, question: q.question, options: textosDasOpcoes(q.options),
+            }))
+          : [],
         submission: sub,
         isDone,
         isExpired,
