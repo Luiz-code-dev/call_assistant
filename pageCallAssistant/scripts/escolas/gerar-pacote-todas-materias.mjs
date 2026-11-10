@@ -776,4 +776,15 @@ for (const pacote of PACOTES) {
   }
 }
 
+// Pré-requisitos das matérias novas (o degrau desce por eles)
+const prereqFile = join(ROOT, "prisma", "data", "conteudo", "prerequisitos-materias-demo.json");
+const criar = PACOTES.flatMap((p) => p.habilidades.map((h) => ({
+  skillCode: h.code,
+  prerequisiteCode: h.pre.code,
+  weight: 3,
+  reviewNote: "pacote de demonstração, revisão pedagógica pendente",
+})));
+writeFileSync(prereqFile, JSON.stringify({ criar }, null, 2), "utf8");
+console.log(`  [GERADO] prerequisitos-materias-demo.json (${criar.length} pré-requisitos)`);
+
 console.log(`\nConcluido: ${gerados} arquivos gerados, ${pulados} ja existiam.`);
