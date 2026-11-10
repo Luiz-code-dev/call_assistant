@@ -97,7 +97,7 @@ async function atribuirBase(ctx: Ctx, skillIds: string[]): Promise<{ trackId: st
     });
     if (!ja) {
       const r = await assignTrackToStudents({
-        networkId: ctx.networkId, trackId: track.id, studentIds: [ctx.studentId], assignedBy: "system",
+        networkId: ctx.networkId, trackId: track.id, studentIds: [ctx.studentId], assignedBy: "system", ignorarLimite: true,
       }).catch(() => null);
       if (!r?.atribuidos) continue;
     }
