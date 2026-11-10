@@ -12,6 +12,7 @@ import { NextResponse } from "next/server";
 import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
+import { tituloParaAluno } from "@/lib/escola/texto-aluno";
 
 const NOMES: Record<string, string> = {
   LP: "Língua Portuguesa", MA: "Matemática", CI: "Ciências", HI: "História", GE: "Geografia",
@@ -48,7 +49,7 @@ export async function GET() {
       : [];
     const titulo = (s: { id: string; shortLabel: string | null; description: string }) => {
       const t = tracks.find((tr) => tr.skillIds.includes(s.id));
-      return t ? t.title.replace(/^Trilha:\s*/i, "") : (s.shortLabel ?? s.description);
+      return t ? tituloParaAluno(t.title) : (s.shortLabel ?? s.description);
     };
 
     const ordemNivel: Record<string, number> = { NOT_YET: 0, ALMOST: 1, MASTERED: 2 };

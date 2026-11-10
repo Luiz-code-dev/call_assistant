@@ -11,6 +11,7 @@ import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { weekStartSaoPaulo, dayIndexSaoPaulo } from "@/lib/escola/family-guard";
+import { tituloParaAluno } from "@/lib/escola/texto-aluno";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const p = prismaEdu as any;
@@ -53,7 +54,7 @@ export async function GET() {
     const entry = {
       assignmentId: a.id,
       trackId: a.track.id,
-      title: a.track.title,
+      title: tituloParaAluno(a.track.title),
       subjectId: a.track.subjectId,
       gradeYear: a.track.gradeYear,
       skills: a.track.skills,
@@ -91,7 +92,7 @@ export async function GET() {
       proximoPasso = {
         assignmentId: a.assignmentId,
         trackId: a.trackId,
-        title: a.title,
+        title: tituloParaAluno(a.title),
         subjectId: a.subjectId,
         skills: a.skills,
         itemId: nextItem.id,

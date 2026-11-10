@@ -7,6 +7,7 @@ import { uploadAudio, isAudioStorageConfigured } from "@/lib/escola/audio-store"
 import { getOpenAI } from "@/lib/openai";
 import { subjectToWhisperLang, stageToAgeGroup } from "@/lib/escola/subject-lang";
 import { recordMasteryEvent, extractMisconceptionCodes } from "@/lib/escola/mastery-event";
+import { alunoPodeAbrirAtividade, contextoPedagogico } from "@/lib/escola/atividade-acesso";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -20,13 +21,15 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
   if (ctx?.db) setTenantDb(ctx.db);
 
-  // A6: busca a atividade garantindo rede e turma do aluno
+  // A6: atividade da turma do aluno OU da biblioteca numa trilha atribuída a ele (reforço)
+  if (!(await alunoPodeAbrirAtividade(ctx, params.id))) {
+    return NextResponse.json({ error: "Atividade não encontrada" }, { status: 404 });
+  }
   const activity = await (prismaEdu as any).eduActivity.findFirst({
     where: {
       id: params.id,
-      networkId: ctx.networkId,
+      OR: [{ networkId: ctx.networkId }, { networkId: null }],
       status: "PUBLISHED",
-      classSubject: { classId: ctx.classId },
     },
     include: {
       questions: { orderBy: { order: "asc" } },
@@ -41,13 +44,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   }
 
   // A2: derivar idioma e contexto pedagógico do componente (nunca do navegador)
-  const subjectData = await (prismaEdu as any).eduSubject.findUnique({
-    where: { id: activity.classSubject.subjectId },
-    select: { name: true },
-  });
-  const subjectName: string = subjectData?.name ?? "";
-  const gradeYear: number = activity.classSubject.class?.gradeYear ?? 0;
-  const stage: string = activity.classSubject.class?.stage ?? "ELEMENTARY_LATE";
+  const { subjectName, gradeYear, stage } = await contextoPedagogico(ctx, activity);
   const ageGroup = stageToAgeGroup(stage as any, gradeYear);
   const whisperLang = subjectToWhisperLang(subjectName);
 

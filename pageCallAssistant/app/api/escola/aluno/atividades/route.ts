@@ -22,7 +22,8 @@ export async function GET(req: NextRequest) {
     select: { id: true },
   }).then((rows: { id: string }[]) => rows.map((r) => r.id));
 
-  if (classSubjectIds.length === 0) return NextResponse.json({ atividades: [] });
+  // Sem componentes na turma ainda há o reforço (atividades de trilha da biblioteca):
+  // não retornar vazio aqui.
 
   const now = new Date();
 

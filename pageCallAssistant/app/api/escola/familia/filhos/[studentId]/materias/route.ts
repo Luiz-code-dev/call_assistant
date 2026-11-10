@@ -12,6 +12,7 @@ import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { getFamilyContext } from "@/lib/escola/family-context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { guardianOwnsStudent, weekStartSaoPaulo, dayIndexSaoPaulo } from "@/lib/escola/family-guard";
+import { tituloParaAluno } from "@/lib/escola/texto-aluno";
 
 /* eslint-disable @typescript-eslint/no-explicit-any -- cliente Prisma do tenant sem tipagem estática, como nas outras rotas da família */
 const P = prismaEdu as any;
@@ -164,7 +165,7 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
       const feitas = atr?.progress?.[0]?.completedItemIds?.length ?? 0;
       const total = atr?.track?.items?.length ?? 5;
       const trilhaAtual = atr && feitas < total
-        ? { id: atr.track.id, titulo: String(atr.track.title).replace(/^Trilha:\s*/i, ""), etapaAtual: Math.min(feitas + 1, 5), totalEtapas: 5 as const }
+        ? { id: atr.track.id, titulo: tituloParaAluno(atr.track.title), etapaAtual: Math.min(feitas + 1, 5), totalEtapas: 5 as const }
         : undefined;
 
       let estado: "COMECAR" | "EM_TRILHA" | "REVISAR" | "AVANCAR" = "COMECAR";

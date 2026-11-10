@@ -505,7 +505,7 @@ export default function FazerAtividadePage() {
         ) : activity?.type === "QUIZ" ? (
           <QuizActivity activity={activity} onSubmit={async (d) => handleSubmit(d)} />
         ) : (
-          <p className="text-center text-[#5B5470] py-16">Atividade nao encontrada.</p>
+          <p className="text-center text-[#5B5470] py-16">Atividade não encontrada.</p>
         )}
       </main>
     </div>

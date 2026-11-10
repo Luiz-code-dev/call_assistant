@@ -272,7 +272,7 @@ export default function DiagnosticoPage() {
               <Volume2 className="size-4" />
             </button>
           </div>
-          {questao?.question && questao.question !== atividade.prompt && (
+          {atividade.prompt && questao?.question && questao.question !== atividade.prompt && (
             <p className="text-[#1F1A2E] text-sm leading-relaxed border-t border-[#E9E5F5] pt-3">{questao.question}</p>
           )}
         </div>

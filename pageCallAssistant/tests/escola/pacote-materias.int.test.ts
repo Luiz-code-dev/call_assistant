@@ -33,6 +33,7 @@ import { GET as getMaterias } from "@/app/api/escola/aluno/materias/route";
 import { GET as getFamiliaMaterias } from "@/app/api/escola/familia/filhos/[studentId]/materias/route";
 import { POST as postSessao } from "@/app/api/escola/aluno/diagnostico/sessao/route";
 import { GET as getAtividades } from "@/app/api/escola/aluno/atividades/route";
+import { POST as postEnviar } from "@/app/api/escola/aluno/atividades/[id]/enviar/route";
 
 const URL_A = process.env.ESCOLAS_DB_01_URL ?? "";
 const URL_B = process.env.ESCOLAS_DB_02_URL ?? "";
@@ -248,6 +249,12 @@ describe("Degrau por aluno — Matemática do 6º B", () => {
     expect(final.resultado.erroComum?.texto, "texto do erro comum").toBeTruthy();
     expect(JSON.stringify(final.resultado)).not.toMatch(/"[a-z]+(-[a-z0-9]+){2,}"/);
     expect(final.trilha, "trilha na resposta").not.toBeNull();
+    // "Começar minha trilha" abre a primeira atividade: ela tem que estar na lista do aluno
+    estado.ctx = alunoB;
+    const lista = await json(await getAtividades(new NextRequest("http://localhost/api/escola/aluno/atividades?filter=todo")));
+    expect(lista.status, lista.texto).toBe(200);
+    const primeira = (final.trilha as unknown as { primeiraAtividadeId: string }).primeiraAtividadeId;
+    expect(lista.body.atividades.map((x: { id: string }) => x.id), "primeira atividade da trilha na lista").toContain(primeira);
     const ativas = await dbB.eduTrackAssignment.findMany({ where: { studentId: alunoB.studentId, endedAt: null }, include: { track: true } });
     expect(ativas.some((a) => a.track.skillIds.includes(ef04ma09.id))).toBe(true);
     expect(ativas.every((a) => a.assignedBy === "system")).toBe(true);
@@ -315,6 +322,39 @@ describe("Outra matéria depois de Matemática", () => {
   });
 });
 
+describe("Toda matéria, nas duas turmas: diagnóstico, trilha e a primeira atividade abre e é corrigida", () => {
+  // 6º B não tem componentes cadastrados pela escola; 5º A tem. O reforço tem que funcionar nos dois casos.
+  for (const nome of ["6º B", "5º A"] as const) {
+    it(`${nome}: todas as matérias do ano`, async () => {
+      const c = nome === "6º B" ? alunoB : alunoA;
+      await limparReforco(c);
+      await c.db.eduSubmission.deleteMany({ where: { studentId: c.studentId } });
+      const r = await materias(c);
+      expect(r.status, r.texto).toBe(200);
+      for (const m of r.body.materias as Array<{ codigo: string; diagnosticoId: string }>) {
+        const { final } = await responderTudo(c, m.diagnosticoId, (_p, g) => errada(g));
+        const trilha = final.trilha as { primeiraAtividadeId: string } | null;
+        expect(trilha, `${nome} ${m.codigo}: trilha atribuída`).not.toBeNull();
+
+        estado.ctx = c;
+        const lista = await json(await getAtividades(new NextRequest("http://localhost/api/escola/aluno/atividades?filter=todo")));
+        expect(lista.status, `${nome} ${m.codigo}: ${lista.texto}`).toBe(200);
+        expect(lista.body.atividades.map((x: { id: string }) => x.id), `${nome} ${m.codigo}: primeira atividade na lista`).toContain(trilha!.primeiraAtividadeId);
+
+        const qs = await c.db.eduQuizQuestion.findMany({ where: { activityId: trilha!.primeiraAtividadeId }, orderBy: { order: "asc" } });
+        const req = new NextRequest(`http://localhost/api/escola/aluno/atividades/${trilha!.primeiraAtividadeId}/enviar`, {
+          method: "POST", headers: { "content-type": "application/json" },
+          body: JSON.stringify({ quizAnswers: qs.map((q) => ({ questionId: q.id, selectedIndex: q.correctIndex })) }),
+        });
+        const env = await json(await postEnviar(req, { params: { id: trilha!.primeiraAtividadeId } }));
+        expect(env.status, `${nome} ${m.codigo}: entrega ${env.texto}`).toBe(200);
+        const sub = await c.db.eduSubmission.findFirst({ where: { studentId: c.studentId, activityId: trilha!.primeiraAtividadeId }, orderBy: { attempt: "desc" } });
+        expect(sub?.status, `${nome} ${m.codigo}: corrigida`).toBe("EVALUATED");
+      }
+    });
+  }
+});
+
 describe("Cobertura do conteúdo importado (bases db01 e db02)", () => {
   for (const [nome, db] of [["db01", dbA], ["db02", dbB]] as const) {
     for (const ano of [5, 6]) {
@@ -334,5 +374,35 @@ describe("Cobertura do conteúdo importado (bases db01 e db02)", () => {
         });
       }
     }
+  }
+});
+
+describe("Trilhas da biblioteca: só as etapas do pacote, todas publicadas", () => {
+  for (const [nome, db] of [["db01", dbA], ["db02", dbB]] as const) {
+    it(`${nome}: cada trilha SF-TRACK tem itens SF-ITEM, em ordem, e toda atividade abre`, async () => {
+      const tracks = await db.eduTrack.findMany({
+        where: { networkId: null, status: "APPROVED", id: { startsWith: "SF-TRACK-" } },
+        include: { items: { orderBy: { order: "asc" } } },
+      });
+      expect(tracks.length).toBeGreaterThan(0);
+      const problemas: string[] = [];
+      for (const t of tracks) {
+        if (t.items.length === 0) problemas.push(`${t.id}: sem etapas`);
+        const codigo = t.id.slice("SF-TRACK-".length);
+        t.items.forEach((it, i) => {
+          if (it.id !== `SF-ITEM-${codigo}-${i}` || it.order !== i) problemas.push(`${t.id}: item ${it.id} (ordem ${it.order})`);
+        });
+        const acts = await db.eduActivity.findMany({
+          where: { id: { in: t.items.map((i) => i.activityId) } },
+          select: { id: true, status: true },
+        });
+        for (const it of t.items) {
+          const a = acts.find((x) => x.id === it.activityId);
+          if (!a) problemas.push(`${t.id}: atividade ${it.activityId} não existe`);
+          else if (a.status !== "PUBLISHED") problemas.push(`${t.id}: atividade ${a.id} está ${a.status}`);
+        }
+      }
+      expect(problemas, problemas.slice(0, 10).join("\n")).toEqual([]);
+    });
   }
 });

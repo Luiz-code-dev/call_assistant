@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { prismaEdu, setTenantDb } from "@/lib/escola/db";
+import { alunoPodeAbrirAtividade } from "@/lib/escola/atividade-acesso";
 
 export const runtime = "nodejs";
 
@@ -16,12 +17,14 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
   if (typeof text !== "string") return NextResponse.json({ error: "text obrigatório" }, { status: 400 });
 
   // A6: isolamento — atividade deve pertencer à rede e turma do aluno
+  if (!(await alunoPodeAbrirAtividade(ctx, params.id))) {
+    return NextResponse.json({ error: "Atividade não encontrada" }, { status: 404 });
+  }
   const activity = await (prismaEdu as any).eduActivity.findFirst({
     where: {
       id: params.id,
-      networkId: ctx.networkId,
+      OR: [{ networkId: ctx.networkId }, { networkId: null }],
       status: "PUBLISHED",
-      classSubject: { classId: ctx.classId },
     },
   });
   if (!activity) return NextResponse.json({ error: "Atividade não encontrada" }, { status: 404 });
