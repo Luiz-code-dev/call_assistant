@@ -53,6 +53,20 @@ const hashPin = (pin) => bcrypt.hashSync(pin, 10);
 
 const catalog = new CatalogClient({ datasources: { db: { url: process.env.ESCOLAS_CATALOG_URL } } });
 
+/** Código de família fixo para o demo (o QR da ficha leva a /escola/familia/primeiro-acesso?codigo=...) */
+async function demoCodigoFamilia(db, networkId, studentId, codigo) {
+  const { createHash } = await import("crypto");
+  const codeHash = createHash("sha256").update(codigo).digest("hex");
+  const expiresAt = new Date(Date.now() + 365 * 86400000);
+  await db.eduFamilyCode.upsert({
+    where: { studentId },
+    create: { networkId, studentId, codeHash, activationsLeft: 50, expiresAt },
+    update: { codeHash, activationsLeft: 50, expiresAt, failedCount: 0, lockedUntil: null },
+  });
+  const key = `FAM${codeHash.toUpperCase()}`;
+  await catalog.codeIndex.upsert({ where: { code: key }, create: { code: key, kind: "FAMILY_CODE", tenantId: networkId, expiresAt }, update: { tenantId: networkId, expiresAt } });
+}
+
 function tenantDb(envVar) {
   const url = process.env[envVar];
   if (!url) throw new Error(`Variável ${envVar} não definida.`);
@@ -198,8 +212,8 @@ async function seedRedeA() {
 
     const aluno = await db.eduStudent.upsert({
       where: { id: `aluno-${NETWORK_ID}` },
-      create: { id: `aluno-${NETWORK_ID}`, fullName: "Aluno Demo Silva", enrollmentCode: "DEMO2027A", networkId: rede.id, pinHash: hashPin("1234"), isActive: true, accessCode: "REFA6ANA" },
-      update: { accessCode: "REFA6ANA" },
+      create: { id: `aluno-${NETWORK_ID}`, fullName: "Aluno Demo Silva", enrollmentCode: "DEMO2027A", networkId: rede.id, pinHash: hashPin("1234"), isActive: true, accessCode: "REFA6ANA", birthDate: new Date("2015-05-10T12:00:00Z") },
+      update: { accessCode: "REFA6ANA", birthDate: new Date("2015-05-10T12:00:00Z") },
     });
     // Código do aluno (entrada no reforço), registrado no catálogo
     await catalog.codeIndex.upsert({
@@ -315,8 +329,8 @@ async function seedRedeB() {
 
     const aluno = await db.eduStudent.upsert({
       where: { id: `aluno-${NETWORK_ID}` },
-      create: { id: `aluno-${NETWORK_ID}`, fullName: "Aluno Demo B Santos", enrollmentCode: "DEMO2027B", networkId: rede.id, pinHash: hashPin("5678"), isActive: true, accessCode: "REFB6ANB" },
-      update: { accessCode: "REFB6ANB" },
+      create: { id: `aluno-${NETWORK_ID}`, fullName: "Aluno Demo B Santos", enrollmentCode: "DEMO2027B", networkId: rede.id, pinHash: hashPin("5678"), isActive: true, accessCode: "REFB6ANB", birthDate: new Date("2015-03-12T12:00:00Z") },
+      update: { accessCode: "REFB6ANB", birthDate: new Date("2015-03-12T12:00:00Z") },
     });
     // Código do aluno (entrada no reforço), registrado no catálogo
     await catalog.codeIndex.upsert({
@@ -324,6 +338,8 @@ async function seedRedeB() {
       create: { code: "REFB6ANB", kind: "STUDENT_ACCESS", tenantId: NETWORK_ID },
       update: { kind: "STUDENT_ACCESS", tenantId: NETWORK_ID },
     });
+    // Ficha de acesso da família (demo): código fixo FAMB-6ANB, com folga de cadastros para os testes
+    await demoCodigoFamilia(db, NETWORK_ID, aluno.id, "FAMB6ANB");
 
     await db.eduEnrollment.upsert({
       where: { id: `enroll-${NETWORK_ID}` },
@@ -349,8 +365,8 @@ async function seedRedeB() {
     });
     const irma = await db.eduStudent.upsert({
       where: { id: `aluna5-${NETWORK_ID}` },
-      create: { id: `aluna5-${NETWORK_ID}`, fullName: "Bia Demo B Santos", enrollmentCode: "DEMO2027B5", networkId: rede.id, pinHash: hashPin("2468"), isActive: true, accessCode: "REFB5ANB" },
-      update: { accessCode: "REFB5ANB", isActive: true },
+      create: { id: `aluna5-${NETWORK_ID}`, fullName: "Bia Demo B Santos", enrollmentCode: "DEMO2027B5", networkId: rede.id, pinHash: hashPin("2468"), isActive: true, accessCode: "REFB5ANB", birthDate: new Date("2016-07-20T12:00:00Z") },
+      update: { accessCode: "REFB5ANB", birthDate: new Date("2016-07-20T12:00:00Z"), isActive: true },
     });
     // Código do aluno (entrada no reforço), registrado no catálogo
     await catalog.codeIndex.upsert({
@@ -358,6 +374,8 @@ async function seedRedeB() {
       create: { code: "REFB5ANB", kind: "STUDENT_ACCESS", tenantId: NETWORK_ID },
       update: { kind: "STUDENT_ACCESS", tenantId: NETWORK_ID },
     });
+    // Ficha de acesso da família (demo): código fixo FAMB-5ANB, com folga de cadastros para os testes
+    await demoCodigoFamilia(db, NETWORK_ID, irma.id, "FAMB5ANB");
     await db.eduEnrollment.upsert({
       where: { id: `enroll5-${NETWORK_ID}` },
       create: { id: `enroll5-${NETWORK_ID}`, studentId: irma.id, classId: `turma5-${NETWORK_ID}`, schoolYearId: anoLetivoB.id, networkId: rede.id, status: "ACTIVE" },

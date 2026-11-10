@@ -1147,6 +1147,9 @@ model EduFamilyCode {
   codeHash        String
   activationsLeft Int      @default(3)
   expiresAt       DateTime
+  /// Erros seguidos da data de nascimento; ao chegar no limite, o código fica bloqueado por um tempo
+  failedCount     Int       @default(0)
+  lockedUntil     DateTime? @db.Timestamptz
   createdAt       DateTime @default(now())
 
   @@index([networkId])
