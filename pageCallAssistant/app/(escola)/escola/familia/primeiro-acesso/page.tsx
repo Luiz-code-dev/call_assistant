@@ -104,7 +104,7 @@ function PrimeiroAcesso() {
         {etapa === "dados" && aluno && (
           <form onSubmit={criar} className="space-y-4">
             <button type="button" onClick={() => setEtapa("confirmar")} className="inline-flex items-center gap-1 text-[#6D28D9] text-sm font-semibold min-h-[36px]"><ChevronLeft className="size-4" />{aluno.aluno}</button>
-            <div><label className={label}>Data de nascimento de {aluno.aluno.split(" ")[0]}</label><input value={f.birthDate} onChange={set("birthDate")} required type="date" className={inputCls} /><p className="text-[#5B5470] text-xs mt-1">Confirma que você é responsável por este aluno.</p></div>
+            <div><label className={label}>Data de nascimento do seu filho</label><input value={f.birthDate} onChange={set("birthDate")} required type="date" className={inputCls} /><p className="text-[#5B5470] text-xs mt-1">Confirma que você é responsável por este aluno.</p></div>
             <div><label className={label}>Seu nome completo</label><input value={f.guardianName} onChange={set("guardianName")} required placeholder="Nome do responsável" className={inputCls} /></div>
             <div><label className={label}>Você é</label><select value={f.relation} onChange={set("relation")} className={inputCls}>{RELATIONS.map((r) => <option key={r.value} value={r.value}>{r.label}</option>)}</select></div>
             <div><label className={label}>Seu WhatsApp</label><input value={f.guardianPhone} onChange={set("guardianPhone")} type="tel" inputMode="tel" placeholder="(71) 98765-4321" className={inputCls} /></div>
