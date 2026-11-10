@@ -56,7 +56,8 @@ export async function avisarAgenda(now = new Date()): Promise<number> {
       }).catch(() => ({ count: 0 }));
       if (!marcado.count) continue;
       const destino = await destinoDoEstudo(db, rede.id, item.studentId, item.subjectCode).catch(() => null);
-      enviados += await enviarAviso(db, rede.id, item.studentId, avisoDeAgenda(item, destino)).catch(() => 0);
+      const aluno = await db.eduStudent.findUnique({ where: { id: item.studentId }, select: { fullName: true } }).catch(() => null);
+      enviados += await enviarAviso(db, rede.id, item.studentId, avisoDeAgenda(item, destino, aluno?.fullName)).catch(() => 0);
     }
   }
   return enviados;

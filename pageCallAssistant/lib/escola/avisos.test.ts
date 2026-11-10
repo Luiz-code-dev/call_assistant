@@ -14,17 +14,17 @@ describe("avisos: um por tipo", () => {
     expect(a[2].title).toBe("Uma sugestão da sua família");
   });
   it("agenda: título com a matéria e ícone próprio", () => {
-    const a = avisoDeAgenda({ time: "18:30", subjectCode: "MA", minutes: 20 });
-    expect(a.title).toBe("Hora de estudar Matemática");
-    expect(a.body).toContain("18:30");
+    const a = avisoDeAgenda({ time: "18:30", subjectCode: "MA", minutes: 20 }, null, "Bia Demo B Santos");
+    expect(a.title).toBe("Bia, hora de estudar!");
+    expect(a.body).toBe("20 minutos de Matemática. Vamos lá?");
+    expect(avisoDeAgenda({ time: "18:30", subjectCode: "MA", minutes: 20 }).title).toBe("Hora de estudar!");
     expect(a.icon).toContain("agenda");
     expect(avisoDeAgenda({ time: "18:30", subjectCode: null, minutes: 20 }).url).toBe("/escola/aluno/trilha");
   });
   it("agenda com destino: o aviso leva direto à etapa da trilha e diz qual é", () => {
     const a = avisoDeAgenda({ time: "17:00", subjectCode: null, minutes: 20 },
       { titulo: "Frações equivalentes", materia: "Matemática", href: "/escola/aluno/atividades/x?assignmentId=a&itemId=i" });
-    expect(a.title).toBe("Hora de estudar Matemática");
-    expect(a.body).toContain("Frações equivalentes");
+    expect(a.body).toBe("Matemática: Frações equivalentes. São só 20 minutos. Vamos lá?");
     expect(a.url).toBe("/escola/aluno/atividades/x?assignmentId=a&itemId=i");
   });
   it("recado longo é cortado para caber no aviso", () => {

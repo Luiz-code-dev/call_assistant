@@ -25,6 +25,13 @@ export async function middleware(req: NextRequest) {
 
   const { pathname } = req.nextUrl;
 
+  // Ícones do Escolas (tela de início, avisos, favicon) são arquivos públicos.
+  // Antes caíam na regra "/escola" e eram redirecionados para o login: o iPhone
+  // não carregava o ícone e mostrava só a letra "S" no lugar do ícone do app.
+  if (pathname.startsWith("/escola-icons/")) {
+    return NextResponse.next();
+  }
+
   // ── Área Escolar ── isolado, não altera lógica existente ──────────
   if (pathname.startsWith("/escola") || pathname.startsWith("/verificar")) {
     if (!isEscolasEnabled()) {
