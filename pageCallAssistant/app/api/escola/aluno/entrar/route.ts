@@ -2,7 +2,8 @@ import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 /**
  * Student login endpoint — supports three modes:
  *   "aula"       - Session code already validated; studentId + PIN/picture
- *   "manual"     - accessCode (turma) + enrollmentCode + PIN
+ *   "codigo"     - código do aluno (reforço: lista entregue à escola) + PIN
+ *   "manual"     - accessCode (turma) + enrollmentCode + PIN (pacote de extensão)
  *   "qr"         - QR token (signed JWT) + PIN
  *   "dispositivo"- Device cookie (remembered student) + PIN
  */
@@ -15,6 +16,7 @@ import { readDeviceToken, addDeviceStudent, signDeviceToken, studentDisplayParts
 import { isAppClient, APP_STUDENT_SECONDS, APP_STUDENT_HOME_SECONDS } from "@/lib/escola/app-auth";
 import { findTenantByCode } from "@/lib/escola/catalogo";
 import { getTenantDb } from "@/lib/escola/tenant-db";
+import { alunoPorCodigo } from "@/lib/escola/codigo-aluno-login";
 
 const MAX_ATTEMPTS = 5;
 const LOCK_MINUTES = 15;
@@ -60,6 +62,17 @@ export async function POST(req: NextRequest) {
 
     student = await db.eduStudent.findUnique({ where: { id: studentId } });
     classId = session.classId;
+    enrollmentId = enrollment.id;
+
+  } else if (mode === "codigo") {
+    // Reforço: o aluno entra com o código dele, sem código de turma nem professor
+    const achado = await alunoPorCodigo(String(body.code ?? ""));
+    if (!achado) return NextResponse.json({ error: "Não achamos esse código. Confira no cartão ou na lista que a escola entregou." }, { status: 404 });
+    db = achado.db;
+    student = achado.student;
+    const enrollment = await db.eduEnrollment.findFirst({ where: { studentId: student.id, status: "ACTIVE" }, orderBy: { startedAt: "desc" } });
+    if (!enrollment) return NextResponse.json({ error: "Aluno sem matrícula ativa. Fale com a escola." }, { status: 403 });
+    classId = enrollment.classId;
     enrollmentId = enrollment.id;
 
   } else if (mode === "manual") {
@@ -125,7 +138,7 @@ export async function POST(req: NextRequest) {
     enrollmentId = enrollment.id;
 
   } else {
-    return NextResponse.json({ error: "Modo inválido. Use: aula, manual, qr, dispositivo" }, { status: 400 });
+    return NextResponse.json({ error: "Modo inválido. Use: codigo, qr, dispositivo, aula, manual" }, { status: 400 });
   }
 
   if (!student || !db) return NextResponse.json({ error: "Aluno não encontrado" }, { status: 404 });
@@ -133,7 +146,7 @@ export async function POST(req: NextRequest) {
   // Check lock
   if (student.pinLockedUntil && student.pinLockedUntil > new Date()) {
     const remaining = Math.ceil((student.pinLockedUntil.getTime() - Date.now()) / 60000);
-    return NextResponse.json({ error: `PIN bloqueado. Aguarde ${remaining} minuto${remaining !== 1 ? "s" : ""} ou peça ao professor para desbloquear.` }, { status: 429 });
+    return NextResponse.json({ error: `PIN bloqueado. Aguarde ${remaining} minuto${remaining !== 1 ? "s" : ""} ou peça ao seu responsável para criar um PIN novo no app da família.` }, { status: 429 });
   }
 
   // Verify credential
@@ -170,7 +183,8 @@ export async function POST(req: NextRequest) {
     } catch { /* schema ainda não migrado em dev */ }
   }
 
-  const remember = mode === "dispositivo" || (mode === "manual" && body.rememberDevice === true);
+  // Reforço é feito em casa: quem entra pelo código ou pelo cartão fica lembrado neste aparelho
+  const remember = mode === "dispositivo" || mode === "codigo" || mode === "qr" || (mode === "manual" && body.rememberDevice === true);
   const appClient = isAppClient();
   const studentSeconds = remember ? APP_STUDENT_HOME_SECONDS : APP_STUDENT_SECONDS;
 

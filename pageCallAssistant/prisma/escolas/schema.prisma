@@ -406,6 +406,8 @@ model EduStudent {
   loginMode         EduStudentLoginMode @default(PIN)
   pictureSecretHash String?
   cardVersion       Int                 @default(1)
+  /// Código do aluno para entrar no reforço (8 letras/números, sem traço). Único entre todas as redes.
+  accessCode        String?             @unique
   createdAt         DateTime            @default(now())
 
   network     EduNetwork      @relation(fields: [networkId], references: [id])

@@ -1,7 +1,7 @@
 "use client";
 import { Suspense, useState, useEffect, useCallback, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { QrCode, Volume2, Delete, ChevronLeft, Camera, AlertCircle } from "lucide-react";
+import { QrCode, Volume2, Delete, ChevronLeft, KeyRound, AlertCircle } from "lucide-react";
 
 // ── Figuras SVG (sem emoji) ──────────────────────────────────────────────────
 const FIGURES = [
@@ -35,9 +35,11 @@ interface SessionData { sessionId: string; classId: string; className: string; g
 // Fix 1: PIN aceita 4 ou 6 dígitos (novos=4, legados=6)
 const MAX_PIN = 6;
 
-type Screen = "device" | "choose" | "aula-code" | "aula-names" | "pin" | "figures" | "qr-camera";
+type Screen = "device" | "choose" | "aluno-code" | "aula-code" | "aula-names" | "pin" | "figures" | "qr-camera";
+// Código do aluno (reforço): 8 caracteres, exibidos como ABCD-2345
+const TAM_CODIGO = 8;
 // qrMode: quando autenticando com cartão (mode="qr"), studentId guarda o token JWT
-type LoginCtx = { mode: "aula"; studentId: string; sessionId: string; nid: string } | { mode: "qr"; qrToken: string } | { mode: "dispositivo"; studentId: string; nid?: string };
+type LoginCtx = { mode: "aula"; studentId: string; sessionId: string; nid: string } | { mode: "qr"; qrToken: string } | { mode: "dispositivo"; studentId: string; nid?: string } | { mode: "codigo"; code: string };
 
 function EntrarInner() {
   const router = useRouter();
@@ -59,6 +61,23 @@ function EntrarInner() {
 
   const [figSeq, setFigSeq] = useState<string[]>([]);
   const [figError, setFigError] = useState("");
+  const [alunoCode, setAlunoCode] = useState<string[]>(Array(TAM_CODIGO).fill(""));
+  const [alunoError, setAlunoError] = useState("");
+  const [alunoLoading, setAlunoLoading] = useState(false);
+
+  const resolveAlunoCode = useCallback(async (code: string) => {
+    setAlunoLoading(true); setAlunoError("");
+    const r = await fetch("/api/escola/aluno/entrar/codigo-aluno", {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code }),
+    }).catch(() => null);
+    const d = r ? await r.json().catch(() => ({})) : {};
+    setAlunoLoading(false);
+    if (!r?.ok) { setAlunoError(d.error ?? "Não achamos esse código. Confira no cartão ou na lista que a escola entregou."); setAlunoCode(Array(TAM_CODIGO).fill("")); return; }
+    setSelectedStudent({ id: "", display: d.display ?? "Aluno", loginMode: d.loginMode ?? "PIN" });
+    setLoginCtx({ mode: "codigo", code });
+    setPin(""); setPinError(""); setFigSeq([]); setFigError("");
+    setScreen(d.loginMode === "PICTURE" ? "figures" : "pin");
+  }, []);
 
   const resolveAulaCode = useCallback(async (code: string) => {
     setAulaLoading(true); setAulaError("");
@@ -76,6 +95,14 @@ function EntrarInner() {
   useEffect(() => {
     const cardParam = sp.get("card");
     const aulaParam = sp.get("aula");
+    const codigoParam = (sp.get("codigo") ?? "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+    if (codigoParam) {
+      const letras = codigoParam.split("").slice(0, TAM_CODIGO);
+      setAlunoCode([...letras, ...Array(TAM_CODIGO - letras.length).fill("")]);
+      if (letras.length === TAM_CODIGO) resolveAlunoCode(letras.join(""));
+      else setScreen("aluno-code");
+      return;
+    }
 
     // Fix 3: ?card=TOKEN — vai direto para PIN com mode "qr"
     if (cardParam) {
@@ -118,6 +145,36 @@ function EntrarInner() {
       .catch(() => setScreen("choose"));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (screen === "aluno-code" && alunoCode.every(l => l !== "")) resolveAlunoCode(alunoCode.join(""));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [alunoCode]);
+
+  // Teclado físico para o código do aluno
+  useEffect(() => {
+    if (screen !== "aluno-code") return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Backspace") {
+        setAlunoCode(prev => {
+          const last = [...prev].reverse().findIndex(l => l !== "");
+          if (last === -1) return prev;
+          const next = [...prev]; next[TAM_CODIGO - 1 - last] = ""; return next;
+        });
+        return;
+      }
+      const key = e.key.toUpperCase();
+      if (AULA_KEYS.includes(key)) {
+        setAlunoCode(prev => {
+          const idx = prev.findIndex(l => l === ""); if (idx === -1) return prev;
+          const next = [...prev]; next[idx] = key; return next;
+        });
+        setAlunoError("");
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [screen]);
 
   useEffect(() => {
     if (aulaCode.every(l => l !== "")) resolveAulaCode(aulaCode.join(""));
@@ -167,7 +224,9 @@ function EntrarInner() {
   async function submitPin(finalPin: string) {
     if (!loginCtx) return;
     let body: Record<string, unknown>;
-    if (loginCtx.mode === "qr") {
+    if (loginCtx.mode === "codigo") {
+      body = { mode: "codigo", code: loginCtx.code, pin: finalPin };
+    } else if (loginCtx.mode === "qr") {
       body = { mode: "qr", qrToken: loginCtx.qrToken, pin: finalPin };
     } else if (loginCtx.mode === "dispositivo") {
       // O PIN precisa ir junto: sem ele o servidor sempre respondia "PIN incorreto"
@@ -186,7 +245,9 @@ function EntrarInner() {
   async function submitFigures(seq: string[]) {
     if (!loginCtx) return;
     // Figuras valem nos três caminhos: aula, aparelho de casa e QR do cartão
-    const base = loginCtx.mode === "qr"
+    const base = loginCtx.mode === "codigo"
+      ? { mode: "codigo", code: loginCtx.code }
+      : loginCtx.mode === "qr"
       ? { mode: "qr", qrToken: loginCtx.qrToken }
       : loginCtx.mode === "dispositivo"
         ? { mode: "dispositivo", studentId: loginCtx.studentId, ...(loginCtx.nid ? { nid: loginCtx.nid } : {}) }
@@ -246,11 +307,11 @@ function EntrarInner() {
           </div>
         )}
 
-        {/* 3. Código da aula — ação secundária */}
-        <button onClick={() => { setAulaCode(Array(6).fill("")); setAulaError(""); setScreen("aula-code"); }}
+        {/* 3. Código do aluno (o da lista que a escola entregou à família) */}
+        <button onClick={() => { setAlunoCode(Array(TAM_CODIGO).fill("")); setAlunoError(""); setScreen("aluno-code"); }}
           className="relative z-10 w-full max-w-xl flex items-center gap-5 bg-white text-[#1F1A2E] rounded-3xl px-6 py-5 min-h-[88px] shadow-[0_4px_18px_rgba(91,33,182,0.10)] active:scale-[0.99] transition-transform">
-          <div className="w-14 h-14 bg-gradient-to-br from-[#0F766E] to-[#14B8A6] text-white rounded-2xl flex items-center justify-center shrink-0"><span className="text-3xl font-extrabold">#</span></div>
-          <div className="text-left"><div className="text-xl font-bold text-[#1F1A2E]">Na escola: código da aula</div><div className="text-sm text-[#5B5470] mt-0.5">O professor mostra o código no quadro</div></div>
+          <div className="w-14 h-14 bg-gradient-to-br from-[#0F766E] to-[#14B8A6] text-white rounded-2xl flex items-center justify-center shrink-0"><KeyRound size={28} /></div>
+          <div className="text-left"><div className="text-xl font-bold text-[#1F1A2E]">Digitar o meu código</div><div className="text-sm text-[#5B5470] mt-0.5">O código que a escola entregou para a sua família</div></div>
         </button>
 
         <p className="relative z-10 text-[#5B5470] text-sm mt-6 text-center">Esqueceu? Peça para o seu responsável criar um PIN novo no app da família.</p>
@@ -258,7 +319,44 @@ function EntrarInner() {
     );
   }
 
-  // ── Codigo da aula ──────────────────────────────────────────────────────────
+  // ── Código do aluno (reforço) ─────────────────────────────────────────────
+  if (screen === "aluno-code") {
+    const apagar = () => { const last = [...alunoCode].reverse().findIndex(l => l !== ""); if (last === -1) return; const next = [...alunoCode]; next[TAM_CODIGO - 1 - last] = ""; setAlunoCode(next); };
+    return (
+      <div className="min-h-screen bg-[#F6F4FE] flex flex-col items-center p-6 pt-16">
+        <button onClick={() => setScreen(deviceStudents.length ? "device" : "choose")} className="absolute top-4 left-4 text-[#6D28D9] font-semibold min-h-[44px] px-3 flex items-center gap-1"><ChevronLeft size={18}/> Voltar</button>
+        <button onClick={() => speak("Digite o seu código. Ele está no seu cartão ou no papel que a escola entregou para a sua família.")} className="absolute top-4 right-4 flex items-center gap-2 text-[#6D28D9] text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-[#EDE9FE] rounded-full"><Volume2 size={16} /> Ouvir</button>
+        <h2 className="text-[#1F1A2E] font-bold text-2xl mt-2 text-center">Digite o seu código</h2>
+        <p className="text-[#5B5470] text-sm mt-1 mb-6 text-center max-w-xs">Ele está no seu cartão ou no papel que a escola entregou para a sua família.</p>
+        <div className="flex items-center gap-1.5 mb-6" aria-label="Código do aluno">
+          {alunoCode.map((l, i) => (
+            <span key={i} className="contents">
+              {i === 4 && <span className="text-2xl font-bold text-[#A59FB8] px-0.5">-</span>}
+              <div className={`w-9 h-12 sm:w-11 sm:h-14 flex items-center justify-center rounded-xl border-2 text-2xl font-bold font-mono text-[#1F1A2E] bg-white ${l ? "border-[#6D28D9]" : alunoCode.slice(0, i).every(x => x) ? "border-[#6D28D9] shadow-[0_0_0_3px_rgba(109,40,217,0.15)]" : "border-[#DDD6EE]"}`}>{l}</div>
+            </span>
+          ))}
+        </div>
+        {alunoError && <p className="text-[#B91C1C] text-sm mb-4 font-medium text-center max-w-xs">{alunoError}</p>}
+        {alunoLoading && <p className="text-[#5B5470] text-sm mb-4">Verificando...</p>}
+        <div className="grid gap-2 w-full max-w-sm" style={{ gridTemplateColumns: "repeat(8, 1fr)" }}>
+          {AULA_KEYS.map(k => (
+            <button key={k} onClick={() => {
+              const idx = alunoCode.findIndex(l => l === ""); if (idx === -1) return;
+              const next = [...alunoCode]; next[idx] = k; setAlunoCode(next); setAlunoError("");
+            }} className="h-14 rounded-xl border border-[#DDD6EE] bg-white text-[#1F1A2E] text-xl font-bold hover:bg-[#EDE9FE] hover:border-[#6D28D9] transition-colors min-h-[56px]">{k}</button>
+          ))}
+          <button onClick={apagar} aria-label="Apagar"
+            className="h-14 col-span-2 rounded-xl border border-[#DDD6EE] bg-white text-[#1F1A2E] hover:bg-[#FEE2E2] transition-colors flex items-center justify-center min-h-[56px]">
+            <Delete size={22} color="#B91C1C" />
+          </button>
+        </div>
+        <p className="text-[#5B5470] text-xs mt-4">Letras e números. Não tem I, O, 0 nem 1.</p>
+        <p className="text-[#5B5470] text-xs mt-2 text-center max-w-xs">Não achou o código? O seu responsável vê no app da família, em &quot;Acesso do seu filho&quot;.</p>
+      </div>
+    );
+  }
+
+  // ── Codigo da aula (pacote de extensão; só pelo link ?aula=) ──────────────────────────────────────────────────────────
   if (screen === "aula-code") {
     return (
       <div className="min-h-screen bg-[#F6F4FE] flex flex-col items-center p-6 pt-16">
@@ -285,7 +383,7 @@ function EntrarInner() {
             <Delete size={22} color="#B91C1C" />
           </button>
         </div>
-        <p className="text-[#5B5470] text-xs mt-4">Letras e numeros. Sem I, O, 0 e 1.</p>
+        <p className="text-[#5B5470] text-xs mt-4">Letras e números. Não tem I, O, 0 nem 1.</p>
       </div>
     );
   }
@@ -295,7 +393,7 @@ function EntrarInner() {
     return <QRCameraScreen onCancel={() => setScreen("choose")} onDetected={url => {
       const m = /[?&]card=([^&]+)/.exec(url);
       if (m) router.replace(`/escola/aluno/entrar?card=${encodeURIComponent(decodeURIComponent(m[1]))}`);
-    }} onUseCode={() => setScreen("aula-code")} />;
+    }} onUseCode={() => { setAlunoCode(Array(TAM_CODIGO).fill("")); setAlunoError(""); setScreen("aluno-code"); }} />;
   }
 
   // ── Nomes da aula ───────────────────────────────────────────────────────────
@@ -333,7 +431,7 @@ function EntrarInner() {
     const dotsCount = Math.max(4, pin.length);
     return (
       <div className="min-h-screen bg-[#F6F4FE] flex flex-col items-center justify-center p-6">
-        <button onClick={() => setScreen(session ? "aula-names" : "device")} className="absolute top-4 left-4 text-[#6D28D9] font-semibold min-h-[44px] px-3 flex items-center gap-1"><ChevronLeft size={18}/> Voltar</button>
+        <button onClick={() => setScreen(session ? "aula-names" : loginCtx?.mode === "codigo" ? "aluno-code" : deviceStudents.length ? "device" : "choose")} className="absolute top-4 left-4 text-[#6D28D9] font-semibold min-h-[44px] px-3 flex items-center gap-1"><ChevronLeft size={18}/> Voltar</button>
         <button onClick={() => speak(`Oi ${headerName}! Digite seu PIN`)} className="absolute top-4 right-4 flex items-center gap-2 text-[#6D28D9] text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-[#EDE9FE] rounded-full"><Volume2 size={16} /> Ouvir</button>
         <div className="flex flex-col lg:flex-row items-center gap-10">
           <div className="flex flex-col items-center">
@@ -372,7 +470,7 @@ function EntrarInner() {
   if (screen === "figures" && selectedStudent) {
     return (
       <div className="min-h-screen bg-[#F6F4FE] flex flex-col items-center justify-center p-6">
-        <button onClick={() => setScreen(session ? "aula-names" : "device")} className="absolute top-4 left-4 text-[#6D28D9] font-semibold min-h-[44px] px-3 flex items-center gap-1"><ChevronLeft size={18}/> Voltar</button>
+        <button onClick={() => setScreen(session ? "aula-names" : loginCtx?.mode === "codigo" ? "aluno-code" : deviceStudents.length ? "device" : "choose")} className="absolute top-4 left-4 text-[#6D28D9] font-semibold min-h-[44px] px-3 flex items-center gap-1"><ChevronLeft size={18}/> Voltar</button>
         <button onClick={() => speak(`Oi ${headerName}! Toque nas suas 3 figuras secretas`)} className="absolute top-4 right-4 flex items-center gap-2 text-[#6D28D9] text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-[#EDE9FE] rounded-full"><Volume2 size={16} /> Ouvir</button>
         <div className="flex flex-col lg:flex-row items-center gap-10">
           <div className="flex flex-col items-center">
@@ -480,7 +578,7 @@ function QRCameraScreen({ onCancel, onDetected, onUseCode }: { onCancel: () => v
           <div className="bg-white rounded-2xl p-6 text-center">
             <AlertCircle className="mx-auto mb-3 text-[#B91C1C]" size={32} />
             <p className="text-[#1F1A2E] text-sm mb-4">{err}</p>
-            <button onClick={onUseCode} className="w-full bg-[#6D28D9] text-white py-3 rounded-xl font-semibold text-sm min-h-[44px]">Usar código da aula</button>
+            <button onClick={onUseCode} className="w-full bg-[#6D28D9] text-white py-3 rounded-xl font-semibold text-sm min-h-[44px]">Digitar o meu código</button>
           </div>
         ) : (
           <>
@@ -495,7 +593,7 @@ function QRCameraScreen({ onCancel, onDetected, onUseCode }: { onCancel: () => v
             </div>
             <p className="text-white/60 text-sm text-center mb-4">Aponte para o QR do cartão do aluno</p>
             <button onClick={onUseCode} className="w-full border border-white/30 text-white/80 py-3 rounded-xl text-sm font-semibold min-h-[44px]">
-              <Camera size={14} className="inline mr-1.5" />Usar código da aula
+              <KeyRound size={14} className="inline mr-1.5" />Digitar o meu código
             </button>
           </>
         )}

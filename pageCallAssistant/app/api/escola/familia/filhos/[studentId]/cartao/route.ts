@@ -4,7 +4,8 @@
  * retorna o novo token para exibição imediata.
  *
  * GET /api/escola/familia/filhos/[studentId]/cartao
- * Retorna o token QR atual para exibição sem revogar.
+ * Retorna o token QR atual para exibição sem revogar, e o código do aluno
+ * (o que ele digita para entrar no reforço).
  *
  * Acesso: responsável com vínculo ativo ao aluno.
  */
@@ -15,6 +16,7 @@ import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { studentSecret } from "@/lib/escola/secrets";
 import { publicOrigin } from "@/lib/escola/public-url";
+import { garantirCodigoAluno, formatarCodigo } from "@/lib/escola/codigo-aluno";
 
 async function signCardToken(studentId: string, cardVersion: number, nid: string): Promise<string> {
   return new SignJWT({ studentId, cardVersion, nid })
@@ -53,8 +55,9 @@ export async function GET(req: NextRequest, { params }: { params: { studentId: s
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? origin;
   const qrToken = await signCardToken(params.studentId, student.cardVersion, student.networkId);
   const qrUrl = `${baseUrl}/escola/aluno/entrar?card=${encodeURIComponent(qrToken)}`;
+  const codigo = await garantirCodigoAluno(ctx.db ?? P, params.studentId, student.networkId).catch(() => null);
 
-  return NextResponse.json({ qrToken, qrUrl, cardVersion: student.cardVersion });
+  return NextResponse.json({ qrToken, qrUrl, cardVersion: student.cardVersion, codigo: codigo ? formatarCodigo(codigo) : null });
 }
 
 export async function POST(req: NextRequest, { params }: { params: { studentId: string } }) {
