@@ -104,7 +104,7 @@ export function AgendaDeHoje() {
                   <Clock className="size-3.5" />{i.time}
                 </span>
                 <span className="flex-1 min-w-0">
-                  <span className="block text-[14px] font-bold text-[#1F1A2E] leading-snug truncate">{i.destino?.titulo ?? m?.nome ?? "Sua trilha"}</span>
+                  <span className="block text-[14px] font-bold text-[#1F1A2E] leading-snug line-clamp-2">{i.destino?.titulo ?? m?.nome ?? "Sua trilha"}</span>
                   <span className="block text-[12px] text-[#5B5470]">{[m?.nome ?? (i.subjectCode ? null : "Trilha do dia"), `${i.minutes} min`].filter(Boolean).join(" · ")}</span>
                 </span>
                 <span className="w-9 h-9 rounded-full flex items-center justify-center text-white shrink-0" style={{ background: cor }}><Play className="size-4 fill-current" /></span>
