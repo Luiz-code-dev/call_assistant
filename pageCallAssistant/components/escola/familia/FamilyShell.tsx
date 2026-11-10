@@ -13,11 +13,25 @@ export function useFilhos() {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("/api/escola/familia/filhos")
-      .then((r) => { if (!r.ok) throw new Error(); return r.json(); })
-      .then((d) => setData({ guardianFirstName: d.guardianFirstName ?? "", filhos: d.filhos ?? [] }))
-      .catch(() => setError(true))
-      .finally(() => setLoading(false));
+    // Tenta de novo sozinho algumas vezes: durante uma atualização do servidor a
+    // primeira chamada pode falhar por alguns segundos
+    let vivo = true;
+    (async () => {
+      for (let tentativa = 0; tentativa < 4 && vivo; tentativa++) {
+        try {
+          const r = await fetch("/api/escola/familia/filhos", { cache: "no-store" });
+          if (r.status === 401) { window.location.href = "/escola/familia/entrar"; return; }
+          if (r.ok) {
+            const d = await r.json();
+            if (vivo) { setData({ guardianFirstName: d.guardianFirstName ?? "", filhos: d.filhos ?? [] }); setLoading(false); }
+            return;
+          }
+        } catch { /* tenta de novo */ }
+        await new Promise((ok) => setTimeout(ok, 2500 * (tentativa + 1)));
+      }
+      if (vivo) { setError(true); setLoading(false); }
+    })();
+    return () => { vivo = false; };
   }, []);
   return { data, error, loading };
 }
