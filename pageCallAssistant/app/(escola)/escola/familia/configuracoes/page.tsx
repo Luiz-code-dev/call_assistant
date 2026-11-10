@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { ArrowLeft, FileText, ShieldCheck, Trash2, LogOut, ChevronRight } from "lucide-react";
+import { FileText, ShieldCheck, Trash2, LogOut, ChevronRight } from "lucide-react";
 import FamilyShell from "@/components/escola/familia/FamilyShell";
 import { AvisosDaFamilia } from "@/components/escola/familia/Acompanhamento";
 
@@ -11,10 +11,8 @@ export default function FamiliaConfiguracoes() {
     { icon: Trash2, label: "Excluir minha conta", href: "/escola/excluir-conta", danger: true },
   ];
   return (
-    <FamilyShell>
+    <FamilyShell voltar={{ href: "/escola/familia", texto: "Painel" }} titulo="Configurações" subtitulo="Avisos, privacidade e sua conta.">
       <div className="max-w-md mx-auto space-y-4">
-        <Link href="/escola/familia" className="inline-flex items-center gap-1.5 text-[14px] font-bold text-[#6D28D9] bg-white rounded-full px-3 min-h-[40px] shadow-sm"><ArrowLeft size={16} /> Voltar</Link>
-        <h1 className="text-[22px] font-extrabold text-[#1F1A2E]">Configurações</h1>
 
         <AvisosDaFamilia sempre />
 

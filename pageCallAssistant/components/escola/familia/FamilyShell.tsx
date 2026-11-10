@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, Settings, UserPlus, LogOut, X } from "lucide-react";
+import { Menu, Settings, UserPlus, LogOut, X, ChevronLeft } from "lucide-react";
 
 export interface FamilyChild {
   studentId: string; firstName: string; fullName: string;
@@ -22,7 +22,13 @@ export function useFilhos() {
   return { data, error, loading };
 }
 
-export default function FamilyShell({ activeStudentId, children }: { activeStudentId?: string; children: React.ReactNode }) {
+export default function FamilyShell({ activeStudentId, children, voltar, titulo, subtitulo }: {
+  activeStudentId?: string; children: React.ReactNode;
+  /** Botão de voltar dentro da capa (alinhado ao topo, sem cair por cima do conteúdo) */
+  voltar?: { href: string; texto?: string };
+  /** Título da página na capa; sem ele, mostra "Olá, ...!" */
+  titulo?: string; subtitulo?: string;
+}) {
   const { data } = useFilhos();
   const [menu, setMenu] = useState(false);
   const filhos = data?.filhos ?? [];
@@ -44,8 +50,13 @@ export default function FamilyShell({ activeStudentId, children }: { activeStude
               {menu ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
-          <h1 className="text-2xl font-extrabold mt-3">Olá, {data?.guardianFirstName || "família"}!</h1>
-          <p className="text-sm text-white/85 mt-1">Acompanhe o reforço do seu filho em todas as matérias.</p>
+          {voltar && (
+            <Link href={voltar.href} className="mt-3 inline-flex items-center gap-1 rounded-full bg-white/15 hover:bg-white/25 pl-2 pr-3 min-h-[40px] text-sm font-semibold">
+              <ChevronLeft className="size-4" />{voltar.texto ?? "Voltar"}
+            </Link>
+          )}
+          <h1 className="text-2xl font-extrabold mt-3">{titulo ?? `Olá, ${data?.guardianFirstName || "família"}!`}</h1>
+          <p className="text-sm text-white/85 mt-1">{subtitulo ?? (titulo ? "" : "Acompanhe o reforço do seu filho em todas as matérias.")}</p>
 
           {filhos.length > 1 && (
             <div className="mt-4 -mx-1 px-1 flex gap-2 overflow-x-auto">

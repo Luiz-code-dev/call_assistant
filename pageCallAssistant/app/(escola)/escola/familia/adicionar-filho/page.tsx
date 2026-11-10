@@ -1,8 +1,6 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
-import Link from "next/link";
 import FamilyShell from "@/components/escola/familia/FamilyShell";
 
 const RELATIONS = [
@@ -33,14 +31,12 @@ export default function AdicionarFilho() {
   }
 
   return (
-    <FamilyShell>
+    <FamilyShell voltar={{ href: "/escola/familia", texto: "Painel" }} titulo="Adicionar outro filho">
       <div className="max-w-sm mx-auto">
-        <Link href="/escola/familia" className="inline-flex items-center gap-1.5 text-[14px] font-bold text-[#6D28D9] bg-white rounded-full px-3 min-h-[40px] shadow-sm mb-4"><ArrowLeft size={16} /> Voltar</Link>
-        <div className="bg-white rounded-3xl p-5 shadow-[0_4px_18px_rgba(91,33,182,0.08)] mt-3">
-        <h1 className="text-[22px] font-extrabold text-[#1F1A2E] mb-1">Adicionar outro filho</h1>
-        <p className="text-[#5B5470] text-sm mb-5">Use o código de família do cartão do aluno e a data de nascimento dele.</p>
+        <div className="bg-white rounded-3xl p-5 shadow-[0_4px_18px_rgba(91,33,182,0.08)]">
+        <p className="text-[#5B5470] text-sm mb-5">Use o código da ficha de acesso do aluno e a data de nascimento dele.</p>
         <form onSubmit={enviar} className="space-y-4">
-          <div><label className="text-[14px] font-medium text-[#1F1A2E] block mb-1">Código de família</label><input className={`${input} font-mono tracking-widest uppercase`} value={familyCode} onChange={(e) => setFamilyCode(e.target.value)} required placeholder="Do cartão do aluno" /></div>
+          <div><label className="text-[14px] font-medium text-[#1F1A2E] block mb-1">Código de família</label><input className={`${input} font-mono tracking-widest uppercase`} value={familyCode} onChange={(e) => setFamilyCode(e.target.value)} required placeholder="Da ficha de acesso" /></div>
           <div><label className="text-[14px] font-medium text-[#1F1A2E] block mb-1">Data de nascimento do aluno</label><input className={input} type="date" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} required /></div>
           <div><label className="text-[14px] font-medium text-[#1F1A2E] block mb-1">Parentesco</label><select className={input} value={relation} onChange={(e) => setRelation(e.target.value)}>{RELATIONS.map((r) => <option key={r.v} value={r.v}>{r.l}</option>)}</select></div>
           {error && <p className="text-[#B91C1C] text-sm">{error}</p>}
