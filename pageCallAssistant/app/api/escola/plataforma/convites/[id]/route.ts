@@ -1,4 +1,5 @@
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
+import { urlDoSite } from "@/lib/escola/public-url";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu, setTenantDb } from "@/lib/escola/db";
@@ -50,9 +51,7 @@ export async function GET(
   });
   if (invite.networkId) await registerStaffInviteInCatalog(hash, invite.networkId, expiresAt).catch(() => null);
 
-  const base = process.env.NEXT_PUBLIC_APP_URL?.startsWith("http")
-    ? process.env.NEXT_PUBLIC_APP_URL
-    : "https://speakflow.ia.br";
+  const base = urlDoSite(process.env.NEXT_PUBLIC_APP_URL);
 
   return NextResponse.json({ link: `${base}/escola/convite/${raw}` });
 }

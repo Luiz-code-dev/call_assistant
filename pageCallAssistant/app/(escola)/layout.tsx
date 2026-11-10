@@ -1,9 +1,7 @@
 import type { Metadata, Viewport } from "next";
+import { urlDoSite } from "@/lib/escola/public-url";
 
-const ESCOLA_URL =
-  process.env.NEXT_PUBLIC_APP_URL?.startsWith("http")
-    ? process.env.NEXT_PUBLIC_APP_URL
-    : "https://speakflow.ia.br";
+const ESCOLA_URL = urlDoSite(process.env.NEXT_PUBLIC_APP_URL);
 
 export const viewport: Viewport = {
   themeColor: "#4F46E5",

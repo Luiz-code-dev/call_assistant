@@ -15,7 +15,7 @@ import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { studentSecret } from "@/lib/escola/secrets";
-import { publicOrigin } from "@/lib/escola/public-url";
+import { publicOrigin, urlDoSite } from "@/lib/escola/public-url";
 
 /** Figuras disponíveis (mesma lista de aluno/entrar/page.tsx). */
 const FIGURE_IDS = ["sun","star","heart","house","fish","flower","moon","drop","cloud"] as const;
@@ -68,7 +68,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   }
 
   const origin = publicOrigin(req);
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? origin;
+  const baseUrl = urlDoSite(process.env.NEXT_PUBLIC_APP_URL ?? origin);
 
   let plainCredential: string | string[];
   let updateData: Record<string, unknown>;

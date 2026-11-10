@@ -8,7 +8,7 @@ import { getEduContext } from "@/lib/escola/context";
 import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { studentSecret } from "@/lib/escola/secrets";
-import { publicOrigin } from "@/lib/escola/public-url";
+import { publicOrigin, urlDoSite } from "@/lib/escola/public-url";
 import { SignJWT } from "jose";
 
 function flag() { return isEscolasEnabled(); }
@@ -52,7 +52,7 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
     });
 
     const origin = publicOrigin(req);
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? origin;
+    const baseUrl = urlDoSite(process.env.NEXT_PUBLIC_APP_URL ?? origin);
 
     const cards = await Promise.all(enrollments.map(async (e: PrismaEduAny, i: number) => {
       const s = e.student;

@@ -2,6 +2,7 @@
  * Invite helpers — token generation/verification and email dispatch.
  */
 import crypto from "crypto";
+import { urlDoSite } from "@/lib/escola/public-url";
 import { findTenantByInviteHash, registerInvite, unregisterInvite } from "@/lib/escola/catalogo";
 import { getTenantDb } from "@/lib/escola/tenant-db";
 
@@ -62,7 +63,7 @@ export function hashToken(rawToken: string): string {
 
 /** Envia o link de redefinicao de senha da familia (tema claro SpeakFlow Escolas). */
 export async function sendFamilyPasswordResetEmail(to: string, name: string, token: string) {
-  const baseUrl = process.env.NEXTAUTH_URL ?? process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+  const baseUrl = process.env.NODE_ENV === "production" ? urlDoSite(process.env.NEXT_PUBLIC_APP_URL ?? process.env.NEXTAUTH_URL) : (process.env.NEXTAUTH_URL ?? process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000");
   const link = `${baseUrl}/escola/familia/redefinir-senha?token=${token}`;
   const firstName = (name ?? "").split(" ")[0] || "responsavel";
 
@@ -147,7 +148,7 @@ export async function sendInviteEmail(
   networkName: string,
   roleName?: string
 ) {
-  const baseUrl = process.env.NEXTAUTH_URL ?? process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+  const baseUrl = process.env.NODE_ENV === "production" ? urlDoSite(process.env.NEXT_PUBLIC_APP_URL ?? process.env.NEXTAUTH_URL) : (process.env.NEXTAUTH_URL ?? process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000");
   const link = `${baseUrl}/escola/convite/${token}`;
   const firstName = name.split(" ")[0];
   const roleLabel = roleName ?? "membro da equipe escolar";
