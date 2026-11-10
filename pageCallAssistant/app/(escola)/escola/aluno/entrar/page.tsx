@@ -7,7 +7,7 @@ import { QrCode, Volume2, Delete, ChevronLeft, Camera, AlertCircle } from "lucid
 const FIGURES = [
   { id: "sun",    label: "Sol",     svg: <svg viewBox="0 0 48 48" className="w-full h-full"><circle cx="24" cy="24" r="10" fill="#F59E0B"/><g stroke="#F59E0B" strokeWidth="3" strokeLinecap="round">{[0,45,90,135,180,225,270,315].map((a,i)=><line key={i} x1={24+14*Math.cos(a*Math.PI/180)} y1={24+14*Math.sin(a*Math.PI/180)} x2={24+19*Math.cos(a*Math.PI/180)} y2={24+19*Math.sin(a*Math.PI/180)}/>)}</g></svg> },
   { id: "star",   label: "Estrela", svg: <svg viewBox="0 0 48 48" className="w-full h-full"><polygon points="24,4 29,18 44,18 32,27 37,42 24,33 11,42 16,27 4,18 19,18" fill="#7C3AED"/></svg> },
-  { id: "heart",  label: "Coracao", svg: <svg viewBox="0 0 48 48" className="w-full h-full"><path d="M24 40 C24 40 6 28 6 17 C6 11 10 7 16 7 C20 7 23 10 24 12 C25 10 28 7 32 7 C38 7 42 11 42 17 C42 28 24 40 24 40Z" fill="#BE185D"/></svg> },
+  { id: "heart",  label: "Coração", svg: <svg viewBox="0 0 48 48" className="w-full h-full"><path d="M24 40 C24 40 6 28 6 17 C6 11 10 7 16 7 C20 7 23 10 24 12 C25 10 28 7 32 7 C38 7 42 11 42 17 C42 28 24 40 24 40Z" fill="#BE185D"/></svg> },
   { id: "house",  label: "Casa",    svg: <svg viewBox="0 0 48 48" className="w-full h-full"><polygon points="24,6 42,22 38,22 38,42 10,42 10,22 6,22" fill="#0F766E"/></svg> },
   { id: "fish",   label: "Peixe",   svg: <svg viewBox="0 0 48 48" className="w-full h-full"><ellipse cx="22" cy="24" rx="14" ry="9" fill="#1D4ED8"/><polygon points="36,15 44,24 36,33" fill="#1D4ED8"/><circle cx="14" cy="21" r="2" fill="white"/></svg> },
   { id: "flower", label: "Flor",    svg: <svg viewBox="0 0 48 48" className="w-full h-full"><circle cx="24" cy="24" r="6" fill="#FBBF24"/>{[0,60,120,180,240,300].map((a,i)=><ellipse key={i} cx={24+11*Math.cos(a*Math.PI/180)} cy={24+11*Math.sin(a*Math.PI/180)} rx="6" ry="4" fill="#BE185D" transform={`rotate(${a},${24+11*Math.cos(a*Math.PI/180)},${24+11*Math.sin(a*Math.PI/180)})`}/>)}</svg> },
@@ -198,28 +198,37 @@ function EntrarInner() {
   // ── Choose (unificado: QR primeiro, aparelho de casa no meio, código da aula por último) ──
   if (screen === "device" || screen === "choose") {
     return (
-      <div className="min-h-screen bg-[#F8F7FC] flex flex-col items-center justify-center p-6">
-        <button onClick={() => speak("Como você quer entrar?")} className="absolute top-4 right-4 flex items-center gap-2 text-[#6D28D9] text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-[#EDE9FE] rounded-full">
+      <div className="min-h-screen bg-[#F6F4FE] flex flex-col items-center p-6 pt-20 relative overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-72 rounded-b-[40px] bg-gradient-to-br from-[#5B21B6] via-[#6D28D9] to-[#8B5CF6]" aria-hidden="true">
+          <div className="absolute -top-14 -right-10 w-48 h-48 rounded-full bg-white/10" />
+          <div className="absolute top-28 -left-12 w-32 h-32 rounded-full bg-white/5" />
+          <svg viewBox="0 0 40 40" className="absolute top-16 left-8 w-6 h-6"><polygon points="20,2 25,15 38,15 28,23 32,37 20,29 8,37 12,23 2,15 15,15" fill="#FDE68A"/></svg>
+          <svg viewBox="0 0 40 40" className="absolute top-40 right-10 w-4 h-4"><polygon points="20,2 25,15 38,15 28,23 32,37 20,29 8,37 12,23 2,15 15,15" fill="#FFFFFF" opacity="0.7"/></svg>
+        </div>
+        <button onClick={() => speak("Como você quer entrar?")} className="absolute z-10 top-4 right-4 flex items-center gap-2 text-white text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-white/15 rounded-full">
           <Volume2 size={16} /> Ouvir
         </button>
-        {aulaError && <p className="text-[#B91C1C] text-sm mb-4 bg-[#FEE2E2] px-4 py-2 rounded-xl">{aulaError}</p>}
-        <h1 className="text-3xl font-bold text-[#1F1A2E] mb-8">Como você quer entrar?</h1>
+        <div className="relative z-10 text-center text-white mb-8">
+          <p className="text-sm font-semibold text-white/80">SpeakFlow Escolas</p>
+          <h1 className="text-3xl font-extrabold mt-1">Oi! Como você<br/>quer entrar?</h1>
+        </div>
+        {aulaError && <p className="relative z-10 text-[#B91C1C] text-sm mb-4 bg-[#FEE2E2] px-4 py-2 rounded-2xl">{aulaError}</p>}
 
         {/* 1. QR — ação principal */}
         <button onClick={() => setScreen("qr-camera")}
-          className="w-full max-w-xl flex items-center gap-5 bg-[#6D28D9] hover:bg-[#5B21B6] text-white rounded-2xl px-7 py-5 min-h-[80px] transition-colors mb-4">
-          <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center shrink-0"><QrCode size={32} /></div>
-          <div className="text-left"><div className="text-xl font-bold">Ler o QR do meu cartão</div><div className="text-sm opacity-90 mt-0.5">Câmera lê o QR do cartão de acesso</div></div>
+          className="relative z-10 w-full max-w-xl flex items-center gap-5 bg-white text-[#1F1A2E] rounded-3xl px-6 py-5 min-h-[88px] shadow-[0_12px_32px_rgba(91,33,182,0.22)] active:scale-[0.99] transition-transform mb-4">
+          <div className="w-14 h-14 bg-gradient-to-br from-[#6D28D9] to-[#8B5CF6] text-white rounded-2xl flex items-center justify-center shrink-0"><QrCode size={30} /></div>
+          <div className="text-left"><div className="text-xl font-extrabold">Ler o QR do meu cartão</div><div className="text-sm text-[#5B5470] mt-0.5">A câmera lê o QR do cartão de acesso</div></div>
         </button>
 
         {/* 2. Alunos do aparelho de casa */}
         {deviceStudents.length > 0 && (
-          <div className="w-full max-w-xl mb-4">
+          <div className="relative z-10 w-full max-w-xl mb-4">
             <p className="text-[#5B5470] text-xs font-semibold mb-2 px-1">Aparelho de casa</p>
             <div className="flex flex-wrap gap-3">
               {deviceStudents.map(s => (
                 <button key={s.id} onClick={() => selectDeviceStudent(s)}
-                  className="flex flex-col items-center gap-2 bg-white border-2 border-[#E9E5F5] rounded-2xl p-4 min-w-[110px] hover:border-[#6D28D9] transition-all min-h-[52px]">
+                  className="flex flex-col items-center gap-2 bg-white border-2 border-[#E9E5F5] rounded-3xl p-4 min-w-[110px] hover:border-[#6D28D9] transition-all min-h-[52px]">
                   <div className="w-14 h-14 rounded-full flex items-center justify-center text-white text-2xl font-bold" style={{ background: avatarColor(s.name) }}>{s.name[0].toUpperCase()}</div>
                   <span className="text-[#1F1A2E] text-base font-bold">{s.name.split(" ")[0]}</span>
                 </button>
@@ -232,12 +241,12 @@ function EntrarInner() {
 
         {/* 3. Código da aula — ação secundária */}
         <button onClick={() => { setAulaCode(Array(6).fill("")); setAulaError(""); setScreen("aula-code"); }}
-          className="w-full max-w-xl flex items-center gap-5 border-2 border-[#DDD6EE] hover:border-[#6D28D9] bg-white text-[#1F1A2E] rounded-2xl px-7 py-5 min-h-[80px] transition-colors">
-          <div className="w-14 h-14 bg-[#F8F7FC] rounded-2xl flex items-center justify-center shrink-0 text-[#0F766E]"><span className="text-3xl font-bold">#</span></div>
+          className="relative z-10 w-full max-w-xl flex items-center gap-5 bg-white text-[#1F1A2E] rounded-3xl px-6 py-5 min-h-[88px] shadow-[0_4px_18px_rgba(91,33,182,0.10)] active:scale-[0.99] transition-transform">
+          <div className="w-14 h-14 bg-gradient-to-br from-[#0F766E] to-[#14B8A6] text-white rounded-2xl flex items-center justify-center shrink-0"><span className="text-3xl font-extrabold">#</span></div>
           <div className="text-left"><div className="text-xl font-bold text-[#1F1A2E]">Na escola: código da aula</div><div className="text-sm text-[#5B5470] mt-0.5">O professor mostra o código no quadro</div></div>
         </button>
 
-        <p className="text-[#5B5470] text-sm mt-6">Esqueceu? Peça para o seu responsável criar um PIN novo no app da familia.</p>
+        <p className="relative z-10 text-[#5B5470] text-sm mt-6 text-center">Esqueceu? Peça para o seu responsável criar um PIN novo no app da família.</p>
       </div>
     );
   }
@@ -245,9 +254,9 @@ function EntrarInner() {
   // ── Codigo da aula ──────────────────────────────────────────────────────────
   if (screen === "aula-code") {
     return (
-      <div className="min-h-screen bg-[#F8F7FC] flex flex-col items-center p-6 pt-16">
+      <div className="min-h-screen bg-[#F6F4FE] flex flex-col items-center p-6 pt-16">
         <button onClick={() => setScreen("choose")} className="absolute top-4 left-4 text-[#6D28D9] font-semibold min-h-[44px] px-3 flex items-center gap-1"><ChevronLeft size={18}/> Voltar</button>
-        <button onClick={() => speak("Digite as letras ou numeros que o professor mostrou")} className="absolute top-4 right-4 flex items-center gap-2 text-[#6D28D9] text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-[#EDE9FE] rounded-full"><Volume2 size={16} /> Ouvir</button>
+        <button onClick={() => speak("Digite as letras ou números que o professor mostrou")} className="absolute top-4 right-4 flex items-center gap-2 text-[#6D28D9] text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-[#EDE9FE] rounded-full"><Volume2 size={16} /> Ouvir</button>
         <h2 className="text-[#1F1A2E] font-bold text-2xl mb-6">Digite o código que o professor mostrou</h2>
         <div className="flex gap-3 mb-6">
           {aulaCode.map((l, i) => (
@@ -285,7 +294,7 @@ function EntrarInner() {
   // ── Nomes da aula ───────────────────────────────────────────────────────────
   if (screen === "aula-names" && session) {
     return (
-      <div className="min-h-screen bg-[#F8F7FC] flex flex-col items-center p-6 pt-16">
+      <div className="min-h-screen bg-[#F6F4FE] flex flex-col items-center p-6 pt-16">
         <button onClick={() => setScreen("aula-code")} className="absolute top-4 left-4 text-[#6D28D9] font-semibold min-h-[44px] px-3 flex items-center gap-1"><ChevronLeft size={18}/> Voltar</button>
         <button onClick={() => speak("Toque no seu nome")} className="absolute top-4 right-4 flex items-center gap-2 text-[#6D28D9] text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-[#EDE9FE] rounded-full"><Volume2 size={16} /> Ouvir</button>
         <p className="text-[#5B5470] text-sm mb-2">{session.className}</p>
@@ -316,7 +325,7 @@ function EntrarInner() {
     };
     const dotsCount = Math.max(4, pin.length);
     return (
-      <div className="min-h-screen bg-[#F8F7FC] flex flex-col items-center justify-center p-6">
+      <div className="min-h-screen bg-[#F6F4FE] flex flex-col items-center justify-center p-6">
         <button onClick={() => setScreen(session ? "aula-names" : "device")} className="absolute top-4 left-4 text-[#6D28D9] font-semibold min-h-[44px] px-3 flex items-center gap-1"><ChevronLeft size={18}/> Voltar</button>
         <button onClick={() => speak(`Oi ${headerName}! Digite seu PIN`)} className="absolute top-4 right-4 flex items-center gap-2 text-[#6D28D9] text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-[#EDE9FE] rounded-full"><Volume2 size={16} /> Ouvir</button>
         <div className="flex flex-col lg:flex-row items-center gap-10">
@@ -355,7 +364,7 @@ function EntrarInner() {
   // ── Figuras ──────────────────────────────────────────────────────────────────
   if (screen === "figures" && selectedStudent) {
     return (
-      <div className="min-h-screen bg-[#F8F7FC] flex flex-col items-center justify-center p-6">
+      <div className="min-h-screen bg-[#F6F4FE] flex flex-col items-center justify-center p-6">
         <button onClick={() => setScreen(session ? "aula-names" : "device")} className="absolute top-4 left-4 text-[#6D28D9] font-semibold min-h-[44px] px-3 flex items-center gap-1"><ChevronLeft size={18}/> Voltar</button>
         <button onClick={() => speak(`Oi ${headerName}! Toque nas suas 3 figuras secretas`)} className="absolute top-4 right-4 flex items-center gap-2 text-[#6D28D9] text-sm font-semibold min-h-[44px] px-3 py-1.5 bg-[#EDE9FE] rounded-full"><Volume2 size={16} /> Ouvir</button>
         <div className="flex flex-col lg:flex-row items-center gap-10">
@@ -489,5 +498,5 @@ function QRCameraScreen({ onCancel, onDetected, onUseCode }: { onCancel: () => v
 }
 
 export default function AlunoEntrarPage() {
-  return <Suspense fallback={<div className="min-h-screen bg-[#F8F7FC] flex items-center justify-center text-[#5B5470]">Carregando...</div>}><EntrarInner /></Suspense>;
+  return <Suspense fallback={<div className="min-h-screen bg-[#F6F4FE] flex items-center justify-center text-[#5B5470]">Carregando...</div>}><EntrarInner /></Suspense>;
 }

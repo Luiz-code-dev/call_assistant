@@ -1,12 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ChevronLeft, TrendingUp } from "lucide-react";
+import { Capa, Conteudo, NavAluno, CARTAO, BOTAO, FUNDO, Carregando, IconeMateria, SeloNivel, materiaDe } from "@/components/escola/reforco-ui";
 
 interface SkillProgress { subjectName: string; subjectColor: string; skills: { code: string; description: string; level: string }[] }
 
-const levelLabel: Record<string, string> = { NOT_YET: "Ainda não", ALMOST: "Quase lá", MASTERED: "Domina" };
-const levelColor: Record<string, string> = { NOT_YET: "bg-[#FEE2E2] text-[#B91C1C]", ALMOST: "bg-[#FEF3C7] text-[#92400E]", MASTERED: "bg-[#DCFCE7] text-[#166534]" };
+const ORDEM: Record<string, number> = { MASTERED: 2, ALMOST: 1, NOT_YET: 0 };
 
 export default function EvolucaoPage() {
   const [data, setData] = useState<SkillProgress[]>([]);
@@ -23,38 +22,70 @@ export default function EvolucaoPage() {
   }
   useEffect(() => { carregar(); }, []);
 
+  if (loading) return <Carregando texto="Carregando sua evolução..." />;
+
+  const total = data.reduce((n, s) => n + s.skills.length, 0);
+  const dominadas = data.reduce((n, s) => n + s.skills.filter(k => k.level === "MASTERED").length, 0);
+
   return (
-    <div className="min-h-screen bg-[#F8F7FC] px-4 py-6 max-w-lg mx-auto">
-      <div className="flex items-center gap-3 mb-6">
-        <Link href="/escola/aluno" className="p-2 rounded-xl text-[#5B5470] hover:text-[#1F1A2E]"><ChevronLeft size={20}/></Link>
-        <div className="flex items-center gap-2">
-          <TrendingUp className="text-[#6D28D9]" size={20}/>
-          <h1 className="text-[#1F1A2E] font-bold text-xl">Minha evolução</h1>
-        </div>
-      </div>
-      {loading ? <p className="text-[#5B5470] text-center py-8">Carregando...</p> : erro ? (
-        <div className="text-center py-8">
-          <p className="text-[#1F1A2E] font-semibold text-sm">Não foi possível carregar a sua evolução.</p>
-          <button onClick={carregar} className="mt-3 px-4 rounded-lg bg-[#6D28D9] text-white text-sm font-medium min-h-[44px]">Tentar de novo</button>
-        </div>
-      ) : data.length === 0 ? (
-        <div className="text-center py-8">
-          <p className="text-[#5B5470]">Você ainda não fez nenhum diagnóstico.</p>
-          <Link href="/escola/aluno" className="mt-3 inline-flex items-center justify-center px-5 rounded-2xl bg-[#6D28D9] text-white text-sm font-semibold min-h-[48px]">Escolher uma matéria</Link>
-        </div>
-      ) : data.map(subj => (
-        <div key={subj.subjectName} className="bg-white border border-[#E9E5F5] rounded-2xl p-4 mb-4">
-          <h2 className="font-bold text-sm mb-3" style={{ color: subj.subjectColor || "#6D28D9" }}>{subj.subjectName}</h2>
-          <div className="space-y-2">
-            {subj.skills.map(sk => (
-              <div key={sk.code} className="flex items-start gap-2">
-                <span className={`shrink-0 text-[11px] font-semibold px-2 py-0.5 rounded-full ${levelColor[sk.level] ?? "bg-gray-100 text-gray-700"}`}>{levelLabel[sk.level] ?? sk.level}</span>
-                <span className="text-[#5B5470] text-xs leading-relaxed">{sk.description}</span>
+    <div className={FUNDO}>
+      <Capa titulo="Minha evolução" subtitulo="Veja o que você já domina e o que está praticando."
+        voltar={{ href: "/escola/aluno", texto: "Início" }} />
+      <Conteudo>
+        {erro ? (
+          <section className={`${CARTAO} p-6 text-center`}>
+            <p className="text-[#1F1A2E] font-semibold text-sm">Não foi possível carregar a sua evolução.</p>
+            <button onClick={carregar} className={`${BOTAO} mt-4`}>Tentar de novo</button>
+          </section>
+        ) : data.length === 0 ? (
+          <section className={`${CARTAO} p-8 text-center`}>
+            <p className="text-[#1F1A2E] font-extrabold text-lg">Sua evolução começa aqui</p>
+            <p className="text-[#5B5470] text-sm mt-1">Faça o diagnóstico de uma matéria e acompanhe o seu progresso.</p>
+            <Link href="/escola/aluno" className={`${BOTAO} mt-5`}>Escolher uma matéria</Link>
+          </section>
+        ) : (
+          <>
+            <section className={`${CARTAO} p-5 flex items-center gap-4`}>
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F59E0B] to-[#FBBF24] flex items-center justify-center text-white text-xl font-extrabold shrink-0">
+                {dominadas}
               </div>
-            ))}
-          </div>
-        </div>
-      ))}
+              <div>
+                <p className="font-extrabold text-[#1F1A2E]">{dominadas === 1 ? "conteúdo dominado" : "conteúdos dominados"}</p>
+                <p className="text-xs text-[#5B5470]">de {total} que você já praticou em {data.length} {data.length === 1 ? "matéria" : "matérias"}</p>
+              </div>
+            </section>
+
+            {data.map(subj => {
+              const m = materiaDe(subj.subjectName);
+              const cor = m?.cor ?? subj.subjectColor ?? "#6D28D9";
+              const dom = subj.skills.filter(k => k.level === "MASTERED").length;
+              const skills = [...subj.skills].sort((a, b) => (ORDEM[a.level] ?? 0) - (ORDEM[b.level] ?? 0));
+              return (
+                <section key={subj.subjectName} className={`${CARTAO} p-4`}>
+                  <div className="flex items-center gap-3 mb-3">
+                    <IconeMateria chave={subj.subjectName} tamanho={44} />
+                    <div className="flex-1 min-w-0">
+                      <h2 className="font-extrabold text-[#1F1A2E]">{subj.subjectName}</h2>
+                      <div className="mt-1.5 h-2 bg-[#F3F0FB] rounded-full overflow-hidden">
+                        <div className="h-full rounded-full" style={{ width: `${subj.skills.length ? (dom / subj.skills.length) * 100 : 0}%`, background: cor }} />
+                      </div>
+                    </div>
+                  </div>
+                  <ul className="space-y-2">
+                    {skills.map(sk => (
+                      <li key={sk.code} className="flex items-center gap-3 rounded-2xl bg-[#F8F7FC] px-3 py-2.5">
+                        <span className="flex-1 text-sm text-[#1F1A2E] leading-snug">{sk.description}</span>
+                        <SeloNivel nivel={sk.level} />
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              );
+            })}
+          </>
+        )}
+      </Conteudo>
+      <NavAluno ativo="evolucao" />
     </div>
   );
 }

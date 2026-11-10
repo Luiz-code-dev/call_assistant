@@ -12,10 +12,10 @@ export default function FamiliaConfiguracoes() {
   return (
     <FamilyShell>
       <div className="max-w-md mx-auto space-y-4">
-        <Link href="/escola/familia" className="inline-flex items-center gap-1.5 text-[14px] text-[#6D28D9] font-medium"><ArrowLeft size={16} /> Voltar</Link>
+        <Link href="/escola/familia" className="inline-flex items-center gap-1.5 text-[14px] font-bold text-[#6D28D9] bg-white rounded-full px-3 min-h-[40px] shadow-sm"><ArrowLeft size={16} /> Voltar</Link>
         <h1 className="text-[22px] font-extrabold text-[#1F1A2E]">Configurações</h1>
 
-        <div className="bg-white border border-[#E9E5F5] rounded-[20px] overflow-hidden">
+        <div className="bg-white rounded-3xl shadow-[0_4px_18px_rgba(91,33,182,0.08)] overflow-hidden">
           {rows.map((r, i) => {
             const Icon = r.icon;
             return (

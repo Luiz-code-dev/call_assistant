@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { HeartHandshake, CheckCircle2 } from "lucide-react";
 
-const inputCls = "w-full bg-white text-[#1F1A2E] rounded-xl px-4 py-3 border-[1.5px] border-[#DDD6EE] focus:border-[#6D28D9] focus:ring-[3px] focus:ring-[#EDE9FE] outline-none text-sm";
+const inputCls = "w-full bg-white text-[#1F1A2E] rounded-2xl px-4 py-3.5 border-[1.5px] border-[#DDD6EE] focus:border-[#6D28D9] focus:ring-[3px] focus:ring-[#EDE9FE] outline-none text-sm";
 
 interface Info { guardianName: string | null; hasPassword: boolean; filhos: string[]; accepted: boolean }
 
@@ -49,8 +49,9 @@ export default function ConviteFamiliaPage() {
   const mostrarCampos = precisaSenha || alterar;
 
   return (
-    <div className="min-h-screen bg-[#F8F7FC] flex flex-col items-center justify-center p-6">
-      <div className="w-full max-w-sm text-center">
+    <div className="min-h-screen bg-[#F6F4FE] flex flex-col items-center justify-center p-5 relative overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-[44vh] rounded-b-[40px] bg-gradient-to-br from-[#5B21B6] via-[#6D28D9] to-[#8B5CF6]" aria-hidden="true" />
+      <div className="relative w-full max-w-sm text-center bg-white rounded-[28px] p-6 shadow-[0_12px_40px_rgba(91,33,182,0.18)]">
         <div className="w-14 h-14 rounded-2xl bg-[#EDE9FE] flex items-center justify-center mx-auto mb-3">
           <HeartHandshake size={28} className="text-[#6D28D9]" />
         </div>
@@ -94,7 +95,7 @@ export default function ConviteFamiliaPage() {
               Ao continuar, você concorda com os{" "}
               <a href="/escola/privacidade" className="underline" target="_blank">termos de privacidade</a>.
             </p>
-            <button onClick={aceitar} disabled={saving} className="w-full bg-[#6D28D9] hover:bg-[#5B21B6] disabled:opacity-50 text-white font-semibold rounded-xl py-3.5 min-h-[48px] transition-colors">
+            <button onClick={aceitar} disabled={saving} className="w-full bg-[#6D28D9] hover:bg-[#5B21B6] disabled:opacity-50 text-white font-bold rounded-2xl py-3.5 min-h-[52px] transition-colors">
               {saving ? "Entrando…" : precisaSenha ? "Criar senha e acessar" : "Acessar e acompanhar"}
             </button>
           </div>

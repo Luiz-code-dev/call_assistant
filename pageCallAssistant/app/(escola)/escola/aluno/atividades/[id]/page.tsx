@@ -2,7 +2,8 @@
 
 import { useEffect, useState, useRef, useCallback } from "react";
 import { useRouter, useParams } from "next/navigation";
-import { ArrowLeft, Mic, MicOff, Play, RefreshCw, Send, CheckCircle2, Clock, AlertCircle, ChevronRight, Volume2 } from "lucide-react";
+import { Mic, MicOff, Play, RefreshCw, Send, CheckCircle2, Clock, AlertCircle, ChevronRight, Volume2 } from "lucide-react";
+import { Capa, materiaDe } from "@/components/escola/reforco-ui";
 
 interface QuizQuestion { id: string; order: number; question: string; options: string[] }
 interface Atividade {
@@ -105,13 +106,13 @@ function WrittenActivity({ activity, onSubmit }: { activity: Atividade; onSubmit
 
   return (
     <div className="space-y-4">
-      <div className="rounded-xl border border-[#E9E5F5] bg-white p-4">
+      <div className="rounded-3xl bg-white shadow-[0_4px_18px_rgba(91,33,182,0.08)] p-4">
         <div className="flex items-start gap-3">
           <p className="text-sm text-[#1F1A2E] leading-relaxed whitespace-pre-wrap flex-1">{activity.prompt}</p>
           <OuvirButton texto={activity.prompt} />
         </div>
       </div>
-      <div className="rounded-xl border border-[#E9E5F5] bg-white overflow-hidden">
+      <div className="rounded-3xl bg-white shadow-[0_4px_18px_rgba(91,33,182,0.08)] overflow-hidden">
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}
@@ -126,7 +127,7 @@ function WrittenActivity({ activity, onSubmit }: { activity: Atividade; onSubmit
         </div>
       </div>
       <button onClick={handleSubmit} disabled={submitting || text.trim().length < 10}
-        className="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-semibold text-white bg-[#6D28D9] hover:bg-[#5B21B6] transition-colors disabled:opacity-50 min-h-[52px]">
+        className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-bold text-white bg-[#6D28D9] hover:bg-[#5B21B6] transition-colors disabled:opacity-50 min-h-[52px]">
         {submitting ? <><RefreshCw className="size-4 animate-spin" />Enviando...</> : <><Send className="size-4" />Enviar resposta</>}
       </button>
     </div>
@@ -202,7 +203,7 @@ function SpokenActivity({ activity, onSubmit }: { activity: Atividade; onSubmit:
 
   return (
     <div className="space-y-4">
-      <div className="rounded-xl border border-[#E9E5F5] bg-white p-4">
+      <div className="rounded-3xl bg-white shadow-[0_4px_18px_rgba(91,33,182,0.08)] p-4">
         <div className="flex items-start gap-3">
           <p className="text-sm text-[#1F1A2E] leading-relaxed whitespace-pre-wrap flex-1">{activity.prompt}</p>
           <OuvirButton texto={activity.prompt} />
@@ -211,13 +212,13 @@ function SpokenActivity({ activity, onSubmit }: { activity: Atividade; onSubmit:
       </div>
 
       {errorMsg && (
-        <div className="rounded-xl border border-[#FCA5A5] bg-[#FEE2E2] p-4 flex gap-3">
+        <div className="rounded-3xl bg-[#FEE2E2] p-4 flex gap-3">
           <AlertCircle className="size-5 text-[#B91C1C] shrink-0 mt-0.5" />
           <p className="text-sm text-[#B91C1C]">{errorMsg}</p>
         </div>
       )}
 
-      <div className="rounded-xl border border-[#E9E5F5] bg-white p-8 flex flex-col items-center gap-6">
+      <div className="rounded-3xl bg-white shadow-[0_4px_18px_rgba(91,33,182,0.08)] p-8 flex flex-col items-center gap-6">
         {state === "idle" && (
           <button onClick={startRecording}
             className="size-24 rounded-full flex items-center justify-center text-white bg-[#6D28D9] hover:bg-[#5B21B6] shadow-lg transition-transform active:scale-95 min-h-[96px]">
@@ -246,11 +247,11 @@ function SpokenActivity({ activity, onSubmit }: { activity: Atividade; onSubmit:
             <audio controls src={audioUrl} className="w-full rounded-lg" />
             <div className="flex gap-3">
               <button onClick={retake} disabled={state === "transcribing"}
-                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-[#DDD6EE] font-medium text-[#1F1A2E] disabled:opacity-50 min-h-[44px]">
+                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl border-2 border-[#DDD6EE] bg-white font-medium text-[#1F1A2E] disabled:opacity-50 min-h-[44px]">
                 <RefreshCw className="size-4" />Gravar de novo
               </button>
               <button onClick={handleSend} disabled={state === "transcribing"}
-                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-white bg-[#6D28D9] hover:bg-[#5B21B6] disabled:opacity-50 min-h-[44px]">
+                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl font-bold text-white bg-[#6D28D9] hover:bg-[#5B21B6] disabled:opacity-50 min-h-[44px]">
                 {state === "transcribing" ? <><RefreshCw className="size-4 animate-spin" />Enviando...</> : <><Send className="size-4" />Enviar</>}
               </button>
             </div>
@@ -297,21 +298,21 @@ function QuizActivity({ activity, onSubmit }: { activity: Atividade; onSubmit: (
       {questions.map((qq, i) => {
         const selected = answers.get(qq.id);
         return (
-          <div key={qq.id} className="rounded-xl border border-[#E9E5F5] bg-white p-4">
+          <div key={qq.id} className="rounded-3xl bg-white shadow-[0_4px_18px_rgba(91,33,182,0.08)] p-4">
             <p className="text-sm font-medium text-[#1F1A2E] mb-2">{i + 1}. {qq.question}</p>
             <p className="text-sm text-[#6D28D9] font-medium">
-              {selected !== undefined ? (qq.options as string[])[selected] : <span className="text-[#B91C1C]">Nao respondida</span>}
+              {selected !== undefined ? (qq.options as string[])[selected] : <span className="text-[#B91C1C]">Não respondida</span>}
             </p>
           </div>
         );
       })}
       <div className="flex gap-3">
         <button onClick={() => setReviewing(false)}
-          className="flex-1 py-3 rounded-xl border-2 border-[#DDD6EE] font-medium text-[#1F1A2E] min-h-[44px]">
+          className="flex-1 py-3 rounded-2xl border-2 border-[#DDD6EE] bg-white font-medium text-[#1F1A2E] min-h-[44px]">
           Voltar
         </button>
         <button onClick={handleSubmit} disabled={submitting || !allAnswered}
-          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-white bg-[#6D28D9] hover:bg-[#5B21B6] disabled:opacity-50 min-h-[44px]">
+          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl font-bold text-white bg-[#6D28D9] hover:bg-[#5B21B6] disabled:opacity-50 min-h-[44px]">
           {submitting ? <RefreshCw className="size-4 animate-spin" /> : <><Send className="size-4" />Enviar quiz</>}
         </button>
       </div>
@@ -321,14 +322,14 @@ function QuizActivity({ activity, onSubmit }: { activity: Atividade; onSubmit: (
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between text-sm text-[#5B5470]">
-        <span>Questao {current + 1} de {questions.length}</span>
+        <span>Questão {current + 1} de {questions.length}</span>
         <span>{totalAnswered} respondida{totalAnswered !== 1 ? "s" : ""}</span>
       </div>
       <div className="w-full h-1.5 rounded-full bg-[#E9E5F5]">
         <div className="h-full rounded-full bg-[#6D28D9] transition-all" style={{ width: `${((current + 1) / questions.length) * 100}%` }} />
       </div>
 
-      <div className="rounded-xl border border-[#E9E5F5] bg-white p-4">
+      <div className="rounded-3xl bg-white shadow-[0_4px_18px_rgba(91,33,182,0.08)] p-4">
         <div className="flex items-start gap-3">
           <p className="font-medium text-[#1F1A2E] leading-relaxed flex-1">{q.question}</p>
           <OuvirButton texto={q.question} />
@@ -340,7 +341,7 @@ function QuizActivity({ activity, onSubmit }: { activity: Atividade; onSubmit: (
           const selected = answers.get(q.id) === i;
           return (
             <button key={i} onClick={() => select(q.id, i)}
-              className={`w-full text-left p-4 rounded-xl border-2 text-sm font-medium transition-all min-h-[52px] ${selected ? "border-[#6D28D9] bg-[#EDE9FE] text-[#1F1A2E]" : "border-[#E9E5F5] bg-white text-[#1F1A2E] hover:border-[#6D28D9]"}`}>
+              className={`w-full text-left p-4 rounded-2xl border-2 text-[15px] font-semibold transition-all min-h-[52px] ${selected ? "border-[#6D28D9] bg-[#EDE9FE] text-[#1F1A2E]" : "border-[#E9E5F5] bg-white text-[#1F1A2E] hover:border-[#6D28D9]"}`}>
               <span className={`inline-flex size-6 rounded-full items-center justify-center text-xs font-bold mr-3 ${selected ? "bg-[#6D28D9] text-white" : "bg-[#EDE9FE] text-[#6D28D9]"}`}>
                 {String.fromCharCode(65 + i)}
               </span>
@@ -353,18 +354,18 @@ function QuizActivity({ activity, onSubmit }: { activity: Atividade; onSubmit: (
       <div className="flex gap-3">
         {current > 0 && (
           <button onClick={() => setCurrent((c) => c - 1)}
-            className="px-4 py-3 rounded-xl border-2 border-[#DDD6EE] font-medium text-[#1F1A2E] min-h-[44px]">
+            className="px-4 py-3 rounded-2xl border-2 border-[#DDD6EE] bg-white font-medium text-[#1F1A2E] min-h-[44px]">
             Anterior
           </button>
         )}
         {current < questions.length - 1 ? (
           <button onClick={() => setCurrent((c) => c + 1)}
-            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-white bg-[#6D28D9] hover:bg-[#5B21B6] min-h-[44px]">
-            Proxima <ChevronRight className="size-4" />
+            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl font-bold text-white bg-[#6D28D9] hover:bg-[#5B21B6] min-h-[44px]">
+            Próxima <ChevronRight className="size-4" />
           </button>
         ) : (
           <button onClick={() => setReviewing(true)} disabled={!allAnswered}
-            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-white bg-[#6D28D9] hover:bg-[#5B21B6] disabled:opacity-50 min-h-[44px]">
+            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl font-bold text-white bg-[#6D28D9] hover:bg-[#5B21B6] disabled:opacity-50 min-h-[44px]">
             Revisar e enviar
           </button>
         )}
@@ -400,7 +401,7 @@ function WaitingFeedback({ activityId }: { activityId: string }) {
   }, [activityId, router]);
 
   return (
-    <div className="rounded-xl border border-[#E9E5F5] bg-white p-10 text-center space-y-4">
+    <div className="rounded-3xl bg-white shadow-[0_4px_18px_rgba(91,33,182,0.08)] p-10 text-center space-y-4">
       {status === "waiting" && (
         <>
           <div className="size-16 rounded-full mx-auto flex items-center justify-center bg-[#EDE9FE]">
@@ -423,10 +424,10 @@ function WaitingFeedback({ activityId }: { activityId: string }) {
         <>
           <Clock className="size-12 text-[#92400E] mx-auto" />
           <p className="font-semibold text-[#1F1A2E]">Sua entrega foi salva com sucesso.</p>
-          <p className="text-sm text-[#5B5470]">Sua entrega esta sendo avaliada. O retorno aparecera em instantes.</p>
+          <p className="text-sm text-[#5B5470]">Sua entrega está sendo avaliada. O retorno aparecerá em instantes.</p>
           <button onClick={() => router.push("/escola/aluno")}
-            className="px-6 py-3 rounded-xl text-sm font-semibold text-white bg-[#6D28D9] hover:bg-[#5B21B6] min-h-[44px]">
-            Voltar ao inicio
+            className="px-6 py-3 rounded-2xl text-sm font-bold text-white bg-[#6D28D9] hover:bg-[#5B21B6] min-h-[44px]">
+            Voltar ao início
           </button>
         </>
       )}
@@ -476,26 +477,17 @@ export default function FazerAtividadePage() {
   }, [id]);
 
   if (loading) return (
-    <div className="min-h-screen flex items-center justify-center bg-[#F8F7FC]">
+    <div className="min-h-screen flex items-center justify-center bg-[#F6F4FE]">
       <RefreshCw className="size-6 text-[#6D28D9] animate-spin" />
     </div>
   );
 
   return (
-    <div className="min-h-screen bg-[#F8F7FC]">
-      <header className="sticky top-0 z-10 border-b border-[#E9E5F5] bg-white">
-        <div className="max-w-2xl mx-auto px-4 py-3 flex items-center gap-3">
-          <button onClick={() => router.back()} className="p-1.5 rounded-lg hover:bg-[#F8F7FC] transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center">
-            <ArrowLeft className="size-5 text-[#5B5470]" />
-          </button>
-          <div className="flex-1 min-w-0">
-            <p className="text-xs text-[#5B5470]">{activity?.subject?.name}</p>
-            <h1 className="font-semibold text-[#1F1A2E] truncate">{activity?.title}</h1>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-[#F6F4FE]">
+      <Capa compacta titulo={activity?.title ?? "Atividade"} subtitulo={activity?.subject?.name}
+        voltar={{ onClick: () => router.back() }} cor={materiaDe(activity?.subject?.name)?.cor} />
 
-      <main className="max-w-2xl mx-auto px-4 py-6">
+      <main className="max-w-2xl mx-auto px-4 py-5">
         {submitted ? (
           <WaitingFeedback activityId={id} />
         ) : activity?.type === "WRITTEN" ? (

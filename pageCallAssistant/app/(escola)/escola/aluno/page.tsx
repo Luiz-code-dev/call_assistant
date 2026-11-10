@@ -3,10 +3,11 @@
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import {
-  Mic, PenLine, HelpCircle, Clock, CheckCircle2, ChevronRight, TrendingUp, LogOut, ClipboardList, FlaskConical,
+  Mic, PenLine, HelpCircle, Clock, CheckCircle2, ChevronRight, LogOut, FlaskConical,
   AlertCircle, RefreshCw, BookA, Calculator, Landmark, Globe, Palette, Dumbbell, Languages, HeartHandshake,
-  Flame, House, Route, Play,
+  Flame, Route, Play,
 } from "lucide-react";
+import { NavAluno } from "@/components/escola/reforco-ui";
 
 interface Subject { id: string; name: string; color: string | null }
 interface Submission { id: string; status: string; evaluatedAt: string | null; masteryLevel: string | null }
@@ -380,23 +381,7 @@ export default function AlunoHomePage() {
         )}
       </main>
 
-      {/* Navegação inferior */}
-      <nav className="fixed bottom-0 inset-x-0 z-20 bg-white/95 backdrop-blur border-t border-[#EDE9F7] pb-[env(safe-area-inset-bottom)]">
-        <div className="max-w-3xl mx-auto grid grid-cols-4">
-          {[
-            { href: "/escola/aluno", icon: House, label: "Início", ativo: true },
-            { href: "/escola/aluno/trilha", icon: Route, label: "Trilha", ativo: false },
-            { href: "/escola/aluno/atividades/historico", icon: ClipboardList, label: "Feitas", ativo: false },
-            { href: "/escola/aluno/evolucao", icon: TrendingUp, label: "Evolução", ativo: false },
-          ].map(({ href, icon: Icon, label, ativo }) => (
-            <Link key={href} href={href}
-              className={`flex flex-col items-center gap-1 py-2.5 min-h-[56px] text-[11px] font-semibold ${ativo ? "text-[#6D28D9]" : "text-[#8B84A0]"}`}>
-              <span className={`px-4 py-1 rounded-full ${ativo ? "bg-[#EDE9FE]" : ""}`}><Icon className="size-5" /></span>
-              {label}
-            </Link>
-          ))}
-        </div>
-      </nav>
+      <NavAluno ativo="inicio" />
     </div>
   );
 }

@@ -28,51 +28,53 @@ export default function FamilyShell({ activeStudentId, children }: { activeStude
   const filhos = data?.filhos ?? [];
 
   return (
-    <div className="min-h-screen bg-[#F8F7FC]">
-      {/* Topo fixo */}
-      <header className="sticky top-0 z-20 bg-white border-b border-[#E9E5F5]">
-        <div className="max-w-[1180px] mx-auto px-4 h-14 flex items-center justify-between gap-3">
-          <Link href="/escola/familia" className="flex items-center gap-2">
-            <span className="w-7 h-7 rounded-lg bg-[#6D28D9] inline-flex items-center justify-center text-white text-[13px] font-bold">S</span>
-            <span className="font-extrabold text-[15px] text-[#1F1A2E]">SpeakFlow<span className="text-[#BE185D]"> Escolas</span></span>
-          </Link>
-          <div className="flex items-center gap-3">
-            {data && <span className="text-[14px] text-[#5B5470] hidden sm:inline">Olá, <b className="text-[#1F1A2E] font-semibold">{data.guardianFirstName || "família"}</b></span>}
-            <button onClick={() => setMenu((v) => !v)} aria-label="Menu" className="p-2 rounded-lg text-[#5B5470] hover:bg-[#F5F3FF]">
+    <div className="min-h-screen bg-[#F6F4FE]">
+      {/* Capa */}
+      <header className="relative overflow-hidden rounded-b-[28px] text-white bg-gradient-to-br from-[#5B21B6] via-[#6D28D9] to-[#8B5CF6]">
+        <div className="absolute -top-14 -right-10 w-44 h-44 rounded-full bg-white/10" />
+        <div className="absolute top-20 -left-10 w-28 h-28 rounded-full bg-white/5" />
+        <div className="relative max-w-[920px] mx-auto px-5 pt-4 pb-16">
+          <div className="flex items-center justify-between gap-3 min-h-[44px]">
+            <Link href="/escola/familia" className="flex items-center gap-2">
+              <span className="w-8 h-8 rounded-xl bg-white text-[#6D28D9] inline-flex items-center justify-center text-[14px] font-extrabold">S</span>
+              <span className="font-extrabold text-[15px]">SpeakFlow Escolas</span>
+            </Link>
+            <button onClick={() => setMenu((v) => !v)} aria-label="Menu"
+              className="rounded-full bg-white/15 hover:bg-white/25 min-h-[44px] min-w-[44px] flex items-center justify-center">
               {menu ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
-        </div>
+          <h1 className="text-2xl font-extrabold mt-3">Olá, {data?.guardianFirstName || "família"}!</h1>
+          <p className="text-sm text-white/85 mt-1">Acompanhe o reforço do seu filho em todas as matérias.</p>
 
-        {menu && (
-          <div className="border-t border-[#E9E5F5] bg-white">
-            <div className="max-w-[1180px] mx-auto px-4 py-2 flex flex-col">
-              <Link href="/escola/familia/configuracoes" onClick={() => setMenu(false)} className="flex items-center gap-2 py-2.5 text-[14px] text-[#1F1A2E]"><Settings size={16} className="text-[#6D28D9]" /> Configurações</Link>
-              <Link href="/escola/familia/adicionar-filho" onClick={() => setMenu(false)} className="flex items-center gap-2 py-2.5 text-[14px] text-[#1F1A2E]"><UserPlus size={16} className="text-[#6D28D9]" /> Adicionar outro filho</Link>
-              <form method="POST" action="/api/escola/familia/sair"><button className="flex items-center gap-2 py-2.5 text-[14px] text-[#B91C1C] w-full"><LogOut size={16} /> Sair</button></form>
+          {filhos.length > 1 && (
+            <div className="mt-4 -mx-1 px-1 flex gap-2 overflow-x-auto">
+              {filhos.map((f) => {
+                const active = f.studentId === activeStudentId;
+                return (
+                  <Link key={f.studentId} href={`/escola/familia/${f.studentId}`}
+                    className={`inline-flex items-center gap-2 rounded-full pl-1 pr-3 py-1 shrink-0 transition-colors ${active ? "bg-white text-[#4C1D95]" : "bg-white/15 text-white hover:bg-white/25"}`}>
+                    <span className="w-7 h-7 rounded-full inline-flex items-center justify-center text-[11px] font-bold text-white" style={{ backgroundColor: f.color }}>{f.initials}</span>
+                    <span className="text-[13px] font-semibold whitespace-nowrap">{f.firstName}</span>
+                  </Link>
+                );
+              })}
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </header>
 
-      {/* Seletor de filhos */}
-      {filhos.length > 0 && (
-        <div className="sticky top-14 z-10 bg-[#F8F7FC]/95 backdrop-blur border-b border-[#E9E5F5]">
-          <div className="max-w-[1180px] mx-auto px-4 py-2.5 flex gap-2 overflow-x-auto">
-            {filhos.map((f) => {
-              const active = f.studentId === activeStudentId;
-              return (
-                <Link key={f.studentId} href={`/escola/familia/${f.studentId}`} className={`inline-flex items-center gap-2 rounded-full pl-1 pr-3 py-1 shrink-0 border transition-colors ${active ? "bg-[#6D28D9] border-[#6D28D9] text-white" : "bg-white border-[#E9E5F5] text-[#1F1A2E] hover:border-[#C4B5FD]"}`}>
-                  <span className="w-6 h-6 rounded-full inline-flex items-center justify-center text-[11px] font-bold text-white" style={{ backgroundColor: active ? "rgba(255,255,255,0.25)" : f.color }}>{f.initials}</span>
-                  <span className="text-[13px] font-medium whitespace-nowrap">{f.firstName}{f.className ? ` · ${f.className}` : ""}</span>
-                </Link>
-              );
-            })}
+      {menu && (
+        <div className="fixed inset-0 z-30 bg-black/30" onClick={() => setMenu(false)}>
+          <div className="absolute right-4 top-16 w-64 rounded-3xl bg-white p-2 shadow-xl" onClick={(e) => e.stopPropagation()}>
+            <Link href="/escola/familia/configuracoes" onClick={() => setMenu(false)} className="flex items-center gap-3 px-3 py-3 rounded-2xl text-[14px] font-semibold text-[#1F1A2E] hover:bg-[#F5F3FF]"><Settings size={18} className="text-[#6D28D9]" /> Configurações</Link>
+            <Link href="/escola/familia/adicionar-filho" onClick={() => setMenu(false)} className="flex items-center gap-3 px-3 py-3 rounded-2xl text-[14px] font-semibold text-[#1F1A2E] hover:bg-[#F5F3FF]"><UserPlus size={18} className="text-[#6D28D9]" /> Adicionar outro filho</Link>
+            <form method="POST" action="/api/escola/familia/sair"><button className="flex items-center gap-3 px-3 py-3 rounded-2xl text-[14px] font-semibold text-[#B91C1C] w-full hover:bg-[#FEF2F2]"><LogOut size={18} /> Sair</button></form>
           </div>
         </div>
       )}
 
-      <main className="max-w-[1180px] mx-auto px-4 py-5">{children}</main>
+      <main className="relative max-w-[920px] mx-auto px-4 -mt-10 pb-10">{children}</main>
     </div>
   );
 }

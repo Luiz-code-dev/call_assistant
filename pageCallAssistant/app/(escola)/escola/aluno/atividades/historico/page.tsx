@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, CheckCircle2, Clock, ChevronRight, Mic, PenLine, HelpCircle } from "lucide-react";
+import { CheckCircle2, Clock, ChevronRight, Mic, PenLine, HelpCircle } from "lucide-react";
+import { Capa, Conteudo, NavAluno, CARTAO, FUNDO, IconeMateria, SeloNivel } from "@/components/escola/reforco-ui";
 
 interface Atividade {
   id: string; title: string; type: "WRITTEN" | "SPOKEN" | "QUIZ";
@@ -34,29 +35,26 @@ export default function HistoricoPage() {
   }
 
   return (
-    <div className="min-h-screen" style={{ background: "var(--esc-bg,#f8f9fc)" }}>
-      <header className="sticky top-0 z-10 border-b" style={{ background: "var(--esc-surface,#fff)", borderColor: "var(--esc-border,#e5e7eb)" }}>
-        <div className="max-w-2xl mx-auto px-4 py-3 flex items-center gap-3">
-          <button onClick={() => router.back()} className="p-1.5 rounded-lg hover:bg-zinc-100 transition-colors">
-            <ArrowLeft className="size-5 text-zinc-600" />
-          </button>
-          <h1 className="font-semibold text-zinc-900">Atividades feitas</h1>
-        </div>
-      </header>
-
-      <main className="max-w-2xl mx-auto px-4 py-6">
+    <div className={FUNDO}>
+      <Capa titulo="Atividades feitas" subtitulo="Tudo o que você já entregou, com o retorno de cada uma."
+        voltar={{ href: "/escola/aluno", texto: "Início" }} />
+      <Conteudo>
         {loading ? (
-          <div className="space-y-3">{[1, 2, 3].map((i) => <div key={i} className="h-16 rounded-xl animate-pulse" style={{ background: "var(--esc-border,#e5e7eb)" }} />)}</div>
+          <div className="space-y-3">{[1, 2, 3].map((i) => <div key={i} className="h-16 rounded-3xl animate-pulse bg-[#E9E5F5]" />)}</div>
         ) : atividades.length === 0 ? (
-          <div className="text-center py-16">
-            <CheckCircle2 className="size-10 text-zinc-300 mx-auto mb-3" />
-            <p className="text-zinc-500">Nenhuma atividade concluída ainda.</p>
-          </div>
+          <section className={`${CARTAO} p-8 text-center`}>
+            <CheckCircle2 className="size-10 text-[#C4B5FD] mx-auto mb-3" />
+            <p className="font-extrabold text-[#1F1A2E]">Nenhuma atividade concluída ainda</p>
+            <p className="text-sm text-[#5B5470] mt-1">Quando você terminar uma etapa da trilha, ela aparece aqui.</p>
+          </section>
         ) : (
-          <div className="space-y-6">
+          <div className="space-y-5">
             {Object.entries(grouped).map(([subject, items]) => (
-              <section key={subject}>
-                <h2 className="text-xs font-semibold text-zinc-500 uppercase tracking-wide mb-2">{subject}</h2>
+              <section key={subject} className={`${CARTAO} p-4`}>
+                <div className="flex items-center gap-3 mb-3">
+                  <IconeMateria chave={subject} tamanho={40} />
+                  <h2 className="font-extrabold text-[#1F1A2E]">{subject}</h2>
+                </div>
                 <div className="space-y-2">
                   {items.map((a) => {
                     const Icon = TYPE_ICON[a.type];
@@ -64,27 +62,20 @@ export default function HistoricoPage() {
                     const isPending = a.submission?.status === "SUBMITTED";
                     return (
                       <Link key={a.id} href={`/escola/aluno/atividades/${a.id}/retorno`}
-                        className="flex items-center gap-3 rounded-xl border px-4 py-3 hover:shadow-sm transition-all"
-                        style={{ background: "var(--esc-surface,#fff)", borderColor: "var(--esc-border,#e5e7eb)" }}>
-                        <Icon className="size-4 text-zinc-400 shrink-0" />
+                        className="flex items-center gap-3 rounded-2xl bg-[#F8F7FC] px-3 py-3 active:scale-[0.99] transition-transform">
+                        <span className="w-9 h-9 rounded-xl bg-white flex items-center justify-center shrink-0"><Icon className="size-4 text-[#6D28D9]" /></span>
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-zinc-800 truncate">{a.title}</p>
+                          <p className="text-sm font-semibold text-[#1F1A2E] truncate">{a.title}</p>
                           {a.submission?.submittedAt && (
-                            <p className="text-xs text-zinc-400">{new Date(a.submission.submittedAt).toLocaleDateString("pt-BR")}</p>
+                            <p className="text-xs text-[#8B84A0]">{new Date(a.submission.submittedAt).toLocaleDateString("pt-BR")}</p>
                           )}
                         </div>
                         {isPending ? (
-                          <span className="text-xs text-[#92400E] flex items-center gap-1 shrink-0"><Clock className="size-3" />Analisando</span>
-                        ) : nivel === "MASTERED" ? (
-                          <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534] shrink-0">Domina</span>
-                        ) : nivel === "ALMOST" ? (
-                          <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-[#FEF3C7] text-[#92400E] shrink-0">Quase lá</span>
-                        ) : nivel === "NOT_YET" ? (
-                          <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-[#FEE2E2] text-[#B91C1C] shrink-0">Ainda não</span>
-                        ) : (
+                          <span className="text-xs text-[#92400E] font-semibold flex items-center gap-1 shrink-0"><Clock className="size-3" />Analisando</span>
+                        ) : nivel ? <SeloNivel nivel={nivel} /> : (
                           <span className="text-xs text-[#5B5470] shrink-0">Aguardando</span>
                         )}
-                        <ChevronRight className="size-4 text-zinc-300 shrink-0" />
+                        <ChevronRight className="size-4 text-[#A59FB8] shrink-0" />
                       </Link>
                     );
                   })}
@@ -93,7 +84,8 @@ export default function HistoricoPage() {
             ))}
           </div>
         )}
-      </main>
+      </Conteudo>
+      <NavAluno ativo="feitas" />
     </div>
   );
 }

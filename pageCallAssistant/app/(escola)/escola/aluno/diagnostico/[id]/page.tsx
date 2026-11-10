@@ -1,7 +1,8 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { Volume2, ChevronRight, CheckCircle2, XCircle, ArrowRight } from "lucide-react";
+import { Volume2, ChevronRight, XCircle, ArrowRight, Star, Sparkles, Lightbulb, Trophy } from "lucide-react";
+import { CARTAO, BOTAO, BOTAO_CLARO, FUNDO, Carregando, IconeMateria, materiaDe } from "@/components/escola/reforco-ui";
 
 interface Opcao { text: string }
 interface Atividade {
@@ -42,6 +43,7 @@ export default function DiagnosticoPage() {
   const router = useRouter();
 
   const [estado, setEstado] = useState<Estado | null>(null);
+  const [materia, setMateria] = useState<string | null>(null);
   const [resultado, setResultado] = useState<Resultado | null>(null);
   const [trilha, setTrilha] = useState<TrilhaAtribuida | null>(null);
   const [loading, setLoading] = useState(true);
@@ -62,6 +64,7 @@ export default function DiagnosticoPage() {
     const d = await r.json();
     if (!r.ok) { setErro(d.error ?? "Não foi possível iniciar o diagnóstico."); setLoading(false); return; }
     setEstado(d);
+    setMateria(d.materia ?? null);
     startedAtRef.current = Date.now();
     setLoading(false);
   }, [diagnosticId]);
@@ -114,112 +117,125 @@ export default function DiagnosticoPage() {
     setRespondendo(false);
   }
 
+  const m = materiaDe(materia);
+  const cor = m?.cor ?? "#6D28D9";
+
   // ── Tela de carregamento ───────────────────────────────────────────────────
-  if (loading) return (
-    <div className="min-h-screen bg-[#F8F7FC] flex items-center justify-center">
-      <div className="text-[#5B5470] text-sm">Preparando diagnóstico...</div>
-    </div>
-  );
+  if (loading) return <Carregando texto="Preparando o diagnóstico..." />;
 
   if (erro) return (
-    <div className="min-h-screen bg-[#F8F7FC] flex flex-col items-center justify-center gap-4 p-6 text-center">
+    <div className={`${FUNDO} flex flex-col items-center justify-center gap-4 p-6 text-center`}>
       <XCircle className="size-10 text-[#B91C1C]" />
-      <p className="text-[#1F1A2E] font-medium">{erro}</p>
-      <button onClick={() => router.push("/escola/aluno")} className="text-[#6D28D9] underline text-sm">Voltar ao início</button>
+      <p className="text-[#1F1A2E] font-semibold">{erro}</p>
+      <button onClick={() => router.push("/escola/aluno")} className={BOTAO}>Voltar ao início</button>
     </div>
   );
 
   // ── Resultado ─────────────────────────────────────────────────────────────
   if (resultado) return (
-    <div className="min-h-screen bg-[#F8F7FC]">
-      <header className="bg-white border-b border-[#E9E5F5] px-4 py-4">
-        <div className="max-w-lg mx-auto">
-          <div className="w-12 h-12 rounded-full bg-[#DCFCE7] flex items-center justify-center mb-3">
-            <CheckCircle2 className="size-6 text-[#166534]" />
+    <div className={FUNDO}>
+      <header className="relative overflow-hidden rounded-b-[32px] text-white text-center"
+        style={{ background: `linear-gradient(135deg, ${cor}, #6D28D9)` }}>
+        <div className="absolute -top-14 -right-10 w-44 h-44 rounded-full bg-white/10" />
+        <div className="absolute top-16 -left-12 w-32 h-32 rounded-full bg-white/5" />
+        <div className="relative max-w-lg mx-auto px-5 pt-10 pb-16">
+          <div className="mx-auto w-20 h-20 rounded-full bg-white/20 flex items-center justify-center">
+            <div className="w-14 h-14 rounded-full bg-[#FBBF24] flex items-center justify-center shadow-lg">
+              <Trophy className="size-7 text-white" />
+            </div>
           </div>
-          <h1 className="text-[#1F1A2E] text-xl font-bold">Você terminou o diagnóstico!</h1>
-          <p className="text-[#5B5470] text-sm mt-1">Agora você sabe por onde começar.</p>
+          <Star className="absolute top-8 left-10 size-5 text-[#FDE68A] fill-current" />
+          <Sparkles className="absolute top-14 right-12 size-5 text-white/80" />
+          <h1 className="text-2xl font-extrabold mt-4">Você terminou o diagnóstico!</h1>
+          <p className="text-sm text-white/85 mt-1">{m ? `${m.nome}: agora você sabe por onde começar.` : "Agora você sabe por onde começar."}</p>
         </div>
       </header>
 
-      <main className="max-w-lg mx-auto px-4 py-6 space-y-4">
-        {/* O que você já domina */}
+      <main className="relative max-w-lg mx-auto px-4 -mt-10 space-y-4 pb-10">
+        {/* O que você já sabe */}
         {(resultado.domina.length > 0 || resultado.quaseLa.length > 0) && (
-          <div className="bg-white border border-[#E9E5F5] rounded-2xl p-4">
-            <p className="text-xs font-semibold text-[#166534] uppercase tracking-wide mb-2">O que você já sabe</p>
+          <section className={`${CARTAO} p-5`}>
+            <p className="text-sm font-extrabold text-[#166534] mb-3 flex items-center gap-2"><Star className="size-4 fill-current" />O que você já sabe</p>
             <div className="flex flex-wrap gap-2">
               {resultado.domina.map((h) => (
-                <span key={h.code} className="bg-[#DCFCE7] text-[#166534] px-2.5 py-1 rounded-full text-xs font-medium">Domina: {h.tituloAluno}</span>
+                <span key={h.code} className="bg-[#DCFCE7] text-[#166534] px-3 py-1.5 rounded-full text-xs font-bold">{h.tituloAluno}</span>
               ))}
               {resultado.quaseLa.map((h) => (
-                <span key={h.code} className="bg-[#FEF3C7] text-[#92400E] px-2.5 py-1 rounded-full text-xs font-medium">Quase lá: {h.tituloAluno}</span>
+                <span key={h.code} className="bg-[#FEF3C7] text-[#92400E] px-3 py-1.5 rounded-full text-xs font-bold">Quase lá: {h.tituloAluno}</span>
               ))}
             </div>
-          </div>
+          </section>
         )}
 
         {/* Onde vamos começar */}
         {resultado.aindaNao.length > 0 && (
-          <div className="bg-white border border-[#E9E5F5] rounded-2xl p-4">
-            <p className="text-xs font-semibold text-[#5B5470] uppercase tracking-wide mb-2">Onde vamos começar</p>
+          <section className={`${CARTAO} p-5`}>
+            <p className="text-sm font-extrabold text-[#1F1A2E] mb-2">Onde vamos começar</p>
             {resultado.degrau.length > 1 && (
-              <div className="flex items-center gap-2 flex-wrap mb-2">
+              <div className="flex items-center gap-1.5 flex-wrap mb-3">
                 {resultado.degrau.map((h, i) => (
-                  <span key={h.code} className="flex items-center gap-1 text-xs text-[#5B5470]">
-                    {i > 0 && <ChevronRight className="size-3" />}
-                    <span className="bg-[#EDE9FE] text-[#6D28D9] px-2 py-0.5 rounded-full font-medium">{h.ano ? `${h.ano}º ano` : h.tituloAluno}</span>
+                  <span key={h.code} className="flex items-center gap-1.5 text-xs">
+                    {i > 0 && <ChevronRight className="size-3 text-[#A59FB8]" />}
+                    <span className="px-2.5 py-1 rounded-full font-bold" style={{ background: cor + "18", color: cor }}>{h.ano ? `${h.ano}º ano` : h.tituloAluno}</span>
                   </span>
                 ))}
               </div>
             )}
-            <p className="text-sm text-[#1F1A2E]">
+            <p className="text-sm text-[#1F1A2E] leading-relaxed">
               {resultado.habilidadePartida
-                ? `Vamos começar por: ${resultado.habilidadePartida.tituloAluno}. Firmando essa base, você sobe degrau a degrau.`
-                : `Vamos praticar: ${resultado.aindaNao.map((h) => h.tituloAluno).join(", ")}.`}
+                ? <>Vamos começar por <strong>{resultado.habilidadePartida.tituloAluno}</strong>. Firmando essa base, você sobe degrau a degrau.</>
+                : <>Vamos praticar: <strong>{resultado.aindaNao.map((h) => h.tituloAluno).join(", ")}</strong>.</>}
             </p>
-          </div>
+          </section>
         )}
 
         {/* Erro mais comum */}
         {resultado.erroComum && (
-          <div className="bg-[#FEF3C7] border border-[#FDE68A] rounded-2xl p-4 flex gap-3 items-start">
-            <div>
-              <p className="text-xs font-semibold text-[#92400E] uppercase tracking-wide mb-1">Um erro que vamos resolver juntos</p>
-              <p className="text-sm text-[#1F1A2E]">{resultado.erroComum.texto}</p>
+          <section className="rounded-3xl bg-[#FFF7E0] p-5 flex gap-3 items-start">
+            <div className="w-10 h-10 rounded-2xl bg-[#FBBF24] text-white flex items-center justify-center shrink-0"><Lightbulb className="size-5" /></div>
+            <div className="flex-1">
+              <p className="text-sm font-extrabold text-[#92400E] mb-1">Um erro que vamos resolver juntos</p>
+              <p className="text-sm text-[#1F1A2E] leading-relaxed">{resultado.erroComum.texto}</p>
             </div>
-            <button onClick={() => ouvir(resultado.erroComum?.texto ?? "")} className="shrink-0 p-2 rounded-lg bg-white/60 text-[#92400E] min-h-[44px] min-w-[44px] flex items-center justify-center">
+            <button onClick={() => ouvir(resultado.erroComum?.texto ?? "")} aria-label="Ouvir"
+              className="shrink-0 rounded-full bg-white text-[#92400E] min-h-[44px] min-w-[44px] flex items-center justify-center">
               <Volume2 className="size-4" />
             </button>
-          </div>
+          </section>
         )}
 
         {/* Trilha atribuída */}
         {trilha ? (
-          <div className="space-y-3">
-            <div className="bg-[#EDE9FE] border border-[#6D28D9]/20 rounded-2xl p-4">
-              <p className="text-xs font-semibold text-[#6D28D9] uppercase tracking-wide mb-1">Sua trilha está pronta</p>
-              <p className="font-semibold text-[#1F1A2E]">{trilha.title}</p>
-              <p className="text-xs text-[#5B5470] mt-1">5 etapas: relembrar, exemplo, praticar, aplicar e explicar</p>
+          <section className={`${CARTAO} p-5 space-y-4`}>
+            <div className="flex items-center gap-3">
+              <IconeMateria chave={materia} />
+              <div className="min-w-0">
+                <p className="text-[11px] font-bold uppercase tracking-wide" style={{ color: cor }}>Sua trilha está pronta</p>
+                <p className="font-extrabold text-[#1F1A2E] leading-snug">{trilha.title}</p>
+              </div>
+            </div>
+            <div className="flex justify-between gap-1">
+              {["Relembrar", "Exemplo", "Praticar", "Aplicar", "Explicar"].map((e, i) => (
+                <div key={e} className="flex-1 flex flex-col items-center gap-1">
+                  <span className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-extrabold"
+                    style={i === 0 ? { background: cor, color: "#fff" } : { background: "#F3F0FB", color: "#8B84A0" }}>{i + 1}</span>
+                  <span className="text-[10px] font-semibold text-[#5B5470]">{e}</span>
+                </div>
+              ))}
             </div>
             <button
-              onClick={() => trilha.primeiraAtividadeId
-                ? router.push(`/escola/aluno/atividades/${trilha.primeiraAtividadeId}`)
-                : router.push("/escola/aluno/trilha")}
-              className="w-full py-4 rounded-2xl bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-bold text-base min-h-[52px] flex items-center justify-center gap-2 transition-colors"
-            >
+              onClick={() => router.push("/escola/aluno/trilha")}
+              className={`${BOTAO} w-full text-base`} style={{ background: cor }}>
               Começar minha trilha <ArrowRight className="size-5" />
             </button>
-          </div>
+          </section>
         ) : (
-          <div className="bg-white border border-[#E9E5F5] rounded-2xl p-4 text-center">
-            <p className="text-sm text-[#5B5470]">Trilha sendo preparada. Volte em instantes.</p>
-          </div>
+          <section className={`${CARTAO} p-5 text-center`}>
+            <p className="text-sm text-[#5B5470]">Sua trilha está sendo preparada. Volte em instantes.</p>
+          </section>
         )}
 
-        <button
-          onClick={() => router.push("/escola/aluno")}
-          className="w-full py-3 rounded-2xl border border-[#E9E5F5] bg-white text-[#5B5470] font-medium text-sm min-h-[44px] transition-colors hover:border-[#6D28D9]"
-        >
+        <button onClick={() => router.push("/escola/aluno")} className={`${BOTAO_CLARO} w-full`}>
           Escolher outra matéria
         </button>
       </main>
@@ -228,69 +244,76 @@ export default function DiagnosticoPage() {
 
   if (!estado) return null;
 
-  const { questaoAtual, totalQuestoes, atividade, degrauAplicado, degrauSkillCode } = estado;
+  const { questaoAtual, totalQuestoes, atividade, degrauAplicado } = estado;
   const questao = atividade?.questions?.[0];
   const pct = Math.round(((questaoAtual - 1) / totalQuestoes) * 100);
 
   return (
-    <div className="min-h-screen bg-[#F8F7FC] flex flex-col">
+    <div className={`${FUNDO} flex flex-col`}>
       {/* Cabeçalho */}
-      <header className="bg-white border-b border-[#E9E5F5] px-4 py-3">
-        <div className="max-w-lg mx-auto">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-semibold text-[#5B5470] uppercase tracking-wide">
-              {atividade.isDegrau ? "BASE DO CONTEÚDO" : "DIAGNÓSTICO"}
-            </span>
-            <span className="text-xs text-[#5B5470]">{questaoAtual} de {totalQuestoes}</span>
+      <header className="relative overflow-hidden rounded-b-[28px] text-white" style={{ background: `linear-gradient(135deg, ${cor}, ${cor}CC)` }}>
+        <div className="absolute -top-12 -right-8 w-36 h-36 rounded-full bg-white/10" />
+        <div className="relative max-w-lg mx-auto px-5 pt-4 pb-5">
+          <div className="flex items-center justify-between min-h-[44px]">
+            <button onClick={() => router.push("/escola/aluno")} className="inline-flex items-center gap-1 rounded-full bg-white/15 pl-2 pr-3 min-h-[40px] text-sm font-semibold">
+              <ChevronRight className="size-4 rotate-180" />Sair
+            </button>
+            <span className="text-sm font-bold bg-white/15 rounded-full px-3 py-1">{questaoAtual} de {totalQuestoes}</span>
           </div>
-          <div className="h-2 bg-[#E9E5F5] rounded-full overflow-hidden">
-            <div className="h-full bg-[#6D28D9] rounded-full transition-all duration-500" style={{ width: `${pct}%` }} />
+          <p className="text-xs font-bold uppercase tracking-wide text-white/80 mt-2">
+            {atividade.isDegrau ? "Base do conteúdo" : "Diagnóstico"}{m ? ` · ${m.nome}` : ""}
+          </p>
+          <div className="mt-2 h-3 bg-white/25 rounded-full overflow-hidden">
+            <div className="h-full bg-white rounded-full transition-all duration-500" style={{ width: `${Math.max(pct, 4)}%` }} />
           </div>
-          {degrauAplicado && degrauSkillCode && (
-            <div className="mt-2 bg-[#FEF3C7] border border-[#FDE68A] rounded-xl px-3 py-2 text-xs text-[#92400E] font-medium">
-              Vamos dar um passo atrás para firmar a base — verificando {degrauSkillCode}.
-            </div>
-          )}
         </div>
       </header>
 
-      <main className="flex-1 max-w-lg mx-auto w-full px-4 py-6 flex flex-col gap-5">
+      <main className="flex-1 max-w-lg mx-auto w-full px-4 py-5 flex flex-col gap-4">
+        {degrauAplicado && (
+          <div className="rounded-2xl bg-[#FFF7E0] px-4 py-3 text-sm text-[#92400E] font-semibold">
+            Vamos dar um passo atrás para firmar a base.
+          </div>
+        )}
         {avisoRapido && (
-          <div className="bg-[#FEF3C7] border border-[#FDE68A] rounded-xl px-4 py-3 text-sm text-[#92400E] font-medium text-center">
+          <div className="rounded-2xl bg-[#FFF7E0] px-4 py-3 text-sm text-[#92400E] font-semibold text-center">
             Vamos com calma! Leia a questão com atenção antes de responder.
           </div>
         )}
 
         {/* Enunciado */}
-        <div className="bg-white border border-[#E9E5F5] rounded-2xl p-5 space-y-3">
+        <section className={`${CARTAO} p-5 space-y-3`}>
           <div className="flex items-start justify-between gap-3">
-            <p className="text-[#1F1A2E] font-medium leading-relaxed flex-1">
+            <p className="text-[#1F1A2E] text-[17px] font-semibold leading-relaxed flex-1">
               {atividade.prompt || questao?.question}
             </p>
-            <button onClick={() => ouvir(atividade.prompt || questao?.question || "")}
-              className="shrink-0 p-2 rounded-lg bg-[#EDE9FE] text-[#6D28D9] min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-[#DDD6EE] transition-colors">
-              <Volume2 className="size-4" />
+            <button onClick={() => ouvir(atividade.prompt || questao?.question || "")} aria-label="Ouvir"
+              className="shrink-0 rounded-full min-h-[44px] min-w-[44px] flex items-center justify-center" style={{ background: cor + "18", color: cor }}>
+              <Volume2 className="size-5" />
             </button>
           </div>
           {atividade.prompt && questao?.question && questao.question !== atividade.prompt && (
-            <p className="text-[#1F1A2E] text-sm leading-relaxed border-t border-[#E9E5F5] pt-3">{questao.question}</p>
+            <p className="text-[#1F1A2E] leading-relaxed border-t border-[#F3F0FB] pt-3">{questao.question}</p>
           )}
-        </div>
+        </section>
 
         {/* Alternativas */}
-        {questao?.options?.map((op, i) => (
-          <button
-            key={i}
-            disabled={respondendo}
-            onClick={() => responder(i)}
-            className={`w-full text-left rounded-2xl border-2 p-4 font-medium text-[#1F1A2E] min-h-[52px] transition-all
-              ${respondendo ? "opacity-60 cursor-not-allowed" : "hover:border-[#6D28D9] hover:bg-[#EDE9FE]/30 active:scale-[0.98]"}
-              border-[#E9E5F5] bg-white`}
-          >
-            <span className="text-[#6D28D9] font-bold mr-3">{String.fromCharCode(65 + i)}.</span>
-            {op.text}
-          </button>
-        ))}
+        <div className="space-y-3">
+          {questao?.options?.map((op, i) => (
+            <button
+              key={i}
+              disabled={respondendo}
+              onClick={() => responder(i)}
+              className={`w-full flex items-center gap-3 text-left rounded-2xl bg-white p-3 pr-4 font-semibold text-[#1F1A2E] min-h-[60px] shadow-[0_2px_10px_rgba(91,33,182,0.07)] border-2 border-transparent transition-all
+                ${respondendo ? "opacity-60 cursor-not-allowed" : "active:scale-[0.98] hover:border-[#C4B5FD]"}`}
+            >
+              <span className="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-extrabold shrink-0" style={{ background: cor + "18", color: cor }}>
+                {String.fromCharCode(65 + i)}
+              </span>
+              <span className="leading-snug">{op.text}</span>
+            </button>
+          ))}
+        </div>
       </main>
     </div>
   );
