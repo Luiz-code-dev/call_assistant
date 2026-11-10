@@ -6,9 +6,9 @@ import { AlertTriangle, RefreshCw, Lightbulb, ChevronRight, School, QrCode, Smar
 import { IconeMateria, materiaDe } from "@/components/escola/reforco-ui";
 import { RecadoParaFilho, AgendaDoFilho } from "@/components/escola/familia/RecadosAgenda";
 import FamilyShell from "@/components/escola/familia/FamilyShell";
+import { SemanaDoFilho, AvisosDaFamilia } from "@/components/escola/familia/Acompanhamento";
 import { QRCodeSVG } from "qrcode.react";
 
-const DIAS = ["S", "T", "Q", "Q", "S", "S", "D"];
 const LEVELS = [
   { key: "MASTERED", label: "Domina", fg: "#166534", bg: "#DCFCE7" },
   { key: "ALMOST", label: "Quase lá", fg: "#92400E", bg: "#FEF3C7" },
@@ -317,21 +317,10 @@ export default function PainelFilho() {
                 <p className="text-[#5B5470] text-[13px]">{[data.aluno.className, data.aluno.schoolName].filter(Boolean).join(" · ")}</p>
               </div>
             </div>
-            <div className="mt-4 rounded-2xl bg-[#F8F7FC] p-3">
-              <div className="flex items-center justify-between mb-2">
-                <p className="text-[13px] font-extrabold text-[#1F1A2E]">Esta semana</p>
-                {data.semana.atividades > 0 && <p className="text-[12px] text-[#5B5470]">{data.semana.atividades} atividades · cerca de {data.semana.minutos} min</p>}
-              </div>
-              <div className="flex justify-between mb-2">
-                {DIAS.map((d, i) => (
-                  <span key={i} className={`w-8 h-8 rounded-full flex items-center justify-center text-[11px] font-bold ${data.semana.dias[i] ? "bg-gradient-to-br from-[#F97316] to-[#FB923C] text-white" : i === data.semana.hojeIndex ? "bg-white text-[#6D28D9] ring-2 ring-[#6D28D9]" : "bg-white text-[#8B84A0]"}`}>
-                    {data.semana.dias[i] ? <Check className="size-4" strokeWidth={3} /> : d}
-                  </span>
-                ))}
-              </div>
-              <p className="text-[13px] text-[#1F1A2E] leading-snug">{data.semana.frase}</p>
-            </div>
           </section>
+
+          {/* Semana do filho: dia a dia e por matéria */}
+          <SemanaDoFilho studentId={studentId} />
 
           {/* Alertas */}
           {data.alertas.map((a, i) => (
@@ -349,8 +338,11 @@ export default function PainelFilho() {
             </section>
           )}
 
+          {/* Avisos para o responsável: celular, WhatsApp e e-mail */}
+          <AvisosDaFamilia />
+
           {/* Recado e agenda: o aluno vê na tela inicial */}
-          <RecadoParaFilho studentId={studentId} nome={data.aluno.firstName} />
+          <div id="recado" className="scroll-mt-4"><RecadoParaFilho studentId={studentId} nome={data.aluno.firstName} /></div>
           <AgendaDoFilho studentId={studentId} nome={data.aluno.firstName} />
 
           {/* Matérias */}

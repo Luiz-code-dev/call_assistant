@@ -45,6 +45,10 @@ import { GET as getAgendaFamilia, POST as postAgendaFamilia, DELETE as deleteAge
 import { GET as getRecadosAluno, POST as postRecadoLido } from "@/app/api/escola/aluno/recados/route";
 import { GET as getAgendaAluno } from "@/app/api/escola/aluno/agenda/route";
 import { POST as postAvisos } from "@/app/api/escola/aluno/avisos/route";
+import { GET as getSemanaFamilia } from "@/app/api/escola/familia/filhos/[studentId]/semana/route";
+import { GET as getContato, POST as postContato } from "@/app/api/escola/familia/contato/route";
+import { POST as postAvisosFamilia } from "@/app/api/escola/familia/avisos/route";
+import { avisarFamilia, avisoConquista } from "@/lib/escola/avisos-familia";
 
 const URL_A = process.env.ESCOLAS_DB_01_URL ?? "";
 const URL_B = process.env.ESCOLAS_DB_02_URL ?? "";
@@ -460,6 +464,67 @@ describe("Entrar pelo aparelho de casa com PIN", () => {
     const certo = await entrar(colegaB.studentId, colegaB.networkId, "2468", "Colega");
     expect(certo.status, certo.texto).toBe(200);
     expect(certo.body.ok).toBe(true);
+  });
+});
+
+describe("Família acompanha de perto: semana, contato e avisos", () => {
+  it("semana do filho: 7 dias e matérias, sem nota nem gabarito", async () => {
+    const guardianId = await responsavelDoAlunoB();
+    estado.familia = { guardianId, networkId: alunoB.networkId, db: dbB };
+    const r = await json(await getSemanaFamilia(new Request("http://localhost"), { params: { studentId: alunoB.studentId } }));
+    expect(r.status, r.texto).toBe(200);
+    expect(r.body.dias).toHaveLength(7);
+    expect(r.body.dias[6].rotulo).toBe("Hoje");
+    expect(typeof r.body.frase).toBe("string");
+    expect(r.texto).not.toMatch(/aiScore|score|correctIndex|misconceptionCode/);
+  });
+
+  it("outro aluno: a família não vê a semana", async () => {
+    const guardianId = await responsavelDoAlunoB();
+    estado.familia = { guardianId, networkId: alunoB.networkId, db: dbB };
+    const r = await json(await getSemanaFamilia(new Request("http://localhost"), { params: { studentId: colegaB.studentId } }));
+    expect(r.status).toBe(404);
+  });
+
+  it("responsável grava o WhatsApp com autorização; número inválido é recusado", async () => {
+    const guardianId = await responsavelDoAlunoB();
+    const antes = await dbB.eduGuardian.findUniqueOrThrow({ where: { id: guardianId } });
+    estado.familia = { guardianId, networkId: alunoB.networkId, db: dbB };
+    const post = (b: unknown) => postContato(new Request("http://localhost", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(b) }));
+    expect((await post({ whatsapp: "123" })).status).toBe(400);
+    const ok = await json(await post({ whatsapp: "(71) 99876-0001", aceitaWhatsapp: true, avisosEmail: true }));
+    expect(ok.status, ok.texto).toBe(200);
+    expect(ok.body).toMatchObject({ whatsapp: "(71) 99876-0001", aceitaWhatsapp: true, avisosEmail: true });
+    const g = await json(await getContato());
+    expect(g.body.aceitaWhatsapp).toBe(true);
+    // volta como estava (o demo mostra o pedido do WhatsApp)
+    await dbB.eduGuardian.update({ where: { id: guardianId }, data: { phone: antes.phone, whatsappOptInAt: antes.whatsappOptInAt, emailAlertsOff: antes.emailAlertsOff } });
+  });
+
+  it("aparelho do responsável se inscreve nos avisos", async () => {
+    const guardianId = await responsavelDoAlunoB();
+    estado.familia = { guardianId, networkId: alunoB.networkId, db: dbB };
+    const endpoint = `https://push.example.com/familia-${Date.now()}`;
+    const r = await postAvisosFamilia(new Request("http://localhost", {
+      method: "POST", headers: { "content-type": "application/json" },
+      body: JSON.stringify({ endpoint, keys: { p256dh: "chave", auth: "segredo" } }),
+    }));
+    expect(r.status).toBe(201);
+    expect(await dbB.eduGuardianPushSubscription.count({ where: { endpoint, guardianId } })).toBe(1);
+    await dbB.eduGuardianPushSubscription.deleteMany({ where: { endpoint } });
+  });
+
+  it("no máximo um aviso de cada tipo por dia para cada responsável", async () => {
+    const guardianId = await responsavelDoAlunoB();
+    const dia = new Date("2031-01-15T15:00:00Z");
+    await dbB.eduGuardianAlert.deleteMany({ where: { studentId: alunoB.studentId, day: "2031-01-15" } });
+    const aviso = avisoConquista("Aluno", "MA", "Frações", alunoB.studentId);
+    const primeiro = await avisarFamilia(dbB, alunoB.networkId, alunoB.studentId, "CONQUISTA", aviso, dia);
+    const segundo = await avisarFamilia(dbB, alunoB.networkId, alunoB.studentId, "CONQUISTA", aviso, dia);
+    expect(primeiro).toBeGreaterThanOrEqual(1);
+    expect(segundo).toBe(0);
+    expect(await dbB.eduGuardianAlert.count({ where: { guardianId, studentId: alunoB.studentId, kind: "CONQUISTA", day: "2031-01-15" } })).toBe(1);
+    await dbB.eduGuardianAlert.deleteMany({ where: { studentId: alunoB.studentId, day: "2031-01-15" } });
   });
 });
 

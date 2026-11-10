@@ -5,5 +5,8 @@ export async function register() {
     // SpeakFlow Escolas: lembrete da agenda de estudos (não mexe nas rotinas acima)
     const { iniciarAvisosDaAgenda } = await import("./lib/escola/agenda-avisos");
     iniciarAvisosDaAgenda();
+    // SpeakFlow Escolas: avisos do reforço para a família (24 horas sem estudar)
+    const { iniciarAvisosDaFamilia } = await import("./lib/escola/avisos-familia");
+    iniciarAvisosDaFamilia();
   }
 }
