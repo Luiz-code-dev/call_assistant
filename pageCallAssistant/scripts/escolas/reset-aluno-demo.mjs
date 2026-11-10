@@ -6,6 +6,7 @@
  *   - sessões de diagnóstico (com as respostas)
  *   - eventos de domínio (EduSkillMasteryEvent) e domínio (EduSkillMastery)
  *   - atribuições e progresso de trilha (EduTrackAssignment / EduTrackProgress)
+ *   - entregas das atividades da biblioteca (EduSubmission), não as da escola
  *
  * Uso:
  *   npm run escolas:reset-aluno-demo -- --student aluno-demo-rede-b [--rede demo-rede-b] [--materia MA]
@@ -74,7 +75,10 @@ for (const envVar of envVars) {
       });
       const evt = await tx.eduSkillMasteryEvent.deleteMany({ where: { studentId, networkId, ...(skillIds ? { skillId: { in: skillIds } } : {}) } });
       const dom = await tx.eduSkillMastery.deleteMany({ where: { studentId, networkId, ...(skillIds ? { skillId: { in: skillIds } } : {}) } });
-      return { aluno: aluno.fullName, rede: rede.name, prog: prog.count, atr: atr.count, ses: ses.count, evt: evt.count, dom: dom.count };
+      // Entregas das atividades da biblioteca (trilha), para refazer do zero; atividades da escola ficam
+      const libActs = (await tx.eduActivity.findMany({ where: { networkId: null, ...(materia ? { subjectCode: materia } : {}) }, select: { id: true } })).map((a) => a.id);
+      const ent = await tx.eduSubmission.deleteMany({ where: { studentId, networkId, activityId: { in: libActs } } });
+      return { aluno: aluno.fullName, rede: rede.name, prog: prog.count, atr: atr.count, ses: ses.count, evt: evt.count, dom: dom.count, ent: ent.count };
     });
     if (resultado) {
       encontrado = true;
@@ -82,6 +86,7 @@ for (const envVar of envVars) {
       console.log(`  sessões de diagnóstico: ${resultado.ses}`);
       console.log(`  trilhas atribuídas: ${resultado.atr} (progresso: ${resultado.prog})`);
       console.log(`  eventos de domínio: ${resultado.evt}, domínios: ${resultado.dom}`);
+      console.log(`  entregas da trilha: ${resultado.ent}`);
       console.log("Reset concluído.");
     }
   } catch (err) {

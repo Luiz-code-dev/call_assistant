@@ -386,6 +386,7 @@ function WaitingFeedback({ activityId }: { activityId: string }) {
       const res = await fetch(`/api/escola/aluno/atividades/${activityId}/retorno`);
       if (res.ok) {
         const d = await res.json();
+        if (d.aiStatus === "FAILED") { clearInterval(poll); setStatus("manual"); return; }
         if (d.status === "EVALUATED" || d.status === "REVIEWED") {
           clearInterval(poll);
           setStatus("ready");
@@ -425,9 +426,9 @@ function WaitingFeedback({ activityId }: { activityId: string }) {
           <Clock className="size-12 text-[#92400E] mx-auto" />
           <p className="font-semibold text-[#1F1A2E]">Sua entrega foi salva com sucesso.</p>
           <p className="text-sm text-[#5B5470]">Sua entrega está sendo avaliada. O retorno aparecerá em instantes.</p>
-          <button onClick={() => router.push("/escola/aluno")}
+          <button onClick={() => router.push("/escola/aluno/trilha")}
             className="px-6 py-3 rounded-2xl text-sm font-bold text-white bg-[#6D28D9] hover:bg-[#5B21B6] min-h-[44px]">
-            Voltar ao início
+            Continuar minha trilha
           </button>
         </>
       )}

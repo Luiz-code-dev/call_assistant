@@ -16,18 +16,27 @@ export type MasterySource = "TRACK" | "DIAGNOSTIC" | "CLASS_ACTIVITY" | "TEACHER
 const LEVEL_ORDER: Record<MasteryLevel, number> = { NOT_YET: 1, ALMOST: 2, MASTERED: 3 };
 
 /**
- * Retorna o nível consolidado baseado nas 3 últimas observações de uma habilidade.
- * Regra: maioria simples dos 3 últimos eventos.
+ * Nível consolidado das observações de uma habilidade (da mais antiga para a mais recente).
+ *
+ * A observação mais recente decide a direção; as 3 últimas decidem até onde ir.
+ * Antes era só a maioria das 3 últimas: o diagnóstico grava uma observação por questão,
+ * então depois de 2 erros no diagnóstico um quiz da trilha todo certo continuava
+ * "Ainda não" e a evolução parecia parada.
+ *   - última Domina: Domina se 2 das 3 últimas forem Domina ou se o histórico já era
+ *     Quase lá; senão Quase lá (avança um degrau por vez)
+ *   - última Quase lá: Quase lá
+ *   - última Ainda não: Ainda não se a maioria das 3 últimas for Ainda não; senão Quase lá
  */
-function consolidate(events: MasteryLevel[]): MasteryLevel {
+export function consolidate(events: MasteryLevel[]): MasteryLevel {
+  if (!events.length) return "NOT_YET";
   const last3 = events.slice(-3);
-  const counts: Record<MasteryLevel, number> = { NOT_YET: 0, ALMOST: 0, MASTERED: 0 };
-  for (const l of last3) if (l in counts) counts[l]++;
-  // Nível mais alto com maioria, ou simplesmente o mais alto entre os últimos 3
-  const sorted = (Object.keys(counts) as MasteryLevel[]).sort(
-    (a, b) => counts[b] - counts[a] || LEVEL_ORDER[b] - LEVEL_ORDER[a]
-  );
-  return sorted[0];
+  const ultima = last3[last3.length - 1];
+  const conta = (l: MasteryLevel) => last3.filter((x) => x === l).length;
+  const anteriores = last3.slice(0, -1);
+  const historicoBom = anteriores.length > 0 && anteriores.every((x) => LEVEL_ORDER[x] >= LEVEL_ORDER.ALMOST);
+  if (ultima === "MASTERED") return conta("MASTERED") >= 2 || historicoBom || anteriores.length === 0 ? "MASTERED" : "ALMOST";
+  if (ultima === "ALMOST") return "ALMOST";
+  return conta("NOT_YET") >= 2 || anteriores.length === 0 ? "NOT_YET" : "ALMOST";
 }
 
 export async function recordMasteryEvent(opts: {
