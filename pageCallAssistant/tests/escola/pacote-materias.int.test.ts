@@ -33,6 +33,7 @@ import { GET as getMaterias } from "@/app/api/escola/aluno/materias/route";
 import { GET as getFamiliaMaterias } from "@/app/api/escola/familia/filhos/[studentId]/materias/route";
 import { POST as postSessao } from "@/app/api/escola/aluno/diagnostico/sessao/route";
 import { GET as getAtividades } from "@/app/api/escola/aluno/atividades/route";
+import { POST as postEnviar } from "@/app/api/escola/aluno/atividades/[id]/enviar/route";
 
 const URL_A = process.env.ESCOLAS_DB_01_URL ?? "";
 const URL_B = process.env.ESCOLAS_DB_02_URL ?? "";
@@ -319,6 +320,39 @@ describe("Outra matéria depois de Matemática", () => {
     const alertas = await dbB.eduTeacherAlert.count({ where: { studentId: alunoB.studentId, createdAt: { gte: inicioDoTeste } } });
     expect(alertas).toBe(0);
   });
+});
+
+describe("Toda matéria, nas duas turmas: diagnóstico, trilha e a primeira atividade abre e é corrigida", () => {
+  // 6º B não tem componentes cadastrados pela escola; 5º A tem. O reforço tem que funcionar nos dois casos.
+  for (const nome of ["6º B", "5º A"] as const) {
+    it(`${nome}: todas as matérias do ano`, async () => {
+      const c = nome === "6º B" ? alunoB : alunoA;
+      await limparReforco(c);
+      await c.db.eduSubmission.deleteMany({ where: { studentId: c.studentId } });
+      const r = await materias(c);
+      expect(r.status, r.texto).toBe(200);
+      for (const m of r.body.materias as Array<{ codigo: string; diagnosticoId: string }>) {
+        const { final } = await responderTudo(c, m.diagnosticoId, (_p, g) => errada(g));
+        const trilha = final.trilha as { primeiraAtividadeId: string } | null;
+        expect(trilha, `${nome} ${m.codigo}: trilha atribuída`).not.toBeNull();
+
+        estado.ctx = c;
+        const lista = await json(await getAtividades(new NextRequest("http://localhost/api/escola/aluno/atividades?filter=todo")));
+        expect(lista.status, `${nome} ${m.codigo}: ${lista.texto}`).toBe(200);
+        expect(lista.body.atividades.map((x: { id: string }) => x.id), `${nome} ${m.codigo}: primeira atividade na lista`).toContain(trilha!.primeiraAtividadeId);
+
+        const qs = await c.db.eduQuizQuestion.findMany({ where: { activityId: trilha!.primeiraAtividadeId }, orderBy: { order: "asc" } });
+        const req = new NextRequest(`http://localhost/api/escola/aluno/atividades/${trilha!.primeiraAtividadeId}/enviar`, {
+          method: "POST", headers: { "content-type": "application/json" },
+          body: JSON.stringify({ quizAnswers: qs.map((q) => ({ questionId: q.id, selectedIndex: q.correctIndex })) }),
+        });
+        const env = await json(await postEnviar(req, { params: { id: trilha!.primeiraAtividadeId } }));
+        expect(env.status, `${nome} ${m.codigo}: entrega ${env.texto}`).toBe(200);
+        const sub = await c.db.eduSubmission.findFirst({ where: { studentId: c.studentId, activityId: trilha!.primeiraAtividadeId }, orderBy: { attempt: "desc" } });
+        expect(sub?.status, `${nome} ${m.codigo}: corrigida`).toBe("EVALUATED");
+      }
+    });
+  }
 });
 
 describe("Cobertura do conteúdo importado (bases db01 e db02)", () => {
