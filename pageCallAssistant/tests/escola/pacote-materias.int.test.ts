@@ -607,10 +607,12 @@ describe("Ficha de acesso: o responsável lê o QR e só se liga ao próprio fil
   it("o QR mostra só as iniciais, a turma e a escola", async () => {
     const r = await json(await postConferirCodigo(req("http://localhost/api/escola/familia/codigo", { codigo: "famb-6anb" })));
     expect(r.status, r.texto).toBe(200);
-    expect(r.body.aluno).toBe(nomeParcial("Aluno Demo B Santos"));
+    const aluno = await dbB.eduStudent.findUniqueOrThrow({ where: { id: alunoB.studentId } });
+    expect(r.body.aluno).toBe(nomeParcial(aluno.fullName));
     expect(r.body.turma).toBe("6º Ano B");
     expect(r.body.temDataNascimento).toBe(true);
-    expect(r.texto).not.toMatch(/Demo B Santos|studentId|birthDate|2015/);
+    expect(r.texto).not.toContain(aluno.fullName);
+    expect(r.texto).not.toMatch(/studentId|birthDate|2015/);
     const nao = await postConferirCodigo(req("http://localhost/api/escola/familia/codigo", { codigo: "ZZZZ-9999" }));
     expect(nao.status).toBe(404);
   });
