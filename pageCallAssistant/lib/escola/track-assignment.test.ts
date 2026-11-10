@@ -60,6 +60,35 @@ describe("assignTrackToStudents — regras", () => {
     await expect(assignTrackToStudents(baseInput())).rejects.toThrow(/não encontrada|não está aprovada/);
   });
 
+  it("aceita trilha da biblioteca SpeakFlow (networkId null)", async () => {
+    p.eduTrack.findUnique.mockResolvedValue(baseTrack({ networkId: null, subjectCode: "MA" }));
+    const r = await assignTrackToStudents(baseInput());
+    expect(r.atribuidos).toBe(3);
+  });
+
+  it("rejeita trilha de outra rede", async () => {
+    p.eduTrack.findUnique.mockResolvedValue(baseTrack({ networkId: "outra-rede" }));
+    await expect(assignTrackToStudents(baseInput())).rejects.toThrow("não encontrada");
+    expect(p.eduTrackAssignment.createMany).not.toHaveBeenCalled();
+  });
+
+  it("limite de 3 por componente usa subjectCode quando a trilha é da biblioteca", async () => {
+    p.eduTrack.findUnique.mockResolvedValue(baseTrack({ networkId: null, subjectId: null, subjectCode: "CI" }));
+    p.eduTrackAssignment.findMany.mockResolvedValue([
+      { studentId: "s1", trackId: "t_ma1", track: { subjectId: null, subjectCode: "MA" } },
+      { studentId: "s1", trackId: "t_ma2", track: { subjectId: null, subjectCode: "MA" } },
+      { studentId: "s1", trackId: "t_ma3", track: { subjectId: null, subjectCode: "MA" } },
+      { studentId: "s2", trackId: "t_ci1", track: { subjectId: null, subjectCode: "CI" } },
+      { studentId: "s2", trackId: "t_ci2", track: { subjectId: null, subjectCode: "CI" } },
+      { studentId: "s2", trackId: "t_ci3", track: { subjectId: null, subjectCode: "CI" } },
+    ]);
+    const r = await assignTrackToStudents(baseInput());
+    // s1 tem 3 de Matemática, mas a trilha é de Ciências: recebe
+    // s2 já tem 3 de Ciências: pulado
+    expect(r.atribuidos).toBe(2);
+    expect(r.pulados).toEqual([{ studentId: "s2", motivo: expect.stringContaining("3 trilhas") }]);
+  });
+
   it("pula aluno com a mesma trilha já ativa", async () => {
     p.eduTrackAssignment.findMany.mockResolvedValue([
       { studentId: "s1", trackId: TRACK_ID, track: { subjectId: "subj1" } },

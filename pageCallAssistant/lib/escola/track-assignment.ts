@@ -38,10 +38,11 @@ export async function assignTrackToStudents(
 
   // 1. Verifica se a trilha é APPROVED e pertence à rede
   const track = await p.eduTrack.findUnique({
-    where: { id: trackId, networkId },
-    select: { id: true, status: true, subjectId: true, skillIds: true },
+    where: { id: trackId },
+    select: { id: true, networkId: true, status: true, subjectId: true, subjectCode: true, skillIds: true },
   });
-  if (!track) throw new Error("Trilha não encontrada.");
+  // Vale a trilha da própria rede ou da biblioteca SpeakFlow (networkId null)
+  if (!track || (track.networkId != null && track.networkId !== networkId)) throw new Error("Trilha não encontrada.");
   if (track.status !== "APPROVED") throw new Error("Trilha não está aprovada.");
 
   // 2. Masteries atuais dos alunos nas habilidades da trilha
@@ -65,24 +66,27 @@ export async function assignTrackToStudents(
   }
 
   // 3. Atribuições ativas existentes (duplicatas e contador por componente)
-  const activeAssignments: Array<{ studentId: string; track: { subjectId: string }; trackId: string }> =
+  const activeAssignments: Array<{ studentId: string; track: { subjectId: string | null; subjectCode: string | null }; trackId: string }> =
     await p.eduTrackAssignment.findMany({
       where: {
         networkId,
         studentId: { in: studentIds },
         endedAt: null,
       },
-      select: { studentId: true, trackId: true, track: { select: { subjectId: true } } },
+      select: { studentId: true, trackId: true, track: { select: { subjectId: true, subjectCode: true } } },
     });
+
+  // Componente da trilha: subjectCode (biblioteca) ou subjectId (trilha antiga da rede)
+  const componente = (t: { subjectId: string | null; subjectCode: string | null }) => t.subjectCode ?? t.subjectId;
 
   // Mapa studentId → Set<trackId> (ativas)
   const activeTracksByStudent: Record<string, Set<string>> = {};
-  // Contador por (studentId, subjectId)
+  // Contador por (studentId, componente)
   const activeBySubject: Record<string, number> = {};
   for (const a of activeAssignments) {
     if (!activeTracksByStudent[a.studentId]) activeTracksByStudent[a.studentId] = new Set();
     activeTracksByStudent[a.studentId].add(a.trackId);
-    const key = `${a.studentId}::${a.track.subjectId}`;
+    const key = `${a.studentId}::${componente(a.track)}`;
     activeBySubject[key] = (activeBySubject[key] ?? 0) + 1;
   }
 
@@ -97,7 +101,7 @@ export async function assignTrackToStudents(
     }
 
     // Regra: limite 3 por componente
-    const key = `${studentId}::${track.subjectId}`;
+    const key = `${studentId}::${componente(track)}`;
     if ((activeBySubject[key] ?? 0) >= 3) {
       pulados.push({ studentId, motivo: "já tem 3 trilhas ativas neste componente" });
       continue;
