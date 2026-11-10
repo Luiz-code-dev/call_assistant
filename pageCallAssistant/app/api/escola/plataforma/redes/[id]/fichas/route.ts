@@ -8,6 +8,7 @@
  * Acesso: administrador da plataforma.
  */
 import { NextResponse } from "next/server";
+import { urlDoSite } from "@/lib/escola/public-url";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { getEduContext } from "@/lib/escola/context";
 import { getTenantDb } from "@/lib/escola/tenant-db";
@@ -53,7 +54,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     where: { networkId: id, classId: turmaId, status: "ACTIVE", student: { isActive: true } },
     include: { student: { select: { id: true, fullName: true, birthDate: true } } },
   });
-  const base = process.env.NEXT_PUBLIC_APP_URL ?? new URL(req.url).origin;
+  const base = urlDoSite(process.env.NEXT_PUBLIC_APP_URL);
   const fichas: any[] = [];
   for (const m of matriculas.sort((x: any, y: any) => x.student.fullName.localeCompare(y.student.fullName))) {
     const codigoAluno = await garantirCodigoAluno(a.db, m.student.id, id);

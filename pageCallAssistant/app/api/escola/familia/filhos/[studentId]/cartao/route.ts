@@ -15,7 +15,7 @@ import { getFamilyContext } from "@/lib/escola/family-context";
 import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { studentSecret } from "@/lib/escola/secrets";
-import { publicOrigin } from "@/lib/escola/public-url";
+import { publicOrigin, urlDoSite } from "@/lib/escola/public-url";
 import { garantirCodigoAluno, formatarCodigo } from "@/lib/escola/codigo-aluno";
 
 async function signCardToken(studentId: string, cardVersion: number, nid: string): Promise<string> {
@@ -52,7 +52,7 @@ export async function GET(req: NextRequest, { params }: { params: { studentId: s
   if (!student) return NextResponse.json({ error: "Aluno não encontrado." }, { status: 404 });
 
   const origin = publicOrigin(req);
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? origin;
+  const baseUrl = urlDoSite(process.env.NEXT_PUBLIC_APP_URL ?? origin);
   const qrToken = await signCardToken(params.studentId, student.cardVersion, student.networkId);
   const qrUrl = `${baseUrl}/escola/aluno/entrar?card=${encodeURIComponent(qrToken)}`;
   const codigo = await garantirCodigoAluno(ctx.db ?? P, params.studentId, student.networkId).catch(() => null);
@@ -92,7 +92,7 @@ export async function POST(req: NextRequest, { params }: { params: { studentId: 
   }).catch(() => {});
 
   const origin = publicOrigin(req);
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? origin;
+  const baseUrl = urlDoSite(process.env.NEXT_PUBLIC_APP_URL ?? origin);
   const qrToken = await signCardToken(params.studentId, newVersion, student.networkId);
   const qrUrl = `${baseUrl}/escola/aluno/entrar?card=${encodeURIComponent(qrToken)}`;
 

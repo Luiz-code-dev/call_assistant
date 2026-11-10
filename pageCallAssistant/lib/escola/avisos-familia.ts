@@ -11,6 +11,7 @@
  * o envio entra quando a conta oficial da Meta estiver aprovada.
  */
 import webpush from "web-push";
+import { urlDoSite } from "@/lib/escola/public-url";
 import { Resend } from "resend";
 import { catalogDb } from "@/lib/escola/catalogo";
 import { getTenantDb } from "@/lib/escola/tenant-db";
@@ -126,7 +127,7 @@ export function emailDoAviso(nomeResponsavel: string, aviso: Aviso, base: string
 async function emailParaResponsavel(guardian: { name: string; email: string | null; emailAlertsOff: boolean }, aviso: Aviso): Promise<boolean> {
   const key = process.env.RESEND_API_KEY;
   if (!key || !guardian.email || guardian.emailAlertsOff) return false;
-  const base = process.env.NEXT_PUBLIC_APP_URL ?? "https://speakflow.ia.br";
+  const base = urlDoSite(process.env.NEXT_PUBLIC_APP_URL);
   const msg = emailDoAviso(guardian.name, aviso, base);
   try {
     await new Resend(key).emails.send({
