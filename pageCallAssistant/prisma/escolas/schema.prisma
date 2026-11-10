@@ -243,6 +243,39 @@ model EduFamilyTip {
   @@index([networkId])
 }
 
+/// Recado da família para o aluno (elogio, lembrete ou sugestão), lido na tela inicial do aluno
+model EduFamilyMessage {
+  id         String    @id @default(cuid())
+  networkId  String
+  guardianId String
+  studentId  String
+  /// ELOGIO | LEMBRETE | SUGESTAO
+  kind       String    @default("LEMBRETE")
+  text       String    @db.Text
+  createdAt  DateTime  @default(now()) @db.Timestamptz
+  readAt     DateTime? @db.Timestamptz
+
+  @@index([networkId, studentId, createdAt])
+}
+
+/// Agenda de estudos que a família monta: um item por dia da semana (0 = segunda)
+model EduStudyPlanItem {
+  id          String   @id @default(cuid())
+  networkId   String
+  guardianId  String
+  studentId   String
+  weekday     Int
+  /// "HH:MM"
+  time        String
+  subjectCode String?
+  minutes     Int      @default(20)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now()) @db.Timestamptz
+  updatedAt   DateTime @default(now()) @updatedAt @db.Timestamptz
+
+  @@index([networkId, studentId])
+}
+
 model EduSchoolYear {
   id        String   @id @default(cuid())
   networkId String

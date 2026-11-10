@@ -40,6 +40,10 @@ import { GET as getFamiliaEvolucao } from "@/app/api/escola/familia/filhos/[stud
 import { POST as postEntrar } from "@/app/api/escola/aluno/entrar/route";
 import { signDeviceToken } from "@/lib/escola/device";
 import bcrypt from "bcryptjs";
+import { GET as getRecadosFamilia, POST as postRecadoFamilia } from "@/app/api/escola/familia/filhos/[studentId]/recados/route";
+import { GET as getAgendaFamilia, POST as postAgendaFamilia, DELETE as deleteAgendaFamilia } from "@/app/api/escola/familia/filhos/[studentId]/agenda/route";
+import { GET as getRecadosAluno, POST as postRecadoLido } from "@/app/api/escola/aluno/recados/route";
+import { GET as getAgendaAluno } from "@/app/api/escola/aluno/agenda/route";
 
 const URL_A = process.env.ESCOLAS_DB_01_URL ?? "";
 const URL_B = process.env.ESCOLAS_DB_02_URL ?? "";
@@ -502,5 +506,68 @@ describe("Trilha: errar, tentar de novo e, esgotadas as tentativas, receber a ba
     }
     const alertas = await c.db.eduTeacherAlert.count({ where: { studentId: c.studentId, createdAt: { gte: inicioDoTeste } } });
     expect(alertas, "nenhum aviso ao professor").toBe(0);
+  });
+});
+
+describe("Recado e agenda da família, vistos pelo aluno", () => {
+  const corpo = (b: unknown, method = "POST") => new Request("http://localhost", { method, headers: { "content-type": "application/json" }, body: JSON.stringify(b) });
+
+  it("a família manda um elogio, o aluno vê com o nome de quem mandou e marca como lido", async () => {
+    const guardianId = await responsavelDoAlunoB();
+    estado.familia = { guardianId, networkId: alunoB.networkId, db: dbB };
+    await dbB.eduFamilyMessage.deleteMany({ where: { studentId: alunoB.studentId } });
+    const params = { params: { studentId: alunoB.studentId } };
+
+    const invalido = await json(await postRecadoFamilia(corpo({ kind: "XYZ", text: "oi" }), params));
+    expect(invalido.status).toBe(400);
+    const env = await json(await postRecadoFamilia(corpo({ kind: "ELOGIO", text: "Parabéns pelo esforço!" }), params));
+    expect(env.status, env.texto).toBe(201);
+
+    estado.ctx = alunoB;
+    const vistos = await json(await getRecadosAluno());
+    expect(vistos.status, vistos.texto).toBe(200);
+    const r = vistos.body.recados[0];
+    expect(r.text).toBe("Parabéns pelo esforço!");
+    expect(r.lido).toBe(false);
+    expect(vistos.texto).not.toMatch(/guardianId|email/);
+
+    const lido = await json(await postRecadoLido(corpo({ id: r.id })));
+    expect(lido.status).toBe(200);
+    const lista = await json(await getRecadosFamilia(new Request("http://localhost"), params));
+    expect(lista.body.recados[0].lido, "família vê que foi lido").toBe(true);
+  });
+
+  it("outro aluno não vê o recado, e a família não manda recado para quem não é filho dela", async () => {
+    estado.ctx = colegaB;
+    const vistos = await json(await getRecadosAluno());
+    expect(vistos.body.recados.some((r: { text: string }) => r.text === "Parabéns pelo esforço!")).toBe(false);
+    const guardianId = await responsavelDoAlunoB();
+    estado.familia = { guardianId, networkId: alunoB.networkId, db: dbB };
+    const outro = await json(await postRecadoFamilia(corpo({ kind: "LEMBRETE", text: "Hora de estudar" }), { params: { studentId: colegaB.studentId } }));
+    expect(outro.status).toBe(404);
+  });
+
+  it("agenda: a família cria horários, o aluno vê os de hoje; remover tira da lista", async () => {
+    const guardianId = await responsavelDoAlunoB();
+    estado.familia = { guardianId, networkId: alunoB.networkId, db: dbB };
+    await dbB.eduStudyPlanItem.deleteMany({ where: { studentId: alunoB.studentId } });
+    const params = { params: { studentId: alunoB.studentId } };
+    const ruim = await json(await postAgendaFamilia(corpo({ weekdays: [], time: "25:00" }), params));
+    expect(ruim.status).toBe(400);
+    const criado = await json(await postAgendaFamilia(corpo({ weekdays: [0, 1, 2, 3, 4, 5, 6], time: "18:30", subjectCode: "MA", minutes: 20 }), params));
+    expect(criado.status, criado.texto).toBe(201);
+    expect(criado.body.itens).toHaveLength(7);
+
+    estado.ctx = alunoB;
+    const doAluno = await json(await getAgendaAluno());
+    expect(doAluno.status, doAluno.texto).toBe(200);
+    expect(doAluno.body.hoje).toHaveLength(1);
+    expect(doAluno.body.hoje[0]).toMatchObject({ time: "18:30", subjectCode: "MA", minutes: 20 });
+
+    const id = criado.body.itens[0].id;
+    const removido = await json(await deleteAgendaFamilia(new Request(`http://localhost/?id=${id}`, { method: "DELETE" }), params));
+    expect(removido.body.itens).toHaveLength(6);
+    const lista = await json(await getAgendaFamilia(new Request("http://localhost"), params));
+    expect(lista.body.itens).toHaveLength(6);
   });
 });
