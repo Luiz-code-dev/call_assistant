@@ -609,11 +609,12 @@ async function seedRedeB() {
       create: {
         id: guardiaoId,
         networkId: rede.id,
-        name: "Familia Demo B",
+        name: "Família Demo B",
         email: "familia.b@speakflow.escola",
         passwordHash: hashSenha(SENHA_FAMILIA),
       },
-      update: {},
+      // Só corrige o nome (acento); a senha que a família trocou não é tocada
+      update: { name: "Família Demo B" },
     });
     // Bug 3: registrar o guardian no LoginIndex do catálogo para que
     // /api/escola/familia/login → findTenantsByLogin("GUARDIAN", ...) retorne a rede
@@ -632,7 +633,7 @@ async function seedRedeB() {
     const guardiaoId2 = "guardian-pendente-b";
     await db.eduGuardian.upsert({
       where: { id: guardiaoId2 },
-      create: { id: guardiaoId2, networkId: rede.id, name: "Responsavel Pendente", email: "pendente.b@exemplo.com" },
+      create: { id: guardiaoId2, networkId: rede.id, name: "Responsável Pendente", email: "pendente.b@exemplo.com" },
       update: {},
     });
     await db.eduGuardianInvite.upsert({

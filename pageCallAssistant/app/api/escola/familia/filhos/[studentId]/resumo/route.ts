@@ -3,6 +3,8 @@ import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { getFamilyContext } from "@/lib/escola/family-context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { guardianOwnsStudent, weekStartSaoPaulo, dayIndexSaoPaulo } from "@/lib/escola/family-guard";
+import { subjectInfo } from "@/lib/escola/subjects";
+import { tituloParaAluno } from "@/lib/escola/texto-aluno";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -72,7 +74,7 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
     const assigns = await (prismaEdu as any).eduTrackAssignment.findMany({
       where: { OR: [{ studentId }, ...(enr?.classId ? [{ classId: enr.classId }] : [])] },
       include: {
-        track: { select: { id: true, title: true, subjectId: true, skillIds: true, status: true, _count: { select: { items: true } } } },
+        track: { select: { id: true, title: true, subjectId: true, subjectCode: true, skillIds: true, status: true, _count: { select: { items: true } } } },
         progress: { where: { studentId }, select: { completedItemIds: true, lastActivityAt: true } },
       },
     });
@@ -89,14 +91,13 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
     let trilhaAtual: any = null;
     if (ativas.length) {
       const { a, feitas, total } = ativas[0];
-      const subject = await (prismaEdu as any).eduSubject.findUnique({ where: { id: a.track.subjectId }, select: { name: true, color: true } });
-      let skillLabel = a.track.title;
-      if (a.track.skillIds?.length) {
-        const sk = await (prismaEdu as any).eduSkill.findFirst({ where: { id: { in: a.track.skillIds } }, select: { shortLabel: true, description: true, knowledgeObject: true } });
-        // Usa objeto de conhecimento (linguagem simples) de preferência ao código BNCC
-        skillLabel = sk?.knowledgeObject || sk?.shortLabel || sk?.description || a.track.title;
-      }
-      trilhaAtual = { subjectName: subject?.name ?? "Componente", subjectColor: subject?.color ?? "#6D28D9", skillLabel, feitas, total };
+      // Trilha da biblioteca não tem subjectId (só subjectCode): buscar por id nulo derrubava o painel
+      const subject = a.track.subjectId
+        ? await (prismaEdu as any).eduSubject.findUnique({ where: { id: a.track.subjectId }, select: { name: true, color: true } })
+        : null;
+      const info = a.track.subjectCode ? subjectInfo(a.track.subjectCode) : null;
+      const skillLabel = tituloParaAluno(a.track.title);
+      trilhaAtual = { subjectName: subject?.name ?? info?.name ?? "Reforço", subjectColor: subject?.color ?? info?.color ?? "#6D28D9", skillLabel, feitas, total };
     }
     const outrasTrilhas = Math.max(0, ativas.length - 1);
 
@@ -124,7 +125,8 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
     // ── Dica "Como ajudar" (1x por semana, reaproveitada) ──
     let dica = "Pergunte o que ele(a) aprendeu hoje e peça para explicar com as próprias palavras.";
     const tip = await (prismaEdu as any).eduFamilyTip.findUnique({ where: { studentId_weekStart: { studentId, weekStart } } });
-    if (tip) dica = tip.text;
+    // Dica gravada antes desta versão pode ter o código BNCC no texto
+    if (tip) dica = tituloParaAluno(tip.text);
     else {
       // Habilidade em que mais precisa (nivel mais baixo). Payload sem nome/matricula.
       const lowest = await (prismaEdu as any).eduSkillMastery.findFirst({
@@ -133,7 +135,7 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
         include: { skill: { select: { id: true, shortLabel: true, description: true } } },
       });
       if (lowest?.skill) {
-        const hab = lowest.skill.shortLabel || lowest.skill.description;
+        const hab = tituloParaAluno(lowest.skill.shortLabel || lowest.skill.description);
         dica = `Converse sobre "${hab}" no dia a dia e peça para ${firstName} explicar com um exemplo prático.`;
         await (prismaEdu as any).eduFamilyTip.create({
           data: { networkId: ctx.networkId, studentId, skillId: lowest.skill.id, weekStart, text: dica },
@@ -145,7 +147,7 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
     const subs = await (prismaEdu as any).eduSubmission.findMany({
       where: { studentId, aiStatus: "DONE" },
       orderBy: { evaluatedAt: "desc" }, take: 3,
-      select: { evaluatedAt: true, aiFeedback: true, masteryLevel: true, activity: { select: { title: true, classSubject: { select: { subjectId: true } } } } },
+      select: { evaluatedAt: true, aiFeedback: true, masteryLevel: true, activity: { select: { title: true, subjectCode: true, classSubject: { select: { subjectId: true } } } } },
     });
     const subjIds = Array.from(new Set(subs.map((s: any) => s.activity?.classSubject?.subjectId).filter(Boolean)));
     const subjMap = new Map<string, string>();
@@ -156,8 +158,8 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
     const retornos = subs.map((s: any) => {
       const fb = (s.aiFeedback ?? {}) as any;
       return {
-        subjectName: subjMap.get(s.activity?.classSubject?.subjectId) ?? "Componente",
-        title: s.activity?.title ?? null,
+        subjectName: subjMap.get(s.activity?.classSubject?.subjectId) ?? (s.activity?.subjectCode ? subjectInfo(s.activity.subjectCode).name : "Reforço"),
+        title: s.activity?.title ? tituloParaAluno(s.activity.title) : null,
         when: relativeDay(s.evaluatedAt),
         level: s.masteryLevel ?? null,
         acertou: Array.isArray(fb.acertos) ? fb.acertos[0] ?? null : null,
