@@ -10,6 +10,8 @@ import { dayIndexSaoPaulo } from "@/lib/escola/family-guard";
 
 /* eslint-disable @typescript-eslint/no-explicit-any -- cliente Prisma do tenant sem tipagem estática */
 const P = prismaEdu as any;
+// Sempre do banco: o aluno precisa ver o recado que acabou de chegar
+export const dynamic = "force-dynamic";
 
 export async function GET() {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });

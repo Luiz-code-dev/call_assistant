@@ -8,6 +8,29 @@ import Link from "next/link";
 import { Heart, Bell, Lightbulb, Check, CalendarDays, Clock, Play } from "lucide-react";
 import { materiaDe } from "@/components/escola/reforco-ui";
 
+/**
+ * Chama "carregar" ao abrir, quando a tela volta para frente, quando chega um aviso
+ * (mensagem do service worker) e a cada minuto com a tela visível.
+ */
+function useAtualizar(carregar: () => void) {
+  useEffect(() => {
+    carregar();
+    const visivel = () => { if (document.visibilityState === "visible") carregar(); };
+    const aviso = (e: MessageEvent) => { if (e.data?.type === "sf-aviso") carregar(); };
+    document.addEventListener("visibilitychange", visivel);
+    window.addEventListener("focus", visivel);
+    navigator.serviceWorker?.addEventListener("message", aviso);
+    const t = setInterval(visivel, 60_000);
+    return () => {
+      document.removeEventListener("visibilitychange", visivel);
+      window.removeEventListener("focus", visivel);
+      navigator.serviceWorker?.removeEventListener("message", aviso);
+      clearInterval(t);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+}
+
 type Tipo = "ELOGIO" | "LEMBRETE" | "SUGESTAO";
 interface Recado { id: string; kind: Tipo; text: string; createdAt: string; lido: boolean; de: string }
 interface ItemAgenda { id: string; weekday: number; time: string; subjectCode: string | null; minutes: number }
@@ -20,10 +43,10 @@ const TIPOS: Record<Tipo, { titulo: string; Icone: typeof Heart; cor: string; fu
 
 export function RecadoDaFamilia() {
   const [recados, setRecados] = useState<Recado[]>([]);
-  useEffect(() => {
-    fetch("/api/escola/aluno/recados").then((r) => (r.ok ? r.json() : null))
-      .then((d) => setRecados(d?.recados ?? [])).catch(() => {});
-  }, []);
+  useAtualizar(() => {
+    fetch("/api/escola/aluno/recados", { cache: "no-store" }).then((r) => (r.ok ? r.json() : null))
+      .then((d) => { if (d?.recados) setRecados(d.recados); }).catch(() => {});
+  });
   const atual = recados.find((r) => !r.lido);
   if (!atual) return null;
   const t = TIPOS[atual.kind] ?? TIPOS.LEMBRETE;
@@ -61,10 +84,10 @@ export function RecadoDaFamilia() {
 
 export function AgendaDeHoje() {
   const [hoje, setHoje] = useState<ItemAgenda[]>([]);
-  useEffect(() => {
-    fetch("/api/escola/aluno/agenda").then((r) => (r.ok ? r.json() : null))
-      .then((d) => setHoje(d?.hoje ?? [])).catch(() => {});
-  }, []);
+  useAtualizar(() => {
+    fetch("/api/escola/aluno/agenda", { cache: "no-store" }).then((r) => (r.ok ? r.json() : null))
+      .then((d) => { if (d?.hoje) setHoje(d.hoje); }).catch(() => {});
+  });
   if (!hoje.length) return null;
   return (
     <section className="rounded-3xl bg-white p-4 shadow-[0_4px_18px_rgba(91,33,182,0.08)]">
