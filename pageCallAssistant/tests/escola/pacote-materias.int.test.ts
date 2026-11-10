@@ -121,6 +121,23 @@ async function responderTudo(
   throw new Error("diagnóstico não terminou em 30 respostas");
 }
 
+/** Responsável ativo do aluno do 6º B; cria um só para o teste se o seed não tiver */
+async function responsavelDoAlunoB(): Promise<string> {
+  const link = await dbB.eduGuardianLink.findFirst({ where: { studentId: alunoB.studentId, isActive: true } });
+  if (link) return link.guardianId;
+  const g = await dbB.eduGuardian.upsert({
+    where: { id: "teste-responsavel-6b" },
+    create: { id: "teste-responsavel-6b", networkId: alunoB.networkId, name: "Responsável Teste 6B" },
+    update: {},
+  });
+  await dbB.eduGuardianLink.upsert({
+    where: { guardianId_studentId: { guardianId: g.id, studentId: alunoB.studentId } },
+    create: { networkId: alunoB.networkId, guardianId: g.id, studentId: alunoB.studentId, relation: "MAE", isActive: true },
+    update: { isActive: true },
+  });
+  return g.id;
+}
+
 const errada = (g: { correctIndex: number; opcoes: Array<{ misconceptionCode?: string }> }) => {
   const i = g.opcoes.findIndex((o, k) => k !== g.correctIndex && o.misconceptionCode);
   return i >= 0 ? i : (g.correctIndex + 1) % g.opcoes.length;
@@ -271,9 +288,8 @@ describe("Outra matéria depois de Matemática", () => {
   });
 
   it("a família vê Matemática e Português com o diagnóstico feito, sem código nem gabarito", async () => {
-    const link = await dbB.eduGuardianLink.findFirst({ where: { studentId: alunoB.studentId, isActive: true } });
-    expect(link, "responsável ligado ao aluno no seed").not.toBeNull();
-    estado.familia = { guardianId: link!.guardianId, networkId: alunoB.networkId, db: dbB };
+    const guardianId = await responsavelDoAlunoB();
+    estado.familia = { guardianId, networkId: alunoB.networkId, db: dbB };
     const r = await json(await getFamiliaMaterias(new Request("http://localhost"), { params: { studentId: alunoB.studentId } }));
     expect(r.status, r.texto).toBe(200);
     expect(r.texto).not.toMatch(SEGREDO);
@@ -287,8 +303,8 @@ describe("Outra matéria depois de Matemática", () => {
   });
 
   it("a família não vê aluno que não é dela", async () => {
-    const link = await dbB.eduGuardianLink.findFirst({ where: { studentId: alunoB.studentId, isActive: true } });
-    estado.familia = { guardianId: link!.guardianId, networkId: alunoB.networkId, db: dbB };
+    const guardianId = await responsavelDoAlunoB();
+    estado.familia = { guardianId, networkId: alunoB.networkId, db: dbB };
     const r = await json(await getFamiliaMaterias(new Request("http://localhost"), { params: { studentId: colegaB.studentId } }));
     expect(r.status).toBe(404);
   });

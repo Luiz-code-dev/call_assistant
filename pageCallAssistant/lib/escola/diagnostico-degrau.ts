@@ -99,7 +99,8 @@ export async function findDegrauActivities(
 
   const outras: Array<{ id: string; estMinutes: number | null }> = await p.eduActivity.findMany({
     where: {
-      networkId: { in: [networkId, null] },
+      // "in" não aceita null no Prisma: rede do aluno OU conteúdo SpeakFlow (networkId null)
+      OR: [{ networkId }, { networkId: null }],
       skillIds: { has: skillId },
       type: "QUIZ",
       status: "PUBLISHED",
