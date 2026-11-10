@@ -38,11 +38,12 @@ export async function recordMasteryEvent(opts: {
   source: MasterySource;
   submissionId?: string;
 }): Promise<void> {
-  const { networkId, studentId, skillId, level, source, submissionId } = opts;
+  const { networkId, studentId, skillId, level, source } = opts;
 
-  // Grava o evento
+  // Grava o evento. EduSkillMasteryEvent não tem coluna submissionId: enviá-la
+  // fazia o Prisma recusar o create e nenhum evento de domínio era gravado.
   await p.eduSkillMasteryEvent.create({
-    data: { networkId, studentId, skillId, level, source, submissionId: submissionId ?? null },
+    data: { networkId, studentId, skillId, level, source },
   });
 
   // Recalcula o nível consolidado a partir das últimas 3 observações

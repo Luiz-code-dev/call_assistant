@@ -56,11 +56,11 @@ export async function getApprovedPrereqs(
       OR: [{ networkId: null }, { networkId }],
     },
     orderBy: { weight: "desc" },
-    include: { prerequisiteSkill: { select: { id: true, code: true } } },
+    include: { prerequisite: { select: { id: true, code: true } } }, // a relação no schema se chama "prerequisite"
   });
-  return rows.map((r: { weight: number; prerequisiteSkill: { id: string; code: string } }) => ({
-    skillId: r.prerequisiteSkill.id,
-    skillCode: r.prerequisiteSkill.code,
+  return rows.map((r: { weight: number; prerequisite: { id: string; code: string } }) => ({
+    skillId: r.prerequisite.id,
+    skillCode: r.prerequisite.code,
     weight: r.weight,
   }));
 }

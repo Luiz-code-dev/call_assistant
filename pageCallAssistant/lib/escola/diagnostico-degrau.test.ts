@@ -28,7 +28,7 @@ beforeEach(() => {
   vi.clearAllMocks();
   p.eduSkill.findUnique.mockResolvedValue({ id: "sk-EF06MA07" });
   p.eduSkillPrerequisite.findMany.mockResolvedValue([
-    { weight: 3, prerequisiteSkill: { id: "sk-EF05MA04", code: "EF05MA04" } },
+    { weight: 3, prerequisite: { id: "sk-EF05MA04", code: "EF05MA04" } },
   ]);
   p.eduDiagnosticItem.findMany.mockResolvedValue([
     { activityId: "BANK-1", activity: { estMinutes: 2 } },
@@ -94,8 +94,8 @@ describe("calcularDegrau", () => {
 
   it("pula o pré-requisito sem questões e usa o seguinte", async () => {
     p.eduSkillPrerequisite.findMany.mockResolvedValue([
-      { weight: 3, prerequisiteSkill: { id: "sk-vazio", code: "EF05MA99" } },
-      { weight: 2, prerequisiteSkill: { id: "sk-EF05MA03", code: "EF05MA03" } },
+      { weight: 3, prerequisite: { id: "sk-vazio", code: "EF05MA99" } },
+      { weight: 2, prerequisite: { id: "sk-EF05MA03", code: "EF05MA03" } },
     ]);
     p.eduDiagnosticItem.findMany.mockImplementation(({ where }: { where: { skillId: string } }) =>
       Promise.resolve(where.skillId === "sk-EF05MA03" ? [{ activityId: "BANK-3", activity: { estMinutes: 2 } }] : []));
@@ -107,8 +107,8 @@ describe("calcularDegrau", () => {
 
   it("prefere o pré-requisito com banco do degrau ao de maior peso sem banco (EF06MA10 -> EF05MA04)", async () => {
     p.eduSkillPrerequisite.findMany.mockResolvedValue([
-      { weight: 3, prerequisiteSkill: { id: "sk-EF06MA07", code: "EF06MA07" } },
-      { weight: 2, prerequisiteSkill: { id: "sk-EF05MA04", code: "EF05MA04" } },
+      { weight: 3, prerequisite: { id: "sk-EF06MA07", code: "EF06MA07" } },
+      { weight: 2, prerequisite: { id: "sk-EF05MA04", code: "EF05MA04" } },
     ]);
     p.eduDiagnosticItem.findMany.mockImplementation(({ where }: { where: { skillId: string } }) =>
       Promise.resolve(where.skillId === "sk-EF05MA04"
