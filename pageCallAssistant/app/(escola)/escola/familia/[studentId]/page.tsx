@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import { AlertTriangle, RefreshCw, Lightbulb, ChevronRight, School, QrCode, Smartphone, KeyRound, ShieldOff, Play, Check, Clock } from "lucide-react";
 import { IconeMateria, materiaDe } from "@/components/escola/reforco-ui";
+import { RecadoParaFilho, AgendaDoFilho } from "@/components/escola/familia/RecadosAgenda";
 import FamilyShell from "@/components/escola/familia/FamilyShell";
 import { QRCodeSVG } from "qrcode.react";
 
@@ -347,6 +348,10 @@ export default function PainelFilho() {
               <p className="text-[12px] text-white/85 mt-1.5 flex items-center gap-1"><Play className="size-3 fill-current" />{data.trilhaAtual.feitas} de {data.trilhaAtual.total} etapas{data.outrasTrilhas > 0 ? ` · mais ${data.outrasTrilhas} ${data.outrasTrilhas === 1 ? "trilha" : "trilhas"}` : ""}</p>
             </section>
           )}
+
+          {/* Recado e agenda: o aluno vê na tela inicial */}
+          <RecadoParaFilho studentId={studentId} nome={data.aluno.firstName} />
+          <AgendaDoFilho studentId={studentId} nome={data.aluno.firstName} />
 
           {/* Matérias */}
           {materias.length > 0 && <MateriasDoFilho materias={materias} nome={data.aluno.firstName} />}
