@@ -9,6 +9,7 @@ import { subjectToWhisperLang, stageToAgeGroup } from "@/lib/escola/subject-lang
 import { recordMasteryEvent, extractMisconceptionCodes } from "@/lib/escola/mastery-event";
 import { alunoPodeAbrirAtividade, contextoPedagogico } from "@/lib/escola/atividade-acesso";
 import { registrarEtapa, type ResultadoEtapa } from "@/lib/escola/trilha-progresso";
+import { avaliarEntrega } from "@/lib/escola/avaliar-entrega";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -204,7 +205,12 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
       }
     } catch { /* mantém SUBMITTED */ }
   }
-  // WRITTEN/SPOKEN: avaliação IA via cron (B8) — aiStatus=PENDING já gravado
+  // WRITTEN/SPOKEN: avalia na hora (o aluno espera poucos segundos); se falhar,
+  // fica PENDING e o cron tenta de novo
+  if (activity.type !== "QUIZ") {
+    await avaliarEntrega(prismaEdu, submission.id).catch((err: Error) =>
+      console.error(`[aluno/enviar] avaliação ${submission.id}:`, err.message));
+  }
 
   // Trilha: marca a etapa (ou espera nova tentativa) e, esgotadas as tentativas em
   // "Ainda não", atribui a trilha da base. Uma falha aqui não perde a entrega.
