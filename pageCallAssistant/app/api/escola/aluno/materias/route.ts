@@ -99,14 +99,11 @@ export async function GET() {
         ],
       },
       select: { id: true, subjectCode: true, subjectId: true, status: true, networkId: true, cycle: true, title: true },
-      // Diagnóstico de partida antes do de acompanhamento: ciclo menor primeiro,
-      // e o título "acompanhamento" por último (ordem estável por id)
+      // Diagnóstico de partida (cycle 1) antes do de acompanhamento (cycle 2); ordem estável por id
       orderBy: [{ cycle: "asc" }, { id: "asc" }],
     });
 
     // Normaliza subjectCode: biblioteca já tem; rede resolve pelo subjectId
-    const ehAcompanhamento = (d: DiagRow) => /acompanhamento/i.test(d.title);
-    diagsRaw.sort((a, b) => Number(ehAcompanhamento(a)) - Number(ehAcompanhamento(b)));
     const diags = diagsRaw.map((d) => ({
       ...d,
       subjectCode: d.subjectCode ?? (d.subjectId ? codeBySubjectId[d.subjectId] ?? null : null),

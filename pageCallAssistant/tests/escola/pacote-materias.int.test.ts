@@ -20,14 +20,17 @@ import { NextRequest } from "next/server";
 import { PrismaClient } from "@prisma/escolas";
 
 type Ctx = { studentId: string; networkId: string; enrollmentId: string; classId: string; db: PrismaClient };
-const estado = vi.hoisted(() => ({ ctx: null as unknown }));
+const estado = vi.hoisted(() => ({ ctx: null as unknown, familia: null as unknown }));
 
 vi.mock("@/lib/escola/context", async (importOriginal) => {
   const real = await importOriginal<typeof import("@/lib/escola/context")>();
   return { ...real, getStudentContext: vi.fn(async () => estado.ctx) };
 });
 
+vi.mock("@/lib/escola/family-context", () => ({ getFamilyContext: vi.fn(async () => estado.familia) }));
+
 import { GET as getMaterias } from "@/app/api/escola/aluno/materias/route";
+import { GET as getFamiliaMaterias } from "@/app/api/escola/familia/filhos/[studentId]/materias/route";
 import { POST as postSessao } from "@/app/api/escola/aluno/diagnostico/sessao/route";
 import { GET as getAtividades } from "@/app/api/escola/aluno/atividades/route";
 
@@ -214,10 +217,19 @@ describe("Degrau por aluno — Matemática do 6º B", () => {
   });
 
   it("resultado: habilidade de partida EF04MA09 e trilha atribuída antes da resposta", async () => {
-    const final = resultadoMA.final as { resultado: { habilidadePartida: string; degrauPath: string[] }; trilha: { id: string } | null };
+    type H = { code: string; tituloAluno: string; ano: number | null };
+    const final = resultadoMA.final as {
+      resultado: { habilidadePartida: H | null; degrau: H[]; erroComum: { texto: string } | null };
+      trilha: { id: string } | null;
+    };
     const ef04ma09 = await dbB.eduSkill.findUniqueOrThrow({ where: { code: "EF04MA09" } });
-    expect(final.resultado.habilidadePartida).toBe(ef04ma09.id);
-    expect(final.resultado.degrauPath).toEqual(["EF05MA04", "EF04MA09"]);
+    expect(final.resultado.habilidadePartida?.code).toBe("EF04MA09");
+    expect(final.resultado.habilidadePartida?.tituloAluno, "título para o aluno").toBeTruthy();
+    expect(final.resultado.degrau.map((h) => h.code).slice(-2)).toEqual(["EF05MA04", "EF04MA09"]);
+    expect(final.resultado.degrau[0].code.startsWith("EF06"), "o caminho começa no 6º ano").toBe(true);
+    // O aluno vê a explicação do erro, nunca o código (ex.: soma-num-e-den-separado)
+    expect(final.resultado.erroComum?.texto, "texto do erro comum").toBeTruthy();
+    expect(JSON.stringify(final.resultado)).not.toMatch(/"[a-z]+(-[a-z0-9]+){2,}"/);
     expect(final.trilha, "trilha na resposta").not.toBeNull();
     const ativas = await dbB.eduTrackAssignment.findMany({ where: { studentId: alunoB.studentId, endedAt: null }, include: { track: true } });
     expect(ativas.some((a) => a.track.skillIds.includes(ef04ma09.id))).toBe(true);
@@ -256,6 +268,29 @@ describe("Outra matéria depois de Matemática", () => {
     for (const m of r.body.materias) {
       expect(m.estado, m.codigo).toBe(["MA", "LP"].includes(m.codigo) ? "em_trilha" : "disponivel");
     }
+  });
+
+  it("a família vê Matemática e Português com o diagnóstico feito, sem código nem gabarito", async () => {
+    const link = await dbB.eduGuardianLink.findFirst({ where: { studentId: alunoB.studentId, isActive: true } });
+    expect(link, "responsável ligado ao aluno no seed").not.toBeNull();
+    estado.familia = { guardianId: link!.guardianId, networkId: alunoB.networkId, db: dbB };
+    const r = await json(await getFamiliaMaterias(new Request("http://localhost"), { params: { studentId: alunoB.studentId } }));
+    expect(r.status, r.texto).toBe(200);
+    expect(r.texto).not.toMatch(SEGREDO);
+    expect(r.texto).not.toMatch(/"[a-z]+(-[a-z0-9]+){2,}"/);
+    const porCodigo = Object.fromEntries(r.body.materias.map((m: { codigo: string }) => [m.codigo, m]));
+    for (const c of ["MA", "LP"]) {
+      expect(porCodigo[c]?.diagnosticoFeitoEm, `${c} com diagnóstico`).toBeTruthy();
+      expect(porCodigo[c]?.estado, c).toBe("EM_TRILHA");
+    }
+    expect(porCodigo["CI"]?.estado).toBe("COMECAR");
+  });
+
+  it("a família não vê aluno que não é dela", async () => {
+    const link = await dbB.eduGuardianLink.findFirst({ where: { studentId: alunoB.studentId, isActive: true } });
+    estado.familia = { guardianId: link!.guardianId, networkId: alunoB.networkId, db: dbB };
+    const r = await json(await getFamiliaMaterias(new Request("http://localhost"), { params: { studentId: colegaB.studentId } }));
+    expect(r.status).toBe(404);
   });
 
   it("nenhum EduTeacherAlert criado pelo reforço", async () => {

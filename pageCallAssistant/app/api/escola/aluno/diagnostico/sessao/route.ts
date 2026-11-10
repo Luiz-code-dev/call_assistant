@@ -272,6 +272,8 @@ export async function POST(req: NextRequest) {
       selectedIndex,
       isCorrect,
       misconceptionCode,
+      // Fica só na sessão (servidor): usado no texto do erro comum do resultado
+      explanation,
       elapsedMs: elapsed,
       answeredAt: new Date().toISOString(),
     };
@@ -437,25 +439,37 @@ export async function POST(req: NextRequest) {
         }
       }
 
-      // Busca erro mais comum para mostrar ao aluno
+      // Erro mais comum: o aluno vê a explicação da questão (nunca o código)
       const erroCounts: Record<string, number> = {};
       for (const a of newAnswers) {
         if (a.misconceptionCode) erroCounts[a.misconceptionCode as string] = (erroCounts[a.misconceptionCode as string] ?? 0) + 1;
       }
       const erroMaisComum = Object.entries(erroCounts).sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
+      const erroComum = await textoDoErroComum(erroMaisComum, newAnswers);
+
+      // Nomes das habilidades em linguagem de aluno (nunca o código BNCC)
+      const nomes = await nomesDasHabilidades(Object.values(skillAnswers).map((v) => v.skillId));
+      const comNivel = (ids: string[], nivel: "AINDA_NAO" | "QUASE_LA" | "DOMINA") =>
+        ids.map((id) => nomes[id]).filter(Boolean).map((h) => ({ ...h, nivel }));
+      // Caminho do degrau, do ano do aluno até a base: ex. 6º > 5º > 4º
+      const idPorCode: Record<string, string> = Object.fromEntries(Object.entries(skillAnswers).map(([code, v]) => [code, v.skillId]));
+      const raiz = newExtraItems.find((e) => e.degrau === 1)?.fromSkillCode;
+      const cadeiaIds = Array.from(new Set([
+        ...(raiz && idPorCode[raiz] ? [idPorCode[raiz]] : []),
+        ...newExtraItems.slice().sort((x, y) => x.degrau - y.degrau).map((e) => e.skillId),
+      ].filter(Boolean)));
+      const cadeia = cadeiaIds.map((id) => nomes[id]).filter(Boolean);
 
       return NextResponse.json({
         concluido: true,
         totalQuestoes,
         resultado: {
-          domina: dominaSkillIds,
-          quaseLa: quaseLaSkillIds,
-          aindaNao: notYetSkillIds,
-          degrauPath: Array.from(new Set(newExtraItems.map((e) => e.skillCode))),
-          habilidadePartida: startSkillId,
-          erroComum: erroMaisComum,
-          corretas: newAnswers.filter((a) => a.isCorrect).length,
-          total: newAnswers.length,
+          domina: comNivel(dominaSkillIds, "DOMINA"),
+          quaseLa: comNivel(quaseLaSkillIds, "QUASE_LA"),
+          aindaNao: comNivel(notYetSkillIds, "AINDA_NAO"),
+          degrau: cadeia,
+          habilidadePartida: startSkillId ? nomes[startSkillId] ?? null : null,
+          erroComum,
         },
         trilha: trilhaAtribuida,
         degrauAplicado,
@@ -486,4 +500,47 @@ export async function POST(req: NextRequest) {
   }
 
   return NextResponse.json({ error: "action inválida (iniciar|responder)" }, { status: 400 });
+}
+
+
+// ── Textos do resultado para o aluno ────────────────────────────────────────
+
+type HabilidadeAluno = { code: string; tituloAluno: string; ano: number | null };
+
+/** Título da habilidade para o aluno: o da trilha SpeakFlow; sem trilha, o rótulo curto da BNCC. */
+async function nomesDasHabilidades(skillIds: string[]): Promise<Record<string, HabilidadeAluno>> {
+  const ids = Array.from(new Set(skillIds.filter(Boolean)));
+  if (ids.length === 0) return {};
+  const skills: Array<{ id: string; code: string; shortLabel: string | null; description: string; gradeYears: number[] }> =
+    await P.eduSkill.findMany({ where: { id: { in: ids } }, select: { id: true, code: true, shortLabel: true, description: true, gradeYears: true } });
+  const tracks: Array<{ title: string; skillIds: string[]; gradeYear: number | null }> = await P.eduTrack.findMany({
+    where: { status: "APPROVED", networkId: null, skillIds: { hasSome: ids } },
+    select: { title: true, skillIds: true, gradeYear: true },
+  });
+  const out: Record<string, HabilidadeAluno> = {};
+  for (const s of skills) {
+    const t = tracks.find((tr) => tr.skillIds.includes(s.id));
+    const titulo = t ? t.title.replace(/^Trilha:\s*/i, "") : (s.shortLabel ?? s.description.split(/[,.;]/)[0]);
+    out[s.id] = { code: s.code, tituloAluno: titulo, ano: t?.gradeYear ?? (s.gradeYears.length ? Math.max(...s.gradeYears) : null) };
+  }
+  return out;
+}
+
+/** Texto do erro comum para o aluno: a explicação da questão em que ele errou; senão, a descrição da ficha. */
+async function textoDoErroComum(
+  code: string | null,
+  answers: Array<{ misconceptionCode?: string | null; explanation?: string | null; skillId?: string | null }>,
+): Promise<{ texto: string; exemplo: string } | null> {
+  if (!code) return null;
+  const resp = answers.find((a) => a.misconceptionCode === code && a.explanation);
+  if (resp?.explanation) return { texto: resp.explanation, exemplo: "" };
+  const skillId = answers.find((a) => a.misconceptionCode === code)?.skillId;
+  if (!skillId) return null;
+  const guide: { commonErrors: unknown } | null = await P.eduSkillGuide.findFirst({
+    where: { skillId, status: "APPROVED", networkId: null },
+    select: { commonErrors: true },
+  });
+  const erros = Array.isArray(guide?.commonErrors) ? (guide!.commonErrors as Array<{ code?: string; description?: string }>) : [];
+  const desc = erros.find((e) => e.code === code)?.description;
+  return desc ? { texto: `Fique de olho neste erro comum: ${desc.charAt(0).toLowerCase()}${desc.slice(1)}.`, exemplo: "" } : null;
 }

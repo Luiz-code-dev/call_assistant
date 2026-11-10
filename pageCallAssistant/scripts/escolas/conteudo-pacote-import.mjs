@@ -122,7 +122,11 @@ async function importPrerequisitos(db) {
         if (!sid || !pid) { falha(`${file}`, `habilidade não encontrada ${item.skillCode} -> ${item.prerequisiteCode}`); continue; }
         const existing = await db.eduSkillPrerequisite.findFirst({ where: { skillId: sid, prerequisiteSkillId: pid, networkId: null } });
         if (existing) {
-          if (existing.status !== "APPROVED") {
+          // Atualiza se não está aprovado, ou se ainda é do pacote (peso pode ter mudado).
+          // Pré-requisito aprovado à mão no Estúdio (reviewNote própria) não é tocado.
+          const doPacote = existing.reviewNote == null || PACOTE_NOTES.has(existing.reviewNote);
+          const mudou = existing.status !== "APPROVED" || existing.weight !== (item.weight ?? 1);
+          if (mudou && (existing.status !== "APPROVED" || doPacote)) {
             await db.eduSkillPrerequisite.update({ where: { id: existing.id }, data: { status: "APPROVED", weight: item.weight ?? 1, reviewNote: item.reviewNote ?? REVIEW_NOTE } });
           }
         } else {

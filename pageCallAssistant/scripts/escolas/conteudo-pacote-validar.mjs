@@ -32,6 +32,12 @@ if (existsSync(BNCC_FILE)) {
 }
 
 const FORBIDDEN = /demonstra[cç][aã]o|aguarda revis[aã]o|lorem ipsum/i;
+// Palavras comuns que, sem acento, denunciam texto mal escrito (títulos e descrições)
+const SEM_ACENTO = /\b(nao|sao|voce|tambem|entao|informacao|informacoes|questao|fracao|fracoes|agua|historia|ciencias|portugues|matematica|numero|numeros|avaliacao|diagnostica|diagnostico|evolucao|explicita|implicita|unitarias|representacao|comparacao|adicao|subtracao|multiplicacao|divisao|equivalencia)\b/i;
+function semAcento(texto, onde) {
+  const m = typeof texto === 'string' ? texto.match(SEM_ACENTO) : null;
+  if (m) err(`${onde} sem acento: "${m[0]}" em "${texto.slice(0, 80)}"`);
+}
 const STEPS_ORDER = ['relembrar','exemplo_guiado','praticar','aplicar','explicar'];
 
 // Calculadora de frações para verificar `check`
@@ -53,6 +59,8 @@ function checkFrac(check) {
 
 function validateTrilha(t, file) {
   const prefix = `[${file}][${t.skillCode}]`;
+  semAcento(t.title, `${prefix} título`);
+  for (const a of t.activities ?? []) semAcento(a.title, `${prefix}[${a.id}] título`);
   if (bnccCodes.size > 0 && !bnccCodes.has(t.skillCode)) {
     err(`${prefix} skillCode não existe no bncc-ef.csv`);
   }
@@ -104,6 +112,8 @@ function validateTrilha(t, file) {
 
 function validateDiag(d, file) {
   const prefix = `[${file}][${d.id}]`;
+  semAcento(d.titulo ?? d.title, `${prefix} título`);
+  semAcento(d.descricao, `${prefix} descrição`);
   const items = d.items ?? [];
   if (items.length === 0) err(`${prefix} sem itens`);
   for (const item of items) {
