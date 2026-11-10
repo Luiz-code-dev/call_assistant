@@ -29,7 +29,7 @@ export function formatarCodigo(codigo: string | null | undefined): string {
 
 export function codigoValido(codigo: string): boolean {
   const c = normalizarCodigo(codigo);
-  return c.length === TAMANHO_CODIGO && [...c].every((ch) => ALFABETO_CODIGO.includes(ch));
+  return c.length === TAMANHO_CODIGO && c.split("").every((ch) => ALFABETO_CODIGO.includes(ch));
 }
 
 export function gerarCodigo(): string {
