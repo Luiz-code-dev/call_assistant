@@ -170,7 +170,8 @@ function EntrarInner() {
     if (loginCtx.mode === "qr") {
       body = { mode: "qr", qrToken: loginCtx.qrToken, pin: finalPin };
     } else if (loginCtx.mode === "dispositivo") {
-      body = { mode: "dispositivo", studentId: loginCtx.studentId, ...(loginCtx.nid ? { nid: loginCtx.nid } : {}) };
+      // O PIN precisa ir junto: sem ele o servidor sempre respondia "PIN incorreto"
+      body = { mode: "dispositivo", studentId: loginCtx.studentId, ...(loginCtx.nid ? { nid: loginCtx.nid } : {}), pin: finalPin };
     } else {
       body = { mode: "aula", studentId: loginCtx.studentId, sessionId: loginCtx.sessionId, nid: loginCtx.nid, pin: finalPin };
     }
@@ -183,10 +184,16 @@ function EntrarInner() {
   }
 
   async function submitFigures(seq: string[]) {
-    if (!loginCtx || loginCtx.mode !== "aula") return;
+    if (!loginCtx) return;
+    // Figuras valem nos três caminhos: aula, aparelho de casa e QR do cartão
+    const base = loginCtx.mode === "qr"
+      ? { mode: "qr", qrToken: loginCtx.qrToken }
+      : loginCtx.mode === "dispositivo"
+        ? { mode: "dispositivo", studentId: loginCtx.studentId, ...(loginCtx.nid ? { nid: loginCtx.nid } : {}) }
+        : { mode: "aula", studentId: loginCtx.studentId, sessionId: loginCtx.sessionId, nid: loginCtx.nid };
     const r = await fetch("/api/escola/aluno/entrar", {
       method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ mode: "aula", studentId: loginCtx.studentId, sessionId: loginCtx.sessionId, nid: loginCtx.nid, pictureSequence: seq }),
+      body: JSON.stringify({ ...base, pictureSequence: seq }),
     });
     const d = await r.json();
     if (!r.ok) { setFigError("Quase! Tente de novo."); setFigSeq([]); return; }

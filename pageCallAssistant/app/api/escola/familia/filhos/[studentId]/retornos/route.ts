@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { subjectInfo } from "@/lib/escola/subjects";
 import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { getFamilyContext } from "@/lib/escola/family-context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
@@ -29,7 +30,7 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
     const subs = await (prismaEdu as any).eduSubmission.findMany({
       where: { studentId: params.studentId, status: "EVALUATED", aiFeedback: { not: null } },
       orderBy: { evaluatedAt: "desc" }, take: 20,
-      select: { evaluatedAt: true, aiFeedback: true, activity: { select: { classSubject: { select: { subjectId: true } } } } },
+      select: { evaluatedAt: true, aiFeedback: true, activity: { select: { subjectCode: true, classSubject: { select: { subjectId: true } } } } },
     });
     const subjIds = Array.from(new Set(subs.map((s: any) => s.activity?.classSubject?.subjectId).filter(Boolean)));
     const subjMap = new Map<string, string>();
@@ -40,7 +41,7 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
     const retornos = subs.map((s: any) => {
       const fb = (s.aiFeedback ?? {}) as any;
       return {
-        subjectName: subjMap.get(s.activity?.classSubject?.subjectId) ?? "Componente",
+        subjectName: subjMap.get(s.activity?.classSubject?.subjectId) ?? (s.activity?.subjectCode ? subjectInfo(s.activity.subjectCode).name : "Reforço"),
         when: relativeDay(s.evaluatedAt),
         level: fb.level ?? fb.masteryLevel ?? null,
         acertou: fb.acertou ?? fb.gotRight ?? (Array.isArray(fb.strengths) ? fb.strengths[0] : null) ?? null,

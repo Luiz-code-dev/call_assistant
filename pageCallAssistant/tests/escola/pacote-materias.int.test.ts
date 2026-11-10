@@ -34,6 +34,12 @@ import { GET as getFamiliaMaterias } from "@/app/api/escola/familia/filhos/[stud
 import { POST as postSessao } from "@/app/api/escola/aluno/diagnostico/sessao/route";
 import { GET as getAtividades } from "@/app/api/escola/aluno/atividades/route";
 import { POST as postEnviar } from "@/app/api/escola/aluno/atividades/[id]/enviar/route";
+import { GET as getFamiliaResumo } from "@/app/api/escola/familia/filhos/[studentId]/resumo/route";
+import { GET as getFamiliaRetornos } from "@/app/api/escola/familia/filhos/[studentId]/retornos/route";
+import { GET as getFamiliaEvolucao } from "@/app/api/escola/familia/filhos/[studentId]/evolucao/route";
+import { POST as postEntrar } from "@/app/api/escola/aluno/entrar/route";
+import { signDeviceToken } from "@/lib/escola/device";
+import bcrypt from "bcryptjs";
 
 const URL_A = process.env.ESCOLAS_DB_01_URL ?? "";
 const URL_B = process.env.ESCOLAS_DB_02_URL ?? "";
@@ -309,6 +315,21 @@ describe("Outra matéria depois de Matemática", () => {
     expect(porCodigo["CI"]?.estado).toBe("COMECAR");
   });
 
+  it("painel da família abre com trilha da biblioteca (sem subjectId): resumo, retornos e evolução", async () => {
+    const guardianId = await responsavelDoAlunoB();
+    estado.familia = { guardianId, networkId: alunoB.networkId, db: dbB };
+    const params = { params: { studentId: alunoB.studentId } };
+    const resumo = await json(await getFamiliaResumo(new Request("http://localhost"), params));
+    expect(resumo.status, resumo.texto).toBe(200);
+    expect(resumo.body.trilhaAtual, "trilha atual").not.toBeNull();
+    expect(["Matemática", "Língua Portuguesa"]).toContain(resumo.body.trilhaAtual.subjectName);
+    expect(resumo.texto).not.toMatch(/EF\d{2}[A-Z]{2}\d{2}/);
+    const retornos = await json(await getFamiliaRetornos(new Request("http://localhost"), params));
+    expect(retornos.status, retornos.texto).toBe(200);
+    const evolucao = await json(await getFamiliaEvolucao(new Request("http://localhost"), params));
+    expect(evolucao.status, evolucao.texto).toBe(200);
+  });
+
   it("a família não vê aluno que não é dela", async () => {
     const guardianId = await responsavelDoAlunoB();
     estado.familia = { guardianId, networkId: alunoB.networkId, db: dbB };
@@ -405,4 +426,28 @@ describe("Trilhas da biblioteca: só as etapas do pacote, todas publicadas", () 
       expect(problemas, problemas.slice(0, 10).join("\n")).toEqual([]);
     });
   }
+});
+
+describe("Entrar pelo aparelho de casa com PIN", () => {
+  async function entrar(studentId: string, nid: string, pin: string, nome: string) {
+    const cookie = await signDeviceToken([{ id: studentId, name: nome, initial: "", loginMode: "PIN", nid }]);
+    const req = new NextRequest("http://localhost/api/escola/aluno/entrar", {
+      method: "POST",
+      headers: { "content-type": "application/json", cookie: `sf_edu_device=${cookie}` },
+      body: JSON.stringify({ mode: "dispositivo", studentId, nid, pin }),
+    });
+    return json(await postEntrar(req));
+  }
+
+  it("PIN certo entra; PIN errado não entra", async () => {
+    await dbB.eduStudent.update({
+      where: { id: colegaB.studentId },
+      data: { pinHash: bcrypt.hashSync("2468", 10), pinFailedCount: 0, pinLockedUntil: null, loginMode: "PIN" },
+    });
+    const errado = await entrar(colegaB.studentId, colegaB.networkId, "1111", "Colega");
+    expect(errado.status).toBe(401);
+    const certo = await entrar(colegaB.studentId, colegaB.networkId, "2468", "Colega");
+    expect(certo.status, certo.texto).toBe(200);
+    expect(certo.body.ok).toBe(true);
+  });
 });
