@@ -8,7 +8,13 @@
  * (NextRequest → handler → res.status / res.json()).
  */
 
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
+
+// Sem request real: simula uma requisição sem cookie e sem Authorization (aluno não logado)
+vi.mock("next/headers", () => ({
+  cookies: () => ({ get: () => undefined, getAll: () => [], has: () => false }),
+  headers: () => new Headers(),
+}));
 import { readFileSync, existsSync, readdirSync } from "fs";
 import { join } from "path";
 import { NextRequest } from "next/server";
