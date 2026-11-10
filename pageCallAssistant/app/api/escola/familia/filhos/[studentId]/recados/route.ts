@@ -11,7 +11,6 @@ import { guardianOwnsStudent } from "@/lib/escola/family-guard";
 import { validarRecado, MAX_RECADOS_POR_DIA } from "@/lib/escola/recados";
 
 /* eslint-disable @typescript-eslint/no-explicit-any -- cliente Prisma do tenant sem tipagem estática */
-const P = prismaEdu as any;
 
 async function contexto(studentId: string) {
   if (!isEscolasEnabled()) return { erro: NextResponse.json({ error: "Não encontrado" }, { status: 404 }) };
@@ -21,12 +20,15 @@ async function contexto(studentId: string) {
   if (!(await guardianOwnsStudent(ctx.guardianId, studentId))) {
     return { erro: NextResponse.json({ error: "Não encontrado" }, { status: 404 }) };
   }
-  return { ctx };
+  // O cliente da rede vai junto: setTenantDb dentro desta função não chega ao handler
+  // (AsyncLocalStorage), e o prismaEdu falhava fora daqui
+  return { ctx, db: ctx.db ?? prismaEdu };
 }
 
 export async function GET(_req: Request, { params }: { params: { studentId: string } }) {
-  const { ctx, erro } = await contexto(params.studentId);
+  const { ctx, db, erro } = await contexto(params.studentId);
   if (erro) return erro;
+  const P = db as any;
   const recados = await P.eduFamilyMessage.findMany({
     where: { networkId: ctx!.networkId, studentId: params.studentId },
     orderBy: { createdAt: "desc" }, take: 20,
@@ -38,8 +40,9 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
 }
 
 export async function POST(req: Request, { params }: { params: { studentId: string } }) {
-  const { ctx, erro } = await contexto(params.studentId);
+  const { ctx, db, erro } = await contexto(params.studentId);
   if (erro) return erro;
+  const P = db as any;
   const v = validarRecado(await req.json().catch(() => null));
   if ("erro" in v) return NextResponse.json({ error: v.erro }, { status: 400 });
   const desde = new Date(Date.now() - 86_400_000);
