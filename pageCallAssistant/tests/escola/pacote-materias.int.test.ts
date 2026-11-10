@@ -64,6 +64,7 @@ async function ctxDoSeed(db: PrismaClient, studentId: string): Promise<Ctx> {
 /** Apaga só o reforço do aluno (base local do CI) */
 async function limparReforco(c: Ctx) {
   await c.db.eduAttemptSession.deleteMany({ where: { studentId: c.studentId } });
+  await c.db.eduTrackProgress.deleteMany({ where: { studentId: c.studentId } });
   await c.db.eduTrackAssignment.deleteMany({ where: { studentId: c.studentId } });
   await c.db.eduSkillMasteryEvent.deleteMany({ where: { studentId: c.studentId } });
   await c.db.eduSkillMastery.deleteMany({ where: { studentId: c.studentId } });
@@ -371,6 +372,11 @@ describe("Toda matéria, nas duas turmas: diagnóstico, trilha e a primeira ativ
         expect(env.status, `${nome} ${m.codigo}: entrega ${env.texto}`).toBe(200);
         const sub = await c.db.eduSubmission.findFirst({ where: { studentId: c.studentId, activityId: trilha!.primeiraAtividadeId }, orderBy: { attempt: "desc" } });
         expect(sub?.status, `${nome} ${m.codigo}: corrigida`).toBe("EVALUATED");
+        // Acertou tudo: a etapa conta e a trilha anda
+        const prog = await c.db.eduTrackProgress.findMany({ where: { studentId: c.studentId } });
+        const feitos = prog.flatMap((p) => p.completedItemIds);
+        const itens = await c.db.eduTrackItem.findMany({ where: { activityId: trilha!.primeiraAtividadeId }, select: { id: true } });
+        expect(itens.some((i) => feitos.includes(i.id)), `${nome} ${m.codigo}: etapa marcada na trilha`).toBe(true);
       }
     });
   }
@@ -449,5 +455,52 @@ describe("Entrar pelo aparelho de casa com PIN", () => {
     const certo = await entrar(colegaB.studentId, colegaB.networkId, "2468", "Colega");
     expect(certo.status, certo.texto).toBe(200);
     expect(certo.body.ok).toBe(true);
+  });
+});
+
+describe("Trilha: errar, tentar de novo e, esgotadas as tentativas, receber a base", () => {
+  it("6º B Matemática", async () => {
+    const c = alunoB;
+    await limparReforco(c);
+    await c.db.eduSubmission.deleteMany({ where: { studentId: c.studentId } });
+    const r = await materias(c);
+    const ma = (r.body.materias as Array<{ codigo: string; diagnosticoId: string }>).find((m) => m.codigo === "MA")!;
+    const { final } = await responderTudo(c, ma.diagnosticoId, (_p, g) => errada(g));
+    const atvId = (final.trilha as { primeiraAtividadeId: string }).primeiraAtividadeId;
+    const atv = await c.db.eduActivity.findUniqueOrThrow({ where: { id: atvId } });
+    const qs = await c.db.eduQuizQuestion.findMany({ where: { activityId: atvId }, orderBy: { order: "asc" } });
+    const itens = (await c.db.eduTrackItem.findMany({ where: { activityId: atvId }, select: { id: true } })).map((i) => i.id);
+    const etapaFeita = async () => (await c.db.eduTrackProgress.findMany({ where: { studentId: c.studentId } })).some((p) => p.completedItemIds.some((id) => itens.includes(id)));
+    const enviarErrado = async () => {
+      estado.ctx = c;
+      const req = new NextRequest(`http://localhost/api/escola/aluno/atividades/${atvId}/enviar`, {
+        method: "POST", headers: { "content-type": "application/json" },
+        body: JSON.stringify({ quizAnswers: qs.map((q) => ({ questionId: q.id, selectedIndex: (q.correctIndex + 1) % (q.options as unknown[]).length })) }),
+      });
+      return json(await postEnviar(req, { params: { id: atvId } }));
+    };
+
+    for (let t = 1; t <= atv.maxAttempts; t++) {
+      const env = await enviarErrado();
+      expect(env.status, env.texto).toBe(200);
+      if (t < atv.maxAttempts) {
+        expect(await etapaFeita(), `tentativa ${t}: ainda não conta`).toBe(false);
+        estado.ctx = c;
+        const feitas = await json(await getAtividades(new NextRequest("http://localhost/api/escola/aluno/atividades?filter=feito")));
+        const a = feitas.body.atividades.find((x: { id: string }) => x.id === atvId);
+        expect(a?.canRetry, "pode tentar de novo").toBe(true);
+      } else {
+        expect(await etapaFeita(), "tentativas esgotadas: a trilha segue").toBe(true);
+        // Se a habilidade da trilha tem pré-requisito com trilha na biblioteca, o aluno recebe essa base
+        const track = await c.db.eduTrack.findFirstOrThrow({ where: { items: { some: { activityId: atvId } } } });
+        const pre = await c.db.eduSkillPrerequisite.findMany({ where: { skillId: { in: track.skillIds }, status: "APPROVED" } });
+        const comTrilha = await c.db.eduTrack.findMany({ where: { status: "APPROVED", networkId: null, skillIds: { hasSome: pre.map((x) => x.prerequisiteSkillId) } } });
+        if (comTrilha.length) {
+          expect(env.body.trilha?.base, `base atribuída (${comTrilha.map((x) => x.id).join(", ")})`).toBeTruthy();
+        }
+      }
+    }
+    const alertas = await c.db.eduTeacherAlert.count({ where: { studentId: c.studentId, createdAt: { gte: inicioDoTeste } } });
+    expect(alertas, "nenhum aviso ao professor").toBe(0);
   });
 });

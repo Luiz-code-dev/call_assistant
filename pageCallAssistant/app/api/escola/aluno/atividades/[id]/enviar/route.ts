@@ -8,6 +8,7 @@ import { getOpenAI } from "@/lib/openai";
 import { subjectToWhisperLang, stageToAgeGroup } from "@/lib/escola/subject-lang";
 import { recordMasteryEvent, extractMisconceptionCodes } from "@/lib/escola/mastery-event";
 import { alunoPodeAbrirAtividade, contextoPedagogico } from "@/lib/escola/atividade-acesso";
+import { registrarEtapa, type ResultadoEtapa } from "@/lib/escola/trilha-progresso";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -154,6 +155,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   }
 
   // Quiz: auto-corrige imediatamente (sem IA externa)
+  let nivelQuiz: "MASTERED" | "ALMOST" | "NOT_YET" | null = null;
   if (activity.type === "QUIZ") {
     try {
       const answers = quizAnswers ?? [];
@@ -174,6 +176,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
       const maxScore = Number(activity.maxScore) || 10;
       const scoreFrac = result.score / maxScore;
       const masteryLevel = scoreFrac >= 0.7 ? "MASTERED" : scoreFrac >= 0.4 ? "ALMOST" : "NOT_YET";
+      nivelQuiz = masteryLevel;
       await (prismaEdu as any).eduSubmission.update({
         where: { id: submission.id },
         data: {
@@ -203,5 +206,15 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   }
   // WRITTEN/SPOKEN: avaliação IA via cron (B8) — aiStatus=PENDING já gravado
 
-  return NextResponse.json({ submissionId: submission.id, status: "SUBMITTED" });
+  // Trilha: marca a etapa (ou espera nova tentativa) e, esgotadas as tentativas em
+  // "Ainda não", atribui a trilha da base. Uma falha aqui não perde a entrega.
+  let trilha: ResultadoEtapa | null = null;
+  if (activity.type !== "QUIZ" || nivelQuiz) {
+    trilha = await registrarEtapa(ctx, params.id, {
+      nivel: activity.type === "QUIZ" ? nivelQuiz : null,
+      tentativasRestantes: Number(activity.maxAttempts) - attempt,
+    }).catch((err: Error) => { console.error(`[aluno/enviar] trilha ${params.id}:`, err.message); return null; });
+  }
+
+  return NextResponse.json({ submissionId: submission.id, status: "SUBMITTED", trilha });
 }

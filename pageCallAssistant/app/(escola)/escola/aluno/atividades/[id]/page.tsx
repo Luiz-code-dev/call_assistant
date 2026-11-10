@@ -290,7 +290,7 @@ function QuizActivity({ activity, onSubmit }: { activity: Atividade; onSubmit: (
     setSubmitting(false);
   };
 
-  if (!q) return <p className="text-center text-[#5B5470] py-16">Sem questoes.</p>;
+  if (!q) return <p className="text-center text-[#5B5470] py-16">Sem questões.</p>;
 
   if (reviewing) return (
     <div className="space-y-4">
@@ -332,7 +332,7 @@ function QuizActivity({ activity, onSubmit }: { activity: Atividade; onSubmit: (
       <div className="rounded-3xl bg-white shadow-[0_4px_18px_rgba(91,33,182,0.08)] p-4">
         <div className="flex items-start gap-3">
           <p className="font-medium text-[#1F1A2E] leading-relaxed flex-1">{q.question}</p>
-          <OuvirButton texto={q.question} />
+          <OuvirButton texto={`${q.question} ${(q.options as string[]).map((o, i) => `Alternativa ${String.fromCharCode(65 + i)}: ${o}.`).join(" ")}`} />
         </div>
       </div>
 
@@ -454,7 +454,10 @@ export default function FazerAtividadePage() {
             .then((r2) => r2.json())
             .then((d2) => {
               const done = (d2.atividades as Atividade[]).find((a) => a.id === id);
-              if (done?.isDone) router.replace(`/escola/aluno/atividades/${id}/retorno`);
+              // "Tentar de novo": abre as questões outra vez se ainda há tentativa
+              const tentar = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("tentar") === "1";
+              if (done && tentar && done.canRetry) { setActivity(done); setLoading(false); }
+              else if (done?.isDone) router.replace(`/escola/aluno/atividades/${id}/retorno`);
               else setLoading(false);
             });
         } else {

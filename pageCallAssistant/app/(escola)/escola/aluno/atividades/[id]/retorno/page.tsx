@@ -13,6 +13,7 @@ interface AiFeedback {
 }
 interface Activity { id: string; title: string; prompt: string; maxAttempts: number; type: string }
 interface RetornoData {
+  base?: { titulo: string } | null;
   submissionId: string;
   attempt: number;
   status: string;
@@ -83,7 +84,9 @@ export default function RetornoPage() {
 
   const { aiFeedback, status, teacherNote, transcript, activity, masteryLevel } = data;
   const isPending = status === "SUBMITTED";
-  const canRetry = data.attempt < activity.maxAttempts && status !== "REVIEWED";
+  // Quem já domina não precisa repetir; quem errou e ainda tem tentativa repete antes de seguir
+  const canRetry = data.attempt < activity.maxAttempts && status !== "REVIEWED" && masteryLevel !== "MASTERED";
+  const repetirPrimeiro = canRetry && masteryLevel === "NOT_YET";
   const nivel = masteryLevel ? LEVEL[masteryLevel] ?? null : null;
 
   return (
@@ -218,17 +221,32 @@ export default function RetornoPage() {
           </>
         )}
 
+        {/* Base: tentativas esgotadas em "Ainda não" */}
+        {data.base && (
+          <div className="rounded-3xl bg-[#FFF7E0] p-5 flex gap-3 items-start">
+            <div className="w-10 h-10 rounded-2xl bg-[#FBBF24] text-white flex items-center justify-center shrink-0"><RefreshCw className="size-5" /></div>
+            <div>
+              <p className="text-sm font-extrabold text-[#92400E]">Vamos reforçar a base</p>
+              <p className="text-sm text-[#1F1A2E] leading-relaxed mt-0.5">Separamos uma trilha para firmar o que vem antes: <strong>{data.base.titulo}</strong>. Ela já está na sua trilha.</p>
+            </div>
+          </div>
+        )}
+
         {/* Tentar de novo */}
         {canRetry && (
-          <button onClick={() => router.push(`/escola/aluno/atividades/${id}`)}
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl border-2 border-[#DDD6EE] bg-white font-medium text-[#1F1A2E] hover:border-[#6D28D9] transition-all min-h-[44px]">
+          <button onClick={() => router.push(`/escola/aluno/atividades/${id}?tentar=1`)}
+            className={repetirPrimeiro
+              ? "w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-bold text-white bg-[#6D28D9] hover:bg-[#5B21B6] transition-colors min-h-[52px]"
+              : "w-full flex items-center justify-center gap-2 py-3 rounded-2xl border-2 border-[#DDD6EE] bg-white font-medium text-[#1F1A2E] hover:border-[#6D28D9] transition-all min-h-[44px]"}>
             <RefreshCw className="size-4" />Tentar de novo (tentativa {data.attempt + 1} de {activity.maxAttempts})
           </button>
         )}
 
         <button onClick={() => router.push("/escola/aluno/trilha")}
-          className="w-full py-4 rounded-2xl font-bold text-white bg-[#6D28D9] hover:bg-[#5B21B6] transition-colors min-h-[52px]">
-          Continuar minha trilha
+          className={repetirPrimeiro
+            ? "w-full py-3 rounded-2xl font-semibold text-[#5B5470] bg-white shadow-[0_2px_10px_rgba(91,33,182,0.08)] min-h-[48px]"
+            : "w-full py-4 rounded-2xl font-bold text-white bg-[#6D28D9] hover:bg-[#5B21B6] transition-colors min-h-[52px]"}>
+          {repetirPrimeiro ? "Ver minha trilha" : "Continuar minha trilha"}
         </button>
         <button onClick={() => router.push("/escola/aluno")}
           className="w-full py-3 rounded-2xl font-semibold text-[#5B5470] bg-white shadow-[0_2px_10px_rgba(91,33,182,0.08)] min-h-[48px]">
