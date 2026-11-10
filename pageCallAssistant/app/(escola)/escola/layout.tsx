@@ -5,6 +5,28 @@ import { getEduContext } from "@/lib/escola/context";
 import { EduRole } from "@/lib/escola/types";
 import { prismaEdu } from "@/lib/escola/db";
 import { catalogDb } from "@/lib/escola/catalogo";
+import type { Metadata, Viewport } from "next";
+
+export const metadata: Metadata = {
+  title: "SpeakFlow Escolas",
+  description: "Reforço escolar personalizado com IA",
+  manifest: "/escola-manifest.json",
+  icons: {
+    icon: [
+      { url: "/escola-icons/favicon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/escola-icons/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/escola-icons/icon-192.png",   sizes: "192x192", type: "image/png" },
+    ],
+    apple: [{ url: "/escola-icons/apple-touch-icon.png", sizes: "180x180" }],
+    shortcut: "/escola-icons/favicon.ico",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#6D28D9",
+  width: "device-width",
+  initialScale: 1,
+};
 
 // Páginas de aluno, família e rotas públicas NÃO usam o EscAppShell
 function isShellFreePath(pathname: string): boolean {

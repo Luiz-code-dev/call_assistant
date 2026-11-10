@@ -20,11 +20,35 @@ const ROOT = join(__dirname, "..", "..");
 const DATA_DIR = join(ROOT, "prisma", "data", "conteudo");
 const TRILHAS_DIR = join(DATA_DIR, "trilhas");
 const DIAG_DIR = join(DATA_DIR, "diagnosticos");
-const PREREQ_FILE = join(DATA_DIR, "prerequisitos-pacote-demo.json");
+const PREREQ_FILES = [
+  join(DATA_DIR, "prerequisitos-pacote-demo.json"),
+  join(DATA_DIR, "prerequisitos-materias-demo.json"),
+];
 const FICHAS_FILE = join(DATA_DIR, "fichas", "fichas-pacote-demo.json");
 
 const REVIEW_NOTE = "pacote de demonstracao, revisao pedagogica pendente";
 const LOCK_ID = 2003; // pg_advisory_lock id unico para este importador
+
+// Trecho do EduSubject.name de cada componente BNCC (o EduSubject não tem código)
+const NOME_DO_COMPONENTE = {
+  LP: "Portugu", MA: "Matem", CI: "Ciênc", HI: "Hist", GE: "Geogr",
+  AR: "Arte", EF: "Física", LI: "Ingl", ER: "Religi",
+};
+
+async function resolveSubjectId(db, subjectCode) {
+  const trecho = NOME_DO_COMPONENTE[subjectCode];
+  if (!trecho) return null;
+  const subject = await db.eduSubject.findFirst({
+    where: { name: { contains: trecho, mode: "insensitive" } },
+    select: { id: true },
+  });
+  return subject?.id ?? null;
+}
+
+function anoDoArquivo(id) {
+  const m = /-(\d)A(?:-|$)/.exec(id ?? "");
+  return m ? Number(m[1]) : null;
+}
 
 function tenantDb(envVar) {
   const url = process.env[envVar];
@@ -43,8 +67,13 @@ function listTenantEnvVars() {
 
 // ── Pré-requisitos ────────────────────────────────────────────────────────────
 async function importPrerequisitos(db) {
-  if (!existsSync(PREREQ_FILE)) return;
-  const raw = JSON.parse(readFileSync(PREREQ_FILE, "utf8"));
+  for (const file of PREREQ_FILES) {
+    if (existsSync(file)) await importPrerequisitosDe(db, file);
+  }
+}
+
+async function importPrerequisitosDe(db, prereqFile) {
+  const raw = JSON.parse(readFileSync(prereqFile, "utf8"));
   // O JSON pode ser um array direto ou ter a estrutura { criar: [...], rejeitar: [...] }
   const items = Array.isArray(raw) ? raw : (raw.criar ?? []);
   const rejeitar = Array.isArray(raw) ? [] : (raw.rejeitar ?? []);
@@ -154,19 +183,33 @@ async function importFichas(db) {
 // ── Trilhas ───────────────────────────────────────────────────────────────────
 async function importTrilhas(db) {
   const files = readdirSync(TRILHAS_DIR).filter(f => f.endsWith(".json") && f !== "MA-06.json");
-  // Apenas os arquivos do pacote de demonstracao
-  const demoFiles = files.filter(f => f === "FRAC.json" || f === "LP-05.json");
+  // Todos os arquivos do pacote de demonstração (FRAC, LP e todos os novos componentes)
+  const demoFiles = files.filter(f =>
+    f === "FRAC.json" || f === "LP-05.json" ||
+    /^[A-Z]{2,3}-\d{2}\.json$/.test(f)
+  );
   let n = 0;
 
   for (const file of demoFiles) {
     const trilhas = JSON.parse(readFileSync(join(TRILHAS_DIR, file), "utf8"));
     for (const trilha of trilhas) {
-      const skill = await db.eduSkill.findUnique({ where: { code: trilha.skillCode }, select: { id: true } });
-      if (!skill) { console.warn(`  [trilha] habilidade nao encontrada: ${trilha.skillCode}`); continue; }
+      const skill = await db.eduSkill.findUnique({ where: { code: trilha.skillCode }, select: { id: true, subjectCode: true, gradeYears: true } });
+      if (!skill) throw new Error(`[trilha] habilidade nao encontrada: ${trilha.skillCode} (${file})`);
 
+      const subjectCode = trilha.subjectCode ?? skill.subjectCode;
+      const gradeYear = trilha.gradeYear ?? Math.max(...skill.gradeYears);
       const trackId = `SF-TRACK-${trilha.skillCode}`;
-      const existingTrack = await db.eduTrack.findUnique({ where: { id: trackId }, select: { id: true, status: true } });
-      if (existingTrack?.status === "APPROVED") { n++; continue; }
+      const existingTrack = await db.eduTrack.findUnique({ where: { id: trackId }, select: { id: true, status: true, subjectCode: true, gradeYear: true } });
+      if (existingTrack?.status === "APPROVED") {
+        // Só completa metadados vazios; o conteúdo aprovado não é alterado
+        if (!existingTrack.subjectCode || existingTrack.gradeYear == null) {
+          await db.eduTrack.update({
+            where: { id: trackId },
+            data: { subjectCode: existingTrack.subjectCode ?? subjectCode, gradeYear: existingTrack.gradeYear ?? gradeYear },
+          });
+        }
+        n++; continue;
+      }
 
       // Upsert atividades antes da trilha
       for (const act of trilha.activities ?? []) {
@@ -226,22 +269,12 @@ async function importTrilhas(db) {
       }
 
       // Upsert a trilha
-      const existingSubject = await db.eduSubject.findFirst({
-        where: { networkId: null },
-        select: { id: true },
-      }).catch(() => null);
-
-      // Busca ou infere o subjectId pelo codigo BNCC
-      const isLP = trilha.skillCode.includes("LP");
-      const subjectQuery = isLP ? { name: { contains: "Portugu" } } : { name: { contains: "Matem" } };
-      const subject = await db.eduSubject.findFirst({ where: subjectQuery, select: { id: true, name: true } }).catch(() => null);
-      const subjectId = subject?.id ?? existingSubject?.id ?? "sem-disciplina";
-
-      const gradeYear = trilha.gradeYear ?? parseInt(trilha.skillCode.replace(/\D/g, "")[0]) ?? 6;
+      const subjectId = await resolveSubjectId(db, subjectCode);
 
       const trackData = {
         networkId: null,
         subjectId,
+        subjectCode,
         gradeYear,
         title: trilha.title ?? `Trilha ${trilha.skillCode}`,
         skillIds: [skill.id],
@@ -253,7 +286,7 @@ async function importTrilhas(db) {
       await db.eduTrack.upsert({
         where: { id: trackId },
         create: { id: trackId, ...trackData },
-        update: { title: trackData.title, status: "APPROVED" },
+        update: { title: trackData.title, status: "APPROVED", subjectId, subjectCode, gradeYear },
       });
 
       // Upsert itens da trilha
@@ -288,14 +321,27 @@ async function importDiagnosticos(db) {
     const diag = JSON.parse(readFileSync(join(DIAG_DIR, file), "utf8"));
     if (!diag.id || !diag.items) continue;
 
-    const existing = await db.eduDiagnostic.findUnique({ where: { id: diag.id }, select: { id: true, status: true } });
-    if (existing?.status === "APPROVED") { n++; continue; }
+    const primeiroItem = (diag.items ?? []).find((i) => i.role !== "DEGRAU_BANK") ?? diag.items[0];
+    const skillDoDiag = primeiroItem
+      ? await db.eduSkill.findUnique({ where: { code: primeiroItem.skillCode }, select: { subjectCode: true, gradeYears: true } })
+      : null;
+    const subjectCode = diag.subjectCode ?? skillDoDiag?.subjectCode ?? null;
+    const gradeYear = diag.gradeYear ?? anoDoArquivo(diag.id) ?? (skillDoDiag ? Math.max(...skillDoDiag.gradeYears) : null);
+    if (!subjectCode || gradeYear == null) throw new Error(`[diagnostico] ${file}: sem subjectCode ou gradeYear`);
 
-    const subject = await db.eduSubject.findFirst({
-      where: { name: { contains: diag.subjectName ?? "Matem" } },
-      select: { id: true },
-    }).catch(() => null);
-    const subjectId = subject?.id ?? "sem-disciplina";
+    const existing = await db.eduDiagnostic.findUnique({ where: { id: diag.id }, select: { id: true, status: true, subjectCode: true, gradeYear: true } });
+    if (existing?.status === "APPROVED") {
+      // Só completa metadados vazios; o conteúdo aprovado não é alterado
+      if (!existing.subjectCode || existing.gradeYear == null) {
+        await db.eduDiagnostic.update({
+          where: { id: diag.id },
+          data: { subjectCode: existing.subjectCode ?? subjectCode, gradeYear: existing.gradeYear ?? gradeYear },
+        });
+      }
+      n++; continue;
+    }
+
+    const subjectId = await resolveSubjectId(db, subjectCode);
 
     const diagTitle = diag.title ?? diag.titulo ?? diag.id;
     await db.eduDiagnostic.upsert({
@@ -304,14 +350,15 @@ async function importDiagnosticos(db) {
         id: diag.id,
         networkId: null,
         subjectId,
-        gradeYear: diag.gradeYear,
+        subjectCode,
+        gradeYear,
         title: diagTitle,
         cycle: diag.cycle ?? 1,
         status: "APPROVED",
         source: "SPEAKFLOW",
         createdById: "speakflow-system",
       },
-      update: { title: diagTitle, status: "APPROVED" },
+      update: { title: diagTitle, status: "APPROVED", subjectId, subjectCode, gradeYear },
     });
 
     // Upsert itens do diagnostico
@@ -353,8 +400,8 @@ async function importDiagnosticos(db) {
       const diagItemId = `${diag.id}-DI-${idx}`;
       await db.eduDiagnosticItem.upsert({
         where: { id: diagItemId },
-        create: { id: diagItemId, diagnosticId: diag.id, skillId: skill.id, order: idx, activityId: actId },
-        update: { activityId: actId },
+        create: { id: diagItemId, diagnosticId: diag.id, skillId: skill.id, order: idx, activityId: actId, role: item.role ?? "NORMAL" },
+        update: { activityId: actId, role: item.role ?? "NORMAL" },
       });
     }
     n++;

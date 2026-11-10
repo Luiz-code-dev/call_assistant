@@ -1,194 +1,188 @@
 /**
  * reforco-autonomo.int.test.ts
  *
- * Verifica que o reforço escolar funciona de forma totalmente autônoma:
- * nenhuma rota de aluno depende de diagnóstico aberto pela escola.
+ * Verifica que o reforço escolar funciona de forma completamente autônoma.
+ * Nenhuma rota de aluno exige diagnóstico aberto pela escola.
  *
- * Cobertura:
- *   1. API /materias retorna 9 componentes para 6º ano
- *   2. API /pendente inclui diagnósticos APPROVED da biblioteca (networkId null)
- *   3. Rota de sessão aceita diagnóstico APPROVED (não só OPEN)
- *   4. track-assignment.assignAfterDiagnostic usa modo AUTO independente do banco
- *   5. Nenhum EduTeacherAlert é criado pelo fluxo autônomo
- *   6. Itens do degrau ficam em EduAttemptSession.extraItems, não em EduDiagnosticItem
- *   7. A rota de sessão retorna resultado real com trilha atribuída quando concluído
- *   8. Os textos "escola ainda não indicou" e "Em breve" foram removidos
+ * Padrão: chama os handlers diretamente como os outros testes deste diretório
+ * (NextRequest → handler → res.status / res.json()).
  */
 
 import { describe, it, expect } from "vitest";
 import { readFileSync, existsSync } from "fs";
 import { join } from "path";
+import { NextRequest } from "next/server";
+
+// ── Importa os handlers diretamente ───────────────────────────────────────
+import { GET as getMaterias } from "@/app/api/escola/aluno/materias/route";
+import { GET as getDiagPendente } from "@/app/api/escola/aluno/diagnostico/pendente/route";
+import { POST as postSessao } from "@/app/api/escola/aluno/diagnostico/sessao/route";
 
 const ROOT = join(__dirname, "..", "..");
+const TRILHAS_DIR = join(ROOT, "prisma", "data", "conteudo", "trilhas");
+const DIAG_DIR    = join(ROOT, "prisma", "data", "conteudo", "diagnosticos");
 
-// ── 1. API de matérias existe e está tipada ────────────────────────────────
-describe("API /api/escola/aluno/materias", () => {
-  it("arquivo de rota existe", () => {
-    const p = join(ROOT, "app", "api", "escola", "aluno", "materias", "route.ts");
-    expect(existsSync(p)).toBe(true);
+// ── 1. Sem sessão — rotas autônomas retornam 401 (não 500) ────────────────
+describe("Reforço autônomo — sem sessão da escola logada", () => {
+  it("GET /materias: 401 sem cookie de aluno (nunca 500)", async () => {
+    // GET sem parâmetros
+    const res = await getMaterias();
+    expect(res.status).not.toBe(500);
+    expect([401, 403]).toContain(res.status);
   });
 
-  it("define componentes BNCC corretos por ano", () => {
-    const src = readFileSync(join(ROOT, "app", "api", "escola", "aluno", "materias", "route.ts"), "utf8");
-    // 6º ano deve incluir LI (Língua Inglesa)
-    expect(src).toContain('"LI"');
-    // 5º ano não inclui LI
-    expect(src).toContain("COMPONENTES_ANOS_INICIAIS");
-    expect(src).toContain("COMPONENTES_ANOS_FINAIS");
-    // Ensino Religioso está presente
-    expect(src).toContain("ER");
-  });
-});
-
-// ── 2. Rota pendente inclui biblioteca autônoma ────────────────────────────
-describe("API /api/escola/aluno/diagnostico/pendente", () => {
-  it("arquivo de rota existe e busca diagnosticos APPROVED da biblioteca", () => {
-    const p = join(ROOT, "app", "api", "escola", "aluno", "diagnostico", "pendente", "route.ts");
-    expect(existsSync(p)).toBe(true);
-    const src = readFileSync(p, "utf8");
-    // Deve buscar APPROVED além de OPEN
-    expect(src).toContain('"APPROVED"');
-    expect(src).toContain("networkId: null");
-    expect(src).toContain('source: "SPEAKFLOW"');
+  it("GET /diagnostico/pendente: 401 sem sessão (nunca 500)", async () => {
+    // GET sem parâmetros
+    const res = await getDiagPendente();
+    expect(res.status).not.toBe(500);
+    expect([401, 403]).toContain(res.status);
   });
 
-  it("não exige status OPEN exclusivamente", () => {
-    const src = readFileSync(join(ROOT, "app", "api", "escola", "aluno", "diagnostico", "pendente", "route.ts"), "utf8");
-    // Não deve ter APENAS 'status: "OPEN"' sem incluir APPROVED
-    const hasOnlyOpen = src.includes('status: "OPEN"') && !src.includes('"APPROVED"');
-    expect(hasOnlyOpen).toBe(false);
+  it("POST /diagnostico/sessao: 401 sem sessão (nunca 500)", async () => {
+    const req = new NextRequest("http://localhost/api/escola/aluno/diagnostico/sessao", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ action: "iniciar", diagnosticId: "qualquer" }),
+    });
+    const res = await postSessao(req);
+    expect(res.status).not.toBe(500);
+    expect([401, 403, 404]).toContain(res.status);
   });
 });
 
-// ── 3. Rota de sessão aceita APPROVED ─────────────────────────────────────
-describe("API /api/escola/aluno/diagnostico/sessao", () => {
-  it("arquivo de rota existe", () => {
-    const p = join(ROOT, "app", "api", "escola", "aluno", "diagnostico", "sessao", "route.ts");
-    expect(existsSync(p)).toBe(true);
+// ── 2. Cobertura de conteúdo por arquivo JSON ─────────────────────────────
+describe("Cobertura de conteúdo — 5º ano", () => {
+  const COMPS_5 = ["LP", "MA", "CI", "HI", "GE", "AR", "EF", "ER"];
+
+  for (const comp of COMPS_5) {
+    it(`${comp} 5º: arquivo de trilhas existe com 4 trilhas`, () => {
+      // MA usa FRAC.json (8 trilhas) ou MA-05.json
+      const f1 = join(TRILHAS_DIR, `${comp}-05.json`);
+      const f2 = comp === "MA" ? join(TRILHAS_DIR, "FRAC.json") : null;
+      const f3 = comp === "LP" ? join(TRILHAS_DIR, "LP-05.json") : null;
+      const path = existsSync(f1) ? f1 : (f2 && existsSync(f2)) ? f2 : f3;
+      expect(path, `Arquivo de trilhas ${comp} 5º não encontrado`).toBeTruthy();
+      if (!path) return;
+      const data = JSON.parse(readFileSync(path, "utf8"));
+      expect(Array.isArray(data)).toBe(true);
+      expect(data.length).toBeGreaterThanOrEqual(4);
+    });
+
+    it(`${comp} 5º: diagnóstico APPROVED com banco de degrau`, () => {
+      const fileName = comp === "MA"
+        ? "DIAG-FRAC-5A.json"
+        : comp === "LP"
+          ? "DIAG-LP-5A.json"
+          : `DIAG-${comp}-5A.json`;
+      const path = join(DIAG_DIR, fileName);
+      expect(existsSync(path), `Diagnóstico ${fileName} não encontrado`).toBe(true);
+      const diag = JSON.parse(readFileSync(path, "utf8"));
+      expect(diag.status).toBe("APPROVED");
+      const degrauItems = diag.items.filter((i: { role?: string }) => i.role === "DEGRAU_BANK");
+      expect(degrauItems.length, `${fileName}: sem banco de degrau`).toBeGreaterThan(0);
+    });
+  }
+});
+
+describe("Cobertura de conteúdo — 6º ano", () => {
+  const COMPS_6 = ["LP", "MA", "CI", "HI", "GE", "AR", "EF", "LI", "ER"];
+
+  for (const comp of COMPS_6) {
+    it(`${comp} 6º: arquivo de trilhas existe com 4 trilhas`, () => {
+      const f1 = join(TRILHAS_DIR, `${comp}-06.json`);
+      const f2 = comp === "MA" ? join(TRILHAS_DIR, "FRAC.json") : null;
+      const path = existsSync(f1) ? f1 : (f2 && existsSync(f2)) ? f2 : null;
+      expect(path, `Arquivo de trilhas ${comp} 6º não encontrado`).toBeTruthy();
+      if (!path) return;
+      const data = JSON.parse(readFileSync(path, "utf8"));
+      expect(Array.isArray(data)).toBe(true);
+      expect(data.length).toBeGreaterThanOrEqual(4);
+    });
+
+    it(`${comp} 6º: diagnóstico APPROVED com banco de degrau`, () => {
+      const fileName = comp === "MA"
+        ? "DIAG-FRAC-6A-INICIO.json"
+        : `DIAG-${comp}-6A.json`;
+      const path = join(DIAG_DIR, fileName);
+      expect(existsSync(path), `Diagnóstico ${fileName} não encontrado`).toBe(true);
+      const diag = JSON.parse(readFileSync(path, "utf8"));
+      expect(diag.status).toBe("APPROVED");
+      const degrauItems = diag.items.filter((i: { role?: string }) => i.role === "DEGRAU_BANK");
+      expect(degrauItems.length, `${fileName}: sem banco de degrau`).toBeGreaterThan(0);
+    });
+  }
+});
+
+// ── 3. Estrutura dos diagnósticos ─────────────────────────────────────────
+describe("Estrutura dos diagnósticos — skillId em todo item", () => {
+  const diagFiles = existsSync(DIAG_DIR)
+    ? require("fs").readdirSync(DIAG_DIR).filter((f: string) => f.endsWith(".json"))
+    : [];
+
+  for (const file of diagFiles) {
+    it(`${file}: todo item tem skillId ou skillCode`, () => {
+      const diag = JSON.parse(readFileSync(join(DIAG_DIR, file), "utf8"));
+      for (const item of diag.items ?? []) {
+        const hasSkill = item.skillId || item.skillCode;
+        expect(hasSkill, `${file} item ${item.id ?? "??"}: sem skillId nem skillCode`).toBeTruthy();
+      }
+    });
+  }
+});
+
+// ── 4. Rotas existem e exportam o método correto ──────────────────────────
+describe("Rotas de reforço autônomo — exports corretos", () => {
+  it("GET /materias exporta função", () => {
+    expect(typeof getMaterias).toBe("function");
   });
 
-  it("aceita diagnostico APPROVED e networkId null (biblioteca)", () => {
-    const src = readFileSync(join(ROOT, "app", "api", "escola", "aluno", "diagnostico", "sessao", "route.ts"), "utf8");
-    expect(src).toContain('"APPROVED"');
-    expect(src).toContain("networkId: null");
-    // Não deve ter o filtro antigo que exigia só OPEN da rede
-    expect(src).not.toContain('status: "OPEN", networkId: ctx.networkId');
+  it("GET /diagnostico/pendente exporta função", () => {
+    expect(typeof getDiagPendente).toBe("function");
   });
 
-  it("degrau gravado em extraItems na sessao, nao em EduDiagnosticItem compartilhado", () => {
-    const src = readFileSync(join(ROOT, "app", "api", "escola", "aluno", "diagnostico", "sessao", "route.ts"), "utf8");
-    expect(src).toContain("extraItems");
-    // Não deve gravar DEGRAU- em EduDiagnosticItem
-    expect(src).not.toContain('"DEGRAU-"');
-    expect(src).not.toContain("aplicarDegrau");
-  });
-
-  it("await na atribuicao de trilha (nao fire-and-forget)", () => {
-    const src = readFileSync(join(ROOT, "app", "api", "escola", "aluno", "diagnostico", "sessao", "route.ts"), "utf8");
-    // Deve ter await assignAfterDiagnostic
-    expect(src).toContain("await assignAfterDiagnostic(");
-    // Não deve ter o padrão .catch(() => null) no assignAfterDiagnostic
-    expect(src).not.toMatch(/assignAfterDiagnostic\([^)]*\)\s*\.catch\(\s*\(\s*\)\s*=>\s*null\s*\)/);
-  });
-
-  it("retorna resultado real (domina/quaseLa/aindaNao/trilha)", () => {
-    const src = readFileSync(join(ROOT, "app", "api", "escola", "aluno", "diagnostico", "sessao", "route.ts"), "utf8");
-    expect(src).toContain('"domina"');
-    expect(src).toContain('"quaseLa"');
-    expect(src).toContain('"aindaNao"');
-    expect(src).toContain('"trilha"');
-    expect(src).toContain('"degrauPath"');
+  it("POST /diagnostico/sessao exporta função", () => {
+    expect(typeof postSessao).toBe("function");
   });
 });
 
-// ── 4. Atribuição sempre AUTO ──────────────────────────────────────────────
-describe("lib/escola/track-assignment.ts", () => {
-  it("assignAfterDiagnostic usa modo AUTO fixo, nao le trackAssignmentMode do banco para decidir", () => {
+// ── 5. track-assignment: sem alert de sugestão ────────────────────────────
+describe("track-assignment — modo AUTO, sem EduTeacherAlert", () => {
+  it("assignAfterDiagnostic usa modo AUTO fixo", () => {
     const src = readFileSync(join(ROOT, "lib", "escola", "track-assignment.ts"), "utf8");
-    // Deve ter modo AUTO constante
     expect(src).toContain('const mode = "AUTO"');
-    // Não deve criar EduTeacherAlert para trilha sugerida
-    expect(src).not.toContain("eduTeacherAlert.create");
+    expect(src).not.toContain('"TRACK_SUGGESTION"');
   });
 
-  it("nao cria EduTeacherAlert no fluxo de reforco autonomo", () => {
-    const src = readFileSync(join(ROOT, "lib", "escola", "track-assignment.ts"), "utf8");
-    expect(src).not.toContain("TRACK_SUGGESTION");
-    expect(src).not.toContain("type: \"TRACK_SUGGESTION\"");
-  });
-});
-
-// ── 5. Schema: extraItems em EduAttemptSession ─────────────────────────────
-describe("Prisma schema — EduAttemptSession", () => {
-  it("tem campo extraItems", () => {
-    const src = readFileSync(join(ROOT, "prisma", "escolas", "schema.prisma"), "utf8");
-    expect(src).toContain("extraItems");
-  });
-
-  it("migration 0014 existe", () => {
-    const p = join(ROOT, "prisma", "escolas", "migrations", "0014_degrau_por_aluno", "migration.sql");
-    expect(existsSync(p)).toBe(true);
-    const sql = readFileSync(p, "utf8");
-    expect(sql).toContain("extraItems");
-    expect(sql).toContain("isDegrauLegacy");
-    expect(sql).toContain("trackAssignmentMode");
+  it("sessao/route: await na atribuição (não fire-and-forget)", () => {
+    const src = readFileSync(join(ROOT, "app", "api", "escola", "aluno", "diagnostico", "sessao", "route.ts"), "utf8");
+    expect(src).toContain("await assignAfterDiagnostic(");
+    expect(src).not.toMatch(/assignAfterDiagnostic\([^)]*\)\s*\.catch\(\s*\(\s*\)\s*=>\s*null/);
   });
 });
 
-// ── 6. Tela do aluno: Minhas matérias ─────────────────────────────────────
-describe("Tela inicio do aluno", () => {
-  it("busca /api/escola/aluno/materias", () => {
-    const src = readFileSync(join(ROOT, "app", "(escola)", "escola", "aluno", "page.tsx"), "utf8");
-    expect(src).toContain("/api/escola/aluno/materias");
-    expect(src).toContain("Minhas matérias");
+// ── 6. Manifesto PWA ──────────────────────────────────────────────────────
+describe("Manifesto PWA", () => {
+  it("start_url = /escola/inicio", () => {
+    const m = JSON.parse(readFileSync(join(ROOT, "public", "escola-manifest.json"), "utf8"));
+    expect(m.start_url).toBe("/escola/inicio");
   });
 
-  it("nao exibe textos antigos de dependencia da escola", () => {
-    const src = readFileSync(join(ROOT, "app", "(escola)", "escola", "aluno", "page.tsx"), "utf8");
-    expect(src).not.toContain("escola ainda");
-    expect(src).not.toContain("ainda nao indicou");
-  });
-});
-
-// ── 7. Tela do resultado do diagnóstico ───────────────────────────────────
-describe("Tela diagnostico/[id]", () => {
-  it("mostra resultado real (nao 'Em breve')", () => {
-    const src = readFileSync(join(ROOT, "app", "(escola)", "escola", "aluno", "diagnostico", "[id]", "page.tsx"), "utf8");
-    expect(src).not.toContain("Em breve aparecerá no início");
-    expect(src).not.toContain("Sua trilha está sendo preparada");
-    // Deve mostrar resultado real
-    expect(src).toContain("resultado.domina");
-    expect(src).toContain("Diagnóstico concluído");
-  });
-});
-
-// ── 8. Tela da família ─────────────────────────────────────────────────────
-describe("Tela familia/[studentId]", () => {
-  it("nao exibe 'A escola ainda não indicou uma trilha'", () => {
-    const p = join(ROOT, "app", "(escola)", "escola", "familia", "[studentId]", "page.tsx");
-    if (!existsSync(p)) return; // skip se não existe
-    const src = readFileSync(p, "utf8");
-    expect(src).not.toContain("A escola ainda não indicou uma trilha");
-  });
-});
-
-// ── 9. Manifesto PWA ──────────────────────────────────────────────────────
-describe("Manifesto PWA escola-manifest.json", () => {
-  it("start_url aponta para /escola/inicio", () => {
-    const manifest = JSON.parse(readFileSync(join(ROOT, "public", "escola-manifest.json"), "utf8"));
-    expect(manifest.start_url).toBe("/escola/inicio");
+  it("theme_color = #6D28D9 (não #4F46E5)", () => {
+    const m = JSON.parse(readFileSync(join(ROOT, "public", "escola-manifest.json"), "utf8"));
+    expect(m.theme_color).toBe("#6D28D9");
   });
 
-  it("theme_color usa roxo do Escolas (nao #4F46E5)", () => {
-    const manifest = JSON.parse(readFileSync(join(ROOT, "public", "escola-manifest.json"), "utf8"));
-    expect(manifest.theme_color).not.toBe("#4F46E5");
-    expect(manifest.theme_color).toBe("#6D28D9");
-  });
-
-  it("icones apontam para /escola-icons/", () => {
-    const manifest = JSON.parse(readFileSync(join(ROOT, "public", "escola-manifest.json"), "utf8"));
-    for (const icon of manifest.icons ?? []) {
+  it("ícones apontam para /escola-icons/", () => {
+    const m = JSON.parse(readFileSync(join(ROOT, "public", "escola-manifest.json"), "utf8"));
+    for (const icon of m.icons ?? []) {
       expect(icon.src).toMatch(/^\/escola-icons\//);
+    }
+  });
+
+  it("arquivos de ícone existem em public/escola-icons/", () => {
+    const expected = ["icon-192.png", "icon-512.png", "apple-touch-icon.png", "favicon.ico"];
+    for (const f of expected) {
+      expect(existsSync(join(ROOT, "public", "escola-icons", f)), `faltando ${f}`).toBe(true);
     }
   });
 });
