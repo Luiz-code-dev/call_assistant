@@ -25,15 +25,15 @@ const DIAG_DIR    = join(ROOT, "prisma", "data", "conteudo", "diagnosticos");
 // ── 1. Sem sessão — rotas autônomas retornam 401 (não 500) ────────────────
 describe("Reforço autônomo — sem sessão da escola logada", () => {
   it("GET /materias: 401 sem cookie de aluno (nunca 500)", async () => {
-    const req = new NextRequest("http://localhost/api/escola/aluno/materias");
-    const res = await getMaterias(req);
+    // GET sem parâmetros
+    const res = await getMaterias();
     expect(res.status).not.toBe(500);
     expect([401, 403]).toContain(res.status);
   });
 
   it("GET /diagnostico/pendente: 401 sem sessão (nunca 500)", async () => {
-    const req = new NextRequest("http://localhost/api/escola/aluno/diagnostico/pendente");
-    const res = await getDiagPendente(req);
+    // GET sem parâmetros
+    const res = await getDiagPendente();
     expect(res.status).not.toBe(500);
     expect([401, 403]).toContain(res.status);
   });

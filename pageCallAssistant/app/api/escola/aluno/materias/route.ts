@@ -34,19 +34,20 @@ const CORES: Record<string, string> = {
 
 /** Normaliza EduSubject.name para código BNCC (LP, MA, etc.) */
 const NAME_TO_CODE: Record<string, string> = {
-  "língua portuguesa": "LP", "portugues":      "LP", "lingua portuguesa": "LP",
-  "matemática":        "MA", "matematica":     "MA",
-  "ciências":          "CI", "ciencias":       "CI",
-  "história":          "HI", "historia":       "HI",
+  "lingua portuguesa": "LP", "portugues": "LP",
+  "matematica":        "MA",
+  "ciencias":          "CI",
+  "historia":          "HI",
   "geografia":         "GE",
   "arte":              "AR",
-  "educação física":   "EF", "educacao fisica": "EF",
-  "língua inglesa":    "LI", "ingles":          "LI", "língua inglesa":  "LI",
+  "educacao fisica":   "EF",
+  "lingua inglesa":    "LI", "ingles": "LI",
   "ensino religioso":  "ER",
 };
 
 function nameToCode(name: string): string | null {
-  return NAME_TO_CODE[name.toLowerCase().trim()] ?? null;
+  const key = name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+  return NAME_TO_CODE[key] ?? null;
 }
 
 export async function GET() {
