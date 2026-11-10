@@ -198,8 +198,14 @@ async function seedRedeA() {
 
     const aluno = await db.eduStudent.upsert({
       where: { id: `aluno-${NETWORK_ID}` },
-      create: { id: `aluno-${NETWORK_ID}`, fullName: "Aluno Demo Silva", enrollmentCode: "DEMO2027A", networkId: rede.id, pinHash: hashPin("1234"), isActive: true },
-      update: {},
+      create: { id: `aluno-${NETWORK_ID}`, fullName: "Aluno Demo Silva", enrollmentCode: "DEMO2027A", networkId: rede.id, pinHash: hashPin("1234"), isActive: true, accessCode: "REFA6ANA" },
+      update: { accessCode: "REFA6ANA" },
+    });
+    // Código do aluno (entrada no reforço), registrado no catálogo
+    await catalog.codeIndex.upsert({
+      where: { code: "REFA6ANA" },
+      create: { code: "REFA6ANA", kind: "STUDENT_ACCESS", tenantId: NETWORK_ID },
+      update: { kind: "STUDENT_ACCESS", tenantId: NETWORK_ID },
     });
 
     await db.eduEnrollment.upsert({
@@ -309,8 +315,14 @@ async function seedRedeB() {
 
     const aluno = await db.eduStudent.upsert({
       where: { id: `aluno-${NETWORK_ID}` },
-      create: { id: `aluno-${NETWORK_ID}`, fullName: "Aluno Demo B Santos", enrollmentCode: "DEMO2027B", networkId: rede.id, pinHash: hashPin("5678"), isActive: true },
-      update: {},
+      create: { id: `aluno-${NETWORK_ID}`, fullName: "Aluno Demo B Santos", enrollmentCode: "DEMO2027B", networkId: rede.id, pinHash: hashPin("5678"), isActive: true, accessCode: "REFB6ANB" },
+      update: { accessCode: "REFB6ANB" },
+    });
+    // Código do aluno (entrada no reforço), registrado no catálogo
+    await catalog.codeIndex.upsert({
+      where: { code: "REFB6ANB" },
+      create: { code: "REFB6ANB", kind: "STUDENT_ACCESS", tenantId: NETWORK_ID },
+      update: { kind: "STUDENT_ACCESS", tenantId: NETWORK_ID },
     });
 
     await db.eduEnrollment.upsert({
@@ -337,8 +349,14 @@ async function seedRedeB() {
     });
     const irma = await db.eduStudent.upsert({
       where: { id: `aluna5-${NETWORK_ID}` },
-      create: { id: `aluna5-${NETWORK_ID}`, fullName: "Bia Demo B Santos", enrollmentCode: "DEMO2027B5", networkId: rede.id, pinHash: hashPin("2468"), isActive: true },
-      update: { isActive: true },
+      create: { id: `aluna5-${NETWORK_ID}`, fullName: "Bia Demo B Santos", enrollmentCode: "DEMO2027B5", networkId: rede.id, pinHash: hashPin("2468"), isActive: true, accessCode: "REFB5ANB" },
+      update: { accessCode: "REFB5ANB", isActive: true },
+    });
+    // Código do aluno (entrada no reforço), registrado no catálogo
+    await catalog.codeIndex.upsert({
+      where: { code: "REFB5ANB" },
+      create: { code: "REFB5ANB", kind: "STUDENT_ACCESS", tenantId: NETWORK_ID },
+      update: { kind: "STUDENT_ACCESS", tenantId: NETWORK_ID },
     });
     await db.eduEnrollment.upsert({
       where: { id: `enroll5-${NETWORK_ID}` },

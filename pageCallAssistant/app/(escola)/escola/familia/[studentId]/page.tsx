@@ -109,6 +109,13 @@ function AcessoFilhoCard({ studentId, loginMode }: { studentId: string; loginMod
   const [qrUrl, setQrUrl] = useState("");
   const [msg, setMsg] = useState("");
   const [loading, setLoading] = useState(false);
+  const [codigo, setCodigo] = useState<string | null>(null);
+
+  // Código do aluno: é o que ele digita para entrar (junto com o PIN)
+  useEffect(() => {
+    fetch(`/api/escola/familia/filhos/${studentId}/cartao`).then(r => r.ok ? r.json() : null)
+      .then(d => setCodigo(d?.codigo ?? null)).catch(() => null);
+  }, [studentId]);
 
   const FIGURE_IDS = ["sun","star","heart","house","fish","flower","moon","drop","cloud"];
   const FIGURE_LABEL: Record<string,string> = { sun:"Sol", star:"Estrela", heart:"Coração", house:"Casa", fish:"Peixe", flower:"Flor", moon:"Lua", drop:"Gota", cloud:"Nuvem" };
@@ -171,6 +178,14 @@ function AcessoFilhoCard({ studentId, loginMode }: { studentId: string; loginMod
   return (
     <section className="bg-white rounded-3xl p-5 shadow-[0_4px_18px_rgba(91,33,182,0.08)]">
       <h2 className="text-[16px] font-extrabold text-[#1F1A2E] mb-3">Acesso do seu filho</h2>
+
+      {codigo && (
+        <div className="rounded-2xl bg-[#F6F4FE] px-4 py-3 mb-3">
+          <p className="text-xs font-semibold text-[#5B5470]">Código para entrar</p>
+          <p className="text-2xl font-extrabold font-mono tracking-wider text-[#4C1D95] mt-0.5">{codigo}</p>
+          <p className="text-xs text-[#5B5470] mt-1">Em &quot;Entrar&quot;, o seu filho toca em &quot;Digitar o meu código&quot;, digita este código e depois o PIN.</p>
+        </div>
+      )}
 
       {msg && <p className="text-sm text-[#166534] bg-[#DCFCE7] border border-[#BBF7D0] px-3 py-2 rounded-lg mb-3">{msg}</p>}
 

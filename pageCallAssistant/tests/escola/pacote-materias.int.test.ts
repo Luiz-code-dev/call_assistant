@@ -49,6 +49,9 @@ import { GET as getSemanaFamilia } from "@/app/api/escola/familia/filhos/[studen
 import { GET as getContato, POST as postContato } from "@/app/api/escola/familia/contato/route";
 import { POST as postAvisosFamilia } from "@/app/api/escola/familia/avisos/route";
 import { avisarFamilia, avisoConquista } from "@/lib/escola/avisos-familia";
+import { POST as postCodigoAluno } from "@/app/api/escola/aluno/entrar/codigo-aluno/route";
+import { GET as getCartaoFamilia } from "@/app/api/escola/familia/filhos/[studentId]/cartao/route";
+import { garantirCodigoAluno, formatarCodigo } from "@/lib/escola/codigo-aluno";
 
 const URL_A = process.env.ESCOLAS_DB_01_URL ?? "";
 const URL_B = process.env.ESCOLAS_DB_02_URL ?? "";
@@ -525,6 +528,51 @@ describe("Família acompanha de perto: semana, contato e avisos", () => {
     expect(segundo).toBe(0);
     expect(await dbB.eduGuardianAlert.count({ where: { guardianId, studentId: alunoB.studentId, kind: "CONQUISTA", day: "2031-01-15" } })).toBe(1);
     await dbB.eduGuardianAlert.deleteMany({ where: { studentId: alunoB.studentId, day: "2031-01-15" } });
+describe("Reforço: o aluno entra com o código dele, sem código de turma", () => {
+  const post = (url: string, body: unknown) => new NextRequest(url, {
+    method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body),
+  });
+
+  it("código do seed (REFB-6ANB) acha o aluno e entra com o PIN", async () => {
+    await dbB.eduStudent.update({
+      where: { id: alunoB.studentId },
+      data: { pinHash: bcrypt.hashSync("5678", 10), pinFailedCount: 0, pinLockedUntil: null, loginMode: "PIN" },
+    });
+    const achou = await json(await postCodigoAluno(post("http://localhost/api/escola/aluno/entrar/codigo-aluno", { code: "refb-6anb" })));
+    expect(achou.status, achou.texto).toBe(200);
+    expect(achou.body.display).toMatch(/^Aluno/);
+    expect(achou.texto).not.toMatch(/networkId|studentId|enrollment/);
+
+    const errado = await json(await postEntrar(post("http://localhost/api/escola/aluno/entrar", { mode: "codigo", code: "REFB6ANB", pin: "1111" })));
+    expect(errado.status).toBe(401);
+    const certo = await postEntrar(post("http://localhost/api/escola/aluno/entrar", { mode: "codigo", code: "REFB-6ANB", pin: "5678" }));
+    expect(certo.status).toBe(200);
+    // reforço é em casa: o aparelho passa a lembrar o aluno
+    expect(certo.headers.get("set-cookie") ?? "").toMatch(/sf_edu_device=/);
+  });
+
+  it("código que não existe não entra", async () => {
+    const r = await json(await postCodigoAluno(post("http://localhost/api/escola/aluno/entrar/codigo-aluno", { code: "ZZZZ-9999" })));
+    expect(r.status).toBe(404);
+    const l = await json(await postEntrar(post("http://localhost/api/escola/aluno/entrar", { mode: "codigo", code: "ZZZZ9999", pin: "5678" })));
+    expect(l.status).toBe(404);
+  });
+
+  it("a família vê o código do filho", async () => {
+    const guardianId = await responsavelDoAlunoB();
+    estado.familia = { guardianId, networkId: alunoB.networkId, db: dbB };
+    const meu = await json(await getCartaoFamilia(new NextRequest("http://localhost"), { params: { studentId: alunoB.studentId } }));
+    expect(meu.status, meu.texto).toBe(200);
+    expect(meu.body.codigo).toBe("REFB-6ANB");
+  });
+
+  it("aluno sem código ganha um, e ele funciona para entrar", async () => {
+    await dbB.eduStudent.update({ where: { id: colegaB.studentId }, data: { accessCode: null, pinHash: bcrypt.hashSync("2468", 10), pinFailedCount: 0, pinLockedUntil: null, loginMode: "PIN" } });
+    const codigo = await garantirCodigoAluno(dbB, colegaB.studentId, colegaB.networkId);
+    expect(codigo).toMatch(/^[A-HJ-NP-Z2-9]{8}$/);
+    expect(await garantirCodigoAluno(dbB, colegaB.studentId, colegaB.networkId)).toBe(codigo);
+    const entra = await postEntrar(post("http://localhost/api/escola/aluno/entrar", { mode: "codigo", code: formatarCodigo(codigo), pin: "2468" }));
+    expect(entra.status).toBe(200);
   });
 });
 
