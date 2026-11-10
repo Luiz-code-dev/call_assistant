@@ -248,6 +248,12 @@ describe("Degrau por aluno — Matemática do 6º B", () => {
     expect(final.resultado.erroComum?.texto, "texto do erro comum").toBeTruthy();
     expect(JSON.stringify(final.resultado)).not.toMatch(/"[a-z]+(-[a-z0-9]+){2,}"/);
     expect(final.trilha, "trilha na resposta").not.toBeNull();
+    // "Começar minha trilha" abre a primeira atividade: ela tem que estar na lista do aluno
+    estado.ctx = alunoB;
+    const lista = await json(await getAtividades(new NextRequest("http://localhost/api/escola/aluno/atividades?filter=todo")));
+    expect(lista.status, lista.texto).toBe(200);
+    const primeira = (final.trilha as unknown as { primeiraAtividadeId: string }).primeiraAtividadeId;
+    expect(lista.body.atividades.map((x: { id: string }) => x.id), "primeira atividade da trilha na lista").toContain(primeira);
     const ativas = await dbB.eduTrackAssignment.findMany({ where: { studentId: alunoB.studentId, endedAt: null }, include: { track: true } });
     expect(ativas.some((a) => a.track.skillIds.includes(ef04ma09.id))).toBe(true);
     expect(ativas.every((a) => a.assignedBy === "system")).toBe(true);
