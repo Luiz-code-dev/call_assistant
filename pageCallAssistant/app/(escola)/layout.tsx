@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "SpeakFlow Escolas",
+    title: "SpeakFlow",
   },
   openGraph: {
     type: "website",

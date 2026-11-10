@@ -35,17 +35,20 @@ export function avisoDeRecado(kind: string, texto: string, de: string): Aviso {
 export function avisoDeAgenda(
   item: { time: string; subjectCode: string | null; minutes: number },
   destino?: { titulo: string; materia: string | null; href: string } | null,
+  nome?: string | null,
 ): Aviso {
   const materia = destino?.materia ?? (item.subjectCode ? subjectInfo(item.subjectCode).name : "");
   const oque = destino?.titulo && destino.titulo !== materia ? destino.titulo : "";
+  const primeiro = (nome ?? "").trim().split(/\s+/)[0];
+  // O celular já mostra a hora do aviso: o texto fala do que estudar, curto e direto
   return {
     tipo: "agenda",
-    title: materia ? `Hora de estudar ${materia}` : "Hora de praticar",
+    title: primeiro ? `${primeiro}, hora de estudar!` : "Hora de estudar!",
     body: oque
-      ? `Combinado para as ${item.time}: ${item.minutes} minutos de ${oque}. Bora começar?`
+      ? `${materia ? `${materia}: ` : ""}${oque}. São só ${item.minutes} minutos. Vamos lá?`
       : materia
-        ? `Combinado para as ${item.time}: ${item.minutes} minutos de ${materia}. Bora começar?`
-        : `Combinado para as ${item.time}: ${item.minutes} minutos na sua trilha. Bora começar?`,
+        ? `${item.minutes} minutos de ${materia}. Vamos lá?`
+        : `Sua trilha te espera: ${item.minutes} minutos. Vamos lá?`,
     url: destino?.href ?? (item.subjectCode ? "/escola/aluno" : "/escola/aluno/trilha"),
     icon: "/escola-icons/aviso-agenda.png", badge: BADGE, tag: `agenda-${item.time}`, vibrate: [200, 100, 200, 100, 200],
   };
