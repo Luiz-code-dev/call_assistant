@@ -185,9 +185,11 @@ export default function AlunoHomePage() {
           ) : (
             <div className="grid grid-cols-2 gap-3">
               {materias.map((m) => {
+                // Em trilha: vai para a trilha. Diagnóstico feito sem trilha (domina tudo ou
+                // trilha encerrada): vai para a evolução, nunca para uma trilha vazia.
                 const href = m.diagnosticoId
                   ? `/escola/aluno/diagnostico/${m.diagnosticoId}`
-                  : "/escola/aluno/trilha";
+                  : m.estado === "em_trilha" ? "/escola/aluno/trilha" : "/escola/aluno/evolucao";
                 const isEmTrilha = m.estado === "em_trilha";
                 const isFeito    = m.estado === "feito";
                 const Icone = ICONES_MATERIA[m.codigo] ?? FlaskConical;
@@ -211,7 +213,7 @@ export default function AlunoHomePage() {
                       <p className="text-xs font-semibold text-[#1F1A2E] leading-tight">{m.nome}</p>
                       <p className="text-[10px] text-[#5B5470] mt-0.5">
                         {isEmTrilha ? (m.trilhaAtual ?? "Em prática")
-                          : isFeito ? "Diagnóstico feito"
+                          : isFeito ? "Diagnóstico feito · ver evolução"
                           : "Começar diagnóstico"}
                       </p>
                     </div>

@@ -150,20 +150,29 @@ export async function POST(req: NextRequest) {
     const shuffleOrder = shuffleWithSeed(Array.from({ length: items.length }, (_, i) => i), seed);
     const expiresAt = new Date(Date.now() + SESSION_HOURS * 3_600_000);
 
-    const session = await P.eduAttemptSession.create({
-      data: {
-        networkId: ctx.networkId,
-        studentId: ctx.studentId,
-        activityId: items[0].activityId,
-        diagnosticId,
-        currentQuestion: 0,
-        shuffleOrder,
-        extraItems: [],
-        answers: [],
-        minMsPerQuestion: MIN_MS_PER_Q,
-        expiresAt,
-      },
-    });
+    const dadosNovos = {
+      currentQuestion: 0,
+      shuffleOrder,
+      extraItems: [],
+      answers: [],
+      minMsPerQuestion: MIN_MS_PER_Q,
+      expiresAt,
+      startedAt: new Date(),
+      lastActivityAt: new Date(),
+    };
+    // Sessão incompleta que expirou: recomeça nela. Criar outra violaria o
+    // @@unique([studentId, activityId, diagnosticId]) e a rota respondia 500.
+    const session = existing
+      ? await P.eduAttemptSession.update({ where: { id: existing.id }, data: dadosNovos })
+      : await P.eduAttemptSession.create({
+          data: {
+            networkId: ctx.networkId,
+            studentId: ctx.studentId,
+            activityId: items[0].activityId,
+            diagnosticId,
+            ...dadosNovos,
+          },
+        });
 
     const first = items[shuffleOrder[0]];
     return NextResponse.json({

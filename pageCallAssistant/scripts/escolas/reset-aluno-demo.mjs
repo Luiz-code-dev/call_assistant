@@ -2,24 +2,20 @@
 /**
  * scripts/escolas/reset-aluno-demo.mjs
  *
- * Apaga dados de reforço de um aluno de demonstração:
- *   - sessões de diagnóstico
- *   - respostas (embutidas em EduAttemptSession.answers)
- *   - eventos de domínio (EduSkillMasteryEvent)
- *   - domínio de habilidades (EduSkillMastery)
- *   - atribuições de trilha (EduTrackAssignment)
+ * Apaga os dados de reforço de um aluno de demonstração, para ensaiar de novo:
+ *   - sessões de diagnóstico (com as respostas)
+ *   - eventos de domínio (EduSkillMasteryEvent) e domínio (EduSkillMastery)
+ *   - atribuições e progresso de trilha (EduTrackAssignment / EduTrackProgress)
  *
  * Uso:
- *   npm run escolas:reset-aluno-demo -- --student <id> [--materia MA]
+ *   npm run escolas:reset-aluno-demo -- --student aluno-demo-rede-b [--rede demo-rede-b] [--materia MA]
  *
- * Segurança:
- *   - Recusa rodar se a rede não tiver isDemo = true.
- *   - Nunca exposto como botão na tela da escola.
- *   - Com --materia, apaga só dados daquele componente (subjectCode).
+ * - Procura o aluno em todas as bases (ESCOLAS_DB_*_URL), não só na db01.
+ * - Define app.network_id na transação (RLS ativo: sem isso o aluno "não existe").
+ * - A rede vem de --rede ou do id do seed (aluno-<rede>).
+ * - Recusa rodar se a rede não tiver isDemo = true.
  */
-
 import { parseArgs } from "node:util";
-import { PrismaClient as CatalogClient } from "@prisma/escolas-catalogo";
 
 let PrismaClient;
 try {
@@ -30,142 +26,73 @@ try {
 
 const { values } = parseArgs({
   args: process.argv.slice(2),
-  options: {
-    student: { type: "string" },
-    materia: { type: "string" },
-  },
+  options: { student: { type: "string" }, rede: { type: "string" }, materia: { type: "string" } },
   allowPositionals: true,
 });
-
 const studentId = values.student;
-const materia   = values.materia ?? null;
+const materia = values.materia ?? null;
+const networkId = values.rede ?? (studentId?.startsWith("aluno-") ? studentId.slice("aluno-".length) : null);
 
-if (!studentId) {
-  console.error("Uso: npm run escolas:reset-aluno-demo -- --student <id> [--materia MA]");
+if (!studentId || !networkId) {
+  console.error("Uso: npm run escolas:reset-aluno-demo -- --student <id> [--rede <networkId>] [--materia MA]");
   process.exit(1);
 }
 
-// ── Conecta ao catálogo para buscar a rede do aluno ───────────────────────────
-const catalog = new CatalogClient();
-
-const dbUrl = process.env.ESCOLAS_DB_01_URL ?? process.env.ESCOLAS_DB_URL;
-if (!dbUrl) {
-  console.error("ESCOLAS_DB_01_URL ou ESCOLAS_DB_URL não definida.");
+const envVars = Object.keys(process.env).filter((k) => /^ESCOLAS_DB_\d+_URL$/.test(k) && process.env[k]).sort();
+if (envVars.length === 0 && process.env.ESCOLAS_DB_URL) envVars.push("ESCOLAS_DB_URL");
+if (envVars.length === 0) {
+  console.error("Nenhuma ESCOLAS_DB_*_URL definida.");
   process.exit(1);
 }
-const db = new PrismaClient({ datasources: { db: { url: dbUrl } } });
 
-try {
-  // Busca o aluno e sua rede
-  const enrollment = await db.eduEnrollment.findFirst({
-    where: { studentId },
-    include: { class: { include: { school: { include: { network: true } } } } },
-  });
+let encontrado = false;
+for (const envVar of envVars) {
+  const db = new PrismaClient({ datasources: { db: { url: process.env[envVar] } } });
+  try {
+    const resultado = await db.$transaction(async (tx) => {
+      await tx.$executeRaw`SELECT set_config('app.network_id', ${networkId}, true)`;
+      const aluno = await tx.eduStudent.findFirst({ where: { id: studentId, networkId }, select: { id: true, fullName: true } });
+      if (!aluno) return null;
+      const rede = await tx.eduNetwork.findUnique({ where: { id: networkId }, select: { name: true, isDemo: true } });
+      if (!rede?.isDemo) throw new Error(`BLOQUEADO: a rede "${rede?.name ?? networkId}" não tem isDemo = true. Reset recusado.`);
 
-  if (!enrollment) {
-    console.error(`Aluno ${studentId} não encontrado.`);
-    process.exit(1);
-  }
-
-  const network = enrollment.class?.school?.network;
-  if (!network) {
-    console.error("Rede do aluno não encontrada.");
-    process.exit(1);
-  }
-  if (!network.isDemo) {
-    console.error(`BLOQUEADO: a rede "${network.name}" não tem isDemo = true. Reset recusado.`);
-    process.exit(1);
-  }
-
-  const networkId = network.id;
-  console.log(`Rede: ${network.name} (${networkId}) — isDemo: true`);
-  console.log(`Aluno: ${studentId}${materia ? ` — matéria: ${materia}` : " — todas as matérias"}`);
-
-  // ── 1. Atribuições de trilha ─────────────────────────────────────────────
-  if (materia) {
-    const trilhaIds = await db.eduTrack.findMany({
-      where: { subjectCode: materia, OR: [{ networkId }, { networkId: null }] },
-      select: { id: true },
-    });
-    const ids = trilhaIds.map((t) => t.id);
-    if (ids.length > 0) {
-      const del = await db.eduTrackAssignment.deleteMany({
-        where: { studentId, networkId, trackId: { in: ids } },
+      // Filtros por matéria (opcional)
+      let trackIds = null, diagIds = null, skillIds = null;
+      if (materia) {
+        trackIds = (await tx.eduTrack.findMany({ where: { subjectCode: materia, OR: [{ networkId }, { networkId: null }] }, select: { id: true } })).map((t) => t.id);
+        diagIds = (await tx.eduDiagnostic.findMany({ where: { subjectCode: materia, OR: [{ networkId }, { networkId: null }] }, select: { id: true } })).map((d) => d.id);
+        skillIds = (await tx.eduSkill.findMany({ where: { subjectCode: materia }, select: { id: true } })).map((s) => s.id);
+      }
+      const assigns = await tx.eduTrackAssignment.findMany({
+        where: { studentId, networkId, ...(trackIds ? { trackId: { in: trackIds } } : {}) }, select: { id: true },
       });
-      console.log(`  EduTrackAssignment deletadas: ${del.count}`);
+      const assignIds = assigns.map((a) => a.id);
+      const prog = await tx.eduTrackProgress.deleteMany({ where: { studentId, assignmentId: { in: assignIds } } });
+      const atr = await tx.eduTrackAssignment.deleteMany({ where: { id: { in: assignIds } } });
+      const ses = await tx.eduAttemptSession.deleteMany({
+        where: { studentId, networkId, ...(diagIds ? { diagnosticId: { in: diagIds } } : {}) },
+      });
+      const evt = await tx.eduSkillMasteryEvent.deleteMany({ where: { studentId, networkId, ...(skillIds ? { skillId: { in: skillIds } } : {}) } });
+      const dom = await tx.eduSkillMastery.deleteMany({ where: { studentId, networkId, ...(skillIds ? { skillId: { in: skillIds } } : {}) } });
+      return { aluno: aluno.fullName, rede: rede.name, prog: prog.count, atr: atr.count, ses: ses.count, evt: evt.count, dom: dom.count };
+    });
+    if (resultado) {
+      encontrado = true;
+      console.log(`[${envVar}] ${resultado.aluno} (${resultado.rede})${materia ? `, matéria ${materia}` : ", todas as matérias"}`);
+      console.log(`  sessões de diagnóstico: ${resultado.ses}`);
+      console.log(`  trilhas atribuídas: ${resultado.atr} (progresso: ${resultado.prog})`);
+      console.log(`  eventos de domínio: ${resultado.evt}, domínios: ${resultado.dom}`);
+      console.log("Reset concluído.");
     }
-  } else {
-    const del = await db.eduTrackAssignment.deleteMany({
-      where: { studentId, networkId },
-    });
-    console.log(`  EduTrackAssignment deletadas: ${del.count}`);
+  } catch (err) {
+    console.error(`[${envVar}] ${err.message}`);
+    process.exitCode = 1;
+  } finally {
+    await db.$disconnect();
   }
-
-  // ── 2. Sessões de diagnóstico (incluem respostas em answers JSON) ────────
-  if (materia) {
-    const diagIds = await db.eduDiagnostic.findMany({
-      where: { subjectCode: materia, OR: [{ networkId }, { networkId: null }] },
-      select: { id: true },
-    });
-    const ids = diagIds.map((d) => d.id);
-    if (ids.length > 0) {
-      const del = await db.eduAttemptSession.deleteMany({
-        where: { studentId, networkId, diagnosticId: { in: ids } },
-      });
-      console.log(`  EduAttemptSession deletadas: ${del.count}`);
-    }
-  } else {
-    const del = await db.eduAttemptSession.deleteMany({
-      where: { studentId, networkId },
-    });
-    console.log(`  EduAttemptSession deletadas: ${del.count}`);
-  }
-
-  // ── 3. Eventos de domínio e domínio de habilidades ───────────────────────
-  if (materia) {
-    // Busca skillIds do componente
-    const skills = await db.eduSkill.findMany({
-      where: { code: { startsWith: materia === "LP" ? "EF" : materia === "MA" ? "EF" : "EF" } },
-      select: { id: true, code: true },
-    });
-    // Filtra pelo componente: EF06MA07, EF05LP03 — prefixo determinado pelo subjectCode
-    const prefix = subjectCodeToPrefix(materia);
-    const skillIds = skills.filter((s) => s.code.includes(prefix)).map((s) => s.id);
-
-    if (skillIds.length > 0) {
-      const delEvts = await db.eduSkillMasteryEvent.deleteMany({
-        where: { studentId, networkId, skillId: { in: skillIds } },
-      });
-      const delMast = await db.eduSkillMastery.deleteMany({
-        where: { studentId, networkId, skillId: { in: skillIds } },
-      });
-      console.log(`  EduSkillMasteryEvent deletados: ${delEvts.count}`);
-      console.log(`  EduSkillMastery deletados: ${delMast.count}`);
-    }
-  } else {
-    const delEvts = await db.eduSkillMasteryEvent.deleteMany({
-      where: { studentId, networkId },
-    });
-    const delMast = await db.eduSkillMastery.deleteMany({
-      where: { studentId, networkId },
-    });
-    console.log(`  EduSkillMasteryEvent deletados: ${delEvts.count}`);
-    console.log(`  EduSkillMastery deletados: ${delMast.count}`);
-  }
-
-  console.log("Reset concluído.");
-} catch (err) {
-  console.error("Erro no reset:", err);
-  process.exit(1);
-} finally {
-  await db.$disconnect();
-  await catalog.$disconnect();
+  if (encontrado) break;
 }
-
-function subjectCodeToPrefix(code) {
-  const map = {
-    LP: "LP", MA: "MA", CI: "CI", HI: "HI",
-    GE: "GE", AR: "AR", EF: "EF", LI: "LI", ER: "ER",
-  };
-  return map[code] ?? code;
+if (!encontrado && !process.exitCode) {
+  console.error(`Aluno ${studentId} não encontrado na rede ${networkId} em nenhuma base (${envVars.join(", ")}).`);
+  process.exit(1);
 }

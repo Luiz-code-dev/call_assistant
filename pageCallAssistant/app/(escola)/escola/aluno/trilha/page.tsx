@@ -63,6 +63,9 @@ export default function MinhaTrilhaPage() {
   return (
     <div className="min-h-screen bg-[#F8F7FC]">
       <div className="max-w-lg mx-auto px-4 py-6 space-y-6">
+        <Link href="/escola/aluno" className="inline-flex items-center gap-1 text-sm text-[#6D28D9] font-medium min-h-[44px]">
+          ← Minhas matérias
+        </Link>
 
         {/* Próximo passo */}
         {proximoPasso ? (
@@ -71,12 +74,12 @@ export default function MinhaTrilhaPage() {
             <div className="rounded-2xl p-6 space-y-4" style={{ background: "#4C1D95" }}>
               {/* Componente · trilha */}
               <p className="text-white/80 text-xs font-semibold">
-                {proximoPasso.subjectId} · {proximoPasso.title}
+                {String(proximoPasso.title).replace(/^Trilha:\s*/i, "")}
               </p>
               {/* Habilidade */}
               {proximoPasso.skills[0] && (
                 <h2 className="text-white font-extrabold text-xl leading-tight">
-                  {proximoPasso.skills[0].shortLabel ?? proximoPasso.skills[0].code}
+                  {proximoPasso.skills[0].shortLabel ?? String(proximoPasso.title).replace(/^Trilha:\s*/i, "")}
                 </h2>
               )}
               {/* Meta */}
@@ -111,8 +114,8 @@ export default function MinhaTrilhaPage() {
               <circle cx="15" cy="40" r="2.5" fill="#C4B5FD"/>
             </svg>
             <h2 className="text-[#1F1A2E] font-semibold">Nenhuma trilha por enquanto</h2>
-            <p className="text-[#5B5470] text-sm mt-1">Faça um diagnóstico para começar sua trilha de reforço.</p>
-            <Link href="/escola/aluno/painel" className="mt-4 inline-block text-[#6D28D9] hover:underline text-sm">Ver minha evolucao</Link>
+            <p className="text-[#5B5470] text-sm mt-1">Escolha uma matéria e faça o diagnóstico. A sua trilha aparece logo depois.</p>
+            <Link href="/escola/aluno" className="mt-4 inline-flex items-center justify-center rounded-2xl bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-semibold text-sm px-5 min-h-[48px]">Escolher uma matéria</Link>
           </div>
         ) : null}
 
