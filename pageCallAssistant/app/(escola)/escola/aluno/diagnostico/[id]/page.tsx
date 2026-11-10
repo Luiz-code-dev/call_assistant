@@ -28,7 +28,7 @@ interface Resultado {
   aindaNao: HabilidadeAluno[];
   degrau: HabilidadeAluno[];
   habilidadePartida: HabilidadeAluno | null;
-  erroComum: { texto: string; exemplo: string } | null;
+  erroComum: { texto: string; exemplo: string; questao?: { enunciado: string; marcada: string; certa: string } } | null;
 }
 interface TrilhaAtribuida {
   id: string;
@@ -171,16 +171,38 @@ export default function DiagnosticoPage() {
         {resultado.aindaNao.length > 0 && (
           <section className={`${CARTAO} p-5`}>
             <p className="text-sm font-extrabold text-[#1F1A2E] mb-2">Onde vamos começar</p>
-            {resultado.degrau.length > 1 && (
-              <div className="flex items-center gap-1.5 flex-wrap mb-3">
-                {resultado.degrau.map((h, i) => (
-                  <span key={h.code} className="flex items-center gap-1.5 text-xs">
-                    {i > 0 && <ChevronRight className="size-3 text-[#A59FB8]" />}
-                    <span className="px-2.5 py-1 rounded-full font-bold" style={{ background: cor + "18", color: cor }}>{h.ano ? `${h.ano}º ano` : h.tituloAluno}</span>
-                  </span>
-                ))}
-              </div>
-            )}
+            {resultado.degrau.length > 1 && (() => {
+              // Escada de baixo para cima: da base até o conteúdo do ano do aluno
+              const sabe = new Set([...resultado.domina, ...resultado.quaseLa].map((h) => h.code));
+              const degraus = [...resultado.degrau].reverse();
+              const partida = resultado.habilidadePartida?.code ?? null;
+              const iPartida = degraus.findIndex((h) => h.code === partida);
+              return (
+                <ol className="mb-4 space-y-2">
+                  {[...degraus].reverse().map((h) => {
+                    const i = degraus.findIndex((x) => x.code === h.code);
+                    const objetivo = i === degraus.length - 1;
+                    const comeca = h.code === partida;
+                    const jaSabe = !comeca && (sabe.has(h.code) || (iPartida >= 0 && i < iPartida));
+                    return (
+                      <li key={h.code} className="flex items-center gap-3 rounded-2xl p-2.5"
+                        style={comeca ? { background: cor + "14", boxShadow: `inset 0 0 0 2px ${cor}` } : { background: "#F8F7FC" }}>
+                        <span className="w-9 h-9 rounded-full flex items-center justify-center text-[11px] font-extrabold shrink-0"
+                          style={comeca ? { background: cor, color: "#fff" } : jaSabe ? { background: "#DCFCE7", color: "#166534" } : { background: "#fff", color: "#8B84A0" }}>
+                          {jaSabe ? <Star className="size-4 fill-current" /> : h.ano ? `${h.ano}º` : i + 1}
+                        </span>
+                        <span className="flex-1 min-w-0">
+                          <span className={`block text-sm leading-snug ${comeca ? "font-extrabold text-[#1F1A2E]" : "font-semibold text-[#5B5470]"}`}>{h.tituloAluno}</span>
+                          <span className="block text-[11px] font-semibold" style={{ color: comeca ? cor : jaSabe ? "#166534" : "#8B84A0" }}>
+                            {comeca ? "Você começa aqui" : jaSabe ? "Você já sabe" : objetivo ? "Conteúdo do seu ano" : "Próximo degrau"}{h.ano ? ` · ${h.ano}º ano` : ""}
+                          </span>
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ol>
+              );
+            })()}
             <p className="text-sm text-[#1F1A2E] leading-relaxed">
               {resultado.habilidadePartida
                 ? <>Vamos começar por <strong>{resultado.habilidadePartida.tituloAluno}</strong>. Firmando essa base, você sobe degrau a degrau.</>
@@ -194,8 +216,15 @@ export default function DiagnosticoPage() {
           <section className="rounded-3xl bg-[#FFF7E0] p-5 flex gap-3 items-start">
             <div className="w-10 h-10 rounded-2xl bg-[#FBBF24] text-white flex items-center justify-center shrink-0"><Lightbulb className="size-5" /></div>
             <div className="flex-1">
-              <p className="text-sm font-extrabold text-[#92400E] mb-1">Um erro que vamos resolver juntos</p>
-              <p className="text-sm text-[#1F1A2E] leading-relaxed">{resultado.erroComum.texto}</p>
+              <p className="text-sm font-extrabold text-[#92400E] mb-2">Um erro que vamos resolver juntos</p>
+              {resultado.erroComum.questao && (
+                <div className="rounded-2xl bg-white p-3 mb-2 space-y-1.5">
+                  <p className="text-[13px] text-[#5B5470] leading-snug">{resultado.erroComum.questao.enunciado}</p>
+                  <p className="text-[13px] leading-snug"><span className="font-bold text-[#B45309]">Você marcou:</span> <span className="text-[#1F1A2E]">{resultado.erroComum.questao.marcada}</span></p>
+                  <p className="text-[13px] leading-snug"><span className="font-bold text-[#166534]">O certo é:</span> <span className="text-[#1F1A2E]">{resultado.erroComum.questao.certa}</span></p>
+                </div>
+              )}
+              <p className="text-sm text-[#1F1A2E] leading-relaxed">{resultado.erroComum.questao ? <><span className="font-bold">Por quê: </span>{resultado.erroComum.texto}</> : resultado.erroComum.texto}</p>
             </div>
             <button onClick={() => ouvir(resultado.erroComum?.texto ?? "")} aria-label="Ouvir"
               className="shrink-0 rounded-full bg-white text-[#92400E] min-h-[44px] min-w-[44px] flex items-center justify-center">

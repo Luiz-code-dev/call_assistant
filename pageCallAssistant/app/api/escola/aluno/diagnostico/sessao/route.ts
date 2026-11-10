@@ -237,6 +237,9 @@ export async function POST(req: NextRequest) {
     let skillCode: string | null = null;
     let activityId: string | null = null;
     let explanation: string | null = null;
+    let enunciado: string | null = null;
+    let marcada: string | null = null;
+    let certa: string | null = null;
     let nivelAtual = 0;
 
     if (posAtual.tipo === "extra") {
@@ -247,6 +250,10 @@ export async function POST(req: NextRequest) {
       isCorrect = q ? selectedIndex === q.correctIndex : false;
       misconceptionCode = q?.options?.[selectedIndex]?.misconceptionCode ?? null;
       explanation = q?.explanation ?? null;
+      if (q) {
+        const ops = formatOpcoes(q.options as Opcao[]);
+        enunciado = q.question ?? null; marcada = ops[selectedIndex]?.text ?? null; certa = ops[q.correctIndex]?.text ?? null;
+      }
       skillId = extra.skillId;
       skillCode = extra.skillCode;
       activityId = extra.activityId;
@@ -257,6 +264,10 @@ export async function POST(req: NextRequest) {
       isCorrect = q ? selectedIndex === q.correctIndex : false;
       misconceptionCode = q?.options ? formatOpcoes(q.options)[selectedIndex]?.misconceptionCode ?? null : null;
       explanation = q?.explanation ?? null;
+      if (q?.options) {
+        const ops = formatOpcoes(q.options);
+        enunciado = q.question ?? null; marcada = ops[selectedIndex]?.text ?? null; certa = ops[q.correctIndex]?.text ?? null;
+      }
       skillId = item.skill.id;
       skillCode = item.skill.code;
       activityId = item.activityId;
@@ -285,6 +296,9 @@ export async function POST(req: NextRequest) {
       misconceptionCode,
       // Fica só na sessão (servidor): usado no texto do erro comum do resultado
       explanation,
+      enunciado,
+      marcada,
+      certa,
       elapsedMs: elapsed,
       answeredAt: new Date().toISOString(),
     };
@@ -540,11 +554,16 @@ async function nomesDasHabilidades(skillIds: string[]): Promise<Record<string, H
 /** Texto do erro comum para o aluno: a explicação da questão em que ele errou; senão, a descrição da ficha. */
 async function textoDoErroComum(
   code: string | null,
-  answers: Array<{ misconceptionCode?: string | null; explanation?: string | null; skillId?: string | null }>,
-): Promise<{ texto: string; exemplo: string } | null> {
+  answers: Array<{ misconceptionCode?: string | null; explanation?: string | null; skillId?: string | null; enunciado?: string | null; marcada?: string | null; certa?: string | null }>,
+): Promise<{ texto: string; exemplo: string; questao?: { enunciado: string; marcada: string; certa: string } } | null> {
   if (!code) return null;
   const resp = answers.find((a) => a.misconceptionCode === code && a.explanation);
-  if (resp?.explanation) return { texto: resp.explanation, exemplo: "" };
+  if (resp?.explanation) {
+    // O aluno vê a questão, o que marcou e a resposta certa; a explicação diz o porquê
+    const questao = resp.enunciado && resp.marcada && resp.certa
+      ? { enunciado: resp.enunciado, marcada: resp.marcada, certa: resp.certa } : undefined;
+    return { texto: resp.explanation, exemplo: "", ...(questao ? { questao } : {}) };
+  }
   const skillId = answers.find((a) => a.misconceptionCode === code)?.skillId;
   if (!skillId) return null;
   const guide: { commonErrors: unknown } | null = await P.eduSkillGuide.findFirst({
