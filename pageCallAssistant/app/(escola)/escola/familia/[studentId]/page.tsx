@@ -7,6 +7,7 @@ import { IconeMateria, materiaDe } from "@/components/escola/reforco-ui";
 import { RecadoParaFilho, AgendaDoFilho } from "@/components/escola/familia/RecadosAgenda";
 import FamilyShell from "@/components/escola/familia/FamilyShell";
 import { SemanaDoFilho, AvisosDaFamilia } from "@/components/escola/familia/Acompanhamento";
+import ConversaDaSemana from "@/components/escola/familia/ConversaDaSemana";
 import { QRCodeSVG } from "qrcode.react";
 
 const LEVELS = [
@@ -336,6 +337,9 @@ export default function PainelFilho() {
 
           {/* Semana do filho: dia a dia e por matéria */}
           <SemanaDoFilho studentId={studentId} />
+
+          {/* Para conversar com o filho: assuntos da semana e perguntas para puxar conversa */}
+          <ConversaDaSemana studentId={studentId} />
 
           {/* Alertas */}
           {data.alertas.map((a, i) => (
