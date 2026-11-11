@@ -7,14 +7,34 @@
  */
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { HeartHandshake, School, ChevronLeft, QrCode } from "lucide-react";
+import { HeartHandshake, School, ChevronLeft, QrCode, ChevronDown } from "lucide-react";
 import LeitorQR, { codigoDoQR, mascaraCodigo } from "@/components/escola/LeitorQR";
 
 const RELATIONS = [
   { value: "MAE", label: "Mãe" }, { value: "PAI", label: "Pai" }, { value: "AVO_AVO", label: "Avó / Avô" },
   { value: "TIO_TIA", label: "Tio / Tia" }, { value: "TUTOR_LEGAL", label: "Tutor(a) legal" }, { value: "OUTRO", label: "Outro responsável" },
 ];
-const inputCls = "w-full bg-white text-[#1F1A2E] rounded-2xl px-4 py-3.5 border-[1.5px] border-[#DDD6EE] focus:border-[#6D28D9] focus:ring-[3px] focus:ring-[#EDE9FE] outline-none text-[15px]";
+// Altura e largura fixas: no Android a data e a lista nativas saíam da tela e ficavam tortas
+const inputCls = "block w-full min-w-0 max-w-full h-[52px] box-border appearance-none bg-white text-[#1F1A2E] rounded-2xl px-4 border-[1.5px] border-[#DDD6EE] focus:border-[#6D28D9] focus:ring-[3px] focus:ring-[#EDE9FE] outline-none text-[16px] leading-normal";
+
+/** 12032015 -> 12/03/2015 enquanto digita */
+function mascaraData(v: string): string {
+  const d = v.replace(/\D/g, "").slice(0, 8);
+  if (d.length > 4) return `${d.slice(0, 2)}/${d.slice(2, 4)}/${d.slice(4)}`;
+  if (d.length > 2) return `${d.slice(0, 2)}/${d.slice(2)}`;
+  return d;
+}
+/** 12/03/2015 -> 2015-03-12 (ou "" se a data não existir) */
+function dataIso(v: string): string {
+  const m = v.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  if (!m) return "";
+  const [, dd, mm, aaaa] = m;
+  const dt = new Date(`${aaaa}-${mm}-${dd}T12:00:00Z`);
+  if (isNaN(dt.getTime()) || dt.getUTCDate() !== Number(dd) || dt.getUTCMonth() + 1 !== Number(mm)) return "";
+  const ano = Number(aaaa);
+  if (ano < 1990 || ano > new Date().getFullYear()) return "";
+  return `${aaaa}-${mm}-${dd}`;
+}
 const label = "text-[#1F1A2E] text-sm font-semibold block mb-1";
 
 type Aluno = { aluno: string; turma: string | null; escola: string | null; temDataNascimento: boolean };
@@ -51,11 +71,13 @@ function PrimeiroAcesso() {
 
   async function criar(e: React.FormEvent) {
     e.preventDefault(); setLoading(true); setError(""); setJaTemConta(false);
+    const nascimento = dataIso(f.birthDate);
+    if (!nascimento) { setError("Confira a data de nascimento do seu filho, no formato dia/mês/ano."); setLoading(false); return; }
     if (!f.guardianEmail && !f.guardianPhone) { setError("Informe o WhatsApp ou o e-mail: é com ele que você entra depois."); setLoading(false); return; }
     try {
       const r = await fetch("/api/escola/familia/ativar", {
         method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ familyCode: codigo, birthDate: f.birthDate, guardianName: f.guardianName, guardianEmail: f.guardianEmail || undefined, guardianPhone: f.guardianPhone || undefined, senha: f.senha, relation: f.relation, termsVersion: "v1.0", aceitaWhatsapp: !!f.guardianPhone && aceitaWhatsapp }),
+        body: JSON.stringify({ familyCode: codigo, birthDate: nascimento, guardianName: f.guardianName, guardianEmail: f.guardianEmail || undefined, guardianPhone: f.guardianPhone || undefined, senha: f.senha, relation: f.relation, termsVersion: "v1.0", aceitaWhatsapp: !!f.guardianPhone && aceitaWhatsapp }),
       });
       const data = await r.json();
       if (!r.ok) { setError(data.error ?? "Não foi possível criar o acesso."); setJaTemConta(!!data.jaTemConta); setLoading(false); return; }
@@ -80,7 +102,7 @@ function PrimeiroAcesso() {
   return (
     <div className="min-h-screen bg-[#F6F4FE] flex flex-col items-center justify-center p-5 relative overflow-hidden">
       <div className="absolute inset-x-0 top-0 h-[44vh] rounded-b-[40px] bg-gradient-to-br from-[#5B21B6] via-[#6D28D9] to-[#8B5CF6]" aria-hidden="true" />
-      <div className="relative w-full max-w-sm bg-white rounded-[28px] p-6 shadow-[0_12px_40px_rgba(91,33,182,0.18)]">
+      <div className="relative w-full max-w-sm min-w-0 bg-white rounded-[28px] p-5 sm:p-6 shadow-[0_12px_40px_rgba(91,33,182,0.18)]">
         <div className="text-center mb-6">
           <div className="w-14 h-14 rounded-2xl bg-[#EDE9FE] flex items-center justify-center mx-auto mb-3"><HeartHandshake size={28} className="text-[#6D28D9]" /></div>
           <h1 className="text-[#1F1A2E] text-2xl font-bold">Área da Família</h1>
@@ -125,9 +147,9 @@ function PrimeiroAcesso() {
         {etapa === "dados" && aluno && (
           <form onSubmit={criar} className="space-y-4">
             <button type="button" onClick={() => setEtapa("confirmar")} className="inline-flex items-center gap-1 text-[#6D28D9] text-sm font-semibold min-h-[36px]"><ChevronLeft className="size-4" />{aluno.aluno}</button>
-            <div><label className={label}>Data de nascimento do seu filho</label><input value={f.birthDate} onChange={set("birthDate")} required type="date" className={inputCls} /><p className="text-[#5B5470] text-xs mt-1">Confirma que você é responsável por este aluno.</p></div>
+            <div><label className={label}>Data de nascimento do seu filho</label><input value={f.birthDate} onChange={(e) => setF((p) => ({ ...p, birthDate: mascaraData(e.target.value) }))} required type="text" inputMode="numeric" autoComplete="off" placeholder="dd/mm/aaaa" maxLength={10} className={inputCls} /><p className="text-[#5B5470] text-xs mt-1">Confirma que você é responsável por este aluno.</p></div>
             <div><label className={label}>Seu nome completo</label><input value={f.guardianName} onChange={set("guardianName")} required placeholder="Nome do responsável" className={inputCls} /></div>
-            <div><label className={label}>Você é</label><select value={f.relation} onChange={set("relation")} className={inputCls}>{RELATIONS.map((r) => <option key={r.value} value={r.value}>{r.label}</option>)}</select></div>
+            <div><label className={label}>Você é</label><div className="relative"><select value={f.relation} onChange={set("relation")} className={`${inputCls} pr-11`}>{RELATIONS.map((r) => <option key={r.value} value={r.value}>{r.label}</option>)}</select><ChevronDown className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 size-5 text-[#6D28D9]" /></div></div>
             <div><label className={label}>Seu WhatsApp</label><input value={f.guardianPhone} onChange={set("guardianPhone")} type="tel" inputMode="tel" placeholder="(71) 98765-4321" className={inputCls} /></div>
             <div><label className={label}>Seu e-mail <span className="font-normal text-[#8B84A0]">(se tiver)</span></label><input value={f.guardianEmail} onChange={set("guardianEmail")} type="email" placeholder="voce@email.com" className={inputCls} /></div>
             <label className="flex items-start gap-3 rounded-2xl bg-[#F6F4FE] p-3 cursor-pointer">

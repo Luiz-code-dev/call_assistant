@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, Settings, UserPlus, LogOut, X, ChevronLeft } from "lucide-react";
+import { Menu, Settings, UserPlus, LogOut, X, ChevronLeft, LifeBuoy } from "lucide-react";
 
 export interface FamilyChild {
   studentId: string; firstName: string; fullName: string;
@@ -93,6 +93,7 @@ export default function FamilyShell({ activeStudentId, children, voltar, titulo,
         <div className="fixed inset-0 z-30 bg-black/30" onClick={() => setMenu(false)}>
           <div className="absolute right-4 top-16 w-64 rounded-3xl bg-white p-2 shadow-xl" onClick={(e) => e.stopPropagation()}>
             <Link href="/escola/familia/configuracoes" onClick={() => setMenu(false)} className="flex items-center gap-3 px-3 py-3 rounded-2xl text-[14px] font-semibold text-[#1F1A2E] hover:bg-[#F5F3FF]"><Settings size={18} className="text-[#6D28D9]" /> Configurações</Link>
+            <Link href="/escola/familia/suporte" onClick={() => setMenu(false)} className="flex items-center gap-3 px-3 py-3 rounded-2xl text-[14px] font-semibold text-[#1F1A2E] hover:bg-[#F5F3FF]"><LifeBuoy size={18} className="text-[#6D28D9]" /> Suporte</Link>
             <Link href="/escola/familia/adicionar-filho" onClick={() => setMenu(false)} className="flex items-center gap-3 px-3 py-3 rounded-2xl text-[14px] font-semibold text-[#1F1A2E] hover:bg-[#F5F3FF]"><UserPlus size={18} className="text-[#6D28D9]" /> Adicionar outro filho</Link>
             <form method="POST" action="/api/escola/familia/sair"><button className="flex items-center gap-3 px-3 py-3 rounded-2xl text-[14px] font-semibold text-[#B91C1C] w-full hover:bg-[#FEF2F2]"><LogOut size={18} /> Sair</button></form>
           </div>

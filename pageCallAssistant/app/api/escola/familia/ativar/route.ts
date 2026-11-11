@@ -12,6 +12,7 @@ import { normalizePhone } from "@/lib/escola/phone";
 import { isAppClient, APP_FAMILY_SECONDS } from "@/lib/escola/app-auth";
 import bcrypt from "bcryptjs";
 import { syncGuardianLogin } from "@/lib/escola/catalogo-sync";
+import { enviarBoasVindasFamilia } from "@/lib/escola/email-familia";
 
 const schema = z.object({
   familyCode: z.string().min(6).max(16),
@@ -96,6 +97,10 @@ export async function POST(req: NextRequest) {
   await (prismaEdu as any).eduGuardianConsent.create({
     data: { guardianId: guardian.id, studentId: student.id, termsVersion, ip: consentIp ?? null },
   });
+
+  // Boas-vindas por e-mail: o que é o reforço, como ajudar e como acompanhar. Não bloqueia o cadastro.
+  const emailBoasVindas = guardianEmail ?? guardian.email ?? null;
+  if (emailBoasVindas) await enviarBoasVindasFamilia(emailBoasVindas, guardianName, student.fullName).catch(() => false);
 
   // Sincroniza índice de login no catálogo para que login futuro funcione
   if (guardianEmail) await syncGuardianLogin(guardianEmail.toLowerCase().trim(), networkId).catch(() => null);
