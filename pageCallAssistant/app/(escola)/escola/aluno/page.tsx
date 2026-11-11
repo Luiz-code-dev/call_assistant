@@ -11,6 +11,7 @@ import type { LucideIcon } from "lucide-react";
 import { NavAluno } from "@/components/escola/reforco-ui";
 import { RecadoDaFamilia, AgendaDeHoje, AtivarAvisos } from "@/components/escola/aluno/RecadosAluno";
 import FlowBoasVindas from "@/components/escola/aluno/FlowBoasVindas";
+import MissoesDoDia from "@/components/escola/aluno/MissoesDoDia";
 
 interface Subject { id: string; name: string; color: string | null }
 interface Submission { id: string; status: string; evaluatedAt: string | null; masteryLevel: string | null }
@@ -208,6 +209,9 @@ export default function AlunoHomePage() {
         {/* Flow, o mascote: cumprimenta e aponta o próximo passo */}
         <FlowBoasVindas nome={nome} estudouHoje={!!diasSemana[hojeIndex]} diasSeguidos={diasSeguidos}
           materias={materias} carregando={loading || materiasLoading} />
+
+        {/* Missões de hoje: etapa da matéria fraca, revisão de 2 minutos, horário da família */}
+        <MissoesDoDia />
 
         {/* Semana */}
         <section className="bg-white rounded-3xl p-4 shadow-[0_8px_24px_rgba(91,33,182,0.12)]">
