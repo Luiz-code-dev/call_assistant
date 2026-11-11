@@ -3,6 +3,7 @@ import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { textosDasOpcoes } from "@/lib/escola/opcoes-aluno";
+import { conferirEtapasFeitas } from "@/lib/escola/trilha-progresso";
 
 export const runtime = "nodejs";
 
@@ -37,9 +38,11 @@ export async function GET(req: NextRequest) {
     },
     include: {
       track: { include: { items: { orderBy: { order: "asc" }, select: { id: true, activityId: true } } } },
-      progress: { where: { studentId: ctx.studentId }, select: { completedItemIds: true } },
+      progress: { where: { studentId: ctx.studentId }, select: { completedItemIds: true, completedAt: true } },
     },
   });
+  // Etapas já feitas que a trilha ainda não marcou: senão "A fazer" mostra de novo uma etapa feita
+  await conferirEtapasFeitas(ctx, activeAssignments).catch((err: Error) => console.error("[aluno/atividades] conferir:", err.message));
   // A fazer: só a próxima etapa de cada trilha, para o aluno seguir a ordem
   // (antes vinham as 5 etapas juntas e dava para fazer "Explicar" antes de "Relembrar").
   // Feitas e histórico: todas as etapas da trilha.
