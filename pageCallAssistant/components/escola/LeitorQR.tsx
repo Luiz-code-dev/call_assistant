@@ -21,28 +21,38 @@ export default function LeitorQR({ titulo = "Ler QR code", dica = "Aponte a câm
   lidoRef.current = onLido;
   const [erro, setErro] = useState<string | null>(null);
   const [lendo, setLendo] = useState(false);
+  const [tentativa, setTentativa] = useState(0);
 
   useEffect(() => {
     let parado = false;
     let raf = 0;
     let stream: MediaStream | null = null;
+    let vigia: ReturnType<typeof setTimeout> | undefined;
     const canvas = document.createElement("canvas");
 
     function parar() {
       parado = true;
       cancelAnimationFrame(raf);
+      clearTimeout(vigia);
       stream?.getTracks().forEach((t) => t.stop());
     }
 
     async function iniciar() {
       if (!navigator.mediaDevices?.getUserMedia) { setErro("Este navegador não abre a câmera. Digite o código da ficha."); return; }
+      // Vigia: se em 6 s a câmera não mandar imagem (tela preta), mostra a saída para digitar.
+      vigia = setTimeout(() => {
+        const v = videoRef.current;
+        if (!parado && (!v || !v.videoWidth)) { parar(); setErro("A câmera não abriu. Feche outros apps que usam a câmera e tente de novo, ou digite o código."); }
+      }, 6000);
       try {
-        stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+        stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: "environment" } }, audio: false });
         if (parado) { stream.getTracks().forEach((t) => t.stop()); return; }
         const v = videoRef.current;
         if (!v) return;
+        v.setAttribute("playsinline", "true");
+        v.muted = true;
         v.srcObject = stream;
-        await v.play();
+        await v.play().catch(() => { /* iOS: o vídeo começa sozinho com muted + playsinline */ });
         setLendo(true);
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const W = window as any;
@@ -70,13 +80,15 @@ export default function LeitorQR({ titulo = "Ler QR code", dica = "Aponte a câm
         };
         quadro();
       } catch {
+        clearTimeout(vigia);
         if (!parado) setErro("Não conseguimos abrir a câmera. Libere a câmera no navegador ou digite o código da ficha.");
       }
     }
 
+    setLendo(false);
     iniciar();
     return parar;
-  }, []);
+  }, [tentativa]);
 
   return (
     <div className="fixed inset-0 z-50 bg-[#1F1A2E] flex flex-col items-center justify-center p-4">
@@ -91,6 +103,7 @@ export default function LeitorQR({ titulo = "Ler QR code", dica = "Aponte a câm
             <AlertCircle className="mx-auto mb-3 text-[#B91C1C]" size={32} />
             <p className="text-[#1F1A2E] text-sm mb-4">{erro}</p>
             <button type="button" onClick={onDigitar} className="w-full bg-[#6D28D9] text-white py-3 rounded-xl font-semibold text-sm min-h-[48px]">{textoDigitar}</button>
+            <button type="button" onClick={() => { setErro(null); setTentativa((n) => n + 1); }} className="w-full mt-2 border border-[#DDD6EE] text-[#5B5470] py-3 rounded-xl font-semibold text-sm min-h-[48px]">Tentar a câmera de novo</button>
           </div>
         ) : (
           <>
