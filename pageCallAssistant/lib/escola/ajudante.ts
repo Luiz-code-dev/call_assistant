@@ -85,12 +85,74 @@ export function dicaSemIA(pedido: string, a: AtividadeParaAjudante): string {
   return "Você consegue! Pense num exemplo do seu dia a dia que tenha a ver com essa pergunta. O que você lembra sobre esse assunto?";
 }
 
-const PEDIDOS_POR_HORA = 40;
-const uso = new Map<string, number[]>();
-export function dentroDoLimiteAjudante(chave: string, agora = Date.now()): boolean {
-  const recentes = (uso.get(chave) ?? []).filter((t) => agora - t < 60 * 60 * 1000);
-  if (recentes.length >= PEDIDOS_POR_HORA) { uso.set(chave, recentes); return false; }
-  recentes.push(agora);
-  uso.set(chave, recentes);
-  return true;
+/** Limite de uso por aluno numa janela (memória do processo). */
+export function criarLimite(max: number, janelaMs: number) {
+  const uso = new Map<string, number[]>();
+  return (chave: string, agora = Date.now()): boolean => {
+    const recentes = (uso.get(chave) ?? []).filter((t) => agora - t < janelaMs);
+    if (recentes.length >= max) { uso.set(chave, recentes); return false; }
+    recentes.push(agora);
+    uso.set(chave, recentes);
+    return true;
+  };
+}
+
+const HORA = 60 * 60 * 1000;
+/** Conversa com o Flow: 40 mensagens por hora */
+export const dentroDoLimiteAjudante = criarLimite(40, HORA);
+/** "Flow, olha meu texto": 3 revisões por atividade a cada 6 horas */
+export const dentroDoLimiteRevisao = criarLimite(3, 6 * HORA);
+/** Voz para texto: 30 gravações por hora */
+export const dentroDoLimiteVoz = criarLimite(30, HORA);
+/** Foto do dever: 10 fotos por hora */
+export const dentroDoLimiteFoto = criarLimite(10, HORA);
+/** Avisar a família pelo Flow: 3 por hora (o aviso em si é 1 por dia) */
+export const dentroDoLimiteAvisar = criarLimite(3, HORA);
+
+// ── Revisar o texto antes de enviar ─────────────────────────────────────────
+
+export function promptDaRevisao(a: AtividadeParaAjudante): string {
+  return `Você é o Flow, o robozinho do reforço escolar do SpeakFlow Escolas. O aluno escreveu uma resposta e pediu para você olhar ANTES de enviar. ${tomPorAno(a.anoEscolar)}
+
+REGRAS QUE VOCÊ NUNCA QUEBRA:
+1. Dê UMA dica de melhoria só, a mais importante: explicar o porquê, dar um exemplo, completar a ideia, responder o que a pergunta pede ou deixar a frase mais clara.
+2. Nunca reescreva o texto dele, nunca escreva frases prontas para ele copiar e nunca complete a resposta.
+3. Nunca diga se está certo ou errado e nunca dê nota.
+4. Comece elogiando algo concreto que ele fez, depois a dica, e termine com uma pergunta curta que o ajude a melhorar sozinho.
+5. No máximo 3 frases curtas, em português do Brasil, sem listas e sem emojis.
+6. Não corrija ortografia letra por letra; se houver muitos erros, diga só para ele reler com calma.
+
+ATIVIDADE${a.materia ? ` DE ${a.materia.toUpperCase()}` : ""}${a.anoEscolar ? ` (${a.anoEscolar}º ano)` : ""}
+Título: ${a.titulo}
+Enunciado: ${a.enunciado.slice(0, 1500)}`;
+}
+
+const DICA_REVISAO_PADRAO = "Você já começou bem! Leia o enunciado de novo e confira: você respondeu tudo o que ele pede? O que você pode explicar melhor com as suas palavras?";
+
+/**
+ * Trava da revisão: além do gabarito, barra trechos longos entre aspas ou prontos para
+ * copiar (o Flow reescrevendo o texto do aluno).
+ */
+export function travaDaRevisao(dica: string, textoDoAluno: string): string {
+  const t = travaDaResposta(dica, "WRITTEN");
+  if (/quem descobre é você/.test(t) && !/quem descobre é você/.test(dica)) return DICA_REVISAO_PADRAO;
+  const n = t.toLowerCase();
+  const citacoes = t.match(/["“”«»]([^"“”«»]{0,400})["“”«»]/g) ?? [];
+  const aluno = textoDoAluno.toLowerCase();
+  const reescreveu = citacoes.some((c) => {
+    const dentro = c.slice(1, -1).trim();
+    return dentro.split(/\s+/).length > 6 && !aluno.includes(dentro.toLowerCase());
+  });
+  const pronto = /(você pode escrever|escreva assim|tente escrever|poderia ficar|ficaria assim|sugestão de texto|por exemplo:)/.test(n);
+  if (reescreveu || pronto) return DICA_REVISAO_PADRAO;
+  return t;
+}
+
+export function dicaDaRevisaoSemIA(texto: string): string {
+  const t = texto.toLowerCase();
+  const palavras = t.split(/\s+/).filter(Boolean).length;
+  if (palavras < 12) return "Bom começo! Seu texto ainda está curtinho. Que tal explicar com mais detalhes o que você pensou?";
+  if (!/porque|pois|por isso|já que/.test(t)) return "Você explicou a sua ideia! Agora conte o porquê: por que isso acontece?";
+  if (!/exemplo|como quando|por exemplo/.test(t)) return "Você explicou bem o porquê! Que tal dar um exemplo do seu dia a dia para mostrar a sua ideia?";
+  return DICA_REVISAO_PADRAO;
 }

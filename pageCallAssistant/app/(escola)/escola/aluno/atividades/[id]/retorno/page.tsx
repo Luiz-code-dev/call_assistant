@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { CheckCircle2, Lightbulb, Quote, Mic, RefreshCw, Clock } from "lucide-react";
 import { Capa } from "@/components/escola/reforco-ui";
+import FlowRetorno from "@/components/escola/aluno/FlowRetorno";
 
 interface AiFeedback {
   acertos: string[];
@@ -116,6 +117,8 @@ export default function RetornoPage() {
         voltar={{ href: "/escola/aluno", texto: "Início" }} />
 
       <main className="max-w-2xl mx-auto px-4 py-6 space-y-4">
+        {/* Flow comemora, acolhe e chama para a próxima etapa */}
+        <FlowRetorno pendente={isPending} nivel={masteryLevel} podeTentar={canRetry} base={!!data.base} tipo={activity.type} />
 
         {/* Aguardando avaliacao */}
         {isPending && (

@@ -62,6 +62,19 @@ export function avisoAtencao(nome: string, materia: string | null, assunto: stri
   };
 }
 
+/** O próprio aluno pediu, pelo Flow, para avisar a família que travou num assunto */
+export function avisoPedidoDeAjuda(nome: string, materia: string | null, assunto: string | null, studentId: string): Aviso {
+  const n = primeiroNome(nome);
+  const m = materia ? subjectInfo(materia).name : "";
+  return {
+    tipo: "familia-atencao",
+    title: m ? `${n} pediu ajuda em ${m}` : `${n} pediu ajuda`,
+    body: `Está com dificuldade${assunto ? ` em "${assunto}"` : ""} e pediu para avisar você. Sentar junto alguns minutos hoje faz diferença.`,
+    url: `/escola/familia/${studentId}`,
+    icon: "/escola-icons/aviso-sugestao.png", badge: BADGE, tag: `familia-atencao-${studentId}`, vibrate: [150, 100, 150],
+  };
+}
+
 export function avisoConquista(nome: string, materia: string | null, trilha: string | null, studentId: string): Aviso {
   const n = primeiroNome(nome);
   const m = materia ? subjectInfo(materia).name : "";
