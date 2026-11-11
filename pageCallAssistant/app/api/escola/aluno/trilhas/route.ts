@@ -12,6 +12,7 @@ import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { weekStartSaoPaulo, dayIndexSaoPaulo } from "@/lib/escola/family-guard";
 import { tituloParaAluno } from "@/lib/escola/texto-aluno";
+import { conferirEtapasFeitas } from "@/lib/escola/trilha-progresso";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const p = prismaEdu as any;
@@ -40,6 +41,9 @@ export async function GET() {
     },
     orderBy: { dueAt: "asc" as const },
   });
+
+  // Etapas já feitas (entregas existentes) que a trilha ainda não marcou: marca agora
+  await conferirEtapasFeitas(student, assignments).catch((err: Error) => console.error("[aluno/trilhas] conferir:", err.message));
 
   // Separa concluídas de ativas
   const ativas: unknown[]     = [];

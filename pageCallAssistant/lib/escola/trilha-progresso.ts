@@ -125,3 +125,62 @@ export async function baseAtribuida(ctx: Ctx, activityId: string): Promise<{ tit
   }
   return null;
 }
+
+/** Uma entrega conta como etapa feita? Mesma regra de registrarEtapa. */
+export function entregaContaComoFeita(e: { type: string; masteryLevel: string | null; attempt: number; maxAttempts: number }): boolean {
+  if (e.type !== "QUIZ") return true; // escrita e fala contam no envio
+  if (e.masteryLevel === "MASTERED" || e.masteryLevel === "ALMOST") return true;
+  return e.masteryLevel === "NOT_YET" && e.attempt >= e.maxAttempts;
+}
+
+type AtribComProgresso = {
+  id: string;
+  track: { items: Array<{ id: string; activityId: string }> };
+  progress: Array<{ completedItemIds: string[]; completedAt?: Date | null }>;
+};
+
+/**
+ * Confere as etapas da trilha com as entregas que já existem e marca as que faltam.
+ * Corrige trilhas travadas: a etapa feita antes (outra atribuição da mesma trilha,
+ * ou antes de o progresso ser gravado na entrega) aparecia como "Agora", o aluno
+ * caía no retorno e as etapas seguintes nunca abriam.
+ * Altera `atribs` no lugar (completedItemIds) e grava no banco só o que mudou.
+ */
+export async function conferirEtapasFeitas(ctx: Ctx, atribs: AtribComProgresso[]): Promise<number> {
+  const pendentes = new Set<string>();
+  for (const a of atribs) {
+    const feitos = a.progress[0]?.completedItemIds ?? [];
+    for (const it of a.track.items) if (!feitos.includes(it.id)) pendentes.add(it.activityId);
+  }
+  if (!pendentes.size) return 0;
+
+  const entregas: Array<{ activityId: string; attempt: number; masteryLevel: string | null; activity: { type: string; maxAttempts: number } }> =
+    await p.eduSubmission.findMany({
+      where: { studentId: ctx.studentId, activityId: { in: Array.from(pendentes) }, status: { in: ["SUBMITTED", "EVALUATED", "REVIEWED"] } },
+      select: { activityId: true, attempt: true, masteryLevel: true, activity: { select: { type: true, maxAttempts: true } } },
+    });
+  const feitas = new Set(entregas
+    .filter((e) => entregaContaComoFeita({ type: e.activity.type, masteryLevel: e.masteryLevel, attempt: e.attempt, maxAttempts: e.activity.maxAttempts }))
+    .map((e) => e.activityId));
+  if (!feitas.size) return 0;
+
+  let marcadas = 0;
+  const now = new Date();
+  for (const a of atribs) {
+    const prog = a.progress[0];
+    const antes = prog?.completedItemIds ?? [];
+    const novos = a.track.items.filter((it) => !antes.includes(it.id) && feitas.has(it.activityId)).map((it) => it.id);
+    if (!novos.length) continue;
+    const depois = [...antes, ...novos];
+    const concluida = depois.length >= a.track.items.length;
+    await p.eduTrackProgress.upsert({
+      where: { assignmentId_studentId: { assignmentId: a.id, studentId: ctx.studentId } },
+      create: { networkId: ctx.networkId, assignmentId: a.id, studentId: ctx.studentId, completedItemIds: depois, lastActivityAt: now, completedAt: concluida ? now : null },
+      update: { completedItemIds: depois, ...(concluida && !prog?.completedAt ? { completedAt: now } : {}) },
+    }).catch((err: Error) => console.error(`[trilha-progresso] conferir ${a.id}:`, err.message));
+    if (prog) { prog.completedItemIds = depois; if (concluida && !prog.completedAt) prog.completedAt = now; }
+    else a.progress.push({ completedItemIds: depois, completedAt: concluida ? now : null });
+    marcadas += novos.length;
+  }
+  return marcadas;
+}
