@@ -1,7 +1,8 @@
 "use client";
-import { Suspense, useState, useEffect, useCallback, useRef } from "react";
+import { Suspense, useState, useEffect, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { QrCode, Volume2, Delete, ChevronLeft, KeyRound, AlertCircle } from "lucide-react";
+import LeitorQR, { codigoDoQR } from "@/components/escola/LeitorQR";
+import { QrCode, Volume2, Delete, ChevronLeft, KeyRound } from "lucide-react";
 
 // ── Figuras SVG (sem emoji) ──────────────────────────────────────────────────
 const FIGURES = [
@@ -390,10 +391,19 @@ function EntrarInner() {
 
   // ── Leitor QR com câmera ──────────────────────────────────────────────────
   if (screen === "qr-camera") {
-    return <QRCameraScreen onCancel={() => setScreen("choose")} onDetected={url => {
-      const m = /[?&]card=([^&]+)/.exec(url);
-      if (m) router.replace(`/escola/aluno/entrar?card=${encodeURIComponent(decodeURIComponent(m[1]))}`);
-    }} onUseCode={() => { setAlunoCode(Array(TAM_CODIGO).fill("")); setAlunoError(""); setScreen("aluno-code"); }} />;
+    return <LeitorQR titulo="Ler o meu cartão" dica="Aponte a câmera para o QR do seu cartão" textoDigitar="Digitar o meu código"
+      onCancelar={() => setScreen("choose")}
+      onDigitar={() => { setAlunoCode(Array(TAM_CODIGO).fill("")); setAlunoError(""); setScreen("aluno-code"); }}
+      onLido={(texto) => {
+        const card = /[?&]card=([^&]+)/.exec(texto);
+        if (card) { router.replace(`/escola/aluno/entrar?card=${encodeURIComponent(decodeURIComponent(card[1]))}`); return; }
+        const codigo = codigoDoQR(texto);
+        if (codigo.length === TAM_CODIGO) {
+          setAlunoCode(codigo.split("")); setAlunoError(""); setScreen("aluno-code"); resolveAlunoCode(codigo); return;
+        }
+        setAulaError("Esse QR não é do cartão do aluno. Tente de novo ou digite o seu código.");
+        setScreen("choose");
+      }} />;
   }
 
   // ── Nomes da aula ───────────────────────────────────────────────────────────
@@ -505,101 +515,6 @@ function EntrarInner() {
   }
 
   return null;
-}
-
-// ── Leitor QR com câmera ────────────────────────────────────────────────────
-function QRCameraScreen({ onCancel, onDetected, onUseCode }: { onCancel: () => void; onDetected: (url: string) => void; onUseCode: () => void }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [err, setErr] = useState<string | null>(null);
-  const [scanning, setScanning] = useState(false);
-  const streamRef = useRef<MediaStream | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    let rafId: number;
-
-    async function start() {
-      setScanning(true); setErr(null);
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
-        if (cancelled) { stream.getTracks().forEach(t => t.stop()); return; }
-        streamRef.current = stream;
-        if (videoRef.current) { videoRef.current.srcObject = stream; await videoRef.current.play(); }
-
-        const scanFrame = async () => {
-          if (cancelled || !videoRef.current || videoRef.current.readyState < 2) { rafId = requestAnimationFrame(scanFrame); return; }
-          // BarcodeDetector (Chrome 83+, Safari 17.4+)
-          if ("BarcodeDetector" in window) {
-            try {
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              const bd = new (window as any).BarcodeDetector({ formats: ["qr_code"] });
-              const codes = await bd.detect(videoRef.current);
-              if (codes.length > 0 && !cancelled) { cleanup(); onDetected(codes[0].rawValue); return; }
-            } catch { /* ignore */ }
-          } else {
-            // Fallback jsqr (lazy import)
-            const canvas = document.createElement("canvas");
-            const vw = videoRef.current.videoWidth; const vh = videoRef.current.videoHeight;
-            if (vw && vh) {
-              canvas.width = vw; canvas.height = vh;
-              const ctx = canvas.getContext("2d")!;
-              ctx.drawImage(videoRef.current, 0, 0, vw, vh);
-              const imageData = ctx.getImageData(0, 0, vw, vh);
-              const jsQR = (await import("jsqr").catch(() => null))?.default;
-              if (jsQR) {
-                const code = jsQR(imageData.data, vw, vh);
-                if (code && !cancelled) { cleanup(); onDetected(code.data); return; }
-              }
-            }
-          }
-          rafId = requestAnimationFrame(scanFrame);
-        }
-        scanFrame();
-      } catch {
-        if (!cancelled) setErr("Câmera não disponível. Verifique as permissões do navegador.");
-        setScanning(false);
-      }
-    }
-
-    function cleanup() { cancelled = true; cancelAnimationFrame(rafId); streamRef.current?.getTracks().forEach(t => t.stop()); }
-    start();
-    return () => cleanup();
-  }, [onDetected]);
-
-  return (
-    <div className="min-h-screen bg-[#1F1A2E] flex flex-col items-center justify-center p-4">
-      <div className="w-full max-w-sm">
-        <div className="flex items-center justify-between mb-4">
-          <button onClick={onCancel} className="text-white/70 flex items-center gap-1 text-sm"><ChevronLeft size={16} /> Voltar</button>
-          <span className="text-white font-semibold">Escanear cartão</span>
-          <div className="w-16" />
-        </div>
-        {err ? (
-          <div className="bg-white rounded-2xl p-6 text-center">
-            <AlertCircle className="mx-auto mb-3 text-[#B91C1C]" size={32} />
-            <p className="text-[#1F1A2E] text-sm mb-4">{err}</p>
-            <button onClick={onUseCode} className="w-full bg-[#6D28D9] text-white py-3 rounded-xl font-semibold text-sm min-h-[44px]">Digitar o meu código</button>
-          </div>
-        ) : (
-          <>
-            <div className="relative rounded-2xl overflow-hidden aspect-square bg-black mb-4">
-              <video ref={videoRef} className="w-full h-full object-cover" muted playsInline />
-              {scanning && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-48 h-48 border-4 border-white/60 rounded-2xl" />
-                  <div className="absolute top-1/2 -translate-y-1/2 w-48 h-0.5 bg-[#6D28D9] animate-bounce" />
-                </div>
-              )}
-            </div>
-            <p className="text-white/60 text-sm text-center mb-4">Aponte para o QR do cartão do aluno</p>
-            <button onClick={onUseCode} className="w-full border border-white/30 text-white/80 py-3 rounded-xl text-sm font-semibold min-h-[44px]">
-              <KeyRound size={14} className="inline mr-1.5" />Digitar o meu código
-            </button>
-          </>
-        )}
-      </div>
-    </div>
-  );
 }
 
 export default function AlunoEntrarPage() {
