@@ -7,7 +7,8 @@
  */
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { HeartHandshake, School, ChevronLeft } from "lucide-react";
+import { HeartHandshake, School, ChevronLeft, QrCode } from "lucide-react";
+import LeitorQR, { codigoDoQR, mascaraCodigo } from "@/components/escola/LeitorQR";
 
 const RELATIONS = [
   { value: "MAE", label: "Mãe" }, { value: "PAI", label: "Pai" }, { value: "AVO_AVO", label: "Avó / Avô" },
@@ -28,6 +29,8 @@ function PrimeiroAcesso() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [jaTemConta, setJaTemConta] = useState(false);
+  const [lerQR, setLerQR] = useState(false);
+  const codigoLimpo = codigo.replace(/[^A-Z0-9]/g, "");
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => setF((p) => ({ ...p, [k]: e.target.value }));
 
   async function conferir(c: string) {
@@ -41,7 +44,8 @@ function PrimeiroAcesso() {
 
   useEffect(() => {
     const c = (sp.get("codigo") ?? "").toUpperCase().replace(/[^A-Z0-9]/g, "");
-    if (c) { setCodigo(c.length === 8 ? `${c.slice(0, 4)}-${c.slice(4)}` : c); conferir(c); }
+    if (c) { setCodigo(mascaraCodigo(c)); conferir(c); }
+    else if (sp.get("ler") === "1") setLerQR(true);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -59,6 +63,19 @@ function PrimeiroAcesso() {
     } catch { setError("Erro de conexão. Tente novamente."); setLoading(false); }
   }
 
+  if (lerQR) {
+    return (
+      <LeitorQR titulo="Ler a ficha" dica="Aponte a câmera para o QR da ficha de acesso" textoDigitar="Digitar o código"
+        onCancelar={() => setLerQR(false)} onDigitar={() => setLerQR(false)}
+        onLido={(texto) => {
+          setLerQR(false);
+          const c = codigoDoQR(texto);
+          if (c.length !== 8) { setError("Esse QR não é de uma ficha de acesso. Use o QR da ficha que a escola entregou."); return; }
+          setCodigo(mascaraCodigo(c)); conferir(c);
+        }} />
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#F6F4FE] flex flex-col items-center justify-center p-5 relative overflow-hidden">
       <div className="absolute inset-x-0 top-0 h-[44vh] rounded-b-[40px] bg-gradient-to-br from-[#5B21B6] via-[#6D28D9] to-[#8B5CF6]" aria-hidden="true" />
@@ -70,15 +87,18 @@ function PrimeiroAcesso() {
         </div>
 
         {etapa === "codigo" && (
-          <form onSubmit={(e) => { e.preventDefault(); conferir(codigo); }} className="space-y-4">
+          <form onSubmit={(e) => { e.preventDefault(); conferir(codigoLimpo); }} className="space-y-4">
+            <button type="button" onClick={() => { setError(""); setLerQR(true); }}
+              className="w-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-bold rounded-2xl min-h-[52px] flex items-center justify-center gap-2"><QrCode className="size-5" />Ler o QR da ficha</button>
+            <div className="flex items-center gap-3 text-[12px] text-[#8B84A0]"><span className="h-px flex-1 bg-[#E9E5F5]" />ou digite o código<span className="h-px flex-1 bg-[#E9E5F5]" /></div>
             <div>
               <label className={label}>Código da ficha de acesso</label>
-              <input value={codigo} onChange={(e) => setCodigo(e.target.value)} required placeholder="ABCD-2345" autoCapitalize="characters"
+              <input value={codigo} onChange={(e) => setCodigo(mascaraCodigo(e.target.value))} required placeholder="ABCD-2345" autoCapitalize="characters" autoComplete="off" autoCorrect="off" spellCheck={false} maxLength={9}
                 className={`${inputCls} font-mono tracking-widest uppercase text-center text-lg`} />
-              <p className="text-[#5B5470] text-xs mt-1">Está na ficha que a escola entregou. Se você leu o QR, ele já vem preenchido.</p>
+              <p className="text-[#5B5470] text-xs mt-1">{codigoLimpo.length > 0 && codigoLimpo.length < 8 ? `Faltam ${8 - codigoLimpo.length} ${8 - codigoLimpo.length === 1 ? "caractere" : "caracteres"}. O código tem 8 letras e números, como na ficha.` : "Está na ficha que a escola entregou, abaixo do QR."}</p>
             </div>
             {error && <p className="text-[#B91C1C] text-sm text-center bg-[#FEE2E2] rounded-xl px-3 py-2">{error}</p>}
-            <button type="submit" disabled={loading || codigo.trim().length < 6} className="w-full bg-[#6D28D9] hover:bg-[#5B21B6] disabled:opacity-50 text-white font-bold rounded-2xl min-h-[52px]">{loading ? "Conferindo..." : "Continuar"}</button>
+            <button type="submit" disabled={loading || codigoLimpo.length !== 8} className="w-full border-[1.5px] border-[#6D28D9] text-[#6D28D9] hover:bg-[#F6F4FE] disabled:opacity-50 font-bold rounded-2xl min-h-[52px]">{loading ? "Conferindo..." : "Continuar com o código"}</button>
             <p className="text-center text-[13px] text-[#5B5470]">Já tem acesso? <a href="/escola/familia/entrar" className="text-[#6D28D9] font-semibold">Entrar</a></p>
           </form>
         )}

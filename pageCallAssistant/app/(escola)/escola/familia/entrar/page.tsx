@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { HeartHandshake } from "lucide-react";
+import { HeartHandshake, QrCode } from "lucide-react";
 
 const inputCls = "w-full bg-white text-[#1F1A2E] rounded-2xl px-4 py-3.5 border-[1.5px] border-[#DDD6EE] focus:border-[#6D28D9] focus:ring-[3px] focus:ring-[#EDE9FE] outline-none text-sm";
 
@@ -39,6 +39,11 @@ export default function FamiliaLoginPage() {
 
         {aviso && <div className="mb-4 text-center text-[13px] text-[#4C1D95] bg-[#EDE9FE] rounded-2xl py-2.5">{aviso}</div>}
 
+        <a href="/escola/familia/primeiro-acesso?ler=1" className="mb-5 w-full rounded-2xl border-[1.5px] border-[#DDD6EE] bg-[#F6F4FE] hover:border-[#6D28D9] px-4 py-3 flex items-center gap-3 text-left">
+          <span className="w-10 h-10 rounded-xl bg-[#6D28D9] text-white flex items-center justify-center shrink-0"><QrCode className="size-5" /></span>
+          <span><span className="block text-[14px] font-bold text-[#1F1A2E]">Primeiro acesso: ler o QR da ficha</span><span className="block text-[12px] text-[#5B5470]">Use a ficha que a escola entregou</span></span>
+        </a>
+
         <form onSubmit={handleSubmit} className="space-y-4">
           <div><label className="text-[#1F1A2E] text-sm font-medium block mb-1">E-mail ou celular</label><input value={identifier} onChange={(e) => setIdentifier(e.target.value)} required autoCapitalize="none" placeholder="seu e-mail ou celular" className={inputCls} /></div>
           <div><label className="text-[#1F1A2E] text-sm font-medium block mb-1">Senha</label><input value={senha} onChange={(e) => setSenha(e.target.value)} required type="password" placeholder="Sua senha" className={inputCls} /></div>
@@ -48,7 +53,7 @@ export default function FamiliaLoginPage() {
 
         <div className="mt-4 text-center text-[13px] space-y-1.5">
           <p><a href="/escola/familia/esqueci-senha" className="text-[#6D28D9]">Esqueci minha senha</a></p>
-          <p className="text-[#5B5470]">Primeiro acesso? <a href="/escola/familia/primeiro-acesso" className="text-[#6D28D9] font-medium">Use o código do cartão do aluno</a></p>
+          <p className="text-[#5B5470]">Primeiro acesso? <a href="/escola/familia/primeiro-acesso" className="text-[#6D28D9] font-medium">Use a ficha que a escola entregou</a></p>
           <p className="text-[#5B5470]">Recebeu um convite? Use o link do e-mail ou do WhatsApp.</p>
         </div>
 
