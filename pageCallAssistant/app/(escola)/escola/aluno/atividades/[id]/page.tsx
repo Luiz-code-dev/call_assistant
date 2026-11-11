@@ -5,6 +5,7 @@ import { useRouter, useParams } from "next/navigation";
 import { Mic, MicOff, Play, RefreshCw, Send, CheckCircle2, Clock, AlertCircle, ChevronRight, Volume2 } from "lucide-react";
 import { Capa, materiaDe } from "@/components/escola/reforco-ui";
 import AjudanteFlow from "@/components/escola/aluno/AjudanteFlow";
+import RevisarComFlow from "@/components/escola/aluno/RevisarComFlow";
 
 interface QuizQuestion { id: string; order: number; question: string; options: string[] }
 interface Atividade {
@@ -127,6 +128,8 @@ function WrittenActivity({ activity, onSubmit }: { activity: Atividade; onSubmit
           <span className="text-xs text-[#5B5470]">Salvo automaticamente</span>
         </div>
       </div>
+      {/* Flow dá uma dica de melhoria antes de enviar, sem reescrever */}
+      <RevisarComFlow activityId={activity.id} texto={text} />
       <button onClick={handleSubmit} disabled={submitting || text.trim().length < 10}
         className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-bold text-white bg-[#6D28D9] hover:bg-[#5B21B6] transition-colors disabled:opacity-50 min-h-[52px]">
         {submitting ? <><RefreshCw className="size-4 animate-spin" />Enviando...</> : <><Send className="size-4" />Enviar resposta</>}

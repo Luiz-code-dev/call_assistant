@@ -36,3 +36,34 @@ describe("promptDoAjudante", () => {
   });
   it("dica sem IA sempre termina perguntando", () => { expect(dicaSemIA("não entendi", quiz)).toMatch(/\?$/); });
 });
+
+import { travaDaRevisao, dicaDaRevisaoSemIA, criarLimite } from "./ajudante";
+
+describe("travaDaRevisao", () => {
+  const aluno = "A água poluída faz mal porque tem sujeira.";
+  it("barra quando o Flow reescreve o texto ou dá frase pronta", () => {
+    expect(travaDaRevisao('Você pode escrever assim: "A água poluída faz mal porque contém bactérias que causam doenças graves."', aluno)).not.toMatch(/bactérias/);
+    expect(travaDaRevisao('Tente: "a água contaminada transmite doenças como a diarreia e a hepatite"', aluno)).not.toMatch(/hepatite/);
+    expect(travaDaRevisao("A resposta correta é que a água tem bactérias.", aluno)).not.toMatch(/bactérias/);
+  });
+  it("deixa passar elogio + dica + pergunta", () => {
+    const d = "Você explicou que a água faz mal, muito bem! Agora pense: que sujeira é essa e o que ela causa no corpo?";
+    expect(travaDaRevisao(d, aluno)).toBe(d);
+  });
+  it("pode citar o próprio texto do aluno", () => {
+    const d = 'Gostei de "a água poluída faz mal porque tem sujeira". Que exemplo do seu bairro mostra isso?';
+    expect(travaDaRevisao(d, aluno)).toBe(d);
+  });
+  it("dica sem IA pede porquê e exemplo", () => {
+    expect(dicaDaRevisaoSemIA("água suja")).toMatch(/curtinho/);
+    expect(dicaDaRevisaoSemIA("a água do rio fica suja e as pessoas bebem e ficam doentes no bairro onde moro")).toMatch(/porquê/);
+  });
+});
+
+describe("criarLimite", () => {
+  it("bloqueia depois do máximo dentro da janela", () => {
+    const l = criarLimite(2, 1000);
+    expect(l("a", 0)).toBe(true); expect(l("a", 10)).toBe(true); expect(l("a", 20)).toBe(false);
+    expect(l("a", 2000)).toBe(true); expect(l("b", 20)).toBe(true);
+  });
+});
