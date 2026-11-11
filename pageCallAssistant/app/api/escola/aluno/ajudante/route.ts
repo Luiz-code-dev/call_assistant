@@ -9,7 +9,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
-import { setTenantDb } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
+import { apagarDadosPessoais } from "@/lib/escola/dever";
 import { atividadeDoAluno, anoDaTurma } from "@/lib/escola/ajudante-atividade";
 import { moderateText, ModerationError } from "@/lib/escola/ai-gateway";
 import { getOpenAI } from "@/lib/openai";
@@ -43,7 +44,14 @@ export async function POST(req: NextRequest) {
   if (parsed.data.activityId) {
     atividade = await atividadeDoAluno(ctx, parsed.data.activityId);
   } else if (parsed.data.dever) {
-    atividade = { titulo: "Dever de casa da escola", enunciado: parsed.data.dever.enunciado, tipo: "WRITTEN", materia: null, anoEscolar: await anoDaTurma(ctx), perguntas: [] };
+    // O aluno pode ter corrigido o texto lido: apaga o nome dele e dados pessoais de novo
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- cliente Prisma do tenant sem tipagem estática
+    const aluno = await (prismaEdu as any).eduStudent.findUnique({ where: { id: ctx.studentId }, select: { fullName: true } }).catch(() => null);
+    const enunciado = apagarDadosPessoais(parsed.data.dever.enunciado, aluno?.fullName ?? "");
+    try { await moderateText(enunciado); } catch (e) {
+      if (e instanceof ModerationError) return NextResponse.json({ resposta: "Vamos falar só sobre o dever da escola, combinado?" });
+    }
+    atividade = { titulo: "Dever de casa da escola", enunciado, tipo: "WRITTEN", materia: null, anoEscolar: await anoDaTurma(ctx), perguntas: [] };
   }
   if (!atividade) return NextResponse.json({ error: "Atividade não encontrada" }, { status: 404 });
 
