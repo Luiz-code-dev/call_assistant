@@ -69,6 +69,7 @@ function PrimeiroAcesso() {
         onCancelar={() => setLerQR(false)} onDigitar={() => setLerQR(false)}
         onLido={(texto) => {
           setLerQR(false);
+          if (/\/escola\/aluno\//i.test(texto)) { setError("Esse QR é do cartão do aluno. Para o primeiro acesso, use o QR da ficha da família."); return; }
           const c = codigoDoQR(texto);
           if (c.length !== 8) { setError("Esse QR não é de uma ficha de acesso. Use o QR da ficha que a escola entregou."); return; }
           setCodigo(mascaraCodigo(c)); conferir(c);
