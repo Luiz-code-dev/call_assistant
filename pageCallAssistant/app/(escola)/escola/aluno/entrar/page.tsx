@@ -397,7 +397,15 @@ function EntrarInner() {
       onLido={(texto) => {
         const card = /[?&]card=([^&]+)/.exec(texto);
         if (card) { router.replace(`/escola/aluno/entrar?card=${encodeURIComponent(decodeURIComponent(card[1]))}`); return; }
+        if (/\/escola\/familia\//i.test(texto)) {
+          setAulaError("Esse QR é da ficha da família. Para entrar, use o QR do cartão do aluno.");
+          setScreen("choose"); return;
+        }
         const codigo = codigoDoQR(texto);
+        // QR do site sem código (cartões antigos): abre a tela para digitar o código.
+        if (!codigo && /speakflow\.ia\.br\/escola/i.test(texto)) {
+          setAlunoCode(Array(TAM_CODIGO).fill("")); setAlunoError(""); setScreen("aluno-code"); return;
+        }
         if (codigo.length === TAM_CODIGO) {
           setAlunoCode(codigo.split("")); setAlunoError(""); setScreen("aluno-code"); resolveAlunoCode(codigo); return;
         }
