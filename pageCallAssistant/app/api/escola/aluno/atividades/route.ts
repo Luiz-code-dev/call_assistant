@@ -66,7 +66,7 @@ export async function GET(req: NextRequest) {
       select: {
         id: true, attempt: true, status: true, aiStatus: true,
         aiScore: true, teacherScore: true, aiFeedback: true,
-        submittedAt: true, evaluatedAt: true,
+        submittedAt: true, evaluatedAt: true, masteryLevel: true,
       },
     },
   };
@@ -133,6 +133,8 @@ export async function GET(req: NextRequest) {
         dueAt: a.dueAt,
         opensAt: a.opensAt,
         subject: subject ? { id: subject.id, name: subject.name, color: subject.color } : null,
+        // Atividades da trilha (biblioteca) não têm componente da turma: a matéria vem do código (MA, LP...)
+        subjectCode: a.subjectCode ?? null,
         classSubjectId: a.classSubject?.id ?? null,
         // Só o texto das alternativas: misconceptionCode e correctIndex ficam no servidor
         questions: a.type === "QUIZ"
