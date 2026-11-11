@@ -320,6 +320,29 @@ model EduStudyPlanItem {
   @@index([networkId, studentId])
 }
 
+/// Revisão de 2 minutos do Flow: um cartão por pergunta de quiz que o aluno errou.
+/// Caixas 1 a 5 (repetição espaçada); acertou sobe de caixa, errou volta para a 1.
+/// Caixa 6 = firmado (não volta mais).
+model EduReviewCard {
+  id             String   @id @default(cuid())
+  networkId      String
+  studentId      String
+  questionId     String
+  activityId     String
+  subjectCode    String?
+  box            Int      @default(1)
+  /// Próximo dia de revisar (AAAA-MM-DD, São Paulo)
+  dueOn          String
+  /// Último dia em que foi revisado (AAAA-MM-DD, São Paulo)
+  lastReviewedOn String?
+  reviews        Int      @default(0)
+  createdAt      DateTime @default(now()) @db.Timestamptz
+  updatedAt      DateTime @default(now()) @updatedAt @db.Timestamptz
+
+  @@unique([studentId, questionId])
+  @@index([networkId, studentId, dueOn])
+}
+
 model EduSchoolYear {
   id        String   @id @default(cuid())
   networkId String
