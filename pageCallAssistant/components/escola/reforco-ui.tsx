@@ -50,10 +50,10 @@ export const BOTAO_CLARO = "inline-flex items-center justify-center gap-2 rounde
 
 /** Capa colorida do topo, com voltar opcional */
 export function Capa({
-  titulo, subtitulo, voltar, cor, direita, children, compacta,
+  titulo, subtitulo, voltar, cor, direita, children, compacta, largo,
 }: {
   titulo: ReactNode; subtitulo?: ReactNode; voltar?: { href?: string; onClick?: () => void; texto?: string };
-  cor?: string; direita?: ReactNode; children?: ReactNode; compacta?: boolean;
+  cor?: string; direita?: ReactNode; children?: ReactNode; compacta?: boolean; largo?: boolean;
 }) {
   const fundo = cor
     ? `linear-gradient(135deg, ${cor}, ${cor}CC)`
@@ -73,7 +73,7 @@ export function Capa({
     <header className="relative overflow-hidden rounded-b-[28px] text-white" style={{ background: fundo }}>
       <div className="absolute -top-14 -right-10 w-44 h-44 rounded-full bg-white/10" />
       <div className="absolute top-20 -left-10 w-28 h-28 rounded-full bg-white/5" />
-      <div className={`relative max-w-3xl mx-auto px-5 pt-4 ${compacta ? "pb-6" : "pb-16"}`}>
+      <div className={`relative ${largo ? "max-w-5xl" : "max-w-3xl"} mx-auto px-5 pt-4 ${compacta ? "pb-6" : "pb-16"}`}>
         <div className="flex items-center justify-between min-h-[44px]">{BotaoVoltar}{direita}</div>
         <div className="mt-2">
           <h1 className="text-2xl font-extrabold leading-tight">{titulo}</h1>
@@ -86,8 +86,8 @@ export function Capa({
 }
 
 /** Conteúdo que sobe por cima da capa */
-export function Conteudo({ children, sobreCapa = true }: { children: ReactNode; sobreCapa?: boolean }) {
-  return <main className={`relative max-w-3xl mx-auto px-4 ${sobreCapa ? "-mt-10" : "mt-5"} space-y-5 pb-28`}>{children}</main>;
+export function Conteudo({ children, sobreCapa = true, largo }: { children: ReactNode; sobreCapa?: boolean; largo?: boolean }) {
+  return <main className={`relative ${largo ? "max-w-5xl" : "max-w-3xl"} mx-auto px-4 ${sobreCapa ? "-mt-10" : "mt-5"} space-y-5 pb-28`}>{children}</main>;
 }
 
 type ItemNav = { href: string; icon: Icone; label: string; chave: string };
