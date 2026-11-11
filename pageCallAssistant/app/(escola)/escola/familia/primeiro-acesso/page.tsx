@@ -9,6 +9,7 @@ import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { HeartHandshake, School, ChevronLeft, QrCode, ChevronDown } from "lucide-react";
 import LeitorQR, { codigoDoQR, mascaraCodigo } from "@/components/escola/LeitorQR";
+import { mascaraData, dataIso } from "@/lib/escola/data-br";
 
 const RELATIONS = [
   { value: "MAE", label: "Mãe" }, { value: "PAI", label: "Pai" }, { value: "AVO_AVO", label: "Avó / Avô" },
@@ -17,24 +18,6 @@ const RELATIONS = [
 // Altura e largura fixas: no Android a data e a lista nativas saíam da tela e ficavam tortas
 const inputCls = "block w-full min-w-0 max-w-full h-[52px] box-border appearance-none bg-white text-[#1F1A2E] rounded-2xl px-4 border-[1.5px] border-[#DDD6EE] focus:border-[#6D28D9] focus:ring-[3px] focus:ring-[#EDE9FE] outline-none text-[16px] leading-normal";
 
-/** 12032015 -> 12/03/2015 enquanto digita */
-function mascaraData(v: string): string {
-  const d = v.replace(/\D/g, "").slice(0, 8);
-  if (d.length > 4) return `${d.slice(0, 2)}/${d.slice(2, 4)}/${d.slice(4)}`;
-  if (d.length > 2) return `${d.slice(0, 2)}/${d.slice(2)}`;
-  return d;
-}
-/** 12/03/2015 -> 2015-03-12 (ou "" se a data não existir) */
-function dataIso(v: string): string {
-  const m = v.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
-  if (!m) return "";
-  const [, dd, mm, aaaa] = m;
-  const dt = new Date(`${aaaa}-${mm}-${dd}T12:00:00Z`);
-  if (isNaN(dt.getTime()) || dt.getUTCDate() !== Number(dd) || dt.getUTCMonth() + 1 !== Number(mm)) return "";
-  const ano = Number(aaaa);
-  if (ano < 1990 || ano > new Date().getFullYear()) return "";
-  return `${aaaa}-${mm}-${dd}`;
-}
 const label = "text-[#1F1A2E] text-sm font-semibold block mb-1";
 
 type Aluno = { aluno: string; turma: string | null; escola: string | null; temDataNascimento: boolean };
