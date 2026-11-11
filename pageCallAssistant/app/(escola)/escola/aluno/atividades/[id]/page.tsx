@@ -4,6 +4,7 @@ import { useEffect, useState, useRef, useCallback } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { Mic, MicOff, Play, RefreshCw, Send, CheckCircle2, Clock, AlertCircle, ChevronRight, Volume2 } from "lucide-react";
 import { Capa, materiaDe } from "@/components/escola/reforco-ui";
+import AjudanteFlow from "@/components/escola/aluno/AjudanteFlow";
 
 interface QuizQuestion { id: string; order: number; question: string; options: string[] }
 interface Atividade {
@@ -491,7 +492,7 @@ export default function FazerAtividadePage() {
       <Capa compacta titulo={activity?.title ?? "Atividade"} subtitulo={activity?.subject?.name}
         voltar={{ onClick: () => router.back() }} cor={materiaDe(activity?.subject?.name)?.cor} />
 
-      <main className="max-w-2xl mx-auto px-4 py-5">
+      <main className="max-w-2xl mx-auto px-4 pt-5 pb-28">
         {submitted ? (
           <WaitingFeedback activityId={id} />
         ) : activity?.type === "WRITTEN" ? (
@@ -504,6 +505,8 @@ export default function FazerAtividadePage() {
           <p className="text-center text-[#5B5470] py-16">Atividade não encontrada.</p>
         )}
       </main>
+      {/* Flow no cantinho: ajuda a pensar, nunca dá a resposta */}
+      {activity && !submitted && <AjudanteFlow activityId={id} />}
     </div>
   );
 }

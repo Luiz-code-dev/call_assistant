@@ -10,6 +10,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { NavAluno } from "@/components/escola/reforco-ui";
 import { RecadoDaFamilia, AgendaDeHoje, AtivarAvisos } from "@/components/escola/aluno/RecadosAluno";
+import FlowBoasVindas from "@/components/escola/aluno/FlowBoasVindas";
 
 interface Subject { id: string; name: string; color: string | null }
 interface Submission { id: string; status: string; evaluatedAt: string | null; masteryLevel: string | null }
@@ -204,6 +205,10 @@ export default function AlunoHomePage() {
       </header>
 
       <main className="relative max-w-3xl mx-auto px-4 -mt-14 space-y-6">
+        {/* Flow, o mascote: cumprimenta e aponta o próximo passo */}
+        <FlowBoasVindas nome={nome} estudouHoje={!!diasSemana[hojeIndex]} diasSeguidos={diasSeguidos}
+          materias={materias} carregando={loading || materiasLoading} />
+
         {/* Semana */}
         <section className="bg-white rounded-3xl p-4 shadow-[0_8px_24px_rgba(91,33,182,0.12)]">
           <div className="flex items-center justify-between mb-3">
@@ -255,7 +260,7 @@ export default function AlunoHomePage() {
         )}
 
         {/* Matérias */}
-        <section>
+        <section id="materias" className="scroll-mt-4">
           <h2 className="text-lg font-extrabold text-[#1F1A2E] mb-3 px-1">Suas matérias</h2>
 
           {materiasLoading ? (
