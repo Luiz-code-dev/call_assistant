@@ -8,6 +8,7 @@ import { RecadoParaFilho, AgendaDoFilho } from "@/components/escola/familia/Reca
 import FamilyShell from "@/components/escola/familia/FamilyShell";
 import { SemanaDoFilho, AvisosDaFamilia } from "@/components/escola/familia/Acompanhamento";
 import ConversaDaSemana from "@/components/escola/familia/ConversaDaSemana";
+import ProfessoresDoFilho from "@/components/escola/familia/ProfessoresDoFilho";
 import { QRCodeSVG } from "qrcode.react";
 
 const LEVELS = [
@@ -359,6 +360,9 @@ export default function PainelFilho() {
 
           {/* Avisos para o responsável: celular, WhatsApp e e-mail */}
           <AvisosDaFamilia />
+
+          {/* Recados dos professores (com "Incluir na agenda") e retorno para a coordenação: extensão de aula */}
+          <ProfessoresDoFilho studentId={studentId} nome={data.aluno.firstName} />
 
           {/* Recado e agenda: o aluno vê na tela inicial */}
           <div id="recado" className="scroll-mt-4"><RecadoParaFilho studentId={studentId} nome={data.aluno.firstName} /></div>

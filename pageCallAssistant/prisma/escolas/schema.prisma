@@ -1089,6 +1089,51 @@ model EduTrackProgress {
 // FASE 3b — Avisos ao professor
 // ================================================================
 
+/// Reforço indicado pelo professor para a família (extensão de aula): uma linha por aluno.
+/// envioId agrupa os alunos de um mesmo envio. A família vê e pode pôr na agenda.
+model EduReforcoIndicado {
+  id             String    @id @default(cuid())
+  networkId      String
+  envioId        String
+  teacherUserId  String
+  classSubjectId String
+  classId        String
+  studentId      String
+  subjectName    String
+  /// Código da matéria na agenda (LP, MA...), quando houver
+  subjectCode    String?
+  text           String    @db.Text
+  createdAt      DateTime  @default(now()) @db.Timestamptz
+  readAt         DateTime? @db.Timestamptz
+  agendaAt       DateTime? @db.Timestamptz
+
+  @@index([networkId, studentId, createdAt])
+  @@index([networkId, teacherUserId, createdAt])
+  @@index([envioId])
+}
+
+/// Retorno da família sobre um professor (extensão de aula), lido pela coordenação.
+/// kind: ELOGIO | SUGESTAO | PREOCUPACAO
+model EduRetornoFamilia {
+  id             String    @id @default(cuid())
+  networkId      String
+  guardianId     String
+  studentId      String
+  classId        String
+  schoolId       String
+  classSubjectId String
+  teacherUserId  String
+  kind           String
+  text           String    @db.Text
+  createdAt      DateTime  @default(now()) @db.Timestamptz
+  readAt         DateTime? @db.Timestamptz
+  readById       String?
+
+  @@index([networkId, createdAt])
+  @@index([networkId, teacherUserId])
+  @@index([guardianId, createdAt])
+}
+
 model EduTeacherAlert {
   id            String    @id @default(cuid())
   networkId     String

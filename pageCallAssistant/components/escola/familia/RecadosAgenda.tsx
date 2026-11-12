@@ -145,8 +145,12 @@ export function AgendaDoFilho({ studentId, nome }: { studentId: string; nome: st
   const [salvando, setSalvando] = useState(false);
 
   useEffect(() => {
-    fetch(`/api/escola/familia/filhos/${studentId}/agenda`).then((r) => (r.ok ? r.json() : null))
+    const carregar = () => fetch(`/api/escola/familia/filhos/${studentId}/agenda`, { cache: "no-store" }).then((r) => (r.ok ? r.json() : null))
       .then((d) => setItens(d?.itens ?? [])).catch(() => {});
+    carregar();
+    // O reforço indicado pelo professor também entra na agenda (ProfessoresDoFilho)
+    window.addEventListener("escola:agenda-atualizada", carregar);
+    return () => window.removeEventListener("escola:agenda-atualizada", carregar);
   }, [studentId]);
 
   // Dias escolhidos que já têm esse mesmo horário: avisa antes de salvar
