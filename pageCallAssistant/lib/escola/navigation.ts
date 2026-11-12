@@ -25,6 +25,7 @@ export const NAV_BY_ROLE: Record<EduRole, NavItem[]> = {
     { label: "Habilidades prioritárias", href: "/escola/rede/habilidades",        icon: "Target"          },
     { label: "Indicadores",              href: "/escola/rede/indicadores",        icon: "BarChart3"       },
     { label: "Configurações",            href: "/escola/rede/configuracoes",      icon: "Settings"        },
+    { label: "Retorno das famílias",     href: "/escola/coordenacao/retornos-familias", icon: "MessageSquare" },
     { label: "Auditoria",                href: "/escola/rede/auditoria",          icon: "ScrollText"      },
   ],
   COORDINATOR: [
@@ -33,6 +34,7 @@ export const NAV_BY_ROLE: Record<EduRole, NavItem[]> = {
     { label: "Trilhas",                  href: "/escola/coordenacao/trilhas",      icon: "Route"           },
     { label: "Habilidades prioritárias", href: "/escola/coordenacao/habilidades",  icon: "Target"          },
     { label: "Escolas e turmas",         href: "/escola/coordenacao/escolas",      icon: "School"          },
+    { label: "Retorno das famílias",     href: "/escola/coordenacao/retornos-familias", icon: "MessageSquare" },
   ],
   SCHOOL_ADMIN: [
     { label: "Visão geral",       href: "/escola/direcao",             icon: "LayoutDashboard" },
@@ -40,6 +42,7 @@ export const NAV_BY_ROLE: Record<EduRole, NavItem[]> = {
     { label: "Famílias",          href: "/escola/direcao/familias",    icon: "HeartHandshake"  },
     { label: "Atribuições",       href: "/escola/direcao/atribuicoes", icon: "Grid3x3"         },
     { label: "Acesso das famílias", href: "/escola/direcao/cartoes",    icon: "QrCode"          },
+    { label: "Retorno das famílias", href: "/escola/coordenacao/retornos-familias", icon: "MessageSquare" },
     { label: "Auditoria",         href: "/escola/direcao/auditoria",   icon: "ScrollText"      },
   ],
   TEACHER: [
@@ -50,5 +53,6 @@ export const NAV_BY_ROLE: Record<EduRole, NavItem[]> = {
     { label: "Abrir aula",             href: "/escola/professor/aula",       icon: "Presentation"  },
     { label: "Atividades",             href: "/escola/professor/atividades", icon: "BookOpen"      },
     { label: "Retornos para revisar",  href: "/escola/professor/retornos",   icon: "MessageSquare" },
+    { label: "Avisar as famílias",     href: "/escola/professor/indicar-reforco", icon: "HeartHandshake" },
   ],
 };

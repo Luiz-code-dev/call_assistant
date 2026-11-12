@@ -22,7 +22,7 @@ import type { Aviso } from "@/lib/escola/avisos";
 
 /* eslint-disable @typescript-eslint/no-explicit-any -- cliente Prisma do tenant sem tipagem estática */
 
-export type TipoAvisoFamilia = "SEM_ESTUDO" | "ATENCAO" | "CONQUISTA" | `NOVO_RESPONSAVEL:${string}`;
+export type TipoAvisoFamilia = "SEM_ESTUDO" | "ATENCAO" | "CONQUISTA" | `NOVO_RESPONSAVEL:${string}` | `INDICACAO:${string}`;
 
 const BADGE = "/escola-icons/aviso-badge.png";
 const VAPID_SUBJECT = process.env.VAPID_SUBJECT ?? "mailto:admin@speakf.com.br";
