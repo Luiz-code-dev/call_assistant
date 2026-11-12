@@ -74,3 +74,19 @@ describe("Avisos para a família", () => {
     expect(horarioDeAvisar(new Date("2026-11-13T09:00:00Z"))).toBe(false); // 6h
   });
 });
+
+describe("e-mail com a marca do SpeakFlow Escolas", () => {
+  it("o aviso usa a marca, o ícone do Escolas e força o tema claro", async () => {
+    const { emailDoAviso, avisoSemEstudo } = await import("./avisos-familia");
+    const m = emailDoAviso("Luiz Melo", avisoSemEstudo("Bia", 1, "s1"), "https://www.speakflow.ia.br");
+    expect(m.html).toContain("SpeakFlow <span style=\"color:#BE185D\">Escolas</span>");
+    expect(m.html).toContain("https://www.speakflow.ia.br/escola-icons/icon-192.png");
+    expect(m.html).toContain("color-scheme");
+    expect(m.html).toContain("Olá, Luiz!");
+  });
+  it("o nome do remetente é sempre SpeakFlow Escolas, mantendo o endereço", async () => {
+    const { comNomeEscolas } = await import("./email-familia");
+    expect(comNomeEscolas("SpeakFlow <noreply@speakflow.ia.br>")).toBe("SpeakFlow Escolas <noreply@speakflow.ia.br>");
+    expect(comNomeEscolas("noreply@speakflow.ia.br")).toBe("SpeakFlow Escolas <noreply@speakflow.ia.br>");
+  });
+});
