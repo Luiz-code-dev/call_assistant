@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import EscPageHeader from "@/components/escola/layout/EscPageHeader";
 import { CheckCircle2, AlertTriangle, RefreshCw, ArrowRight, Rocket } from "lucide-react";
+import ConfiguracaoRapida from "@/components/escola/rede/ConfiguracaoRapida";
 
 interface Step {
   step: number; label: string; done: boolean; count: number; hint: string;
@@ -10,7 +11,7 @@ interface Step {
 interface Status {
   steps: Step[]; stepsCompleted: number; totalSteps: number; ready: boolean; canComplete: boolean;
   pending: {
-    schoolsWithoutDirector: number; offersWithoutTeacher: number; invitesPending: number;
+    schoolsWithoutDirector: number; offersWithoutTeacher: number; classesWithoutOffers?: number; invitesPending: number;
     studentsCount: number; classesCount: number; studentsWithoutClass: number; studentsWithoutGuardian: number;
   };
 }
@@ -18,10 +19,10 @@ interface Status {
 const STEP_LINKS: Record<number, string> = {
   1: "/escola/rede/escolas",
   2: "/escola/rede/anos-letivos",
-  3: "/escola/rede/componentes",
+  3: "#rapida",
   4: "/escola/rede/servidores",
   5: "/escola/rede/importacoes",
-  6: "/escola/rede/turmas",
+  6: "#rapida",
   7: "/escola/rede/importacoes",
   8: "#revisao",
 };
@@ -29,10 +30,10 @@ const STEP_LINKS: Record<number, string> = {
 const STEP_CTA: Record<number, string> = {
   1: "Importar escolas",
   2: "Configurar ano letivo",
-  3: "Revisar matriz",
+  3: "Configurar",
   4: "Importar servidores",
   5: "Importar turmas e alunos",
-  6: "Abrir atribuições",
+  6: "Atribuir",
   7: "Gerar cartões",
   8: "Revisar pendências",
 };
@@ -53,10 +54,10 @@ const STEP_LINKS_DONE: Record<number, string> = {
 const STEP_CTA_DONE: Record<number, string> = {
   1: "Ver escolas",
   2: "Ver ano letivo",
-  3: "Ver matriz",
+  3: "Ver matérias",
   4: "Ver servidores",
   5: "Ver turmas e alunos",
-  6: "Ver atribuições",
+  6: "Ver turmas",
   7: "Ver turmas e cartões",
   8: "Revisar pendências",
 };
@@ -102,7 +103,7 @@ export default function ImplantacaoPage() {
         }
       />
 
-      <div className="px-7 py-6 max-w-2xl mx-auto w-full">
+      <div className="px-4 sm:px-7 py-6 max-w-2xl mx-auto w-full">
         {loading ? (
           <div className="text-[#5B5470] text-center py-16">Carregando…</div>
         ) : error || !status ? (
@@ -139,6 +140,9 @@ export default function ImplantacaoPage() {
               )}
             </div>
 
+            {/* Matérias da BNCC, aulas das turmas e professores em poucos toques */}
+            <ConfiguracaoRapida aoMudar={load} />
+
             {/* Passos */}
             <div className="space-y-3 mb-6">
               {status.steps.map((step) => {
@@ -154,23 +158,19 @@ export default function ImplantacaoPage() {
                   <Link
                     key={step.step}
                     href={(step.done ? STEP_LINKS_DONE[step.step] : STEP_LINKS[step.step]) ?? "#"}
-                    className={`flex items-center gap-4 p-4 rounded-2xl border transition-colors group ${border}`}
+                    className={`flex items-start sm:items-center gap-3 sm:gap-4 p-4 rounded-2xl border transition-colors group ${border}`}
                   >
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${circle}`}>
                       {state === "done" ? <CheckCircle2 size={20} /> : <span className="text-[15px] font-bold">{step.step}</span>}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <span className="font-semibold text-[#1F1A2E]">{step.label}</span>
-                        {step.count > 0 && (
-                          <span className="text-xs text-[#5B5470] bg-[#FAF9FD] border border-[#E9E5F5] px-2 py-0.5 rounded-full">
-                            {step.count.toLocaleString("pt-BR")}
-                          </span>
-                        )}
-                      </div>
-                      <div className="text-[#5B5470] text-sm mt-0.5 truncate">{step.hint}</div>
+                      <span className="block font-semibold text-[#1F1A2E]">{step.label}</span>
+                      <div className="text-[#5B5470] text-sm mt-0.5 leading-snug">{step.hint}</div>
+                      <span className="sm:hidden inline-flex items-center gap-1 text-[13px] font-semibold text-[#6D28D9] mt-1.5">
+                        {step.done ? STEP_CTA_DONE[step.step] : STEP_CTA[step.step]} <ArrowRight size={13} />
+                      </span>
                     </div>
-                    <span className="inline-flex items-center gap-1 text-[13px] font-medium text-[#6D28D9] shrink-0">
+                    <span className="hidden sm:inline-flex items-center gap-1 text-[13px] font-medium text-[#6D28D9] shrink-0">
                       {step.done ? STEP_CTA_DONE[step.step] : STEP_CTA[step.step]} <ArrowRight size={13} />
                     </span>
                   </Link>
@@ -196,6 +196,9 @@ export default function ImplantacaoPage() {
                     )}
                     {status.pending.offersWithoutTeacher > 0 && (
                       <li className="text-[#92400E]">• {status.pending.offersWithoutTeacher} aula{status.pending.offersWithoutTeacher !== 1 ? "s" : ""} sem professor atribuído</li>
+                    )}
+                    {(status.pending.classesWithoutOffers ?? 0) > 0 && (
+                      <li className="text-[#92400E]">• {status.pending.classesWithoutOffers} turma{status.pending.classesWithoutOffers !== 1 ? "s" : ""} sem matérias (use a configuração rápida)</li>
                     )}
                     {status.pending.studentsWithoutClass > 0 && (
                       <li className="text-[#92400E]">• {status.pending.studentsWithoutClass} aluno{status.pending.studentsWithoutClass !== 1 ? "s" : ""} sem turma</li>
