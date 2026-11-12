@@ -19,6 +19,7 @@ import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { subjectInfo } from "@/lib/escola/subjects";
 import { diaSaoPaulo } from "@/lib/escola/semana-filho";
 import type { Aviso } from "@/lib/escola/avisos";
+import { documentoEscolas, remetenteFamilia } from "@/lib/escola/email-familia";
 
 /* eslint-disable @typescript-eslint/no-explicit-any -- cliente Prisma do tenant sem tipagem estática */
 
@@ -123,18 +124,29 @@ function escaparHtml(t: string): string {
 export function emailDoAviso(nomeResponsavel: string, aviso: Aviso, base: string): { subject: string; html: string; text: string } {
   const link = `${base}${aviso.url}`;
   const ola = primeiroNome(nomeResponsavel);
-  const html = `
-<div style="font-family:Arial,Helvetica,sans-serif;max-width:520px;margin:0 auto;padding:28px 22px;background:#F6F4FE;color:#1F1A2E">
-  <div style="background:#ffffff;border-radius:20px;padding:24px">
-    <p style="margin:0 0 4px;font-size:12px;font-weight:bold;color:#6D28D9;text-transform:uppercase;letter-spacing:.04em">SpeakFlow Escolas · Reforço</p>
-    <p style="margin:0 0 16px;font-size:14px;color:#5B5470">Olá, ${escaparHtml(ola)}!</p>
-    <h1 style="margin:0 0 8px;font-size:20px;line-height:1.3">${escaparHtml(aviso.title)}</h1>
-    <p style="margin:0 0 20px;font-size:15px;line-height:1.5;color:#3B3550">${escaparHtml(aviso.body)}</p>
-    <a href="${link}" style="display:inline-block;padding:12px 24px;background:#6D28D9;color:#ffffff;border-radius:14px;text-decoration:none;font-weight:bold;font-size:15px">Abrir o painel da família</a>
-  </div>
-  <p style="margin:16px 4px 0;font-size:12px;color:#8B84A0;line-height:1.4">Você recebe este e-mail porque acompanha o reforço escolar do seu filho. Para não receber mais, abra Configurações no painel da família e desligue os avisos por e-mail.</p>
-</div>`;
-  return { subject: aviso.title, html, text: `${aviso.title}\n\n${aviso.body}\n\nAbrir o painel da família: ${link}` };
+  const icone = aviso.icon ? `${base}${aviso.icon}` : "";
+  const linhas = `
+<tr><td style="padding:26px 28px 6px">
+  <p style="margin:0 0 14px;font-size:15px;color:#5B5470">Olá, ${escaparHtml(ola)}!</p>
+  <table cellpadding="0" cellspacing="0" role="presentation" style="width:100%"><tr>
+    ${icone ? `<td style="width:60px;vertical-align:top;padding-right:14px"><img src="${icone}" width="56" height="56" alt="" style="display:block;border:0;border-radius:16px"></td>` : ""}
+    <td style="vertical-align:top">
+      <h1 style="margin:0 0 8px;font-size:21px;line-height:1.3;color:#1F1A2E">${escaparHtml(aviso.title)}</h1>
+      <p style="margin:0;font-size:15px;line-height:1.55;color:#3B3550">${escaparHtml(aviso.body)}</p>
+    </td>
+  </tr></table>
+</td></tr>
+<tr><td style="padding:22px 28px 28px">
+  <a href="${link}" style="display:inline-block;padding:14px 26px;background:#6D28D9;color:#ffffff;border-radius:14px;text-decoration:none;font-weight:bold;font-size:15px">Abrir o painel da família</a>
+</td></tr>
+<tr><td style="padding:16px 28px;background:#F6F4FE;font-size:13px;line-height:1.5;color:#5B5470">
+  Dúvidas? No painel da família, abra o menu e toque em <b>Suporte</b>.
+</td></tr>`;
+  const html = documentoEscolas({
+    siteBase: base, titulo: aviso.title, preheader: aviso.body, linhas,
+    rodape: "Você recebe este e-mail porque acompanha o reforço escolar do seu filho no SpeakFlow Escolas. Para não receber mais, abra Configurações no painel da família e desligue os avisos por e-mail.",
+  });
+  return { subject: aviso.title, html, text: `SpeakFlow Escolas\n\n${aviso.title}\n\n${aviso.body}\n\nAbrir o painel da família: ${link}` };
 }
 
 async function emailParaResponsavel(guardian: { name: string; email: string | null; emailAlertsOff: boolean }, aviso: Aviso): Promise<boolean> {
@@ -144,7 +156,7 @@ async function emailParaResponsavel(guardian: { name: string; email: string | nu
   const msg = emailDoAviso(guardian.name, aviso, base);
   try {
     await new Resend(key).emails.send({
-      from: process.env.EMAIL_FROM || "SpeakFlow <onboarding@resend.dev>",
+      from: remetenteFamilia(),
       to: guardian.email, subject: msg.subject, html: msg.html, text: msg.text,
     });
     return true;

@@ -11,7 +11,17 @@ export const EMAIL_SUPORTE = process.env.SUPORTE_ESCOLAS_EMAIL || "luiz.melo@cds
 
 /** Mesmo remetente verificado do e-mail de redefinir senha da família. */
 export function remetenteFamilia(): string {
-  return process.env.EMAIL_FROM_ESCOLA || process.env.RESEND_FROM || process.env.EMAIL_FROM || "SpeakFlow Escolas <escolas@speakflow.ia.br>";
+  return comNomeEscolas(process.env.EMAIL_FROM_ESCOLA || process.env.RESEND_FROM || process.env.EMAIL_FROM || "SpeakFlow Escolas <escolas@speakflow.ia.br>");
+}
+
+/**
+ * Mantém o endereço verificado, mas o nome que a família vê é sempre "SpeakFlow Escolas"
+ * (o EMAIL_FROM é compartilhado com o SpeakFlow IA e vem como "SpeakFlow <...>").
+ */
+export function comNomeEscolas(remetente: string): string {
+  const m = remetente.match(/<([^>]+)>/);
+  const endereco = (m ? m[1] : remetente).trim();
+  return `SpeakFlow Escolas <${endereco}>`;
 }
 
 export function escaparHtml(t: string): string {
@@ -26,10 +36,38 @@ function base(): string {
   return urlDoSite(process.env.NEXT_PUBLIC_APP_URL ?? process.env.NEXTAUTH_URL);
 }
 
-const CABECALHO = `
-<tr><td style="background:#6D28D9;padding:26px 28px;color:#ffffff">
-  <p style="margin:0;font-size:13px;font-weight:bold;letter-spacing:.06em;text-transform:uppercase;opacity:.85">SpeakFlow Escolas · Reforço</p>
+/** Força o tema claro: sem isso o Mail do iPhone e o Gmail escurecem o e-mail sozinhos */
+export const META_TEMA_CLARO = `<meta name="color-scheme" content="light only"><meta name="supported-color-schemes" content="light only"><style>:root{color-scheme:light only;supported-color-schemes:light only}</style>`;
+
+/** Cabeçalho com a marca do SpeakFlow Escolas (ícone com o capelo + nome) */
+export function cabecalhoEscolas(siteBase: string, selo = "Reforço escolar"): string {
+  return `
+<tr><td style="padding:22px 28px 18px;background:#ffffff;border-bottom:1px solid #EDE9F7">
+  <table cellpadding="0" cellspacing="0" role="presentation"><tr>
+    <td style="vertical-align:middle;padding-right:12px"><img src="${siteBase}/escola-icons/icon-192.png" width="44" height="44" alt="SpeakFlow Escolas" style="display:block;border:0;border-radius:12px"></td>
+    <td style="vertical-align:middle">
+      <p style="margin:0;font-size:19px;font-weight:800;color:#1F1A2E;line-height:1.1">SpeakFlow <span style="color:#BE185D">Escolas</span></p>
+      <p style="margin:3px 0 0;font-size:12px;font-weight:bold;color:#6D28D9;letter-spacing:.04em;text-transform:uppercase">${escaparHtml(selo)}</p>
+    </td>
+  </tr></table>
 </td></tr>`;
+}
+
+/** Documento completo no padrão do SpeakFlow Escolas, sempre em tema claro */
+export function documentoEscolas(o: { siteBase: string; titulo: string; preheader?: string; linhas: string; rodape: string; selo?: string }): string {
+  return `<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">${META_TEMA_CLARO}<title>${escaparHtml(o.titulo)}</title></head>
+<body style="margin:0;padding:0;background:#F6F4FE;font-family:Arial,Helvetica,sans-serif;color:#1F1A2E">
+${o.preheader ? `<div style="display:none;max-height:0;overflow:hidden;opacity:0">${escaparHtml(o.preheader)}</div>` : ""}
+<table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#F6F4FE"><tr><td align="center" style="padding:28px 14px">
+<table cellpadding="0" cellspacing="0" role="presentation" style="width:100%;max-width:560px;background:#ffffff;border-radius:20px;overflow:hidden;border:1px solid #E9E5F5">
+${cabecalhoEscolas(o.siteBase, o.selo)}
+${o.linhas}
+</table>
+<p style="margin:14px 0 0;font-size:12px;color:#8B84A0;max-width:520px;line-height:1.4">${o.rodape}</p>
+</td></tr></table>
+</body></html>`;
+}
 
 function bloco(titulo: string, corpo: string): string {
   return `<tr><td style="padding:0 28px 20px">
@@ -51,11 +89,11 @@ export function emailBoasVindas(nomeResponsavel: string, nomeAluno: string, site
   const subject = `Bem-vindo ao reforço de ${primeiroNome(nomeAluno, "seu filho")} no SpeakFlow Escolas`;
 
   const html = `<!DOCTYPE html>
-<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escaparHtml(subject)}</title></head>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">${META_TEMA_CLARO}<title>${escaparHtml(subject)}</title></head>
 <body style="margin:0;padding:0;background:#F6F4FE;font-family:Arial,Helvetica,sans-serif">
 <table width="100%" cellpadding="0" cellspacing="0" role="presentation"><tr><td align="center" style="padding:32px 14px">
-<table width="560" cellpadding="0" cellspacing="0" role="presentation" style="max-width:100%;background:#ffffff;border-radius:20px;overflow:hidden;border:1px solid #E9E5F5">
-${CABECALHO}
+<table cellpadding="0" cellspacing="0" role="presentation" style="width:100%;max-width:560px;background:#ffffff;border-radius:20px;overflow:hidden;border:1px solid #E9E5F5">
+${cabecalhoEscolas(siteBase)}
 <tr><td style="padding:26px 28px 8px">
   <h1 style="margin:0 0 10px;font-size:23px;line-height:1.3;color:#1F1A2E">Olá, ${ola}! Agora você acompanha o reforço de ${filho}.</h1>
   <p style="margin:0 0 18px;font-size:15px;line-height:1.6;color:#3B3550">O seu cadastro foi feito com a ficha que a escola entregou. A partir de hoje, ${filho} estuda em casa com o SpeakFlow Escolas e você vê, pelo celular, como ${filho} está indo em cada matéria.</p>
@@ -63,7 +101,7 @@ ${CABECALHO}
 ${bloco("Como o reforço ajuda " + filho, lista([
   "<b>Começa do ponto certo.</b> Um diagnóstico descobre o que já foi aprendido e onde a dificuldade começou, mesmo que seja num conteúdo de anos anteriores.",
   "<b>Estudo curto, todo dia.</b> As trilhas têm etapas de cerca de 8 minutos, nas matérias do ano escolar, seguindo a BNCC.",
-  "<b>Retorno na hora, sem nota.</b> ${filho} vê o que acertou e como melhorar. O nível aparece como Domina, Quase lá ou Praticando, para não desanimar.",
+  `<b>Retorno na hora, sem nota.</b> ${filho} vê o que acertou e como melhorar. O nível aparece como Domina, Quase lá ou Praticando, para não desanimar.`,
 ]))}
 ${bloco("Como você pode ajudar", lista([
   `Combine com ${filho} um horário fixo para estudar, mesmo que sejam 15 minutos.`,
