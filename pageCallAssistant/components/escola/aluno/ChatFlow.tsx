@@ -8,12 +8,14 @@
 import { useEffect, useRef, useState } from "react";
 import { Send, Volume2, Square, Mic, HeartHandshake } from "lucide-react";
 import { saudacao, useFalaDoFlow } from "./Mascote";
+import { ehPedidoDeAjuda } from "@/lib/escola/pedido-ajuda";
 
 export type Msg = { de: "aluno" | "flow"; texto: string };
-export type Contexto = { activityId: string } | { dever: { enunciado: string } };
+export type Contexto = { activityId: string } | { dever: { enunciado: string; materia?: string | null; ano?: number | null } };
 
 const ATALHOS = ["Não entendi a pergunta", "Me dá uma pista", "Como eu começo?", "O que significa uma palavra?"];
 const PEDIDOS_PARA_OFERECER = 3;
+
 const MAX_GRAVACAO_MS = 30_000;
 
 function tipoDeAudio(): string {
@@ -56,7 +58,12 @@ function useGravador(aoTerminar: (b: Blob, tipo: string) => void) {
   return { gravando, comecar, parar, suportado };
 }
 
-export default function ChatFlow({ contexto, saudacaoInicial, compacto = true }: { contexto: Contexto; saudacaoInicial?: string; compacto?: boolean }) {
+/**
+ * modo "cartao": rolagem própria (cantinho da atividade).
+ * modo "pagina": as mensagens seguem a rolagem da página e o campo fica fixo embaixo
+ * (foto do dever), para não ter uma rolagem dentro da outra no celular.
+ */
+export default function ChatFlow({ contexto, saudacaoInicial, compacto = true, modo = "cartao" }: { contexto: Contexto; saudacaoInicial?: string; compacto?: boolean; modo?: "cartao" | "pagina" }) {
   const [msgs, setMsgs] = useState<Msg[]>(() => [{ de: "flow", texto: saudacaoInicial ?? `${saudacao()}! Eu sou o Flow. Posso te dar pistas e explicar palavras, mas a resposta quem descobre é você. Onde você travou?` }]);
   const [texto, setTexto] = useState("");
   const [pensando, setPensando] = useState(false);
@@ -96,7 +103,7 @@ export default function ChatFlow({ contexto, saudacaoInicial, compacto = true }:
       });
       const d = await r.json().catch(() => ({}));
       setMsgs((m) => [...m, { de: "flow", texto: d.resposta ?? d.error ?? "Hum, não consegui pensar agora. Tente de novo daqui a pouquinho!" }]);
-      if (oferta === "nao" && nova.filter((m) => m.de === "aluno").length >= PEDIDOS_PARA_OFERECER) {
+      if (oferta === "nao" && nova.filter((m) => m.de === "aluno" && ehPedidoDeAjuda(m.texto)).length >= PEDIDOS_PARA_OFERECER) {
         setMsgs((m) => [...m, { de: "flow", texto: "Esse assunto está difícil, né? Tudo bem, isso acontece. Quer que eu conte para a sua família, para alguém sentar com você?" }]);
         setOferta("aberta");
       }
@@ -147,8 +154,8 @@ export default function ChatFlow({ contexto, saudacaoInicial, compacto = true }:
   const txt = compacto ? "text-[14px] sm:text-[15px] leading-snug" : "text-[15px] sm:text-[16px] leading-relaxed";
 
   return (
-    <div className="flex flex-col min-h-0 h-full">
-      <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-3 py-3 space-y-2.5 bg-[#FBFAFF]">
+    <div className={modo === "pagina" ? "" : "flex flex-col min-h-0 h-full"}>
+      <div className={modo === "pagina" ? "px-1 py-2 space-y-3" : "flex-1 min-h-0 overflow-y-auto overscroll-contain px-3 py-3 space-y-2.5 bg-[#FBFAFF]"}>
         {msgs.map((m, i) => m.de === "flow" ? (
           <div key={i} className="flex items-end gap-2 max-w-[92%]">
             <div className={`rounded-2xl rounded-bl-md bg-white border border-[#EDE9F7] px-3 py-2 ${txt} text-[#1F1A2E] shadow-sm`}>{m.texto}</div>
@@ -174,10 +181,13 @@ export default function ChatFlow({ contexto, saudacaoInicial, compacto = true }:
             {ouvindo && <span>Ouvindo o que você falou...</span>}
           </div>
         )}
-        <div ref={fim} />
+        <div ref={fim} className={modo === "pagina" ? "h-36" : ""} />
       </div>
 
-      <div className="border-t border-[#EDE9F7] bg-white px-2.5 pt-2 pb-2.5 space-y-2 shrink-0">
+      <div className={modo === "pagina"
+        ? "fixed z-40 inset-x-0 bottom-0 border-t border-[#EDE9F7] bg-white/95 backdrop-blur shadow-[0_-8px_24px_rgba(46,16,101,0.08)] pb-[env(safe-area-inset-bottom)]"
+        : "border-t border-[#EDE9F7] bg-white px-2.5 pt-2 pb-2.5 space-y-2 shrink-0"}>
+      <div className={modo === "pagina" ? "max-w-2xl mx-auto px-3 pt-2 pb-3 space-y-2" : "space-y-2"}>
         {pedidos === 0 && (
           <div className="flex gap-2 overflow-x-auto pb-1 -mx-1 px-1">
             {ATALHOS.map((a) => (
@@ -203,6 +213,7 @@ export default function ChatFlow({ contexto, saudacaoInicial, compacto = true }:
           <button type="submit" disabled={ocupado || !texto.trim()} aria-label="Enviar"
             className="shrink-0 rounded-2xl bg-[#6D28D9] hover:bg-[#5B21B6] disabled:opacity-40 text-white w-[44px] h-[44px] flex items-center justify-center"><Send className="size-5" /></button>
         </form>
+      </div>
       </div>
     </div>
   );

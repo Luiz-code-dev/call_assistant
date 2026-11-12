@@ -8,13 +8,17 @@
  */
 
 export const PROMPT_LEITURA = `Você lê fotos de exercícios escolares para um ajudante de estudos de crianças.
-Transcreva SOMENTE o enunciado do exercício (as perguntas e as alternativas, se houver), exatamente como está escrito.
+Transcreva o exercício completo como está na página: os enunciados, as alternativas, os números e as lacunas.
+- Mantenha as contas e lacunas do jeito que aparecem, com ___ no lugar dos espaços em branco (ex.: "___ + ___ + ___ = ___").
+- Desenhos e figuras fazem parte do exercício: descreva entre colchetes o que mostram, de forma objetiva, com as quantidades que dá para ver (ex.: "[5 caixas, cada uma com uma placa: 10 laranjas]", "[34 chapéus desenhados]"). Não conclua nada a partir da figura.
+- Se houver mais de um exercício, numere como na página.
 REGRAS:
 - Não resolva nada e não escreva respostas.
-- Não transcreva o que o aluno escreveu à mão como resposta.
+- Não transcreva o que o aluno escreveu à mão; no lugar, deixe a lacuna ___.
 - Nunca transcreva nomes de pessoas, nome da escola, turma, matrícula, telefone, endereço, data de nascimento ou qualquer dado pessoal. Onde houver, escreva [nome].
 - Se a imagem não for um exercício escolar, ou não der para ler, responda "materia": null e "enunciado": "NAO_E_EXERCICIO".
-Responda só JSON: {"enunciado": "...", "materia": "Matemática" | "Língua Portuguesa" | "Ciências" | "História" | "Geografia" | "Arte" | "Língua Inglesa" | null}`;
+- Em "ano", estime o ano escolar do exercício (1 a 9) pelo conteúdo e pelo jeito do livro (ex.: letras maiúsculas e números até 100 = 1º ano).
+Responda só JSON: {"enunciado": "...", "materia": "Matemática" | "Língua Portuguesa" | "Ciências" | "História" | "Geografia" | "Arte" | "Língua Inglesa" | null, "ano": 1..9 | null}`;
 
 const MATERIAS = ["Matemática", "Língua Portuguesa", "Ciências", "História", "Geografia", "Arte", "Língua Inglesa"];
 
@@ -42,11 +46,12 @@ export function apagarDadosPessoais(texto: string, nomeDoAluno: string): string 
     .replace(/[\w.+-]+@[\w-]+\.[\w.]+/g, "[e-mail]");
 }
 
-export function lerResposta(saida: string): { enunciado: string; materia: string | null } | null {
-  let j: { enunciado?: unknown; materia?: unknown };
+export function lerResposta(saida: string): { enunciado: string; materia: string | null; ano: number | null } | null {
+  let j: { enunciado?: unknown; materia?: unknown; ano?: unknown };
   try { j = JSON.parse(saida); } catch { return null; }
   const enunciado = typeof j.enunciado === "string" ? j.enunciado.trim() : "";
   if (!enunciado || enunciado === "NAO_E_EXERCICIO" || enunciado.length < 8) return null;
   const materia = typeof j.materia === "string" && MATERIAS.includes(j.materia) ? j.materia : null;
-  return { enunciado: enunciado.slice(0, 3000), materia };
+  const ano = typeof j.ano === "number" && Number.isInteger(j.ano) && j.ano >= 1 && j.ano <= 9 ? j.ano : null;
+  return { enunciado: enunciado.slice(0, 3000), materia, ano };
 }

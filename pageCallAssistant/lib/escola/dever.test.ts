@@ -15,7 +15,9 @@ describe("foto do dever", () => {
     expect(t).toBe("CPF [documento], tel [telefone], [e-mail]");
   });
   it("lê o JSON da IA e recusa o que não é exercício", () => {
-    expect(lerResposta('{"enunciado":"Calcule 3 x 4 e explique.","materia":"Matemática"}')).toEqual({ enunciado: "Calcule 3 x 4 e explique.", materia: "Matemática" });
+    expect(lerResposta('{"enunciado":"Calcule 3 x 4 e explique.","materia":"Matemática"}')).toEqual({ enunciado: "Calcule 3 x 4 e explique.", materia: "Matemática", ano: null });
+    expect(lerResposta('{"enunciado":"10 + 10 = ___","materia":"Matemática","ano":1}')?.ano).toBe(1);
+    expect(lerResposta('{"enunciado":"10 + 10 = ___","materia":"Matemática","ano":12}')?.ano).toBeNull();
     expect(lerResposta('{"enunciado":"NAO_E_EXERCICIO","materia":null}')).toBeNull();
     expect(lerResposta("isso não é json")).toBeNull();
     expect(lerResposta('{"enunciado":"Calcule 3 x 4 e explique.","materia":"Química"}')?.materia).toBeNull();

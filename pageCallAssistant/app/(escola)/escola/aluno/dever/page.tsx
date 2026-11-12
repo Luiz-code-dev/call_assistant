@@ -34,6 +34,9 @@ export default function DeverPage() {
   const [caixa, setCaixa] = useState<Caixa>({ x: 0.05, y: 0.05, w: 0.9, h: 0.9 });
   const [erro, setErro] = useState("");
   const [enunciado, setEnunciado] = useState("");
+  const [materia, setMateria] = useState<string | null>(null);
+  const [ano, setAno] = useState<number | null>(null);
+  const [aberto, setAberto] = useState(false);
   const [editando, setEditando] = useState(false);
   const [chatKey, setChatKey] = useState(0);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -83,7 +86,8 @@ export default function DeverPage() {
       const r = await fetch("/api/escola/aluno/dever/ler", { method: "POST", body: fd });
       const d = await r.json().catch(() => ({}));
       if (!r.ok) { setErro(d.error ?? "Não consegui ler a foto. Tente de novo."); setEtapa("recortar"); return; }
-      setEnunciado(d.enunciado); setChatKey((k) => k + 1); setEtapa("conversa");
+      setEnunciado(d.enunciado); setMateria(d.materia ?? null); setAno(d.ano ?? null); setAberto(false);
+      setChatKey((k) => k + 1); setEtapa("conversa");
       if (url) URL.revokeObjectURL(url);
       setUrl(null); // a foto sai da memória do navegador
     } catch {
@@ -98,7 +102,7 @@ export default function DeverPage() {
   return (
     <div className="min-h-screen bg-[#F6F4FE]">
       <Capa compacta titulo="Foto do dever" subtitulo="O Flow te ajuda a pensar no dever da escola" voltar={{ href: "/escola/aluno", texto: "Início" }} />
-      <main className="max-w-2xl mx-auto px-4 py-5 space-y-4 pb-16">
+      <main className="max-w-2xl mx-auto px-4 py-5 space-y-4 pb-6">
         <input ref={camera} type="file" accept="image/*" capture="environment" className="hidden" onChange={(e) => { escolher(e.target.files?.[0]); e.target.value = ""; }} />
         <input ref={galeria} type="file" accept="image/*" className="hidden" onChange={(e) => { escolher(e.target.files?.[0]); e.target.value = ""; }} />
 
@@ -154,33 +158,38 @@ export default function DeverPage() {
 
         {etapa === "conversa" && (
           <>
+            {/* Exercício lido: compacto, abre para ver tudo ou corrigir */}
             <section className="rounded-3xl bg-white p-4 shadow-[0_4px_18px_rgba(91,33,182,0.08)] space-y-2">
               <div className="flex items-center justify-between gap-2">
                 <p className="text-xs font-bold uppercase tracking-wide text-[#6D28D9]">O Flow leu assim</p>
-                <button type="button" onClick={() => { if (editando) setChatKey((k) => k + 1); setEditando((v) => !v); }} className="inline-flex items-center gap-1 text-[13px] font-bold text-[#6D28D9] min-h-[36px]">
-                  {editando ? <><Check className="size-4" />Pronto</> : <><PencilLine className="size-4" />Corrigir</>}
-                </button>
+                <div className="flex items-center gap-3">
+                  <button type="button" onClick={() => { if (editando) setChatKey((k) => k + 1); setEditando((v) => !v); setAberto(true); }} className="inline-flex items-center gap-1 text-[13px] font-bold text-[#6D28D9] min-h-[36px]">
+                    {editando ? <><Check className="size-4" />Pronto</> : <><PencilLine className="size-4" />Corrigir</>}
+                  </button>
+                  <button type="button" onClick={outraFoto} className="inline-flex items-center gap-1 text-[13px] font-bold text-[#6D28D9] min-h-[36px]"><Camera className="size-4" />Outra foto</button>
+                </div>
               </div>
               {editando ? (
-                <textarea value={enunciado} onChange={(e) => setEnunciado(e.target.value)} rows={6} maxLength={3000}
+                <textarea value={enunciado} onChange={(e) => setEnunciado(e.target.value)} rows={7} maxLength={3000}
                   className="block w-full rounded-2xl border-[1.5px] border-[#DDD6EE] focus:border-[#6D28D9] outline-none px-3 py-2 text-[15px] leading-relaxed text-[#1F1A2E]" />
               ) : (
-                <p className="text-[15px] leading-relaxed text-[#1F1A2E] whitespace-pre-wrap max-h-48 overflow-y-auto">{enunciado}</p>
+                <>
+                  <p className={`text-[15px] leading-relaxed text-[#1F1A2E] whitespace-pre-wrap ${aberto ? "" : "line-clamp-3"}`}>{enunciado}</p>
+                  <button type="button" onClick={() => setAberto((v) => !v)} className="text-[13px] font-bold text-[#6D28D9] min-h-[32px]">{aberto ? "Mostrar menos" : "Ver o exercício todo"}</button>
+                </>
               )}
             </section>
+
             {!editando && (
-              <section className="rounded-3xl bg-white shadow-[0_4px_18px_rgba(91,33,182,0.08)] overflow-hidden h-[min(62dvh,560px)] flex flex-col">
-                <div className="flex items-center gap-2.5 px-3 py-2 bg-gradient-to-br from-[#5B21B6] via-[#6D28D9] to-[#8B5CF6] text-white shrink-0">
-                  <span className="w-9 h-9 rounded-xl bg-white/95 flex items-center justify-center overflow-hidden"><RoboFlow tamanho={34} /></span>
-                  <div className="flex-1 min-w-0"><p className="font-extrabold text-[15px] leading-tight">Flow</p><p className="text-[11px] text-white/85">Te ajudo a pensar. A resposta é sua!</p></div>
+              <section>
+                <div className="flex items-center gap-2.5 px-1 mb-1">
+                  <span className="w-9 h-9 rounded-xl bg-white shadow-sm flex items-center justify-center overflow-hidden"><RoboFlow tamanho={34} /></span>
+                  <p className="text-[13px] font-bold text-[#5B5470]">Conversa com o Flow · a resposta é sua!</p>
                 </div>
-                <div className="flex-1 min-h-0">
-                  <ChatFlow key={chatKey} contexto={{ dever: { enunciado } }} compacto={false}
-                    saudacaoInicial="Li o seu dever! Eu não vou fazer por você, mas te ajudo a pensar. Por qual parte você quer começar?" />
-                </div>
+                <ChatFlow key={chatKey} modo="pagina" compacto={false} contexto={{ dever: { enunciado, materia, ano } }}
+                  saudacaoInicial="Li o seu dever! Eu não vou fazer por você, mas te ajudo a pensar. Por qual exercício você quer começar?" />
               </section>
             )}
-            <button type="button" onClick={outraFoto} className="w-full rounded-2xl border-2 border-[#DDD6FE] bg-white text-[#5B21B6] font-bold min-h-[52px] flex items-center justify-center gap-2"><Camera className="size-4" />Fotografar outro exercício</button>
           </>
         )}
       </main>

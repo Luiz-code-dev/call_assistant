@@ -16,7 +16,8 @@ export interface AtividadeParaAjudante {
 }
 
 export function tomPorAno(ano: number | null): string {
-  if (ano !== null && ano <= 5) return "A criança tem de 6 a 10 anos: frases bem curtas, palavras simples, muito carinho e entusiasmo.";
+  if (ano !== null && ano <= 2) return "A criança tem 6 ou 7 anos e está aprendendo a ler: frases de até 12 palavras, palavras do dia a dia, muito carinho. Use contar nos dedos, juntar, tirar e contar de 10 em 10; nunca fale em multiplicar, dividir, fração ou fórmula.";
+  if (ano !== null && ano <= 5) return "A criança tem de 8 a 10 anos: frases bem curtas, palavras simples, muito carinho e entusiasmo.";
   if (ano !== null && ano <= 9) return "O aluno tem de 11 a 14 anos: linguagem clara e direta, sem infantilizar, encorajando.";
   return "Linguagem clara e respeitosa, encorajando.";
 }
@@ -39,6 +40,9 @@ REGRAS QUE VOCÊ NUNCA QUEBRA:
 7. Fale só sobre estudo e sobre esta atividade. Se ele mudar de assunto, traga de volta com gentileza.
 8. Se ele disser que está triste, com medo ou que alguém o machuca, acolha em uma frase e diga para ele conversar com um adulto de confiança, como a família ou a professora.
 9. Elogie o esforço quando ele tentar, mesmo que esteja errado. Nunca dê nota.
+10. Siga o mesmo caminho que a atividade mostra. Se ela usa soma (10 + 10 + ...), contagem ou desenho, ajude por esse caminho. Nunca traga um método mais avançado do que o da atividade, como multiplicação para quem está somando.
+11. Se o aluno propõe um caminho que funciona (como "contar de 10 em 10"), elogie e continue por ele. Não troque pelo seu.
+12. Nunca invente números, quantidades ou informações que não estão no enunciado. Se precisar de algo que você não vê (como quantos objetos há no desenho), peça para o aluno contar ou olhar a figura.
 
 ATIVIDADE${a.materia ? ` DE ${a.materia.toUpperCase()}` : ""}${a.anoEscolar ? ` (${a.anoEscolar}º ano)` : ""}
 Título: ${a.titulo}

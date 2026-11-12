@@ -24,7 +24,12 @@ export const runtime = "nodejs";
 const schema = z.object({
   activityId: z.string().min(1).max(64).optional(),
   // Foto do dever: o enunciado que o Flow leu da foto (sem nomes), no lugar de uma atividade
-  dever: z.object({ enunciado: z.string().min(3).max(3000) }).optional(),
+  dever: z.object({
+    enunciado: z.string().min(3).max(3000),
+    materia: z.string().max(40).nullish(),
+    // Ano escolar estimado pela leitura da foto: o dever pode ser de outro ano que a turma do reforço
+    ano: z.number().int().min(1).max(9).nullish(),
+  }).optional(),
   mensagens: z.array(z.object({ de: z.enum(["aluno", "flow"]), texto: z.string().max(2000) })).min(1).max(40),
 });
 
@@ -51,7 +56,12 @@ export async function POST(req: NextRequest) {
     try { await moderateText(enunciado); } catch (e) {
       if (e instanceof ModerationError) return NextResponse.json({ resposta: "Vamos falar só sobre o dever da escola, combinado?" });
     }
-    atividade = { titulo: "Dever de casa da escola", enunciado, tipo: "WRITTEN", materia: null, anoEscolar: await anoDaTurma(ctx), perguntas: [] };
+    atividade = {
+      titulo: "Dever de casa da escola", enunciado, tipo: "WRITTEN",
+      materia: parsed.data.dever.materia ?? null,
+      anoEscolar: parsed.data.dever.ano ?? await anoDaTurma(ctx),
+      perguntas: [],
+    };
   }
   if (!atividade) return NextResponse.json({ error: "Atividade não encontrada" }, { status: 404 });
 

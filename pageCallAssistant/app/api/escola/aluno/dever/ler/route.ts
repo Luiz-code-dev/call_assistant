@@ -45,10 +45,10 @@ export async function POST(req: NextRequest) {
   }
 
   // 2) Leitura só do enunciado, sem dados pessoais
-  let lido: { enunciado: string; materia: string | null } | null = null;
+  let lido: { enunciado: string; materia: string | null; ano: number | null } | null = null;
   try {
     const r = await openai.chat.completions.create({
-      model: "gpt-4o-mini", temperature: 0, max_tokens: 700, response_format: { type: "json_object" },
+      model: "gpt-4o-mini", temperature: 0, max_tokens: 1000, response_format: { type: "json_object" },
       messages: [
         { role: "system", content: PROMPT_LEITURA },
         { role: "user", content: [{ type: "text", text: "Transcreva o enunciado deste exercício." }, { type: "image_url", image_url: { url: dataUrl, detail: "high" } }] },
@@ -68,5 +68,5 @@ export async function POST(req: NextRequest) {
   try { await moderateText(enunciado); } catch (e) {
     if (e instanceof ModerationError) return NextResponse.json({ error: "Essa foto não parece um exercício da escola. Fotografe só o dever." }, { status: 422 });
   }
-  return NextResponse.json({ enunciado, materia: lido.materia });
+  return NextResponse.json({ enunciado, materia: lido.materia, ano: lido.ano });
 }
