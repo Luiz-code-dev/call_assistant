@@ -92,3 +92,9 @@ export async function apiSend<T>(
     return { ok: false, status: 0, data: null, error: "Erro de conexao. Tente de novo." };
   }
 }
+
+/** POST autenticado em /api/escola<path>. Retorna os dados ou null em erro (nunca lanca). */
+export async function apiPost<T>(path: string, body?: unknown): Promise<T | null> {
+  const r = await apiSend<T>(path, "POST", body);
+  return r.ok ? r.data : null;
+}
