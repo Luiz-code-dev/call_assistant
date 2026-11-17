@@ -1,0 +1,3766 @@
+[
+ {
+  "skillCode": "EF89EF01",
+  "subjectCode": "EF",
+  "subjectName": "Educação Física",
+  "gradeYear": 8,
+  "version": 1,
+  "title": "Trilha: Esportes de rede, de campo e taco, de invasão e de combate",
+  "tituloAluno": "Cada esporte tem a sua lógica",
+  "activities": [
+   {
+    "id": "PK2-EF89EF01-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: como os esportes se organizam",
+    "prompt": "Os esportes podem ser agrupados pela forma de jogar.",
+    "estMinutes": 4,
+    "audioScript": "Os esportes podem ser agrupados pela forma de jogar. Pergunta 1. No futebol, para marcar ponto, o time precisa: A: Levar a bola até o gol do adversário; B: Jogar a bola por cima de uma rede; C: Rebater a bola com um taco; D: Derrubar o adversário. Pergunta 2. No vôlei, os dois times ficam: A: Misturados na quadra toda; B: Cada um no seu lado da quadra, separados pela rede; C: Correndo de uma base a outra; D: Lutando corpo a corpo. Pergunta 3. Quem garante que as regras sejam cumpridas numa partida? A: A torcida; B: O jogador mais forte; C: O árbitro; D: O time que está ganhando.",
+    "questions": [
+     {
+      "question": "No futebol, para marcar ponto, o time precisa:",
+      "options": [
+       {
+        "text": "Levar a bola até o gol do adversário"
+       },
+       {
+        "text": "Jogar a bola por cima de uma rede",
+        "misconceptionCode": "invasao-e-rede"
+       },
+       {
+        "text": "Rebater a bola com um taco",
+        "misconceptionCode": "classifica-pela-bola"
+       },
+       {
+        "text": "Derrubar o adversário",
+        "misconceptionCode": "classifica-pela-bola"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O futebol é um esporte de invasão: o time avança no campo adversário para marcar o gol.",
+      "variants": [
+       {
+        "question": "No basquete, para marcar ponto, o time precisa:",
+        "options": [
+         {
+          "text": "Jogar a bola por cima de uma rede",
+          "misconceptionCode": "invasao-e-rede"
+         },
+         {
+          "text": "Rebater a bola com um taco",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "Levar a bola até a cesta do adversário"
+         },
+         {
+          "text": "Derrubar o adversário",
+          "misconceptionCode": "classifica-pela-bola"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "No futebol, para marcar ponto, o time precisa:",
+        "options": [
+         {
+          "text": "Derrubar o adversário",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "Levar a bola até o gol do adversário"
+         },
+         {
+          "text": "Rebater a bola com um taco",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "Jogar a bola por cima de uma rede",
+          "misconceptionCode": "invasao-e-rede"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "No vôlei, os dois times ficam:",
+      "options": [
+       {
+        "text": "Misturados na quadra toda",
+        "misconceptionCode": "invasao-e-rede"
+       },
+       {
+        "text": "Cada um no seu lado da quadra, separados pela rede"
+       },
+       {
+        "text": "Correndo de uma base a outra",
+        "misconceptionCode": "classifica-pela-bola"
+       },
+       {
+        "text": "Lutando corpo a corpo",
+        "misconceptionCode": "classifica-pela-bola"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "No vôlei não há invasão: cada time fica no seu lado e manda a bola por cima da rede.",
+      "variants": [
+       {
+        "question": "No tênis, os jogadores ficam:",
+        "options": [
+         {
+          "text": "Misturados na quadra toda",
+          "misconceptionCode": "invasao-e-rede"
+         },
+         {
+          "text": "Correndo de uma base a outra",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "Lutando corpo a corpo",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "Cada um no seu lado da quadra, separados pela rede"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "No vôlei, os dois times ficam:",
+        "options": [
+         {
+          "text": "Lutando corpo a corpo",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "Correndo de uma base a outra",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "Cada um no seu lado da quadra, separados pela rede"
+         },
+         {
+          "text": "Misturados na quadra toda",
+          "misconceptionCode": "invasao-e-rede"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Quem garante que as regras sejam cumpridas numa partida?",
+      "options": [
+       {
+        "text": "A torcida",
+        "misconceptionCode": "arbitro-inimigo"
+       },
+       {
+        "text": "O jogador mais forte",
+        "misconceptionCode": "so-quem-faz-ponto"
+       },
+       {
+        "text": "O árbitro"
+       },
+       {
+        "text": "O time que está ganhando",
+        "misconceptionCode": "arbitro-inimigo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O árbitro aplica as regras para que o jogo seja justo para os dois lados.",
+      "variants": [
+       {
+        "question": "Quem orienta o time e define a estratégia de jogo?",
+        "options": [
+         {
+          "text": "O técnico"
+         },
+         {
+          "text": "A torcida",
+          "misconceptionCode": "arbitro-inimigo"
+         },
+         {
+          "text": "O árbitro",
+          "misconceptionCode": "so-quem-faz-ponto"
+         },
+         {
+          "text": "O adversário",
+          "misconceptionCode": "arbitro-inimigo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quem garante que as regras sejam cumpridas numa partida?",
+        "options": [
+         {
+          "text": "O time que está ganhando",
+          "misconceptionCode": "arbitro-inimigo"
+         },
+         {
+          "text": "O jogador mais forte",
+          "misconceptionCode": "so-quem-faz-ponto"
+         },
+         {
+          "text": "A torcida",
+          "misconceptionCode": "arbitro-inimigo"
+         },
+         {
+          "text": "O árbitro"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF89EF01-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: as categorias de esporte",
+    "prompt": "Esportes de invasão: os times ocupam o mesmo espaço e tentam chegar à meta adversária. De rede ou parede: a bola é lançada para o lado adversário, sem contato entre os times. De campo e taco: um time rebate e corre, o outro tenta recuperar a bola. De combate: o objetivo é superar o oponente com técnicas de luta. Vamos classificar juntos.",
+    "estMinutes": 4,
+    "audioScript": "Esportes de invasão: os times ocupam o mesmo espaço e tentam chegar à meta adversária. De rede ou parede: a bola é lançada para o lado adversário, sem contato entre os times. De campo e taco: um time rebate e corre, o outro tenta recuperar a bola. De combate: o objetivo é superar o oponente com técnicas de luta. Vamos classificar juntos. Pergunta 1. O handebol é um esporte: A: De rede; B: De campo e taco; C: De combate; D: De invasão. Pergunta 2. O tênis de mesa é um esporte: A: De rede; B: De invasão; C: De campo e taco; D: De combate. Pergunta 3. O beisebol é um esporte: A: De invasão; B: De campo e taco; C: De rede; D: De combate.",
+    "questions": [
+     {
+      "question": "O handebol é um esporte:",
+      "options": [
+       {
+        "text": "De rede",
+        "misconceptionCode": "invasao-e-rede"
+       },
+       {
+        "text": "De campo e taco",
+        "misconceptionCode": "classifica-pela-bola"
+       },
+       {
+        "text": "De combate",
+        "misconceptionCode": "classifica-pela-bola"
+       },
+       {
+        "text": "De invasão"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "No handebol, os times dividem a quadra e tentam marcar gol na meta adversária.",
+      "variants": [
+       {
+        "question": "O futsal é um esporte:",
+        "options": [
+         {
+          "text": "De rede",
+          "misconceptionCode": "invasao-e-rede"
+         },
+         {
+          "text": "De invasão"
+         },
+         {
+          "text": "De campo e taco",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "De combate",
+          "misconceptionCode": "classifica-pela-bola"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O handebol é um esporte:",
+        "options": [
+         {
+          "text": "De invasão"
+         },
+         {
+          "text": "De combate",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "De campo e taco",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "De rede",
+          "misconceptionCode": "invasao-e-rede"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O tênis de mesa é um esporte:",
+      "options": [
+       {
+        "text": "De rede"
+       },
+       {
+        "text": "De invasão",
+        "misconceptionCode": "invasao-e-rede"
+       },
+       {
+        "text": "De campo e taco",
+        "misconceptionCode": "classifica-pela-bola"
+       },
+       {
+        "text": "De combate",
+        "misconceptionCode": "classifica-pela-bola"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Cada jogador fica no seu lado e manda a bola por cima da rede.",
+      "variants": [
+       {
+        "question": "O badminton é um esporte:",
+        "options": [
+         {
+          "text": "De invasão",
+          "misconceptionCode": "invasao-e-rede"
+         },
+         {
+          "text": "De campo e taco",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "De rede"
+         },
+         {
+          "text": "De combate",
+          "misconceptionCode": "classifica-pela-bola"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O tênis de mesa é um esporte:",
+        "options": [
+         {
+          "text": "De combate",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "De rede"
+         },
+         {
+          "text": "De campo e taco",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "De invasão",
+          "misconceptionCode": "invasao-e-rede"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O beisebol é um esporte:",
+      "options": [
+       {
+        "text": "De invasão",
+        "misconceptionCode": "classifica-pela-bola"
+       },
+       {
+        "text": "De campo e taco"
+       },
+       {
+        "text": "De rede",
+        "misconceptionCode": "classifica-pela-bola"
+       },
+       {
+        "text": "De combate",
+        "misconceptionCode": "classifica-pela-bola"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Um time rebate a bola e corre pelas bases; o outro tenta recuperar a bola para eliminar os corredores.",
+      "variants": [
+       {
+        "question": "O jogo de taco, ou bete-ombro, brincadeira de rua comum no Brasil, tem a lógica de um esporte:",
+        "options": [
+         {
+          "text": "De invasão",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "De rede",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "De combate",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "De campo e taco"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O beisebol é um esporte:",
+        "options": [
+         {
+          "text": "De combate",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "De rede",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "De campo e taco"
+         },
+         {
+          "text": "De invasão",
+          "misconceptionCode": "classifica-pela-bola"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF89EF01-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: classificando e entendendo papéis",
+    "prompt": "Pense na lógica de cada jogo.",
+    "estMinutes": 5,
+    "audioScript": "Pense na lógica de cada jogo. Pergunta 1. O judô é um esporte: A: De invasão; B: De rede; C: De combate; D: De campo e taco. Pergunta 2. Vôlei e handebol usam bola e são jogados em quadra. Por que estão em categorias diferentes? A: Porque a bola tem tamanho diferente; B: Porque um é jogado com os pés; C: Eles estão na mesma categoria; D: Porque no vôlei os times ficam separados pela rede e no handebol dividem o mesmo espaço. Pergunta 3. Num esporte de invasão, quando o seu time perde a bola, o que todos devem fazer? A: Voltar para defender e tentar recuperá-la; B: Ficar parados no ataque; C: Reclamar com o árbitro; D: Sair da quadra. Pergunta 4. Um jogador não marcou nenhum gol, mas fez passes e ajudou na defesa. Ele: A: Não fez nada de importante; B: Contribuiu muito para o time; C: Deveria ser substituído; D: Jogou mal.",
+    "questions": [
+     {
+      "question": "O judô é um esporte:",
+      "options": [
+       {
+        "text": "De invasão",
+        "misconceptionCode": "classifica-pela-bola"
+       },
+       {
+        "text": "De rede",
+        "misconceptionCode": "classifica-pela-bola"
+       },
+       {
+        "text": "De combate"
+       },
+       {
+        "text": "De campo e taco",
+        "misconceptionCode": "classifica-pela-bola"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "No judô, o objetivo é derrubar ou imobilizar o oponente com técnicas próprias, dentro de regras de respeito.",
+      "variants": [
+       {
+        "question": "O taekwondo é um esporte:",
+        "options": [
+         {
+          "text": "De combate"
+         },
+         {
+          "text": "De invasão",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "De rede",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "De campo e taco",
+          "misconceptionCode": "classifica-pela-bola"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O judô é um esporte:",
+        "options": [
+         {
+          "text": "De campo e taco",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "De rede",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "De invasão",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "De combate"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Vôlei e handebol usam bola e são jogados em quadra. Por que estão em categorias diferentes?",
+      "options": [
+       {
+        "text": "Porque a bola tem tamanho diferente",
+        "misconceptionCode": "classifica-pela-bola"
+       },
+       {
+        "text": "Porque um é jogado com os pés",
+        "misconceptionCode": "classifica-pela-bola"
+       },
+       {
+        "text": "Eles estão na mesma categoria",
+        "misconceptionCode": "invasao-e-rede"
+       },
+       {
+        "text": "Porque no vôlei os times ficam separados pela rede e no handebol dividem o mesmo espaço"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O que define a categoria é a lógica do jogo, e não a bola ou o lugar.",
+      "variants": [
+       {
+        "question": "Basquete e tênis usam bola. Por que estão em categorias diferentes?",
+        "options": [
+         {
+          "text": "Porque a bola tem tamanho diferente",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "Porque no basquete os times dividem o espaço e no tênis ficam separados pela rede"
+         },
+         {
+          "text": "Porque um é jogado com os pés",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "Eles estão na mesma categoria",
+          "misconceptionCode": "invasao-e-rede"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Vôlei e handebol usam bola e são jogados em quadra. Por que estão em categorias diferentes?",
+        "options": [
+         {
+          "text": "Porque no vôlei os times ficam separados pela rede e no handebol dividem o mesmo espaço"
+         },
+         {
+          "text": "Eles estão na mesma categoria",
+          "misconceptionCode": "invasao-e-rede"
+         },
+         {
+          "text": "Porque um é jogado com os pés",
+          "misconceptionCode": "classifica-pela-bola"
+         },
+         {
+          "text": "Porque a bola tem tamanho diferente",
+          "misconceptionCode": "classifica-pela-bola"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Num esporte de invasão, quando o seu time perde a bola, o que todos devem fazer?",
+      "options": [
+       {
+        "text": "Voltar para defender e tentar recuperá-la"
+       },
+       {
+        "text": "Ficar parados no ataque",
+        "misconceptionCode": "so-quem-faz-ponto"
+       },
+       {
+        "text": "Reclamar com o árbitro",
+        "misconceptionCode": "arbitro-inimigo"
+       },
+       {
+        "text": "Sair da quadra",
+        "misconceptionCode": "so-quem-faz-ponto"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Nos esportes de invasão, todo o time ataca e todo o time defende.",
+      "variants": [
+       {
+        "question": "Num esporte de invasão, quando o seu time recupera a bola, o que todos devem fazer?",
+        "options": [
+         {
+          "text": "Ficar parados na defesa",
+          "misconceptionCode": "so-quem-faz-ponto"
+         },
+         {
+          "text": "Reclamar com o árbitro",
+          "misconceptionCode": "arbitro-inimigo"
+         },
+         {
+          "text": "Se movimentar para criar opções de passe"
+         },
+         {
+          "text": "Sair da quadra",
+          "misconceptionCode": "so-quem-faz-ponto"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Num esporte de invasão, quando o seu time perde a bola, o que todos devem fazer?",
+        "options": [
+         {
+          "text": "Sair da quadra",
+          "misconceptionCode": "so-quem-faz-ponto"
+         },
+         {
+          "text": "Voltar para defender e tentar recuperá-la"
+         },
+         {
+          "text": "Reclamar com o árbitro",
+          "misconceptionCode": "arbitro-inimigo"
+         },
+         {
+          "text": "Ficar parados no ataque",
+          "misconceptionCode": "so-quem-faz-ponto"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um jogador não marcou nenhum gol, mas fez passes e ajudou na defesa. Ele:",
+      "options": [
+       {
+        "text": "Não fez nada de importante",
+        "misconceptionCode": "so-quem-faz-ponto"
+       },
+       {
+        "text": "Contribuiu muito para o time"
+       },
+       {
+        "text": "Deveria ser substituído",
+        "misconceptionCode": "so-quem-faz-ponto"
+       },
+       {
+        "text": "Jogou mal",
+        "misconceptionCode": "so-quem-faz-ponto"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Passar, marcar e ocupar espaços é tão importante quanto finalizar.",
+      "variants": [
+       {
+        "question": "Uma jogadora de vôlei não fez pontos de ataque, mas recebeu bem os saques e levantou as bolas. Ela:",
+        "options": [
+         {
+          "text": "Não fez nada de importante",
+          "misconceptionCode": "so-quem-faz-ponto"
+         },
+         {
+          "text": "Deveria ser substituída",
+          "misconceptionCode": "so-quem-faz-ponto"
+         },
+         {
+          "text": "Jogou mal",
+          "misconceptionCode": "so-quem-faz-ponto"
+         },
+         {
+          "text": "Contribuiu muito para o time"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um jogador não marcou nenhum gol, mas fez passes e ajudou na defesa. Ele:",
+        "options": [
+         {
+          "text": "Jogou mal",
+          "misconceptionCode": "so-quem-faz-ponto"
+         },
+         {
+          "text": "Deveria ser substituído",
+          "misconceptionCode": "so-quem-faz-ponto"
+         },
+         {
+          "text": "Contribuiu muito para o time"
+         },
+         {
+          "text": "Não fez nada de importante",
+          "misconceptionCode": "so-quem-faz-ponto"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF89EF01-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: jogar, apitar e respeitar",
+    "prompt": "Coloque-se nos diferentes papéis.",
+    "estMinutes": 4,
+    "audioScript": "Coloque-se nos diferentes papéis. Pergunta 1. O árbitro marca uma falta contra o seu time, e você discorda. O que fazer? A: Gritar com o árbitro; B: Abandonar o jogo; C: Respeitar a decisão e continuar jogando; D: Empurrar o adversário. Pergunta 2. Na aula, o professor pede que você seja o técnico de um time. Uma boa atitude é: A: Deixar jogar só os melhores; B: Gritar a cada erro; C: Ficar calado o jogo todo; D: Orientar os colegas e fazer todos participarem. Pergunta 3. Um colega tem dificuldade num esporte. Como o time pode agir? A: Incluí-lo nas jogadas e incentivá-lo; B: Não passar a bola para ele; C: Rir dos erros; D: Pedir que saia.",
+    "questions": [
+     {
+      "question": "O árbitro marca uma falta contra o seu time, e você discorda. O que fazer?",
+      "options": [
+       {
+        "text": "Gritar com o árbitro",
+        "misconceptionCode": "arbitro-inimigo"
+       },
+       {
+        "text": "Abandonar o jogo",
+        "misconceptionCode": "arbitro-inimigo"
+       },
+       {
+        "text": "Respeitar a decisão e continuar jogando"
+       },
+       {
+        "text": "Empurrar o adversário",
+        "misconceptionCode": "arbitro-inimigo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O árbitro pode errar, como qualquer pessoa. Respeitar a decisão faz parte do jogo.",
+      "variants": [
+       {
+        "question": "Um colega da turma está apitando o jogo da aula e erra uma marcação. O que fazer?",
+        "options": [
+         {
+          "text": "Respeitar e ajudar, porque apitar também se aprende"
+         },
+         {
+          "text": "Gritar com ele",
+          "misconceptionCode": "arbitro-inimigo"
+         },
+         {
+          "text": "Abandonar o jogo",
+          "misconceptionCode": "arbitro-inimigo"
+         },
+         {
+          "text": "Zombar dele",
+          "misconceptionCode": "arbitro-inimigo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O árbitro marca uma falta contra o seu time, e você discorda. O que fazer?",
+        "options": [
+         {
+          "text": "Empurrar o adversário",
+          "misconceptionCode": "arbitro-inimigo"
+         },
+         {
+          "text": "Abandonar o jogo",
+          "misconceptionCode": "arbitro-inimigo"
+         },
+         {
+          "text": "Gritar com o árbitro",
+          "misconceptionCode": "arbitro-inimigo"
+         },
+         {
+          "text": "Respeitar a decisão e continuar jogando"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Na aula, o professor pede que você seja o técnico de um time. Uma boa atitude é:",
+      "options": [
+       {
+        "text": "Deixar jogar só os melhores",
+        "misconceptionCode": "so-quem-faz-ponto"
+       },
+       {
+        "text": "Gritar a cada erro",
+        "misconceptionCode": "arbitro-inimigo"
+       },
+       {
+        "text": "Ficar calado o jogo todo",
+        "misconceptionCode": "so-quem-faz-ponto"
+       },
+       {
+        "text": "Orientar os colegas e fazer todos participarem"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O bom técnico organiza o time, incentiva e dá oportunidade a todos.",
+      "variants": [
+       {
+        "question": "Na aula, o professor pede que você monte os times. Uma boa atitude é:",
+        "options": [
+         {
+          "text": "Colocar todos os melhores no mesmo time",
+          "misconceptionCode": "so-quem-faz-ponto"
+         },
+         {
+          "text": "Equilibrar os times para que todos possam jogar bem"
+         },
+         {
+          "text": "Deixar alguém de fora",
+          "misconceptionCode": "arbitro-inimigo"
+         },
+         {
+          "text": "Escolher só os amigos",
+          "misconceptionCode": "so-quem-faz-ponto"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Na aula, o professor pede que você seja o técnico de um time. Uma boa atitude é:",
+        "options": [
+         {
+          "text": "Orientar os colegas e fazer todos participarem"
+         },
+         {
+          "text": "Ficar calado o jogo todo",
+          "misconceptionCode": "so-quem-faz-ponto"
+         },
+         {
+          "text": "Gritar a cada erro",
+          "misconceptionCode": "arbitro-inimigo"
+         },
+         {
+          "text": "Deixar jogar só os melhores",
+          "misconceptionCode": "so-quem-faz-ponto"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Um colega tem dificuldade num esporte. Como o time pode agir?",
+      "options": [
+       {
+        "text": "Incluí-lo nas jogadas e incentivá-lo"
+       },
+       {
+        "text": "Não passar a bola para ele",
+        "misconceptionCode": "so-quem-faz-ponto"
+       },
+       {
+        "text": "Rir dos erros",
+        "misconceptionCode": "so-quem-faz-ponto"
+       },
+       {
+        "text": "Pedir que saia",
+        "misconceptionCode": "so-quem-faz-ponto"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O esporte na escola é para todos aprenderem. Quem recebe apoio melhora mais rápido.",
+      "variants": [
+       {
+        "question": "Uma colega está aprendendo a sacar no vôlei e erra várias vezes. Como o time pode agir?",
+        "options": [
+         {
+          "text": "Tirá-la do saque para sempre",
+          "misconceptionCode": "so-quem-faz-ponto"
+         },
+         {
+          "text": "Rir dos erros",
+          "misconceptionCode": "so-quem-faz-ponto"
+         },
+         {
+          "text": "Dar dicas e incentivar"
+         },
+         {
+          "text": "Reclamar a cada erro",
+          "misconceptionCode": "so-quem-faz-ponto"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um colega tem dificuldade num esporte. Como o time pode agir?",
+        "options": [
+         {
+          "text": "Pedir que saia",
+          "misconceptionCode": "so-quem-faz-ponto"
+         },
+         {
+          "text": "Incluí-lo nas jogadas e incentivá-lo"
+         },
+         {
+          "text": "Rir dos erros",
+          "misconceptionCode": "so-quem-faz-ponto"
+         },
+         {
+          "text": "Não passar a bola para ele",
+          "misconceptionCode": "so-quem-faz-ponto"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF89EF01-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: o que diferencia os esportes",
+    "prompt": "Escolha dois esportes de categorias diferentes e explique com as suas palavras o que muda na lógica de jogo de um para o outro.",
+    "estMinutes": 6,
+    "audioScript": "Escolha dois esportes de categorias diferentes e explique com as suas palavras o que muda na lógica de jogo de um para o outro.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "esportes",
+       "description": "Cita dois esportes de categorias diferentes"
+      },
+      {
+       "code": "logica",
+       "description": "Explica a diferença pela forma de jogar (invadir o campo, mandar por cima da rede, rebater e correr, lutar)"
+      },
+      {
+       "code": "categoria",
+       "description": "Nomeia corretamente ao menos uma das categorias"
+      }
+     ],
+     "exemploBoaResposta": "Eu escolhi o futsal e o vôlei. O futsal é de invasão: os dois times ficam na mesma quadra e tentam chegar ao gol do outro. O vôlei é de rede: cada time fica no seu lado e manda a bola por cima da rede, sem encostar no adversário."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF89EF07",
+  "subjectCode": "EF",
+  "subjectName": "Educação Física",
+  "gradeYear": 8,
+  "version": 1,
+  "title": "Trilha: Programas de exercícios físicos",
+  "tituloAluno": "Treinar do jeito certo para cada pessoa",
+  "activities": [
+   {
+    "id": "PK2-EF89EF07-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: atividade física e exercício",
+    "prompt": "No 7º ano, vimos a diferença entre atividade física e exercício físico.",
+    "estMinutes": 4,
+    "audioScript": "No 7º ano, vimos a diferença entre atividade física e exercício físico. Pergunta 1. Qual é a diferença entre atividade física e exercício físico? A: Não há diferença; B: Atividade física é só esporte; C: O exercício é planejado e repetido com um objetivo; a atividade física é qualquer movimento que gasta energia; D: Exercício é só para atletas. Pergunta 2. Qual é um benefício do exercício físico regular? A: Diminuir a disposição; B: Enfraquecer os ossos; C: Piorar o sono; D: Fortalecer o coração e os músculos. Pergunta 3. O que acontece com o coração durante o exercício? A: Bate mais rápido para levar mais sangue aos músculos; B: Para de bater; C: Bate mais devagar; D: Não muda.",
+    "questions": [
+     {
+      "question": "Qual é a diferença entre atividade física e exercício físico?",
+      "options": [
+       {
+        "text": "Não há diferença",
+        "misconceptionCode": "mesmo-para-todos"
+       },
+       {
+        "text": "Atividade física é só esporte",
+        "misconceptionCode": "so-estetica"
+       },
+       {
+        "text": "O exercício é planejado e repetido com um objetivo; a atividade física é qualquer movimento que gasta energia"
+       },
+       {
+        "text": "Exercício é só para atletas",
+        "misconceptionCode": "mesmo-para-todos"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Varrer a casa é atividade física. Fazer uma série de abdominais três vezes por semana é exercício.",
+      "variants": [
+       {
+        "question": "Subir escadas no dia a dia é um exemplo de:",
+        "options": [
+         {
+          "text": "Atividade física"
+         },
+         {
+          "text": "Exercício planejado",
+          "misconceptionCode": "mesmo-para-todos"
+         },
+         {
+          "text": "Esporte de competição",
+          "misconceptionCode": "so-estetica"
+         },
+         {
+          "text": "Descanso",
+          "misconceptionCode": "mesmo-para-todos"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual é a diferença entre atividade física e exercício físico?",
+        "options": [
+         {
+          "text": "Exercício é só para atletas",
+          "misconceptionCode": "mesmo-para-todos"
+         },
+         {
+          "text": "Atividade física é só esporte",
+          "misconceptionCode": "so-estetica"
+         },
+         {
+          "text": "Não há diferença",
+          "misconceptionCode": "mesmo-para-todos"
+         },
+         {
+          "text": "O exercício é planejado e repetido com um objetivo; a atividade física é qualquer movimento que gasta energia"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual é um benefício do exercício físico regular?",
+      "options": [
+       {
+        "text": "Diminuir a disposição",
+        "misconceptionCode": "so-estetica"
+       },
+       {
+        "text": "Enfraquecer os ossos",
+        "misconceptionCode": "mais-e-melhor"
+       },
+       {
+        "text": "Piorar o sono",
+        "misconceptionCode": "mais-e-melhor"
+       },
+       {
+        "text": "Fortalecer o coração e os músculos"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O exercício regular melhora a saúde do coração, dos músculos e dos ossos, o sono e o humor.",
+      "variants": [
+       {
+        "question": "Além do corpo, o exercício físico regular também ajuda:",
+        "options": [
+         {
+          "text": "A dormir pior",
+          "misconceptionCode": "so-estetica"
+         },
+         {
+          "text": "No humor e no sono"
+         },
+         {
+          "text": "A ter menos disposição",
+          "misconceptionCode": "mais-e-melhor"
+         },
+         {
+          "text": "Em nada",
+          "misconceptionCode": "mais-e-melhor"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual é um benefício do exercício físico regular?",
+        "options": [
+         {
+          "text": "Fortalecer o coração e os músculos"
+         },
+         {
+          "text": "Piorar o sono",
+          "misconceptionCode": "mais-e-melhor"
+         },
+         {
+          "text": "Enfraquecer os ossos",
+          "misconceptionCode": "mais-e-melhor"
+         },
+         {
+          "text": "Diminuir a disposição",
+          "misconceptionCode": "so-estetica"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O que acontece com o coração durante o exercício?",
+      "options": [
+       {
+        "text": "Bate mais rápido para levar mais sangue aos músculos"
+       },
+       {
+        "text": "Para de bater",
+        "misconceptionCode": "mais-e-melhor"
+       },
+       {
+        "text": "Bate mais devagar",
+        "misconceptionCode": "sem-aquecer"
+       },
+       {
+        "text": "Não muda",
+        "misconceptionCode": "sem-aquecer"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Os músculos precisam de mais oxigênio, e o coração acelera para levá-lo pelo sangue.",
+      "variants": [
+       {
+        "question": "Por que respiramos mais rápido durante o exercício?",
+        "options": [
+         {
+          "text": "Porque o ar acaba",
+          "misconceptionCode": "mais-e-melhor"
+         },
+         {
+          "text": "Porque o coração para",
+          "misconceptionCode": "sem-aquecer"
+         },
+         {
+          "text": "Porque o corpo precisa de mais oxigênio"
+         },
+         {
+          "text": "Por nenhum motivo",
+          "misconceptionCode": "sem-aquecer"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que acontece com o coração durante o exercício?",
+        "options": [
+         {
+          "text": "Não muda",
+          "misconceptionCode": "sem-aquecer"
+         },
+         {
+          "text": "Bate mais rápido para levar mais sangue aos músculos"
+         },
+         {
+          "text": "Bate mais devagar",
+          "misconceptionCode": "sem-aquecer"
+         },
+         {
+          "text": "Para de bater",
+          "misconceptionCode": "mais-e-melhor"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF89EF07-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: as partes de um treino",
+    "prompt": "Um programa de exercícios tem começo, meio e fim: aquecimento, parte principal e volta à calma. Ele trabalha capacidades como força, resistência e flexibilidade. Vamos entender juntos.",
+    "estMinutes": 4,
+    "audioScript": "Um programa de exercícios tem começo, meio e fim: aquecimento, parte principal e volta à calma. Ele trabalha capacidades como força, resistência e flexibilidade. Vamos entender juntos. Pergunta 1. Para que serve o aquecimento? A: Para cansar antes do treino; B: Para preparar o corpo e reduzir o risco de lesões; C: Para nada, pode ser pulado; D: Para ganhar força máxima. Pergunta 2. Correr por 20 minutos sem parar trabalha principalmente qual capacidade? A: Flexibilidade; B: Equilíbrio, somente; C: Resistência; D: Nenhuma. Pergunta 3. Fazer alongamentos trabalha principalmente qual capacidade? A: Força; B: Velocidade; C: Resistência; D: Flexibilidade.",
+    "questions": [
+     {
+      "question": "Para que serve o aquecimento?",
+      "options": [
+       {
+        "text": "Para cansar antes do treino",
+        "misconceptionCode": "sem-aquecer"
+       },
+       {
+        "text": "Para preparar o corpo e reduzir o risco de lesões"
+       },
+       {
+        "text": "Para nada, pode ser pulado",
+        "misconceptionCode": "sem-aquecer"
+       },
+       {
+        "text": "Para ganhar força máxima",
+        "misconceptionCode": "mais-e-melhor"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O aquecimento aumenta aos poucos a temperatura do corpo e prepara músculos e articulações.",
+      "variants": [
+       {
+        "question": "O que se deve fazer antes de começar a parte principal do treino?",
+        "options": [
+         {
+          "text": "Comer muito",
+          "misconceptionCode": "sem-aquecer"
+         },
+         {
+          "text": "Ficar parado",
+          "misconceptionCode": "sem-aquecer"
+         },
+         {
+          "text": "Dormir",
+          "misconceptionCode": "mais-e-melhor"
+         },
+         {
+          "text": "Aquecimento"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Para que serve o aquecimento?",
+        "options": [
+         {
+          "text": "Para ganhar força máxima",
+          "misconceptionCode": "mais-e-melhor"
+         },
+         {
+          "text": "Para nada, pode ser pulado",
+          "misconceptionCode": "sem-aquecer"
+         },
+         {
+          "text": "Para preparar o corpo e reduzir o risco de lesões"
+         },
+         {
+          "text": "Para cansar antes do treino",
+          "misconceptionCode": "sem-aquecer"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Correr por 20 minutos sem parar trabalha principalmente qual capacidade?",
+      "options": [
+       {
+        "text": "Flexibilidade",
+        "misconceptionCode": "mesmo-para-todos"
+       },
+       {
+        "text": "Equilíbrio, somente",
+        "misconceptionCode": "mesmo-para-todos"
+       },
+       {
+        "text": "Resistência"
+       },
+       {
+        "text": "Nenhuma",
+        "misconceptionCode": "so-estetica"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Resistência é a capacidade de manter um esforço por mais tempo.",
+      "variants": [
+       {
+        "question": "Pedalar por 30 minutos sem parar trabalha principalmente:",
+        "options": [
+         {
+          "text": "A resistência"
+         },
+         {
+          "text": "A flexibilidade",
+          "misconceptionCode": "mesmo-para-todos"
+         },
+         {
+          "text": "O equilíbrio, somente",
+          "misconceptionCode": "mesmo-para-todos"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "so-estetica"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Correr por 20 minutos sem parar trabalha principalmente qual capacidade?",
+        "options": [
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "so-estetica"
+         },
+         {
+          "text": "Equilíbrio, somente",
+          "misconceptionCode": "mesmo-para-todos"
+         },
+         {
+          "text": "Flexibilidade",
+          "misconceptionCode": "mesmo-para-todos"
+         },
+         {
+          "text": "Resistência"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Fazer alongamentos trabalha principalmente qual capacidade?",
+      "options": [
+       {
+        "text": "Força",
+        "misconceptionCode": "mesmo-para-todos"
+       },
+       {
+        "text": "Velocidade",
+        "misconceptionCode": "mesmo-para-todos"
+       },
+       {
+        "text": "Resistência",
+        "misconceptionCode": "mesmo-para-todos"
+       },
+       {
+        "text": "Flexibilidade"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Flexibilidade é a capacidade de fazer movimentos amplos com as articulações.",
+      "variants": [
+       {
+        "question": "Fazer flexões de braço e agachamentos trabalha principalmente:",
+        "options": [
+         {
+          "text": "A flexibilidade",
+          "misconceptionCode": "mesmo-para-todos"
+         },
+         {
+          "text": "A força"
+         },
+         {
+          "text": "A velocidade",
+          "misconceptionCode": "mesmo-para-todos"
+         },
+         {
+          "text": "O equilíbrio, somente",
+          "misconceptionCode": "mesmo-para-todos"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Fazer alongamentos trabalha principalmente qual capacidade?",
+        "options": [
+         {
+          "text": "Flexibilidade"
+         },
+         {
+          "text": "Resistência",
+          "misconceptionCode": "mesmo-para-todos"
+         },
+         {
+          "text": "Velocidade",
+          "misconceptionCode": "mesmo-para-todos"
+         },
+         {
+          "text": "Força",
+          "misconceptionCode": "mesmo-para-todos"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF89EF07-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: treinar com segurança",
+    "prompt": "Cada corpo responde de um jeito.",
+    "estMinutes": 5,
+    "audioScript": "Cada corpo responde de um jeito. Pergunta 1. Dois colegas fazem o mesmo treino. Um termina bem, o outro fica exausto. Isso mostra que: A: Cada pessoa tem um condicionamento, e o treino precisa ser ajustado; B: O segundo é preguiçoso; C: O treino é sempre igual para todos; D: O primeiro treinou errado. Pergunta 2. Sentir dor forte durante um exercício é sinal de que você deve: A: Continuar com mais força; B: Parar e avisar o professor; C: Ignorar, porque dor é normal; D: Aumentar a carga. Pergunta 3. Por que o descanso faz parte do treino? A: Porque descansar é perder tempo; B: Porque só quem é fraco descansa; C: Porque é no descanso que o corpo se recupera e fica mais forte; D: Não faz parte. Pergunta 4. Durante o exercício, é importante: A: Não beber nada; B: Tomar refrigerante; C: Comer muito; D: Beber água.",
+    "questions": [
+     {
+      "question": "Dois colegas fazem o mesmo treino. Um termina bem, o outro fica exausto. Isso mostra que:",
+      "options": [
+       {
+        "text": "Cada pessoa tem um condicionamento, e o treino precisa ser ajustado"
+       },
+       {
+        "text": "O segundo é preguiçoso",
+        "misconceptionCode": "mesmo-para-todos"
+       },
+       {
+        "text": "O treino é sempre igual para todos",
+        "misconceptionCode": "mesmo-para-todos"
+       },
+       {
+        "text": "O primeiro treinou errado",
+        "misconceptionCode": "mais-e-melhor"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Idade, histórico de atividade e saúde mudam a resposta ao exercício.",
+      "variants": [
+       {
+        "question": "Uma pessoa que nunca treinou deve começar um programa de exercícios:",
+        "options": [
+         {
+          "text": "Com o mesmo treino de um atleta",
+          "misconceptionCode": "mesmo-para-todos"
+         },
+         {
+          "text": "Com o máximo de esforço no primeiro dia",
+          "misconceptionCode": "mesmo-para-todos"
+         },
+         {
+          "text": "Com intensidade leve, aumentando aos poucos"
+         },
+         {
+          "text": "Sem nenhum descanso",
+          "misconceptionCode": "mais-e-melhor"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Dois colegas fazem o mesmo treino. Um termina bem, o outro fica exausto. Isso mostra que:",
+        "options": [
+         {
+          "text": "O primeiro treinou errado",
+          "misconceptionCode": "mais-e-melhor"
+         },
+         {
+          "text": "Cada pessoa tem um condicionamento, e o treino precisa ser ajustado"
+         },
+         {
+          "text": "O treino é sempre igual para todos",
+          "misconceptionCode": "mesmo-para-todos"
+         },
+         {
+          "text": "O segundo é preguiçoso",
+          "misconceptionCode": "mesmo-para-todos"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Sentir dor forte durante um exercício é sinal de que você deve:",
+      "options": [
+       {
+        "text": "Continuar com mais força",
+        "misconceptionCode": "mais-e-melhor"
+       },
+       {
+        "text": "Parar e avisar o professor"
+       },
+       {
+        "text": "Ignorar, porque dor é normal",
+        "misconceptionCode": "mais-e-melhor"
+       },
+       {
+        "text": "Aumentar a carga",
+        "misconceptionCode": "mais-e-melhor"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Dor forte é um aviso do corpo. Insistir pode causar lesão.",
+      "variants": [
+       {
+        "question": "Sentir tontura durante o exercício é sinal de que você deve:",
+        "options": [
+         {
+          "text": "Correr mais rápido",
+          "misconceptionCode": "mais-e-melhor"
+         },
+         {
+          "text": "Ignorar",
+          "misconceptionCode": "mais-e-melhor"
+         },
+         {
+          "text": "Aumentar o esforço",
+          "misconceptionCode": "mais-e-melhor"
+         },
+         {
+          "text": "Parar, sentar e avisar o professor"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Sentir dor forte durante um exercício é sinal de que você deve:",
+        "options": [
+         {
+          "text": "Aumentar a carga",
+          "misconceptionCode": "mais-e-melhor"
+         },
+         {
+          "text": "Ignorar, porque dor é normal",
+          "misconceptionCode": "mais-e-melhor"
+         },
+         {
+          "text": "Parar e avisar o professor"
+         },
+         {
+          "text": "Continuar com mais força",
+          "misconceptionCode": "mais-e-melhor"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Por que o descanso faz parte do treino?",
+      "options": [
+       {
+        "text": "Porque descansar é perder tempo",
+        "misconceptionCode": "sem-aquecer"
+       },
+       {
+        "text": "Porque só quem é fraco descansa",
+        "misconceptionCode": "mais-e-melhor"
+       },
+       {
+        "text": "Porque é no descanso que o corpo se recupera e fica mais forte"
+       },
+       {
+        "text": "Não faz parte",
+        "misconceptionCode": "sem-aquecer"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Treinar todos os dias sem descanso aumenta o risco de lesão e de cansaço extremo.",
+      "variants": [
+       {
+        "question": "Dormir bem ajuda no resultado dos exercícios porque:",
+        "options": [
+         {
+          "text": "O corpo se recupera durante o sono"
+         },
+         {
+          "text": "O sono enfraquece os músculos",
+          "misconceptionCode": "sem-aquecer"
+         },
+         {
+          "text": "Dormir é perder tempo",
+          "misconceptionCode": "mais-e-melhor"
+         },
+         {
+          "text": "Não tem relação nenhuma",
+          "misconceptionCode": "sem-aquecer"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Por que o descanso faz parte do treino?",
+        "options": [
+         {
+          "text": "Não faz parte",
+          "misconceptionCode": "sem-aquecer"
+         },
+         {
+          "text": "Porque só quem é fraco descansa",
+          "misconceptionCode": "mais-e-melhor"
+         },
+         {
+          "text": "Porque descansar é perder tempo",
+          "misconceptionCode": "sem-aquecer"
+         },
+         {
+          "text": "Porque é no descanso que o corpo se recupera e fica mais forte"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Durante o exercício, é importante:",
+      "options": [
+       {
+        "text": "Não beber nada",
+        "misconceptionCode": "mais-e-melhor"
+       },
+       {
+        "text": "Tomar refrigerante",
+        "misconceptionCode": "so-estetica"
+       },
+       {
+        "text": "Comer muito",
+        "misconceptionCode": "so-estetica"
+       },
+       {
+        "text": "Beber água"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O corpo perde água pelo suor. A hidratação evita mal-estar e ajuda no desempenho.",
+      "variants": [
+       {
+        "question": "Em dias muito quentes, ao se exercitar, é importante:",
+        "options": [
+         {
+          "text": "Usar roupas pesadas",
+          "misconceptionCode": "mais-e-melhor"
+         },
+         {
+          "text": "Beber água e evitar os horários de sol mais forte"
+         },
+         {
+          "text": "Não beber nada",
+          "misconceptionCode": "so-estetica"
+         },
+         {
+          "text": "Treinar ao meio-dia",
+          "misconceptionCode": "so-estetica"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Durante o exercício, é importante:",
+        "options": [
+         {
+          "text": "Beber água"
+         },
+         {
+          "text": "Comer muito",
+          "misconceptionCode": "so-estetica"
+         },
+         {
+          "text": "Tomar refrigerante",
+          "misconceptionCode": "so-estetica"
+         },
+         {
+          "text": "Não beber nada",
+          "misconceptionCode": "mais-e-melhor"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF89EF07-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: escolhas sobre o exercício",
+    "prompt": "Avalie as situações.",
+    "estMinutes": 4,
+    "audioScript": "Avalie as situações. Pergunta 1. Um vídeo na internet promete \"corpo perfeito em 7 dias com treino pesado\". O que pensar? A: Desconfiar: resultados levam tempo, e treino sem orientação pode machucar; B: Seguir sem pensar; C: Fazer o dobro para ir mais rápido; D: Achar que serve para qualquer pessoa. Pergunta 2. Para que serve o exercício físico, além da aparência? A: Para nada; B: Para a saúde, a disposição e o bem-estar; C: Só para emagrecer; D: Só para competir. Pergunta 3. Um colega com asma quer participar do circuito de exercícios. O que é correto? A: Ele não pode fazer nenhum exercício; B: Ele deve fazer igual a todos, sem adaptação; C: Ele pode participar, com intensidade adaptada e orientação do professor; D: Ele deve fazer mais que os outros.",
+    "questions": [
+     {
+      "question": "Um vídeo na internet promete \"corpo perfeito em 7 dias com treino pesado\". O que pensar?",
+      "options": [
+       {
+        "text": "Desconfiar: resultados levam tempo, e treino sem orientação pode machucar"
+       },
+       {
+        "text": "Seguir sem pensar",
+        "misconceptionCode": "mais-e-melhor"
+       },
+       {
+        "text": "Fazer o dobro para ir mais rápido",
+        "misconceptionCode": "mais-e-melhor"
+       },
+       {
+        "text": "Achar que serve para qualquer pessoa",
+        "misconceptionCode": "mesmo-para-todos"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Promessas rápidas costumam ser enganosas. O corpo precisa de tempo e de orientação adequada.",
+      "variants": [
+       {
+        "question": "Um colega quer copiar o treino de um atleta famoso que viu na internet. O que dizer?",
+        "options": [
+         {
+          "text": "Que ele deve fazer igual",
+          "misconceptionCode": "mais-e-melhor"
+         },
+         {
+          "text": "Que deve fazer o dobro",
+          "misconceptionCode": "mais-e-melhor"
+         },
+         {
+          "text": "Que o treino de atleta é feito para o corpo e o preparo dele, com acompanhamento"
+         },
+         {
+          "text": "Que serve para qualquer pessoa",
+          "misconceptionCode": "mesmo-para-todos"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um vídeo na internet promete \"corpo perfeito em 7 dias com treino pesado\". O que pensar?",
+        "options": [
+         {
+          "text": "Achar que serve para qualquer pessoa",
+          "misconceptionCode": "mesmo-para-todos"
+         },
+         {
+          "text": "Desconfiar: resultados levam tempo, e treino sem orientação pode machucar"
+         },
+         {
+          "text": "Fazer o dobro para ir mais rápido",
+          "misconceptionCode": "mais-e-melhor"
+         },
+         {
+          "text": "Seguir sem pensar",
+          "misconceptionCode": "mais-e-melhor"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Para que serve o exercício físico, além da aparência?",
+      "options": [
+       {
+        "text": "Para nada",
+        "misconceptionCode": "so-estetica"
+       },
+       {
+        "text": "Para a saúde, a disposição e o bem-estar"
+       },
+       {
+        "text": "Só para emagrecer",
+        "misconceptionCode": "so-estetica"
+       },
+       {
+        "text": "Só para competir",
+        "misconceptionCode": "so-estetica"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O principal ganho do exercício é a saúde do corpo e da mente.",
+      "variants": [
+       {
+        "question": "Uma pessoa que se exercita regularmente, mesmo sem mudar a aparência:",
+        "options": [
+         {
+          "text": "Está perdendo tempo",
+          "misconceptionCode": "so-estetica"
+         },
+         {
+          "text": "Não tem nenhum benefício",
+          "misconceptionCode": "so-estetica"
+         },
+         {
+          "text": "Deveria parar",
+          "misconceptionCode": "so-estetica"
+         },
+         {
+          "text": "Ganha saúde, disposição e bem-estar"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Para que serve o exercício físico, além da aparência?",
+        "options": [
+         {
+          "text": "Só para competir",
+          "misconceptionCode": "so-estetica"
+         },
+         {
+          "text": "Só para emagrecer",
+          "misconceptionCode": "so-estetica"
+         },
+         {
+          "text": "Para a saúde, a disposição e o bem-estar"
+         },
+         {
+          "text": "Para nada",
+          "misconceptionCode": "so-estetica"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um colega com asma quer participar do circuito de exercícios. O que é correto?",
+      "options": [
+       {
+        "text": "Ele não pode fazer nenhum exercício",
+        "misconceptionCode": "mesmo-para-todos"
+       },
+       {
+        "text": "Ele deve fazer igual a todos, sem adaptação",
+        "misconceptionCode": "mesmo-para-todos"
+       },
+       {
+        "text": "Ele pode participar, com intensidade adaptada e orientação do professor"
+       },
+       {
+        "text": "Ele deve fazer mais que os outros",
+        "misconceptionCode": "mais-e-melhor"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O exercício pode e deve ser adaptado às condições de cada pessoa.",
+      "variants": [
+       {
+        "question": "Uma colega que usa cadeira de rodas quer participar do treino. O que é correto?",
+        "options": [
+         {
+          "text": "Adaptar os exercícios para que ela participe"
+         },
+         {
+          "text": "Deixá-la de fora",
+          "misconceptionCode": "mesmo-para-todos"
+         },
+         {
+          "text": "Exigir os mesmos movimentos de todos",
+          "misconceptionCode": "mesmo-para-todos"
+         },
+         {
+          "text": "Dizer que exercício não é para ela",
+          "misconceptionCode": "mais-e-melhor"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um colega com asma quer participar do circuito de exercícios. O que é correto?",
+        "options": [
+         {
+          "text": "Ele deve fazer mais que os outros",
+          "misconceptionCode": "mais-e-melhor"
+         },
+         {
+          "text": "Ele deve fazer igual a todos, sem adaptação",
+          "misconceptionCode": "mesmo-para-todos"
+         },
+         {
+          "text": "Ele não pode fazer nenhum exercício",
+          "misconceptionCode": "mesmo-para-todos"
+         },
+         {
+          "text": "Ele pode participar, com intensidade adaptada e orientação do professor"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF89EF07-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: um treino seguro",
+    "prompt": "Explique com as suas palavras como deve ser um treino seguro: o que fazer antes, durante e depois, e por que ele não pode ser igual para todo mundo.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras como deve ser um treino seguro: o que fazer antes, durante e depois, e por que ele não pode ser igual para todo mundo.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "partes",
+       "description": "Cita aquecimento e descanso ou volta à calma"
+      },
+      {
+       "code": "cuidados",
+       "description": "Cita cuidados como beber água e parar se sentir dor"
+      },
+      {
+       "code": "individual",
+       "description": "Explica que cada pessoa tem seus limites e seu condicionamento"
+      }
+     ],
+     "exemploBoaResposta": "Antes do treino, é preciso fazer o aquecimento. Durante, é importante beber água e parar se sentir dor. Depois, o corpo precisa descansar para se recuperar. O treino não pode ser igual para todos porque cada pessoa tem um preparo e limites diferentes."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF89EF12",
+  "subjectCode": "EF",
+  "subjectName": "Educação Física",
+  "gradeYear": 8,
+  "version": 1,
+  "title": "Trilha: Danças de salão",
+  "tituloAluno": "Dançar a dois, com respeito",
+  "activities": [
+   {
+    "id": "PK2-EF89EF12-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: dança e ritmo",
+    "prompt": "No 7º ano, estudamos as danças urbanas. Agora vamos às danças de salão.",
+    "estMinutes": 4,
+    "audioScript": "No 7º ano, estudamos as danças urbanas. Agora vamos às danças de salão. Pergunta 1. O que é preciso ouvir na música para dançar? A: O nome do cantor; B: A capa do disco; C: O ritmo; D: O volume, somente. Pergunta 2. As danças urbanas, como o breaking, nasceram: A: Em palácios de reis; B: Em escolas de balé clássico; C: Em nenhum lugar específico; D: Nas ruas e nos bairros das cidades. Pergunta 3. Dançar pode ser aprendido? A: Sim, com prática, como qualquer habilidade; B: Não, só quem nasce sabendo; C: Não, depende de sorte; D: Só por crianças pequenas.",
+    "questions": [
+     {
+      "question": "O que é preciso ouvir na música para dançar?",
+      "options": [
+       {
+        "text": "O nome do cantor",
+        "misconceptionCode": "sem-origem"
+       },
+       {
+        "text": "A capa do disco",
+        "misconceptionCode": "sem-origem"
+       },
+       {
+        "text": "O ritmo"
+       },
+       {
+        "text": "O volume, somente",
+        "misconceptionCode": "precisa-nascer-sabendo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O ritmo marca o tempo dos passos.",
+      "variants": [
+       {
+        "question": "Quando os passos acompanham as batidas da música, dizemos que a pessoa está dançando:",
+        "options": [
+         {
+          "text": "No ritmo"
+         },
+         {
+          "text": "Fora do tempo",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Sem música",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Parada",
+          "misconceptionCode": "precisa-nascer-sabendo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que é preciso ouvir na música para dançar?",
+        "options": [
+         {
+          "text": "O volume, somente",
+          "misconceptionCode": "precisa-nascer-sabendo"
+         },
+         {
+          "text": "A capa do disco",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "O nome do cantor",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "O ritmo"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "As danças urbanas, como o breaking, nasceram:",
+      "options": [
+       {
+        "text": "Em palácios de reis",
+        "misconceptionCode": "sem-origem"
+       },
+       {
+        "text": "Em escolas de balé clássico",
+        "misconceptionCode": "sem-origem"
+       },
+       {
+        "text": "Em nenhum lugar específico",
+        "misconceptionCode": "sem-origem"
+       },
+       {
+        "text": "Nas ruas e nos bairros das cidades"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Toda dança tem uma origem ligada a um povo e a um lugar.",
+      "variants": [
+       {
+        "question": "Toda dança está ligada:",
+        "options": [
+         {
+          "text": "A nenhum povo",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "À cultura do povo que a criou"
+         },
+         {
+          "text": "Só às academias",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Só à televisão",
+          "misconceptionCode": "sem-origem"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "As danças urbanas, como o breaking, nasceram:",
+        "options": [
+         {
+          "text": "Nas ruas e nos bairros das cidades"
+         },
+         {
+          "text": "Em nenhum lugar específico",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Em escolas de balé clássico",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Em palácios de reis",
+          "misconceptionCode": "sem-origem"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Dançar pode ser aprendido?",
+      "options": [
+       {
+        "text": "Sim, com prática, como qualquer habilidade"
+       },
+       {
+        "text": "Não, só quem nasce sabendo",
+        "misconceptionCode": "precisa-nascer-sabendo"
+       },
+       {
+        "text": "Não, depende de sorte",
+        "misconceptionCode": "precisa-nascer-sabendo"
+       },
+       {
+        "text": "Só por crianças pequenas",
+        "misconceptionCode": "precisa-nascer-sabendo"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Ninguém nasce sabendo dançar. Os passos se aprendem com prática e paciência.",
+      "variants": [
+       {
+        "question": "Uma pessoa que diz \"eu não sei dançar\" pode:",
+        "options": [
+         {
+          "text": "Nunca aprender",
+          "misconceptionCode": "precisa-nascer-sabendo"
+         },
+         {
+          "text": "Aprender só se tiver dom",
+          "misconceptionCode": "precisa-nascer-sabendo"
+         },
+         {
+          "text": "Aprender, praticando aos poucos"
+         },
+         {
+          "text": "Aprender só se for criança",
+          "misconceptionCode": "precisa-nascer-sabendo"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Dançar pode ser aprendido?",
+        "options": [
+         {
+          "text": "Só por crianças pequenas",
+          "misconceptionCode": "precisa-nascer-sabendo"
+         },
+         {
+          "text": "Sim, com prática, como qualquer habilidade"
+         },
+         {
+          "text": "Não, depende de sorte",
+          "misconceptionCode": "precisa-nascer-sabendo"
+         },
+         {
+          "text": "Não, só quem nasce sabendo",
+          "misconceptionCode": "precisa-nascer-sabendo"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF89EF12-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o que são danças de salão",
+    "prompt": "Danças de salão são dançadas a dois, em bailes e festas. Uma pessoa conduz, indicando os movimentos, e a outra acompanha. As duas precisam se ouvir e se respeitar. Vamos conhecer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Danças de salão são dançadas a dois, em bailes e festas. Uma pessoa conduz, indicando os movimentos, e a outra acompanha. As duas precisam se ouvir e se respeitar. Vamos conhecer juntos. Pergunta 1. O que caracteriza uma dança de salão? A: É dançada sempre sozinho; B: É dançada a dois, com passos combinados entre o par; C: É uma luta; D: Não tem música. Pergunta 2. Na dança a dois, conduzir significa: A: Puxar e empurrar o par com força; B: Mandar no par; C: Indicar os movimentos com gestos suaves, para o par acompanhar; D: Dançar sem olhar para o par. Pergunta 3. Para dançar forró, quem pode formar um par? A: Só casais de namorados; B: Só um menino com uma menina; C: Só adultos; D: Quaisquer duas pessoas que queiram dançar juntas.",
+    "questions": [
+     {
+      "question": "O que caracteriza uma dança de salão?",
+      "options": [
+       {
+        "text": "É dançada sempre sozinho",
+        "misconceptionCode": "so-para-casal"
+       },
+       {
+        "text": "É dançada a dois, com passos combinados entre o par"
+       },
+       {
+        "text": "É uma luta",
+        "misconceptionCode": "conduzir-e-mandar"
+       },
+       {
+        "text": "Não tem música",
+        "misconceptionCode": "sem-origem"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Forró, samba de gafieira, valsa, tango e salsa são danças de salão.",
+      "variants": [
+       {
+        "question": "Qual destas é uma dança de salão?",
+        "options": [
+         {
+          "text": "Breaking",
+          "misconceptionCode": "so-para-casal"
+         },
+         {
+          "text": "Balé clássico solo",
+          "misconceptionCode": "conduzir-e-mandar"
+         },
+         {
+          "text": "Capoeira",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Forró"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que caracteriza uma dança de salão?",
+        "options": [
+         {
+          "text": "Não tem música",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "É uma luta",
+          "misconceptionCode": "conduzir-e-mandar"
+         },
+         {
+          "text": "É dançada a dois, com passos combinados entre o par"
+         },
+         {
+          "text": "É dançada sempre sozinho",
+          "misconceptionCode": "so-para-casal"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Na dança a dois, conduzir significa:",
+      "options": [
+       {
+        "text": "Puxar e empurrar o par com força",
+        "misconceptionCode": "conduzir-e-mandar"
+       },
+       {
+        "text": "Mandar no par",
+        "misconceptionCode": "conduzir-e-mandar"
+       },
+       {
+        "text": "Indicar os movimentos com gestos suaves, para o par acompanhar"
+       },
+       {
+        "text": "Dançar sem olhar para o par",
+        "misconceptionCode": "conduzir-e-mandar"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Conduzir é propor, com clareza e delicadeza. A dança só funciona quando os dois se entendem.",
+      "variants": [
+       {
+        "question": "Na dança a dois, uma boa condução é:",
+        "options": [
+         {
+          "text": "Clara e suave"
+         },
+         {
+          "text": "Forte e brusca",
+          "misconceptionCode": "conduzir-e-mandar"
+         },
+         {
+          "text": "Feita com empurrões",
+          "misconceptionCode": "conduzir-e-mandar"
+         },
+         {
+          "text": "Feita sem atenção ao par",
+          "misconceptionCode": "conduzir-e-mandar"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Na dança a dois, conduzir significa:",
+        "options": [
+         {
+          "text": "Dançar sem olhar para o par",
+          "misconceptionCode": "conduzir-e-mandar"
+         },
+         {
+          "text": "Mandar no par",
+          "misconceptionCode": "conduzir-e-mandar"
+         },
+         {
+          "text": "Puxar e empurrar o par com força",
+          "misconceptionCode": "conduzir-e-mandar"
+         },
+         {
+          "text": "Indicar os movimentos com gestos suaves, para o par acompanhar"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Para dançar forró, quem pode formar um par?",
+      "options": [
+       {
+        "text": "Só casais de namorados",
+        "misconceptionCode": "so-para-casal"
+       },
+       {
+        "text": "Só um menino com uma menina",
+        "misconceptionCode": "so-para-casal"
+       },
+       {
+        "text": "Só adultos",
+        "misconceptionCode": "so-para-casal"
+       },
+       {
+        "text": "Quaisquer duas pessoas que queiram dançar juntas"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Dançar a dois é uma prática social. Amigos, colegas e familiares dançam juntos.",
+      "variants": [
+       {
+        "question": "Na aula de dança de salão, trocar de par durante a atividade:",
+        "options": [
+         {
+          "text": "É proibido",
+          "misconceptionCode": "so-para-casal"
+         },
+         {
+          "text": "Ajuda todos a aprender e a se conhecer"
+         },
+         {
+          "text": "Só pode entre namorados",
+          "misconceptionCode": "so-para-casal"
+         },
+         {
+          "text": "Atrapalha o aprendizado",
+          "misconceptionCode": "so-para-casal"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Para dançar forró, quem pode formar um par?",
+        "options": [
+         {
+          "text": "Quaisquer duas pessoas que queiram dançar juntas"
+         },
+         {
+          "text": "Só adultos",
+          "misconceptionCode": "so-para-casal"
+         },
+         {
+          "text": "Só um menino com uma menina",
+          "misconceptionCode": "so-para-casal"
+         },
+         {
+          "text": "Só casais de namorados",
+          "misconceptionCode": "so-para-casal"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF89EF12-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: conhecendo as danças",
+    "prompt": "Relacione dança, origem e característica.",
+    "estMinutes": 5,
+    "audioScript": "Relacione dança, origem e característica. Pergunta 1. O forró nasceu: A: No Nordeste do Brasil; B: Na Argentina; C: Na Áustria; D: Em Cuba. Pergunta 2. O tango é uma dança de salão originária: A: Do Brasil; B: Da Argentina e do Uruguai; C: Da Áustria; D: Dos Estados Unidos. Pergunta 3. O samba de gafieira é: A: Uma luta; B: Uma dança europeia; C: Uma dança de salão brasileira, dançada a dois ao som de samba; D: Uma dança individual de rua. Pergunta 4. Antes de chamar alguém para dançar, o correto é: A: Puxar a pessoa pelo braço; B: Insistir até ela aceitar; C: Reclamar se ela recusar; D: Convidar e respeitar se a pessoa disser não.",
+    "questions": [
+     {
+      "question": "O forró nasceu:",
+      "options": [
+       {
+        "text": "No Nordeste do Brasil"
+       },
+       {
+        "text": "Na Argentina",
+        "misconceptionCode": "sem-origem"
+       },
+       {
+        "text": "Na Áustria",
+        "misconceptionCode": "sem-origem"
+       },
+       {
+        "text": "Em Cuba",
+        "misconceptionCode": "sem-origem"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O forró é uma das danças mais populares do Brasil, ligada às festas juninas e ao sertão.",
+      "variants": [
+       {
+        "question": "O forró é dançado principalmente ao som de:",
+        "options": [
+         {
+          "text": "Guitarra elétrica e bateria",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Violinos de orquestra",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Sanfona, zabumba e triângulo"
+         },
+         {
+          "text": "Tambores japoneses",
+          "misconceptionCode": "sem-origem"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O forró nasceu:",
+        "options": [
+         {
+          "text": "Em Cuba",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "No Nordeste do Brasil"
+         },
+         {
+          "text": "Na Áustria",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Na Argentina",
+          "misconceptionCode": "sem-origem"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O tango é uma dança de salão originária:",
+      "options": [
+       {
+        "text": "Do Brasil",
+        "misconceptionCode": "sem-origem"
+       },
+       {
+        "text": "Da Argentina e do Uruguai"
+       },
+       {
+        "text": "Da Áustria",
+        "misconceptionCode": "sem-origem"
+       },
+       {
+        "text": "Dos Estados Unidos",
+        "misconceptionCode": "sem-origem"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O tango surgiu nos bairros populares de Buenos Aires e Montevidéu.",
+      "variants": [
+       {
+        "question": "A valsa é uma dança de salão que ficou famosa:",
+        "options": [
+         {
+          "text": "No sertão nordestino",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Nos bairros de Nova York",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Na Argentina",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Nos salões da Europa, especialmente na Áustria"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O tango é uma dança de salão originária:",
+        "options": [
+         {
+          "text": "Dos Estados Unidos",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Da Áustria",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Da Argentina e do Uruguai"
+         },
+         {
+          "text": "Do Brasil",
+          "misconceptionCode": "sem-origem"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O samba de gafieira é:",
+      "options": [
+       {
+        "text": "Uma luta",
+        "misconceptionCode": "sem-origem"
+       },
+       {
+        "text": "Uma dança europeia",
+        "misconceptionCode": "sem-origem"
+       },
+       {
+        "text": "Uma dança de salão brasileira, dançada a dois ao som de samba"
+       },
+       {
+        "text": "Uma dança individual de rua",
+        "misconceptionCode": "so-para-casal"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O samba de gafieira nasceu nos bailes populares do Rio de Janeiro.",
+      "variants": [
+       {
+        "question": "A salsa é uma dança de salão de origem:",
+        "options": [
+         {
+          "text": "Caribenha, ligada a Cuba e Porto Rico"
+         },
+         {
+          "text": "Brasileira",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Austríaca",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Japonesa",
+          "misconceptionCode": "so-para-casal"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O samba de gafieira é:",
+        "options": [
+         {
+          "text": "Uma dança individual de rua",
+          "misconceptionCode": "so-para-casal"
+         },
+         {
+          "text": "Uma dança europeia",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Uma luta",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Uma dança de salão brasileira, dançada a dois ao som de samba"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Antes de chamar alguém para dançar, o correto é:",
+      "options": [
+       {
+        "text": "Puxar a pessoa pelo braço",
+        "misconceptionCode": "conduzir-e-mandar"
+       },
+       {
+        "text": "Insistir até ela aceitar",
+        "misconceptionCode": "conduzir-e-mandar"
+       },
+       {
+        "text": "Reclamar se ela recusar",
+        "misconceptionCode": "conduzir-e-mandar"
+       },
+       {
+        "text": "Convidar e respeitar se a pessoa disser não"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Dançar a dois depende do consentimento. Um \"não\" deve ser respeitado sem insistência.",
+      "variants": [
+       {
+        "question": "Se durante a dança o par disser que está desconfortável, o correto é:",
+        "options": [
+         {
+          "text": "Continuar mesmo assim",
+          "misconceptionCode": "conduzir-e-mandar"
+         },
+         {
+          "text": "Parar e respeitar"
+         },
+         {
+          "text": "Rir da situação",
+          "misconceptionCode": "conduzir-e-mandar"
+         },
+         {
+          "text": "Insistir",
+          "misconceptionCode": "conduzir-e-mandar"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Antes de chamar alguém para dançar, o correto é:",
+        "options": [
+         {
+          "text": "Convidar e respeitar se a pessoa disser não"
+         },
+         {
+          "text": "Reclamar se ela recusar",
+          "misconceptionCode": "conduzir-e-mandar"
+         },
+         {
+          "text": "Insistir até ela aceitar",
+          "misconceptionCode": "conduzir-e-mandar"
+         },
+         {
+          "text": "Puxar a pessoa pelo braço",
+          "misconceptionCode": "conduzir-e-mandar"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF89EF12-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: dançando com respeito",
+    "prompt": "Pense em como agir na aula e nas festas.",
+    "estMinutes": 4,
+    "audioScript": "Pense em como agir na aula e nas festas. Pergunta 1. Um colega pisa no seu pé durante a dança. Uma boa reação é: A: Sorrir, dizer que está tudo bem e continuar; B: Brigar; C: Zombar dele na frente de todos; D: Recusar-se a dançar com ele de novo. Pergunta 2. Alguém da turma faz piada com dois meninos que estão dançando juntos na aula. O que é correto? A: Rir junto; B: Lembrar que qualquer pessoa pode dançar com qualquer pessoa; C: Pedir que eles parem; D: Dizer que só casais podem dançar. Pergunta 3. Por que conhecer a origem do forró ajuda a valorizá-lo? A: Não ajuda em nada; B: Porque todas as danças são iguais; C: Porque mostra a história e a cultura do povo nordestino; D: Porque o forró veio da Europa.",
+    "questions": [
+     {
+      "question": "Um colega pisa no seu pé durante a dança. Uma boa reação é:",
+      "options": [
+       {
+        "text": "Sorrir, dizer que está tudo bem e continuar"
+       },
+       {
+        "text": "Brigar",
+        "misconceptionCode": "precisa-nascer-sabendo"
+       },
+       {
+        "text": "Zombar dele na frente de todos",
+        "misconceptionCode": "precisa-nascer-sabendo"
+       },
+       {
+        "text": "Recusar-se a dançar com ele de novo",
+        "misconceptionCode": "precisa-nascer-sabendo"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Errar faz parte de aprender. A paciência com o par torna a dança mais leve.",
+      "variants": [
+       {
+        "question": "Uma colega erra o passo várias vezes. Uma boa reação é:",
+        "options": [
+         {
+          "text": "Brigar",
+          "misconceptionCode": "precisa-nascer-sabendo"
+         },
+         {
+          "text": "Zombar dela",
+          "misconceptionCode": "precisa-nascer-sabendo"
+         },
+         {
+          "text": "Ter paciência e recomeçar junto com ela"
+         },
+         {
+          "text": "Trocar de par na hora, reclamando",
+          "misconceptionCode": "precisa-nascer-sabendo"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um colega pisa no seu pé durante a dança. Uma boa reação é:",
+        "options": [
+         {
+          "text": "Recusar-se a dançar com ele de novo",
+          "misconceptionCode": "precisa-nascer-sabendo"
+         },
+         {
+          "text": "Sorrir, dizer que está tudo bem e continuar"
+         },
+         {
+          "text": "Zombar dele na frente de todos",
+          "misconceptionCode": "precisa-nascer-sabendo"
+         },
+         {
+          "text": "Brigar",
+          "misconceptionCode": "precisa-nascer-sabendo"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Alguém da turma faz piada com dois meninos que estão dançando juntos na aula. O que é correto?",
+      "options": [
+       {
+        "text": "Rir junto",
+        "misconceptionCode": "so-para-casal"
+       },
+       {
+        "text": "Lembrar que qualquer pessoa pode dançar com qualquer pessoa"
+       },
+       {
+        "text": "Pedir que eles parem",
+        "misconceptionCode": "so-para-casal"
+       },
+       {
+        "text": "Dizer que só casais podem dançar",
+        "misconceptionCode": "so-para-casal"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Dança de salão é aprendizado e convivência. Piadas preconceituosas não cabem na aula.",
+      "variants": [
+       {
+        "question": "Numa festa de família, a avó dança forró com o neto. Isso mostra que a dança de salão:",
+        "options": [
+         {
+          "text": "É só para namorados",
+          "misconceptionCode": "so-para-casal"
+         },
+         {
+          "text": "É só para jovens",
+          "misconceptionCode": "so-para-casal"
+         },
+         {
+          "text": "Não deveria acontecer",
+          "misconceptionCode": "so-para-casal"
+         },
+         {
+          "text": "É uma forma de convivência entre pessoas de todas as idades"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Alguém da turma faz piada com dois meninos que estão dançando juntos na aula. O que é correto?",
+        "options": [
+         {
+          "text": "Dizer que só casais podem dançar",
+          "misconceptionCode": "so-para-casal"
+         },
+         {
+          "text": "Pedir que eles parem",
+          "misconceptionCode": "so-para-casal"
+         },
+         {
+          "text": "Lembrar que qualquer pessoa pode dançar com qualquer pessoa"
+         },
+         {
+          "text": "Rir junto",
+          "misconceptionCode": "so-para-casal"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Por que conhecer a origem do forró ajuda a valorizá-lo?",
+      "options": [
+       {
+        "text": "Não ajuda em nada",
+        "misconceptionCode": "sem-origem"
+       },
+       {
+        "text": "Porque todas as danças são iguais",
+        "misconceptionCode": "sem-origem"
+       },
+       {
+        "text": "Porque mostra a história e a cultura do povo nordestino"
+       },
+       {
+        "text": "Porque o forró veio da Europa",
+        "misconceptionCode": "sem-origem"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Conhecer a história de uma dança é conhecer o povo que a criou.",
+      "variants": [
+       {
+        "question": "Aprender uma dança de outro país ajuda a:",
+        "options": [
+         {
+          "text": "Conhecer e respeitar outra cultura"
+         },
+         {
+          "text": "Esquecer a própria cultura",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Mostrar que uma cultura é melhor que a outra",
+          "misconceptionCode": "sem-origem"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Por que conhecer a origem do forró ajuda a valorizá-lo?",
+        "options": [
+         {
+          "text": "Porque o forró veio da Europa",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Porque todas as danças são iguais",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Não ajuda em nada",
+          "misconceptionCode": "sem-origem"
+         },
+         {
+          "text": "Porque mostra a história e a cultura do povo nordestino"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF89EF12-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: dançar a dois",
+    "prompt": "Explique com as suas palavras o que é uma dança de salão e que atitudes de respeito são importantes ao dançar a dois.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras o que é uma dança de salão e que atitudes de respeito são importantes ao dançar a dois.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "definicao",
+       "description": "Explica que é uma dança feita a dois, com passos combinados"
+      },
+      {
+       "code": "respeito",
+       "description": "Cita atitudes como convidar, respeitar o \"não\" e conduzir com suavidade"
+      },
+      {
+       "code": "exemplo",
+       "description": "Cita uma dança de salão (forró, samba de gafieira, valsa, tango, salsa)"
+      }
+     ],
+     "exemploBoaResposta": "Dança de salão é uma dança feita a dois, como o forró. Para dançar com respeito, é preciso convidar a pessoa e aceitar se ela não quiser. Quem conduz deve fazer isso com suavidade, sem puxar, e ter paciência quando o par erra."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF89EF16",
+  "subjectCode": "EF",
+  "subjectName": "Educação Física",
+  "gradeYear": 8,
+  "version": 1,
+  "title": "Trilha: Lutas do mundo",
+  "tituloAluno": "Lutar com técnica e respeito",
+  "activities": [
+   {
+    "id": "PK2-EF89EF16-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: as lutas do Brasil",
+    "prompt": "No 7º ano, estudamos as lutas brasileiras.",
+    "estMinutes": 4,
+    "audioScript": "No 7º ano, estudamos as lutas brasileiras. Pergunta 1. Qual destas é uma luta de origem brasileira? A: Judô; B: Caratê; C: Capoeira; D: Esgrima. Pergunta 2. Qual é a diferença entre luta e briga? A: Não há diferença; B: A briga é um esporte; C: A luta serve para machucar; D: A luta tem regras e respeito; a briga é violência sem regras. Pergunta 3. Antes de começar uma luta, é comum os participantes: A: Se cumprimentarem, em sinal de respeito; B: Se xingarem; C: Se ignorarem; D: Se empurrarem.",
+    "questions": [
+     {
+      "question": "Qual destas é uma luta de origem brasileira?",
+      "options": [
+       {
+        "text": "Judô",
+        "misconceptionCode": "origem-trocada"
+       },
+       {
+        "text": "Caratê",
+        "misconceptionCode": "origem-trocada"
+       },
+       {
+        "text": "Capoeira"
+       },
+       {
+        "text": "Esgrima",
+        "misconceptionCode": "origem-trocada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A capoeira foi criada no Brasil por africanos escravizados e seus descendentes.",
+      "variants": [
+       {
+        "question": "Qual destas é uma luta de povos indígenas brasileiros?",
+        "options": [
+         {
+          "text": "Huka-huka"
+         },
+         {
+          "text": "Judô",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "Taekwondo",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "Boxe",
+          "misconceptionCode": "origem-trocada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual destas é uma luta de origem brasileira?",
+        "options": [
+         {
+          "text": "Esgrima",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "Caratê",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "Judô",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "Capoeira"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual é a diferença entre luta e briga?",
+      "options": [
+       {
+        "text": "Não há diferença",
+        "misconceptionCode": "luta-e-briga"
+       },
+       {
+        "text": "A briga é um esporte",
+        "misconceptionCode": "luta-e-briga"
+       },
+       {
+        "text": "A luta serve para machucar",
+        "misconceptionCode": "luta-e-briga"
+       },
+       {
+        "text": "A luta tem regras e respeito; a briga é violência sem regras"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Na luta, os participantes combinam regras e cuidam um do outro. Na briga, a intenção é ferir.",
+      "variants": [
+       {
+        "question": "Dois colegas discutem e trocam socos no recreio. Isso é:",
+        "options": [
+         {
+          "text": "Uma luta esportiva",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Uma briga"
+         },
+         {
+          "text": "Um treino",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Um esporte de combate",
+          "misconceptionCode": "luta-e-briga"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual é a diferença entre luta e briga?",
+        "options": [
+         {
+          "text": "A luta tem regras e respeito; a briga é violência sem regras"
+         },
+         {
+          "text": "A luta serve para machucar",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "A briga é um esporte",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Não há diferença",
+          "misconceptionCode": "luta-e-briga"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Antes de começar uma luta, é comum os participantes:",
+      "options": [
+       {
+        "text": "Se cumprimentarem, em sinal de respeito"
+       },
+       {
+        "text": "Se xingarem",
+        "misconceptionCode": "luta-e-briga"
+       },
+       {
+        "text": "Se ignorarem",
+        "misconceptionCode": "vencer-a-qualquer-custo"
+       },
+       {
+        "text": "Se empurrarem",
+        "misconceptionCode": "luta-e-briga"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O cumprimento mostra que o outro é parceiro de prática, e não inimigo.",
+      "variants": [
+       {
+        "question": "O cumprimento entre lutadores antes e depois do combate mostra:",
+        "options": [
+         {
+          "text": "Medo",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Raiva",
+          "misconceptionCode": "vencer-a-qualquer-custo"
+         },
+         {
+          "text": "Respeito pelo oponente"
+         },
+         {
+          "text": "Desprezo",
+          "misconceptionCode": "luta-e-briga"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Antes de começar uma luta, é comum os participantes:",
+        "options": [
+         {
+          "text": "Se empurrarem",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Se cumprimentarem, em sinal de respeito"
+         },
+         {
+          "text": "Se ignorarem",
+          "misconceptionCode": "vencer-a-qualquer-custo"
+         },
+         {
+          "text": "Se xingarem",
+          "misconceptionCode": "luta-e-briga"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF89EF16-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: lutas de outros países",
+    "prompt": "Muitas lutas nasceram em outras partes do mundo e hoje são praticadas no Brasil. Cada uma tem técnicas, regras e valores próprios. Vamos conhecer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Muitas lutas nasceram em outras partes do mundo e hoje são praticadas no Brasil. Cada uma tem técnicas, regras e valores próprios. Vamos conhecer juntos. Pergunta 1. O judô nasceu em qual país? A: Brasil; B: Japão; C: Coreia; D: França. Pergunta 2. O taekwondo, conhecido pelos chutes, nasceu em qual país? A: Japão; B: China; C: Coreia; D: Brasil. Pergunta 3. No judô, o objetivo é: A: Dar socos no rosto; B: Machucar o oponente; C: Vencer só pela força; D: Projetar ou imobilizar o oponente usando técnica.",
+    "questions": [
+     {
+      "question": "O judô nasceu em qual país?",
+      "options": [
+       {
+        "text": "Brasil",
+        "misconceptionCode": "origem-trocada"
+       },
+       {
+        "text": "Japão"
+       },
+       {
+        "text": "Coreia",
+        "misconceptionCode": "origem-trocada"
+       },
+       {
+        "text": "França",
+        "misconceptionCode": "origem-trocada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O judô foi criado no Japão por Jigoro Kano, no fim do século XIX. A palavra significa \"caminho suave\".",
+      "variants": [
+       {
+        "question": "O caratê nasceu em qual país?",
+        "options": [
+         {
+          "text": "Brasil",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "Coreia",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "França",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "Japão"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O judô nasceu em qual país?",
+        "options": [
+         {
+          "text": "França",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "Coreia",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "Japão"
+         },
+         {
+          "text": "Brasil",
+          "misconceptionCode": "origem-trocada"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O taekwondo, conhecido pelos chutes, nasceu em qual país?",
+      "options": [
+       {
+        "text": "Japão",
+        "misconceptionCode": "origem-trocada"
+       },
+       {
+        "text": "China",
+        "misconceptionCode": "origem-trocada"
+       },
+       {
+        "text": "Coreia"
+       },
+       {
+        "text": "Brasil",
+        "misconceptionCode": "origem-trocada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O taekwondo é uma luta coreana e é esporte olímpico.",
+      "variants": [
+       {
+        "question": "O kung fu é um conjunto de artes marciais de qual país?",
+        "options": [
+         {
+          "text": "China"
+         },
+         {
+          "text": "Japão",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "Coreia",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "Brasil",
+          "misconceptionCode": "origem-trocada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O taekwondo, conhecido pelos chutes, nasceu em qual país?",
+        "options": [
+         {
+          "text": "Brasil",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "China",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "Japão",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "Coreia"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "No judô, o objetivo é:",
+      "options": [
+       {
+        "text": "Dar socos no rosto",
+        "misconceptionCode": "vencer-a-qualquer-custo"
+       },
+       {
+        "text": "Machucar o oponente",
+        "misconceptionCode": "vencer-a-qualquer-custo"
+       },
+       {
+        "text": "Vencer só pela força",
+        "misconceptionCode": "luta-so-forca"
+       },
+       {
+        "text": "Projetar ou imobilizar o oponente usando técnica"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O judô usa o equilíbrio e o movimento do oponente para derrubá-lo, sem golpes de impacto.",
+      "variants": [
+       {
+        "question": "Na esgrima, o objetivo é:",
+        "options": [
+         {
+          "text": "Derrubar o oponente no chão",
+          "misconceptionCode": "vencer-a-qualquer-custo"
+         },
+         {
+          "text": "Tocar o oponente com a arma, seguindo as regras"
+         },
+         {
+          "text": "Machucar o oponente",
+          "misconceptionCode": "vencer-a-qualquer-custo"
+         },
+         {
+          "text": "Vencer só pela força",
+          "misconceptionCode": "luta-so-forca"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "No judô, o objetivo é:",
+        "options": [
+         {
+          "text": "Projetar ou imobilizar o oponente usando técnica"
+         },
+         {
+          "text": "Vencer só pela força",
+          "misconceptionCode": "luta-so-forca"
+         },
+         {
+          "text": "Machucar o oponente",
+          "misconceptionCode": "vencer-a-qualquer-custo"
+         },
+         {
+          "text": "Dar socos no rosto",
+          "misconceptionCode": "vencer-a-qualquer-custo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF89EF16-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: regras, técnicas e valores",
+    "prompt": "Entenda como as lutas funcionam.",
+    "estMinutes": 5,
+    "audioScript": "Entenda como as lutas funcionam. Pergunta 1. No judô, um lutador menor pode vencer um maior? A: Sim, usando técnica e o desequilíbrio do oponente; B: Não, vence sempre o mais forte; C: Não, vence sempre o mais pesado; D: Só se o maior deixar. Pergunta 2. Para que as lutas sejam justas, os atletas costumam ser divididos por: A: Altura, somente; B: Categorias de peso e idade; C: Cor da roupa; D: Ordem de chegada. Pergunta 3. Quando um lutador bate a mão no tatame ou no oponente, isso significa: A: Que quer continuar; B: Que está comemorando; C: Que ele desiste, e o golpe deve parar na hora; D: Nada. Pergunta 4. A faixa colorida usada no judô e no caratê indica: A: A cidade onde ele mora; B: A idade; C: O peso; D: O nível de aprendizado do praticante.",
+    "questions": [
+     {
+      "question": "No judô, um lutador menor pode vencer um maior?",
+      "options": [
+       {
+        "text": "Sim, usando técnica e o desequilíbrio do oponente"
+       },
+       {
+        "text": "Não, vence sempre o mais forte",
+        "misconceptionCode": "luta-so-forca"
+       },
+       {
+        "text": "Não, vence sempre o mais pesado",
+        "misconceptionCode": "luta-so-forca"
+       },
+       {
+        "text": "Só se o maior deixar",
+        "misconceptionCode": "luta-so-forca"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O princípio do judô é usar a força do outro a seu favor.",
+      "variants": [
+       {
+        "question": "Nas lutas, a técnica é importante porque:",
+        "options": [
+         {
+          "text": "Não é importante",
+          "misconceptionCode": "luta-so-forca"
+         },
+         {
+          "text": "Só os fortes aprendem",
+          "misconceptionCode": "luta-so-forca"
+         },
+         {
+          "text": "Permite vencer sem depender só da força"
+         },
+         {
+          "text": "Serve para machucar mais",
+          "misconceptionCode": "luta-so-forca"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "No judô, um lutador menor pode vencer um maior?",
+        "options": [
+         {
+          "text": "Só se o maior deixar",
+          "misconceptionCode": "luta-so-forca"
+         },
+         {
+          "text": "Sim, usando técnica e o desequilíbrio do oponente"
+         },
+         {
+          "text": "Não, vence sempre o mais pesado",
+          "misconceptionCode": "luta-so-forca"
+         },
+         {
+          "text": "Não, vence sempre o mais forte",
+          "misconceptionCode": "luta-so-forca"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Para que as lutas sejam justas, os atletas costumam ser divididos por:",
+      "options": [
+       {
+        "text": "Altura, somente",
+        "misconceptionCode": "luta-so-forca"
+       },
+       {
+        "text": "Categorias de peso e idade"
+       },
+       {
+        "text": "Cor da roupa",
+        "misconceptionCode": "origem-trocada"
+       },
+       {
+        "text": "Ordem de chegada",
+        "misconceptionCode": "origem-trocada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "As categorias equilibram os combates e protegem os atletas.",
+      "variants": [
+       {
+        "question": "Por que as competições de luta separam os atletas por peso?",
+        "options": [
+         {
+          "text": "Para facilitar a contagem",
+          "misconceptionCode": "luta-so-forca"
+         },
+         {
+          "text": "Por tradição, sem motivo",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "Para os mais pesados sempre vencerem",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "Para que os combates sejam mais equilibrados e seguros"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Para que as lutas sejam justas, os atletas costumam ser divididos por:",
+        "options": [
+         {
+          "text": "Ordem de chegada",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "Cor da roupa",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "Categorias de peso e idade"
+         },
+         {
+          "text": "Altura, somente",
+          "misconceptionCode": "luta-so-forca"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Quando um lutador bate a mão no tatame ou no oponente, isso significa:",
+      "options": [
+       {
+        "text": "Que quer continuar",
+        "misconceptionCode": "vencer-a-qualquer-custo"
+       },
+       {
+        "text": "Que está comemorando",
+        "misconceptionCode": "luta-e-briga"
+       },
+       {
+        "text": "Que ele desiste, e o golpe deve parar na hora"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "vencer-a-qualquer-custo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Bater é o sinal de desistência. Parar imediatamente é uma regra de segurança.",
+      "variants": [
+       {
+        "question": "Durante um treino, o colega avisa que está sentindo dor. O que fazer?",
+        "options": [
+         {
+          "text": "Parar o movimento na hora"
+         },
+         {
+          "text": "Continuar, para vencer",
+          "misconceptionCode": "vencer-a-qualquer-custo"
+         },
+         {
+          "text": "Apertar mais forte",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Ignorar",
+          "misconceptionCode": "vencer-a-qualquer-custo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quando um lutador bate a mão no tatame ou no oponente, isso significa:",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "vencer-a-qualquer-custo"
+         },
+         {
+          "text": "Que está comemorando",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Que quer continuar",
+          "misconceptionCode": "vencer-a-qualquer-custo"
+         },
+         {
+          "text": "Que ele desiste, e o golpe deve parar na hora"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "A faixa colorida usada no judô e no caratê indica:",
+      "options": [
+       {
+        "text": "A cidade onde ele mora",
+        "misconceptionCode": "origem-trocada"
+       },
+       {
+        "text": "A idade",
+        "misconceptionCode": "origem-trocada"
+       },
+       {
+        "text": "O peso",
+        "misconceptionCode": "origem-trocada"
+       },
+       {
+        "text": "O nível de aprendizado do praticante"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O praticante começa na faixa branca e avança conforme aprende e demonstra dedicação.",
+      "variants": [
+       {
+        "question": "No judô e no caratê, quem está começando usa a faixa:",
+        "options": [
+         {
+          "text": "Preta",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "Branca"
+         },
+         {
+          "text": "Vermelha",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "Marrom",
+          "misconceptionCode": "origem-trocada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A faixa colorida usada no judô e no caratê indica:",
+        "options": [
+         {
+          "text": "O nível de aprendizado do praticante"
+         },
+         {
+          "text": "O peso",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "A idade",
+          "misconceptionCode": "origem-trocada"
+         },
+         {
+          "text": "A cidade onde ele mora",
+          "misconceptionCode": "origem-trocada"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF89EF16-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: valores das lutas",
+    "prompt": "Leve o respeito para dentro e fora da aula.",
+    "estMinutes": 4,
+    "audioScript": "Leve o respeito para dentro e fora da aula. Pergunta 1. Um colega que treina luta ameaça outro no recreio. Ele está agindo de acordo com os valores das lutas? A: Não: as lutas ensinam autocontrole e respeito; B: Sim, luta serve para isso; C: Sim, quem treina pode ameaçar; D: Sim, se o outro for mais forte. Pergunta 2. Num jogo de oposição na aula, você percebe que o colega é bem mais fraco. O correto é: A: Usar toda a força para vencer logo; B: Ajustar a força e cuidar da segurança dele; C: Humilhá-lo; D: Recusar-se a jogar. Pergunta 3. Uma menina quer praticar judô, e alguém diz que \"luta é coisa de menino\". O que responder? A: A pessoa está certa; B: Meninas só podem assistir; C: As lutas são para todas as pessoas; D: Meninas só podem fazer dança.",
+    "questions": [
+     {
+      "question": "Um colega que treina luta ameaça outro no recreio. Ele está agindo de acordo com os valores das lutas?",
+      "options": [
+       {
+        "text": "Não: as lutas ensinam autocontrole e respeito"
+       },
+       {
+        "text": "Sim, luta serve para isso",
+        "misconceptionCode": "luta-e-briga"
+       },
+       {
+        "text": "Sim, quem treina pode ameaçar",
+        "misconceptionCode": "vencer-a-qualquer-custo"
+       },
+       {
+        "text": "Sim, se o outro for mais forte",
+        "misconceptionCode": "luta-so-forca"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Quem aprende uma luta aprende também a não usar a técnica para intimidar.",
+      "variants": [
+       {
+        "question": "Uma praticante de caratê é provocada na rua. De acordo com os valores da luta, ela deve:",
+        "options": [
+         {
+          "text": "Atacar primeiro",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Mostrar os golpes para assustar",
+          "misconceptionCode": "vencer-a-qualquer-custo"
+         },
+         {
+          "text": "Manter a calma e evitar a briga"
+         },
+         {
+          "text": "Chamar os amigos para brigar",
+          "misconceptionCode": "luta-so-forca"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um colega que treina luta ameaça outro no recreio. Ele está agindo de acordo com os valores das lutas?",
+        "options": [
+         {
+          "text": "Sim, se o outro for mais forte",
+          "misconceptionCode": "luta-so-forca"
+         },
+         {
+          "text": "Não: as lutas ensinam autocontrole e respeito"
+         },
+         {
+          "text": "Sim, quem treina pode ameaçar",
+          "misconceptionCode": "vencer-a-qualquer-custo"
+         },
+         {
+          "text": "Sim, luta serve para isso",
+          "misconceptionCode": "luta-e-briga"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Num jogo de oposição na aula, você percebe que o colega é bem mais fraco. O correto é:",
+      "options": [
+       {
+        "text": "Usar toda a força para vencer logo",
+        "misconceptionCode": "vencer-a-qualquer-custo"
+       },
+       {
+        "text": "Ajustar a força e cuidar da segurança dele"
+       },
+       {
+        "text": "Humilhá-lo",
+        "misconceptionCode": "vencer-a-qualquer-custo"
+       },
+       {
+        "text": "Recusar-se a jogar",
+        "misconceptionCode": "luta-so-forca"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Na prática de lutas, cada um é responsável pela segurança do parceiro.",
+      "variants": [
+       {
+        "question": "Ao vencer um combate na aula, uma boa atitude é:",
+        "options": [
+         {
+          "text": "Zombar de quem perdeu",
+          "misconceptionCode": "vencer-a-qualquer-custo"
+         },
+         {
+          "text": "Comemorar na cara dele",
+          "misconceptionCode": "vencer-a-qualquer-custo"
+         },
+         {
+          "text": "Dizer que ele é fraco",
+          "misconceptionCode": "luta-so-forca"
+         },
+         {
+          "text": "Cumprimentar o colega e agradecer"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Num jogo de oposição na aula, você percebe que o colega é bem mais fraco. O correto é:",
+        "options": [
+         {
+          "text": "Recusar-se a jogar",
+          "misconceptionCode": "luta-so-forca"
+         },
+         {
+          "text": "Humilhá-lo",
+          "misconceptionCode": "vencer-a-qualquer-custo"
+         },
+         {
+          "text": "Ajustar a força e cuidar da segurança dele"
+         },
+         {
+          "text": "Usar toda a força para vencer logo",
+          "misconceptionCode": "vencer-a-qualquer-custo"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Uma menina quer praticar judô, e alguém diz que \"luta é coisa de menino\". O que responder?",
+      "options": [
+       {
+        "text": "A pessoa está certa",
+        "misconceptionCode": "luta-so-forca"
+       },
+       {
+        "text": "Meninas só podem assistir",
+        "misconceptionCode": "luta-so-forca"
+       },
+       {
+        "text": "As lutas são para todas as pessoas"
+       },
+       {
+        "text": "Meninas só podem fazer dança",
+        "misconceptionCode": "luta-so-forca"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O Brasil tem grandes campeãs olímpicas de judô, boxe e taekwondo.",
+      "variants": [
+       {
+        "question": "O Brasil já conquistou medalhas olímpicas no judô feminino. Isso mostra que:",
+        "options": [
+         {
+          "text": "As lutas são para todas as pessoas"
+         },
+         {
+          "text": "Luta é só para meninos",
+          "misconceptionCode": "luta-so-forca"
+         },
+         {
+          "text": "Mulheres não lutam",
+          "misconceptionCode": "luta-so-forca"
+         },
+         {
+          "text": "Foi um acaso",
+          "misconceptionCode": "luta-so-forca"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Uma menina quer praticar judô, e alguém diz que \"luta é coisa de menino\". O que responder?",
+        "options": [
+         {
+          "text": "Meninas só podem fazer dança",
+          "misconceptionCode": "luta-so-forca"
+         },
+         {
+          "text": "Meninas só podem assistir",
+          "misconceptionCode": "luta-so-forca"
+         },
+         {
+          "text": "A pessoa está certa",
+          "misconceptionCode": "luta-so-forca"
+         },
+         {
+          "text": "As lutas são para todas as pessoas"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF89EF16-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: luta não é briga",
+    "prompt": "Explique com as suas palavras a diferença entre luta e briga e cite uma luta de outro país, dizendo de onde ela vem.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras a diferença entre luta e briga e cite uma luta de outro país, dizendo de onde ela vem.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "luta",
+       "description": "Explica que a luta tem regras, técnica e respeito"
+      },
+      {
+       "code": "briga",
+       "description": "Explica que a briga é violência, sem regras"
+      },
+      {
+       "code": "exemplo",
+       "description": "Cita uma luta e sua origem correta (judô ou caratê: Japão; taekwondo: Coreia; kung fu: China)"
+      }
+     ],
+     "exemploBoaResposta": "A luta tem regras, técnica e respeito pelo oponente, e os dois cuidam um do outro. A briga é violência, sem regras, feita para machucar. Uma luta de outro país é o judô, que veio do Japão."
+    }
+   }
+  ]
+ }
+]

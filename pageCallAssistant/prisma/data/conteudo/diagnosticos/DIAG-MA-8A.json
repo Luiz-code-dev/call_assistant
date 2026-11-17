@@ -1,0 +1,327 @@
+{
+ "id": "DIAG2-MA-8A",
+ "version": 1,
+ "titulo": "Diagnóstico de Matemática — 8º ano",
+ "descricao": "Potências, expressões algébricas, sistemas de equações e proporcionalidade no 8º ano, com degrau para equações e números inteiros do 7º ano.",
+ "subjectCode": "MA",
+ "subjectName": "Matemática",
+ "gradeYear": 8,
+ "status": "APPROVED",
+ "source": "SPEAKFLOW",
+ "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+ "adaptive": true,
+ "items": [
+  {
+   "id": "DI2-8A-EF08MA01-01",
+   "skillCode": "EF08MA01",
+   "question": "Quanto é 2⁴?",
+   "options": [
+    {
+     "text": "8",
+     "misconceptionCode": "base-vezes-expoente"
+    },
+    {
+     "text": "6",
+     "misconceptionCode": "base-vezes-expoente"
+    },
+    {
+     "text": "24",
+     "misconceptionCode": "base-vezes-expoente"
+    },
+    {
+     "text": "16"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "2⁴ = 2 × 2 × 2 × 2 = 16.",
+   "audioScript": "Pergunta 1. Quanto é 2⁴? A: 8; B: 6; C: 24; D: 16.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-8A-EF08MA01-02",
+   "skillCode": "EF08MA01",
+   "question": "Quanto é 3² × 3³?",
+   "options": [
+    {
+     "text": "3⁵"
+    },
+    {
+     "text": "3⁶",
+     "misconceptionCode": "regra-expoentes"
+    },
+    {
+     "text": "9⁵",
+     "misconceptionCode": "regra-expoentes"
+    },
+    {
+     "text": "9⁶",
+     "misconceptionCode": "regra-expoentes"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Mesma base: conserva a base e soma os expoentes.",
+   "audioScript": "Pergunta 2. Quanto é 3² × 3³? A: 3⁵; B: 3⁶; C: 9⁵; D: 9⁶.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-8A-EF08MA06-01",
+   "skillCode": "EF08MA06",
+   "question": "Qual é o valor de 2x + 3 quando x = 5?",
+   "options": [
+    {
+     "text": "28",
+     "misconceptionCode": "junta-algarismos"
+    },
+    {
+     "text": "13"
+    },
+    {
+     "text": "16",
+     "misconceptionCode": "ordem-operacoes"
+    },
+    {
+     "text": "10",
+     "misconceptionCode": "ordem-operacoes"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "2 × 5 + 3 = 10 + 3 = 13.",
+   "audioScript": "Pergunta 3. Qual é o valor de 2x + 3 quando x = 5? A: 28; B: 13; C: 16; D: 10.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-8A-EF08MA06-02",
+   "skillCode": "EF08MA06",
+   "question": "Qual é o valor de x² quando x = −4?",
+   "options": [
+    {
+     "text": "−16",
+     "misconceptionCode": "sinal-substituicao"
+    },
+    {
+     "text": "−8",
+     "misconceptionCode": "potencia-da-letra"
+    },
+    {
+     "text": "16"
+    },
+    {
+     "text": "8",
+     "misconceptionCode": "potencia-da-letra"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "(−4) × (−4) = 16. Sinais iguais dão resultado positivo.",
+   "audioScript": "Pergunta 4. Qual é o valor de x² quando x = −4? A: −16; B: −8; C: 16; D: 8.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-8A-EF08MA08-01",
+   "skillCode": "EF08MA08",
+   "question": "Qual é a solução de x + y = 10 e x − y = 2?",
+   "options": [
+    {
+     "text": "x = 4 e y = 6",
+     "misconceptionCode": "troca-incognitas"
+    },
+    {
+     "text": "x = 8 e y = 2",
+     "misconceptionCode": "uma-equacao-so"
+    },
+    {
+     "text": "x = 5 e y = 5",
+     "misconceptionCode": "uma-equacao-so"
+    },
+    {
+     "text": "x = 6 e y = 4"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Somando: 2x = 12, x = 6. Depois y = 4. Conferindo: 6 − 4 = 2.",
+   "audioScript": "Pergunta 5. Qual é a solução de x + y = 10 e x − y = 2? A: x = 4 e y = 6; B: x = 8 e y = 2; C: x = 5 e y = 5; D: x = 6 e y = 4.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-8A-EF08MA08-02",
+   "skillCode": "EF08MA08",
+   "question": "A soma de dois números é 15 e a diferença é 3. Quais são eles?",
+   "options": [
+    {
+     "text": "9 e 6"
+    },
+    {
+     "text": "12 e 3",
+     "misconceptionCode": "uma-equacao-so"
+    },
+    {
+     "text": "8 e 7",
+     "misconceptionCode": "uma-equacao-so"
+    },
+    {
+     "text": "10 e 5",
+     "misconceptionCode": "uma-equacao-so"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "x + y = 15 e x − y = 3. Somando: 2x = 18, x = 9. Então y = 6.",
+   "audioScript": "Pergunta 6. A soma de dois números é 15 e a diferença é 3. Quais são eles? A: 9 e 6; B: 12 e 3; C: 8 e 7; D: 10 e 5.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-8A-EF08MA13-01",
+   "skillCode": "EF08MA13",
+   "question": "2 kg de feijão custam 16 reais. Quanto custam 5 kg?",
+   "options": [
+    {
+     "text": "19 reais",
+     "misconceptionCode": "soma-em-vez-de-proporcao"
+    },
+    {
+     "text": "40 reais"
+    },
+    {
+     "text": "6,40 reais",
+     "misconceptionCode": "inverte-razao"
+    },
+    {
+     "text": "80 reais",
+     "misconceptionCode": "nao-proporcional"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "Cada quilo custa 8 reais. Cinco quilos custam 40.",
+   "audioScript": "Pergunta 7. 2 kg de feijão custam 16 reais. Quanto custam 5 kg? A: 19 reais; B: 40 reais; C: 6,40 reais; D: 80 reais.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-8A-EF08MA13-02",
+   "skillCode": "EF08MA13",
+   "question": "3 máquinas fazem um serviço em 10 horas. No mesmo ritmo, 6 máquinas fazem em:",
+   "options": [
+    {
+     "text": "20 horas",
+     "misconceptionCode": "sempre-direta"
+    },
+    {
+     "text": "13 horas",
+     "misconceptionCode": "soma-em-vez-de-proporcao"
+    },
+    {
+     "text": "5 horas"
+    },
+    {
+     "text": "7 horas",
+     "misconceptionCode": "soma-em-vez-de-proporcao"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "É inversa: dobrando as máquinas, o tempo cai pela metade.",
+   "audioScript": "Pergunta 8. 3 máquinas fazem um serviço em 10 horas. No mesmo ritmo, 6 máquinas fazem em: A: 20 horas; B: 13 horas; C: 5 horas; D: 7 horas.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-8A-EF07MA18-01",
+   "skillCode": "EF07MA18",
+   "question": "Quanto vale x em 3x + 1 = 16?",
+   "options": [
+    {
+     "text": "15",
+     "misconceptionCode": "uma-equacao-so"
+    },
+    {
+     "text": "17",
+     "misconceptionCode": "sinal-na-soma"
+    },
+    {
+     "text": "45",
+     "misconceptionCode": "nao-confere"
+    },
+    {
+     "text": "5"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Tire 1: 3x = 15. Divida por 3: x = 5.",
+   "audioScript": "Pergunta 9. Quanto vale x em 3x + 1 = 16? A: 15; B: 17; C: 45; D: 5.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-8A-EF07MA18-02",
+   "skillCode": "EF07MA18",
+   "question": "Quanto vale x em 2x − 4 = 10?",
+   "options": [
+    {
+     "text": "7"
+    },
+    {
+     "text": "3",
+     "misconceptionCode": "sinal-na-soma"
+    },
+    {
+     "text": "14",
+     "misconceptionCode": "uma-equacao-so"
+    },
+    {
+     "text": "5",
+     "misconceptionCode": "nao-confere"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Some 4: 2x = 14. Divida por 2: x = 7.",
+   "audioScript": "Pergunta 10. Quanto vale x em 2x − 4 = 10? A: 7; B: 3; C: 14; D: 5.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-8A-EF07MA04-01",
+   "skillCode": "EF07MA04",
+   "question": "Quanto é −8 + 5?",
+   "options": [
+    {
+     "text": "3",
+     "misconceptionCode": "sinal-substituicao"
+    },
+    {
+     "text": "−3"
+    },
+    {
+     "text": "−13",
+     "misconceptionCode": "sinal-substituicao"
+    },
+    {
+     "text": "13",
+     "misconceptionCode": "sinal-substituicao"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "Você deve 8 e tem 5: paga uma parte e fica devendo 3.",
+   "audioScript": "Pergunta 11. Quanto é −8 + 5? A: 3; B: −3; C: −13; D: 13.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-8A-EF07MA04-02",
+   "skillCode": "EF07MA04",
+   "question": "Quanto é (−3) × 4?",
+   "options": [
+    {
+     "text": "12",
+     "misconceptionCode": "sinal-substituicao"
+    },
+    {
+     "text": "1",
+     "misconceptionCode": "ordem-operacoes"
+    },
+    {
+     "text": "−12"
+    },
+    {
+     "text": "−7",
+     "misconceptionCode": "ordem-operacoes"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Sinais diferentes dão resultado negativo: −12.",
+   "audioScript": "Pergunta 12. Quanto é (−3) × 4? A: 12; B: 1; C: −12; D: −7.",
+   "role": "DEGRAU_BANK"
+  }
+ ]
+}

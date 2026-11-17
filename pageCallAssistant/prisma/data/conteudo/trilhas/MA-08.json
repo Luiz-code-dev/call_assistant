@@ -1,0 +1,3766 @@
+[
+ {
+  "skillCode": "EF08MA01",
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 8,
+  "version": 1,
+  "title": "Trilha: Potências e notação científica",
+  "tituloAluno": "Potências: números muito grandes e muito pequenos",
+  "activities": [
+   {
+    "id": "PK2-EF08MA01-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: o que é potência",
+    "prompt": "Potência é uma multiplicação de fatores iguais. Em 2³, o 2 é a base e o 3 é o expoente.",
+    "estMinutes": 4,
+    "audioScript": "Potência é uma multiplicação de fatores iguais. Em 2³, o 2 é a base e o 3 é o expoente. Pergunta 1. Quanto é 2³? A: 6; B: 5; C: 8; D: 9. Pergunta 2. Quanto é 10²? A: 20; B: 12; C: 1.000; D: 100. Pergunta 3. Em 5⁴, o número 4 indica: A: Quantas vezes o 5 é multiplicado por ele mesmo; B: Que devemos somar 5 + 4; C: Que devemos multiplicar 5 × 4; D: O resultado da conta.",
+    "questions": [
+     {
+      "question": "Quanto é 2³?",
+      "options": [
+       {
+        "text": "6",
+        "misconceptionCode": "base-vezes-expoente"
+       },
+       {
+        "text": "5",
+        "misconceptionCode": "base-vezes-expoente"
+       },
+       {
+        "text": "8"
+       },
+       {
+        "text": "9",
+        "misconceptionCode": "regra-expoentes"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "2³ é 2 × 2 × 2 = 8. O expoente diz quantas vezes a base aparece na multiplicação.",
+      "variants": [
+       {
+        "question": "Quanto é 3²?",
+        "options": [
+         {
+          "text": "9"
+         },
+         {
+          "text": "6",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "8",
+          "misconceptionCode": "regra-expoentes"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quanto é 2³?",
+        "options": [
+         {
+          "text": "9",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "6",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "8"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 10²?",
+      "options": [
+       {
+        "text": "20",
+        "misconceptionCode": "base-vezes-expoente"
+       },
+       {
+        "text": "12",
+        "misconceptionCode": "base-vezes-expoente"
+       },
+       {
+        "text": "1.000",
+        "misconceptionCode": "regra-expoentes"
+       },
+       {
+        "text": "100"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "10² é 10 × 10 = 100.",
+      "variants": [
+       {
+        "question": "Quanto é 10³?",
+        "options": [
+         {
+          "text": "30",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "1.000"
+         },
+         {
+          "text": "13",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "100",
+          "misconceptionCode": "regra-expoentes"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é 10²?",
+        "options": [
+         {
+          "text": "100"
+         },
+         {
+          "text": "1.000",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "12",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "20",
+          "misconceptionCode": "base-vezes-expoente"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Em 5⁴, o número 4 indica:",
+      "options": [
+       {
+        "text": "Quantas vezes o 5 é multiplicado por ele mesmo"
+       },
+       {
+        "text": "Que devemos somar 5 + 4",
+        "misconceptionCode": "base-vezes-expoente"
+       },
+       {
+        "text": "Que devemos multiplicar 5 × 4",
+        "misconceptionCode": "base-vezes-expoente"
+       },
+       {
+        "text": "O resultado da conta",
+        "misconceptionCode": "expoente-zero"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O expoente 4 indica quatro fatores iguais a 5: 5 × 5 × 5 × 5.",
+      "variants": [
+       {
+        "question": "Como se escreve 7 × 7 × 7 em forma de potência?",
+        "options": [
+         {
+          "text": "3⁷",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "7 × 3",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "7³"
+         },
+         {
+          "text": "21",
+          "misconceptionCode": "expoente-zero"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Em 5⁴, o número 4 indica:",
+        "options": [
+         {
+          "text": "O resultado da conta",
+          "misconceptionCode": "expoente-zero"
+         },
+         {
+          "text": "Quantas vezes o 5 é multiplicado por ele mesmo"
+         },
+         {
+          "text": "Que devemos multiplicar 5 × 4",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "Que devemos somar 5 + 4",
+          "misconceptionCode": "base-vezes-expoente"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08MA01-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: as regras das potências",
+    "prompt": "Para multiplicar potências de mesma base, somamos os expoentes. Para dividir, subtraímos. Todo número diferente de zero elevado a zero dá 1. Vamos fazer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Para multiplicar potências de mesma base, somamos os expoentes. Para dividir, subtraímos. Todo número diferente de zero elevado a zero dá 1. Vamos fazer juntos. Pergunta 1. Quanto é 2³ × 2²? A: 2⁶; B: 2⁵; C: 4⁵; D: 4⁶. Pergunta 2. Quanto é 5⁶ ÷ 5⁴? A: 5¹⁰; B: 1²; C: 5²; D: 5²⁴. Pergunta 3. Quanto é 7⁰? A: 0; B: 7; C: 70; D: 1.",
+    "questions": [
+     {
+      "question": "Quanto é 2³ × 2²?",
+      "options": [
+       {
+        "text": "2⁶",
+        "misconceptionCode": "regra-expoentes"
+       },
+       {
+        "text": "2⁵"
+       },
+       {
+        "text": "4⁵",
+        "misconceptionCode": "regra-expoentes"
+       },
+       {
+        "text": "4⁶",
+        "misconceptionCode": "regra-expoentes"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Mesma base: conserva a base e soma os expoentes. 3 + 2 = 5, então 2⁵, que vale 32.",
+      "variants": [
+       {
+        "question": "Quanto é 3² × 3⁴?",
+        "options": [
+         {
+          "text": "3⁸",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "9⁶",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "9⁸",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "3⁶"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quanto é 2³ × 2²?",
+        "options": [
+         {
+          "text": "4⁶",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "4⁵",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "2⁵"
+         },
+         {
+          "text": "2⁶",
+          "misconceptionCode": "regra-expoentes"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 5⁶ ÷ 5⁴?",
+      "options": [
+       {
+        "text": "5¹⁰",
+        "misconceptionCode": "regra-expoentes"
+       },
+       {
+        "text": "1²",
+        "misconceptionCode": "regra-expoentes"
+       },
+       {
+        "text": "5²"
+       },
+       {
+        "text": "5²⁴",
+        "misconceptionCode": "regra-expoentes"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Na divisão de mesma base, subtraímos os expoentes: 6 − 4 = 2. O resultado é 5², que vale 25.",
+      "variants": [
+       {
+        "question": "Quanto é 10⁷ ÷ 10⁵?",
+        "options": [
+         {
+          "text": "10²"
+         },
+         {
+          "text": "10¹²",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "1²",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "10³⁵",
+          "misconceptionCode": "regra-expoentes"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quanto é 5⁶ ÷ 5⁴?",
+        "options": [
+         {
+          "text": "5²⁴",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "1²",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "5¹⁰",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "5²"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 7⁰?",
+      "options": [
+       {
+        "text": "0",
+        "misconceptionCode": "expoente-zero"
+       },
+       {
+        "text": "7",
+        "misconceptionCode": "expoente-zero"
+       },
+       {
+        "text": "70",
+        "misconceptionCode": "base-vezes-expoente"
+       },
+       {
+        "text": "1"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Todo número diferente de zero elevado a zero é 1. Veja: 7² ÷ 7² = 7⁰, e um número dividido por ele mesmo dá 1.",
+      "variants": [
+       {
+        "question": "Quanto é 100⁰?",
+        "options": [
+         {
+          "text": "0",
+          "misconceptionCode": "expoente-zero"
+         },
+         {
+          "text": "1"
+         },
+         {
+          "text": "100",
+          "misconceptionCode": "expoente-zero"
+         },
+         {
+          "text": "1.000",
+          "misconceptionCode": "base-vezes-expoente"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é 7⁰?",
+        "options": [
+         {
+          "text": "1"
+         },
+         {
+          "text": "70",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "7",
+          "misconceptionCode": "expoente-zero"
+         },
+         {
+          "text": "0",
+          "misconceptionCode": "expoente-zero"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08MA01-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: expoente negativo e notação científica",
+    "prompt": "Expoente negativo indica o inverso: 2⁻¹ = 1/2. Na notação científica, escrevemos um número entre 1 e 10 multiplicado por uma potência de 10.",
+    "estMinutes": 5,
+    "audioScript": "Expoente negativo indica o inverso: 2⁻¹ = 1/2. Na notação científica, escrevemos um número entre 1 e 10 multiplicado por uma potência de 10. Pergunta 1. Quanto é 2⁻¹? A: 1/2; B: −2; C: −1/2; D: 2. Pergunta 2. Quanto é 10⁻²? A: −100; B: 0,01; C: −20; D: 0,1. Pergunta 3. Como se escreve 3.000 em notação científica? A: 3 × 10⁴; B: 30 × 10³; C: 3 × 10³; D: 3 × 1.000³. Pergunta 4. Quanto vale 4 × 10²? A: 80; B: 4.000; C: 42; D: 400.",
+    "questions": [
+     {
+      "question": "Quanto é 2⁻¹?",
+      "options": [
+       {
+        "text": "1/2"
+       },
+       {
+        "text": "−2",
+        "misconceptionCode": "negativo-vira-negativo"
+       },
+       {
+        "text": "−1/2",
+        "misconceptionCode": "negativo-vira-negativo"
+       },
+       {
+        "text": "2",
+        "misconceptionCode": "expoente-zero"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O expoente negativo inverte a base: 2⁻¹ = 1/2. O resultado continua positivo.",
+      "variants": [
+       {
+        "question": "Quanto é 10⁻¹?",
+        "options": [
+         {
+          "text": "−10",
+          "misconceptionCode": "negativo-vira-negativo"
+         },
+         {
+          "text": "−1/10",
+          "misconceptionCode": "negativo-vira-negativo"
+         },
+         {
+          "text": "1/10"
+         },
+         {
+          "text": "10",
+          "misconceptionCode": "expoente-zero"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quanto é 2⁻¹?",
+        "options": [
+         {
+          "text": "2",
+          "misconceptionCode": "expoente-zero"
+         },
+         {
+          "text": "1/2"
+         },
+         {
+          "text": "−1/2",
+          "misconceptionCode": "negativo-vira-negativo"
+         },
+         {
+          "text": "−2",
+          "misconceptionCode": "negativo-vira-negativo"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 10⁻²?",
+      "options": [
+       {
+        "text": "−100",
+        "misconceptionCode": "negativo-vira-negativo"
+       },
+       {
+        "text": "0,01"
+       },
+       {
+        "text": "−20",
+        "misconceptionCode": "base-vezes-expoente"
+       },
+       {
+        "text": "0,1",
+        "misconceptionCode": "regra-expoentes"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "10⁻² = 1/10² = 1/100 = 0,01.",
+      "variants": [
+       {
+        "question": "Quanto é 10⁻³?",
+        "options": [
+         {
+          "text": "−1.000",
+          "misconceptionCode": "negativo-vira-negativo"
+         },
+         {
+          "text": "−30",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "0,01",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "0,001"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quanto é 10⁻²?",
+        "options": [
+         {
+          "text": "0,1",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "−20",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "0,01"
+         },
+         {
+          "text": "−100",
+          "misconceptionCode": "negativo-vira-negativo"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Como se escreve 3.000 em notação científica?",
+      "options": [
+       {
+        "text": "3 × 10⁴",
+        "misconceptionCode": "regra-expoentes"
+       },
+       {
+        "text": "30 × 10³",
+        "misconceptionCode": "regra-expoentes"
+       },
+       {
+        "text": "3 × 10³"
+       },
+       {
+        "text": "3 × 1.000³",
+        "misconceptionCode": "base-vezes-expoente"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "3.000 = 3 × 1.000 = 3 × 10³. O expoente é o número de casas que a vírgula andou.",
+      "variants": [
+       {
+        "question": "Como se escreve 50.000 em notação científica?",
+        "options": [
+         {
+          "text": "5 × 10⁴"
+         },
+         {
+          "text": "5 × 10⁵",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "50 × 10⁴",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "5 × 10.000⁴",
+          "misconceptionCode": "base-vezes-expoente"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Como se escreve 3.000 em notação científica?",
+        "options": [
+         {
+          "text": "3 × 1.000³",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "30 × 10³",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "3 × 10⁴",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "3 × 10³"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quanto vale 4 × 10²?",
+      "options": [
+       {
+        "text": "80",
+        "misconceptionCode": "base-vezes-expoente"
+       },
+       {
+        "text": "4.000",
+        "misconceptionCode": "regra-expoentes"
+       },
+       {
+        "text": "42",
+        "misconceptionCode": "base-vezes-expoente"
+       },
+       {
+        "text": "400"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "10² é 100. Então 4 × 100 = 400.",
+      "variants": [
+       {
+        "question": "Quanto vale 7 × 10³?",
+        "options": [
+         {
+          "text": "210",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "7.000"
+         },
+         {
+          "text": "700",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "73",
+          "misconceptionCode": "base-vezes-expoente"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto vale 4 × 10²?",
+        "options": [
+         {
+          "text": "400"
+         },
+         {
+          "text": "42",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "4.000",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "80",
+          "misconceptionCode": "base-vezes-expoente"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08MA01-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: potências em situações reais",
+    "prompt": "Use potências para resolver e representar situações.",
+    "estMinutes": 4,
+    "audioScript": "Use potências para resolver e representar situações. Pergunta 1. Uma bactéria se divide em duas a cada hora. Começando com 1, quantas haverá depois de 5 horas? A: 32; B: 10; C: 25; D: 7. Pergunta 2. A distância média da Terra ao Sol é de cerca de 150.000.000 km. Em notação científica: A: 15 × 10⁸ km; B: 1,5 × 10⁸ km; C: 1,5 × 10⁷ km; D: 150 × 10⁸ km. Pergunta 3. Um quadrado tem lado de 6 cm. Qual é a área? A: 12 cm²; B: 24 cm²; C: 36 cm²; D: 18 cm².",
+    "questions": [
+     {
+      "question": "Uma bactéria se divide em duas a cada hora. Começando com 1, quantas haverá depois de 5 horas?",
+      "options": [
+       {
+        "text": "32"
+       },
+       {
+        "text": "10",
+        "misconceptionCode": "base-vezes-expoente"
+       },
+       {
+        "text": "25",
+        "misconceptionCode": "regra-expoentes"
+       },
+       {
+        "text": "7",
+        "misconceptionCode": "base-vezes-expoente"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A cada hora dobra: 2⁵ = 2 × 2 × 2 × 2 × 2 = 32.",
+      "variants": [
+       {
+        "question": "Uma folha é dobrada ao meio 4 vezes. Em quantas partes ela fica dividida?",
+        "options": [
+         {
+          "text": "8",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "6",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "16"
+         },
+         {
+          "text": "12",
+          "misconceptionCode": "base-vezes-expoente"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Uma bactéria se divide em duas a cada hora. Começando com 1, quantas haverá depois de 5 horas?",
+        "options": [
+         {
+          "text": "7",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "32"
+         },
+         {
+          "text": "25",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "10",
+          "misconceptionCode": "base-vezes-expoente"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "A distância média da Terra ao Sol é de cerca de 150.000.000 km. Em notação científica:",
+      "options": [
+       {
+        "text": "15 × 10⁸ km",
+        "misconceptionCode": "regra-expoentes"
+       },
+       {
+        "text": "1,5 × 10⁸ km"
+       },
+       {
+        "text": "1,5 × 10⁷ km",
+        "misconceptionCode": "regra-expoentes"
+       },
+       {
+        "text": "150 × 10⁸ km",
+        "misconceptionCode": "regra-expoentes"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A vírgula anda 8 casas para a esquerda até ficar 1,5. Então 1,5 × 10⁸.",
+      "variants": [
+       {
+        "question": "A população do Brasil é de cerca de 200.000.000 de habitantes. Em notação científica:",
+        "options": [
+         {
+          "text": "2 × 10⁷",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "20 × 10⁸",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "200 × 10⁸",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "2 × 10⁸"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A distância média da Terra ao Sol é de cerca de 150.000.000 km. Em notação científica:",
+        "options": [
+         {
+          "text": "150 × 10⁸ km",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "1,5 × 10⁷ km",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "1,5 × 10⁸ km"
+         },
+         {
+          "text": "15 × 10⁸ km",
+          "misconceptionCode": "regra-expoentes"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um quadrado tem lado de 6 cm. Qual é a área?",
+      "options": [
+       {
+        "text": "12 cm²",
+        "misconceptionCode": "base-vezes-expoente"
+       },
+       {
+        "text": "24 cm²",
+        "misconceptionCode": "regra-expoentes"
+       },
+       {
+        "text": "36 cm²"
+       },
+       {
+        "text": "18 cm²",
+        "misconceptionCode": "base-vezes-expoente"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A área do quadrado é lado ao quadrado: 6² = 6 × 6 = 36.",
+      "variants": [
+       {
+        "question": "Um cubo tem aresta de 3 cm. Qual é o volume?",
+        "options": [
+         {
+          "text": "27 cm³"
+         },
+         {
+          "text": "9 cm³",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "6 cm³",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "12 cm³",
+          "misconceptionCode": "base-vezes-expoente"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um quadrado tem lado de 6 cm. Qual é a área?",
+        "options": [
+         {
+          "text": "18 cm²",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "24 cm²",
+          "misconceptionCode": "regra-expoentes"
+         },
+         {
+          "text": "12 cm²",
+          "misconceptionCode": "base-vezes-expoente"
+         },
+         {
+          "text": "36 cm²"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08MA01-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: por que 2³ não é 6",
+    "prompt": "Explique com as suas palavras por que 2³ é 8 e não 6, e para que serve a notação científica.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras por que 2³ é 8 e não 6, e para que serve a notação científica.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "potencia",
+       "description": "Explica que o expoente indica multiplicação repetida da base"
+      },
+      {
+       "code": "resultado",
+       "description": "Mostra 2 × 2 × 2 = 8"
+      },
+      {
+       "code": "notacao",
+       "description": "Diz que a notação científica serve para escrever números muito grandes ou muito pequenos"
+      }
+     ],
+     "exemploBoaResposta": "2³ quer dizer 2 multiplicado por ele mesmo três vezes: 2 × 2 × 2 = 8. Não é 2 × 3. A notação científica serve para escrever números muito grandes ou muito pequenos de um jeito curto, como 3 × 10⁸ em vez de 300.000.000."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF08MA06",
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 8,
+  "version": 1,
+  "title": "Trilha: Valor numérico de expressões algébricas",
+  "tituloAluno": "Letras no lugar de números: calculando expressões",
+  "activities": [
+   {
+    "id": "PK2-EF08MA06-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: letras e operações",
+    "prompt": "Em álgebra, uma letra representa um número. Vamos lembrar como ler essas expressões.",
+    "estMinutes": 4,
+    "audioScript": "Em álgebra, uma letra representa um número. Vamos lembrar como ler essas expressões. Pergunta 1. O que significa 3x? A: 3 mais x; B: O número trinta e x; C: x elevado a 3; D: 3 vezes x. Pergunta 2. Quanto é 2 + 3 × 4? A: 14; B: 20; C: 24; D: 9. Pergunta 3. Quanto é (2 + 3) × 4? A: 14; B: 20; C: 9; D: 24.",
+    "questions": [
+     {
+      "question": "O que significa 3x?",
+      "options": [
+       {
+        "text": "3 mais x",
+        "misconceptionCode": "junta-algarismos"
+       },
+       {
+        "text": "O número trinta e x",
+        "misconceptionCode": "junta-algarismos"
+       },
+       {
+        "text": "x elevado a 3",
+        "misconceptionCode": "potencia-da-letra"
+       },
+       {
+        "text": "3 vezes x"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Número colado na letra indica multiplicação: 3x é 3 × x.",
+      "variants": [
+       {
+        "question": "O que significa 5y?",
+        "options": [
+         {
+          "text": "5 mais y",
+          "misconceptionCode": "junta-algarismos"
+         },
+         {
+          "text": "5 vezes y"
+         },
+         {
+          "text": "O número cinquenta e y",
+          "misconceptionCode": "junta-algarismos"
+         },
+         {
+          "text": "y elevado a 5",
+          "misconceptionCode": "potencia-da-letra"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que significa 3x?",
+        "options": [
+         {
+          "text": "3 vezes x"
+         },
+         {
+          "text": "x elevado a 3",
+          "misconceptionCode": "potencia-da-letra"
+         },
+         {
+          "text": "O número trinta e x",
+          "misconceptionCode": "junta-algarismos"
+         },
+         {
+          "text": "3 mais x",
+          "misconceptionCode": "junta-algarismos"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 2 + 3 × 4?",
+      "options": [
+       {
+        "text": "14"
+       },
+       {
+        "text": "20",
+        "misconceptionCode": "ordem-operacoes"
+       },
+       {
+        "text": "24",
+        "misconceptionCode": "ordem-operacoes"
+       },
+       {
+        "text": "9",
+        "misconceptionCode": "ordem-operacoes"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A multiplicação vem antes da soma: 3 × 4 = 12, depois 2 + 12 = 14.",
+      "variants": [
+       {
+        "question": "Quanto é 10 − 2 × 3?",
+        "options": [
+         {
+          "text": "24",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "4"
+         },
+         {
+          "text": "16",
+          "misconceptionCode": "ordem-operacoes"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quanto é 2 + 3 × 4?",
+        "options": [
+         {
+          "text": "9",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "14"
+         },
+         {
+          "text": "24",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "20",
+          "misconceptionCode": "ordem-operacoes"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quanto é (2 + 3) × 4?",
+      "options": [
+       {
+        "text": "14",
+        "misconceptionCode": "ordem-operacoes"
+       },
+       {
+        "text": "20"
+       },
+       {
+        "text": "9",
+        "misconceptionCode": "ordem-operacoes"
+       },
+       {
+        "text": "24",
+        "misconceptionCode": "ordem-operacoes"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Os parênteses vêm primeiro: 2 + 3 = 5, depois 5 × 4 = 20.",
+      "variants": [
+       {
+        "question": "Quanto é (10 − 2) × 3?",
+        "options": [
+         {
+          "text": "4",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "11",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "16",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "24"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quanto é (2 + 3) × 4?",
+        "options": [
+         {
+          "text": "24",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "9",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "20"
+         },
+         {
+          "text": "14",
+          "misconceptionCode": "ordem-operacoes"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08MA06-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: substituindo a letra",
+    "prompt": "Para achar o valor numérico, troque a letra pelo número, entre parênteses, e faça as contas na ordem certa. Vamos fazer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Para achar o valor numérico, troque a letra pelo número, entre parênteses, e faça as contas na ordem certa. Vamos fazer juntos. Pergunta 1. Qual é o valor de 3x quando x = 4? A: 34; B: 7; C: 12; D: 81. Pergunta 2. Qual é o valor de 2x + 5 quando x = 3? A: 16; B: 28; C: 10; D: 11. Pergunta 3. Qual é o valor de x² quando x = 5? A: 25; B: 10; C: 7; D: 52.",
+    "questions": [
+     {
+      "question": "Qual é o valor de 3x quando x = 4?",
+      "options": [
+       {
+        "text": "34",
+        "misconceptionCode": "junta-algarismos"
+       },
+       {
+        "text": "7",
+        "misconceptionCode": "junta-algarismos"
+       },
+       {
+        "text": "12"
+       },
+       {
+        "text": "81",
+        "misconceptionCode": "potencia-da-letra"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "3x é 3 × x. Trocando x por 4: 3 × 4 = 12.",
+      "variants": [
+       {
+        "question": "Qual é o valor de 5y quando y = 2?",
+        "options": [
+         {
+          "text": "10"
+         },
+         {
+          "text": "52",
+          "misconceptionCode": "junta-algarismos"
+         },
+         {
+          "text": "7",
+          "misconceptionCode": "junta-algarismos"
+         },
+         {
+          "text": "25",
+          "misconceptionCode": "potencia-da-letra"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual é o valor de 3x quando x = 4?",
+        "options": [
+         {
+          "text": "81",
+          "misconceptionCode": "potencia-da-letra"
+         },
+         {
+          "text": "7",
+          "misconceptionCode": "junta-algarismos"
+         },
+         {
+          "text": "34",
+          "misconceptionCode": "junta-algarismos"
+         },
+         {
+          "text": "12"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual é o valor de 2x + 5 quando x = 3?",
+      "options": [
+       {
+        "text": "16",
+        "misconceptionCode": "ordem-operacoes"
+       },
+       {
+        "text": "28",
+        "misconceptionCode": "junta-algarismos"
+       },
+       {
+        "text": "10",
+        "misconceptionCode": "ordem-operacoes"
+       },
+       {
+        "text": "11"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Substituindo: 2 × 3 + 5. Primeiro a multiplicação: 6. Depois 6 + 5 = 11.",
+      "variants": [
+       {
+        "question": "Qual é o valor de 3x + 2 quando x = 4?",
+        "options": [
+         {
+          "text": "18",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "14"
+         },
+         {
+          "text": "36",
+          "misconceptionCode": "junta-algarismos"
+         },
+         {
+          "text": "9",
+          "misconceptionCode": "ordem-operacoes"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual é o valor de 2x + 5 quando x = 3?",
+        "options": [
+         {
+          "text": "11"
+         },
+         {
+          "text": "10",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "28",
+          "misconceptionCode": "junta-algarismos"
+         },
+         {
+          "text": "16",
+          "misconceptionCode": "ordem-operacoes"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Qual é o valor de x² quando x = 5?",
+      "options": [
+       {
+        "text": "25"
+       },
+       {
+        "text": "10",
+        "misconceptionCode": "potencia-da-letra"
+       },
+       {
+        "text": "7",
+        "misconceptionCode": "potencia-da-letra"
+       },
+       {
+        "text": "52",
+        "misconceptionCode": "junta-algarismos"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "x² é x vezes x. Com x = 5: 5 × 5 = 25.",
+      "variants": [
+       {
+        "question": "Qual é o valor de y² quando y = 3?",
+        "options": [
+         {
+          "text": "6",
+          "misconceptionCode": "potencia-da-letra"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "potencia-da-letra"
+         },
+         {
+          "text": "9"
+         },
+         {
+          "text": "32",
+          "misconceptionCode": "junta-algarismos"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual é o valor de x² quando x = 5?",
+        "options": [
+         {
+          "text": "52",
+          "misconceptionCode": "junta-algarismos"
+         },
+         {
+          "text": "25"
+         },
+         {
+          "text": "7",
+          "misconceptionCode": "potencia-da-letra"
+         },
+         {
+          "text": "10",
+          "misconceptionCode": "potencia-da-letra"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08MA06-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: calculando valores numéricos",
+    "prompt": "Substitua com atenção, principalmente quando o número for negativo.",
+    "estMinutes": 5,
+    "audioScript": "Substitua com atenção, principalmente quando o número for negativo. Pergunta 1. Qual é o valor de 4a − 3 quando a = 2? A: 39; B: 5; C: −4; D: 3. Pergunta 2. Qual é o valor de 2x + 1 quando x = −3? A: 7; B: −7; C: −5; D: 5. Pergunta 3. Qual é o valor de x² + 1 quando x = −2? A: −3; B: −5; C: 3; D: 5. Pergunta 4. Qual é o valor de 2(x + 3) quando x = 4? A: 14; B: 11; C: 9; D: 83.",
+    "questions": [
+     {
+      "question": "Qual é o valor de 4a − 3 quando a = 2?",
+      "options": [
+       {
+        "text": "39",
+        "misconceptionCode": "junta-algarismos"
+       },
+       {
+        "text": "5"
+       },
+       {
+        "text": "−4",
+        "misconceptionCode": "ordem-operacoes"
+       },
+       {
+        "text": "3",
+        "misconceptionCode": "ordem-operacoes"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "4 × 2 − 3 = 8 − 3 = 5.",
+      "variants": [
+       {
+        "question": "Qual é o valor de 5a − 4 quando a = 3?",
+        "options": [
+         {
+          "text": "49",
+          "misconceptionCode": "junta-algarismos"
+         },
+         {
+          "text": "−5",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "4",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "11"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual é o valor de 4a − 3 quando a = 2?",
+        "options": [
+         {
+          "text": "3",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "−4",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "5"
+         },
+         {
+          "text": "39",
+          "misconceptionCode": "junta-algarismos"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual é o valor de 2x + 1 quando x = −3?",
+      "options": [
+       {
+        "text": "7",
+        "misconceptionCode": "sinal-substituicao"
+       },
+       {
+        "text": "−7",
+        "misconceptionCode": "sinal-substituicao"
+       },
+       {
+        "text": "−5"
+       },
+       {
+        "text": "5",
+        "misconceptionCode": "sinal-substituicao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "2 × (−3) + 1 = −6 + 1 = −5.",
+      "variants": [
+       {
+        "question": "Qual é o valor de 3x + 2 quando x = −2?",
+        "options": [
+         {
+          "text": "−4"
+         },
+         {
+          "text": "8",
+          "misconceptionCode": "sinal-substituicao"
+         },
+         {
+          "text": "−8",
+          "misconceptionCode": "sinal-substituicao"
+         },
+         {
+          "text": "4",
+          "misconceptionCode": "sinal-substituicao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual é o valor de 2x + 1 quando x = −3?",
+        "options": [
+         {
+          "text": "5",
+          "misconceptionCode": "sinal-substituicao"
+         },
+         {
+          "text": "−7",
+          "misconceptionCode": "sinal-substituicao"
+         },
+         {
+          "text": "7",
+          "misconceptionCode": "sinal-substituicao"
+         },
+         {
+          "text": "−5"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual é o valor de x² + 1 quando x = −2?",
+      "options": [
+       {
+        "text": "−3",
+        "misconceptionCode": "sinal-substituicao"
+       },
+       {
+        "text": "−5",
+        "misconceptionCode": "potencia-da-letra"
+       },
+       {
+        "text": "3",
+        "misconceptionCode": "sinal-substituicao"
+       },
+       {
+        "text": "5"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "(−2)² = (−2) × (−2) = 4. Depois 4 + 1 = 5.",
+      "variants": [
+       {
+        "question": "Qual é o valor de x² + 2 quando x = −3?",
+        "options": [
+         {
+          "text": "−7",
+          "misconceptionCode": "sinal-substituicao"
+         },
+         {
+          "text": "11"
+         },
+         {
+          "text": "−4",
+          "misconceptionCode": "potencia-da-letra"
+         },
+         {
+          "text": "7",
+          "misconceptionCode": "sinal-substituicao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual é o valor de x² + 1 quando x = −2?",
+        "options": [
+         {
+          "text": "5"
+         },
+         {
+          "text": "3",
+          "misconceptionCode": "sinal-substituicao"
+         },
+         {
+          "text": "−5",
+          "misconceptionCode": "potencia-da-letra"
+         },
+         {
+          "text": "−3",
+          "misconceptionCode": "sinal-substituicao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Qual é o valor de 2(x + 3) quando x = 4?",
+      "options": [
+       {
+        "text": "14"
+       },
+       {
+        "text": "11",
+        "misconceptionCode": "ordem-operacoes"
+       },
+       {
+        "text": "9",
+        "misconceptionCode": "ordem-operacoes"
+       },
+       {
+        "text": "83",
+        "misconceptionCode": "junta-algarismos"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Primeiro os parênteses: 4 + 3 = 7. Depois 2 × 7 = 14.",
+      "variants": [
+       {
+        "question": "Qual é o valor de 3(x + 1) quando x = 5?",
+        "options": [
+         {
+          "text": "16",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "9",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "18"
+         },
+         {
+          "text": "51",
+          "misconceptionCode": "junta-algarismos"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual é o valor de 2(x + 3) quando x = 4?",
+        "options": [
+         {
+          "text": "83",
+          "misconceptionCode": "junta-algarismos"
+         },
+         {
+          "text": "14"
+         },
+         {
+          "text": "9",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "11",
+          "misconceptionCode": "ordem-operacoes"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08MA06-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: fórmulas do dia a dia",
+    "prompt": "Uma fórmula é uma expressão algébrica. Calcule o valor em cada situação.",
+    "estMinutes": 4,
+    "audioScript": "Uma fórmula é uma expressão algébrica. Calcule o valor em cada situação. Pergunta 1. O perímetro de um retângulo é P = 2c + 2l. Com c = 5 e l = 3, quanto vale P? A: 8; B: 16; C: 10; D: 30. Pergunta 2. Um táxi cobra P = 5 + 3k, em que k são os quilômetros. Quanto custa uma corrida de 6 km? A: 48 reais; B: 14 reais; C: 23 reais; D: 41 reais. Pergunta 3. A área de um quadrado é A = l². Com l = 7 cm, quanto vale A? A: 14 cm²; B: 28 cm²; C: 72 cm²; D: 49 cm².",
+    "questions": [
+     {
+      "question": "O perímetro de um retângulo é P = 2c + 2l. Com c = 5 e l = 3, quanto vale P?",
+      "options": [
+       {
+        "text": "8",
+        "misconceptionCode": "ordem-operacoes"
+       },
+       {
+        "text": "16"
+       },
+       {
+        "text": "10",
+        "misconceptionCode": "ordem-operacoes"
+       },
+       {
+        "text": "30",
+        "misconceptionCode": "ordem-operacoes"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "P = 2 × 5 + 2 × 3 = 10 + 6 = 16.",
+      "variants": [
+       {
+        "question": "O perímetro de um retângulo é P = 2c + 2l. Com c = 6 e l = 4, quanto vale P?",
+        "options": [
+         {
+          "text": "10",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "12",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "48",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "20"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O perímetro de um retângulo é P = 2c + 2l. Com c = 5 e l = 3, quanto vale P?",
+        "options": [
+         {
+          "text": "30",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "10",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "16"
+         },
+         {
+          "text": "8",
+          "misconceptionCode": "ordem-operacoes"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um táxi cobra P = 5 + 3k, em que k são os quilômetros. Quanto custa uma corrida de 6 km?",
+      "options": [
+       {
+        "text": "48 reais",
+        "misconceptionCode": "ordem-operacoes"
+       },
+       {
+        "text": "14 reais",
+        "misconceptionCode": "junta-algarismos"
+       },
+       {
+        "text": "23 reais"
+       },
+       {
+        "text": "41 reais",
+        "misconceptionCode": "junta-algarismos"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "P = 5 + 3 × 6 = 5 + 18 = 23.",
+      "variants": [
+       {
+        "question": "Um aplicativo cobra P = 4 + 2k, em que k são os quilômetros. Quanto custa uma corrida de 10 km?",
+        "options": [
+         {
+          "text": "24 reais"
+         },
+         {
+          "text": "60 reais",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "16 reais",
+          "misconceptionCode": "junta-algarismos"
+         },
+         {
+          "text": "34 reais",
+          "misconceptionCode": "junta-algarismos"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um táxi cobra P = 5 + 3k, em que k são os quilômetros. Quanto custa uma corrida de 6 km?",
+        "options": [
+         {
+          "text": "41 reais",
+          "misconceptionCode": "junta-algarismos"
+         },
+         {
+          "text": "14 reais",
+          "misconceptionCode": "junta-algarismos"
+         },
+         {
+          "text": "48 reais",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "23 reais"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "A área de um quadrado é A = l². Com l = 7 cm, quanto vale A?",
+      "options": [
+       {
+        "text": "14 cm²",
+        "misconceptionCode": "potencia-da-letra"
+       },
+       {
+        "text": "28 cm²",
+        "misconceptionCode": "ordem-operacoes"
+       },
+       {
+        "text": "72 cm²",
+        "misconceptionCode": "junta-algarismos"
+       },
+       {
+        "text": "49 cm²"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A = 7² = 7 × 7 = 49.",
+      "variants": [
+       {
+        "question": "A área de um quadrado é A = l². Com l = 9 cm, quanto vale A?",
+        "options": [
+         {
+          "text": "18 cm²",
+          "misconceptionCode": "potencia-da-letra"
+         },
+         {
+          "text": "81 cm²"
+         },
+         {
+          "text": "36 cm²",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "92 cm²",
+          "misconceptionCode": "junta-algarismos"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A área de um quadrado é A = l². Com l = 7 cm, quanto vale A?",
+        "options": [
+         {
+          "text": "49 cm²"
+         },
+         {
+          "text": "72 cm²",
+          "misconceptionCode": "junta-algarismos"
+         },
+         {
+          "text": "28 cm²",
+          "misconceptionCode": "ordem-operacoes"
+         },
+         {
+          "text": "14 cm²",
+          "misconceptionCode": "potencia-da-letra"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08MA06-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: como calcular o valor numérico",
+    "prompt": "Explique com as suas palavras como achar o valor de 3x + 4 quando x = 5, e por que 3x não é 35.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras como achar o valor de 3x + 4 quando x = 5, e por que 3x não é 35.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "substitui",
+       "description": "Troca x por 5"
+      },
+      {
+       "code": "multiplicacao",
+       "description": "Explica que 3x é 3 vezes x"
+      },
+      {
+       "code": "resultado",
+       "description": "Chega a 19 fazendo a multiplicação antes da soma"
+      }
+     ],
+     "exemploBoaResposta": "Eu troco o x por 5. Como 3x quer dizer 3 vezes x, fica 3 × 5, que dá 15, e não 35. Depois somo 4 e chego a 19. A multiplicação vem antes da soma."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF08MA08",
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 8,
+  "version": 1,
+  "title": "Trilha: Sistemas de equações do 1º grau",
+  "tituloAluno": "Duas pistas, dois números escondidos",
+  "activities": [
+   {
+    "id": "PK2-EF08MA08-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: equações com uma letra",
+    "prompt": "Antes dos sistemas, vamos lembrar como resolver uma equação.",
+    "estMinutes": 4,
+    "audioScript": "Antes dos sistemas, vamos lembrar como resolver uma equação. Pergunta 1. Quanto vale x em x + 5 = 12? A: 17; B: 7; C: 60; D: 5. Pergunta 2. Quanto vale x em 2x = 14? A: 28; B: 12; C: 7; D: 16. Pergunta 3. Os números 4 e 6 têm soma 10. Que outro par também tem soma 10? A: 7 e 4; B: 5 e 6; C: 8 e 3; D: 7 e 3.",
+    "questions": [
+     {
+      "question": "Quanto vale x em x + 5 = 12?",
+      "options": [
+       {
+        "text": "17",
+        "misconceptionCode": "sinal-na-soma"
+       },
+       {
+        "text": "7"
+       },
+       {
+        "text": "60",
+        "misconceptionCode": "nao-confere"
+       },
+       {
+        "text": "5",
+        "misconceptionCode": "uma-equacao-so"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Tire 5 dos dois lados: x = 12 − 5 = 7.",
+      "variants": [
+       {
+        "question": "Quanto vale x em x + 8 = 15?",
+        "options": [
+         {
+          "text": "23",
+          "misconceptionCode": "sinal-na-soma"
+         },
+         {
+          "text": "120",
+          "misconceptionCode": "nao-confere"
+         },
+         {
+          "text": "8",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "7"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quanto vale x em x + 5 = 12?",
+        "options": [
+         {
+          "text": "5",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "60",
+          "misconceptionCode": "nao-confere"
+         },
+         {
+          "text": "7"
+         },
+         {
+          "text": "17",
+          "misconceptionCode": "sinal-na-soma"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Quanto vale x em 2x = 14?",
+      "options": [
+       {
+        "text": "28",
+        "misconceptionCode": "sinal-na-soma"
+       },
+       {
+        "text": "12",
+        "misconceptionCode": "nao-confere"
+       },
+       {
+        "text": "7"
+       },
+       {
+        "text": "16",
+        "misconceptionCode": "uma-equacao-so"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Divida os dois lados por 2: x = 7.",
+      "variants": [
+       {
+        "question": "Quanto vale x em 3x = 18?",
+        "options": [
+         {
+          "text": "6"
+         },
+         {
+          "text": "54",
+          "misconceptionCode": "sinal-na-soma"
+         },
+         {
+          "text": "15",
+          "misconceptionCode": "nao-confere"
+         },
+         {
+          "text": "21",
+          "misconceptionCode": "uma-equacao-so"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quanto vale x em 2x = 14?",
+        "options": [
+         {
+          "text": "16",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "12",
+          "misconceptionCode": "nao-confere"
+         },
+         {
+          "text": "28",
+          "misconceptionCode": "sinal-na-soma"
+         },
+         {
+          "text": "7"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Os números 4 e 6 têm soma 10. Que outro par também tem soma 10?",
+      "options": [
+       {
+        "text": "7 e 4",
+        "misconceptionCode": "nao-confere"
+       },
+       {
+        "text": "5 e 6",
+        "misconceptionCode": "nao-confere"
+       },
+       {
+        "text": "8 e 3",
+        "misconceptionCode": "nao-confere"
+       },
+       {
+        "text": "7 e 3"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "7 + 3 = 10. Há muitos pares com soma 10. Para saber qual é o certo, precisamos de outra informação.",
+      "variants": [
+       {
+        "question": "Qual par de números tem soma 12?",
+        "options": [
+         {
+          "text": "8 e 5",
+          "misconceptionCode": "nao-confere"
+         },
+         {
+          "text": "8 e 4"
+         },
+         {
+          "text": "7 e 6",
+          "misconceptionCode": "nao-confere"
+         },
+         {
+          "text": "9 e 4",
+          "misconceptionCode": "nao-confere"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Os números 4 e 6 têm soma 10. Que outro par também tem soma 10?",
+        "options": [
+         {
+          "text": "7 e 3"
+         },
+         {
+          "text": "8 e 3",
+          "misconceptionCode": "nao-confere"
+         },
+         {
+          "text": "5 e 6",
+          "misconceptionCode": "nao-confere"
+         },
+         {
+          "text": "7 e 4",
+          "misconceptionCode": "nao-confere"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08MA08-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: duas informações, um par",
+    "prompt": "Um sistema junta duas equações. A solução é o par de números que serve nas duas ao mesmo tempo. Somando as equações, uma letra pode sumir. Vamos resolver juntos: x + y = 10 e x − y = 4.",
+    "estMinutes": 4,
+    "audioScript": "Um sistema junta duas equações. A solução é o par de números que serve nas duas ao mesmo tempo. Somando as equações, uma letra pode sumir. Vamos resolver juntos: x + y = 10 e x − y = 4. Pergunta 1. No sistema x + y = 10 e x − y = 4, somando as duas equações, obtemos: A: 2x = 14; B: 2y = 14; C: 2x = 6; D: x = 14. Pergunta 2. Se 2x = 14, então x = 7. Usando x + y = 10, quanto vale y? A: 17; B: 3; C: 7; D: 4. Pergunta 3. Como conferir que x = 7 e y = 3 resolvem o sistema x + y = 10 e x − y = 4? A: Testar só na primeira; B: Testar só na segunda; C: Testar nas duas equações: 7 + 3 = 10 e 7 − 3 = 4; D: Não é preciso conferir.",
+    "questions": [
+     {
+      "question": "No sistema x + y = 10 e x − y = 4, somando as duas equações, obtemos:",
+      "options": [
+       {
+        "text": "2x = 14"
+       },
+       {
+        "text": "2y = 14",
+        "misconceptionCode": "troca-incognitas"
+       },
+       {
+        "text": "2x = 6",
+        "misconceptionCode": "sinal-na-soma"
+       },
+       {
+        "text": "x = 14",
+        "misconceptionCode": "sinal-na-soma"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Somando lado a lado: x + x = 2x, y − y = 0 e 10 + 4 = 14. Fica 2x = 14.",
+      "variants": [
+       {
+        "question": "No sistema x + y = 12 e x − y = 2, somando as duas equações, obtemos:",
+        "options": [
+         {
+          "text": "2y = 14",
+          "misconceptionCode": "troca-incognitas"
+         },
+         {
+          "text": "2x = 10",
+          "misconceptionCode": "sinal-na-soma"
+         },
+         {
+          "text": "2x = 14"
+         },
+         {
+          "text": "x = 14",
+          "misconceptionCode": "sinal-na-soma"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "No sistema x + y = 10 e x − y = 4, somando as duas equações, obtemos:",
+        "options": [
+         {
+          "text": "x = 14",
+          "misconceptionCode": "sinal-na-soma"
+         },
+         {
+          "text": "2x = 14"
+         },
+         {
+          "text": "2x = 6",
+          "misconceptionCode": "sinal-na-soma"
+         },
+         {
+          "text": "2y = 14",
+          "misconceptionCode": "troca-incognitas"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Se 2x = 14, então x = 7. Usando x + y = 10, quanto vale y?",
+      "options": [
+       {
+        "text": "17",
+        "misconceptionCode": "sinal-na-soma"
+       },
+       {
+        "text": "3"
+       },
+       {
+        "text": "7",
+        "misconceptionCode": "troca-incognitas"
+       },
+       {
+        "text": "4",
+        "misconceptionCode": "uma-equacao-so"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "7 + y = 10, então y = 3.",
+      "variants": [
+       {
+        "question": "Se x = 7 e x + y = 12, quanto vale y?",
+        "options": [
+         {
+          "text": "19",
+          "misconceptionCode": "sinal-na-soma"
+         },
+         {
+          "text": "7",
+          "misconceptionCode": "troca-incognitas"
+         },
+         {
+          "text": "2",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "5"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Se 2x = 14, então x = 7. Usando x + y = 10, quanto vale y?",
+        "options": [
+         {
+          "text": "4",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "7",
+          "misconceptionCode": "troca-incognitas"
+         },
+         {
+          "text": "3"
+         },
+         {
+          "text": "17",
+          "misconceptionCode": "sinal-na-soma"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Como conferir que x = 7 e y = 3 resolvem o sistema x + y = 10 e x − y = 4?",
+      "options": [
+       {
+        "text": "Testar só na primeira",
+        "misconceptionCode": "uma-equacao-so"
+       },
+       {
+        "text": "Testar só na segunda",
+        "misconceptionCode": "uma-equacao-so"
+       },
+       {
+        "text": "Testar nas duas equações: 7 + 3 = 10 e 7 − 3 = 4"
+       },
+       {
+        "text": "Não é preciso conferir",
+        "misconceptionCode": "nao-confere"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A solução precisa servir nas duas equações. Aqui, serve.",
+      "variants": [
+       {
+        "question": "O par x = 5 e y = 5 resolve o sistema x + y = 10 e x − y = 4?",
+        "options": [
+         {
+          "text": "Não, porque 5 − 5 não é 4"
+         },
+         {
+          "text": "Sim, porque 5 + 5 = 10",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "Sim, serve nas duas",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "Não dá para saber",
+          "misconceptionCode": "nao-confere"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Como conferir que x = 7 e y = 3 resolvem o sistema x + y = 10 e x − y = 4?",
+        "options": [
+         {
+          "text": "Não é preciso conferir",
+          "misconceptionCode": "nao-confere"
+         },
+         {
+          "text": "Testar só na segunda",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "Testar só na primeira",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "Testar nas duas equações: 7 + 3 = 10 e 7 − 3 = 4"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08MA08-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: resolvendo sistemas",
+    "prompt": "Resolva e confira nas duas equações.",
+    "estMinutes": 5,
+    "audioScript": "Resolva e confira nas duas equações. Pergunta 1. Qual é a solução de x + y = 8 e x − y = 2? A: x = 3 e y = 5; B: x = 6 e y = 2; C: x = 4 e y = 4; D: x = 5 e y = 3. Pergunta 2. Qual é a solução de y = 2x e x + y = 9? A: x = 3 e y = 6; B: x = 6 e y = 3; C: x = 4 e y = 5; D: x = 2 e y = 4. Pergunta 3. Qual é a solução de x + y = 7 e 2x + y = 10? A: x = 4 e y = 3; B: x = 3 e y = 4; C: x = 5 e y = 2; D: x = 2 e y = 6. Pergunta 4. O par x = 2 e y = 6 resolve o sistema x + y = 8 e x − y = 2? A: Sim, porque 2 + 6 = 8; B: Sim, serve nas duas; C: Não, porque 2 − 6 não é 2; D: Sim, se trocar os sinais.",
+    "questions": [
+     {
+      "question": "Qual é a solução de x + y = 8 e x − y = 2?",
+      "options": [
+       {
+        "text": "x = 3 e y = 5",
+        "misconceptionCode": "troca-incognitas"
+       },
+       {
+        "text": "x = 6 e y = 2",
+        "misconceptionCode": "uma-equacao-so"
+       },
+       {
+        "text": "x = 4 e y = 4",
+        "misconceptionCode": "uma-equacao-so"
+       },
+       {
+        "text": "x = 5 e y = 3"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Somando: 2x = 10, x = 5. Depois 5 + y = 8, y = 3. Conferindo: 5 − 3 = 2.",
+      "variants": [
+       {
+        "question": "Qual é a solução de x + y = 9 e x − y = 1?",
+        "options": [
+         {
+          "text": "x = 4 e y = 5",
+          "misconceptionCode": "troca-incognitas"
+         },
+         {
+          "text": "x = 5 e y = 4"
+         },
+         {
+          "text": "x = 6 e y = 3",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "x = 8 e y = 1",
+          "misconceptionCode": "uma-equacao-so"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual é a solução de x + y = 8 e x − y = 2?",
+        "options": [
+         {
+          "text": "x = 5 e y = 3"
+         },
+         {
+          "text": "x = 4 e y = 4",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "x = 6 e y = 2",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "x = 3 e y = 5",
+          "misconceptionCode": "troca-incognitas"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Qual é a solução de y = 2x e x + y = 9?",
+      "options": [
+       {
+        "text": "x = 3 e y = 6"
+       },
+       {
+        "text": "x = 6 e y = 3",
+        "misconceptionCode": "troca-incognitas"
+       },
+       {
+        "text": "x = 4 e y = 5",
+        "misconceptionCode": "uma-equacao-so"
+       },
+       {
+        "text": "x = 2 e y = 4",
+        "misconceptionCode": "uma-equacao-so"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Troque y por 2x na segunda: x + 2x = 9, então 3x = 9 e x = 3. Depois y = 2 × 3 = 6.",
+      "variants": [
+       {
+        "question": "Qual é a solução de y = 3x e x + y = 8?",
+        "options": [
+         {
+          "text": "x = 6 e y = 2",
+          "misconceptionCode": "troca-incognitas"
+         },
+         {
+          "text": "x = 4 e y = 4",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "x = 2 e y = 6"
+         },
+         {
+          "text": "x = 1 e y = 3",
+          "misconceptionCode": "uma-equacao-so"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual é a solução de y = 2x e x + y = 9?",
+        "options": [
+         {
+          "text": "x = 2 e y = 4",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "x = 3 e y = 6"
+         },
+         {
+          "text": "x = 4 e y = 5",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "x = 6 e y = 3",
+          "misconceptionCode": "troca-incognitas"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual é a solução de x + y = 7 e 2x + y = 10?",
+      "options": [
+       {
+        "text": "x = 4 e y = 3",
+        "misconceptionCode": "troca-incognitas"
+       },
+       {
+        "text": "x = 3 e y = 4"
+       },
+       {
+        "text": "x = 5 e y = 2",
+        "misconceptionCode": "uma-equacao-so"
+       },
+       {
+        "text": "x = 2 e y = 6",
+        "misconceptionCode": "uma-equacao-so"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Subtraindo a primeira da segunda: x = 3. Depois 3 + y = 7, y = 4. Conferindo: 2 × 3 + 4 = 10.",
+      "variants": [
+       {
+        "question": "Qual é a solução de x + y = 6 e 2x + y = 10?",
+        "options": [
+         {
+          "text": "x = 2 e y = 4",
+          "misconceptionCode": "troca-incognitas"
+         },
+         {
+          "text": "x = 5 e y = 1",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "x = 3 e y = 4",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "x = 4 e y = 2"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual é a solução de x + y = 7 e 2x + y = 10?",
+        "options": [
+         {
+          "text": "x = 2 e y = 6",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "x = 5 e y = 2",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "x = 3 e y = 4"
+         },
+         {
+          "text": "x = 4 e y = 3",
+          "misconceptionCode": "troca-incognitas"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O par x = 2 e y = 6 resolve o sistema x + y = 8 e x − y = 2?",
+      "options": [
+       {
+        "text": "Sim, porque 2 + 6 = 8",
+        "misconceptionCode": "uma-equacao-so"
+       },
+       {
+        "text": "Sim, serve nas duas",
+        "misconceptionCode": "nao-confere"
+       },
+       {
+        "text": "Não, porque 2 − 6 não é 2"
+       },
+       {
+        "text": "Sim, se trocar os sinais",
+        "misconceptionCode": "sinal-na-soma"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O par serve na primeira equação, mas não na segunda. A solução tem de servir nas duas.",
+      "variants": [
+       {
+        "question": "O par x = 1 e y = 8 resolve o sistema x + y = 9 e x − y = 1?",
+        "options": [
+         {
+          "text": "Não, porque 1 − 8 não é 1"
+         },
+         {
+          "text": "Sim, porque 1 + 8 = 9",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "Sim, serve nas duas",
+          "misconceptionCode": "nao-confere"
+         },
+         {
+          "text": "Sim, se trocar os sinais",
+          "misconceptionCode": "sinal-na-soma"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O par x = 2 e y = 6 resolve o sistema x + y = 8 e x − y = 2?",
+        "options": [
+         {
+          "text": "Sim, se trocar os sinais",
+          "misconceptionCode": "sinal-na-soma"
+         },
+         {
+          "text": "Sim, serve nas duas",
+          "misconceptionCode": "nao-confere"
+         },
+         {
+          "text": "Sim, porque 2 + 6 = 8",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "Não, porque 2 − 6 não é 2"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08MA08-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: problemas com duas incógnitas",
+    "prompt": "Transforme cada situação num sistema e resolva.",
+    "estMinutes": 4,
+    "audioScript": "Transforme cada situação num sistema e resolva. Pergunta 1. A soma de dois números é 20 e a diferença entre eles é 4. Quais são os números? A: 16 e 4; B: 10 e 10; C: 14 e 10; D: 12 e 8. Pergunta 2. Num estacionamento há carros e motos, num total de 10 veículos e 28 rodas. Quantos carros há? A: 4; B: 6; C: 7; D: 5. Pergunta 3. Dois cadernos e uma caneta custam 14 reais. Um caderno e uma caneta custam 9 reais. Quanto custa um caderno? A: 4 reais; B: 5 reais; C: 7 reais; D: 9 reais.",
+    "questions": [
+     {
+      "question": "A soma de dois números é 20 e a diferença entre eles é 4. Quais são os números?",
+      "options": [
+       {
+        "text": "16 e 4",
+        "misconceptionCode": "uma-equacao-so"
+       },
+       {
+        "text": "10 e 10",
+        "misconceptionCode": "uma-equacao-so"
+       },
+       {
+        "text": "14 e 10",
+        "misconceptionCode": "uma-equacao-so"
+       },
+       {
+        "text": "12 e 8"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "x + y = 20 e x − y = 4. Somando: 2x = 24, x = 12. Então y = 8.",
+      "variants": [
+       {
+        "question": "A soma de dois números é 30 e a diferença entre eles é 6. Quais são os números?",
+        "options": [
+         {
+          "text": "24 e 6",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "18 e 12"
+         },
+         {
+          "text": "15 e 15",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "20 e 14",
+          "misconceptionCode": "uma-equacao-so"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A soma de dois números é 20 e a diferença entre eles é 4. Quais são os números?",
+        "options": [
+         {
+          "text": "12 e 8"
+         },
+         {
+          "text": "14 e 10",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "10 e 10",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "16 e 4",
+          "misconceptionCode": "uma-equacao-so"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Num estacionamento há carros e motos, num total de 10 veículos e 28 rodas. Quantos carros há?",
+      "options": [
+       {
+        "text": "4"
+       },
+       {
+        "text": "6",
+        "misconceptionCode": "troca-incognitas"
+       },
+       {
+        "text": "7",
+        "misconceptionCode": "uma-equacao-so"
+       },
+       {
+        "text": "5",
+        "misconceptionCode": "uma-equacao-so"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "c + m = 10 e 4c + 2m = 28. Trocando m por 10 − c: 4c + 20 − 2c = 28, então 2c = 8 e c = 4.",
+      "variants": [
+       {
+        "question": "Num sítio há galinhas e porcos, num total de 10 animais e 26 patas. Quantos porcos há?",
+        "options": [
+         {
+          "text": "7",
+          "misconceptionCode": "troca-incognitas"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "3"
+         },
+         {
+          "text": "6",
+          "misconceptionCode": "uma-equacao-so"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Num estacionamento há carros e motos, num total de 10 veículos e 28 rodas. Quantos carros há?",
+        "options": [
+         {
+          "text": "5",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "4"
+         },
+         {
+          "text": "7",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "6",
+          "misconceptionCode": "troca-incognitas"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Dois cadernos e uma caneta custam 14 reais. Um caderno e uma caneta custam 9 reais. Quanto custa um caderno?",
+      "options": [
+       {
+        "text": "4 reais",
+        "misconceptionCode": "troca-incognitas"
+       },
+       {
+        "text": "5 reais"
+       },
+       {
+        "text": "7 reais",
+        "misconceptionCode": "uma-equacao-so"
+       },
+       {
+        "text": "9 reais",
+        "misconceptionCode": "uma-equacao-so"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "2c + n = 14 e c + n = 9. Subtraindo: c = 5. A caneta custa 4.",
+      "variants": [
+       {
+        "question": "Dois sucos e um lanche custam 16 reais. Um suco e um lanche custam 11 reais. Quanto custa um suco?",
+        "options": [
+         {
+          "text": "6 reais",
+          "misconceptionCode": "troca-incognitas"
+         },
+         {
+          "text": "8 reais",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "11 reais",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "5 reais"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Dois cadernos e uma caneta custam 14 reais. Um caderno e uma caneta custam 9 reais. Quanto custa um caderno?",
+        "options": [
+         {
+          "text": "9 reais",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "7 reais",
+          "misconceptionCode": "uma-equacao-so"
+         },
+         {
+          "text": "5 reais"
+         },
+         {
+          "text": "4 reais",
+          "misconceptionCode": "troca-incognitas"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08MA08-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: o que é a solução de um sistema",
+    "prompt": "Explique com as suas palavras como resolver o sistema x + y = 6 e x − y = 2, e como conferir a resposta.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras como resolver o sistema x + y = 6 e x − y = 2, e como conferir a resposta.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "metodo",
+       "description": "Soma as equações ou usa a substituição"
+      },
+      {
+       "code": "solucao",
+       "description": "Chega a x = 4 e y = 2"
+      },
+      {
+       "code": "confere",
+       "description": "Confere nas duas equações"
+      }
+     ],
+     "exemploBoaResposta": "Eu somo as duas equações: o y some e fica 2x = 8, então x = 4. Depois uso x + y = 6 e acho y = 2. Para conferir, testo nas duas: 4 + 2 = 6 e 4 − 2 = 2. Deu certo nas duas, então é a solução."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF08MA13",
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 8,
+  "version": 1,
+  "title": "Trilha: Grandezas proporcionais e regra de três",
+  "tituloAluno": "Mais disso, mais ou menos daquilo: proporção",
+  "activities": [
+   {
+    "id": "PK2-EF08MA13-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: razão e dobro",
+    "prompt": "Vamos lembrar como as quantidades se relacionam.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar como as quantidades se relacionam. Pergunta 1. Um pão custa 2 reais. Quanto custam 5 pães? A: 7 reais; B: 10 reais; C: 2,50 reais; D: 25 reais. Pergunta 2. Se 1 kg de arroz custa 6 reais, quanto custam 3 kg? A: 9 reais; B: 2 reais; C: 18 reais; D: 63 reais. Pergunta 3. O que é o dobro de 15? A: 17; B: 7,5; C: 152; D: 30.",
+    "questions": [
+     {
+      "question": "Um pão custa 2 reais. Quanto custam 5 pães?",
+      "options": [
+       {
+        "text": "7 reais",
+        "misconceptionCode": "soma-em-vez-de-proporcao"
+       },
+       {
+        "text": "10 reais"
+       },
+       {
+        "text": "2,50 reais",
+        "misconceptionCode": "inverte-razao"
+       },
+       {
+        "text": "25 reais",
+        "misconceptionCode": "nao-proporcional"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Cada pão custa 2, então 5 pães custam 5 × 2 = 10.",
+      "variants": [
+       {
+        "question": "Uma caneta custa 3 reais. Quanto custam 4 canetas?",
+        "options": [
+         {
+          "text": "7 reais",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "0,75 real",
+          "misconceptionCode": "inverte-razao"
+         },
+         {
+          "text": "34 reais",
+          "misconceptionCode": "nao-proporcional"
+         },
+         {
+          "text": "12 reais"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um pão custa 2 reais. Quanto custam 5 pães?",
+        "options": [
+         {
+          "text": "25 reais",
+          "misconceptionCode": "nao-proporcional"
+         },
+         {
+          "text": "2,50 reais",
+          "misconceptionCode": "inverte-razao"
+         },
+         {
+          "text": "10 reais"
+         },
+         {
+          "text": "7 reais",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Se 1 kg de arroz custa 6 reais, quanto custam 3 kg?",
+      "options": [
+       {
+        "text": "9 reais",
+        "misconceptionCode": "soma-em-vez-de-proporcao"
+       },
+       {
+        "text": "2 reais",
+        "misconceptionCode": "inverte-razao"
+       },
+       {
+        "text": "18 reais"
+       },
+       {
+        "text": "63 reais",
+        "misconceptionCode": "nao-proporcional"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O triplo da quantidade custa o triplo do preço: 3 × 6 = 18.",
+      "variants": [
+       {
+        "question": "Se 1 litro de leite custa 5 reais, quanto custam 4 litros?",
+        "options": [
+         {
+          "text": "20 reais"
+         },
+         {
+          "text": "9 reais",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "1,25 real",
+          "misconceptionCode": "inverte-razao"
+         },
+         {
+          "text": "54 reais",
+          "misconceptionCode": "nao-proporcional"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Se 1 kg de arroz custa 6 reais, quanto custam 3 kg?",
+        "options": [
+         {
+          "text": "63 reais",
+          "misconceptionCode": "nao-proporcional"
+         },
+         {
+          "text": "2 reais",
+          "misconceptionCode": "inverte-razao"
+         },
+         {
+          "text": "9 reais",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "18 reais"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que é o dobro de 15?",
+      "options": [
+       {
+        "text": "17",
+        "misconceptionCode": "soma-em-vez-de-proporcao"
+       },
+       {
+        "text": "7,5",
+        "misconceptionCode": "inverte-razao"
+       },
+       {
+        "text": "152",
+        "misconceptionCode": "nao-proporcional"
+       },
+       {
+        "text": "30"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Dobro é duas vezes: 2 × 15 = 30.",
+      "variants": [
+       {
+        "question": "O que é a metade de 40?",
+        "options": [
+         {
+          "text": "38",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "20"
+         },
+         {
+          "text": "80",
+          "misconceptionCode": "inverte-razao"
+         },
+         {
+          "text": "42",
+          "misconceptionCode": "nao-proporcional"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que é o dobro de 15?",
+        "options": [
+         {
+          "text": "30"
+         },
+         {
+          "text": "152",
+          "misconceptionCode": "nao-proporcional"
+         },
+         {
+          "text": "7,5",
+          "misconceptionCode": "inverte-razao"
+         },
+         {
+          "text": "17",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08MA13-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: direta ou inversa",
+    "prompt": "Diretamente proporcionais: quando uma dobra, a outra dobra. Inversamente proporcionais: quando uma dobra, a outra cai pela metade. Vamos analisar juntos.",
+    "estMinutes": 4,
+    "audioScript": "Diretamente proporcionais: quando uma dobra, a outra dobra. Inversamente proporcionais: quando uma dobra, a outra cai pela metade. Vamos analisar juntos. Pergunta 1. Com 2 ovos, faço 1 bolo. Com 6 ovos, faço 3 bolos. Ovos e bolos são grandezas: A: Diretamente proporcionais; B: Inversamente proporcionais; C: Não proporcionais; D: Iguais. Pergunta 2. 2 pintores pintam um muro em 6 horas. 4 pintores, no mesmo ritmo, levam 3 horas. Pintores e tempo são grandezas: A: Diretamente proporcionais; B: Inversamente proporcionais; C: Não proporcionais; D: Iguais. Pergunta 3. Uma criança tinha 1 metro aos 4 anos. Aos 8 anos, ela terá 2 metros? A: Sim, dobrou a idade, dobra a altura; B: Sim, é proporção direta; C: Não: idade e altura não são proporcionais; D: Sim, é proporção inversa.",
+    "questions": [
+     {
+      "question": "Com 2 ovos, faço 1 bolo. Com 6 ovos, faço 3 bolos. Ovos e bolos são grandezas:",
+      "options": [
+       {
+        "text": "Diretamente proporcionais"
+       },
+       {
+        "text": "Inversamente proporcionais",
+        "misconceptionCode": "sempre-direta"
+       },
+       {
+        "text": "Não proporcionais",
+        "misconceptionCode": "nao-proporcional"
+       },
+       {
+        "text": "Iguais",
+        "misconceptionCode": "soma-em-vez-de-proporcao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Triplicando os ovos, triplicam os bolos. As duas aumentam na mesma proporção.",
+      "variants": [
+       {
+        "question": "Uma torneira enche 10 litros em 1 minuto e 30 litros em 3 minutos. Tempo e litros são grandezas:",
+        "options": [
+         {
+          "text": "Inversamente proporcionais",
+          "misconceptionCode": "sempre-direta"
+         },
+         {
+          "text": "Não proporcionais",
+          "misconceptionCode": "nao-proporcional"
+         },
+         {
+          "text": "Diretamente proporcionais"
+         },
+         {
+          "text": "Iguais",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Com 2 ovos, faço 1 bolo. Com 6 ovos, faço 3 bolos. Ovos e bolos são grandezas:",
+        "options": [
+         {
+          "text": "Iguais",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "Diretamente proporcionais"
+         },
+         {
+          "text": "Não proporcionais",
+          "misconceptionCode": "nao-proporcional"
+         },
+         {
+          "text": "Inversamente proporcionais",
+          "misconceptionCode": "sempre-direta"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "2 pintores pintam um muro em 6 horas. 4 pintores, no mesmo ritmo, levam 3 horas. Pintores e tempo são grandezas:",
+      "options": [
+       {
+        "text": "Diretamente proporcionais",
+        "misconceptionCode": "sempre-direta"
+       },
+       {
+        "text": "Inversamente proporcionais"
+       },
+       {
+        "text": "Não proporcionais",
+        "misconceptionCode": "nao-proporcional"
+       },
+       {
+        "text": "Iguais",
+        "misconceptionCode": "soma-em-vez-de-proporcao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Dobrando os pintores, o tempo cai pela metade. Quando uma aumenta, a outra diminui na mesma proporção.",
+      "variants": [
+       {
+        "question": "A 60 km/h, uma viagem leva 4 horas. A 120 km/h, leva 2 horas. Velocidade e tempo são grandezas:",
+        "options": [
+         {
+          "text": "Diretamente proporcionais",
+          "misconceptionCode": "sempre-direta"
+         },
+         {
+          "text": "Não proporcionais",
+          "misconceptionCode": "nao-proporcional"
+         },
+         {
+          "text": "Iguais",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "Inversamente proporcionais"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "2 pintores pintam um muro em 6 horas. 4 pintores, no mesmo ritmo, levam 3 horas. Pintores e tempo são grandezas:",
+        "options": [
+         {
+          "text": "Iguais",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "Não proporcionais",
+          "misconceptionCode": "nao-proporcional"
+         },
+         {
+          "text": "Inversamente proporcionais"
+         },
+         {
+          "text": "Diretamente proporcionais",
+          "misconceptionCode": "sempre-direta"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Uma criança tinha 1 metro aos 4 anos. Aos 8 anos, ela terá 2 metros?",
+      "options": [
+       {
+        "text": "Sim, dobrou a idade, dobra a altura",
+        "misconceptionCode": "nao-proporcional"
+       },
+       {
+        "text": "Sim, é proporção direta",
+        "misconceptionCode": "sempre-direta"
+       },
+       {
+        "text": "Não: idade e altura não são proporcionais"
+       },
+       {
+        "text": "Sim, é proporção inversa",
+        "misconceptionCode": "nao-proporcional"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Nem tudo é proporcional. A altura não dobra quando a idade dobra.",
+      "variants": [
+       {
+        "question": "Um time fez 2 gols no primeiro tempo. Com certeza fará 4 gols no jogo todo?",
+        "options": [
+         {
+          "text": "Não: gols e tempo não são proporcionais"
+         },
+         {
+          "text": "Sim, dobrou o tempo, dobram os gols",
+          "misconceptionCode": "nao-proporcional"
+         },
+         {
+          "text": "Sim, é proporção direta",
+          "misconceptionCode": "sempre-direta"
+         },
+         {
+          "text": "Sim, é proporção inversa",
+          "misconceptionCode": "nao-proporcional"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Uma criança tinha 1 metro aos 4 anos. Aos 8 anos, ela terá 2 metros?",
+        "options": [
+         {
+          "text": "Sim, é proporção inversa",
+          "misconceptionCode": "nao-proporcional"
+         },
+         {
+          "text": "Sim, é proporção direta",
+          "misconceptionCode": "sempre-direta"
+         },
+         {
+          "text": "Sim, dobrou a idade, dobra a altura",
+          "misconceptionCode": "nao-proporcional"
+         },
+         {
+          "text": "Não: idade e altura não são proporcionais"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08MA13-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: regra de três",
+    "prompt": "Descubra se a relação é direta ou inversa e calcule.",
+    "estMinutes": 5,
+    "audioScript": "Descubra se a relação é direta ou inversa e calcule. Pergunta 1. 3 cadernos custam 24 reais. Quanto custam 5 cadernos? A: 26 reais; B: 14,40 reais; C: 120 reais; D: 40 reais. Pergunta 2. Um carro percorre 120 km com 10 litros. Quantos litros ele gasta para percorrer 300 km? A: 25 litros; B: 190 litros; C: 4 litros; D: 30 litros. Pergunta 3. 4 pedreiros constroem um muro em 12 dias. No mesmo ritmo, 8 pedreiros constroem em quantos dias? A: 24 dias; B: 6 dias; C: 16 dias; D: 8 dias. Pergunta 4. A 80 km/h, uma viagem dura 3 horas. A 60 km/h, quanto tempo dura? A: 2,25 horas; B: 2 horas; C: 4 horas; D: 5 horas.",
+    "questions": [
+     {
+      "question": "3 cadernos custam 24 reais. Quanto custam 5 cadernos?",
+      "options": [
+       {
+        "text": "26 reais",
+        "misconceptionCode": "soma-em-vez-de-proporcao"
+       },
+       {
+        "text": "14,40 reais",
+        "misconceptionCode": "inverte-razao"
+       },
+       {
+        "text": "120 reais",
+        "misconceptionCode": "nao-proporcional"
+       },
+       {
+        "text": "40 reais"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Cada caderno custa 24 ÷ 3 = 8 reais. Cinco custam 5 × 8 = 40.",
+      "variants": [
+       {
+        "question": "4 lápis custam 12 reais. Quanto custam 7 lápis?",
+        "options": [
+         {
+          "text": "15 reais",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "21 reais"
+         },
+         {
+          "text": "6,86 reais",
+          "misconceptionCode": "inverte-razao"
+         },
+         {
+          "text": "84 reais",
+          "misconceptionCode": "nao-proporcional"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "3 cadernos custam 24 reais. Quanto custam 5 cadernos?",
+        "options": [
+         {
+          "text": "40 reais"
+         },
+         {
+          "text": "120 reais",
+          "misconceptionCode": "nao-proporcional"
+         },
+         {
+          "text": "14,40 reais",
+          "misconceptionCode": "inverte-razao"
+         },
+         {
+          "text": "26 reais",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Um carro percorre 120 km com 10 litros. Quantos litros ele gasta para percorrer 300 km?",
+      "options": [
+       {
+        "text": "25 litros"
+       },
+       {
+        "text": "190 litros",
+        "misconceptionCode": "soma-em-vez-de-proporcao"
+       },
+       {
+        "text": "4 litros",
+        "misconceptionCode": "inverte-razao"
+       },
+       {
+        "text": "30 litros",
+        "misconceptionCode": "nao-proporcional"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Ele faz 12 km por litro. Para 300 km: 300 ÷ 12 = 25 litros.",
+      "variants": [
+       {
+        "question": "Um carro percorre 100 km com 8 litros. Quantos litros ele gasta para percorrer 250 km?",
+        "options": [
+         {
+          "text": "158 litros",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "3,2 litros",
+          "misconceptionCode": "inverte-razao"
+         },
+         {
+          "text": "20 litros"
+         },
+         {
+          "text": "25 litros",
+          "misconceptionCode": "nao-proporcional"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um carro percorre 120 km com 10 litros. Quantos litros ele gasta para percorrer 300 km?",
+        "options": [
+         {
+          "text": "30 litros",
+          "misconceptionCode": "nao-proporcional"
+         },
+         {
+          "text": "25 litros"
+         },
+         {
+          "text": "4 litros",
+          "misconceptionCode": "inverte-razao"
+         },
+         {
+          "text": "190 litros",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "4 pedreiros constroem um muro em 12 dias. No mesmo ritmo, 8 pedreiros constroem em quantos dias?",
+      "options": [
+       {
+        "text": "24 dias",
+        "misconceptionCode": "sempre-direta"
+       },
+       {
+        "text": "6 dias"
+       },
+       {
+        "text": "16 dias",
+        "misconceptionCode": "soma-em-vez-de-proporcao"
+       },
+       {
+        "text": "8 dias",
+        "misconceptionCode": "soma-em-vez-de-proporcao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "É inversa: dobrando os pedreiros, o tempo cai pela metade. 12 ÷ 2 = 6.",
+      "variants": [
+       {
+        "question": "3 torneiras enchem um tanque em 8 horas. No mesmo ritmo, 6 torneiras enchem em quantas horas?",
+        "options": [
+         {
+          "text": "16 horas",
+          "misconceptionCode": "sempre-direta"
+         },
+         {
+          "text": "11 horas",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "5 horas",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "4 horas"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "4 pedreiros constroem um muro em 12 dias. No mesmo ritmo, 8 pedreiros constroem em quantos dias?",
+        "options": [
+         {
+          "text": "8 dias",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "16 dias",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "6 dias"
+         },
+         {
+          "text": "24 dias",
+          "misconceptionCode": "sempre-direta"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "A 80 km/h, uma viagem dura 3 horas. A 60 km/h, quanto tempo dura?",
+      "options": [
+       {
+        "text": "2,25 horas",
+        "misconceptionCode": "sempre-direta"
+       },
+       {
+        "text": "2 horas",
+        "misconceptionCode": "soma-em-vez-de-proporcao"
+       },
+       {
+        "text": "4 horas"
+       },
+       {
+        "text": "5 horas",
+        "misconceptionCode": "soma-em-vez-de-proporcao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A distância é 80 × 3 = 240 km. A 60 km/h: 240 ÷ 60 = 4 horas. Mais devagar, mais tempo.",
+      "variants": [
+       {
+        "question": "A 90 km/h, uma viagem dura 2 horas. A 60 km/h, quanto tempo dura?",
+        "options": [
+         {
+          "text": "3 horas"
+         },
+         {
+          "text": "1,33 hora",
+          "misconceptionCode": "sempre-direta"
+         },
+         {
+          "text": "1 hora",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "4 horas",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A 80 km/h, uma viagem dura 3 horas. A 60 km/h, quanto tempo dura?",
+        "options": [
+         {
+          "text": "5 horas",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "2 horas",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "2,25 horas",
+          "misconceptionCode": "sempre-direta"
+         },
+         {
+          "text": "4 horas"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08MA13-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: proporção em situações reais",
+    "prompt": "Leia com atenção e decida que tipo de relação existe.",
+    "estMinutes": 4,
+    "audioScript": "Leia com atenção e decida que tipo de relação existe. Pergunta 1. Uma receita para 4 pessoas leva 300 g de farinha. Para 10 pessoas, quanto de farinha? A: 306 g; B: 120 g; C: 3.000 g; D: 750 g. Pergunta 2. Uma ração dura 20 dias para 6 cachorros. Para 12 cachorros, quanto tempo dura? A: 10 dias; B: 40 dias; C: 26 dias; D: 14 dias. Pergunta 3. Num mapa, 1 cm representa 50 km. Duas cidades estão a 6 cm no mapa. Qual é a distância real? A: 56 km; B: 300 km; C: 8,3 km; D: 3.000 km.",
+    "questions": [
+     {
+      "question": "Uma receita para 4 pessoas leva 300 g de farinha. Para 10 pessoas, quanto de farinha?",
+      "options": [
+       {
+        "text": "306 g",
+        "misconceptionCode": "soma-em-vez-de-proporcao"
+       },
+       {
+        "text": "120 g",
+        "misconceptionCode": "inverte-razao"
+       },
+       {
+        "text": "3.000 g",
+        "misconceptionCode": "nao-proporcional"
+       },
+       {
+        "text": "750 g"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "São 75 g por pessoa (300 ÷ 4). Para 10 pessoas: 750 g.",
+      "variants": [
+       {
+        "question": "Uma receita para 6 pessoas leva 240 g de açúcar. Para 9 pessoas, quanto de açúcar?",
+        "options": [
+         {
+          "text": "243 g",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "360 g"
+         },
+         {
+          "text": "160 g",
+          "misconceptionCode": "inverte-razao"
+         },
+         {
+          "text": "2.160 g",
+          "misconceptionCode": "nao-proporcional"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Uma receita para 4 pessoas leva 300 g de farinha. Para 10 pessoas, quanto de farinha?",
+        "options": [
+         {
+          "text": "750 g"
+         },
+         {
+          "text": "3.000 g",
+          "misconceptionCode": "nao-proporcional"
+         },
+         {
+          "text": "120 g",
+          "misconceptionCode": "inverte-razao"
+         },
+         {
+          "text": "306 g",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Uma ração dura 20 dias para 6 cachorros. Para 12 cachorros, quanto tempo dura?",
+      "options": [
+       {
+        "text": "10 dias"
+       },
+       {
+        "text": "40 dias",
+        "misconceptionCode": "sempre-direta"
+       },
+       {
+        "text": "26 dias",
+        "misconceptionCode": "soma-em-vez-de-proporcao"
+       },
+       {
+        "text": "14 dias",
+        "misconceptionCode": "soma-em-vez-de-proporcao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Mais cachorros comem mais rápido. Dobrando os cachorros, a ração dura a metade: 10 dias.",
+      "variants": [
+       {
+        "question": "Uma caixa-d'água abastece 4 casas por 12 dias. Para 8 casas, quanto tempo dura?",
+        "options": [
+         {
+          "text": "24 dias",
+          "misconceptionCode": "sempre-direta"
+         },
+         {
+          "text": "16 dias",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "6 dias"
+         },
+         {
+          "text": "8 dias",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Uma ração dura 20 dias para 6 cachorros. Para 12 cachorros, quanto tempo dura?",
+        "options": [
+         {
+          "text": "14 dias",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "10 dias"
+         },
+         {
+          "text": "26 dias",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "40 dias",
+          "misconceptionCode": "sempre-direta"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Num mapa, 1 cm representa 50 km. Duas cidades estão a 6 cm no mapa. Qual é a distância real?",
+      "options": [
+       {
+        "text": "56 km",
+        "misconceptionCode": "soma-em-vez-de-proporcao"
+       },
+       {
+        "text": "300 km"
+       },
+       {
+        "text": "8,3 km",
+        "misconceptionCode": "inverte-razao"
+       },
+       {
+        "text": "3.000 km",
+        "misconceptionCode": "nao-proporcional"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Cada centímetro vale 50 km. Então 6 × 50 = 300 km.",
+      "variants": [
+       {
+        "question": "Num mapa, 1 cm representa 20 km. Duas cidades estão a 7 cm no mapa. Qual é a distância real?",
+        "options": [
+         {
+          "text": "27 km",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         },
+         {
+          "text": "2,9 km",
+          "misconceptionCode": "inverte-razao"
+         },
+         {
+          "text": "1.400 km",
+          "misconceptionCode": "nao-proporcional"
+         },
+         {
+          "text": "140 km"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Num mapa, 1 cm representa 50 km. Duas cidades estão a 6 cm no mapa. Qual é a distância real?",
+        "options": [
+         {
+          "text": "3.000 km",
+          "misconceptionCode": "nao-proporcional"
+         },
+         {
+          "text": "8,3 km",
+          "misconceptionCode": "inverte-razao"
+         },
+         {
+          "text": "300 km"
+         },
+         {
+          "text": "56 km",
+          "misconceptionCode": "soma-em-vez-de-proporcao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08MA13-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: direta ou inversa",
+    "prompt": "Explique com as suas palavras a diferença entre grandezas diretamente e inversamente proporcionais. Dê um exemplo de cada.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras a diferença entre grandezas diretamente e inversamente proporcionais. Dê um exemplo de cada.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "direta",
+       "description": "Explica que na direta as duas aumentam ou diminuem juntas, na mesma proporção"
+      },
+      {
+       "code": "inversa",
+       "description": "Explica que na inversa, quando uma aumenta, a outra diminui na mesma proporção"
+      },
+      {
+       "code": "exemplos",
+       "description": "Dá um exemplo correto de cada"
+      }
+     ],
+     "exemploBoaResposta": "Nas grandezas diretamente proporcionais, quando uma dobra, a outra também dobra, como a quantidade de pães e o preço. Nas inversamente proporcionais, quando uma dobra, a outra cai pela metade, como o número de pedreiros e o tempo para fazer um muro."
+    }
+   }
+  ]
+ }
+]
