@@ -155,7 +155,7 @@ function TrackCard({ track, onAtribuir, onDuplicar }: {
         </span>
       </div>
 
-      {track.reviewNote && (
+      {track.reviewNote && track.status === "DRAFT" && (
         <div className="bg-[#FEF3C7] border border-yellow-200 rounded-lg px-3 py-2 text-xs text-[#92400E]">
           <span className="font-medium">Devolvido: </span>{track.reviewNote}
         </div>

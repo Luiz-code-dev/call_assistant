@@ -30,8 +30,19 @@ const TRILHAS_DIR = join(DATA_DIR, "trilhas");
 const DIAG_DIR = join(DATA_DIR, "diagnosticos");
 const FICHAS_DIR = join(DATA_DIR, "fichas");
 
-const REVIEW_NOTE = "pacote de demonstração, revisão pedagógica pendente";
-const PACOTE_NOTES = new Set([REVIEW_NOTE, "pacote de demonstracao, revisao pedagogica pendente", "pacote de demonstração"]);
+const REVIEW_NOTE = "conteúdo SpeakFlow, em revisão pela equipe pedagógica";
+// Notas antigas do pacote: continuam valendo para reconhecer o que é do pacote e são trocadas pela atual
+const NOTAS_ANTIGAS = ["pacote de demonstração, revisão pedagógica pendente", "pacote de demonstracao, revisao pedagogica pendente", "pacote de demonstração"];
+const PACOTE_NOTES = new Set([REVIEW_NOTE, ...NOTAS_ANTIGAS]);
+
+/** Troca a nota antiga ("revisão pedagógica pendente") pela atual em tudo o que é do pacote */
+async function atualizarNotas(db) {
+  const where = { networkId: null, reviewNote: { in: NOTAS_ANTIGAS } };
+  const data = { reviewNote: REVIEW_NOTE };
+  const r = await Promise.all([db.eduTrack.updateMany({ where, data }), db.eduSkillGuide.updateMany({ where, data }), db.eduSkillPrerequisite.updateMany({ where, data })]);
+  const n = r.reduce((a, x) => a + x.count, 0);
+  if (n) console.log(`  [notas] ${n} registros do pacote com a nota de revisão atualizada`);
+}
 const LOCK_ID = 2003;
 const SYSTEM = "speakflow-system";
 
@@ -389,6 +400,7 @@ async function importInTenant(envVar) {
     await importFichas(db);
     await importTrilhas(db);
     await importDiagnosticos(db);
+    await atualizarNotas(db);
     await fecharAtividadesAntigas(db);
     console.log(`[${envVar}] concluído`);
   } finally {
