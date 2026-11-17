@@ -35,7 +35,7 @@ export default function ProfessorAulaHoje() {
     const d = await apiPost<{ objetivos: Objetivo[] }>("/professor/aulas/sugerir-objetivos", { ofertaId, material });
     setLoading(false);
     if (!d) { setErro("Não foi possível sugerir objetivos. Tente novamente."); return; }
-    setObjetivos((d.objetivos ?? []).map(o => ({ ...o, selecionado: true })));
+    setObjetivos((d.objetivos ?? []).map((o: Objetivo) => ({ ...o, selecionado: true })));
     setStep(3);
   };
 
@@ -178,11 +178,11 @@ const s = StyleSheet.create({
   stepHeader: { marginBottom: 20 },
   stepTitle: { fontFamily: fonts.bold, fontSize: 22, color: "#1F1A2E" },
   stepSub: { fontFamily: fonts.regular, fontSize: 14, color: "#5B5470", marginTop: 4 },
-  optCard: { flexDirection: "row", alignItems: "center", backgroundColor: "#fff", borderRadius: radius.lg, padding: 14, borderWidth: 1, borderColor: "#E9E5F5", marginBottom: 8, minHeight: touch },
+  optCard: { flexDirection: "row", alignItems: "center", backgroundColor: "#fff", borderRadius: radius.lg, padding: 14, borderWidth: 1, borderColor: "#E9E5F5", marginBottom: 8, minHeight: touch.default },
   optSelected: { borderColor: colors.action, backgroundColor: "#EDE9FE" },
   optText: { fontFamily: fonts.medium, fontSize: 14, color: "#1F1A2E", flex: 1 },
   optCode: { fontFamily: fonts.mono ?? fonts.medium, fontSize: 11, color: "#5B5470", marginBottom: 2 },
-  btn: { flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 8, backgroundColor: colors.action, borderRadius: radius.md, paddingVertical: 14, minHeight: touch, marginTop: 12 },
+  btn: { flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 8, backgroundColor: colors.action, borderRadius: radius.md, paddingVertical: 14, minHeight: touch.default, marginTop: 12 },
   btnSecundario: { backgroundColor: "#EDE9FE", marginTop: 8 },
   btnText: { color: "#fff", fontFamily: fonts.semibold, fontSize: 15 },
   erroText: { color: "#B91C1C", fontFamily: fonts.medium, fontSize: 13, textAlign: "center", marginVertical: 8 },
