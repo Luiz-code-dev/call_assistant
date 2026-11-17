@@ -114,7 +114,7 @@ export default function TrilhaDetalhe() {
         </div>
       </div>
 
-      {track.reviewNote && (
+      {track.reviewNote && track.status === "DRAFT" && (
         <div className="mb-4 bg-[#FEF3C7] border border-yellow-200 rounded-xl px-4 py-3 text-sm text-[#92400E]">
           <span className="font-semibold">Devolvido pela coordenação: </span>{track.reviewNote}
         </div>

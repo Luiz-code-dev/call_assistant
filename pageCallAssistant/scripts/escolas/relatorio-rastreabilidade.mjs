@@ -22,7 +22,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const DATA_DIR = join(ROOT, "prisma", "data", "conteudo");
-const NOTA_PACOTE = "pacote de demonstração, revisão pedagógica pendente";
+const NOTA_PACOTE = "conteúdo SpeakFlow, em revisão pela equipe pedagógica";
 const MATERIAS = { LP: "Língua Portuguesa", MA: "Matemática", CI: "Ciências", HI: "História", GE: "Geografia", AR: "Arte", EF: "Educação Física", LI: "Língua Inglesa", ER: "Ensino Religioso" };
 
 function arg(nome, padrao) {
@@ -149,6 +149,7 @@ export async function carregarDoBanco(url) {
 
 // ── Análise ──────────────────────────────────────────────────────────────────
 const pendente = (nota) => !nota || /pendente|demonstra/i.test(nota);
+const emRevisao = (nota) => /em revis/i.test(nota ?? "");
 const anosTxt = (s) => (s?.gradeYears?.length ? (s.gradeYears.length > 1 ? `${Math.min(...s.gradeYears)}º ao ${Math.max(...s.gradeYears)}º` : `${s.gradeYears[0]}º`) : "");
 
 export function analisar(d) {
@@ -203,7 +204,7 @@ export function analisar(d) {
         "Trilha": tr.map((t) => t.id).join(", ") || (trOutroAno.length ? `Não (há trilha escrita para o ${trOutroAno[0].gradeYear}º ano)` : rasc ? "Não (rascunho)" : "Não"),
         "Etapas": etapas,
         "Questões": questoes + itensDiag,
-        "Revisão pedagógica": !temConteudo ? "Sem conteúdo" : tr.some((t) => pendente(t.reviewNote)) || !tr.length ? "Pendente" : "Aprovada",
+        "Revisão pedagógica": !temConteudo ? "Sem conteúdo" : tr.some((t) => emRevisao(t.reviewNote)) ? "Em revisão" : tr.some((t) => pendente(t.reviewNote)) || !tr.length ? "Pendente" : "Aprovada",
         "Publicado": publicado ? "Sim" : "Não",
         "Testado": "",
       });

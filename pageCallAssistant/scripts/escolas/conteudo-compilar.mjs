@@ -34,7 +34,7 @@ import { fileURLToPath } from "node:url";
 
 const DATA = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "prisma", "data", "conteudo");
 const FONTE = join(DATA, "fonte");
-const NOTA = "pacote de demonstração, revisão pedagógica pendente";
+const NOTA = "conteúdo SpeakFlow, em revisão pela equipe pedagógica";
 const MATERIAS = { LP: "Língua Portuguesa", MA: "Matemática", CI: "Ciências", HI: "História", GE: "Geografia", AR: "Arte", EF: "Educação Física", LI: "Língua Inglesa", ER: "Ensino Religioso" };
 const ETAPAS = ["relembrar", "exemplo_guiado", "praticar", "aplicar", "explicar"];
 const MINUTOS = { relembrar: 4, exemplo_guiado: 4, praticar: 5, aplicar: 4, explicar: 6 };
@@ -79,7 +79,7 @@ function parse(arq, texto) {
     if (l.startsWith("#PRE ")) {
       fecharQ(n);
       const [par, peso] = partes(l.slice(5)); const [a, b] = par.split(">").map((x) => x.trim());
-      out.pres.push({ skillCode: a, prerequisiteCode: b, weight: Number(peso ?? 3), reviewNote: "pacote de demonstração" }); return;
+      out.pres.push({ skillCode: a, prerequisiteCode: b, weight: Number(peso ?? 3), reviewNote: NOTA }); return;
     }
     const m = l.match(/^(FAZ|ERRO|NOTA|Q|E|V|C|BOA|I):\s*(.*)$/);
     if (m) {
