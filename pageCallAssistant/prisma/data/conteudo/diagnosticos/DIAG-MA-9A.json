@@ -1,0 +1,327 @@
+{
+ "id": "DIAG2-MA-9A",
+ "version": 1,
+ "titulo": "Diagnóstico de Matemática — 9º ano",
+ "descricao": "Equações do 2º grau, teorema de Pitágoras, porcentagens sucessivas e funções no 9º ano, com degrau para expressões algébricas e proporcionalidade do 8º ano.",
+ "subjectCode": "MA",
+ "subjectName": "Matemática",
+ "gradeYear": 9,
+ "status": "APPROVED",
+ "source": "SPEAKFLOW",
+ "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+ "adaptive": true,
+ "items": [
+  {
+   "id": "DI2-9A-EF09MA09-01",
+   "skillCode": "EF09MA09",
+   "question": "Quais são as soluções de x² = 36?",
+   "options": [
+    {
+     "text": "Só 6",
+     "misconceptionCode": "uma-raiz-so"
+    },
+    {
+     "text": "18",
+     "misconceptionCode": "trata-como-1grau"
+    },
+    {
+     "text": "36 e −36",
+     "misconceptionCode": "trata-como-1grau"
+    },
+    {
+     "text": "6 e −6"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "6² = 36 e (−6)² = 36.",
+   "audioScript": "Pergunta 1. Quais são as soluções de x² = 36? A: Só 6; B: 18; C: 36 e −36; D: 6 e −6.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-9A-EF09MA09-02",
+   "skillCode": "EF09MA09",
+   "question": "Quais são as soluções de x² − 5x + 4 = 0?",
+   "options": [
+    {
+     "text": "1 e 4"
+    },
+    {
+     "text": "−1 e −4",
+     "misconceptionCode": "raiz-de-negativo"
+    },
+    {
+     "text": "5 e 4",
+     "misconceptionCode": "fatoracao-errada"
+    },
+    {
+     "text": "Só 1",
+     "misconceptionCode": "uma-raiz-so"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "(x − 1)(x − 4) = 0.",
+   "audioScript": "Pergunta 2. Quais são as soluções de x² − 5x + 4 = 0? A: 1 e 4; B: −1 e −4; C: 5 e 4; D: Só 1.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-9A-EF09MA14-01",
+   "skillCode": "EF09MA14",
+   "question": "Os catetos de um triângulo retângulo medem 6 cm e 8 cm. A hipotenusa mede:",
+   "options": [
+    {
+     "text": "14 cm",
+     "misconceptionCode": "soma-os-lados"
+    },
+    {
+     "text": "10 cm"
+    },
+    {
+     "text": "100 cm",
+     "misconceptionCode": "esquece-a-raiz"
+    },
+    {
+     "text": "48 cm",
+     "misconceptionCode": "soma-os-lados"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "36 + 64 = 100, e a raiz de 100 é 10.",
+   "audioScript": "Pergunta 3. Os catetos de um triângulo retângulo medem 6 cm e 8 cm. A hipotenusa mede: A: 14 cm; B: 10 cm; C: 100 cm; D: 48 cm.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-9A-EF09MA14-02",
+   "skillCode": "EF09MA14",
+   "question": "Uma escada de 5 m está apoiada com o pé a 3 m da parede. A que altura ela alcança?",
+   "options": [
+    {
+     "text": "8 m",
+     "misconceptionCode": "troca-hipotenusa"
+    },
+    {
+     "text": "2 m",
+     "misconceptionCode": "soma-os-lados"
+    },
+    {
+     "text": "4 m"
+    },
+    {
+     "text": "16 m",
+     "misconceptionCode": "esquece-a-raiz"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "25 = 9 + a², então a = 4.",
+   "audioScript": "Pergunta 4. Uma escada de 5 m está apoiada com o pé a 3 m da parede. A que altura ela alcança? A: 8 m; B: 2 m; C: 4 m; D: 16 m.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-9A-EF09MA05-01",
+   "skillCode": "EF09MA05",
+   "question": "Um produto de 100 reais aumenta 20% e, depois, mais 10%. Preço final:",
+   "options": [
+    {
+     "text": "130 reais",
+     "misconceptionCode": "soma-percentuais"
+    },
+    {
+     "text": "120 reais",
+     "misconceptionCode": "base-errada"
+    },
+    {
+     "text": "300 reais",
+     "misconceptionCode": "porcento-como-reais"
+    },
+    {
+     "text": "132 reais"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "100 → 120 → 132.",
+   "audioScript": "Pergunta 5. Um produto de 100 reais aumenta 20% e, depois, mais 10%. Preço final: A: 130 reais; B: 120 reais; C: 300 reais; D: 132 reais.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-9A-EF09MA05-02",
+   "skillCode": "EF09MA05",
+   "question": "Um produto de 100 reais sobe 20% e depois tem 20% de desconto. Preço final:",
+   "options": [
+    {
+     "text": "96 reais"
+    },
+    {
+     "text": "100 reais",
+     "misconceptionCode": "desfaz-com-mesmo"
+    },
+    {
+     "text": "120 reais",
+     "misconceptionCode": "base-errada"
+    },
+    {
+     "text": "80 reais",
+     "misconceptionCode": "base-errada"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "100 → 120 → 96.",
+   "audioScript": "Pergunta 6. Um produto de 100 reais sobe 20% e depois tem 20% de desconto. Preço final: A: 96 reais; B: 100 reais; C: 120 reais; D: 80 reais.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-9A-EF09MA06-01",
+   "skillCode": "EF09MA06",
+   "question": "Um serviço cobra y = 10 + 4x. Quanto vale y quando x = 5?",
+   "options": [
+    {
+     "text": "20",
+     "misconceptionCode": "ignora-parte-fixa"
+    },
+    {
+     "text": "30"
+    },
+    {
+     "text": "70",
+     "misconceptionCode": "troca-variaveis"
+    },
+    {
+     "text": "19",
+     "misconceptionCode": "sempre-proporcional"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "10 + 4 × 5 = 30.",
+   "audioScript": "Pergunta 7. Um serviço cobra y = 10 + 4x. Quanto vale y quando x = 5? A: 20; B: 30; C: 70; D: 19.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-9A-EF09MA06-02",
+   "skillCode": "EF09MA06",
+   "question": "O ponto (4, 9) no gráfico de uma função indica que:",
+   "options": [
+    {
+     "text": "Quando x = 9, y = 4",
+     "misconceptionCode": "le-grafico-errado"
+    },
+    {
+     "text": "x + y = 49",
+     "misconceptionCode": "le-grafico-errado"
+    },
+    {
+     "text": "Quando x = 4, y = 9"
+    },
+    {
+     "text": "A função vale 4",
+     "misconceptionCode": "troca-variaveis"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "O primeiro número é x; o segundo, y.",
+   "audioScript": "Pergunta 8. O ponto (4, 9) no gráfico de uma função indica que: A: Quando x = 9, y = 4; B: x + y = 49; C: Quando x = 4, y = 9; D: A função vale 4.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-9A-EF08MA06-01",
+   "skillCode": "EF08MA06",
+   "question": "Qual é o valor de 3x + 2 quando x = 4?",
+   "options": [
+    {
+     "text": "36",
+     "misconceptionCode": "troca-variaveis"
+    },
+    {
+     "text": "18",
+     "misconceptionCode": "sempre-proporcional"
+    },
+    {
+     "text": "12",
+     "misconceptionCode": "ignora-parte-fixa"
+    },
+    {
+     "text": "14"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "3 × 4 + 2 = 14.",
+   "audioScript": "Pergunta 9. Qual é o valor de 3x + 2 quando x = 4? A: 36; B: 18; C: 12; D: 14.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-9A-EF08MA06-02",
+   "skillCode": "EF08MA06",
+   "question": "Qual é o valor de x² quando x = −3?",
+   "options": [
+    {
+     "text": "9"
+    },
+    {
+     "text": "−9",
+     "misconceptionCode": "raiz-de-negativo"
+    },
+    {
+     "text": "−6",
+     "misconceptionCode": "trata-como-1grau"
+    },
+    {
+     "text": "6",
+     "misconceptionCode": "trata-como-1grau"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "(−3) × (−3) = 9.",
+   "audioScript": "Pergunta 10. Qual é o valor de x² quando x = −3? A: 9; B: −9; C: −6; D: 6.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-9A-EF08MA13-01",
+   "skillCode": "EF08MA13",
+   "question": "3 canetas custam 12 reais. Quanto custam 5 canetas?",
+   "options": [
+    {
+     "text": "14 reais",
+     "misconceptionCode": "ignora-parte-fixa"
+    },
+    {
+     "text": "20 reais"
+    },
+    {
+     "text": "7,20 reais",
+     "misconceptionCode": "troca-variaveis"
+    },
+    {
+     "text": "60 reais",
+     "misconceptionCode": "sempre-proporcional"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "Cada caneta custa 4 reais.",
+   "audioScript": "Pergunta 11. 3 canetas custam 12 reais. Quanto custam 5 canetas? A: 14 reais; B: 20 reais; C: 7,20 reais; D: 60 reais.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-9A-EF08MA13-02",
+   "skillCode": "EF08MA13",
+   "question": "2 pintores levam 6 dias para pintar uma casa. No mesmo ritmo, 4 pintores levam:",
+   "options": [
+    {
+     "text": "12 dias",
+     "misconceptionCode": "sempre-proporcional"
+    },
+    {
+     "text": "8 dias",
+     "misconceptionCode": "ignora-parte-fixa"
+    },
+    {
+     "text": "3 dias"
+    },
+    {
+     "text": "4 dias",
+     "misconceptionCode": "ignora-parte-fixa"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Grandezas inversas: dobrando os pintores, o tempo cai pela metade.",
+   "audioScript": "Pergunta 12. 2 pintores levam 6 dias para pintar uma casa. No mesmo ritmo, 4 pintores levam: A: 12 dias; B: 8 dias; C: 3 dias; D: 4 dias.",
+   "role": "DEGRAU_BANK"
+  }
+ ]
+}
