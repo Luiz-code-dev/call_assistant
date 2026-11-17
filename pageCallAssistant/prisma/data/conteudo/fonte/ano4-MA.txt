@@ -1,0 +1,752 @@
+// 4º ano — Matemática
+
+#TRILHA EF04MA03 | MA | 4 | Trilha: Adição e subtração com números maiores | Calcular, estimar e conferir
+FAZ: Resolve problemas de adição e subtração com números naturais usando cálculo mental, estimativa e conta armada, e confere se o resultado faz sentido.
+ERRO: reagrupa-errado | Erra o "vai um" ou a troca quando há mais de um reagrupamento
+ERRO: zero-no-minuendo | Erra a subtração quando há zeros no número de cima
+ERRO: nao-estima | Não percebe quando o resultado é absurdo para o problema
+ERRO: operacao-trocada | Escolhe a operação errada para a situação
+NOTA: Antes da conta, peça uma estimativa: "vai dar mais ou menos quanto?". Use cálculo mental com arredondamentos e a operação inversa para conferir.
+
+@relembrar | Relembrar: contas com troca | No 3º ano, aprendemos a somar e a subtrair com troca.
+Q: Quanto é 47 + 38?
++ 85
+- 75 | reagrupa-errado
+- 715 | reagrupa-errado
+- 9 | operacao-trocada
+E: 7 + 8 = 15: fica 5 e vai 1. 4 + 3 + 1 = 8.
+V: Quanto é 56 + 29?
++ 85
+- 75
+- 715
+- 27
+Q: Quanto é 82 − 37?
++ 45
+- 55 | reagrupa-errado
+- 119 | operacao-trocada
+- 35 | reagrupa-errado
+E: Troco 1 dezena por 10 unidades: 12 − 7 = 5. Ficam 7 dezenas: 7 − 3 = 4.
+V: Quanto é 73 − 46?
++ 27
+- 33
+- 119
+- 37
+Q: Qual conta desfaz uma adição?
++ A subtração
+- A multiplicação | operacao-trocada
+- Outra adição | operacao-trocada
+- Nenhuma | nao-estima
+E: Se 20 + 15 = 35, então 35 − 15 = 20. Uma desfaz a outra.
+V: Para conferir se 35 − 15 = 20 está certo, posso fazer:
++ 20 + 15
+- 35 + 15
+- 35 × 15
+- 20 − 15
+
+@exemplo_guiado | Exemplo guiado: estimar antes de calcular | Estimar é achar um valor aproximado, usando números redondos. A estimativa ajuda a ver se o resultado da conta faz sentido. Vamos fazer juntos.
+Q: Sem fazer a conta exata, 398 + 204 dá mais ou menos:
++ 600
+- 200 | nao-estima
+- 6.000 | nao-estima
+- 100 | nao-estima
+E: 398 é quase 400, e 204 é quase 200. 400 + 200 = 600.
+V: Sem fazer a conta exata, 702 − 298 dá mais ou menos:
++ 400
+- 1.000
+- 40
+- 4.000
+Q: Quanto é 1.468 + 2.375?
++ 3.843
+- 3.733 | reagrupa-errado
+- 3.833 | reagrupa-errado
+- 907 | operacao-trocada
+E: 8 + 5 = 13: fica 3, vai 1. 6 + 7 + 1 = 14: fica 4, vai 1. 4 + 3 + 1 = 8. 1 + 2 = 3.
+V: Quanto é 2.587 + 1.246?
++ 3.833
+- 3.723
+- 3.823
+- 1.341
+Q: Quanto é 3.000 − 1.275?
++ 1.725
+- 2.275 | zero-no-minuendo
+- 2.725 | zero-no-minuendo
+- 4.275 | operacao-trocada
+E: Com zeros em cima, as trocas vêm em cadeia. Para conferir: 1.725 + 1.275 = 3.000.
+V: Quanto é 5.000 − 2.340?
++ 2.660
+- 3.340
+- 3.660
+- 7.340
+
+@praticar | Praticar: calculando e conferindo | Estime, calcule e confira.
+Q: Quanto é 4.705 − 1.368?
++ 3.337
+- 3.447 | reagrupa-errado
+- 3.463 | zero-no-minuendo
+- 6.073 | operacao-trocada
+E: Conferindo: 3.337 + 1.368 = 4.705.
+V: Quanto é 6.204 − 2.857?
++ 3.347
+- 4.453
+- 3.457
+- 9.061
+Q: Para calcular 299 + 150 de cabeça, um bom jeito é:
++ Fazer 300 + 150 e tirar 1
+- Fazer 299 + 100 e parar | reagrupa-errado
+- Fazer 200 + 100 | nao-estima
+- Fazer 299 − 150 | operacao-trocada
+E: 300 + 150 = 450. Tirando 1, dá 449.
+V: Para calcular 500 − 199 de cabeça, um bom jeito é:
++ Fazer 500 − 200 e somar 1
+- Fazer 500 − 100 e parar
+- Fazer 500 + 199
+- Fazer 400 − 100
+Q: Um aluno calculou 480 + 315 e achou 7.950. Sem refazer a conta, dá para saber que:
++ Está errado, porque o resultado deveria ficar perto de 800
+- Está certo | nao-estima
+- Está errado, porque deveria dar perto de 80 | nao-estima
+- Não dá para saber | nao-estima
+E: 480 + 315 é mais ou menos 500 + 300 = 800. O resultado 7.950 é grande demais.
+V: Um aluno calculou 902 − 398 e achou 54. Sem refazer a conta, dá para saber que:
++ Está errado, porque o resultado deveria ficar perto de 500
+- Está certo
+- Está errado, porque deveria dar perto de 5.000
+- Não dá para saber
+Q: Quanto é 12.350 + 8.975?
++ 21.325
+- 20.225 | reagrupa-errado
+- 21.225 | reagrupa-errado
+- 3.375 | operacao-trocada
+E: Some casa por casa, levando as trocas: 21.325.
+V: Quanto é 15.480 + 7.865?
++ 23.345
+- 22.245
+- 23.245
+- 7.615
+
+@aplicar | Aplicar: problemas com números maiores | Pense no que acontece na situação.
+Q: Uma escola tinha 1.250 livros na biblioteca e ganhou 475. Quantos livros tem agora?
++ 1.725
+- 775 | operacao-trocada
+- 1.625 | reagrupa-errado
+- 6.000 | nao-estima
+E: Ganhar é acrescentar: 1.250 + 475 = 1.725.
+V: Uma loja tinha 2.380 camisetas e recebeu mais 645. Quantas camisetas tem agora?
++ 3.025
+- 1.735
+- 2.925
+- 8.830
+Q: Um estádio tem 5.000 lugares. Já foram vendidos 3.860 ingressos. Quantos lugares ainda há?
++ 1.140
+- 8.860 | operacao-trocada
+- 2.860 | zero-no-minuendo
+- 2.140 | zero-no-minuendo
+E: 5.000 − 3.860 = 1.140. Conferindo: 3.860 + 1.140 = 5.000.
+V: Uma caixa-d'água tem 2.000 litros. Já foram gastos 1.285. Quantos litros ainda há?
++ 715
+- 3.285
+- 1.285
+- 1.715
+Q: Um pai quer comprar uma TV de 1.890 reais e um fogão de 1.150 reais. Ele tem 3.000 reais. O dinheiro dá?
++ Não, faltam 40 reais
+- Sim, sobram 40 reais | reagrupa-errado
+- Sim, sobram 960 reais | operacao-trocada
+- Não, faltam 1.040 reais | nao-estima
+E: 1.890 + 1.150 = 3.040. Como 3.040 é maior que 3.000, faltam 40 reais.
+V: Uma mãe quer comprar uma geladeira de 2.450 reais e um micro-ondas de 520 reais. Ela tem 3.000 reais. O dinheiro dá?
++ Sim, sobram 30 reais
+- Não, faltam 30 reais
+- Sim, sobram 1.930 reais
+- Não, faltam 970 reais
+
+@explicar | Explicar: como saber se a conta faz sentido | Um colega calculou 1.980 + 2.010 e achou 399. Explique com as suas palavras como saber, sem refazer a conta, que o resultado está errado.
+C: estimativa | Arredonda os números (2.000 + 2.000)
+C: comparacao | Compara a estimativa (perto de 4.000) com o resultado dado
+C: conclusao | Conclui que 399 é pequeno demais
+BOA: Eu arredondo: 1.980 é quase 2.000, e 2.010 também. Então o resultado tem de ficar perto de 4.000. Como o colega achou 399, que é muito menor, dá para saber que está errado. O certo é 3.990.
+
+#TRILHA EF04MA06 | MA | 4 | Trilha: Multiplicação: três jeitos de pensar | Parcelas iguais, fileiras e proporção
+FAZ: Resolve problemas de multiplicação com as ideias de adição de parcelas iguais, organização em linhas e colunas e proporcionalidade, usando cálculo mental e conta armada.
+ERRO: soma-em-vez-de-multiplicar | Soma os números em vez de multiplicar
+ERRO: esquece-reserva | Esquece de somar a reserva ("vai um") na multiplicação
+ERRO: multiplica-so-unidade | Multiplica só as unidades e esquece as dezenas
+ERRO: proporcao-por-soma | Em problemas de proporção, soma em vez de multiplicar
+NOTA: Use malha quadriculada para a organização retangular. Em proporção, monte tabelas: 1 pacote, 2 pacotes, 3 pacotes. Decomponha os números: 23 × 4 = 20 × 4 + 3 × 4.
+
+@relembrar | Relembrar: tabuada | Multiplicar é somar grupos iguais.
+Q: Quanto é 6 × 4?
++ 24
+- 10 | soma-em-vez-de-multiplicar
+- 20 | esquece-reserva
+- 28 | esquece-reserva
+E: 6 grupos de 4: 4 + 4 + 4 + 4 + 4 + 4 = 24.
+V: Quanto é 7 × 5?
++ 35
+- 12
+- 30
+- 40
+Q: Quanto é 8 × 3?
++ 24
+- 11 | soma-em-vez-de-multiplicar
+- 21 | esquece-reserva
+- 27 | esquece-reserva
+E: 8 × 3 é o mesmo que 3 × 8: 24.
+V: Quanto é 9 × 4?
++ 36
+- 13
+- 32
+- 40
+Q: Quanto é 5 × 10?
++ 50
+- 15 | soma-em-vez-de-multiplicar
+- 510 | multiplica-so-unidade
+- 5 | multiplica-so-unidade
+E: Multiplicar por 10 é formar dezenas: 5 dezenas são 50.
+V: Quanto é 7 × 100?
++ 700
+- 107
+- 7.100
+- 70
+
+@exemplo_guiado | Exemplo guiado: multiplicando números maiores | Para multiplicar 23 × 4, podemos separar: 20 × 4 = 80 e 3 × 4 = 12. Depois somamos: 80 + 12 = 92. Vamos fazer juntos.
+Q: Quanto é 23 × 4?
++ 92
+- 27 | soma-em-vez-de-multiplicar
+- 812 | esquece-reserva
+- 82 | esquece-reserva
+E: 3 × 4 = 12: fica 2 e vai 1. 2 × 4 = 8, mais 1 = 9. Resultado: 92.
+V: Quanto é 36 × 3?
++ 108
+- 39
+- 918
+- 98
+Q: Num auditório, há 12 fileiras com 8 cadeiras em cada uma. Quantas cadeiras há?
++ 96
+- 20 | soma-em-vez-de-multiplicar
+- 86 | esquece-reserva
+- 16 | multiplica-so-unidade
+E: Fileiras e colunas: 12 × 8. 10 × 8 = 80 e 2 × 8 = 16. 80 + 16 = 96.
+V: Numa caixa, há 15 fileiras com 6 bombons em cada uma. Quantos bombons há?
++ 90
+- 21
+- 80
+- 30
+Q: Se 1 caderno custa 7 reais, quanto custam 6 cadernos?
++ 42 reais
+- 13 reais | proporcao-por-soma
+- 36 reais | esquece-reserva
+- 49 reais | esquece-reserva
+E: 6 vezes mais cadernos, 6 vezes o preço: 6 × 7 = 42.
+V: Se 1 pacote tem 8 figurinhas, quantas figurinhas há em 7 pacotes?
++ 56
+- 15
+- 48
+- 64
+
+@praticar | Praticar: calculando multiplicações | Não se esqueça da reserva.
+Q: Quanto é 47 × 5?
++ 235
+- 52 | soma-em-vez-de-multiplicar
+- 205 | esquece-reserva
+- 2.035 | esquece-reserva
+E: 7 × 5 = 35: fica 5, vão 3. 4 × 5 = 20, mais 3 = 23. Resultado: 235.
+V: Quanto é 38 × 6?
++ 228
+- 44
+- 188
+- 1.848
+Q: Quanto é 125 × 4?
++ 500
+- 129 | soma-em-vez-de-multiplicar
+- 480 | esquece-reserva
+- 20 | multiplica-so-unidade
+E: 5 × 4 = 20: fica 0, vão 2. 2 × 4 = 8, mais 2 = 10: fica 0, vai 1. 1 × 4 = 4, mais 1 = 5.
+V: Quanto é 213 × 3?
++ 639
+- 216
+- 629
+- 9
+Q: Quanto é 30 × 20?
++ 600
+- 50 | soma-em-vez-de-multiplicar
+- 60 | multiplica-so-unidade
+- 6.000 | multiplica-so-unidade
+E: 3 × 2 = 6, e acrescentamos os dois zeros: 600.
+V: Quanto é 40 × 30?
++ 1.200
+- 70
+- 120
+- 12.000
+Q: Uma receita para 4 pessoas leva 3 ovos. Quantos ovos são necessários para 8 pessoas?
++ 6
+- 7 | proporcao-por-soma
+- 11 | soma-em-vez-de-multiplicar
+- 3 | multiplica-so-unidade
+E: Dobrando as pessoas, dobram os ovos: 2 × 3 = 6.
+V: Uma receita para 2 pessoas leva 5 batatas. Quantas batatas são necessárias para 6 pessoas?
++ 15
+- 9
+- 11
+- 5
+
+@aplicar | Aplicar: problemas de multiplicação | Descubra que ideia de multiplicação aparece.
+Q: Uma escola comprou 24 caixas de lápis, com 12 lápis em cada uma. Quantos lápis comprou?
++ 288
+- 36 | soma-em-vez-de-multiplicar
+- 72 | multiplica-so-unidade
+- 248 | esquece-reserva
+E: 24 × 12 = 24 × 10 + 24 × 2 = 240 + 48 = 288.
+V: Uma loja recebeu 15 caixas de suco, com 12 garrafas em cada uma. Quantas garrafas recebeu?
++ 180
+- 27
+- 45
+- 150
+Q: Um piso retangular tem 9 fileiras de 14 lajotas. Quantas lajotas tem o piso?
++ 126
+- 23 | soma-em-vez-de-multiplicar
+- 96 | esquece-reserva
+- 36 | multiplica-so-unidade
+E: 9 × 14 = 9 × 10 + 9 × 4 = 90 + 36 = 126.
+V: Um muro tem 8 fileiras de 25 tijolos. Quantos tijolos tem o muro?
++ 200
+- 33
+- 160
+- 40
+Q: Três quilos de feijão custam 24 reais. Quanto custam 9 quilos?
++ 72 reais
+- 30 reais | proporcao-por-soma
+- 33 reais | proporcao-por-soma
+- 216 reais | multiplica-so-unidade
+E: 9 quilos é o triplo de 3 quilos. O preço também triplica: 3 × 24 = 72.
+V: Dois quilos de arroz custam 14 reais. Quanto custam 6 quilos?
++ 42 reais
+- 18 reais
+- 20 reais
+- 84 reais
+
+@explicar | Explicar: multiplicando por partes | Explique com as suas palavras como calcular 34 × 5 separando o 34 em duas partes.
+C: decompoe | Separa 34 em 30 e 4
+C: multiplica | Calcula 30 × 5 = 150 e 4 × 5 = 20
+C: soma | Soma e chega a 170
+BOA: Eu separo o 34 em 30 e 4. Faço 30 × 5, que dá 150, e 4 × 5, que dá 20. Depois somo os dois resultados: 150 + 20 = 170.
+
+#TRILHA EF04MA07 | MA | 4 | Trilha: Divisão com números maiores | Repartir e formar grupos
+FAZ: Resolve problemas de divisão com divisor de até dois algarismos, com as ideias de repartir em partes iguais e de medir quantos grupos cabem, usando estimativa e conta armada.
+ERRO: resto-maior | Deixa um resto maior ou igual ao divisor
+ERRO: esquece-zero-quociente | Esquece o zero no meio ou no fim do quociente
+ERRO: ignora-o-resto | Não interpreta o resto de acordo com a situação
+ERRO: divide-ao-contrario | Troca o dividendo com o divisor ou escolhe outra operação
+NOTA: Trabalhe com estimativas: "quantas vezes o 4 cabe em 92?". Use a multiplicação para conferir: quociente × divisor + resto = dividendo.
+
+@relembrar | Relembrar: dividir é repartir | No 3º ano, aprendemos a repartir em partes iguais.
+Q: Quanto é 24 ÷ 4?
++ 6
+- 20 | divide-ao-contrario
+- 28 | divide-ao-contrario
+- 8 | resto-maior
+E: 4 × 6 = 24.
+V: Quanto é 35 ÷ 5?
++ 7
+- 30
+- 40
+- 6
+Q: Quanto é 17 ÷ 5?
++ 3, com resto 2
+- 3, sem resto | ignora-o-resto
+- 2, com resto 7 | resto-maior
+- 12 | divide-ao-contrario
+E: 5 × 3 = 15. De 17, sobram 2. O resto tem de ser menor que 5.
+V: Quanto é 22 ÷ 4?
++ 5, com resto 2
+- 5, sem resto
+- 4, com resto 6
+- 18
+Q: Para conferir uma divisão, usamos:
++ A multiplicação
+- A subtração, somente | divide-ao-contrario
+- Outra divisão | divide-ao-contrario
+- Nada | ignora-o-resto
+E: Se 24 ÷ 4 = 6, então 6 × 4 = 24.
+V: Se 6 × 7 = 42, então 42 ÷ 7 é:
++ 6
+- 7
+- 35
+- 49
+
+@exemplo_guiado | Exemplo guiado: dividindo por partes | Para dividir 84 por 4, dividimos primeiro as dezenas e depois as unidades. 8 dezenas ÷ 4 = 2 dezenas. 4 unidades ÷ 4 = 1 unidade. Resultado: 21. Vamos fazer juntos.
+Q: Quanto é 84 ÷ 4?
++ 21
+- 80 | divide-ao-contrario
+- 12 | divide-ao-contrario
+- 2 | esquece-zero-quociente
+E: 8 ÷ 4 = 2 e 4 ÷ 4 = 1. Conferindo: 21 × 4 = 84.
+V: Quanto é 96 ÷ 3?
++ 32
+- 93
+- 23
+- 3
+Q: Quanto é 75 ÷ 5?
++ 15
+- 70 | divide-ao-contrario
+- 11 | esquece-zero-quociente
+- 10, com resto 25 | resto-maior
+E: 7 dezenas ÷ 5 = 1 dezena, e sobram 2 dezenas. 25 unidades ÷ 5 = 5. Resultado: 15.
+V: Quanto é 92 ÷ 4?
++ 23
+- 88
+- 20, com resto 12
+- 21
+Q: Quanto é 408 ÷ 4?
++ 102
+- 12 | esquece-zero-quociente
+- 120 | esquece-zero-quociente
+- 404 | divide-ao-contrario
+E: 4 centenas ÷ 4 = 1. 0 dezenas ÷ 4 = 0. 8 unidades ÷ 4 = 2. O zero do meio precisa aparecer: 102.
+V: Quanto é 615 ÷ 3?
++ 205
+- 25
+- 250
+- 612
+
+@praticar | Praticar: divisões e restos | Confira sempre com a multiplicação.
+Q: Quanto é 135 ÷ 5?
++ 27
+- 130 | divide-ao-contrario
+- 25, com resto 10 | resto-maior
+- 207 | esquece-zero-quociente
+E: 13 dezenas ÷ 5 = 2 dezenas, sobram 3. 35 ÷ 5 = 7. Conferindo: 27 × 5 = 135.
+V: Quanto é 144 ÷ 6?
++ 24
+- 138
+- 22, com resto 12
+- 204
+Q: Quanto é 250 ÷ 10?
++ 25
+- 240 | divide-ao-contrario
+- 2.500 | divide-ao-contrario
+- 2 | esquece-zero-quociente
+E: Dividir por 10 é tirar um zero: 250 ÷ 10 = 25.
+V: Quanto é 480 ÷ 10?
++ 48
+- 470
+- 4.800
+- 4
+Q: Quanto é 96 ÷ 12?
++ 8
+- 84 | divide-ao-contrario
+- 6, com resto 24 | resto-maior
+- 80 | esquece-zero-quociente
+E: Quantas vezes o 12 cabe em 96? 12 × 8 = 96.
+V: Quanto é 75 ÷ 15?
++ 5
+- 60
+- 3, com resto 30
+- 50
+Q: Numa divisão por 6, qual destes restos é impossível?
++ 7
+- 0 | resto-maior
+- 3 | resto-maior
+- 5 | resto-maior
+E: O resto é sempre menor que o divisor. Se sobram 7, ainda dá para formar mais um grupo de 6.
+V: Numa divisão por 4, qual destes restos é impossível?
++ 4
+- 0
+- 2
+- 3
+
+@aplicar | Aplicar: problemas de divisão | O que fazer com o que sobra?
+Q: Uma professora tem 120 folhas para distribuir igualmente entre 8 grupos. Quantas folhas cada grupo recebe?
++ 15
+- 112 | divide-ao-contrario
+- 128 | divide-ao-contrario
+- 105 | esquece-zero-quociente
+E: 120 ÷ 8 = 15. Conferindo: 15 × 8 = 120.
+V: Um agricultor tem 180 mudas para plantar igualmente em 9 canteiros. Quantas mudas ficam em cada canteiro?
++ 20
+- 171
+- 189
+- 2
+Q: Um ônibus leva 40 pessoas. Quantos ônibus são necessários para levar 130 alunos a um passeio?
++ 4
+- 3 | ignora-o-resto
+- 90 | divide-ao-contrario
+- 3, e 10 alunos ficam | ignora-o-resto
+E: 3 ônibus levam 120 alunos. Sobram 10, que também precisam ir. São necessários 4 ônibus.
+V: Uma caixa guarda 12 ovos. Quantas caixas são necessárias para guardar 50 ovos?
++ 5
+- 4
+- 38
+- 4, e 2 ovos ficam de fora
+Q: Uma costureira tem 50 metros de fita e usa 6 metros em cada vestido. Quantos vestidos completos ela consegue enfeitar?
++ 8
+- 9 | ignora-o-resto
+- 44 | divide-ao-contrario
+- 300 | divide-ao-contrario
+E: 6 × 8 = 48. Sobram 2 metros, que não dão para outro vestido. São 8 vestidos.
+V: Um marceneiro tem 70 parafusos e usa 8 em cada banco. Quantos bancos completos ele consegue montar?
++ 8
+- 9
+- 62
+- 560
+
+@explicar | Explicar: o que fazer com o resto | Leia: "Cada carro leva 5 pessoas. Quantos carros são necessários para levar 23 pessoas?" Explique com as suas palavras como resolver e por que a resposta não é 4.
+C: divisao | Faz 23 ÷ 5 = 4, com resto 3
+C: resto | Explica que as 3 pessoas que sobram também precisam de carro
+C: resposta | Conclui que são 5 carros
+BOA: Eu divido 23 por 5. Dá 4 e sobram 3. Quatro carros levam só 20 pessoas, e ainda faltam 3 pessoas, que também precisam ir. Por isso é preciso mais um carro. A resposta é 5 carros.
+
+#TRILHA EF04MA10 | MA | 4 | Trilha: Décimos, centésimos e o nosso dinheiro | Números com vírgula
+FAZ: Reconhece que as regras do sistema decimal valem também para os números com vírgula e relaciona décimos e centésimos com os reais e os centavos.
+ERRO: mais-casas-e-maior | Pensa que o número com mais algarismos depois da vírgula é sempre maior
+ERRO: virgula-ignorada | Trata o número com vírgula como se fosse natural
+ERRO: decimo-e-centesimo | Confunde décimos com centésimos (0,5 com 0,05)
+ERRO: centavo-como-real | Soma centavos como se fossem reais, ou erra a troca de 100 centavos por 1 real
+NOTA: Use moedas e notas de brinquedo. Relacione 1 real = 100 centavos e 10 centavos = 1 décimo do real. Monte o quadro de ordens com a vírgula.
+
+@relembrar | Relembrar: nosso dinheiro | O dinheiro do Brasil é o real.
+Q: Quantos centavos formam 1 real?
++ 100
+- 10 | decimo-e-centesimo
+- 1.000 | centavo-como-real
+- 50 | centavo-como-real
+E: 1 real vale 100 centavos.
+V: Quantas moedas de 50 centavos formam 1 real?
++ 2
+- 5
+- 50
+- 10
+Q: Quantas moedas de 10 centavos formam 1 real?
++ 10
+- 1 | centavo-como-real
+- 100 | decimo-e-centesimo
+- 5 | centavo-como-real
+E: 10 × 10 centavos = 100 centavos = 1 real.
+V: Quantas moedas de 25 centavos formam 1 real?
++ 4
+- 25
+- 2
+- 5
+Q: Como se lê R$ 3,50?
++ Três reais e cinquenta centavos
+- Trezentos e cinquenta reais | virgula-ignorada
+- Três reais e cinco centavos | decimo-e-centesimo
+- Trinta e cinco reais | virgula-ignorada
+E: Antes da vírgula ficam os reais. Depois, os centavos.
+V: Como se lê R$ 7,25?
++ Sete reais e vinte e cinco centavos
+- Setecentos e vinte e cinco reais
+- Sete reais e dois centavos
+- Setenta e dois reais
+
+@exemplo_guiado | Exemplo guiado: décimos e centésimos | Dividindo 1 inteiro em 10 partes iguais, cada parte é um décimo: 0,1. Dividindo em 100 partes iguais, cada parte é um centésimo: 0,01. A moeda de 10 centavos é um décimo do real, e a de 1 centavo é um centésimo. Vamos ver juntos.
+Q: A moeda de 10 centavos, escrita em reais, é:
++ R$ 0,10
+- R$ 10,00 | virgula-ignorada
+- R$ 0,01 | decimo-e-centesimo
+- R$ 1,00 | centavo-como-real
+E: 10 centavos são um décimo do real: 0,10.
+V: A moeda de 5 centavos, escrita em reais, é:
++ R$ 0,05
+- R$ 5,00
+- R$ 0,50
+- R$ 0,5
+Q: Qual é maior: 0,5 ou 0,05?
++ 0,5
+- 0,05 | mais-casas-e-maior
+- São iguais | decimo-e-centesimo
+- Não dá para comparar | virgula-ignorada
+E: 0,5 são 5 décimos, como 50 centavos. 0,05 são 5 centésimos, como 5 centavos.
+V: Qual é maior: 0,3 ou 0,03?
++ 0,3
+- 0,03
+- São iguais
+- Não dá para comparar
+Q: O número 0,7 é o mesmo que:
++ 0,70
+- 0,07 | decimo-e-centesimo
+- 7 | virgula-ignorada
+- 70 | virgula-ignorada
+E: 7 décimos são o mesmo que 70 centésimos. Como 70 centavos.
+V: O número 0,4 é o mesmo que:
++ 0,40
+- 0,04
+- 4
+- 40
+
+@praticar | Praticar: comparando e calculando | Olhe primeiro a parte inteira, depois os décimos e os centésimos.
+Q: Qual é maior: 2,5 ou 2,35?
++ 2,5
+- 2,35 | mais-casas-e-maior
+- São iguais | decimo-e-centesimo
+- Não dá para comparar | virgula-ignorada
+E: 2,5 é o mesmo que 2,50. E 2,50 é maior que 2,35.
+V: Qual é maior: 1,8 ou 1,75?
++ 1,8
+- 1,75
+- São iguais
+- Não dá para comparar
+Q: Qual é a ordem do menor para o maior?
++ 0,09; 0,5; 1,2
+- 1,2; 0,5; 0,09 | mais-casas-e-maior
+- 0,5; 0,09; 1,2 | decimo-e-centesimo
+- 0,09; 1,2; 0,5 | virgula-ignorada
+E: 0,09 são 9 centésimos; 0,5 são 50 centésimos; 1,2 passa de 1 inteiro.
+V: Qual é a ordem do menor para o maior?
++ 0,08; 0,6; 2,1
+- 2,1; 0,6; 0,08
+- 0,6; 0,08; 2,1
+- 0,08; 2,1; 0,6
+Q: Quanto é R$ 2,50 + R$ 1,75?
++ R$ 4,25
+- R$ 3,125 | centavo-como-real
+- R$ 3,25 | centavo-como-real
+- R$ 425,00 | virgula-ignorada
+E: 50 + 75 centavos = 125 centavos = 1 real e 25 centavos. 2 + 1 + 1 = 4 reais. Total: 4,25.
+V: Quanto é R$ 3,80 + R$ 2,40?
++ R$ 6,20
+- R$ 5,120
+- R$ 5,20
+- R$ 620,00
+Q: Quanto é R$ 5,00 − R$ 3,20?
++ R$ 1,80
+- R$ 2,20 | centavo-como-real
+- R$ 2,80 | centavo-como-real
+- R$ 8,20 | virgula-ignorada
+E: De 3,20 para 4,00 faltam 0,80. De 4,00 para 5,00, mais 1,00. Total: 1,80.
+V: Quanto é R$ 10,00 − R$ 6,50?
++ R$ 3,50
+- R$ 4,50
+- R$ 4,00
+- R$ 16,50
+
+@aplicar | Aplicar: compras e troco | Use o que aprendeu no dia a dia.
+Q: Um suco custa R$ 4,50 e um salgado custa R$ 3,75. Quanto custam os dois?
++ R$ 8,25
+- R$ 7,125 | centavo-como-real
+- R$ 7,25 | centavo-como-real
+- R$ 825,00 | virgula-ignorada
+E: 4,50 + 3,75: 50 + 75 centavos = 1,25. 4 + 3 + 1 = 8. Total: 8,25.
+V: Uma caneta custa R$ 2,80 e uma borracha custa R$ 1,50. Quanto custam as duas?
++ R$ 4,30
+- R$ 3,130
+- R$ 3,30
+- R$ 430,00
+Q: Você compra um lanche de R$ 7,30 e paga com uma nota de R$ 10,00. Qual é o troco?
++ R$ 2,70
+- R$ 3,30 | centavo-como-real
+- R$ 3,70 | centavo-como-real
+- R$ 17,30 | virgula-ignorada
+E: De 7,30 para 8,00 faltam 0,70. De 8,00 para 10,00, mais 2,00. Troco: 2,70.
+V: Você compra um caderno de R$ 12,60 e paga com uma nota de R$ 20,00. Qual é o troco?
++ R$ 7,40
+- R$ 8,60
+- R$ 8,40
+- R$ 32,60
+Q: No mercado, o pacote A custa R$ 3,9 e o pacote B custa R$ 3,85. Qual é o mais barato?
++ O pacote B
+- O pacote A | mais-casas-e-maior
+- Custam o mesmo | decimo-e-centesimo
+- Não dá para saber | virgula-ignorada
+E: 3,9 é o mesmo que 3,90. Como 3,85 é menor que 3,90, o B é mais barato.
+V: Num posto, o litro custa R$ 5,7 no posto A e R$ 5,69 no posto B. Qual é o mais barato?
++ O posto B
+- O posto A
+- Custam o mesmo
+- Não dá para saber
+
+@explicar | Explicar: comparando números com vírgula | Explique com as suas palavras por que 0,5 é maior que 0,25, mesmo tendo menos algarismos depois da vírgula. Você pode usar o dinheiro como exemplo.
+C: igualdade | Diz que 0,5 é o mesmo que 0,50
+C: comparacao | Compara 50 centésimos (ou centavos) com 25
+C: conclusao | Conclui que 0,5 é maior
+BOA: 0,5 é o mesmo que 0,50. Pensando em dinheiro, 0,50 são 50 centavos e 0,25 são 25 centavos. Como 50 centavos é mais que 25 centavos, 0,5 é maior que 0,25. O que importa é o valor de cada casa, e não a quantidade de algarismos.
+
+#DIAG DIAG2-MA-4A | MA | 4 | Diagnóstico de Matemática — 4º ano | Adição e subtração com números maiores, multiplicação, divisão e números com vírgula no 4º ano, com degrau para multiplicação e divisão do 3º ano.
+I: EF04MA03 | NORMAL
+Q: Quanto é 2.000 − 1.365?
++ 635
+- 1.365 | zero-no-minuendo
+- 1.635 | zero-no-minuendo
+- 3.365 | operacao-trocada
+E: Conferindo: 635 + 1.365 = 2.000.
+I: EF04MA03 | NORMAL
+Q: Sem fazer a conta exata, 499 + 302 dá mais ou menos:
++ 800
+- 200 | nao-estima
+- 8.000 | nao-estima
+- 80 | nao-estima
+E: 500 + 300 = 800.
+I: EF04MA06 | NORMAL
+Q: Quanto é 26 × 4?
++ 104
+- 30 | soma-em-vez-de-multiplicar
+- 84 | esquece-reserva
+- 824 | esquece-reserva
+E: 6 × 4 = 24: fica 4, vão 2. 2 × 4 = 8, mais 2 = 10.
+I: EF04MA06 | NORMAL
+Q: Dois quilos de carne custam 30 reais. Quanto custam 6 quilos?
++ 90 reais
+- 34 reais | proporcao-por-soma
+- 36 reais | proporcao-por-soma
+- 180 reais | multiplica-so-unidade
+E: O triplo da quantidade, o triplo do preço.
+I: EF04MA07 | NORMAL
+Q: Quanto é 312 ÷ 3?
++ 104
+- 14 | esquece-zero-quociente
+- 140 | esquece-zero-quociente
+- 309 | divide-ao-contrario
+E: O zero do meio precisa aparecer.
+I: EF04MA07 | NORMAL
+Q: Cada mesa tem 6 lugares. Quantas mesas são necessárias para 40 pessoas?
++ 7
+- 6 | ignora-o-resto
+- 34 | divide-ao-contrario
+- 240 | divide-ao-contrario
+E: 6 mesas acomodam 36. As 4 pessoas que sobram precisam de mais uma mesa.
+I: EF04MA10 | NORMAL
+Q: Qual é maior: 0,6 ou 0,45?
++ 0,6
+- 0,45 | mais-casas-e-maior
+- São iguais | decimo-e-centesimo
+- Não dá para comparar | virgula-ignorada
+E: 0,6 é o mesmo que 0,60.
+I: EF04MA10 | NORMAL
+Q: Quanto é R$ 3,60 + R$ 2,70?
++ R$ 6,30
+- R$ 5,130 | centavo-como-real
+- R$ 5,30 | centavo-como-real
+- R$ 630,00 | virgula-ignorada
+E: 60 + 70 centavos = 1,30. 3 + 2 + 1 = 6.
+I: EF03MA07 | DEGRAU
+Q: Quanto é 7 × 4?
++ 28
+- 11 | soma-em-vez-de-multiplicar
+- 24 | esquece-reserva
+- 32 | esquece-reserva
+E: Sete grupos de 4.
+I: EF03MA07 | DEGRAU
+Q: Cada caixa tem 5 lápis. Quantos lápis há em 6 caixas?
++ 30
+- 11 | soma-em-vez-de-multiplicar
+- 5 | multiplica-so-unidade
+- 25 | esquece-reserva
+E: 6 × 5 = 30.
+I: EF03MA08 | DEGRAU
+Q: Quanto é 20 ÷ 4?
++ 5
+- 16 | divide-ao-contrario
+- 24 | divide-ao-contrario
+- 4 | resto-maior
+E: 4 × 5 = 20.
+I: EF03MA08 | DEGRAU
+Q: Três amigos repartem 14 balas igualmente. Quantas sobram?
++ 2
+- 0 | ignora-o-resto
+- 11 | divide-ao-contrario
+- 4 | resto-maior
+E: 3 × 4 = 12. De 14, sobram 2.
+
+#PRE EF04MA06 > EF03MA07 | 3
+#PRE EF04MA07 > EF03MA08 | 3
+#PRE EF04MA03 > EF03MA06 | 3
+#PRE EF04MA10 > EF03MA01 | 2
