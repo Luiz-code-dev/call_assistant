@@ -185,13 +185,19 @@ jobs:
             echo "FAIL: a segunda importação mudou as contagens — o importador não é idempotente"
             exit 1
           fi
+          # O esperado vem dos próprios arquivos do pacote (cresce a cada ano de conteúdo novo)
+          read -r esp_trilhas esp_diags esp_fichas <<< "$(node scripts/escolas/conteudo-contar.mjs)"
+          if [ "$esp_trilhas" -lt 41 ] || [ "$esp_diags" -lt 18 ] || [ "$esp_fichas" -lt 41 ]; then
+            echo "FAIL: os arquivos do pacote têm menos conteúdo que o mínimo (41 trilhas, 18 diagnósticos, 41 fichas)"
+            exit 1
+          fi
           while read -r base trilhas diags fichas resto; do
-            if [ "$trilhas" != "41" ] || [ "$diags" != "18" ] || [ "$fichas" != "41" ]; then
-              echo "FAIL: $base tem $trilhas trilhas, $diags diagnósticos e $fichas fichas APPROVED (esperado 41, 18 e 41)"
+            if [ "$trilhas" != "$esp_trilhas" ] || [ "$diags" != "$esp_diags" ] || [ "$fichas" != "$esp_fichas" ]; then
+              echo "FAIL: $base tem $trilhas trilhas, $diags diagnósticos e $fichas fichas APPROVED (esperado $esp_trilhas, $esp_diags e $esp_fichas)"
               exit 1
             fi
           done < /tmp/contagem-2.txt
-          echo "OK: 41 trilhas, 18 diagnósticos e 41 fichas APPROVED nas duas bases; a segunda execução não duplicou nada"
+          echo "OK: $esp_trilhas trilhas, $esp_diags diagnósticos e $esp_fichas fichas APPROVED nas duas bases; a segunda execução não duplicou nada"
 
       # ── start.sh 2/3: troca de senha + verificação de idempotência ───────
       - name: "start.sh [2/3] — troca de senha + idempotencia"
