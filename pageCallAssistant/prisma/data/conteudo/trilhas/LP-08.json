@@ -1,0 +1,3766 @@
+[
+ {
+  "skillCode": "EF08LP06",
+  "subjectCode": "LP",
+  "subjectName": "Língua Portuguesa",
+  "gradeYear": 8,
+  "version": 1,
+  "title": "Trilha: Termos da oração: sujeito, verbo e complementos",
+  "tituloAluno": "Quem faz, o que faz e o que completa",
+  "activities": [
+   {
+    "id": "PK2-EF08LP06-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: sujeito e predicado",
+    "prompt": "Toda oração se organiza em volta de um verbo. O sujeito é o termo sobre o qual se diz alguma coisa.",
+    "estMinutes": 4,
+    "audioScript": "Toda oração se organiza em volta de um verbo. O sujeito é o termo sobre o qual se diz alguma coisa. Pergunta 1. Na oração \"Os alunos leram o livro\", qual é o verbo? A: alunos; B: leram; C: livro; D: os. Pergunta 2. Na oração \"Os alunos leram o livro\", qual é o sujeito? A: o livro; B: leram; C: Os alunos; D: leram o livro. Pergunta 3. Na oração \"Ontem chegou a encomenda\", qual é o sujeito? A: Ontem; B: chegou; C: Ontem chegou; D: a encomenda.",
+    "questions": [
+     {
+      "question": "Na oração \"Os alunos leram o livro\", qual é o verbo?",
+      "options": [
+       {
+        "text": "alunos",
+        "misconceptionCode": "verbo-nao-localizado"
+       },
+       {
+        "text": "leram"
+       },
+       {
+        "text": "livro",
+        "misconceptionCode": "verbo-nao-localizado"
+       },
+       {
+        "text": "os",
+        "misconceptionCode": "verbo-nao-localizado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O verbo indica a ação: leram. É por ele que começamos a análise.",
+      "variants": [
+       {
+        "question": "Na oração \"A professora explicou a matéria\", qual é o verbo?",
+        "options": [
+         {
+          "text": "professora",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "matéria",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "a",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "explicou"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Na oração \"Os alunos leram o livro\", qual é o verbo?",
+        "options": [
+         {
+          "text": "os",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "livro",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "leram"
+         },
+         {
+          "text": "alunos",
+          "misconceptionCode": "verbo-nao-localizado"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Na oração \"Os alunos leram o livro\", qual é o sujeito?",
+      "options": [
+       {
+        "text": "o livro",
+        "misconceptionCode": "objeto-como-sujeito"
+       },
+       {
+        "text": "leram",
+        "misconceptionCode": "verbo-nao-localizado"
+       },
+       {
+        "text": "Os alunos"
+       },
+       {
+        "text": "leram o livro",
+        "misconceptionCode": "objeto-como-sujeito"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Pergunte ao verbo: quem leu? Os alunos. Esse é o sujeito.",
+      "variants": [
+       {
+        "question": "Na oração \"A professora explicou a matéria\", qual é o sujeito?",
+        "options": [
+         {
+          "text": "A professora"
+         },
+         {
+          "text": "a matéria",
+          "misconceptionCode": "objeto-como-sujeito"
+         },
+         {
+          "text": "explicou",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "explicou a matéria",
+          "misconceptionCode": "objeto-como-sujeito"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Na oração \"Os alunos leram o livro\", qual é o sujeito?",
+        "options": [
+         {
+          "text": "leram o livro",
+          "misconceptionCode": "objeto-como-sujeito"
+         },
+         {
+          "text": "leram",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "o livro",
+          "misconceptionCode": "objeto-como-sujeito"
+         },
+         {
+          "text": "Os alunos"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Na oração \"Ontem chegou a encomenda\", qual é o sujeito?",
+      "options": [
+       {
+        "text": "Ontem",
+        "misconceptionCode": "sujeito-primeira-palavra"
+       },
+       {
+        "text": "chegou",
+        "misconceptionCode": "verbo-nao-localizado"
+       },
+       {
+        "text": "Ontem chegou",
+        "misconceptionCode": "sujeito-primeira-palavra"
+       },
+       {
+        "text": "a encomenda"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Quem chegou? A encomenda. O sujeito nem sempre vem no começo da oração.",
+      "variants": [
+       {
+        "question": "Na oração \"De manhã cantam os pássaros\", qual é o sujeito?",
+        "options": [
+         {
+          "text": "De manhã",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "os pássaros"
+         },
+         {
+          "text": "cantam",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "De manhã cantam",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Na oração \"Ontem chegou a encomenda\", qual é o sujeito?",
+        "options": [
+         {
+          "text": "a encomenda"
+         },
+         {
+          "text": "Ontem chegou",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "chegou",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "Ontem",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08LP06-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o que completa o verbo",
+    "prompt": "Alguns verbos precisam de complemento. Se o complemento vem sem preposição, é objeto direto. Se vem com preposição (de, a, em, com), é objeto indireto. Vamos analisar juntos.",
+    "estMinutes": 4,
+    "audioScript": "Alguns verbos precisam de complemento. Se o complemento vem sem preposição, é objeto direto. Se vem com preposição (de, a, em, com), é objeto indireto. Vamos analisar juntos. Pergunta 1. Em \"Marina comprou um caderno\", o termo \"um caderno\" é: A: Objeto direto, porque completa o verbo sem preposição; B: Sujeito, porque é uma coisa; C: Objeto indireto, porque completa o verbo; D: Verbo da oração. Pergunta 2. Em \"Eu gosto de música\", o termo \"de música\" é: A: Objeto direto, porque completa o verbo; B: Objeto indireto, porque completa o verbo com preposição; C: Sujeito da oração; D: Verbo da oração. Pergunta 3. Em \"A avó deu um presente ao neto\", há: A: Dois sujeitos; B: Dois objetos diretos; C: Um objeto direto (um presente) e um objeto indireto (ao neto); D: Nenhum complemento.",
+    "questions": [
+     {
+      "question": "Em \"Marina comprou um caderno\", o termo \"um caderno\" é:",
+      "options": [
+       {
+        "text": "Objeto direto, porque completa o verbo sem preposição"
+       },
+       {
+        "text": "Sujeito, porque é uma coisa",
+        "misconceptionCode": "objeto-como-sujeito"
+       },
+       {
+        "text": "Objeto indireto, porque completa o verbo",
+        "misconceptionCode": "ignora-preposicao"
+       },
+       {
+        "text": "Verbo da oração",
+        "misconceptionCode": "verbo-nao-localizado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Comprou o quê? Um caderno. Completa o verbo sem preposição: objeto direto.",
+      "variants": [
+       {
+        "question": "Em \"Pedro escreveu uma carta\", o termo \"uma carta\" é:",
+        "options": [
+         {
+          "text": "Sujeito, porque é uma coisa",
+          "misconceptionCode": "objeto-como-sujeito"
+         },
+         {
+          "text": "Objeto indireto, porque completa o verbo",
+          "misconceptionCode": "ignora-preposicao"
+         },
+         {
+          "text": "Objeto direto, porque completa o verbo sem preposição"
+         },
+         {
+          "text": "Verbo da oração",
+          "misconceptionCode": "verbo-nao-localizado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Em \"Marina comprou um caderno\", o termo \"um caderno\" é:",
+        "options": [
+         {
+          "text": "Verbo da oração",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "Objeto direto, porque completa o verbo sem preposição"
+         },
+         {
+          "text": "Objeto indireto, porque completa o verbo",
+          "misconceptionCode": "ignora-preposicao"
+         },
+         {
+          "text": "Sujeito, porque é uma coisa",
+          "misconceptionCode": "objeto-como-sujeito"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Em \"Eu gosto de música\", o termo \"de música\" é:",
+      "options": [
+       {
+        "text": "Objeto direto, porque completa o verbo",
+        "misconceptionCode": "ignora-preposicao"
+       },
+       {
+        "text": "Objeto indireto, porque completa o verbo com preposição"
+       },
+       {
+        "text": "Sujeito da oração",
+        "misconceptionCode": "objeto-como-sujeito"
+       },
+       {
+        "text": "Verbo da oração",
+        "misconceptionCode": "verbo-nao-localizado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Gosto de quê? De música. O complemento vem com a preposição \"de\": objeto indireto.",
+      "variants": [
+       {
+        "question": "Em \"Nós precisamos de ajuda\", o termo \"de ajuda\" é:",
+        "options": [
+         {
+          "text": "Objeto direto, porque completa o verbo",
+          "misconceptionCode": "ignora-preposicao"
+         },
+         {
+          "text": "Sujeito da oração",
+          "misconceptionCode": "objeto-como-sujeito"
+         },
+         {
+          "text": "Verbo da oração",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "Objeto indireto, porque completa o verbo com preposição"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Em \"Eu gosto de música\", o termo \"de música\" é:",
+        "options": [
+         {
+          "text": "Verbo da oração",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "Sujeito da oração",
+          "misconceptionCode": "objeto-como-sujeito"
+         },
+         {
+          "text": "Objeto indireto, porque completa o verbo com preposição"
+         },
+         {
+          "text": "Objeto direto, porque completa o verbo",
+          "misconceptionCode": "ignora-preposicao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Em \"A avó deu um presente ao neto\", há:",
+      "options": [
+       {
+        "text": "Dois sujeitos",
+        "misconceptionCode": "objeto-como-sujeito"
+       },
+       {
+        "text": "Dois objetos diretos",
+        "misconceptionCode": "ignora-preposicao"
+       },
+       {
+        "text": "Um objeto direto (um presente) e um objeto indireto (ao neto)"
+       },
+       {
+        "text": "Nenhum complemento",
+        "misconceptionCode": "verbo-nao-localizado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Deu o quê? Um presente (direto). A quem? Ao neto (indireto, com preposição).",
+      "variants": [
+       {
+        "question": "Em \"O técnico entregou a medalha à atleta\", há:",
+        "options": [
+         {
+          "text": "Um objeto direto (a medalha) e um objeto indireto (à atleta)"
+         },
+         {
+          "text": "Dois sujeitos",
+          "misconceptionCode": "objeto-como-sujeito"
+         },
+         {
+          "text": "Dois objetos diretos",
+          "misconceptionCode": "ignora-preposicao"
+         },
+         {
+          "text": "Nenhum complemento",
+          "misconceptionCode": "verbo-nao-localizado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Em \"A avó deu um presente ao neto\", há:",
+        "options": [
+         {
+          "text": "Nenhum complemento",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "Dois objetos diretos",
+          "misconceptionCode": "ignora-preposicao"
+         },
+         {
+          "text": "Dois sujeitos",
+          "misconceptionCode": "objeto-como-sujeito"
+         },
+         {
+          "text": "Um objeto direto (um presente) e um objeto indireto (ao neto)"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08LP06-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: identificando os termos",
+    "prompt": "Comece pelo verbo e faça as perguntas.",
+    "estMinutes": 5,
+    "audioScript": "Comece pelo verbo e faça as perguntas. Pergunta 1. Em \"O vento derrubou a árvore\", qual é o objeto direto? A: O vento; B: derrubou; C: O vento derrubou; D: a árvore. Pergunta 2. Em \"Os moradores confiam no prefeito\", o termo \"no prefeito\" é: A: Objeto indireto; B: Objeto direto; C: Sujeito; D: Verbo. Pergunta 3. Em \"Na praça, as crianças brincavam\", qual é o sujeito? A: Na praça; B: as crianças; C: brincavam; D: Na praça, as crianças. Pergunta 4. Em \"Encontrei minhas chaves\", quem é o sujeito? A: minhas chaves; B: Encontrei; C: Eu, que não aparece escrito, mas é indicado pelo verbo; D: A oração não tem sujeito.",
+    "questions": [
+     {
+      "question": "Em \"O vento derrubou a árvore\", qual é o objeto direto?",
+      "options": [
+       {
+        "text": "O vento",
+        "misconceptionCode": "objeto-como-sujeito"
+       },
+       {
+        "text": "derrubou",
+        "misconceptionCode": "verbo-nao-localizado"
+       },
+       {
+        "text": "O vento derrubou",
+        "misconceptionCode": "sujeito-primeira-palavra"
+       },
+       {
+        "text": "a árvore"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Derrubou o quê? A árvore.",
+      "variants": [
+       {
+        "question": "Em \"A chuva alagou a rua\", qual é o objeto direto?",
+        "options": [
+         {
+          "text": "A chuva",
+          "misconceptionCode": "objeto-como-sujeito"
+         },
+         {
+          "text": "a rua"
+         },
+         {
+          "text": "alagou",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "A chuva alagou",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Em \"O vento derrubou a árvore\", qual é o objeto direto?",
+        "options": [
+         {
+          "text": "a árvore"
+         },
+         {
+          "text": "O vento derrubou",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "derrubou",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "O vento",
+          "misconceptionCode": "objeto-como-sujeito"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Em \"Os moradores confiam no prefeito\", o termo \"no prefeito\" é:",
+      "options": [
+       {
+        "text": "Objeto indireto"
+       },
+       {
+        "text": "Objeto direto",
+        "misconceptionCode": "ignora-preposicao"
+       },
+       {
+        "text": "Sujeito",
+        "misconceptionCode": "objeto-como-sujeito"
+       },
+       {
+        "text": "Verbo",
+        "misconceptionCode": "verbo-nao-localizado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Confiam em quem? No prefeito (em + o). Há preposição: objeto indireto.",
+      "variants": [
+       {
+        "question": "Em \"As crianças obedecem aos pais\", o termo \"aos pais\" é:",
+        "options": [
+         {
+          "text": "Objeto direto",
+          "misconceptionCode": "ignora-preposicao"
+         },
+         {
+          "text": "Sujeito",
+          "misconceptionCode": "objeto-como-sujeito"
+         },
+         {
+          "text": "Objeto indireto"
+         },
+         {
+          "text": "Verbo",
+          "misconceptionCode": "verbo-nao-localizado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Em \"Os moradores confiam no prefeito\", o termo \"no prefeito\" é:",
+        "options": [
+         {
+          "text": "Verbo",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "Objeto indireto"
+         },
+         {
+          "text": "Sujeito",
+          "misconceptionCode": "objeto-como-sujeito"
+         },
+         {
+          "text": "Objeto direto",
+          "misconceptionCode": "ignora-preposicao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Em \"Na praça, as crianças brincavam\", qual é o sujeito?",
+      "options": [
+       {
+        "text": "Na praça",
+        "misconceptionCode": "sujeito-primeira-palavra"
+       },
+       {
+        "text": "as crianças"
+       },
+       {
+        "text": "brincavam",
+        "misconceptionCode": "verbo-nao-localizado"
+       },
+       {
+        "text": "Na praça, as crianças",
+        "misconceptionCode": "sujeito-primeira-palavra"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Quem brincava? As crianças. \"Na praça\" indica o lugar.",
+      "variants": [
+       {
+        "question": "Em \"No quintal, o cachorro dormia\", qual é o sujeito?",
+        "options": [
+         {
+          "text": "No quintal",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "dormia",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "No quintal, o cachorro",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "o cachorro"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Em \"Na praça, as crianças brincavam\", qual é o sujeito?",
+        "options": [
+         {
+          "text": "Na praça, as crianças",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "brincavam",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "as crianças"
+         },
+         {
+          "text": "Na praça",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Em \"Encontrei minhas chaves\", quem é o sujeito?",
+      "options": [
+       {
+        "text": "minhas chaves",
+        "misconceptionCode": "objeto-como-sujeito"
+       },
+       {
+        "text": "Encontrei",
+        "misconceptionCode": "verbo-nao-localizado"
+       },
+       {
+        "text": "Eu, que não aparece escrito, mas é indicado pelo verbo"
+       },
+       {
+        "text": "A oração não tem sujeito",
+        "misconceptionCode": "sujeito-primeira-palavra"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A terminação de \"encontrei\" mostra que quem fala é \"eu\". O sujeito está escondido no verbo.",
+      "variants": [
+       {
+        "question": "Em \"Chegamos cedo à escola\", quem é o sujeito?",
+        "options": [
+         {
+          "text": "Nós, que não aparece escrito, mas é indicado pelo verbo"
+         },
+         {
+          "text": "à escola",
+          "misconceptionCode": "objeto-como-sujeito"
+         },
+         {
+          "text": "Chegamos",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "A oração não tem sujeito",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Em \"Encontrei minhas chaves\", quem é o sujeito?",
+        "options": [
+         {
+          "text": "A oração não tem sujeito",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "Encontrei",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "minhas chaves",
+          "misconceptionCode": "objeto-como-sujeito"
+         },
+         {
+          "text": "Eu, que não aparece escrito, mas é indicado pelo verbo"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08LP06-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: os termos em textos",
+    "prompt": "Leia cada trecho e analise.",
+    "estMinutes": 4,
+    "audioScript": "Leia cada trecho e analise. Pergunta 1. Na manchete \"Prefeitura inaugura nova escola no bairro\", quem pratica a ação? A: nova escola; B: no bairro; C: inaugura; D: Prefeitura. Pergunta 2. Em \"Os vizinhos ajudaram a família\", trocando por \"A família ajudou os vizinhos\", o que muda? A: Quem ajuda e quem é ajudado; B: Nada, o sentido é o mesmo; C: Só o tempo do verbo; D: Só a ordem das palavras, sem mudar o sentido. Pergunta 3. Qual frase tem objeto indireto? A: Ela comprou o bolo.; B: Ela se lembrou do aniversário.; C: Ela chegou.; D: Ela enfeitou a sala..",
+    "questions": [
+     {
+      "question": "Na manchete \"Prefeitura inaugura nova escola no bairro\", quem pratica a ação?",
+      "options": [
+       {
+        "text": "nova escola",
+        "misconceptionCode": "objeto-como-sujeito"
+       },
+       {
+        "text": "no bairro",
+        "misconceptionCode": "sujeito-primeira-palavra"
+       },
+       {
+        "text": "inaugura",
+        "misconceptionCode": "verbo-nao-localizado"
+       },
+       {
+        "text": "Prefeitura"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Quem inaugura? A prefeitura. \"Nova escola\" é o que foi inaugurado (objeto direto).",
+      "variants": [
+       {
+        "question": "Na manchete \"Estudantes criam aplicativo de reciclagem\", quem pratica a ação?",
+        "options": [
+         {
+          "text": "aplicativo de reciclagem",
+          "misconceptionCode": "objeto-como-sujeito"
+         },
+         {
+          "text": "Estudantes"
+         },
+         {
+          "text": "de reciclagem",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "criam",
+          "misconceptionCode": "verbo-nao-localizado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Na manchete \"Prefeitura inaugura nova escola no bairro\", quem pratica a ação?",
+        "options": [
+         {
+          "text": "Prefeitura"
+         },
+         {
+          "text": "inaugura",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "no bairro",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "nova escola",
+          "misconceptionCode": "objeto-como-sujeito"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Em \"Os vizinhos ajudaram a família\", trocando por \"A família ajudou os vizinhos\", o que muda?",
+      "options": [
+       {
+        "text": "Quem ajuda e quem é ajudado"
+       },
+       {
+        "text": "Nada, o sentido é o mesmo",
+        "misconceptionCode": "objeto-como-sujeito"
+       },
+       {
+        "text": "Só o tempo do verbo",
+        "misconceptionCode": "verbo-nao-localizado"
+       },
+       {
+        "text": "Só a ordem das palavras, sem mudar o sentido",
+        "misconceptionCode": "sujeito-primeira-palavra"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Sujeito e objeto trocaram de lugar. Agora é a família que ajuda. Saber quem é o sujeito muda a compreensão.",
+      "variants": [
+       {
+        "question": "Em \"O gato assustou o cachorro\", trocando por \"O cachorro assustou o gato\", o que muda?",
+        "options": [
+         {
+          "text": "Nada, o sentido é o mesmo",
+          "misconceptionCode": "objeto-como-sujeito"
+         },
+         {
+          "text": "Só o tempo do verbo",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "Quem assusta e quem é assustado"
+         },
+         {
+          "text": "Só a ordem das palavras, sem mudar o sentido",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Em \"Os vizinhos ajudaram a família\", trocando por \"A família ajudou os vizinhos\", o que muda?",
+        "options": [
+         {
+          "text": "Só a ordem das palavras, sem mudar o sentido",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "Quem ajuda e quem é ajudado"
+         },
+         {
+          "text": "Só o tempo do verbo",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "Nada, o sentido é o mesmo",
+          "misconceptionCode": "objeto-como-sujeito"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual frase tem objeto indireto?",
+      "options": [
+       {
+        "text": "Ela comprou o bolo.",
+        "misconceptionCode": "ignora-preposicao"
+       },
+       {
+        "text": "Ela se lembrou do aniversário."
+       },
+       {
+        "text": "Ela chegou.",
+        "misconceptionCode": "verbo-nao-localizado"
+       },
+       {
+        "text": "Ela enfeitou a sala.",
+        "misconceptionCode": "ignora-preposicao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Lembrou-se de quê? Do aniversário (de + o). Há preposição.",
+      "variants": [
+       {
+        "question": "Qual frase tem objeto indireto?",
+        "options": [
+         {
+          "text": "Ele leu o bilhete.",
+          "misconceptionCode": "ignora-preposicao"
+         },
+         {
+          "text": "Ele sorriu.",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "Ele fechou a porta.",
+          "misconceptionCode": "ignora-preposicao"
+         },
+         {
+          "text": "Ele acredita em você."
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual frase tem objeto indireto?",
+        "options": [
+         {
+          "text": "Ela enfeitou a sala.",
+          "misconceptionCode": "ignora-preposicao"
+         },
+         {
+          "text": "Ela chegou.",
+          "misconceptionCode": "verbo-nao-localizado"
+         },
+         {
+          "text": "Ela se lembrou do aniversário."
+         },
+         {
+          "text": "Ela comprou o bolo.",
+          "misconceptionCode": "ignora-preposicao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08LP06-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: como achar o sujeito e o objeto",
+    "prompt": "Explique com as suas palavras como encontrar o sujeito e o objeto direto na oração \"Ontem o goleiro defendeu o pênalti\".",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras como encontrar o sujeito e o objeto direto na oração \"Ontem o goleiro defendeu o pênalti\".",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "verbo",
+       "description": "Começa localizando o verbo (defendeu)"
+      },
+      {
+       "code": "sujeito",
+       "description": "Pergunta quem defendeu e identifica \"o goleiro\""
+      },
+      {
+       "code": "objeto",
+       "description": "Pergunta defendeu o quê e identifica \"o pênalti\""
+      }
+     ],
+     "exemploBoaResposta": "Primeiro eu acho o verbo, que é \"defendeu\". Depois pergunto: quem defendeu? O goleiro, que é o sujeito. Depois pergunto: defendeu o quê? O pênalti, que é o objeto direto. \"Ontem\" só diz quando aconteceu."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF08LP08",
+  "subjectCode": "LP",
+  "subjectName": "Língua Portuguesa",
+  "gradeYear": 8,
+  "version": 1,
+  "title": "Trilha: Voz ativa e voz passiva",
+  "tituloAluno": "Quem faz e quem recebe a ação",
+  "activities": [
+   {
+    "id": "PK2-EF08LP08-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: quem pratica a ação",
+    "prompt": "Antes de falar em voz do verbo, vamos lembrar o sujeito e a ação.",
+    "estMinutes": 4,
+    "audioScript": "Antes de falar em voz do verbo, vamos lembrar o sujeito e a ação. Pergunta 1. Em \"O menino quebrou o vaso\", quem praticou a ação? A: O vaso; B: Ninguém; C: Quebrou; D: O menino. Pergunta 2. Em \"O menino quebrou o vaso\", o que sofreu a ação? A: O vaso; B: O menino; C: Quebrou; D: Nada. Pergunta 3. Qual das formas é uma locução com o verbo \"ser\" mais particípio? A: construiu; B: foi construída; C: construirá; D: construindo.",
+    "questions": [
+     {
+      "question": "Em \"O menino quebrou o vaso\", quem praticou a ação?",
+      "options": [
+       {
+        "text": "O vaso",
+        "misconceptionCode": "agente-como-sujeito"
+       },
+       {
+        "text": "Ninguém",
+        "misconceptionCode": "nao-ve-efeito"
+       },
+       {
+        "text": "Quebrou",
+        "misconceptionCode": "passiva-e-passado"
+       },
+       {
+        "text": "O menino"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Quem quebrou? O menino. Ele é o sujeito e pratica a ação.",
+      "variants": [
+       {
+        "question": "Em \"A cozinheira preparou o almoço\", quem praticou a ação?",
+        "options": [
+         {
+          "text": "O almoço",
+          "misconceptionCode": "agente-como-sujeito"
+         },
+         {
+          "text": "A cozinheira"
+         },
+         {
+          "text": "Ninguém",
+          "misconceptionCode": "nao-ve-efeito"
+         },
+         {
+          "text": "Preparou",
+          "misconceptionCode": "passiva-e-passado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Em \"O menino quebrou o vaso\", quem praticou a ação?",
+        "options": [
+         {
+          "text": "O menino"
+         },
+         {
+          "text": "Quebrou",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "Ninguém",
+          "misconceptionCode": "nao-ve-efeito"
+         },
+         {
+          "text": "O vaso",
+          "misconceptionCode": "agente-como-sujeito"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Em \"O menino quebrou o vaso\", o que sofreu a ação?",
+      "options": [
+       {
+        "text": "O vaso"
+       },
+       {
+        "text": "O menino",
+        "misconceptionCode": "agente-como-sujeito"
+       },
+       {
+        "text": "Quebrou",
+        "misconceptionCode": "passiva-e-passado"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "nao-ve-efeito"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O vaso recebeu a ação de quebrar.",
+      "variants": [
+       {
+        "question": "Em \"A cozinheira preparou o almoço\", o que sofreu a ação?",
+        "options": [
+         {
+          "text": "A cozinheira",
+          "misconceptionCode": "agente-como-sujeito"
+         },
+         {
+          "text": "Preparou",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "O almoço"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "nao-ve-efeito"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Em \"O menino quebrou o vaso\", o que sofreu a ação?",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "nao-ve-efeito"
+         },
+         {
+          "text": "O vaso"
+         },
+         {
+          "text": "Quebrou",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "O menino",
+          "misconceptionCode": "agente-como-sujeito"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual das formas é uma locução com o verbo \"ser\" mais particípio?",
+      "options": [
+       {
+        "text": "construiu",
+        "misconceptionCode": "passiva-e-passado"
+       },
+       {
+        "text": "foi construída"
+       },
+       {
+        "text": "construirá",
+        "misconceptionCode": "passiva-e-passado"
+       },
+       {
+        "text": "construindo",
+        "misconceptionCode": "passiva-e-passado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "\"Foi\" (verbo ser) + \"construída\" (particípio). Essa estrutura é típica da voz passiva.",
+      "variants": [
+       {
+        "question": "Qual das formas é uma locução com o verbo \"ser\" mais particípio?",
+        "options": [
+         {
+          "text": "venderam",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "venderão",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "vendendo",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "foram vendidos"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual das formas é uma locução com o verbo \"ser\" mais particípio?",
+        "options": [
+         {
+          "text": "construindo",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "construirá",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "foi construída"
+         },
+         {
+          "text": "construiu",
+          "misconceptionCode": "passiva-e-passado"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08LP08-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: ativa e passiva",
+    "prompt": "Na voz ativa, o sujeito pratica a ação. Na voz passiva, o sujeito recebe a ação, e quem praticou pode aparecer depois de \"por\" ou nem aparecer. Vamos comparar juntos.",
+    "estMinutes": 4,
+    "audioScript": "Na voz ativa, o sujeito pratica a ação. Na voz passiva, o sujeito recebe a ação, e quem praticou pode aparecer depois de \"por\" ou nem aparecer. Vamos comparar juntos. Pergunta 1. \"O vaso foi quebrado pelo menino.\" Qual é o sujeito dessa oração? A: o menino; B: foi quebrado; C: O vaso; D: pelo menino. Pergunta 2. \"O menino quebrou o vaso\" e \"O vaso foi quebrado pelo menino\" contam: A: Fatos diferentes; B: O mesmo fato, em tempos diferentes; C: Fatos opostos; D: O mesmo fato, com destaques diferentes. Pergunta 3. Em \"O vaso foi quebrado\", sem dizer por quem, o que acontece? A: Quem praticou a ação fica escondido; B: A frase está errada; C: O vaso praticou a ação; D: A frase está no futuro.",
+    "questions": [
+     {
+      "question": "\"O vaso foi quebrado pelo menino.\" Qual é o sujeito dessa oração?",
+      "options": [
+       {
+        "text": "o menino",
+        "misconceptionCode": "agente-como-sujeito"
+       },
+       {
+        "text": "foi quebrado",
+        "misconceptionCode": "passiva-e-passado"
+       },
+       {
+        "text": "O vaso"
+       },
+       {
+        "text": "pelo menino",
+        "misconceptionCode": "agente-como-sujeito"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Na passiva, o sujeito é quem recebe a ação: o vaso. \"Pelo menino\" indica quem praticou.",
+      "variants": [
+       {
+        "question": "\"O almoço foi preparado pela cozinheira.\" Qual é o sujeito dessa oração?",
+        "options": [
+         {
+          "text": "O almoço"
+         },
+         {
+          "text": "a cozinheira",
+          "misconceptionCode": "agente-como-sujeito"
+         },
+         {
+          "text": "foi preparado",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "pela cozinheira",
+          "misconceptionCode": "agente-como-sujeito"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "\"O vaso foi quebrado pelo menino.\" Qual é o sujeito dessa oração?",
+        "options": [
+         {
+          "text": "pelo menino",
+          "misconceptionCode": "agente-como-sujeito"
+         },
+         {
+          "text": "foi quebrado",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "o menino",
+          "misconceptionCode": "agente-como-sujeito"
+         },
+         {
+          "text": "O vaso"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "\"O menino quebrou o vaso\" e \"O vaso foi quebrado pelo menino\" contam:",
+      "options": [
+       {
+        "text": "Fatos diferentes",
+        "misconceptionCode": "muda-sentido"
+       },
+       {
+        "text": "O mesmo fato, em tempos diferentes",
+        "misconceptionCode": "passiva-e-passado"
+       },
+       {
+        "text": "Fatos opostos",
+        "misconceptionCode": "muda-sentido"
+       },
+       {
+        "text": "O mesmo fato, com destaques diferentes"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O fato é o mesmo. A ativa destaca quem fez; a passiva destaca quem recebeu a ação.",
+      "variants": [
+       {
+        "question": "\"A chuva destruiu a ponte\" e \"A ponte foi destruída pela chuva\" contam:",
+        "options": [
+         {
+          "text": "Fatos diferentes",
+          "misconceptionCode": "muda-sentido"
+         },
+         {
+          "text": "O mesmo fato, com destaques diferentes"
+         },
+         {
+          "text": "O mesmo fato, em tempos diferentes",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "Fatos opostos",
+          "misconceptionCode": "muda-sentido"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "\"O menino quebrou o vaso\" e \"O vaso foi quebrado pelo menino\" contam:",
+        "options": [
+         {
+          "text": "O mesmo fato, com destaques diferentes"
+         },
+         {
+          "text": "Fatos opostos",
+          "misconceptionCode": "muda-sentido"
+         },
+         {
+          "text": "O mesmo fato, em tempos diferentes",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "Fatos diferentes",
+          "misconceptionCode": "muda-sentido"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Em \"O vaso foi quebrado\", sem dizer por quem, o que acontece?",
+      "options": [
+       {
+        "text": "Quem praticou a ação fica escondido"
+       },
+       {
+        "text": "A frase está errada",
+        "misconceptionCode": "muda-sentido"
+       },
+       {
+        "text": "O vaso praticou a ação",
+        "misconceptionCode": "agente-como-sujeito"
+       },
+       {
+        "text": "A frase está no futuro",
+        "misconceptionCode": "passiva-e-passado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A passiva permite não dizer quem fez. Isso pode ser usado quando não se sabe ou não se quer dizer.",
+      "variants": [
+       {
+        "question": "Em \"A janela foi quebrada\", sem dizer por quem, o que acontece?",
+        "options": [
+         {
+          "text": "A frase está errada",
+          "misconceptionCode": "muda-sentido"
+         },
+         {
+          "text": "A janela praticou a ação",
+          "misconceptionCode": "agente-como-sujeito"
+         },
+         {
+          "text": "Quem praticou a ação fica escondido"
+         },
+         {
+          "text": "A frase está no futuro",
+          "misconceptionCode": "passiva-e-passado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Em \"O vaso foi quebrado\", sem dizer por quem, o que acontece?",
+        "options": [
+         {
+          "text": "A frase está no futuro",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "Quem praticou a ação fica escondido"
+         },
+         {
+          "text": "O vaso praticou a ação",
+          "misconceptionCode": "agente-como-sujeito"
+         },
+         {
+          "text": "A frase está errada",
+          "misconceptionCode": "muda-sentido"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08LP08-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: reconhecendo a voz do verbo",
+    "prompt": "Observe se o sujeito pratica ou recebe a ação.",
+    "estMinutes": 5,
+    "audioScript": "Observe se o sujeito pratica ou recebe a ação. Pergunta 1. Qual frase está na voz passiva? A: Minha tia fez o bolo.; B: O bolo foi feito pela minha tia.; C: Minha tia fazia bolos.; D: Minha tia fará o bolo.. Pergunta 2. Qual frase está na voz ativa? A: O incêndio foi apagado pelos bombeiros.; B: O incêndio foi apagado.; C: Os bombeiros apagaram o incêndio.; D: O incêndio será apagado.. Pergunta 3. Passando \"Os alunos plantaram as árvores\" para a voz passiva, temos: A: Os alunos plantarão as árvores.; B: As árvores plantaram os alunos.; C: Os alunos tinham plantado as árvores.; D: As árvores foram plantadas pelos alunos.. Pergunta 4. \"A reunião será marcada amanhã.\" Essa frase está: A: Na voz passiva, no futuro; B: Na voz ativa, no futuro; C: Na voz passiva, no passado; D: Na voz ativa, no passado.",
+    "questions": [
+     {
+      "question": "Qual frase está na voz passiva?",
+      "options": [
+       {
+        "text": "Minha tia fez o bolo.",
+        "misconceptionCode": "passiva-e-passado"
+       },
+       {
+        "text": "O bolo foi feito pela minha tia."
+       },
+       {
+        "text": "Minha tia fazia bolos.",
+        "misconceptionCode": "passiva-e-passado"
+       },
+       {
+        "text": "Minha tia fará o bolo.",
+        "misconceptionCode": "passiva-e-passado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O sujeito (o bolo) recebe a ação, e há \"foi\" + particípio.",
+      "variants": [
+       {
+        "question": "Qual frase está na voz passiva?",
+        "options": [
+         {
+          "text": "O aluno escreveu a carta.",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "O aluno escrevia cartas.",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "O aluno escreverá a carta.",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "A carta foi escrita pelo aluno."
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual frase está na voz passiva?",
+        "options": [
+         {
+          "text": "Minha tia fará o bolo.",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "Minha tia fazia bolos.",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "O bolo foi feito pela minha tia."
+         },
+         {
+          "text": "Minha tia fez o bolo.",
+          "misconceptionCode": "passiva-e-passado"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual frase está na voz ativa?",
+      "options": [
+       {
+        "text": "O incêndio foi apagado pelos bombeiros.",
+        "misconceptionCode": "passiva-e-passado"
+       },
+       {
+        "text": "O incêndio foi apagado.",
+        "misconceptionCode": "nao-ve-efeito"
+       },
+       {
+        "text": "Os bombeiros apagaram o incêndio."
+       },
+       {
+        "text": "O incêndio será apagado.",
+        "misconceptionCode": "passiva-e-passado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Os bombeiros (sujeito) praticam a ação. Voz ativa, mesmo estando no passado.",
+      "variants": [
+       {
+        "question": "Qual frase está na voz ativa?",
+        "options": [
+         {
+          "text": "O árbitro encerrou o jogo."
+         },
+         {
+          "text": "O jogo foi encerrado pelo árbitro.",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "O jogo foi encerrado.",
+          "misconceptionCode": "nao-ve-efeito"
+         },
+         {
+          "text": "O jogo será encerrado.",
+          "misconceptionCode": "passiva-e-passado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual frase está na voz ativa?",
+        "options": [
+         {
+          "text": "O incêndio será apagado.",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "O incêndio foi apagado.",
+          "misconceptionCode": "nao-ve-efeito"
+         },
+         {
+          "text": "O incêndio foi apagado pelos bombeiros.",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "Os bombeiros apagaram o incêndio."
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Passando \"Os alunos plantaram as árvores\" para a voz passiva, temos:",
+      "options": [
+       {
+        "text": "Os alunos plantarão as árvores.",
+        "misconceptionCode": "passiva-e-passado"
+       },
+       {
+        "text": "As árvores plantaram os alunos.",
+        "misconceptionCode": "muda-sentido"
+       },
+       {
+        "text": "Os alunos tinham plantado as árvores.",
+        "misconceptionCode": "passiva-e-passado"
+       },
+       {
+        "text": "As árvores foram plantadas pelos alunos."
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O objeto (as árvores) vira sujeito, o verbo vira \"foram plantadas\" e quem praticou vem depois de \"por\".",
+      "variants": [
+       {
+        "question": "Passando \"O carteiro entregou a encomenda\" para a voz passiva, temos:",
+        "options": [
+         {
+          "text": "O carteiro entregará a encomenda.",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "A encomenda foi entregue pelo carteiro."
+         },
+         {
+          "text": "A encomenda entregou o carteiro.",
+          "misconceptionCode": "muda-sentido"
+         },
+         {
+          "text": "O carteiro tinha entregado a encomenda.",
+          "misconceptionCode": "passiva-e-passado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Passando \"Os alunos plantaram as árvores\" para a voz passiva, temos:",
+        "options": [
+         {
+          "text": "As árvores foram plantadas pelos alunos."
+         },
+         {
+          "text": "Os alunos tinham plantado as árvores.",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "As árvores plantaram os alunos.",
+          "misconceptionCode": "muda-sentido"
+         },
+         {
+          "text": "Os alunos plantarão as árvores.",
+          "misconceptionCode": "passiva-e-passado"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "\"A reunião será marcada amanhã.\" Essa frase está:",
+      "options": [
+       {
+        "text": "Na voz passiva, no futuro"
+       },
+       {
+        "text": "Na voz ativa, no futuro",
+        "misconceptionCode": "passiva-e-passado"
+       },
+       {
+        "text": "Na voz passiva, no passado",
+        "misconceptionCode": "passiva-e-passado"
+       },
+       {
+        "text": "Na voz ativa, no passado",
+        "misconceptionCode": "passiva-e-passado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Voz e tempo são coisas diferentes. Aqui a reunião recebe a ação (passiva) e o verbo \"ser\" está no futuro.",
+      "variants": [
+       {
+        "question": "\"As provas serão corrigidas na sexta.\" Essa frase está:",
+        "options": [
+         {
+          "text": "Na voz ativa, no futuro",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "Na voz passiva, no passado",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "Na voz passiva, no futuro"
+         },
+         {
+          "text": "Na voz ativa, no passado",
+          "misconceptionCode": "passiva-e-passado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "\"A reunião será marcada amanhã.\" Essa frase está:",
+        "options": [
+         {
+          "text": "Na voz ativa, no passado",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "Na voz passiva, no futuro"
+         },
+         {
+          "text": "Na voz passiva, no passado",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "Na voz ativa, no futuro",
+          "misconceptionCode": "passiva-e-passado"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08LP08-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: o efeito da voz passiva",
+    "prompt": "Pense no que cada escolha destaca ou esconde.",
+    "estMinutes": 4,
+    "audioScript": "Pense no que cada escolha destaca ou esconde. Pergunta 1. Um jornal publica \"Verba da merenda foi desviada\". O que a frase NÃO informa? A: O que foi desviado; B: Quem desviou a verba; C: Que houve um desvio; D: De onde era a verba. Pergunta 2. Para destacar o trabalho dos cientistas, qual manchete é melhor? A: Nova espécie é descoberta.; B: Nova espécie foi descoberta ontem.; C: Cientistas brasileiros descobrem nova espécie.; D: Descobriu-se nova espécie.. Pergunta 3. Um aluno diz: \"O copo foi quebrado\". Por que ele pode ter escolhido a voz passiva? A: Para mostrar que foi no passado; B: Porque a frase ativa estaria errada; C: Para dizer que o copo se quebrou sozinho; D: Para não dizer quem quebrou.",
+    "questions": [
+     {
+      "question": "Um jornal publica \"Verba da merenda foi desviada\". O que a frase NÃO informa?",
+      "options": [
+       {
+        "text": "O que foi desviado",
+        "misconceptionCode": "nao-ve-efeito"
+       },
+       {
+        "text": "Quem desviou a verba"
+       },
+       {
+        "text": "Que houve um desvio",
+        "misconceptionCode": "muda-sentido"
+       },
+       {
+        "text": "De onde era a verba",
+        "misconceptionCode": "nao-ve-efeito"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A passiva sem \"por alguém\" não diz quem praticou a ação. O leitor atento percebe essa falta.",
+      "variants": [
+       {
+        "question": "Um jornal publica \"Árvores foram cortadas na praça\". O que a frase NÃO informa?",
+        "options": [
+         {
+          "text": "O que foi cortado",
+          "misconceptionCode": "nao-ve-efeito"
+         },
+         {
+          "text": "Que houve um corte",
+          "misconceptionCode": "muda-sentido"
+         },
+         {
+          "text": "Onde aconteceu",
+          "misconceptionCode": "nao-ve-efeito"
+         },
+         {
+          "text": "Quem cortou as árvores"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um jornal publica \"Verba da merenda foi desviada\". O que a frase NÃO informa?",
+        "options": [
+         {
+          "text": "De onde era a verba",
+          "misconceptionCode": "nao-ve-efeito"
+         },
+         {
+          "text": "Que houve um desvio",
+          "misconceptionCode": "muda-sentido"
+         },
+         {
+          "text": "Quem desviou a verba"
+         },
+         {
+          "text": "O que foi desviado",
+          "misconceptionCode": "nao-ve-efeito"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Para destacar o trabalho dos cientistas, qual manchete é melhor?",
+      "options": [
+       {
+        "text": "Nova espécie é descoberta.",
+        "misconceptionCode": "nao-ve-efeito"
+       },
+       {
+        "text": "Nova espécie foi descoberta ontem.",
+        "misconceptionCode": "nao-ve-efeito"
+       },
+       {
+        "text": "Cientistas brasileiros descobrem nova espécie."
+       },
+       {
+        "text": "Descobriu-se nova espécie.",
+        "misconceptionCode": "nao-ve-efeito"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Na voz ativa, quem fez a ação aparece como sujeito, em destaque.",
+      "variants": [
+       {
+        "question": "Para destacar o trabalho das alunas, qual manchete é melhor?",
+        "options": [
+         {
+          "text": "Alunas da rede pública vencem olimpíada de ciências."
+         },
+         {
+          "text": "Olimpíada de ciências é vencida.",
+          "misconceptionCode": "nao-ve-efeito"
+         },
+         {
+          "text": "Olimpíada de ciências foi vencida ontem.",
+          "misconceptionCode": "nao-ve-efeito"
+         },
+         {
+          "text": "Venceu-se a olimpíada de ciências.",
+          "misconceptionCode": "nao-ve-efeito"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Para destacar o trabalho dos cientistas, qual manchete é melhor?",
+        "options": [
+         {
+          "text": "Descobriu-se nova espécie.",
+          "misconceptionCode": "nao-ve-efeito"
+         },
+         {
+          "text": "Nova espécie foi descoberta ontem.",
+          "misconceptionCode": "nao-ve-efeito"
+         },
+         {
+          "text": "Nova espécie é descoberta.",
+          "misconceptionCode": "nao-ve-efeito"
+         },
+         {
+          "text": "Cientistas brasileiros descobrem nova espécie."
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Um aluno diz: \"O copo foi quebrado\". Por que ele pode ter escolhido a voz passiva?",
+      "options": [
+       {
+        "text": "Para mostrar que foi no passado",
+        "misconceptionCode": "passiva-e-passado"
+       },
+       {
+        "text": "Porque a frase ativa estaria errada",
+        "misconceptionCode": "muda-sentido"
+       },
+       {
+        "text": "Para dizer que o copo se quebrou sozinho",
+        "misconceptionCode": "agente-como-sujeito"
+       },
+       {
+        "text": "Para não dizer quem quebrou"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A passiva sem agente tira o foco de quem fez. É uma escolha que tem efeito de sentido.",
+      "variants": [
+       {
+        "question": "Um texto diz: \"Erros foram cometidos\". Por que o autor pode ter escolhido a voz passiva?",
+        "options": [
+         {
+          "text": "Para mostrar que foi no passado",
+          "misconceptionCode": "passiva-e-passado"
+         },
+         {
+          "text": "Para não dizer quem errou"
+         },
+         {
+          "text": "Porque a frase ativa estaria errada",
+          "misconceptionCode": "muda-sentido"
+         },
+         {
+          "text": "Para dizer que os erros aconteceram sozinhos",
+          "misconceptionCode": "agente-como-sujeito"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um aluno diz: \"O copo foi quebrado\". Por que ele pode ter escolhido a voz passiva?",
+        "options": [
+         {
+          "text": "Para não dizer quem quebrou"
+         },
+         {
+          "text": "Para dizer que o copo se quebrou sozinho",
+          "misconceptionCode": "agente-como-sujeito"
+         },
+         {
+          "text": "Porque a frase ativa estaria errada",
+          "misconceptionCode": "muda-sentido"
+         },
+         {
+          "text": "Para mostrar que foi no passado",
+          "misconceptionCode": "passiva-e-passado"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08LP08-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: ativa ou passiva",
+    "prompt": "Explique com as suas palavras a diferença entre \"A empresa poluiu o rio\" e \"O rio foi poluído\". O que a segunda frase deixa de dizer?",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras a diferença entre \"A empresa poluiu o rio\" e \"O rio foi poluído\". O que a segunda frase deixa de dizer?",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "ativa",
+       "description": "Explica que na primeira a empresa pratica a ação (voz ativa)"
+      },
+      {
+       "code": "passiva",
+       "description": "Explica que na segunda o rio recebe a ação (voz passiva)"
+      },
+      {
+       "code": "efeito",
+       "description": "Percebe que a segunda não diz quem poluiu"
+      }
+     ],
+     "exemploBoaResposta": "Na primeira frase, a empresa é o sujeito e pratica a ação: é voz ativa. Na segunda, o rio é o sujeito e recebe a ação: é voz passiva. A segunda não diz quem poluiu o rio, então quem fez fica escondido."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF08LP04",
+  "subjectCode": "LP",
+  "subjectName": "Língua Portuguesa",
+  "gradeYear": 8,
+  "version": 1,
+  "title": "Trilha: Concordância e regência na escrita",
+  "tituloAluno": "Palavras que combinam: escrevendo com cuidado",
+  "activities": [
+   {
+    "id": "PK2-EF08LP04-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: singular e plural",
+    "prompt": "O verbo combina com o sujeito, e os adjetivos combinam com os substantivos.",
+    "estMinutes": 4,
+    "audioScript": "O verbo combina com o sujeito, e os adjetivos combinam com os substantivos. Pergunta 1. Em qual frase o verbo concorda com o sujeito no plural? A: Os meninos chegou cedo.; B: Os menino chegaram cedo.; C: Os menino chegou cedo.; D: Os meninos chegaram cedo.. Pergunta 2. Em qual frase o substantivo, os adjetivos e o verbo combinam? A: As casas amarelas são novas.; B: As casas amarela são novas.; C: As casas amarelas é novas.; D: As casa amarelas são nova.. Pergunta 3. Em \"A turma dos meninos venceu\", o verbo fica no singular porque concorda com: A: meninos; B: a turma; C: dos; D: venceu.",
+    "questions": [
+     {
+      "question": "Em qual frase o verbo concorda com o sujeito no plural?",
+      "options": [
+       {
+        "text": "Os meninos chegou cedo.",
+        "misconceptionCode": "concorda-com-o-mais-perto"
+       },
+       {
+        "text": "Os menino chegaram cedo.",
+        "misconceptionCode": "concorda-com-o-mais-perto"
+       },
+       {
+        "text": "Os menino chegou cedo.",
+        "misconceptionCode": "concorda-com-o-mais-perto"
+       },
+       {
+        "text": "Os meninos chegaram cedo."
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Sujeito no plural (os meninos), verbo no plural (chegaram).",
+      "variants": [
+       {
+        "question": "Qual frase traz o verbo no plural, como pede o sujeito?",
+        "options": [
+         {
+          "text": "As alunas fez a prova.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "As alunas fizeram a prova."
+         },
+         {
+          "text": "As aluna fizeram a prova.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "As aluna fez a prova.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Em qual frase o verbo concorda com o sujeito no plural?",
+        "options": [
+         {
+          "text": "Os meninos chegaram cedo."
+         },
+         {
+          "text": "Os menino chegou cedo.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "Os menino chegaram cedo.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "Os meninos chegou cedo.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Em qual frase o substantivo, os adjetivos e o verbo combinam?",
+      "options": [
+       {
+        "text": "As casas amarelas são novas."
+       },
+       {
+        "text": "As casas amarela são novas.",
+        "misconceptionCode": "concorda-com-o-mais-perto"
+       },
+       {
+        "text": "As casas amarelas é novas.",
+        "misconceptionCode": "concorda-com-o-mais-perto"
+       },
+       {
+        "text": "As casa amarelas são nova.",
+        "misconceptionCode": "concorda-com-o-mais-perto"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Artigo, substantivo, adjetivos e verbo combinam em número: tudo no plural.",
+      "variants": [
+       {
+        "question": "Qual frase tem todas as palavras combinando em número?",
+        "options": [
+         {
+          "text": "Os livros novo estão guardados.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "Os livros novos está guardados.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "Os livros novos estão guardados."
+         },
+         {
+          "text": "Os livro novos estão guardado.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Em qual frase o substantivo, os adjetivos e o verbo combinam?",
+        "options": [
+         {
+          "text": "As casa amarelas são nova.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "As casas amarelas são novas."
+         },
+         {
+          "text": "As casas amarelas é novas.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "As casas amarela são novas.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Em \"A turma dos meninos venceu\", o verbo fica no singular porque concorda com:",
+      "options": [
+       {
+        "text": "meninos",
+        "misconceptionCode": "concorda-com-o-mais-perto"
+       },
+       {
+        "text": "a turma"
+       },
+       {
+        "text": "dos",
+        "misconceptionCode": "concorda-com-o-mais-perto"
+       },
+       {
+        "text": "venceu",
+        "misconceptionCode": "sujeito-depois-do-verbo"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O núcleo do sujeito é \"turma\", no singular. \"Dos meninos\" só especifica qual turma.",
+      "variants": [
+       {
+        "question": "Em \"O grupo de alunas chegou\", o verbo fica no singular porque concorda com:",
+        "options": [
+         {
+          "text": "alunas",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "de",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "chegou",
+          "misconceptionCode": "sujeito-depois-do-verbo"
+         },
+         {
+          "text": "o grupo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Em \"A turma dos meninos venceu\", o verbo fica no singular porque concorda com:",
+        "options": [
+         {
+          "text": "venceu",
+          "misconceptionCode": "sujeito-depois-do-verbo"
+         },
+         {
+          "text": "dos",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "a turma"
+         },
+         {
+          "text": "meninos",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08LP04-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: casos que confundem",
+    "prompt": "Alguns casos pedem atenção: sujeito depois do verbo, sujeito longe do verbo e verbos que pedem preposição. Vamos ver juntos.",
+    "estMinutes": 4,
+    "audioScript": "Alguns casos pedem atenção: sujeito depois do verbo, sujeito longe do verbo e verbos que pedem preposição. Vamos ver juntos. Pergunta 1. Em qual frase o verbo concorda com o sujeito que vem depois dele? A: Chegou os convidados.; B: Chegaram o convidados.; C: Chegaram os convidados.; D: Chegou os convidado.. Pergunta 2. Em qual frase o verbo concorda com o núcleo do sujeito, e não com a palavra mais próxima? A: A caixa de lápis caíram no chão.; B: As caixa de lápis caiu no chão.; C: A caixa de lápis cairão no chão.; D: A caixa de lápis caiu no chão.. Pergunta 3. Na norma-padrão, quem assiste, assiste \"a\" alguma coisa. Qual frase segue essa regra? A: Assistimos ao filme ontem.; B: Assistimos o filme ontem.; C: Assistimos no filme ontem.; D: Assistimos do filme ontem..",
+    "questions": [
+     {
+      "question": "Em qual frase o verbo concorda com o sujeito que vem depois dele?",
+      "options": [
+       {
+        "text": "Chegou os convidados.",
+        "misconceptionCode": "sujeito-depois-do-verbo"
+       },
+       {
+        "text": "Chegaram o convidados.",
+        "misconceptionCode": "concorda-com-o-mais-perto"
+       },
+       {
+        "text": "Chegaram os convidados."
+       },
+       {
+        "text": "Chegou os convidado.",
+        "misconceptionCode": "sujeito-depois-do-verbo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Quem chegou? Os convidados. Mesmo vindo depois, o sujeito no plural pede verbo no plural.",
+      "variants": [
+       {
+        "question": "Qual frase flexiona corretamente o verbo antes do sujeito?",
+        "options": [
+         {
+          "text": "Faltaram três alunos."
+         },
+         {
+          "text": "Faltou três alunos.",
+          "misconceptionCode": "sujeito-depois-do-verbo"
+         },
+         {
+          "text": "Faltaram três aluno.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "Faltou três aluno.",
+          "misconceptionCode": "sujeito-depois-do-verbo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Em qual frase o verbo concorda com o sujeito que vem depois dele?",
+        "options": [
+         {
+          "text": "Chegou os convidado.",
+          "misconceptionCode": "sujeito-depois-do-verbo"
+         },
+         {
+          "text": "Chegaram o convidados.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "Chegou os convidados.",
+          "misconceptionCode": "sujeito-depois-do-verbo"
+         },
+         {
+          "text": "Chegaram os convidados."
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Em qual frase o verbo concorda com o núcleo do sujeito, e não com a palavra mais próxima?",
+      "options": [
+       {
+        "text": "A caixa de lápis caíram no chão.",
+        "misconceptionCode": "concorda-com-o-mais-perto"
+       },
+       {
+        "text": "As caixa de lápis caiu no chão.",
+        "misconceptionCode": "concorda-com-o-mais-perto"
+       },
+       {
+        "text": "A caixa de lápis cairão no chão.",
+        "misconceptionCode": "concorda-com-o-mais-perto"
+       },
+       {
+        "text": "A caixa de lápis caiu no chão."
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O que caiu? A caixa. O verbo concorda com \"caixa\", e não com \"lápis\".",
+      "variants": [
+       {
+        "question": "Qual frase faz o verbo concordar com o núcleo do sujeito?",
+        "options": [
+         {
+          "text": "O preço das frutas subiram.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "O preço das frutas subiu."
+         },
+         {
+          "text": "Os preço das frutas subiu.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "O preço das frutas subirão.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Em qual frase o verbo concorda com o núcleo do sujeito, e não com a palavra mais próxima?",
+        "options": [
+         {
+          "text": "A caixa de lápis caiu no chão."
+         },
+         {
+          "text": "A caixa de lápis cairão no chão.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "As caixa de lápis caiu no chão.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "A caixa de lápis caíram no chão.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Na norma-padrão, quem assiste, assiste \"a\" alguma coisa. Qual frase segue essa regra?",
+      "options": [
+       {
+        "text": "Assistimos ao filme ontem."
+       },
+       {
+        "text": "Assistimos o filme ontem.",
+        "misconceptionCode": "regencia-oral"
+       },
+       {
+        "text": "Assistimos no filme ontem.",
+        "misconceptionCode": "regencia-oral"
+       },
+       {
+        "text": "Assistimos do filme ontem.",
+        "misconceptionCode": "regencia-oral"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "No sentido de ver, \"assistir\" pede a preposição \"a\": assistir ao filme. Na fala informal é comum ouvir sem a preposição.",
+      "variants": [
+       {
+        "question": "Na norma-padrão, quem obedece, obedece \"a\" alguém. Qual frase segue essa regra?",
+        "options": [
+         {
+          "text": "Os jogadores obedeceram o técnico.",
+          "misconceptionCode": "regencia-oral"
+         },
+         {
+          "text": "Os jogadores obedeceram no técnico.",
+          "misconceptionCode": "regencia-oral"
+         },
+         {
+          "text": "Os jogadores obedeceram ao técnico."
+         },
+         {
+          "text": "Os jogadores obedeceram do técnico.",
+          "misconceptionCode": "regencia-oral"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Na norma-padrão, quem assiste, assiste \"a\" alguma coisa. Qual frase segue essa regra?",
+        "options": [
+         {
+          "text": "Assistimos do filme ontem.",
+          "misconceptionCode": "regencia-oral"
+         },
+         {
+          "text": "Assistimos ao filme ontem."
+         },
+         {
+          "text": "Assistimos no filme ontem.",
+          "misconceptionCode": "regencia-oral"
+         },
+         {
+          "text": "Assistimos o filme ontem.",
+          "misconceptionCode": "regencia-oral"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08LP04-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: revisando frases",
+    "prompt": "Leia como um revisor: ache o sujeito e confira se tudo combina.",
+    "estMinutes": 5,
+    "audioScript": "Leia como um revisor: ache o sujeito e confira se tudo combina. Pergunta 1. Complete de acordo com a norma-padrão: \"Os resultados da pesquisa ___ ontem.\" A: saiu; B: saíram; C: sai; D: sairá. Pergunta 2. Complete de acordo com a norma-padrão: \"___ muitas dúvidas sobre a prova.\" A: Surgiu; B: Surge; C: Surgiram; D: Surgirá. Pergunta 3. Na norma-padrão, quem vai, vai \"a\" algum lugar. Qual frase segue essa regra? A: Fui na feira no sábado.; B: Fui em a feira no sábado.; C: Fui da feira no sábado.; D: Fui à feira no sábado.. Pergunta 4. Qual frase está pontuada corretamente? A: Os alunos do oitavo ano organizaram a feira.; B: Os alunos do oitavo ano, organizaram a feira.; C: Os alunos, do oitavo ano organizaram a feira.; D: Os alunos do oitavo ano organizaram, a feira..",
+    "questions": [
+     {
+      "question": "Complete de acordo com a norma-padrão: \"Os resultados da pesquisa ___ ontem.\"",
+      "options": [
+       {
+        "text": "saiu",
+        "misconceptionCode": "concorda-com-o-mais-perto"
+       },
+       {
+        "text": "saíram"
+       },
+       {
+        "text": "sai",
+        "misconceptionCode": "concorda-com-o-mais-perto"
+       },
+       {
+        "text": "sairá",
+        "misconceptionCode": "concorda-com-o-mais-perto"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O sujeito é \"os resultados\", no plural. \"Da pesquisa\" está mais perto, mas não é o núcleo.",
+      "variants": [
+       {
+        "question": "Complete de acordo com a norma-padrão: \"As janelas da sala ___ abertas.\"",
+        "options": [
+         {
+          "text": "estava",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "está",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "estará",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "estavam"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Complete de acordo com a norma-padrão: \"Os resultados da pesquisa ___ ontem.\"",
+        "options": [
+         {
+          "text": "sairá",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "sai",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "saíram"
+         },
+         {
+          "text": "saiu",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Complete de acordo com a norma-padrão: \"___ muitas dúvidas sobre a prova.\"",
+      "options": [
+       {
+        "text": "Surgiu",
+        "misconceptionCode": "sujeito-depois-do-verbo"
+       },
+       {
+        "text": "Surge",
+        "misconceptionCode": "sujeito-depois-do-verbo"
+       },
+       {
+        "text": "Surgiram"
+       },
+       {
+        "text": "Surgirá",
+        "misconceptionCode": "sujeito-depois-do-verbo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O que surgiu? Muitas dúvidas. Sujeito no plural, depois do verbo.",
+      "variants": [
+       {
+        "question": "Complete de acordo com a norma-padrão: \"___ dois ônibus ao mesmo tempo.\"",
+        "options": [
+         {
+          "text": "Chegaram"
+         },
+         {
+          "text": "Chegou",
+          "misconceptionCode": "sujeito-depois-do-verbo"
+         },
+         {
+          "text": "Chega",
+          "misconceptionCode": "sujeito-depois-do-verbo"
+         },
+         {
+          "text": "Chegará",
+          "misconceptionCode": "sujeito-depois-do-verbo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Complete de acordo com a norma-padrão: \"___ muitas dúvidas sobre a prova.\"",
+        "options": [
+         {
+          "text": "Surgirá",
+          "misconceptionCode": "sujeito-depois-do-verbo"
+         },
+         {
+          "text": "Surge",
+          "misconceptionCode": "sujeito-depois-do-verbo"
+         },
+         {
+          "text": "Surgiu",
+          "misconceptionCode": "sujeito-depois-do-verbo"
+         },
+         {
+          "text": "Surgiram"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Na norma-padrão, quem vai, vai \"a\" algum lugar. Qual frase segue essa regra?",
+      "options": [
+       {
+        "text": "Fui na feira no sábado.",
+        "misconceptionCode": "regencia-oral"
+       },
+       {
+        "text": "Fui em a feira no sábado.",
+        "misconceptionCode": "regencia-oral"
+       },
+       {
+        "text": "Fui da feira no sábado.",
+        "misconceptionCode": "regencia-oral"
+       },
+       {
+        "text": "Fui à feira no sábado."
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "\"Ir\" pede a preposição \"a\": ir à feira. \"Fui na feira\" é comum na fala informal.",
+      "variants": [
+       {
+        "question": "Na norma-padrão, quem chega, chega \"a\" algum lugar. Qual frase segue essa regra?",
+        "options": [
+         {
+          "text": "Chegamos no estádio às oito.",
+          "misconceptionCode": "regencia-oral"
+         },
+         {
+          "text": "Chegamos ao estádio às oito."
+         },
+         {
+          "text": "Chegamos em o estádio às oito.",
+          "misconceptionCode": "regencia-oral"
+         },
+         {
+          "text": "Chegamos do estádio às oito.",
+          "misconceptionCode": "regencia-oral"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Na norma-padrão, quem vai, vai \"a\" algum lugar. Qual frase segue essa regra?",
+        "options": [
+         {
+          "text": "Fui à feira no sábado."
+         },
+         {
+          "text": "Fui da feira no sábado.",
+          "misconceptionCode": "regencia-oral"
+         },
+         {
+          "text": "Fui em a feira no sábado.",
+          "misconceptionCode": "regencia-oral"
+         },
+         {
+          "text": "Fui na feira no sábado.",
+          "misconceptionCode": "regencia-oral"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Qual frase está pontuada corretamente?",
+      "options": [
+       {
+        "text": "Os alunos do oitavo ano organizaram a feira."
+       },
+       {
+        "text": "Os alunos do oitavo ano, organizaram a feira.",
+        "misconceptionCode": "virgula-sujeito-verbo"
+       },
+       {
+        "text": "Os alunos, do oitavo ano organizaram a feira.",
+        "misconceptionCode": "virgula-sujeito-verbo"
+       },
+       {
+        "text": "Os alunos do oitavo ano organizaram, a feira.",
+        "misconceptionCode": "virgula-sujeito-verbo"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Não se separa com vírgula o sujeito do verbo, nem o verbo do seu complemento.",
+      "variants": [
+       {
+        "question": "Qual frase está pontuada corretamente?",
+        "options": [
+         {
+          "text": "A diretora da escola, assinou o documento.",
+          "misconceptionCode": "virgula-sujeito-verbo"
+         },
+         {
+          "text": "A diretora, da escola assinou o documento.",
+          "misconceptionCode": "virgula-sujeito-verbo"
+         },
+         {
+          "text": "A diretora da escola assinou o documento."
+         },
+         {
+          "text": "A diretora da escola assinou, o documento.",
+          "misconceptionCode": "virgula-sujeito-verbo"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual frase está pontuada corretamente?",
+        "options": [
+         {
+          "text": "Os alunos do oitavo ano organizaram, a feira.",
+          "misconceptionCode": "virgula-sujeito-verbo"
+         },
+         {
+          "text": "Os alunos do oitavo ano organizaram a feira."
+         },
+         {
+          "text": "Os alunos, do oitavo ano organizaram a feira.",
+          "misconceptionCode": "virgula-sujeito-verbo"
+         },
+         {
+          "text": "Os alunos do oitavo ano, organizaram a feira.",
+          "misconceptionCode": "virgula-sujeito-verbo"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08LP04-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: escrevendo para situações formais",
+    "prompt": "Em textos formais, como cartas e trabalhos, usamos a norma-padrão.",
+    "estMinutes": 4,
+    "audioScript": "Em textos formais, como cartas e trabalhos, usamos a norma-padrão. Pergunta 1. Num abaixo-assinado para a prefeitura, qual frase é mais adequada? A: Os morador solicita o conserto da rua.; B: Os moradores solicitam o conserto da rua.; C: Os moradores solicita o conserto da rua.; D: Os moradores, solicitam o conserto da rua.. Pergunta 2. Um aluno escreveu no trabalho: \"Existe muitos problemas no bairro\". Como corrigir? A: Existe muito problemas no bairro.; B: Existe, muitos problemas no bairro.; C: Existem muitos problemas no bairro.; D: A frase já está correta.. Pergunta 3. Numa conversa com amigos, alguém diz \"Fui no cinema ontem\". Isso é: A: Um erro grave em qualquer situação; B: A forma exigida em textos formais; C: Uma frase sem sentido; D: Comum na fala informal; num texto formal, o padrão é \"fui ao cinema\".",
+    "questions": [
+     {
+      "question": "Num abaixo-assinado para a prefeitura, qual frase é mais adequada?",
+      "options": [
+       {
+        "text": "Os morador solicita o conserto da rua.",
+        "misconceptionCode": "concorda-com-o-mais-perto"
+       },
+       {
+        "text": "Os moradores solicitam o conserto da rua."
+       },
+       {
+        "text": "Os moradores solicita o conserto da rua.",
+        "misconceptionCode": "concorda-com-o-mais-perto"
+       },
+       {
+        "text": "Os moradores, solicitam o conserto da rua.",
+        "misconceptionCode": "virgula-sujeito-verbo"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Texto formal pede concordância completa e pontuação correta.",
+      "variants": [
+       {
+        "question": "Num convite da escola para as famílias, qual frase é mais adequada?",
+        "options": [
+         {
+          "text": "Os professor convida as famílias para a reunião.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "Os professores convida as famílias para a reunião.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "Os professores, convidam as famílias para a reunião.",
+          "misconceptionCode": "virgula-sujeito-verbo"
+         },
+         {
+          "text": "Os professores convidam as famílias para a reunião."
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Num abaixo-assinado para a prefeitura, qual frase é mais adequada?",
+        "options": [
+         {
+          "text": "Os moradores, solicitam o conserto da rua.",
+          "misconceptionCode": "virgula-sujeito-verbo"
+         },
+         {
+          "text": "Os moradores solicita o conserto da rua.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "Os moradores solicitam o conserto da rua."
+         },
+         {
+          "text": "Os morador solicita o conserto da rua.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um aluno escreveu no trabalho: \"Existe muitos problemas no bairro\". Como corrigir?",
+      "options": [
+       {
+        "text": "Existe muito problemas no bairro.",
+        "misconceptionCode": "concorda-com-o-mais-perto"
+       },
+       {
+        "text": "Existe, muitos problemas no bairro.",
+        "misconceptionCode": "virgula-sujeito-verbo"
+       },
+       {
+        "text": "Existem muitos problemas no bairro."
+       },
+       {
+        "text": "A frase já está correta.",
+        "misconceptionCode": "sujeito-depois-do-verbo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O que existe? Muitos problemas. Sujeito no plural pede \"existem\".",
+      "variants": [
+       {
+        "question": "Um aluno escreveu no trabalho: \"Aconteceu vários acidentes na avenida\". Como corrigir?",
+        "options": [
+         {
+          "text": "Aconteceram vários acidentes na avenida."
+         },
+         {
+          "text": "Aconteceu vário acidentes na avenida.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "Aconteceu, vários acidentes na avenida.",
+          "misconceptionCode": "virgula-sujeito-verbo"
+         },
+         {
+          "text": "A frase já está correta.",
+          "misconceptionCode": "sujeito-depois-do-verbo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um aluno escreveu no trabalho: \"Existe muitos problemas no bairro\". Como corrigir?",
+        "options": [
+         {
+          "text": "A frase já está correta.",
+          "misconceptionCode": "sujeito-depois-do-verbo"
+         },
+         {
+          "text": "Existe, muitos problemas no bairro.",
+          "misconceptionCode": "virgula-sujeito-verbo"
+         },
+         {
+          "text": "Existe muito problemas no bairro.",
+          "misconceptionCode": "concorda-com-o-mais-perto"
+         },
+         {
+          "text": "Existem muitos problemas no bairro."
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Numa conversa com amigos, alguém diz \"Fui no cinema ontem\". Isso é:",
+      "options": [
+       {
+        "text": "Um erro grave em qualquer situação",
+        "misconceptionCode": "regencia-oral"
+       },
+       {
+        "text": "A forma exigida em textos formais",
+        "misconceptionCode": "regencia-oral"
+       },
+       {
+        "text": "Uma frase sem sentido",
+        "misconceptionCode": "regencia-oral"
+       },
+       {
+        "text": "Comum na fala informal; num texto formal, o padrão é \"fui ao cinema\""
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A língua varia conforme a situação. Na fala do dia a dia, essa forma é comum. Em textos formais, usa-se a norma-padrão.",
+      "variants": [
+       {
+        "question": "Numa mensagem a um amigo, alguém escreve \"Cheguei em casa agora\". Isso é:",
+        "options": [
+         {
+          "text": "Um erro grave em qualquer situação",
+          "misconceptionCode": "regencia-oral"
+         },
+         {
+          "text": "Comum no uso informal; num texto formal, o padrão é \"cheguei a casa\""
+         },
+         {
+          "text": "A forma exigida em textos formais",
+          "misconceptionCode": "regencia-oral"
+         },
+         {
+          "text": "Uma frase sem sentido",
+          "misconceptionCode": "regencia-oral"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Numa conversa com amigos, alguém diz \"Fui no cinema ontem\". Isso é:",
+        "options": [
+         {
+          "text": "Comum na fala informal; num texto formal, o padrão é \"fui ao cinema\""
+         },
+         {
+          "text": "Uma frase sem sentido",
+          "misconceptionCode": "regencia-oral"
+         },
+         {
+          "text": "A forma exigida em textos formais",
+          "misconceptionCode": "regencia-oral"
+         },
+         {
+          "text": "Um erro grave em qualquer situação",
+          "misconceptionCode": "regencia-oral"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF08LP04-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: revisando uma frase",
+    "prompt": "Um colega escreveu: \"Os jogadores do time, chegou atrasado\". Explique com as suas palavras o que precisa ser corrigido e por quê.",
+    "estMinutes": 6,
+    "audioScript": "Um colega escreveu: \"Os jogadores do time, chegou atrasado\". Explique com as suas palavras o que precisa ser corrigido e por quê.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "concordancia",
+       "description": "Corrige o verbo e o adjetivo para o plural (chegaram atrasados)"
+      },
+      {
+       "code": "sujeito",
+       "description": "Explica que o sujeito é \"os jogadores\", no plural"
+      },
+      {
+       "code": "virgula",
+       "description": "Tira a vírgula entre o sujeito e o verbo"
+      }
+     ],
+     "exemploBoaResposta": "O sujeito é \"os jogadores\", que está no plural, então o certo é \"chegaram atrasados\". Também é preciso tirar a vírgula, porque não se separa o sujeito do verbo. Fica: \"Os jogadores do time chegaram atrasados\"."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF89LP04",
+  "subjectCode": "LP",
+  "subjectName": "Língua Portuguesa",
+  "gradeYear": 8,
+  "version": 1,
+  "title": "Trilha: Tese e argumentos em textos de opinião",
+  "tituloAluno": "O que o autor defende e como defende",
+  "activities": [
+   {
+    "id": "PK2-EF89LP04-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: fato e opinião",
+    "prompt": "Fato é o que pode ser comprovado. Opinião é o que alguém pensa sobre um assunto.",
+    "estMinutes": 4,
+    "audioScript": "Fato é o que pode ser comprovado. Opinião é o que alguém pensa sobre um assunto. Pergunta 1. Qual frase é uma opinião? A: O futebol é o esporte mais bonito do mundo.; B: Uma partida de futebol tem dois tempos.; C: Cada time começa com onze jogadores.; D: A Copa do Mundo acontece de quatro em quatro anos.. Pergunta 2. Qual frase é um fato? A: Água gelada é mais gostosa.; B: A água ferve a 100 °C ao nível do mar.; C: Todo mundo deveria beber mais água.; D: Tomar banho frio é horrível.. Pergunta 3. Num texto de opinião, o autor quer principalmente: A: Contar uma história inventada; B: Ensinar a montar um objeto; C: Convencer o leitor de uma ideia; D: Só informar um fato, sem tomar posição.",
+    "questions": [
+     {
+      "question": "Qual frase é uma opinião?",
+      "options": [
+       {
+        "text": "O futebol é o esporte mais bonito do mundo."
+       },
+       {
+        "text": "Uma partida de futebol tem dois tempos.",
+        "misconceptionCode": "tema-como-tese"
+       },
+       {
+        "text": "Cada time começa com onze jogadores.",
+        "misconceptionCode": "tema-como-tese"
+       },
+       {
+        "text": "A Copa do Mundo acontece de quatro em quatro anos.",
+        "misconceptionCode": "tema-como-tese"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "\"Mais bonito\" é um julgamento pessoal. As outras frases podem ser comprovadas.",
+      "variants": [
+       {
+        "question": "Qual frase é uma opinião?",
+        "options": [
+         {
+          "text": "Um livro é formado por páginas.",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "A biblioteca da escola abre às sete horas.",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "Ler é a melhor forma de passar o tempo."
+         },
+         {
+          "text": "O dicionário está em ordem alfabética.",
+          "misconceptionCode": "tema-como-tese"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual frase é uma opinião?",
+        "options": [
+         {
+          "text": "A Copa do Mundo acontece de quatro em quatro anos.",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "O futebol é o esporte mais bonito do mundo."
+         },
+         {
+          "text": "Cada time começa com onze jogadores.",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "Uma partida de futebol tem dois tempos.",
+          "misconceptionCode": "tema-como-tese"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual frase é um fato?",
+      "options": [
+       {
+        "text": "Água gelada é mais gostosa.",
+        "misconceptionCode": "opiniao-sem-razao"
+       },
+       {
+        "text": "A água ferve a 100 °C ao nível do mar."
+       },
+       {
+        "text": "Todo mundo deveria beber mais água.",
+        "misconceptionCode": "opiniao-sem-razao"
+       },
+       {
+        "text": "Tomar banho frio é horrível.",
+        "misconceptionCode": "opiniao-sem-razao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A temperatura em que a água ferve pode ser medida e comprovada.",
+      "variants": [
+       {
+        "question": "Qual frase é um fato?",
+        "options": [
+         {
+          "text": "O Brasil é o país mais alegre do mundo.",
+          "misconceptionCode": "opiniao-sem-razao"
+         },
+         {
+          "text": "Todo mundo deveria visitar o Brasil.",
+          "misconceptionCode": "opiniao-sem-razao"
+         },
+         {
+          "text": "Viajar pelo Brasil é cansativo.",
+          "misconceptionCode": "opiniao-sem-razao"
+         },
+         {
+          "text": "O Brasil fica na América do Sul."
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual frase é um fato?",
+        "options": [
+         {
+          "text": "Tomar banho frio é horrível.",
+          "misconceptionCode": "opiniao-sem-razao"
+         },
+         {
+          "text": "Todo mundo deveria beber mais água.",
+          "misconceptionCode": "opiniao-sem-razao"
+         },
+         {
+          "text": "A água ferve a 100 °C ao nível do mar."
+         },
+         {
+          "text": "Água gelada é mais gostosa.",
+          "misconceptionCode": "opiniao-sem-razao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Num texto de opinião, o autor quer principalmente:",
+      "options": [
+       {
+        "text": "Contar uma história inventada",
+        "misconceptionCode": "tema-como-tese"
+       },
+       {
+        "text": "Ensinar a montar um objeto",
+        "misconceptionCode": "tema-como-tese"
+       },
+       {
+        "text": "Convencer o leitor de uma ideia"
+       },
+       {
+        "text": "Só informar um fato, sem tomar posição",
+        "misconceptionCode": "tema-como-tese"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O texto de opinião defende um ponto de vista e tenta convencer o leitor.",
+      "variants": [
+       {
+        "question": "Um artigo de opinião serve principalmente para:",
+        "options": [
+         {
+          "text": "Defender um ponto de vista"
+         },
+         {
+          "text": "Contar uma história inventada",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "Ensinar a montar um objeto",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "Só informar um fato, sem tomar posição",
+          "misconceptionCode": "tema-como-tese"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Num texto de opinião, o autor quer principalmente:",
+        "options": [
+         {
+          "text": "Só informar um fato, sem tomar posição",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "Ensinar a montar um objeto",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "Contar uma história inventada",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "Convencer o leitor de uma ideia"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF89LP04-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: tese e argumento",
+    "prompt": "Tese é a posição que o autor defende. Argumentos são as razões que ele dá para sustentar a tese. Leia: \"As escolas deveriam ter mais aulas de educação física. Estudos mostram que o exercício melhora a concentração. Além disso, muitas crianças só praticam esporte na escola.\"",
+    "estMinutes": 4,
+    "audioScript": "Tese é a posição que o autor defende. Argumentos são as razões que ele dá para sustentar a tese. Leia: \"As escolas deveriam ter mais aulas de educação física. Estudos mostram que o exercício melhora a concentração. Além disso, muitas crianças só praticam esporte na escola.\" Pergunta 1. Qual é a tese do texto? A: Educação física.; B: O exercício melhora a concentração.; C: Muitas crianças só praticam esporte na escola.; D: As escolas deveriam ter mais aulas de educação física.. Pergunta 2. No texto sobre educação física, qual frase é um argumento? A: Estudos mostram que o exercício melhora a concentração.; B: As escolas deveriam ter mais aulas de educação física.; C: Educação física é um assunto importante.; D: Eu acho isso e pronto.. Pergunta 3. Qual é a diferença entre o assunto e a tese de um texto? A: Não há diferença; B: O assunto é sobre o que o texto fala; a tese é o que o autor defende sobre o assunto; C: A tese é sempre o título; D: O assunto é a opinião, e a tese é o fato.",
+    "questions": [
+     {
+      "question": "Qual é a tese do texto?",
+      "options": [
+       {
+        "text": "Educação física.",
+        "misconceptionCode": "tema-como-tese"
+       },
+       {
+        "text": "O exercício melhora a concentração.",
+        "misconceptionCode": "argumento-como-tese"
+       },
+       {
+        "text": "Muitas crianças só praticam esporte na escola.",
+        "misconceptionCode": "argumento-como-tese"
+       },
+       {
+        "text": "As escolas deveriam ter mais aulas de educação física."
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A tese é a posição defendida. \"Educação física\" é só o assunto; as outras frases são as razões.",
+      "variants": [
+       {
+        "question": "Leia: \"A cidade precisa de mais ciclovias. Elas reduzem os acidentes e diminuem a poluição.\" Qual é a tese?",
+        "options": [
+         {
+          "text": "Ciclovias.",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "A cidade precisa de mais ciclovias."
+         },
+         {
+          "text": "Elas reduzem os acidentes.",
+          "misconceptionCode": "argumento-como-tese"
+         },
+         {
+          "text": "Elas diminuem a poluição.",
+          "misconceptionCode": "argumento-como-tese"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual é a tese do texto?",
+        "options": [
+         {
+          "text": "As escolas deveriam ter mais aulas de educação física."
+         },
+         {
+          "text": "Muitas crianças só praticam esporte na escola.",
+          "misconceptionCode": "argumento-como-tese"
+         },
+         {
+          "text": "O exercício melhora a concentração.",
+          "misconceptionCode": "argumento-como-tese"
+         },
+         {
+          "text": "Educação física.",
+          "misconceptionCode": "tema-como-tese"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "No texto sobre educação física, qual frase é um argumento?",
+      "options": [
+       {
+        "text": "Estudos mostram que o exercício melhora a concentração."
+       },
+       {
+        "text": "As escolas deveriam ter mais aulas de educação física.",
+        "misconceptionCode": "argumento-como-tese"
+       },
+       {
+        "text": "Educação física é um assunto importante.",
+        "misconceptionCode": "tema-como-tese"
+       },
+       {
+        "text": "Eu acho isso e pronto.",
+        "misconceptionCode": "opiniao-sem-razao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O argumento é uma razão que sustenta a tese. Aqui, o autor se apoia em estudos.",
+      "variants": [
+       {
+        "question": "No texto sobre ciclovias, qual frase é um argumento?",
+        "options": [
+         {
+          "text": "A cidade precisa de mais ciclovias.",
+          "misconceptionCode": "argumento-como-tese"
+         },
+         {
+          "text": "Ciclovia é um assunto importante.",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "Elas reduzem os acidentes."
+         },
+         {
+          "text": "Eu acho isso e pronto.",
+          "misconceptionCode": "opiniao-sem-razao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "No texto sobre educação física, qual frase é um argumento?",
+        "options": [
+         {
+          "text": "Eu acho isso e pronto.",
+          "misconceptionCode": "opiniao-sem-razao"
+         },
+         {
+          "text": "Estudos mostram que o exercício melhora a concentração."
+         },
+         {
+          "text": "Educação física é um assunto importante.",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "As escolas deveriam ter mais aulas de educação física.",
+          "misconceptionCode": "argumento-como-tese"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual é a diferença entre o assunto e a tese de um texto?",
+      "options": [
+       {
+        "text": "Não há diferença",
+        "misconceptionCode": "tema-como-tese"
+       },
+       {
+        "text": "O assunto é sobre o que o texto fala; a tese é o que o autor defende sobre o assunto"
+       },
+       {
+        "text": "A tese é sempre o título",
+        "misconceptionCode": "tema-como-tese"
+       },
+       {
+        "text": "O assunto é a opinião, e a tese é o fato",
+        "misconceptionCode": "argumento-como-tese"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Dois textos podem ter o mesmo assunto e teses opostas.",
+      "variants": [
+       {
+        "question": "Dois artigos falam sobre uniforme escolar: um é a favor e o outro é contra. Eles têm:",
+        "options": [
+         {
+          "text": "A mesma tese e assuntos diferentes",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "A mesma tese e o mesmo assunto",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "Nenhuma tese",
+          "misconceptionCode": "argumento-como-tese"
+         },
+         {
+          "text": "O mesmo assunto e teses diferentes"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual é a diferença entre o assunto e a tese de um texto?",
+        "options": [
+         {
+          "text": "O assunto é a opinião, e a tese é o fato",
+          "misconceptionCode": "argumento-como-tese"
+         },
+         {
+          "text": "A tese é sempre o título",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "O assunto é sobre o que o texto fala; a tese é o que o autor defende sobre o assunto"
+         },
+         {
+          "text": "Não há diferença",
+          "misconceptionCode": "tema-como-tese"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF89LP04-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: encontrando tese e argumentos",
+    "prompt": "Leia cada trecho com atenção.",
+    "estMinutes": 5,
+    "audioScript": "Leia cada trecho com atenção. Pergunta 1. \"O uso do celular em sala deve ter regras claras. Sem regras, os alunos se distraem com jogos e mensagens.\" Qual é a tese? A: Os alunos se distraem com jogos e mensagens.; B: O celular.; C: O uso do celular em sala deve ter regras claras.; D: Jogos e mensagens.. Pergunta 2. Tese: \"A leitura deve ser incentivada desde cedo\". Qual frase é um argumento que sustenta essa tese? A: A leitura deve ser incentivada, sim.; B: Quem discorda não entende de nada.; C: Existem livros de vários tamanhos.; D: Crianças que leem desenvolvem mais o vocabulário.. Pergunta 3. Qual expressão costuma apresentar um argumento? A: porque; B: mas; C: ou; D: quando. Pergunta 4. Qual argumento é mais forte para defender que \"é preciso economizar água\"? A: Todo mundo sabe disso.; B: Em vários períodos do ano, os reservatórios da região ficam abaixo do nível seguro.; C: Eu sempre achei isso.; D: Água é molhada..",
+    "questions": [
+     {
+      "question": "\"O uso do celular em sala deve ter regras claras. Sem regras, os alunos se distraem com jogos e mensagens.\" Qual é a tese?",
+      "options": [
+       {
+        "text": "Os alunos se distraem com jogos e mensagens.",
+        "misconceptionCode": "argumento-como-tese"
+       },
+       {
+        "text": "O celular.",
+        "misconceptionCode": "tema-como-tese"
+       },
+       {
+        "text": "O uso do celular em sala deve ter regras claras."
+       },
+       {
+        "text": "Jogos e mensagens.",
+        "misconceptionCode": "tema-como-tese"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A primeira frase traz a posição. A segunda dá a razão.",
+      "variants": [
+       {
+        "question": "\"A merenda escolar deveria ter mais frutas. Elas dão energia e ajudam a prevenir doenças.\" Qual é a tese?",
+        "options": [
+         {
+          "text": "A merenda escolar deveria ter mais frutas."
+         },
+         {
+          "text": "Elas dão energia e ajudam a prevenir doenças.",
+          "misconceptionCode": "argumento-como-tese"
+         },
+         {
+          "text": "A merenda.",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "Energia e doenças.",
+          "misconceptionCode": "tema-como-tese"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "\"O uso do celular em sala deve ter regras claras. Sem regras, os alunos se distraem com jogos e mensagens.\" Qual é a tese?",
+        "options": [
+         {
+          "text": "Jogos e mensagens.",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "O celular.",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "Os alunos se distraem com jogos e mensagens.",
+          "misconceptionCode": "argumento-como-tese"
+         },
+         {
+          "text": "O uso do celular em sala deve ter regras claras."
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Tese: \"A leitura deve ser incentivada desde cedo\". Qual frase é um argumento que sustenta essa tese?",
+      "options": [
+       {
+        "text": "A leitura deve ser incentivada, sim.",
+        "misconceptionCode": "opiniao-sem-razao"
+       },
+       {
+        "text": "Quem discorda não entende de nada.",
+        "misconceptionCode": "opiniao-sem-razao"
+       },
+       {
+        "text": "Existem livros de vários tamanhos.",
+        "misconceptionCode": "tema-como-tese"
+       },
+       {
+        "text": "Crianças que leem desenvolvem mais o vocabulário."
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Um argumento dá uma razão ligada à tese. Repetir a tese ou atacar quem discorda não é argumentar.",
+      "variants": [
+       {
+        "question": "Tese: \"O bairro precisa de uma praça\". Qual frase é um argumento que sustenta essa tese?",
+        "options": [
+         {
+          "text": "O bairro precisa de uma praça, sim.",
+          "misconceptionCode": "opiniao-sem-razao"
+         },
+         {
+          "text": "As crianças não têm um lugar seguro para brincar."
+         },
+         {
+          "text": "Quem discorda não entende de nada.",
+          "misconceptionCode": "opiniao-sem-razao"
+         },
+         {
+          "text": "Existem praças de vários tamanhos.",
+          "misconceptionCode": "tema-como-tese"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Tese: \"A leitura deve ser incentivada desde cedo\". Qual frase é um argumento que sustenta essa tese?",
+        "options": [
+         {
+          "text": "Crianças que leem desenvolvem mais o vocabulário."
+         },
+         {
+          "text": "Existem livros de vários tamanhos.",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "Quem discorda não entende de nada.",
+          "misconceptionCode": "opiniao-sem-razao"
+         },
+         {
+          "text": "A leitura deve ser incentivada, sim.",
+          "misconceptionCode": "opiniao-sem-razao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Qual expressão costuma apresentar um argumento?",
+      "options": [
+       {
+        "text": "porque"
+       },
+       {
+        "text": "mas",
+        "misconceptionCode": "argumento-como-tese"
+       },
+       {
+        "text": "ou",
+        "misconceptionCode": "tema-como-tese"
+       },
+       {
+        "text": "quando",
+        "misconceptionCode": "tema-como-tese"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "\"Porque\", \"pois\" e \"já que\" introduzem razões, ou seja, argumentos.",
+      "variants": [
+       {
+        "question": "Qual expressão costuma apresentar um argumento?",
+        "options": [
+         {
+          "text": "porém",
+          "misconceptionCode": "argumento-como-tese"
+         },
+         {
+          "text": "ou",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "pois"
+         },
+         {
+          "text": "enquanto",
+          "misconceptionCode": "tema-como-tese"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual expressão costuma apresentar um argumento?",
+        "options": [
+         {
+          "text": "quando",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "porque"
+         },
+         {
+          "text": "ou",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "mas",
+          "misconceptionCode": "argumento-como-tese"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual argumento é mais forte para defender que \"é preciso economizar água\"?",
+      "options": [
+       {
+        "text": "Todo mundo sabe disso.",
+        "misconceptionCode": "opiniao-sem-razao"
+       },
+       {
+        "text": "Em vários períodos do ano, os reservatórios da região ficam abaixo do nível seguro."
+       },
+       {
+        "text": "Eu sempre achei isso.",
+        "misconceptionCode": "opiniao-sem-razao"
+       },
+       {
+        "text": "Água é molhada.",
+        "misconceptionCode": "tema-como-tese"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O argumento forte traz um dado ou uma razão que pode ser verificada.",
+      "variants": [
+       {
+        "question": "Qual argumento é mais forte para defender que \"é preciso usar cinto de segurança\"?",
+        "options": [
+         {
+          "text": "Todo mundo sabe disso.",
+          "misconceptionCode": "opiniao-sem-razao"
+         },
+         {
+          "text": "Eu sempre achei isso.",
+          "misconceptionCode": "opiniao-sem-razao"
+         },
+         {
+          "text": "O cinto fica dentro do carro.",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "Pesquisas mostram que o cinto reduz o risco de morte em acidentes."
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual argumento é mais forte para defender que \"é preciso economizar água\"?",
+        "options": [
+         {
+          "text": "Água é molhada.",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "Eu sempre achei isso.",
+          "misconceptionCode": "opiniao-sem-razao"
+         },
+         {
+          "text": "Em vários períodos do ano, os reservatórios da região ficam abaixo do nível seguro."
+         },
+         {
+          "text": "Todo mundo sabe disso.",
+          "misconceptionCode": "opiniao-sem-razao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF89LP04-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: avaliando argumentos",
+    "prompt": "Um bom leitor avalia se as razões realmente sustentam a tese, mesmo quando não concorda com ela.",
+    "estMinutes": 4,
+    "audioScript": "Um bom leitor avalia se as razões realmente sustentam a tese, mesmo quando não concorda com ela. Pergunta 1. Você discorda da tese de um artigo, mas o autor apresenta dados de pesquisas confiáveis. O argumento dele é: A: Fraco, porque eu discordo; B: Errado, porque opinião não se discute; C: Bem fundamentado, mesmo que eu discorde da conclusão; D: Uma mentira. Pergunta 2. \"O prefeito está errado sobre o trânsito porque ele é antipático.\" Esse argumento é fraco porque: A: Fala de trânsito; B: É curto demais; C: Usa a palavra \"porque\"; D: Ataca a pessoa em vez de discutir a ideia. Pergunta 3. Um texto defende: \"Os jovens deveriam dormir mais\". Qual trecho sustenta melhor a tese? A: Segundo médicos, adolescentes precisam de oito a dez horas de sono para aprender bem.; B: Dormir é muito bom.; C: Os jovens deveriam dormir mais mesmo.; D: Muita gente tem cama em casa..",
+    "questions": [
+     {
+      "question": "Você discorda da tese de um artigo, mas o autor apresenta dados de pesquisas confiáveis. O argumento dele é:",
+      "options": [
+       {
+        "text": "Fraco, porque eu discordo",
+        "misconceptionCode": "concorda-entao-e-bom"
+       },
+       {
+        "text": "Errado, porque opinião não se discute",
+        "misconceptionCode": "concorda-entao-e-bom"
+       },
+       {
+        "text": "Bem fundamentado, mesmo que eu discorde da conclusão"
+       },
+       {
+        "text": "Uma mentira",
+        "misconceptionCode": "concorda-entao-e-bom"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Avaliar um argumento é ver se ele tem base, e não se combina com o que pensamos.",
+      "variants": [
+       {
+        "question": "Você concorda com a tese de um texto, mas o autor só diz \"é assim porque é\". O argumento dele é:",
+        "options": [
+         {
+          "text": "Fraco, mesmo que eu concorde com a conclusão"
+         },
+         {
+          "text": "Forte, porque eu concordo",
+          "misconceptionCode": "concorda-entao-e-bom"
+         },
+         {
+          "text": "Perfeito, porque opinião não se discute",
+          "misconceptionCode": "concorda-entao-e-bom"
+         },
+         {
+          "text": "Um dado de pesquisa",
+          "misconceptionCode": "concorda-entao-e-bom"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Você discorda da tese de um artigo, mas o autor apresenta dados de pesquisas confiáveis. O argumento dele é:",
+        "options": [
+         {
+          "text": "Uma mentira",
+          "misconceptionCode": "concorda-entao-e-bom"
+         },
+         {
+          "text": "Errado, porque opinião não se discute",
+          "misconceptionCode": "concorda-entao-e-bom"
+         },
+         {
+          "text": "Fraco, porque eu discordo",
+          "misconceptionCode": "concorda-entao-e-bom"
+         },
+         {
+          "text": "Bem fundamentado, mesmo que eu discorde da conclusão"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "\"O prefeito está errado sobre o trânsito porque ele é antipático.\" Esse argumento é fraco porque:",
+      "options": [
+       {
+        "text": "Fala de trânsito",
+        "misconceptionCode": "tema-como-tese"
+       },
+       {
+        "text": "É curto demais",
+        "misconceptionCode": "opiniao-sem-razao"
+       },
+       {
+        "text": "Usa a palavra \"porque\"",
+        "misconceptionCode": "argumento-como-tese"
+       },
+       {
+        "text": "Ataca a pessoa em vez de discutir a ideia"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Ser antipático não tem relação com estar certo ou errado sobre o trânsito.",
+      "variants": [
+       {
+        "question": "\"A proposta da diretora é ruim porque ela é nova na escola.\" Esse argumento é fraco porque:",
+        "options": [
+         {
+          "text": "Fala de escola",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "Ataca a pessoa em vez de discutir a ideia"
+         },
+         {
+          "text": "É curto demais",
+          "misconceptionCode": "opiniao-sem-razao"
+         },
+         {
+          "text": "Usa a palavra \"porque\"",
+          "misconceptionCode": "argumento-como-tese"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "\"O prefeito está errado sobre o trânsito porque ele é antipático.\" Esse argumento é fraco porque:",
+        "options": [
+         {
+          "text": "Ataca a pessoa em vez de discutir a ideia"
+         },
+         {
+          "text": "Usa a palavra \"porque\"",
+          "misconceptionCode": "argumento-como-tese"
+         },
+         {
+          "text": "É curto demais",
+          "misconceptionCode": "opiniao-sem-razao"
+         },
+         {
+          "text": "Fala de trânsito",
+          "misconceptionCode": "tema-como-tese"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Um texto defende: \"Os jovens deveriam dormir mais\". Qual trecho sustenta melhor a tese?",
+      "options": [
+       {
+        "text": "Segundo médicos, adolescentes precisam de oito a dez horas de sono para aprender bem."
+       },
+       {
+        "text": "Dormir é muito bom.",
+        "misconceptionCode": "opiniao-sem-razao"
+       },
+       {
+        "text": "Os jovens deveriam dormir mais mesmo.",
+        "misconceptionCode": "opiniao-sem-razao"
+       },
+       {
+        "text": "Muita gente tem cama em casa.",
+        "misconceptionCode": "tema-como-tese"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O trecho traz a voz de especialistas e uma razão ligada à tese.",
+      "variants": [
+       {
+        "question": "Um texto defende: \"As pessoas deveriam caminhar mais\". Qual trecho sustenta melhor a tese?",
+        "options": [
+         {
+          "text": "Caminhar é muito bom.",
+          "misconceptionCode": "opiniao-sem-razao"
+         },
+         {
+          "text": "As pessoas deveriam caminhar mais mesmo.",
+          "misconceptionCode": "opiniao-sem-razao"
+         },
+         {
+          "text": "Segundo médicos, caminhar todos os dias reduz o risco de doenças do coração."
+         },
+         {
+          "text": "Muita gente tem tênis em casa.",
+          "misconceptionCode": "tema-como-tese"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um texto defende: \"Os jovens deveriam dormir mais\". Qual trecho sustenta melhor a tese?",
+        "options": [
+         {
+          "text": "Muita gente tem cama em casa.",
+          "misconceptionCode": "tema-como-tese"
+         },
+         {
+          "text": "Segundo médicos, adolescentes precisam de oito a dez horas de sono para aprender bem."
+         },
+         {
+          "text": "Os jovens deveriam dormir mais mesmo.",
+          "misconceptionCode": "opiniao-sem-razao"
+         },
+         {
+          "text": "Dormir é muito bom.",
+          "misconceptionCode": "opiniao-sem-razao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF89LP04-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: tese e argumento",
+    "prompt": "Leia: \"A escola deveria ter uma horta. Os alunos aprenderiam ciências na prática e a merenda ficaria mais saudável.\" Explique com as suas palavras qual é a tese e quais são os argumentos.",
+    "estMinutes": 6,
+    "audioScript": "Leia: \"A escola deveria ter uma horta. Os alunos aprenderiam ciências na prática e a merenda ficaria mais saudável.\" Explique com as suas palavras qual é a tese e quais são os argumentos.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "tese",
+       "description": "Identifica que a tese é que a escola deveria ter uma horta"
+      },
+      {
+       "code": "argumentos",
+       "description": "Aponta os dois argumentos: aprender ciências na prática e merenda mais saudável"
+      },
+      {
+       "code": "diferenca",
+       "description": "Explica que a tese é a posição e os argumentos são as razões"
+      }
+     ],
+     "exemploBoaResposta": "A tese é que a escola deveria ter uma horta, porque é isso que o autor defende. Os argumentos são as razões que ele dá: os alunos aprenderiam ciências na prática e a merenda ficaria mais saudável."
+    }
+   }
+  ]
+ }
+]

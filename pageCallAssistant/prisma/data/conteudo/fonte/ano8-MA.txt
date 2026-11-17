@@ -1,0 +1,751 @@
+// 8º ano — Matemática
+
+#TRILHA EF08MA01 | MA | 8 | Trilha: Potências e notação científica | Potências: números muito grandes e muito pequenos
+FAZ: Efetua cálculos com potências de expoentes inteiros e usa a notação científica para representar números muito grandes ou muito pequenos.
+ERRO: base-vezes-expoente | Multiplica a base pelo expoente em vez de repetir a multiplicação
+ERRO: expoente-zero | Erra potências de expoente zero ou um
+ERRO: regra-expoentes | Aplica errado as regras de multiplicar e dividir potências de mesma base
+ERRO: negativo-vira-negativo | Pensa que expoente negativo deixa o resultado negativo
+NOTA: Use dobras de papel e contagem de bactérias para mostrar o crescimento rápido. Para notação científica, use distâncias no espaço e tamanhos de células.
+
+@relembrar | Relembrar: o que é potência | Potência é uma multiplicação de fatores iguais. Em 2³, o 2 é a base e o 3 é o expoente.
+Q: Quanto é 2³?
++ 8
+- 6 | base-vezes-expoente
+- 5 | base-vezes-expoente
+- 9 | regra-expoentes
+E: 2³ é 2 × 2 × 2 = 8. O expoente diz quantas vezes a base aparece na multiplicação.
+V: Quanto é 3²?
++ 9
+- 6
+- 5
+- 8
+Q: Quanto é 10²?
++ 100
+- 20 | base-vezes-expoente
+- 12 | base-vezes-expoente
+- 1.000 | regra-expoentes
+E: 10² é 10 × 10 = 100.
+V: Quanto é 10³?
++ 1.000
+- 30
+- 13
+- 100
+Q: Em 5⁴, o número 4 indica:
++ Quantas vezes o 5 é multiplicado por ele mesmo
+- Que devemos somar 5 + 4 | base-vezes-expoente
+- Que devemos multiplicar 5 × 4 | base-vezes-expoente
+- O resultado da conta | expoente-zero
+E: O expoente 4 indica quatro fatores iguais a 5: 5 × 5 × 5 × 5.
+V: Como se escreve 7 × 7 × 7 em forma de potência?
++ 7³
+- 3⁷
+- 7 × 3
+- 21
+
+@exemplo_guiado | Exemplo guiado: as regras das potências | Para multiplicar potências de mesma base, somamos os expoentes. Para dividir, subtraímos. Todo número diferente de zero elevado a zero dá 1. Vamos fazer juntos.
+Q: Quanto é 2³ × 2²?
++ 2⁵
+- 2⁶ | regra-expoentes
+- 4⁵ | regra-expoentes
+- 4⁶ | regra-expoentes
+E: Mesma base: conserva a base e soma os expoentes. 3 + 2 = 5, então 2⁵, que vale 32.
+V: Quanto é 3² × 3⁴?
++ 3⁶
+- 3⁸
+- 9⁶
+- 9⁸
+Q: Quanto é 5⁶ ÷ 5⁴?
++ 5²
+- 5¹⁰ | regra-expoentes
+- 1² | regra-expoentes
+- 5²⁴ | regra-expoentes
+E: Na divisão de mesma base, subtraímos os expoentes: 6 − 4 = 2. O resultado é 5², que vale 25.
+V: Quanto é 10⁷ ÷ 10⁵?
++ 10²
+- 10¹²
+- 1²
+- 10³⁵
+Q: Quanto é 7⁰?
++ 1
+- 0 | expoente-zero
+- 7 | expoente-zero
+- 70 | base-vezes-expoente
+E: Todo número diferente de zero elevado a zero é 1. Veja: 7² ÷ 7² = 7⁰, e um número dividido por ele mesmo dá 1.
+V: Quanto é 100⁰?
++ 1
+- 0
+- 100
+- 1.000
+
+@praticar | Praticar: expoente negativo e notação científica | Expoente negativo indica o inverso: 2⁻¹ = 1/2. Na notação científica, escrevemos um número entre 1 e 10 multiplicado por uma potência de 10.
+Q: Quanto é 2⁻¹?
++ 1/2
+- −2 | negativo-vira-negativo
+- −1/2 | negativo-vira-negativo
+- 2 | expoente-zero
+E: O expoente negativo inverte a base: 2⁻¹ = 1/2. O resultado continua positivo.
+V: Quanto é 10⁻¹?
++ 1/10
+- −10
+- −1/10
+- 10
+Q: Quanto é 10⁻²?
++ 0,01
+- −100 | negativo-vira-negativo
+- −20 | base-vezes-expoente
+- 0,1 | regra-expoentes
+E: 10⁻² = 1/10² = 1/100 = 0,01.
+V: Quanto é 10⁻³?
++ 0,001
+- −1.000
+- −30
+- 0,01
+Q: Como se escreve 3.000 em notação científica?
++ 3 × 10³
+- 3 × 10⁴ | regra-expoentes
+- 30 × 10³ | regra-expoentes
+- 3 × 1.000³ | base-vezes-expoente
+E: 3.000 = 3 × 1.000 = 3 × 10³. O expoente é o número de casas que a vírgula andou.
+V: Como se escreve 50.000 em notação científica?
++ 5 × 10⁴
+- 5 × 10⁵
+- 50 × 10⁴
+- 5 × 10.000⁴
+Q: Quanto vale 4 × 10²?
++ 400
+- 80 | base-vezes-expoente
+- 4.000 | regra-expoentes
+- 42 | base-vezes-expoente
+E: 10² é 100. Então 4 × 100 = 400.
+V: Quanto vale 7 × 10³?
++ 7.000
+- 210
+- 700
+- 73
+
+@aplicar | Aplicar: potências em situações reais | Use potências para resolver e representar situações.
+Q: Uma bactéria se divide em duas a cada hora. Começando com 1, quantas haverá depois de 5 horas?
++ 32
+- 10 | base-vezes-expoente
+- 25 | regra-expoentes
+- 7 | base-vezes-expoente
+E: A cada hora dobra: 2⁵ = 2 × 2 × 2 × 2 × 2 = 32.
+V: Uma folha é dobrada ao meio 4 vezes. Em quantas partes ela fica dividida?
++ 16
+- 8
+- 6
+- 12
+Q: A distância média da Terra ao Sol é de cerca de 150.000.000 km. Em notação científica:
++ 1,5 × 10⁸ km
+- 15 × 10⁸ km | regra-expoentes
+- 1,5 × 10⁷ km | regra-expoentes
+- 150 × 10⁸ km | regra-expoentes
+E: A vírgula anda 8 casas para a esquerda até ficar 1,5. Então 1,5 × 10⁸.
+V: A população do Brasil é de cerca de 200.000.000 de habitantes. Em notação científica:
++ 2 × 10⁸
+- 2 × 10⁷
+- 20 × 10⁸
+- 200 × 10⁸
+Q: Um quadrado tem lado de 6 cm. Qual é a área?
++ 36 cm²
+- 12 cm² | base-vezes-expoente
+- 24 cm² | regra-expoentes
+- 18 cm² | base-vezes-expoente
+E: A área do quadrado é lado ao quadrado: 6² = 6 × 6 = 36.
+V: Um cubo tem aresta de 3 cm. Qual é o volume?
++ 27 cm³
+- 9 cm³
+- 6 cm³
+- 12 cm³
+
+@explicar | Explicar: por que 2³ não é 6 | Explique com as suas palavras por que 2³ é 8 e não 6, e para que serve a notação científica.
+C: potencia | Explica que o expoente indica multiplicação repetida da base
+C: resultado | Mostra 2 × 2 × 2 = 8
+C: notacao | Diz que a notação científica serve para escrever números muito grandes ou muito pequenos
+BOA: 2³ quer dizer 2 multiplicado por ele mesmo três vezes: 2 × 2 × 2 = 8. Não é 2 × 3. A notação científica serve para escrever números muito grandes ou muito pequenos de um jeito curto, como 3 × 10⁸ em vez de 300.000.000.
+
+#TRILHA EF08MA06 | MA | 8 | Trilha: Valor numérico de expressões algébricas | Letras no lugar de números: calculando expressões
+FAZ: Calcula o valor numérico de expressões algébricas, substituindo as letras por números e respeitando a ordem das operações.
+ERRO: junta-algarismos | Lê 3x com x = 4 como 34, em vez de 3 × 4
+ERRO: ordem-operacoes | Faz a soma antes da multiplicação ou ignora os parênteses
+ERRO: sinal-substituicao | Erra o sinal ao substituir por número negativo
+ERRO: potencia-da-letra | Calcula x² como 2 × x
+NOTA: Use fórmulas do cotidiano: perímetro, área, preço da corrida de táxi. Insista em escrever a substituição com parênteses.
+
+@relembrar | Relembrar: letras e operações | Em álgebra, uma letra representa um número. Vamos lembrar como ler essas expressões.
+Q: O que significa 3x?
++ 3 vezes x
+- 3 mais x | junta-algarismos
+- O número trinta e x | junta-algarismos
+- x elevado a 3 | potencia-da-letra
+E: Número colado na letra indica multiplicação: 3x é 3 × x.
+V: O que significa 5y?
++ 5 vezes y
+- 5 mais y
+- O número cinquenta e y
+- y elevado a 5
+Q: Quanto é 2 + 3 × 4?
++ 14
+- 20 | ordem-operacoes
+- 24 | ordem-operacoes
+- 9 | ordem-operacoes
+E: A multiplicação vem antes da soma: 3 × 4 = 12, depois 2 + 12 = 14.
+V: Quanto é 10 − 2 × 3?
++ 4
+- 24
+- 5
+- 16
+Q: Quanto é (2 + 3) × 4?
++ 20
+- 14 | ordem-operacoes
+- 9 | ordem-operacoes
+- 24 | ordem-operacoes
+E: Os parênteses vêm primeiro: 2 + 3 = 5, depois 5 × 4 = 20.
+V: Quanto é (10 − 2) × 3?
++ 24
+- 4
+- 11
+- 16
+
+@exemplo_guiado | Exemplo guiado: substituindo a letra | Para achar o valor numérico, troque a letra pelo número, entre parênteses, e faça as contas na ordem certa. Vamos fazer juntos.
+Q: Qual é o valor de 3x quando x = 4?
++ 12
+- 34 | junta-algarismos
+- 7 | junta-algarismos
+- 81 | potencia-da-letra
+E: 3x é 3 × x. Trocando x por 4: 3 × 4 = 12.
+V: Qual é o valor de 5y quando y = 2?
++ 10
+- 52
+- 7
+- 25
+Q: Qual é o valor de 2x + 5 quando x = 3?
++ 11
+- 16 | ordem-operacoes
+- 28 | junta-algarismos
+- 10 | ordem-operacoes
+E: Substituindo: 2 × 3 + 5. Primeiro a multiplicação: 6. Depois 6 + 5 = 11.
+V: Qual é o valor de 3x + 2 quando x = 4?
++ 14
+- 18
+- 36
+- 9
+Q: Qual é o valor de x² quando x = 5?
++ 25
+- 10 | potencia-da-letra
+- 7 | potencia-da-letra
+- 52 | junta-algarismos
+E: x² é x vezes x. Com x = 5: 5 × 5 = 25.
+V: Qual é o valor de y² quando y = 3?
++ 9
+- 6
+- 5
+- 32
+
+@praticar | Praticar: calculando valores numéricos | Substitua com atenção, principalmente quando o número for negativo.
+Q: Qual é o valor de 4a − 3 quando a = 2?
++ 5
+- 39 | junta-algarismos
+- −4 | ordem-operacoes
+- 3 | ordem-operacoes
+E: 4 × 2 − 3 = 8 − 3 = 5.
+V: Qual é o valor de 5a − 4 quando a = 3?
++ 11
+- 49
+- −5
+- 4
+Q: Qual é o valor de 2x + 1 quando x = −3?
++ −5
+- 7 | sinal-substituicao
+- −7 | sinal-substituicao
+- 5 | sinal-substituicao
+E: 2 × (−3) + 1 = −6 + 1 = −5.
+V: Qual é o valor de 3x + 2 quando x = −2?
++ −4
+- 8
+- −8
+- 4
+Q: Qual é o valor de x² + 1 quando x = −2?
++ 5
+- −3 | sinal-substituicao
+- −5 | potencia-da-letra
+- 3 | sinal-substituicao
+E: (−2)² = (−2) × (−2) = 4. Depois 4 + 1 = 5.
+V: Qual é o valor de x² + 2 quando x = −3?
++ 11
+- −7
+- −4
+- 7
+Q: Qual é o valor de 2(x + 3) quando x = 4?
++ 14
+- 11 | ordem-operacoes
+- 9 | ordem-operacoes
+- 83 | junta-algarismos
+E: Primeiro os parênteses: 4 + 3 = 7. Depois 2 × 7 = 14.
+V: Qual é o valor de 3(x + 1) quando x = 5?
++ 18
+- 16
+- 9
+- 51
+
+@aplicar | Aplicar: fórmulas do dia a dia | Uma fórmula é uma expressão algébrica. Calcule o valor em cada situação.
+Q: O perímetro de um retângulo é P = 2c + 2l. Com c = 5 e l = 3, quanto vale P?
++ 16
+- 8 | ordem-operacoes
+- 10 | ordem-operacoes
+- 30 | ordem-operacoes
+E: P = 2 × 5 + 2 × 3 = 10 + 6 = 16.
+V: O perímetro de um retângulo é P = 2c + 2l. Com c = 6 e l = 4, quanto vale P?
++ 20
+- 10
+- 12
+- 48
+Q: Um táxi cobra P = 5 + 3k, em que k são os quilômetros. Quanto custa uma corrida de 6 km?
++ 23 reais
+- 48 reais | ordem-operacoes
+- 14 reais | junta-algarismos
+- 41 reais | junta-algarismos
+E: P = 5 + 3 × 6 = 5 + 18 = 23.
+V: Um aplicativo cobra P = 4 + 2k, em que k são os quilômetros. Quanto custa uma corrida de 10 km?
++ 24 reais
+- 60 reais
+- 16 reais
+- 34 reais
+Q: A área de um quadrado é A = l². Com l = 7 cm, quanto vale A?
++ 49 cm²
+- 14 cm² | potencia-da-letra
+- 28 cm² | ordem-operacoes
+- 72 cm² | junta-algarismos
+E: A = 7² = 7 × 7 = 49.
+V: A área de um quadrado é A = l². Com l = 9 cm, quanto vale A?
++ 81 cm²
+- 18 cm²
+- 36 cm²
+- 92 cm²
+
+@explicar | Explicar: como calcular o valor numérico | Explique com as suas palavras como achar o valor de 3x + 4 quando x = 5, e por que 3x não é 35.
+C: substitui | Troca x por 5
+C: multiplicacao | Explica que 3x é 3 vezes x
+C: resultado | Chega a 19 fazendo a multiplicação antes da soma
+BOA: Eu troco o x por 5. Como 3x quer dizer 3 vezes x, fica 3 × 5, que dá 15, e não 35. Depois somo 4 e chego a 19. A multiplicação vem antes da soma.
+
+#TRILHA EF08MA08 | MA | 8 | Trilha: Sistemas de equações do 1º grau | Duas pistas, dois números escondidos
+FAZ: Representa problemas por sistemas de duas equações do 1º grau com duas incógnitas e resolve pelos métodos da substituição e da adição.
+ERRO: uma-equacao-so | Usa só uma das equações e ignora a outra
+ERRO: nao-confere | Acha um valor que não satisfaz as duas equações
+ERRO: sinal-na-soma | Erra o sinal ao somar ou subtrair as equações
+ERRO: troca-incognitas | Troca o valor de x com o de y ou monta as equações trocadas
+NOTA: Comece com problemas de "soma e diferença" e de preços. Sempre confira a solução nas duas equações.
+
+@relembrar | Relembrar: equações com uma letra | Antes dos sistemas, vamos lembrar como resolver uma equação.
+Q: Quanto vale x em x + 5 = 12?
++ 7
+- 17 | sinal-na-soma
+- 60 | nao-confere
+- 5 | uma-equacao-so
+E: Tire 5 dos dois lados: x = 12 − 5 = 7.
+V: Quanto vale x em x + 8 = 15?
++ 7
+- 23
+- 120
+- 8
+Q: Quanto vale x em 2x = 14?
++ 7
+- 28 | sinal-na-soma
+- 12 | nao-confere
+- 16 | uma-equacao-so
+E: Divida os dois lados por 2: x = 7.
+V: Quanto vale x em 3x = 18?
++ 6
+- 54
+- 15
+- 21
+Q: Os números 4 e 6 têm soma 10. Que outro par também tem soma 10?
++ 7 e 3
+- 7 e 4 | nao-confere
+- 5 e 6 | nao-confere
+- 8 e 3 | nao-confere
+E: 7 + 3 = 10. Há muitos pares com soma 10. Para saber qual é o certo, precisamos de outra informação.
+V: Qual par de números tem soma 12?
++ 8 e 4
+- 8 e 5
+- 7 e 6
+- 9 e 4
+
+@exemplo_guiado | Exemplo guiado: duas informações, um par | Um sistema junta duas equações. A solução é o par de números que serve nas duas ao mesmo tempo. Somando as equações, uma letra pode sumir. Vamos resolver juntos: x + y = 10 e x − y = 4.
+Q: No sistema x + y = 10 e x − y = 4, somando as duas equações, obtemos:
++ 2x = 14
+- 2y = 14 | troca-incognitas
+- 2x = 6 | sinal-na-soma
+- x = 14 | sinal-na-soma
+E: Somando lado a lado: x + x = 2x, y − y = 0 e 10 + 4 = 14. Fica 2x = 14.
+V: No sistema x + y = 12 e x − y = 2, somando as duas equações, obtemos:
++ 2x = 14
+- 2y = 14
+- 2x = 10
+- x = 14
+Q: Se 2x = 14, então x = 7. Usando x + y = 10, quanto vale y?
++ 3
+- 17 | sinal-na-soma
+- 7 | troca-incognitas
+- 4 | uma-equacao-so
+E: 7 + y = 10, então y = 3.
+V: Se x = 7 e x + y = 12, quanto vale y?
++ 5
+- 19
+- 7
+- 2
+Q: Como conferir que x = 7 e y = 3 resolvem o sistema x + y = 10 e x − y = 4?
++ Testar nas duas equações: 7 + 3 = 10 e 7 − 3 = 4
+- Testar só na primeira | uma-equacao-so
+- Testar só na segunda | uma-equacao-so
+- Não é preciso conferir | nao-confere
+E: A solução precisa servir nas duas equações. Aqui, serve.
+V: O par x = 5 e y = 5 resolve o sistema x + y = 10 e x − y = 4?
++ Não, porque 5 − 5 não é 4
+- Sim, porque 5 + 5 = 10
+- Sim, serve nas duas
+- Não dá para saber
+
+@praticar | Praticar: resolvendo sistemas | Resolva e confira nas duas equações.
+Q: Qual é a solução de x + y = 8 e x − y = 2?
++ x = 5 e y = 3
+- x = 3 e y = 5 | troca-incognitas
+- x = 6 e y = 2 | uma-equacao-so
+- x = 4 e y = 4 | uma-equacao-so
+E: Somando: 2x = 10, x = 5. Depois 5 + y = 8, y = 3. Conferindo: 5 − 3 = 2.
+V: Qual é a solução de x + y = 9 e x − y = 1?
++ x = 5 e y = 4
+- x = 4 e y = 5
+- x = 6 e y = 3
+- x = 8 e y = 1
+Q: Qual é a solução de y = 2x e x + y = 9?
++ x = 3 e y = 6
+- x = 6 e y = 3 | troca-incognitas
+- x = 4 e y = 5 | uma-equacao-so
+- x = 2 e y = 4 | uma-equacao-so
+E: Troque y por 2x na segunda: x + 2x = 9, então 3x = 9 e x = 3. Depois y = 2 × 3 = 6.
+V: Qual é a solução de y = 3x e x + y = 8?
++ x = 2 e y = 6
+- x = 6 e y = 2
+- x = 4 e y = 4
+- x = 1 e y = 3
+Q: Qual é a solução de x + y = 7 e 2x + y = 10?
++ x = 3 e y = 4
+- x = 4 e y = 3 | troca-incognitas
+- x = 5 e y = 2 | uma-equacao-so
+- x = 2 e y = 6 | uma-equacao-so
+E: Subtraindo a primeira da segunda: x = 3. Depois 3 + y = 7, y = 4. Conferindo: 2 × 3 + 4 = 10.
+V: Qual é a solução de x + y = 6 e 2x + y = 10?
++ x = 4 e y = 2
+- x = 2 e y = 4
+- x = 5 e y = 1
+- x = 3 e y = 4
+Q: O par x = 2 e y = 6 resolve o sistema x + y = 8 e x − y = 2?
++ Não, porque 2 − 6 não é 2
+- Sim, porque 2 + 6 = 8 | uma-equacao-so
+- Sim, serve nas duas | nao-confere
+- Sim, se trocar os sinais | sinal-na-soma
+E: O par serve na primeira equação, mas não na segunda. A solução tem de servir nas duas.
+V: O par x = 1 e y = 8 resolve o sistema x + y = 9 e x − y = 1?
++ Não, porque 1 − 8 não é 1
+- Sim, porque 1 + 8 = 9
+- Sim, serve nas duas
+- Sim, se trocar os sinais
+
+@aplicar | Aplicar: problemas com duas incógnitas | Transforme cada situação num sistema e resolva.
+Q: A soma de dois números é 20 e a diferença entre eles é 4. Quais são os números?
++ 12 e 8
+- 16 e 4 | uma-equacao-so
+- 10 e 10 | uma-equacao-so
+- 14 e 10 | uma-equacao-so
+E: x + y = 20 e x − y = 4. Somando: 2x = 24, x = 12. Então y = 8.
+V: A soma de dois números é 30 e a diferença entre eles é 6. Quais são os números?
++ 18 e 12
+- 24 e 6
+- 15 e 15
+- 20 e 14
+Q: Num estacionamento há carros e motos, num total de 10 veículos e 28 rodas. Quantos carros há?
++ 4
+- 6 | troca-incognitas
+- 7 | uma-equacao-so
+- 5 | uma-equacao-so
+E: c + m = 10 e 4c + 2m = 28. Trocando m por 10 − c: 4c + 20 − 2c = 28, então 2c = 8 e c = 4.
+V: Num sítio há galinhas e porcos, num total de 10 animais e 26 patas. Quantos porcos há?
++ 3
+- 7
+- 5
+- 6
+Q: Dois cadernos e uma caneta custam 14 reais. Um caderno e uma caneta custam 9 reais. Quanto custa um caderno?
++ 5 reais
+- 4 reais | troca-incognitas
+- 7 reais | uma-equacao-so
+- 9 reais | uma-equacao-so
+E: 2c + n = 14 e c + n = 9. Subtraindo: c = 5. A caneta custa 4.
+V: Dois sucos e um lanche custam 16 reais. Um suco e um lanche custam 11 reais. Quanto custa um suco?
++ 5 reais
+- 6 reais
+- 8 reais
+- 11 reais
+
+@explicar | Explicar: o que é a solução de um sistema | Explique com as suas palavras como resolver o sistema x + y = 6 e x − y = 2, e como conferir a resposta.
+C: metodo | Soma as equações ou usa a substituição
+C: solucao | Chega a x = 4 e y = 2
+C: confere | Confere nas duas equações
+BOA: Eu somo as duas equações: o y some e fica 2x = 8, então x = 4. Depois uso x + y = 6 e acho y = 2. Para conferir, testo nas duas: 4 + 2 = 6 e 4 − 2 = 2. Deu certo nas duas, então é a solução.
+
+#TRILHA EF08MA13 | MA | 8 | Trilha: Grandezas proporcionais e regra de três | Mais disso, mais ou menos daquilo: proporção
+FAZ: Resolve problemas com grandezas diretamente e inversamente proporcionais, identificando o tipo de relação antes de calcular.
+ERRO: sempre-direta | Trata toda relação como diretamente proporcional
+ERRO: soma-em-vez-de-proporcao | Soma ou subtrai a diferença em vez de usar a razão
+ERRO: inverte-razao | Monta a proporção com os termos trocados
+ERRO: nao-proporcional | Vê proporção onde não existe
+NOTA: Use receitas, preços e tempo de viagem. Antes de calcular, pergunte sempre: se uma grandeza aumenta, a outra aumenta ou diminui?
+
+@relembrar | Relembrar: razão e dobro | Vamos lembrar como as quantidades se relacionam.
+Q: Um pão custa 2 reais. Quanto custam 5 pães?
++ 10 reais
+- 7 reais | soma-em-vez-de-proporcao
+- 2,50 reais | inverte-razao
+- 25 reais | nao-proporcional
+E: Cada pão custa 2, então 5 pães custam 5 × 2 = 10.
+V: Uma caneta custa 3 reais. Quanto custam 4 canetas?
++ 12 reais
+- 7 reais
+- 0,75 real
+- 34 reais
+Q: Se 1 kg de arroz custa 6 reais, quanto custam 3 kg?
++ 18 reais
+- 9 reais | soma-em-vez-de-proporcao
+- 2 reais | inverte-razao
+- 63 reais | nao-proporcional
+E: O triplo da quantidade custa o triplo do preço: 3 × 6 = 18.
+V: Se 1 litro de leite custa 5 reais, quanto custam 4 litros?
++ 20 reais
+- 9 reais
+- 1,25 real
+- 54 reais
+Q: O que é o dobro de 15?
++ 30
+- 17 | soma-em-vez-de-proporcao
+- 7,5 | inverte-razao
+- 152 | nao-proporcional
+E: Dobro é duas vezes: 2 × 15 = 30.
+V: O que é a metade de 40?
++ 20
+- 38
+- 80
+- 42
+
+@exemplo_guiado | Exemplo guiado: direta ou inversa | Diretamente proporcionais: quando uma dobra, a outra dobra. Inversamente proporcionais: quando uma dobra, a outra cai pela metade. Vamos analisar juntos.
+Q: Com 2 ovos, faço 1 bolo. Com 6 ovos, faço 3 bolos. Ovos e bolos são grandezas:
++ Diretamente proporcionais
+- Inversamente proporcionais | sempre-direta
+- Não proporcionais | nao-proporcional
+- Iguais | soma-em-vez-de-proporcao
+E: Triplicando os ovos, triplicam os bolos. As duas aumentam na mesma proporção.
+V: Uma torneira enche 10 litros em 1 minuto e 30 litros em 3 minutos. Tempo e litros são grandezas:
++ Diretamente proporcionais
+- Inversamente proporcionais
+- Não proporcionais
+- Iguais
+Q: 2 pintores pintam um muro em 6 horas. 4 pintores, no mesmo ritmo, levam 3 horas. Pintores e tempo são grandezas:
++ Inversamente proporcionais
+- Diretamente proporcionais | sempre-direta
+- Não proporcionais | nao-proporcional
+- Iguais | soma-em-vez-de-proporcao
+E: Dobrando os pintores, o tempo cai pela metade. Quando uma aumenta, a outra diminui na mesma proporção.
+V: A 60 km/h, uma viagem leva 4 horas. A 120 km/h, leva 2 horas. Velocidade e tempo são grandezas:
++ Inversamente proporcionais
+- Diretamente proporcionais
+- Não proporcionais
+- Iguais
+Q: Uma criança tinha 1 metro aos 4 anos. Aos 8 anos, ela terá 2 metros?
++ Não: idade e altura não são proporcionais
+- Sim, dobrou a idade, dobra a altura | nao-proporcional
+- Sim, é proporção direta | sempre-direta
+- Sim, é proporção inversa | nao-proporcional
+E: Nem tudo é proporcional. A altura não dobra quando a idade dobra.
+V: Um time fez 2 gols no primeiro tempo. Com certeza fará 4 gols no jogo todo?
++ Não: gols e tempo não são proporcionais
+- Sim, dobrou o tempo, dobram os gols
+- Sim, é proporção direta
+- Sim, é proporção inversa
+
+@praticar | Praticar: regra de três | Descubra se a relação é direta ou inversa e calcule.
+Q: 3 cadernos custam 24 reais. Quanto custam 5 cadernos?
++ 40 reais
+- 26 reais | soma-em-vez-de-proporcao
+- 14,40 reais | inverte-razao
+- 120 reais | nao-proporcional
+E: Cada caderno custa 24 ÷ 3 = 8 reais. Cinco custam 5 × 8 = 40.
+V: 4 lápis custam 12 reais. Quanto custam 7 lápis?
++ 21 reais
+- 15 reais
+- 6,86 reais
+- 84 reais
+Q: Um carro percorre 120 km com 10 litros. Quantos litros ele gasta para percorrer 300 km?
++ 25 litros
+- 190 litros | soma-em-vez-de-proporcao
+- 4 litros | inverte-razao
+- 30 litros | nao-proporcional
+E: Ele faz 12 km por litro. Para 300 km: 300 ÷ 12 = 25 litros.
+V: Um carro percorre 100 km com 8 litros. Quantos litros ele gasta para percorrer 250 km?
++ 20 litros
+- 158 litros
+- 3,2 litros
+- 25 litros
+Q: 4 pedreiros constroem um muro em 12 dias. No mesmo ritmo, 8 pedreiros constroem em quantos dias?
++ 6 dias
+- 24 dias | sempre-direta
+- 16 dias | soma-em-vez-de-proporcao
+- 8 dias | soma-em-vez-de-proporcao
+E: É inversa: dobrando os pedreiros, o tempo cai pela metade. 12 ÷ 2 = 6.
+V: 3 torneiras enchem um tanque em 8 horas. No mesmo ritmo, 6 torneiras enchem em quantas horas?
++ 4 horas
+- 16 horas
+- 11 horas
+- 5 horas
+Q: A 80 km/h, uma viagem dura 3 horas. A 60 km/h, quanto tempo dura?
++ 4 horas
+- 2,25 horas | sempre-direta
+- 2 horas | soma-em-vez-de-proporcao
+- 5 horas | soma-em-vez-de-proporcao
+E: A distância é 80 × 3 = 240 km. A 60 km/h: 240 ÷ 60 = 4 horas. Mais devagar, mais tempo.
+V: A 90 km/h, uma viagem dura 2 horas. A 60 km/h, quanto tempo dura?
++ 3 horas
+- 1,33 hora
+- 1 hora
+- 4 horas
+
+@aplicar | Aplicar: proporção em situações reais | Leia com atenção e decida que tipo de relação existe.
+Q: Uma receita para 4 pessoas leva 300 g de farinha. Para 10 pessoas, quanto de farinha?
++ 750 g
+- 306 g | soma-em-vez-de-proporcao
+- 120 g | inverte-razao
+- 3.000 g | nao-proporcional
+E: São 75 g por pessoa (300 ÷ 4). Para 10 pessoas: 750 g.
+V: Uma receita para 6 pessoas leva 240 g de açúcar. Para 9 pessoas, quanto de açúcar?
++ 360 g
+- 243 g
+- 160 g
+- 2.160 g
+Q: Uma ração dura 20 dias para 6 cachorros. Para 12 cachorros, quanto tempo dura?
++ 10 dias
+- 40 dias | sempre-direta
+- 26 dias | soma-em-vez-de-proporcao
+- 14 dias | soma-em-vez-de-proporcao
+E: Mais cachorros comem mais rápido. Dobrando os cachorros, a ração dura a metade: 10 dias.
+V: Uma caixa-d'água abastece 4 casas por 12 dias. Para 8 casas, quanto tempo dura?
++ 6 dias
+- 24 dias
+- 16 dias
+- 8 dias
+Q: Num mapa, 1 cm representa 50 km. Duas cidades estão a 6 cm no mapa. Qual é a distância real?
++ 300 km
+- 56 km | soma-em-vez-de-proporcao
+- 8,3 km | inverte-razao
+- 3.000 km | nao-proporcional
+E: Cada centímetro vale 50 km. Então 6 × 50 = 300 km.
+V: Num mapa, 1 cm representa 20 km. Duas cidades estão a 7 cm no mapa. Qual é a distância real?
++ 140 km
+- 27 km
+- 2,9 km
+- 1.400 km
+
+@explicar | Explicar: direta ou inversa | Explique com as suas palavras a diferença entre grandezas diretamente e inversamente proporcionais. Dê um exemplo de cada.
+C: direta | Explica que na direta as duas aumentam ou diminuem juntas, na mesma proporção
+C: inversa | Explica que na inversa, quando uma aumenta, a outra diminui na mesma proporção
+C: exemplos | Dá um exemplo correto de cada
+BOA: Nas grandezas diretamente proporcionais, quando uma dobra, a outra também dobra, como a quantidade de pães e o preço. Nas inversamente proporcionais, quando uma dobra, a outra cai pela metade, como o número de pedreiros e o tempo para fazer um muro.
+
+#DIAG DIAG2-MA-8A | MA | 8 | Diagnóstico de Matemática — 8º ano | Potências, expressões algébricas, sistemas de equações e proporcionalidade no 8º ano, com degrau para equações e números inteiros do 7º ano.
+I: EF08MA01 | NORMAL
+Q: Quanto é 2⁴?
++ 16
+- 8 | base-vezes-expoente
+- 6 | base-vezes-expoente
+- 24 | base-vezes-expoente
+E: 2⁴ = 2 × 2 × 2 × 2 = 16.
+I: EF08MA01 | NORMAL
+Q: Quanto é 3² × 3³?
++ 3⁵
+- 3⁶ | regra-expoentes
+- 9⁵ | regra-expoentes
+- 9⁶ | regra-expoentes
+E: Mesma base: conserva a base e soma os expoentes.
+I: EF08MA06 | NORMAL
+Q: Qual é o valor de 2x + 3 quando x = 5?
++ 13
+- 28 | junta-algarismos
+- 16 | ordem-operacoes
+- 10 | ordem-operacoes
+E: 2 × 5 + 3 = 10 + 3 = 13.
+I: EF08MA06 | NORMAL
+Q: Qual é o valor de x² quando x = −4?
++ 16
+- −16 | sinal-substituicao
+- −8 | potencia-da-letra
+- 8 | potencia-da-letra
+E: (−4) × (−4) = 16. Sinais iguais dão resultado positivo.
+I: EF08MA08 | NORMAL
+Q: Qual é a solução de x + y = 10 e x − y = 2?
++ x = 6 e y = 4
+- x = 4 e y = 6 | troca-incognitas
+- x = 8 e y = 2 | uma-equacao-so
+- x = 5 e y = 5 | uma-equacao-so
+E: Somando: 2x = 12, x = 6. Depois y = 4. Conferindo: 6 − 4 = 2.
+I: EF08MA08 | NORMAL
+Q: A soma de dois números é 15 e a diferença é 3. Quais são eles?
++ 9 e 6
+- 12 e 3 | uma-equacao-so
+- 8 e 7 | uma-equacao-so
+- 10 e 5 | uma-equacao-so
+E: x + y = 15 e x − y = 3. Somando: 2x = 18, x = 9. Então y = 6.
+I: EF08MA13 | NORMAL
+Q: 2 kg de feijão custam 16 reais. Quanto custam 5 kg?
++ 40 reais
+- 19 reais | soma-em-vez-de-proporcao
+- 6,40 reais | inverte-razao
+- 80 reais | nao-proporcional
+E: Cada quilo custa 8 reais. Cinco quilos custam 40.
+I: EF08MA13 | NORMAL
+Q: 3 máquinas fazem um serviço em 10 horas. No mesmo ritmo, 6 máquinas fazem em:
++ 5 horas
+- 20 horas | sempre-direta
+- 13 horas | soma-em-vez-de-proporcao
+- 7 horas | soma-em-vez-de-proporcao
+E: É inversa: dobrando as máquinas, o tempo cai pela metade.
+I: EF07MA18 | DEGRAU
+Q: Quanto vale x em 3x + 1 = 16?
++ 5
+- 15 | uma-equacao-so
+- 17 | sinal-na-soma
+- 45 | nao-confere
+E: Tire 1: 3x = 15. Divida por 3: x = 5.
+I: EF07MA18 | DEGRAU
+Q: Quanto vale x em 2x − 4 = 10?
++ 7
+- 3 | sinal-na-soma
+- 14 | uma-equacao-so
+- 5 | nao-confere
+E: Some 4: 2x = 14. Divida por 2: x = 7.
+I: EF07MA04 | DEGRAU
+Q: Quanto é −8 + 5?
++ −3
+- 3 | sinal-substituicao
+- −13 | sinal-substituicao
+- 13 | sinal-substituicao
+E: Você deve 8 e tem 5: paga uma parte e fica devendo 3.
+I: EF07MA04 | DEGRAU
+Q: Quanto é (−3) × 4?
++ −12
+- 12 | sinal-substituicao
+- 1 | ordem-operacoes
+- −7 | ordem-operacoes
+E: Sinais diferentes dão resultado negativo: −12.
+
+#PRE EF08MA08 > EF07MA18 | 3
+#PRE EF08MA06 > EF07MA04 | 3
+#PRE EF08MA13 > EF07MA12 | 2
