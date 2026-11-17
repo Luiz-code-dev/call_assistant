@@ -1,0 +1,3766 @@
+[
+ {
+  "skillCode": "EF07CI02",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 7,
+  "version": 1,
+  "title": "Trilha: Temperatura, calor e sensação térmica",
+  "tituloAluno": "Quente ou frio? Temperatura, calor e o que a gente sente",
+  "activities": [
+   {
+    "id": "PK2-EF07CI02-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: medindo o quente e o frio",
+    "prompt": "Vamos lembrar o que já sabemos sobre quente, frio e como medir.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar o que já sabemos sobre quente, frio e como medir. Pergunta 1. Qual instrumento mede a temperatura? A: Termômetro; B: Balança; C: Régua; D: Relógio. Pergunta 2. No Brasil, a temperatura costuma ser medida em: A: Quilogramas (kg); B: Graus Celsius (°C); C: Metros (m); D: Litros (L). Pergunta 3. Um copo de suco gelado fica um tempo na mesa. O que acontece com ele? A: Fica gelado para sempre; B: Fica mais frio que antes; C: Vai esquentando até a temperatura do ambiente; D: Esfria o ar da sala inteira.",
+    "questions": [
+     {
+      "question": "Qual instrumento mede a temperatura?",
+      "options": [
+       {
+        "text": "Termômetro"
+       },
+       {
+        "text": "Balança",
+        "misconceptionCode": "calor-igual-temperatura"
+       },
+       {
+        "text": "Régua",
+        "misconceptionCode": "sensacao-e-medida"
+       },
+       {
+        "text": "Relógio",
+        "misconceptionCode": "sentido-do-calor"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O termômetro mede a temperatura. A balança mede a massa e a régua, o comprimento.",
+      "variants": [
+       {
+        "question": "A temperatura do corpo de uma pessoa é medida com:",
+        "options": [
+         {
+          "text": "Balança",
+          "misconceptionCode": "calor-igual-temperatura"
+         },
+         {
+          "text": "Fita métrica",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "Termômetro"
+         },
+         {
+          "text": "Cronômetro",
+          "misconceptionCode": "sentido-do-calor"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual instrumento mede a temperatura?",
+        "options": [
+         {
+          "text": "Relógio",
+          "misconceptionCode": "sentido-do-calor"
+         },
+         {
+          "text": "Termômetro"
+         },
+         {
+          "text": "Régua",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "Balança",
+          "misconceptionCode": "calor-igual-temperatura"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "No Brasil, a temperatura costuma ser medida em:",
+      "options": [
+       {
+        "text": "Quilogramas (kg)",
+        "misconceptionCode": "calor-igual-temperatura"
+       },
+       {
+        "text": "Graus Celsius (°C)"
+       },
+       {
+        "text": "Metros (m)",
+        "misconceptionCode": "sensacao-e-medida"
+       },
+       {
+        "text": "Litros (L)",
+        "misconceptionCode": "sentido-do-calor"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Usamos graus Celsius. A água congela a 0 °C e ferve a 100 °C ao nível do mar.",
+      "variants": [
+       {
+        "question": "A que temperatura a água vira gelo, ao nível do mar?",
+        "options": [
+         {
+          "text": "100 °C",
+          "misconceptionCode": "calor-igual-temperatura"
+         },
+         {
+          "text": "50 °C",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "37 °C",
+          "misconceptionCode": "sentido-do-calor"
+         },
+         {
+          "text": "0 °C"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "No Brasil, a temperatura costuma ser medida em:",
+        "options": [
+         {
+          "text": "Litros (L)",
+          "misconceptionCode": "sentido-do-calor"
+         },
+         {
+          "text": "Metros (m)",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "Graus Celsius (°C)"
+         },
+         {
+          "text": "Quilogramas (kg)",
+          "misconceptionCode": "calor-igual-temperatura"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um copo de suco gelado fica um tempo na mesa. O que acontece com ele?",
+      "options": [
+       {
+        "text": "Fica gelado para sempre",
+        "misconceptionCode": "sensacao-e-medida"
+       },
+       {
+        "text": "Fica mais frio que antes",
+        "misconceptionCode": "sentido-do-calor"
+       },
+       {
+        "text": "Vai esquentando até a temperatura do ambiente"
+       },
+       {
+        "text": "Esfria o ar da sala inteira",
+        "misconceptionCode": "frio-entra"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O ar mais quente passa energia para o suco, que esquenta até ficar na temperatura do ambiente.",
+      "variants": [
+       {
+        "question": "Uma xícara de café quente fica um tempo na mesa. O que acontece com ela?",
+        "options": [
+         {
+          "text": "Vai esfriando até a temperatura do ambiente"
+         },
+         {
+          "text": "Fica quente para sempre",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "Fica mais quente que antes",
+          "misconceptionCode": "sentido-do-calor"
+         },
+         {
+          "text": "Esquenta a casa inteira",
+          "misconceptionCode": "frio-entra"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um copo de suco gelado fica um tempo na mesa. O que acontece com ele?",
+        "options": [
+         {
+          "text": "Esfria o ar da sala inteira",
+          "misconceptionCode": "frio-entra"
+         },
+         {
+          "text": "Fica mais frio que antes",
+          "misconceptionCode": "sentido-do-calor"
+         },
+         {
+          "text": "Fica gelado para sempre",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "Vai esquentando até a temperatura do ambiente"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07CI02-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: três ideias diferentes",
+    "prompt": "Temperatura é o que o termômetro mostra. Calor é a energia que passa do corpo mais quente para o mais frio. Sensação térmica é o que a pele sente. Vamos separar as três juntos.",
+    "estMinutes": 4,
+    "audioScript": "Temperatura é o que o termômetro mostra. Calor é a energia que passa do corpo mais quente para o mais frio. Sensação térmica é o que a pele sente. Vamos separar as três juntos. Pergunta 1. Você segura um cubo de gelo e a mão esfria. O que acontece? A: O frio passa do gelo para a mão; B: O calor passa do gelo para a mão; C: Nada passa, é só impressão; D: O calor passa da mão para o gelo. Pergunta 2. Num dia de 30 °C com vento forte, sentimos menos calor. O que mudou? A: A sensação térmica; B: A temperatura do ar; C: A quantidade de sol; D: Nada mudou. Pergunta 3. Uma maçaneta de metal e uma porta de madeira estão na mesma sala. A maçaneta parece mais fria. Por quê? A: O metal está numa temperatura menor; B: O metal tira calor da mão mais rápido; C: A madeira produz calor; D: O metal passa frio para a mão.",
+    "questions": [
+     {
+      "question": "Você segura um cubo de gelo e a mão esfria. O que acontece?",
+      "options": [
+       {
+        "text": "O frio passa do gelo para a mão",
+        "misconceptionCode": "frio-entra"
+       },
+       {
+        "text": "O calor passa do gelo para a mão",
+        "misconceptionCode": "sentido-do-calor"
+       },
+       {
+        "text": "Nada passa, é só impressão",
+        "misconceptionCode": "sensacao-e-medida"
+       },
+       {
+        "text": "O calor passa da mão para o gelo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O calor sempre vai do mais quente para o mais frio. A mão perde energia para o gelo e, por isso, esfria.",
+      "variants": [
+       {
+        "question": "Você entra numa piscina fria e sente frio. O que acontece?",
+        "options": [
+         {
+          "text": "O frio passa da água para o seu corpo",
+          "misconceptionCode": "frio-entra"
+         },
+         {
+          "text": "O calor passa do seu corpo para a água"
+         },
+         {
+          "text": "O calor passa da água para o seu corpo",
+          "misconceptionCode": "sentido-do-calor"
+         },
+         {
+          "text": "Nada passa, é só impressão",
+          "misconceptionCode": "sensacao-e-medida"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Você segura um cubo de gelo e a mão esfria. O que acontece?",
+        "options": [
+         {
+          "text": "O calor passa da mão para o gelo"
+         },
+         {
+          "text": "Nada passa, é só impressão",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "O calor passa do gelo para a mão",
+          "misconceptionCode": "sentido-do-calor"
+         },
+         {
+          "text": "O frio passa do gelo para a mão",
+          "misconceptionCode": "frio-entra"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Num dia de 30 °C com vento forte, sentimos menos calor. O que mudou?",
+      "options": [
+       {
+        "text": "A sensação térmica"
+       },
+       {
+        "text": "A temperatura do ar",
+        "misconceptionCode": "sensacao-e-medida"
+       },
+       {
+        "text": "A quantidade de sol",
+        "misconceptionCode": "calor-igual-temperatura"
+       },
+       {
+        "text": "Nada mudou",
+        "misconceptionCode": "sentido-do-calor"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O termômetro continua marcando 30 °C. O vento ajuda o corpo a perder calor, e a sensação é de menos calor.",
+      "variants": [
+       {
+        "question": "Num dia de 15 °C com vento forte, sentimos mais frio. O que mudou?",
+        "options": [
+         {
+          "text": "A temperatura do ar",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "A quantidade de nuvens",
+          "misconceptionCode": "calor-igual-temperatura"
+         },
+         {
+          "text": "A sensação térmica"
+         },
+         {
+          "text": "Nada mudou",
+          "misconceptionCode": "sentido-do-calor"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Num dia de 30 °C com vento forte, sentimos menos calor. O que mudou?",
+        "options": [
+         {
+          "text": "Nada mudou",
+          "misconceptionCode": "sentido-do-calor"
+         },
+         {
+          "text": "A sensação térmica"
+         },
+         {
+          "text": "A quantidade de sol",
+          "misconceptionCode": "calor-igual-temperatura"
+         },
+         {
+          "text": "A temperatura do ar",
+          "misconceptionCode": "sensacao-e-medida"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Uma maçaneta de metal e uma porta de madeira estão na mesma sala. A maçaneta parece mais fria. Por quê?",
+      "options": [
+       {
+        "text": "O metal está numa temperatura menor",
+        "misconceptionCode": "sensacao-e-medida"
+       },
+       {
+        "text": "O metal tira calor da mão mais rápido"
+       },
+       {
+        "text": "A madeira produz calor",
+        "misconceptionCode": "calor-igual-temperatura"
+       },
+       {
+        "text": "O metal passa frio para a mão",
+        "misconceptionCode": "frio-entra"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Os dois estão na mesma temperatura. O metal conduz melhor o calor e tira energia da mão mais depressa.",
+      "variants": [
+       {
+        "question": "Um piso de cerâmica e um tapete estão no mesmo quarto. O piso parece mais frio. Por quê?",
+        "options": [
+         {
+          "text": "A cerâmica está numa temperatura menor",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "O tapete produz calor",
+          "misconceptionCode": "calor-igual-temperatura"
+         },
+         {
+          "text": "A cerâmica passa frio para o pé",
+          "misconceptionCode": "frio-entra"
+         },
+         {
+          "text": "A cerâmica tira calor do pé mais rápido"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Uma maçaneta de metal e uma porta de madeira estão na mesma sala. A maçaneta parece mais fria. Por quê?",
+        "options": [
+         {
+          "text": "O metal passa frio para a mão",
+          "misconceptionCode": "frio-entra"
+         },
+         {
+          "text": "A madeira produz calor",
+          "misconceptionCode": "calor-igual-temperatura"
+         },
+         {
+          "text": "O metal tira calor da mão mais rápido"
+         },
+         {
+          "text": "O metal está numa temperatura menor",
+          "misconceptionCode": "sensacao-e-medida"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07CI02-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: temperatura, calor ou sensação",
+    "prompt": "Em cada situação, pense: é o que o termômetro mede, a energia que passa ou o que a pele sente?",
+    "estMinutes": 5,
+    "audioScript": "Em cada situação, pense: é o que o termômetro mede, a energia que passa ou o que a pele sente? Pergunta 1. A previsão diz: \"25 °C, com sensação de 29 °C\". Os 25 °C são: A: A sensação térmica; B: A quantidade de calor; C: A temperatura do ar; D: A umidade do ar. Pergunta 2. Uma panela quente é colocada na pia com água fria. O calor passa: A: Da água para a panela; B: Para nenhum lado; C: O frio passa da água para a panela; D: Da panela para a água. Pergunta 3. Quando dois corpos em contato ficam na mesma temperatura, dizemos que estão em: A: Equilíbrio térmico; B: Sensação térmica; C: Ponto de fervura; D: Calor máximo. Pergunta 4. Por que o agasalho nos mantém aquecidos no frio? A: Ele produz calor; B: Ele dificulta a saída do calor do corpo; C: Ele impede o frio de entrar; D: Ele aumenta a temperatura do ar.",
+    "questions": [
+     {
+      "question": "A previsão diz: \"25 °C, com sensação de 29 °C\". Os 25 °C são:",
+      "options": [
+       {
+        "text": "A sensação térmica",
+        "misconceptionCode": "sensacao-e-medida"
+       },
+       {
+        "text": "A quantidade de calor",
+        "misconceptionCode": "calor-igual-temperatura"
+       },
+       {
+        "text": "A temperatura do ar"
+       },
+       {
+        "text": "A umidade do ar",
+        "misconceptionCode": "sentido-do-calor"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "25 °C é o que o termômetro mede. Os 29 °C são como o corpo sente, por causa da umidade e do vento.",
+      "variants": [
+       {
+        "question": "A previsão diz: \"10 °C, com sensação de 6 °C\". Os 6 °C são:",
+        "options": [
+         {
+          "text": "A sensação térmica"
+         },
+         {
+          "text": "A temperatura do ar",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "A quantidade de calor",
+          "misconceptionCode": "calor-igual-temperatura"
+         },
+         {
+          "text": "A hora do dia",
+          "misconceptionCode": "sentido-do-calor"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A previsão diz: \"25 °C, com sensação de 29 °C\". Os 25 °C são:",
+        "options": [
+         {
+          "text": "A umidade do ar",
+          "misconceptionCode": "sentido-do-calor"
+         },
+         {
+          "text": "A quantidade de calor",
+          "misconceptionCode": "calor-igual-temperatura"
+         },
+         {
+          "text": "A sensação térmica",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "A temperatura do ar"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Uma panela quente é colocada na pia com água fria. O calor passa:",
+      "options": [
+       {
+        "text": "Da água para a panela",
+        "misconceptionCode": "sentido-do-calor"
+       },
+       {
+        "text": "Para nenhum lado",
+        "misconceptionCode": "sensacao-e-medida"
+       },
+       {
+        "text": "O frio passa da água para a panela",
+        "misconceptionCode": "frio-entra"
+       },
+       {
+        "text": "Da panela para a água"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O calor vai do mais quente (panela) para o mais frio (água), até ficarem na mesma temperatura.",
+      "variants": [
+       {
+        "question": "Uma garrafa de água quente é colocada na geladeira. O calor passa:",
+        "options": [
+         {
+          "text": "Do ar da geladeira para a garrafa",
+          "misconceptionCode": "sentido-do-calor"
+         },
+         {
+          "text": "Da garrafa para o ar da geladeira"
+         },
+         {
+          "text": "Para nenhum lado",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "O frio passa do ar para a garrafa",
+          "misconceptionCode": "frio-entra"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Uma panela quente é colocada na pia com água fria. O calor passa:",
+        "options": [
+         {
+          "text": "Da panela para a água"
+         },
+         {
+          "text": "O frio passa da água para a panela",
+          "misconceptionCode": "frio-entra"
+         },
+         {
+          "text": "Para nenhum lado",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "Da água para a panela",
+          "misconceptionCode": "sentido-do-calor"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quando dois corpos em contato ficam na mesma temperatura, dizemos que estão em:",
+      "options": [
+       {
+        "text": "Equilíbrio térmico"
+       },
+       {
+        "text": "Sensação térmica",
+        "misconceptionCode": "sensacao-e-medida"
+       },
+       {
+        "text": "Ponto de fervura",
+        "misconceptionCode": "calor-igual-temperatura"
+       },
+       {
+        "text": "Calor máximo",
+        "misconceptionCode": "sentido-do-calor"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "No equilíbrio térmico, os corpos têm a mesma temperatura e o calor para de passar de um para o outro.",
+      "variants": [
+       {
+        "question": "Um refrigerante gelado fica horas fora da geladeira e chega à temperatura da sala. Ele está em:",
+        "options": [
+         {
+          "text": "Ponto de congelamento",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "Sensação térmica",
+          "misconceptionCode": "calor-igual-temperatura"
+         },
+         {
+          "text": "Equilíbrio térmico com o ambiente"
+         },
+         {
+          "text": "Fervura",
+          "misconceptionCode": "sentido-do-calor"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quando dois corpos em contato ficam na mesma temperatura, dizemos que estão em:",
+        "options": [
+         {
+          "text": "Calor máximo",
+          "misconceptionCode": "sentido-do-calor"
+         },
+         {
+          "text": "Equilíbrio térmico"
+         },
+         {
+          "text": "Ponto de fervura",
+          "misconceptionCode": "calor-igual-temperatura"
+         },
+         {
+          "text": "Sensação térmica",
+          "misconceptionCode": "sensacao-e-medida"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Por que o agasalho nos mantém aquecidos no frio?",
+      "options": [
+       {
+        "text": "Ele produz calor",
+        "misconceptionCode": "calor-igual-temperatura"
+       },
+       {
+        "text": "Ele dificulta a saída do calor do corpo"
+       },
+       {
+        "text": "Ele impede o frio de entrar",
+        "misconceptionCode": "frio-entra"
+       },
+       {
+        "text": "Ele aumenta a temperatura do ar",
+        "misconceptionCode": "sensacao-e-medida"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O agasalho é um isolante: segura perto do corpo o calor que o próprio corpo produz.",
+      "variants": [
+       {
+        "question": "Por que o cobertor nos aquece na cama?",
+        "options": [
+         {
+          "text": "Ele produz calor",
+          "misconceptionCode": "calor-igual-temperatura"
+         },
+         {
+          "text": "Ele impede o frio de entrar",
+          "misconceptionCode": "frio-entra"
+         },
+         {
+          "text": "Ele esquenta o quarto",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "Ele dificulta a saída do calor do corpo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Por que o agasalho nos mantém aquecidos no frio?",
+        "options": [
+         {
+          "text": "Ele aumenta a temperatura do ar",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "Ele impede o frio de entrar",
+          "misconceptionCode": "frio-entra"
+         },
+         {
+          "text": "Ele dificulta a saída do calor do corpo"
+         },
+         {
+          "text": "Ele produz calor",
+          "misconceptionCode": "calor-igual-temperatura"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07CI02-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: explicando o dia a dia",
+    "prompt": "Use as três ideias para explicar estas situações.",
+    "estMinutes": 4,
+    "audioScript": "Use as três ideias para explicar estas situações. Pergunta 1. Uma mãe encosta a mão na testa do filho e acha que ele tem febre. Como ter certeza? A: Encostando a outra mão; B: Perguntando se ele sente calor; C: Medindo com um termômetro; D: Olhando a cor do rosto. Pergunta 2. Por que os cabos das panelas costumam ser de madeira ou plástico? A: Porque eles esfriam a panela; B: Porque eles produzem frio; C: Porque eles conduzem bem o calor; D: Porque esses materiais conduzem mal o calor. Pergunta 3. Num dia frio, por que sentimos mais frio ao sair do banho molhados? A: A água que evapora da pele leva calor do corpo; B: A temperatura do banheiro cai de repente; C: A água passa frio para a pele; D: O corpo para de produzir calor.",
+    "questions": [
+     {
+      "question": "Uma mãe encosta a mão na testa do filho e acha que ele tem febre. Como ter certeza?",
+      "options": [
+       {
+        "text": "Encostando a outra mão",
+        "misconceptionCode": "sensacao-e-medida"
+       },
+       {
+        "text": "Perguntando se ele sente calor",
+        "misconceptionCode": "sensacao-e-medida"
+       },
+       {
+        "text": "Medindo com um termômetro"
+       },
+       {
+        "text": "Olhando a cor do rosto",
+        "misconceptionCode": "calor-igual-temperatura"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A mão dá só uma sensação, que pode enganar. O termômetro mede a temperatura de verdade.",
+      "variants": [
+       {
+        "question": "Você quer saber se a água do banho do bebê está na temperatura certa. O mais seguro é:",
+        "options": [
+         {
+          "text": "Medir com um termômetro"
+         },
+         {
+          "text": "Colocar a mão depressa",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "Perguntar a alguém se parece boa",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "Olhar se sai vapor",
+          "misconceptionCode": "calor-igual-temperatura"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Uma mãe encosta a mão na testa do filho e acha que ele tem febre. Como ter certeza?",
+        "options": [
+         {
+          "text": "Olhando a cor do rosto",
+          "misconceptionCode": "calor-igual-temperatura"
+         },
+         {
+          "text": "Perguntando se ele sente calor",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "Encostando a outra mão",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "Medindo com um termômetro"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Por que os cabos das panelas costumam ser de madeira ou plástico?",
+      "options": [
+       {
+        "text": "Porque eles esfriam a panela",
+        "misconceptionCode": "frio-entra"
+       },
+       {
+        "text": "Porque eles produzem frio",
+        "misconceptionCode": "calor-igual-temperatura"
+       },
+       {
+        "text": "Porque eles conduzem bem o calor",
+        "misconceptionCode": "sentido-do-calor"
+       },
+       {
+        "text": "Porque esses materiais conduzem mal o calor"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Madeira e plástico são isolantes. O calor da panela demora a chegar à mão.",
+      "variants": [
+       {
+        "question": "Por que as caixas de isopor mantêm as bebidas geladas?",
+        "options": [
+         {
+          "text": "Porque o isopor produz frio",
+          "misconceptionCode": "frio-entra"
+         },
+         {
+          "text": "Porque o isopor conduz mal o calor"
+         },
+         {
+          "text": "Porque o isopor esfria o ar de fora",
+          "misconceptionCode": "calor-igual-temperatura"
+         },
+         {
+          "text": "Porque o isopor conduz bem o calor",
+          "misconceptionCode": "sentido-do-calor"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Por que os cabos das panelas costumam ser de madeira ou plástico?",
+        "options": [
+         {
+          "text": "Porque esses materiais conduzem mal o calor"
+         },
+         {
+          "text": "Porque eles conduzem bem o calor",
+          "misconceptionCode": "sentido-do-calor"
+         },
+         {
+          "text": "Porque eles produzem frio",
+          "misconceptionCode": "calor-igual-temperatura"
+         },
+         {
+          "text": "Porque eles esfriam a panela",
+          "misconceptionCode": "frio-entra"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Num dia frio, por que sentimos mais frio ao sair do banho molhados?",
+      "options": [
+       {
+        "text": "A água que evapora da pele leva calor do corpo"
+       },
+       {
+        "text": "A temperatura do banheiro cai de repente",
+        "misconceptionCode": "sensacao-e-medida"
+       },
+       {
+        "text": "A água passa frio para a pele",
+        "misconceptionCode": "frio-entra"
+       },
+       {
+        "text": "O corpo para de produzir calor",
+        "misconceptionCode": "calor-igual-temperatura"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Para evaporar, a água tira calor da pele. O corpo perde energia e a sensação é de mais frio.",
+      "variants": [
+       {
+        "question": "Por que sentimos frescor ao passar álcool na pele?",
+        "options": [
+         {
+          "text": "A temperatura do ar cai",
+          "misconceptionCode": "sensacao-e-medida"
+         },
+         {
+          "text": "O álcool passa frio para a pele",
+          "misconceptionCode": "frio-entra"
+         },
+         {
+          "text": "O álcool evapora e leva calor da pele"
+         },
+         {
+          "text": "A pele para de produzir calor",
+          "misconceptionCode": "calor-igual-temperatura"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Num dia frio, por que sentimos mais frio ao sair do banho molhados?",
+        "options": [
+         {
+          "text": "O corpo para de produzir calor",
+          "misconceptionCode": "calor-igual-temperatura"
+         },
+         {
+          "text": "A água que evapora da pele leva calor do corpo"
+         },
+         {
+          "text": "A água passa frio para a pele",
+          "misconceptionCode": "frio-entra"
+         },
+         {
+          "text": "A temperatura do banheiro cai de repente",
+          "misconceptionCode": "sensacao-e-medida"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07CI02-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: temperatura não é calor",
+    "prompt": "Explique com as suas palavras a diferença entre temperatura e calor. Use o exemplo de um copo de água gelada numa mesa.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras a diferença entre temperatura e calor. Use o exemplo de um copo de água gelada numa mesa.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "temperatura",
+       "description": "Diz que temperatura é o que o termômetro mede"
+      },
+      {
+       "code": "calor",
+       "description": "Diz que calor é a energia que passa do mais quente para o mais frio"
+      },
+      {
+       "code": "exemplo",
+       "description": "Explica que o ar passa calor para a água, que esquenta"
+      }
+     ],
+     "exemploBoaResposta": "Temperatura é o que o termômetro mede, mostra se algo está mais quente ou mais frio. Calor é a energia que passa de um corpo mais quente para um mais frio. No copo de água gelada, o ar da sala está mais quente e passa calor para a água, que vai esquentando até ficar na temperatura do ambiente."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF07CI07",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 7,
+  "version": 1,
+  "title": "Trilha: Ecossistemas brasileiros",
+  "tituloAluno": "Os biomas do Brasil: da Amazônia ao Pampa",
+  "activities": [
+   {
+    "id": "PK2-EF07CI07-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: seres vivos e ambiente",
+    "prompt": "Os seres vivos dependem do lugar onde vivem. Vamos lembrar essa relação.",
+    "estMinutes": 4,
+    "audioScript": "Os seres vivos dependem do lugar onde vivem. Vamos lembrar essa relação. Pergunta 1. Do que as plantas precisam para viver? A: Só de terra; B: Água, luz, ar e nutrientes; C: Só de água; D: De outros animais para comer. Pergunta 2. Um ecossistema é formado por: A: Só os animais de um lugar; B: Só as plantas de um lugar; C: Seres vivos e o ambiente em que vivem, em relação; D: Só o solo e a água. Pergunta 3. Por que um cacto consegue viver em lugar seco? A: Ele não precisa de água; B: Ele bebe água do ar todo dia; C: Ele vive só um dia; D: Ele guarda água e perde pouca água.",
+    "questions": [
+     {
+      "question": "Do que as plantas precisam para viver?",
+      "options": [
+       {
+        "text": "Só de terra",
+        "misconceptionCode": "clima-sem-relacao"
+       },
+       {
+        "text": "Água, luz, ar e nutrientes"
+       },
+       {
+        "text": "Só de água",
+        "misconceptionCode": "clima-sem-relacao"
+       },
+       {
+        "text": "De outros animais para comer",
+        "misconceptionCode": "troca-bioma"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "As plantas usam luz, água e gás carbônico do ar para produzir seu alimento, e tiram nutrientes do solo.",
+      "variants": [
+       {
+        "question": "O que um animal encontra no ambiente em que vive?",
+        "options": [
+         {
+          "text": "Só abrigo",
+          "misconceptionCode": "clima-sem-relacao"
+         },
+         {
+          "text": "Só água",
+          "misconceptionCode": "clima-sem-relacao"
+         },
+         {
+          "text": "Nada, ele não depende do ambiente",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Alimento, água e abrigo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Do que as plantas precisam para viver?",
+        "options": [
+         {
+          "text": "De outros animais para comer",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Só de água",
+          "misconceptionCode": "clima-sem-relacao"
+         },
+         {
+          "text": "Água, luz, ar e nutrientes"
+         },
+         {
+          "text": "Só de terra",
+          "misconceptionCode": "clima-sem-relacao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um ecossistema é formado por:",
+      "options": [
+       {
+        "text": "Só os animais de um lugar",
+        "misconceptionCode": "clima-sem-relacao"
+       },
+       {
+        "text": "Só as plantas de um lugar",
+        "misconceptionCode": "brasil-so-floresta"
+       },
+       {
+        "text": "Seres vivos e o ambiente em que vivem, em relação"
+       },
+       {
+        "text": "Só o solo e a água",
+        "misconceptionCode": "seca-sem-vida"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Ecossistema é o conjunto dos seres vivos com a água, o solo, o ar e a luz do lugar, tudo se relacionando.",
+      "variants": [
+       {
+        "question": "Qual destes é um exemplo de ecossistema?",
+        "options": [
+         {
+          "text": "Um lago com seus peixes, plantas e a água"
+         },
+         {
+          "text": "Uma pedra sozinha",
+          "misconceptionCode": "clima-sem-relacao"
+         },
+         {
+          "text": "Um peixe sozinho",
+          "misconceptionCode": "brasil-so-floresta"
+         },
+         {
+          "text": "Um copo de água filtrada",
+          "misconceptionCode": "seca-sem-vida"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um ecossistema é formado por:",
+        "options": [
+         {
+          "text": "Só o solo e a água",
+          "misconceptionCode": "seca-sem-vida"
+         },
+         {
+          "text": "Só as plantas de um lugar",
+          "misconceptionCode": "brasil-so-floresta"
+         },
+         {
+          "text": "Só os animais de um lugar",
+          "misconceptionCode": "clima-sem-relacao"
+         },
+         {
+          "text": "Seres vivos e o ambiente em que vivem, em relação"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Por que um cacto consegue viver em lugar seco?",
+      "options": [
+       {
+        "text": "Ele não precisa de água",
+        "misconceptionCode": "seca-sem-vida"
+       },
+       {
+        "text": "Ele bebe água do ar todo dia",
+        "misconceptionCode": "clima-sem-relacao"
+       },
+       {
+        "text": "Ele vive só um dia",
+        "misconceptionCode": "troca-bioma"
+       },
+       {
+        "text": "Ele guarda água e perde pouca água"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O cacto armazena água no caule e tem espinhos no lugar de folhas, o que reduz a perda de água.",
+      "variants": [
+       {
+        "question": "Por que o camelo aguenta dias no deserto?",
+        "options": [
+         {
+          "text": "Ele não precisa de água",
+          "misconceptionCode": "seca-sem-vida"
+         },
+         {
+          "text": "O corpo dele economiza água e guarda reserva de energia"
+         },
+         {
+          "text": "Ele bebe areia",
+          "misconceptionCode": "clima-sem-relacao"
+         },
+         {
+          "text": "Ele vive só um dia",
+          "misconceptionCode": "troca-bioma"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Por que um cacto consegue viver em lugar seco?",
+        "options": [
+         {
+          "text": "Ele guarda água e perde pouca água"
+         },
+         {
+          "text": "Ele vive só um dia",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Ele bebe água do ar todo dia",
+          "misconceptionCode": "clima-sem-relacao"
+         },
+         {
+          "text": "Ele não precisa de água",
+          "misconceptionCode": "seca-sem-vida"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07CI07-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: conhecendo os biomas",
+    "prompt": "O Brasil tem seis grandes biomas: Amazônia, Cerrado, Caatinga, Mata Atlântica, Pantanal e Pampa. A chuva e o solo de cada um explicam suas plantas e animais. Vamos ver juntos.",
+    "estMinutes": 4,
+    "audioScript": "O Brasil tem seis grandes biomas: Amazônia, Cerrado, Caatinga, Mata Atlântica, Pantanal e Pampa. A chuva e o solo de cada um explicam suas plantas e animais. Vamos ver juntos. Pergunta 1. A Amazônia tem muita chuva o ano todo. Como é a vegetação? A: Floresta densa, com árvores altas; B: Capim baixo e poucas árvores; C: Plantas com espinhos e sem folhas; D: Quase nenhuma planta. Pergunta 2. A Caatinga tem pouca chuva e longos períodos de seca. Como as plantas se adaptam? A: Ficam sempre verdes e com folhas largas; B: Perdem as folhas na seca e guardam água; C: Morrem todas na seca; D: Crescem só dentro dos rios. Pergunta 3. O Pantanal alaga em parte do ano. O que isso traz para a fauna? A: A morte de todos os animais; B: Um deserto no resto do ano; C: Muita água e alimento para peixes e aves; D: Nenhuma mudança.",
+    "questions": [
+     {
+      "question": "A Amazônia tem muita chuva o ano todo. Como é a vegetação?",
+      "options": [
+       {
+        "text": "Floresta densa, com árvores altas"
+       },
+       {
+        "text": "Capim baixo e poucas árvores",
+        "misconceptionCode": "troca-bioma"
+       },
+       {
+        "text": "Plantas com espinhos e sem folhas",
+        "misconceptionCode": "troca-bioma"
+       },
+       {
+        "text": "Quase nenhuma planta",
+        "misconceptionCode": "seca-sem-vida"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Com muita água e calor, crescem árvores altas e muito próximas, formando uma floresta densa.",
+      "variants": [
+       {
+        "question": "A Mata Atlântica recebe muita chuva perto do litoral. Como é a vegetação original?",
+        "options": [
+         {
+          "text": "Capim baixo e poucas árvores",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Plantas com espinhos e sem folhas",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Floresta úmida, com muitas espécies"
+         },
+         {
+          "text": "Quase nenhuma planta",
+          "misconceptionCode": "seca-sem-vida"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A Amazônia tem muita chuva o ano todo. Como é a vegetação?",
+        "options": [
+         {
+          "text": "Quase nenhuma planta",
+          "misconceptionCode": "seca-sem-vida"
+         },
+         {
+          "text": "Floresta densa, com árvores altas"
+         },
+         {
+          "text": "Plantas com espinhos e sem folhas",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Capim baixo e poucas árvores",
+          "misconceptionCode": "troca-bioma"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "A Caatinga tem pouca chuva e longos períodos de seca. Como as plantas se adaptam?",
+      "options": [
+       {
+        "text": "Ficam sempre verdes e com folhas largas",
+        "misconceptionCode": "brasil-so-floresta"
+       },
+       {
+        "text": "Perdem as folhas na seca e guardam água"
+       },
+       {
+        "text": "Morrem todas na seca",
+        "misconceptionCode": "seca-sem-vida"
+       },
+       {
+        "text": "Crescem só dentro dos rios",
+        "misconceptionCode": "clima-sem-relacao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Na seca, muitas plantas da Caatinga perdem as folhas para economizar água. Quando chove, tudo fica verde de novo.",
+      "variants": [
+       {
+        "question": "O mandacaru é um cacto da Caatinga. Como ele resiste à seca?",
+        "options": [
+         {
+          "text": "Tem folhas largas que seguram a chuva",
+          "misconceptionCode": "brasil-so-floresta"
+         },
+         {
+          "text": "Morre e nasce de novo a cada ano",
+          "misconceptionCode": "seca-sem-vida"
+         },
+         {
+          "text": "Vive dentro dos rios",
+          "misconceptionCode": "clima-sem-relacao"
+         },
+         {
+          "text": "Guarda água no caule"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A Caatinga tem pouca chuva e longos períodos de seca. Como as plantas se adaptam?",
+        "options": [
+         {
+          "text": "Crescem só dentro dos rios",
+          "misconceptionCode": "clima-sem-relacao"
+         },
+         {
+          "text": "Morrem todas na seca",
+          "misconceptionCode": "seca-sem-vida"
+         },
+         {
+          "text": "Perdem as folhas na seca e guardam água"
+         },
+         {
+          "text": "Ficam sempre verdes e com folhas largas",
+          "misconceptionCode": "brasil-so-floresta"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O Pantanal alaga em parte do ano. O que isso traz para a fauna?",
+      "options": [
+       {
+        "text": "A morte de todos os animais",
+        "misconceptionCode": "seca-sem-vida"
+       },
+       {
+        "text": "Um deserto no resto do ano",
+        "misconceptionCode": "troca-bioma"
+       },
+       {
+        "text": "Muita água e alimento para peixes e aves"
+       },
+       {
+        "text": "Nenhuma mudança",
+        "misconceptionCode": "clima-sem-relacao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A cheia espalha água e nutrientes pela planície. Peixes se reproduzem e as aves encontram muito alimento.",
+      "variants": [
+       {
+        "question": "Na época da cheia, por que o Pantanal reúne tantas aves?",
+        "options": [
+         {
+          "text": "Porque há muitos peixes e água"
+         },
+         {
+          "text": "Porque não chove nunca",
+          "misconceptionCode": "seca-sem-vida"
+         },
+         {
+          "text": "Porque não há plantas",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Porque faz muito frio",
+          "misconceptionCode": "clima-sem-relacao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O Pantanal alaga em parte do ano. O que isso traz para a fauna?",
+        "options": [
+         {
+          "text": "Nenhuma mudança",
+          "misconceptionCode": "clima-sem-relacao"
+         },
+         {
+          "text": "Um deserto no resto do ano",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "A morte de todos os animais",
+          "misconceptionCode": "seca-sem-vida"
+         },
+         {
+          "text": "Muita água e alimento para peixes e aves"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07CI07-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: cada bioma com a sua característica",
+    "prompt": "Ligue cada bioma à paisagem, à água e aos seres vivos.",
+    "estMinutes": 5,
+    "audioScript": "Ligue cada bioma à paisagem, à água e aos seres vivos. Pergunta 1. Árvores baixas de troncos tortos e casca grossa, com estação seca e chuvosa bem marcadas, são típicas de qual bioma? A: Amazônia; B: Pampa; C: Mata Atlântica; D: Cerrado. Pergunta 2. Campos de capim baixo, no sul do Brasil, com clima mais frio, formam qual bioma? A: Pampa; B: Caatinga; C: Amazônia; D: Pantanal. Pergunta 3. Qual bioma existe apenas no Brasil e ocupa boa parte do Nordeste? A: Amazônia; B: Caatinga; C: Pampa; D: Pantanal. Pergunta 4. Qual bioma foi o mais desmatado e hoje tem só uma pequena parte da floresta original? A: Amazônia; B: Pantanal; C: Mata Atlântica; D: Caatinga.",
+    "questions": [
+     {
+      "question": "Árvores baixas de troncos tortos e casca grossa, com estação seca e chuvosa bem marcadas, são típicas de qual bioma?",
+      "options": [
+       {
+        "text": "Amazônia",
+        "misconceptionCode": "brasil-so-floresta"
+       },
+       {
+        "text": "Pampa",
+        "misconceptionCode": "troca-bioma"
+       },
+       {
+        "text": "Mata Atlântica",
+        "misconceptionCode": "troca-bioma"
+       },
+       {
+        "text": "Cerrado"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "No Cerrado, as árvores têm troncos tortos e casca grossa, que protege do fogo e da seca.",
+      "variants": [
+       {
+        "question": "Raízes profundas que buscam água no fundo do solo e casca grossa contra o fogo são adaptações de plantas do:",
+        "options": [
+         {
+          "text": "Pantanal",
+          "misconceptionCode": "brasil-so-floresta"
+         },
+         {
+          "text": "Cerrado"
+         },
+         {
+          "text": "Pampa",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Manguezal",
+          "misconceptionCode": "troca-bioma"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Árvores baixas de troncos tortos e casca grossa, com estação seca e chuvosa bem marcadas, são típicas de qual bioma?",
+        "options": [
+         {
+          "text": "Cerrado"
+         },
+         {
+          "text": "Mata Atlântica",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Pampa",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Amazônia",
+          "misconceptionCode": "brasil-so-floresta"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Campos de capim baixo, no sul do Brasil, com clima mais frio, formam qual bioma?",
+      "options": [
+       {
+        "text": "Pampa"
+       },
+       {
+        "text": "Caatinga",
+        "misconceptionCode": "troca-bioma"
+       },
+       {
+        "text": "Amazônia",
+        "misconceptionCode": "brasil-so-floresta"
+       },
+       {
+        "text": "Pantanal",
+        "misconceptionCode": "troca-bioma"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O Pampa fica no Rio Grande do Sul e é formado por campos, com poucas árvores.",
+      "variants": [
+       {
+        "question": "Qual bioma brasileiro é formado principalmente por campos e fica no Rio Grande do Sul?",
+        "options": [
+         {
+          "text": "Cerrado",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Mata Atlântica",
+          "misconceptionCode": "brasil-so-floresta"
+         },
+         {
+          "text": "Pampa"
+         },
+         {
+          "text": "Caatinga",
+          "misconceptionCode": "troca-bioma"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Campos de capim baixo, no sul do Brasil, com clima mais frio, formam qual bioma?",
+        "options": [
+         {
+          "text": "Pantanal",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Pampa"
+         },
+         {
+          "text": "Amazônia",
+          "misconceptionCode": "brasil-so-floresta"
+         },
+         {
+          "text": "Caatinga",
+          "misconceptionCode": "troca-bioma"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual bioma existe apenas no Brasil e ocupa boa parte do Nordeste?",
+      "options": [
+       {
+        "text": "Amazônia",
+        "misconceptionCode": "brasil-so-floresta"
+       },
+       {
+        "text": "Caatinga"
+       },
+       {
+        "text": "Pampa",
+        "misconceptionCode": "troca-bioma"
+       },
+       {
+        "text": "Pantanal",
+        "misconceptionCode": "troca-bioma"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A Caatinga é um bioma só do Brasil. O nome vem do tupi e quer dizer \"mata branca\", por causa da cor na seca.",
+      "variants": [
+       {
+        "question": "\"Mata branca\" é o significado do nome de qual bioma do Nordeste?",
+        "options": [
+         {
+          "text": "Cerrado",
+          "misconceptionCode": "brasil-so-floresta"
+         },
+         {
+          "text": "Pampa",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Amazônia",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Caatinga"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual bioma existe apenas no Brasil e ocupa boa parte do Nordeste?",
+        "options": [
+         {
+          "text": "Pantanal",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Pampa",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Caatinga"
+         },
+         {
+          "text": "Amazônia",
+          "misconceptionCode": "brasil-so-floresta"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual bioma foi o mais desmatado e hoje tem só uma pequena parte da floresta original?",
+      "options": [
+       {
+        "text": "Amazônia",
+        "misconceptionCode": "troca-bioma"
+       },
+       {
+        "text": "Pantanal",
+        "misconceptionCode": "troca-bioma"
+       },
+       {
+        "text": "Mata Atlântica"
+       },
+       {
+        "text": "Caatinga",
+        "misconceptionCode": "seca-sem-vida"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A Mata Atlântica fica na região mais povoada do país, e a maior parte dela já foi derrubada.",
+      "variants": [
+       {
+        "question": "A maioria das grandes cidades do litoral brasileiro foi construída sobre qual bioma?",
+        "options": [
+         {
+          "text": "Mata Atlântica"
+         },
+         {
+          "text": "Amazônia",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Pantanal",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Pampa",
+          "misconceptionCode": "seca-sem-vida"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual bioma foi o mais desmatado e hoje tem só uma pequena parte da floresta original?",
+        "options": [
+         {
+          "text": "Caatinga",
+          "misconceptionCode": "seca-sem-vida"
+         },
+         {
+          "text": "Pantanal",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Amazônia",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Mata Atlântica"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07CI07-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: o ambiente explica os seres vivos",
+    "prompt": "Use o que você sabe sobre chuva, solo e luz para responder.",
+    "estMinutes": 4,
+    "audioScript": "Use o que você sabe sobre chuva, solo e luz para responder. Pergunta 1. Na floresta amazônica, por que há poucas plantas rasteiras no chão? A: O solo não tem água; B: Faz muito frio no chão; C: Os animais comem todas; D: As copas das árvores deixam passar pouca luz. Pergunta 2. Uma planta de folhas largas e finas, que precisa de muita água, viveria melhor em qual bioma? A: Amazônia; B: Caatinga; C: Pampa no inverno; D: Cerrado na seca. Pergunta 3. O que tende a acontecer com os animais quando uma área de mata é derrubada? A: Nada, eles se acostumam logo; B: Perdem alimento e abrigo, e muitos desaparecem do lugar; C: Passam a viver melhor; D: Viram animais de outro bioma.",
+    "questions": [
+     {
+      "question": "Na floresta amazônica, por que há poucas plantas rasteiras no chão?",
+      "options": [
+       {
+        "text": "O solo não tem água",
+        "misconceptionCode": "seca-sem-vida"
+       },
+       {
+        "text": "Faz muito frio no chão",
+        "misconceptionCode": "troca-bioma"
+       },
+       {
+        "text": "Os animais comem todas",
+        "misconceptionCode": "clima-sem-relacao"
+       },
+       {
+        "text": "As copas das árvores deixam passar pouca luz"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "As árvores altas formam um teto de folhas. Pouca luz chega ao chão, e poucas plantas pequenas conseguem crescer.",
+      "variants": [
+       {
+        "question": "Por que muitas plantas da floresta crescem em cima de outras árvores, como as bromélias?",
+        "options": [
+         {
+          "text": "Para fugir da água",
+          "misconceptionCode": "seca-sem-vida"
+         },
+         {
+          "text": "Para ficar mais perto da luz"
+         },
+         {
+          "text": "Porque o chão é gelado",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Para comer a árvore",
+          "misconceptionCode": "clima-sem-relacao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Na floresta amazônica, por que há poucas plantas rasteiras no chão?",
+        "options": [
+         {
+          "text": "As copas das árvores deixam passar pouca luz"
+         },
+         {
+          "text": "Os animais comem todas",
+          "misconceptionCode": "clima-sem-relacao"
+         },
+         {
+          "text": "Faz muito frio no chão",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "O solo não tem água",
+          "misconceptionCode": "seca-sem-vida"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Uma planta de folhas largas e finas, que precisa de muita água, viveria melhor em qual bioma?",
+      "options": [
+       {
+        "text": "Amazônia"
+       },
+       {
+        "text": "Caatinga",
+        "misconceptionCode": "clima-sem-relacao"
+       },
+       {
+        "text": "Pampa no inverno",
+        "misconceptionCode": "troca-bioma"
+       },
+       {
+        "text": "Cerrado na seca",
+        "misconceptionCode": "clima-sem-relacao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Folhas largas perdem muita água. Essa planta precisa de um lugar úmido o ano todo, como a Amazônia.",
+      "variants": [
+       {
+        "question": "Uma planta com espinhos no lugar das folhas e caule que guarda água é adaptada a qual bioma?",
+        "options": [
+         {
+          "text": "Amazônia",
+          "misconceptionCode": "clima-sem-relacao"
+         },
+         {
+          "text": "Mata Atlântica",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Caatinga"
+         },
+         {
+          "text": "Pantanal na cheia",
+          "misconceptionCode": "clima-sem-relacao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Uma planta de folhas largas e finas, que precisa de muita água, viveria melhor em qual bioma?",
+        "options": [
+         {
+          "text": "Cerrado na seca",
+          "misconceptionCode": "clima-sem-relacao"
+         },
+         {
+          "text": "Amazônia"
+         },
+         {
+          "text": "Pampa no inverno",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Caatinga",
+          "misconceptionCode": "clima-sem-relacao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O que tende a acontecer com os animais quando uma área de mata é derrubada?",
+      "options": [
+       {
+        "text": "Nada, eles se acostumam logo",
+        "misconceptionCode": "clima-sem-relacao"
+       },
+       {
+        "text": "Perdem alimento e abrigo, e muitos desaparecem do lugar"
+       },
+       {
+        "text": "Passam a viver melhor",
+        "misconceptionCode": "seca-sem-vida"
+       },
+       {
+        "text": "Viram animais de outro bioma",
+        "misconceptionCode": "troca-bioma"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Sem a mata, faltam alimento, abrigo e lugar para se reproduzir. As populações diminuem ou somem dali.",
+      "variants": [
+       {
+        "question": "O que tende a acontecer com os peixes quando um rio é poluído?",
+        "options": [
+         {
+          "text": "Nada, eles se acostumam logo",
+          "misconceptionCode": "clima-sem-relacao"
+         },
+         {
+          "text": "Passam a viver melhor",
+          "misconceptionCode": "seca-sem-vida"
+         },
+         {
+          "text": "Viram peixes de água salgada",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Muitos morrem ou deixam o lugar"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que tende a acontecer com os animais quando uma área de mata é derrubada?",
+        "options": [
+         {
+          "text": "Viram animais de outro bioma",
+          "misconceptionCode": "troca-bioma"
+         },
+         {
+          "text": "Passam a viver melhor",
+          "misconceptionCode": "seca-sem-vida"
+         },
+         {
+          "text": "Perdem alimento e abrigo, e muitos desaparecem do lugar"
+         },
+         {
+          "text": "Nada, eles se acostumam logo",
+          "misconceptionCode": "clima-sem-relacao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07CI07-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: por que as plantas são diferentes",
+    "prompt": "Explique com as suas palavras por que as plantas da Caatinga são tão diferentes das plantas da Amazônia.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras por que as plantas da Caatinga são tão diferentes das plantas da Amazônia.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "agua",
+       "description": "Compara a quantidade de chuva dos dois biomas"
+      },
+      {
+       "code": "adaptacao",
+       "description": "Cita uma adaptação à seca, como espinhos, perda de folhas ou reserva de água"
+      },
+      {
+       "code": "floresta",
+       "description": "Relaciona a muita chuva da Amazônia à floresta densa"
+      }
+     ],
+     "exemploBoaResposta": "Na Amazônia chove muito o ano todo, então as árvores crescem altas, com folhas largas, e formam uma floresta densa. Na Caatinga chove pouco e a seca dura meses, por isso as plantas têm espinhos, perdem as folhas ou guardam água no caule para sobreviver."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF07CI10",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 7,
+  "version": 1,
+  "title": "Trilha: Vacinação e saúde pública",
+  "tituloAluno": "Vacina: como ela protege você e quem está perto",
+  "activities": [
+   {
+    "id": "PK2-EF07CI10-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: micróbios e defesa do corpo",
+    "prompt": "Vamos lembrar como as doenças passam e como o corpo se defende.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar como as doenças passam e como o corpo se defende. Pergunta 1. Muitas doenças, como gripe e sarampo, são causadas por: A: Friagem e vento; B: Comer doce demais; C: Tomar banho à noite; D: Vírus e bactérias. Pergunta 2. Como o corpo se defende de micróbios que causam doenças? A: Com o sistema de defesa, que produz anticorpos; B: Com os ossos; C: Com o sono, apenas; D: Ele não se defende. Pergunta 3. Como uma doença como o sarampo passa de uma pessoa para outra? A: Pelo pensamento; B: Por gotinhas que saem ao tossir, espirrar ou falar; C: Só por picada de mosquito; D: Pela vacina.",
+    "questions": [
+     {
+      "question": "Muitas doenças, como gripe e sarampo, são causadas por:",
+      "options": [
+       {
+        "text": "Friagem e vento",
+        "misconceptionCode": "vacina-e-remedio"
+       },
+       {
+        "text": "Comer doce demais",
+        "misconceptionCode": "doenca-sumiu"
+       },
+       {
+        "text": "Tomar banho à noite",
+        "misconceptionCode": "vacina-causa-doenca"
+       },
+       {
+        "text": "Vírus e bactérias"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Essas doenças são causadas por seres microscópicos, como vírus e bactérias, que entram no corpo.",
+      "variants": [
+       {
+        "question": "A gripe é causada por:",
+        "options": [
+         {
+          "text": "Vento frio",
+          "misconceptionCode": "vacina-e-remedio"
+         },
+         {
+          "text": "Um vírus"
+         },
+         {
+          "text": "Chuva na cabeça",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "Sorvete",
+          "misconceptionCode": "vacina-causa-doenca"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Muitas doenças, como gripe e sarampo, são causadas por:",
+        "options": [
+         {
+          "text": "Vírus e bactérias"
+         },
+         {
+          "text": "Tomar banho à noite",
+          "misconceptionCode": "vacina-causa-doenca"
+         },
+         {
+          "text": "Comer doce demais",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "Friagem e vento",
+          "misconceptionCode": "vacina-e-remedio"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Como o corpo se defende de micróbios que causam doenças?",
+      "options": [
+       {
+        "text": "Com o sistema de defesa, que produz anticorpos"
+       },
+       {
+        "text": "Com os ossos",
+        "misconceptionCode": "vacina-e-remedio"
+       },
+       {
+        "text": "Com o sono, apenas",
+        "misconceptionCode": "doenca-sumiu"
+       },
+       {
+        "text": "Ele não se defende",
+        "misconceptionCode": "vacina-causa-doenca"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O sistema imunitário reconhece os invasores e produz anticorpos para combatê-los.",
+      "variants": [
+       {
+        "question": "Qual sistema do corpo combate vírus e bactérias?",
+        "options": [
+         {
+          "text": "O sistema digestório",
+          "misconceptionCode": "vacina-e-remedio"
+         },
+         {
+          "text": "O esqueleto",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "O sistema imunitário, ou de defesa"
+         },
+         {
+          "text": "Os músculos",
+          "misconceptionCode": "vacina-causa-doenca"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Como o corpo se defende de micróbios que causam doenças?",
+        "options": [
+         {
+          "text": "Ele não se defende",
+          "misconceptionCode": "vacina-causa-doenca"
+         },
+         {
+          "text": "Com o sistema de defesa, que produz anticorpos"
+         },
+         {
+          "text": "Com o sono, apenas",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "Com os ossos",
+          "misconceptionCode": "vacina-e-remedio"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Como uma doença como o sarampo passa de uma pessoa para outra?",
+      "options": [
+       {
+        "text": "Pelo pensamento",
+        "misconceptionCode": "doenca-sumiu"
+       },
+       {
+        "text": "Por gotinhas que saem ao tossir, espirrar ou falar"
+       },
+       {
+        "text": "Só por picada de mosquito",
+        "misconceptionCode": "vacina-e-remedio"
+       },
+       {
+        "text": "Pela vacina",
+        "misconceptionCode": "vacina-causa-doenca"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O vírus do sarampo viaja em gotinhas pelo ar. Por isso se espalha depressa entre pessoas não protegidas.",
+      "variants": [
+       {
+        "question": "Por que cobrir a boca ao tossir ajuda a proteger os outros?",
+        "options": [
+         {
+          "text": "Porque esquenta o ar",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "Porque cura a tosse",
+          "misconceptionCode": "vacina-e-remedio"
+         },
+         {
+          "text": "Porque afasta mosquitos",
+          "misconceptionCode": "vacina-causa-doenca"
+         },
+         {
+          "text": "Porque segura as gotinhas que carregam micróbios"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Como uma doença como o sarampo passa de uma pessoa para outra?",
+        "options": [
+         {
+          "text": "Pela vacina",
+          "misconceptionCode": "vacina-causa-doenca"
+         },
+         {
+          "text": "Só por picada de mosquito",
+          "misconceptionCode": "vacina-e-remedio"
+         },
+         {
+          "text": "Por gotinhas que saem ao tossir, espirrar ou falar"
+         },
+         {
+          "text": "Pelo pensamento",
+          "misconceptionCode": "doenca-sumiu"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07CI10-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: como a vacina funciona",
+    "prompt": "A vacina apresenta ao corpo o micróbio enfraquecido, morto ou só um pedaço dele. O corpo aprende a reconhecer e produz defesas, sem a pessoa ficar doente. Vamos ver juntos.",
+    "estMinutes": 4,
+    "audioScript": "A vacina apresenta ao corpo o micróbio enfraquecido, morto ou só um pedaço dele. O corpo aprende a reconhecer e produz defesas, sem a pessoa ficar doente. Vamos ver juntos. Pergunta 1. O que existe dentro de uma vacina? A: O micróbio vivo e forte; B: Um remédio para a dor; C: O micróbio enfraquecido, morto ou partes dele; D: Só água com açúcar. Pergunta 2. Depois da vacina, o que o corpo faz? A: Fica doente por um mês; B: Cura a doença que a pessoa já tinha; C: Não faz nada; D: Produz anticorpos e guarda a \"memória\" do micróbio. Pergunta 3. Qual é a diferença entre vacina e remédio? A: A vacina previne; o remédio trata quem já está doente; B: Não há diferença; C: A vacina trata; o remédio previne; D: A vacina é só para crianças.",
+    "questions": [
+     {
+      "question": "O que existe dentro de uma vacina?",
+      "options": [
+       {
+        "text": "O micróbio vivo e forte",
+        "misconceptionCode": "vacina-causa-doenca"
+       },
+       {
+        "text": "Um remédio para a dor",
+        "misconceptionCode": "vacina-e-remedio"
+       },
+       {
+        "text": "O micróbio enfraquecido, morto ou partes dele"
+       },
+       {
+        "text": "Só água com açúcar",
+        "misconceptionCode": "doenca-sumiu"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A vacina tem o micróbio sem força para causar a doença, ou só um pedaço dele, suficiente para o corpo aprender a reconhecer.",
+      "variants": [
+       {
+        "question": "Por que a vacina não causa a doença?",
+        "options": [
+         {
+          "text": "Porque o micróbio está enfraquecido, morto ou em partes"
+         },
+         {
+          "text": "Porque ela não tem nada dentro",
+          "misconceptionCode": "vacina-causa-doenca"
+         },
+         {
+          "text": "Porque é um antibiótico",
+          "misconceptionCode": "vacina-e-remedio"
+         },
+         {
+          "text": "Porque só funciona em quem já está doente",
+          "misconceptionCode": "doenca-sumiu"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que existe dentro de uma vacina?",
+        "options": [
+         {
+          "text": "Só água com açúcar",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "Um remédio para a dor",
+          "misconceptionCode": "vacina-e-remedio"
+         },
+         {
+          "text": "O micróbio vivo e forte",
+          "misconceptionCode": "vacina-causa-doenca"
+         },
+         {
+          "text": "O micróbio enfraquecido, morto ou partes dele"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Depois da vacina, o que o corpo faz?",
+      "options": [
+       {
+        "text": "Fica doente por um mês",
+        "misconceptionCode": "vacina-causa-doenca"
+       },
+       {
+        "text": "Cura a doença que a pessoa já tinha",
+        "misconceptionCode": "vacina-e-remedio"
+       },
+       {
+        "text": "Não faz nada",
+        "misconceptionCode": "doenca-sumiu"
+       },
+       {
+        "text": "Produz anticorpos e guarda a \"memória\" do micróbio"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O corpo treina a defesa. Se o micróbio de verdade aparecer, a resposta é rápida e a pessoa não adoece ou adoece de forma leve.",
+      "variants": [
+       {
+        "question": "O que acontece quando uma pessoa vacinada encontra o vírus de verdade?",
+        "options": [
+         {
+          "text": "O corpo não reconhece o vírus",
+          "misconceptionCode": "vacina-causa-doenca"
+         },
+         {
+          "text": "O corpo reconhece e combate rápido"
+         },
+         {
+          "text": "A pessoa precisa tomar a vacina na hora",
+          "misconceptionCode": "vacina-e-remedio"
+         },
+         {
+          "text": "A vacina perde o efeito para sempre",
+          "misconceptionCode": "doenca-sumiu"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Depois da vacina, o que o corpo faz?",
+        "options": [
+         {
+          "text": "Produz anticorpos e guarda a \"memória\" do micróbio"
+         },
+         {
+          "text": "Não faz nada",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "Cura a doença que a pessoa já tinha",
+          "misconceptionCode": "vacina-e-remedio"
+         },
+         {
+          "text": "Fica doente por um mês",
+          "misconceptionCode": "vacina-causa-doenca"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Qual é a diferença entre vacina e remédio?",
+      "options": [
+       {
+        "text": "A vacina previne; o remédio trata quem já está doente"
+       },
+       {
+        "text": "Não há diferença",
+        "misconceptionCode": "vacina-e-remedio"
+       },
+       {
+        "text": "A vacina trata; o remédio previne",
+        "misconceptionCode": "vacina-e-remedio"
+       },
+       {
+        "text": "A vacina é só para crianças",
+        "misconceptionCode": "so-protege-um"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A vacina é tomada antes, para o corpo estar preparado. O remédio é usado depois que a doença aparece.",
+      "variants": [
+       {
+        "question": "Uma pessoa está com dor de garganta por causa de uma bactéria. O médico deve indicar:",
+        "options": [
+         {
+          "text": "Uma vacina, para curar na hora",
+          "misconceptionCode": "vacina-e-remedio"
+         },
+         {
+          "text": "Nada, vacina e remédio são iguais",
+          "misconceptionCode": "vacina-e-remedio"
+         },
+         {
+          "text": "Um remédio, porque ela já está doente"
+         },
+         {
+          "text": "Uma vacina, porque remédio só previne",
+          "misconceptionCode": "so-protege-um"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual é a diferença entre vacina e remédio?",
+        "options": [
+         {
+          "text": "A vacina é só para crianças",
+          "misconceptionCode": "so-protege-um"
+         },
+         {
+          "text": "A vacina previne; o remédio trata quem já está doente"
+         },
+         {
+          "text": "A vacina trata; o remédio previne",
+          "misconceptionCode": "vacina-e-remedio"
+         },
+         {
+          "text": "Não há diferença",
+          "misconceptionCode": "vacina-e-remedio"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07CI10-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: verdade ou boato",
+    "prompt": "Use o que você aprendeu para analisar cada afirmação.",
+    "estMinutes": 5,
+    "audioScript": "Use o que você aprendeu para analisar cada afirmação. Pergunta 1. \"Se todo mundo ao meu redor é vacinado, eu fico mais protegido.\" Isso é: A: Boato: vacina só protege quem toma; B: Verdade: o micróbio circula menos; C: Boato: os vacinados passam mais doença; D: Verdade: então não preciso me vacinar. Pergunta 2. \"A doença quase não aparece mais, então posso parar de vacinar.\" Isso é: A: Verdade: doença rara não volta; B: Verdade: a vacina já perdeu a função; C: Boato: sem vacinação, a doença pode voltar; D: Verdade: remédio resolve depois. Pergunta 3. Depois de uma vacina, o braço pode ficar dolorido ou pode dar febre baixa. Isso significa que: A: A pessoa pegou a doença; B: A vacina estava estragada; C: A vacina não fez efeito; D: O corpo está reagindo e criando defesas. Pergunta 4. Onde ficam registradas as vacinas que uma pessoa tomou? A: Na caderneta de vacinação; B: Na certidão de nascimento; C: No boletim da escola; D: Não ficam registradas.",
+    "questions": [
+     {
+      "question": "\"Se todo mundo ao meu redor é vacinado, eu fico mais protegido.\" Isso é:",
+      "options": [
+       {
+        "text": "Boato: vacina só protege quem toma",
+        "misconceptionCode": "so-protege-um"
+       },
+       {
+        "text": "Verdade: o micróbio circula menos"
+       },
+       {
+        "text": "Boato: os vacinados passam mais doença",
+        "misconceptionCode": "vacina-causa-doenca"
+       },
+       {
+        "text": "Verdade: então não preciso me vacinar",
+        "misconceptionCode": "doenca-sumiu"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Quando muita gente é vacinada, o micróbio encontra poucas pessoas para infectar. Isso protege até quem não pode tomar a vacina.",
+      "variants": [
+       {
+        "question": "Quem a vacinação em massa também protege?",
+        "options": [
+         {
+          "text": "Só quem tomou a vacina",
+          "misconceptionCode": "so-protege-um"
+         },
+         {
+          "text": "Ninguém além de quem tomou",
+          "misconceptionCode": "vacina-causa-doenca"
+         },
+         {
+          "text": "Só os adultos",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "Bebês e pessoas que não podem tomar a vacina"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "\"Se todo mundo ao meu redor é vacinado, eu fico mais protegido.\" Isso é:",
+        "options": [
+         {
+          "text": "Verdade: então não preciso me vacinar",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "Boato: os vacinados passam mais doença",
+          "misconceptionCode": "vacina-causa-doenca"
+         },
+         {
+          "text": "Verdade: o micróbio circula menos"
+         },
+         {
+          "text": "Boato: vacina só protege quem toma",
+          "misconceptionCode": "so-protege-um"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "\"A doença quase não aparece mais, então posso parar de vacinar.\" Isso é:",
+      "options": [
+       {
+        "text": "Verdade: doença rara não volta",
+        "misconceptionCode": "doenca-sumiu"
+       },
+       {
+        "text": "Verdade: a vacina já perdeu a função",
+        "misconceptionCode": "doenca-sumiu"
+       },
+       {
+        "text": "Boato: sem vacinação, a doença pode voltar"
+       },
+       {
+        "text": "Verdade: remédio resolve depois",
+        "misconceptionCode": "vacina-e-remedio"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A doença ficou rara justamente por causa da vacina. Se as pessoas param de vacinar, ela volta a se espalhar.",
+      "variants": [
+       {
+        "question": "O sarampo voltou a aparecer em lugares onde a vacinação caiu. Isso mostra que:",
+        "options": [
+         {
+          "text": "É preciso manter a vacinação mesmo com poucos casos"
+         },
+         {
+          "text": "A vacina deixou de funcionar",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "A doença não tem relação com vacina",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "Só remédio resolve",
+          "misconceptionCode": "vacina-e-remedio"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "\"A doença quase não aparece mais, então posso parar de vacinar.\" Isso é:",
+        "options": [
+         {
+          "text": "Verdade: remédio resolve depois",
+          "misconceptionCode": "vacina-e-remedio"
+         },
+         {
+          "text": "Verdade: a vacina já perdeu a função",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "Verdade: doença rara não volta",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "Boato: sem vacinação, a doença pode voltar"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Depois de uma vacina, o braço pode ficar dolorido ou pode dar febre baixa. Isso significa que:",
+      "options": [
+       {
+        "text": "A pessoa pegou a doença",
+        "misconceptionCode": "vacina-causa-doenca"
+       },
+       {
+        "text": "A vacina estava estragada",
+        "misconceptionCode": "vacina-causa-doenca"
+       },
+       {
+        "text": "A vacina não fez efeito",
+        "misconceptionCode": "vacina-e-remedio"
+       },
+       {
+        "text": "O corpo está reagindo e criando defesas"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Reações leves e curtas são sinal de que o sistema de defesa está trabalhando. Não é a doença.",
+      "variants": [
+       {
+        "question": "Uma criança teve febre baixa por um dia depois da vacina. O mais provável é que:",
+        "options": [
+         {
+          "text": "Ela tenha pegado a doença",
+          "misconceptionCode": "vacina-causa-doenca"
+         },
+         {
+          "text": "Seja uma reação leve e passageira"
+         },
+         {
+          "text": "A vacina estivesse vencida",
+          "misconceptionCode": "vacina-causa-doenca"
+         },
+         {
+          "text": "A vacina não tenha feito efeito",
+          "misconceptionCode": "vacina-e-remedio"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Depois de uma vacina, o braço pode ficar dolorido ou pode dar febre baixa. Isso significa que:",
+        "options": [
+         {
+          "text": "O corpo está reagindo e criando defesas"
+         },
+         {
+          "text": "A vacina não fez efeito",
+          "misconceptionCode": "vacina-e-remedio"
+         },
+         {
+          "text": "A vacina estava estragada",
+          "misconceptionCode": "vacina-causa-doenca"
+         },
+         {
+          "text": "A pessoa pegou a doença",
+          "misconceptionCode": "vacina-causa-doenca"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Onde ficam registradas as vacinas que uma pessoa tomou?",
+      "options": [
+       {
+        "text": "Na caderneta de vacinação"
+       },
+       {
+        "text": "Na certidão de nascimento",
+        "misconceptionCode": "so-protege-um"
+       },
+       {
+        "text": "No boletim da escola",
+        "misconceptionCode": "doenca-sumiu"
+       },
+       {
+        "text": "Não ficam registradas",
+        "misconceptionCode": "vacina-e-remedio"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A caderneta mostra quais vacinas foram tomadas e quais faltam. Ela deve ser guardada a vida toda.",
+      "variants": [
+       {
+        "question": "Para saber se alguma vacina está atrasada, a família deve conferir:",
+        "options": [
+         {
+          "text": "O boletim escolar",
+          "misconceptionCode": "so-protege-um"
+         },
+         {
+          "text": "A conta de luz",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "A caderneta de vacinação"
+         },
+         {
+          "text": "A carteira de identidade",
+          "misconceptionCode": "vacina-e-remedio"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Onde ficam registradas as vacinas que uma pessoa tomou?",
+        "options": [
+         {
+          "text": "Não ficam registradas",
+          "misconceptionCode": "vacina-e-remedio"
+         },
+         {
+          "text": "Na caderneta de vacinação"
+         },
+         {
+          "text": "No boletim da escola",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "Na certidão de nascimento",
+          "misconceptionCode": "so-protege-um"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07CI10-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: vacinação e a saúde de todos",
+    "prompt": "Pense na vacina como proteção de cada pessoa e do grupo.",
+    "estMinutes": 4,
+    "audioScript": "Pense na vacina como proteção de cada pessoa e do grupo. Pergunta 1. A varíola matou milhões de pessoas e hoje não existe mais no mundo. O que tornou isso possível? A: O uso de remédios caseiros; B: A vacinação em massa; C: A doença sumiu sozinha; D: O fim das viagens. Pergunta 2. Numa cidade, a cobertura vacinal contra o sarampo caiu de 95% para 60%. O que pode acontecer? A: Nada, 60% já protege todo mundo; B: A doença some mais rápido; C: Um surto da doença; D: Os vacinados ficam doentes. Pergunta 3. Uma mensagem no celular diz que uma vacina \"faz mal\" e não cita nenhuma fonte. O que fazer? A: Compartilhar para avisar todo mundo; B: Deixar de se vacinar por garantia; C: Acreditar, porque chegou de um conhecido; D: Conferir em fontes confiáveis, como o posto de saúde.",
+    "questions": [
+     {
+      "question": "A varíola matou milhões de pessoas e hoje não existe mais no mundo. O que tornou isso possível?",
+      "options": [
+       {
+        "text": "O uso de remédios caseiros",
+        "misconceptionCode": "vacina-e-remedio"
+       },
+       {
+        "text": "A vacinação em massa"
+       },
+       {
+        "text": "A doença sumiu sozinha",
+        "misconceptionCode": "doenca-sumiu"
+       },
+       {
+        "text": "O fim das viagens",
+        "misconceptionCode": "so-protege-um"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Campanhas de vacinação no mundo inteiro impediram o vírus de circular, até ele desaparecer.",
+      "variants": [
+       {
+        "question": "A poliomielite, que causa paralisia infantil, não tem casos no Brasil há décadas graças:",
+        "options": [
+         {
+          "text": "Aos remédios caseiros",
+          "misconceptionCode": "vacina-e-remedio"
+         },
+         {
+          "text": "Ao acaso",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "Ao clima quente",
+          "misconceptionCode": "so-protege-um"
+         },
+         {
+          "text": "Às campanhas de vacinação"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A varíola matou milhões de pessoas e hoje não existe mais no mundo. O que tornou isso possível?",
+        "options": [
+         {
+          "text": "O fim das viagens",
+          "misconceptionCode": "so-protege-um"
+         },
+         {
+          "text": "A doença sumiu sozinha",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "A vacinação em massa"
+         },
+         {
+          "text": "O uso de remédios caseiros",
+          "misconceptionCode": "vacina-e-remedio"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Numa cidade, a cobertura vacinal contra o sarampo caiu de 95% para 60%. O que pode acontecer?",
+      "options": [
+       {
+        "text": "Nada, 60% já protege todo mundo",
+        "misconceptionCode": "so-protege-um"
+       },
+       {
+        "text": "A doença some mais rápido",
+        "misconceptionCode": "doenca-sumiu"
+       },
+       {
+        "text": "Um surto da doença"
+       },
+       {
+        "text": "Os vacinados ficam doentes",
+        "misconceptionCode": "vacina-causa-doenca"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Com muita gente sem proteção, o vírus encontra caminho para se espalhar e pode causar um surto.",
+      "variants": [
+       {
+        "question": "Para evitar que o sarampo volte a circular, é importante que:",
+        "options": [
+         {
+          "text": "Quase toda a população esteja vacinada"
+         },
+         {
+          "text": "Só as crianças pequenas se vacinem",
+          "misconceptionCode": "so-protege-um"
+         },
+         {
+          "text": "Ninguém viaje",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "Todos tomem remédio todo mês",
+          "misconceptionCode": "vacina-causa-doenca"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Numa cidade, a cobertura vacinal contra o sarampo caiu de 95% para 60%. O que pode acontecer?",
+        "options": [
+         {
+          "text": "Os vacinados ficam doentes",
+          "misconceptionCode": "vacina-causa-doenca"
+         },
+         {
+          "text": "A doença some mais rápido",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "Nada, 60% já protege todo mundo",
+          "misconceptionCode": "so-protege-um"
+         },
+         {
+          "text": "Um surto da doença"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Uma mensagem no celular diz que uma vacina \"faz mal\" e não cita nenhuma fonte. O que fazer?",
+      "options": [
+       {
+        "text": "Compartilhar para avisar todo mundo",
+        "misconceptionCode": "vacina-causa-doenca"
+       },
+       {
+        "text": "Deixar de se vacinar por garantia",
+        "misconceptionCode": "doenca-sumiu"
+       },
+       {
+        "text": "Acreditar, porque chegou de um conhecido",
+        "misconceptionCode": "so-protege-um"
+       },
+       {
+        "text": "Conferir em fontes confiáveis, como o posto de saúde"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Informação sobre saúde deve vir de fontes confiáveis, como profissionais de saúde e órgãos oficiais.",
+      "variants": [
+       {
+        "question": "Onde buscar informação confiável sobre o calendário de vacinas?",
+        "options": [
+         {
+          "text": "Em correntes de mensagens",
+          "misconceptionCode": "vacina-causa-doenca"
+         },
+         {
+          "text": "No posto de saúde ou no site do Ministério da Saúde"
+         },
+         {
+          "text": "Em vídeos sem autor",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "Em comentários de redes sociais",
+          "misconceptionCode": "so-protege-um"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Uma mensagem no celular diz que uma vacina \"faz mal\" e não cita nenhuma fonte. O que fazer?",
+        "options": [
+         {
+          "text": "Conferir em fontes confiáveis, como o posto de saúde"
+         },
+         {
+          "text": "Acreditar, porque chegou de um conhecido",
+          "misconceptionCode": "so-protege-um"
+         },
+         {
+          "text": "Deixar de se vacinar por garantia",
+          "misconceptionCode": "doenca-sumiu"
+         },
+         {
+          "text": "Compartilhar para avisar todo mundo",
+          "misconceptionCode": "vacina-causa-doenca"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07CI10-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: por que se vacinar",
+    "prompt": "Explique com as suas palavras como a vacina protege o corpo e por que ela também protege as outras pessoas.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras como a vacina protege o corpo e por que ela também protege as outras pessoas.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "mecanismo",
+       "description": "Explica que a vacina faz o corpo criar defesas sem causar a doença"
+      },
+      {
+       "code": "coletivo",
+       "description": "Explica que, com muita gente vacinada, o micróbio circula menos"
+      },
+      {
+       "code": "exemplo",
+       "description": "Cita quem é protegido ou uma doença controlada por vacina"
+      }
+     ],
+     "exemploBoaResposta": "A vacina mostra ao corpo o micróbio enfraquecido ou um pedaço dele. O corpo cria anticorpos e fica pronto para combater a doença de verdade. Quando quase todo mundo é vacinado, o micróbio não consegue se espalhar, e isso protege também os bebês e quem não pode tomar a vacina."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF07CI12",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 7,
+  "version": 1,
+  "title": "Trilha: O ar como mistura de gases",
+  "tituloAluno": "O ar que você respira: do que ele é feito",
+  "activities": [
+   {
+    "id": "PK2-EF07CI12-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: o ar existe",
+    "prompt": "A gente não vê o ar, mas ele está em todo lugar. Vamos lembrar como percebê-lo.",
+    "estMinutes": 4,
+    "audioScript": "A gente não vê o ar, mas ele está em todo lugar. Vamos lembrar como percebê-lo. Pergunta 1. Como podemos perceber que o ar existe? A: Só olhando para ele; B: Sentindo o vento ou enchendo um balão; C: Não dá para perceber; D: Só quando chove. Pergunta 2. Um copo vazio é mergulhado de boca para baixo na água e a água quase não entra. Por quê? A: Porque o copo está vazio de tudo; B: Porque a água tem medo do copo; C: Porque o copo está cheio de ar; D: Porque o vidro empurra a água. Pergunta 3. Qual gás do ar usamos na respiração? A: Gás carbônico; B: Nitrogênio; C: Vapor de água; D: Oxigênio.",
+    "questions": [
+     {
+      "question": "Como podemos perceber que o ar existe?",
+      "options": [
+       {
+        "text": "Só olhando para ele",
+        "misconceptionCode": "ar-nao-e-materia"
+       },
+       {
+        "text": "Sentindo o vento ou enchendo um balão"
+       },
+       {
+        "text": "Não dá para perceber",
+        "misconceptionCode": "ar-nao-e-materia"
+       },
+       {
+        "text": "Só quando chove",
+        "misconceptionCode": "poluicao-some"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O ar não tem cor, mas ocupa espaço e se move. O vento é o ar em movimento, e o balão cheio mostra o espaço que ele ocupa.",
+      "variants": [
+       {
+        "question": "Um balão cheio fica maior porque:",
+        "options": [
+         {
+          "text": "O ar não é nada",
+          "misconceptionCode": "ar-nao-e-materia"
+         },
+         {
+          "text": "A borracha cresce sozinha",
+          "misconceptionCode": "ar-nao-e-materia"
+         },
+         {
+          "text": "O balão fica mais frio",
+          "misconceptionCode": "poluicao-some"
+         },
+         {
+          "text": "O ar ocupa espaço"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Como podemos perceber que o ar existe?",
+        "options": [
+         {
+          "text": "Só quando chove",
+          "misconceptionCode": "poluicao-some"
+         },
+         {
+          "text": "Não dá para perceber",
+          "misconceptionCode": "ar-nao-e-materia"
+         },
+         {
+          "text": "Sentindo o vento ou enchendo um balão"
+         },
+         {
+          "text": "Só olhando para ele",
+          "misconceptionCode": "ar-nao-e-materia"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um copo vazio é mergulhado de boca para baixo na água e a água quase não entra. Por quê?",
+      "options": [
+       {
+        "text": "Porque o copo está vazio de tudo",
+        "misconceptionCode": "ar-nao-e-materia"
+       },
+       {
+        "text": "Porque a água tem medo do copo",
+        "misconceptionCode": "poluicao-some"
+       },
+       {
+        "text": "Porque o copo está cheio de ar"
+       },
+       {
+        "text": "Porque o vidro empurra a água",
+        "misconceptionCode": "ar-e-so-oxigenio"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O copo \"vazio\" está cheio de ar. Como o ar ocupa espaço, a água não consegue entrar.",
+      "variants": [
+       {
+        "question": "Uma seringa tampada na ponta não deixa empurrar o êmbolo até o fim. Por quê?",
+        "options": [
+         {
+          "text": "Porque há ar dentro dela ocupando espaço"
+         },
+         {
+          "text": "Porque ela está vazia de tudo",
+          "misconceptionCode": "ar-nao-e-materia"
+         },
+         {
+          "text": "Porque o plástico endurece",
+          "misconceptionCode": "poluicao-some"
+         },
+         {
+          "text": "Porque a mão fica fraca",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um copo vazio é mergulhado de boca para baixo na água e a água quase não entra. Por quê?",
+        "options": [
+         {
+          "text": "Porque o vidro empurra a água",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         },
+         {
+          "text": "Porque a água tem medo do copo",
+          "misconceptionCode": "poluicao-some"
+         },
+         {
+          "text": "Porque o copo está vazio de tudo",
+          "misconceptionCode": "ar-nao-e-materia"
+         },
+         {
+          "text": "Porque o copo está cheio de ar"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual gás do ar usamos na respiração?",
+      "options": [
+       {
+        "text": "Gás carbônico",
+        "misconceptionCode": "gas-carbonico-so-ruim"
+       },
+       {
+        "text": "Nitrogênio",
+        "misconceptionCode": "ar-e-so-oxigenio"
+       },
+       {
+        "text": "Vapor de água",
+        "misconceptionCode": "poluicao-some"
+       },
+       {
+        "text": "Oxigênio"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Nosso corpo retira oxigênio do ar que entra nos pulmões e elimina gás carbônico.",
+      "variants": [
+       {
+        "question": "Qual gás sai em maior quantidade no ar que soltamos do que no ar que puxamos?",
+        "options": [
+         {
+          "text": "Oxigênio",
+          "misconceptionCode": "gas-carbonico-so-ruim"
+         },
+         {
+          "text": "Gás carbônico"
+         },
+         {
+          "text": "Nitrogênio",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         },
+         {
+          "text": "Hélio",
+          "misconceptionCode": "poluicao-some"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual gás do ar usamos na respiração?",
+        "options": [
+         {
+          "text": "Oxigênio"
+         },
+         {
+          "text": "Vapor de água",
+          "misconceptionCode": "poluicao-some"
+         },
+         {
+          "text": "Nitrogênio",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         },
+         {
+          "text": "Gás carbônico",
+          "misconceptionCode": "gas-carbonico-so-ruim"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07CI12-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: a receita do ar",
+    "prompt": "O ar é uma mistura. De cada 100 partes, cerca de 78 são nitrogênio, 21 são oxigênio e 1 parte reúne outros gases, como o gás carbônico e o argônio. Vamos ver juntos.",
+    "estMinutes": 4,
+    "audioScript": "O ar é uma mistura. De cada 100 partes, cerca de 78 são nitrogênio, 21 são oxigênio e 1 parte reúne outros gases, como o gás carbônico e o argônio. Vamos ver juntos. Pergunta 1. Qual é o gás em maior quantidade no ar? A: Nitrogênio; B: Oxigênio; C: Gás carbônico; D: Vapor de água. Pergunta 2. O oxigênio forma mais ou menos que parte do ar? A: 100%, o ar é oxigênio; B: Cerca de 21%, pouco mais de um quinto; C: Cerca de 78%; D: Menos de 1%. Pergunta 3. O ar é uma mistura homogênea ou heterogênea? A: Heterogênea: dá para ver cada gás; B: Não é mistura, é uma substância só; C: Homogênea: não dá para ver os gases separados; D: Heterogênea, porque tem mais de um gás.",
+    "questions": [
+     {
+      "question": "Qual é o gás em maior quantidade no ar?",
+      "options": [
+       {
+        "text": "Nitrogênio"
+       },
+       {
+        "text": "Oxigênio",
+        "misconceptionCode": "ar-e-so-oxigenio"
+       },
+       {
+        "text": "Gás carbônico",
+        "misconceptionCode": "gas-carbonico-so-ruim"
+       },
+       {
+        "text": "Vapor de água",
+        "misconceptionCode": "poluicao-some"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O nitrogênio forma cerca de 78% do ar. O oxigênio, que usamos para respirar, é cerca de 21%.",
+      "variants": [
+       {
+        "question": "Cerca de 78% do ar é formado por:",
+        "options": [
+         {
+          "text": "Oxigênio",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         },
+         {
+          "text": "Gás carbônico",
+          "misconceptionCode": "gas-carbonico-so-ruim"
+         },
+         {
+          "text": "Nitrogênio"
+         },
+         {
+          "text": "Hidrogênio",
+          "misconceptionCode": "poluicao-some"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual é o gás em maior quantidade no ar?",
+        "options": [
+         {
+          "text": "Vapor de água",
+          "misconceptionCode": "poluicao-some"
+         },
+         {
+          "text": "Nitrogênio"
+         },
+         {
+          "text": "Gás carbônico",
+          "misconceptionCode": "gas-carbonico-so-ruim"
+         },
+         {
+          "text": "Oxigênio",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O oxigênio forma mais ou menos que parte do ar?",
+      "options": [
+       {
+        "text": "100%, o ar é oxigênio",
+        "misconceptionCode": "ar-e-so-oxigenio"
+       },
+       {
+        "text": "Cerca de 21%, pouco mais de um quinto"
+       },
+       {
+        "text": "Cerca de 78%",
+        "misconceptionCode": "ar-e-so-oxigenio"
+       },
+       {
+        "text": "Menos de 1%",
+        "misconceptionCode": "gas-carbonico-so-ruim"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "De cada 100 partes de ar, cerca de 21 são oxigênio. A maior parte é nitrogênio.",
+      "variants": [
+       {
+        "question": "De cada 100 partes de ar, quantas são de oxigênio, aproximadamente?",
+        "options": [
+         {
+          "text": "100",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         },
+         {
+          "text": "78",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         },
+         {
+          "text": "1",
+          "misconceptionCode": "gas-carbonico-so-ruim"
+         },
+         {
+          "text": "21"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O oxigênio forma mais ou menos que parte do ar?",
+        "options": [
+         {
+          "text": "Menos de 1%",
+          "misconceptionCode": "gas-carbonico-so-ruim"
+         },
+         {
+          "text": "Cerca de 78%",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         },
+         {
+          "text": "Cerca de 21%, pouco mais de um quinto"
+         },
+         {
+          "text": "100%, o ar é oxigênio",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O ar é uma mistura homogênea ou heterogênea?",
+      "options": [
+       {
+        "text": "Heterogênea: dá para ver cada gás",
+        "misconceptionCode": "ar-nao-e-materia"
+       },
+       {
+        "text": "Não é mistura, é uma substância só",
+        "misconceptionCode": "ar-e-so-oxigenio"
+       },
+       {
+        "text": "Homogênea: não dá para ver os gases separados"
+       },
+       {
+        "text": "Heterogênea, porque tem mais de um gás",
+        "misconceptionCode": "gas-carbonico-so-ruim"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Os gases do ar ficam bem misturados e não dá para ver um separado do outro. Por isso o ar limpo é uma mistura homogênea.",
+      "variants": [
+       {
+        "question": "Por que dizemos que o ar limpo é uma mistura homogênea?",
+        "options": [
+         {
+          "text": "Porque seus gases não aparecem separados"
+         },
+         {
+          "text": "Porque tem um gás só",
+          "misconceptionCode": "ar-nao-e-materia"
+         },
+         {
+          "text": "Porque dá para ver cada gás",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         },
+         {
+          "text": "Porque ele não é matéria",
+          "misconceptionCode": "gas-carbonico-so-ruim"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O ar é uma mistura homogênea ou heterogênea?",
+        "options": [
+         {
+          "text": "Heterogênea, porque tem mais de um gás",
+          "misconceptionCode": "gas-carbonico-so-ruim"
+         },
+         {
+          "text": "Não é mistura, é uma substância só",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         },
+         {
+          "text": "Heterogênea: dá para ver cada gás",
+          "misconceptionCode": "ar-nao-e-materia"
+         },
+         {
+          "text": "Homogênea: não dá para ver os gases separados"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07CI12-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: os gases e seus papéis",
+    "prompt": "Cada gás do ar tem um papel. Descubra qual.",
+    "estMinutes": 5,
+    "audioScript": "Cada gás do ar tem um papel. Descubra qual. Pergunta 1. Qual gás as plantas retiram do ar para fazer fotossíntese? A: Oxigênio; B: Nitrogênio; C: Argônio; D: Gás carbônico. Pergunta 2. O gás carbônico no ar, em pequena quantidade, é: A: Natural e necessário para as plantas; B: Sempre um veneno; C: Inexistente no ar limpo; D: O gás mais abundante. Pergunta 3. Qual destas ações aumenta a quantidade de gás carbônico no ar? A: Plantar árvores; B: Queimar gasolina, carvão ou madeira; C: Andar de bicicleta; D: Apagar as luzes. Pergunta 4. Qual fenômeno natural lança gases e poeira no ar? A: O nascer do sol; B: A maré baixa; C: A erupção de um vulcão; D: O arco-íris.",
+    "questions": [
+     {
+      "question": "Qual gás as plantas retiram do ar para fazer fotossíntese?",
+      "options": [
+       {
+        "text": "Oxigênio",
+        "misconceptionCode": "ar-e-so-oxigenio"
+       },
+       {
+        "text": "Nitrogênio",
+        "misconceptionCode": "gas-carbonico-so-ruim"
+       },
+       {
+        "text": "Argônio",
+        "misconceptionCode": "poluicao-some"
+       },
+       {
+        "text": "Gás carbônico"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Na fotossíntese, as plantas usam gás carbônico, água e luz para produzir alimento, e liberam oxigênio.",
+      "variants": [
+       {
+        "question": "Na fotossíntese, as plantas liberam para o ar:",
+        "options": [
+         {
+          "text": "Gás carbônico",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         },
+         {
+          "text": "Oxigênio"
+         },
+         {
+          "text": "Nitrogênio",
+          "misconceptionCode": "gas-carbonico-so-ruim"
+         },
+         {
+          "text": "Fumaça",
+          "misconceptionCode": "poluicao-some"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual gás as plantas retiram do ar para fazer fotossíntese?",
+        "options": [
+         {
+          "text": "Gás carbônico"
+         },
+         {
+          "text": "Argônio",
+          "misconceptionCode": "poluicao-some"
+         },
+         {
+          "text": "Nitrogênio",
+          "misconceptionCode": "gas-carbonico-so-ruim"
+         },
+         {
+          "text": "Oxigênio",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O gás carbônico no ar, em pequena quantidade, é:",
+      "options": [
+       {
+        "text": "Natural e necessário para as plantas"
+       },
+       {
+        "text": "Sempre um veneno",
+        "misconceptionCode": "gas-carbonico-so-ruim"
+       },
+       {
+        "text": "Inexistente no ar limpo",
+        "misconceptionCode": "gas-carbonico-so-ruim"
+       },
+       {
+        "text": "O gás mais abundante",
+        "misconceptionCode": "ar-e-so-oxigenio"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O gás carbônico faz parte do ar e é usado pelas plantas. O problema é o excesso lançado pelas atividades humanas.",
+      "variants": [
+       {
+        "question": "O gás carbônico só vira problema quando:",
+        "options": [
+         {
+          "text": "Aparece no ar, em qualquer quantidade",
+          "misconceptionCode": "gas-carbonico-so-ruim"
+         },
+         {
+          "text": "As plantas o utilizam",
+          "misconceptionCode": "gas-carbonico-so-ruim"
+         },
+         {
+          "text": "É lançado em excesso no ar"
+         },
+         {
+          "text": "Sai na nossa respiração",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O gás carbônico no ar, em pequena quantidade, é:",
+        "options": [
+         {
+          "text": "O gás mais abundante",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         },
+         {
+          "text": "Natural e necessário para as plantas"
+         },
+         {
+          "text": "Inexistente no ar limpo",
+          "misconceptionCode": "gas-carbonico-so-ruim"
+         },
+         {
+          "text": "Sempre um veneno",
+          "misconceptionCode": "gas-carbonico-so-ruim"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual destas ações aumenta a quantidade de gás carbônico no ar?",
+      "options": [
+       {
+        "text": "Plantar árvores",
+        "misconceptionCode": "poluicao-some"
+       },
+       {
+        "text": "Queimar gasolina, carvão ou madeira"
+       },
+       {
+        "text": "Andar de bicicleta",
+        "misconceptionCode": "poluicao-some"
+       },
+       {
+        "text": "Apagar as luzes",
+        "misconceptionCode": "gas-carbonico-so-ruim"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A queima de combustíveis e de florestas libera gás carbônico que estava guardado.",
+      "variants": [
+       {
+        "question": "Qual destas ações ajuda a retirar gás carbônico do ar?",
+        "options": [
+         {
+          "text": "Queimar lixo",
+          "misconceptionCode": "poluicao-some"
+         },
+         {
+          "text": "Usar mais o carro",
+          "misconceptionCode": "poluicao-some"
+         },
+         {
+          "text": "Fazer queimadas",
+          "misconceptionCode": "gas-carbonico-so-ruim"
+         },
+         {
+          "text": "Plantar e conservar árvores"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual destas ações aumenta a quantidade de gás carbônico no ar?",
+        "options": [
+         {
+          "text": "Apagar as luzes",
+          "misconceptionCode": "gas-carbonico-so-ruim"
+         },
+         {
+          "text": "Andar de bicicleta",
+          "misconceptionCode": "poluicao-some"
+         },
+         {
+          "text": "Queimar gasolina, carvão ou madeira"
+         },
+         {
+          "text": "Plantar árvores",
+          "misconceptionCode": "poluicao-some"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual fenômeno natural lança gases e poeira no ar?",
+      "options": [
+       {
+        "text": "O nascer do sol",
+        "misconceptionCode": "poluicao-some"
+       },
+       {
+        "text": "A maré baixa",
+        "misconceptionCode": "ar-nao-e-materia"
+       },
+       {
+        "text": "A erupção de um vulcão"
+       },
+       {
+        "text": "O arco-íris",
+        "misconceptionCode": "ar-e-so-oxigenio"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Vulcões soltam gases e cinzas que mudam a composição do ar na região, sem ação humana.",
+      "variants": [
+       {
+        "question": "Além dos vulcões, o que mais lança fumaça e gases no ar sem ação humana?",
+        "options": [
+         {
+          "text": "Incêndios causados por raios"
+         },
+         {
+          "text": "O arco-íris",
+          "misconceptionCode": "poluicao-some"
+         },
+         {
+          "text": "A maré",
+          "misconceptionCode": "ar-nao-e-materia"
+         },
+         {
+          "text": "A lua cheia",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual fenômeno natural lança gases e poeira no ar?",
+        "options": [
+         {
+          "text": "O arco-íris",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         },
+         {
+          "text": "A maré baixa",
+          "misconceptionCode": "ar-nao-e-materia"
+         },
+         {
+          "text": "O nascer do sol",
+          "misconceptionCode": "poluicao-some"
+         },
+         {
+          "text": "A erupção de um vulcão"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07CI12-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: o ar das cidades",
+    "prompt": "Use o que você sabe sobre a composição do ar para pensar no ar que respiramos.",
+    "estMinutes": 4,
+    "audioScript": "Use o que você sabe sobre a composição do ar para pensar no ar que respiramos. Pergunta 1. Numa avenida com muito trânsito, o ar tem mais poluentes do que num parque. Por quê? A: Os carros gastam todo o oxigênio; B: As árvores do parque criam ar novo; C: O asfalto solta nitrogênio; D: Os escapamentos dos veículos lançam gases e partículas. Pergunta 2. O que acontece com os gases que saem das chaminés e dos escapamentos? A: Misturam-se ao ar e podem ser levados pelo vento; B: Desaparecem em poucos segundos; C: Voltam para dentro do motor; D: Viram oxigênio. Pergunta 3. Qual atitude ajuda a melhorar a qualidade do ar numa cidade? A: Queimar o lixo no quintal; B: Usar mais transporte coletivo e bicicleta; C: Usar o carro para ir a qualquer lugar; D: Cortar as árvores das ruas.",
+    "questions": [
+     {
+      "question": "Numa avenida com muito trânsito, o ar tem mais poluentes do que num parque. Por quê?",
+      "options": [
+       {
+        "text": "Os carros gastam todo o oxigênio",
+        "misconceptionCode": "ar-e-so-oxigenio"
+       },
+       {
+        "text": "As árvores do parque criam ar novo",
+        "misconceptionCode": "ar-nao-e-materia"
+       },
+       {
+        "text": "O asfalto solta nitrogênio",
+        "misconceptionCode": "gas-carbonico-so-ruim"
+       },
+       {
+        "text": "Os escapamentos dos veículos lançam gases e partículas"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Motores que queimam combustível lançam gases como monóxido de carbono, além de fuligem.",
+      "variants": [
+       {
+        "question": "Por que o ar perto de uma fábrica com chaminé pode ser mais poluído?",
+        "options": [
+         {
+          "text": "Porque a fábrica gasta todo o oxigênio",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         },
+         {
+          "text": "Porque a queima na fábrica lança gases e partículas"
+         },
+         {
+          "text": "Porque o prédio é alto",
+          "misconceptionCode": "ar-nao-e-materia"
+         },
+         {
+          "text": "Porque lá não chove",
+          "misconceptionCode": "gas-carbonico-so-ruim"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Numa avenida com muito trânsito, o ar tem mais poluentes do que num parque. Por quê?",
+        "options": [
+         {
+          "text": "Os escapamentos dos veículos lançam gases e partículas"
+         },
+         {
+          "text": "O asfalto solta nitrogênio",
+          "misconceptionCode": "gas-carbonico-so-ruim"
+         },
+         {
+          "text": "As árvores do parque criam ar novo",
+          "misconceptionCode": "ar-nao-e-materia"
+         },
+         {
+          "text": "Os carros gastam todo o oxigênio",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O que acontece com os gases que saem das chaminés e dos escapamentos?",
+      "options": [
+       {
+        "text": "Misturam-se ao ar e podem ser levados pelo vento"
+       },
+       {
+        "text": "Desaparecem em poucos segundos",
+        "misconceptionCode": "poluicao-some"
+       },
+       {
+        "text": "Voltam para dentro do motor",
+        "misconceptionCode": "ar-nao-e-materia"
+       },
+       {
+        "text": "Viram oxigênio",
+        "misconceptionCode": "ar-e-so-oxigenio"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Os gases não somem: misturam-se ao ar, espalham-se e podem afetar lugares distantes.",
+      "variants": [
+       {
+        "question": "A fumaça de uma queimada pode chegar a cidades distantes porque:",
+        "options": [
+         {
+          "text": "A fumaça some e reaparece",
+          "misconceptionCode": "poluicao-some"
+         },
+         {
+          "text": "As cidades produzem a mesma fumaça",
+          "misconceptionCode": "ar-nao-e-materia"
+         },
+         {
+          "text": "O vento leva os gases e as partículas"
+         },
+         {
+          "text": "A fumaça vira chuva na hora",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que acontece com os gases que saem das chaminés e dos escapamentos?",
+        "options": [
+         {
+          "text": "Viram oxigênio",
+          "misconceptionCode": "ar-e-so-oxigenio"
+         },
+         {
+          "text": "Misturam-se ao ar e podem ser levados pelo vento"
+         },
+         {
+          "text": "Voltam para dentro do motor",
+          "misconceptionCode": "ar-nao-e-materia"
+         },
+         {
+          "text": "Desaparecem em poucos segundos",
+          "misconceptionCode": "poluicao-some"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual atitude ajuda a melhorar a qualidade do ar numa cidade?",
+      "options": [
+       {
+        "text": "Queimar o lixo no quintal",
+        "misconceptionCode": "poluicao-some"
+       },
+       {
+        "text": "Usar mais transporte coletivo e bicicleta"
+       },
+       {
+        "text": "Usar o carro para ir a qualquer lugar",
+        "misconceptionCode": "poluicao-some"
+       },
+       {
+        "text": "Cortar as árvores das ruas",
+        "misconceptionCode": "gas-carbonico-so-ruim"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Menos veículos queimando combustível significa menos gases poluentes no ar.",
+      "variants": [
+       {
+        "question": "Qual atitude ajuda a reduzir os poluentes lançados no ar?",
+        "options": [
+         {
+          "text": "Deixar o carro ligado parado",
+          "misconceptionCode": "poluicao-some"
+         },
+         {
+          "text": "Queimar pneus",
+          "misconceptionCode": "poluicao-some"
+         },
+         {
+          "text": "Derrubar árvores",
+          "misconceptionCode": "gas-carbonico-so-ruim"
+         },
+         {
+          "text": "Não fazer queimadas"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual atitude ajuda a melhorar a qualidade do ar numa cidade?",
+        "options": [
+         {
+          "text": "Cortar as árvores das ruas",
+          "misconceptionCode": "gas-carbonico-so-ruim"
+         },
+         {
+          "text": "Usar o carro para ir a qualquer lugar",
+          "misconceptionCode": "poluicao-some"
+         },
+         {
+          "text": "Usar mais transporte coletivo e bicicleta"
+         },
+         {
+          "text": "Queimar o lixo no quintal",
+          "misconceptionCode": "poluicao-some"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07CI12-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: do que é feito o ar",
+    "prompt": "Explique com as suas palavras por que dizemos que o ar é uma mistura e cite os dois gases principais.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras por que dizemos que o ar é uma mistura e cite os dois gases principais.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "mistura",
+       "description": "Explica que o ar é formado por vários gases juntos"
+      },
+      {
+       "code": "gases",
+       "description": "Cita nitrogênio e oxigênio como os principais"
+      },
+      {
+       "code": "proporcao",
+       "description": "Indica que o nitrogênio é o mais abundante"
+      }
+     ],
+     "exemploBoaResposta": "O ar é uma mistura porque é formado por vários gases juntos, que a gente não consegue ver separados. O principal é o nitrogênio, com cerca de 78%, e depois vem o oxigênio, com cerca de 21%. O resto são outros gases, como o gás carbônico."
+    }
+   }
+  ]
+ }
+]
