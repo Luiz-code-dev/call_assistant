@@ -1,223 +1,327 @@
 {
-  "id": "DIAG2-GE-6A",
-  "version": 3,
-  "titulo": "Diagnóstico de Geografia — 6º ano",
-  "descricao": "Cidades e natureza, ciclo da água e bacias hidrográficas no 6º ano, com degrau para o 5º ano.",
-  "subjectCode": "GE",
-  "subjectName": "Geografia",
-  "gradeYear": 6,
-  "status": "APPROVED",
-  "source": "SPEAKFLOW",
-  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-  "adaptive": true,
-  "items": [
+ "id": "DIAG2-GE-6A",
+ "version": 4,
+ "titulo": "Diagnóstico de Geografia — 6º ano",
+ "descricao": "Cidades e campo, relações entre os elementos da natureza, mudanças nas paisagens e usos do solo e da água no 6º ano, com degrau para o 5º ano.",
+ "subjectCode": "GE",
+ "subjectName": "Geografia",
+ "gradeYear": 6,
+ "status": "APPROVED",
+ "source": "SPEAKFLOW",
+ "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+ "adaptive": true,
+ "items": [
+  {
+   "id": "DI2-EF06GE07-01",
+   "skillCode": "EF06GE07",
+   "question": "Por que as cidades com muito asfalto alagam mais com chuva forte?",
+   "options": [
     {
-      "id": "DI2-EF06GE07-01",
-      "skillCode": "EF06GE07",
-      "question": "Por que as cidades com muito asfalto alagam mais com chuva forte?",
-      "options": [
-        {
-          "text": "Porque chove só nas cidades",
-          "misconceptionCode": "mudanca-sem-causa"
-        },
-        {
-          "text": "Porque a água não consegue entrar no solo"
-        },
-        {
-          "text": "Porque a cidade não tem relação com a natureza",
-          "misconceptionCode": "cidade-separada-natureza"
-        },
-        {
-          "text": "Por causa da comida do campo",
-          "misconceptionCode": "campo-independente"
-        }
-      ],
-      "correctIndex": 1,
-      "explanation": "Na terra, a chuva entra no chão, como numa esponja. O asfalto não deixa a água entrar, então ela escorre e acumula nas ruas.",
-      "audioScript": "Pergunta 1. Por que as cidades com muito asfalto alagam mais com chuva forte? A: Porque chove só nas cidades; B: Porque a água não consegue entrar no solo; C: Porque a cidade não tem relação com a natureza; D: Por causa da comida do campo.",
-      "role": "NORMAL"
+     "text": "Porque chove só nas cidades",
+     "misconceptionCode": "mudanca-sem-causa"
     },
     {
-      "id": "DI2-EF06GE07-02",
-      "skillCode": "EF06GE07",
-      "question": "De onde vem a maior parte dos alimentos que a cidade consome?",
-      "options": [
-        {
-          "text": "Dos próprios mercados, que produzem",
-          "misconceptionCode": "campo-independente"
-        },
-        {
-          "text": "Do asfalto",
-          "misconceptionCode": "mudanca-sem-causa"
-        },
-        {
-          "text": "A cidade não consome alimentos de fora",
-          "misconceptionCode": "cidade-separada-natureza"
-        },
-        {
-          "text": "Do campo"
-        }
-      ],
-      "correctIndex": 3,
-      "explanation": "Arroz, feijão, frutas e leite são plantados e criados no campo. O mercado da cidade só vende o que veio de lá.",
-      "audioScript": "Pergunta 1. De onde vem a maior parte dos alimentos que a cidade consome? A: Dos próprios mercados, que produzem; B: Do asfalto; C: A cidade não consome alimentos de fora; D: Do campo.",
-      "role": "NORMAL"
+     "text": "Porque a água não consegue entrar no solo"
     },
     {
-      "id": "DI2-EF06GE04-01",
-      "skillCode": "EF06GE04",
-      "question": "As nuvens são formadas por:",
-      "options": [
-        {
-          "text": "Fumaça",
-          "misconceptionCode": "nuvem-fumaca"
-        },
-        {
-          "text": "Vapor que nunca vira água",
-          "misconceptionCode": "nuvem-fumaca"
-        },
-        {
-          "text": "Água que nunca evapora",
-          "misconceptionCode": "ciclo-linear"
-        },
-        {
-          "text": "Gotinhas de água"
-        }
-      ],
-      "correctIndex": 3,
-      "explanation": "Sabe o vapor do banho quente que vira gotinhas no espelho? No céu acontece igual: o vapor esfria e vira gotinhas de água.",
-      "audioScript": "Pergunta 1. As nuvens são formadas por: A: Fumaça; B: Vapor que nunca vira água; C: Água que nunca evapora; D: Gotinhas de água.",
-      "role": "NORMAL"
+     "text": "Porque a cidade não tem relação com a natureza",
+     "misconceptionCode": "cidade-separada-natureza"
     },
     {
-      "id": "DI2-EF06GE04-02",
-      "skillCode": "EF06GE04",
-      "question": "Uma bacia hidrográfica é:",
-      "options": [
-        {
-          "text": "O rio principal, seus afluentes e a área de terra ao redor"
-        },
-        {
-          "text": "Um único rio",
-          "misconceptionCode": "bacia-e-rio"
-        },
-        {
-          "text": "Só a nascente",
-          "misconceptionCode": "bacia-e-rio"
-        },
-        {
-          "text": "Só a chuva da cidade",
-          "misconceptionCode": "urbano-infiltra"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Pense numa árvore deitada: o rio principal é o tronco, os rios menores são os galhos, e a terra em volta, onde a chuva escorre, também faz parte.",
-      "audioScript": "Pergunta 1. Uma bacia hidrográfica é: A: O rio principal, seus afluentes e a área de terra ao redor; B: Um único rio; C: Só a nascente; D: Só a chuva da cidade.",
-      "role": "NORMAL"
-    },
-    {
-      "id": "DI2-EF05GE03-01",
-      "skillCode": "EF05GE03",
-      "question": "Uma cidade cheia de pousadas, praias e passeios tem como função importante:",
-      "options": [
-        {
-          "text": "Indústria",
-          "misconceptionCode": "funcao-trocada"
-        },
-        {
-          "text": "Só moradia",
-          "misconceptionCode": "cidade-so-moradia"
-        },
-        {
-          "text": "Turismo"
-        },
-        {
-          "text": "Agricultura",
-          "misconceptionCode": "funcao-trocada"
-        }
-      ],
-      "correctIndex": 2,
-      "explanation": "Pousadas e passeios existem para receber visitantes. Cidade que vive de receber visitantes tem a função turística.",
-      "audioScript": "Pergunta 1. Uma cidade cheia de pousadas, praias e passeios tem como função importante: A: Indústria; B: Só moradia; C: Turismo; D: Agricultura.",
-      "role": "DEGRAU_BANK"
-    },
-    {
-      "id": "DI2-EF05GE03-02",
-      "skillCode": "EF05GE03",
-      "question": "O crescimento rápido de uma cidade, sem planejamento, costuma trazer:",
-      "options": [
-        {
-          "text": "Só benefícios",
-          "misconceptionCode": "crescer-so-bom"
-        },
-        {
-          "text": "Mais empregos, mas também trânsito e falta de moradia"
-        },
-        {
-          "text": "Só prejuízos",
-          "misconceptionCode": "crescer-so-ruim"
-        },
-        {
-          "text": "Nenhuma mudança",
-          "misconceptionCode": "cidade-so-moradia"
-        }
-      ],
-      "correctIndex": 1,
-      "explanation": "Quando muita gente chega de uma vez, aparecem empregos, mas também trânsito e falta de casa. Crescer sem planejar traz os dois lados.",
-      "audioScript": "Pergunta 1. O crescimento rápido de uma cidade, sem planejamento, costuma trazer: A: Só benefícios; B: Mais empregos, mas também trânsito e falta de moradia; C: Só prejuízos; D: Nenhuma mudança.",
-      "role": "DEGRAU_BANK"
-    },
-    {
-      "id": "DI2-EF05GE10-01",
-      "skillCode": "EF05GE10",
-      "question": "Uma água bem transparente é sempre própria para beber?",
-      "options": [
-        {
-          "text": "Sim, transparência é sinal de limpeza",
-          "misconceptionCode": "transparente-e-limpa"
-        },
-        {
-          "text": "Sim, se não tiver lixo",
-          "misconceptionCode": "poluicao-so-lixo"
-        },
-        {
-          "text": "Sim, o rio sempre se limpa",
-          "misconceptionCode": "rio-limpa-sozinho"
-        },
-        {
-          "text": "Não, pode ter micróbios que não se veem"
-        }
-      ],
-      "correctIndex": 3,
-      "explanation": "Micróbios são tão pequenos que a gente não enxerga. A água pode parecer limpa e mesmo assim fazer mal. Beba só água tratada ou filtrada.",
-      "audioScript": "Pergunta 1. Uma água bem transparente é sempre própria para beber? A: Sim, transparência é sinal de limpeza; B: Sim, se não tiver lixo; C: Sim, o rio sempre se limpa; D: Não, pode ter micróbios que não se veem.",
-      "role": "DEGRAU_BANK"
-    },
-    {
-      "id": "DI2-EF05GE10-02",
-      "skillCode": "EF05GE10",
-      "question": "Qual é uma das maiores causas da poluição dos rios nas cidades brasileiras?",
-      "options": [
-        {
-          "text": "O esgoto das casas sem tratamento"
-        },
-        {
-          "text": "Só as indústrias",
-          "misconceptionCode": "culpa-so-industria"
-        },
-        {
-          "text": "A água da chuva limpa",
-          "misconceptionCode": "rio-limpa-sozinho"
-        },
-        {
-          "text": "Os peixes",
-          "misconceptionCode": "poluicao-so-lixo"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Em muitas cidades, o esgoto das casas vai direto para o rio, sem limpeza. É isso que mais suja os rios.",
-      "audioScript": "Pergunta 1. Qual é uma das maiores causas da poluição dos rios nas cidades brasileiras? A: O esgoto das casas sem tratamento; B: Só as indústrias; C: A água da chuva limpa; D: Os peixes.",
-      "role": "DEGRAU_BANK"
+     "text": "Por causa da comida do campo",
+     "misconceptionCode": "campo-independente"
     }
-  ]
+   ],
+   "correctIndex": 1,
+   "explanation": "Na terra, a chuva entra no chão, como numa esponja. O asfalto não deixa a água entrar, então ela escorre e acumula nas ruas.",
+   "audioScript": "Pergunta 1. Por que as cidades com muito asfalto alagam mais com chuva forte? A: Porque chove só nas cidades; B: Porque a água não consegue entrar no solo; C: Porque a cidade não tem relação com a natureza; D: Por causa da comida do campo.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF06GE07-02",
+   "skillCode": "EF06GE07",
+   "question": "De onde vem a maior parte dos alimentos que a cidade consome?",
+   "options": [
+    {
+     "text": "Dos próprios mercados, que produzem",
+     "misconceptionCode": "campo-independente"
+    },
+    {
+     "text": "Do asfalto",
+     "misconceptionCode": "mudanca-sem-causa"
+    },
+    {
+     "text": "A cidade não consome alimentos de fora",
+     "misconceptionCode": "cidade-separada-natureza"
+    },
+    {
+     "text": "Do campo"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Arroz, feijão, frutas e leite são plantados e criados no campo. O mercado da cidade só vende o que veio de lá.",
+   "audioScript": "Pergunta 1. De onde vem a maior parte dos alimentos que a cidade consome? A: Dos próprios mercados, que produzem; B: Do asfalto; C: A cidade não consome alimentos de fora; D: Do campo.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF06GE04-01",
+   "skillCode": "EF06GE04",
+   "question": "As nuvens são formadas por:",
+   "options": [
+    {
+     "text": "Fumaça",
+     "misconceptionCode": "nuvem-fumaca"
+    },
+    {
+     "text": "Vapor que nunca vira água",
+     "misconceptionCode": "nuvem-fumaca"
+    },
+    {
+     "text": "Água que nunca evapora",
+     "misconceptionCode": "ciclo-linear"
+    },
+    {
+     "text": "Gotinhas de água"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Sabe o vapor do banho quente que vira gotinhas no espelho? No céu acontece igual: o vapor esfria e vira gotinhas de água.",
+   "audioScript": "Pergunta 1. As nuvens são formadas por: A: Fumaça; B: Vapor que nunca vira água; C: Água que nunca evapora; D: Gotinhas de água.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF06GE04-02",
+   "skillCode": "EF06GE04",
+   "question": "Uma bacia hidrográfica é:",
+   "options": [
+    {
+     "text": "O rio principal, seus afluentes e a área de terra ao redor"
+    },
+    {
+     "text": "Um único rio",
+     "misconceptionCode": "bacia-e-rio"
+    },
+    {
+     "text": "Só a nascente",
+     "misconceptionCode": "bacia-e-rio"
+    },
+    {
+     "text": "Só a chuva da cidade",
+     "misconceptionCode": "urbano-infiltra"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Pense numa árvore deitada: o rio principal é o tronco, os rios menores são os galhos, e a terra em volta, onde a chuva escorre, também faz parte.",
+   "audioScript": "Pergunta 1. Uma bacia hidrográfica é: A: O rio principal, seus afluentes e a área de terra ao redor; B: Um único rio; C: Só a nascente; D: Só a chuva da cidade.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF06GE01-01",
+   "skillCode": "EF06GE01",
+   "question": "Uma área de fazendas que hoje tem fábricas e bairros mostra que:",
+   "options": [
+    {
+     "text": "A paisagem não muda",
+     "misconceptionCode": "paisagem-nao-muda"
+    },
+    {
+     "text": "Nada aconteceu",
+     "misconceptionCode": "paisagem-nao-muda"
+    },
+    {
+     "text": "A natureza construiu as fábricas",
+     "misconceptionCode": "so-humano-muda"
+    },
+    {
+     "text": "A paisagem foi transformada com o tempo"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "As paisagens mudam.",
+   "audioScript": "Pergunta 1. Uma área de fazendas que hoje tem fábricas e bairros mostra que: A: A paisagem não muda; B: Nada aconteceu; C: A natureza construiu as fábricas; D: A paisagem foi transformada com o tempo.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF06GE01-02",
+   "skillCode": "EF06GE01",
+   "question": "As paisagens são modificadas:",
+   "options": [
+    {
+     "text": "Pela natureza e pelas pessoas"
+    },
+    {
+     "text": "Só pelas pessoas",
+     "misconceptionCode": "so-humano-muda"
+    },
+    {
+     "text": "Só pela natureza",
+     "misconceptionCode": "so-humano-muda"
+    },
+    {
+     "text": "Por ninguém",
+     "misconceptionCode": "paisagem-nao-muda"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Chuvas, rios e vulcões também transformam.",
+   "audioScript": "Pergunta 2. As paisagens são modificadas: A: Pela natureza e pelas pessoas; B: Só pelas pessoas; C: Só pela natureza; D: Por ninguém.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF06GE10-01",
+   "skillCode": "EF06GE10",
+   "question": "Fazer degraus nas encostas para plantar e diminuir a erosão é:",
+   "options": [
+    {
+     "text": "Rotação",
+     "misconceptionCode": "tecnica-trocada"
+    },
+    {
+     "text": "Terraceamento"
+    },
+    {
+     "text": "Aterro",
+     "misconceptionCode": "tecnica-trocada"
+    },
+    {
+     "text": "Irrigação",
+     "misconceptionCode": "tecnica-trocada"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "Os degraus seguram a água e a terra.",
+   "audioScript": "Pergunta 3. Fazer degraus nas encostas para plantar e diminuir a erosão é: A: Rotação; B: Terraceamento; C: Aterro; D: Irrigação.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF06GE10-02",
+   "skillCode": "EF06GE10",
+   "question": "Antes de chegar às casas, a água do rio passa:",
+   "options": [
+    {
+     "text": "Direto para a torneira",
+     "misconceptionCode": "agua-vem-pronta"
+    },
+    {
+     "text": "Pelo esgoto",
+     "misconceptionCode": "agua-vem-pronta"
+    },
+    {
+     "text": "Pela estação de tratamento"
+    },
+    {
+     "text": "Por nenhum lugar",
+     "misconceptionCode": "agua-vem-pronta"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Ela é captada, tratada e distribuída.",
+   "audioScript": "Pergunta 4. Antes de chegar às casas, a água do rio passa: A: Direto para a torneira; B: Pelo esgoto; C: Pela estação de tratamento; D: Por nenhum lugar.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF05GE03-01",
+   "skillCode": "EF05GE03",
+   "question": "Uma cidade cheia de pousadas, praias e passeios tem como função importante:",
+   "options": [
+    {
+     "text": "Indústria",
+     "misconceptionCode": "funcao-trocada"
+    },
+    {
+     "text": "Só moradia",
+     "misconceptionCode": "cidade-so-moradia"
+    },
+    {
+     "text": "Turismo"
+    },
+    {
+     "text": "Agricultura",
+     "misconceptionCode": "funcao-trocada"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Pousadas e passeios existem para receber visitantes. Cidade que vive de receber visitantes tem a função turística.",
+   "audioScript": "Pergunta 1. Uma cidade cheia de pousadas, praias e passeios tem como função importante: A: Indústria; B: Só moradia; C: Turismo; D: Agricultura.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-EF05GE03-02",
+   "skillCode": "EF05GE03",
+   "question": "O crescimento rápido de uma cidade, sem planejamento, costuma trazer:",
+   "options": [
+    {
+     "text": "Só benefícios",
+     "misconceptionCode": "crescer-so-bom"
+    },
+    {
+     "text": "Mais empregos, mas também trânsito e falta de moradia"
+    },
+    {
+     "text": "Só prejuízos",
+     "misconceptionCode": "crescer-so-ruim"
+    },
+    {
+     "text": "Nenhuma mudança",
+     "misconceptionCode": "cidade-so-moradia"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "Quando muita gente chega de uma vez, aparecem empregos, mas também trânsito e falta de casa. Crescer sem planejar traz os dois lados.",
+   "audioScript": "Pergunta 1. O crescimento rápido de uma cidade, sem planejamento, costuma trazer: A: Só benefícios; B: Mais empregos, mas também trânsito e falta de moradia; C: Só prejuízos; D: Nenhuma mudança.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-EF05GE10-01",
+   "skillCode": "EF05GE10",
+   "question": "Uma água bem transparente é sempre própria para beber?",
+   "options": [
+    {
+     "text": "Sim, transparência é sinal de limpeza",
+     "misconceptionCode": "transparente-e-limpa"
+    },
+    {
+     "text": "Sim, se não tiver lixo",
+     "misconceptionCode": "poluicao-so-lixo"
+    },
+    {
+     "text": "Sim, o rio sempre se limpa",
+     "misconceptionCode": "rio-limpa-sozinho"
+    },
+    {
+     "text": "Não, pode ter micróbios que não se veem"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Micróbios são tão pequenos que a gente não enxerga. A água pode parecer limpa e mesmo assim fazer mal. Beba só água tratada ou filtrada.",
+   "audioScript": "Pergunta 1. Uma água bem transparente é sempre própria para beber? A: Sim, transparência é sinal de limpeza; B: Sim, se não tiver lixo; C: Sim, o rio sempre se limpa; D: Não, pode ter micróbios que não se veem.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-EF05GE10-02",
+   "skillCode": "EF05GE10",
+   "question": "Qual é uma das maiores causas da poluição dos rios nas cidades brasileiras?",
+   "options": [
+    {
+     "text": "O esgoto das casas sem tratamento"
+    },
+    {
+     "text": "Só as indústrias",
+     "misconceptionCode": "culpa-so-industria"
+    },
+    {
+     "text": "A água da chuva limpa",
+     "misconceptionCode": "rio-limpa-sozinho"
+    },
+    {
+     "text": "Os peixes",
+     "misconceptionCode": "poluicao-so-lixo"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Em muitas cidades, o esgoto das casas vai direto para o rio, sem limpeza. É isso que mais suja os rios.",
+   "audioScript": "Pergunta 1. Qual é uma das maiores causas da poluição dos rios nas cidades brasileiras? A: O esgoto das casas sem tratamento; B: Só as indústrias; C: A água da chuva limpa; D: Os peixes.",
+   "role": "DEGRAU_BANK"
+  }
+ ]
 }

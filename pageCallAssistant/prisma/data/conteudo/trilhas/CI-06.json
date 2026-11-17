@@ -1,1890 +1,3772 @@
 [
-  {
-    "skillCode": "EF06CI01",
-    "subjectCode": "CI",
-    "subjectName": "Ciências",
-    "gradeYear": 6,
-    "version": 3,
-    "title": "Trilha: Misturas homogêneas e heterogêneas",
-    "tituloAluno": "Misturas: quando dá e quando não dá para ver as partes",
-    "activities": [
+ {
+  "skillCode": "EF06CI01",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 6,
+  "version": 3,
+  "title": "Trilha: Misturas homogêneas e heterogêneas",
+  "tituloAluno": "Misturas: quando dá e quando não dá para ver as partes",
+  "activities": [
+   {
+    "id": "PK2-EF06CI01-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: materiais e água",
+    "prompt": "Vamos lembrar como alguns materiais se comportam na água.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar como alguns materiais se comportam na água. Pergunta 1. O que acontece com o açúcar mexido num copo de água? A: Ele some e deixa de existir; B: Ele flutua por cima; C: Ele se dissolve e não dá mais para ver; D: Ele vira pedra no fundo. Pergunta 2. O que acontece quando se coloca óleo na água? A: O óleo se dissolve na água; B: O óleo fica por cima, separado da água; C: O óleo some; D: O óleo vai para o fundo e some. Pergunta 3. O que acontece com a areia mexida num copo de água? A: Ela se dissolve como o sal; B: Ela some; C: Ela flutua por cima como o óleo; D: Ela vai para o fundo e dá para ver.",
+    "questions": [
+     {
+      "question": "O que acontece com o açúcar mexido num copo de água?",
+      "options": [
+       {
+        "text": "Ele some e deixa de existir",
+        "misconceptionCode": "sumiu-entao-nao-existe"
+       },
+       {
+        "text": "Ele flutua por cima",
+        "misconceptionCode": "confunde-termos"
+       },
+       {
+        "text": "Ele se dissolve e não dá mais para ver"
+       },
+       {
+        "text": "Ele vira pedra no fundo",
+        "misconceptionCode": "conta-ingredientes"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O açúcar se desfaz em pedacinhos tão pequenos que somem da vista, mas ele está lá: experimente e a água está doce!",
+      "variants": [
+       {
+        "question": "Como você sabe que o sal continua na água depois de dissolvido?",
+        "options": [
+         {
+          "text": "A água fica salgada"
+         },
+         {
+          "text": "A água fica azul",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         },
+         {
+          "text": "O copo fica mais leve",
+          "misconceptionCode": "confunde-termos"
+         },
+         {
+          "text": "Não dá para saber, ele sumiu",
+          "misconceptionCode": "conta-ingredientes"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que acontece com o açúcar mexido num copo de água?",
+        "options": [
+         {
+          "text": "Ele vira pedra no fundo",
+          "misconceptionCode": "conta-ingredientes"
+         },
+         {
+          "text": "Ele flutua por cima",
+          "misconceptionCode": "confunde-termos"
+         },
+         {
+          "text": "Ele some e deixa de existir",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         },
+         {
+          "text": "Ele se dissolve e não dá mais para ver"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que acontece quando se coloca óleo na água?",
+      "options": [
+       {
+        "text": "O óleo se dissolve na água",
+        "misconceptionCode": "confunde-termos"
+       },
+       {
+        "text": "O óleo fica por cima, separado da água"
+       },
+       {
+        "text": "O óleo some",
+        "misconceptionCode": "sumiu-entao-nao-existe"
+       },
+       {
+        "text": "O óleo vai para o fundo e some",
+        "misconceptionCode": "conta-ingredientes"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Óleo e água não se misturam. O óleo fica boiando por cima, como uma camada.",
+      "variants": [
+       {
+        "question": "Ao lavar uma panela com óleo só com água, o que se vê?",
+        "options": [
+         {
+          "text": "O óleo dissolve todo",
+          "misconceptionCode": "confunde-termos"
+         },
+         {
+          "text": "A água fica doce",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         },
+         {
+          "text": "O óleo vira água",
+          "misconceptionCode": "conta-ingredientes"
+         },
+         {
+          "text": "Gotas de óleo boiando na água"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que acontece quando se coloca óleo na água?",
+        "options": [
+         {
+          "text": "O óleo vai para o fundo e some",
+          "misconceptionCode": "conta-ingredientes"
+         },
+         {
+          "text": "O óleo some",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         },
+         {
+          "text": "O óleo fica por cima, separado da água"
+         },
+         {
+          "text": "O óleo se dissolve na água",
+          "misconceptionCode": "confunde-termos"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O que acontece com a areia mexida num copo de água?",
+      "options": [
+       {
+        "text": "Ela se dissolve como o sal",
+        "misconceptionCode": "confunde-termos"
+       },
+       {
+        "text": "Ela some",
+        "misconceptionCode": "sumiu-entao-nao-existe"
+       },
+       {
+        "text": "Ela flutua por cima como o óleo",
+        "misconceptionCode": "conta-ingredientes"
+       },
+       {
+        "text": "Ela vai para o fundo e dá para ver"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A areia não se desfaz na água. Ela continua aparecendo e vai para o fundo do copo.",
+      "variants": [
+       {
+        "question": "Terra mexida na água, depois de um tempo parada, fica:",
+        "options": [
+         {
+          "text": "Dissolvida e invisível",
+          "misconceptionCode": "confunde-termos"
+         },
+         {
+          "text": "No fundo do copo"
+         },
+         {
+          "text": "Boiando por cima",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         },
+         {
+          "text": "Desaparecida",
+          "misconceptionCode": "conta-ingredientes"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que acontece com a areia mexida num copo de água?",
+        "options": [
+         {
+          "text": "Ela vai para o fundo e dá para ver"
+         },
+         {
+          "text": "Ela flutua por cima como o óleo",
+          "misconceptionCode": "conta-ingredientes"
+         },
+         {
+          "text": "Ela some",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         },
+         {
+          "text": "Ela se dissolve como o sal",
+          "misconceptionCode": "confunde-termos"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06CI01-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: contando as fases",
+    "prompt": "Uma mistura é homogênea quando tem uma só fase (parece uma coisa só). É heterogênea quando tem duas ou mais fases (dá para ver as partes). Vamos classificar juntos.",
+    "estMinutes": 4,
+    "audioScript": "Uma mistura é homogênea quando tem uma só fase (parece uma coisa só). É heterogênea quando tem duas ou mais fases (dá para ver as partes). Vamos classificar juntos. Pergunta 1. Água com sal bem dissolvido é uma mistura: A: Heterogênea, porque tem dois ingredientes; B: Homogênea, porque tem uma só fase; C: Não é mistura, porque o sal sumiu; D: Heterogênea, porque a água é transparente. Pergunta 2. Água com óleo é uma mistura: A: Homogênea, porque é líquida; B: Homogênea, porque tem só dois ingredientes; C: Não é mistura, porque não se misturam; D: Heterogênea, porque se veem duas fases. Pergunta 3. Água, sal e óleo juntos formam quantas fases? A: Duas: a água salgada e o óleo; B: Três, uma para cada ingrediente; C: Uma só; D: Nenhuma, porque o sal sumiu.",
+    "questions": [
+     {
+      "question": "Água com sal bem dissolvido é uma mistura:",
+      "options": [
+       {
+        "text": "Heterogênea, porque tem dois ingredientes",
+        "misconceptionCode": "conta-ingredientes"
+       },
+       {
+        "text": "Homogênea, porque tem uma só fase"
+       },
+       {
+        "text": "Não é mistura, porque o sal sumiu",
+        "misconceptionCode": "sumiu-entao-nao-existe"
+       },
+       {
+        "text": "Heterogênea, porque a água é transparente",
+        "misconceptionCode": "confunde-termos"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Tem água e sal, mas olhando só dá para ver uma coisa só. Quando não dá para ver as partes, a mistura é homogênea.",
+      "variants": [
+       {
+        "question": "Suco em pó bem dissolvido na água é uma mistura:",
+        "options": [
+         {
+          "text": "Heterogênea, porque tem cor",
+          "misconceptionCode": "conta-ingredientes"
+         },
+         {
+          "text": "Heterogênea, porque tem dois ingredientes",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         },
+         {
+          "text": "Não é mistura",
+          "misconceptionCode": "confunde-termos"
+         },
+         {
+          "text": "Homogênea"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Água com sal bem dissolvido é uma mistura:",
+        "options": [
+         {
+          "text": "Heterogênea, porque a água é transparente",
+          "misconceptionCode": "confunde-termos"
+         },
+         {
+          "text": "Não é mistura, porque o sal sumiu",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         },
+         {
+          "text": "Homogênea, porque tem uma só fase"
+         },
+         {
+          "text": "Heterogênea, porque tem dois ingredientes",
+          "misconceptionCode": "conta-ingredientes"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Água com óleo é uma mistura:",
+      "options": [
+       {
+        "text": "Homogênea, porque é líquida",
+        "misconceptionCode": "confunde-termos"
+       },
+       {
+        "text": "Homogênea, porque tem só dois ingredientes",
+        "misconceptionCode": "conta-ingredientes"
+       },
+       {
+        "text": "Não é mistura, porque não se misturam",
+        "misconceptionCode": "sumiu-entao-nao-existe"
+       },
+       {
+        "text": "Heterogênea, porque se veem duas fases"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Dá para ver a água embaixo e o óleo em cima: são duas partes. Isso é uma mistura heterogênea.",
+      "variants": [
+       {
+        "question": "Água com areia é uma mistura:",
+        "options": [
+         {
+          "text": "Homogênea, porque a areia afunda",
+          "misconceptionCode": "confunde-termos"
+         },
+         {
+          "text": "Heterogênea"
+         },
+         {
+          "text": "Homogênea, porque tem dois ingredientes",
+          "misconceptionCode": "conta-ingredientes"
+         },
+         {
+          "text": "Não é mistura",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Água com óleo é uma mistura:",
+        "options": [
+         {
+          "text": "Heterogênea, porque se veem duas fases"
+         },
+         {
+          "text": "Não é mistura, porque não se misturam",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         },
+         {
+          "text": "Homogênea, porque tem só dois ingredientes",
+          "misconceptionCode": "conta-ingredientes"
+         },
+         {
+          "text": "Homogênea, porque é líquida",
+          "misconceptionCode": "confunde-termos"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Água, sal e óleo juntos formam quantas fases?",
+      "options": [
+       {
+        "text": "Duas: a água salgada e o óleo"
+       },
+       {
+        "text": "Três, uma para cada ingrediente",
+        "misconceptionCode": "conta-ingredientes"
+       },
+       {
+        "text": "Uma só",
+        "misconceptionCode": "confunde-termos"
+       },
+       {
+        "text": "Nenhuma, porque o sal sumiu",
+        "misconceptionCode": "sumiu-entao-nao-existe"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O sal some na água, e os dois viram uma parte só. O óleo fica por cima. Então dá para ver duas partes.",
+      "variants": [
+       {
+        "question": "Água, açúcar e areia juntos formam quantas fases?",
+        "options": [
+         {
+          "text": "Três",
+          "misconceptionCode": "conta-ingredientes"
+         },
+         {
+          "text": "Uma",
+          "misconceptionCode": "confunde-termos"
+         },
+         {
+          "text": "Duas: a água doce e a areia"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Água, sal e óleo juntos formam quantas fases?",
+        "options": [
+         {
+          "text": "Nenhuma, porque o sal sumiu",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         },
+         {
+          "text": "Duas: a água salgada e o óleo"
+         },
+         {
+          "text": "Uma só",
+          "misconceptionCode": "confunde-termos"
+         },
+         {
+          "text": "Três, uma para cada ingrediente",
+          "misconceptionCode": "conta-ingredientes"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06CI01-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: classificando misturas",
+    "prompt": "Classifique cada mistura contando as fases.",
+    "estMinutes": 5,
+    "audioScript": "Classifique cada mistura contando as fases. Pergunta 1. O ar que respiramos (sem poeira) é uma mistura: A: Heterogênea, porque tem vários gases; B: Não é mistura; C: Heterogênea, porque é invisível; D: Homogênea. Pergunta 2. Um copo de suco de laranja com gomos é uma mistura: A: Heterogênea, porque dá para ver os gomos; B: Homogênea, porque é um suco; C: Homogênea, porque é laranja; D: Não é mistura. Pergunta 3. Água com corante azul bem misturado é uma mistura: A: Heterogênea, porque é colorida; B: Heterogênea, porque tem dois ingredientes; C: Homogênea, porque tem uma só fase; D: Não é mistura. Pergunta 4. Qual destas é uma mistura heterogênea? A: Água com açúcar dissolvido; B: Granito, a pedra em que se veem grãos de cores diferentes; C: Água pura; D: Café coado bem misturado.",
+    "questions": [
+     {
+      "question": "O ar que respiramos (sem poeira) é uma mistura:",
+      "options": [
+       {
+        "text": "Heterogênea, porque tem vários gases",
+        "misconceptionCode": "conta-ingredientes"
+       },
+       {
+        "text": "Não é mistura",
+        "misconceptionCode": "sumiu-entao-nao-existe"
+       },
+       {
+        "text": "Heterogênea, porque é invisível",
+        "misconceptionCode": "confunde-termos"
+       },
+       {
+        "text": "Homogênea"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O ar tem vários gases misturados, mas a gente não consegue ver um separado do outro. É uma mistura homogênea.",
+      "variants": [
+       {
+        "question": "O vinagre (água com ácido acético) é uma mistura:",
+        "options": [
+         {
+          "text": "Heterogênea, porque tem cheiro",
+          "misconceptionCode": "conta-ingredientes"
+         },
+         {
+          "text": "Homogênea"
+         },
+         {
+          "text": "Heterogênea, porque tem dois componentes",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         },
+         {
+          "text": "Não é mistura",
+          "misconceptionCode": "confunde-termos"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O ar que respiramos (sem poeira) é uma mistura:",
+        "options": [
+         {
+          "text": "Homogênea"
+         },
+         {
+          "text": "Heterogênea, porque é invisível",
+          "misconceptionCode": "confunde-termos"
+         },
+         {
+          "text": "Não é mistura",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         },
+         {
+          "text": "Heterogênea, porque tem vários gases",
+          "misconceptionCode": "conta-ingredientes"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Um copo de suco de laranja com gomos é uma mistura:",
+      "options": [
+       {
+        "text": "Heterogênea, porque dá para ver os gomos"
+       },
+       {
+        "text": "Homogênea, porque é um suco",
+        "misconceptionCode": "confunde-termos"
+       },
+       {
+        "text": "Homogênea, porque é laranja",
+        "misconceptionCode": "cor-define"
+       },
+       {
+        "text": "Não é mistura",
+        "misconceptionCode": "sumiu-entao-nao-existe"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Dá para ver os gomos no meio do suco. Se você enxerga partes diferentes, a mistura é heterogênea.",
+      "variants": [
+       {
+        "question": "Uma salada de frutas é uma mistura:",
+        "options": [
+         {
+          "text": "Homogênea, porque é uma comida só",
+          "misconceptionCode": "confunde-termos"
+         },
+         {
+          "text": "Homogênea, porque é colorida",
+          "misconceptionCode": "cor-define"
+         },
+         {
+          "text": "Heterogênea"
+         },
+         {
+          "text": "Não é mistura",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um copo de suco de laranja com gomos é uma mistura:",
+        "options": [
+         {
+          "text": "Não é mistura",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         },
+         {
+          "text": "Heterogênea, porque dá para ver os gomos"
+         },
+         {
+          "text": "Homogênea, porque é laranja",
+          "misconceptionCode": "cor-define"
+         },
+         {
+          "text": "Homogênea, porque é um suco",
+          "misconceptionCode": "confunde-termos"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Água com corante azul bem misturado é uma mistura:",
+      "options": [
+       {
+        "text": "Heterogênea, porque é colorida",
+        "misconceptionCode": "cor-define"
+       },
+       {
+        "text": "Heterogênea, porque tem dois ingredientes",
+        "misconceptionCode": "conta-ingredientes"
+       },
+       {
+        "text": "Homogênea, porque tem uma só fase"
+       },
+       {
+        "text": "Não é mistura",
+        "misconceptionCode": "sumiu-entao-nao-existe"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Se o azul está igualzinho no copo todo, não dá para ver partes separadas. Por isso é homogênea.",
+      "variants": [
+       {
+        "question": "Refrigerante sem gás, de cor escura, é uma mistura:",
+        "options": [
+         {
+          "text": "Homogênea"
+         },
+         {
+          "text": "Heterogênea, porque é escuro",
+          "misconceptionCode": "cor-define"
+         },
+         {
+          "text": "Heterogênea, porque tem açúcar e água",
+          "misconceptionCode": "conta-ingredientes"
+         },
+         {
+          "text": "Não é mistura",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Água com corante azul bem misturado é uma mistura:",
+        "options": [
+         {
+          "text": "Não é mistura",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         },
+         {
+          "text": "Heterogênea, porque tem dois ingredientes",
+          "misconceptionCode": "conta-ingredientes"
+         },
+         {
+          "text": "Heterogênea, porque é colorida",
+          "misconceptionCode": "cor-define"
+         },
+         {
+          "text": "Homogênea, porque tem uma só fase"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual destas é uma mistura heterogênea?",
+      "options": [
+       {
+        "text": "Água com açúcar dissolvido",
+        "misconceptionCode": "confunde-termos"
+       },
+       {
+        "text": "Granito, a pedra em que se veem grãos de cores diferentes"
+       },
+       {
+        "text": "Água pura",
+        "misconceptionCode": "sumiu-entao-nao-existe"
+       },
+       {
+        "text": "Café coado bem misturado",
+        "misconceptionCode": "cor-define"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Olhe uma pedra de granito: tem pontinhos pretos, brancos e rosados. Dá para ver partes diferentes, então é heterogênea.",
+      "variants": [
+       {
+        "question": "Qual destas é uma mistura homogênea?",
+        "options": [
+         {
+          "text": "Feijão com arroz",
+          "misconceptionCode": "confunde-termos"
+         },
+         {
+          "text": "Água com óleo",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         },
+         {
+          "text": "Areia com pedrinhas",
+          "misconceptionCode": "cor-define"
+         },
+         {
+          "text": "Água com sal dissolvido"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual destas é uma mistura heterogênea?",
+        "options": [
+         {
+          "text": "Café coado bem misturado",
+          "misconceptionCode": "cor-define"
+         },
+         {
+          "text": "Água pura",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         },
+         {
+          "text": "Granito, a pedra em que se veem grãos de cores diferentes"
+         },
+         {
+          "text": "Água com açúcar dissolvido",
+          "misconceptionCode": "confunde-termos"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06CI01-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: misturas na cozinha",
+    "prompt": "Pense nas misturas que aparecem na cozinha.",
+    "estMinutes": 4,
+    "audioScript": "Pense nas misturas que aparecem na cozinha. Pergunta 1. Ao fazer limonada e o açúcar ficar no fundo sem dissolver, a mistura fica: A: Heterogênea, porque o açúcar aparece no fundo; B: Homogênea, porque é uma bebida; C: Homogênea, porque tem só três ingredientes; D: Sem açúcar, porque ele sumiu. Pergunta 2. O tempero de salada com azeite e vinagre, depois de parado, fica: A: Uma fase só, porque são líquidos; B: Uma fase só, porque tem pouco ingrediente; C: Separado em duas camadas; D: Sem azeite, porque ele dissolveu. Pergunta 3. Por que a água do mar parece uma coisa só, mesmo tendo sal? A: Porque o mar não tem sal de verdade; B: Porque o sal está dissolvido e a mistura é homogênea; C: Porque a água do mar é azul; D: Porque o sal é heterogêneo.",
+    "questions": [
+     {
+      "question": "Ao fazer limonada e o açúcar ficar no fundo sem dissolver, a mistura fica:",
+      "options": [
+       {
+        "text": "Heterogênea, porque o açúcar aparece no fundo"
+       },
+       {
+        "text": "Homogênea, porque é uma bebida",
+        "misconceptionCode": "confunde-termos"
+       },
+       {
+        "text": "Homogênea, porque tem só três ingredientes",
+        "misconceptionCode": "conta-ingredientes"
+       },
+       {
+        "text": "Sem açúcar, porque ele sumiu",
+        "misconceptionCode": "sumiu-entao-nao-existe"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Se o açúcar aparece no fundo, dá para ver duas partes. Mexa bem até ele sumir e a limonada fica homogênea.",
+      "variants": [
+       {
+        "question": "Achocolatado mal mexido, com pó boiando no leite, é uma mistura:",
+        "options": [
+         {
+          "text": "Homogênea, porque é marrom",
+          "misconceptionCode": "confunde-termos"
+         },
+         {
+          "text": "Homogênea, porque é leite",
+          "misconceptionCode": "conta-ingredientes"
+         },
+         {
+          "text": "Heterogênea"
+         },
+         {
+          "text": "Não é mistura",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Ao fazer limonada e o açúcar ficar no fundo sem dissolver, a mistura fica:",
+        "options": [
+         {
+          "text": "Sem açúcar, porque ele sumiu",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         },
+         {
+          "text": "Heterogênea, porque o açúcar aparece no fundo"
+         },
+         {
+          "text": "Homogênea, porque tem só três ingredientes",
+          "misconceptionCode": "conta-ingredientes"
+         },
+         {
+          "text": "Homogênea, porque é uma bebida",
+          "misconceptionCode": "confunde-termos"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O tempero de salada com azeite e vinagre, depois de parado, fica:",
+      "options": [
+       {
+        "text": "Uma fase só, porque são líquidos",
+        "misconceptionCode": "confunde-termos"
+       },
+       {
+        "text": "Uma fase só, porque tem pouco ingrediente",
+        "misconceptionCode": "conta-ingredientes"
+       },
+       {
+        "text": "Separado em duas camadas"
+       },
+       {
+        "text": "Sem azeite, porque ele dissolveu",
+        "misconceptionCode": "sumiu-entao-nao-existe"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O azeite é um tipo de óleo e não se mistura com o vinagre. Parado, ele sobe e forma outra camada.",
+      "variants": [
+       {
+        "question": "Depois de um tempo parada, a sopa com gordura por cima tem:",
+        "options": [
+         {
+          "text": "Duas fases"
+         },
+         {
+          "text": "Uma fase",
+          "misconceptionCode": "confunde-termos"
+         },
+         {
+          "text": "Quatro fases, uma por ingrediente",
+          "misconceptionCode": "conta-ingredientes"
+         },
+         {
+          "text": "Nenhuma fase",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O tempero de salada com azeite e vinagre, depois de parado, fica:",
+        "options": [
+         {
+          "text": "Sem azeite, porque ele dissolveu",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         },
+         {
+          "text": "Uma fase só, porque tem pouco ingrediente",
+          "misconceptionCode": "conta-ingredientes"
+         },
+         {
+          "text": "Uma fase só, porque são líquidos",
+          "misconceptionCode": "confunde-termos"
+         },
+         {
+          "text": "Separado em duas camadas"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Por que a água do mar parece uma coisa só, mesmo tendo sal?",
+      "options": [
+       {
+        "text": "Porque o mar não tem sal de verdade",
+        "misconceptionCode": "sumiu-entao-nao-existe"
+       },
+       {
+        "text": "Porque o sal está dissolvido e a mistura é homogênea"
+       },
+       {
+        "text": "Porque a água do mar é azul",
+        "misconceptionCode": "cor-define"
+       },
+       {
+        "text": "Porque o sal é heterogêneo",
+        "misconceptionCode": "confunde-termos"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O sal está dissolvido: some da vista, mas continua lá. Por isso a água do mar parece uma coisa só e é salgada.",
+      "variants": [
+       {
+        "question": "Por que não se vê o açúcar no café adoçado?",
+        "options": [
+         {
+          "text": "Porque ele deixou de existir",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         },
+         {
+          "text": "Porque o café é escuro",
+          "misconceptionCode": "cor-define"
+         },
+         {
+          "text": "Porque o açúcar é heterogêneo",
+          "misconceptionCode": "confunde-termos"
+         },
+         {
+          "text": "Porque ele se dissolveu e forma uma fase só com o café"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Por que a água do mar parece uma coisa só, mesmo tendo sal?",
+        "options": [
+         {
+          "text": "Porque o sal é heterogêneo",
+          "misconceptionCode": "confunde-termos"
+         },
+         {
+          "text": "Porque a água do mar é azul",
+          "misconceptionCode": "cor-define"
+         },
+         {
+          "text": "Porque o sal está dissolvido e a mistura é homogênea"
+         },
+         {
+          "text": "Porque o mar não tem sal de verdade",
+          "misconceptionCode": "sumiu-entao-nao-existe"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06CI01-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: homogênea ou heterogênea",
+    "prompt": "Explique com as suas palavras a diferença entre mistura homogênea e heterogênea, com um exemplo de cada uma.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras a diferença entre mistura homogênea e heterogênea, com um exemplo de cada uma.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
       {
-        "id": "PK2-EF06CI01-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar: materiais e água",
-        "prompt": "Vamos lembrar como alguns materiais se comportam na água.",
-        "estMinutes": 4,
-        "audioScript": "Vamos lembrar como alguns materiais se comportam na água. Pergunta 1. O que acontece com o açúcar mexido num copo de água? A: Ele some e deixa de existir; B: Ele flutua por cima; C: Ele se dissolve e não dá mais para ver; D: Ele vira pedra no fundo. Pergunta 2. O que acontece quando se coloca óleo na água? A: O óleo se dissolve na água; B: O óleo fica por cima, separado da água; C: O óleo some; D: O óleo vai para o fundo e some. Pergunta 3. O que acontece com a areia mexida num copo de água? A: Ela se dissolve como o sal; B: Ela some; C: Ela flutua por cima como o óleo; D: Ela vai para o fundo e dá para ver.",
-        "questions": [
-          {
-            "question": "O que acontece com o açúcar mexido num copo de água?",
-            "options": [
-              {
-                "text": "Ele some e deixa de existir",
-                "misconceptionCode": "sumiu-entao-nao-existe"
-              },
-              {
-                "text": "Ele flutua por cima",
-                "misconceptionCode": "confunde-termos"
-              },
-              {
-                "text": "Ele se dissolve e não dá mais para ver"
-              },
-              {
-                "text": "Ele vira pedra no fundo",
-                "misconceptionCode": "conta-ingredientes"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "O açúcar se desfaz em pedacinhos tão pequenos que somem da vista, mas ele está lá: experimente e a água está doce!",
-            "variants": [
-              {
-                "question": "Como você sabe que o sal continua na água depois de dissolvido?",
-                "options": [
-                  {
-                    "text": "A água fica salgada"
-                  },
-                  {
-                    "text": "A água fica azul",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  },
-                  {
-                    "text": "O copo fica mais leve",
-                    "misconceptionCode": "confunde-termos"
-                  },
-                  {
-                    "text": "Não dá para saber, ele sumiu",
-                    "misconceptionCode": "conta-ingredientes"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que acontece com o açúcar mexido num copo de água?",
-                "options": [
-                  {
-                    "text": "Ele vira pedra no fundo",
-                    "misconceptionCode": "conta-ingredientes"
-                  },
-                  {
-                    "text": "Ele flutua por cima",
-                    "misconceptionCode": "confunde-termos"
-                  },
-                  {
-                    "text": "Ele some e deixa de existir",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  },
-                  {
-                    "text": "Ele se dissolve e não dá mais para ver"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "O que acontece quando se coloca óleo na água?",
-            "options": [
-              {
-                "text": "O óleo se dissolve na água",
-                "misconceptionCode": "confunde-termos"
-              },
-              {
-                "text": "O óleo fica por cima, separado da água"
-              },
-              {
-                "text": "O óleo some",
-                "misconceptionCode": "sumiu-entao-nao-existe"
-              },
-              {
-                "text": "O óleo vai para o fundo e some",
-                "misconceptionCode": "conta-ingredientes"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Óleo e água não se misturam. O óleo fica boiando por cima, como uma camada.",
-            "variants": [
-              {
-                "question": "Ao lavar uma panela com óleo só com água, o que se vê?",
-                "options": [
-                  {
-                    "text": "O óleo dissolve todo",
-                    "misconceptionCode": "confunde-termos"
-                  },
-                  {
-                    "text": "A água fica doce",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  },
-                  {
-                    "text": "O óleo vira água",
-                    "misconceptionCode": "conta-ingredientes"
-                  },
-                  {
-                    "text": "Gotas de óleo boiando na água"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "O que acontece quando se coloca óleo na água?",
-                "options": [
-                  {
-                    "text": "O óleo vai para o fundo e some",
-                    "misconceptionCode": "conta-ingredientes"
-                  },
-                  {
-                    "text": "O óleo some",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  },
-                  {
-                    "text": "O óleo fica por cima, separado da água"
-                  },
-                  {
-                    "text": "O óleo se dissolve na água",
-                    "misconceptionCode": "confunde-termos"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "O que acontece com a areia mexida num copo de água?",
-            "options": [
-              {
-                "text": "Ela se dissolve como o sal",
-                "misconceptionCode": "confunde-termos"
-              },
-              {
-                "text": "Ela some",
-                "misconceptionCode": "sumiu-entao-nao-existe"
-              },
-              {
-                "text": "Ela flutua por cima como o óleo",
-                "misconceptionCode": "conta-ingredientes"
-              },
-              {
-                "text": "Ela vai para o fundo e dá para ver"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "A areia não se desfaz na água. Ela continua aparecendo e vai para o fundo do copo.",
-            "variants": [
-              {
-                "question": "Terra mexida na água, depois de um tempo parada, fica:",
-                "options": [
-                  {
-                    "text": "Dissolvida e invisível",
-                    "misconceptionCode": "confunde-termos"
-                  },
-                  {
-                    "text": "No fundo do copo"
-                  },
-                  {
-                    "text": "Boiando por cima",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  },
-                  {
-                    "text": "Desaparecida",
-                    "misconceptionCode": "conta-ingredientes"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "O que acontece com a areia mexida num copo de água?",
-                "options": [
-                  {
-                    "text": "Ela vai para o fundo e dá para ver"
-                  },
-                  {
-                    "text": "Ela flutua por cima como o óleo",
-                    "misconceptionCode": "conta-ingredientes"
-                  },
-                  {
-                    "text": "Ela some",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  },
-                  {
-                    "text": "Ela se dissolve como o sal",
-                    "misconceptionCode": "confunde-termos"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          }
-        ]
+       "code": "fases",
+       "description": "Usa a ideia de fases: uma fase na homogênea, mais de uma na heterogênea"
       },
       {
-        "id": "PK2-EF06CI01-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Exemplo guiado: contando as fases",
-        "prompt": "Uma mistura é homogênea quando tem uma só fase (parece uma coisa só). É heterogênea quando tem duas ou mais fases (dá para ver as partes). Vamos classificar juntos.",
-        "estMinutes": 4,
-        "audioScript": "Uma mistura é homogênea quando tem uma só fase (parece uma coisa só). É heterogênea quando tem duas ou mais fases (dá para ver as partes). Vamos classificar juntos. Pergunta 1. Água com sal bem dissolvido é uma mistura: A: Heterogênea, porque tem dois ingredientes; B: Homogênea, porque tem uma só fase; C: Não é mistura, porque o sal sumiu; D: Heterogênea, porque a água é transparente. Pergunta 2. Água com óleo é uma mistura: A: Homogênea, porque é líquida; B: Homogênea, porque tem só dois ingredientes; C: Não é mistura, porque não se misturam; D: Heterogênea, porque se veem duas fases. Pergunta 3. Água, sal e óleo juntos formam quantas fases? A: Duas: a água salgada e o óleo; B: Três, uma para cada ingrediente; C: Uma só; D: Nenhuma, porque o sal sumiu.",
-        "questions": [
-          {
-            "question": "Água com sal bem dissolvido é uma mistura:",
-            "options": [
-              {
-                "text": "Heterogênea, porque tem dois ingredientes",
-                "misconceptionCode": "conta-ingredientes"
-              },
-              {
-                "text": "Homogênea, porque tem uma só fase"
-              },
-              {
-                "text": "Não é mistura, porque o sal sumiu",
-                "misconceptionCode": "sumiu-entao-nao-existe"
-              },
-              {
-                "text": "Heterogênea, porque a água é transparente",
-                "misconceptionCode": "confunde-termos"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Tem água e sal, mas olhando só dá para ver uma coisa só. Quando não dá para ver as partes, a mistura é homogênea.",
-            "variants": [
-              {
-                "question": "Suco em pó bem dissolvido na água é uma mistura:",
-                "options": [
-                  {
-                    "text": "Heterogênea, porque tem cor",
-                    "misconceptionCode": "conta-ingredientes"
-                  },
-                  {
-                    "text": "Heterogênea, porque tem dois ingredientes",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  },
-                  {
-                    "text": "Não é mistura",
-                    "misconceptionCode": "confunde-termos"
-                  },
-                  {
-                    "text": "Homogênea"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Água com sal bem dissolvido é uma mistura:",
-                "options": [
-                  {
-                    "text": "Heterogênea, porque a água é transparente",
-                    "misconceptionCode": "confunde-termos"
-                  },
-                  {
-                    "text": "Não é mistura, porque o sal sumiu",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  },
-                  {
-                    "text": "Homogênea, porque tem uma só fase"
-                  },
-                  {
-                    "text": "Heterogênea, porque tem dois ingredientes",
-                    "misconceptionCode": "conta-ingredientes"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Água com óleo é uma mistura:",
-            "options": [
-              {
-                "text": "Homogênea, porque é líquida",
-                "misconceptionCode": "confunde-termos"
-              },
-              {
-                "text": "Homogênea, porque tem só dois ingredientes",
-                "misconceptionCode": "conta-ingredientes"
-              },
-              {
-                "text": "Não é mistura, porque não se misturam",
-                "misconceptionCode": "sumiu-entao-nao-existe"
-              },
-              {
-                "text": "Heterogênea, porque se veem duas fases"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Dá para ver a água embaixo e o óleo em cima: são duas partes. Isso é uma mistura heterogênea.",
-            "variants": [
-              {
-                "question": "Água com areia é uma mistura:",
-                "options": [
-                  {
-                    "text": "Homogênea, porque a areia afunda",
-                    "misconceptionCode": "confunde-termos"
-                  },
-                  {
-                    "text": "Heterogênea"
-                  },
-                  {
-                    "text": "Homogênea, porque tem dois ingredientes",
-                    "misconceptionCode": "conta-ingredientes"
-                  },
-                  {
-                    "text": "Não é mistura",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Água com óleo é uma mistura:",
-                "options": [
-                  {
-                    "text": "Heterogênea, porque se veem duas fases"
-                  },
-                  {
-                    "text": "Não é mistura, porque não se misturam",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  },
-                  {
-                    "text": "Homogênea, porque tem só dois ingredientes",
-                    "misconceptionCode": "conta-ingredientes"
-                  },
-                  {
-                    "text": "Homogênea, porque é líquida",
-                    "misconceptionCode": "confunde-termos"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Água, sal e óleo juntos formam quantas fases?",
-            "options": [
-              {
-                "text": "Duas: a água salgada e o óleo"
-              },
-              {
-                "text": "Três, uma para cada ingrediente",
-                "misconceptionCode": "conta-ingredientes"
-              },
-              {
-                "text": "Uma só",
-                "misconceptionCode": "confunde-termos"
-              },
-              {
-                "text": "Nenhuma, porque o sal sumiu",
-                "misconceptionCode": "sumiu-entao-nao-existe"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "O sal some na água, e os dois viram uma parte só. O óleo fica por cima. Então dá para ver duas partes.",
-            "variants": [
-              {
-                "question": "Água, açúcar e areia juntos formam quantas fases?",
-                "options": [
-                  {
-                    "text": "Três",
-                    "misconceptionCode": "conta-ingredientes"
-                  },
-                  {
-                    "text": "Uma",
-                    "misconceptionCode": "confunde-termos"
-                  },
-                  {
-                    "text": "Duas: a água doce e a areia"
-                  },
-                  {
-                    "text": "Nenhuma",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Água, sal e óleo juntos formam quantas fases?",
-                "options": [
-                  {
-                    "text": "Nenhuma, porque o sal sumiu",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  },
-                  {
-                    "text": "Duas: a água salgada e o óleo"
-                  },
-                  {
-                    "text": "Uma só",
-                    "misconceptionCode": "confunde-termos"
-                  },
-                  {
-                    "text": "Três, uma para cada ingrediente",
-                    "misconceptionCode": "conta-ingredientes"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          }
-        ]
+       "code": "nao-e-ingrediente",
+       "description": "Mostra que o número de ingredientes não define o tipo de mistura"
       },
       {
-        "id": "PK2-EF06CI01-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar: classificando misturas",
-        "prompt": "Classifique cada mistura contando as fases.",
-        "estMinutes": 5,
-        "audioScript": "Classifique cada mistura contando as fases. Pergunta 1. O ar que respiramos (sem poeira) é uma mistura: A: Heterogênea, porque tem vários gases; B: Não é mistura; C: Heterogênea, porque é invisível; D: Homogênea. Pergunta 2. Um copo de suco de laranja com gomos é uma mistura: A: Heterogênea, porque dá para ver os gomos; B: Homogênea, porque é um suco; C: Homogênea, porque é laranja; D: Não é mistura. Pergunta 3. Água com corante azul bem misturado é uma mistura: A: Heterogênea, porque é colorida; B: Heterogênea, porque tem dois ingredientes; C: Homogênea, porque tem uma só fase; D: Não é mistura. Pergunta 4. Qual destas é uma mistura heterogênea? A: Água com açúcar dissolvido; B: Granito, a pedra em que se veem grãos de cores diferentes; C: Água pura; D: Café coado bem misturado.",
-        "questions": [
-          {
-            "question": "O ar que respiramos (sem poeira) é uma mistura:",
-            "options": [
-              {
-                "text": "Heterogênea, porque tem vários gases",
-                "misconceptionCode": "conta-ingredientes"
-              },
-              {
-                "text": "Não é mistura",
-                "misconceptionCode": "sumiu-entao-nao-existe"
-              },
-              {
-                "text": "Heterogênea, porque é invisível",
-                "misconceptionCode": "confunde-termos"
-              },
-              {
-                "text": "Homogênea"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "O ar tem vários gases misturados, mas a gente não consegue ver um separado do outro. É uma mistura homogênea.",
-            "variants": [
-              {
-                "question": "O vinagre (água com ácido acético) é uma mistura:",
-                "options": [
-                  {
-                    "text": "Heterogênea, porque tem cheiro",
-                    "misconceptionCode": "conta-ingredientes"
-                  },
-                  {
-                    "text": "Homogênea"
-                  },
-                  {
-                    "text": "Heterogênea, porque tem dois componentes",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  },
-                  {
-                    "text": "Não é mistura",
-                    "misconceptionCode": "confunde-termos"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "O ar que respiramos (sem poeira) é uma mistura:",
-                "options": [
-                  {
-                    "text": "Homogênea"
-                  },
-                  {
-                    "text": "Heterogênea, porque é invisível",
-                    "misconceptionCode": "confunde-termos"
-                  },
-                  {
-                    "text": "Não é mistura",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  },
-                  {
-                    "text": "Heterogênea, porque tem vários gases",
-                    "misconceptionCode": "conta-ingredientes"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Um copo de suco de laranja com gomos é uma mistura:",
-            "options": [
-              {
-                "text": "Heterogênea, porque dá para ver os gomos"
-              },
-              {
-                "text": "Homogênea, porque é um suco",
-                "misconceptionCode": "confunde-termos"
-              },
-              {
-                "text": "Homogênea, porque é laranja",
-                "misconceptionCode": "cor-define"
-              },
-              {
-                "text": "Não é mistura",
-                "misconceptionCode": "sumiu-entao-nao-existe"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Dá para ver os gomos no meio do suco. Se você enxerga partes diferentes, a mistura é heterogênea.",
-            "variants": [
-              {
-                "question": "Uma salada de frutas é uma mistura:",
-                "options": [
-                  {
-                    "text": "Homogênea, porque é uma comida só",
-                    "misconceptionCode": "confunde-termos"
-                  },
-                  {
-                    "text": "Homogênea, porque é colorida",
-                    "misconceptionCode": "cor-define"
-                  },
-                  {
-                    "text": "Heterogênea"
-                  },
-                  {
-                    "text": "Não é mistura",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Um copo de suco de laranja com gomos é uma mistura:",
-                "options": [
-                  {
-                    "text": "Não é mistura",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  },
-                  {
-                    "text": "Heterogênea, porque dá para ver os gomos"
-                  },
-                  {
-                    "text": "Homogênea, porque é laranja",
-                    "misconceptionCode": "cor-define"
-                  },
-                  {
-                    "text": "Homogênea, porque é um suco",
-                    "misconceptionCode": "confunde-termos"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Água com corante azul bem misturado é uma mistura:",
-            "options": [
-              {
-                "text": "Heterogênea, porque é colorida",
-                "misconceptionCode": "cor-define"
-              },
-              {
-                "text": "Heterogênea, porque tem dois ingredientes",
-                "misconceptionCode": "conta-ingredientes"
-              },
-              {
-                "text": "Homogênea, porque tem uma só fase"
-              },
-              {
-                "text": "Não é mistura",
-                "misconceptionCode": "sumiu-entao-nao-existe"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Se o azul está igualzinho no copo todo, não dá para ver partes separadas. Por isso é homogênea.",
-            "variants": [
-              {
-                "question": "Refrigerante sem gás, de cor escura, é uma mistura:",
-                "options": [
-                  {
-                    "text": "Homogênea"
-                  },
-                  {
-                    "text": "Heterogênea, porque é escuro",
-                    "misconceptionCode": "cor-define"
-                  },
-                  {
-                    "text": "Heterogênea, porque tem açúcar e água",
-                    "misconceptionCode": "conta-ingredientes"
-                  },
-                  {
-                    "text": "Não é mistura",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Água com corante azul bem misturado é uma mistura:",
-                "options": [
-                  {
-                    "text": "Não é mistura",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  },
-                  {
-                    "text": "Heterogênea, porque tem dois ingredientes",
-                    "misconceptionCode": "conta-ingredientes"
-                  },
-                  {
-                    "text": "Heterogênea, porque é colorida",
-                    "misconceptionCode": "cor-define"
-                  },
-                  {
-                    "text": "Homogênea, porque tem uma só fase"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Qual destas é uma mistura heterogênea?",
-            "options": [
-              {
-                "text": "Água com açúcar dissolvido",
-                "misconceptionCode": "confunde-termos"
-              },
-              {
-                "text": "Granito, a pedra em que se veem grãos de cores diferentes"
-              },
-              {
-                "text": "Água pura",
-                "misconceptionCode": "sumiu-entao-nao-existe"
-              },
-              {
-                "text": "Café coado bem misturado",
-                "misconceptionCode": "cor-define"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Olhe uma pedra de granito: tem pontinhos pretos, brancos e rosados. Dá para ver partes diferentes, então é heterogênea.",
-            "variants": [
-              {
-                "question": "Qual destas é uma mistura homogênea?",
-                "options": [
-                  {
-                    "text": "Feijão com arroz",
-                    "misconceptionCode": "confunde-termos"
-                  },
-                  {
-                    "text": "Água com óleo",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  },
-                  {
-                    "text": "Areia com pedrinhas",
-                    "misconceptionCode": "cor-define"
-                  },
-                  {
-                    "text": "Água com sal dissolvido"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Qual destas é uma mistura heterogênea?",
-                "options": [
-                  {
-                    "text": "Café coado bem misturado",
-                    "misconceptionCode": "cor-define"
-                  },
-                  {
-                    "text": "Água pura",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  },
-                  {
-                    "text": "Granito, a pedra em que se veem grãos de cores diferentes"
-                  },
-                  {
-                    "text": "Água com açúcar dissolvido",
-                    "misconceptionCode": "confunde-termos"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF06CI01-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar: misturas na cozinha",
-        "prompt": "Pense nas misturas que aparecem na cozinha.",
-        "estMinutes": 4,
-        "audioScript": "Pense nas misturas que aparecem na cozinha. Pergunta 1. Ao fazer limonada e o açúcar ficar no fundo sem dissolver, a mistura fica: A: Heterogênea, porque o açúcar aparece no fundo; B: Homogênea, porque é uma bebida; C: Homogênea, porque tem só três ingredientes; D: Sem açúcar, porque ele sumiu. Pergunta 2. O tempero de salada com azeite e vinagre, depois de parado, fica: A: Uma fase só, porque são líquidos; B: Uma fase só, porque tem pouco ingrediente; C: Separado em duas camadas; D: Sem azeite, porque ele dissolveu. Pergunta 3. Por que a água do mar parece uma coisa só, mesmo tendo sal? A: Porque o mar não tem sal de verdade; B: Porque o sal está dissolvido e a mistura é homogênea; C: Porque a água do mar é azul; D: Porque o sal é heterogêneo.",
-        "questions": [
-          {
-            "question": "Ao fazer limonada e o açúcar ficar no fundo sem dissolver, a mistura fica:",
-            "options": [
-              {
-                "text": "Heterogênea, porque o açúcar aparece no fundo"
-              },
-              {
-                "text": "Homogênea, porque é uma bebida",
-                "misconceptionCode": "confunde-termos"
-              },
-              {
-                "text": "Homogênea, porque tem só três ingredientes",
-                "misconceptionCode": "conta-ingredientes"
-              },
-              {
-                "text": "Sem açúcar, porque ele sumiu",
-                "misconceptionCode": "sumiu-entao-nao-existe"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Se o açúcar aparece no fundo, dá para ver duas partes. Mexa bem até ele sumir e a limonada fica homogênea.",
-            "variants": [
-              {
-                "question": "Achocolatado mal mexido, com pó boiando no leite, é uma mistura:",
-                "options": [
-                  {
-                    "text": "Homogênea, porque é marrom",
-                    "misconceptionCode": "confunde-termos"
-                  },
-                  {
-                    "text": "Homogênea, porque é leite",
-                    "misconceptionCode": "conta-ingredientes"
-                  },
-                  {
-                    "text": "Heterogênea"
-                  },
-                  {
-                    "text": "Não é mistura",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Ao fazer limonada e o açúcar ficar no fundo sem dissolver, a mistura fica:",
-                "options": [
-                  {
-                    "text": "Sem açúcar, porque ele sumiu",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  },
-                  {
-                    "text": "Heterogênea, porque o açúcar aparece no fundo"
-                  },
-                  {
-                    "text": "Homogênea, porque tem só três ingredientes",
-                    "misconceptionCode": "conta-ingredientes"
-                  },
-                  {
-                    "text": "Homogênea, porque é uma bebida",
-                    "misconceptionCode": "confunde-termos"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "O tempero de salada com azeite e vinagre, depois de parado, fica:",
-            "options": [
-              {
-                "text": "Uma fase só, porque são líquidos",
-                "misconceptionCode": "confunde-termos"
-              },
-              {
-                "text": "Uma fase só, porque tem pouco ingrediente",
-                "misconceptionCode": "conta-ingredientes"
-              },
-              {
-                "text": "Separado em duas camadas"
-              },
-              {
-                "text": "Sem azeite, porque ele dissolveu",
-                "misconceptionCode": "sumiu-entao-nao-existe"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "O azeite é um tipo de óleo e não se mistura com o vinagre. Parado, ele sobe e forma outra camada.",
-            "variants": [
-              {
-                "question": "Depois de um tempo parada, a sopa com gordura por cima tem:",
-                "options": [
-                  {
-                    "text": "Duas fases"
-                  },
-                  {
-                    "text": "Uma fase",
-                    "misconceptionCode": "confunde-termos"
-                  },
-                  {
-                    "text": "Quatro fases, uma por ingrediente",
-                    "misconceptionCode": "conta-ingredientes"
-                  },
-                  {
-                    "text": "Nenhuma fase",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O tempero de salada com azeite e vinagre, depois de parado, fica:",
-                "options": [
-                  {
-                    "text": "Sem azeite, porque ele dissolveu",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  },
-                  {
-                    "text": "Uma fase só, porque tem pouco ingrediente",
-                    "misconceptionCode": "conta-ingredientes"
-                  },
-                  {
-                    "text": "Uma fase só, porque são líquidos",
-                    "misconceptionCode": "confunde-termos"
-                  },
-                  {
-                    "text": "Separado em duas camadas"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Por que a água do mar parece uma coisa só, mesmo tendo sal?",
-            "options": [
-              {
-                "text": "Porque o mar não tem sal de verdade",
-                "misconceptionCode": "sumiu-entao-nao-existe"
-              },
-              {
-                "text": "Porque o sal está dissolvido e a mistura é homogênea"
-              },
-              {
-                "text": "Porque a água do mar é azul",
-                "misconceptionCode": "cor-define"
-              },
-              {
-                "text": "Porque o sal é heterogêneo",
-                "misconceptionCode": "confunde-termos"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "O sal está dissolvido: some da vista, mas continua lá. Por isso a água do mar parece uma coisa só e é salgada.",
-            "variants": [
-              {
-                "question": "Por que não se vê o açúcar no café adoçado?",
-                "options": [
-                  {
-                    "text": "Porque ele deixou de existir",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  },
-                  {
-                    "text": "Porque o café é escuro",
-                    "misconceptionCode": "cor-define"
-                  },
-                  {
-                    "text": "Porque o açúcar é heterogêneo",
-                    "misconceptionCode": "confunde-termos"
-                  },
-                  {
-                    "text": "Porque ele se dissolveu e forma uma fase só com o café"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Por que a água do mar parece uma coisa só, mesmo tendo sal?",
-                "options": [
-                  {
-                    "text": "Porque o sal é heterogêneo",
-                    "misconceptionCode": "confunde-termos"
-                  },
-                  {
-                    "text": "Porque a água do mar é azul",
-                    "misconceptionCode": "cor-define"
-                  },
-                  {
-                    "text": "Porque o sal está dissolvido e a mistura é homogênea"
-                  },
-                  {
-                    "text": "Porque o mar não tem sal de verdade",
-                    "misconceptionCode": "sumiu-entao-nao-existe"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF06CI01-A5",
-        "step": "explicar",
-        "type": "WRITTEN",
-        "allowSpoken": true,
-        "title": "Explicar: homogênea ou heterogênea",
-        "prompt": "Explique com as suas palavras a diferença entre mistura homogênea e heterogênea, com um exemplo de cada uma.",
-        "estMinutes": 6,
-        "audioScript": "Explique com as suas palavras a diferença entre mistura homogênea e heterogênea, com um exemplo de cada uma.",
-        "rubric": {
-          "type": "WRITTEN",
-          "criteria": [
-            {
-              "code": "fases",
-              "description": "Usa a ideia de fases: uma fase na homogênea, mais de uma na heterogênea"
-            },
-            {
-              "code": "nao-e-ingrediente",
-              "description": "Mostra que o número de ingredientes não define o tipo de mistura"
-            },
-            {
-              "code": "exemplos",
-              "description": "Dá um exemplo correto de cada tipo"
-            }
-          ],
-          "exemploBoaResposta": "Na mistura homogênea, a gente vê uma coisa só, uma fase, como água com sal dissolvido. Na heterogênea, dá para ver as partes, como água com óleo, que fica em duas camadas. Não importa quantos ingredientes tem, e sim quantas fases a gente vê."
-        }
+       "code": "exemplos",
+       "description": "Dá um exemplo correto de cada tipo"
       }
-    ],
-    "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED"
-  },
-  {
-    "skillCode": "EF06CI14",
-    "subjectCode": "CI",
-    "subjectName": "Ciências",
-    "gradeYear": 6,
-    "version": 3,
-    "title": "Trilha: A sombra e os movimentos da Terra",
-    "tituloAluno": "O que a sombra conta sobre a Terra e o Sol",
-    "activities": [
+     ],
+     "exemploBoaResposta": "Na mistura homogênea, a gente vê uma coisa só, uma fase, como água com sal dissolvido. Na heterogênea, dá para ver as partes, como água com óleo, que fica em duas camadas. Não importa quantos ingredientes tem, e sim quantas fases a gente vê."
+    }
+   }
+  ],
+  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+  "source": "SPEAKFLOW",
+  "status": "APPROVED"
+ },
+ {
+  "skillCode": "EF06CI14",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 6,
+  "version": 3,
+  "title": "Trilha: A sombra e os movimentos da Terra",
+  "tituloAluno": "O que a sombra conta sobre a Terra e o Sol",
+  "activities": [
+   {
+    "id": "PK2-EF06CI14-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: rotação e translação",
+    "prompt": "Vamos lembrar os dois movimentos da Terra.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar os dois movimentos da Terra. Pergunta 1. Qual movimento da Terra dura cerca de 24 horas? A: Translação; B: Nenhum, a Terra fica parada; C: Rotação; D: O movimento do Sol em volta da Terra. Pergunta 2. Qual movimento da Terra dura cerca de um ano? A: Rotação; B: Translação, a volta em torno do Sol; C: O giro do Sol; D: A mudança de distância da Lua. Pergunta 3. O eixo da Terra, a linha imaginária em torno da qual ela gira, é: A: Perfeitamente reto em relação ao Sol; B: Inexistente; C: Virado sempre para a Lua; D: Inclinado.",
+    "questions": [
+     {
+      "question": "Qual movimento da Terra dura cerca de 24 horas?",
+      "options": [
+       {
+        "text": "Translação",
+        "misconceptionCode": "confunde-movimentos"
+       },
+       {
+        "text": "Nenhum, a Terra fica parada",
+        "misconceptionCode": "sombra-fixa"
+       },
+       {
+        "text": "Rotação"
+       },
+       {
+        "text": "O movimento do Sol em volta da Terra",
+        "misconceptionCode": "sombra-mesmo-lado-sol"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Girar em volta de si mesma, a rotação, leva um dia: cerca de 24 horas.",
+      "variants": [
+       {
+        "question": "O movimento da Terra em torno de si mesma se chama:",
+        "options": [
+         {
+          "text": "Rotação"
+         },
+         {
+          "text": "Translação",
+          "misconceptionCode": "confunde-movimentos"
+         },
+         {
+          "text": "Inclinação",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "Eclipse",
+          "misconceptionCode": "sombra-mesmo-lado-sol"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual movimento da Terra dura cerca de 24 horas?",
+        "options": [
+         {
+          "text": "O movimento do Sol em volta da Terra",
+          "misconceptionCode": "sombra-mesmo-lado-sol"
+         },
+         {
+          "text": "Nenhum, a Terra fica parada",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "Translação",
+          "misconceptionCode": "confunde-movimentos"
+         },
+         {
+          "text": "Rotação"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual movimento da Terra dura cerca de um ano?",
+      "options": [
+       {
+        "text": "Rotação",
+        "misconceptionCode": "confunde-movimentos"
+       },
+       {
+        "text": "Translação, a volta em torno do Sol"
+       },
+       {
+        "text": "O giro do Sol",
+        "misconceptionCode": "sombra-mesmo-lado-sol"
+       },
+       {
+        "text": "A mudança de distância da Lua",
+        "misconceptionCode": "distancia-causa-estacao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Dar a volta inteira no Sol, a translação, leva cerca de 365 dias: um ano.",
+      "variants": [
+       {
+        "question": "Uma volta completa da Terra em torno do Sol dura:",
+        "options": [
+         {
+          "text": "Cerca de um dia",
+          "misconceptionCode": "confunde-movimentos"
+         },
+         {
+          "text": "Cerca de um mês",
+          "misconceptionCode": "sombra-mesmo-lado-sol"
+         },
+         {
+          "text": "Cerca de uma hora",
+          "misconceptionCode": "distancia-causa-estacao"
+         },
+         {
+          "text": "Cerca de um ano"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual movimento da Terra dura cerca de um ano?",
+        "options": [
+         {
+          "text": "A mudança de distância da Lua",
+          "misconceptionCode": "distancia-causa-estacao"
+         },
+         {
+          "text": "O giro do Sol",
+          "misconceptionCode": "sombra-mesmo-lado-sol"
+         },
+         {
+          "text": "Translação, a volta em torno do Sol"
+         },
+         {
+          "text": "Rotação",
+          "misconceptionCode": "confunde-movimentos"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O eixo da Terra, a linha imaginária em torno da qual ela gira, é:",
+      "options": [
+       {
+        "text": "Perfeitamente reto em relação ao Sol",
+        "misconceptionCode": "distancia-causa-estacao"
+       },
+       {
+        "text": "Inexistente",
+        "misconceptionCode": "sombra-fixa"
+       },
+       {
+        "text": "Virado sempre para a Lua",
+        "misconceptionCode": "confunde-movimentos"
+       },
+       {
+        "text": "Inclinado"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A Terra não gira \"em pé\", ela gira meio tortinha. Esse eixo inclinado ajuda a explicar as estações do ano.",
+      "variants": [
+       {
+        "question": "Por que o globo terrestre da escola costuma ficar torto no suporte?",
+        "options": [
+         {
+          "text": "Porque o suporte está quebrado",
+          "misconceptionCode": "distancia-causa-estacao"
+         },
+         {
+          "text": "Porque representa a inclinação do eixo da Terra"
+         },
+         {
+          "text": "Porque a Terra é mais pesada embaixo",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "Para mostrar a Lua",
+          "misconceptionCode": "confunde-movimentos"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O eixo da Terra, a linha imaginária em torno da qual ela gira, é:",
+        "options": [
+         {
+          "text": "Inclinado"
+         },
+         {
+          "text": "Virado sempre para a Lua",
+          "misconceptionCode": "confunde-movimentos"
+         },
+         {
+          "text": "Inexistente",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "Perfeitamente reto em relação ao Sol",
+          "misconceptionCode": "distancia-causa-estacao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06CI14-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: a vara ao sol",
+    "prompt": "Imagine uma vara fincada no pátio, num dia de sol. Vamos observar a sombra dela juntos ao longo do dia.",
+    "estMinutes": 4,
+    "audioScript": "Imagine uma vara fincada no pátio, num dia de sol. Vamos observar a sombra dela juntos ao longo do dia. Pergunta 1. De manhã cedo, com o Sol no leste, para onde aponta a sombra da vara? A: Para o leste, o lado do Sol; B: Para o oeste, o lado oposto ao Sol; C: Para cima; D: Ela não aparece de manhã. Pergunta 2. Perto do meio-dia, como fica a sombra? A: Bem comprida; B: Do mesmo tamanho da manhã; C: Do mesmo lado do Sol; D: Bem curta. Pergunta 3. O que essas mudanças da sombra ao longo do dia mostram? A: A rotação da Terra; B: A translação da Terra; C: Que o Sol gira em volta da vara; D: Que a sombra não muda.",
+    "questions": [
+     {
+      "question": "De manhã cedo, com o Sol no leste, para onde aponta a sombra da vara?",
+      "options": [
+       {
+        "text": "Para o leste, o lado do Sol",
+        "misconceptionCode": "sombra-mesmo-lado-sol"
+       },
+       {
+        "text": "Para o oeste, o lado oposto ao Sol"
+       },
+       {
+        "text": "Para cima",
+        "misconceptionCode": "sombra-fixa"
+       },
+       {
+        "text": "Ela não aparece de manhã",
+        "misconceptionCode": "confunde-movimentos"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A sombra sempre fica do lado contrário da luz. Sol no leste, sombra para o oeste.",
+      "variants": [
+       {
+        "question": "No fim da tarde, com o Sol no oeste, a sombra aponta para:",
+        "options": [
+         {
+          "text": "O oeste",
+          "misconceptionCode": "sombra-mesmo-lado-sol"
+         },
+         {
+          "text": "O Sol",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "Lugar nenhum",
+          "misconceptionCode": "confunde-movimentos"
+         },
+         {
+          "text": "O leste"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "De manhã cedo, com o Sol no leste, para onde aponta a sombra da vara?",
+        "options": [
+         {
+          "text": "Ela não aparece de manhã",
+          "misconceptionCode": "confunde-movimentos"
+         },
+         {
+          "text": "Para cima",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "Para o oeste, o lado oposto ao Sol"
+         },
+         {
+          "text": "Para o leste, o lado do Sol",
+          "misconceptionCode": "sombra-mesmo-lado-sol"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Perto do meio-dia, como fica a sombra?",
+      "options": [
+       {
+        "text": "Bem comprida",
+        "misconceptionCode": "sombra-fixa"
+       },
+       {
+        "text": "Do mesmo tamanho da manhã",
+        "misconceptionCode": "sombra-fixa"
+       },
+       {
+        "text": "Do mesmo lado do Sol",
+        "misconceptionCode": "sombra-mesmo-lado-sol"
+       },
+       {
+        "text": "Bem curta"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Com o Sol lá no alto, a luz cai de cima, e a sombra fica pequenininha, quase embaixo da vara.",
+      "variants": [
+       {
+        "question": "Quando a sombra está mais comprida no dia?",
+        "options": [
+         {
+          "text": "Ao meio-dia",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "De manhã cedo e no fim da tarde"
+         },
+         {
+          "text": "Sempre igual",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "Só no inverno",
+          "misconceptionCode": "sombra-mesmo-lado-sol"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Perto do meio-dia, como fica a sombra?",
+        "options": [
+         {
+          "text": "Bem curta"
+         },
+         {
+          "text": "Do mesmo lado do Sol",
+          "misconceptionCode": "sombra-mesmo-lado-sol"
+         },
+         {
+          "text": "Do mesmo tamanho da manhã",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "Bem comprida",
+          "misconceptionCode": "sombra-fixa"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O que essas mudanças da sombra ao longo do dia mostram?",
+      "options": [
+       {
+        "text": "A rotação da Terra"
+       },
+       {
+        "text": "A translação da Terra",
+        "misconceptionCode": "confunde-movimentos"
+       },
+       {
+        "text": "Que o Sol gira em volta da vara",
+        "misconceptionCode": "sombra-mesmo-lado-sol"
+       },
+       {
+        "text": "Que a sombra não muda",
+        "misconceptionCode": "sombra-fixa"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A sombra muda porque a Terra está girando e o Sol parece mudar de lugar no céu. É a rotação da Terra.",
+      "variants": [
+       {
+        "question": "A sombra da vara girar em volta dela durante o dia é uma evidência de:",
+        "options": [
+         {
+          "text": "Translação",
+          "misconceptionCode": "confunde-movimentos"
+         },
+         {
+          "text": "Eclipse",
+          "misconceptionCode": "sombra-mesmo-lado-sol"
+         },
+         {
+          "text": "Rotação da Terra"
+         },
+         {
+          "text": "Fase da Lua",
+          "misconceptionCode": "sombra-fixa"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que essas mudanças da sombra ao longo do dia mostram?",
+        "options": [
+         {
+          "text": "Que a sombra não muda",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "A rotação da Terra"
+         },
+         {
+          "text": "Que o Sol gira em volta da vara",
+          "misconceptionCode": "sombra-mesmo-lado-sol"
+         },
+         {
+          "text": "A translação da Terra",
+          "misconceptionCode": "confunde-movimentos"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06CI14-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: sombras ao longo do ano",
+    "prompt": "Agora imagine que alguém marcou a sombra da vara sempre ao meio-dia, durante o ano inteiro.",
+    "estMinutes": 5,
+    "audioScript": "Agora imagine que alguém marcou a sombra da vara sempre ao meio-dia, durante o ano inteiro. Pergunta 1. A sombra do meio-dia muda de tamanho ao longo do ano. O que isso mostra? A: Que a sombra é sempre igual; B: Que a Terra para de girar em algumas épocas; C: Que a Terra fica mais perto do Sol em julho; D: Que a altura do Sol no céu muda ao longo do ano. Pergunta 2. Qual é a principal causa das estações do ano? A: A inclinação do eixo da Terra durante a translação; B: A Terra ficar mais perto ou mais longe do Sol; C: A rotação da Terra; D: O Sol mudar de tamanho. Pergunta 3. Em um mesmo horário, a sombra de uma árvore e a de um poste ao lado apontam: A: Para lados opostos; B: Para o Sol; C: Para o mesmo lado; D: Cada uma para um lado qualquer. Pergunta 4. Por que os relógios de sol funcionam? A: Porque a sombra fica sempre parada; B: Porque a sombra muda de direção ao longo do dia por causa da rotação; C: Porque o Sol gira em volta do relógio; D: Porque a translação muda a sombra a cada hora.",
+    "questions": [
+     {
+      "question": "A sombra do meio-dia muda de tamanho ao longo do ano. O que isso mostra?",
+      "options": [
+       {
+        "text": "Que a sombra é sempre igual",
+        "misconceptionCode": "sombra-fixa"
+       },
+       {
+        "text": "Que a Terra para de girar em algumas épocas",
+        "misconceptionCode": "confunde-movimentos"
+       },
+       {
+        "text": "Que a Terra fica mais perto do Sol em julho",
+        "misconceptionCode": "distancia-causa-estacao"
+       },
+       {
+        "text": "Que a altura do Sol no céu muda ao longo do ano"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Em cada época do ano, o Sol do meio-dia fica mais alto ou mais baixo no céu. Por isso a sombra muda de tamanho.",
+      "variants": [
+       {
+        "question": "Se a sombra do meio-dia é mais longa em junho que em dezembro num lugar do Sul do Brasil, isso indica que:",
+        "options": [
+         {
+          "text": "O Sol está mais longe em junho",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "O Sol do meio-dia está mais baixo em junho"
+         },
+         {
+          "text": "A Terra parou de girar",
+          "misconceptionCode": "confunde-movimentos"
+         },
+         {
+          "text": "A sombra não depende do Sol",
+          "misconceptionCode": "distancia-causa-estacao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A sombra do meio-dia muda de tamanho ao longo do ano. O que isso mostra?",
+        "options": [
+         {
+          "text": "Que a altura do Sol no céu muda ao longo do ano"
+         },
+         {
+          "text": "Que a Terra fica mais perto do Sol em julho",
+          "misconceptionCode": "distancia-causa-estacao"
+         },
+         {
+          "text": "Que a Terra para de girar em algumas épocas",
+          "misconceptionCode": "confunde-movimentos"
+         },
+         {
+          "text": "Que a sombra é sempre igual",
+          "misconceptionCode": "sombra-fixa"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Qual é a principal causa das estações do ano?",
+      "options": [
+       {
+        "text": "A inclinação do eixo da Terra durante a translação"
+       },
+       {
+        "text": "A Terra ficar mais perto ou mais longe do Sol",
+        "misconceptionCode": "distancia-causa-estacao"
+       },
+       {
+        "text": "A rotação da Terra",
+        "misconceptionCode": "confunde-movimentos"
+       },
+       {
+        "text": "O Sol mudar de tamanho",
+        "misconceptionCode": "sombra-fixa"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Não é a distância do Sol! A Terra é inclinada, então durante o ano cada parte recebe mais ou menos luz.",
+      "variants": [
+       {
+        "question": "Quando é verão no Brasil, é inverno na Europa. Isso mostra que a estação depende:",
+        "options": [
+         {
+          "text": "Da distância da Terra ao Sol",
+          "misconceptionCode": "distancia-causa-estacao"
+         },
+         {
+          "text": "Da rotação",
+          "misconceptionCode": "confunde-movimentos"
+         },
+         {
+          "text": "Da inclinação e da posição de cada hemisfério"
+         },
+         {
+          "text": "Do tamanho do Sol",
+          "misconceptionCode": "sombra-fixa"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual é a principal causa das estações do ano?",
+        "options": [
+         {
+          "text": "O Sol mudar de tamanho",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "A inclinação do eixo da Terra durante a translação"
+         },
+         {
+          "text": "A rotação da Terra",
+          "misconceptionCode": "confunde-movimentos"
+         },
+         {
+          "text": "A Terra ficar mais perto ou mais longe do Sol",
+          "misconceptionCode": "distancia-causa-estacao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Em um mesmo horário, a sombra de uma árvore e a de um poste ao lado apontam:",
+      "options": [
+       {
+        "text": "Para lados opostos",
+        "misconceptionCode": "sombra-mesmo-lado-sol"
+       },
+       {
+        "text": "Para o Sol",
+        "misconceptionCode": "sombra-mesmo-lado-sol"
+       },
+       {
+        "text": "Para o mesmo lado"
+       },
+       {
+        "text": "Cada uma para um lado qualquer",
+        "misconceptionCode": "sombra-fixa"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Todas as sombras fogem do Sol para o mesmo lado. Então, na mesma hora, árvore e poste fazem sombra para o mesmo lado.",
+      "variants": [
+       {
+        "question": "No pátio, às 9h, a sombra das crianças aponta para o oeste. A sombra da cesta de basquete aponta para:",
+        "options": [
+         {
+          "text": "O oeste também"
+         },
+         {
+          "text": "O leste",
+          "misconceptionCode": "sombra-mesmo-lado-sol"
+         },
+         {
+          "text": "O norte",
+          "misconceptionCode": "sombra-mesmo-lado-sol"
+         },
+         {
+          "text": "Para o Sol",
+          "misconceptionCode": "sombra-fixa"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Em um mesmo horário, a sombra de uma árvore e a de um poste ao lado apontam:",
+        "options": [
+         {
+          "text": "Cada uma para um lado qualquer",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "Para o Sol",
+          "misconceptionCode": "sombra-mesmo-lado-sol"
+         },
+         {
+          "text": "Para lados opostos",
+          "misconceptionCode": "sombra-mesmo-lado-sol"
+         },
+         {
+          "text": "Para o mesmo lado"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Por que os relógios de sol funcionam?",
+      "options": [
+       {
+        "text": "Porque a sombra fica sempre parada",
+        "misconceptionCode": "sombra-fixa"
+       },
+       {
+        "text": "Porque a sombra muda de direção ao longo do dia por causa da rotação"
+       },
+       {
+        "text": "Porque o Sol gira em volta do relógio",
+        "misconceptionCode": "sombra-mesmo-lado-sol"
+       },
+       {
+        "text": "Porque a translação muda a sombra a cada hora",
+        "misconceptionCode": "confunde-movimentos"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Com a Terra girando, a sombra vai mudando de lugar, hora a hora. Marcando onde ela está, dá para saber as horas.",
+      "variants": [
+       {
+        "question": "O relógio de sol marca as horas usando:",
+        "options": [
+         {
+          "text": "O tamanho do Sol",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "A distância até o Sol",
+          "misconceptionCode": "sombra-mesmo-lado-sol"
+         },
+         {
+          "text": "A translação de cada hora",
+          "misconceptionCode": "confunde-movimentos"
+         },
+         {
+          "text": "A posição da sombra, que muda com a rotação da Terra"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Por que os relógios de sol funcionam?",
+        "options": [
+         {
+          "text": "Porque a translação muda a sombra a cada hora",
+          "misconceptionCode": "confunde-movimentos"
+         },
+         {
+          "text": "Porque o Sol gira em volta do relógio",
+          "misconceptionCode": "sombra-mesmo-lado-sol"
+         },
+         {
+          "text": "Porque a sombra muda de direção ao longo do dia por causa da rotação"
+         },
+         {
+          "text": "Porque a sombra fica sempre parada",
+          "misconceptionCode": "sombra-fixa"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06CI14-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: sombras no dia a dia",
+    "prompt": "Use o que aprendeu em situações reais.",
+    "estMinutes": 4,
+    "audioScript": "Use o que aprendeu em situações reais. Pergunta 1. Você quer estacionar a bicicleta na sombra de um muro às 16h. O muro fica entre o pátio e o oeste. De que lado do muro fica a sombra? A: Do lado leste do muro; B: Do lado oeste, onde está o Sol; C: Não há sombra à tarde; D: Dos dois lados igualmente. Pergunta 2. Um colega diz que no verão a Terra está mais perto do Sol, por isso faz calor. O que você responde? A: Ele está certo; B: O calor vem da rotação; C: A principal causa é a inclinação do eixo, não a distância; D: O verão acontece porque a sombra fica curta. Pergunta 3. Um fotógrafo quer sombras bem longas numa foto. Quando ele deve fotografar? A: Ao meio-dia; B: No começo da manhã ou no fim da tarde; C: Tanto faz o horário; D: Só no verão, ao meio-dia.",
+    "questions": [
+     {
+      "question": "Você quer estacionar a bicicleta na sombra de um muro às 16h. O muro fica entre o pátio e o oeste. De que lado do muro fica a sombra?",
+      "options": [
+       {
+        "text": "Do lado leste do muro"
+       },
+       {
+        "text": "Do lado oeste, onde está o Sol",
+        "misconceptionCode": "sombra-mesmo-lado-sol"
+       },
+       {
+        "text": "Não há sombra à tarde",
+        "misconceptionCode": "sombra-fixa"
+       },
+       {
+        "text": "Dos dois lados igualmente",
+        "misconceptionCode": "sombra-fixa"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "À tarde o Sol está no oeste. A sombra fica do lado contrário: o lado leste do muro.",
+      "variants": [
+       {
+        "question": "Às 8h, para ficar na sombra de uma árvore, você deve sentar no lado:",
+        "options": [
+         {
+          "text": "Leste da árvore",
+          "misconceptionCode": "sombra-mesmo-lado-sol"
+         },
+         {
+          "text": "Qualquer lado",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "Oeste da árvore"
+         },
+         {
+          "text": "Embaixo do Sol",
+          "misconceptionCode": "sombra-fixa"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Você quer estacionar a bicicleta na sombra de um muro às 16h. O muro fica entre o pátio e o oeste. De que lado do muro fica a sombra?",
+        "options": [
+         {
+          "text": "Dos dois lados igualmente",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "Do lado leste do muro"
+         },
+         {
+          "text": "Não há sombra à tarde",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "Do lado oeste, onde está o Sol",
+          "misconceptionCode": "sombra-mesmo-lado-sol"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um colega diz que no verão a Terra está mais perto do Sol, por isso faz calor. O que você responde?",
+      "options": [
+       {
+        "text": "Ele está certo",
+        "misconceptionCode": "distancia-causa-estacao"
+       },
+       {
+        "text": "O calor vem da rotação",
+        "misconceptionCode": "confunde-movimentos"
+       },
+       {
+        "text": "A principal causa é a inclinação do eixo, não a distância"
+       },
+       {
+        "text": "O verão acontece porque a sombra fica curta",
+        "misconceptionCode": "sombra-fixa"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Se fosse a distância, o mundo todo teria verão junto. Mas quando é verão aqui, é inverno lá em cima. A causa é a inclinação da Terra.",
+      "variants": [
+       {
+        "question": "Por que o Natal no Brasil é no verão e na Europa é no inverno?",
+        "options": [
+         {
+          "text": "Por causa da inclinação do eixo da Terra"
+         },
+         {
+          "text": "Porque o Brasil está mais perto do Sol",
+          "misconceptionCode": "distancia-causa-estacao"
+         },
+         {
+          "text": "Por causa da rotação",
+          "misconceptionCode": "confunde-movimentos"
+         },
+         {
+          "text": "Porque o Sol é maior no Brasil",
+          "misconceptionCode": "sombra-fixa"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um colega diz que no verão a Terra está mais perto do Sol, por isso faz calor. O que você responde?",
+        "options": [
+         {
+          "text": "O verão acontece porque a sombra fica curta",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "O calor vem da rotação",
+          "misconceptionCode": "confunde-movimentos"
+         },
+         {
+          "text": "Ele está certo",
+          "misconceptionCode": "distancia-causa-estacao"
+         },
+         {
+          "text": "A principal causa é a inclinação do eixo, não a distância"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Um fotógrafo quer sombras bem longas numa foto. Quando ele deve fotografar?",
+      "options": [
+       {
+        "text": "Ao meio-dia",
+        "misconceptionCode": "sombra-fixa"
+       },
+       {
+        "text": "No começo da manhã ou no fim da tarde"
+       },
+       {
+        "text": "Tanto faz o horário",
+        "misconceptionCode": "sombra-fixa"
+       },
+       {
+        "text": "Só no verão, ao meio-dia",
+        "misconceptionCode": "distancia-causa-estacao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Quando o Sol está baixinho, no começo da manhã ou no fim da tarde, as sombras ficam compridas.",
+      "variants": [
+       {
+        "question": "Para uma foto quase sem sombra, o melhor horário é:",
+        "options": [
+         {
+          "text": "Às 6h",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "Às 17h30",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "Qualquer hora",
+          "misconceptionCode": "distancia-causa-estacao"
+         },
+         {
+          "text": "Perto do meio-dia"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um fotógrafo quer sombras bem longas numa foto. Quando ele deve fotografar?",
+        "options": [
+         {
+          "text": "Só no verão, ao meio-dia",
+          "misconceptionCode": "distancia-causa-estacao"
+         },
+         {
+          "text": "Tanto faz o horário",
+          "misconceptionCode": "sombra-fixa"
+         },
+         {
+          "text": "No começo da manhã ou no fim da tarde"
+         },
+         {
+          "text": "Ao meio-dia",
+          "misconceptionCode": "sombra-fixa"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06CI14-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: o que a sombra mostra",
+    "prompt": "Explique com as suas palavras o que acontece com a sombra de uma vara ao longo de um dia e o que isso mostra sobre a Terra.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras o que acontece com a sombra de uma vara ao longo de um dia e o que isso mostra sobre a Terra.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
       {
-        "id": "PK2-EF06CI14-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar: rotação e translação",
-        "prompt": "Vamos lembrar os dois movimentos da Terra.",
-        "estMinutes": 4,
-        "audioScript": "Vamos lembrar os dois movimentos da Terra. Pergunta 1. Qual movimento da Terra dura cerca de 24 horas? A: Translação; B: Nenhum, a Terra fica parada; C: Rotação; D: O movimento do Sol em volta da Terra. Pergunta 2. Qual movimento da Terra dura cerca de um ano? A: Rotação; B: Translação, a volta em torno do Sol; C: O giro do Sol; D: A mudança de distância da Lua. Pergunta 3. O eixo da Terra, a linha imaginária em torno da qual ela gira, é: A: Perfeitamente reto em relação ao Sol; B: Inexistente; C: Virado sempre para a Lua; D: Inclinado.",
-        "questions": [
-          {
-            "question": "Qual movimento da Terra dura cerca de 24 horas?",
-            "options": [
-              {
-                "text": "Translação",
-                "misconceptionCode": "confunde-movimentos"
-              },
-              {
-                "text": "Nenhum, a Terra fica parada",
-                "misconceptionCode": "sombra-fixa"
-              },
-              {
-                "text": "Rotação"
-              },
-              {
-                "text": "O movimento do Sol em volta da Terra",
-                "misconceptionCode": "sombra-mesmo-lado-sol"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Girar em volta de si mesma, a rotação, leva um dia: cerca de 24 horas.",
-            "variants": [
-              {
-                "question": "O movimento da Terra em torno de si mesma se chama:",
-                "options": [
-                  {
-                    "text": "Rotação"
-                  },
-                  {
-                    "text": "Translação",
-                    "misconceptionCode": "confunde-movimentos"
-                  },
-                  {
-                    "text": "Inclinação",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "Eclipse",
-                    "misconceptionCode": "sombra-mesmo-lado-sol"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Qual movimento da Terra dura cerca de 24 horas?",
-                "options": [
-                  {
-                    "text": "O movimento do Sol em volta da Terra",
-                    "misconceptionCode": "sombra-mesmo-lado-sol"
-                  },
-                  {
-                    "text": "Nenhum, a Terra fica parada",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "Translação",
-                    "misconceptionCode": "confunde-movimentos"
-                  },
-                  {
-                    "text": "Rotação"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Qual movimento da Terra dura cerca de um ano?",
-            "options": [
-              {
-                "text": "Rotação",
-                "misconceptionCode": "confunde-movimentos"
-              },
-              {
-                "text": "Translação, a volta em torno do Sol"
-              },
-              {
-                "text": "O giro do Sol",
-                "misconceptionCode": "sombra-mesmo-lado-sol"
-              },
-              {
-                "text": "A mudança de distância da Lua",
-                "misconceptionCode": "distancia-causa-estacao"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Dar a volta inteira no Sol, a translação, leva cerca de 365 dias: um ano.",
-            "variants": [
-              {
-                "question": "Uma volta completa da Terra em torno do Sol dura:",
-                "options": [
-                  {
-                    "text": "Cerca de um dia",
-                    "misconceptionCode": "confunde-movimentos"
-                  },
-                  {
-                    "text": "Cerca de um mês",
-                    "misconceptionCode": "sombra-mesmo-lado-sol"
-                  },
-                  {
-                    "text": "Cerca de uma hora",
-                    "misconceptionCode": "distancia-causa-estacao"
-                  },
-                  {
-                    "text": "Cerca de um ano"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Qual movimento da Terra dura cerca de um ano?",
-                "options": [
-                  {
-                    "text": "A mudança de distância da Lua",
-                    "misconceptionCode": "distancia-causa-estacao"
-                  },
-                  {
-                    "text": "O giro do Sol",
-                    "misconceptionCode": "sombra-mesmo-lado-sol"
-                  },
-                  {
-                    "text": "Translação, a volta em torno do Sol"
-                  },
-                  {
-                    "text": "Rotação",
-                    "misconceptionCode": "confunde-movimentos"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "O eixo da Terra, a linha imaginária em torno da qual ela gira, é:",
-            "options": [
-              {
-                "text": "Perfeitamente reto em relação ao Sol",
-                "misconceptionCode": "distancia-causa-estacao"
-              },
-              {
-                "text": "Inexistente",
-                "misconceptionCode": "sombra-fixa"
-              },
-              {
-                "text": "Virado sempre para a Lua",
-                "misconceptionCode": "confunde-movimentos"
-              },
-              {
-                "text": "Inclinado"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "A Terra não gira \"em pé\", ela gira meio tortinha. Esse eixo inclinado ajuda a explicar as estações do ano.",
-            "variants": [
-              {
-                "question": "Por que o globo terrestre da escola costuma ficar torto no suporte?",
-                "options": [
-                  {
-                    "text": "Porque o suporte está quebrado",
-                    "misconceptionCode": "distancia-causa-estacao"
-                  },
-                  {
-                    "text": "Porque representa a inclinação do eixo da Terra"
-                  },
-                  {
-                    "text": "Porque a Terra é mais pesada embaixo",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "Para mostrar a Lua",
-                    "misconceptionCode": "confunde-movimentos"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "O eixo da Terra, a linha imaginária em torno da qual ela gira, é:",
-                "options": [
-                  {
-                    "text": "Inclinado"
-                  },
-                  {
-                    "text": "Virado sempre para a Lua",
-                    "misconceptionCode": "confunde-movimentos"
-                  },
-                  {
-                    "text": "Inexistente",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "Perfeitamente reto em relação ao Sol",
-                    "misconceptionCode": "distancia-causa-estacao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          }
-        ]
+       "code": "muda-tamanho-direcao",
+       "description": "Diz que a sombra muda de tamanho e de direção ao longo do dia"
       },
       {
-        "id": "PK2-EF06CI14-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Exemplo guiado: a vara ao sol",
-        "prompt": "Imagine uma vara fincada no pátio, num dia de sol. Vamos observar a sombra dela juntos ao longo do dia.",
-        "estMinutes": 4,
-        "audioScript": "Imagine uma vara fincada no pátio, num dia de sol. Vamos observar a sombra dela juntos ao longo do dia. Pergunta 1. De manhã cedo, com o Sol no leste, para onde aponta a sombra da vara? A: Para o leste, o lado do Sol; B: Para o oeste, o lado oposto ao Sol; C: Para cima; D: Ela não aparece de manhã. Pergunta 2. Perto do meio-dia, como fica a sombra? A: Bem comprida; B: Do mesmo tamanho da manhã; C: Do mesmo lado do Sol; D: Bem curta. Pergunta 3. O que essas mudanças da sombra ao longo do dia mostram? A: A rotação da Terra; B: A translação da Terra; C: Que o Sol gira em volta da vara; D: Que a sombra não muda.",
-        "questions": [
-          {
-            "question": "De manhã cedo, com o Sol no leste, para onde aponta a sombra da vara?",
-            "options": [
-              {
-                "text": "Para o leste, o lado do Sol",
-                "misconceptionCode": "sombra-mesmo-lado-sol"
-              },
-              {
-                "text": "Para o oeste, o lado oposto ao Sol"
-              },
-              {
-                "text": "Para cima",
-                "misconceptionCode": "sombra-fixa"
-              },
-              {
-                "text": "Ela não aparece de manhã",
-                "misconceptionCode": "confunde-movimentos"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "A sombra sempre fica do lado contrário da luz. Sol no leste, sombra para o oeste.",
-            "variants": [
-              {
-                "question": "No fim da tarde, com o Sol no oeste, a sombra aponta para:",
-                "options": [
-                  {
-                    "text": "O oeste",
-                    "misconceptionCode": "sombra-mesmo-lado-sol"
-                  },
-                  {
-                    "text": "O Sol",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "Lugar nenhum",
-                    "misconceptionCode": "confunde-movimentos"
-                  },
-                  {
-                    "text": "O leste"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "De manhã cedo, com o Sol no leste, para onde aponta a sombra da vara?",
-                "options": [
-                  {
-                    "text": "Ela não aparece de manhã",
-                    "misconceptionCode": "confunde-movimentos"
-                  },
-                  {
-                    "text": "Para cima",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "Para o oeste, o lado oposto ao Sol"
-                  },
-                  {
-                    "text": "Para o leste, o lado do Sol",
-                    "misconceptionCode": "sombra-mesmo-lado-sol"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Perto do meio-dia, como fica a sombra?",
-            "options": [
-              {
-                "text": "Bem comprida",
-                "misconceptionCode": "sombra-fixa"
-              },
-              {
-                "text": "Do mesmo tamanho da manhã",
-                "misconceptionCode": "sombra-fixa"
-              },
-              {
-                "text": "Do mesmo lado do Sol",
-                "misconceptionCode": "sombra-mesmo-lado-sol"
-              },
-              {
-                "text": "Bem curta"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Com o Sol lá no alto, a luz cai de cima, e a sombra fica pequenininha, quase embaixo da vara.",
-            "variants": [
-              {
-                "question": "Quando a sombra está mais comprida no dia?",
-                "options": [
-                  {
-                    "text": "Ao meio-dia",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "De manhã cedo e no fim da tarde"
-                  },
-                  {
-                    "text": "Sempre igual",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "Só no inverno",
-                    "misconceptionCode": "sombra-mesmo-lado-sol"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Perto do meio-dia, como fica a sombra?",
-                "options": [
-                  {
-                    "text": "Bem curta"
-                  },
-                  {
-                    "text": "Do mesmo lado do Sol",
-                    "misconceptionCode": "sombra-mesmo-lado-sol"
-                  },
-                  {
-                    "text": "Do mesmo tamanho da manhã",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "Bem comprida",
-                    "misconceptionCode": "sombra-fixa"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "O que essas mudanças da sombra ao longo do dia mostram?",
-            "options": [
-              {
-                "text": "A rotação da Terra"
-              },
-              {
-                "text": "A translação da Terra",
-                "misconceptionCode": "confunde-movimentos"
-              },
-              {
-                "text": "Que o Sol gira em volta da vara",
-                "misconceptionCode": "sombra-mesmo-lado-sol"
-              },
-              {
-                "text": "Que a sombra não muda",
-                "misconceptionCode": "sombra-fixa"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "A sombra muda porque a Terra está girando e o Sol parece mudar de lugar no céu. É a rotação da Terra.",
-            "variants": [
-              {
-                "question": "A sombra da vara girar em volta dela durante o dia é uma evidência de:",
-                "options": [
-                  {
-                    "text": "Translação",
-                    "misconceptionCode": "confunde-movimentos"
-                  },
-                  {
-                    "text": "Eclipse",
-                    "misconceptionCode": "sombra-mesmo-lado-sol"
-                  },
-                  {
-                    "text": "Rotação da Terra"
-                  },
-                  {
-                    "text": "Fase da Lua",
-                    "misconceptionCode": "sombra-fixa"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "O que essas mudanças da sombra ao longo do dia mostram?",
-                "options": [
-                  {
-                    "text": "Que a sombra não muda",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "A rotação da Terra"
-                  },
-                  {
-                    "text": "Que o Sol gira em volta da vara",
-                    "misconceptionCode": "sombra-mesmo-lado-sol"
-                  },
-                  {
-                    "text": "A translação da Terra",
-                    "misconceptionCode": "confunde-movimentos"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          }
-        ]
+       "code": "lado-oposto",
+       "description": "Explica que a sombra fica do lado oposto ao Sol"
       },
       {
-        "id": "PK2-EF06CI14-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar: sombras ao longo do ano",
-        "prompt": "Agora imagine que alguém marcou a sombra da vara sempre ao meio-dia, durante o ano inteiro.",
-        "estMinutes": 5,
-        "audioScript": "Agora imagine que alguém marcou a sombra da vara sempre ao meio-dia, durante o ano inteiro. Pergunta 1. A sombra do meio-dia muda de tamanho ao longo do ano. O que isso mostra? A: Que a sombra é sempre igual; B: Que a Terra para de girar em algumas épocas; C: Que a Terra fica mais perto do Sol em julho; D: Que a altura do Sol no céu muda ao longo do ano. Pergunta 2. Qual é a principal causa das estações do ano? A: A inclinação do eixo da Terra durante a translação; B: A Terra ficar mais perto ou mais longe do Sol; C: A rotação da Terra; D: O Sol mudar de tamanho. Pergunta 3. Em um mesmo horário, a sombra de uma árvore e a de um poste ao lado apontam: A: Para lados opostos; B: Para o Sol; C: Para o mesmo lado; D: Cada uma para um lado qualquer. Pergunta 4. Por que os relógios de sol funcionam? A: Porque a sombra fica sempre parada; B: Porque a sombra muda de direção ao longo do dia por causa da rotação; C: Porque o Sol gira em volta do relógio; D: Porque a translação muda a sombra a cada hora.",
-        "questions": [
-          {
-            "question": "A sombra do meio-dia muda de tamanho ao longo do ano. O que isso mostra?",
-            "options": [
-              {
-                "text": "Que a sombra é sempre igual",
-                "misconceptionCode": "sombra-fixa"
-              },
-              {
-                "text": "Que a Terra para de girar em algumas épocas",
-                "misconceptionCode": "confunde-movimentos"
-              },
-              {
-                "text": "Que a Terra fica mais perto do Sol em julho",
-                "misconceptionCode": "distancia-causa-estacao"
-              },
-              {
-                "text": "Que a altura do Sol no céu muda ao longo do ano"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Em cada época do ano, o Sol do meio-dia fica mais alto ou mais baixo no céu. Por isso a sombra muda de tamanho.",
-            "variants": [
-              {
-                "question": "Se a sombra do meio-dia é mais longa em junho que em dezembro num lugar do Sul do Brasil, isso indica que:",
-                "options": [
-                  {
-                    "text": "O Sol está mais longe em junho",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "O Sol do meio-dia está mais baixo em junho"
-                  },
-                  {
-                    "text": "A Terra parou de girar",
-                    "misconceptionCode": "confunde-movimentos"
-                  },
-                  {
-                    "text": "A sombra não depende do Sol",
-                    "misconceptionCode": "distancia-causa-estacao"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "A sombra do meio-dia muda de tamanho ao longo do ano. O que isso mostra?",
-                "options": [
-                  {
-                    "text": "Que a altura do Sol no céu muda ao longo do ano"
-                  },
-                  {
-                    "text": "Que a Terra fica mais perto do Sol em julho",
-                    "misconceptionCode": "distancia-causa-estacao"
-                  },
-                  {
-                    "text": "Que a Terra para de girar em algumas épocas",
-                    "misconceptionCode": "confunde-movimentos"
-                  },
-                  {
-                    "text": "Que a sombra é sempre igual",
-                    "misconceptionCode": "sombra-fixa"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Qual é a principal causa das estações do ano?",
-            "options": [
-              {
-                "text": "A inclinação do eixo da Terra durante a translação"
-              },
-              {
-                "text": "A Terra ficar mais perto ou mais longe do Sol",
-                "misconceptionCode": "distancia-causa-estacao"
-              },
-              {
-                "text": "A rotação da Terra",
-                "misconceptionCode": "confunde-movimentos"
-              },
-              {
-                "text": "O Sol mudar de tamanho",
-                "misconceptionCode": "sombra-fixa"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Não é a distância do Sol! A Terra é inclinada, então durante o ano cada parte recebe mais ou menos luz.",
-            "variants": [
-              {
-                "question": "Quando é verão no Brasil, é inverno na Europa. Isso mostra que a estação depende:",
-                "options": [
-                  {
-                    "text": "Da distância da Terra ao Sol",
-                    "misconceptionCode": "distancia-causa-estacao"
-                  },
-                  {
-                    "text": "Da rotação",
-                    "misconceptionCode": "confunde-movimentos"
-                  },
-                  {
-                    "text": "Da inclinação e da posição de cada hemisfério"
-                  },
-                  {
-                    "text": "Do tamanho do Sol",
-                    "misconceptionCode": "sombra-fixa"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Qual é a principal causa das estações do ano?",
-                "options": [
-                  {
-                    "text": "O Sol mudar de tamanho",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "A inclinação do eixo da Terra durante a translação"
-                  },
-                  {
-                    "text": "A rotação da Terra",
-                    "misconceptionCode": "confunde-movimentos"
-                  },
-                  {
-                    "text": "A Terra ficar mais perto ou mais longe do Sol",
-                    "misconceptionCode": "distancia-causa-estacao"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Em um mesmo horário, a sombra de uma árvore e a de um poste ao lado apontam:",
-            "options": [
-              {
-                "text": "Para lados opostos",
-                "misconceptionCode": "sombra-mesmo-lado-sol"
-              },
-              {
-                "text": "Para o Sol",
-                "misconceptionCode": "sombra-mesmo-lado-sol"
-              },
-              {
-                "text": "Para o mesmo lado"
-              },
-              {
-                "text": "Cada uma para um lado qualquer",
-                "misconceptionCode": "sombra-fixa"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Todas as sombras fogem do Sol para o mesmo lado. Então, na mesma hora, árvore e poste fazem sombra para o mesmo lado.",
-            "variants": [
-              {
-                "question": "No pátio, às 9h, a sombra das crianças aponta para o oeste. A sombra da cesta de basquete aponta para:",
-                "options": [
-                  {
-                    "text": "O oeste também"
-                  },
-                  {
-                    "text": "O leste",
-                    "misconceptionCode": "sombra-mesmo-lado-sol"
-                  },
-                  {
-                    "text": "O norte",
-                    "misconceptionCode": "sombra-mesmo-lado-sol"
-                  },
-                  {
-                    "text": "Para o Sol",
-                    "misconceptionCode": "sombra-fixa"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Em um mesmo horário, a sombra de uma árvore e a de um poste ao lado apontam:",
-                "options": [
-                  {
-                    "text": "Cada uma para um lado qualquer",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "Para o Sol",
-                    "misconceptionCode": "sombra-mesmo-lado-sol"
-                  },
-                  {
-                    "text": "Para lados opostos",
-                    "misconceptionCode": "sombra-mesmo-lado-sol"
-                  },
-                  {
-                    "text": "Para o mesmo lado"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Por que os relógios de sol funcionam?",
-            "options": [
-              {
-                "text": "Porque a sombra fica sempre parada",
-                "misconceptionCode": "sombra-fixa"
-              },
-              {
-                "text": "Porque a sombra muda de direção ao longo do dia por causa da rotação"
-              },
-              {
-                "text": "Porque o Sol gira em volta do relógio",
-                "misconceptionCode": "sombra-mesmo-lado-sol"
-              },
-              {
-                "text": "Porque a translação muda a sombra a cada hora",
-                "misconceptionCode": "confunde-movimentos"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Com a Terra girando, a sombra vai mudando de lugar, hora a hora. Marcando onde ela está, dá para saber as horas.",
-            "variants": [
-              {
-                "question": "O relógio de sol marca as horas usando:",
-                "options": [
-                  {
-                    "text": "O tamanho do Sol",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "A distância até o Sol",
-                    "misconceptionCode": "sombra-mesmo-lado-sol"
-                  },
-                  {
-                    "text": "A translação de cada hora",
-                    "misconceptionCode": "confunde-movimentos"
-                  },
-                  {
-                    "text": "A posição da sombra, que muda com a rotação da Terra"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Por que os relógios de sol funcionam?",
-                "options": [
-                  {
-                    "text": "Porque a translação muda a sombra a cada hora",
-                    "misconceptionCode": "confunde-movimentos"
-                  },
-                  {
-                    "text": "Porque o Sol gira em volta do relógio",
-                    "misconceptionCode": "sombra-mesmo-lado-sol"
-                  },
-                  {
-                    "text": "Porque a sombra muda de direção ao longo do dia por causa da rotação"
-                  },
-                  {
-                    "text": "Porque a sombra fica sempre parada",
-                    "misconceptionCode": "sombra-fixa"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF06CI14-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar: sombras no dia a dia",
-        "prompt": "Use o que aprendeu em situações reais.",
-        "estMinutes": 4,
-        "audioScript": "Use o que aprendeu em situações reais. Pergunta 1. Você quer estacionar a bicicleta na sombra de um muro às 16h. O muro fica entre o pátio e o oeste. De que lado do muro fica a sombra? A: Do lado leste do muro; B: Do lado oeste, onde está o Sol; C: Não há sombra à tarde; D: Dos dois lados igualmente. Pergunta 2. Um colega diz que no verão a Terra está mais perto do Sol, por isso faz calor. O que você responde? A: Ele está certo; B: O calor vem da rotação; C: A principal causa é a inclinação do eixo, não a distância; D: O verão acontece porque a sombra fica curta. Pergunta 3. Um fotógrafo quer sombras bem longas numa foto. Quando ele deve fotografar? A: Ao meio-dia; B: No começo da manhã ou no fim da tarde; C: Tanto faz o horário; D: Só no verão, ao meio-dia.",
-        "questions": [
-          {
-            "question": "Você quer estacionar a bicicleta na sombra de um muro às 16h. O muro fica entre o pátio e o oeste. De que lado do muro fica a sombra?",
-            "options": [
-              {
-                "text": "Do lado leste do muro"
-              },
-              {
-                "text": "Do lado oeste, onde está o Sol",
-                "misconceptionCode": "sombra-mesmo-lado-sol"
-              },
-              {
-                "text": "Não há sombra à tarde",
-                "misconceptionCode": "sombra-fixa"
-              },
-              {
-                "text": "Dos dois lados igualmente",
-                "misconceptionCode": "sombra-fixa"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "À tarde o Sol está no oeste. A sombra fica do lado contrário: o lado leste do muro.",
-            "variants": [
-              {
-                "question": "Às 8h, para ficar na sombra de uma árvore, você deve sentar no lado:",
-                "options": [
-                  {
-                    "text": "Leste da árvore",
-                    "misconceptionCode": "sombra-mesmo-lado-sol"
-                  },
-                  {
-                    "text": "Qualquer lado",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "Oeste da árvore"
-                  },
-                  {
-                    "text": "Embaixo do Sol",
-                    "misconceptionCode": "sombra-fixa"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Você quer estacionar a bicicleta na sombra de um muro às 16h. O muro fica entre o pátio e o oeste. De que lado do muro fica a sombra?",
-                "options": [
-                  {
-                    "text": "Dos dois lados igualmente",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "Do lado leste do muro"
-                  },
-                  {
-                    "text": "Não há sombra à tarde",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "Do lado oeste, onde está o Sol",
-                    "misconceptionCode": "sombra-mesmo-lado-sol"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Um colega diz que no verão a Terra está mais perto do Sol, por isso faz calor. O que você responde?",
-            "options": [
-              {
-                "text": "Ele está certo",
-                "misconceptionCode": "distancia-causa-estacao"
-              },
-              {
-                "text": "O calor vem da rotação",
-                "misconceptionCode": "confunde-movimentos"
-              },
-              {
-                "text": "A principal causa é a inclinação do eixo, não a distância"
-              },
-              {
-                "text": "O verão acontece porque a sombra fica curta",
-                "misconceptionCode": "sombra-fixa"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Se fosse a distância, o mundo todo teria verão junto. Mas quando é verão aqui, é inverno lá em cima. A causa é a inclinação da Terra.",
-            "variants": [
-              {
-                "question": "Por que o Natal no Brasil é no verão e na Europa é no inverno?",
-                "options": [
-                  {
-                    "text": "Por causa da inclinação do eixo da Terra"
-                  },
-                  {
-                    "text": "Porque o Brasil está mais perto do Sol",
-                    "misconceptionCode": "distancia-causa-estacao"
-                  },
-                  {
-                    "text": "Por causa da rotação",
-                    "misconceptionCode": "confunde-movimentos"
-                  },
-                  {
-                    "text": "Porque o Sol é maior no Brasil",
-                    "misconceptionCode": "sombra-fixa"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Um colega diz que no verão a Terra está mais perto do Sol, por isso faz calor. O que você responde?",
-                "options": [
-                  {
-                    "text": "O verão acontece porque a sombra fica curta",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "O calor vem da rotação",
-                    "misconceptionCode": "confunde-movimentos"
-                  },
-                  {
-                    "text": "Ele está certo",
-                    "misconceptionCode": "distancia-causa-estacao"
-                  },
-                  {
-                    "text": "A principal causa é a inclinação do eixo, não a distância"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Um fotógrafo quer sombras bem longas numa foto. Quando ele deve fotografar?",
-            "options": [
-              {
-                "text": "Ao meio-dia",
-                "misconceptionCode": "sombra-fixa"
-              },
-              {
-                "text": "No começo da manhã ou no fim da tarde"
-              },
-              {
-                "text": "Tanto faz o horário",
-                "misconceptionCode": "sombra-fixa"
-              },
-              {
-                "text": "Só no verão, ao meio-dia",
-                "misconceptionCode": "distancia-causa-estacao"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Quando o Sol está baixinho, no começo da manhã ou no fim da tarde, as sombras ficam compridas.",
-            "variants": [
-              {
-                "question": "Para uma foto quase sem sombra, o melhor horário é:",
-                "options": [
-                  {
-                    "text": "Às 6h",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "Às 17h30",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "Qualquer hora",
-                    "misconceptionCode": "distancia-causa-estacao"
-                  },
-                  {
-                    "text": "Perto do meio-dia"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Um fotógrafo quer sombras bem longas numa foto. Quando ele deve fotografar?",
-                "options": [
-                  {
-                    "text": "Só no verão, ao meio-dia",
-                    "misconceptionCode": "distancia-causa-estacao"
-                  },
-                  {
-                    "text": "Tanto faz o horário",
-                    "misconceptionCode": "sombra-fixa"
-                  },
-                  {
-                    "text": "No começo da manhã ou no fim da tarde"
-                  },
-                  {
-                    "text": "Ao meio-dia",
-                    "misconceptionCode": "sombra-fixa"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF06CI14-A5",
-        "step": "explicar",
-        "type": "WRITTEN",
-        "allowSpoken": true,
-        "title": "Explicar: o que a sombra mostra",
-        "prompt": "Explique com as suas palavras o que acontece com a sombra de uma vara ao longo de um dia e o que isso mostra sobre a Terra.",
-        "estMinutes": 6,
-        "audioScript": "Explique com as suas palavras o que acontece com a sombra de uma vara ao longo de um dia e o que isso mostra sobre a Terra.",
-        "rubric": {
-          "type": "WRITTEN",
-          "criteria": [
-            {
-              "code": "muda-tamanho-direcao",
-              "description": "Diz que a sombra muda de tamanho e de direção ao longo do dia"
-            },
-            {
-              "code": "lado-oposto",
-              "description": "Explica que a sombra fica do lado oposto ao Sol"
-            },
-            {
-              "code": "rotacao",
-              "description": "Relaciona a mudança com a rotação da Terra"
-            }
-          ],
-          "exemploBoaResposta": "De manhã a sombra é comprida e aponta para o oeste, porque o Sol está no leste. Ao meio-dia ela fica curta, e à tarde fica comprida de novo, apontando para o leste. Isso acontece porque a Terra gira, e o Sol muda de lugar no céu."
-        }
+       "code": "rotacao",
+       "description": "Relaciona a mudança com a rotação da Terra"
       }
-    ],
-    "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED"
-  }
+     ],
+     "exemploBoaResposta": "De manhã a sombra é comprida e aponta para o oeste, porque o Sol está no leste. Ao meio-dia ela fica curta, e à tarde fica comprida de novo, apontando para o leste. Isso acontece porque a Terra gira, e o Sol muda de lugar no céu."
+    }
+   }
+  ],
+  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+  "source": "SPEAKFLOW",
+  "status": "APPROVED"
+ },
+ {
+  "skillCode": "EF06CI05",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 6,
+  "version": 1,
+  "title": "Trilha: A célula",
+  "tituloAluno": "A menor parte viva dos seres vivos",
+  "activities": [
+   {
+    "id": "PK2-EF06CI05-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: o que é um ser vivo",
+    "prompt": "Já estudamos os seres vivos e o corpo humano.",
+    "estMinutes": 4,
+    "audioScript": "Já estudamos os seres vivos e o corpo humano. Pergunta 1. Qual destes é um ser vivo? A: Uma pedra; B: A água; C: Uma árvore; D: O vento. Pergunta 2. O instrumento usado para observar coisas muito pequenas é: A: O termômetro; B: A balança; C: A régua; D: O microscópio. Pergunta 3. O corpo humano é formado por órgãos, como o coração e o estômago. Os órgãos são formados por: A: Tecidos, que são conjuntos de células; B: Pedras; C: Só água; D: Ar.",
+    "questions": [
+     {
+      "question": "Qual destes é um ser vivo?",
+      "options": [
+       {
+        "text": "Uma pedra",
+        "misconceptionCode": "celula-so-animal"
+       },
+       {
+        "text": "A água",
+        "misconceptionCode": "celula-so-animal"
+       },
+       {
+        "text": "Uma árvore"
+       },
+       {
+        "text": "O vento",
+        "misconceptionCode": "celula-so-animal"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Os seres vivos nascem, se alimentam, crescem, se reproduzem e morrem.",
+      "variants": [
+       {
+        "question": "Qual destes NÃO é um ser vivo?",
+        "options": [
+         {
+          "text": "Uma rocha"
+         },
+         {
+          "text": "Um cogumelo",
+          "misconceptionCode": "celula-so-animal"
+         },
+         {
+          "text": "Uma formiga",
+          "misconceptionCode": "celula-so-animal"
+         },
+         {
+          "text": "Uma alga",
+          "misconceptionCode": "celula-so-animal"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual destes é um ser vivo?",
+        "options": [
+         {
+          "text": "O vento",
+          "misconceptionCode": "celula-so-animal"
+         },
+         {
+          "text": "A água",
+          "misconceptionCode": "celula-so-animal"
+         },
+         {
+          "text": "Uma pedra",
+          "misconceptionCode": "celula-so-animal"
+         },
+         {
+          "text": "Uma árvore"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O instrumento usado para observar coisas muito pequenas é:",
+      "options": [
+       {
+        "text": "O termômetro",
+        "misconceptionCode": "celula-visivel"
+       },
+       {
+        "text": "A balança",
+        "misconceptionCode": "celula-visivel"
+       },
+       {
+        "text": "A régua",
+        "misconceptionCode": "celula-visivel"
+       },
+       {
+        "text": "O microscópio"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O microscópio amplia a imagem muitas vezes.",
+      "variants": [
+       {
+        "question": "O microscópio serve para:",
+        "options": [
+         {
+          "text": "Medir a temperatura",
+          "misconceptionCode": "celula-visivel"
+         },
+         {
+          "text": "Ampliar a imagem do que é muito pequeno"
+         },
+         {
+          "text": "Pesar objetos",
+          "misconceptionCode": "celula-visivel"
+         },
+         {
+          "text": "Medir o comprimento",
+          "misconceptionCode": "celula-visivel"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O instrumento usado para observar coisas muito pequenas é:",
+        "options": [
+         {
+          "text": "O microscópio"
+         },
+         {
+          "text": "A régua",
+          "misconceptionCode": "celula-visivel"
+         },
+         {
+          "text": "A balança",
+          "misconceptionCode": "celula-visivel"
+         },
+         {
+          "text": "O termômetro",
+          "misconceptionCode": "celula-visivel"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O corpo humano é formado por órgãos, como o coração e o estômago. Os órgãos são formados por:",
+      "options": [
+       {
+        "text": "Tecidos, que são conjuntos de células"
+       },
+       {
+        "text": "Pedras",
+        "misconceptionCode": "partes-trocadas"
+       },
+       {
+        "text": "Só água",
+        "misconceptionCode": "partes-trocadas"
+       },
+       {
+        "text": "Ar",
+        "misconceptionCode": "partes-trocadas"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Células formam tecidos, tecidos formam órgãos, e órgãos formam sistemas.",
+      "variants": [
+       {
+        "question": "Qual é a ordem correta, da menor para a maior?",
+        "options": [
+         {
+          "text": "Sistema, órgão, tecido, célula",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "Órgão, célula, sistema, tecido",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "Célula, tecido, órgão, sistema"
+         },
+         {
+          "text": "Tecido, sistema, célula, órgão",
+          "misconceptionCode": "partes-trocadas"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O corpo humano é formado por órgãos, como o coração e o estômago. Os órgãos são formados por:",
+        "options": [
+         {
+          "text": "Ar",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "Tecidos, que são conjuntos de células"
+         },
+         {
+          "text": "Só água",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "Pedras",
+          "misconceptionCode": "partes-trocadas"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06CI05-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: as partes da célula",
+    "prompt": "A célula é a menor parte viva de um ser vivo. A maioria tem três partes básicas: a membrana, que envolve e controla o que entra e sai; o citoplasma, onde ocorrem as atividades da célula; e o núcleo, que guarda o material genético e comanda a célula. Vamos estudar juntos.",
+    "estMinutes": 4,
+    "audioScript": "A célula é a menor parte viva de um ser vivo. A maioria tem três partes básicas: a membrana, que envolve e controla o que entra e sai; o citoplasma, onde ocorrem as atividades da célula; e o núcleo, que guarda o material genético e comanda a célula. Vamos estudar juntos. Pergunta 1. A parte que envolve a célula e controla o que entra e o que sai é: A: O núcleo; B: A membrana plasmática; C: O citoplasma; D: O microscópio. Pergunta 2. A parte da célula que guarda o material genético e comanda as atividades é: A: A membrana; B: O citoplasma; C: O núcleo; D: A parede. Pergunta 3. O material gelatinoso que preenche a célula, onde ficam as organelas, é: A: O núcleo; B: A membrana; C: O ar; D: O citoplasma.",
+    "questions": [
+     {
+      "question": "A parte que envolve a célula e controla o que entra e o que sai é:",
+      "options": [
+       {
+        "text": "O núcleo",
+        "misconceptionCode": "partes-trocadas"
+       },
+       {
+        "text": "A membrana plasmática"
+       },
+       {
+        "text": "O citoplasma",
+        "misconceptionCode": "partes-trocadas"
+       },
+       {
+        "text": "O microscópio",
+        "misconceptionCode": "celula-visivel"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A membrana funciona como uma portaria.",
+      "variants": [
+       {
+        "question": "A membrana plasmática tem a função de:",
+        "options": [
+         {
+          "text": "Guardar o material genético",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "Produzir luz",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "Dar cor à célula",
+          "misconceptionCode": "celula-visivel"
+         },
+         {
+          "text": "Envolver a célula e controlar a entrada e a saída de substâncias"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A parte que envolve a célula e controla o que entra e o que sai é:",
+        "options": [
+         {
+          "text": "O microscópio",
+          "misconceptionCode": "celula-visivel"
+         },
+         {
+          "text": "O citoplasma",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "A membrana plasmática"
+         },
+         {
+          "text": "O núcleo",
+          "misconceptionCode": "partes-trocadas"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "A parte da célula que guarda o material genético e comanda as atividades é:",
+      "options": [
+       {
+        "text": "A membrana",
+        "misconceptionCode": "partes-trocadas"
+       },
+       {
+        "text": "O citoplasma",
+        "misconceptionCode": "partes-trocadas"
+       },
+       {
+        "text": "O núcleo"
+       },
+       {
+        "text": "A parede",
+        "misconceptionCode": "partes-trocadas"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O núcleo é o centro de comando.",
+      "variants": [
+       {
+        "question": "O material genético, que guarda as informações do ser vivo, fica, na maioria das células:",
+        "options": [
+         {
+          "text": "No núcleo"
+         },
+         {
+          "text": "Na membrana",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "Fora da célula",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "No microscópio",
+          "misconceptionCode": "partes-trocadas"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A parte da célula que guarda o material genético e comanda as atividades é:",
+        "options": [
+         {
+          "text": "A parede",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "O citoplasma",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "A membrana",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "O núcleo"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O material gelatinoso que preenche a célula, onde ficam as organelas, é:",
+      "options": [
+       {
+        "text": "O núcleo",
+        "misconceptionCode": "partes-trocadas"
+       },
+       {
+        "text": "A membrana",
+        "misconceptionCode": "partes-trocadas"
+       },
+       {
+        "text": "O ar",
+        "misconceptionCode": "partes-trocadas"
+       },
+       {
+        "text": "O citoplasma"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "No citoplasma ocorrem muitas das atividades que mantêm a célula viva.",
+      "variants": [
+       {
+        "question": "As pequenas estruturas que realizam tarefas dentro da célula, como produzir energia, são:",
+        "options": [
+         {
+          "text": "Os órgãos",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "As organelas"
+         },
+         {
+          "text": "Os ossos",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "Os tecidos",
+          "misconceptionCode": "partes-trocadas"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O material gelatinoso que preenche a célula, onde ficam as organelas, é:",
+        "options": [
+         {
+          "text": "O citoplasma"
+         },
+         {
+          "text": "O ar",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "A membrana",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "O núcleo",
+          "misconceptionCode": "partes-trocadas"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06CI05-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: a célula nos seres vivos",
+    "prompt": "Todos têm.",
+    "estMinutes": 5,
+    "audioScript": "Todos têm. Pergunta 1. Quais seres vivos são formados por células? A: Todos: animais, plantas, fungos e microrganismos; B: Só os animais; C: Só os seres humanos; D: Só as plantas. Pergunta 2. Um ser formado por uma única célula, como a bactéria, é chamado de: A: Pluricelular; B: Unicelular; C: Sem célula; D: Tecido. Pergunta 3. É possível ver a maioria das células a olho nu? A: Sim, todas; B: Sim, com óculos comuns; C: Não, é preciso usar o microscópio; D: Sim, basta chegar perto. Pergunta 4. As células vegetais têm estruturas que as células animais não têm, como: A: O núcleo; B: A membrana; C: O citoplasma; D: A parede celular e os cloroplastos.",
+    "questions": [
+     {
+      "question": "Quais seres vivos são formados por células?",
+      "options": [
+       {
+        "text": "Todos: animais, plantas, fungos e microrganismos"
+       },
+       {
+        "text": "Só os animais",
+        "misconceptionCode": "celula-so-animal"
+       },
+       {
+        "text": "Só os seres humanos",
+        "misconceptionCode": "celula-so-animal"
+       },
+       {
+        "text": "Só as plantas",
+        "misconceptionCode": "celula-so-animal"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A célula é a unidade de todos os seres vivos.",
+      "variants": [
+       {
+        "question": "As plantas são formadas por células?",
+        "options": [
+         {
+          "text": "Não, só os animais",
+          "misconceptionCode": "celula-so-animal"
+         },
+         {
+          "text": "Não, só as bactérias",
+          "misconceptionCode": "celula-so-animal"
+         },
+         {
+          "text": "Sim, como todos os seres vivos"
+         },
+         {
+          "text": "Só as flores",
+          "misconceptionCode": "celula-so-animal"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quais seres vivos são formados por células?",
+        "options": [
+         {
+          "text": "Só as plantas",
+          "misconceptionCode": "celula-so-animal"
+         },
+         {
+          "text": "Todos: animais, plantas, fungos e microrganismos"
+         },
+         {
+          "text": "Só os seres humanos",
+          "misconceptionCode": "celula-so-animal"
+         },
+         {
+          "text": "Só os animais",
+          "misconceptionCode": "celula-so-animal"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um ser formado por uma única célula, como a bactéria, é chamado de:",
+      "options": [
+       {
+        "text": "Pluricelular",
+        "misconceptionCode": "uni-pluri-trocado"
+       },
+       {
+        "text": "Unicelular"
+       },
+       {
+        "text": "Sem célula",
+        "misconceptionCode": "uni-pluri-trocado"
+       },
+       {
+        "text": "Tecido",
+        "misconceptionCode": "partes-trocadas"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "\"Uni\" quer dizer um.",
+      "variants": [
+       {
+        "question": "Um ser formado por muitas células, como o ser humano, é chamado de:",
+        "options": [
+         {
+          "text": "Unicelular",
+          "misconceptionCode": "uni-pluri-trocado"
+         },
+         {
+          "text": "Sem célula",
+          "misconceptionCode": "uni-pluri-trocado"
+         },
+         {
+          "text": "Organela",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "Pluricelular"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um ser formado por uma única célula, como a bactéria, é chamado de:",
+        "options": [
+         {
+          "text": "Tecido",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "Sem célula",
+          "misconceptionCode": "uni-pluri-trocado"
+         },
+         {
+          "text": "Unicelular"
+         },
+         {
+          "text": "Pluricelular",
+          "misconceptionCode": "uni-pluri-trocado"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "É possível ver a maioria das células a olho nu?",
+      "options": [
+       {
+        "text": "Sim, todas",
+        "misconceptionCode": "celula-visivel"
+       },
+       {
+        "text": "Sim, com óculos comuns",
+        "misconceptionCode": "celula-visivel"
+       },
+       {
+        "text": "Não, é preciso usar o microscópio"
+       },
+       {
+        "text": "Sim, basta chegar perto",
+        "misconceptionCode": "celula-visivel"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A maioria das células é muito pequena. O ovo é uma exceção: a gema é uma célula grande.",
+      "variants": [
+       {
+        "question": "Por que só foi possível descobrir as células depois da invenção do microscópio?",
+        "options": [
+         {
+          "text": "Porque quase todas são pequenas demais para serem vistas a olho nu"
+         },
+         {
+          "text": "Porque não existiam antes",
+          "misconceptionCode": "celula-visivel"
+         },
+         {
+          "text": "Porque eram proibidas",
+          "misconceptionCode": "celula-visivel"
+         },
+         {
+          "text": "Porque são invisíveis mesmo ao microscópio",
+          "misconceptionCode": "celula-visivel"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "É possível ver a maioria das células a olho nu?",
+        "options": [
+         {
+          "text": "Sim, basta chegar perto",
+          "misconceptionCode": "celula-visivel"
+         },
+         {
+          "text": "Sim, com óculos comuns",
+          "misconceptionCode": "celula-visivel"
+         },
+         {
+          "text": "Sim, todas",
+          "misconceptionCode": "celula-visivel"
+         },
+         {
+          "text": "Não, é preciso usar o microscópio"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "As células vegetais têm estruturas que as células animais não têm, como:",
+      "options": [
+       {
+        "text": "O núcleo",
+        "misconceptionCode": "partes-trocadas"
+       },
+       {
+        "text": "A membrana",
+        "misconceptionCode": "partes-trocadas"
+       },
+       {
+        "text": "O citoplasma",
+        "misconceptionCode": "partes-trocadas"
+       },
+       {
+        "text": "A parede celular e os cloroplastos"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A parede celular dá firmeza, e os cloroplastos fazem a fotossíntese.",
+      "variants": [
+       {
+        "question": "Os cloroplastos, presentes nas células das folhas, são responsáveis:",
+        "options": [
+         {
+          "text": "Pela digestão",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "Pela fotossíntese"
+         },
+         {
+          "text": "Pelo movimento",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "Pela respiração dos animais",
+          "misconceptionCode": "partes-trocadas"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "As células vegetais têm estruturas que as células animais não têm, como:",
+        "options": [
+         {
+          "text": "A parede celular e os cloroplastos"
+         },
+         {
+          "text": "O citoplasma",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "A membrana",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "O núcleo",
+          "misconceptionCode": "partes-trocadas"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06CI05-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: por que a célula é a unidade da vida",
+    "prompt": "Estrutura e função.",
+    "estMinutes": 4,
+    "audioScript": "Estrutura e função. Pergunta 1. Dizer que a célula é a unidade estrutural dos seres vivos significa que: A: Todos os seres vivos são formados por células; B: Só alguns têm células; C: A célula é um órgão; D: A célula é visível a olho nu. Pergunta 2. No corpo humano, as células do músculo, do sangue e dos nervos são: A: Todas iguais; B: Diferentes, cada tipo adaptado à sua função; C: Formadas por uma célula só; D: Sem núcleo, todas. Pergunta 3. Quando você se corta e a pele se fecha depois de alguns dias, isso acontece porque: A: A pele não é formada por células; B: As células desaparecem; C: As células se dividem e formam novas células; D: O corte nunca fecha.",
+    "questions": [
+     {
+      "question": "Dizer que a célula é a unidade estrutural dos seres vivos significa que:",
+      "options": [
+       {
+        "text": "Todos os seres vivos são formados por células"
+       },
+       {
+        "text": "Só alguns têm células",
+        "misconceptionCode": "celula-so-animal"
+       },
+       {
+        "text": "A célula é um órgão",
+        "misconceptionCode": "partes-trocadas"
+       },
+       {
+        "text": "A célula é visível a olho nu",
+        "misconceptionCode": "celula-visivel"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A célula é o \"tijolo\" que forma o corpo dos seres vivos.",
+      "variants": [
+       {
+        "question": "Dizer que a célula é a unidade funcional dos seres vivos significa que:",
+        "options": [
+         {
+          "text": "A célula não faz nada",
+          "misconceptionCode": "celula-so-animal"
+         },
+         {
+          "text": "Só os órgãos funcionam",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "As atividades da vida, como respirar e se nutrir, acontecem nas células"
+         },
+         {
+          "text": "A célula é só um enfeite",
+          "misconceptionCode": "celula-visivel"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Dizer que a célula é a unidade estrutural dos seres vivos significa que:",
+        "options": [
+         {
+          "text": "A célula é visível a olho nu",
+          "misconceptionCode": "celula-visivel"
+         },
+         {
+          "text": "Todos os seres vivos são formados por células"
+         },
+         {
+          "text": "A célula é um órgão",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "Só alguns têm células",
+          "misconceptionCode": "celula-so-animal"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "No corpo humano, as células do músculo, do sangue e dos nervos são:",
+      "options": [
+       {
+        "text": "Todas iguais",
+        "misconceptionCode": "partes-trocadas"
+       },
+       {
+        "text": "Diferentes, cada tipo adaptado à sua função"
+       },
+       {
+        "text": "Formadas por uma célula só",
+        "misconceptionCode": "uni-pluri-trocado"
+       },
+       {
+        "text": "Sem núcleo, todas",
+        "misconceptionCode": "partes-trocadas"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A forma de cada célula tem relação com o trabalho que ela faz.",
+      "variants": [
+       {
+        "question": "As células nervosas são longas e ramificadas porque a função delas é:",
+        "options": [
+         {
+          "text": "Guardar gordura",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "Fazer fotossíntese",
+          "misconceptionCode": "uni-pluri-trocado"
+         },
+         {
+          "text": "Dar cor à pele",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "Transmitir informações pelo corpo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "No corpo humano, as células do músculo, do sangue e dos nervos são:",
+        "options": [
+         {
+          "text": "Sem núcleo, todas",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "Formadas por uma célula só",
+          "misconceptionCode": "uni-pluri-trocado"
+         },
+         {
+          "text": "Diferentes, cada tipo adaptado à sua função"
+         },
+         {
+          "text": "Todas iguais",
+          "misconceptionCode": "partes-trocadas"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Quando você se corta e a pele se fecha depois de alguns dias, isso acontece porque:",
+      "options": [
+       {
+        "text": "A pele não é formada por células",
+        "misconceptionCode": "celula-so-animal"
+       },
+       {
+        "text": "As células desaparecem",
+        "misconceptionCode": "partes-trocadas"
+       },
+       {
+        "text": "As células se dividem e formam novas células"
+       },
+       {
+        "text": "O corte nunca fecha",
+        "misconceptionCode": "celula-visivel"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A divisão das células permite o crescimento e a renovação do corpo.",
+      "variants": [
+       {
+        "question": "Uma criança cresce porque as suas células:",
+        "options": [
+         {
+          "text": "Se multiplicam"
+         },
+         {
+          "text": "Desaparecem",
+          "misconceptionCode": "celula-so-animal"
+         },
+         {
+          "text": "Ficam paradas",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "Viram pedra",
+          "misconceptionCode": "celula-visivel"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quando você se corta e a pele se fecha depois de alguns dias, isso acontece porque:",
+        "options": [
+         {
+          "text": "O corte nunca fecha",
+          "misconceptionCode": "celula-visivel"
+         },
+         {
+          "text": "As células desaparecem",
+          "misconceptionCode": "partes-trocadas"
+         },
+         {
+          "text": "A pele não é formada por células",
+          "misconceptionCode": "celula-so-animal"
+         },
+         {
+          "text": "As células se dividem e formam novas células"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06CI05-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: o que é a célula",
+    "prompt": "Explique com as suas palavras o que é a célula, quais são as suas partes básicas e por que ela é considerada a unidade dos seres vivos.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras o que é a célula, quais são as suas partes básicas e por que ela é considerada a unidade dos seres vivos.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "definicao",
+       "description": "Diz que a célula é a menor parte viva dos seres vivos"
+      },
+      {
+       "code": "partes",
+       "description": "Cita a membrana, o citoplasma e o núcleo, com a função de pelo menos uma"
+      },
+      {
+       "code": "unidade",
+       "description": "Explica que todos os seres vivos são formados por células e que nelas ocorrem as atividades da vida"
+      }
+     ],
+     "exemploBoaResposta": "A célula é a menor parte viva de um ser vivo. Ela tem a membrana, que controla o que entra e sai, o citoplasma e o núcleo, que comanda a célula. Ela é a unidade dos seres vivos porque todos são formados por células e é nelas que acontecem as atividades da vida."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF06CI11",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 6,
+  "version": 1,
+  "title": "Trilha: As camadas da Terra",
+  "tituloAluno": "Do núcleo à atmosfera",
+  "activities": [
+   {
+    "id": "PK2-EF06CI11-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: o nosso planeta",
+    "prompt": "Já estudamos a Terra, a água e o ar.",
+    "estMinutes": 4,
+    "audioScript": "Já estudamos a Terra, a água e o ar. Pergunta 1. Qual é a forma aproximada da Terra? A: Plana; B: Quadrada; C: Em forma de cone; D: Esférica, levemente achatada nos polos. Pergunta 2. A camada de ar que envolve a Terra é a: A: Atmosfera; B: Hidrosfera; C: Litosfera; D: Crosta. Pergunta 3. O material muito quente que sai dos vulcões vem: A: Das nuvens; B: Do interior da Terra; C: Do mar; D: Do espaço.",
+    "questions": [
+     {
+      "question": "Qual é a forma aproximada da Terra?",
+      "options": [
+       {
+        "text": "Plana",
+        "misconceptionCode": "terra-oca"
+       },
+       {
+        "text": "Quadrada",
+        "misconceptionCode": "terra-oca"
+       },
+       {
+        "text": "Em forma de cone",
+        "misconceptionCode": "terra-oca"
+       },
+       {
+        "text": "Esférica, levemente achatada nos polos"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A Terra é arredondada, como mostram as imagens feitas do espaço.",
+      "variants": [
+       {
+        "question": "A maior parte da superfície da Terra é coberta por:",
+        "options": [
+         {
+          "text": "Gelo",
+          "misconceptionCode": "terra-oca"
+         },
+         {
+          "text": "Água"
+         },
+         {
+          "text": "Florestas",
+          "misconceptionCode": "terra-oca"
+         },
+         {
+          "text": "Desertos",
+          "misconceptionCode": "terra-oca"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual é a forma aproximada da Terra?",
+        "options": [
+         {
+          "text": "Esférica, levemente achatada nos polos"
+         },
+         {
+          "text": "Em forma de cone",
+          "misconceptionCode": "terra-oca"
+         },
+         {
+          "text": "Quadrada",
+          "misconceptionCode": "terra-oca"
+         },
+         {
+          "text": "Plana",
+          "misconceptionCode": "terra-oca"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "A camada de ar que envolve a Terra é a:",
+      "options": [
+       {
+        "text": "Atmosfera"
+       },
+       {
+        "text": "Hidrosfera",
+        "misconceptionCode": "esfera-confundida"
+       },
+       {
+        "text": "Litosfera",
+        "misconceptionCode": "esfera-confundida"
+       },
+       {
+        "text": "Crosta",
+        "misconceptionCode": "camadas-trocadas"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "\"Atmo\" vem de ar ou vapor.",
+      "variants": [
+       {
+        "question": "O gás da atmosfera que usamos para respirar é:",
+        "options": [
+         {
+          "text": "O ferro",
+          "misconceptionCode": "esfera-confundida"
+         },
+         {
+          "text": "O granito",
+          "misconceptionCode": "esfera-confundida"
+         },
+         {
+          "text": "O oxigênio"
+         },
+         {
+          "text": "O magma",
+          "misconceptionCode": "camadas-trocadas"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A camada de ar que envolve a Terra é a:",
+        "options": [
+         {
+          "text": "Crosta",
+          "misconceptionCode": "camadas-trocadas"
+         },
+         {
+          "text": "Atmosfera"
+         },
+         {
+          "text": "Litosfera",
+          "misconceptionCode": "esfera-confundida"
+         },
+         {
+          "text": "Hidrosfera",
+          "misconceptionCode": "esfera-confundida"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O material muito quente que sai dos vulcões vem:",
+      "options": [
+       {
+        "text": "Das nuvens",
+        "misconceptionCode": "nucleo-frio"
+       },
+       {
+        "text": "Do interior da Terra"
+       },
+       {
+        "text": "Do mar",
+        "misconceptionCode": "nucleo-frio"
+       },
+       {
+        "text": "Do espaço",
+        "misconceptionCode": "terra-oca"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O interior da Terra é muito quente.",
+      "variants": [
+       {
+        "question": "A lava dos vulcões mostra que o interior da Terra é:",
+        "options": [
+         {
+          "text": "Gelado",
+          "misconceptionCode": "nucleo-frio"
+         },
+         {
+          "text": "Oco",
+          "misconceptionCode": "nucleo-frio"
+         },
+         {
+          "text": "Feito de água",
+          "misconceptionCode": "terra-oca"
+         },
+         {
+          "text": "Muito quente"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O material muito quente que sai dos vulcões vem:",
+        "options": [
+         {
+          "text": "Do espaço",
+          "misconceptionCode": "terra-oca"
+         },
+         {
+          "text": "Do mar",
+          "misconceptionCode": "nucleo-frio"
+         },
+         {
+          "text": "Do interior da Terra"
+         },
+         {
+          "text": "Das nuvens",
+          "misconceptionCode": "nucleo-frio"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06CI11-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: por dentro da Terra",
+    "prompt": "Por dentro, a Terra tem três camadas principais: a crosta, que é a camada fina e sólida da superfície; o manto, a camada mais espessa, de rochas muito quentes e pastosas; e o núcleo, no centro, formado principalmente de ferro e níquel. Vamos estudar juntos.",
+    "estMinutes": 4,
+    "audioScript": "Por dentro, a Terra tem três camadas principais: a crosta, que é a camada fina e sólida da superfície; o manto, a camada mais espessa, de rochas muito quentes e pastosas; e o núcleo, no centro, formado principalmente de ferro e níquel. Vamos estudar juntos. Pergunta 1. A camada mais externa e mais fina da Terra, onde vivemos, é: A: O manto; B: O núcleo; C: A crosta; D: A atmosfera. Pergunta 2. A camada que fica logo abaixo da crosta, a mais espessa, formada por rochas muito quentes e pastosas, é: A: O núcleo; B: A crosta; C: A hidrosfera; D: O manto. Pergunta 3. A camada do centro da Terra, formada principalmente de ferro e níquel, é: A: O núcleo; B: O manto; C: A crosta; D: A biosfera.",
+    "questions": [
+     {
+      "question": "A camada mais externa e mais fina da Terra, onde vivemos, é:",
+      "options": [
+       {
+        "text": "O manto",
+        "misconceptionCode": "camadas-trocadas"
+       },
+       {
+        "text": "O núcleo",
+        "misconceptionCode": "camadas-trocadas"
+       },
+       {
+        "text": "A crosta"
+       },
+       {
+        "text": "A atmosfera",
+        "misconceptionCode": "esfera-confundida"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A crosta é sólida e fina, como a casca de um ovo.",
+      "variants": [
+       {
+        "question": "Os continentes e o fundo dos oceanos fazem parte:",
+        "options": [
+         {
+          "text": "Da crosta"
+         },
+         {
+          "text": "Do manto",
+          "misconceptionCode": "camadas-trocadas"
+         },
+         {
+          "text": "Do núcleo",
+          "misconceptionCode": "camadas-trocadas"
+         },
+         {
+          "text": "Da atmosfera",
+          "misconceptionCode": "esfera-confundida"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A camada mais externa e mais fina da Terra, onde vivemos, é:",
+        "options": [
+         {
+          "text": "A atmosfera",
+          "misconceptionCode": "esfera-confundida"
+         },
+         {
+          "text": "O núcleo",
+          "misconceptionCode": "camadas-trocadas"
+         },
+         {
+          "text": "O manto",
+          "misconceptionCode": "camadas-trocadas"
+         },
+         {
+          "text": "A crosta"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "A camada que fica logo abaixo da crosta, a mais espessa, formada por rochas muito quentes e pastosas, é:",
+      "options": [
+       {
+        "text": "O núcleo",
+        "misconceptionCode": "camadas-trocadas"
+       },
+       {
+        "text": "A crosta",
+        "misconceptionCode": "camadas-trocadas"
+       },
+       {
+        "text": "A hidrosfera",
+        "misconceptionCode": "esfera-confundida"
+       },
+       {
+        "text": "O manto"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O material derretido do manto é chamado de magma.",
+      "variants": [
+       {
+        "question": "O magma, material rochoso derretido, encontra-se principalmente:",
+        "options": [
+         {
+          "text": "Na atmosfera",
+          "misconceptionCode": "camadas-trocadas"
+         },
+         {
+          "text": "No manto"
+         },
+         {
+          "text": "Na superfície do mar",
+          "misconceptionCode": "camadas-trocadas"
+         },
+         {
+          "text": "Nas nuvens",
+          "misconceptionCode": "esfera-confundida"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A camada que fica logo abaixo da crosta, a mais espessa, formada por rochas muito quentes e pastosas, é:",
+        "options": [
+         {
+          "text": "O manto"
+         },
+         {
+          "text": "A hidrosfera",
+          "misconceptionCode": "esfera-confundida"
+         },
+         {
+          "text": "A crosta",
+          "misconceptionCode": "camadas-trocadas"
+         },
+         {
+          "text": "O núcleo",
+          "misconceptionCode": "camadas-trocadas"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "A camada do centro da Terra, formada principalmente de ferro e níquel, é:",
+      "options": [
+       {
+        "text": "O núcleo"
+       },
+       {
+        "text": "O manto",
+        "misconceptionCode": "camadas-trocadas"
+       },
+       {
+        "text": "A crosta",
+        "misconceptionCode": "camadas-trocadas"
+       },
+       {
+        "text": "A biosfera",
+        "misconceptionCode": "esfera-confundida"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O núcleo é a parte mais quente do planeta.",
+      "variants": [
+       {
+        "question": "Qual é a camada mais quente da Terra?",
+        "options": [
+         {
+          "text": "A crosta",
+          "misconceptionCode": "camadas-trocadas"
+         },
+         {
+          "text": "A atmosfera",
+          "misconceptionCode": "camadas-trocadas"
+         },
+         {
+          "text": "O núcleo"
+         },
+         {
+          "text": "A hidrosfera",
+          "misconceptionCode": "esfera-confundida"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A camada do centro da Terra, formada principalmente de ferro e níquel, é:",
+        "options": [
+         {
+          "text": "A biosfera",
+          "misconceptionCode": "esfera-confundida"
+         },
+         {
+          "text": "O núcleo"
+         },
+         {
+          "text": "A crosta",
+          "misconceptionCode": "camadas-trocadas"
+         },
+         {
+          "text": "O manto",
+          "misconceptionCode": "camadas-trocadas"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06CI11-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: camadas e esferas",
+    "prompt": "Por dentro e por fora.",
+    "estMinutes": 5,
+    "audioScript": "Por dentro e por fora. Pergunta 1. Qual é a ordem das camadas internas da Terra, de fora para dentro? A: Núcleo, manto, crosta; B: Crosta, manto, núcleo; C: Manto, crosta, núcleo; D: Crosta, núcleo, manto. Pergunta 2. O interior da Terra é: A: Oco; B: Todo igual; C: Formado por camadas diferentes e muito quente; D: Gelado. Pergunta 3. A parte sólida e rochosa da superfície da Terra, formada pela crosta e pela parte de cima do manto, é a: A: Hidrosfera; B: Atmosfera; C: Biosfera; D: Litosfera. Pergunta 4. O conjunto das regiões da Terra onde existe vida é a: A: Biosfera; B: Litosfera; C: Atmosfera; D: Hidrosfera.",
+    "questions": [
+     {
+      "question": "Qual é a ordem das camadas internas da Terra, de fora para dentro?",
+      "options": [
+       {
+        "text": "Núcleo, manto, crosta",
+        "misconceptionCode": "camadas-trocadas"
+       },
+       {
+        "text": "Crosta, manto, núcleo"
+       },
+       {
+        "text": "Manto, crosta, núcleo",
+        "misconceptionCode": "camadas-trocadas"
+       },
+       {
+        "text": "Crosta, núcleo, manto",
+        "misconceptionCode": "camadas-trocadas"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A crosta fica por fora, e o núcleo, no centro.",
+      "variants": [
+       {
+        "question": "Qual é a ordem das camadas internas da Terra, de dentro para fora?",
+        "options": [
+         {
+          "text": "Crosta, manto, núcleo",
+          "misconceptionCode": "camadas-trocadas"
+         },
+         {
+          "text": "Manto, núcleo, crosta",
+          "misconceptionCode": "camadas-trocadas"
+         },
+         {
+          "text": "Núcleo, crosta, manto",
+          "misconceptionCode": "camadas-trocadas"
+         },
+         {
+          "text": "Núcleo, manto, crosta"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual é a ordem das camadas internas da Terra, de fora para dentro?",
+        "options": [
+         {
+          "text": "Crosta, núcleo, manto",
+          "misconceptionCode": "camadas-trocadas"
+         },
+         {
+          "text": "Manto, crosta, núcleo",
+          "misconceptionCode": "camadas-trocadas"
+         },
+         {
+          "text": "Crosta, manto, núcleo"
+         },
+         {
+          "text": "Núcleo, manto, crosta",
+          "misconceptionCode": "camadas-trocadas"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O interior da Terra é:",
+      "options": [
+       {
+        "text": "Oco",
+        "misconceptionCode": "terra-oca"
+       },
+       {
+        "text": "Todo igual",
+        "misconceptionCode": "terra-oca"
+       },
+       {
+        "text": "Formado por camadas diferentes e muito quente"
+       },
+       {
+        "text": "Gelado",
+        "misconceptionCode": "nucleo-frio"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A temperatura aumenta da superfície para o centro.",
+      "variants": [
+       {
+        "question": "Quanto mais fundo no interior da Terra:",
+        "options": [
+         {
+          "text": "Maior é a temperatura"
+         },
+         {
+          "text": "Menor é a temperatura",
+          "misconceptionCode": "terra-oca"
+         },
+         {
+          "text": "A temperatura não muda",
+          "misconceptionCode": "terra-oca"
+         },
+         {
+          "text": "Mais frio fica",
+          "misconceptionCode": "nucleo-frio"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O interior da Terra é:",
+        "options": [
+         {
+          "text": "Gelado",
+          "misconceptionCode": "nucleo-frio"
+         },
+         {
+          "text": "Todo igual",
+          "misconceptionCode": "terra-oca"
+         },
+         {
+          "text": "Oco",
+          "misconceptionCode": "terra-oca"
+         },
+         {
+          "text": "Formado por camadas diferentes e muito quente"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "A parte sólida e rochosa da superfície da Terra, formada pela crosta e pela parte de cima do manto, é a:",
+      "options": [
+       {
+        "text": "Hidrosfera",
+        "misconceptionCode": "esfera-confundida"
+       },
+       {
+        "text": "Atmosfera",
+        "misconceptionCode": "esfera-confundida"
+       },
+       {
+        "text": "Biosfera",
+        "misconceptionCode": "esfera-confundida"
+       },
+       {
+        "text": "Litosfera"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "\"Lito\" vem de pedra.",
+      "variants": [
+       {
+        "question": "O conjunto de toda a água do planeta (oceanos, rios, lagos, geleiras e água subterrânea) forma a:",
+        "options": [
+         {
+          "text": "Litosfera",
+          "misconceptionCode": "esfera-confundida"
+         },
+         {
+          "text": "Hidrosfera"
+         },
+         {
+          "text": "Atmosfera",
+          "misconceptionCode": "esfera-confundida"
+         },
+         {
+          "text": "Crosta",
+          "misconceptionCode": "esfera-confundida"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A parte sólida e rochosa da superfície da Terra, formada pela crosta e pela parte de cima do manto, é a:",
+        "options": [
+         {
+          "text": "Litosfera"
+         },
+         {
+          "text": "Biosfera",
+          "misconceptionCode": "esfera-confundida"
+         },
+         {
+          "text": "Atmosfera",
+          "misconceptionCode": "esfera-confundida"
+         },
+         {
+          "text": "Hidrosfera",
+          "misconceptionCode": "esfera-confundida"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O conjunto das regiões da Terra onde existe vida é a:",
+      "options": [
+       {
+        "text": "Biosfera"
+       },
+       {
+        "text": "Litosfera",
+        "misconceptionCode": "esfera-confundida"
+       },
+       {
+        "text": "Atmosfera",
+        "misconceptionCode": "esfera-confundida"
+       },
+       {
+        "text": "Hidrosfera",
+        "misconceptionCode": "esfera-confundida"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "\"Bio\" vem de vida. A biosfera inclui partes do solo, da água e do ar.",
+      "variants": [
+       {
+        "question": "Os seres vivos habitam partes do solo, da água e do ar. Esse conjunto é a:",
+        "options": [
+         {
+          "text": "Crosta",
+          "misconceptionCode": "esfera-confundida"
+         },
+         {
+          "text": "Camada de ozônio",
+          "misconceptionCode": "esfera-confundida"
+         },
+         {
+          "text": "Biosfera"
+         },
+         {
+          "text": "Litosfera",
+          "misconceptionCode": "esfera-confundida"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O conjunto das regiões da Terra onde existe vida é a:",
+        "options": [
+         {
+          "text": "Hidrosfera",
+          "misconceptionCode": "esfera-confundida"
+         },
+         {
+          "text": "Biosfera"
+         },
+         {
+          "text": "Atmosfera",
+          "misconceptionCode": "esfera-confundida"
+         },
+         {
+          "text": "Litosfera",
+          "misconceptionCode": "esfera-confundida"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06CI11-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: as camadas e a nossa vida",
+    "prompt": "Para que serve conhecer.",
+    "estMinutes": 4,
+    "audioScript": "Para que serve conhecer. Pergunta 1. A camada de ozônio, que fica na atmosfera, é importante porque: A: Aquece o núcleo; B: Filtra parte dos raios ultravioleta do Sol; C: Produz a chuva; D: Forma os oceanos. Pergunta 2. Os terremotos e os vulcões acontecem por causa: A: Do vento; B: Da chuva; C: Dos movimentos e do calor do interior da Terra; D: Da Lua, somente. Pergunta 3. Os cientistas nunca chegaram ao centro da Terra. Como eles sabem como ela é por dentro? A: Por adivinhação; B: Cavando um buraco até o centro; C: Olhando pelo telescópio; D: Estudando os terremotos, os vulcões e as rochas.",
+    "questions": [
+     {
+      "question": "A camada de ozônio, que fica na atmosfera, é importante porque:",
+      "options": [
+       {
+        "text": "Aquece o núcleo",
+        "misconceptionCode": "esfera-confundida"
+       },
+       {
+        "text": "Filtra parte dos raios ultravioleta do Sol"
+       },
+       {
+        "text": "Produz a chuva",
+        "misconceptionCode": "esfera-confundida"
+       },
+       {
+        "text": "Forma os oceanos",
+        "misconceptionCode": "esfera-confundida"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Sem essa proteção, os raios ultravioleta causariam mais danos à pele e aos seres vivos.",
+      "variants": [
+       {
+        "question": "A atmosfera também ajuda a manter a temperatura da Terra adequada à vida porque:",
+        "options": [
+         {
+          "text": "Deixa todo o calor escapar",
+          "misconceptionCode": "esfera-confundida"
+         },
+         {
+          "text": "É feita de rocha",
+          "misconceptionCode": "esfera-confundida"
+         },
+         {
+          "text": "Fica no centro do planeta",
+          "misconceptionCode": "esfera-confundida"
+         },
+         {
+          "text": "Retém parte do calor do Sol"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A camada de ozônio, que fica na atmosfera, é importante porque:",
+        "options": [
+         {
+          "text": "Forma os oceanos",
+          "misconceptionCode": "esfera-confundida"
+         },
+         {
+          "text": "Produz a chuva",
+          "misconceptionCode": "esfera-confundida"
+         },
+         {
+          "text": "Filtra parte dos raios ultravioleta do Sol"
+         },
+         {
+          "text": "Aquece o núcleo",
+          "misconceptionCode": "esfera-confundida"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Os terremotos e os vulcões acontecem por causa:",
+      "options": [
+       {
+        "text": "Do vento",
+        "misconceptionCode": "nucleo-frio"
+       },
+       {
+        "text": "Da chuva",
+        "misconceptionCode": "nucleo-frio"
+       },
+       {
+        "text": "Dos movimentos e do calor do interior da Terra"
+       },
+       {
+        "text": "Da Lua, somente",
+        "misconceptionCode": "terra-oca"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A crosta é dividida em grandes placas que se movem lentamente sobre o manto.",
+      "variants": [
+       {
+        "question": "A crosta terrestre é dividida em grandes blocos que se movem lentamente, chamados de:",
+        "options": [
+         {
+          "text": "Placas tectônicas"
+         },
+         {
+          "text": "Nuvens",
+          "misconceptionCode": "nucleo-frio"
+         },
+         {
+          "text": "Marés",
+          "misconceptionCode": "nucleo-frio"
+         },
+         {
+          "text": "Geleiras",
+          "misconceptionCode": "terra-oca"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Os terremotos e os vulcões acontecem por causa:",
+        "options": [
+         {
+          "text": "Da Lua, somente",
+          "misconceptionCode": "terra-oca"
+         },
+         {
+          "text": "Da chuva",
+          "misconceptionCode": "nucleo-frio"
+         },
+         {
+          "text": "Do vento",
+          "misconceptionCode": "nucleo-frio"
+         },
+         {
+          "text": "Dos movimentos e do calor do interior da Terra"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Os cientistas nunca chegaram ao centro da Terra. Como eles sabem como ela é por dentro?",
+      "options": [
+       {
+        "text": "Por adivinhação",
+        "misconceptionCode": "terra-oca"
+       },
+       {
+        "text": "Cavando um buraco até o centro",
+        "misconceptionCode": "terra-oca"
+       },
+       {
+        "text": "Olhando pelo telescópio",
+        "misconceptionCode": "esfera-confundida"
+       },
+       {
+        "text": "Estudando os terremotos, os vulcões e as rochas"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "As ondas dos terremotos atravessam as camadas de formas diferentes e dão pistas sobre cada uma.",
+      "variants": [
+       {
+        "question": "A perfuração mais profunda feita pelos seres humanos alcançou:",
+        "options": [
+         {
+          "text": "O núcleo",
+          "misconceptionCode": "terra-oca"
+         },
+         {
+          "text": "Apenas uma pequena parte da crosta"
+         },
+         {
+          "text": "O manto inteiro",
+          "misconceptionCode": "terra-oca"
+         },
+         {
+          "text": "O outro lado do planeta",
+          "misconceptionCode": "esfera-confundida"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Os cientistas nunca chegaram ao centro da Terra. Como eles sabem como ela é por dentro?",
+        "options": [
+         {
+          "text": "Estudando os terremotos, os vulcões e as rochas"
+         },
+         {
+          "text": "Olhando pelo telescópio",
+          "misconceptionCode": "esfera-confundida"
+         },
+         {
+          "text": "Cavando um buraco até o centro",
+          "misconceptionCode": "terra-oca"
+         },
+         {
+          "text": "Por adivinhação",
+          "misconceptionCode": "terra-oca"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06CI11-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: as camadas da Terra",
+    "prompt": "Explique com as suas palavras quais são as camadas internas da Terra e cite uma característica de cada uma. Diga também o que é a atmosfera.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras quais são as camadas internas da Terra e cite uma característica de cada uma. Diga também o que é a atmosfera.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "camadas",
+       "description": "Cita a crosta, o manto e o núcleo, na ordem"
+      },
+      {
+       "code": "caracteristicas",
+       "description": "Dá uma característica de pelo menos duas camadas"
+      },
+      {
+       "code": "atmosfera",
+       "description": "Diz que a atmosfera é a camada de ar que envolve a Terra"
+      }
+     ],
+     "exemploBoaResposta": "A Terra tem três camadas por dentro. A crosta é a mais fina e é onde vivemos. O manto fica abaixo, é a camada mais espessa e tem rochas muito quentes. O núcleo fica no centro e é a parte mais quente. Por fora, há a atmosfera, que é a camada de ar que envolve o planeta."
+    }
+   }
+  ]
+ }
 ]

@@ -1,223 +1,327 @@
 {
-  "id": "DIAG2-AR-6A",
-  "version": 3,
-  "titulo": "Diagnóstico de Arte — 6º ano",
-  "descricao": "Análise dos elementos das artes visuais e da música no 6º ano, com degrau para o 5º ano.",
-  "subjectCode": "AR",
-  "subjectName": "Arte",
-  "gradeYear": 6,
-  "status": "APPROVED",
-  "source": "SPEAKFLOW",
-  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-  "adaptive": true,
-  "items": [
+ "id": "DIAG2-AR-6A",
+ "version": 4,
+ "titulo": "Diagnóstico de Arte — 6º ano",
+ "descricao": "Artes visuais, música, movimento dançado e criação de cenas no 6º ano, com degrau para o 5º ano.",
+ "subjectCode": "AR",
+ "subjectName": "Arte",
+ "gradeYear": 6,
+ "status": "APPROVED",
+ "source": "SPEAKFLOW",
+ "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+ "adaptive": true,
+ "items": [
+  {
+   "id": "DI2-EF69AR04-01",
+   "skillCode": "EF69AR04",
+   "question": "Pintar o céu do azul-claro ao azul-escuro é variar:",
+   "options": [
     {
-      "id": "DI2-EF69AR04-01",
-      "skillCode": "EF69AR04",
-      "question": "Pintar o céu do azul-claro ao azul-escuro é variar:",
-      "options": [
-        {
-          "text": "A cor",
-          "misconceptionCode": "tom-cor"
-        },
-        {
-          "text": "A escala",
-          "misconceptionCode": "escala-tamanho-real"
-        },
-        {
-          "text": "O gosto",
-          "misconceptionCode": "gosto-como-analise"
-        },
-        {
-          "text": "O tom"
-        }
-      ],
-      "correctIndex": 3,
-      "explanation": "A cor continua sendo azul; o que muda é ficar mais clarinha ou mais escura. Isso se chama tom.",
-      "audioScript": "Pergunta 1. Pintar o céu do azul-claro ao azul-escuro é variar: A: A cor; B: A escala; C: O gosto; D: O tom.",
-      "role": "NORMAL"
+     "text": "A cor",
+     "misconceptionCode": "tom-cor"
     },
     {
-      "id": "DI2-EF69AR04-02",
-      "skillCode": "EF69AR04",
-      "question": "Qual frase é uma análise de uma pintura?",
-      "options": [
-        {
-          "text": "O vermelho no centro contrasta com o fundo azul e destaca a figura"
-        },
-        {
-          "text": "Achei linda",
-          "misconceptionCode": "gosto-como-analise"
-        },
-        {
-          "text": "Tem uma pessoa e uma casa",
-          "misconceptionCode": "descreve-sem-analisar"
-        },
-        {
-          "text": "A casa é do tamanho real",
-          "misconceptionCode": "escala-tamanho-real"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Analisar é explicar o efeito: o vermelho no meio do azul faz a figura chamar atenção. Dizer só \"é bonita\" é opinião.",
-      "audioScript": "Pergunta 1. Qual frase é uma análise de uma pintura? A: O vermelho no centro contrasta com o fundo azul e destaca a figura; B: Achei linda; C: Tem uma pessoa e uma casa; D: A casa é do tamanho real.",
-      "role": "NORMAL"
+     "text": "A escala",
+     "misconceptionCode": "escala-tamanho-real"
     },
     {
-      "id": "DI2-EF69AR20-01",
-      "skillCode": "EF69AR20",
-      "question": "No aplicativo, você troca o som de piano por violino sem mudar as notas. O que mudou?",
-      "options": [
-        {
-          "text": "A intensidade",
-          "misconceptionCode": "timbre-volume"
-        },
-        {
-          "text": "A melodia",
-          "misconceptionCode": "ritmo-melodia"
-        },
-        {
-          "text": "O timbre"
-        },
-        {
-          "text": "A altura",
-          "misconceptionCode": "altura-volume"
-        }
-      ],
-      "correctIndex": 2,
-      "explanation": "As notas são as mesmas, mas piano e violino têm \"voz\" diferente. Essa voz de cada instrumento se chama timbre.",
-      "audioScript": "Pergunta 1. No aplicativo, você troca o som de piano por violino sem mudar as notas. O que mudou? A: A intensidade; B: A melodia; C: O timbre; D: A altura.",
-      "role": "NORMAL"
+     "text": "O gosto",
+     "misconceptionCode": "gosto-como-analise"
     },
     {
-      "id": "DI2-EF69AR20-02",
-      "skillCode": "EF69AR20",
-      "question": "Aumentar o BPM de uma música deixa ela:",
-      "options": [
-        {
-          "text": "Mais aguda",
-          "misconceptionCode": "altura-volume"
-        },
-        {
-          "text": "Mais rápida"
-        },
-        {
-          "text": "Mais forte",
-          "misconceptionCode": "efeito-sem-elemento"
-        },
-        {
-          "text": "Com outro instrumento",
-          "misconceptionCode": "timbre-volume"
-        }
-      ],
-      "correctIndex": 1,
-      "explanation": "BPM é quantas batidas a música tem por minuto. Mais batidas no mesmo minuto deixam a música mais rápida.",
-      "audioScript": "Pergunta 1. Aumentar o BPM de uma música deixa ela: A: Mais aguda; B: Mais rápida; C: Mais forte; D: Com outro instrumento.",
-      "role": "NORMAL"
-    },
-    {
-      "id": "DI2-EF15AR02-01",
-      "skillCode": "EF15AR02",
-      "question": "Misturando azul e amarelo, você obtém:",
-      "options": [
-        {
-          "text": "Verde"
-        },
-        {
-          "text": "Roxo",
-          "misconceptionCode": "cor-mistura-errada"
-        },
-        {
-          "text": "Laranja",
-          "misconceptionCode": "cor-mistura-errada"
-        },
-        {
-          "text": "Marrom",
-          "misconceptionCode": "cor-mistura-errada"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Teste com tinta ou lápis: pinte amarelo por cima do azul. Aparece o verde, a cor das folhas!",
-      "audioScript": "Pergunta 1. Misturando azul e amarelo, você obtém: A: Verde; B: Roxo; C: Laranja; D: Marrom.",
-      "role": "DEGRAU_BANK"
-    },
-    {
-      "id": "DI2-EF15AR02-02",
-      "skillCode": "EF15AR02",
-      "question": "Num desenho, o tronco da árvore foi feito com papel amassado para parecer áspero. Isso é um exemplo de:",
-      "options": [
-        {
-          "text": "Cor",
-          "misconceptionCode": "textura-cor"
-        },
-        {
-          "text": "Linha reta",
-          "misconceptionCode": "linha-so-reta"
-        },
-        {
-          "text": "Textura"
-        },
-        {
-          "text": "Forma geométrica",
-          "misconceptionCode": "forma-figura"
-        }
-      ],
-      "correctIndex": 2,
-      "explanation": "Passe a mão: papel amassado é áspero, como casca de árvore. O jeito que uma superfície parece ao toque é a textura.",
-      "audioScript": "Pergunta 1. Num desenho, o tronco da árvore foi feito com papel amassado para parecer áspero. Isso é um exemplo de: A: Cor; B: Linha reta; C: Textura; D: Forma geométrica.",
-      "role": "DEGRAU_BANK"
-    },
-    {
-      "id": "DI2-EF15AR14-01",
-      "skillCode": "EF15AR14",
-      "question": "O apito de um juiz é um som:",
-      "options": [
-        {
-          "text": "Grave",
-          "misconceptionCode": "altura-volume"
-        },
-        {
-          "text": "Sempre fraco",
-          "misconceptionCode": "duracao-intensidade"
-        },
-        {
-          "text": "Sem timbre",
-          "misconceptionCode": "timbre-volume"
-        },
-        {
-          "text": "Agudo"
-        }
-      ],
-      "correctIndex": 3,
-      "explanation": "O apito é fininho, como a voz de um passarinho. Som fino é agudo; som grosso, como um trovão, é grave.",
-      "audioScript": "Pergunta 1. O apito de um juiz é um som: A: Grave; B: Sempre fraco; C: Sem timbre; D: Agudo.",
-      "role": "DEGRAU_BANK"
-    },
-    {
-      "id": "DI2-EF15AR14-02",
-      "skillCode": "EF15AR14",
-      "question": "Ao aumentar o volume do rádio, o que muda?",
-      "options": [
-        {
-          "text": "A intensidade"
-        },
-        {
-          "text": "A altura",
-          "misconceptionCode": "altura-volume"
-        },
-        {
-          "text": "O timbre",
-          "misconceptionCode": "timbre-volume"
-        },
-        {
-          "text": "A melodia",
-          "misconceptionCode": "ritmo-melodia"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Aumentar o volume deixa o som mais forte, não mais fino ou mais grosso. Som forte ou fraco é a intensidade.",
-      "audioScript": "Pergunta 1. Ao aumentar o volume do rádio, o que muda? A: A intensidade; B: A altura; C: O timbre; D: A melodia.",
-      "role": "DEGRAU_BANK"
+     "text": "O tom"
     }
-  ]
+   ],
+   "correctIndex": 3,
+   "explanation": "A cor continua sendo azul; o que muda é ficar mais clarinha ou mais escura. Isso se chama tom.",
+   "audioScript": "Pergunta 1. Pintar o céu do azul-claro ao azul-escuro é variar: A: A cor; B: A escala; C: O gosto; D: O tom.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF69AR04-02",
+   "skillCode": "EF69AR04",
+   "question": "Qual frase é uma análise de uma pintura?",
+   "options": [
+    {
+     "text": "O vermelho no centro contrasta com o fundo azul e destaca a figura"
+    },
+    {
+     "text": "Achei linda",
+     "misconceptionCode": "gosto-como-analise"
+    },
+    {
+     "text": "Tem uma pessoa e uma casa",
+     "misconceptionCode": "descreve-sem-analisar"
+    },
+    {
+     "text": "A casa é do tamanho real",
+     "misconceptionCode": "escala-tamanho-real"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Analisar é explicar o efeito: o vermelho no meio do azul faz a figura chamar atenção. Dizer só \"é bonita\" é opinião.",
+   "audioScript": "Pergunta 1. Qual frase é uma análise de uma pintura? A: O vermelho no centro contrasta com o fundo azul e destaca a figura; B: Achei linda; C: Tem uma pessoa e uma casa; D: A casa é do tamanho real.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF69AR20-01",
+   "skillCode": "EF69AR20",
+   "question": "No aplicativo, você troca o som de piano por violino sem mudar as notas. O que mudou?",
+   "options": [
+    {
+     "text": "A intensidade",
+     "misconceptionCode": "timbre-volume"
+    },
+    {
+     "text": "A melodia",
+     "misconceptionCode": "ritmo-melodia"
+    },
+    {
+     "text": "O timbre"
+    },
+    {
+     "text": "A altura",
+     "misconceptionCode": "altura-volume"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "As notas são as mesmas, mas piano e violino têm \"voz\" diferente. Essa voz de cada instrumento se chama timbre.",
+   "audioScript": "Pergunta 1. No aplicativo, você troca o som de piano por violino sem mudar as notas. O que mudou? A: A intensidade; B: A melodia; C: O timbre; D: A altura.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF69AR20-02",
+   "skillCode": "EF69AR20",
+   "question": "Aumentar o BPM de uma música deixa ela:",
+   "options": [
+    {
+     "text": "Mais aguda",
+     "misconceptionCode": "altura-volume"
+    },
+    {
+     "text": "Mais rápida"
+    },
+    {
+     "text": "Mais forte",
+     "misconceptionCode": "efeito-sem-elemento"
+    },
+    {
+     "text": "Com outro instrumento",
+     "misconceptionCode": "timbre-volume"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "BPM é quantas batidas a música tem por minuto. Mais batidas no mesmo minuto deixam a música mais rápida.",
+   "audioScript": "Pergunta 1. Aumentar o BPM de uma música deixa ela: A: Mais aguda; B: Mais rápida; C: Mais forte; D: Com outro instrumento.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF69AR10-01",
+   "skillCode": "EF69AR10",
+   "question": "Um gesto do dia a dia pode virar dança?",
+   "options": [
+    {
+     "text": "Não, nunca",
+     "misconceptionCode": "cotidiano-nao-e-danca"
+    },
+    {
+     "text": "Só passos prontos são dança",
+     "misconceptionCode": "danca-so-passo-pronto"
+    },
+    {
+     "text": "Só no balé",
+     "misconceptionCode": "danca-nao-muda"
+    },
+    {
+     "text": "Sim, se for transformado no tamanho, na velocidade e no nível"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Muitos coreógrafos criam a partir do cotidiano.",
+   "audioScript": "Pergunta 1. Um gesto do dia a dia pode virar dança? A: Não, nunca; B: Só passos prontos são dança; C: Só no balé; D: Sim, se for transformado no tamanho, na velocidade e no nível.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF69AR10-02",
+   "skillCode": "EF69AR10",
+   "question": "Um movimento forte e um movimento leve diferem no:",
+   "options": [
+    {
+     "text": "Peso"
+    },
+    {
+     "text": "Espaço",
+     "misconceptionCode": "elemento-trocado"
+    },
+    {
+     "text": "Cenário",
+     "misconceptionCode": "elemento-trocado"
+    },
+    {
+     "text": "Figurino",
+     "misconceptionCode": "elemento-trocado"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "O peso vai do forte ao leve.",
+   "audioScript": "Pergunta 2. Um movimento forte e um movimento leve diferem no: A: Peso; B: Espaço; C: Cenário; D: Figurino.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF69AR30-01",
+   "skillCode": "EF69AR30",
+   "question": "Os sons e as músicas de uma cena formam a:",
+   "options": [
+    {
+     "text": "Iluminação",
+     "misconceptionCode": "elemento-cenico-trocado"
+    },
+    {
+     "text": "Sonoplastia"
+    },
+    {
+     "text": "Cenografia",
+     "misconceptionCode": "elemento-cenico-trocado"
+    },
+    {
+     "text": "Maquiagem",
+     "misconceptionCode": "elemento-cenico-trocado"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "A sonoplastia cria o clima.",
+   "audioScript": "Pergunta 3. Os sons e as músicas de uma cena formam a: A: Iluminação; B: Sonoplastia; C: Cenografia; D: Maquiagem.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF69AR30-02",
+   "skillCode": "EF69AR30",
+   "question": "Uma cena pode nascer:",
+   "options": [
+    {
+     "text": "Só de um texto decorado",
+     "misconceptionCode": "so-o-texto"
+    },
+    {
+     "text": "Só de um livro",
+     "misconceptionCode": "so-o-texto"
+    },
+    {
+     "text": "De um texto, de uma música, de uma imagem ou de um objeto"
+    },
+    {
+     "text": "De nada",
+     "misconceptionCode": "so-o-texto"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Qualquer estímulo pode provocar a criação.",
+   "audioScript": "Pergunta 4. Uma cena pode nascer: A: Só de um texto decorado; B: Só de um livro; C: De um texto, de uma música, de uma imagem ou de um objeto; D: De nada.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF15AR02-01",
+   "skillCode": "EF15AR02",
+   "question": "Misturando azul e amarelo, você obtém:",
+   "options": [
+    {
+     "text": "Verde"
+    },
+    {
+     "text": "Roxo",
+     "misconceptionCode": "cor-mistura-errada"
+    },
+    {
+     "text": "Laranja",
+     "misconceptionCode": "cor-mistura-errada"
+    },
+    {
+     "text": "Marrom",
+     "misconceptionCode": "cor-mistura-errada"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Teste com tinta ou lápis: pinte amarelo por cima do azul. Aparece o verde, a cor das folhas!",
+   "audioScript": "Pergunta 1. Misturando azul e amarelo, você obtém: A: Verde; B: Roxo; C: Laranja; D: Marrom.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-EF15AR02-02",
+   "skillCode": "EF15AR02",
+   "question": "Num desenho, o tronco da árvore foi feito com papel amassado para parecer áspero. Isso é um exemplo de:",
+   "options": [
+    {
+     "text": "Cor",
+     "misconceptionCode": "textura-cor"
+    },
+    {
+     "text": "Linha reta",
+     "misconceptionCode": "linha-so-reta"
+    },
+    {
+     "text": "Textura"
+    },
+    {
+     "text": "Forma geométrica",
+     "misconceptionCode": "forma-figura"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Passe a mão: papel amassado é áspero, como casca de árvore. O jeito que uma superfície parece ao toque é a textura.",
+   "audioScript": "Pergunta 1. Num desenho, o tronco da árvore foi feito com papel amassado para parecer áspero. Isso é um exemplo de: A: Cor; B: Linha reta; C: Textura; D: Forma geométrica.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-EF15AR14-01",
+   "skillCode": "EF15AR14",
+   "question": "O apito de um juiz é um som:",
+   "options": [
+    {
+     "text": "Grave",
+     "misconceptionCode": "altura-volume"
+    },
+    {
+     "text": "Sempre fraco",
+     "misconceptionCode": "duracao-intensidade"
+    },
+    {
+     "text": "Sem timbre",
+     "misconceptionCode": "timbre-volume"
+    },
+    {
+     "text": "Agudo"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "O apito é fininho, como a voz de um passarinho. Som fino é agudo; som grosso, como um trovão, é grave.",
+   "audioScript": "Pergunta 1. O apito de um juiz é um som: A: Grave; B: Sempre fraco; C: Sem timbre; D: Agudo.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-EF15AR14-02",
+   "skillCode": "EF15AR14",
+   "question": "Ao aumentar o volume do rádio, o que muda?",
+   "options": [
+    {
+     "text": "A intensidade"
+    },
+    {
+     "text": "A altura",
+     "misconceptionCode": "altura-volume"
+    },
+    {
+     "text": "O timbre",
+     "misconceptionCode": "timbre-volume"
+    },
+    {
+     "text": "A melodia",
+     "misconceptionCode": "ritmo-melodia"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Aumentar o volume deixa o som mais forte, não mais fino ou mais grosso. Som forte ou fraco é a intensidade.",
+   "audioScript": "Pergunta 1. Ao aumentar o volume do rádio, o que muda? A: A intensidade; B: A altura; C: O timbre; D: A melodia.",
+   "role": "DEGRAU_BANK"
+  }
+ ]
 }

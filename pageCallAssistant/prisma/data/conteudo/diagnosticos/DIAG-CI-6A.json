@@ -1,223 +1,327 @@
 {
-  "id": "DIAG2-CI-6A",
-  "version": 3,
-  "titulo": "Diagnóstico de Ciências — 6º ano",
-  "descricao": "Misturas e movimentos da Terra em relação ao Sol no 6º ano, com degrau para o 5º ano.",
-  "subjectCode": "CI",
-  "subjectName": "Ciências",
-  "gradeYear": 6,
-  "status": "APPROVED",
-  "source": "SPEAKFLOW",
-  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-  "adaptive": true,
-  "items": [
+ "id": "DIAG2-CI-6A",
+ "version": 4,
+ "titulo": "Diagnóstico de Ciências — 6º ano",
+ "descricao": "Misturas, movimentos da Terra, célula e camadas do planeta no 6º ano, com degrau para propriedades dos materiais e constelações do 5º ano.",
+ "subjectCode": "CI",
+ "subjectName": "Ciências",
+ "gradeYear": 6,
+ "status": "APPROVED",
+ "source": "SPEAKFLOW",
+ "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+ "adaptive": true,
+ "items": [
+  {
+   "id": "DI2-EF06CI01-01",
+   "skillCode": "EF06CI01",
+   "question": "Um copo de água com sal, mexido até o sal não aparecer mais, é uma mistura:",
+   "options": [
     {
-      "id": "DI2-EF06CI01-01",
-      "skillCode": "EF06CI01",
-      "question": "Um copo de água com sal, mexido até o sal não aparecer mais, é uma mistura:",
-      "options": [
-        {
-          "text": "Homogênea"
-        },
-        {
-          "text": "Heterogênea, porque tem dois ingredientes",
-          "misconceptionCode": "conta-ingredientes"
-        },
-        {
-          "text": "Não é mistura, porque o sal sumiu",
-          "misconceptionCode": "sumiu-entao-nao-existe"
-        },
-        {
-          "text": "Heterogênea, porque é transparente",
-          "misconceptionCode": "confunde-termos"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Depois de mexer, você não vê mais o sal: parece tudo uma coisa só. Quando não dá para ver as partes, a mistura é homogênea.",
-      "audioScript": "Pergunta 1. Um copo de água com sal, mexido até o sal não aparecer mais, é uma mistura: A: Homogênea; B: Heterogênea, porque tem dois ingredientes; C: Não é mistura, porque o sal sumiu; D: Heterogênea, porque é transparente.",
-      "role": "NORMAL"
+     "text": "Homogênea"
     },
     {
-      "id": "DI2-EF06CI01-02",
-      "skillCode": "EF06CI01",
-      "question": "Qual destas misturas é heterogênea?",
-      "options": [
-        {
-          "text": "Água com açúcar dissolvido",
-          "misconceptionCode": "confunde-termos"
-        },
-        {
-          "text": "Suco em pó bem mexido, de cor vermelha",
-          "misconceptionCode": "cor-define"
-        },
-        {
-          "text": "Água com óleo"
-        },
-        {
-          "text": "Ar sem poeira",
-          "misconceptionCode": "conta-ingredientes"
-        }
-      ],
-      "correctIndex": 2,
-      "explanation": "Coloque óleo na água e olhe o copo: dá para ver o óleo separado, em cima. Quando dá para ver as partes, é heterogênea.",
-      "audioScript": "Pergunta 1. Qual destas misturas é heterogênea? A: Água com açúcar dissolvido; B: Suco em pó bem mexido, de cor vermelha; C: Água com óleo; D: Ar sem poeira.",
-      "role": "NORMAL"
+     "text": "Heterogênea, porque tem dois ingredientes",
+     "misconceptionCode": "conta-ingredientes"
     },
     {
-      "id": "DI2-EF06CI14-01",
-      "skillCode": "EF06CI14",
-      "question": "Às 8h da manhã, o Sol está no leste. Para onde aponta a sombra de um poste?",
-      "options": [
-        {
-          "text": "Para o oeste"
-        },
-        {
-          "text": "Para o leste",
-          "misconceptionCode": "sombra-mesmo-lado-sol"
-        },
-        {
-          "text": "Para cima",
-          "misconceptionCode": "sombra-fixa"
-        },
-        {
-          "text": "Não há sombra de manhã",
-          "misconceptionCode": "confunde-movimentos"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "A sombra sempre fica do lado contrário da luz. Se o Sol está no leste, a sombra aponta para o oeste.",
-      "audioScript": "Pergunta 1. Às 8h da manhã, o Sol está no leste. Para onde aponta a sombra de um poste? A: Para o oeste; B: Para o leste; C: Para cima; D: Não há sombra de manhã.",
-      "role": "NORMAL"
+     "text": "Não é mistura, porque o sal sumiu",
+     "misconceptionCode": "sumiu-entao-nao-existe"
     },
     {
-      "id": "DI2-EF06CI14-02",
-      "skillCode": "EF06CI14",
-      "question": "Por que existem as estações do ano?",
-      "options": [
-        {
-          "text": "A Terra chegar mais perto do Sol no verão",
-          "misconceptionCode": "distancia-causa-estacao"
-        },
-        {
-          "text": "A rotação da Terra",
-          "misconceptionCode": "confunde-movimentos"
-        },
-        {
-          "text": "Por causa da inclinação do eixo da Terra"
-        },
-        {
-          "text": "A sombra ficar mais curta",
-          "misconceptionCode": "sombra-fixa"
-        }
-      ],
-      "correctIndex": 2,
-      "explanation": "A Terra é meio \"tortinha\". Enquanto dá a volta no Sol, uma parte recebe mais luz (verão) e a outra, menos (inverno).",
-      "audioScript": "Pergunta 1. Por que existem as estações do ano? A: A Terra chegar mais perto do Sol no verão; B: A rotação da Terra; C: Por causa da inclinação do eixo da Terra; D: A sombra ficar mais curta.",
-      "role": "NORMAL"
-    },
-    {
-      "id": "DI2-EF05CI01-01",
-      "skillCode": "EF05CI01",
-      "question": "Uma bola grande de isopor e uma moeda pequena são colocadas na água. O que acontece?",
-      "options": [
-        {
-          "text": "A bola afunda porque é maior",
-          "misconceptionCode": "pesado-afunda"
-        },
-        {
-          "text": "As duas afundam",
-          "misconceptionCode": "pesado-afunda"
-        },
-        {
-          "text": "As duas flutuam",
-          "misconceptionCode": "propriedade-trocada"
-        },
-        {
-          "text": "A bola de isopor flutua e a moeda afunda"
-        }
-      ],
-      "correctIndex": 3,
-      "explanation": "Não é o tamanho que importa, é o material. O isopor é leve e \"cheio de ar\" e flutua; o metal da moeda afunda.",
-      "audioScript": "Pergunta 1. Uma bola grande de isopor e uma moeda pequena são colocadas na água. O que acontece? A: A bola afunda porque é maior; B: As duas afundam; C: As duas flutuam; D: A bola de isopor flutua e a moeda afunda.",
-      "role": "DEGRAU_BANK"
-    },
-    {
-      "id": "DI2-EF05CI01-02",
-      "skillCode": "EF05CI01",
-      "question": "Qual destes objetos um ímã atrai?",
-      "options": [
-        {
-          "text": "Uma tampinha de ferro"
-        },
-        {
-          "text": "Um copo de alumínio",
-          "misconceptionCode": "todo-metal-ima"
-        },
-        {
-          "text": "Uma caneta de plástico",
-          "misconceptionCode": "propriedade-trocada"
-        },
-        {
-          "text": "Um lápis de madeira",
-          "misconceptionCode": "propriedade-trocada"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "O ímã \"gruda\" no ferro. Por isso ele pega a tampinha de ferro, mas não pega latinha de alumínio nem papel.",
-      "audioScript": "Pergunta 1. Qual destes objetos um ímã atrai? A: Uma tampinha de ferro; B: Um copo de alumínio; C: Uma caneta de plástico; D: Um lápis de madeira.",
-      "role": "DEGRAU_BANK"
-    },
-    {
-      "id": "DI2-EF05CI11-01",
-      "skillCode": "EF05CI11",
-      "question": "O que causa o dia e a noite?",
-      "options": [
-        {
-          "text": "A Terra girando em torno de si mesma"
-        },
-        {
-          "text": "O Sol dando a volta na Terra",
-          "misconceptionCode": "sol-gira-terra"
-        },
-        {
-          "text": "A Terra dando a volta no Sol",
-          "misconceptionCode": "rotacao-translacao"
-        },
-        {
-          "text": "O Sol apagando à noite",
-          "misconceptionCode": "sol-apaga"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "A Terra gira como um pião. O lado virado para o Sol está de dia; o outro lado, de noite.",
-      "audioScript": "Pergunta 1. O que causa o dia e a noite? A: A Terra girando em torno de si mesma; B: O Sol dando a volta na Terra; C: A Terra dando a volta no Sol; D: O Sol apagando à noite.",
-      "role": "DEGRAU_BANK"
-    },
-    {
-      "id": "DI2-EF05CI11-02",
-      "skillCode": "EF05CI11",
-      "question": "Quanto tempo dura uma rotação completa da Terra?",
-      "options": [
-        {
-          "text": "Um ano",
-          "misconceptionCode": "rotacao-translacao"
-        },
-        {
-          "text": "Uma semana",
-          "misconceptionCode": "duracao-errada"
-        },
-        {
-          "text": "Cerca de 24 horas"
-        },
-        {
-          "text": "Doze meses",
-          "misconceptionCode": "duracao-errada"
-        }
-      ],
-      "correctIndex": 2,
-      "explanation": "Uma volta da Terra em torno de si mesma é um dia inteiro, com manhã, tarde e noite: cerca de 24 horas.",
-      "audioScript": "Pergunta 1. Quanto tempo dura uma rotação completa da Terra? A: Um ano; B: Uma semana; C: Cerca de 24 horas; D: Doze meses.",
-      "role": "DEGRAU_BANK"
+     "text": "Heterogênea, porque é transparente",
+     "misconceptionCode": "confunde-termos"
     }
-  ]
+   ],
+   "correctIndex": 0,
+   "explanation": "Depois de mexer, você não vê mais o sal: parece tudo uma coisa só. Quando não dá para ver as partes, a mistura é homogênea.",
+   "audioScript": "Pergunta 1. Um copo de água com sal, mexido até o sal não aparecer mais, é uma mistura: A: Homogênea; B: Heterogênea, porque tem dois ingredientes; C: Não é mistura, porque o sal sumiu; D: Heterogênea, porque é transparente.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF06CI01-02",
+   "skillCode": "EF06CI01",
+   "question": "Qual destas misturas é heterogênea?",
+   "options": [
+    {
+     "text": "Água com açúcar dissolvido",
+     "misconceptionCode": "confunde-termos"
+    },
+    {
+     "text": "Suco em pó bem mexido, de cor vermelha",
+     "misconceptionCode": "cor-define"
+    },
+    {
+     "text": "Água com óleo"
+    },
+    {
+     "text": "Ar sem poeira",
+     "misconceptionCode": "conta-ingredientes"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Coloque óleo na água e olhe o copo: dá para ver o óleo separado, em cima. Quando dá para ver as partes, é heterogênea.",
+   "audioScript": "Pergunta 1. Qual destas misturas é heterogênea? A: Água com açúcar dissolvido; B: Suco em pó bem mexido, de cor vermelha; C: Água com óleo; D: Ar sem poeira.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF06CI14-01",
+   "skillCode": "EF06CI14",
+   "question": "Às 8h da manhã, o Sol está no leste. Para onde aponta a sombra de um poste?",
+   "options": [
+    {
+     "text": "Para o oeste"
+    },
+    {
+     "text": "Para o leste",
+     "misconceptionCode": "sombra-mesmo-lado-sol"
+    },
+    {
+     "text": "Para cima",
+     "misconceptionCode": "sombra-fixa"
+    },
+    {
+     "text": "Não há sombra de manhã",
+     "misconceptionCode": "confunde-movimentos"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "A sombra sempre fica do lado contrário da luz. Se o Sol está no leste, a sombra aponta para o oeste.",
+   "audioScript": "Pergunta 1. Às 8h da manhã, o Sol está no leste. Para onde aponta a sombra de um poste? A: Para o oeste; B: Para o leste; C: Para cima; D: Não há sombra de manhã.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF06CI14-02",
+   "skillCode": "EF06CI14",
+   "question": "Por que existem as estações do ano?",
+   "options": [
+    {
+     "text": "A Terra chegar mais perto do Sol no verão",
+     "misconceptionCode": "distancia-causa-estacao"
+    },
+    {
+     "text": "A rotação da Terra",
+     "misconceptionCode": "confunde-movimentos"
+    },
+    {
+     "text": "Por causa da inclinação do eixo da Terra"
+    },
+    {
+     "text": "A sombra ficar mais curta",
+     "misconceptionCode": "sombra-fixa"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "A Terra é meio \"tortinha\". Enquanto dá a volta no Sol, uma parte recebe mais luz (verão) e a outra, menos (inverno).",
+   "audioScript": "Pergunta 1. Por que existem as estações do ano? A: A Terra chegar mais perto do Sol no verão; B: A rotação da Terra; C: Por causa da inclinação do eixo da Terra; D: A sombra ficar mais curta.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF06CI05-01",
+   "skillCode": "EF06CI05",
+   "question": "A parte da célula que comanda as suas atividades é:",
+   "options": [
+    {
+     "text": "A membrana",
+     "misconceptionCode": "partes-trocadas"
+    },
+    {
+     "text": "O citoplasma",
+     "misconceptionCode": "partes-trocadas"
+    },
+    {
+     "text": "A parede",
+     "misconceptionCode": "partes-trocadas"
+    },
+    {
+     "text": "O núcleo"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "O núcleo guarda o material genético.",
+   "audioScript": "Pergunta 1. A parte da célula que comanda as suas atividades é: A: A membrana; B: O citoplasma; C: A parede; D: O núcleo.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF06CI05-02",
+   "skillCode": "EF06CI05",
+   "question": "Quais seres vivos são formados por células?",
+   "options": [
+    {
+     "text": "Todos"
+    },
+    {
+     "text": "Só os animais",
+     "misconceptionCode": "celula-so-animal"
+    },
+    {
+     "text": "Só as plantas",
+     "misconceptionCode": "celula-so-animal"
+    },
+    {
+     "text": "Só os seres humanos",
+     "misconceptionCode": "celula-so-animal"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "A célula é a unidade dos seres vivos.",
+   "audioScript": "Pergunta 2. Quais seres vivos são formados por células? A: Todos; B: Só os animais; C: Só as plantas; D: Só os seres humanos.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF06CI11-01",
+   "skillCode": "EF06CI11",
+   "question": "A ordem das camadas internas da Terra, de fora para dentro, é:",
+   "options": [
+    {
+     "text": "Núcleo, manto, crosta",
+     "misconceptionCode": "camadas-trocadas"
+    },
+    {
+     "text": "Crosta, manto, núcleo"
+    },
+    {
+     "text": "Manto, crosta, núcleo",
+     "misconceptionCode": "camadas-trocadas"
+    },
+    {
+     "text": "Crosta, núcleo, manto",
+     "misconceptionCode": "camadas-trocadas"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "A crosta é a camada externa.",
+   "audioScript": "Pergunta 3. A ordem das camadas internas da Terra, de fora para dentro, é: A: Núcleo, manto, crosta; B: Crosta, manto, núcleo; C: Manto, crosta, núcleo; D: Crosta, núcleo, manto.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF06CI11-02",
+   "skillCode": "EF06CI11",
+   "question": "A camada de ar que envolve a Terra é a:",
+   "options": [
+    {
+     "text": "Hidrosfera",
+     "misconceptionCode": "esfera-confundida"
+    },
+    {
+     "text": "Litosfera",
+     "misconceptionCode": "esfera-confundida"
+    },
+    {
+     "text": "Atmosfera"
+    },
+    {
+     "text": "Biosfera",
+     "misconceptionCode": "esfera-confundida"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "A atmosfera é formada por gases.",
+   "audioScript": "Pergunta 4. A camada de ar que envolve a Terra é a: A: Hidrosfera; B: Litosfera; C: Atmosfera; D: Biosfera.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF05CI01-01",
+   "skillCode": "EF05CI01",
+   "question": "Uma bola grande de isopor e uma moeda pequena são colocadas na água. O que acontece?",
+   "options": [
+    {
+     "text": "A bola afunda porque é maior",
+     "misconceptionCode": "pesado-afunda"
+    },
+    {
+     "text": "As duas afundam",
+     "misconceptionCode": "pesado-afunda"
+    },
+    {
+     "text": "As duas flutuam",
+     "misconceptionCode": "propriedade-trocada"
+    },
+    {
+     "text": "A bola de isopor flutua e a moeda afunda"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Não é o tamanho que importa, é o material. O isopor é leve e \"cheio de ar\" e flutua; o metal da moeda afunda.",
+   "audioScript": "Pergunta 1. Uma bola grande de isopor e uma moeda pequena são colocadas na água. O que acontece? A: A bola afunda porque é maior; B: As duas afundam; C: As duas flutuam; D: A bola de isopor flutua e a moeda afunda.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-EF05CI01-02",
+   "skillCode": "EF05CI01",
+   "question": "Qual destes objetos um ímã atrai?",
+   "options": [
+    {
+     "text": "Uma tampinha de ferro"
+    },
+    {
+     "text": "Um copo de alumínio",
+     "misconceptionCode": "todo-metal-ima"
+    },
+    {
+     "text": "Uma caneta de plástico",
+     "misconceptionCode": "propriedade-trocada"
+    },
+    {
+     "text": "Um lápis de madeira",
+     "misconceptionCode": "propriedade-trocada"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "O ímã \"gruda\" no ferro. Por isso ele pega a tampinha de ferro, mas não pega latinha de alumínio nem papel.",
+   "audioScript": "Pergunta 1. Qual destes objetos um ímã atrai? A: Uma tampinha de ferro; B: Um copo de alumínio; C: Uma caneta de plástico; D: Um lápis de madeira.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-EF05CI11-01",
+   "skillCode": "EF05CI11",
+   "question": "O que causa o dia e a noite?",
+   "options": [
+    {
+     "text": "A Terra girando em torno de si mesma"
+    },
+    {
+     "text": "O Sol dando a volta na Terra",
+     "misconceptionCode": "sol-gira-terra"
+    },
+    {
+     "text": "A Terra dando a volta no Sol",
+     "misconceptionCode": "rotacao-translacao"
+    },
+    {
+     "text": "O Sol apagando à noite",
+     "misconceptionCode": "sol-apaga"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "A Terra gira como um pião. O lado virado para o Sol está de dia; o outro lado, de noite.",
+   "audioScript": "Pergunta 1. O que causa o dia e a noite? A: A Terra girando em torno de si mesma; B: O Sol dando a volta na Terra; C: A Terra dando a volta no Sol; D: O Sol apagando à noite.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-EF05CI11-02",
+   "skillCode": "EF05CI11",
+   "question": "Quanto tempo dura uma rotação completa da Terra?",
+   "options": [
+    {
+     "text": "Um ano",
+     "misconceptionCode": "rotacao-translacao"
+    },
+    {
+     "text": "Uma semana",
+     "misconceptionCode": "duracao-errada"
+    },
+    {
+     "text": "Cerca de 24 horas"
+    },
+    {
+     "text": "Doze meses",
+     "misconceptionCode": "duracao-errada"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Uma volta da Terra em torno de si mesma é um dia inteiro, com manhã, tarde e noite: cerca de 24 horas.",
+   "audioScript": "Pergunta 1. Quanto tempo dura uma rotação completa da Terra? A: Um ano; B: Uma semana; C: Cerca de 24 horas; D: Doze meses.",
+   "role": "DEGRAU_BANK"
+  }
+ ]
 }

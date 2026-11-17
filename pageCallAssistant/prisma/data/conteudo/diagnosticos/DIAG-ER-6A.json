@@ -1,223 +1,327 @@
 {
-  "id": "DIAG2-ER-6A",
-  "version": 3,
-  "titulo": "Diagnóstico de Ensino Religioso — 6º ano",
-  "descricao": "Tradição escrita e a relação entre mito, rito e símbolo nas tradições religiosas no 6º ano, com degrau para o 5º ano.",
-  "subjectCode": "ER",
-  "subjectName": "Ensino Religioso",
-  "gradeYear": 6,
-  "status": "APPROVED",
-  "source": "SPEAKFLOW",
-  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-  "adaptive": true,
-  "items": [
+ "id": "DIAG2-ER-6A",
+ "version": 4,
+ "titulo": "Diagnóstico de Ensino Religioso — 6º ano",
+ "descricao": "Tradição escrita, mitos e símbolos, textos sagrados e os seus ensinamentos no 6º ano, com degrau para o 5º ano.",
+ "subjectCode": "ER",
+ "subjectName": "Ensino Religioso",
+ "gradeYear": 6,
+ "status": "APPROVED",
+ "source": "SPEAKFLOW",
+ "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+ "adaptive": true,
+ "items": [
+  {
+   "id": "DI2-EF06ER01-01",
+   "skillCode": "EF06ER01",
+   "question": "O Alcorão é o texto sagrado de qual tradição religiosa?",
+   "options": [
     {
-      "id": "DI2-EF06ER01-01",
-      "skillCode": "EF06ER01",
-      "question": "O Alcorão é o texto sagrado de qual tradição religiosa?",
-      "options": [
-        {
-          "text": "Judaísmo",
-          "misconceptionCode": "texto-religiao-trocada"
-        },
-        {
-          "text": "Hinduísmo",
-          "misconceptionCode": "texto-religiao-trocada"
-        },
-        {
-          "text": "De todas as religiões",
-          "misconceptionCode": "so-um-texto"
-        },
-        {
-          "text": "Islamismo"
-        }
-      ],
-      "correctIndex": 3,
-      "explanation": "O Alcorão é o livro sagrado do islamismo. Quem segue o islamismo é chamado de muçulmano.",
-      "audioScript": "Pergunta 1. O Alcorão é o texto sagrado de qual tradição religiosa? A: Judaísmo; B: Hinduísmo; C: De todas as religiões; D: Islamismo.",
-      "role": "NORMAL"
+     "text": "Judaísmo",
+     "misconceptionCode": "texto-religiao-trocada"
     },
     {
-      "id": "DI2-EF06ER01-02",
-      "skillCode": "EF06ER01",
-      "question": "Uma tradição religiosa que ensina só pela fala, sem livro, é:",
-      "options": [
-        {
-          "text": "Tão importante quanto as que têm textos escritos"
-        },
-        {
-          "text": "Menos importante",
-          "misconceptionCode": "escrita-melhor"
-        },
-        {
-          "text": "Uma tradição que copia outra",
-          "misconceptionCode": "so-um-texto"
-        },
-        {
-          "text": "Uma tradição que não tem memória",
-          "misconceptionCode": "escrita-sem-oral"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Sem livro, a tradição guarda a sua memória contando para os mais novos. Falada ou escrita, toda tradição tem o seu valor.",
-      "audioScript": "Pergunta 1. Uma tradição religiosa que ensina só pela fala, sem livro, é: A: Tão importante quanto as que têm textos escritos; B: Menos importante; C: Uma tradição que copia outra; D: Uma tradição que não tem memória.",
-      "role": "NORMAL"
+     "text": "Hinduísmo",
+     "misconceptionCode": "texto-religiao-trocada"
     },
     {
-      "id": "DI2-EF06ER07-01",
-      "skillCode": "EF06ER07",
-      "question": "Uma celebração com gestos, cantos e palavras que se repete todo ano é:",
-      "options": [
-        {
-          "text": "Um mito",
-          "misconceptionCode": "rito-mito"
-        },
-        {
-          "text": "Só um objeto",
-          "misconceptionCode": "simbolo-objeto"
-        },
-        {
-          "text": "Um rito"
-        },
-        {
-          "text": "Algo sem relação com a tradição",
-          "misconceptionCode": "rito-sem-relacao"
-        }
-      ],
-      "correctIndex": 2,
-      "explanation": "Quando uma comunidade repete uma celebração especial, com gestos e cantos, isso se chama rito. Uma festa de aniversário também tem os seus ritos!",
-      "audioScript": "Pergunta 1. Uma celebração com gestos, cantos e palavras que se repete todo ano é: A: Um mito; B: Só um objeto; C: Um rito; D: Algo sem relação com a tradição.",
-      "role": "NORMAL"
+     "text": "De todas as religiões",
+     "misconceptionCode": "so-um-texto"
     },
     {
-      "id": "DI2-EF06ER07-02",
-      "skillCode": "EF06ER07",
-      "question": "A estrela de Davi é um símbolo de qual tradição?",
-      "options": [
-        {
-          "text": "Islamismo",
-          "misconceptionCode": "simbolo-trocado"
-        },
-        {
-          "text": "Judaísmo"
-        },
-        {
-          "text": "Budismo",
-          "misconceptionCode": "simbolo-trocado"
-        },
-        {
-          "text": "Hinduísmo",
-          "misconceptionCode": "simbolo-trocado"
-        }
-      ],
-      "correctIndex": 1,
-      "explanation": "A estrela de seis pontas, a estrela de Davi, é o símbolo mais conhecido do judaísmo.",
-      "audioScript": "Pergunta 1. A estrela de Davi é um símbolo de qual tradição? A: Islamismo; B: Judaísmo; C: Budismo; D: Hinduísmo.",
-      "role": "NORMAL"
-    },
-    {
-      "id": "DI2-EF05ER04-01",
-      "skillCode": "EF05ER04",
-      "question": "Uma história que passa dos avós para os netos pela fala é um exemplo de:",
-      "options": [
-        {
-          "text": "Tradição escrita",
-          "misconceptionCode": "confunde-oral-escrita"
-        },
-        {
-          "text": "Algo sem valor",
-          "misconceptionCode": "oral-sem-valor"
-        },
-        {
-          "text": "Tradição oral"
-        },
-        {
-          "text": "Algo que acabou há muito tempo",
-          "misconceptionCode": "oral-so-antigo"
-        }
-      ],
-      "correctIndex": 2,
-      "explanation": "Quando a história é contada de boca em boca, sem escrever, ela é passada pela tradição oral.",
-      "audioScript": "Pergunta 1. Uma história que passa dos avós para os netos pela fala é um exemplo de: A: Tradição escrita; B: Algo sem valor; C: Tradição oral; D: Algo que acabou há muito tempo.",
-      "role": "DEGRAU_BANK"
-    },
-    {
-      "id": "DI2-EF05ER04-02",
-      "skillCode": "EF05ER04",
-      "question": "A tradição oral está presente:",
-      "options": [
-        {
-          "text": "Só em uma religião",
-          "misconceptionCode": "oral-uma-cultura"
-        },
-        {
-          "text": "Em muitas culturas e tradições religiosas"
-        },
-        {
-          "text": "Só nos livros",
-          "misconceptionCode": "confunde-oral-escrita"
-        },
-        {
-          "text": "Em nenhuma cultura hoje",
-          "misconceptionCode": "oral-so-antigo"
-        }
-      ],
-      "correctIndex": 1,
-      "explanation": "Contar histórias de boca em boca acontece no mundo todo, em muitas religiões e culturas, até hoje.",
-      "audioScript": "Pergunta 1. A tradição oral está presente: A: Só em uma religião; B: Em muitas culturas e tradições religiosas; C: Só nos livros; D: Em nenhuma cultura hoje.",
-      "role": "DEGRAU_BANK"
-    },
-    {
-      "id": "DI2-EF05ER02-01",
-      "skillCode": "EF05ER02",
-      "question": "No estudo das religiões, um mito de criação é:",
-      "options": [
-        {
-          "text": "Uma mentira",
-          "misconceptionCode": "mito-mentira"
-        },
-        {
-          "text": "Uma teoria de laboratório",
-          "misconceptionCode": "mito-ciencia"
-        },
-        {
-          "text": "Uma história sem nenhum ensinamento",
-          "misconceptionCode": "mito-sem-sentido"
-        },
-        {
-          "text": "Uma narrativa sagrada sobre a origem do mundo"
-        }
-      ],
-      "correctIndex": 3,
-      "explanation": "Aqui, mito não é mentira: é uma história sagrada que um povo conta para explicar como o mundo começou.",
-      "audioScript": "Pergunta 1. No estudo das religiões, um mito de criação é: A: Uma mentira; B: Uma teoria de laboratório; C: Uma história sem nenhum ensinamento; D: Uma narrativa sagrada sobre a origem do mundo.",
-      "role": "DEGRAU_BANK"
-    },
-    {
-      "id": "DI2-EF05ER02-02",
-      "skillCode": "EF05ER02",
-      "question": "Sobre as explicações para a origem do mundo, é correto dizer que:",
-      "options": [
-        {
-          "text": "Cada cultura tem as suas narrativas"
-        },
-        {
-          "text": "Só existe uma explicação",
-          "misconceptionCode": "mito-unico"
-        },
-        {
-          "text": "Todas são mentira",
-          "misconceptionCode": "mito-mentira"
-        },
-        {
-          "text": "Nenhum povo pensa nisso",
-          "misconceptionCode": "mito-sem-sentido"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Cada povo e cada religião tem a sua história sobre como o mundo começou. Conhecer todas ajuda a respeitar todo mundo.",
-      "audioScript": "Pergunta 1. Sobre as explicações para a origem do mundo, é correto dizer que: A: Cada cultura tem as suas narrativas; B: Só existe uma explicação; C: Todas são mentira; D: Nenhum povo pensa nisso.",
-      "role": "DEGRAU_BANK"
+     "text": "Islamismo"
     }
-  ]
+   ],
+   "correctIndex": 3,
+   "explanation": "O Alcorão é o livro sagrado do islamismo. Quem segue o islamismo é chamado de muçulmano.",
+   "audioScript": "Pergunta 1. O Alcorão é o texto sagrado de qual tradição religiosa? A: Judaísmo; B: Hinduísmo; C: De todas as religiões; D: Islamismo.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF06ER01-02",
+   "skillCode": "EF06ER01",
+   "question": "Uma tradição religiosa que ensina só pela fala, sem livro, é:",
+   "options": [
+    {
+     "text": "Tão importante quanto as que têm textos escritos"
+    },
+    {
+     "text": "Menos importante",
+     "misconceptionCode": "escrita-melhor"
+    },
+    {
+     "text": "Uma tradição que copia outra",
+     "misconceptionCode": "so-um-texto"
+    },
+    {
+     "text": "Uma tradição que não tem memória",
+     "misconceptionCode": "escrita-sem-oral"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Sem livro, a tradição guarda a sua memória contando para os mais novos. Falada ou escrita, toda tradição tem o seu valor.",
+   "audioScript": "Pergunta 1. Uma tradição religiosa que ensina só pela fala, sem livro, é: A: Tão importante quanto as que têm textos escritos; B: Menos importante; C: Uma tradição que copia outra; D: Uma tradição que não tem memória.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF06ER07-01",
+   "skillCode": "EF06ER07",
+   "question": "Uma celebração com gestos, cantos e palavras que se repete todo ano é:",
+   "options": [
+    {
+     "text": "Um mito",
+     "misconceptionCode": "rito-mito"
+    },
+    {
+     "text": "Só um objeto",
+     "misconceptionCode": "simbolo-objeto"
+    },
+    {
+     "text": "Um rito"
+    },
+    {
+     "text": "Algo sem relação com a tradição",
+     "misconceptionCode": "rito-sem-relacao"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Quando uma comunidade repete uma celebração especial, com gestos e cantos, isso se chama rito. Uma festa de aniversário também tem os seus ritos!",
+   "audioScript": "Pergunta 1. Uma celebração com gestos, cantos e palavras que se repete todo ano é: A: Um mito; B: Só um objeto; C: Um rito; D: Algo sem relação com a tradição.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF06ER07-02",
+   "skillCode": "EF06ER07",
+   "question": "A estrela de Davi é um símbolo de qual tradição?",
+   "options": [
+    {
+     "text": "Islamismo",
+     "misconceptionCode": "simbolo-trocado"
+    },
+    {
+     "text": "Judaísmo"
+    },
+    {
+     "text": "Budismo",
+     "misconceptionCode": "simbolo-trocado"
+    },
+    {
+     "text": "Hinduísmo",
+     "misconceptionCode": "simbolo-trocado"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "A estrela de seis pontas, a estrela de Davi, é o símbolo mais conhecido do judaísmo.",
+   "audioScript": "Pergunta 1. A estrela de Davi é um símbolo de qual tradição? A: Islamismo; B: Judaísmo; C: Budismo; D: Hinduísmo.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF06ER02-01",
+   "skillCode": "EF06ER02",
+   "question": "O Alcorão é o livro sagrado do:",
+   "options": [
+    {
+     "text": "Judaísmo",
+     "misconceptionCode": "livro-trocado"
+    },
+    {
+     "text": "Hinduísmo",
+     "misconceptionCode": "livro-trocado"
+    },
+    {
+     "text": "Budismo",
+     "misconceptionCode": "livro-trocado"
+    },
+    {
+     "text": "Islamismo"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "É o texto sagrado dos muçulmanos.",
+   "audioScript": "Pergunta 1. O Alcorão é o livro sagrado do: A: Judaísmo; B: Hinduísmo; C: Budismo; D: Islamismo.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF06ER02-02",
+   "skillCode": "EF06ER02",
+   "question": "Existe um único livro sagrado no mundo?",
+   "options": [
+    {
+     "text": "Não, cada tradição tem os seus textos"
+    },
+    {
+     "text": "Sim, um só",
+     "misconceptionCode": "so-um-livro"
+    },
+    {
+     "text": "Sim, os outros não valem",
+     "misconceptionCode": "texto-sem-valor"
+    },
+    {
+     "text": "Sim, e todos o seguem",
+     "misconceptionCode": "so-um-livro"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Há muitos textos e muitas tradições.",
+   "audioScript": "Pergunta 2. Existe um único livro sagrado no mundo? A: Não, cada tradição tem os seus textos; B: Sim, um só; C: Sim, os outros não valem; D: Sim, e todos o seguem.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF06ER03-01",
+   "skillCode": "EF06ER03",
+   "question": "O ensinamento \"Não faça aos outros o que não quer que façam a você\" fala de:",
+   "options": [
+    {
+     "text": "Vingança",
+     "misconceptionCode": "ensinamento-trocado"
+    },
+    {
+     "text": "Respeito ao outro"
+    },
+    {
+     "text": "Competição",
+     "misconceptionCode": "ensinamento-trocado"
+    },
+    {
+     "text": "Riqueza",
+     "misconceptionCode": "ensinamento-trocado"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "Pede que nos coloquemos no lugar do outro.",
+   "audioScript": "Pergunta 3. O ensinamento \"Não faça aos outros o que não quer que façam a você\" fala de: A: Vingança; B: Respeito ao outro; C: Competição; D: Riqueza.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF06ER03-02",
+   "skillCode": "EF06ER03",
+   "question": "Tradições religiosas diferentes:",
+   "options": [
+    {
+     "text": "Só ensinam coisas opostas",
+     "misconceptionCode": "tradicoes-opostas"
+    },
+    {
+     "text": "Não têm nada em comum",
+     "misconceptionCode": "tradicoes-opostas"
+    },
+    {
+     "text": "Compartilham muitos valores, como o respeito e a solidariedade"
+    },
+    {
+     "text": "Ensinam valores só para os seus fiéis",
+     "misconceptionCode": "so-para-os-fieis"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Muitos ensinamentos se parecem.",
+   "audioScript": "Pergunta 4. Tradições religiosas diferentes: A: Só ensinam coisas opostas; B: Não têm nada em comum; C: Compartilham muitos valores, como o respeito e a solidariedade; D: Ensinam valores só para os seus fiéis.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF05ER04-01",
+   "skillCode": "EF05ER04",
+   "question": "Uma história que passa dos avós para os netos pela fala é um exemplo de:",
+   "options": [
+    {
+     "text": "Tradição escrita",
+     "misconceptionCode": "confunde-oral-escrita"
+    },
+    {
+     "text": "Algo sem valor",
+     "misconceptionCode": "oral-sem-valor"
+    },
+    {
+     "text": "Tradição oral"
+    },
+    {
+     "text": "Algo que acabou há muito tempo",
+     "misconceptionCode": "oral-so-antigo"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Quando a história é contada de boca em boca, sem escrever, ela é passada pela tradição oral.",
+   "audioScript": "Pergunta 1. Uma história que passa dos avós para os netos pela fala é um exemplo de: A: Tradição escrita; B: Algo sem valor; C: Tradição oral; D: Algo que acabou há muito tempo.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-EF05ER04-02",
+   "skillCode": "EF05ER04",
+   "question": "A tradição oral está presente:",
+   "options": [
+    {
+     "text": "Só em uma religião",
+     "misconceptionCode": "oral-uma-cultura"
+    },
+    {
+     "text": "Em muitas culturas e tradições religiosas"
+    },
+    {
+     "text": "Só nos livros",
+     "misconceptionCode": "confunde-oral-escrita"
+    },
+    {
+     "text": "Em nenhuma cultura hoje",
+     "misconceptionCode": "oral-so-antigo"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "Contar histórias de boca em boca acontece no mundo todo, em muitas religiões e culturas, até hoje.",
+   "audioScript": "Pergunta 1. A tradição oral está presente: A: Só em uma religião; B: Em muitas culturas e tradições religiosas; C: Só nos livros; D: Em nenhuma cultura hoje.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-EF05ER02-01",
+   "skillCode": "EF05ER02",
+   "question": "No estudo das religiões, um mito de criação é:",
+   "options": [
+    {
+     "text": "Uma mentira",
+     "misconceptionCode": "mito-mentira"
+    },
+    {
+     "text": "Uma teoria de laboratório",
+     "misconceptionCode": "mito-ciencia"
+    },
+    {
+     "text": "Uma história sem nenhum ensinamento",
+     "misconceptionCode": "mito-sem-sentido"
+    },
+    {
+     "text": "Uma narrativa sagrada sobre a origem do mundo"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Aqui, mito não é mentira: é uma história sagrada que um povo conta para explicar como o mundo começou.",
+   "audioScript": "Pergunta 1. No estudo das religiões, um mito de criação é: A: Uma mentira; B: Uma teoria de laboratório; C: Uma história sem nenhum ensinamento; D: Uma narrativa sagrada sobre a origem do mundo.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-EF05ER02-02",
+   "skillCode": "EF05ER02",
+   "question": "Sobre as explicações para a origem do mundo, é correto dizer que:",
+   "options": [
+    {
+     "text": "Cada cultura tem as suas narrativas"
+    },
+    {
+     "text": "Só existe uma explicação",
+     "misconceptionCode": "mito-unico"
+    },
+    {
+     "text": "Todas são mentira",
+     "misconceptionCode": "mito-mentira"
+    },
+    {
+     "text": "Nenhum povo pensa nisso",
+     "misconceptionCode": "mito-sem-sentido"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Cada povo e cada religião tem a sua história sobre como o mundo começou. Conhecer todas ajuda a respeitar todo mundo.",
+   "audioScript": "Pergunta 1. Sobre as explicações para a origem do mundo, é correto dizer que: A: Cada cultura tem as suas narrativas; B: Só existe uma explicação; C: Todas são mentira; D: Nenhum povo pensa nisso.",
+   "role": "DEGRAU_BANK"
+  }
+ ]
 }

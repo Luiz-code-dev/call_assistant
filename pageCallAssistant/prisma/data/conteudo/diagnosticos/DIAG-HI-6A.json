@@ -1,223 +1,327 @@
 {
-  "id": "DIAG2-HI-6A",
-  "version": 3,
-  "titulo": "Diagnóstico de História — 6º ano",
-  "descricao": "Tempo histórico e cidadania na Grécia e em Roma antigas no 6º ano, com degrau para o 5º ano.",
-  "subjectCode": "HI",
-  "subjectName": "História",
-  "gradeYear": 6,
-  "status": "APPROVED",
-  "source": "SPEAKFLOW",
-  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-  "adaptive": true,
-  "items": [
+ "id": "DIAG2-HI-6A",
+ "version": 4,
+ "titulo": "Diagnóstico de História — 6º ano",
+ "descricao": "Tempo e fontes históricas, cidadania na Antiguidade, transformações da natureza e formas de registro no 6º ano, com degrau para o 5º ano.",
+ "subjectCode": "HI",
+ "subjectName": "História",
+ "gradeYear": 6,
+ "status": "APPROVED",
+ "source": "SPEAKFLOW",
+ "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+ "adaptive": true,
+ "items": [
+  {
+   "id": "DI2-EF06HI01-01",
+   "skillCode": "EF06HI01",
+   "question": "Em que século foi o ano de 1789?",
+   "options": [
     {
-      "id": "DI2-EF06HI01-01",
-      "skillCode": "EF06HI01",
-      "question": "Em que século foi o ano de 1789?",
-      "options": [
-        {
-          "text": "Século XVII",
-          "misconceptionCode": "seculo-errado"
-        },
-        {
-          "text": "Século XIX",
-          "misconceptionCode": "seculo-errado"
-        },
-        {
-          "text": "Século XVIII"
-        },
-        {
-          "text": "Século LXXXIX",
-          "misconceptionCode": "seculo-errado"
-        }
-      ],
-      "correctIndex": 2,
-      "explanation": "Truque: tire os dois últimos números (1789 vira 17) e some 1. Dá 18, o século XVIII.",
-      "audioScript": "Pergunta 1. Em que século foi o ano de 1789? A: Século XVII; B: Século XIX; C: Século XVIII; D: Século LXXXIX.",
-      "role": "NORMAL"
+     "text": "Século XVII",
+     "misconceptionCode": "seculo-errado"
     },
     {
-      "id": "DI2-EF06HI01-02",
-      "skillCode": "EF06HI01",
-      "question": "Um fato aconteceu em 200 a.C. e outro em 400 a.C. Qual veio primeiro?",
-      "options": [
-        {
-          "text": "O de 200 a.C.",
-          "misconceptionCode": "ac-ao-contrario"
-        },
-        {
-          "text": "O de 400 a.C."
-        },
-        {
-          "text": "Os dois juntos",
-          "misconceptionCode": "tudo-muda-junto"
-        },
-        {
-          "text": "Não dá para saber",
-          "misconceptionCode": "periodo-natural"
-        }
-      ],
-      "correctIndex": 1,
-      "explanation": "Antes de Cristo, a conta é ao contrário: quanto maior o número, mais antigo. 400 a.C. veio antes de 200 a.C.",
-      "audioScript": "Pergunta 1. Um fato aconteceu em 200 a.C. e outro em 400 a.C. Qual veio primeiro? A: O de 200 a.C.; B: O de 400 a.C.; C: Os dois juntos; D: Não dá para saber.",
-      "role": "NORMAL"
+     "text": "Século XIX",
+     "misconceptionCode": "seculo-errado"
     },
     {
-      "id": "DI2-EF06HI12-01",
-      "skillCode": "EF06HI12",
-      "question": "Na democracia de Atenas, quem podia votar na assembleia?",
-      "options": [
-        {
-          "text": "Todos os moradores",
-          "misconceptionCode": "democracia-para-todos"
-        },
-        {
-          "text": "Homens e mulheres, como hoje",
-          "misconceptionCode": "igual-a-hoje"
-        },
-        {
-          "text": "Os estrangeiros e os escravizados",
-          "misconceptionCode": "confunde-grupos"
-        },
-        {
-          "text": "Só homens adultos, livres e atenienses"
-        }
-      ],
-      "correctIndex": 3,
-      "explanation": "Em Atenas, mulheres, escravizados e estrangeiros não votavam. Só homens adultos, livres e nascidos lá. Bem diferente de hoje!",
-      "audioScript": "Pergunta 1. Na democracia de Atenas, quem podia votar na assembleia? A: Todos os moradores; B: Homens e mulheres, como hoje; C: Os estrangeiros e os escravizados; D: Só homens adultos, livres e atenienses.",
-      "role": "NORMAL"
+     "text": "Século XVIII"
     },
     {
-      "id": "DI2-EF06HI12-02",
-      "skillCode": "EF06HI12",
-      "question": "Os plebeus de Roma conseguiram mais direitos:",
-      "options": [
-        {
-          "text": "Com lutas e protestos contra os patrícios"
-        },
-        {
-          "text": "Sem nenhum conflito",
-          "misconceptionCode": "roma-sem-conflito"
-        },
-        {
-          "text": "Porque já nasciam com todos os direitos",
-          "misconceptionCode": "igual-a-hoje"
-        },
-        {
-          "text": "Porque eram escravizados",
-          "misconceptionCode": "confunde-grupos"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Os plebeus não ganharam direitos de presente: protestaram e lutaram contra os patrícios, os ricos de Roma, até conseguir.",
-      "audioScript": "Pergunta 1. Os plebeus de Roma conseguiram mais direitos: A: Com lutas e protestos contra os patrícios; B: Sem nenhum conflito; C: Porque já nasciam com todos os direitos; D: Porque eram escravizados.",
-      "role": "NORMAL"
-    },
-    {
-      "id": "DI2-EF05HI08-01",
-      "skillCode": "EF05HI08",
-      "question": "Antes do relógio, como as pessoas sabiam a parte do dia?",
-      "options": [
-        {
-          "text": "Não sabiam de jeito nenhum",
-          "misconceptionCode": "tempo-so-relogio"
-        },
-        {
-          "text": "Usando o mesmo calendário que usamos hoje",
-          "misconceptionCode": "calendario-unico"
-        },
-        {
-          "text": "Contando os séculos",
-          "misconceptionCode": "ordem-trocada"
-        },
-        {
-          "text": "Observando a posição do Sol e as sombras"
-        }
-      ],
-      "correctIndex": 3,
-      "explanation": "Sem relógio, as pessoas olhavam para o céu: Sol nascendo é manhã, Sol no alto é meio-dia, e a sombra muda de tamanho.",
-      "audioScript": "Pergunta 1. Antes do relógio, como as pessoas sabiam a parte do dia? A: Não sabiam de jeito nenhum; B: Usando o mesmo calendário que usamos hoje; C: Contando os séculos; D: Observando a posição do Sol e as sombras.",
-      "role": "DEGRAU_BANK"
-    },
-    {
-      "id": "DI2-EF05HI08-02",
-      "skillCode": "EF05HI08",
-      "question": "Um povo indígena organiza o ano pelas épocas de chuva e de colheita. Isso é:",
-      "options": [
-        {
-          "text": "Uma forma de marcar o tempo pela natureza"
-        },
-        {
-          "text": "Uma forma errada de contar o tempo",
-          "misconceptionCode": "calendario-unico"
-        },
-        {
-          "text": "Um sinal de que eles não contam o tempo",
-          "misconceptionCode": "natureza-nao-marca"
-        },
-        {
-          "text": "Um relógio",
-          "misconceptionCode": "tempo-so-relogio"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Em vez de calendário de papel, esse povo usa a natureza: chegou a chuva, chegou a colheita. É outra forma de marcar o tempo.",
-      "audioScript": "Pergunta 1. Um povo indígena organiza o ano pelas épocas de chuva e de colheita. Isso é: A: Uma forma de marcar o tempo pela natureza; B: Uma forma errada de contar o tempo; C: Um sinal de que eles não contam o tempo; D: Um relógio.",
-      "role": "DEGRAU_BANK"
-    },
-    {
-      "id": "DI2-EF05HI04-01",
-      "skillCode": "EF05HI04",
-      "question": "Cidadania significa:",
-      "options": [
-        {
-          "text": "Apenas votar",
-          "misconceptionCode": "cidadania-so-votar"
-        },
-        {
-          "text": "Ter direitos só para alguns",
-          "misconceptionCode": "direito-de-alguns"
-        },
-        {
-          "text": "Todos pensarem igual",
-          "misconceptionCode": "igualdade-uniformidade"
-        },
-        {
-          "text": "Ter direitos e deveres e participar da comunidade"
-        }
-      ],
-      "correctIndex": 3,
-      "explanation": "Ser cidadão é ter direitos (como estudar) e deveres (como respeitar as regras) e participar da vida da comunidade.",
-      "audioScript": "Pergunta 1. Cidadania significa: A: Apenas votar; B: Ter direitos só para alguns; C: Todos pensarem igual; D: Ter direitos e deveres e participar da comunidade.",
-      "role": "DEGRAU_BANK"
-    },
-    {
-      "id": "DI2-EF05HI04-02",
-      "skillCode": "EF05HI04",
-      "question": "Uma escola que coloca rampas e banheiros adaptados está garantindo:",
-      "options": [
-        {
-          "text": "O direito de todos de estudar ali"
-        },
-        {
-          "text": "Um privilégio para poucos",
-          "misconceptionCode": "direito-de-alguns"
-        },
-        {
-          "text": "Algo sem importância",
-          "misconceptionCode": "so-direitos"
-        },
-        {
-          "text": "O direito de votar",
-          "misconceptionCode": "cidadania-so-votar"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Rampas e banheiros adaptados deixam quem usa cadeira de rodas estudar ali também. Isso garante o direito de todos.",
-      "audioScript": "Pergunta 1. Uma escola que coloca rampas e banheiros adaptados está garantindo: A: O direito de todos de estudar ali; B: Um privilégio para poucos; C: Algo sem importância; D: O direito de votar.",
-      "role": "DEGRAU_BANK"
+     "text": "Século LXXXIX",
+     "misconceptionCode": "seculo-errado"
     }
-  ]
+   ],
+   "correctIndex": 2,
+   "explanation": "Truque: tire os dois últimos números (1789 vira 17) e some 1. Dá 18, o século XVIII.",
+   "audioScript": "Pergunta 1. Em que século foi o ano de 1789? A: Século XVII; B: Século XIX; C: Século XVIII; D: Século LXXXIX.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF06HI01-02",
+   "skillCode": "EF06HI01",
+   "question": "Um fato aconteceu em 200 a.C. e outro em 400 a.C. Qual veio primeiro?",
+   "options": [
+    {
+     "text": "O de 200 a.C.",
+     "misconceptionCode": "ac-ao-contrario"
+    },
+    {
+     "text": "O de 400 a.C."
+    },
+    {
+     "text": "Os dois juntos",
+     "misconceptionCode": "tudo-muda-junto"
+    },
+    {
+     "text": "Não dá para saber",
+     "misconceptionCode": "periodo-natural"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "Antes de Cristo, a conta é ao contrário: quanto maior o número, mais antigo. 400 a.C. veio antes de 200 a.C.",
+   "audioScript": "Pergunta 1. Um fato aconteceu em 200 a.C. e outro em 400 a.C. Qual veio primeiro? A: O de 200 a.C.; B: O de 400 a.C.; C: Os dois juntos; D: Não dá para saber.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF06HI12-01",
+   "skillCode": "EF06HI12",
+   "question": "Na democracia de Atenas, quem podia votar na assembleia?",
+   "options": [
+    {
+     "text": "Todos os moradores",
+     "misconceptionCode": "democracia-para-todos"
+    },
+    {
+     "text": "Homens e mulheres, como hoje",
+     "misconceptionCode": "igual-a-hoje"
+    },
+    {
+     "text": "Os estrangeiros e os escravizados",
+     "misconceptionCode": "confunde-grupos"
+    },
+    {
+     "text": "Só homens adultos, livres e atenienses"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Em Atenas, mulheres, escravizados e estrangeiros não votavam. Só homens adultos, livres e nascidos lá. Bem diferente de hoje!",
+   "audioScript": "Pergunta 1. Na democracia de Atenas, quem podia votar na assembleia? A: Todos os moradores; B: Homens e mulheres, como hoje; C: Os estrangeiros e os escravizados; D: Só homens adultos, livres e atenienses.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF06HI12-02",
+   "skillCode": "EF06HI12",
+   "question": "Os plebeus de Roma conseguiram mais direitos:",
+   "options": [
+    {
+     "text": "Com lutas e protestos contra os patrícios"
+    },
+    {
+     "text": "Sem nenhum conflito",
+     "misconceptionCode": "roma-sem-conflito"
+    },
+    {
+     "text": "Porque já nasciam com todos os direitos",
+     "misconceptionCode": "igual-a-hoje"
+    },
+    {
+     "text": "Porque eram escravizados",
+     "misconceptionCode": "confunde-grupos"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Os plebeus não ganharam direitos de presente: protestaram e lutaram contra os patrícios, os ricos de Roma, até conseguir.",
+   "audioScript": "Pergunta 1. Os plebeus de Roma conseguiram mais direitos: A: Com lutas e protestos contra os patrícios; B: Sem nenhum conflito; C: Porque já nasciam com todos os direitos; D: Porque eram escravizados.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF06HI05-01",
+   "skillCode": "EF06HI05",
+   "question": "A terra preta da Amazônia, um solo muito fértil, formou-se:",
+   "options": [
+    {
+     "text": "Sem ação humana",
+     "misconceptionCode": "natureza-intocada"
+    },
+    {
+     "text": "Com adubo de fábrica",
+     "misconceptionCode": "povo-atrasado"
+    },
+    {
+     "text": "Por causa das cidades atuais",
+     "misconceptionCode": "natureza-intocada"
+    },
+    {
+     "text": "Pela ação de povos indígenas ao longo de séculos"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Os povos indígenas enriqueceram o solo.",
+   "audioScript": "Pergunta 1. A terra preta da Amazônia, um solo muito fértil, formou-se: A: Sem ação humana; B: Com adubo de fábrica; C: Por causa das cidades atuais; D: Pela ação de povos indígenas ao longo de séculos.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF06HI05-02",
+   "skillCode": "EF06HI05",
+   "question": "Toda modificação da natureza é destruição?",
+   "options": [
+    {
+     "text": "Não, há formas de transformar que mantêm ou enriquecem o ambiente"
+    },
+    {
+     "text": "Sim, sempre",
+     "misconceptionCode": "so-destruicao"
+    },
+    {
+     "text": "Sim, plantar é destruir",
+     "misconceptionCode": "so-destruicao"
+    },
+    {
+     "text": "Sim, não se deve mexer em nada",
+     "misconceptionCode": "so-destruicao"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "O jeito e o objetivo fazem diferença.",
+   "audioScript": "Pergunta 2. Toda modificação da natureza é destruição? A: Não, há formas de transformar que mantêm ou enriquecem o ambiente; B: Sim, sempre; C: Sim, plantar é destruir; D: Sim, não se deve mexer em nada.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF06HI07-01",
+   "skillCode": "EF06HI07",
+   "question": "A escrita cuneiforme foi criada:",
+   "options": [
+    {
+     "text": "No Egito",
+     "misconceptionCode": "escrita-trocada"
+    },
+    {
+     "text": "Na Mesopotâmia"
+    },
+    {
+     "text": "Entre os incas",
+     "misconceptionCode": "escrita-trocada"
+    },
+    {
+     "text": "Entre os maias",
+     "misconceptionCode": "escrita-trocada"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "Era gravada em placas de argila.",
+   "audioScript": "Pergunta 3. A escrita cuneiforme foi criada: A: No Egito; B: Na Mesopotâmia; C: Entre os incas; D: Entre os maias.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF06HI07-02",
+   "skillCode": "EF06HI07",
+   "question": "Povos que não usavam a escrita:",
+   "options": [
+    {
+     "text": "Não têm história",
+     "misconceptionCode": "sem-escrita-sem-historia"
+    },
+    {
+     "text": "Não deixaram nada",
+     "misconceptionCode": "sem-escrita-sem-historia"
+    },
+    {
+     "text": "Têm história, guardada na tradição oral e nos objetos"
+    },
+    {
+     "text": "Não podem ser estudados",
+     "misconceptionCode": "sem-escrita-sem-historia"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Todos os povos têm história.",
+   "audioScript": "Pergunta 4. Povos que não usavam a escrita: A: Não têm história; B: Não deixaram nada; C: Têm história, guardada na tradição oral e nos objetos; D: Não podem ser estudados.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF05HI08-01",
+   "skillCode": "EF05HI08",
+   "question": "Antes do relógio, como as pessoas sabiam a parte do dia?",
+   "options": [
+    {
+     "text": "Não sabiam de jeito nenhum",
+     "misconceptionCode": "tempo-so-relogio"
+    },
+    {
+     "text": "Usando o mesmo calendário que usamos hoje",
+     "misconceptionCode": "calendario-unico"
+    },
+    {
+     "text": "Contando os séculos",
+     "misconceptionCode": "ordem-trocada"
+    },
+    {
+     "text": "Observando a posição do Sol e as sombras"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Sem relógio, as pessoas olhavam para o céu: Sol nascendo é manhã, Sol no alto é meio-dia, e a sombra muda de tamanho.",
+   "audioScript": "Pergunta 1. Antes do relógio, como as pessoas sabiam a parte do dia? A: Não sabiam de jeito nenhum; B: Usando o mesmo calendário que usamos hoje; C: Contando os séculos; D: Observando a posição do Sol e as sombras.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-EF05HI08-02",
+   "skillCode": "EF05HI08",
+   "question": "Um povo indígena organiza o ano pelas épocas de chuva e de colheita. Isso é:",
+   "options": [
+    {
+     "text": "Uma forma de marcar o tempo pela natureza"
+    },
+    {
+     "text": "Uma forma errada de contar o tempo",
+     "misconceptionCode": "calendario-unico"
+    },
+    {
+     "text": "Um sinal de que eles não contam o tempo",
+     "misconceptionCode": "natureza-nao-marca"
+    },
+    {
+     "text": "Um relógio",
+     "misconceptionCode": "tempo-so-relogio"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Em vez de calendário de papel, esse povo usa a natureza: chegou a chuva, chegou a colheita. É outra forma de marcar o tempo.",
+   "audioScript": "Pergunta 1. Um povo indígena organiza o ano pelas épocas de chuva e de colheita. Isso é: A: Uma forma de marcar o tempo pela natureza; B: Uma forma errada de contar o tempo; C: Um sinal de que eles não contam o tempo; D: Um relógio.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-EF05HI04-01",
+   "skillCode": "EF05HI04",
+   "question": "Cidadania significa:",
+   "options": [
+    {
+     "text": "Apenas votar",
+     "misconceptionCode": "cidadania-so-votar"
+    },
+    {
+     "text": "Ter direitos só para alguns",
+     "misconceptionCode": "direito-de-alguns"
+    },
+    {
+     "text": "Todos pensarem igual",
+     "misconceptionCode": "igualdade-uniformidade"
+    },
+    {
+     "text": "Ter direitos e deveres e participar da comunidade"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Ser cidadão é ter direitos (como estudar) e deveres (como respeitar as regras) e participar da vida da comunidade.",
+   "audioScript": "Pergunta 1. Cidadania significa: A: Apenas votar; B: Ter direitos só para alguns; C: Todos pensarem igual; D: Ter direitos e deveres e participar da comunidade.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-EF05HI04-02",
+   "skillCode": "EF05HI04",
+   "question": "Uma escola que coloca rampas e banheiros adaptados está garantindo:",
+   "options": [
+    {
+     "text": "O direito de todos de estudar ali"
+    },
+    {
+     "text": "Um privilégio para poucos",
+     "misconceptionCode": "direito-de-alguns"
+    },
+    {
+     "text": "Algo sem importância",
+     "misconceptionCode": "so-direitos"
+    },
+    {
+     "text": "O direito de votar",
+     "misconceptionCode": "cidadania-so-votar"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Rampas e banheiros adaptados deixam quem usa cadeira de rodas estudar ali também. Isso garante o direito de todos.",
+   "audioScript": "Pergunta 1. Uma escola que coloca rampas e banheiros adaptados está garantindo: A: O direito de todos de estudar ali; B: Um privilégio para poucos; C: Algo sem importância; D: O direito de votar.",
+   "role": "DEGRAU_BANK"
+  }
+ ]
 }

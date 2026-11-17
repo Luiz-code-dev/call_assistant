@@ -1,1890 +1,3772 @@
 [
-  {
-    "skillCode": "EF67EF08",
-    "subjectCode": "EF",
-    "subjectName": "Educação Física",
-    "gradeYear": 6,
-    "version": 3,
-    "title": "Trilha: Capacidades físicas",
-    "tituloAluno": "Força, velocidade, resistência e flexibilidade",
-    "activities": [
+ {
+  "skillCode": "EF67EF08",
+  "subjectCode": "EF",
+  "subjectName": "Educação Física",
+  "gradeYear": 6,
+  "version": 3,
+  "title": "Trilha: Capacidades físicas",
+  "tituloAluno": "Força, velocidade, resistência e flexibilidade",
+  "activities": [
+   {
+    "id": "PK2-EF67EF08-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: movimentos da ginástica",
+    "prompt": "Vamos lembrar os elementos da ginástica que você já conhece.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar os elementos da ginástica que você já conhece. Pergunta 1. Manter o corpo parado num pé só é: A: Força; B: Equilíbrio; C: Velocidade; D: Flexibilidade. Pergunta 2. Antes de exercícios, aquecer serve para: A: Cansar o corpo antes; B: Nada; C: Ficar mais forte na hora; D: Preparar o corpo e evitar lesões. Pergunta 3. Encostar as mãos nos pés com as pernas esticadas depende de: A: Flexibilidade; B: Força; C: Velocidade; D: Resistência.",
+    "questions": [
+     {
+      "question": "Manter o corpo parado num pé só é:",
+      "options": [
+       {
+        "text": "Força",
+        "misconceptionCode": "forca-resistencia"
+       },
+       {
+        "text": "Equilíbrio"
+       },
+       {
+        "text": "Velocidade",
+        "misconceptionCode": "velocidade-resistencia"
+       },
+       {
+        "text": "Flexibilidade",
+        "misconceptionCode": "flexibilidade-forca"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Ficar parado num pé só, sem cair, é equilíbrio.",
+      "variants": [
+       {
+        "question": "Andar numa trave baixa sem cair exige:",
+        "options": [
+         {
+          "text": "Velocidade",
+          "misconceptionCode": "forca-resistencia"
+         },
+         {
+          "text": "Só força",
+          "misconceptionCode": "velocidade-resistencia"
+         },
+         {
+          "text": "Flexibilidade",
+          "misconceptionCode": "flexibilidade-forca"
+         },
+         {
+          "text": "Equilíbrio"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Manter o corpo parado num pé só é:",
+        "options": [
+         {
+          "text": "Flexibilidade",
+          "misconceptionCode": "flexibilidade-forca"
+         },
+         {
+          "text": "Velocidade",
+          "misconceptionCode": "velocidade-resistencia"
+         },
+         {
+          "text": "Equilíbrio"
+         },
+         {
+          "text": "Força",
+          "misconceptionCode": "forca-resistencia"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Antes de exercícios, aquecer serve para:",
+      "options": [
+       {
+        "text": "Cansar o corpo antes",
+        "misconceptionCode": "sensacao-errada"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "sensacao-errada"
+       },
+       {
+        "text": "Ficar mais forte na hora",
+        "misconceptionCode": "forca-resistencia"
+       },
+       {
+        "text": "Preparar o corpo e evitar lesões"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O aquecimento prepara músculos, coração e juntas para o esforço, como esquentar o motor antes de sair. Assim evita lesões.",
+      "variants": [
+       {
+        "question": "Por que se aquece antes de correr?",
+        "options": [
+         {
+          "text": "Para se cansar",
+          "misconceptionCode": "sensacao-errada"
+         },
+         {
+          "text": "Para preparar os músculos"
+         },
+         {
+          "text": "Para perder tempo",
+          "misconceptionCode": "sensacao-errada"
+         },
+         {
+          "text": "Não precisa",
+          "misconceptionCode": "forca-resistencia"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Antes de exercícios, aquecer serve para:",
+        "options": [
+         {
+          "text": "Preparar o corpo e evitar lesões"
+         },
+         {
+          "text": "Ficar mais forte na hora",
+          "misconceptionCode": "forca-resistencia"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "sensacao-errada"
+         },
+         {
+          "text": "Cansar o corpo antes",
+          "misconceptionCode": "sensacao-errada"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Encostar as mãos nos pés com as pernas esticadas depende de:",
+      "options": [
+       {
+        "text": "Flexibilidade"
+       },
+       {
+        "text": "Força",
+        "misconceptionCode": "flexibilidade-forca"
+       },
+       {
+        "text": "Velocidade",
+        "misconceptionCode": "velocidade-resistencia"
+       },
+       {
+        "text": "Resistência",
+        "misconceptionCode": "forca-resistencia"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Quanto mais o corpo consegue esticar, mais flexível ele é. Isso é flexibilidade.",
+      "variants": [
+       {
+        "question": "Abrir as pernas no espacate depende de:",
+        "options": [
+         {
+          "text": "Velocidade",
+          "misconceptionCode": "flexibilidade-forca"
+         },
+         {
+          "text": "Força nos braços",
+          "misconceptionCode": "velocidade-resistencia"
+         },
+         {
+          "text": "Flexibilidade"
+         },
+         {
+          "text": "Resistência",
+          "misconceptionCode": "forca-resistencia"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Encostar as mãos nos pés com as pernas esticadas depende de:",
+        "options": [
+         {
+          "text": "Resistência",
+          "misconceptionCode": "forca-resistencia"
+         },
+         {
+          "text": "Flexibilidade"
+         },
+         {
+          "text": "Velocidade",
+          "misconceptionCode": "velocidade-resistencia"
+         },
+         {
+          "text": "Força",
+          "misconceptionCode": "flexibilidade-forca"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF67EF08-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: cada exercício, uma capacidade",
+    "prompt": "Vamos ligar juntos cada exercício à capacidade física que ele mais trabalha.",
+    "estMinutes": 4,
+    "audioScript": "Vamos ligar juntos cada exercício à capacidade física que ele mais trabalha. Pergunta 1. Uma corrida de 50 metros, o mais rápido possível, trabalha principalmente: A: Resistência; B: Flexibilidade; C: Equilíbrio parado; D: Velocidade. Pergunta 2. Correr devagar durante 20 minutos sem parar trabalha principalmente: A: Resistência; B: Velocidade; C: Força; D: Flexibilidade. Pergunta 3. Levantar uma mochila pesada do chão ou fazer flexões trabalha principalmente: A: Resistência; B: Flexibilidade; C: Força; D: Velocidade.",
+    "questions": [
+     {
+      "question": "Uma corrida de 50 metros, o mais rápido possível, trabalha principalmente:",
+      "options": [
+       {
+        "text": "Resistência",
+        "misconceptionCode": "velocidade-resistencia"
+       },
+       {
+        "text": "Flexibilidade",
+        "misconceptionCode": "flexibilidade-forca"
+       },
+       {
+        "text": "Equilíbrio parado",
+        "misconceptionCode": "sensacao-errada"
+       },
+       {
+        "text": "Velocidade"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Correr pouco espaço o mais rápido que puder é velocidade.",
+      "variants": [
+       {
+        "question": "Fugir rápido no pega-pega trabalha:",
+        "options": [
+         {
+          "text": "Resistência",
+          "misconceptionCode": "velocidade-resistencia"
+         },
+         {
+          "text": "Velocidade"
+         },
+         {
+          "text": "Flexibilidade",
+          "misconceptionCode": "flexibilidade-forca"
+         },
+         {
+          "text": "Força",
+          "misconceptionCode": "sensacao-errada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Uma corrida de 50 metros, o mais rápido possível, trabalha principalmente:",
+        "options": [
+         {
+          "text": "Velocidade"
+         },
+         {
+          "text": "Equilíbrio parado",
+          "misconceptionCode": "sensacao-errada"
+         },
+         {
+          "text": "Flexibilidade",
+          "misconceptionCode": "flexibilidade-forca"
+         },
+         {
+          "text": "Resistência",
+          "misconceptionCode": "velocidade-resistencia"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Correr devagar durante 20 minutos sem parar trabalha principalmente:",
+      "options": [
+       {
+        "text": "Resistência"
+       },
+       {
+        "text": "Velocidade",
+        "misconceptionCode": "velocidade-resistencia"
+       },
+       {
+        "text": "Força",
+        "misconceptionCode": "forca-resistencia"
+       },
+       {
+        "text": "Flexibilidade",
+        "misconceptionCode": "flexibilidade-forca"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Aguentar muito tempo sem parar, mesmo devagar, é resistência.",
+      "variants": [
+       {
+        "question": "Nadar devagar por muito tempo trabalha:",
+        "options": [
+         {
+          "text": "Velocidade",
+          "misconceptionCode": "velocidade-resistencia"
+         },
+         {
+          "text": "Flexibilidade",
+          "misconceptionCode": "forca-resistencia"
+         },
+         {
+          "text": "Resistência"
+         },
+         {
+          "text": "Equilíbrio",
+          "misconceptionCode": "flexibilidade-forca"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Correr devagar durante 20 minutos sem parar trabalha principalmente:",
+        "options": [
+         {
+          "text": "Flexibilidade",
+          "misconceptionCode": "flexibilidade-forca"
+         },
+         {
+          "text": "Resistência"
+         },
+         {
+          "text": "Força",
+          "misconceptionCode": "forca-resistencia"
+         },
+         {
+          "text": "Velocidade",
+          "misconceptionCode": "velocidade-resistencia"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Levantar uma mochila pesada do chão ou fazer flexões trabalha principalmente:",
+      "options": [
+       {
+        "text": "Resistência",
+        "misconceptionCode": "forca-resistencia"
+       },
+       {
+        "text": "Flexibilidade",
+        "misconceptionCode": "flexibilidade-forca"
+       },
+       {
+        "text": "Força"
+       },
+       {
+        "text": "Velocidade",
+        "misconceptionCode": "velocidade-resistencia"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Para levantar algo pesado, os músculos precisam fazer força. Isso é força.",
+      "variants": [
+       {
+        "question": "Puxar a corda no cabo de guerra trabalha:",
+        "options": [
+         {
+          "text": "Força"
+         },
+         {
+          "text": "Flexibilidade",
+          "misconceptionCode": "forca-resistencia"
+         },
+         {
+          "text": "Velocidade",
+          "misconceptionCode": "flexibilidade-forca"
+         },
+         {
+          "text": "Equilíbrio",
+          "misconceptionCode": "velocidade-resistencia"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Levantar uma mochila pesada do chão ou fazer flexões trabalha principalmente:",
+        "options": [
+         {
+          "text": "Velocidade",
+          "misconceptionCode": "velocidade-resistencia"
+         },
+         {
+          "text": "Flexibilidade",
+          "misconceptionCode": "flexibilidade-forca"
+         },
+         {
+          "text": "Resistência",
+          "misconceptionCode": "forca-resistencia"
+         },
+         {
+          "text": "Força"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF67EF08-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: capacidades e sensações",
+    "prompt": "Identifique a capacidade e entenda o que o corpo sente.",
+    "estMinutes": 5,
+    "audioScript": "Identifique a capacidade e entenda o que o corpo sente. Pergunta 1. Alongar as pernas depois da aula trabalha: A: Flexibilidade; B: Força; C: Velocidade; D: Resistência. Pergunta 2. Durante uma corrida, o coração bate mais rápido. Isso é: A: Sinal de doença; B: Sinal de que o exercício está errado; C: Normal: o corpo precisa de mais oxigênio nos músculos; D: Sinal de que o corpo parou. Pergunta 3. Fazer 10 abdominais seguidos e aguentar 30 segundos em prancha trabalham: A: Só velocidade; B: Força e resistência muscular; C: Só flexibilidade; D: Nenhuma capacidade. Pergunta 4. Mudar de direção rápido para driblar um colega trabalha: A: Flexibilidade; B: Resistência; C: Força; D: Agilidade.",
+    "questions": [
+     {
+      "question": "Alongar as pernas depois da aula trabalha:",
+      "options": [
+       {
+        "text": "Flexibilidade"
+       },
+       {
+        "text": "Força",
+        "misconceptionCode": "flexibilidade-forca"
+       },
+       {
+        "text": "Velocidade",
+        "misconceptionCode": "velocidade-resistencia"
+       },
+       {
+        "text": "Resistência",
+        "misconceptionCode": "forca-resistencia"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Alongar estica os músculos e deixa o corpo mais \"elástico\". Isso é flexibilidade.",
+      "variants": [
+       {
+        "question": "Uma aula de ioga com muitas posturas de alongamento trabalha principalmente:",
+        "options": [
+         {
+          "text": "Velocidade",
+          "misconceptionCode": "flexibilidade-forca"
+         },
+         {
+          "text": "Força explosiva",
+          "misconceptionCode": "velocidade-resistencia"
+         },
+         {
+          "text": "Flexibilidade"
+         },
+         {
+          "text": "Resistência de corrida",
+          "misconceptionCode": "forca-resistencia"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Alongar as pernas depois da aula trabalha:",
+        "options": [
+         {
+          "text": "Resistência",
+          "misconceptionCode": "forca-resistencia"
+         },
+         {
+          "text": "Flexibilidade"
+         },
+         {
+          "text": "Velocidade",
+          "misconceptionCode": "velocidade-resistencia"
+         },
+         {
+          "text": "Força",
+          "misconceptionCode": "flexibilidade-forca"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Durante uma corrida, o coração bate mais rápido. Isso é:",
+      "options": [
+       {
+        "text": "Sinal de doença",
+        "misconceptionCode": "sensacao-errada"
+       },
+       {
+        "text": "Sinal de que o exercício está errado",
+        "misconceptionCode": "sensacao-errada"
+       },
+       {
+        "text": "Normal: o corpo precisa de mais oxigênio nos músculos"
+       },
+       {
+        "text": "Sinal de que o corpo parou",
+        "misconceptionCode": "sensacao-errada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "É normal! Os músculos precisam de mais oxigênio, e o coração acelera para levar mais sangue até eles.",
+      "variants": [
+       {
+        "question": "Por que respiramos mais rápido ao pular corda?",
+        "options": [
+         {
+          "text": "Porque os músculos precisam de mais oxigênio"
+         },
+         {
+          "text": "Porque o ar acabou",
+          "misconceptionCode": "sensacao-errada"
+         },
+         {
+          "text": "Porque é sinal de doença",
+          "misconceptionCode": "sensacao-errada"
+         },
+         {
+          "text": "Porque esquecemos de respirar",
+          "misconceptionCode": "sensacao-errada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Durante uma corrida, o coração bate mais rápido. Isso é:",
+        "options": [
+         {
+          "text": "Sinal de que o corpo parou",
+          "misconceptionCode": "sensacao-errada"
+         },
+         {
+          "text": "Sinal de que o exercício está errado",
+          "misconceptionCode": "sensacao-errada"
+         },
+         {
+          "text": "Sinal de doença",
+          "misconceptionCode": "sensacao-errada"
+         },
+         {
+          "text": "Normal: o corpo precisa de mais oxigênio nos músculos"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Fazer 10 abdominais seguidos e aguentar 30 segundos em prancha trabalham:",
+      "options": [
+       {
+        "text": "Só velocidade",
+        "misconceptionCode": "velocidade-resistencia"
+       },
+       {
+        "text": "Força e resistência muscular"
+       },
+       {
+        "text": "Só flexibilidade",
+        "misconceptionCode": "flexibilidade-forca"
+       },
+       {
+        "text": "Nenhuma capacidade",
+        "misconceptionCode": "sensacao-errada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Para fazer o movimento, precisa de força. Para aguentar o tempo todo, precisa de resistência. Treina as duas.",
+      "variants": [
+       {
+        "question": "Ficar pendurado na barra por bastante tempo trabalha:",
+        "options": [
+         {
+          "text": "Só velocidade",
+          "misconceptionCode": "velocidade-resistencia"
+         },
+         {
+          "text": "Só flexibilidade",
+          "misconceptionCode": "flexibilidade-forca"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "sensacao-errada"
+         },
+         {
+          "text": "Força e resistência"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Fazer 10 abdominais seguidos e aguentar 30 segundos em prancha trabalham:",
+        "options": [
+         {
+          "text": "Nenhuma capacidade",
+          "misconceptionCode": "sensacao-errada"
+         },
+         {
+          "text": "Só flexibilidade",
+          "misconceptionCode": "flexibilidade-forca"
+         },
+         {
+          "text": "Força e resistência muscular"
+         },
+         {
+          "text": "Só velocidade",
+          "misconceptionCode": "velocidade-resistencia"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Mudar de direção rápido para driblar um colega trabalha:",
+      "options": [
+       {
+        "text": "Flexibilidade",
+        "misconceptionCode": "flexibilidade-forca"
+       },
+       {
+        "text": "Resistência",
+        "misconceptionCode": "velocidade-resistencia"
+       },
+       {
+        "text": "Força",
+        "misconceptionCode": "forca-resistencia"
+       },
+       {
+        "text": "Agilidade"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Trocar de direção bem rápido, para enganar o colega, é agilidade.",
+      "variants": [
+       {
+        "question": "Desviar das bolas na queimada exige:",
+        "options": [
+         {
+          "text": "Flexibilidade",
+          "misconceptionCode": "flexibilidade-forca"
+         },
+         {
+          "text": "Agilidade"
+         },
+         {
+          "text": "Resistência de longa distância",
+          "misconceptionCode": "velocidade-resistencia"
+         },
+         {
+          "text": "Força máxima",
+          "misconceptionCode": "forca-resistencia"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Mudar de direção rápido para driblar um colega trabalha:",
+        "options": [
+         {
+          "text": "Agilidade"
+         },
+         {
+          "text": "Força",
+          "misconceptionCode": "forca-resistencia"
+         },
+         {
+          "text": "Resistência",
+          "misconceptionCode": "velocidade-resistencia"
+         },
+         {
+          "text": "Flexibilidade",
+          "misconceptionCode": "flexibilidade-forca"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF67EF08-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: exercício no dia a dia",
+    "prompt": "Pense em como usar as capacidades físicas na sua vida.",
+    "estMinutes": 4,
+    "audioScript": "Pense em como usar as capacidades físicas na sua vida. Pergunta 1. Você quer conseguir correr a gincana inteira sem cansar tanto. O que treinar? A: Só velocidade, em tiros curtos; B: Só alongamento; C: Resistência, com corridas leves e mais longas; D: Só levantar peso. Pergunta 2. Depois de um jogo, a perna fica um pouco dolorida no dia seguinte. Isso pode ser: A: Sinal de que nunca mais deve fazer exercício; B: Normal, se for leve; se for forte, é preciso descansar e avisar um adulto; C: Sinal de que treinou pouco; D: Sempre um machucado grave. Pergunta 3. Qual destas é uma atividade física do dia a dia, sem ser esporte? A: Só correr numa competição; B: Ficar sentado jogando videogame; C: Só fazer alongamento de atleta; D: Subir escadas e andar até a escola.",
+    "questions": [
+     {
+      "question": "Você quer conseguir correr a gincana inteira sem cansar tanto. O que treinar?",
+      "options": [
+       {
+        "text": "Só velocidade, em tiros curtos",
+        "misconceptionCode": "velocidade-resistencia"
+       },
+       {
+        "text": "Só alongamento",
+        "misconceptionCode": "flexibilidade-forca"
+       },
+       {
+        "text": "Resistência, com corridas leves e mais longas"
+       },
+       {
+        "text": "Só levantar peso",
+        "misconceptionCode": "forca-resistencia"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Para aguentar mais tempo, treine resistência: corridas leves e um pouco mais longas a cada vez.",
+      "variants": [
+       {
+        "question": "Para aguentar um passeio de bicicleta longo, treine:",
+        "options": [
+         {
+          "text": "Resistência"
+         },
+         {
+          "text": "Só velocidade",
+          "misconceptionCode": "velocidade-resistencia"
+         },
+         {
+          "text": "Só flexibilidade",
+          "misconceptionCode": "flexibilidade-forca"
+         },
+         {
+          "text": "Só força nos braços",
+          "misconceptionCode": "forca-resistencia"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Você quer conseguir correr a gincana inteira sem cansar tanto. O que treinar?",
+        "options": [
+         {
+          "text": "Só levantar peso",
+          "misconceptionCode": "forca-resistencia"
+         },
+         {
+          "text": "Só alongamento",
+          "misconceptionCode": "flexibilidade-forca"
+         },
+         {
+          "text": "Só velocidade, em tiros curtos",
+          "misconceptionCode": "velocidade-resistencia"
+         },
+         {
+          "text": "Resistência, com corridas leves e mais longas"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Depois de um jogo, a perna fica um pouco dolorida no dia seguinte. Isso pode ser:",
+      "options": [
+       {
+        "text": "Sinal de que nunca mais deve fazer exercício",
+        "misconceptionCode": "sensacao-errada"
+       },
+       {
+        "text": "Normal, se for leve; se for forte, é preciso descansar e avisar um adulto"
+       },
+       {
+        "text": "Sinal de que treinou pouco",
+        "misconceptionCode": "sensacao-errada"
+       },
+       {
+        "text": "Sempre um machucado grave",
+        "misconceptionCode": "sensacao-errada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Uma dorzinha leve no dia seguinte é comum. Se a dor for forte, descanse e conte para um adulto.",
+      "variants": [
+       {
+        "question": "Se sentir tontura forte durante o exercício, você deve:",
+        "options": [
+         {
+          "text": "Continuar mais rápido",
+          "misconceptionCode": "sensacao-errada"
+         },
+         {
+          "text": "Fingir que não é nada",
+          "misconceptionCode": "sensacao-errada"
+         },
+         {
+          "text": "Correr para casa sozinho",
+          "misconceptionCode": "sensacao-errada"
+         },
+         {
+          "text": "Parar e avisar um adulto"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Depois de um jogo, a perna fica um pouco dolorida no dia seguinte. Isso pode ser:",
+        "options": [
+         {
+          "text": "Sempre um machucado grave",
+          "misconceptionCode": "sensacao-errada"
+         },
+         {
+          "text": "Sinal de que treinou pouco",
+          "misconceptionCode": "sensacao-errada"
+         },
+         {
+          "text": "Normal, se for leve; se for forte, é preciso descansar e avisar um adulto"
+         },
+         {
+          "text": "Sinal de que nunca mais deve fazer exercício",
+          "misconceptionCode": "sensacao-errada"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual destas é uma atividade física do dia a dia, sem ser esporte?",
+      "options": [
+       {
+        "text": "Só correr numa competição",
+        "misconceptionCode": "velocidade-resistencia"
+       },
+       {
+        "text": "Ficar sentado jogando videogame",
+        "misconceptionCode": "sensacao-errada"
+       },
+       {
+        "text": "Só fazer alongamento de atleta",
+        "misconceptionCode": "flexibilidade-forca"
+       },
+       {
+        "text": "Subir escadas e andar até a escola"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Todo movimento que faz o corpo gastar energia é atividade física, como subir escadas e ir andando para a escola.",
+      "variants": [
+       {
+        "question": "Varrer a casa e andar de bicicleta até a padaria são:",
+        "options": [
+         {
+          "text": "Esportes de competição",
+          "misconceptionCode": "velocidade-resistencia"
+         },
+         {
+          "text": "Atividades físicas do dia a dia"
+         },
+         {
+          "text": "Exercícios só de força",
+          "misconceptionCode": "sensacao-errada"
+         },
+         {
+          "text": "Nenhum movimento",
+          "misconceptionCode": "flexibilidade-forca"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual destas é uma atividade física do dia a dia, sem ser esporte?",
+        "options": [
+         {
+          "text": "Subir escadas e andar até a escola"
+         },
+         {
+          "text": "Só fazer alongamento de atleta",
+          "misconceptionCode": "flexibilidade-forca"
+         },
+         {
+          "text": "Ficar sentado jogando videogame",
+          "misconceptionCode": "sensacao-errada"
+         },
+         {
+          "text": "Só correr numa competição",
+          "misconceptionCode": "velocidade-resistencia"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF67EF08-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: capacidades físicas",
+    "prompt": "Explique com as suas palavras a diferença entre velocidade e resistência, com um exemplo de exercício para cada uma.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras a diferença entre velocidade e resistência, com um exemplo de exercício para cada uma.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
       {
-        "id": "PK2-EF67EF08-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar: movimentos da ginástica",
-        "prompt": "Vamos lembrar os elementos da ginástica que você já conhece.",
-        "estMinutes": 4,
-        "audioScript": "Vamos lembrar os elementos da ginástica que você já conhece. Pergunta 1. Manter o corpo parado num pé só é: A: Força; B: Equilíbrio; C: Velocidade; D: Flexibilidade. Pergunta 2. Antes de exercícios, aquecer serve para: A: Cansar o corpo antes; B: Nada; C: Ficar mais forte na hora; D: Preparar o corpo e evitar lesões. Pergunta 3. Encostar as mãos nos pés com as pernas esticadas depende de: A: Flexibilidade; B: Força; C: Velocidade; D: Resistência.",
-        "questions": [
-          {
-            "question": "Manter o corpo parado num pé só é:",
-            "options": [
-              {
-                "text": "Força",
-                "misconceptionCode": "forca-resistencia"
-              },
-              {
-                "text": "Equilíbrio"
-              },
-              {
-                "text": "Velocidade",
-                "misconceptionCode": "velocidade-resistencia"
-              },
-              {
-                "text": "Flexibilidade",
-                "misconceptionCode": "flexibilidade-forca"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Ficar parado num pé só, sem cair, é equilíbrio.",
-            "variants": [
-              {
-                "question": "Andar numa trave baixa sem cair exige:",
-                "options": [
-                  {
-                    "text": "Velocidade",
-                    "misconceptionCode": "forca-resistencia"
-                  },
-                  {
-                    "text": "Só força",
-                    "misconceptionCode": "velocidade-resistencia"
-                  },
-                  {
-                    "text": "Flexibilidade",
-                    "misconceptionCode": "flexibilidade-forca"
-                  },
-                  {
-                    "text": "Equilíbrio"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Manter o corpo parado num pé só é:",
-                "options": [
-                  {
-                    "text": "Flexibilidade",
-                    "misconceptionCode": "flexibilidade-forca"
-                  },
-                  {
-                    "text": "Velocidade",
-                    "misconceptionCode": "velocidade-resistencia"
-                  },
-                  {
-                    "text": "Equilíbrio"
-                  },
-                  {
-                    "text": "Força",
-                    "misconceptionCode": "forca-resistencia"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Antes de exercícios, aquecer serve para:",
-            "options": [
-              {
-                "text": "Cansar o corpo antes",
-                "misconceptionCode": "sensacao-errada"
-              },
-              {
-                "text": "Nada",
-                "misconceptionCode": "sensacao-errada"
-              },
-              {
-                "text": "Ficar mais forte na hora",
-                "misconceptionCode": "forca-resistencia"
-              },
-              {
-                "text": "Preparar o corpo e evitar lesões"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "O aquecimento prepara músculos, coração e juntas para o esforço, como esquentar o motor antes de sair. Assim evita lesões.",
-            "variants": [
-              {
-                "question": "Por que se aquece antes de correr?",
-                "options": [
-                  {
-                    "text": "Para se cansar",
-                    "misconceptionCode": "sensacao-errada"
-                  },
-                  {
-                    "text": "Para preparar os músculos"
-                  },
-                  {
-                    "text": "Para perder tempo",
-                    "misconceptionCode": "sensacao-errada"
-                  },
-                  {
-                    "text": "Não precisa",
-                    "misconceptionCode": "forca-resistencia"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Antes de exercícios, aquecer serve para:",
-                "options": [
-                  {
-                    "text": "Preparar o corpo e evitar lesões"
-                  },
-                  {
-                    "text": "Ficar mais forte na hora",
-                    "misconceptionCode": "forca-resistencia"
-                  },
-                  {
-                    "text": "Nada",
-                    "misconceptionCode": "sensacao-errada"
-                  },
-                  {
-                    "text": "Cansar o corpo antes",
-                    "misconceptionCode": "sensacao-errada"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Encostar as mãos nos pés com as pernas esticadas depende de:",
-            "options": [
-              {
-                "text": "Flexibilidade"
-              },
-              {
-                "text": "Força",
-                "misconceptionCode": "flexibilidade-forca"
-              },
-              {
-                "text": "Velocidade",
-                "misconceptionCode": "velocidade-resistencia"
-              },
-              {
-                "text": "Resistência",
-                "misconceptionCode": "forca-resistencia"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Quanto mais o corpo consegue esticar, mais flexível ele é. Isso é flexibilidade.",
-            "variants": [
-              {
-                "question": "Abrir as pernas no espacate depende de:",
-                "options": [
-                  {
-                    "text": "Velocidade",
-                    "misconceptionCode": "flexibilidade-forca"
-                  },
-                  {
-                    "text": "Força nos braços",
-                    "misconceptionCode": "velocidade-resistencia"
-                  },
-                  {
-                    "text": "Flexibilidade"
-                  },
-                  {
-                    "text": "Resistência",
-                    "misconceptionCode": "forca-resistencia"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Encostar as mãos nos pés com as pernas esticadas depende de:",
-                "options": [
-                  {
-                    "text": "Resistência",
-                    "misconceptionCode": "forca-resistencia"
-                  },
-                  {
-                    "text": "Flexibilidade"
-                  },
-                  {
-                    "text": "Velocidade",
-                    "misconceptionCode": "velocidade-resistencia"
-                  },
-                  {
-                    "text": "Força",
-                    "misconceptionCode": "flexibilidade-forca"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          }
-        ]
+       "code": "velocidade",
+       "description": "Explica velocidade como fazer algo o mais rápido possível, em pouco tempo"
       },
       {
-        "id": "PK2-EF67EF08-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Exemplo guiado: cada exercício, uma capacidade",
-        "prompt": "Vamos ligar juntos cada exercício à capacidade física que ele mais trabalha.",
-        "estMinutes": 4,
-        "audioScript": "Vamos ligar juntos cada exercício à capacidade física que ele mais trabalha. Pergunta 1. Uma corrida de 50 metros, o mais rápido possível, trabalha principalmente: A: Resistência; B: Flexibilidade; C: Equilíbrio parado; D: Velocidade. Pergunta 2. Correr devagar durante 20 minutos sem parar trabalha principalmente: A: Resistência; B: Velocidade; C: Força; D: Flexibilidade. Pergunta 3. Levantar uma mochila pesada do chão ou fazer flexões trabalha principalmente: A: Resistência; B: Flexibilidade; C: Força; D: Velocidade.",
-        "questions": [
-          {
-            "question": "Uma corrida de 50 metros, o mais rápido possível, trabalha principalmente:",
-            "options": [
-              {
-                "text": "Resistência",
-                "misconceptionCode": "velocidade-resistencia"
-              },
-              {
-                "text": "Flexibilidade",
-                "misconceptionCode": "flexibilidade-forca"
-              },
-              {
-                "text": "Equilíbrio parado",
-                "misconceptionCode": "sensacao-errada"
-              },
-              {
-                "text": "Velocidade"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Correr pouco espaço o mais rápido que puder é velocidade.",
-            "variants": [
-              {
-                "question": "Fugir rápido no pega-pega trabalha:",
-                "options": [
-                  {
-                    "text": "Resistência",
-                    "misconceptionCode": "velocidade-resistencia"
-                  },
-                  {
-                    "text": "Velocidade"
-                  },
-                  {
-                    "text": "Flexibilidade",
-                    "misconceptionCode": "flexibilidade-forca"
-                  },
-                  {
-                    "text": "Força",
-                    "misconceptionCode": "sensacao-errada"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Uma corrida de 50 metros, o mais rápido possível, trabalha principalmente:",
-                "options": [
-                  {
-                    "text": "Velocidade"
-                  },
-                  {
-                    "text": "Equilíbrio parado",
-                    "misconceptionCode": "sensacao-errada"
-                  },
-                  {
-                    "text": "Flexibilidade",
-                    "misconceptionCode": "flexibilidade-forca"
-                  },
-                  {
-                    "text": "Resistência",
-                    "misconceptionCode": "velocidade-resistencia"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Correr devagar durante 20 minutos sem parar trabalha principalmente:",
-            "options": [
-              {
-                "text": "Resistência"
-              },
-              {
-                "text": "Velocidade",
-                "misconceptionCode": "velocidade-resistencia"
-              },
-              {
-                "text": "Força",
-                "misconceptionCode": "forca-resistencia"
-              },
-              {
-                "text": "Flexibilidade",
-                "misconceptionCode": "flexibilidade-forca"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Aguentar muito tempo sem parar, mesmo devagar, é resistência.",
-            "variants": [
-              {
-                "question": "Nadar devagar por muito tempo trabalha:",
-                "options": [
-                  {
-                    "text": "Velocidade",
-                    "misconceptionCode": "velocidade-resistencia"
-                  },
-                  {
-                    "text": "Flexibilidade",
-                    "misconceptionCode": "forca-resistencia"
-                  },
-                  {
-                    "text": "Resistência"
-                  },
-                  {
-                    "text": "Equilíbrio",
-                    "misconceptionCode": "flexibilidade-forca"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Correr devagar durante 20 minutos sem parar trabalha principalmente:",
-                "options": [
-                  {
-                    "text": "Flexibilidade",
-                    "misconceptionCode": "flexibilidade-forca"
-                  },
-                  {
-                    "text": "Resistência"
-                  },
-                  {
-                    "text": "Força",
-                    "misconceptionCode": "forca-resistencia"
-                  },
-                  {
-                    "text": "Velocidade",
-                    "misconceptionCode": "velocidade-resistencia"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Levantar uma mochila pesada do chão ou fazer flexões trabalha principalmente:",
-            "options": [
-              {
-                "text": "Resistência",
-                "misconceptionCode": "forca-resistencia"
-              },
-              {
-                "text": "Flexibilidade",
-                "misconceptionCode": "flexibilidade-forca"
-              },
-              {
-                "text": "Força"
-              },
-              {
-                "text": "Velocidade",
-                "misconceptionCode": "velocidade-resistencia"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Para levantar algo pesado, os músculos precisam fazer força. Isso é força.",
-            "variants": [
-              {
-                "question": "Puxar a corda no cabo de guerra trabalha:",
-                "options": [
-                  {
-                    "text": "Força"
-                  },
-                  {
-                    "text": "Flexibilidade",
-                    "misconceptionCode": "forca-resistencia"
-                  },
-                  {
-                    "text": "Velocidade",
-                    "misconceptionCode": "flexibilidade-forca"
-                  },
-                  {
-                    "text": "Equilíbrio",
-                    "misconceptionCode": "velocidade-resistencia"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Levantar uma mochila pesada do chão ou fazer flexões trabalha principalmente:",
-                "options": [
-                  {
-                    "text": "Velocidade",
-                    "misconceptionCode": "velocidade-resistencia"
-                  },
-                  {
-                    "text": "Flexibilidade",
-                    "misconceptionCode": "flexibilidade-forca"
-                  },
-                  {
-                    "text": "Resistência",
-                    "misconceptionCode": "forca-resistencia"
-                  },
-                  {
-                    "text": "Força"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          }
-        ]
+       "code": "resistencia",
+       "description": "Explica resistência como aguentar um esforço por muito tempo"
       },
       {
-        "id": "PK2-EF67EF08-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar: capacidades e sensações",
-        "prompt": "Identifique a capacidade e entenda o que o corpo sente.",
-        "estMinutes": 5,
-        "audioScript": "Identifique a capacidade e entenda o que o corpo sente. Pergunta 1. Alongar as pernas depois da aula trabalha: A: Flexibilidade; B: Força; C: Velocidade; D: Resistência. Pergunta 2. Durante uma corrida, o coração bate mais rápido. Isso é: A: Sinal de doença; B: Sinal de que o exercício está errado; C: Normal: o corpo precisa de mais oxigênio nos músculos; D: Sinal de que o corpo parou. Pergunta 3. Fazer 10 abdominais seguidos e aguentar 30 segundos em prancha trabalham: A: Só velocidade; B: Força e resistência muscular; C: Só flexibilidade; D: Nenhuma capacidade. Pergunta 4. Mudar de direção rápido para driblar um colega trabalha: A: Flexibilidade; B: Resistência; C: Força; D: Agilidade.",
-        "questions": [
-          {
-            "question": "Alongar as pernas depois da aula trabalha:",
-            "options": [
-              {
-                "text": "Flexibilidade"
-              },
-              {
-                "text": "Força",
-                "misconceptionCode": "flexibilidade-forca"
-              },
-              {
-                "text": "Velocidade",
-                "misconceptionCode": "velocidade-resistencia"
-              },
-              {
-                "text": "Resistência",
-                "misconceptionCode": "forca-resistencia"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Alongar estica os músculos e deixa o corpo mais \"elástico\". Isso é flexibilidade.",
-            "variants": [
-              {
-                "question": "Uma aula de ioga com muitas posturas de alongamento trabalha principalmente:",
-                "options": [
-                  {
-                    "text": "Velocidade",
-                    "misconceptionCode": "flexibilidade-forca"
-                  },
-                  {
-                    "text": "Força explosiva",
-                    "misconceptionCode": "velocidade-resistencia"
-                  },
-                  {
-                    "text": "Flexibilidade"
-                  },
-                  {
-                    "text": "Resistência de corrida",
-                    "misconceptionCode": "forca-resistencia"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Alongar as pernas depois da aula trabalha:",
-                "options": [
-                  {
-                    "text": "Resistência",
-                    "misconceptionCode": "forca-resistencia"
-                  },
-                  {
-                    "text": "Flexibilidade"
-                  },
-                  {
-                    "text": "Velocidade",
-                    "misconceptionCode": "velocidade-resistencia"
-                  },
-                  {
-                    "text": "Força",
-                    "misconceptionCode": "flexibilidade-forca"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Durante uma corrida, o coração bate mais rápido. Isso é:",
-            "options": [
-              {
-                "text": "Sinal de doença",
-                "misconceptionCode": "sensacao-errada"
-              },
-              {
-                "text": "Sinal de que o exercício está errado",
-                "misconceptionCode": "sensacao-errada"
-              },
-              {
-                "text": "Normal: o corpo precisa de mais oxigênio nos músculos"
-              },
-              {
-                "text": "Sinal de que o corpo parou",
-                "misconceptionCode": "sensacao-errada"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "É normal! Os músculos precisam de mais oxigênio, e o coração acelera para levar mais sangue até eles.",
-            "variants": [
-              {
-                "question": "Por que respiramos mais rápido ao pular corda?",
-                "options": [
-                  {
-                    "text": "Porque os músculos precisam de mais oxigênio"
-                  },
-                  {
-                    "text": "Porque o ar acabou",
-                    "misconceptionCode": "sensacao-errada"
-                  },
-                  {
-                    "text": "Porque é sinal de doença",
-                    "misconceptionCode": "sensacao-errada"
-                  },
-                  {
-                    "text": "Porque esquecemos de respirar",
-                    "misconceptionCode": "sensacao-errada"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Durante uma corrida, o coração bate mais rápido. Isso é:",
-                "options": [
-                  {
-                    "text": "Sinal de que o corpo parou",
-                    "misconceptionCode": "sensacao-errada"
-                  },
-                  {
-                    "text": "Sinal de que o exercício está errado",
-                    "misconceptionCode": "sensacao-errada"
-                  },
-                  {
-                    "text": "Sinal de doença",
-                    "misconceptionCode": "sensacao-errada"
-                  },
-                  {
-                    "text": "Normal: o corpo precisa de mais oxigênio nos músculos"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Fazer 10 abdominais seguidos e aguentar 30 segundos em prancha trabalham:",
-            "options": [
-              {
-                "text": "Só velocidade",
-                "misconceptionCode": "velocidade-resistencia"
-              },
-              {
-                "text": "Força e resistência muscular"
-              },
-              {
-                "text": "Só flexibilidade",
-                "misconceptionCode": "flexibilidade-forca"
-              },
-              {
-                "text": "Nenhuma capacidade",
-                "misconceptionCode": "sensacao-errada"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Para fazer o movimento, precisa de força. Para aguentar o tempo todo, precisa de resistência. Treina as duas.",
-            "variants": [
-              {
-                "question": "Ficar pendurado na barra por bastante tempo trabalha:",
-                "options": [
-                  {
-                    "text": "Só velocidade",
-                    "misconceptionCode": "velocidade-resistencia"
-                  },
-                  {
-                    "text": "Só flexibilidade",
-                    "misconceptionCode": "flexibilidade-forca"
-                  },
-                  {
-                    "text": "Nenhuma",
-                    "misconceptionCode": "sensacao-errada"
-                  },
-                  {
-                    "text": "Força e resistência"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Fazer 10 abdominais seguidos e aguentar 30 segundos em prancha trabalham:",
-                "options": [
-                  {
-                    "text": "Nenhuma capacidade",
-                    "misconceptionCode": "sensacao-errada"
-                  },
-                  {
-                    "text": "Só flexibilidade",
-                    "misconceptionCode": "flexibilidade-forca"
-                  },
-                  {
-                    "text": "Força e resistência muscular"
-                  },
-                  {
-                    "text": "Só velocidade",
-                    "misconceptionCode": "velocidade-resistencia"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Mudar de direção rápido para driblar um colega trabalha:",
-            "options": [
-              {
-                "text": "Flexibilidade",
-                "misconceptionCode": "flexibilidade-forca"
-              },
-              {
-                "text": "Resistência",
-                "misconceptionCode": "velocidade-resistencia"
-              },
-              {
-                "text": "Força",
-                "misconceptionCode": "forca-resistencia"
-              },
-              {
-                "text": "Agilidade"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Trocar de direção bem rápido, para enganar o colega, é agilidade.",
-            "variants": [
-              {
-                "question": "Desviar das bolas na queimada exige:",
-                "options": [
-                  {
-                    "text": "Flexibilidade",
-                    "misconceptionCode": "flexibilidade-forca"
-                  },
-                  {
-                    "text": "Agilidade"
-                  },
-                  {
-                    "text": "Resistência de longa distância",
-                    "misconceptionCode": "velocidade-resistencia"
-                  },
-                  {
-                    "text": "Força máxima",
-                    "misconceptionCode": "forca-resistencia"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Mudar de direção rápido para driblar um colega trabalha:",
-                "options": [
-                  {
-                    "text": "Agilidade"
-                  },
-                  {
-                    "text": "Força",
-                    "misconceptionCode": "forca-resistencia"
-                  },
-                  {
-                    "text": "Resistência",
-                    "misconceptionCode": "velocidade-resistencia"
-                  },
-                  {
-                    "text": "Flexibilidade",
-                    "misconceptionCode": "flexibilidade-forca"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF67EF08-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar: exercício no dia a dia",
-        "prompt": "Pense em como usar as capacidades físicas na sua vida.",
-        "estMinutes": 4,
-        "audioScript": "Pense em como usar as capacidades físicas na sua vida. Pergunta 1. Você quer conseguir correr a gincana inteira sem cansar tanto. O que treinar? A: Só velocidade, em tiros curtos; B: Só alongamento; C: Resistência, com corridas leves e mais longas; D: Só levantar peso. Pergunta 2. Depois de um jogo, a perna fica um pouco dolorida no dia seguinte. Isso pode ser: A: Sinal de que nunca mais deve fazer exercício; B: Normal, se for leve; se for forte, é preciso descansar e avisar um adulto; C: Sinal de que treinou pouco; D: Sempre um machucado grave. Pergunta 3. Qual destas é uma atividade física do dia a dia, sem ser esporte? A: Só correr numa competição; B: Ficar sentado jogando videogame; C: Só fazer alongamento de atleta; D: Subir escadas e andar até a escola.",
-        "questions": [
-          {
-            "question": "Você quer conseguir correr a gincana inteira sem cansar tanto. O que treinar?",
-            "options": [
-              {
-                "text": "Só velocidade, em tiros curtos",
-                "misconceptionCode": "velocidade-resistencia"
-              },
-              {
-                "text": "Só alongamento",
-                "misconceptionCode": "flexibilidade-forca"
-              },
-              {
-                "text": "Resistência, com corridas leves e mais longas"
-              },
-              {
-                "text": "Só levantar peso",
-                "misconceptionCode": "forca-resistencia"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Para aguentar mais tempo, treine resistência: corridas leves e um pouco mais longas a cada vez.",
-            "variants": [
-              {
-                "question": "Para aguentar um passeio de bicicleta longo, treine:",
-                "options": [
-                  {
-                    "text": "Resistência"
-                  },
-                  {
-                    "text": "Só velocidade",
-                    "misconceptionCode": "velocidade-resistencia"
-                  },
-                  {
-                    "text": "Só flexibilidade",
-                    "misconceptionCode": "flexibilidade-forca"
-                  },
-                  {
-                    "text": "Só força nos braços",
-                    "misconceptionCode": "forca-resistencia"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Você quer conseguir correr a gincana inteira sem cansar tanto. O que treinar?",
-                "options": [
-                  {
-                    "text": "Só levantar peso",
-                    "misconceptionCode": "forca-resistencia"
-                  },
-                  {
-                    "text": "Só alongamento",
-                    "misconceptionCode": "flexibilidade-forca"
-                  },
-                  {
-                    "text": "Só velocidade, em tiros curtos",
-                    "misconceptionCode": "velocidade-resistencia"
-                  },
-                  {
-                    "text": "Resistência, com corridas leves e mais longas"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Depois de um jogo, a perna fica um pouco dolorida no dia seguinte. Isso pode ser:",
-            "options": [
-              {
-                "text": "Sinal de que nunca mais deve fazer exercício",
-                "misconceptionCode": "sensacao-errada"
-              },
-              {
-                "text": "Normal, se for leve; se for forte, é preciso descansar e avisar um adulto"
-              },
-              {
-                "text": "Sinal de que treinou pouco",
-                "misconceptionCode": "sensacao-errada"
-              },
-              {
-                "text": "Sempre um machucado grave",
-                "misconceptionCode": "sensacao-errada"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Uma dorzinha leve no dia seguinte é comum. Se a dor for forte, descanse e conte para um adulto.",
-            "variants": [
-              {
-                "question": "Se sentir tontura forte durante o exercício, você deve:",
-                "options": [
-                  {
-                    "text": "Continuar mais rápido",
-                    "misconceptionCode": "sensacao-errada"
-                  },
-                  {
-                    "text": "Fingir que não é nada",
-                    "misconceptionCode": "sensacao-errada"
-                  },
-                  {
-                    "text": "Correr para casa sozinho",
-                    "misconceptionCode": "sensacao-errada"
-                  },
-                  {
-                    "text": "Parar e avisar um adulto"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Depois de um jogo, a perna fica um pouco dolorida no dia seguinte. Isso pode ser:",
-                "options": [
-                  {
-                    "text": "Sempre um machucado grave",
-                    "misconceptionCode": "sensacao-errada"
-                  },
-                  {
-                    "text": "Sinal de que treinou pouco",
-                    "misconceptionCode": "sensacao-errada"
-                  },
-                  {
-                    "text": "Normal, se for leve; se for forte, é preciso descansar e avisar um adulto"
-                  },
-                  {
-                    "text": "Sinal de que nunca mais deve fazer exercício",
-                    "misconceptionCode": "sensacao-errada"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Qual destas é uma atividade física do dia a dia, sem ser esporte?",
-            "options": [
-              {
-                "text": "Só correr numa competição",
-                "misconceptionCode": "velocidade-resistencia"
-              },
-              {
-                "text": "Ficar sentado jogando videogame",
-                "misconceptionCode": "sensacao-errada"
-              },
-              {
-                "text": "Só fazer alongamento de atleta",
-                "misconceptionCode": "flexibilidade-forca"
-              },
-              {
-                "text": "Subir escadas e andar até a escola"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Todo movimento que faz o corpo gastar energia é atividade física, como subir escadas e ir andando para a escola.",
-            "variants": [
-              {
-                "question": "Varrer a casa e andar de bicicleta até a padaria são:",
-                "options": [
-                  {
-                    "text": "Esportes de competição",
-                    "misconceptionCode": "velocidade-resistencia"
-                  },
-                  {
-                    "text": "Atividades físicas do dia a dia"
-                  },
-                  {
-                    "text": "Exercícios só de força",
-                    "misconceptionCode": "sensacao-errada"
-                  },
-                  {
-                    "text": "Nenhum movimento",
-                    "misconceptionCode": "flexibilidade-forca"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Qual destas é uma atividade física do dia a dia, sem ser esporte?",
-                "options": [
-                  {
-                    "text": "Subir escadas e andar até a escola"
-                  },
-                  {
-                    "text": "Só fazer alongamento de atleta",
-                    "misconceptionCode": "flexibilidade-forca"
-                  },
-                  {
-                    "text": "Ficar sentado jogando videogame",
-                    "misconceptionCode": "sensacao-errada"
-                  },
-                  {
-                    "text": "Só correr numa competição",
-                    "misconceptionCode": "velocidade-resistencia"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF67EF08-A5",
-        "step": "explicar",
-        "type": "WRITTEN",
-        "allowSpoken": true,
-        "title": "Explicar: capacidades físicas",
-        "prompt": "Explique com as suas palavras a diferença entre velocidade e resistência, com um exemplo de exercício para cada uma.",
-        "estMinutes": 6,
-        "audioScript": "Explique com as suas palavras a diferença entre velocidade e resistência, com um exemplo de exercício para cada uma.",
-        "rubric": {
-          "type": "WRITTEN",
-          "criteria": [
-            {
-              "code": "velocidade",
-              "description": "Explica velocidade como fazer algo o mais rápido possível, em pouco tempo"
-            },
-            {
-              "code": "resistencia",
-              "description": "Explica resistência como aguentar um esforço por muito tempo"
-            },
-            {
-              "code": "exemplos",
-              "description": "Dá exemplos corretos de exercícios"
-            }
-          ],
-          "exemploBoaResposta": "Velocidade é fazer o movimento o mais rápido possível, como correr 50 metros numa corrida. Resistência é aguentar o esforço por muito tempo, como correr devagar 20 minutos sem parar. Os dois são capacidades físicas diferentes."
-        }
+       "code": "exemplos",
+       "description": "Dá exemplos corretos de exercícios"
       }
-    ],
-    "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED"
-  },
-  {
-    "skillCode": "EF67EF03",
-    "subjectCode": "EF",
-    "subjectName": "Educação Física",
-    "gradeYear": 6,
-    "version": 3,
-    "title": "Trilha: Esportes de marca, precisão, invasão e técnico-combinatórios",
-    "tituloAluno": "Como os esportes se organizam",
-    "activities": [
+     ],
+     "exemploBoaResposta": "Velocidade é fazer o movimento o mais rápido possível, como correr 50 metros numa corrida. Resistência é aguentar o esforço por muito tempo, como correr devagar 20 minutos sem parar. Os dois são capacidades físicas diferentes."
+    }
+   }
+  ],
+  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+  "source": "SPEAKFLOW",
+  "status": "APPROVED"
+ },
+ {
+  "skillCode": "EF67EF03",
+  "subjectCode": "EF",
+  "subjectName": "Educação Física",
+  "gradeYear": 6,
+  "version": 3,
+  "title": "Trilha: Esportes de marca, precisão, invasão e técnico-combinatórios",
+  "tituloAluno": "Como os esportes se organizam",
+  "activities": [
+   {
+    "id": "PK2-EF67EF03-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: rede, invasão e taco",
+    "prompt": "Vamos lembrar os grupos que você já conhece.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar os grupos que você já conhece. Pergunta 1. Futebol e handebol são esportes de: A: Rede; B: Marca; C: Invasão; D: Técnico-combinatório. Pergunta 2. Vôlei e tênis são esportes de: A: Invasão; B: Rede; C: Precisão; D: Marca. Pergunta 3. Para classificar um esporte, o mais importante é observar: A: Se usa bola ou não; B: A cor do uniforme; C: O tamanho da quadra apenas; D: Como se vence o jogo.",
+    "questions": [
+     {
+      "question": "Futebol e handebol são esportes de:",
+      "options": [
+       {
+        "text": "Rede",
+        "misconceptionCode": "invasao-rede"
+       },
+       {
+        "text": "Marca",
+        "misconceptionCode": "marca-precisao"
+       },
+       {
+        "text": "Invasão"
+       },
+       {
+        "text": "Técnico-combinatório",
+        "misconceptionCode": "tecnico-marca"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Os times jogam no mesmo espaço e entram no lado do outro para fazer gol. São esportes de invasão.",
+      "variants": [
+       {
+        "question": "O polo aquático, em que os times tentam fazer gol na piscina, é de:",
+        "options": [
+         {
+          "text": "Invasão"
+         },
+         {
+          "text": "Rede",
+          "misconceptionCode": "invasao-rede"
+         },
+         {
+          "text": "Marca",
+          "misconceptionCode": "marca-precisao"
+         },
+         {
+          "text": "Precisão",
+          "misconceptionCode": "tecnico-marca"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Futebol e handebol são esportes de:",
+        "options": [
+         {
+          "text": "Técnico-combinatório",
+          "misconceptionCode": "tecnico-marca"
+         },
+         {
+          "text": "Marca",
+          "misconceptionCode": "marca-precisao"
+         },
+         {
+          "text": "Rede",
+          "misconceptionCode": "invasao-rede"
+         },
+         {
+          "text": "Invasão"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Vôlei e tênis são esportes de:",
+      "options": [
+       {
+        "text": "Invasão",
+        "misconceptionCode": "invasao-rede"
+       },
+       {
+        "text": "Rede"
+       },
+       {
+        "text": "Precisão",
+        "misconceptionCode": "marca-precisao"
+       },
+       {
+        "text": "Marca",
+        "misconceptionCode": "marca-precisao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Uma rede separa os jogadores, e cada um fica do seu lado. São esportes de rede.",
+      "variants": [
+       {
+        "question": "O vôlei de praia é um esporte de:",
+        "options": [
+         {
+          "text": "Invasão",
+          "misconceptionCode": "invasao-rede"
+         },
+         {
+          "text": "Marca",
+          "misconceptionCode": "marca-precisao"
+         },
+         {
+          "text": "Técnico-combinatório",
+          "misconceptionCode": "marca-precisao"
+         },
+         {
+          "text": "Rede"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Vôlei e tênis são esportes de:",
+        "options": [
+         {
+          "text": "Marca",
+          "misconceptionCode": "marca-precisao"
+         },
+         {
+          "text": "Precisão",
+          "misconceptionCode": "marca-precisao"
+         },
+         {
+          "text": "Rede"
+         },
+         {
+          "text": "Invasão",
+          "misconceptionCode": "invasao-rede"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Para classificar um esporte, o mais importante é observar:",
+      "options": [
+       {
+        "text": "Se usa bola ou não",
+        "misconceptionCode": "criterio-errado"
+       },
+       {
+        "text": "A cor do uniforme",
+        "misconceptionCode": "criterio-errado"
+       },
+       {
+        "text": "O tamanho da quadra apenas",
+        "misconceptionCode": "criterio-errado"
+       },
+       {
+        "text": "Como se vence o jogo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Pergunte: como se ganha esse jogo? Por gol, por tempo, acertando um alvo? É o jeito de vencer que define o grupo.",
+      "variants": [
+       {
+        "question": "Basquete e vôlei usam bola, mas são de grupos diferentes porque:",
+        "options": [
+         {
+          "text": "Um é mais famoso",
+          "misconceptionCode": "criterio-errado"
+         },
+         {
+          "text": "Vence-se de formas diferentes"
+         },
+         {
+          "text": "A bola tem cor diferente",
+          "misconceptionCode": "criterio-errado"
+         },
+         {
+          "text": "Na verdade são do mesmo grupo",
+          "misconceptionCode": "criterio-errado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Para classificar um esporte, o mais importante é observar:",
+        "options": [
+         {
+          "text": "Como se vence o jogo"
+         },
+         {
+          "text": "O tamanho da quadra apenas",
+          "misconceptionCode": "criterio-errado"
+         },
+         {
+          "text": "A cor do uniforme",
+          "misconceptionCode": "criterio-errado"
+         },
+         {
+          "text": "Se usa bola ou não",
+          "misconceptionCode": "criterio-errado"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF67EF03-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: marca e precisão",
+    "prompt": "Vamos conhecer juntos dois grupos novos: marca e precisão.",
+    "estMinutes": 4,
+    "audioScript": "Vamos conhecer juntos dois grupos novos: marca e precisão. Pergunta 1. Nos 100 metros rasos, vence quem chega primeiro, no menor tempo. É um esporte de: A: Precisão; B: Marca; C: Invasão; D: Técnico-combinatório. Pergunta 2. No tiro com arco, vence quem acerta mais perto do centro do alvo. É de: A: Marca; B: Invasão; C: Técnico-combinatório; D: Precisão. Pergunta 3. Na natação, vence quem nada a distância no menor tempo. É de: A: Marca; B: Precisão; C: Técnico-combinatório; D: Rede.",
+    "questions": [
+     {
+      "question": "Nos 100 metros rasos, vence quem chega primeiro, no menor tempo. É um esporte de:",
+      "options": [
+       {
+        "text": "Precisão",
+        "misconceptionCode": "marca-precisao"
+       },
+       {
+        "text": "Marca"
+       },
+       {
+        "text": "Invasão",
+        "misconceptionCode": "invasao-rede"
+       },
+       {
+        "text": "Técnico-combinatório",
+        "misconceptionCode": "tecnico-marca"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Ganha quem faz o menor tempo no cronômetro. Quando o resultado é medido, é um esporte de marca.",
+      "variants": [
+       {
+        "question": "No salto em distância, vence quem pula mais longe. É de:",
+        "options": [
+         {
+          "text": "Precisão",
+          "misconceptionCode": "marca-precisao"
+         },
+         {
+          "text": "Invasão",
+          "misconceptionCode": "invasao-rede"
+         },
+         {
+          "text": "Rede",
+          "misconceptionCode": "tecnico-marca"
+         },
+         {
+          "text": "Marca"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Nos 100 metros rasos, vence quem chega primeiro, no menor tempo. É um esporte de:",
+        "options": [
+         {
+          "text": "Técnico-combinatório",
+          "misconceptionCode": "tecnico-marca"
+         },
+         {
+          "text": "Invasão",
+          "misconceptionCode": "invasao-rede"
+         },
+         {
+          "text": "Marca"
+         },
+         {
+          "text": "Precisão",
+          "misconceptionCode": "marca-precisao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "No tiro com arco, vence quem acerta mais perto do centro do alvo. É de:",
+      "options": [
+       {
+        "text": "Marca",
+        "misconceptionCode": "marca-precisao"
+       },
+       {
+        "text": "Invasão",
+        "misconceptionCode": "invasao-rede"
+       },
+       {
+        "text": "Técnico-combinatório",
+        "misconceptionCode": "tecnico-marca"
+       },
+       {
+        "text": "Precisão"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O objetivo é acertar o alvo, bem no meio. Isso é um esporte de precisão.",
+      "variants": [
+       {
+        "question": "Na bocha, as bolas devem ficar o mais perto possível de uma bolinha-alvo. É de:",
+        "options": [
+         {
+          "text": "Marca",
+          "misconceptionCode": "marca-precisao"
+         },
+         {
+          "text": "Precisão"
+         },
+         {
+          "text": "Invasão",
+          "misconceptionCode": "invasao-rede"
+         },
+         {
+          "text": "Rede",
+          "misconceptionCode": "tecnico-marca"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "No tiro com arco, vence quem acerta mais perto do centro do alvo. É de:",
+        "options": [
+         {
+          "text": "Precisão"
+         },
+         {
+          "text": "Técnico-combinatório",
+          "misconceptionCode": "tecnico-marca"
+         },
+         {
+          "text": "Invasão",
+          "misconceptionCode": "invasao-rede"
+         },
+         {
+          "text": "Marca",
+          "misconceptionCode": "marca-precisao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Na natação, vence quem nada a distância no menor tempo. É de:",
+      "options": [
+       {
+        "text": "Marca"
+       },
+       {
+        "text": "Precisão",
+        "misconceptionCode": "marca-precisao"
+       },
+       {
+        "text": "Técnico-combinatório",
+        "misconceptionCode": "tecnico-marca"
+       },
+       {
+        "text": "Rede",
+        "misconceptionCode": "invasao-rede"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O cronômetro decide quem ganha. Resultado medido em tempo é esporte de marca.",
+      "variants": [
+       {
+        "question": "No arremesso de peso, vence quem lança mais longe. É de:",
+        "options": [
+         {
+          "text": "Precisão",
+          "misconceptionCode": "marca-precisao"
+         },
+         {
+          "text": "Invasão",
+          "misconceptionCode": "tecnico-marca"
+         },
+         {
+          "text": "Marca"
+         },
+         {
+          "text": "Técnico-combinatório",
+          "misconceptionCode": "invasao-rede"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Na natação, vence quem nada a distância no menor tempo. É de:",
+        "options": [
+         {
+          "text": "Rede",
+          "misconceptionCode": "invasao-rede"
+         },
+         {
+          "text": "Marca"
+         },
+         {
+          "text": "Técnico-combinatório",
+          "misconceptionCode": "tecnico-marca"
+         },
+         {
+          "text": "Precisão",
+          "misconceptionCode": "marca-precisao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF67EF03-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: técnico-combinatórios e revisão",
+    "prompt": "Nos esportes técnico-combinatórios, juízes avaliam a execução e a beleza dos movimentos.",
+    "estMinutes": 5,
+    "audioScript": "Nos esportes técnico-combinatórios, juízes avaliam a execução e a beleza dos movimentos. Pergunta 1. A ginástica artística, em que juízes pontuam a execução dos movimentos, é um esporte: A: De marca; B: De precisão; C: De invasão; D: Técnico-combinatório. Pergunta 2. O boliche, em que se tenta derrubar os pinos, é um esporte de: A: Precisão; B: Marca; C: Invasão; D: Técnico-combinatório. Pergunta 3. A ginástica de trampolim, em que juízes avaliam as acrobacias, é um esporte: A: De marca, porque usa uma cama elástica; B: De precisão; C: Técnico-combinatório; D: De invasão. Pergunta 4. O rúgbi, em que o time leva a bola até a área do adversário, é de: A: Rede; B: Invasão; C: Marca; D: Técnico-combinatório.",
+    "questions": [
+     {
+      "question": "A ginástica artística, em que juízes pontuam a execução dos movimentos, é um esporte:",
+      "options": [
+       {
+        "text": "De marca",
+        "misconceptionCode": "tecnico-marca"
+       },
+       {
+        "text": "De precisão",
+        "misconceptionCode": "marca-precisao"
+       },
+       {
+        "text": "De invasão",
+        "misconceptionCode": "invasao-rede"
+       },
+       {
+        "text": "Técnico-combinatório"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Não tem gol nem cronômetro: os juízes dão nota para os movimentos. Por isso é técnico-combinatório.",
+      "variants": [
+       {
+        "question": "Os saltos ornamentais na piscina são esportes:",
+        "options": [
+         {
+          "text": "De marca",
+          "misconceptionCode": "tecnico-marca"
+         },
+         {
+          "text": "Técnico-combinatórios"
+         },
+         {
+          "text": "De invasão",
+          "misconceptionCode": "marca-precisao"
+         },
+         {
+          "text": "De rede",
+          "misconceptionCode": "invasao-rede"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A ginástica artística, em que juízes pontuam a execução dos movimentos, é um esporte:",
+        "options": [
+         {
+          "text": "Técnico-combinatório"
+         },
+         {
+          "text": "De invasão",
+          "misconceptionCode": "invasao-rede"
+         },
+         {
+          "text": "De precisão",
+          "misconceptionCode": "marca-precisao"
+         },
+         {
+          "text": "De marca",
+          "misconceptionCode": "tecnico-marca"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O boliche, em que se tenta derrubar os pinos, é um esporte de:",
+      "options": [
+       {
+        "text": "Precisão"
+       },
+       {
+        "text": "Marca",
+        "misconceptionCode": "marca-precisao"
+       },
+       {
+        "text": "Invasão",
+        "misconceptionCode": "invasao-rede"
+       },
+       {
+        "text": "Técnico-combinatório",
+        "misconceptionCode": "tecnico-marca"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Derrubar os pinos é acertar um alvo. Isso é um esporte de precisão.",
+      "variants": [
+       {
+        "question": "O golfe, em que se tenta acertar a bola no buraco com poucas tacadas, é de:",
+        "options": [
+         {
+          "text": "Marca",
+          "misconceptionCode": "marca-precisao"
+         },
+         {
+          "text": "Invasão",
+          "misconceptionCode": "invasao-rede"
+         },
+         {
+          "text": "Precisão"
+         },
+         {
+          "text": "Rede",
+          "misconceptionCode": "tecnico-marca"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O boliche, em que se tenta derrubar os pinos, é um esporte de:",
+        "options": [
+         {
+          "text": "Técnico-combinatório",
+          "misconceptionCode": "tecnico-marca"
+         },
+         {
+          "text": "Precisão"
+         },
+         {
+          "text": "Invasão",
+          "misconceptionCode": "invasao-rede"
+         },
+         {
+          "text": "Marca",
+          "misconceptionCode": "marca-precisao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "A ginástica de trampolim, em que juízes avaliam as acrobacias, é um esporte:",
+      "options": [
+       {
+        "text": "De marca, porque usa uma cama elástica",
+        "misconceptionCode": "criterio-errado"
+       },
+       {
+        "text": "De precisão",
+        "misconceptionCode": "marca-precisao"
+       },
+       {
+        "text": "Técnico-combinatório"
+       },
+       {
+        "text": "De invasão",
+        "misconceptionCode": "invasao-rede"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Os juízes olham as acrobacias e dão nota. Esporte decidido por juízes é técnico-combinatório.",
+      "variants": [
+       {
+        "question": "O nado artístico, avaliado por juízes, é:",
+        "options": [
+         {
+          "text": "Técnico-combinatório"
+         },
+         {
+          "text": "De marca, porque é na piscina",
+          "misconceptionCode": "criterio-errado"
+         },
+         {
+          "text": "De invasão",
+          "misconceptionCode": "marca-precisao"
+         },
+         {
+          "text": "De precisão",
+          "misconceptionCode": "invasao-rede"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A ginástica de trampolim, em que juízes avaliam as acrobacias, é um esporte:",
+        "options": [
+         {
+          "text": "De invasão",
+          "misconceptionCode": "invasao-rede"
+         },
+         {
+          "text": "De precisão",
+          "misconceptionCode": "marca-precisao"
+         },
+         {
+          "text": "De marca, porque usa uma cama elástica",
+          "misconceptionCode": "criterio-errado"
+         },
+         {
+          "text": "Técnico-combinatório"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O rúgbi, em que o time leva a bola até a área do adversário, é de:",
+      "options": [
+       {
+        "text": "Rede",
+        "misconceptionCode": "invasao-rede"
+       },
+       {
+        "text": "Invasão"
+       },
+       {
+        "text": "Marca",
+        "misconceptionCode": "marca-precisao"
+       },
+       {
+        "text": "Técnico-combinatório",
+        "misconceptionCode": "tecnico-marca"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O time entra no campo do outro para pontuar. Isso é esporte de invasão.",
+      "variants": [
+       {
+        "question": "O futsal é um esporte de:",
+        "options": [
+         {
+          "text": "Rede",
+          "misconceptionCode": "invasao-rede"
+         },
+         {
+          "text": "Precisão",
+          "misconceptionCode": "marca-precisao"
+         },
+         {
+          "text": "Marca",
+          "misconceptionCode": "tecnico-marca"
+         },
+         {
+          "text": "Invasão"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O rúgbi, em que o time leva a bola até a área do adversário, é de:",
+        "options": [
+         {
+          "text": "Técnico-combinatório",
+          "misconceptionCode": "tecnico-marca"
+         },
+         {
+          "text": "Marca",
+          "misconceptionCode": "marca-precisao"
+         },
+         {
+          "text": "Invasão"
+         },
+         {
+          "text": "Rede",
+          "misconceptionCode": "invasao-rede"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF67EF03-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: esportes na escola",
+    "prompt": "Agora organize atividades na escola.",
+    "estMinutes": 4,
+    "audioScript": "Agora organize atividades na escola. Pergunta 1. A turma vai medir quem arremessa uma bola de papel mais longe. É uma atividade de: A: Marca; B: Precisão; C: Invasão; D: Técnico-combinatório. Pergunta 2. A turma vai jogar bolinhas de meia para dentro de baldes a 3 metros. É uma atividade de: A: Marca; B: Invasão; C: Precisão; D: Técnico-combinatório. Pergunta 3. Num esporte coletivo de invasão, o que mais ajuda o time a ir bem? A: Cada um jogar sozinho; B: Trabalhar em equipe, passando a bola e ocupando os espaços; C: Só o jogador mais rápido jogar; D: Ficar todos parados atrás da rede.",
+    "questions": [
+     {
+      "question": "A turma vai medir quem arremessa uma bola de papel mais longe. É uma atividade de:",
+      "options": [
+       {
+        "text": "Marca"
+       },
+       {
+        "text": "Precisão",
+        "misconceptionCode": "marca-precisao"
+       },
+       {
+        "text": "Invasão",
+        "misconceptionCode": "invasao-rede"
+       },
+       {
+        "text": "Técnico-combinatório",
+        "misconceptionCode": "tecnico-marca"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Vence quem joga mais longe, e isso é medido com fita métrica. É uma atividade de marca.",
+      "variants": [
+       {
+        "question": "Cronometrar quem pula corda mais vezes em 30 segundos é uma atividade de:",
+        "options": [
+         {
+          "text": "Precisão",
+          "misconceptionCode": "marca-precisao"
+         },
+         {
+          "text": "Invasão",
+          "misconceptionCode": "invasao-rede"
+         },
+         {
+          "text": "Marca"
+         },
+         {
+          "text": "Rede",
+          "misconceptionCode": "tecnico-marca"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A turma vai medir quem arremessa uma bola de papel mais longe. É uma atividade de:",
+        "options": [
+         {
+          "text": "Técnico-combinatório",
+          "misconceptionCode": "tecnico-marca"
+         },
+         {
+          "text": "Marca"
+         },
+         {
+          "text": "Invasão",
+          "misconceptionCode": "invasao-rede"
+         },
+         {
+          "text": "Precisão",
+          "misconceptionCode": "marca-precisao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "A turma vai jogar bolinhas de meia para dentro de baldes a 3 metros. É uma atividade de:",
+      "options": [
+       {
+        "text": "Marca",
+        "misconceptionCode": "marca-precisao"
+       },
+       {
+        "text": "Invasão",
+        "misconceptionCode": "invasao-rede"
+       },
+       {
+        "text": "Precisão"
+       },
+       {
+        "text": "Técnico-combinatório",
+        "misconceptionCode": "tecnico-marca"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O objetivo é acertar o balde. Acertar um alvo é precisão.",
+      "variants": [
+       {
+        "question": "Derrubar garrafas com uma bola, como num boliche de garrafa, é de:",
+        "options": [
+         {
+          "text": "Precisão"
+         },
+         {
+          "text": "Marca",
+          "misconceptionCode": "marca-precisao"
+         },
+         {
+          "text": "Invasão",
+          "misconceptionCode": "invasao-rede"
+         },
+         {
+          "text": "Rede",
+          "misconceptionCode": "tecnico-marca"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A turma vai jogar bolinhas de meia para dentro de baldes a 3 metros. É uma atividade de:",
+        "options": [
+         {
+          "text": "Técnico-combinatório",
+          "misconceptionCode": "tecnico-marca"
+         },
+         {
+          "text": "Invasão",
+          "misconceptionCode": "invasao-rede"
+         },
+         {
+          "text": "Marca",
+          "misconceptionCode": "marca-precisao"
+         },
+         {
+          "text": "Precisão"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Num esporte coletivo de invasão, o que mais ajuda o time a ir bem?",
+      "options": [
+       {
+        "text": "Cada um jogar sozinho",
+        "misconceptionCode": "criterio-errado"
+       },
+       {
+        "text": "Trabalhar em equipe, passando a bola e ocupando os espaços"
+       },
+       {
+        "text": "Só o jogador mais rápido jogar",
+        "misconceptionCode": "criterio-errado"
+       },
+       {
+        "text": "Ficar todos parados atrás da rede",
+        "misconceptionCode": "invasao-rede"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Ninguém ganha sozinho: passar a bola e ocupar os espaços juntos faz o time ir bem.",
+      "variants": [
+       {
+        "question": "Em um jogo de handebol, passar a bola para um colega livre é:",
+        "options": [
+         {
+          "text": "Errado, deve-se jogar sozinho",
+          "misconceptionCode": "criterio-errado"
+         },
+         {
+          "text": "Proibido",
+          "misconceptionCode": "criterio-errado"
+         },
+         {
+          "text": "Coisa de esporte de rede",
+          "misconceptionCode": "invasao-rede"
+         },
+         {
+          "text": "Uma boa estratégia coletiva"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Num esporte coletivo de invasão, o que mais ajuda o time a ir bem?",
+        "options": [
+         {
+          "text": "Ficar todos parados atrás da rede",
+          "misconceptionCode": "invasao-rede"
+         },
+         {
+          "text": "Só o jogador mais rápido jogar",
+          "misconceptionCode": "criterio-errado"
+         },
+         {
+          "text": "Trabalhar em equipe, passando a bola e ocupando os espaços"
+         },
+         {
+          "text": "Cada um jogar sozinho",
+          "misconceptionCode": "criterio-errado"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF67EF03-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: como se vence",
+    "prompt": "Explique com as suas palavras a diferença entre um esporte de marca e um esporte de precisão. Dê um exemplo de cada.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras a diferença entre um esporte de marca e um esporte de precisão. Dê um exemplo de cada.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
       {
-        "id": "PK2-EF67EF03-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar: rede, invasão e taco",
-        "prompt": "Vamos lembrar os grupos que você já conhece.",
-        "estMinutes": 4,
-        "audioScript": "Vamos lembrar os grupos que você já conhece. Pergunta 1. Futebol e handebol são esportes de: A: Rede; B: Marca; C: Invasão; D: Técnico-combinatório. Pergunta 2. Vôlei e tênis são esportes de: A: Invasão; B: Rede; C: Precisão; D: Marca. Pergunta 3. Para classificar um esporte, o mais importante é observar: A: Se usa bola ou não; B: A cor do uniforme; C: O tamanho da quadra apenas; D: Como se vence o jogo.",
-        "questions": [
-          {
-            "question": "Futebol e handebol são esportes de:",
-            "options": [
-              {
-                "text": "Rede",
-                "misconceptionCode": "invasao-rede"
-              },
-              {
-                "text": "Marca",
-                "misconceptionCode": "marca-precisao"
-              },
-              {
-                "text": "Invasão"
-              },
-              {
-                "text": "Técnico-combinatório",
-                "misconceptionCode": "tecnico-marca"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Os times jogam no mesmo espaço e entram no lado do outro para fazer gol. São esportes de invasão.",
-            "variants": [
-              {
-                "question": "O polo aquático, em que os times tentam fazer gol na piscina, é de:",
-                "options": [
-                  {
-                    "text": "Invasão"
-                  },
-                  {
-                    "text": "Rede",
-                    "misconceptionCode": "invasao-rede"
-                  },
-                  {
-                    "text": "Marca",
-                    "misconceptionCode": "marca-precisao"
-                  },
-                  {
-                    "text": "Precisão",
-                    "misconceptionCode": "tecnico-marca"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Futebol e handebol são esportes de:",
-                "options": [
-                  {
-                    "text": "Técnico-combinatório",
-                    "misconceptionCode": "tecnico-marca"
-                  },
-                  {
-                    "text": "Marca",
-                    "misconceptionCode": "marca-precisao"
-                  },
-                  {
-                    "text": "Rede",
-                    "misconceptionCode": "invasao-rede"
-                  },
-                  {
-                    "text": "Invasão"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Vôlei e tênis são esportes de:",
-            "options": [
-              {
-                "text": "Invasão",
-                "misconceptionCode": "invasao-rede"
-              },
-              {
-                "text": "Rede"
-              },
-              {
-                "text": "Precisão",
-                "misconceptionCode": "marca-precisao"
-              },
-              {
-                "text": "Marca",
-                "misconceptionCode": "marca-precisao"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Uma rede separa os jogadores, e cada um fica do seu lado. São esportes de rede.",
-            "variants": [
-              {
-                "question": "O vôlei de praia é um esporte de:",
-                "options": [
-                  {
-                    "text": "Invasão",
-                    "misconceptionCode": "invasao-rede"
-                  },
-                  {
-                    "text": "Marca",
-                    "misconceptionCode": "marca-precisao"
-                  },
-                  {
-                    "text": "Técnico-combinatório",
-                    "misconceptionCode": "marca-precisao"
-                  },
-                  {
-                    "text": "Rede"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Vôlei e tênis são esportes de:",
-                "options": [
-                  {
-                    "text": "Marca",
-                    "misconceptionCode": "marca-precisao"
-                  },
-                  {
-                    "text": "Precisão",
-                    "misconceptionCode": "marca-precisao"
-                  },
-                  {
-                    "text": "Rede"
-                  },
-                  {
-                    "text": "Invasão",
-                    "misconceptionCode": "invasao-rede"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Para classificar um esporte, o mais importante é observar:",
-            "options": [
-              {
-                "text": "Se usa bola ou não",
-                "misconceptionCode": "criterio-errado"
-              },
-              {
-                "text": "A cor do uniforme",
-                "misconceptionCode": "criterio-errado"
-              },
-              {
-                "text": "O tamanho da quadra apenas",
-                "misconceptionCode": "criterio-errado"
-              },
-              {
-                "text": "Como se vence o jogo"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Pergunte: como se ganha esse jogo? Por gol, por tempo, acertando um alvo? É o jeito de vencer que define o grupo.",
-            "variants": [
-              {
-                "question": "Basquete e vôlei usam bola, mas são de grupos diferentes porque:",
-                "options": [
-                  {
-                    "text": "Um é mais famoso",
-                    "misconceptionCode": "criterio-errado"
-                  },
-                  {
-                    "text": "Vence-se de formas diferentes"
-                  },
-                  {
-                    "text": "A bola tem cor diferente",
-                    "misconceptionCode": "criterio-errado"
-                  },
-                  {
-                    "text": "Na verdade são do mesmo grupo",
-                    "misconceptionCode": "criterio-errado"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Para classificar um esporte, o mais importante é observar:",
-                "options": [
-                  {
-                    "text": "Como se vence o jogo"
-                  },
-                  {
-                    "text": "O tamanho da quadra apenas",
-                    "misconceptionCode": "criterio-errado"
-                  },
-                  {
-                    "text": "A cor do uniforme",
-                    "misconceptionCode": "criterio-errado"
-                  },
-                  {
-                    "text": "Se usa bola ou não",
-                    "misconceptionCode": "criterio-errado"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          }
-        ]
+       "code": "marca",
+       "description": "Explica que no esporte de marca o resultado é medido em tempo, distância ou peso"
       },
       {
-        "id": "PK2-EF67EF03-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Exemplo guiado: marca e precisão",
-        "prompt": "Vamos conhecer juntos dois grupos novos: marca e precisão.",
-        "estMinutes": 4,
-        "audioScript": "Vamos conhecer juntos dois grupos novos: marca e precisão. Pergunta 1. Nos 100 metros rasos, vence quem chega primeiro, no menor tempo. É um esporte de: A: Precisão; B: Marca; C: Invasão; D: Técnico-combinatório. Pergunta 2. No tiro com arco, vence quem acerta mais perto do centro do alvo. É de: A: Marca; B: Invasão; C: Técnico-combinatório; D: Precisão. Pergunta 3. Na natação, vence quem nada a distância no menor tempo. É de: A: Marca; B: Precisão; C: Técnico-combinatório; D: Rede.",
-        "questions": [
-          {
-            "question": "Nos 100 metros rasos, vence quem chega primeiro, no menor tempo. É um esporte de:",
-            "options": [
-              {
-                "text": "Precisão",
-                "misconceptionCode": "marca-precisao"
-              },
-              {
-                "text": "Marca"
-              },
-              {
-                "text": "Invasão",
-                "misconceptionCode": "invasao-rede"
-              },
-              {
-                "text": "Técnico-combinatório",
-                "misconceptionCode": "tecnico-marca"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Ganha quem faz o menor tempo no cronômetro. Quando o resultado é medido, é um esporte de marca.",
-            "variants": [
-              {
-                "question": "No salto em distância, vence quem pula mais longe. É de:",
-                "options": [
-                  {
-                    "text": "Precisão",
-                    "misconceptionCode": "marca-precisao"
-                  },
-                  {
-                    "text": "Invasão",
-                    "misconceptionCode": "invasao-rede"
-                  },
-                  {
-                    "text": "Rede",
-                    "misconceptionCode": "tecnico-marca"
-                  },
-                  {
-                    "text": "Marca"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Nos 100 metros rasos, vence quem chega primeiro, no menor tempo. É um esporte de:",
-                "options": [
-                  {
-                    "text": "Técnico-combinatório",
-                    "misconceptionCode": "tecnico-marca"
-                  },
-                  {
-                    "text": "Invasão",
-                    "misconceptionCode": "invasao-rede"
-                  },
-                  {
-                    "text": "Marca"
-                  },
-                  {
-                    "text": "Precisão",
-                    "misconceptionCode": "marca-precisao"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "No tiro com arco, vence quem acerta mais perto do centro do alvo. É de:",
-            "options": [
-              {
-                "text": "Marca",
-                "misconceptionCode": "marca-precisao"
-              },
-              {
-                "text": "Invasão",
-                "misconceptionCode": "invasao-rede"
-              },
-              {
-                "text": "Técnico-combinatório",
-                "misconceptionCode": "tecnico-marca"
-              },
-              {
-                "text": "Precisão"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "O objetivo é acertar o alvo, bem no meio. Isso é um esporte de precisão.",
-            "variants": [
-              {
-                "question": "Na bocha, as bolas devem ficar o mais perto possível de uma bolinha-alvo. É de:",
-                "options": [
-                  {
-                    "text": "Marca",
-                    "misconceptionCode": "marca-precisao"
-                  },
-                  {
-                    "text": "Precisão"
-                  },
-                  {
-                    "text": "Invasão",
-                    "misconceptionCode": "invasao-rede"
-                  },
-                  {
-                    "text": "Rede",
-                    "misconceptionCode": "tecnico-marca"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "No tiro com arco, vence quem acerta mais perto do centro do alvo. É de:",
-                "options": [
-                  {
-                    "text": "Precisão"
-                  },
-                  {
-                    "text": "Técnico-combinatório",
-                    "misconceptionCode": "tecnico-marca"
-                  },
-                  {
-                    "text": "Invasão",
-                    "misconceptionCode": "invasao-rede"
-                  },
-                  {
-                    "text": "Marca",
-                    "misconceptionCode": "marca-precisao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Na natação, vence quem nada a distância no menor tempo. É de:",
-            "options": [
-              {
-                "text": "Marca"
-              },
-              {
-                "text": "Precisão",
-                "misconceptionCode": "marca-precisao"
-              },
-              {
-                "text": "Técnico-combinatório",
-                "misconceptionCode": "tecnico-marca"
-              },
-              {
-                "text": "Rede",
-                "misconceptionCode": "invasao-rede"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "O cronômetro decide quem ganha. Resultado medido em tempo é esporte de marca.",
-            "variants": [
-              {
-                "question": "No arremesso de peso, vence quem lança mais longe. É de:",
-                "options": [
-                  {
-                    "text": "Precisão",
-                    "misconceptionCode": "marca-precisao"
-                  },
-                  {
-                    "text": "Invasão",
-                    "misconceptionCode": "tecnico-marca"
-                  },
-                  {
-                    "text": "Marca"
-                  },
-                  {
-                    "text": "Técnico-combinatório",
-                    "misconceptionCode": "invasao-rede"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Na natação, vence quem nada a distância no menor tempo. É de:",
-                "options": [
-                  {
-                    "text": "Rede",
-                    "misconceptionCode": "invasao-rede"
-                  },
-                  {
-                    "text": "Marca"
-                  },
-                  {
-                    "text": "Técnico-combinatório",
-                    "misconceptionCode": "tecnico-marca"
-                  },
-                  {
-                    "text": "Precisão",
-                    "misconceptionCode": "marca-precisao"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          }
-        ]
+       "code": "precisao",
+       "description": "Explica que no esporte de precisão o objetivo é acertar um alvo"
       },
       {
-        "id": "PK2-EF67EF03-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar: técnico-combinatórios e revisão",
-        "prompt": "Nos esportes técnico-combinatórios, juízes avaliam a execução e a beleza dos movimentos.",
-        "estMinutes": 5,
-        "audioScript": "Nos esportes técnico-combinatórios, juízes avaliam a execução e a beleza dos movimentos. Pergunta 1. A ginástica artística, em que juízes pontuam a execução dos movimentos, é um esporte: A: De marca; B: De precisão; C: De invasão; D: Técnico-combinatório. Pergunta 2. O boliche, em que se tenta derrubar os pinos, é um esporte de: A: Precisão; B: Marca; C: Invasão; D: Técnico-combinatório. Pergunta 3. A ginástica de trampolim, em que juízes avaliam as acrobacias, é um esporte: A: De marca, porque usa uma cama elástica; B: De precisão; C: Técnico-combinatório; D: De invasão. Pergunta 4. O rúgbi, em que o time leva a bola até a área do adversário, é de: A: Rede; B: Invasão; C: Marca; D: Técnico-combinatório.",
-        "questions": [
-          {
-            "question": "A ginástica artística, em que juízes pontuam a execução dos movimentos, é um esporte:",
-            "options": [
-              {
-                "text": "De marca",
-                "misconceptionCode": "tecnico-marca"
-              },
-              {
-                "text": "De precisão",
-                "misconceptionCode": "marca-precisao"
-              },
-              {
-                "text": "De invasão",
-                "misconceptionCode": "invasao-rede"
-              },
-              {
-                "text": "Técnico-combinatório"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Não tem gol nem cronômetro: os juízes dão nota para os movimentos. Por isso é técnico-combinatório.",
-            "variants": [
-              {
-                "question": "Os saltos ornamentais na piscina são esportes:",
-                "options": [
-                  {
-                    "text": "De marca",
-                    "misconceptionCode": "tecnico-marca"
-                  },
-                  {
-                    "text": "Técnico-combinatórios"
-                  },
-                  {
-                    "text": "De invasão",
-                    "misconceptionCode": "marca-precisao"
-                  },
-                  {
-                    "text": "De rede",
-                    "misconceptionCode": "invasao-rede"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "A ginástica artística, em que juízes pontuam a execução dos movimentos, é um esporte:",
-                "options": [
-                  {
-                    "text": "Técnico-combinatório"
-                  },
-                  {
-                    "text": "De invasão",
-                    "misconceptionCode": "invasao-rede"
-                  },
-                  {
-                    "text": "De precisão",
-                    "misconceptionCode": "marca-precisao"
-                  },
-                  {
-                    "text": "De marca",
-                    "misconceptionCode": "tecnico-marca"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "O boliche, em que se tenta derrubar os pinos, é um esporte de:",
-            "options": [
-              {
-                "text": "Precisão"
-              },
-              {
-                "text": "Marca",
-                "misconceptionCode": "marca-precisao"
-              },
-              {
-                "text": "Invasão",
-                "misconceptionCode": "invasao-rede"
-              },
-              {
-                "text": "Técnico-combinatório",
-                "misconceptionCode": "tecnico-marca"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Derrubar os pinos é acertar um alvo. Isso é um esporte de precisão.",
-            "variants": [
-              {
-                "question": "O golfe, em que se tenta acertar a bola no buraco com poucas tacadas, é de:",
-                "options": [
-                  {
-                    "text": "Marca",
-                    "misconceptionCode": "marca-precisao"
-                  },
-                  {
-                    "text": "Invasão",
-                    "misconceptionCode": "invasao-rede"
-                  },
-                  {
-                    "text": "Precisão"
-                  },
-                  {
-                    "text": "Rede",
-                    "misconceptionCode": "tecnico-marca"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "O boliche, em que se tenta derrubar os pinos, é um esporte de:",
-                "options": [
-                  {
-                    "text": "Técnico-combinatório",
-                    "misconceptionCode": "tecnico-marca"
-                  },
-                  {
-                    "text": "Precisão"
-                  },
-                  {
-                    "text": "Invasão",
-                    "misconceptionCode": "invasao-rede"
-                  },
-                  {
-                    "text": "Marca",
-                    "misconceptionCode": "marca-precisao"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "A ginástica de trampolim, em que juízes avaliam as acrobacias, é um esporte:",
-            "options": [
-              {
-                "text": "De marca, porque usa uma cama elástica",
-                "misconceptionCode": "criterio-errado"
-              },
-              {
-                "text": "De precisão",
-                "misconceptionCode": "marca-precisao"
-              },
-              {
-                "text": "Técnico-combinatório"
-              },
-              {
-                "text": "De invasão",
-                "misconceptionCode": "invasao-rede"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Os juízes olham as acrobacias e dão nota. Esporte decidido por juízes é técnico-combinatório.",
-            "variants": [
-              {
-                "question": "O nado artístico, avaliado por juízes, é:",
-                "options": [
-                  {
-                    "text": "Técnico-combinatório"
-                  },
-                  {
-                    "text": "De marca, porque é na piscina",
-                    "misconceptionCode": "criterio-errado"
-                  },
-                  {
-                    "text": "De invasão",
-                    "misconceptionCode": "marca-precisao"
-                  },
-                  {
-                    "text": "De precisão",
-                    "misconceptionCode": "invasao-rede"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "A ginástica de trampolim, em que juízes avaliam as acrobacias, é um esporte:",
-                "options": [
-                  {
-                    "text": "De invasão",
-                    "misconceptionCode": "invasao-rede"
-                  },
-                  {
-                    "text": "De precisão",
-                    "misconceptionCode": "marca-precisao"
-                  },
-                  {
-                    "text": "De marca, porque usa uma cama elástica",
-                    "misconceptionCode": "criterio-errado"
-                  },
-                  {
-                    "text": "Técnico-combinatório"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "O rúgbi, em que o time leva a bola até a área do adversário, é de:",
-            "options": [
-              {
-                "text": "Rede",
-                "misconceptionCode": "invasao-rede"
-              },
-              {
-                "text": "Invasão"
-              },
-              {
-                "text": "Marca",
-                "misconceptionCode": "marca-precisao"
-              },
-              {
-                "text": "Técnico-combinatório",
-                "misconceptionCode": "tecnico-marca"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "O time entra no campo do outro para pontuar. Isso é esporte de invasão.",
-            "variants": [
-              {
-                "question": "O futsal é um esporte de:",
-                "options": [
-                  {
-                    "text": "Rede",
-                    "misconceptionCode": "invasao-rede"
-                  },
-                  {
-                    "text": "Precisão",
-                    "misconceptionCode": "marca-precisao"
-                  },
-                  {
-                    "text": "Marca",
-                    "misconceptionCode": "tecnico-marca"
-                  },
-                  {
-                    "text": "Invasão"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "O rúgbi, em que o time leva a bola até a área do adversário, é de:",
-                "options": [
-                  {
-                    "text": "Técnico-combinatório",
-                    "misconceptionCode": "tecnico-marca"
-                  },
-                  {
-                    "text": "Marca",
-                    "misconceptionCode": "marca-precisao"
-                  },
-                  {
-                    "text": "Invasão"
-                  },
-                  {
-                    "text": "Rede",
-                    "misconceptionCode": "invasao-rede"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF67EF03-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar: esportes na escola",
-        "prompt": "Agora organize atividades na escola.",
-        "estMinutes": 4,
-        "audioScript": "Agora organize atividades na escola. Pergunta 1. A turma vai medir quem arremessa uma bola de papel mais longe. É uma atividade de: A: Marca; B: Precisão; C: Invasão; D: Técnico-combinatório. Pergunta 2. A turma vai jogar bolinhas de meia para dentro de baldes a 3 metros. É uma atividade de: A: Marca; B: Invasão; C: Precisão; D: Técnico-combinatório. Pergunta 3. Num esporte coletivo de invasão, o que mais ajuda o time a ir bem? A: Cada um jogar sozinho; B: Trabalhar em equipe, passando a bola e ocupando os espaços; C: Só o jogador mais rápido jogar; D: Ficar todos parados atrás da rede.",
-        "questions": [
-          {
-            "question": "A turma vai medir quem arremessa uma bola de papel mais longe. É uma atividade de:",
-            "options": [
-              {
-                "text": "Marca"
-              },
-              {
-                "text": "Precisão",
-                "misconceptionCode": "marca-precisao"
-              },
-              {
-                "text": "Invasão",
-                "misconceptionCode": "invasao-rede"
-              },
-              {
-                "text": "Técnico-combinatório",
-                "misconceptionCode": "tecnico-marca"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Vence quem joga mais longe, e isso é medido com fita métrica. É uma atividade de marca.",
-            "variants": [
-              {
-                "question": "Cronometrar quem pula corda mais vezes em 30 segundos é uma atividade de:",
-                "options": [
-                  {
-                    "text": "Precisão",
-                    "misconceptionCode": "marca-precisao"
-                  },
-                  {
-                    "text": "Invasão",
-                    "misconceptionCode": "invasao-rede"
-                  },
-                  {
-                    "text": "Marca"
-                  },
-                  {
-                    "text": "Rede",
-                    "misconceptionCode": "tecnico-marca"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "A turma vai medir quem arremessa uma bola de papel mais longe. É uma atividade de:",
-                "options": [
-                  {
-                    "text": "Técnico-combinatório",
-                    "misconceptionCode": "tecnico-marca"
-                  },
-                  {
-                    "text": "Marca"
-                  },
-                  {
-                    "text": "Invasão",
-                    "misconceptionCode": "invasao-rede"
-                  },
-                  {
-                    "text": "Precisão",
-                    "misconceptionCode": "marca-precisao"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "A turma vai jogar bolinhas de meia para dentro de baldes a 3 metros. É uma atividade de:",
-            "options": [
-              {
-                "text": "Marca",
-                "misconceptionCode": "marca-precisao"
-              },
-              {
-                "text": "Invasão",
-                "misconceptionCode": "invasao-rede"
-              },
-              {
-                "text": "Precisão"
-              },
-              {
-                "text": "Técnico-combinatório",
-                "misconceptionCode": "tecnico-marca"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "O objetivo é acertar o balde. Acertar um alvo é precisão.",
-            "variants": [
-              {
-                "question": "Derrubar garrafas com uma bola, como num boliche de garrafa, é de:",
-                "options": [
-                  {
-                    "text": "Precisão"
-                  },
-                  {
-                    "text": "Marca",
-                    "misconceptionCode": "marca-precisao"
-                  },
-                  {
-                    "text": "Invasão",
-                    "misconceptionCode": "invasao-rede"
-                  },
-                  {
-                    "text": "Rede",
-                    "misconceptionCode": "tecnico-marca"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "A turma vai jogar bolinhas de meia para dentro de baldes a 3 metros. É uma atividade de:",
-                "options": [
-                  {
-                    "text": "Técnico-combinatório",
-                    "misconceptionCode": "tecnico-marca"
-                  },
-                  {
-                    "text": "Invasão",
-                    "misconceptionCode": "invasao-rede"
-                  },
-                  {
-                    "text": "Marca",
-                    "misconceptionCode": "marca-precisao"
-                  },
-                  {
-                    "text": "Precisão"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Num esporte coletivo de invasão, o que mais ajuda o time a ir bem?",
-            "options": [
-              {
-                "text": "Cada um jogar sozinho",
-                "misconceptionCode": "criterio-errado"
-              },
-              {
-                "text": "Trabalhar em equipe, passando a bola e ocupando os espaços"
-              },
-              {
-                "text": "Só o jogador mais rápido jogar",
-                "misconceptionCode": "criterio-errado"
-              },
-              {
-                "text": "Ficar todos parados atrás da rede",
-                "misconceptionCode": "invasao-rede"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Ninguém ganha sozinho: passar a bola e ocupar os espaços juntos faz o time ir bem.",
-            "variants": [
-              {
-                "question": "Em um jogo de handebol, passar a bola para um colega livre é:",
-                "options": [
-                  {
-                    "text": "Errado, deve-se jogar sozinho",
-                    "misconceptionCode": "criterio-errado"
-                  },
-                  {
-                    "text": "Proibido",
-                    "misconceptionCode": "criterio-errado"
-                  },
-                  {
-                    "text": "Coisa de esporte de rede",
-                    "misconceptionCode": "invasao-rede"
-                  },
-                  {
-                    "text": "Uma boa estratégia coletiva"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Num esporte coletivo de invasão, o que mais ajuda o time a ir bem?",
-                "options": [
-                  {
-                    "text": "Ficar todos parados atrás da rede",
-                    "misconceptionCode": "invasao-rede"
-                  },
-                  {
-                    "text": "Só o jogador mais rápido jogar",
-                    "misconceptionCode": "criterio-errado"
-                  },
-                  {
-                    "text": "Trabalhar em equipe, passando a bola e ocupando os espaços"
-                  },
-                  {
-                    "text": "Cada um jogar sozinho",
-                    "misconceptionCode": "criterio-errado"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF67EF03-A5",
-        "step": "explicar",
-        "type": "WRITTEN",
-        "allowSpoken": true,
-        "title": "Explicar: como se vence",
-        "prompt": "Explique com as suas palavras a diferença entre um esporte de marca e um esporte de precisão. Dê um exemplo de cada.",
-        "estMinutes": 6,
-        "audioScript": "Explique com as suas palavras a diferença entre um esporte de marca e um esporte de precisão. Dê um exemplo de cada.",
-        "rubric": {
-          "type": "WRITTEN",
-          "criteria": [
-            {
-              "code": "marca",
-              "description": "Explica que no esporte de marca o resultado é medido em tempo, distância ou peso"
-            },
-            {
-              "code": "precisao",
-              "description": "Explica que no esporte de precisão o objetivo é acertar um alvo"
-            },
-            {
-              "code": "exemplos",
-              "description": "Dá um exemplo correto de cada"
-            }
-          ],
-          "exemploBoaResposta": "No esporte de marca, vence quem tem o melhor resultado medido, como o menor tempo na corrida de 100 metros ou a maior distância no salto. No esporte de precisão, vence quem acerta melhor um alvo, como no tiro com arco ou no boliche."
-        }
+       "code": "exemplos",
+       "description": "Dá um exemplo correto de cada"
       }
-    ],
-    "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED"
-  }
+     ],
+     "exemploBoaResposta": "No esporte de marca, vence quem tem o melhor resultado medido, como o menor tempo na corrida de 100 metros ou a maior distância no salto. No esporte de precisão, vence quem acerta melhor um alvo, como no tiro com arco ou no boliche."
+    }
+   }
+  ],
+  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+  "source": "SPEAKFLOW",
+  "status": "APPROVED"
+ },
+ {
+  "skillCode": "EF67EF01",
+  "subjectCode": "EF",
+  "subjectName": "Educação Física",
+  "gradeYear": 6,
+  "version": 1,
+  "title": "Trilha: Jogos eletrônicos",
+  "tituloAluno": "Jogar, entender e respeitar",
+  "activities": [
+   {
+    "id": "PK2-EF67EF01-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: jogos e brincadeiras",
+    "prompt": "Já estudamos jogos de vários tipos.",
+    "estMinutes": 4,
+    "audioScript": "Já estudamos jogos de vários tipos. Pergunta 1. Todo jogo tem: A: Regras e um objetivo; B: Só bola; C: Só computador; D: Só um vencedor, sem regras. Pergunta 2. Amarelinha, queimada e pega-pega são jogos que usam principalmente: A: Uma tela; B: O movimento do corpo; C: Um controle; D: A internet. Pergunta 3. Os jogos são importantes porque: A: Não servem para nada; B: Só cansam; C: Divertem, ensinam e aproximam as pessoas; D: Só causam brigas.",
+    "questions": [
+     {
+      "question": "Todo jogo tem:",
+      "options": [
+       {
+        "text": "Regras e um objetivo"
+       },
+       {
+        "text": "Só bola",
+        "misconceptionCode": "jogo-so-de-um-grupo"
+       },
+       {
+        "text": "Só computador",
+        "misconceptionCode": "jogo-so-de-um-grupo"
+       },
+       {
+        "text": "Só um vencedor, sem regras",
+        "misconceptionCode": "online-vale-tudo"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "As regras organizam o jogo, e o objetivo dá sentido a ele.",
+      "variants": [
+       {
+        "question": "Para que servem as regras de um jogo?",
+        "options": [
+         {
+          "text": "Para atrapalhar",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Para ninguém brincar",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Para organizar e tornar a disputa justa"
+         },
+         {
+          "text": "Para nada",
+          "misconceptionCode": "online-vale-tudo"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Todo jogo tem:",
+        "options": [
+         {
+          "text": "Só um vencedor, sem regras",
+          "misconceptionCode": "online-vale-tudo"
+         },
+         {
+          "text": "Regras e um objetivo"
+         },
+         {
+          "text": "Só computador",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Só bola",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Amarelinha, queimada e pega-pega são jogos que usam principalmente:",
+      "options": [
+       {
+        "text": "Uma tela",
+        "misconceptionCode": "jogo-so-perda-de-tempo"
+       },
+       {
+        "text": "O movimento do corpo"
+       },
+       {
+        "text": "Um controle",
+        "misconceptionCode": "jogo-so-perda-de-tempo"
+       },
+       {
+        "text": "A internet",
+        "misconceptionCode": "jogo-so-perda-de-tempo"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "São jogos e brincadeiras tradicionais.",
+      "variants": [
+       {
+        "question": "Jogos de tabuleiro, como a dama e o xadrez, exigem principalmente:",
+        "options": [
+         {
+          "text": "Corrida",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         },
+         {
+          "text": "Saltos",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         },
+         {
+          "text": "Força",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         },
+         {
+          "text": "Raciocínio e estratégia"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Amarelinha, queimada e pega-pega são jogos que usam principalmente:",
+        "options": [
+         {
+          "text": "A internet",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         },
+         {
+          "text": "Um controle",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         },
+         {
+          "text": "O movimento do corpo"
+         },
+         {
+          "text": "Uma tela",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Os jogos são importantes porque:",
+      "options": [
+       {
+        "text": "Não servem para nada",
+        "misconceptionCode": "jogo-so-perda-de-tempo"
+       },
+       {
+        "text": "Só cansam",
+        "misconceptionCode": "jogo-so-perda-de-tempo"
+       },
+       {
+        "text": "Divertem, ensinam e aproximam as pessoas"
+       },
+       {
+        "text": "Só causam brigas",
+        "misconceptionCode": "jogo-so-perda-de-tempo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Jogar faz parte da cultura de todos os povos.",
+      "variants": [
+       {
+        "question": "Jogar com os amigos ajuda a desenvolver:",
+        "options": [
+         {
+          "text": "A convivência e o respeito às regras"
+         },
+         {
+          "text": "O egoísmo",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         },
+         {
+          "text": "A preguiça",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         },
+         {
+          "text": "A desonestidade",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Os jogos são importantes porque:",
+        "options": [
+         {
+          "text": "Só causam brigas",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         },
+         {
+          "text": "Só cansam",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         },
+         {
+          "text": "Não servem para nada",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         },
+         {
+          "text": "Divertem, ensinam e aproximam as pessoas"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF67EF01-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o que são os jogos eletrônicos",
+    "prompt": "Jogos eletrônicos são jogados em celulares, computadores e consoles. Existem muitos tipos: de esporte, de aventura, de estratégia, de dança e de movimento. Vamos conhecer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Jogos eletrônicos são jogados em celulares, computadores e consoles. Existem muitos tipos: de esporte, de aventura, de estratégia, de dança e de movimento. Vamos conhecer juntos. Pergunta 1. Um jogo em que a câmera capta os movimentos do jogador, que precisa dançar ou saltar para pontuar, é um jogo: A: De tabuleiro; B: De cartas; C: Sem movimento; D: De movimento (exergame). Pergunta 2. As competições organizadas de jogos eletrônicos, com equipes, treinos e campeonatos, são chamadas de: A: Esportes eletrônicos (e-sports); B: Brincadeiras de roda; C: Jogos de tabuleiro; D: Ginástica. Pergunta 3. Os jogos eletrônicos são jogados: A: Só por meninos; B: Por pessoas de várias idades, de todos os gêneros; C: Só por crianças; D: Só por adultos.",
+    "questions": [
+     {
+      "question": "Um jogo em que a câmera capta os movimentos do jogador, que precisa dançar ou saltar para pontuar, é um jogo:",
+      "options": [
+       {
+        "text": "De tabuleiro",
+        "misconceptionCode": "jogo-so-perda-de-tempo"
+       },
+       {
+        "text": "De cartas",
+        "misconceptionCode": "jogo-so-perda-de-tempo"
+       },
+       {
+        "text": "Sem movimento",
+        "misconceptionCode": "jogo-so-perda-de-tempo"
+       },
+       {
+        "text": "De movimento (exergame)"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Esses jogos unem a tecnologia e a atividade física.",
+      "variants": [
+       {
+        "question": "Nos jogos eletrônicos de movimento, o jogador:",
+        "options": [
+         {
+          "text": "Fica sempre parado",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         },
+         {
+          "text": "Movimenta o corpo para jogar"
+         },
+         {
+          "text": "Só usa os polegares",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         },
+         {
+          "text": "Não participa",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um jogo em que a câmera capta os movimentos do jogador, que precisa dançar ou saltar para pontuar, é um jogo:",
+        "options": [
+         {
+          "text": "De movimento (exergame)"
+         },
+         {
+          "text": "Sem movimento",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         },
+         {
+          "text": "De cartas",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         },
+         {
+          "text": "De tabuleiro",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "As competições organizadas de jogos eletrônicos, com equipes, treinos e campeonatos, são chamadas de:",
+      "options": [
+       {
+        "text": "Esportes eletrônicos (e-sports)"
+       },
+       {
+        "text": "Brincadeiras de roda",
+        "misconceptionCode": "jogo-so-de-um-grupo"
+       },
+       {
+        "text": "Jogos de tabuleiro",
+        "misconceptionCode": "jogo-so-de-um-grupo"
+       },
+       {
+        "text": "Ginástica",
+        "misconceptionCode": "jogo-so-de-um-grupo"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Os e-sports reúnem jogadores e públicos do mundo todo.",
+      "variants": [
+       {
+        "question": "Os jogadores de e-sports precisam de:",
+        "options": [
+         {
+          "text": "Nenhuma preparação",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Sorte, somente",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Treino, estratégia e trabalho em equipe"
+         },
+         {
+          "text": "Força física, somente",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "As competições organizadas de jogos eletrônicos, com equipes, treinos e campeonatos, são chamadas de:",
+        "options": [
+         {
+          "text": "Ginástica",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Esportes eletrônicos (e-sports)"
+         },
+         {
+          "text": "Jogos de tabuleiro",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Brincadeiras de roda",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Os jogos eletrônicos são jogados:",
+      "options": [
+       {
+        "text": "Só por meninos",
+        "misconceptionCode": "jogo-so-de-um-grupo"
+       },
+       {
+        "text": "Por pessoas de várias idades, de todos os gêneros"
+       },
+       {
+        "text": "Só por crianças",
+        "misconceptionCode": "jogo-so-de-um-grupo"
+       },
+       {
+        "text": "Só por adultos",
+        "misconceptionCode": "jogo-so-de-um-grupo"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Crianças, jovens, adultos e idosos jogam, cada grupo com os seus gostos e sentidos.",
+      "variants": [
+       {
+        "question": "Para muitas pessoas idosas, os jogos eletrônicos podem servir para:",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Atrapalhar a saúde, sempre",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Afastar a família",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Exercitar a memória e divertir-se com os netos"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Os jogos eletrônicos são jogados:",
+        "options": [
+         {
+          "text": "Só por adultos",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Só por crianças",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Por pessoas de várias idades, de todos os gêneros"
+         },
+         {
+          "text": "Só por meninos",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF67EF01-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: sentidos e cuidados",
+    "prompt": "Jogar bem é jogar com equilíbrio.",
+    "estMinutes": 5,
+    "audioScript": "Jogar bem é jogar com equilíbrio. Pergunta 1. Os jogos eletrônicos são só perda de tempo? A: Sim, sempre; B: Sim, não ensinam nada; C: Não, podem desenvolver raciocínio, coordenação e cooperação, se usados com equilíbrio; D: Sim, deveriam ser proibidos. Pergunta 2. Passar muitas horas seguidas jogando, sem pausas, pode causar: A: Só benefícios; B: Mais disposição; C: Nenhum efeito; D: Cansaço nos olhos, dores e menos tempo para dormir, estudar e brincar. Pergunta 3. A classificação indicativa de um jogo serve para: A: Informar a faixa etária para a qual o conteúdo é adequado; B: Enfeitar a embalagem; C: Aumentar o preço; D: Nada. Pergunta 4. Num jogo online, um jogador xinga e humilha os outros. Isso é: A: Normal no jogo; B: Desrespeito, tão sério quanto fora da tela; C: Parte da diversão; D: Sem importância, porque é online.",
+    "questions": [
+     {
+      "question": "Os jogos eletrônicos são só perda de tempo?",
+      "options": [
+       {
+        "text": "Sim, sempre",
+        "misconceptionCode": "jogo-so-perda-de-tempo"
+       },
+       {
+        "text": "Sim, não ensinam nada",
+        "misconceptionCode": "jogo-so-perda-de-tempo"
+       },
+       {
+        "text": "Não, podem desenvolver raciocínio, coordenação e cooperação, se usados com equilíbrio"
+       },
+       {
+        "text": "Sim, deveriam ser proibidos",
+        "misconceptionCode": "jogo-so-perda-de-tempo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Como toda prática, os jogos têm benefícios e riscos.",
+      "variants": [
+       {
+        "question": "Um jogo de estratégia em equipe pode ajudar a desenvolver:",
+        "options": [
+         {
+          "text": "O planejamento e a comunicação"
+         },
+         {
+          "text": "A preguiça",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         },
+         {
+          "text": "O isolamento, sempre",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Os jogos eletrônicos são só perda de tempo?",
+        "options": [
+         {
+          "text": "Sim, deveriam ser proibidos",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         },
+         {
+          "text": "Sim, não ensinam nada",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         },
+         {
+          "text": "Sim, sempre",
+          "misconceptionCode": "jogo-so-perda-de-tempo"
+         },
+         {
+          "text": "Não, podem desenvolver raciocínio, coordenação e cooperação, se usados com equilíbrio"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Passar muitas horas seguidas jogando, sem pausas, pode causar:",
+      "options": [
+       {
+        "text": "Só benefícios",
+        "misconceptionCode": "sem-limite"
+       },
+       {
+        "text": "Mais disposição",
+        "misconceptionCode": "sem-limite"
+       },
+       {
+        "text": "Nenhum efeito",
+        "misconceptionCode": "sem-limite"
+       },
+       {
+        "text": "Cansaço nos olhos, dores e menos tempo para dormir, estudar e brincar"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O corpo precisa de movimento, de descanso e de sono.",
+      "variants": [
+       {
+        "question": "Uma forma de equilibrar o tempo de jogo é:",
+        "options": [
+         {
+          "text": "Jogar a noite toda",
+          "misconceptionCode": "sem-limite"
+         },
+         {
+          "text": "Combinar horários e fazer pausas para se movimentar"
+         },
+         {
+          "text": "Deixar de dormir",
+          "misconceptionCode": "sem-limite"
+         },
+         {
+          "text": "Deixar de comer",
+          "misconceptionCode": "sem-limite"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Passar muitas horas seguidas jogando, sem pausas, pode causar:",
+        "options": [
+         {
+          "text": "Cansaço nos olhos, dores e menos tempo para dormir, estudar e brincar"
+         },
+         {
+          "text": "Nenhum efeito",
+          "misconceptionCode": "sem-limite"
+         },
+         {
+          "text": "Mais disposição",
+          "misconceptionCode": "sem-limite"
+         },
+         {
+          "text": "Só benefícios",
+          "misconceptionCode": "sem-limite"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "A classificação indicativa de um jogo serve para:",
+      "options": [
+       {
+        "text": "Informar a faixa etária para a qual o conteúdo é adequado"
+       },
+       {
+        "text": "Enfeitar a embalagem",
+        "misconceptionCode": "sem-limite"
+       },
+       {
+        "text": "Aumentar o preço",
+        "misconceptionCode": "sem-limite"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "sem-limite"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Ela orienta as famílias na escolha dos jogos.",
+      "variants": [
+       {
+        "question": "Um jogo com classificação \"18 anos\" é adequado para uma criança de 11 anos?",
+        "options": [
+         {
+          "text": "Sim",
+          "misconceptionCode": "sem-limite"
+         },
+         {
+          "text": "Só à noite",
+          "misconceptionCode": "sem-limite"
+         },
+         {
+          "text": "Não"
+         },
+         {
+          "text": "Só com amigos",
+          "misconceptionCode": "sem-limite"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A classificação indicativa de um jogo serve para:",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "sem-limite"
+         },
+         {
+          "text": "Informar a faixa etária para a qual o conteúdo é adequado"
+         },
+         {
+          "text": "Aumentar o preço",
+          "misconceptionCode": "sem-limite"
+         },
+         {
+          "text": "Enfeitar a embalagem",
+          "misconceptionCode": "sem-limite"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Num jogo online, um jogador xinga e humilha os outros. Isso é:",
+      "options": [
+       {
+        "text": "Normal no jogo",
+        "misconceptionCode": "online-vale-tudo"
+       },
+       {
+        "text": "Desrespeito, tão sério quanto fora da tela"
+       },
+       {
+        "text": "Parte da diversão",
+        "misconceptionCode": "online-vale-tudo"
+       },
+       {
+        "text": "Sem importância, porque é online",
+        "misconceptionCode": "online-vale-tudo"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Do outro lado da tela, há pessoas de verdade.",
+      "variants": [
+       {
+        "question": "Usar programas para trapacear num jogo online é:",
+        "options": [
+         {
+          "text": "Esperteza",
+          "misconceptionCode": "online-vale-tudo"
+         },
+         {
+          "text": "Uma regra do jogo",
+          "misconceptionCode": "online-vale-tudo"
+         },
+         {
+          "text": "Um direito",
+          "misconceptionCode": "online-vale-tudo"
+         },
+         {
+          "text": "Desonesto com os outros jogadores"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Num jogo online, um jogador xinga e humilha os outros. Isso é:",
+        "options": [
+         {
+          "text": "Sem importância, porque é online",
+          "misconceptionCode": "online-vale-tudo"
+         },
+         {
+          "text": "Parte da diversão",
+          "misconceptionCode": "online-vale-tudo"
+         },
+         {
+          "text": "Desrespeito, tão sério quanto fora da tela"
+         },
+         {
+          "text": "Normal no jogo",
+          "misconceptionCode": "online-vale-tudo"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF67EF01-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: escolhas e respeito",
+    "prompt": "Na vida real.",
+    "estMinutes": 4,
+    "audioScript": "Na vida real. Pergunta 1. Um colega diz que \"menina não sabe jogar videogame\". O que responder? A: Ele está certo; B: Jogo é coisa de menino; C: Jogar não depende de gênero; há muitas jogadoras, inclusive profissionais; D: Menina deve jogar outra coisa. Pergunta 2. Você percebe que tem deixado de brincar na rua e de dormir para jogar. O que fazer? A: Jogar ainda mais; B: Não fazer nada; C: Esconder dos pais; D: Reorganizar o tempo, com horários para jogar, mover-se e descansar. Pergunta 3. A avó de um colega gosta de jogos de paciência no celular, e ele acha isso \"chato\". O que isso mostra? A: Que cada grupo de idade dá sentidos diferentes aos jogos, e todos merecem respeito; B: Que só os jogos dos jovens valem; C: Que idoso não deve jogar; D: Que a avó está errada.",
+    "questions": [
+     {
+      "question": "Um colega diz que \"menina não sabe jogar videogame\". O que responder?",
+      "options": [
+       {
+        "text": "Ele está certo",
+        "misconceptionCode": "jogo-so-de-um-grupo"
+       },
+       {
+        "text": "Jogo é coisa de menino",
+        "misconceptionCode": "jogo-so-de-um-grupo"
+       },
+       {
+        "text": "Jogar não depende de gênero; há muitas jogadoras, inclusive profissionais"
+       },
+       {
+        "text": "Menina deve jogar outra coisa",
+        "misconceptionCode": "jogo-so-de-um-grupo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O preconceito afasta pessoas de uma prática que é de todos.",
+      "variants": [
+       {
+        "question": "Uma colega é excluída de uma partida online só por ser menina. Isso é:",
+        "options": [
+         {
+          "text": "Preconceito"
+         },
+         {
+          "text": "Uma regra do jogo",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Justo",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Uma brincadeira",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um colega diz que \"menina não sabe jogar videogame\". O que responder?",
+        "options": [
+         {
+          "text": "Menina deve jogar outra coisa",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Jogo é coisa de menino",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Ele está certo",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Jogar não depende de gênero; há muitas jogadoras, inclusive profissionais"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Você percebe que tem deixado de brincar na rua e de dormir para jogar. O que fazer?",
+      "options": [
+       {
+        "text": "Jogar ainda mais",
+        "misconceptionCode": "sem-limite"
+       },
+       {
+        "text": "Não fazer nada",
+        "misconceptionCode": "sem-limite"
+       },
+       {
+        "text": "Esconder dos pais",
+        "misconceptionCode": "sem-limite"
+       },
+       {
+        "text": "Reorganizar o tempo, com horários para jogar, mover-se e descansar"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O equilíbrio protege a saúde.",
+      "variants": [
+       {
+        "question": "Qual rotina é a mais equilibrada?",
+        "options": [
+         {
+          "text": "Jogar o dia todo",
+          "misconceptionCode": "sem-limite"
+         },
+         {
+          "text": "Jogar um pouco, brincar ao ar livre, estudar e dormir bem"
+         },
+         {
+          "text": "Jogar a madrugada inteira",
+          "misconceptionCode": "sem-limite"
+         },
+         {
+          "text": "Só jogar nos fins de semana, 12 horas seguidas",
+          "misconceptionCode": "sem-limite"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Você percebe que tem deixado de brincar na rua e de dormir para jogar. O que fazer?",
+        "options": [
+         {
+          "text": "Reorganizar o tempo, com horários para jogar, mover-se e descansar"
+         },
+         {
+          "text": "Esconder dos pais",
+          "misconceptionCode": "sem-limite"
+         },
+         {
+          "text": "Não fazer nada",
+          "misconceptionCode": "sem-limite"
+         },
+         {
+          "text": "Jogar ainda mais",
+          "misconceptionCode": "sem-limite"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "A avó de um colega gosta de jogos de paciência no celular, e ele acha isso \"chato\". O que isso mostra?",
+      "options": [
+       {
+        "text": "Que cada grupo de idade dá sentidos diferentes aos jogos, e todos merecem respeito"
+       },
+       {
+        "text": "Que só os jogos dos jovens valem",
+        "misconceptionCode": "jogo-so-de-um-grupo"
+       },
+       {
+        "text": "Que idoso não deve jogar",
+        "misconceptionCode": "jogo-so-de-um-grupo"
+       },
+       {
+        "text": "Que a avó está errada",
+        "misconceptionCode": "jogo-so-de-um-grupo"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Os gostos variam com a idade, a história e os interesses de cada pessoa.",
+      "variants": [
+       {
+        "question": "Uma boa forma de aproximar gerações por meio dos jogos é:",
+        "options": [
+         {
+          "text": "Rir do jogo deles",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Proibi-los de jogar",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Ensinar um jogo aos avós e aprender um jogo com eles"
+         },
+         {
+          "text": "Jogar sempre sozinho",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A avó de um colega gosta de jogos de paciência no celular, e ele acha isso \"chato\". O que isso mostra?",
+        "options": [
+         {
+          "text": "Que a avó está errada",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Que cada grupo de idade dá sentidos diferentes aos jogos, e todos merecem respeito"
+         },
+         {
+          "text": "Que idoso não deve jogar",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         },
+         {
+          "text": "Que só os jogos dos jovens valem",
+          "misconceptionCode": "jogo-so-de-um-grupo"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF67EF01-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: jogar com equilíbrio e respeito",
+    "prompt": "Explique com as suas palavras um ponto positivo dos jogos eletrônicos, um cuidado que é preciso ter e uma atitude de respeito ao jogar com outras pessoas.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras um ponto positivo dos jogos eletrônicos, um cuidado que é preciso ter e uma atitude de respeito ao jogar com outras pessoas.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "positivo",
+       "description": "Cita um ponto positivo (diversão, raciocínio, cooperação, movimento)"
+      },
+      {
+       "code": "cuidado",
+       "description": "Cita um cuidado (tempo, pausas, sono, classificação indicativa)"
+      },
+      {
+       "code": "respeito",
+       "description": "Cita uma atitude de respeito (não ofender, não trapacear, incluir todos)"
+      }
+     ],
+     "exemploBoaResposta": "Os jogos eletrônicos divertem e podem ajudar no raciocínio e no trabalho em equipe. É preciso cuidar do tempo, fazendo pausas e não deixando de dormir nem de brincar. Ao jogar com outras pessoas, devo respeitar todos, sem xingar e sem trapacear."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF67EF09",
+  "subjectCode": "EF",
+  "subjectName": "Educação Física",
+  "gradeYear": 6,
+  "version": 1,
+  "title": "Trilha: Exercício para todos",
+  "tituloAluno": "Combinados para cuidar da saúde juntos",
+  "activities": [
+   {
+    "id": "PK2-EF67EF09-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: exercício e saúde",
+    "prompt": "Já vimos a diferença entre exercício e atividade física.",
+    "estMinutes": 4,
+    "audioScript": "Já vimos a diferença entre exercício e atividade física. Pergunta 1. Exercício físico é: A: Uma atividade planejada e repetida para melhorar a condição física; B: Qualquer movimento, sem intenção; C: Ficar parado; D: Dormir. Pergunta 2. Praticar exercícios com regularidade ajuda a: A: Adoecer; B: Fortalecer o coração, os músculos e os ossos; C: Enfraquecer o corpo; D: Dormir pior. Pergunta 3. Antes de começar os exercícios, é importante: A: Comer muito; B: Ficar sem água; C: Aquecer o corpo; D: Começar pelo mais difícil.",
+    "questions": [
+     {
+      "question": "Exercício físico é:",
+      "options": [
+       {
+        "text": "Uma atividade planejada e repetida para melhorar a condição física"
+       },
+       {
+        "text": "Qualquer movimento, sem intenção",
+        "misconceptionCode": "sem-cuidado"
+       },
+       {
+        "text": "Ficar parado",
+        "misconceptionCode": "so-os-aptos"
+       },
+       {
+        "text": "Dormir",
+        "misconceptionCode": "so-os-aptos"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Caminhadas programadas, alongamentos e circuitos são exemplos.",
+      "variants": [
+       {
+        "question": "Qual destes é um exemplo de exercício físico?",
+        "options": [
+         {
+          "text": "Assistir a um filme",
+          "misconceptionCode": "sem-cuidado"
+         },
+         {
+          "text": "Ler um livro",
+          "misconceptionCode": "so-os-aptos"
+         },
+         {
+          "text": "Uma sequência de alongamentos feita com regularidade"
+         },
+         {
+          "text": "Dormir",
+          "misconceptionCode": "so-os-aptos"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Exercício físico é:",
+        "options": [
+         {
+          "text": "Dormir",
+          "misconceptionCode": "so-os-aptos"
+         },
+         {
+          "text": "Uma atividade planejada e repetida para melhorar a condição física"
+         },
+         {
+          "text": "Ficar parado",
+          "misconceptionCode": "so-os-aptos"
+         },
+         {
+          "text": "Qualquer movimento, sem intenção",
+          "misconceptionCode": "sem-cuidado"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Praticar exercícios com regularidade ajuda a:",
+      "options": [
+       {
+        "text": "Adoecer",
+        "misconceptionCode": "so-os-aptos"
+       },
+       {
+        "text": "Fortalecer o coração, os músculos e os ossos"
+       },
+       {
+        "text": "Enfraquecer o corpo",
+        "misconceptionCode": "so-os-aptos"
+       },
+       {
+        "text": "Dormir pior",
+        "misconceptionCode": "sem-cuidado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O exercício também melhora o humor e a disposição.",
+      "variants": [
+       {
+        "question": "Além do corpo, o exercício faz bem:",
+        "options": [
+         {
+          "text": "A nada",
+          "misconceptionCode": "so-os-aptos"
+         },
+         {
+          "text": "Só aos atletas",
+          "misconceptionCode": "so-os-aptos"
+         },
+         {
+          "text": "Só aos adultos",
+          "misconceptionCode": "sem-cuidado"
+         },
+         {
+          "text": "Ao humor e à disposição"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Praticar exercícios com regularidade ajuda a:",
+        "options": [
+         {
+          "text": "Dormir pior",
+          "misconceptionCode": "sem-cuidado"
+         },
+         {
+          "text": "Enfraquecer o corpo",
+          "misconceptionCode": "so-os-aptos"
+         },
+         {
+          "text": "Fortalecer o coração, os músculos e os ossos"
+         },
+         {
+          "text": "Adoecer",
+          "misconceptionCode": "so-os-aptos"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Antes de começar os exercícios, é importante:",
+      "options": [
+       {
+        "text": "Comer muito",
+        "misconceptionCode": "sem-cuidado"
+       },
+       {
+        "text": "Ficar sem água",
+        "misconceptionCode": "sem-cuidado"
+       },
+       {
+        "text": "Aquecer o corpo"
+       },
+       {
+        "text": "Começar pelo mais difícil",
+        "misconceptionCode": "sem-cuidado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O aquecimento prepara os músculos e as articulações.",
+      "variants": [
+       {
+        "question": "Durante os exercícios, é importante:",
+        "options": [
+         {
+          "text": "Beber água"
+         },
+         {
+          "text": "Não beber nada",
+          "misconceptionCode": "sem-cuidado"
+         },
+         {
+          "text": "Prender a respiração",
+          "misconceptionCode": "sem-cuidado"
+         },
+         {
+          "text": "Ignorar o cansaço",
+          "misconceptionCode": "sem-cuidado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Antes de começar os exercícios, é importante:",
+        "options": [
+         {
+          "text": "Começar pelo mais difícil",
+          "misconceptionCode": "sem-cuidado"
+         },
+         {
+          "text": "Ficar sem água",
+          "misconceptionCode": "sem-cuidado"
+         },
+         {
+          "text": "Comer muito",
+          "misconceptionCode": "sem-cuidado"
+         },
+         {
+          "text": "Aquecer o corpo"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF67EF09-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: combinados da turma",
+    "prompt": "Para que todos possam participar dos exercícios, a turma precisa combinar normas e procedimentos. Quando todos ajudam a criar, todos se sentem responsáveis. Vamos construir juntos.",
+    "estMinutes": 4,
+    "audioScript": "Para que todos possam participar dos exercícios, a turma precisa combinar normas e procedimentos. Quando todos ajudam a criar, todos se sentem responsáveis. Vamos construir juntos. Pergunta 1. Quem deve participar da criação das normas de convívio da aula? A: Só o professor; B: Só os melhores alunos; C: Só um aluno; D: Toda a turma, com o professor. Pergunta 2. Qual destas é uma boa norma para a aula de exercícios? A: Cada um faz no seu ritmo, sem ser comparado; B: Quem faz menos repetições sai da aula; C: Só os mais rápidos participam; D: É proibido descansar. Pergunta 3. Um colega tem asma e se cansa mais rápido na corrida. O que a turma pode combinar? A: Que ele fique de fora sempre; B: Que ele faça pausas e intensidade menor, participando da atividade; C: Que ele corra como os outros, sem parar; D: Que riam dele.",
+    "questions": [
+     {
+      "question": "Quem deve participar da criação das normas de convívio da aula?",
+      "options": [
+       {
+        "text": "Só o professor",
+        "misconceptionCode": "norma-imposta"
+       },
+       {
+        "text": "Só os melhores alunos",
+        "misconceptionCode": "norma-imposta"
+       },
+       {
+        "text": "Só um aluno",
+        "misconceptionCode": "norma-imposta"
+       },
+       {
+        "text": "Toda a turma, com o professor"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Normas construídas juntos são mais bem compreendidas e respeitadas.",
+      "variants": [
+       {
+        "question": "Por que as normas combinadas pela turma costumam funcionar melhor?",
+        "options": [
+         {
+          "text": "Porque ninguém as conhece",
+          "misconceptionCode": "norma-imposta"
+         },
+         {
+          "text": "Porque todos entendem e concordam com elas"
+         },
+         {
+          "text": "Porque são secretas",
+          "misconceptionCode": "norma-imposta"
+         },
+         {
+          "text": "Porque mudam a cada minuto",
+          "misconceptionCode": "norma-imposta"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quem deve participar da criação das normas de convívio da aula?",
+        "options": [
+         {
+          "text": "Toda a turma, com o professor"
+         },
+         {
+          "text": "Só um aluno",
+          "misconceptionCode": "norma-imposta"
+         },
+         {
+          "text": "Só os melhores alunos",
+          "misconceptionCode": "norma-imposta"
+         },
+         {
+          "text": "Só o professor",
+          "misconceptionCode": "norma-imposta"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Qual destas é uma boa norma para a aula de exercícios?",
+      "options": [
+       {
+        "text": "Cada um faz no seu ritmo, sem ser comparado"
+       },
+       {
+        "text": "Quem faz menos repetições sai da aula",
+        "misconceptionCode": "comparar-desempenho"
+       },
+       {
+        "text": "Só os mais rápidos participam",
+        "misconceptionCode": "so-os-aptos"
+       },
+       {
+        "text": "É proibido descansar",
+        "misconceptionCode": "sem-cuidado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Respeitar o ritmo de cada pessoa permite que todos participem.",
+      "variants": [
+       {
+        "question": "Outra boa norma para a aula é:",
+        "options": [
+         {
+          "text": "Rir de quem cansa",
+          "misconceptionCode": "comparar-desempenho"
+         },
+         {
+          "text": "Dar apelidos",
+          "misconceptionCode": "so-os-aptos"
+         },
+         {
+          "text": "Ninguém zomba do corpo ou do desempenho do colega"
+         },
+         {
+          "text": "Excluir quem erra",
+          "misconceptionCode": "sem-cuidado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual destas é uma boa norma para a aula de exercícios?",
+        "options": [
+         {
+          "text": "É proibido descansar",
+          "misconceptionCode": "sem-cuidado"
+         },
+         {
+          "text": "Cada um faz no seu ritmo, sem ser comparado"
+         },
+         {
+          "text": "Só os mais rápidos participam",
+          "misconceptionCode": "so-os-aptos"
+         },
+         {
+          "text": "Quem faz menos repetições sai da aula",
+          "misconceptionCode": "comparar-desempenho"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um colega tem asma e se cansa mais rápido na corrida. O que a turma pode combinar?",
+      "options": [
+       {
+        "text": "Que ele fique de fora sempre",
+        "misconceptionCode": "so-os-aptos"
+       },
+       {
+        "text": "Que ele faça pausas e intensidade menor, participando da atividade"
+       },
+       {
+        "text": "Que ele corra como os outros, sem parar",
+        "misconceptionCode": "sem-cuidado"
+       },
+       {
+        "text": "Que riam dele",
+        "misconceptionCode": "comparar-desempenho"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Adaptar a intensidade inclui e protege a saúde.",
+      "variants": [
+       {
+        "question": "Uma colega está voltando de uma lesão no tornozelo. A turma e o professor podem:",
+        "options": [
+         {
+          "text": "Deixá-la de fora sem conversar",
+          "misconceptionCode": "so-os-aptos"
+         },
+         {
+          "text": "Mandá-la saltar",
+          "misconceptionCode": "sem-cuidado"
+         },
+         {
+          "text": "Ignorar a lesão",
+          "misconceptionCode": "comparar-desempenho"
+         },
+         {
+          "text": "Adaptar os exercícios para ela participar com segurança"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um colega tem asma e se cansa mais rápido na corrida. O que a turma pode combinar?",
+        "options": [
+         {
+          "text": "Que riam dele",
+          "misconceptionCode": "comparar-desempenho"
+         },
+         {
+          "text": "Que ele corra como os outros, sem parar",
+          "misconceptionCode": "sem-cuidado"
+         },
+         {
+          "text": "Que ele faça pausas e intensidade menor, participando da atividade"
+         },
+         {
+          "text": "Que ele fique de fora sempre",
+          "misconceptionCode": "so-os-aptos"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF67EF09-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: normas e procedimentos",
+    "prompt": "Para todos e com cuidado.",
+    "estMinutes": 5,
+    "audioScript": "Para todos e com cuidado. Pergunta 1. O exercício físico é só para quem já tem bom preparo? A: Sim, só para atletas; B: Sim, só para os magros; C: Não, é para todos, com a intensidade adequada a cada um; D: Sim, só para os fortes. Pergunta 2. Num circuito de exercícios, cada estação tem um nível fácil, um médio e um difícil. Isso serve para: A: Mostrar quem é o pior; B: Excluir alguns; C: Complicar a aula; D: Cada aluno escolher o nível adequado e todos participarem. Pergunta 3. Durante a aula, você sente tontura e falta de ar. O que fazer? A: Parar, avisar o professor e descansar; B: Continuar para não ficar para trás; C: Esconder; D: Aumentar o ritmo. Pergunta 4. Um colega anota e divulga quantas flexões cada um faz, rindo de quem faz menos. Isso: A: Motiva todos; B: Desrespeita os colegas e afasta as pessoas do exercício; C: É uma boa norma; D: Não tem problema.",
+    "questions": [
+     {
+      "question": "O exercício físico é só para quem já tem bom preparo?",
+      "options": [
+       {
+        "text": "Sim, só para atletas",
+        "misconceptionCode": "so-os-aptos"
+       },
+       {
+        "text": "Sim, só para os magros",
+        "misconceptionCode": "so-os-aptos"
+       },
+       {
+        "text": "Não, é para todos, com a intensidade adequada a cada um"
+       },
+       {
+        "text": "Sim, só para os fortes",
+        "misconceptionCode": "so-os-aptos"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Qualquer pessoa pode se exercitar, respeitando os seus limites.",
+      "variants": [
+       {
+        "question": "Uma pessoa que nunca fez exercícios deve começar:",
+        "options": [
+         {
+          "text": "Aos poucos, com atividades leves"
+         },
+         {
+          "text": "Pelo treino mais pesado",
+          "misconceptionCode": "so-os-aptos"
+         },
+         {
+          "text": "Com muitas horas seguidas",
+          "misconceptionCode": "so-os-aptos"
+         },
+         {
+          "text": "Sem orientação nem cuidado",
+          "misconceptionCode": "so-os-aptos"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O exercício físico é só para quem já tem bom preparo?",
+        "options": [
+         {
+          "text": "Sim, só para os fortes",
+          "misconceptionCode": "so-os-aptos"
+         },
+         {
+          "text": "Sim, só para os magros",
+          "misconceptionCode": "so-os-aptos"
+         },
+         {
+          "text": "Sim, só para atletas",
+          "misconceptionCode": "so-os-aptos"
+         },
+         {
+          "text": "Não, é para todos, com a intensidade adequada a cada um"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Num circuito de exercícios, cada estação tem um nível fácil, um médio e um difícil. Isso serve para:",
+      "options": [
+       {
+        "text": "Mostrar quem é o pior",
+        "misconceptionCode": "comparar-desempenho"
+       },
+       {
+        "text": "Excluir alguns",
+        "misconceptionCode": "so-os-aptos"
+       },
+       {
+        "text": "Complicar a aula",
+        "misconceptionCode": "norma-imposta"
+       },
+       {
+        "text": "Cada aluno escolher o nível adequado e todos participarem"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Oferecer níveis diferentes é um procedimento de inclusão.",
+      "variants": [
+       {
+        "question": "Num circuito com níveis, o mais importante é:",
+        "options": [
+         {
+          "text": "Todos fazerem o nível difícil",
+          "misconceptionCode": "comparar-desempenho"
+         },
+         {
+          "text": "Cada um se esforçar dentro do seu limite"
+         },
+         {
+          "text": "Ganhar dos colegas",
+          "misconceptionCode": "so-os-aptos"
+         },
+         {
+          "text": "Fazer mais rápido que todos",
+          "misconceptionCode": "norma-imposta"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Num circuito de exercícios, cada estação tem um nível fácil, um médio e um difícil. Isso serve para:",
+        "options": [
+         {
+          "text": "Cada aluno escolher o nível adequado e todos participarem"
+         },
+         {
+          "text": "Complicar a aula",
+          "misconceptionCode": "norma-imposta"
+         },
+         {
+          "text": "Excluir alguns",
+          "misconceptionCode": "so-os-aptos"
+         },
+         {
+          "text": "Mostrar quem é o pior",
+          "misconceptionCode": "comparar-desempenho"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Durante a aula, você sente tontura e falta de ar. O que fazer?",
+      "options": [
+       {
+        "text": "Parar, avisar o professor e descansar"
+       },
+       {
+        "text": "Continuar para não ficar para trás",
+        "misconceptionCode": "sem-cuidado"
+       },
+       {
+        "text": "Esconder",
+        "misconceptionCode": "sem-cuidado"
+       },
+       {
+        "text": "Aumentar o ritmo",
+        "misconceptionCode": "sem-cuidado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Os sinais do corpo devem ser respeitados.",
+      "variants": [
+       {
+        "question": "Qual procedimento ajuda a prevenir o mal-estar em dias quentes?",
+        "options": [
+         {
+          "text": "Não beber água",
+          "misconceptionCode": "sem-cuidado"
+         },
+         {
+          "text": "Usar casaco pesado",
+          "misconceptionCode": "sem-cuidado"
+         },
+         {
+          "text": "Beber água e fazer pausas na sombra"
+         },
+         {
+          "text": "Correr sem parar ao meio-dia",
+          "misconceptionCode": "sem-cuidado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Durante a aula, você sente tontura e falta de ar. O que fazer?",
+        "options": [
+         {
+          "text": "Aumentar o ritmo",
+          "misconceptionCode": "sem-cuidado"
+         },
+         {
+          "text": "Parar, avisar o professor e descansar"
+         },
+         {
+          "text": "Esconder",
+          "misconceptionCode": "sem-cuidado"
+         },
+         {
+          "text": "Continuar para não ficar para trás",
+          "misconceptionCode": "sem-cuidado"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um colega anota e divulga quantas flexões cada um faz, rindo de quem faz menos. Isso:",
+      "options": [
+       {
+        "text": "Motiva todos",
+        "misconceptionCode": "comparar-desempenho"
+       },
+       {
+        "text": "Desrespeita os colegas e afasta as pessoas do exercício"
+       },
+       {
+        "text": "É uma boa norma",
+        "misconceptionCode": "comparar-desempenho"
+       },
+       {
+        "text": "Não tem problema",
+        "misconceptionCode": "comparar-desempenho"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Cada pessoa pode acompanhar o próprio progresso, sem ser exposta.",
+      "variants": [
+       {
+        "question": "A melhor comparação, no exercício, é:",
+        "options": [
+         {
+          "text": "Com o colega mais forte",
+          "misconceptionCode": "comparar-desempenho"
+         },
+         {
+          "text": "Com um atleta profissional",
+          "misconceptionCode": "comparar-desempenho"
+         },
+         {
+          "text": "Com quem faz menos",
+          "misconceptionCode": "comparar-desempenho"
+         },
+         {
+          "text": "Comigo mesmo: como eu estava antes e como estou agora"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um colega anota e divulga quantas flexões cada um faz, rindo de quem faz menos. Isso:",
+        "options": [
+         {
+          "text": "Não tem problema",
+          "misconceptionCode": "comparar-desempenho"
+         },
+         {
+          "text": "É uma boa norma",
+          "misconceptionCode": "comparar-desempenho"
+         },
+         {
+          "text": "Desrespeita os colegas e afasta as pessoas do exercício"
+         },
+         {
+          "text": "Motiva todos",
+          "misconceptionCode": "comparar-desempenho"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF67EF09-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: construindo os combinados",
+    "prompt": "Na prática.",
+    "estMinutes": 4,
+    "audioScript": "Na prática. Pergunta 1. A turma vai fazer uma caminhada. Qual combinado garante a participação de todos? A: Quem ficar para trás volta sozinho; B: Ganha quem chegar primeiro; C: Andar em grupos, no ritmo de quem vai mais devagar, com paradas para água; D: Sem pausas e sem água. Pergunta 2. Alguns alunos não respeitam um combinado da turma. Qual é o melhor caminho? A: Excluí-los para sempre; B: Acabar com todos os combinados; C: Um aluno decidir a punição sozinho; D: Conversar em roda, lembrar por que o combinado existe e ajustá-lo, se for preciso. Pergunta 3. Para levar o hábito do exercício para fora da escola, uma boa ideia é: A: Combinar com a família ou os amigos caminhadas e brincadeiras ativas; B: Esperar virar atleta; C: Fazer só quando alguém obrigar; D: Ficar só nas telas.",
+    "questions": [
+     {
+      "question": "A turma vai fazer uma caminhada. Qual combinado garante a participação de todos?",
+      "options": [
+       {
+        "text": "Quem ficar para trás volta sozinho",
+        "misconceptionCode": "so-os-aptos"
+       },
+       {
+        "text": "Ganha quem chegar primeiro",
+        "misconceptionCode": "comparar-desempenho"
+       },
+       {
+        "text": "Andar em grupos, no ritmo de quem vai mais devagar, com paradas para água"
+       },
+       {
+        "text": "Sem pausas e sem água",
+        "misconceptionCode": "sem-cuidado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O objetivo é a saúde de todos, e não a competição.",
+      "variants": [
+       {
+        "question": "Na caminhada, um colega fica para trás. O grupo deve:",
+        "options": [
+         {
+          "text": "Esperar e acompanhá-lo"
+         },
+         {
+          "text": "Deixá-lo",
+          "misconceptionCode": "so-os-aptos"
+         },
+         {
+          "text": "Rir",
+          "misconceptionCode": "comparar-desempenho"
+         },
+         {
+          "text": "Apressá-lo com gritos",
+          "misconceptionCode": "sem-cuidado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A turma vai fazer uma caminhada. Qual combinado garante a participação de todos?",
+        "options": [
+         {
+          "text": "Sem pausas e sem água",
+          "misconceptionCode": "sem-cuidado"
+         },
+         {
+          "text": "Ganha quem chegar primeiro",
+          "misconceptionCode": "comparar-desempenho"
+         },
+         {
+          "text": "Quem ficar para trás volta sozinho",
+          "misconceptionCode": "so-os-aptos"
+         },
+         {
+          "text": "Andar em grupos, no ritmo de quem vai mais devagar, com paradas para água"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Alguns alunos não respeitam um combinado da turma. Qual é o melhor caminho?",
+      "options": [
+       {
+        "text": "Excluí-los para sempre",
+        "misconceptionCode": "norma-imposta"
+       },
+       {
+        "text": "Acabar com todos os combinados",
+        "misconceptionCode": "norma-imposta"
+       },
+       {
+        "text": "Um aluno decidir a punição sozinho",
+        "misconceptionCode": "norma-imposta"
+       },
+       {
+        "text": "Conversar em roda, lembrar por que o combinado existe e ajustá-lo, se for preciso"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "As normas podem ser revistas pelo grupo.",
+      "variants": [
+       {
+        "question": "As normas de convívio da turma podem ser mudadas?",
+        "options": [
+         {
+          "text": "Não, nunca",
+          "misconceptionCode": "norma-imposta"
+         },
+         {
+          "text": "Sim, em conversa com todos, quando necessário"
+         },
+         {
+          "text": "Só por um aluno",
+          "misconceptionCode": "norma-imposta"
+         },
+         {
+          "text": "Só em segredo",
+          "misconceptionCode": "norma-imposta"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Alguns alunos não respeitam um combinado da turma. Qual é o melhor caminho?",
+        "options": [
+         {
+          "text": "Conversar em roda, lembrar por que o combinado existe e ajustá-lo, se for preciso"
+         },
+         {
+          "text": "Um aluno decidir a punição sozinho",
+          "misconceptionCode": "norma-imposta"
+         },
+         {
+          "text": "Acabar com todos os combinados",
+          "misconceptionCode": "norma-imposta"
+         },
+         {
+          "text": "Excluí-los para sempre",
+          "misconceptionCode": "norma-imposta"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Para levar o hábito do exercício para fora da escola, uma boa ideia é:",
+      "options": [
+       {
+        "text": "Combinar com a família ou os amigos caminhadas e brincadeiras ativas"
+       },
+       {
+        "text": "Esperar virar atleta",
+        "misconceptionCode": "so-os-aptos"
+       },
+       {
+        "text": "Fazer só quando alguém obrigar",
+        "misconceptionCode": "norma-imposta"
+       },
+       {
+        "text": "Ficar só nas telas",
+        "misconceptionCode": "sem-cuidado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O exercício em grupo é mais prazeroso e ajuda a manter o hábito.",
+      "variants": [
+       {
+        "question": "Convidar um familiar que não se exercita para uma caminhada leve é uma forma de:",
+        "options": [
+         {
+          "text": "Perder tempo",
+          "misconceptionCode": "so-os-aptos"
+         },
+         {
+          "text": "Excluir a família",
+          "misconceptionCode": "norma-imposta"
+         },
+         {
+          "text": "Promover a saúde de todos"
+         },
+         {
+          "text": "Competir",
+          "misconceptionCode": "sem-cuidado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Para levar o hábito do exercício para fora da escola, uma boa ideia é:",
+        "options": [
+         {
+          "text": "Ficar só nas telas",
+          "misconceptionCode": "sem-cuidado"
+         },
+         {
+          "text": "Combinar com a família ou os amigos caminhadas e brincadeiras ativas"
+         },
+         {
+          "text": "Fazer só quando alguém obrigar",
+          "misconceptionCode": "norma-imposta"
+         },
+         {
+          "text": "Esperar virar atleta",
+          "misconceptionCode": "so-os-aptos"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF67EF09-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: os combinados da minha turma",
+    "prompt": "Proponha duas normas ou procedimentos para que todos os colegas possam participar das aulas de exercícios e explique com as suas palavras por que elas são importantes para a saúde e para a convivência.",
+    "estMinutes": 6,
+    "audioScript": "Proponha duas normas ou procedimentos para que todos os colegas possam participar das aulas de exercícios e explique com as suas palavras por que elas são importantes para a saúde e para a convivência.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "normas",
+       "description": "Propõe duas normas ou procedimentos"
+      },
+      {
+       "code": "participacao",
+       "description": "Explica como elas permitem a participação de todos"
+      },
+      {
+       "code": "saude",
+       "description": "Relaciona com a saúde ou a segurança"
+      }
+     ],
+     "exemploBoaResposta": "Primeira norma: cada um faz os exercícios no seu ritmo, e ninguém ri de ninguém. Segunda: todos fazem pausas para beber água. Assim, quem tem mais dificuldade não fica com vergonha e participa, e todos cuidam da saúde sem passar mal."
+    }
+   }
+  ]
+ }
 ]
