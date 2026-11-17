@@ -76,6 +76,12 @@ function parse(arq, texto) {
       const [id, subj, ano, titulo, descricao] = partes(l.slice(6));
       diag = { id, subj, ano: Number(ano), titulo, descricao, itens: [] }; out.diags.push(diag); return;
     }
+    if (l.startsWith("#DIAGMAIS ")) {
+      // Acrescenta itens a um diagnóstico que já existe em diagnosticos/<arquivo>.json
+      fecharQ(n); trilha = null; etapa = null;
+      const [arquivo, versao, descricao] = partes(l.slice(10));
+      diag = { mais: true, arquivo, versao: Number(versao), descricao, itens: [] }; out.diags.push(diag); return;
+    }
     if (l.startsWith("#PRE ")) {
       fecharQ(n);
       const [par, peso] = partes(l.slice(5)); const [a, b] = par.split(">").map((x) => x.trim());
@@ -176,7 +182,7 @@ function compilarDiag(d, arq) {
 
 function main() {
   if (!existsSync(FONTE)) { console.log("Sem pasta fonte; nada a compilar."); return; }
-  const trilhasPor = new Map(), fichasPor = new Map(), presPor = new Map(); const diags = [];
+  const trilhasPor = new Map(), fichasPor = new Map(), presPor = new Map(); const diags = []; const diagsMais = [];
   const vistos = new Set();
   for (const arq of readdirSync(FONTE).filter((f) => f.endsWith(".txt")).sort()) {
     const p = parse(arq, readFileSync(join(FONTE, arq), "utf8"));
@@ -189,12 +195,33 @@ function main() {
       if (!fichasPor.has(t.ano)) fichasPor.set(t.ano, []);
       fichasPor.get(t.ano).push({ skillCode: t.skill, subjectCode: t.subj, version: 1, whatStudentDoes: t.faz, commonErrors: t.erros, recommendedTypes: ["QUIZ", "WRITTEN", "SPOKEN"], ageNotes: t.nota, source: "SPEAKFLOW", status: "APPROVED", reviewNote: NOTA });
     }
-    for (const d of p.diags) diags.push(compilarDiag(d, arq));
+    for (const d of p.diags) {
+      if (!d.mais) { diags.push(compilarDiag(d, arq)); continue; }
+      // Diagnóstico existente: tira o que este compilador acrescentou antes e põe de novo
+      const caminho = join(DATA, "diagnosticos", `${d.arquivo}.json`);
+      if (!existsSync(caminho)) throw new Error(`${arq}: diagnóstico ${d.arquivo}.json não existe`);
+      const base = JSON.parse(readFileSync(caminho, "utf8"));
+      const prefixo = `DI2-${base.gradeYear}A-`;
+      const antigos = base.items.filter((it) => !String(it.id).startsWith(prefixo));
+      const novos = compilarDiag({ ...d, id: base.id, ano: base.gradeYear, subj: base.subjectCode, titulo: base.titulo }, arq).items;
+      const degrau = (it) => it.role === "DEGRAU_BANK";
+      base.items = [...antigos.filter((it) => !degrau(it)), ...novos.filter((it) => !degrau(it)), ...antigos.filter(degrau), ...novos.filter(degrau)];
+      base.version = d.versao;
+      if (d.descricao) base.descricao = d.descricao;
+      diagsMais.push({ caminho, dados: base });
+    }
     const ano = Number((arq.match(/ano(\d)/) ?? [])[1] ?? 0);
     if (p.pres.length) { if (!presPor.has(ano)) presPor.set(ano, []); presPor.get(ano).push(...p.pres); }
   }
   const gravar = (caminho, dados) => { mkdirSync(dirname(caminho), { recursive: true }); writeFileSync(caminho, JSON.stringify(dados, null, 1) + "\n"); };
-  for (const [chave, lista] of trilhasPor) gravar(join(DATA, "trilhas", `${chave}.json`), lista);
+  for (const [chave, lista] of trilhasPor) {
+    // Arquivo que já tem trilhas de outras habilidades (5º e 6º ano): mantém as que não vêm da fonte
+    const caminho = join(DATA, "trilhas", `${chave}.json`);
+    const codigos = new Set(lista.map((t) => t.skillCode));
+    const mantidas = existsSync(caminho) ? JSON.parse(readFileSync(caminho, "utf8")).filter((t) => !codigos.has(t.skillCode)) : [];
+    gravar(caminho, [...mantidas, ...lista]);
+  }
+  for (const d of diagsMais) gravar(d.caminho, d.dados);
   for (const d of diags) gravar(join(DATA, "diagnosticos", `DIAG-${d.subjectCode}-${d.gradeYear}A.json`), d);
   for (const [ano, lista] of fichasPor) gravar(join(DATA, "fichas", `fichas-pacote-ano${ano}.json`), lista);
   for (const [ano, lista] of presPor) gravar(join(DATA, `prerequisitos-pacote-ano${ano}.json`), { criar: lista, rejeitar: [] });

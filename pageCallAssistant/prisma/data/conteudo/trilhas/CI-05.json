@@ -1,1890 +1,3772 @@
 [
-  {
-    "skillCode": "EF05CI01",
-    "subjectCode": "CI",
-    "subjectName": "Ciências",
-    "gradeYear": 5,
-    "version": 3,
-    "title": "Trilha: Propriedades dos materiais",
-    "tituloAluno": "Do que as coisas são feitas e como se comportam",
-    "activities": [
+ {
+  "skillCode": "EF05CI01",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 5,
+  "version": 3,
+  "title": "Trilha: Propriedades dos materiais",
+  "tituloAluno": "Do que as coisas são feitas e como se comportam",
+  "activities": [
+   {
+    "id": "PK2-EF05CI01-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: materiais do dia a dia",
+    "prompt": "As coisas ao nosso redor são feitas de materiais diferentes: metal, plástico, madeira, vidro, borracha.",
+    "estMinutes": 4,
+    "audioScript": "As coisas ao nosso redor são feitas de materiais diferentes: metal, plástico, madeira, vidro, borracha. Pergunta 1. De que material costuma ser feita uma panela? A: Metal; B: Papel; C: Lã; D: Isopor. Pergunta 2. Por que o fio elétrico tem uma capa de plástico? A: Porque o plástico deixa o fio mais bonito; B: Porque o plástico conduz a eletricidade; C: Porque o plástico não deixa a eletricidade passar e protege as pessoas; D: Porque o plástico esquenta o fio. Pergunta 3. O que um ímã atrai? A: Qualquer metal; B: Alguns metais, como o ferro; C: Madeira e plástico; D: Tudo o que é pesado.",
+    "questions": [
+     {
+      "question": "De que material costuma ser feita uma panela?",
+      "options": [
+       {
+        "text": "Metal"
+       },
+       {
+        "text": "Papel",
+        "misconceptionCode": "propriedade-trocada"
+       },
+       {
+        "text": "Lã",
+        "misconceptionCode": "propriedade-trocada"
+       },
+       {
+        "text": "Isopor",
+        "misconceptionCode": "propriedade-trocada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A panela vai ao fogo, então precisa aguentar calor e levá-lo até a comida. O metal faz as duas coisas.",
+      "variants": [
+       {
+        "question": "De que material costuma ser feito o cabo da panela?",
+        "options": [
+         {
+          "text": "Metal fino",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Papel",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Plástico duro ou madeira"
+         },
+         {
+          "text": "Vidro",
+          "misconceptionCode": "propriedade-trocada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "De que material costuma ser feita uma panela?",
+        "options": [
+         {
+          "text": "Isopor",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Metal"
+         },
+         {
+          "text": "Lã",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Papel",
+          "misconceptionCode": "propriedade-trocada"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Por que o fio elétrico tem uma capa de plástico?",
+      "options": [
+       {
+        "text": "Porque o plástico deixa o fio mais bonito",
+        "misconceptionCode": "propriedade-trocada"
+       },
+       {
+        "text": "Porque o plástico conduz a eletricidade",
+        "misconceptionCode": "propriedade-trocada"
+       },
+       {
+        "text": "Porque o plástico não deixa a eletricidade passar e protege as pessoas"
+       },
+       {
+        "text": "Porque o plástico esquenta o fio",
+        "misconceptionCode": "frio-e-material"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A eletricidade não passa pelo plástico. A capa funciona como uma \"roupa de proteção\" para ninguém levar choque.",
+      "variants": [
+       {
+        "question": "Por que as ferramentas de eletricista têm cabo de borracha?",
+        "options": [
+         {
+          "text": "Porque a borracha não conduz eletricidade"
+         },
+         {
+          "text": "Porque a borracha é mais pesada",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Porque a borracha atrai ímã",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Porque a borracha esquenta",
+          "misconceptionCode": "frio-e-material"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Por que o fio elétrico tem uma capa de plástico?",
+        "options": [
+         {
+          "text": "Porque o plástico esquenta o fio",
+          "misconceptionCode": "frio-e-material"
+         },
+         {
+          "text": "Porque o plástico conduz a eletricidade",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Porque o plástico deixa o fio mais bonito",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Porque o plástico não deixa a eletricidade passar e protege as pessoas"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que um ímã atrai?",
+      "options": [
+       {
+        "text": "Qualquer metal",
+        "misconceptionCode": "todo-metal-ima"
+       },
+       {
+        "text": "Alguns metais, como o ferro"
+       },
+       {
+        "text": "Madeira e plástico",
+        "misconceptionCode": "propriedade-trocada"
+       },
+       {
+        "text": "Tudo o que é pesado",
+        "misconceptionCode": "pesado-afunda"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O ímã \"gruda\" em coisas que têm ferro, como clipes e pregos. Latinha de alumínio e moeda de cobre ele não pega.",
+      "variants": [
+       {
+        "question": "Qual destes objetos o ímã atrai?",
+        "options": [
+         {
+          "text": "Uma lata de alumínio",
+          "misconceptionCode": "todo-metal-ima"
+         },
+         {
+          "text": "Uma borracha",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Uma moeda de papelão",
+          "misconceptionCode": "pesado-afunda"
+         },
+         {
+          "text": "Um prego de ferro"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que um ímã atrai?",
+        "options": [
+         {
+          "text": "Tudo o que é pesado",
+          "misconceptionCode": "pesado-afunda"
+         },
+         {
+          "text": "Madeira e plástico",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Alguns metais, como o ferro"
+         },
+         {
+          "text": "Qualquer metal",
+          "misconceptionCode": "todo-metal-ima"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05CI01-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: testando com a colher",
+    "prompt": "Imagine uma xícara de chá quente com duas colheres dentro: uma de metal e uma de plástico. Vamos pensar juntos no que acontece.",
+    "estMinutes": 4,
+    "audioScript": "Imagine uma xícara de chá quente com duas colheres dentro: uma de metal e uma de plástico. Vamos pensar juntos no que acontece. Pergunta 1. Depois de alguns minutos, qual cabo fica mais quente? A: O da colher de plástico; B: Os dois ficam iguais; C: O da colher de metal; D: Nenhum esquenta. Pergunta 2. Ao tocar uma grade de metal e um banco de madeira na mesma sombra, o metal parece mais frio. Por quê? A: Porque o metal é sempre frio; B: Porque o metal tira o calor da mão mais rápido; C: Porque a madeira está no sol; D: Porque o metal é mais pesado. Pergunta 3. Que propriedade do metal a xícara de chá mostrou? A: Ele é atraído por ímã; B: Ele flutua na água; C: Ele é flexível; D: Ele conduz bem o calor.",
+    "questions": [
+     {
+      "question": "Depois de alguns minutos, qual cabo fica mais quente?",
+      "options": [
+       {
+        "text": "O da colher de plástico",
+        "misconceptionCode": "propriedade-trocada"
+       },
+       {
+        "text": "Os dois ficam iguais",
+        "misconceptionCode": "frio-e-material"
+       },
+       {
+        "text": "O da colher de metal"
+       },
+       {
+        "text": "Nenhum esquenta",
+        "misconceptionCode": "frio-e-material"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O calor do chá \"viaja\" pelo metal até a sua mão. No plástico, ele quase não anda. Por isso o cabo de metal esquenta.",
+      "variants": [
+       {
+        "question": "Se você colocar uma colher de madeira e uma de metal na sopa quente, qual esquenta mais rápido?",
+        "options": [
+         {
+          "text": "A de metal"
+         },
+         {
+          "text": "A de madeira",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "As duas ao mesmo tempo",
+          "misconceptionCode": "frio-e-material"
+         },
+         {
+          "text": "Nenhuma das duas",
+          "misconceptionCode": "frio-e-material"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Depois de alguns minutos, qual cabo fica mais quente?",
+        "options": [
+         {
+          "text": "Nenhum esquenta",
+          "misconceptionCode": "frio-e-material"
+         },
+         {
+          "text": "Os dois ficam iguais",
+          "misconceptionCode": "frio-e-material"
+         },
+         {
+          "text": "O da colher de plástico",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "O da colher de metal"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Ao tocar uma grade de metal e um banco de madeira na mesma sombra, o metal parece mais frio. Por quê?",
+      "options": [
+       {
+        "text": "Porque o metal é sempre frio",
+        "misconceptionCode": "frio-e-material"
+       },
+       {
+        "text": "Porque o metal tira o calor da mão mais rápido"
+       },
+       {
+        "text": "Porque a madeira está no sol",
+        "misconceptionCode": "propriedade-trocada"
+       },
+       {
+        "text": "Porque o metal é mais pesado",
+        "misconceptionCode": "pesado-afunda"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Os dois estão na mesma temperatura! O metal \"puxa\" o calor da sua mão mais rápido, e por isso parece mais frio.",
+      "variants": [
+       {
+        "question": "Por que o piso de cerâmica parece mais frio que o tapete no mesmo quarto?",
+        "options": [
+         {
+          "text": "Porque a cerâmica é sempre gelada",
+          "misconceptionCode": "frio-e-material"
+         },
+         {
+          "text": "Porque o tapete é mais pesado",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Porque o tapete atrai ímã",
+          "misconceptionCode": "pesado-afunda"
+         },
+         {
+          "text": "Porque a cerâmica conduz o calor do pé mais rápido"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Ao tocar uma grade de metal e um banco de madeira na mesma sombra, o metal parece mais frio. Por quê?",
+        "options": [
+         {
+          "text": "Porque o metal é mais pesado",
+          "misconceptionCode": "pesado-afunda"
+         },
+         {
+          "text": "Porque a madeira está no sol",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Porque o metal tira o calor da mão mais rápido"
+         },
+         {
+          "text": "Porque o metal é sempre frio",
+          "misconceptionCode": "frio-e-material"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Que propriedade do metal a xícara de chá mostrou?",
+      "options": [
+       {
+        "text": "Ele é atraído por ímã",
+        "misconceptionCode": "todo-metal-ima"
+       },
+       {
+        "text": "Ele flutua na água",
+        "misconceptionCode": "pesado-afunda"
+       },
+       {
+        "text": "Ele é flexível",
+        "misconceptionCode": "propriedade-trocada"
+       },
+       {
+        "text": "Ele conduz bem o calor"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O metal deixa o calor passar por ele com facilidade. A gente diz que ele conduz bem o calor.",
+      "variants": [
+       {
+        "question": "Que propriedade a capa de plástico do fio mostra?",
+        "options": [
+         {
+          "text": "Ela é atraída por ímã",
+          "misconceptionCode": "todo-metal-ima"
+         },
+         {
+          "text": "Ela não conduz eletricidade"
+         },
+         {
+          "text": "Ela afunda na água",
+          "misconceptionCode": "pesado-afunda"
+         },
+         {
+          "text": "Ela conduz calor muito bem",
+          "misconceptionCode": "propriedade-trocada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Que propriedade do metal a xícara de chá mostrou?",
+        "options": [
+         {
+          "text": "Ele conduz bem o calor"
+         },
+         {
+          "text": "Ele é flexível",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Ele flutua na água",
+          "misconceptionCode": "pesado-afunda"
+         },
+         {
+          "text": "Ele é atraído por ímã",
+          "misconceptionCode": "todo-metal-ima"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05CI01-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: propriedades em ação",
+    "prompt": "Responda pensando no que cada material faz.",
+    "estMinutes": 5,
+    "audioScript": "Responda pensando no que cada material faz. Pergunta 1. Uma rolha grande e um clipe pequeno são colocados na água. O que acontece? A: A rolha afunda porque é maior; B: A rolha flutua e o clipe afunda; C: Os dois afundam; D: Os dois flutuam. Pergunta 2. Qual material é melhor para fazer o cabo de uma chaleira? A: Ferro; B: Alumínio; C: Vidro fino; D: Plástico resistente ao calor. Pergunta 3. Por que o ímã não atrai uma lata de refrigerante de alumínio? A: Porque o alumínio não é atraído por ímã; B: Porque a lata está vazia; C: Porque todo metal é atraído, mas a lata é leve; D: Porque a lata está fria. Pergunta 4. Que propriedade faz o vidro ser bom para janelas? A: Ele conduz eletricidade; B: Ele é atraído por ímã; C: Ele é transparente e deixa a luz passar; D: Ele é flexível como borracha.",
+    "questions": [
+     {
+      "question": "Uma rolha grande e um clipe pequeno são colocados na água. O que acontece?",
+      "options": [
+       {
+        "text": "A rolha afunda porque é maior",
+        "misconceptionCode": "pesado-afunda"
+       },
+       {
+        "text": "A rolha flutua e o clipe afunda"
+       },
+       {
+        "text": "Os dois afundam",
+        "misconceptionCode": "pesado-afunda"
+       },
+       {
+        "text": "Os dois flutuam",
+        "misconceptionCode": "propriedade-trocada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Não é o tamanho que decide, é o material. A rolha é leve e flutua; o clipe de metal afunda, mesmo sendo pequeno.",
+      "variants": [
+       {
+        "question": "Um tronco grande e uma pedrinha caem no rio. O que acontece?",
+        "options": [
+         {
+          "text": "O tronco afunda por ser maior",
+          "misconceptionCode": "pesado-afunda"
+         },
+         {
+          "text": "Os dois afundam",
+          "misconceptionCode": "pesado-afunda"
+         },
+         {
+          "text": "Os dois flutuam",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "O tronco flutua e a pedrinha afunda"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Uma rolha grande e um clipe pequeno são colocados na água. O que acontece?",
+        "options": [
+         {
+          "text": "Os dois flutuam",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Os dois afundam",
+          "misconceptionCode": "pesado-afunda"
+         },
+         {
+          "text": "A rolha flutua e o clipe afunda"
+         },
+         {
+          "text": "A rolha afunda porque é maior",
+          "misconceptionCode": "pesado-afunda"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual material é melhor para fazer o cabo de uma chaleira?",
+      "options": [
+       {
+        "text": "Ferro",
+        "misconceptionCode": "propriedade-trocada"
+       },
+       {
+        "text": "Alumínio",
+        "misconceptionCode": "todo-metal-ima"
+       },
+       {
+        "text": "Vidro fino",
+        "misconceptionCode": "propriedade-trocada"
+       },
+       {
+        "text": "Plástico resistente ao calor"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O cabo é onde a mão segura. Ele precisa ser de um material que não deixa o calor passar, como esse plástico, para não queimar.",
+      "variants": [
+       {
+        "question": "Qual material é melhor para uma luva de cozinha?",
+        "options": [
+         {
+          "text": "Papel-alumínio",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Tecido grosso"
+         },
+         {
+          "text": "Metal",
+          "misconceptionCode": "todo-metal-ima"
+         },
+         {
+          "text": "Plástico fino",
+          "misconceptionCode": "propriedade-trocada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual material é melhor para fazer o cabo de uma chaleira?",
+        "options": [
+         {
+          "text": "Plástico resistente ao calor"
+         },
+         {
+          "text": "Vidro fino",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Alumínio",
+          "misconceptionCode": "todo-metal-ima"
+         },
+         {
+          "text": "Ferro",
+          "misconceptionCode": "propriedade-trocada"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Por que o ímã não atrai uma lata de refrigerante de alumínio?",
+      "options": [
+       {
+        "text": "Porque o alumínio não é atraído por ímã"
+       },
+       {
+        "text": "Porque a lata está vazia",
+        "misconceptionCode": "pesado-afunda"
+       },
+       {
+        "text": "Porque todo metal é atraído, mas a lata é leve",
+        "misconceptionCode": "todo-metal-ima"
+       },
+       {
+        "text": "Porque a lata está fria",
+        "misconceptionCode": "frio-e-material"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Nem todo metal gruda no ímã. O ferro gruda; o alumínio da latinha, não.",
+      "variants": [
+       {
+        "question": "Uma colher de aço com ferro e uma de alumínio estão na mesa. Qual o ímã atrai?",
+        "options": [
+         {
+          "text": "A de alumínio",
+          "misconceptionCode": "pesado-afunda"
+         },
+         {
+          "text": "As duas",
+          "misconceptionCode": "todo-metal-ima"
+         },
+         {
+          "text": "A de aço com ferro"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "frio-e-material"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Por que o ímã não atrai uma lata de refrigerante de alumínio?",
+        "options": [
+         {
+          "text": "Porque a lata está fria",
+          "misconceptionCode": "frio-e-material"
+         },
+         {
+          "text": "Porque o alumínio não é atraído por ímã"
+         },
+         {
+          "text": "Porque todo metal é atraído, mas a lata é leve",
+          "misconceptionCode": "todo-metal-ima"
+         },
+         {
+          "text": "Porque a lata está vazia",
+          "misconceptionCode": "pesado-afunda"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Que propriedade faz o vidro ser bom para janelas?",
+      "options": [
+       {
+        "text": "Ele conduz eletricidade",
+        "misconceptionCode": "propriedade-trocada"
+       },
+       {
+        "text": "Ele é atraído por ímã",
+        "misconceptionCode": "todo-metal-ima"
+       },
+       {
+        "text": "Ele é transparente e deixa a luz passar"
+       },
+       {
+        "text": "Ele é flexível como borracha",
+        "misconceptionCode": "propriedade-trocada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A janela precisa deixar a luz entrar. O vidro é transparente: a luz passa e a gente vê lá fora.",
+      "variants": [
+       {
+        "question": "Que propriedade faz a borracha ser boa para o pneu?",
+        "options": [
+         {
+          "text": "Ela é flexível e resistente"
+         },
+         {
+          "text": "Ela é transparente",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Ela conduz eletricidade",
+          "misconceptionCode": "todo-metal-ima"
+         },
+         {
+          "text": "Ela é atraída por ímã",
+          "misconceptionCode": "propriedade-trocada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que propriedade faz o vidro ser bom para janelas?",
+        "options": [
+         {
+          "text": "Ele é flexível como borracha",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Ele é atraído por ímã",
+          "misconceptionCode": "todo-metal-ima"
+         },
+         {
+          "text": "Ele conduz eletricidade",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Ele é transparente e deixa a luz passar"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05CI01-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: materiais em casa",
+    "prompt": "Agora use o que aprendeu em situações de casa.",
+    "estMinutes": 4,
+    "audioScript": "Agora use o que aprendeu em situações de casa. Pergunta 1. Você vai mexer uma panela no fogo. Qual colher é mais segura para a mão? A: A de metal; B: Tanto faz; C: A de metal mais fina; D: A de madeira. Pergunta 2. Você deixou cair alfinetes no tapete. O que ajuda a juntar todos? A: Um ímã; B: Uma régua de plástico; C: Uma esponja molhada; D: Um pedaço de vidro. Pergunta 3. Por que não se deve encostar uma tesoura de metal na tomada? A: Porque a tesoura pode enferrujar; B: Porque a tesoura é fria; C: Porque o metal conduz eletricidade e pode dar choque; D: Porque a tesoura é pesada.",
+    "questions": [
+     {
+      "question": "Você vai mexer uma panela no fogo. Qual colher é mais segura para a mão?",
+      "options": [
+       {
+        "text": "A de metal",
+        "misconceptionCode": "propriedade-trocada"
+       },
+       {
+        "text": "Tanto faz",
+        "misconceptionCode": "frio-e-material"
+       },
+       {
+        "text": "A de metal mais fina",
+        "misconceptionCode": "propriedade-trocada"
+       },
+       {
+        "text": "A de madeira"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A madeira quase não deixa o calor passar. Você mexe a panela e o cabo continua frio.",
+      "variants": [
+       {
+        "question": "Para mexer um doce quente por muito tempo, qual colher protege melhor a mão?",
+        "options": [
+         {
+          "text": "A de ferro",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "A de silicone"
+         },
+         {
+          "text": "A de alumínio",
+          "misconceptionCode": "frio-e-material"
+         },
+         {
+          "text": "Tanto faz",
+          "misconceptionCode": "propriedade-trocada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Você vai mexer uma panela no fogo. Qual colher é mais segura para a mão?",
+        "options": [
+         {
+          "text": "A de madeira"
+         },
+         {
+          "text": "A de metal mais fina",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Tanto faz",
+          "misconceptionCode": "frio-e-material"
+         },
+         {
+          "text": "A de metal",
+          "misconceptionCode": "propriedade-trocada"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Você deixou cair alfinetes no tapete. O que ajuda a juntar todos?",
+      "options": [
+       {
+        "text": "Um ímã"
+       },
+       {
+        "text": "Uma régua de plástico",
+        "misconceptionCode": "propriedade-trocada"
+       },
+       {
+        "text": "Uma esponja molhada",
+        "misconceptionCode": "pesado-afunda"
+       },
+       {
+        "text": "Um pedaço de vidro",
+        "misconceptionCode": "propriedade-trocada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Os alfinetes têm ferro, e o ímã atrai ferro. Passe o ímã por cima e eles grudam todos.",
+      "variants": [
+       {
+        "question": "Clipes de ferro se misturaram com botões de plástico. Como separar rápido?",
+        "options": [
+         {
+          "text": "Jogar tudo na água",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Usar uma peneira",
+          "misconceptionCode": "pesado-afunda"
+         },
+         {
+          "text": "Passar um ímã por cima"
+         },
+         {
+          "text": "Soprar com força",
+          "misconceptionCode": "propriedade-trocada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Você deixou cair alfinetes no tapete. O que ajuda a juntar todos?",
+        "options": [
+         {
+          "text": "Um pedaço de vidro",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Um ímã"
+         },
+         {
+          "text": "Uma esponja molhada",
+          "misconceptionCode": "pesado-afunda"
+         },
+         {
+          "text": "Uma régua de plástico",
+          "misconceptionCode": "propriedade-trocada"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Por que não se deve encostar uma tesoura de metal na tomada?",
+      "options": [
+       {
+        "text": "Porque a tesoura pode enferrujar",
+        "misconceptionCode": "propriedade-trocada"
+       },
+       {
+        "text": "Porque a tesoura é fria",
+        "misconceptionCode": "frio-e-material"
+       },
+       {
+        "text": "Porque o metal conduz eletricidade e pode dar choque"
+       },
+       {
+        "text": "Porque a tesoura é pesada",
+        "misconceptionCode": "pesado-afunda"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A eletricidade passa pelo metal e chegaria até a sua mão, dando um choque perigoso. Nunca faça isso!",
+      "variants": [
+       {
+        "question": "Por que é perigoso empinar pipa com linha de metal perto de fios de luz?",
+        "options": [
+         {
+          "text": "Porque o metal conduz eletricidade"
+         },
+         {
+          "text": "Porque a linha é pesada",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Porque o metal é frio",
+          "misconceptionCode": "frio-e-material"
+         },
+         {
+          "text": "Porque a pipa voa mais",
+          "misconceptionCode": "pesado-afunda"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Por que não se deve encostar uma tesoura de metal na tomada?",
+        "options": [
+         {
+          "text": "Porque a tesoura é pesada",
+          "misconceptionCode": "pesado-afunda"
+         },
+         {
+          "text": "Porque a tesoura é fria",
+          "misconceptionCode": "frio-e-material"
+         },
+         {
+          "text": "Porque a tesoura pode enferrujar",
+          "misconceptionCode": "propriedade-trocada"
+         },
+         {
+          "text": "Porque o metal conduz eletricidade e pode dar choque"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05CI01-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: por que o metal parece frio",
+    "prompt": "Explique com as suas palavras por que uma colher de metal esquenta rápido no chá quente, e dê um outro exemplo de material que conduz ou não conduz calor.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras por que uma colher de metal esquenta rápido no chá quente, e dê um outro exemplo de material que conduz ou não conduz calor.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
       {
-        "id": "PK2-EF05CI01-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar: materiais do dia a dia",
-        "prompt": "As coisas ao nosso redor são feitas de materiais diferentes: metal, plástico, madeira, vidro, borracha.",
-        "estMinutes": 4,
-        "audioScript": "As coisas ao nosso redor são feitas de materiais diferentes: metal, plástico, madeira, vidro, borracha. Pergunta 1. De que material costuma ser feita uma panela? A: Metal; B: Papel; C: Lã; D: Isopor. Pergunta 2. Por que o fio elétrico tem uma capa de plástico? A: Porque o plástico deixa o fio mais bonito; B: Porque o plástico conduz a eletricidade; C: Porque o plástico não deixa a eletricidade passar e protege as pessoas; D: Porque o plástico esquenta o fio. Pergunta 3. O que um ímã atrai? A: Qualquer metal; B: Alguns metais, como o ferro; C: Madeira e plástico; D: Tudo o que é pesado.",
-        "questions": [
-          {
-            "question": "De que material costuma ser feita uma panela?",
-            "options": [
-              {
-                "text": "Metal"
-              },
-              {
-                "text": "Papel",
-                "misconceptionCode": "propriedade-trocada"
-              },
-              {
-                "text": "Lã",
-                "misconceptionCode": "propriedade-trocada"
-              },
-              {
-                "text": "Isopor",
-                "misconceptionCode": "propriedade-trocada"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "A panela vai ao fogo, então precisa aguentar calor e levá-lo até a comida. O metal faz as duas coisas.",
-            "variants": [
-              {
-                "question": "De que material costuma ser feito o cabo da panela?",
-                "options": [
-                  {
-                    "text": "Metal fino",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Papel",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Plástico duro ou madeira"
-                  },
-                  {
-                    "text": "Vidro",
-                    "misconceptionCode": "propriedade-trocada"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "De que material costuma ser feita uma panela?",
-                "options": [
-                  {
-                    "text": "Isopor",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Metal"
-                  },
-                  {
-                    "text": "Lã",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Papel",
-                    "misconceptionCode": "propriedade-trocada"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Por que o fio elétrico tem uma capa de plástico?",
-            "options": [
-              {
-                "text": "Porque o plástico deixa o fio mais bonito",
-                "misconceptionCode": "propriedade-trocada"
-              },
-              {
-                "text": "Porque o plástico conduz a eletricidade",
-                "misconceptionCode": "propriedade-trocada"
-              },
-              {
-                "text": "Porque o plástico não deixa a eletricidade passar e protege as pessoas"
-              },
-              {
-                "text": "Porque o plástico esquenta o fio",
-                "misconceptionCode": "frio-e-material"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "A eletricidade não passa pelo plástico. A capa funciona como uma \"roupa de proteção\" para ninguém levar choque.",
-            "variants": [
-              {
-                "question": "Por que as ferramentas de eletricista têm cabo de borracha?",
-                "options": [
-                  {
-                    "text": "Porque a borracha não conduz eletricidade"
-                  },
-                  {
-                    "text": "Porque a borracha é mais pesada",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Porque a borracha atrai ímã",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Porque a borracha esquenta",
-                    "misconceptionCode": "frio-e-material"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que o fio elétrico tem uma capa de plástico?",
-                "options": [
-                  {
-                    "text": "Porque o plástico esquenta o fio",
-                    "misconceptionCode": "frio-e-material"
-                  },
-                  {
-                    "text": "Porque o plástico conduz a eletricidade",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Porque o plástico deixa o fio mais bonito",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Porque o plástico não deixa a eletricidade passar e protege as pessoas"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "O que um ímã atrai?",
-            "options": [
-              {
-                "text": "Qualquer metal",
-                "misconceptionCode": "todo-metal-ima"
-              },
-              {
-                "text": "Alguns metais, como o ferro"
-              },
-              {
-                "text": "Madeira e plástico",
-                "misconceptionCode": "propriedade-trocada"
-              },
-              {
-                "text": "Tudo o que é pesado",
-                "misconceptionCode": "pesado-afunda"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "O ímã \"gruda\" em coisas que têm ferro, como clipes e pregos. Latinha de alumínio e moeda de cobre ele não pega.",
-            "variants": [
-              {
-                "question": "Qual destes objetos o ímã atrai?",
-                "options": [
-                  {
-                    "text": "Uma lata de alumínio",
-                    "misconceptionCode": "todo-metal-ima"
-                  },
-                  {
-                    "text": "Uma borracha",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Uma moeda de papelão",
-                    "misconceptionCode": "pesado-afunda"
-                  },
-                  {
-                    "text": "Um prego de ferro"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "O que um ímã atrai?",
-                "options": [
-                  {
-                    "text": "Tudo o que é pesado",
-                    "misconceptionCode": "pesado-afunda"
-                  },
-                  {
-                    "text": "Madeira e plástico",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Alguns metais, como o ferro"
-                  },
-                  {
-                    "text": "Qualquer metal",
-                    "misconceptionCode": "todo-metal-ima"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          }
-        ]
+       "code": "conducao",
+       "description": "Explica que o metal conduz bem o calor"
       },
       {
-        "id": "PK2-EF05CI01-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Exemplo guiado: testando com a colher",
-        "prompt": "Imagine uma xícara de chá quente com duas colheres dentro: uma de metal e uma de plástico. Vamos pensar juntos no que acontece.",
-        "estMinutes": 4,
-        "audioScript": "Imagine uma xícara de chá quente com duas colheres dentro: uma de metal e uma de plástico. Vamos pensar juntos no que acontece. Pergunta 1. Depois de alguns minutos, qual cabo fica mais quente? A: O da colher de plástico; B: Os dois ficam iguais; C: O da colher de metal; D: Nenhum esquenta. Pergunta 2. Ao tocar uma grade de metal e um banco de madeira na mesma sombra, o metal parece mais frio. Por quê? A: Porque o metal é sempre frio; B: Porque o metal tira o calor da mão mais rápido; C: Porque a madeira está no sol; D: Porque o metal é mais pesado. Pergunta 3. Que propriedade do metal a xícara de chá mostrou? A: Ele é atraído por ímã; B: Ele flutua na água; C: Ele é flexível; D: Ele conduz bem o calor.",
-        "questions": [
-          {
-            "question": "Depois de alguns minutos, qual cabo fica mais quente?",
-            "options": [
-              {
-                "text": "O da colher de plástico",
-                "misconceptionCode": "propriedade-trocada"
-              },
-              {
-                "text": "Os dois ficam iguais",
-                "misconceptionCode": "frio-e-material"
-              },
-              {
-                "text": "O da colher de metal"
-              },
-              {
-                "text": "Nenhum esquenta",
-                "misconceptionCode": "frio-e-material"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "O calor do chá \"viaja\" pelo metal até a sua mão. No plástico, ele quase não anda. Por isso o cabo de metal esquenta.",
-            "variants": [
-              {
-                "question": "Se você colocar uma colher de madeira e uma de metal na sopa quente, qual esquenta mais rápido?",
-                "options": [
-                  {
-                    "text": "A de metal"
-                  },
-                  {
-                    "text": "A de madeira",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "As duas ao mesmo tempo",
-                    "misconceptionCode": "frio-e-material"
-                  },
-                  {
-                    "text": "Nenhuma das duas",
-                    "misconceptionCode": "frio-e-material"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Depois de alguns minutos, qual cabo fica mais quente?",
-                "options": [
-                  {
-                    "text": "Nenhum esquenta",
-                    "misconceptionCode": "frio-e-material"
-                  },
-                  {
-                    "text": "Os dois ficam iguais",
-                    "misconceptionCode": "frio-e-material"
-                  },
-                  {
-                    "text": "O da colher de plástico",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "O da colher de metal"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Ao tocar uma grade de metal e um banco de madeira na mesma sombra, o metal parece mais frio. Por quê?",
-            "options": [
-              {
-                "text": "Porque o metal é sempre frio",
-                "misconceptionCode": "frio-e-material"
-              },
-              {
-                "text": "Porque o metal tira o calor da mão mais rápido"
-              },
-              {
-                "text": "Porque a madeira está no sol",
-                "misconceptionCode": "propriedade-trocada"
-              },
-              {
-                "text": "Porque o metal é mais pesado",
-                "misconceptionCode": "pesado-afunda"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Os dois estão na mesma temperatura! O metal \"puxa\" o calor da sua mão mais rápido, e por isso parece mais frio.",
-            "variants": [
-              {
-                "question": "Por que o piso de cerâmica parece mais frio que o tapete no mesmo quarto?",
-                "options": [
-                  {
-                    "text": "Porque a cerâmica é sempre gelada",
-                    "misconceptionCode": "frio-e-material"
-                  },
-                  {
-                    "text": "Porque o tapete é mais pesado",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Porque o tapete atrai ímã",
-                    "misconceptionCode": "pesado-afunda"
-                  },
-                  {
-                    "text": "Porque a cerâmica conduz o calor do pé mais rápido"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Ao tocar uma grade de metal e um banco de madeira na mesma sombra, o metal parece mais frio. Por quê?",
-                "options": [
-                  {
-                    "text": "Porque o metal é mais pesado",
-                    "misconceptionCode": "pesado-afunda"
-                  },
-                  {
-                    "text": "Porque a madeira está no sol",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Porque o metal tira o calor da mão mais rápido"
-                  },
-                  {
-                    "text": "Porque o metal é sempre frio",
-                    "misconceptionCode": "frio-e-material"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Que propriedade do metal a xícara de chá mostrou?",
-            "options": [
-              {
-                "text": "Ele é atraído por ímã",
-                "misconceptionCode": "todo-metal-ima"
-              },
-              {
-                "text": "Ele flutua na água",
-                "misconceptionCode": "pesado-afunda"
-              },
-              {
-                "text": "Ele é flexível",
-                "misconceptionCode": "propriedade-trocada"
-              },
-              {
-                "text": "Ele conduz bem o calor"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "O metal deixa o calor passar por ele com facilidade. A gente diz que ele conduz bem o calor.",
-            "variants": [
-              {
-                "question": "Que propriedade a capa de plástico do fio mostra?",
-                "options": [
-                  {
-                    "text": "Ela é atraída por ímã",
-                    "misconceptionCode": "todo-metal-ima"
-                  },
-                  {
-                    "text": "Ela não conduz eletricidade"
-                  },
-                  {
-                    "text": "Ela afunda na água",
-                    "misconceptionCode": "pesado-afunda"
-                  },
-                  {
-                    "text": "Ela conduz calor muito bem",
-                    "misconceptionCode": "propriedade-trocada"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Que propriedade do metal a xícara de chá mostrou?",
-                "options": [
-                  {
-                    "text": "Ele conduz bem o calor"
-                  },
-                  {
-                    "text": "Ele é flexível",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Ele flutua na água",
-                    "misconceptionCode": "pesado-afunda"
-                  },
-                  {
-                    "text": "Ele é atraído por ímã",
-                    "misconceptionCode": "todo-metal-ima"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          }
-        ]
+       "code": "comparacao",
+       "description": "Compara com um material que conduz pouco calor, como plástico ou madeira"
       },
       {
-        "id": "PK2-EF05CI01-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar: propriedades em ação",
-        "prompt": "Responda pensando no que cada material faz.",
-        "estMinutes": 5,
-        "audioScript": "Responda pensando no que cada material faz. Pergunta 1. Uma rolha grande e um clipe pequeno são colocados na água. O que acontece? A: A rolha afunda porque é maior; B: A rolha flutua e o clipe afunda; C: Os dois afundam; D: Os dois flutuam. Pergunta 2. Qual material é melhor para fazer o cabo de uma chaleira? A: Ferro; B: Alumínio; C: Vidro fino; D: Plástico resistente ao calor. Pergunta 3. Por que o ímã não atrai uma lata de refrigerante de alumínio? A: Porque o alumínio não é atraído por ímã; B: Porque a lata está vazia; C: Porque todo metal é atraído, mas a lata é leve; D: Porque a lata está fria. Pergunta 4. Que propriedade faz o vidro ser bom para janelas? A: Ele conduz eletricidade; B: Ele é atraído por ímã; C: Ele é transparente e deixa a luz passar; D: Ele é flexível como borracha.",
-        "questions": [
-          {
-            "question": "Uma rolha grande e um clipe pequeno são colocados na água. O que acontece?",
-            "options": [
-              {
-                "text": "A rolha afunda porque é maior",
-                "misconceptionCode": "pesado-afunda"
-              },
-              {
-                "text": "A rolha flutua e o clipe afunda"
-              },
-              {
-                "text": "Os dois afundam",
-                "misconceptionCode": "pesado-afunda"
-              },
-              {
-                "text": "Os dois flutuam",
-                "misconceptionCode": "propriedade-trocada"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Não é o tamanho que decide, é o material. A rolha é leve e flutua; o clipe de metal afunda, mesmo sendo pequeno.",
-            "variants": [
-              {
-                "question": "Um tronco grande e uma pedrinha caem no rio. O que acontece?",
-                "options": [
-                  {
-                    "text": "O tronco afunda por ser maior",
-                    "misconceptionCode": "pesado-afunda"
-                  },
-                  {
-                    "text": "Os dois afundam",
-                    "misconceptionCode": "pesado-afunda"
-                  },
-                  {
-                    "text": "Os dois flutuam",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "O tronco flutua e a pedrinha afunda"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Uma rolha grande e um clipe pequeno são colocados na água. O que acontece?",
-                "options": [
-                  {
-                    "text": "Os dois flutuam",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Os dois afundam",
-                    "misconceptionCode": "pesado-afunda"
-                  },
-                  {
-                    "text": "A rolha flutua e o clipe afunda"
-                  },
-                  {
-                    "text": "A rolha afunda porque é maior",
-                    "misconceptionCode": "pesado-afunda"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Qual material é melhor para fazer o cabo de uma chaleira?",
-            "options": [
-              {
-                "text": "Ferro",
-                "misconceptionCode": "propriedade-trocada"
-              },
-              {
-                "text": "Alumínio",
-                "misconceptionCode": "todo-metal-ima"
-              },
-              {
-                "text": "Vidro fino",
-                "misconceptionCode": "propriedade-trocada"
-              },
-              {
-                "text": "Plástico resistente ao calor"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "O cabo é onde a mão segura. Ele precisa ser de um material que não deixa o calor passar, como esse plástico, para não queimar.",
-            "variants": [
-              {
-                "question": "Qual material é melhor para uma luva de cozinha?",
-                "options": [
-                  {
-                    "text": "Papel-alumínio",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Tecido grosso"
-                  },
-                  {
-                    "text": "Metal",
-                    "misconceptionCode": "todo-metal-ima"
-                  },
-                  {
-                    "text": "Plástico fino",
-                    "misconceptionCode": "propriedade-trocada"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Qual material é melhor para fazer o cabo de uma chaleira?",
-                "options": [
-                  {
-                    "text": "Plástico resistente ao calor"
-                  },
-                  {
-                    "text": "Vidro fino",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Alumínio",
-                    "misconceptionCode": "todo-metal-ima"
-                  },
-                  {
-                    "text": "Ferro",
-                    "misconceptionCode": "propriedade-trocada"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Por que o ímã não atrai uma lata de refrigerante de alumínio?",
-            "options": [
-              {
-                "text": "Porque o alumínio não é atraído por ímã"
-              },
-              {
-                "text": "Porque a lata está vazia",
-                "misconceptionCode": "pesado-afunda"
-              },
-              {
-                "text": "Porque todo metal é atraído, mas a lata é leve",
-                "misconceptionCode": "todo-metal-ima"
-              },
-              {
-                "text": "Porque a lata está fria",
-                "misconceptionCode": "frio-e-material"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Nem todo metal gruda no ímã. O ferro gruda; o alumínio da latinha, não.",
-            "variants": [
-              {
-                "question": "Uma colher de aço com ferro e uma de alumínio estão na mesa. Qual o ímã atrai?",
-                "options": [
-                  {
-                    "text": "A de alumínio",
-                    "misconceptionCode": "pesado-afunda"
-                  },
-                  {
-                    "text": "As duas",
-                    "misconceptionCode": "todo-metal-ima"
-                  },
-                  {
-                    "text": "A de aço com ferro"
-                  },
-                  {
-                    "text": "Nenhuma",
-                    "misconceptionCode": "frio-e-material"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Por que o ímã não atrai uma lata de refrigerante de alumínio?",
-                "options": [
-                  {
-                    "text": "Porque a lata está fria",
-                    "misconceptionCode": "frio-e-material"
-                  },
-                  {
-                    "text": "Porque o alumínio não é atraído por ímã"
-                  },
-                  {
-                    "text": "Porque todo metal é atraído, mas a lata é leve",
-                    "misconceptionCode": "todo-metal-ima"
-                  },
-                  {
-                    "text": "Porque a lata está vazia",
-                    "misconceptionCode": "pesado-afunda"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Que propriedade faz o vidro ser bom para janelas?",
-            "options": [
-              {
-                "text": "Ele conduz eletricidade",
-                "misconceptionCode": "propriedade-trocada"
-              },
-              {
-                "text": "Ele é atraído por ímã",
-                "misconceptionCode": "todo-metal-ima"
-              },
-              {
-                "text": "Ele é transparente e deixa a luz passar"
-              },
-              {
-                "text": "Ele é flexível como borracha",
-                "misconceptionCode": "propriedade-trocada"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "A janela precisa deixar a luz entrar. O vidro é transparente: a luz passa e a gente vê lá fora.",
-            "variants": [
-              {
-                "question": "Que propriedade faz a borracha ser boa para o pneu?",
-                "options": [
-                  {
-                    "text": "Ela é flexível e resistente"
-                  },
-                  {
-                    "text": "Ela é transparente",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Ela conduz eletricidade",
-                    "misconceptionCode": "todo-metal-ima"
-                  },
-                  {
-                    "text": "Ela é atraída por ímã",
-                    "misconceptionCode": "propriedade-trocada"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Que propriedade faz o vidro ser bom para janelas?",
-                "options": [
-                  {
-                    "text": "Ele é flexível como borracha",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Ele é atraído por ímã",
-                    "misconceptionCode": "todo-metal-ima"
-                  },
-                  {
-                    "text": "Ele conduz eletricidade",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Ele é transparente e deixa a luz passar"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF05CI01-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar: materiais em casa",
-        "prompt": "Agora use o que aprendeu em situações de casa.",
-        "estMinutes": 4,
-        "audioScript": "Agora use o que aprendeu em situações de casa. Pergunta 1. Você vai mexer uma panela no fogo. Qual colher é mais segura para a mão? A: A de metal; B: Tanto faz; C: A de metal mais fina; D: A de madeira. Pergunta 2. Você deixou cair alfinetes no tapete. O que ajuda a juntar todos? A: Um ímã; B: Uma régua de plástico; C: Uma esponja molhada; D: Um pedaço de vidro. Pergunta 3. Por que não se deve encostar uma tesoura de metal na tomada? A: Porque a tesoura pode enferrujar; B: Porque a tesoura é fria; C: Porque o metal conduz eletricidade e pode dar choque; D: Porque a tesoura é pesada.",
-        "questions": [
-          {
-            "question": "Você vai mexer uma panela no fogo. Qual colher é mais segura para a mão?",
-            "options": [
-              {
-                "text": "A de metal",
-                "misconceptionCode": "propriedade-trocada"
-              },
-              {
-                "text": "Tanto faz",
-                "misconceptionCode": "frio-e-material"
-              },
-              {
-                "text": "A de metal mais fina",
-                "misconceptionCode": "propriedade-trocada"
-              },
-              {
-                "text": "A de madeira"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "A madeira quase não deixa o calor passar. Você mexe a panela e o cabo continua frio.",
-            "variants": [
-              {
-                "question": "Para mexer um doce quente por muito tempo, qual colher protege melhor a mão?",
-                "options": [
-                  {
-                    "text": "A de ferro",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "A de silicone"
-                  },
-                  {
-                    "text": "A de alumínio",
-                    "misconceptionCode": "frio-e-material"
-                  },
-                  {
-                    "text": "Tanto faz",
-                    "misconceptionCode": "propriedade-trocada"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Você vai mexer uma panela no fogo. Qual colher é mais segura para a mão?",
-                "options": [
-                  {
-                    "text": "A de madeira"
-                  },
-                  {
-                    "text": "A de metal mais fina",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Tanto faz",
-                    "misconceptionCode": "frio-e-material"
-                  },
-                  {
-                    "text": "A de metal",
-                    "misconceptionCode": "propriedade-trocada"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Você deixou cair alfinetes no tapete. O que ajuda a juntar todos?",
-            "options": [
-              {
-                "text": "Um ímã"
-              },
-              {
-                "text": "Uma régua de plástico",
-                "misconceptionCode": "propriedade-trocada"
-              },
-              {
-                "text": "Uma esponja molhada",
-                "misconceptionCode": "pesado-afunda"
-              },
-              {
-                "text": "Um pedaço de vidro",
-                "misconceptionCode": "propriedade-trocada"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Os alfinetes têm ferro, e o ímã atrai ferro. Passe o ímã por cima e eles grudam todos.",
-            "variants": [
-              {
-                "question": "Clipes de ferro se misturaram com botões de plástico. Como separar rápido?",
-                "options": [
-                  {
-                    "text": "Jogar tudo na água",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Usar uma peneira",
-                    "misconceptionCode": "pesado-afunda"
-                  },
-                  {
-                    "text": "Passar um ímã por cima"
-                  },
-                  {
-                    "text": "Soprar com força",
-                    "misconceptionCode": "propriedade-trocada"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Você deixou cair alfinetes no tapete. O que ajuda a juntar todos?",
-                "options": [
-                  {
-                    "text": "Um pedaço de vidro",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Um ímã"
-                  },
-                  {
-                    "text": "Uma esponja molhada",
-                    "misconceptionCode": "pesado-afunda"
-                  },
-                  {
-                    "text": "Uma régua de plástico",
-                    "misconceptionCode": "propriedade-trocada"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Por que não se deve encostar uma tesoura de metal na tomada?",
-            "options": [
-              {
-                "text": "Porque a tesoura pode enferrujar",
-                "misconceptionCode": "propriedade-trocada"
-              },
-              {
-                "text": "Porque a tesoura é fria",
-                "misconceptionCode": "frio-e-material"
-              },
-              {
-                "text": "Porque o metal conduz eletricidade e pode dar choque"
-              },
-              {
-                "text": "Porque a tesoura é pesada",
-                "misconceptionCode": "pesado-afunda"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "A eletricidade passa pelo metal e chegaria até a sua mão, dando um choque perigoso. Nunca faça isso!",
-            "variants": [
-              {
-                "question": "Por que é perigoso empinar pipa com linha de metal perto de fios de luz?",
-                "options": [
-                  {
-                    "text": "Porque o metal conduz eletricidade"
-                  },
-                  {
-                    "text": "Porque a linha é pesada",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Porque o metal é frio",
-                    "misconceptionCode": "frio-e-material"
-                  },
-                  {
-                    "text": "Porque a pipa voa mais",
-                    "misconceptionCode": "pesado-afunda"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que não se deve encostar uma tesoura de metal na tomada?",
-                "options": [
-                  {
-                    "text": "Porque a tesoura é pesada",
-                    "misconceptionCode": "pesado-afunda"
-                  },
-                  {
-                    "text": "Porque a tesoura é fria",
-                    "misconceptionCode": "frio-e-material"
-                  },
-                  {
-                    "text": "Porque a tesoura pode enferrujar",
-                    "misconceptionCode": "propriedade-trocada"
-                  },
-                  {
-                    "text": "Porque o metal conduz eletricidade e pode dar choque"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF05CI01-A5",
-        "step": "explicar",
-        "type": "WRITTEN",
-        "allowSpoken": true,
-        "title": "Explicar: por que o metal parece frio",
-        "prompt": "Explique com as suas palavras por que uma colher de metal esquenta rápido no chá quente, e dê um outro exemplo de material que conduz ou não conduz calor.",
-        "estMinutes": 6,
-        "audioScript": "Explique com as suas palavras por que uma colher de metal esquenta rápido no chá quente, e dê um outro exemplo de material que conduz ou não conduz calor.",
-        "rubric": {
-          "type": "WRITTEN",
-          "criteria": [
-            {
-              "code": "conducao",
-              "description": "Explica que o metal conduz bem o calor"
-            },
-            {
-              "code": "comparacao",
-              "description": "Compara com um material que conduz pouco calor, como plástico ou madeira"
-            },
-            {
-              "code": "exemplo-valido",
-              "description": "Dá um exemplo correto do dia a dia"
-            }
-          ],
-          "exemploBoaResposta": "A colher de metal esquenta rápido porque o metal conduz bem o calor: o calor do chá passa por ela até o cabo. Se a colher fosse de madeira, ela esquentaria pouco. É por isso que o cabo da panela é de plástico ou de madeira."
-        }
+       "code": "exemplo-valido",
+       "description": "Dá um exemplo correto do dia a dia"
       }
-    ],
-    "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED"
-  },
-  {
-    "skillCode": "EF05CI11",
-    "subjectCode": "CI",
-    "subjectName": "Ciências",
-    "gradeYear": 5,
-    "version": 3,
-    "title": "Trilha: Rotação da Terra, dia e noite",
-    "tituloAluno": "Por que existe dia e noite",
-    "activities": [
+     ],
+     "exemploBoaResposta": "A colher de metal esquenta rápido porque o metal conduz bem o calor: o calor do chá passa por ela até o cabo. Se a colher fosse de madeira, ela esquentaria pouco. É por isso que o cabo da panela é de plástico ou de madeira."
+    }
+   }
+  ],
+  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+  "source": "SPEAKFLOW",
+  "status": "APPROVED"
+ },
+ {
+  "skillCode": "EF05CI11",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 5,
+  "version": 3,
+  "title": "Trilha: Rotação da Terra, dia e noite",
+  "tituloAluno": "Por que existe dia e noite",
+  "activities": [
+   {
+    "id": "PK2-EF05CI11-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: o Sol no céu",
+    "prompt": "Vamos lembrar como o Sol parece se mover no céu durante o dia.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar como o Sol parece se mover no céu durante o dia. Pergunta 1. De que lado o Sol aparece de manhã? A: Do lado oeste; B: Sempre bem em cima da cabeça; C: Do lado leste, o nascente; D: Em qualquer lado, depende do dia. Pergunta 2. Ao meio-dia, onde o Sol costuma estar? A: Perto do chão, no leste; B: Bem alto no céu; C: Escondido atrás da Lua; D: Embaixo da Terra. Pergunta 3. O que acontece com o Sol à noite? A: Ele apaga; B: Ele se esconde atrás das nuvens; C: Ele dá a volta na Terra; D: Ele continua brilhando, mas o nosso lado da Terra está virado para longe dele.",
+    "questions": [
+     {
+      "question": "De que lado o Sol aparece de manhã?",
+      "options": [
+       {
+        "text": "Do lado oeste",
+        "misconceptionCode": "rotacao-translacao"
+       },
+       {
+        "text": "Sempre bem em cima da cabeça",
+        "misconceptionCode": "sol-gira-terra"
+       },
+       {
+        "text": "Do lado leste, o nascente"
+       },
+       {
+        "text": "Em qualquer lado, depende do dia",
+        "misconceptionCode": "duracao-errada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O Sol nasce sempre do mesmo lado, o leste, e se põe do outro, o oeste.",
+      "variants": [
+       {
+        "question": "De que lado o Sol se põe no fim da tarde?",
+        "options": [
+         {
+          "text": "Do lado oeste, o poente"
+         },
+         {
+          "text": "Do lado leste",
+          "misconceptionCode": "rotacao-translacao"
+         },
+         {
+          "text": "Sempre no norte",
+          "misconceptionCode": "sol-gira-terra"
+         },
+         {
+          "text": "Em qualquer lado",
+          "misconceptionCode": "duracao-errada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "De que lado o Sol aparece de manhã?",
+        "options": [
+         {
+          "text": "Em qualquer lado, depende do dia",
+          "misconceptionCode": "duracao-errada"
+         },
+         {
+          "text": "Sempre bem em cima da cabeça",
+          "misconceptionCode": "sol-gira-terra"
+         },
+         {
+          "text": "Do lado oeste",
+          "misconceptionCode": "rotacao-translacao"
+         },
+         {
+          "text": "Do lado leste, o nascente"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Ao meio-dia, onde o Sol costuma estar?",
+      "options": [
+       {
+        "text": "Perto do chão, no leste",
+        "misconceptionCode": "duracao-errada"
+       },
+       {
+        "text": "Bem alto no céu"
+       },
+       {
+        "text": "Escondido atrás da Lua",
+        "misconceptionCode": "sol-apaga"
+       },
+       {
+        "text": "Embaixo da Terra",
+        "misconceptionCode": "sol-gira-terra"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Perto do meio-dia o Sol fica lá em cima, bem alto no céu. É quando a sombra fica menor.",
+      "variants": [
+       {
+        "question": "Quando a sua sombra fica bem curta, o Sol está:",
+        "options": [
+         {
+          "text": "Nascendo",
+          "misconceptionCode": "duracao-errada"
+         },
+         {
+          "text": "Se pondo",
+          "misconceptionCode": "sol-apaga"
+         },
+         {
+          "text": "Apagado",
+          "misconceptionCode": "sol-gira-terra"
+         },
+         {
+          "text": "Alto no céu, perto do meio-dia"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Ao meio-dia, onde o Sol costuma estar?",
+        "options": [
+         {
+          "text": "Embaixo da Terra",
+          "misconceptionCode": "sol-gira-terra"
+         },
+         {
+          "text": "Escondido atrás da Lua",
+          "misconceptionCode": "sol-apaga"
+         },
+         {
+          "text": "Bem alto no céu"
+         },
+         {
+          "text": "Perto do chão, no leste",
+          "misconceptionCode": "duracao-errada"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O que acontece com o Sol à noite?",
+      "options": [
+       {
+        "text": "Ele apaga",
+        "misconceptionCode": "sol-apaga"
+       },
+       {
+        "text": "Ele se esconde atrás das nuvens",
+        "misconceptionCode": "sol-apaga"
+       },
+       {
+        "text": "Ele dá a volta na Terra",
+        "misconceptionCode": "sol-gira-terra"
+       },
+       {
+        "text": "Ele continua brilhando, mas o nosso lado da Terra está virado para longe dele"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O Sol nunca apaga! À noite, o lado da Terra onde você está ficou virado para longe dele.",
+      "variants": [
+       {
+        "question": "Quando é noite no Brasil, o que acontece do outro lado da Terra?",
+        "options": [
+         {
+          "text": "Lá também é noite",
+          "misconceptionCode": "sol-apaga"
+         },
+         {
+          "text": "Lá é dia, porque está virado para o Sol"
+         },
+         {
+          "text": "Lá o Sol está apagado",
+          "misconceptionCode": "sol-apaga"
+         },
+         {
+          "text": "Lá não tem Sol",
+          "misconceptionCode": "sol-gira-terra"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que acontece com o Sol à noite?",
+        "options": [
+         {
+          "text": "Ele continua brilhando, mas o nosso lado da Terra está virado para longe dele"
+         },
+         {
+          "text": "Ele dá a volta na Terra",
+          "misconceptionCode": "sol-gira-terra"
+         },
+         {
+          "text": "Ele se esconde atrás das nuvens",
+          "misconceptionCode": "sol-apaga"
+         },
+         {
+          "text": "Ele apaga",
+          "misconceptionCode": "sol-apaga"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05CI11-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: a bola e a lanterna",
+    "prompt": "Imagine uma lanterna acesa (o Sol) e uma bola (a Terra) girando devagar em torno de si mesma. Vamos pensar juntos.",
+    "estMinutes": 4,
+    "audioScript": "Imagine uma lanterna acesa (o Sol) e uma bola (a Terra) girando devagar em torno de si mesma. Vamos pensar juntos. Pergunta 1. A parte da bola virada para a lanterna representa: A: A noite; B: O dia; C: O inverno; D: O Sol apagado. Pergunta 2. O que faz um ponto da bola passar do claro para o escuro? A: A lanterna andar em volta da bola; B: A bola dar uma volta na lanterna; C: A lanterna apagar; D: A bola girar em torno de si mesma. Pergunta 3. Quanto tempo a Terra leva para dar uma volta completa em torno de si mesma? A: Cerca de 24 horas, um dia; B: Um ano; C: Uma semana; D: Uma hora.",
+    "questions": [
+     {
+      "question": "A parte da bola virada para a lanterna representa:",
+      "options": [
+       {
+        "text": "A noite",
+        "misconceptionCode": "rotacao-translacao"
+       },
+       {
+        "text": "O dia"
+       },
+       {
+        "text": "O inverno",
+        "misconceptionCode": "duracao-errada"
+       },
+       {
+        "text": "O Sol apagado",
+        "misconceptionCode": "sol-apaga"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A lanterna é o Sol. O lado da bola que recebe a luz é onde está de dia.",
+      "variants": [
+       {
+        "question": "A parte da bola que fica escura representa:",
+        "options": [
+         {
+          "text": "O dia",
+          "misconceptionCode": "rotacao-translacao"
+         },
+         {
+          "text": "O verão",
+          "misconceptionCode": "duracao-errada"
+         },
+         {
+          "text": "O meio-dia",
+          "misconceptionCode": "sol-apaga"
+         },
+         {
+          "text": "A noite"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A parte da bola virada para a lanterna representa:",
+        "options": [
+         {
+          "text": "O Sol apagado",
+          "misconceptionCode": "sol-apaga"
+         },
+         {
+          "text": "O inverno",
+          "misconceptionCode": "duracao-errada"
+         },
+         {
+          "text": "O dia"
+         },
+         {
+          "text": "A noite",
+          "misconceptionCode": "rotacao-translacao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O que faz um ponto da bola passar do claro para o escuro?",
+      "options": [
+       {
+        "text": "A lanterna andar em volta da bola",
+        "misconceptionCode": "sol-gira-terra"
+       },
+       {
+        "text": "A bola dar uma volta na lanterna",
+        "misconceptionCode": "rotacao-translacao"
+       },
+       {
+        "text": "A lanterna apagar",
+        "misconceptionCode": "sol-apaga"
+       },
+       {
+        "text": "A bola girar em torno de si mesma"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Gire a bola devagar: o ponto sai da luz e entra no escuro. A Terra faz isso girando em torno de si mesma.",
+      "variants": [
+       {
+        "question": "Na vida real, o que causa o dia e a noite?",
+        "options": [
+         {
+          "text": "O Sol girando em volta da Terra",
+          "misconceptionCode": "sol-gira-terra"
+         },
+         {
+          "text": "A rotação da Terra"
+         },
+         {
+          "text": "A translação da Terra",
+          "misconceptionCode": "rotacao-translacao"
+         },
+         {
+          "text": "O Sol apagando",
+          "misconceptionCode": "sol-apaga"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que faz um ponto da bola passar do claro para o escuro?",
+        "options": [
+         {
+          "text": "A bola girar em torno de si mesma"
+         },
+         {
+          "text": "A lanterna apagar",
+          "misconceptionCode": "sol-apaga"
+         },
+         {
+          "text": "A bola dar uma volta na lanterna",
+          "misconceptionCode": "rotacao-translacao"
+         },
+         {
+          "text": "A lanterna andar em volta da bola",
+          "misconceptionCode": "sol-gira-terra"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quanto tempo a Terra leva para dar uma volta completa em torno de si mesma?",
+      "options": [
+       {
+        "text": "Cerca de 24 horas, um dia"
+       },
+       {
+        "text": "Um ano",
+        "misconceptionCode": "rotacao-translacao"
+       },
+       {
+        "text": "Uma semana",
+        "misconceptionCode": "duracao-errada"
+       },
+       {
+        "text": "Uma hora",
+        "misconceptionCode": "duracao-errada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Uma volta da Terra em torno de si mesma é um dia inteiro, cerca de 24 horas. A volta em torno do Sol demora um ano.",
+      "variants": [
+       {
+        "question": "Uma volta completa da Terra em torno de si mesma corresponde a:",
+        "options": [
+         {
+          "text": "Um mês",
+          "misconceptionCode": "rotacao-translacao"
+         },
+         {
+          "text": "Um ano",
+          "misconceptionCode": "duracao-errada"
+         },
+         {
+          "text": "Um dia"
+         },
+         {
+          "text": "Uma estação",
+          "misconceptionCode": "duracao-errada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quanto tempo a Terra leva para dar uma volta completa em torno de si mesma?",
+        "options": [
+         {
+          "text": "Uma hora",
+          "misconceptionCode": "duracao-errada"
+         },
+         {
+          "text": "Cerca de 24 horas, um dia"
+         },
+         {
+          "text": "Uma semana",
+          "misconceptionCode": "duracao-errada"
+         },
+         {
+          "text": "Um ano",
+          "misconceptionCode": "rotacao-translacao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05CI11-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: rotação na prática",
+    "prompt": "Responda pensando na Terra girando.",
+    "estMinutes": 5,
+    "audioScript": "Responda pensando na Terra girando. Pergunta 1. Por que parece que o Sol anda no céu de leste para oeste? A: Porque o Sol dá a volta na Terra todo dia; B: Porque a Terra dá a volta no Sol todo dia; C: Porque o vento empurra o Sol; D: Porque a Terra gira, e nós giramos junto com ela. Pergunta 2. O nome do movimento da Terra em torno de si mesma é: A: Rotação; B: Translação; C: Órbita do Sol; D: Eclipse. Pergunta 3. As estrelas também parecem se mover no céu durante a noite. Por quê? A: Porque as estrelas giram em volta da Terra; B: Porque as estrelas apagam e acendem; C: Pelo mesmo motivo do Sol: a rotação da Terra; D: Porque a Terra dá a volta no Sol a cada noite. Pergunta 4. Quando é meio-dia em Salvador, é noite no Japão. Por quê? A: Porque o Sol já apagou no Japão; B: Porque o Japão está no lado da Terra que não está virado para o Sol; C: Porque o Japão não recebe luz do Sol; D: Porque lá o ano é diferente.",
+    "questions": [
+     {
+      "question": "Por que parece que o Sol anda no céu de leste para oeste?",
+      "options": [
+       {
+        "text": "Porque o Sol dá a volta na Terra todo dia",
+        "misconceptionCode": "sol-gira-terra"
+       },
+       {
+        "text": "Porque a Terra dá a volta no Sol todo dia",
+        "misconceptionCode": "rotacao-translacao"
+       },
+       {
+        "text": "Porque o vento empurra o Sol",
+        "misconceptionCode": "sol-apaga"
+       },
+       {
+        "text": "Porque a Terra gira, e nós giramos junto com ela"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Quem anda é a Terra, girando com a gente em cima. É como no carro: parece que as árvores passam, mas é o carro que se move.",
+      "variants": [
+       {
+        "question": "Dentro de um carro andando, as árvores parecem ir para trás. Isso lembra:",
+        "options": [
+         {
+          "text": "O Sol girando em volta da Terra",
+          "misconceptionCode": "sol-gira-terra"
+         },
+         {
+          "text": "O movimento aparente do Sol causado pela rotação da Terra"
+         },
+         {
+          "text": "A translação",
+          "misconceptionCode": "rotacao-translacao"
+         },
+         {
+          "text": "O Sol se apagando",
+          "misconceptionCode": "sol-apaga"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Por que parece que o Sol anda no céu de leste para oeste?",
+        "options": [
+         {
+          "text": "Porque a Terra gira, e nós giramos junto com ela"
+         },
+         {
+          "text": "Porque o vento empurra o Sol",
+          "misconceptionCode": "sol-apaga"
+         },
+         {
+          "text": "Porque a Terra dá a volta no Sol todo dia",
+          "misconceptionCode": "rotacao-translacao"
+         },
+         {
+          "text": "Porque o Sol dá a volta na Terra todo dia",
+          "misconceptionCode": "sol-gira-terra"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O nome do movimento da Terra em torno de si mesma é:",
+      "options": [
+       {
+        "text": "Rotação"
+       },
+       {
+        "text": "Translação",
+        "misconceptionCode": "rotacao-translacao"
+       },
+       {
+        "text": "Órbita do Sol",
+        "misconceptionCode": "sol-gira-terra"
+       },
+       {
+        "text": "Eclipse",
+        "misconceptionCode": "sol-apaga"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Rotação é girar em volta de si mesmo, como um pião. Dar a volta em torno do Sol tem outro nome: translação.",
+      "variants": [
+       {
+        "question": "O movimento que causa o dia e a noite se chama:",
+        "options": [
+         {
+          "text": "Translação",
+          "misconceptionCode": "rotacao-translacao"
+         },
+         {
+          "text": "Fase da Lua",
+          "misconceptionCode": "sol-gira-terra"
+         },
+         {
+          "text": "Rotação"
+         },
+         {
+          "text": "Eclipse",
+          "misconceptionCode": "sol-apaga"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O nome do movimento da Terra em torno de si mesma é:",
+        "options": [
+         {
+          "text": "Eclipse",
+          "misconceptionCode": "sol-apaga"
+         },
+         {
+          "text": "Rotação"
+         },
+         {
+          "text": "Órbita do Sol",
+          "misconceptionCode": "sol-gira-terra"
+         },
+         {
+          "text": "Translação",
+          "misconceptionCode": "rotacao-translacao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "As estrelas também parecem se mover no céu durante a noite. Por quê?",
+      "options": [
+       {
+        "text": "Porque as estrelas giram em volta da Terra",
+        "misconceptionCode": "sol-gira-terra"
+       },
+       {
+        "text": "Porque as estrelas apagam e acendem",
+        "misconceptionCode": "sol-apaga"
+       },
+       {
+        "text": "Pelo mesmo motivo do Sol: a rotação da Terra"
+       },
+       {
+        "text": "Porque a Terra dá a volta no Sol a cada noite",
+        "misconceptionCode": "rotacao-translacao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "É o mesmo motivo do Sol: a Terra gira, e então o céu inteiro parece girar em volta da gente.",
+      "variants": [
+       {
+        "question": "Se você fotografar o céu à noite por horas, as estrelas aparecem fazendo arcos. Isso mostra:",
+        "options": [
+         {
+          "text": "A rotação da Terra"
+         },
+         {
+          "text": "Que as estrelas caem",
+          "misconceptionCode": "sol-gira-terra"
+         },
+         {
+          "text": "Que a Lua empurra as estrelas",
+          "misconceptionCode": "sol-apaga"
+         },
+         {
+          "text": "Que o Sol volta à noite",
+          "misconceptionCode": "rotacao-translacao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "As estrelas também parecem se mover no céu durante a noite. Por quê?",
+        "options": [
+         {
+          "text": "Porque a Terra dá a volta no Sol a cada noite",
+          "misconceptionCode": "rotacao-translacao"
+         },
+         {
+          "text": "Porque as estrelas apagam e acendem",
+          "misconceptionCode": "sol-apaga"
+         },
+         {
+          "text": "Porque as estrelas giram em volta da Terra",
+          "misconceptionCode": "sol-gira-terra"
+         },
+         {
+          "text": "Pelo mesmo motivo do Sol: a rotação da Terra"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quando é meio-dia em Salvador, é noite no Japão. Por quê?",
+      "options": [
+       {
+        "text": "Porque o Sol já apagou no Japão",
+        "misconceptionCode": "sol-apaga"
+       },
+       {
+        "text": "Porque o Japão está no lado da Terra que não está virado para o Sol"
+       },
+       {
+        "text": "Porque o Japão não recebe luz do Sol",
+        "misconceptionCode": "sol-gira-terra"
+       },
+       {
+        "text": "Porque lá o ano é diferente",
+        "misconceptionCode": "duracao-errada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A Terra é uma bola: metade fica virada para o Sol e a outra metade fica no escuro. O Japão está do outro lado.",
+      "variants": [
+       {
+        "question": "Por que, numa chamada de vídeo, um primo no outro lado do mundo está indo dormir quando você acorda?",
+        "options": [
+         {
+          "text": "Porque ele dorme cedo",
+          "misconceptionCode": "sol-apaga"
+         },
+         {
+          "text": "Porque o Sol apaga lá",
+          "misconceptionCode": "sol-gira-terra"
+         },
+         {
+          "text": "Porque lá não tem Sol",
+          "misconceptionCode": "duracao-errada"
+         },
+         {
+          "text": "Porque a Terra gira e cada lugar recebe luz em horários diferentes"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quando é meio-dia em Salvador, é noite no Japão. Por quê?",
+        "options": [
+         {
+          "text": "Porque lá o ano é diferente",
+          "misconceptionCode": "duracao-errada"
+         },
+         {
+          "text": "Porque o Japão não recebe luz do Sol",
+          "misconceptionCode": "sol-gira-terra"
+         },
+         {
+          "text": "Porque o Japão está no lado da Terra que não está virado para o Sol"
+         },
+         {
+          "text": "Porque o Sol já apagou no Japão",
+          "misconceptionCode": "sol-apaga"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05CI11-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: dia e noite na vida",
+    "prompt": "Use o que aprendeu em situações do dia a dia.",
+    "estMinutes": 4,
+    "audioScript": "Use o que aprendeu em situações do dia a dia. Pergunta 1. Você quer que o sol da manhã entre no seu quarto. Para que lado a janela deve estar virada? A: Para o leste; B: Para o oeste; C: Tanto faz, o Sol aparece em todo lado; D: Para o lado onde o Sol apaga. Pergunta 2. Um amigo diz: \"À noite o Sol vai dormir atrás das montanhas\". O que você responde? A: Ele tem razão; B: O Sol vai para o outro lado da Terra dando a volta nela; C: O Sol não dorme: a Terra girou e o nosso lado ficou longe dele; D: A Terra deu a volta no Sol. Pergunta 3. Se a Terra parasse de girar, o que aconteceria com o dia e a noite? A: Nada mudaria, porque o Sol continuaria girando; B: Um lado ficaria sempre de dia e o outro sempre de noite; C: Seria sempre noite em todo lugar; D: O ano ficaria mais curto.",
+    "questions": [
+     {
+      "question": "Você quer que o sol da manhã entre no seu quarto. Para que lado a janela deve estar virada?",
+      "options": [
+       {
+        "text": "Para o leste"
+       },
+       {
+        "text": "Para o oeste",
+        "misconceptionCode": "rotacao-translacao"
+       },
+       {
+        "text": "Tanto faz, o Sol aparece em todo lado",
+        "misconceptionCode": "sol-gira-terra"
+       },
+       {
+        "text": "Para o lado onde o Sol apaga",
+        "misconceptionCode": "sol-apaga"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O Sol nasce no leste. Uma janela virada para o leste recebe a luz logo de manhã.",
+      "variants": [
+       {
+        "question": "Para ver o pôr do sol da praia, você deve olhar para:",
+        "options": [
+         {
+          "text": "O leste",
+          "misconceptionCode": "rotacao-translacao"
+         },
+         {
+          "text": "O sul",
+          "misconceptionCode": "sol-gira-terra"
+         },
+         {
+          "text": "O oeste"
+         },
+         {
+          "text": "Para cima",
+          "misconceptionCode": "sol-apaga"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Você quer que o sol da manhã entre no seu quarto. Para que lado a janela deve estar virada?",
+        "options": [
+         {
+          "text": "Para o lado onde o Sol apaga",
+          "misconceptionCode": "sol-apaga"
+         },
+         {
+          "text": "Para o leste"
+         },
+         {
+          "text": "Tanto faz, o Sol aparece em todo lado",
+          "misconceptionCode": "sol-gira-terra"
+         },
+         {
+          "text": "Para o oeste",
+          "misconceptionCode": "rotacao-translacao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um amigo diz: \"À noite o Sol vai dormir atrás das montanhas\". O que você responde?",
+      "options": [
+       {
+        "text": "Ele tem razão",
+        "misconceptionCode": "sol-apaga"
+       },
+       {
+        "text": "O Sol vai para o outro lado da Terra dando a volta nela",
+        "misconceptionCode": "sol-gira-terra"
+       },
+       {
+        "text": "O Sol não dorme: a Terra girou e o nosso lado ficou longe dele"
+       },
+       {
+        "text": "A Terra deu a volta no Sol",
+        "misconceptionCode": "rotacao-translacao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O Sol não dorme nem se esconde. A Terra girou, e o nosso lado ficou de costas para ele.",
+      "variants": [
+       {
+        "question": "Uma criança pequena pergunta para onde o Sol vai à noite. A melhor resposta é:",
+        "options": [
+         {
+          "text": "Ele continua lá; a Terra girou e o nosso lado ficou no escuro"
+         },
+         {
+          "text": "Ele apaga para descansar",
+          "misconceptionCode": "sol-apaga"
+         },
+         {
+          "text": "Ele vai dormir no mar",
+          "misconceptionCode": "sol-gira-terra"
+         },
+         {
+          "text": "Ele dá a volta na Terra",
+          "misconceptionCode": "rotacao-translacao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um amigo diz: \"À noite o Sol vai dormir atrás das montanhas\". O que você responde?",
+        "options": [
+         {
+          "text": "A Terra deu a volta no Sol",
+          "misconceptionCode": "rotacao-translacao"
+         },
+         {
+          "text": "O Sol vai para o outro lado da Terra dando a volta nela",
+          "misconceptionCode": "sol-gira-terra"
+         },
+         {
+          "text": "Ele tem razão",
+          "misconceptionCode": "sol-apaga"
+         },
+         {
+          "text": "O Sol não dorme: a Terra girou e o nosso lado ficou longe dele"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Se a Terra parasse de girar, o que aconteceria com o dia e a noite?",
+      "options": [
+       {
+        "text": "Nada mudaria, porque o Sol continuaria girando",
+        "misconceptionCode": "sol-gira-terra"
+       },
+       {
+        "text": "Um lado ficaria sempre de dia e o outro sempre de noite"
+       },
+       {
+        "text": "Seria sempre noite em todo lugar",
+        "misconceptionCode": "sol-apaga"
+       },
+       {
+        "text": "O ano ficaria mais curto",
+        "misconceptionCode": "duracao-errada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Sem girar, o mesmo lado ficaria sempre de frente para o Sol (dia para sempre) e o outro, sempre no escuro.",
+      "variants": [
+       {
+        "question": "Se a Terra girasse mais devagar, o dia ficaria:",
+        "options": [
+         {
+          "text": "Mais curto",
+          "misconceptionCode": "sol-gira-terra"
+         },
+         {
+          "text": "Igual",
+          "misconceptionCode": "sol-apaga"
+         },
+         {
+          "text": "Sem Sol",
+          "misconceptionCode": "duracao-errada"
+         },
+         {
+          "text": "Mais longo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Se a Terra parasse de girar, o que aconteceria com o dia e a noite?",
+        "options": [
+         {
+          "text": "O ano ficaria mais curto",
+          "misconceptionCode": "duracao-errada"
+         },
+         {
+          "text": "Seria sempre noite em todo lugar",
+          "misconceptionCode": "sol-apaga"
+         },
+         {
+          "text": "Um lado ficaria sempre de dia e o outro sempre de noite"
+         },
+         {
+          "text": "Nada mudaria, porque o Sol continuaria girando",
+          "misconceptionCode": "sol-gira-terra"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05CI11-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: dia e noite",
+    "prompt": "Explique com as suas palavras por que existe dia e noite. Se quiser, conte como faria isso com uma lanterna e uma bola.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras por que existe dia e noite. Se quiser, conte como faria isso com uma lanterna e uma bola.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
       {
-        "id": "PK2-EF05CI11-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar: o Sol no céu",
-        "prompt": "Vamos lembrar como o Sol parece se mover no céu durante o dia.",
-        "estMinutes": 4,
-        "audioScript": "Vamos lembrar como o Sol parece se mover no céu durante o dia. Pergunta 1. De que lado o Sol aparece de manhã? A: Do lado oeste; B: Sempre bem em cima da cabeça; C: Do lado leste, o nascente; D: Em qualquer lado, depende do dia. Pergunta 2. Ao meio-dia, onde o Sol costuma estar? A: Perto do chão, no leste; B: Bem alto no céu; C: Escondido atrás da Lua; D: Embaixo da Terra. Pergunta 3. O que acontece com o Sol à noite? A: Ele apaga; B: Ele se esconde atrás das nuvens; C: Ele dá a volta na Terra; D: Ele continua brilhando, mas o nosso lado da Terra está virado para longe dele.",
-        "questions": [
-          {
-            "question": "De que lado o Sol aparece de manhã?",
-            "options": [
-              {
-                "text": "Do lado oeste",
-                "misconceptionCode": "rotacao-translacao"
-              },
-              {
-                "text": "Sempre bem em cima da cabeça",
-                "misconceptionCode": "sol-gira-terra"
-              },
-              {
-                "text": "Do lado leste, o nascente"
-              },
-              {
-                "text": "Em qualquer lado, depende do dia",
-                "misconceptionCode": "duracao-errada"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "O Sol nasce sempre do mesmo lado, o leste, e se põe do outro, o oeste.",
-            "variants": [
-              {
-                "question": "De que lado o Sol se põe no fim da tarde?",
-                "options": [
-                  {
-                    "text": "Do lado oeste, o poente"
-                  },
-                  {
-                    "text": "Do lado leste",
-                    "misconceptionCode": "rotacao-translacao"
-                  },
-                  {
-                    "text": "Sempre no norte",
-                    "misconceptionCode": "sol-gira-terra"
-                  },
-                  {
-                    "text": "Em qualquer lado",
-                    "misconceptionCode": "duracao-errada"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "De que lado o Sol aparece de manhã?",
-                "options": [
-                  {
-                    "text": "Em qualquer lado, depende do dia",
-                    "misconceptionCode": "duracao-errada"
-                  },
-                  {
-                    "text": "Sempre bem em cima da cabeça",
-                    "misconceptionCode": "sol-gira-terra"
-                  },
-                  {
-                    "text": "Do lado oeste",
-                    "misconceptionCode": "rotacao-translacao"
-                  },
-                  {
-                    "text": "Do lado leste, o nascente"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Ao meio-dia, onde o Sol costuma estar?",
-            "options": [
-              {
-                "text": "Perto do chão, no leste",
-                "misconceptionCode": "duracao-errada"
-              },
-              {
-                "text": "Bem alto no céu"
-              },
-              {
-                "text": "Escondido atrás da Lua",
-                "misconceptionCode": "sol-apaga"
-              },
-              {
-                "text": "Embaixo da Terra",
-                "misconceptionCode": "sol-gira-terra"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Perto do meio-dia o Sol fica lá em cima, bem alto no céu. É quando a sombra fica menor.",
-            "variants": [
-              {
-                "question": "Quando a sua sombra fica bem curta, o Sol está:",
-                "options": [
-                  {
-                    "text": "Nascendo",
-                    "misconceptionCode": "duracao-errada"
-                  },
-                  {
-                    "text": "Se pondo",
-                    "misconceptionCode": "sol-apaga"
-                  },
-                  {
-                    "text": "Apagado",
-                    "misconceptionCode": "sol-gira-terra"
-                  },
-                  {
-                    "text": "Alto no céu, perto do meio-dia"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Ao meio-dia, onde o Sol costuma estar?",
-                "options": [
-                  {
-                    "text": "Embaixo da Terra",
-                    "misconceptionCode": "sol-gira-terra"
-                  },
-                  {
-                    "text": "Escondido atrás da Lua",
-                    "misconceptionCode": "sol-apaga"
-                  },
-                  {
-                    "text": "Bem alto no céu"
-                  },
-                  {
-                    "text": "Perto do chão, no leste",
-                    "misconceptionCode": "duracao-errada"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "O que acontece com o Sol à noite?",
-            "options": [
-              {
-                "text": "Ele apaga",
-                "misconceptionCode": "sol-apaga"
-              },
-              {
-                "text": "Ele se esconde atrás das nuvens",
-                "misconceptionCode": "sol-apaga"
-              },
-              {
-                "text": "Ele dá a volta na Terra",
-                "misconceptionCode": "sol-gira-terra"
-              },
-              {
-                "text": "Ele continua brilhando, mas o nosso lado da Terra está virado para longe dele"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "O Sol nunca apaga! À noite, o lado da Terra onde você está ficou virado para longe dele.",
-            "variants": [
-              {
-                "question": "Quando é noite no Brasil, o que acontece do outro lado da Terra?",
-                "options": [
-                  {
-                    "text": "Lá também é noite",
-                    "misconceptionCode": "sol-apaga"
-                  },
-                  {
-                    "text": "Lá é dia, porque está virado para o Sol"
-                  },
-                  {
-                    "text": "Lá o Sol está apagado",
-                    "misconceptionCode": "sol-apaga"
-                  },
-                  {
-                    "text": "Lá não tem Sol",
-                    "misconceptionCode": "sol-gira-terra"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "O que acontece com o Sol à noite?",
-                "options": [
-                  {
-                    "text": "Ele continua brilhando, mas o nosso lado da Terra está virado para longe dele"
-                  },
-                  {
-                    "text": "Ele dá a volta na Terra",
-                    "misconceptionCode": "sol-gira-terra"
-                  },
-                  {
-                    "text": "Ele se esconde atrás das nuvens",
-                    "misconceptionCode": "sol-apaga"
-                  },
-                  {
-                    "text": "Ele apaga",
-                    "misconceptionCode": "sol-apaga"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          }
-        ]
+       "code": "rotacao",
+       "description": "Explica que a Terra gira em torno de si mesma (rotação)"
       },
       {
-        "id": "PK2-EF05CI11-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Exemplo guiado: a bola e a lanterna",
-        "prompt": "Imagine uma lanterna acesa (o Sol) e uma bola (a Terra) girando devagar em torno de si mesma. Vamos pensar juntos.",
-        "estMinutes": 4,
-        "audioScript": "Imagine uma lanterna acesa (o Sol) e uma bola (a Terra) girando devagar em torno de si mesma. Vamos pensar juntos. Pergunta 1. A parte da bola virada para a lanterna representa: A: A noite; B: O dia; C: O inverno; D: O Sol apagado. Pergunta 2. O que faz um ponto da bola passar do claro para o escuro? A: A lanterna andar em volta da bola; B: A bola dar uma volta na lanterna; C: A lanterna apagar; D: A bola girar em torno de si mesma. Pergunta 3. Quanto tempo a Terra leva para dar uma volta completa em torno de si mesma? A: Cerca de 24 horas, um dia; B: Um ano; C: Uma semana; D: Uma hora.",
-        "questions": [
-          {
-            "question": "A parte da bola virada para a lanterna representa:",
-            "options": [
-              {
-                "text": "A noite",
-                "misconceptionCode": "rotacao-translacao"
-              },
-              {
-                "text": "O dia"
-              },
-              {
-                "text": "O inverno",
-                "misconceptionCode": "duracao-errada"
-              },
-              {
-                "text": "O Sol apagado",
-                "misconceptionCode": "sol-apaga"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "A lanterna é o Sol. O lado da bola que recebe a luz é onde está de dia.",
-            "variants": [
-              {
-                "question": "A parte da bola que fica escura representa:",
-                "options": [
-                  {
-                    "text": "O dia",
-                    "misconceptionCode": "rotacao-translacao"
-                  },
-                  {
-                    "text": "O verão",
-                    "misconceptionCode": "duracao-errada"
-                  },
-                  {
-                    "text": "O meio-dia",
-                    "misconceptionCode": "sol-apaga"
-                  },
-                  {
-                    "text": "A noite"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "A parte da bola virada para a lanterna representa:",
-                "options": [
-                  {
-                    "text": "O Sol apagado",
-                    "misconceptionCode": "sol-apaga"
-                  },
-                  {
-                    "text": "O inverno",
-                    "misconceptionCode": "duracao-errada"
-                  },
-                  {
-                    "text": "O dia"
-                  },
-                  {
-                    "text": "A noite",
-                    "misconceptionCode": "rotacao-translacao"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "O que faz um ponto da bola passar do claro para o escuro?",
-            "options": [
-              {
-                "text": "A lanterna andar em volta da bola",
-                "misconceptionCode": "sol-gira-terra"
-              },
-              {
-                "text": "A bola dar uma volta na lanterna",
-                "misconceptionCode": "rotacao-translacao"
-              },
-              {
-                "text": "A lanterna apagar",
-                "misconceptionCode": "sol-apaga"
-              },
-              {
-                "text": "A bola girar em torno de si mesma"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Gire a bola devagar: o ponto sai da luz e entra no escuro. A Terra faz isso girando em torno de si mesma.",
-            "variants": [
-              {
-                "question": "Na vida real, o que causa o dia e a noite?",
-                "options": [
-                  {
-                    "text": "O Sol girando em volta da Terra",
-                    "misconceptionCode": "sol-gira-terra"
-                  },
-                  {
-                    "text": "A rotação da Terra"
-                  },
-                  {
-                    "text": "A translação da Terra",
-                    "misconceptionCode": "rotacao-translacao"
-                  },
-                  {
-                    "text": "O Sol apagando",
-                    "misconceptionCode": "sol-apaga"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "O que faz um ponto da bola passar do claro para o escuro?",
-                "options": [
-                  {
-                    "text": "A bola girar em torno de si mesma"
-                  },
-                  {
-                    "text": "A lanterna apagar",
-                    "misconceptionCode": "sol-apaga"
-                  },
-                  {
-                    "text": "A bola dar uma volta na lanterna",
-                    "misconceptionCode": "rotacao-translacao"
-                  },
-                  {
-                    "text": "A lanterna andar em volta da bola",
-                    "misconceptionCode": "sol-gira-terra"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Quanto tempo a Terra leva para dar uma volta completa em torno de si mesma?",
-            "options": [
-              {
-                "text": "Cerca de 24 horas, um dia"
-              },
-              {
-                "text": "Um ano",
-                "misconceptionCode": "rotacao-translacao"
-              },
-              {
-                "text": "Uma semana",
-                "misconceptionCode": "duracao-errada"
-              },
-              {
-                "text": "Uma hora",
-                "misconceptionCode": "duracao-errada"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Uma volta da Terra em torno de si mesma é um dia inteiro, cerca de 24 horas. A volta em torno do Sol demora um ano.",
-            "variants": [
-              {
-                "question": "Uma volta completa da Terra em torno de si mesma corresponde a:",
-                "options": [
-                  {
-                    "text": "Um mês",
-                    "misconceptionCode": "rotacao-translacao"
-                  },
-                  {
-                    "text": "Um ano",
-                    "misconceptionCode": "duracao-errada"
-                  },
-                  {
-                    "text": "Um dia"
-                  },
-                  {
-                    "text": "Uma estação",
-                    "misconceptionCode": "duracao-errada"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Quanto tempo a Terra leva para dar uma volta completa em torno de si mesma?",
-                "options": [
-                  {
-                    "text": "Uma hora",
-                    "misconceptionCode": "duracao-errada"
-                  },
-                  {
-                    "text": "Cerca de 24 horas, um dia"
-                  },
-                  {
-                    "text": "Uma semana",
-                    "misconceptionCode": "duracao-errada"
-                  },
-                  {
-                    "text": "Um ano",
-                    "misconceptionCode": "rotacao-translacao"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          }
-        ]
+       "code": "lado-iluminado",
+       "description": "Diz que o lado virado para o Sol é dia e o outro é noite"
       },
       {
-        "id": "PK2-EF05CI11-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar: rotação na prática",
-        "prompt": "Responda pensando na Terra girando.",
-        "estMinutes": 5,
-        "audioScript": "Responda pensando na Terra girando. Pergunta 1. Por que parece que o Sol anda no céu de leste para oeste? A: Porque o Sol dá a volta na Terra todo dia; B: Porque a Terra dá a volta no Sol todo dia; C: Porque o vento empurra o Sol; D: Porque a Terra gira, e nós giramos junto com ela. Pergunta 2. O nome do movimento da Terra em torno de si mesma é: A: Rotação; B: Translação; C: Órbita do Sol; D: Eclipse. Pergunta 3. As estrelas também parecem se mover no céu durante a noite. Por quê? A: Porque as estrelas giram em volta da Terra; B: Porque as estrelas apagam e acendem; C: Pelo mesmo motivo do Sol: a rotação da Terra; D: Porque a Terra dá a volta no Sol a cada noite. Pergunta 4. Quando é meio-dia em Salvador, é noite no Japão. Por quê? A: Porque o Sol já apagou no Japão; B: Porque o Japão está no lado da Terra que não está virado para o Sol; C: Porque o Japão não recebe luz do Sol; D: Porque lá o ano é diferente.",
-        "questions": [
-          {
-            "question": "Por que parece que o Sol anda no céu de leste para oeste?",
-            "options": [
-              {
-                "text": "Porque o Sol dá a volta na Terra todo dia",
-                "misconceptionCode": "sol-gira-terra"
-              },
-              {
-                "text": "Porque a Terra dá a volta no Sol todo dia",
-                "misconceptionCode": "rotacao-translacao"
-              },
-              {
-                "text": "Porque o vento empurra o Sol",
-                "misconceptionCode": "sol-apaga"
-              },
-              {
-                "text": "Porque a Terra gira, e nós giramos junto com ela"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Quem anda é a Terra, girando com a gente em cima. É como no carro: parece que as árvores passam, mas é o carro que se move.",
-            "variants": [
-              {
-                "question": "Dentro de um carro andando, as árvores parecem ir para trás. Isso lembra:",
-                "options": [
-                  {
-                    "text": "O Sol girando em volta da Terra",
-                    "misconceptionCode": "sol-gira-terra"
-                  },
-                  {
-                    "text": "O movimento aparente do Sol causado pela rotação da Terra"
-                  },
-                  {
-                    "text": "A translação",
-                    "misconceptionCode": "rotacao-translacao"
-                  },
-                  {
-                    "text": "O Sol se apagando",
-                    "misconceptionCode": "sol-apaga"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Por que parece que o Sol anda no céu de leste para oeste?",
-                "options": [
-                  {
-                    "text": "Porque a Terra gira, e nós giramos junto com ela"
-                  },
-                  {
-                    "text": "Porque o vento empurra o Sol",
-                    "misconceptionCode": "sol-apaga"
-                  },
-                  {
-                    "text": "Porque a Terra dá a volta no Sol todo dia",
-                    "misconceptionCode": "rotacao-translacao"
-                  },
-                  {
-                    "text": "Porque o Sol dá a volta na Terra todo dia",
-                    "misconceptionCode": "sol-gira-terra"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "O nome do movimento da Terra em torno de si mesma é:",
-            "options": [
-              {
-                "text": "Rotação"
-              },
-              {
-                "text": "Translação",
-                "misconceptionCode": "rotacao-translacao"
-              },
-              {
-                "text": "Órbita do Sol",
-                "misconceptionCode": "sol-gira-terra"
-              },
-              {
-                "text": "Eclipse",
-                "misconceptionCode": "sol-apaga"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Rotação é girar em volta de si mesmo, como um pião. Dar a volta em torno do Sol tem outro nome: translação.",
-            "variants": [
-              {
-                "question": "O movimento que causa o dia e a noite se chama:",
-                "options": [
-                  {
-                    "text": "Translação",
-                    "misconceptionCode": "rotacao-translacao"
-                  },
-                  {
-                    "text": "Fase da Lua",
-                    "misconceptionCode": "sol-gira-terra"
-                  },
-                  {
-                    "text": "Rotação"
-                  },
-                  {
-                    "text": "Eclipse",
-                    "misconceptionCode": "sol-apaga"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "O nome do movimento da Terra em torno de si mesma é:",
-                "options": [
-                  {
-                    "text": "Eclipse",
-                    "misconceptionCode": "sol-apaga"
-                  },
-                  {
-                    "text": "Rotação"
-                  },
-                  {
-                    "text": "Órbita do Sol",
-                    "misconceptionCode": "sol-gira-terra"
-                  },
-                  {
-                    "text": "Translação",
-                    "misconceptionCode": "rotacao-translacao"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "As estrelas também parecem se mover no céu durante a noite. Por quê?",
-            "options": [
-              {
-                "text": "Porque as estrelas giram em volta da Terra",
-                "misconceptionCode": "sol-gira-terra"
-              },
-              {
-                "text": "Porque as estrelas apagam e acendem",
-                "misconceptionCode": "sol-apaga"
-              },
-              {
-                "text": "Pelo mesmo motivo do Sol: a rotação da Terra"
-              },
-              {
-                "text": "Porque a Terra dá a volta no Sol a cada noite",
-                "misconceptionCode": "rotacao-translacao"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "É o mesmo motivo do Sol: a Terra gira, e então o céu inteiro parece girar em volta da gente.",
-            "variants": [
-              {
-                "question": "Se você fotografar o céu à noite por horas, as estrelas aparecem fazendo arcos. Isso mostra:",
-                "options": [
-                  {
-                    "text": "A rotação da Terra"
-                  },
-                  {
-                    "text": "Que as estrelas caem",
-                    "misconceptionCode": "sol-gira-terra"
-                  },
-                  {
-                    "text": "Que a Lua empurra as estrelas",
-                    "misconceptionCode": "sol-apaga"
-                  },
-                  {
-                    "text": "Que o Sol volta à noite",
-                    "misconceptionCode": "rotacao-translacao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "As estrelas também parecem se mover no céu durante a noite. Por quê?",
-                "options": [
-                  {
-                    "text": "Porque a Terra dá a volta no Sol a cada noite",
-                    "misconceptionCode": "rotacao-translacao"
-                  },
-                  {
-                    "text": "Porque as estrelas apagam e acendem",
-                    "misconceptionCode": "sol-apaga"
-                  },
-                  {
-                    "text": "Porque as estrelas giram em volta da Terra",
-                    "misconceptionCode": "sol-gira-terra"
-                  },
-                  {
-                    "text": "Pelo mesmo motivo do Sol: a rotação da Terra"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Quando é meio-dia em Salvador, é noite no Japão. Por quê?",
-            "options": [
-              {
-                "text": "Porque o Sol já apagou no Japão",
-                "misconceptionCode": "sol-apaga"
-              },
-              {
-                "text": "Porque o Japão está no lado da Terra que não está virado para o Sol"
-              },
-              {
-                "text": "Porque o Japão não recebe luz do Sol",
-                "misconceptionCode": "sol-gira-terra"
-              },
-              {
-                "text": "Porque lá o ano é diferente",
-                "misconceptionCode": "duracao-errada"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "A Terra é uma bola: metade fica virada para o Sol e a outra metade fica no escuro. O Japão está do outro lado.",
-            "variants": [
-              {
-                "question": "Por que, numa chamada de vídeo, um primo no outro lado do mundo está indo dormir quando você acorda?",
-                "options": [
-                  {
-                    "text": "Porque ele dorme cedo",
-                    "misconceptionCode": "sol-apaga"
-                  },
-                  {
-                    "text": "Porque o Sol apaga lá",
-                    "misconceptionCode": "sol-gira-terra"
-                  },
-                  {
-                    "text": "Porque lá não tem Sol",
-                    "misconceptionCode": "duracao-errada"
-                  },
-                  {
-                    "text": "Porque a Terra gira e cada lugar recebe luz em horários diferentes"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Quando é meio-dia em Salvador, é noite no Japão. Por quê?",
-                "options": [
-                  {
-                    "text": "Porque lá o ano é diferente",
-                    "misconceptionCode": "duracao-errada"
-                  },
-                  {
-                    "text": "Porque o Japão não recebe luz do Sol",
-                    "misconceptionCode": "sol-gira-terra"
-                  },
-                  {
-                    "text": "Porque o Japão está no lado da Terra que não está virado para o Sol"
-                  },
-                  {
-                    "text": "Porque o Sol já apagou no Japão",
-                    "misconceptionCode": "sol-apaga"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF05CI11-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar: dia e noite na vida",
-        "prompt": "Use o que aprendeu em situações do dia a dia.",
-        "estMinutes": 4,
-        "audioScript": "Use o que aprendeu em situações do dia a dia. Pergunta 1. Você quer que o sol da manhã entre no seu quarto. Para que lado a janela deve estar virada? A: Para o leste; B: Para o oeste; C: Tanto faz, o Sol aparece em todo lado; D: Para o lado onde o Sol apaga. Pergunta 2. Um amigo diz: \"À noite o Sol vai dormir atrás das montanhas\". O que você responde? A: Ele tem razão; B: O Sol vai para o outro lado da Terra dando a volta nela; C: O Sol não dorme: a Terra girou e o nosso lado ficou longe dele; D: A Terra deu a volta no Sol. Pergunta 3. Se a Terra parasse de girar, o que aconteceria com o dia e a noite? A: Nada mudaria, porque o Sol continuaria girando; B: Um lado ficaria sempre de dia e o outro sempre de noite; C: Seria sempre noite em todo lugar; D: O ano ficaria mais curto.",
-        "questions": [
-          {
-            "question": "Você quer que o sol da manhã entre no seu quarto. Para que lado a janela deve estar virada?",
-            "options": [
-              {
-                "text": "Para o leste"
-              },
-              {
-                "text": "Para o oeste",
-                "misconceptionCode": "rotacao-translacao"
-              },
-              {
-                "text": "Tanto faz, o Sol aparece em todo lado",
-                "misconceptionCode": "sol-gira-terra"
-              },
-              {
-                "text": "Para o lado onde o Sol apaga",
-                "misconceptionCode": "sol-apaga"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "O Sol nasce no leste. Uma janela virada para o leste recebe a luz logo de manhã.",
-            "variants": [
-              {
-                "question": "Para ver o pôr do sol da praia, você deve olhar para:",
-                "options": [
-                  {
-                    "text": "O leste",
-                    "misconceptionCode": "rotacao-translacao"
-                  },
-                  {
-                    "text": "O sul",
-                    "misconceptionCode": "sol-gira-terra"
-                  },
-                  {
-                    "text": "O oeste"
-                  },
-                  {
-                    "text": "Para cima",
-                    "misconceptionCode": "sol-apaga"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Você quer que o sol da manhã entre no seu quarto. Para que lado a janela deve estar virada?",
-                "options": [
-                  {
-                    "text": "Para o lado onde o Sol apaga",
-                    "misconceptionCode": "sol-apaga"
-                  },
-                  {
-                    "text": "Para o leste"
-                  },
-                  {
-                    "text": "Tanto faz, o Sol aparece em todo lado",
-                    "misconceptionCode": "sol-gira-terra"
-                  },
-                  {
-                    "text": "Para o oeste",
-                    "misconceptionCode": "rotacao-translacao"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Um amigo diz: \"À noite o Sol vai dormir atrás das montanhas\". O que você responde?",
-            "options": [
-              {
-                "text": "Ele tem razão",
-                "misconceptionCode": "sol-apaga"
-              },
-              {
-                "text": "O Sol vai para o outro lado da Terra dando a volta nela",
-                "misconceptionCode": "sol-gira-terra"
-              },
-              {
-                "text": "O Sol não dorme: a Terra girou e o nosso lado ficou longe dele"
-              },
-              {
-                "text": "A Terra deu a volta no Sol",
-                "misconceptionCode": "rotacao-translacao"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "O Sol não dorme nem se esconde. A Terra girou, e o nosso lado ficou de costas para ele.",
-            "variants": [
-              {
-                "question": "Uma criança pequena pergunta para onde o Sol vai à noite. A melhor resposta é:",
-                "options": [
-                  {
-                    "text": "Ele continua lá; a Terra girou e o nosso lado ficou no escuro"
-                  },
-                  {
-                    "text": "Ele apaga para descansar",
-                    "misconceptionCode": "sol-apaga"
-                  },
-                  {
-                    "text": "Ele vai dormir no mar",
-                    "misconceptionCode": "sol-gira-terra"
-                  },
-                  {
-                    "text": "Ele dá a volta na Terra",
-                    "misconceptionCode": "rotacao-translacao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Um amigo diz: \"À noite o Sol vai dormir atrás das montanhas\". O que você responde?",
-                "options": [
-                  {
-                    "text": "A Terra deu a volta no Sol",
-                    "misconceptionCode": "rotacao-translacao"
-                  },
-                  {
-                    "text": "O Sol vai para o outro lado da Terra dando a volta nela",
-                    "misconceptionCode": "sol-gira-terra"
-                  },
-                  {
-                    "text": "Ele tem razão",
-                    "misconceptionCode": "sol-apaga"
-                  },
-                  {
-                    "text": "O Sol não dorme: a Terra girou e o nosso lado ficou longe dele"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Se a Terra parasse de girar, o que aconteceria com o dia e a noite?",
-            "options": [
-              {
-                "text": "Nada mudaria, porque o Sol continuaria girando",
-                "misconceptionCode": "sol-gira-terra"
-              },
-              {
-                "text": "Um lado ficaria sempre de dia e o outro sempre de noite"
-              },
-              {
-                "text": "Seria sempre noite em todo lugar",
-                "misconceptionCode": "sol-apaga"
-              },
-              {
-                "text": "O ano ficaria mais curto",
-                "misconceptionCode": "duracao-errada"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Sem girar, o mesmo lado ficaria sempre de frente para o Sol (dia para sempre) e o outro, sempre no escuro.",
-            "variants": [
-              {
-                "question": "Se a Terra girasse mais devagar, o dia ficaria:",
-                "options": [
-                  {
-                    "text": "Mais curto",
-                    "misconceptionCode": "sol-gira-terra"
-                  },
-                  {
-                    "text": "Igual",
-                    "misconceptionCode": "sol-apaga"
-                  },
-                  {
-                    "text": "Sem Sol",
-                    "misconceptionCode": "duracao-errada"
-                  },
-                  {
-                    "text": "Mais longo"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Se a Terra parasse de girar, o que aconteceria com o dia e a noite?",
-                "options": [
-                  {
-                    "text": "O ano ficaria mais curto",
-                    "misconceptionCode": "duracao-errada"
-                  },
-                  {
-                    "text": "Seria sempre noite em todo lugar",
-                    "misconceptionCode": "sol-apaga"
-                  },
-                  {
-                    "text": "Um lado ficaria sempre de dia e o outro sempre de noite"
-                  },
-                  {
-                    "text": "Nada mudaria, porque o Sol continuaria girando",
-                    "misconceptionCode": "sol-gira-terra"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF05CI11-A5",
-        "step": "explicar",
-        "type": "WRITTEN",
-        "allowSpoken": true,
-        "title": "Explicar: dia e noite",
-        "prompt": "Explique com as suas palavras por que existe dia e noite. Se quiser, conte como faria isso com uma lanterna e uma bola.",
-        "estMinutes": 6,
-        "audioScript": "Explique com as suas palavras por que existe dia e noite. Se quiser, conte como faria isso com uma lanterna e uma bola.",
-        "rubric": {
-          "type": "WRITTEN",
-          "criteria": [
-            {
-              "code": "rotacao",
-              "description": "Explica que a Terra gira em torno de si mesma (rotação)"
-            },
-            {
-              "code": "lado-iluminado",
-              "description": "Diz que o lado virado para o Sol é dia e o outro é noite"
-            },
-            {
-              "code": "sol-nao-gira",
-              "description": "Deixa claro que não é o Sol que gira em volta da Terra nem que ele apaga"
-            }
-          ],
-          "exemploBoaResposta": "Existe dia e noite porque a Terra gira em torno dela mesma. O lado que está virado para o Sol fica claro e é dia; o outro lado fica escuro e é noite. O Sol não apaga e não dá a volta na Terra: é a Terra que gira, como uma bola girando na frente de uma lanterna."
-        }
+       "code": "sol-nao-gira",
+       "description": "Deixa claro que não é o Sol que gira em volta da Terra nem que ele apaga"
       }
-    ],
-    "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED"
-  }
+     ],
+     "exemploBoaResposta": "Existe dia e noite porque a Terra gira em torno dela mesma. O lado que está virado para o Sol fica claro e é dia; o outro lado fica escuro e é noite. O Sol não apaga e não dá a volta na Terra: é a Terra que gira, como uma bola girando na frente de uma lanterna."
+    }
+   }
+  ],
+  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+  "source": "SPEAKFLOW",
+  "status": "APPROVED"
+ },
+ {
+  "skillCode": "EF05CI02",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 5,
+  "version": 1,
+  "title": "Trilha: O ciclo da água",
+  "tituloAluno": "O caminho da água na natureza",
+  "activities": [
+   {
+    "id": "PK2-EF05CI02-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: os estados da água",
+    "prompt": "A água pode ser sólida, líquida ou gasosa.",
+    "estMinutes": 4,
+    "audioScript": "A água pode ser sólida, líquida ou gasosa. Pergunta 1. Em que estado está o gelo? A: Líquido; B: Gasoso; C: Sólido; D: Nenhum. Pergunta 2. O que acontece com a água de uma roupa molhada no varal? A: Desaparece; B: Entra no tecido para sempre; C: Vira gelo; D: Evapora: passa para o ar em forma de vapor. Pergunta 3. As gotinhas que aparecem do lado de fora de um copo com água gelada vêm: A: Do vapor de água do ar, que virou líquido ao esfriar; B: Da água que atravessou o vidro; C: Do vidro que derreteu; D: Do gelo que evaporou.",
+    "questions": [
+     {
+      "question": "Em que estado está o gelo?",
+      "options": [
+       {
+        "text": "Líquido",
+        "misconceptionCode": "troca-etapas"
+       },
+       {
+        "text": "Gasoso",
+        "misconceptionCode": "troca-etapas"
+       },
+       {
+        "text": "Sólido"
+       },
+       {
+        "text": "Nenhum",
+        "misconceptionCode": "agua-some"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O gelo é a água no estado sólido.",
+      "variants": [
+       {
+        "question": "Em que estado está o vapor de água?",
+        "options": [
+         {
+          "text": "Gasoso"
+         },
+         {
+          "text": "Sólido",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Líquido",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "agua-some"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Em que estado está o gelo?",
+        "options": [
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "agua-some"
+         },
+         {
+          "text": "Gasoso",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Líquido",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Sólido"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que acontece com a água de uma roupa molhada no varal?",
+      "options": [
+       {
+        "text": "Desaparece",
+        "misconceptionCode": "agua-some"
+       },
+       {
+        "text": "Entra no tecido para sempre",
+        "misconceptionCode": "agua-some"
+       },
+       {
+        "text": "Vira gelo",
+        "misconceptionCode": "troca-etapas"
+       },
+       {
+        "text": "Evapora: passa para o ar em forma de vapor"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A água não some. Ela passa para o estado gasoso e se mistura ao ar.",
+      "variants": [
+       {
+        "question": "O que acontece com a água de uma poça depois de horas de sol?",
+        "options": [
+         {
+          "text": "Desaparece",
+          "misconceptionCode": "agua-some"
+         },
+         {
+          "text": "Evapora"
+         },
+         {
+          "text": "Vira pedra",
+          "misconceptionCode": "agua-some"
+         },
+         {
+          "text": "Vira gelo",
+          "misconceptionCode": "troca-etapas"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que acontece com a água de uma roupa molhada no varal?",
+        "options": [
+         {
+          "text": "Evapora: passa para o ar em forma de vapor"
+         },
+         {
+          "text": "Vira gelo",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Entra no tecido para sempre",
+          "misconceptionCode": "agua-some"
+         },
+         {
+          "text": "Desaparece",
+          "misconceptionCode": "agua-some"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "As gotinhas que aparecem do lado de fora de um copo com água gelada vêm:",
+      "options": [
+       {
+        "text": "Do vapor de água do ar, que virou líquido ao esfriar"
+       },
+       {
+        "text": "Da água que atravessou o vidro",
+        "misconceptionCode": "agua-some"
+       },
+       {
+        "text": "Do vidro que derreteu",
+        "misconceptionCode": "nuvem-e-fumaca"
+       },
+       {
+        "text": "Do gelo que evaporou",
+        "misconceptionCode": "troca-etapas"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O vapor do ar perde calor ao tocar o copo frio e vira líquido. É a condensação.",
+      "variants": [
+       {
+        "question": "O espelho do banheiro embaça depois do banho quente porque:",
+        "options": [
+         {
+          "text": "A água atravessa o espelho",
+          "misconceptionCode": "agua-some"
+         },
+         {
+          "text": "O espelho derrete",
+          "misconceptionCode": "nuvem-e-fumaca"
+         },
+         {
+          "text": "O vapor de água vira gotinhas ao tocar o espelho mais frio"
+         },
+         {
+          "text": "A fumaça suja o espelho",
+          "misconceptionCode": "troca-etapas"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "As gotinhas que aparecem do lado de fora de um copo com água gelada vêm:",
+        "options": [
+         {
+          "text": "Do gelo que evaporou",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Do vapor de água do ar, que virou líquido ao esfriar"
+         },
+         {
+          "text": "Do vidro que derreteu",
+          "misconceptionCode": "nuvem-e-fumaca"
+         },
+         {
+          "text": "Da água que atravessou o vidro",
+          "misconceptionCode": "agua-some"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05CI02-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: as etapas do ciclo",
+    "prompt": "O Sol aquece a água de rios e mares, que evapora. O vapor sobe, esfria e se condensa em gotinhas, formando as nuvens. Quando as gotas ficam pesadas, caem: é a precipitação (chuva). A água escorre para os rios ou entra no solo, e o ciclo recomeça. Vamos acompanhar juntos.",
+    "estMinutes": 4,
+    "audioScript": "O Sol aquece a água de rios e mares, que evapora. O vapor sobe, esfria e se condensa em gotinhas, formando as nuvens. Quando as gotas ficam pesadas, caem: é a precipitação (chuva). A água escorre para os rios ou entra no solo, e o ciclo recomeça. Vamos acompanhar juntos. Pergunta 1. O que faz a água dos rios e dos mares evaporar? A: O vento frio; B: O calor do Sol; C: A Lua; D: As nuvens. Pergunta 2. Do que são feitas as nuvens? A: De fumaça; B: De algodão; C: De gotinhas de água e cristais de gelo muito pequenos; D: De vapor quente. Pergunta 3. A chuva, a neve e o granizo são formas de: A: Evaporação; B: Condensação; C: Infiltração; D: Precipitação.",
+    "questions": [
+     {
+      "question": "O que faz a água dos rios e dos mares evaporar?",
+      "options": [
+       {
+        "text": "O vento frio",
+        "misconceptionCode": "troca-etapas"
+       },
+       {
+        "text": "O calor do Sol"
+       },
+       {
+        "text": "A Lua",
+        "misconceptionCode": "troca-etapas"
+       },
+       {
+        "text": "As nuvens",
+        "misconceptionCode": "troca-etapas"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O Sol fornece a energia que move o ciclo da água.",
+      "variants": [
+       {
+        "question": "A passagem da água do estado líquido para o gasoso é chamada de:",
+        "options": [
+         {
+          "text": "Condensação",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Precipitação",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Infiltração",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Evaporação"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que faz a água dos rios e dos mares evaporar?",
+        "options": [
+         {
+          "text": "As nuvens",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "A Lua",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "O calor do Sol"
+         },
+         {
+          "text": "O vento frio",
+          "misconceptionCode": "troca-etapas"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Do que são feitas as nuvens?",
+      "options": [
+       {
+        "text": "De fumaça",
+        "misconceptionCode": "nuvem-e-fumaca"
+       },
+       {
+        "text": "De algodão",
+        "misconceptionCode": "nuvem-e-fumaca"
+       },
+       {
+        "text": "De gotinhas de água e cristais de gelo muito pequenos"
+       },
+       {
+        "text": "De vapor quente",
+        "misconceptionCode": "nuvem-e-fumaca"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O vapor de água sobe, esfria e se condensa em gotinhas, que formam as nuvens.",
+      "variants": [
+       {
+        "question": "A passagem do vapor de água para o estado líquido, que forma as nuvens, é chamada de:",
+        "options": [
+         {
+          "text": "Condensação"
+         },
+         {
+          "text": "Evaporação",
+          "misconceptionCode": "nuvem-e-fumaca"
+         },
+         {
+          "text": "Precipitação",
+          "misconceptionCode": "nuvem-e-fumaca"
+         },
+         {
+          "text": "Infiltração",
+          "misconceptionCode": "nuvem-e-fumaca"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Do que são feitas as nuvens?",
+        "options": [
+         {
+          "text": "De vapor quente",
+          "misconceptionCode": "nuvem-e-fumaca"
+         },
+         {
+          "text": "De algodão",
+          "misconceptionCode": "nuvem-e-fumaca"
+         },
+         {
+          "text": "De fumaça",
+          "misconceptionCode": "nuvem-e-fumaca"
+         },
+         {
+          "text": "De gotinhas de água e cristais de gelo muito pequenos"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "A chuva, a neve e o granizo são formas de:",
+      "options": [
+       {
+        "text": "Evaporação",
+        "misconceptionCode": "troca-etapas"
+       },
+       {
+        "text": "Condensação",
+        "misconceptionCode": "troca-etapas"
+       },
+       {
+        "text": "Infiltração",
+        "misconceptionCode": "troca-etapas"
+       },
+       {
+        "text": "Precipitação"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Precipitação é a água que cai das nuvens.",
+      "variants": [
+       {
+        "question": "Quando a água da chuva entra no solo, acontece a:",
+        "options": [
+         {
+          "text": "Evaporação",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Infiltração"
+         },
+         {
+          "text": "Condensação",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Precipitação",
+          "misconceptionCode": "troca-etapas"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A chuva, a neve e o granizo são formas de:",
+        "options": [
+         {
+          "text": "Precipitação"
+         },
+         {
+          "text": "Infiltração",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Condensação",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Evaporação",
+          "misconceptionCode": "troca-etapas"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05CI02-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: entendendo o ciclo",
+    "prompt": "A água muda de lugar e de estado, mas não desaparece.",
+    "estMinutes": 5,
+    "audioScript": "A água muda de lugar e de estado, mas não desaparece. Pergunta 1. Qual é a ordem correta das etapas do ciclo da água? A: Evaporação, condensação e precipitação; B: Precipitação, evaporação e condensação, começando pela chuva sem água no céu; C: Condensação, precipitação e infiltração, sem evaporação; D: Infiltração, condensação e evaporação. Pergunta 2. A água que evapora desaparece do planeta? A: Sim, some; B: Não, ela continua no ciclo, no ar; C: Sim, vai para o espaço; D: Sim, vira ar. Pergunta 3. As plantas também participam do ciclo da água porque: A: Não usam água; B: Fabricam água; C: Retiram água do solo e a liberam no ar pelas folhas; D: Guardam a água para sempre. Pergunta 4. A água que se infiltra no solo pode formar: A: Nuvens; B: Vapor; C: Gelo; D: Reservas de água subterrânea.",
+    "questions": [
+     {
+      "question": "Qual é a ordem correta das etapas do ciclo da água?",
+      "options": [
+       {
+        "text": "Evaporação, condensação e precipitação"
+       },
+       {
+        "text": "Precipitação, evaporação e condensação, começando pela chuva sem água no céu",
+        "misconceptionCode": "troca-etapas"
+       },
+       {
+        "text": "Condensação, precipitação e infiltração, sem evaporação",
+        "misconceptionCode": "troca-etapas"
+       },
+       {
+        "text": "Infiltração, condensação e evaporação",
+        "misconceptionCode": "troca-etapas"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A água evapora, forma as nuvens e depois cai.",
+      "variants": [
+       {
+        "question": "Depois que a água evapora e sobe, o que acontece?",
+        "options": [
+         {
+          "text": "Ela desaparece",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Ela vira fumaça",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Ela esfria e se condensa, formando as nuvens"
+         },
+         {
+          "text": "Ela cai na mesma hora",
+          "misconceptionCode": "troca-etapas"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual é a ordem correta das etapas do ciclo da água?",
+        "options": [
+         {
+          "text": "Infiltração, condensação e evaporação",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Evaporação, condensação e precipitação"
+         },
+         {
+          "text": "Condensação, precipitação e infiltração, sem evaporação",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Precipitação, evaporação e condensação, começando pela chuva sem água no céu",
+          "misconceptionCode": "troca-etapas"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "A água que evapora desaparece do planeta?",
+      "options": [
+       {
+        "text": "Sim, some",
+        "misconceptionCode": "agua-some"
+       },
+       {
+        "text": "Não, ela continua no ciclo, no ar"
+       },
+       {
+        "text": "Sim, vai para o espaço",
+        "misconceptionCode": "agua-some"
+       },
+       {
+        "text": "Sim, vira ar",
+        "misconceptionCode": "agua-some"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A quantidade de água do planeta é praticamente a mesma há milhões de anos.",
+      "variants": [
+       {
+        "question": "A água que você bebe hoje:",
+        "options": [
+         {
+          "text": "Acabou de ser criada",
+          "misconceptionCode": "agua-some"
+         },
+         {
+          "text": "Nunca foi chuva",
+          "misconceptionCode": "agua-some"
+         },
+         {
+          "text": "Vai desaparecer",
+          "misconceptionCode": "agua-some"
+         },
+         {
+          "text": "Já fez parte do ciclo muitas vezes"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A água que evapora desaparece do planeta?",
+        "options": [
+         {
+          "text": "Sim, vira ar",
+          "misconceptionCode": "agua-some"
+         },
+         {
+          "text": "Sim, vai para o espaço",
+          "misconceptionCode": "agua-some"
+         },
+         {
+          "text": "Não, ela continua no ciclo, no ar"
+         },
+         {
+          "text": "Sim, some",
+          "misconceptionCode": "agua-some"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "As plantas também participam do ciclo da água porque:",
+      "options": [
+       {
+        "text": "Não usam água",
+        "misconceptionCode": "troca-etapas"
+       },
+       {
+        "text": "Fabricam água",
+        "misconceptionCode": "agua-some"
+       },
+       {
+        "text": "Retiram água do solo e a liberam no ar pelas folhas"
+       },
+       {
+        "text": "Guardam a água para sempre",
+        "misconceptionCode": "agua-some"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A liberação de vapor pelas folhas é a transpiração. As florestas mandam muita água para o ar.",
+      "variants": [
+       {
+        "question": "Por que as florestas são importantes para as chuvas?",
+        "options": [
+         {
+          "text": "Porque as árvores liberam muito vapor de água no ar"
+         },
+         {
+          "text": "Porque as árvores fabricam nuvens de fumaça",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Porque as árvores não usam água",
+          "misconceptionCode": "agua-some"
+         },
+         {
+          "text": "Não são importantes",
+          "misconceptionCode": "agua-some"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "As plantas também participam do ciclo da água porque:",
+        "options": [
+         {
+          "text": "Guardam a água para sempre",
+          "misconceptionCode": "agua-some"
+         },
+         {
+          "text": "Fabricam água",
+          "misconceptionCode": "agua-some"
+         },
+         {
+          "text": "Não usam água",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Retiram água do solo e a liberam no ar pelas folhas"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "A água que se infiltra no solo pode formar:",
+      "options": [
+       {
+        "text": "Nuvens",
+        "misconceptionCode": "troca-etapas"
+       },
+       {
+        "text": "Vapor",
+        "misconceptionCode": "troca-etapas"
+       },
+       {
+        "text": "Gelo",
+        "misconceptionCode": "troca-etapas"
+       },
+       {
+        "text": "Reservas de água subterrânea"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A água subterrânea abastece poços e nascentes.",
+      "variants": [
+       {
+        "question": "De onde vem a água dos poços?",
+        "options": [
+         {
+          "text": "Das nuvens, direto",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Da água que se infiltrou no solo"
+         },
+         {
+          "text": "Do mar",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "De lugar nenhum",
+          "misconceptionCode": "troca-etapas"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A água que se infiltra no solo pode formar:",
+        "options": [
+         {
+          "text": "Reservas de água subterrânea"
+         },
+         {
+          "text": "Gelo",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Vapor",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Nuvens",
+          "misconceptionCode": "troca-etapas"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05CI02-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: o ciclo da água na nossa vida",
+    "prompt": "Chuva, comida, energia e torneira.",
+    "estMinutes": 4,
+    "audioScript": "Chuva, comida, energia e torneira. Pergunta 1. Por que a falta de chuva prejudica a agricultura? A: Porque as plantas precisam de água para crescer; B: Porque as plantas não usam água; C: Porque a chuva estraga as plantas; D: Não prejudica. Pergunta 2. A maior parte da energia elétrica do Brasil vem de usinas hidrelétricas. O que acontece quando chove pouco? A: Nada; B: As represas baixam, e pode faltar energia ou ela ficar mais cara; C: A energia aumenta; D: As usinas produzem mais. Pergunta 3. Se a água está sempre no ciclo, por que precisamos economizar? A: Não precisamos, ela nunca acaba; B: Porque a água some; C: Porque a água doce e limpa é pouca, e tratar a água custa caro; D: Porque chove todo dia.",
+    "questions": [
+     {
+      "question": "Por que a falta de chuva prejudica a agricultura?",
+      "options": [
+       {
+        "text": "Porque as plantas precisam de água para crescer"
+       },
+       {
+        "text": "Porque as plantas não usam água",
+        "misconceptionCode": "agua-infinita"
+       },
+       {
+        "text": "Porque a chuva estraga as plantas",
+        "misconceptionCode": "troca-etapas"
+       },
+       {
+        "text": "Não prejudica",
+        "misconceptionCode": "agua-infinita"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Sem chuva, as plantações secam e os alimentos ficam mais caros.",
+      "variants": [
+       {
+        "question": "Numa seca longa, o que pode acontecer com os alimentos?",
+        "options": [
+         {
+          "text": "Ficam mais baratos",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Podem faltar e ficar mais caros"
+         },
+         {
+          "text": "Crescem mais",
+          "misconceptionCode": "agua-infinita"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Por que a falta de chuva prejudica a agricultura?",
+        "options": [
+         {
+          "text": "Não prejudica",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "Porque as plantas precisam de água para crescer"
+         },
+         {
+          "text": "Porque a chuva estraga as plantas",
+          "misconceptionCode": "troca-etapas"
+         },
+         {
+          "text": "Porque as plantas não usam água",
+          "misconceptionCode": "agua-infinita"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "A maior parte da energia elétrica do Brasil vem de usinas hidrelétricas. O que acontece quando chove pouco?",
+      "options": [
+       {
+        "text": "Nada",
+        "misconceptionCode": "agua-infinita"
+       },
+       {
+        "text": "As represas baixam, e pode faltar energia ou ela ficar mais cara"
+       },
+       {
+        "text": "A energia aumenta",
+        "misconceptionCode": "agua-infinita"
+       },
+       {
+        "text": "As usinas produzem mais",
+        "misconceptionCode": "agua-infinita"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "As hidrelétricas dependem da água dos rios, que vem das chuvas.",
+      "variants": [
+       {
+        "question": "As usinas hidrelétricas produzem energia usando:",
+        "options": [
+         {
+          "text": "O vento",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "A luz do Sol",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "O carvão",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "A força da água dos rios"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A maior parte da energia elétrica do Brasil vem de usinas hidrelétricas. O que acontece quando chove pouco?",
+        "options": [
+         {
+          "text": "As usinas produzem mais",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "A energia aumenta",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "As represas baixam, e pode faltar energia ou ela ficar mais cara"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "agua-infinita"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Se a água está sempre no ciclo, por que precisamos economizar?",
+      "options": [
+       {
+        "text": "Não precisamos, ela nunca acaba",
+        "misconceptionCode": "agua-infinita"
+       },
+       {
+        "text": "Porque a água some",
+        "misconceptionCode": "agua-some"
+       },
+       {
+        "text": "Porque a água doce e limpa é pouca, e tratar a água custa caro"
+       },
+       {
+        "text": "Porque chove todo dia",
+        "misconceptionCode": "agua-infinita"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A maior parte da água do planeta é salgada. A água boa para beber pode faltar numa região.",
+      "variants": [
+       {
+        "question": "Jogar esgoto e lixo nos rios é um problema porque:",
+        "options": [
+         {
+          "text": "Polui a água doce, que já é pouca"
+         },
+         {
+          "text": "A água se limpa na hora",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "A água é infinita",
+          "misconceptionCode": "agua-some"
+         },
+         {
+          "text": "Não tem problema",
+          "misconceptionCode": "agua-infinita"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Se a água está sempre no ciclo, por que precisamos economizar?",
+        "options": [
+         {
+          "text": "Porque chove todo dia",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "Porque a água some",
+          "misconceptionCode": "agua-some"
+         },
+         {
+          "text": "Não precisamos, ela nunca acaba",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "Porque a água doce e limpa é pouca, e tratar a água custa caro"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05CI02-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: de onde vem a chuva",
+    "prompt": "Explique com as suas palavras o caminho da água desde o rio até virar chuva de novo.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras o caminho da água desde o rio até virar chuva de novo.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "evaporacao",
+       "description": "Diz que o Sol aquece a água, que evapora"
+      },
+      {
+       "code": "condensacao",
+       "description": "Diz que o vapor sobe, esfria e forma as nuvens"
+      },
+      {
+       "code": "precipitacao",
+       "description": "Diz que a água cai como chuva e volta aos rios ou ao solo"
+      }
+     ],
+     "exemploBoaResposta": "O Sol esquenta a água do rio, e ela evapora, virando vapor. O vapor sobe, esfria e vira gotinhas, que formam as nuvens. Quando as gotas ficam pesadas, caem como chuva. A água volta para o rio ou entra no solo, e tudo começa de novo."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF05CI06",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 5,
+  "version": 1,
+  "title": "Trilha: Digestão e respiração trabalham juntas",
+  "tituloAluno": "Como o corpo consegue energia",
+  "activities": [
+   {
+    "id": "PK2-EF05CI06-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: comer e respirar",
+    "prompt": "O corpo precisa de alimento e de ar.",
+    "estMinutes": 4,
+    "audioScript": "O corpo precisa de alimento e de ar. Pergunta 1. Por que precisamos nos alimentar? A: Só para passar o tempo; B: Só porque é gostoso; C: Para ter energia e materiais para o corpo crescer e funcionar; D: Não precisamos. Pergunta 2. Qual gás do ar o nosso corpo usa? A: Gás carbônico; B: Nitrogênio; C: Fumaça; D: Oxigênio. Pergunta 3. Por onde o ar entra no nosso corpo? A: Pelo nariz e pela boca; B: Pelas orelhas; C: Pelos olhos; D: Pela pele, somente.",
+    "questions": [
+     {
+      "question": "Por que precisamos nos alimentar?",
+      "options": [
+       {
+        "text": "Só para passar o tempo",
+        "misconceptionCode": "sistemas-separados"
+       },
+       {
+        "text": "Só porque é gostoso",
+        "misconceptionCode": "sistemas-separados"
+       },
+       {
+        "text": "Para ter energia e materiais para o corpo crescer e funcionar"
+       },
+       {
+        "text": "Não precisamos",
+        "misconceptionCode": "sistemas-separados"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Os alimentos fornecem os nutrientes de que o corpo precisa.",
+      "variants": [
+       {
+        "question": "De onde vem a energia que usamos para correr e brincar?",
+        "options": [
+         {
+          "text": "Dos alimentos"
+         },
+         {
+          "text": "Do sono, somente",
+          "misconceptionCode": "sistemas-separados"
+         },
+         {
+          "text": "Da água, somente",
+          "misconceptionCode": "sistemas-separados"
+         },
+         {
+          "text": "Do ar, somente",
+          "misconceptionCode": "sistemas-separados"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Por que precisamos nos alimentar?",
+        "options": [
+         {
+          "text": "Não precisamos",
+          "misconceptionCode": "sistemas-separados"
+         },
+         {
+          "text": "Só porque é gostoso",
+          "misconceptionCode": "sistemas-separados"
+         },
+         {
+          "text": "Só para passar o tempo",
+          "misconceptionCode": "sistemas-separados"
+         },
+         {
+          "text": "Para ter energia e materiais para o corpo crescer e funcionar"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual gás do ar o nosso corpo usa?",
+      "options": [
+       {
+        "text": "Gás carbônico",
+        "misconceptionCode": "respirar-so-ar"
+       },
+       {
+        "text": "Nitrogênio",
+        "misconceptionCode": "respirar-so-ar"
+       },
+       {
+        "text": "Fumaça",
+        "misconceptionCode": "respirar-so-ar"
+       },
+       {
+        "text": "Oxigênio"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Inspiramos o ar e aproveitamos o oxigênio.",
+      "variants": [
+       {
+        "question": "Qual gás eliminamos ao soltar o ar?",
+        "options": [
+         {
+          "text": "Oxigênio",
+          "misconceptionCode": "respirar-so-ar"
+         },
+         {
+          "text": "Gás carbônico"
+         },
+         {
+          "text": "Nitrogênio",
+          "misconceptionCode": "respirar-so-ar"
+         },
+         {
+          "text": "Vapor de gasolina",
+          "misconceptionCode": "respirar-so-ar"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual gás do ar o nosso corpo usa?",
+        "options": [
+         {
+          "text": "Oxigênio"
+         },
+         {
+          "text": "Fumaça",
+          "misconceptionCode": "respirar-so-ar"
+         },
+         {
+          "text": "Nitrogênio",
+          "misconceptionCode": "respirar-so-ar"
+         },
+         {
+          "text": "Gás carbônico",
+          "misconceptionCode": "respirar-so-ar"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Por onde o ar entra no nosso corpo?",
+      "options": [
+       {
+        "text": "Pelo nariz e pela boca"
+       },
+       {
+        "text": "Pelas orelhas",
+        "misconceptionCode": "orgao-trocado"
+       },
+       {
+        "text": "Pelos olhos",
+        "misconceptionCode": "orgao-trocado"
+       },
+       {
+        "text": "Pela pele, somente",
+        "misconceptionCode": "orgao-trocado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O ar entra pelo nariz, onde é filtrado e aquecido, ou pela boca.",
+      "variants": [
+       {
+        "question": "Por onde o alimento entra no nosso corpo?",
+        "options": [
+         {
+          "text": "Pelo nariz",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "Pelas orelhas",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "Pela boca"
+         },
+         {
+          "text": "Pelos olhos",
+          "misconceptionCode": "orgao-trocado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Por onde o ar entra no nosso corpo?",
+        "options": [
+         {
+          "text": "Pela pele, somente",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "Pelo nariz e pela boca"
+         },
+         {
+          "text": "Pelos olhos",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "Pelas orelhas",
+          "misconceptionCode": "orgao-trocado"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05CI06-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: dois sistemas, um objetivo",
+    "prompt": "O sistema digestório transforma os alimentos em nutrientes, que passam para o sangue. O sistema respiratório leva o oxigênio do ar para o sangue. Nas células, os nutrientes e o oxigênio se juntam e liberam energia. Vamos entender juntos.",
+    "estMinutes": 4,
+    "audioScript": "O sistema digestório transforma os alimentos em nutrientes, que passam para o sangue. O sistema respiratório leva o oxigênio do ar para o sangue. Nas células, os nutrientes e o oxigênio se juntam e liberam energia. Vamos entender juntos. Pergunta 1. Qual é a função do sistema digestório? A: Levar oxigênio ao sangue; B: Transformar os alimentos em nutrientes que o corpo aproveita; C: Bombear o sangue; D: Comandar os movimentos. Pergunta 2. O que acontece quando os nutrientes e o oxigênio chegam às células? A: Nada; B: Eles são jogados fora; C: A célula libera a energia de que o corpo precisa; D: Viram ossos, somente. Pergunta 3. Por que dizemos que os dois sistemas trabalham juntos na nutrição? A: Porque ficam no mesmo lugar; B: Porque fazem a mesma coisa; C: Eles não trabalham juntos; D: Porque um fornece os nutrientes e o outro, o oxigênio para aproveitá-los.",
+    "questions": [
+     {
+      "question": "Qual é a função do sistema digestório?",
+      "options": [
+       {
+        "text": "Levar oxigênio ao sangue",
+        "misconceptionCode": "orgao-trocado"
+       },
+       {
+        "text": "Transformar os alimentos em nutrientes que o corpo aproveita"
+       },
+       {
+        "text": "Bombear o sangue",
+        "misconceptionCode": "orgao-trocado"
+       },
+       {
+        "text": "Comandar os movimentos",
+        "misconceptionCode": "orgao-trocado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Na digestão, os alimentos são quebrados em partes bem pequenas.",
+      "variants": [
+       {
+        "question": "Qual é a função do sistema respiratório?",
+        "options": [
+         {
+          "text": "Transformar os alimentos em nutrientes",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "Bombear o sangue",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "Comandar os movimentos",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "Levar o oxigênio do ar para o sangue e eliminar o gás carbônico"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual é a função do sistema digestório?",
+        "options": [
+         {
+          "text": "Comandar os movimentos",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "Bombear o sangue",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "Transformar os alimentos em nutrientes que o corpo aproveita"
+         },
+         {
+          "text": "Levar oxigênio ao sangue",
+          "misconceptionCode": "orgao-trocado"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O que acontece quando os nutrientes e o oxigênio chegam às células?",
+      "options": [
+       {
+        "text": "Nada",
+        "misconceptionCode": "respirar-so-ar"
+       },
+       {
+        "text": "Eles são jogados fora",
+        "misconceptionCode": "sistemas-separados"
+       },
+       {
+        "text": "A célula libera a energia de que o corpo precisa"
+       },
+       {
+        "text": "Viram ossos, somente",
+        "misconceptionCode": "sistemas-separados"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "É como uma fogueira: precisa de lenha (nutrientes) e de ar (oxigênio) para produzir calor.",
+      "variants": [
+       {
+        "question": "Para a célula conseguir energia, ela precisa de:",
+        "options": [
+         {
+          "text": "Nutrientes e oxigênio"
+         },
+         {
+          "text": "Só nutrientes",
+          "misconceptionCode": "respirar-so-ar"
+         },
+         {
+          "text": "Só oxigênio",
+          "misconceptionCode": "sistemas-separados"
+         },
+         {
+          "text": "Só água",
+          "misconceptionCode": "sistemas-separados"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que acontece quando os nutrientes e o oxigênio chegam às células?",
+        "options": [
+         {
+          "text": "Viram ossos, somente",
+          "misconceptionCode": "sistemas-separados"
+         },
+         {
+          "text": "Eles são jogados fora",
+          "misconceptionCode": "sistemas-separados"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "respirar-so-ar"
+         },
+         {
+          "text": "A célula libera a energia de que o corpo precisa"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Por que dizemos que os dois sistemas trabalham juntos na nutrição?",
+      "options": [
+       {
+        "text": "Porque ficam no mesmo lugar",
+        "misconceptionCode": "orgao-trocado"
+       },
+       {
+        "text": "Porque fazem a mesma coisa",
+        "misconceptionCode": "sistemas-separados"
+       },
+       {
+        "text": "Eles não trabalham juntos",
+        "misconceptionCode": "sistemas-separados"
+       },
+       {
+        "text": "Porque um fornece os nutrientes e o outro, o oxigênio para aproveitá-los"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Sem o oxigênio, as células não conseguem retirar a energia dos nutrientes.",
+      "variants": [
+       {
+        "question": "Quem leva os nutrientes e o oxigênio até as células do corpo todo?",
+        "options": [
+         {
+          "text": "O ar",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "O sangue"
+         },
+         {
+          "text": "Os ossos",
+          "misconceptionCode": "sistemas-separados"
+         },
+         {
+          "text": "A pele",
+          "misconceptionCode": "sistemas-separados"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Por que dizemos que os dois sistemas trabalham juntos na nutrição?",
+        "options": [
+         {
+          "text": "Porque um fornece os nutrientes e o outro, o oxigênio para aproveitá-los"
+         },
+         {
+          "text": "Eles não trabalham juntos",
+          "misconceptionCode": "sistemas-separados"
+         },
+         {
+          "text": "Porque fazem a mesma coisa",
+          "misconceptionCode": "sistemas-separados"
+         },
+         {
+          "text": "Porque ficam no mesmo lugar",
+          "misconceptionCode": "orgao-trocado"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05CI06-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: os órgãos e seus caminhos",
+    "prompt": "O caminho do alimento e o caminho do ar.",
+    "estMinutes": 5,
+    "audioScript": "O caminho do alimento e o caminho do ar. Pergunta 1. Qual é o caminho do alimento no corpo? A: Boca, esôfago, estômago e intestinos; B: Boca, traqueia e pulmões; C: Nariz, estômago e pulmões; D: Boca, coração e rins. Pergunta 2. Onde começa a digestão? A: No estômago; B: Na boca, com a mastigação e a saliva; C: No intestino; D: Nos pulmões. Pergunta 3. Onde a maior parte dos nutrientes passa para o sangue? A: Na boca; B: No estômago; C: No intestino delgado; D: Nos pulmões. Pergunta 4. Em qual órgão o oxigênio passa do ar para o sangue? A: No estômago; B: No coração; C: No intestino; D: Nos pulmões.",
+    "questions": [
+     {
+      "question": "Qual é o caminho do alimento no corpo?",
+      "options": [
+       {
+        "text": "Boca, esôfago, estômago e intestinos"
+       },
+       {
+        "text": "Boca, traqueia e pulmões",
+        "misconceptionCode": "orgao-trocado"
+       },
+       {
+        "text": "Nariz, estômago e pulmões",
+        "misconceptionCode": "orgao-trocado"
+       },
+       {
+        "text": "Boca, coração e rins",
+        "misconceptionCode": "orgao-trocado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O alimento é mastigado na boca, desce pelo esôfago, é misturado no estômago e segue para os intestinos.",
+      "variants": [
+       {
+        "question": "Qual é o caminho do ar no corpo?",
+        "options": [
+         {
+          "text": "Boca, esôfago e estômago",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "Nariz, estômago e intestinos",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "Nariz, traqueia e pulmões"
+         },
+         {
+          "text": "Boca, coração e rins",
+          "misconceptionCode": "orgao-trocado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual é o caminho do alimento no corpo?",
+        "options": [
+         {
+          "text": "Boca, coração e rins",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "Boca, esôfago, estômago e intestinos"
+         },
+         {
+          "text": "Nariz, estômago e pulmões",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "Boca, traqueia e pulmões",
+          "misconceptionCode": "orgao-trocado"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Onde começa a digestão?",
+      "options": [
+       {
+        "text": "No estômago",
+        "misconceptionCode": "digestao-so-estomago"
+       },
+       {
+        "text": "Na boca, com a mastigação e a saliva"
+       },
+       {
+        "text": "No intestino",
+        "misconceptionCode": "digestao-so-estomago"
+       },
+       {
+        "text": "Nos pulmões",
+        "misconceptionCode": "orgao-trocado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Mastigar bem ajuda a digestão.",
+      "variants": [
+       {
+        "question": "Por que é importante mastigar bem os alimentos?",
+        "options": [
+         {
+          "text": "Porque a digestão só acontece no estômago",
+          "misconceptionCode": "digestao-so-estomago"
+         },
+         {
+          "text": "Para os dentes ficarem fortes, somente",
+          "misconceptionCode": "digestao-so-estomago"
+         },
+         {
+          "text": "Não é importante",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "Porque a digestão começa na boca"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Onde começa a digestão?",
+        "options": [
+         {
+          "text": "Nos pulmões",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "No intestino",
+          "misconceptionCode": "digestao-so-estomago"
+         },
+         {
+          "text": "Na boca, com a mastigação e a saliva"
+         },
+         {
+          "text": "No estômago",
+          "misconceptionCode": "digestao-so-estomago"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Onde a maior parte dos nutrientes passa para o sangue?",
+      "options": [
+       {
+        "text": "Na boca",
+        "misconceptionCode": "digestao-so-estomago"
+       },
+       {
+        "text": "No estômago",
+        "misconceptionCode": "digestao-so-estomago"
+       },
+       {
+        "text": "No intestino delgado"
+       },
+       {
+        "text": "Nos pulmões",
+        "misconceptionCode": "orgao-trocado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "No intestino delgado, os nutrientes são absorvidos e entram no sangue.",
+      "variants": [
+       {
+        "question": "O que acontece com o que o corpo não aproveita dos alimentos?",
+        "options": [
+         {
+          "text": "É eliminado como fezes"
+         },
+         {
+          "text": "Fica no estômago para sempre",
+          "misconceptionCode": "digestao-so-estomago"
+         },
+         {
+          "text": "Vai para os pulmões",
+          "misconceptionCode": "digestao-so-estomago"
+         },
+         {
+          "text": "Vira oxigênio",
+          "misconceptionCode": "orgao-trocado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Onde a maior parte dos nutrientes passa para o sangue?",
+        "options": [
+         {
+          "text": "Nos pulmões",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "No estômago",
+          "misconceptionCode": "digestao-so-estomago"
+         },
+         {
+          "text": "Na boca",
+          "misconceptionCode": "digestao-so-estomago"
+         },
+         {
+          "text": "No intestino delgado"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Em qual órgão o oxigênio passa do ar para o sangue?",
+      "options": [
+       {
+        "text": "No estômago",
+        "misconceptionCode": "orgao-trocado"
+       },
+       {
+        "text": "No coração",
+        "misconceptionCode": "orgao-trocado"
+       },
+       {
+        "text": "No intestino",
+        "misconceptionCode": "orgao-trocado"
+       },
+       {
+        "text": "Nos pulmões"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Nos pulmões, o oxigênio entra no sangue e o gás carbônico sai.",
+      "variants": [
+       {
+        "question": "O estômago faz parte de qual sistema?",
+        "options": [
+         {
+          "text": "Respiratório",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "Digestório"
+         },
+         {
+          "text": "Circulatório",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "Nervoso",
+          "misconceptionCode": "orgao-trocado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Em qual órgão o oxigênio passa do ar para o sangue?",
+        "options": [
+         {
+          "text": "Nos pulmões"
+         },
+         {
+          "text": "No intestino",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "No coração",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "No estômago",
+          "misconceptionCode": "orgao-trocado"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05CI06-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: cuidando da nutrição",
+    "prompt": "Comer bem e respirar bem.",
+    "estMinutes": 4,
+    "audioScript": "Comer bem e respirar bem. Pergunta 1. Durante uma corrida, respiramos mais rápido. Por quê? A: Porque os músculos precisam de mais oxigênio para produzir energia; B: Porque o ar acaba; C: Porque o estômago precisa de ar; D: Por nenhum motivo. Pergunta 2. Uma pessoa come bem, mas tem uma doença que dificulta a respiração. O que pode acontecer? A: Nada, basta comer; B: Ela pode se sentir fraca, porque falta oxigênio para aproveitar os nutrientes; C: Ela fica mais forte; D: A digestão para. Pergunta 3. Qual hábito ajuda os dois sistemas a funcionar bem? A: Comer só doces; B: Engolir sem mastigar; C: Ter alimentação variada, mastigar bem e praticar atividade física; D: Ficar em lugar com fumaça.",
+    "questions": [
+     {
+      "question": "Durante uma corrida, respiramos mais rápido. Por quê?",
+      "options": [
+       {
+        "text": "Porque os músculos precisam de mais oxigênio para produzir energia"
+       },
+       {
+        "text": "Porque o ar acaba",
+        "misconceptionCode": "respirar-so-ar"
+       },
+       {
+        "text": "Porque o estômago precisa de ar",
+        "misconceptionCode": "orgao-trocado"
+       },
+       {
+        "text": "Por nenhum motivo",
+        "misconceptionCode": "respirar-so-ar"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Mais esforço pede mais energia, e as células usam mais oxigênio.",
+      "variants": [
+       {
+        "question": "Depois de muito exercício, sentimos fome. Por quê?",
+        "options": [
+         {
+          "text": "Porque o ar acabou",
+          "misconceptionCode": "respirar-so-ar"
+         },
+         {
+          "text": "Porque os pulmões estão vazios",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "Porque o corpo gastou energia e precisa de mais nutrientes"
+         },
+         {
+          "text": "Por nenhum motivo",
+          "misconceptionCode": "respirar-so-ar"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Durante uma corrida, respiramos mais rápido. Por quê?",
+        "options": [
+         {
+          "text": "Por nenhum motivo",
+          "misconceptionCode": "respirar-so-ar"
+         },
+         {
+          "text": "Porque os músculos precisam de mais oxigênio para produzir energia"
+         },
+         {
+          "text": "Porque o estômago precisa de ar",
+          "misconceptionCode": "orgao-trocado"
+         },
+         {
+          "text": "Porque o ar acaba",
+          "misconceptionCode": "respirar-so-ar"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Uma pessoa come bem, mas tem uma doença que dificulta a respiração. O que pode acontecer?",
+      "options": [
+       {
+        "text": "Nada, basta comer",
+        "misconceptionCode": "sistemas-separados"
+       },
+       {
+        "text": "Ela pode se sentir fraca, porque falta oxigênio para aproveitar os nutrientes"
+       },
+       {
+        "text": "Ela fica mais forte",
+        "misconceptionCode": "sistemas-separados"
+       },
+       {
+        "text": "A digestão para",
+        "misconceptionCode": "digestao-so-estomago"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Os dois sistemas dependem um do outro para dar energia ao corpo.",
+      "variants": [
+       {
+        "question": "Uma pessoa respira bem, mas se alimenta mal. O que pode acontecer?",
+        "options": [
+         {
+          "text": "Nada, basta respirar",
+          "misconceptionCode": "sistemas-separados"
+         },
+         {
+          "text": "Ela fica mais forte",
+          "misconceptionCode": "sistemas-separados"
+         },
+         {
+          "text": "Os pulmões param",
+          "misconceptionCode": "digestao-so-estomago"
+         },
+         {
+          "text": "Ela pode se sentir fraca, porque faltam nutrientes"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Uma pessoa come bem, mas tem uma doença que dificulta a respiração. O que pode acontecer?",
+        "options": [
+         {
+          "text": "A digestão para",
+          "misconceptionCode": "digestao-so-estomago"
+         },
+         {
+          "text": "Ela fica mais forte",
+          "misconceptionCode": "sistemas-separados"
+         },
+         {
+          "text": "Ela pode se sentir fraca, porque falta oxigênio para aproveitar os nutrientes"
+         },
+         {
+          "text": "Nada, basta comer",
+          "misconceptionCode": "sistemas-separados"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual hábito ajuda os dois sistemas a funcionar bem?",
+      "options": [
+       {
+        "text": "Comer só doces",
+        "misconceptionCode": "digestao-so-estomago"
+       },
+       {
+        "text": "Engolir sem mastigar",
+        "misconceptionCode": "digestao-so-estomago"
+       },
+       {
+        "text": "Ter alimentação variada, mastigar bem e praticar atividade física"
+       },
+       {
+        "text": "Ficar em lugar com fumaça",
+        "misconceptionCode": "respirar-so-ar"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Frutas, verduras, água e exercício fazem bem ao corpo todo.",
+      "variants": [
+       {
+        "question": "Qual destes prejudica o sistema respiratório?",
+        "options": [
+         {
+          "text": "A fumaça do cigarro"
+         },
+         {
+          "text": "O ar puro",
+          "misconceptionCode": "digestao-so-estomago"
+         },
+         {
+          "text": "A atividade física",
+          "misconceptionCode": "digestao-so-estomago"
+         },
+         {
+          "text": "Dormir bem",
+          "misconceptionCode": "respirar-so-ar"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual hábito ajuda os dois sistemas a funcionar bem?",
+        "options": [
+         {
+          "text": "Ficar em lugar com fumaça",
+          "misconceptionCode": "respirar-so-ar"
+         },
+         {
+          "text": "Engolir sem mastigar",
+          "misconceptionCode": "digestao-so-estomago"
+         },
+         {
+          "text": "Comer só doces",
+          "misconceptionCode": "digestao-so-estomago"
+         },
+         {
+          "text": "Ter alimentação variada, mastigar bem e praticar atividade física"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05CI06-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: por que os dois sistemas trabalham juntos",
+    "prompt": "Explique com as suas palavras o que faz o sistema digestório, o que faz o respiratório e por que os dois são necessários para o corpo ter energia.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras o que faz o sistema digestório, o que faz o respiratório e por que os dois são necessários para o corpo ter energia.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "digestorio",
+       "description": "Diz que o digestório transforma os alimentos em nutrientes"
+      },
+      {
+       "code": "respiratorio",
+       "description": "Diz que o respiratório leva o oxigênio ao sangue"
+      },
+      {
+       "code": "juntos",
+       "description": "Explica que as células precisam dos dois para liberar energia"
+      }
+     ],
+     "exemploBoaResposta": "O sistema digestório transforma os alimentos em nutrientes, que vão para o sangue. O sistema respiratório leva o oxigênio do ar para o sangue. As células usam os nutrientes e o oxigênio juntos para produzir energia. Por isso, um precisa do outro."
+    }
+   }
+  ]
+ }
 ]

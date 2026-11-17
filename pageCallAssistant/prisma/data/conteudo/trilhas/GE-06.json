@@ -1,1890 +1,3772 @@
 [
-  {
-    "skillCode": "EF06GE07",
-    "subjectCode": "GE",
-    "subjectName": "Geografia",
-    "gradeYear": 6,
-    "version": 3,
-    "title": "Trilha: As cidades e a natureza",
-    "tituloAluno": "Como as cidades mudam a natureza",
-    "activities": [
+ {
+  "skillCode": "EF06GE07",
+  "subjectCode": "GE",
+  "subjectName": "Geografia",
+  "gradeYear": 6,
+  "version": 3,
+  "title": "Trilha: As cidades e a natureza",
+  "tituloAluno": "Como as cidades mudam a natureza",
+  "activities": [
+   {
+    "id": "PK2-EF06GE07-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: funções da cidade",
+    "prompt": "Vamos lembrar o que existe numa cidade e para que ela serve.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar o que existe numa cidade e para que ela serve. Pergunta 1. Uma cidade serve para: A: Só para morar; B: Só para plantar; C: Só para poluir; D: Morar, trabalhar, comprar e usar serviços. Pergunta 2. Quando uma cidade cresce sem planejamento, pode acontecer: A: Trânsito, falta de moradia e problemas ambientais; B: Nada muda; C: Só coisas boas; D: Só a poluição do ar e mais nada. Pergunta 3. Onde costuma ser produzida a maior parte dos alimentos que a cidade consome? A: No centro da cidade; B: Nos supermercados; C: No campo, na zona rural; D: Nas fábricas de roupa.",
+    "questions": [
+     {
+      "question": "Uma cidade serve para:",
+      "options": [
+       {
+        "text": "Só para morar",
+        "misconceptionCode": "cidade-separada-natureza"
+       },
+       {
+        "text": "Só para plantar",
+        "misconceptionCode": "campo-independente"
+       },
+       {
+        "text": "Só para poluir",
+        "misconceptionCode": "so-poluicao"
+       },
+       {
+        "text": "Morar, trabalhar, comprar e usar serviços"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A cidade junta muita coisa: casas para morar, lugares para trabalhar, lojas para comprar e serviços como escola e hospital.",
+      "variants": [
+       {
+        "question": "Qual é uma função de uma cidade?",
+        "options": [
+         {
+          "text": "Só abrigar animais",
+          "misconceptionCode": "cidade-separada-natureza"
+         },
+         {
+          "text": "Oferecer comércio e serviços"
+         },
+         {
+          "text": "Só produzir alimentos",
+          "misconceptionCode": "campo-independente"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "so-poluicao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Uma cidade serve para:",
+        "options": [
+         {
+          "text": "Morar, trabalhar, comprar e usar serviços"
+         },
+         {
+          "text": "Só para poluir",
+          "misconceptionCode": "so-poluicao"
+         },
+         {
+          "text": "Só para plantar",
+          "misconceptionCode": "campo-independente"
+         },
+         {
+          "text": "Só para morar",
+          "misconceptionCode": "cidade-separada-natureza"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quando uma cidade cresce sem planejamento, pode acontecer:",
+      "options": [
+       {
+        "text": "Trânsito, falta de moradia e problemas ambientais"
+       },
+       {
+        "text": "Nada muda",
+        "misconceptionCode": "mudanca-sem-causa"
+       },
+       {
+        "text": "Só coisas boas",
+        "misconceptionCode": "cidade-separada-natureza"
+       },
+       {
+        "text": "Só a poluição do ar e mais nada",
+        "misconceptionCode": "so-poluicao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Sem planejamento, falta rua, casa e esgoto para todos. Aparecem trânsito, falta de moradia e problemas na natureza.",
+      "variants": [
+       {
+        "question": "Uma consequência do crescimento sem planejamento é:",
+        "options": [
+         {
+          "text": "Mais florestas no centro",
+          "misconceptionCode": "mudanca-sem-causa"
+         },
+         {
+          "text": "Menos gente",
+          "misconceptionCode": "cidade-separada-natureza"
+         },
+         {
+          "text": "Bairros sem saneamento"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "so-poluicao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quando uma cidade cresce sem planejamento, pode acontecer:",
+        "options": [
+         {
+          "text": "Só a poluição do ar e mais nada",
+          "misconceptionCode": "so-poluicao"
+         },
+         {
+          "text": "Trânsito, falta de moradia e problemas ambientais"
+         },
+         {
+          "text": "Só coisas boas",
+          "misconceptionCode": "cidade-separada-natureza"
+         },
+         {
+          "text": "Nada muda",
+          "misconceptionCode": "mudanca-sem-causa"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Onde costuma ser produzida a maior parte dos alimentos que a cidade consome?",
+      "options": [
+       {
+        "text": "No centro da cidade",
+        "misconceptionCode": "campo-independente"
+       },
+       {
+        "text": "Nos supermercados",
+        "misconceptionCode": "campo-independente"
+       },
+       {
+        "text": "No campo, na zona rural"
+       },
+       {
+        "text": "Nas fábricas de roupa",
+        "misconceptionCode": "mudanca-sem-causa"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O mercado só vende. O arroz, a fruta e o leite foram plantados e criados no campo, na zona rural.",
+      "variants": [
+       {
+        "question": "De onde vem o arroz que se compra no mercado?",
+        "options": [
+         {
+          "text": "De plantações na zona rural"
+         },
+         {
+          "text": "Do próprio mercado",
+          "misconceptionCode": "campo-independente"
+         },
+         {
+          "text": "De prédios da cidade",
+          "misconceptionCode": "campo-independente"
+         },
+         {
+          "text": "Da fábrica de embalagens",
+          "misconceptionCode": "mudanca-sem-causa"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Onde costuma ser produzida a maior parte dos alimentos que a cidade consome?",
+        "options": [
+         {
+          "text": "Nas fábricas de roupa",
+          "misconceptionCode": "mudanca-sem-causa"
+         },
+         {
+          "text": "Nos supermercados",
+          "misconceptionCode": "campo-independente"
+         },
+         {
+          "text": "No centro da cidade",
+          "misconceptionCode": "campo-independente"
+         },
+         {
+          "text": "No campo, na zona rural"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06GE07-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o rio que virou avenida",
+    "prompt": "Imagine um rio que corria entre árvores. A cidade cresceu ao redor, e o rio foi canalizado e coberto por uma avenida. Vamos analisar juntos.",
+    "estMinutes": 4,
+    "audioScript": "Imagine um rio que corria entre árvores. A cidade cresceu ao redor, e o rio foi canalizado e coberto por uma avenida. Vamos analisar juntos. Pergunta 1. O que aconteceu com a vegetação nas margens do rio? A: Foi retirada para construir ruas e casas; B: Cresceu mais; C: Mudou de lugar sozinha; D: Nada aconteceu com ela. Pergunta 2. Com o asfalto e o concreto, o que acontece com a água da chuva? A: Ela infiltra mais no solo; B: Ela desaparece; C: Ela escorre mais rápido e infiltra menos no solo; D: Nada muda. Pergunta 3. Essa mudança no rio foi causada por: A: A própria natureza, sem relação com as pessoas; B: Ação humana, com o crescimento da cidade; C: A poluição do ar e mais nada; D: O campo.",
+    "questions": [
+     {
+      "question": "O que aconteceu com a vegetação nas margens do rio?",
+      "options": [
+       {
+        "text": "Foi retirada para construir ruas e casas"
+       },
+       {
+        "text": "Cresceu mais",
+        "misconceptionCode": "mudanca-sem-causa"
+       },
+       {
+        "text": "Mudou de lugar sozinha",
+        "misconceptionCode": "mudanca-sem-causa"
+       },
+       {
+        "text": "Nada aconteceu com ela",
+        "misconceptionCode": "cidade-separada-natureza"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Para construir ruas e casas, as árvores da beira do rio foram cortadas. Essa mata da margem se chama mata ciliar.",
+      "variants": [
+       {
+        "question": "Por que muitas margens de rios urbanos não têm mais árvores?",
+        "options": [
+         {
+          "text": "Porque as árvores não gostam de rio",
+          "misconceptionCode": "mudanca-sem-causa"
+         },
+         {
+          "text": "Porque a chuva levou todas",
+          "misconceptionCode": "mudanca-sem-causa"
+         },
+         {
+          "text": "Porque foram ocupadas por construções"
+         },
+         {
+          "text": "Porque o rio mudou de cor",
+          "misconceptionCode": "cidade-separada-natureza"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que aconteceu com a vegetação nas margens do rio?",
+        "options": [
+         {
+          "text": "Nada aconteceu com ela",
+          "misconceptionCode": "cidade-separada-natureza"
+         },
+         {
+          "text": "Foi retirada para construir ruas e casas"
+         },
+         {
+          "text": "Mudou de lugar sozinha",
+          "misconceptionCode": "mudanca-sem-causa"
+         },
+         {
+          "text": "Cresceu mais",
+          "misconceptionCode": "mudanca-sem-causa"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Com o asfalto e o concreto, o que acontece com a água da chuva?",
+      "options": [
+       {
+        "text": "Ela infiltra mais no solo",
+        "misconceptionCode": "mudanca-sem-causa"
+       },
+       {
+        "text": "Ela desaparece",
+        "misconceptionCode": "cidade-separada-natureza"
+       },
+       {
+        "text": "Ela escorre mais rápido e infiltra menos no solo"
+       },
+       {
+        "text": "Nada muda",
+        "misconceptionCode": "mudanca-sem-causa"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A terra bebe a chuva como uma esponja, mas o asfalto não. A água escorre rápido para as ruas e os rios.",
+      "variants": [
+       {
+        "question": "Por que as ruas de uma cidade muito asfaltada alagam com chuva forte?",
+        "options": [
+         {
+          "text": "Porque a água não consegue entrar no solo"
+         },
+         {
+          "text": "Porque chove mais na cidade",
+          "misconceptionCode": "mudanca-sem-causa"
+         },
+         {
+          "text": "Porque o asfalto produz água",
+          "misconceptionCode": "cidade-separada-natureza"
+         },
+         {
+          "text": "Porque não há rios",
+          "misconceptionCode": "mudanca-sem-causa"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Com o asfalto e o concreto, o que acontece com a água da chuva?",
+        "options": [
+         {
+          "text": "Nada muda",
+          "misconceptionCode": "mudanca-sem-causa"
+         },
+         {
+          "text": "Ela desaparece",
+          "misconceptionCode": "cidade-separada-natureza"
+         },
+         {
+          "text": "Ela infiltra mais no solo",
+          "misconceptionCode": "mudanca-sem-causa"
+         },
+         {
+          "text": "Ela escorre mais rápido e infiltra menos no solo"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Essa mudança no rio foi causada por:",
+      "options": [
+       {
+        "text": "A própria natureza, sem relação com as pessoas",
+        "misconceptionCode": "mudanca-sem-causa"
+       },
+       {
+        "text": "Ação humana, com o crescimento da cidade"
+       },
+       {
+        "text": "A poluição do ar e mais nada",
+        "misconceptionCode": "so-poluicao"
+       },
+       {
+        "text": "O campo",
+        "misconceptionCode": "campo-independente"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Foram as pessoas, construindo a cidade, que mudaram o rio. É uma mudança causada pela ação humana.",
+      "variants": [
+       {
+        "question": "Quem transformou o rio em canal sob a avenida?",
+        "options": [
+         {
+          "text": "O próprio rio",
+          "misconceptionCode": "mudanca-sem-causa"
+         },
+         {
+          "text": "Os animais",
+          "misconceptionCode": "so-poluicao"
+         },
+         {
+          "text": "Ninguém, aconteceu sozinho",
+          "misconceptionCode": "campo-independente"
+         },
+         {
+          "text": "As pessoas, com obras para a cidade crescer"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Essa mudança no rio foi causada por:",
+        "options": [
+         {
+          "text": "O campo",
+          "misconceptionCode": "campo-independente"
+         },
+         {
+          "text": "A poluição do ar e mais nada",
+          "misconceptionCode": "so-poluicao"
+         },
+         {
+          "text": "Ação humana, com o crescimento da cidade"
+         },
+         {
+          "text": "A própria natureza, sem relação com as pessoas",
+          "misconceptionCode": "mudanca-sem-causa"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06GE07-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: cidade e natureza",
+    "prompt": "A cidade transforma a natureza e também depende dela.",
+    "estMinutes": 5,
+    "audioScript": "A cidade transforma a natureza e também depende dela. Pergunta 1. De onde vem a água que chega às torneiras da cidade? A: Do próprio cano, que produz água; B: Do supermercado; C: De rios, represas ou poços, muitas vezes fora da cidade; D: Ela aparece sozinha. Pergunta 2. Por que as cidades dependem do campo? A: Não dependem, produzem tudo sozinhas; B: Porque recebem de lá alimentos e matérias-primas; C: Só por causa da poluição; D: Porque o campo fica dentro da cidade. Pergunta 3. Ilha de calor é quando o centro da cidade fica mais quente que os arredores. Uma causa é: A: Mais árvores no centro; B: A cidade não ter relação com a natureza; C: A produção de alimentos no campo; D: Muito concreto e asfalto e pouca vegetação. Pergunta 4. Além da poluição, a cidade muda a natureza quando: A: Retira a vegetação, aterra áreas e muda o curso dos rios; B: A cidade só causa poluição, nada mais; C: Nunca muda a natureza; D: A natureza muda sozinha.",
+    "questions": [
+     {
+      "question": "De onde vem a água que chega às torneiras da cidade?",
+      "options": [
+       {
+        "text": "Do próprio cano, que produz água",
+        "misconceptionCode": "cidade-separada-natureza"
+       },
+       {
+        "text": "Do supermercado",
+        "misconceptionCode": "campo-independente"
+       },
+       {
+        "text": "De rios, represas ou poços, muitas vezes fora da cidade"
+       },
+       {
+        "text": "Ela aparece sozinha",
+        "misconceptionCode": "mudanca-sem-causa"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A água da torneira vem de rios, represas ou poços, muitas vezes longe da cidade, e passa por limpeza antes de chegar.",
+      "variants": [
+       {
+        "question": "Uma represa que abastece a cidade mostra que:",
+        "options": [
+         {
+          "text": "A cidade depende da natureza"
+         },
+         {
+          "text": "A cidade não precisa de natureza",
+          "misconceptionCode": "cidade-separada-natureza"
+         },
+         {
+          "text": "A água nasce no cano",
+          "misconceptionCode": "campo-independente"
+         },
+         {
+          "text": "A represa é só para lazer",
+          "misconceptionCode": "mudanca-sem-causa"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "De onde vem a água que chega às torneiras da cidade?",
+        "options": [
+         {
+          "text": "Ela aparece sozinha",
+          "misconceptionCode": "mudanca-sem-causa"
+         },
+         {
+          "text": "Do supermercado",
+          "misconceptionCode": "campo-independente"
+         },
+         {
+          "text": "Do próprio cano, que produz água",
+          "misconceptionCode": "cidade-separada-natureza"
+         },
+         {
+          "text": "De rios, represas ou poços, muitas vezes fora da cidade"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Por que as cidades dependem do campo?",
+      "options": [
+       {
+        "text": "Não dependem, produzem tudo sozinhas",
+        "misconceptionCode": "campo-independente"
+       },
+       {
+        "text": "Porque recebem de lá alimentos e matérias-primas"
+       },
+       {
+        "text": "Só por causa da poluição",
+        "misconceptionCode": "so-poluicao"
+       },
+       {
+        "text": "Porque o campo fica dentro da cidade",
+        "misconceptionCode": "cidade-separada-natureza"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A comida, o algodão da roupa e a madeira dos móveis vêm do campo. Sem o campo, a cidade não teria isso.",
+      "variants": [
+       {
+        "question": "O algodão da sua camiseta veio:",
+        "options": [
+         {
+          "text": "Da loja",
+          "misconceptionCode": "campo-independente"
+         },
+         {
+          "text": "Do shopping",
+          "misconceptionCode": "so-poluicao"
+         },
+         {
+          "text": "Do asfalto",
+          "misconceptionCode": "cidade-separada-natureza"
+         },
+         {
+          "text": "De uma plantação no campo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Por que as cidades dependem do campo?",
+        "options": [
+         {
+          "text": "Porque o campo fica dentro da cidade",
+          "misconceptionCode": "cidade-separada-natureza"
+         },
+         {
+          "text": "Só por causa da poluição",
+          "misconceptionCode": "so-poluicao"
+         },
+         {
+          "text": "Porque recebem de lá alimentos e matérias-primas"
+         },
+         {
+          "text": "Não dependem, produzem tudo sozinhas",
+          "misconceptionCode": "campo-independente"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Ilha de calor é quando o centro da cidade fica mais quente que os arredores. Uma causa é:",
+      "options": [
+       {
+        "text": "Mais árvores no centro",
+        "misconceptionCode": "mudanca-sem-causa"
+       },
+       {
+        "text": "A cidade não ter relação com a natureza",
+        "misconceptionCode": "cidade-separada-natureza"
+       },
+       {
+        "text": "A produção de alimentos no campo",
+        "misconceptionCode": "campo-independente"
+       },
+       {
+        "text": "Muito concreto e asfalto e pouca vegetação"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Asfalto e concreto esquentam no sol, como uma panela. Sem árvores para fazer sombra, o centro fica mais quente.",
+      "variants": [
+       {
+        "question": "Plantar árvores nas ruas ajuda a:",
+        "options": [
+         {
+          "text": "Aumentar o calor",
+          "misconceptionCode": "mudanca-sem-causa"
+         },
+         {
+          "text": "Diminuir o calor na cidade"
+         },
+         {
+          "text": "Alagar as ruas",
+          "misconceptionCode": "cidade-separada-natureza"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "campo-independente"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Ilha de calor é quando o centro da cidade fica mais quente que os arredores. Uma causa é:",
+        "options": [
+         {
+          "text": "Muito concreto e asfalto e pouca vegetação"
+         },
+         {
+          "text": "A produção de alimentos no campo",
+          "misconceptionCode": "campo-independente"
+         },
+         {
+          "text": "A cidade não ter relação com a natureza",
+          "misconceptionCode": "cidade-separada-natureza"
+         },
+         {
+          "text": "Mais árvores no centro",
+          "misconceptionCode": "mudanca-sem-causa"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Além da poluição, a cidade muda a natureza quando:",
+      "options": [
+       {
+        "text": "Retira a vegetação, aterra áreas e muda o curso dos rios"
+       },
+       {
+        "text": "A cidade só causa poluição, nada mais",
+        "misconceptionCode": "so-poluicao"
+       },
+       {
+        "text": "Nunca muda a natureza",
+        "misconceptionCode": "cidade-separada-natureza"
+       },
+       {
+        "text": "A natureza muda sozinha",
+        "misconceptionCode": "mudanca-sem-causa"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A cidade também muda a natureza quando corta árvores, aterra mangues e muda o caminho dos rios.",
+      "variants": [
+       {
+        "question": "Aterrar um manguezal para construir um porto é um exemplo de:",
+        "options": [
+         {
+          "text": "Poluição do ar",
+          "misconceptionCode": "so-poluicao"
+         },
+         {
+          "text": "Algo que não muda a natureza",
+          "misconceptionCode": "cidade-separada-natureza"
+         },
+         {
+          "text": "Transformação da natureza pela cidade"
+         },
+         {
+          "text": "Produção no campo",
+          "misconceptionCode": "mudanca-sem-causa"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Além da poluição, a cidade muda a natureza quando:",
+        "options": [
+         {
+          "text": "A natureza muda sozinha",
+          "misconceptionCode": "mudanca-sem-causa"
+         },
+         {
+          "text": "Retira a vegetação, aterra áreas e muda o curso dos rios"
+         },
+         {
+          "text": "Nunca muda a natureza",
+          "misconceptionCode": "cidade-separada-natureza"
+         },
+         {
+          "text": "A cidade só causa poluição, nada mais",
+          "misconceptionCode": "so-poluicao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06GE07-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: sua cidade e a natureza",
+    "prompt": "Agora pense na sua cidade.",
+    "estMinutes": 4,
+    "audioScript": "Agora pense na sua cidade. Pergunta 1. O que a cidade pode fazer para diminuir os alagamentos? A: Asfaltar ainda mais; B: Criar áreas verdes e de solo permeável, como parques; C: Nada, alagamento é natural; D: Diminuir a comida que vem do campo. Pergunta 2. Um bairro novo foi construído no lugar de uma mata. Uma consequência é: A: Mais mata no bairro; B: Nenhuma mudança na natureza; C: Só mais poluição do ar; D: Menos sombra e mais calor, além de animais sem abrigo. Pergunta 3. Por que proteger as nascentes de um rio interessa a quem mora na cidade? A: Porque a água da cidade depende delas; B: Não interessa, a cidade não usa natureza; C: Só interessa a quem mora no campo; D: Porque a poluição é o único problema.",
+    "questions": [
+     {
+      "question": "O que a cidade pode fazer para diminuir os alagamentos?",
+      "options": [
+       {
+        "text": "Asfaltar ainda mais",
+        "misconceptionCode": "mudanca-sem-causa"
+       },
+       {
+        "text": "Criar áreas verdes e de solo permeável, como parques"
+       },
+       {
+        "text": "Nada, alagamento é natural",
+        "misconceptionCode": "mudanca-sem-causa"
+       },
+       {
+        "text": "Diminuir a comida que vem do campo",
+        "misconceptionCode": "campo-independente"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Parques e áreas com terra e plantas funcionam como esponjas: bebem a chuva e evitam alagamentos.",
+      "variants": [
+       {
+        "question": "Calçadas com grama ou blocos com furos ajudam a:",
+        "options": [
+         {
+          "text": "Esquentar a rua",
+          "misconceptionCode": "mudanca-sem-causa"
+         },
+         {
+          "text": "Alagar mais",
+          "misconceptionCode": "mudanca-sem-causa"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "campo-independente"
+         },
+         {
+          "text": "A água da chuva entrar no solo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que a cidade pode fazer para diminuir os alagamentos?",
+        "options": [
+         {
+          "text": "Diminuir a comida que vem do campo",
+          "misconceptionCode": "campo-independente"
+         },
+         {
+          "text": "Nada, alagamento é natural",
+          "misconceptionCode": "mudanca-sem-causa"
+         },
+         {
+          "text": "Criar áreas verdes e de solo permeável, como parques"
+         },
+         {
+          "text": "Asfaltar ainda mais",
+          "misconceptionCode": "mudanca-sem-causa"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um bairro novo foi construído no lugar de uma mata. Uma consequência é:",
+      "options": [
+       {
+        "text": "Mais mata no bairro",
+        "misconceptionCode": "mudanca-sem-causa"
+       },
+       {
+        "text": "Nenhuma mudança na natureza",
+        "misconceptionCode": "cidade-separada-natureza"
+       },
+       {
+        "text": "Só mais poluição do ar",
+        "misconceptionCode": "so-poluicao"
+       },
+       {
+        "text": "Menos sombra e mais calor, além de animais sem abrigo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Sem as árvores, some a sombra e o lugar esquenta. E os animais que moravam na mata ficam sem casa.",
+      "variants": [
+       {
+        "question": "Quando uma mata é derrubada para fazer casas, os animais que viviam ali:",
+        "options": [
+         {
+          "text": "Ficam melhor",
+          "misconceptionCode": "mudanca-sem-causa"
+         },
+         {
+          "text": "Perdem o lugar onde viviam"
+         },
+         {
+          "text": "Não são afetados",
+          "misconceptionCode": "cidade-separada-natureza"
+         },
+         {
+          "text": "Vão para o supermercado",
+          "misconceptionCode": "so-poluicao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um bairro novo foi construído no lugar de uma mata. Uma consequência é:",
+        "options": [
+         {
+          "text": "Menos sombra e mais calor, além de animais sem abrigo"
+         },
+         {
+          "text": "Só mais poluição do ar",
+          "misconceptionCode": "so-poluicao"
+         },
+         {
+          "text": "Nenhuma mudança na natureza",
+          "misconceptionCode": "cidade-separada-natureza"
+         },
+         {
+          "text": "Mais mata no bairro",
+          "misconceptionCode": "mudanca-sem-causa"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Por que proteger as nascentes de um rio interessa a quem mora na cidade?",
+      "options": [
+       {
+        "text": "Porque a água da cidade depende delas"
+       },
+       {
+        "text": "Não interessa, a cidade não usa natureza",
+        "misconceptionCode": "cidade-separada-natureza"
+       },
+       {
+        "text": "Só interessa a quem mora no campo",
+        "misconceptionCode": "campo-independente"
+       },
+       {
+        "text": "Porque a poluição é o único problema",
+        "misconceptionCode": "so-poluicao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A água da cidade começa nas nascentes. Se elas secarem, falta água na torneira de todo mundo.",
+      "variants": [
+       {
+        "question": "Se as nascentes que abastecem a represa secarem, a cidade:",
+        "options": [
+         {
+          "text": "Não sente nada",
+          "misconceptionCode": "cidade-separada-natureza"
+         },
+         {
+          "text": "Produz água no cano",
+          "misconceptionCode": "campo-independente"
+         },
+         {
+          "text": "Pode ficar sem água"
+         },
+         {
+          "text": "Ganha mais água",
+          "misconceptionCode": "so-poluicao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Por que proteger as nascentes de um rio interessa a quem mora na cidade?",
+        "options": [
+         {
+          "text": "Porque a poluição é o único problema",
+          "misconceptionCode": "so-poluicao"
+         },
+         {
+          "text": "Porque a água da cidade depende delas"
+         },
+         {
+          "text": "Só interessa a quem mora no campo",
+          "misconceptionCode": "campo-independente"
+         },
+         {
+          "text": "Não interessa, a cidade não usa natureza",
+          "misconceptionCode": "cidade-separada-natureza"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06GE07-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: cidade e natureza",
+    "prompt": "Explique com as suas palavras duas formas pelas quais a cidade muda a natureza e uma forma pela qual a cidade depende da natureza.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras duas formas pelas quais a cidade muda a natureza e uma forma pela qual a cidade depende da natureza.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
       {
-        "id": "PK2-EF06GE07-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar: funções da cidade",
-        "prompt": "Vamos lembrar o que existe numa cidade e para que ela serve.",
-        "estMinutes": 4,
-        "audioScript": "Vamos lembrar o que existe numa cidade e para que ela serve. Pergunta 1. Uma cidade serve para: A: Só para morar; B: Só para plantar; C: Só para poluir; D: Morar, trabalhar, comprar e usar serviços. Pergunta 2. Quando uma cidade cresce sem planejamento, pode acontecer: A: Trânsito, falta de moradia e problemas ambientais; B: Nada muda; C: Só coisas boas; D: Só a poluição do ar e mais nada. Pergunta 3. Onde costuma ser produzida a maior parte dos alimentos que a cidade consome? A: No centro da cidade; B: Nos supermercados; C: No campo, na zona rural; D: Nas fábricas de roupa.",
-        "questions": [
-          {
-            "question": "Uma cidade serve para:",
-            "options": [
-              {
-                "text": "Só para morar",
-                "misconceptionCode": "cidade-separada-natureza"
-              },
-              {
-                "text": "Só para plantar",
-                "misconceptionCode": "campo-independente"
-              },
-              {
-                "text": "Só para poluir",
-                "misconceptionCode": "so-poluicao"
-              },
-              {
-                "text": "Morar, trabalhar, comprar e usar serviços"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "A cidade junta muita coisa: casas para morar, lugares para trabalhar, lojas para comprar e serviços como escola e hospital.",
-            "variants": [
-              {
-                "question": "Qual é uma função de uma cidade?",
-                "options": [
-                  {
-                    "text": "Só abrigar animais",
-                    "misconceptionCode": "cidade-separada-natureza"
-                  },
-                  {
-                    "text": "Oferecer comércio e serviços"
-                  },
-                  {
-                    "text": "Só produzir alimentos",
-                    "misconceptionCode": "campo-independente"
-                  },
-                  {
-                    "text": "Nenhuma",
-                    "misconceptionCode": "so-poluicao"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Uma cidade serve para:",
-                "options": [
-                  {
-                    "text": "Morar, trabalhar, comprar e usar serviços"
-                  },
-                  {
-                    "text": "Só para poluir",
-                    "misconceptionCode": "so-poluicao"
-                  },
-                  {
-                    "text": "Só para plantar",
-                    "misconceptionCode": "campo-independente"
-                  },
-                  {
-                    "text": "Só para morar",
-                    "misconceptionCode": "cidade-separada-natureza"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Quando uma cidade cresce sem planejamento, pode acontecer:",
-            "options": [
-              {
-                "text": "Trânsito, falta de moradia e problemas ambientais"
-              },
-              {
-                "text": "Nada muda",
-                "misconceptionCode": "mudanca-sem-causa"
-              },
-              {
-                "text": "Só coisas boas",
-                "misconceptionCode": "cidade-separada-natureza"
-              },
-              {
-                "text": "Só a poluição do ar e mais nada",
-                "misconceptionCode": "so-poluicao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Sem planejamento, falta rua, casa e esgoto para todos. Aparecem trânsito, falta de moradia e problemas na natureza.",
-            "variants": [
-              {
-                "question": "Uma consequência do crescimento sem planejamento é:",
-                "options": [
-                  {
-                    "text": "Mais florestas no centro",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  },
-                  {
-                    "text": "Menos gente",
-                    "misconceptionCode": "cidade-separada-natureza"
-                  },
-                  {
-                    "text": "Bairros sem saneamento"
-                  },
-                  {
-                    "text": "Nenhuma",
-                    "misconceptionCode": "so-poluicao"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Quando uma cidade cresce sem planejamento, pode acontecer:",
-                "options": [
-                  {
-                    "text": "Só a poluição do ar e mais nada",
-                    "misconceptionCode": "so-poluicao"
-                  },
-                  {
-                    "text": "Trânsito, falta de moradia e problemas ambientais"
-                  },
-                  {
-                    "text": "Só coisas boas",
-                    "misconceptionCode": "cidade-separada-natureza"
-                  },
-                  {
-                    "text": "Nada muda",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Onde costuma ser produzida a maior parte dos alimentos que a cidade consome?",
-            "options": [
-              {
-                "text": "No centro da cidade",
-                "misconceptionCode": "campo-independente"
-              },
-              {
-                "text": "Nos supermercados",
-                "misconceptionCode": "campo-independente"
-              },
-              {
-                "text": "No campo, na zona rural"
-              },
-              {
-                "text": "Nas fábricas de roupa",
-                "misconceptionCode": "mudanca-sem-causa"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "O mercado só vende. O arroz, a fruta e o leite foram plantados e criados no campo, na zona rural.",
-            "variants": [
-              {
-                "question": "De onde vem o arroz que se compra no mercado?",
-                "options": [
-                  {
-                    "text": "De plantações na zona rural"
-                  },
-                  {
-                    "text": "Do próprio mercado",
-                    "misconceptionCode": "campo-independente"
-                  },
-                  {
-                    "text": "De prédios da cidade",
-                    "misconceptionCode": "campo-independente"
-                  },
-                  {
-                    "text": "Da fábrica de embalagens",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Onde costuma ser produzida a maior parte dos alimentos que a cidade consome?",
-                "options": [
-                  {
-                    "text": "Nas fábricas de roupa",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  },
-                  {
-                    "text": "Nos supermercados",
-                    "misconceptionCode": "campo-independente"
-                  },
-                  {
-                    "text": "No centro da cidade",
-                    "misconceptionCode": "campo-independente"
-                  },
-                  {
-                    "text": "No campo, na zona rural"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          }
-        ]
+       "code": "transformacao",
+       "description": "Cita duas transformações, como retirar vegetação, asfaltar ou canalizar rios"
       },
       {
-        "id": "PK2-EF06GE07-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Exemplo guiado: o rio que virou avenida",
-        "prompt": "Imagine um rio que corria entre árvores. A cidade cresceu ao redor, e o rio foi canalizado e coberto por uma avenida. Vamos analisar juntos.",
-        "estMinutes": 4,
-        "audioScript": "Imagine um rio que corria entre árvores. A cidade cresceu ao redor, e o rio foi canalizado e coberto por uma avenida. Vamos analisar juntos. Pergunta 1. O que aconteceu com a vegetação nas margens do rio? A: Foi retirada para construir ruas e casas; B: Cresceu mais; C: Mudou de lugar sozinha; D: Nada aconteceu com ela. Pergunta 2. Com o asfalto e o concreto, o que acontece com a água da chuva? A: Ela infiltra mais no solo; B: Ela desaparece; C: Ela escorre mais rápido e infiltra menos no solo; D: Nada muda. Pergunta 3. Essa mudança no rio foi causada por: A: A própria natureza, sem relação com as pessoas; B: Ação humana, com o crescimento da cidade; C: A poluição do ar e mais nada; D: O campo.",
-        "questions": [
-          {
-            "question": "O que aconteceu com a vegetação nas margens do rio?",
-            "options": [
-              {
-                "text": "Foi retirada para construir ruas e casas"
-              },
-              {
-                "text": "Cresceu mais",
-                "misconceptionCode": "mudanca-sem-causa"
-              },
-              {
-                "text": "Mudou de lugar sozinha",
-                "misconceptionCode": "mudanca-sem-causa"
-              },
-              {
-                "text": "Nada aconteceu com ela",
-                "misconceptionCode": "cidade-separada-natureza"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Para construir ruas e casas, as árvores da beira do rio foram cortadas. Essa mata da margem se chama mata ciliar.",
-            "variants": [
-              {
-                "question": "Por que muitas margens de rios urbanos não têm mais árvores?",
-                "options": [
-                  {
-                    "text": "Porque as árvores não gostam de rio",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  },
-                  {
-                    "text": "Porque a chuva levou todas",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  },
-                  {
-                    "text": "Porque foram ocupadas por construções"
-                  },
-                  {
-                    "text": "Porque o rio mudou de cor",
-                    "misconceptionCode": "cidade-separada-natureza"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "O que aconteceu com a vegetação nas margens do rio?",
-                "options": [
-                  {
-                    "text": "Nada aconteceu com ela",
-                    "misconceptionCode": "cidade-separada-natureza"
-                  },
-                  {
-                    "text": "Foi retirada para construir ruas e casas"
-                  },
-                  {
-                    "text": "Mudou de lugar sozinha",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  },
-                  {
-                    "text": "Cresceu mais",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Com o asfalto e o concreto, o que acontece com a água da chuva?",
-            "options": [
-              {
-                "text": "Ela infiltra mais no solo",
-                "misconceptionCode": "mudanca-sem-causa"
-              },
-              {
-                "text": "Ela desaparece",
-                "misconceptionCode": "cidade-separada-natureza"
-              },
-              {
-                "text": "Ela escorre mais rápido e infiltra menos no solo"
-              },
-              {
-                "text": "Nada muda",
-                "misconceptionCode": "mudanca-sem-causa"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "A terra bebe a chuva como uma esponja, mas o asfalto não. A água escorre rápido para as ruas e os rios.",
-            "variants": [
-              {
-                "question": "Por que as ruas de uma cidade muito asfaltada alagam com chuva forte?",
-                "options": [
-                  {
-                    "text": "Porque a água não consegue entrar no solo"
-                  },
-                  {
-                    "text": "Porque chove mais na cidade",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  },
-                  {
-                    "text": "Porque o asfalto produz água",
-                    "misconceptionCode": "cidade-separada-natureza"
-                  },
-                  {
-                    "text": "Porque não há rios",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Com o asfalto e o concreto, o que acontece com a água da chuva?",
-                "options": [
-                  {
-                    "text": "Nada muda",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  },
-                  {
-                    "text": "Ela desaparece",
-                    "misconceptionCode": "cidade-separada-natureza"
-                  },
-                  {
-                    "text": "Ela infiltra mais no solo",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  },
-                  {
-                    "text": "Ela escorre mais rápido e infiltra menos no solo"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Essa mudança no rio foi causada por:",
-            "options": [
-              {
-                "text": "A própria natureza, sem relação com as pessoas",
-                "misconceptionCode": "mudanca-sem-causa"
-              },
-              {
-                "text": "Ação humana, com o crescimento da cidade"
-              },
-              {
-                "text": "A poluição do ar e mais nada",
-                "misconceptionCode": "so-poluicao"
-              },
-              {
-                "text": "O campo",
-                "misconceptionCode": "campo-independente"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Foram as pessoas, construindo a cidade, que mudaram o rio. É uma mudança causada pela ação humana.",
-            "variants": [
-              {
-                "question": "Quem transformou o rio em canal sob a avenida?",
-                "options": [
-                  {
-                    "text": "O próprio rio",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  },
-                  {
-                    "text": "Os animais",
-                    "misconceptionCode": "so-poluicao"
-                  },
-                  {
-                    "text": "Ninguém, aconteceu sozinho",
-                    "misconceptionCode": "campo-independente"
-                  },
-                  {
-                    "text": "As pessoas, com obras para a cidade crescer"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Essa mudança no rio foi causada por:",
-                "options": [
-                  {
-                    "text": "O campo",
-                    "misconceptionCode": "campo-independente"
-                  },
-                  {
-                    "text": "A poluição do ar e mais nada",
-                    "misconceptionCode": "so-poluicao"
-                  },
-                  {
-                    "text": "Ação humana, com o crescimento da cidade"
-                  },
-                  {
-                    "text": "A própria natureza, sem relação com as pessoas",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          }
-        ]
+       "code": "dependencia",
+       "description": "Mostra que a cidade depende da natureza ou do campo (água, alimentos)"
       },
       {
-        "id": "PK2-EF06GE07-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar: cidade e natureza",
-        "prompt": "A cidade transforma a natureza e também depende dela.",
-        "estMinutes": 5,
-        "audioScript": "A cidade transforma a natureza e também depende dela. Pergunta 1. De onde vem a água que chega às torneiras da cidade? A: Do próprio cano, que produz água; B: Do supermercado; C: De rios, represas ou poços, muitas vezes fora da cidade; D: Ela aparece sozinha. Pergunta 2. Por que as cidades dependem do campo? A: Não dependem, produzem tudo sozinhas; B: Porque recebem de lá alimentos e matérias-primas; C: Só por causa da poluição; D: Porque o campo fica dentro da cidade. Pergunta 3. Ilha de calor é quando o centro da cidade fica mais quente que os arredores. Uma causa é: A: Mais árvores no centro; B: A cidade não ter relação com a natureza; C: A produção de alimentos no campo; D: Muito concreto e asfalto e pouca vegetação. Pergunta 4. Além da poluição, a cidade muda a natureza quando: A: Retira a vegetação, aterra áreas e muda o curso dos rios; B: A cidade só causa poluição, nada mais; C: Nunca muda a natureza; D: A natureza muda sozinha.",
-        "questions": [
-          {
-            "question": "De onde vem a água que chega às torneiras da cidade?",
-            "options": [
-              {
-                "text": "Do próprio cano, que produz água",
-                "misconceptionCode": "cidade-separada-natureza"
-              },
-              {
-                "text": "Do supermercado",
-                "misconceptionCode": "campo-independente"
-              },
-              {
-                "text": "De rios, represas ou poços, muitas vezes fora da cidade"
-              },
-              {
-                "text": "Ela aparece sozinha",
-                "misconceptionCode": "mudanca-sem-causa"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "A água da torneira vem de rios, represas ou poços, muitas vezes longe da cidade, e passa por limpeza antes de chegar.",
-            "variants": [
-              {
-                "question": "Uma represa que abastece a cidade mostra que:",
-                "options": [
-                  {
-                    "text": "A cidade depende da natureza"
-                  },
-                  {
-                    "text": "A cidade não precisa de natureza",
-                    "misconceptionCode": "cidade-separada-natureza"
-                  },
-                  {
-                    "text": "A água nasce no cano",
-                    "misconceptionCode": "campo-independente"
-                  },
-                  {
-                    "text": "A represa é só para lazer",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "De onde vem a água que chega às torneiras da cidade?",
-                "options": [
-                  {
-                    "text": "Ela aparece sozinha",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  },
-                  {
-                    "text": "Do supermercado",
-                    "misconceptionCode": "campo-independente"
-                  },
-                  {
-                    "text": "Do próprio cano, que produz água",
-                    "misconceptionCode": "cidade-separada-natureza"
-                  },
-                  {
-                    "text": "De rios, represas ou poços, muitas vezes fora da cidade"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Por que as cidades dependem do campo?",
-            "options": [
-              {
-                "text": "Não dependem, produzem tudo sozinhas",
-                "misconceptionCode": "campo-independente"
-              },
-              {
-                "text": "Porque recebem de lá alimentos e matérias-primas"
-              },
-              {
-                "text": "Só por causa da poluição",
-                "misconceptionCode": "so-poluicao"
-              },
-              {
-                "text": "Porque o campo fica dentro da cidade",
-                "misconceptionCode": "cidade-separada-natureza"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "A comida, o algodão da roupa e a madeira dos móveis vêm do campo. Sem o campo, a cidade não teria isso.",
-            "variants": [
-              {
-                "question": "O algodão da sua camiseta veio:",
-                "options": [
-                  {
-                    "text": "Da loja",
-                    "misconceptionCode": "campo-independente"
-                  },
-                  {
-                    "text": "Do shopping",
-                    "misconceptionCode": "so-poluicao"
-                  },
-                  {
-                    "text": "Do asfalto",
-                    "misconceptionCode": "cidade-separada-natureza"
-                  },
-                  {
-                    "text": "De uma plantação no campo"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Por que as cidades dependem do campo?",
-                "options": [
-                  {
-                    "text": "Porque o campo fica dentro da cidade",
-                    "misconceptionCode": "cidade-separada-natureza"
-                  },
-                  {
-                    "text": "Só por causa da poluição",
-                    "misconceptionCode": "so-poluicao"
-                  },
-                  {
-                    "text": "Porque recebem de lá alimentos e matérias-primas"
-                  },
-                  {
-                    "text": "Não dependem, produzem tudo sozinhas",
-                    "misconceptionCode": "campo-independente"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Ilha de calor é quando o centro da cidade fica mais quente que os arredores. Uma causa é:",
-            "options": [
-              {
-                "text": "Mais árvores no centro",
-                "misconceptionCode": "mudanca-sem-causa"
-              },
-              {
-                "text": "A cidade não ter relação com a natureza",
-                "misconceptionCode": "cidade-separada-natureza"
-              },
-              {
-                "text": "A produção de alimentos no campo",
-                "misconceptionCode": "campo-independente"
-              },
-              {
-                "text": "Muito concreto e asfalto e pouca vegetação"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Asfalto e concreto esquentam no sol, como uma panela. Sem árvores para fazer sombra, o centro fica mais quente.",
-            "variants": [
-              {
-                "question": "Plantar árvores nas ruas ajuda a:",
-                "options": [
-                  {
-                    "text": "Aumentar o calor",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  },
-                  {
-                    "text": "Diminuir o calor na cidade"
-                  },
-                  {
-                    "text": "Alagar as ruas",
-                    "misconceptionCode": "cidade-separada-natureza"
-                  },
-                  {
-                    "text": "Nada",
-                    "misconceptionCode": "campo-independente"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Ilha de calor é quando o centro da cidade fica mais quente que os arredores. Uma causa é:",
-                "options": [
-                  {
-                    "text": "Muito concreto e asfalto e pouca vegetação"
-                  },
-                  {
-                    "text": "A produção de alimentos no campo",
-                    "misconceptionCode": "campo-independente"
-                  },
-                  {
-                    "text": "A cidade não ter relação com a natureza",
-                    "misconceptionCode": "cidade-separada-natureza"
-                  },
-                  {
-                    "text": "Mais árvores no centro",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Além da poluição, a cidade muda a natureza quando:",
-            "options": [
-              {
-                "text": "Retira a vegetação, aterra áreas e muda o curso dos rios"
-              },
-              {
-                "text": "A cidade só causa poluição, nada mais",
-                "misconceptionCode": "so-poluicao"
-              },
-              {
-                "text": "Nunca muda a natureza",
-                "misconceptionCode": "cidade-separada-natureza"
-              },
-              {
-                "text": "A natureza muda sozinha",
-                "misconceptionCode": "mudanca-sem-causa"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "A cidade também muda a natureza quando corta árvores, aterra mangues e muda o caminho dos rios.",
-            "variants": [
-              {
-                "question": "Aterrar um manguezal para construir um porto é um exemplo de:",
-                "options": [
-                  {
-                    "text": "Poluição do ar",
-                    "misconceptionCode": "so-poluicao"
-                  },
-                  {
-                    "text": "Algo que não muda a natureza",
-                    "misconceptionCode": "cidade-separada-natureza"
-                  },
-                  {
-                    "text": "Transformação da natureza pela cidade"
-                  },
-                  {
-                    "text": "Produção no campo",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Além da poluição, a cidade muda a natureza quando:",
-                "options": [
-                  {
-                    "text": "A natureza muda sozinha",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  },
-                  {
-                    "text": "Retira a vegetação, aterra áreas e muda o curso dos rios"
-                  },
-                  {
-                    "text": "Nunca muda a natureza",
-                    "misconceptionCode": "cidade-separada-natureza"
-                  },
-                  {
-                    "text": "A cidade só causa poluição, nada mais",
-                    "misconceptionCode": "so-poluicao"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF06GE07-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar: sua cidade e a natureza",
-        "prompt": "Agora pense na sua cidade.",
-        "estMinutes": 4,
-        "audioScript": "Agora pense na sua cidade. Pergunta 1. O que a cidade pode fazer para diminuir os alagamentos? A: Asfaltar ainda mais; B: Criar áreas verdes e de solo permeável, como parques; C: Nada, alagamento é natural; D: Diminuir a comida que vem do campo. Pergunta 2. Um bairro novo foi construído no lugar de uma mata. Uma consequência é: A: Mais mata no bairro; B: Nenhuma mudança na natureza; C: Só mais poluição do ar; D: Menos sombra e mais calor, além de animais sem abrigo. Pergunta 3. Por que proteger as nascentes de um rio interessa a quem mora na cidade? A: Porque a água da cidade depende delas; B: Não interessa, a cidade não usa natureza; C: Só interessa a quem mora no campo; D: Porque a poluição é o único problema.",
-        "questions": [
-          {
-            "question": "O que a cidade pode fazer para diminuir os alagamentos?",
-            "options": [
-              {
-                "text": "Asfaltar ainda mais",
-                "misconceptionCode": "mudanca-sem-causa"
-              },
-              {
-                "text": "Criar áreas verdes e de solo permeável, como parques"
-              },
-              {
-                "text": "Nada, alagamento é natural",
-                "misconceptionCode": "mudanca-sem-causa"
-              },
-              {
-                "text": "Diminuir a comida que vem do campo",
-                "misconceptionCode": "campo-independente"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Parques e áreas com terra e plantas funcionam como esponjas: bebem a chuva e evitam alagamentos.",
-            "variants": [
-              {
-                "question": "Calçadas com grama ou blocos com furos ajudam a:",
-                "options": [
-                  {
-                    "text": "Esquentar a rua",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  },
-                  {
-                    "text": "Alagar mais",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  },
-                  {
-                    "text": "Nada",
-                    "misconceptionCode": "campo-independente"
-                  },
-                  {
-                    "text": "A água da chuva entrar no solo"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "O que a cidade pode fazer para diminuir os alagamentos?",
-                "options": [
-                  {
-                    "text": "Diminuir a comida que vem do campo",
-                    "misconceptionCode": "campo-independente"
-                  },
-                  {
-                    "text": "Nada, alagamento é natural",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  },
-                  {
-                    "text": "Criar áreas verdes e de solo permeável, como parques"
-                  },
-                  {
-                    "text": "Asfaltar ainda mais",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Um bairro novo foi construído no lugar de uma mata. Uma consequência é:",
-            "options": [
-              {
-                "text": "Mais mata no bairro",
-                "misconceptionCode": "mudanca-sem-causa"
-              },
-              {
-                "text": "Nenhuma mudança na natureza",
-                "misconceptionCode": "cidade-separada-natureza"
-              },
-              {
-                "text": "Só mais poluição do ar",
-                "misconceptionCode": "so-poluicao"
-              },
-              {
-                "text": "Menos sombra e mais calor, além de animais sem abrigo"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Sem as árvores, some a sombra e o lugar esquenta. E os animais que moravam na mata ficam sem casa.",
-            "variants": [
-              {
-                "question": "Quando uma mata é derrubada para fazer casas, os animais que viviam ali:",
-                "options": [
-                  {
-                    "text": "Ficam melhor",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  },
-                  {
-                    "text": "Perdem o lugar onde viviam"
-                  },
-                  {
-                    "text": "Não são afetados",
-                    "misconceptionCode": "cidade-separada-natureza"
-                  },
-                  {
-                    "text": "Vão para o supermercado",
-                    "misconceptionCode": "so-poluicao"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Um bairro novo foi construído no lugar de uma mata. Uma consequência é:",
-                "options": [
-                  {
-                    "text": "Menos sombra e mais calor, além de animais sem abrigo"
-                  },
-                  {
-                    "text": "Só mais poluição do ar",
-                    "misconceptionCode": "so-poluicao"
-                  },
-                  {
-                    "text": "Nenhuma mudança na natureza",
-                    "misconceptionCode": "cidade-separada-natureza"
-                  },
-                  {
-                    "text": "Mais mata no bairro",
-                    "misconceptionCode": "mudanca-sem-causa"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Por que proteger as nascentes de um rio interessa a quem mora na cidade?",
-            "options": [
-              {
-                "text": "Porque a água da cidade depende delas"
-              },
-              {
-                "text": "Não interessa, a cidade não usa natureza",
-                "misconceptionCode": "cidade-separada-natureza"
-              },
-              {
-                "text": "Só interessa a quem mora no campo",
-                "misconceptionCode": "campo-independente"
-              },
-              {
-                "text": "Porque a poluição é o único problema",
-                "misconceptionCode": "so-poluicao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "A água da cidade começa nas nascentes. Se elas secarem, falta água na torneira de todo mundo.",
-            "variants": [
-              {
-                "question": "Se as nascentes que abastecem a represa secarem, a cidade:",
-                "options": [
-                  {
-                    "text": "Não sente nada",
-                    "misconceptionCode": "cidade-separada-natureza"
-                  },
-                  {
-                    "text": "Produz água no cano",
-                    "misconceptionCode": "campo-independente"
-                  },
-                  {
-                    "text": "Pode ficar sem água"
-                  },
-                  {
-                    "text": "Ganha mais água",
-                    "misconceptionCode": "so-poluicao"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Por que proteger as nascentes de um rio interessa a quem mora na cidade?",
-                "options": [
-                  {
-                    "text": "Porque a poluição é o único problema",
-                    "misconceptionCode": "so-poluicao"
-                  },
-                  {
-                    "text": "Porque a água da cidade depende delas"
-                  },
-                  {
-                    "text": "Só interessa a quem mora no campo",
-                    "misconceptionCode": "campo-independente"
-                  },
-                  {
-                    "text": "Não interessa, a cidade não usa natureza",
-                    "misconceptionCode": "cidade-separada-natureza"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF06GE07-A5",
-        "step": "explicar",
-        "type": "WRITTEN",
-        "allowSpoken": true,
-        "title": "Explicar: cidade e natureza",
-        "prompt": "Explique com as suas palavras duas formas pelas quais a cidade muda a natureza e uma forma pela qual a cidade depende da natureza.",
-        "estMinutes": 6,
-        "audioScript": "Explique com as suas palavras duas formas pelas quais a cidade muda a natureza e uma forma pela qual a cidade depende da natureza.",
-        "rubric": {
-          "type": "WRITTEN",
-          "criteria": [
-            {
-              "code": "transformacao",
-              "description": "Cita duas transformações, como retirar vegetação, asfaltar ou canalizar rios"
-            },
-            {
-              "code": "dependencia",
-              "description": "Mostra que a cidade depende da natureza ou do campo (água, alimentos)"
-            },
-            {
-              "code": "acao-humana",
-              "description": "Deixa claro que as mudanças são causadas pela ação humana"
-            }
-          ],
-          "exemploBoaResposta": "A cidade muda a natureza quando tira as árvores para construir casas e quando cobre o solo com asfalto, e aí a água da chuva não entra no chão. Mas a cidade depende da natureza: a água da torneira vem de rios e represas, e a comida vem do campo."
-        }
+       "code": "acao-humana",
+       "description": "Deixa claro que as mudanças são causadas pela ação humana"
       }
-    ],
-    "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED"
-  },
-  {
-    "skillCode": "EF06GE04",
-    "subjectCode": "GE",
-    "subjectName": "Geografia",
-    "gradeYear": 6,
-    "version": 3,
-    "title": "Trilha: Ciclo da água e bacias hidrográficas",
-    "tituloAluno": "O caminho da água: chuva, rios e bacias",
-    "activities": [
+     ],
+     "exemploBoaResposta": "A cidade muda a natureza quando tira as árvores para construir casas e quando cobre o solo com asfalto, e aí a água da chuva não entra no chão. Mas a cidade depende da natureza: a água da torneira vem de rios e represas, e a comida vem do campo."
+    }
+   }
+  ],
+  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+  "source": "SPEAKFLOW",
+  "status": "APPROVED"
+ },
+ {
+  "skillCode": "EF06GE04",
+  "subjectCode": "GE",
+  "subjectName": "Geografia",
+  "gradeYear": 6,
+  "version": 3,
+  "title": "Trilha: Ciclo da água e bacias hidrográficas",
+  "tituloAluno": "O caminho da água: chuva, rios e bacias",
+  "activities": [
+   {
+    "id": "PK2-EF06GE04-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: água limpa e poluída",
+    "prompt": "Vamos lembrar o que já sabemos sobre a água dos rios.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar o que já sabemos sobre a água dos rios. Pergunta 1. Uma água transparente pode estar poluída? A: Sim, pode ter micróbios ou produtos químicos invisíveis; B: Não, transparente é sempre limpa; C: Só se tiver lixo boiando; D: Não, rios se limpam sozinhos. Pergunta 2. O que acontece com o esgoto que chega a um rio sem tratamento? A: Ele evapora e some; B: Ele vira nuvem limpa; C: Ele polui a água e prejudica a vida no rio; D: Ele só afeta aquele ponto do rio. Pergunta 3. De onde vem a água que abastece as cidades? A: Ela é fabricada no cano; B: De rios, represas e águas subterrâneas; C: Das nuvens diretamente; D: De um único rio no mundo.",
+    "questions": [
+     {
+      "question": "Uma água transparente pode estar poluída?",
+      "options": [
+       {
+        "text": "Sim, pode ter micróbios ou produtos químicos invisíveis"
+       },
+       {
+        "text": "Não, transparente é sempre limpa",
+        "misconceptionCode": "nuvem-fumaca"
+       },
+       {
+        "text": "Só se tiver lixo boiando",
+        "misconceptionCode": "bacia-e-rio"
+       },
+       {
+        "text": "Não, rios se limpam sozinhos",
+        "misconceptionCode": "ciclo-linear"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Pode, sim! Micróbios e alguns produtos químicos são invisíveis. Água limpinha nem sempre é água boa.",
+      "variants": [
+       {
+        "question": "Por que a água do rio precisa ser tratada antes de chegar à torneira?",
+        "options": [
+         {
+          "text": "Porque ela é azul",
+          "misconceptionCode": "nuvem-fumaca"
+         },
+         {
+          "text": "Não precisa",
+          "misconceptionCode": "bacia-e-rio"
+         },
+         {
+          "text": "Porque pode ter micróbios e sujeira que não se veem"
+         },
+         {
+          "text": "Porque o rio é muito largo",
+          "misconceptionCode": "ciclo-linear"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Uma água transparente pode estar poluída?",
+        "options": [
+         {
+          "text": "Não, rios se limpam sozinhos",
+          "misconceptionCode": "ciclo-linear"
+         },
+         {
+          "text": "Sim, pode ter micróbios ou produtos químicos invisíveis"
+         },
+         {
+          "text": "Só se tiver lixo boiando",
+          "misconceptionCode": "bacia-e-rio"
+         },
+         {
+          "text": "Não, transparente é sempre limpa",
+          "misconceptionCode": "nuvem-fumaca"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O que acontece com o esgoto que chega a um rio sem tratamento?",
+      "options": [
+       {
+        "text": "Ele evapora e some",
+        "misconceptionCode": "ciclo-linear"
+       },
+       {
+        "text": "Ele vira nuvem limpa",
+        "misconceptionCode": "nuvem-fumaca"
+       },
+       {
+        "text": "Ele polui a água e prejudica a vida no rio"
+       },
+       {
+        "text": "Ele só afeta aquele ponto do rio",
+        "misconceptionCode": "bacia-e-rio"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O esgoto suja a água e faz mal aos peixes e às plantas. E a sujeira vai descendo com o rio.",
+      "variants": [
+       {
+        "question": "A poluição jogada num rio pequeno pode chegar:",
+        "options": [
+         {
+          "text": "Ao rio maior em que ele deságua"
+         },
+         {
+          "text": "A lugar nenhum",
+          "misconceptionCode": "ciclo-linear"
+         },
+         {
+          "text": "Só à nascente",
+          "misconceptionCode": "nuvem-fumaca"
+         },
+         {
+          "text": "Às nuvens limpas",
+          "misconceptionCode": "bacia-e-rio"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que acontece com o esgoto que chega a um rio sem tratamento?",
+        "options": [
+         {
+          "text": "Ele só afeta aquele ponto do rio",
+          "misconceptionCode": "bacia-e-rio"
+         },
+         {
+          "text": "Ele vira nuvem limpa",
+          "misconceptionCode": "nuvem-fumaca"
+         },
+         {
+          "text": "Ele evapora e some",
+          "misconceptionCode": "ciclo-linear"
+         },
+         {
+          "text": "Ele polui a água e prejudica a vida no rio"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "De onde vem a água que abastece as cidades?",
+      "options": [
+       {
+        "text": "Ela é fabricada no cano",
+        "misconceptionCode": "ciclo-linear"
+       },
+       {
+        "text": "De rios, represas e águas subterrâneas"
+       },
+       {
+        "text": "Das nuvens diretamente",
+        "misconceptionCode": "nuvem-fumaca"
+       },
+       {
+        "text": "De um único rio no mundo",
+        "misconceptionCode": "bacia-e-rio"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A água vem de rios, represas e de baixo da terra. Antes de chegar às casas, ela é tratada.",
+      "variants": [
+       {
+        "question": "Um poço artesiano retira água:",
+        "options": [
+         {
+          "text": "Das nuvens",
+          "misconceptionCode": "ciclo-linear"
+         },
+         {
+          "text": "Do asfalto",
+          "misconceptionCode": "nuvem-fumaca"
+         },
+         {
+          "text": "Do mar",
+          "misconceptionCode": "bacia-e-rio"
+         },
+         {
+          "text": "Do subsolo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "De onde vem a água que abastece as cidades?",
+        "options": [
+         {
+          "text": "De um único rio no mundo",
+          "misconceptionCode": "bacia-e-rio"
+         },
+         {
+          "text": "Das nuvens diretamente",
+          "misconceptionCode": "nuvem-fumaca"
+         },
+         {
+          "text": "De rios, represas e águas subterrâneas"
+         },
+         {
+          "text": "Ela é fabricada no cano",
+          "misconceptionCode": "ciclo-linear"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06GE04-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o caminho da água",
+    "prompt": "Vamos seguir juntos o caminho de uma gota de água no ciclo da água.",
+    "estMinutes": 4,
+    "audioScript": "Vamos seguir juntos o caminho de uma gota de água no ciclo da água. Pergunta 1. O Sol aquece a água do mar e dos rios. O que acontece? A: A água desaparece para sempre; B: A água vira fumaça; C: A água evapora e sobe como vapor; D: A água entra no solo. Pergunta 2. No alto, o vapor esfria. O que se forma? A: Fumaça; B: Nuvens, com gotinhas de água; C: Rios; D: Mais vapor invisível. Pergunta 3. Depois que chove, o que acontece com a água? A: Ela vai para o mar e fica lá para sempre; B: Toda ela infiltra, mesmo no asfalto; C: Ela vira nuvem na hora; D: Parte infiltra no solo, parte escorre para rios e depois evapora de novo.",
+    "questions": [
+     {
+      "question": "O Sol aquece a água do mar e dos rios. O que acontece?",
+      "options": [
+       {
+        "text": "A água desaparece para sempre",
+        "misconceptionCode": "ciclo-linear"
+       },
+       {
+        "text": "A água vira fumaça",
+        "misconceptionCode": "nuvem-fumaca"
+       },
+       {
+        "text": "A água evapora e sobe como vapor"
+       },
+       {
+        "text": "A água entra no solo",
+        "misconceptionCode": "urbano-infiltra"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Igual à água da panela no fogo: com o calor, ela vira vapor e sobe. Isso é a evaporação.",
+      "variants": [
+       {
+        "question": "A roupa molhada no varal seca porque:",
+        "options": [
+         {
+          "text": "A água evapora"
+         },
+         {
+          "text": "A água some para sempre",
+          "misconceptionCode": "ciclo-linear"
+         },
+         {
+          "text": "A água vira fumaça",
+          "misconceptionCode": "nuvem-fumaca"
+         },
+         {
+          "text": "O pano bebe a água",
+          "misconceptionCode": "urbano-infiltra"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O Sol aquece a água do mar e dos rios. O que acontece?",
+        "options": [
+         {
+          "text": "A água entra no solo",
+          "misconceptionCode": "urbano-infiltra"
+         },
+         {
+          "text": "A água vira fumaça",
+          "misconceptionCode": "nuvem-fumaca"
+         },
+         {
+          "text": "A água desaparece para sempre",
+          "misconceptionCode": "ciclo-linear"
+         },
+         {
+          "text": "A água evapora e sobe como vapor"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "No alto, o vapor esfria. O que se forma?",
+      "options": [
+       {
+        "text": "Fumaça",
+        "misconceptionCode": "nuvem-fumaca"
+       },
+       {
+        "text": "Nuvens, com gotinhas de água"
+       },
+       {
+        "text": "Rios",
+        "misconceptionCode": "bacia-e-rio"
+       },
+       {
+        "text": "Mais vapor invisível",
+        "misconceptionCode": "nuvem-fumaca"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Lá em cima é frio. O vapor vira gotinhas de água, como no espelho depois do banho, e as gotinhas formam as nuvens.",
+      "variants": [
+       {
+        "question": "As gotinhas que aparecem do lado de fora de um copo gelado são parecidas com:",
+        "options": [
+         {
+          "text": "Fumaça",
+          "misconceptionCode": "nuvem-fumaca"
+         },
+         {
+          "text": "Chuva de pedra",
+          "misconceptionCode": "bacia-e-rio"
+         },
+         {
+          "text": "Um rio",
+          "misconceptionCode": "nuvem-fumaca"
+         },
+         {
+          "text": "A formação das nuvens"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "No alto, o vapor esfria. O que se forma?",
+        "options": [
+         {
+          "text": "Mais vapor invisível",
+          "misconceptionCode": "nuvem-fumaca"
+         },
+         {
+          "text": "Rios",
+          "misconceptionCode": "bacia-e-rio"
+         },
+         {
+          "text": "Nuvens, com gotinhas de água"
+         },
+         {
+          "text": "Fumaça",
+          "misconceptionCode": "nuvem-fumaca"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Depois que chove, o que acontece com a água?",
+      "options": [
+       {
+        "text": "Ela vai para o mar e fica lá para sempre",
+        "misconceptionCode": "ciclo-linear"
+       },
+       {
+        "text": "Toda ela infiltra, mesmo no asfalto",
+        "misconceptionCode": "urbano-infiltra"
+       },
+       {
+        "text": "Ela vira nuvem na hora",
+        "misconceptionCode": "nuvem-fumaca"
+       },
+       {
+        "text": "Parte infiltra no solo, parte escorre para rios e depois evapora de novo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Uma parte entra na terra, outra escorre para os rios, e depois o Sol esquenta tudo e ela sobe de novo. É um ciclo sem fim.",
+      "variants": [
+       {
+        "question": "Por que se diz que a água faz um ciclo?",
+        "options": [
+         {
+          "text": "Porque ela só cai uma vez",
+          "misconceptionCode": "ciclo-linear"
+         },
+         {
+          "text": "Porque ela volta a evaporar e chover de novo"
+         },
+         {
+          "text": "Porque ela some no mar",
+          "misconceptionCode": "urbano-infiltra"
+         },
+         {
+          "text": "Porque ela fica nas nuvens",
+          "misconceptionCode": "nuvem-fumaca"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Depois que chove, o que acontece com a água?",
+        "options": [
+         {
+          "text": "Parte infiltra no solo, parte escorre para rios e depois evapora de novo"
+         },
+         {
+          "text": "Ela vira nuvem na hora",
+          "misconceptionCode": "nuvem-fumaca"
+         },
+         {
+          "text": "Toda ela infiltra, mesmo no asfalto",
+          "misconceptionCode": "urbano-infiltra"
+         },
+         {
+          "text": "Ela vai para o mar e fica lá para sempre",
+          "misconceptionCode": "ciclo-linear"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06GE04-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: cidade, campo e bacias",
+    "prompt": "Agora compare a chuva na cidade e no campo, e conheça a bacia hidrográfica.",
+    "estMinutes": 5,
+    "audioScript": "Agora compare a chuva na cidade e no campo, e conheça a bacia hidrográfica. Pergunta 1. Onde a chuva infiltra mais no solo? A: Numa avenida asfaltada; B: Numa área com mata e solo descoberto, no campo; C: Num estacionamento de concreto; D: Igual em qualquer lugar. Pergunta 2. O que é uma bacia hidrográfica? A: Um rio só; B: Uma bacia de lavar roupa; C: Só a foz do rio; D: A área de terra drenada por um rio principal e seus afluentes. Pergunta 3. Onde nasce um rio? A: Na nascente; B: Na foz; C: No afluente; D: Nas nuvens, diretamente. Pergunta 4. Um afluente é: A: O rio principal; B: A nuvem que forma o rio; C: Um rio que deságua em outro rio maior; D: O lugar onde o rio nasce.",
+    "questions": [
+     {
+      "question": "Onde a chuva infiltra mais no solo?",
+      "options": [
+       {
+        "text": "Numa avenida asfaltada",
+        "misconceptionCode": "urbano-infiltra"
+       },
+       {
+        "text": "Numa área com mata e solo descoberto, no campo"
+       },
+       {
+        "text": "Num estacionamento de concreto",
+        "misconceptionCode": "urbano-infiltra"
+       },
+       {
+        "text": "Igual em qualquer lugar",
+        "misconceptionCode": "urbano-infiltra"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Onde tem terra e plantas, a chuva entra no chão. No asfalto, ela não consegue entrar.",
+      "variants": [
+       {
+        "question": "Por que a chuva escorre mais na cidade do que no campo?",
+        "options": [
+         {
+          "text": "Porque chove mais na cidade",
+          "misconceptionCode": "urbano-infiltra"
+         },
+         {
+          "text": "Porque o campo não tem solo",
+          "misconceptionCode": "urbano-infiltra"
+         },
+         {
+          "text": "Porque a cidade é mais alta",
+          "misconceptionCode": "urbano-infiltra"
+         },
+         {
+          "text": "Porque o solo está coberto por asfalto e concreto"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Onde a chuva infiltra mais no solo?",
+        "options": [
+         {
+          "text": "Igual em qualquer lugar",
+          "misconceptionCode": "urbano-infiltra"
+         },
+         {
+          "text": "Num estacionamento de concreto",
+          "misconceptionCode": "urbano-infiltra"
+         },
+         {
+          "text": "Numa área com mata e solo descoberto, no campo"
+         },
+         {
+          "text": "Numa avenida asfaltada",
+          "misconceptionCode": "urbano-infiltra"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O que é uma bacia hidrográfica?",
+      "options": [
+       {
+        "text": "Um rio só",
+        "misconceptionCode": "bacia-e-rio"
+       },
+       {
+        "text": "Uma bacia de lavar roupa",
+        "misconceptionCode": "nuvem-fumaca"
+       },
+       {
+        "text": "Só a foz do rio",
+        "misconceptionCode": "bacia-e-rio"
+       },
+       {
+        "text": "A área de terra drenada por um rio principal e seus afluentes"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Pense numa árvore deitada: o rio principal é o tronco, os rios menores são os galhos, e a terra em volta também faz parte.",
+      "variants": [
+       {
+        "question": "A bacia do rio São Francisco inclui:",
+        "options": [
+         {
+          "text": "Só o rio São Francisco",
+          "misconceptionCode": "bacia-e-rio"
+         },
+         {
+          "text": "O rio São Francisco, seus afluentes e as terras ao redor"
+         },
+         {
+          "text": "Só a foz no mar",
+          "misconceptionCode": "nuvem-fumaca"
+         },
+         {
+          "text": "Só a nascente",
+          "misconceptionCode": "bacia-e-rio"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que é uma bacia hidrográfica?",
+        "options": [
+         {
+          "text": "A área de terra drenada por um rio principal e seus afluentes"
+         },
+         {
+          "text": "Só a foz do rio",
+          "misconceptionCode": "bacia-e-rio"
+         },
+         {
+          "text": "Uma bacia de lavar roupa",
+          "misconceptionCode": "nuvem-fumaca"
+         },
+         {
+          "text": "Um rio só",
+          "misconceptionCode": "bacia-e-rio"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Onde nasce um rio?",
+      "options": [
+       {
+        "text": "Na nascente"
+       },
+       {
+        "text": "Na foz",
+        "misconceptionCode": "bacia-e-rio"
+       },
+       {
+        "text": "No afluente",
+        "misconceptionCode": "bacia-e-rio"
+       },
+       {
+        "text": "Nas nuvens, diretamente",
+        "misconceptionCode": "nuvem-fumaca"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O rio começa na nascente, onde a água sai da terra. Onde ele termina, no mar ou em outro rio, é a foz.",
+      "variants": [
+       {
+        "question": "O lugar onde um rio deságua no mar se chama:",
+        "options": [
+         {
+          "text": "Nascente",
+          "misconceptionCode": "bacia-e-rio"
+         },
+         {
+          "text": "Afluente",
+          "misconceptionCode": "bacia-e-rio"
+         },
+         {
+          "text": "Foz"
+         },
+         {
+          "text": "Margem",
+          "misconceptionCode": "nuvem-fumaca"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Onde nasce um rio?",
+        "options": [
+         {
+          "text": "Nas nuvens, diretamente",
+          "misconceptionCode": "nuvem-fumaca"
+         },
+         {
+          "text": "Na nascente"
+         },
+         {
+          "text": "No afluente",
+          "misconceptionCode": "bacia-e-rio"
+         },
+         {
+          "text": "Na foz",
+          "misconceptionCode": "bacia-e-rio"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um afluente é:",
+      "options": [
+       {
+        "text": "O rio principal",
+        "misconceptionCode": "bacia-e-rio"
+       },
+       {
+        "text": "A nuvem que forma o rio",
+        "misconceptionCode": "nuvem-fumaca"
+       },
+       {
+        "text": "Um rio que deságua em outro rio maior"
+       },
+       {
+        "text": "O lugar onde o rio nasce",
+        "misconceptionCode": "bacia-e-rio"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Afluente é um rio menor que deságua num rio maior, como um galho que se liga ao tronco da árvore.",
+      "variants": [
+       {
+        "question": "O rio Grande, que deságua no São Francisco, é para o São Francisco:",
+        "options": [
+         {
+          "text": "Um afluente"
+         },
+         {
+          "text": "A nascente",
+          "misconceptionCode": "bacia-e-rio"
+         },
+         {
+          "text": "A foz",
+          "misconceptionCode": "nuvem-fumaca"
+         },
+         {
+          "text": "Uma nuvem",
+          "misconceptionCode": "bacia-e-rio"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um afluente é:",
+        "options": [
+         {
+          "text": "O lugar onde o rio nasce",
+          "misconceptionCode": "bacia-e-rio"
+         },
+         {
+          "text": "A nuvem que forma o rio",
+          "misconceptionCode": "nuvem-fumaca"
+         },
+         {
+          "text": "O rio principal",
+          "misconceptionCode": "bacia-e-rio"
+         },
+         {
+          "text": "Um rio que deságua em outro rio maior"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06GE04-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: a água da sua região",
+    "prompt": "Pense na água da sua cidade e da sua região.",
+    "estMinutes": 4,
+    "audioScript": "Pense na água da sua cidade e da sua região. Pergunta 1. Se uma indústria poluir um afluente, o que pode acontecer com o rio principal? A: Nada, cada rio é separado; B: A poluição evapora antes; C: Vira nuvem limpa; D: A poluição pode chegar até ele. Pergunta 2. Por que proteger a mata perto das nascentes? A: Porque ela ajuda a água a infiltrar e mantém a nascente viva; B: Não faz diferença; C: Porque a mata produz nuvens de fumaça; D: Porque a nascente é só um rio pequeno sem importância. Pergunta 3. Por que muitas cidades fazem piscinões e parques que podem alagar? A: Porque na cidade a água infiltra tanto quanto no campo; B: Para a água ficar parada para sempre; C: Para guardar a água da chuva que não infiltra no asfalto; D: Para transformar a bacia num rio só.",
+    "questions": [
+     {
+      "question": "Se uma indústria poluir um afluente, o que pode acontecer com o rio principal?",
+      "options": [
+       {
+        "text": "Nada, cada rio é separado",
+        "misconceptionCode": "bacia-e-rio"
+       },
+       {
+        "text": "A poluição evapora antes",
+        "misconceptionCode": "ciclo-linear"
+       },
+       {
+        "text": "Vira nuvem limpa",
+        "misconceptionCode": "nuvem-fumaca"
+       },
+       {
+        "text": "A poluição pode chegar até ele"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Todos os rios da bacia estão ligados. A sujeira do rio menor desce e chega ao rio principal.",
+      "variants": [
+       {
+        "question": "Esgoto jogado num riacho perto da nascente pode afetar:",
+        "options": [
+         {
+          "text": "Só aquele ponto",
+          "misconceptionCode": "bacia-e-rio"
+         },
+         {
+          "text": "Toda a bacia rio abaixo"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "ciclo-linear"
+         },
+         {
+          "text": "Só as nuvens",
+          "misconceptionCode": "nuvem-fumaca"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Se uma indústria poluir um afluente, o que pode acontecer com o rio principal?",
+        "options": [
+         {
+          "text": "A poluição pode chegar até ele"
+         },
+         {
+          "text": "Vira nuvem limpa",
+          "misconceptionCode": "nuvem-fumaca"
+         },
+         {
+          "text": "A poluição evapora antes",
+          "misconceptionCode": "ciclo-linear"
+         },
+         {
+          "text": "Nada, cada rio é separado",
+          "misconceptionCode": "bacia-e-rio"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Por que proteger a mata perto das nascentes?",
+      "options": [
+       {
+        "text": "Porque ela ajuda a água a infiltrar e mantém a nascente viva"
+       },
+       {
+        "text": "Não faz diferença",
+        "misconceptionCode": "urbano-infiltra"
+       },
+       {
+        "text": "Porque a mata produz nuvens de fumaça",
+        "misconceptionCode": "nuvem-fumaca"
+       },
+       {
+        "text": "Porque a nascente é só um rio pequeno sem importância",
+        "misconceptionCode": "bacia-e-rio"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "As árvores ajudam a chuva a entrar na terra e \"alimentam\" a nascente. Sem mata, ela pode secar.",
+      "variants": [
+       {
+        "question": "Se a mata ao redor de uma nascente for derrubada, a nascente pode:",
+        "options": [
+         {
+          "text": "Ficar mais forte",
+          "misconceptionCode": "urbano-infiltra"
+         },
+         {
+          "text": "Virar foz",
+          "misconceptionCode": "nuvem-fumaca"
+         },
+         {
+          "text": "Secar"
+         },
+         {
+          "text": "Não mudar",
+          "misconceptionCode": "bacia-e-rio"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Por que proteger a mata perto das nascentes?",
+        "options": [
+         {
+          "text": "Porque a nascente é só um rio pequeno sem importância",
+          "misconceptionCode": "bacia-e-rio"
+         },
+         {
+          "text": "Porque ela ajuda a água a infiltrar e mantém a nascente viva"
+         },
+         {
+          "text": "Porque a mata produz nuvens de fumaça",
+          "misconceptionCode": "nuvem-fumaca"
+         },
+         {
+          "text": "Não faz diferença",
+          "misconceptionCode": "urbano-infiltra"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Por que muitas cidades fazem piscinões e parques que podem alagar?",
+      "options": [
+       {
+        "text": "Porque na cidade a água infiltra tanto quanto no campo",
+        "misconceptionCode": "urbano-infiltra"
+       },
+       {
+        "text": "Para a água ficar parada para sempre",
+        "misconceptionCode": "ciclo-linear"
+       },
+       {
+        "text": "Para guardar a água da chuva que não infiltra no asfalto"
+       },
+       {
+        "text": "Para transformar a bacia num rio só",
+        "misconceptionCode": "bacia-e-rio"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "No asfalto a chuva escorre rápido. Piscinões e parques guardam essa água para ela não invadir as ruas e as casas.",
+      "variants": [
+       {
+        "question": "Um parque que alaga de propósito na chuva forte serve para:",
+        "options": [
+         {
+          "text": "Segurar a água e evitar enchente nas ruas"
+         },
+         {
+          "text": "Fazer a água sumir",
+          "misconceptionCode": "urbano-infiltra"
+         },
+         {
+          "text": "Criar nuvens",
+          "misconceptionCode": "ciclo-linear"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "bacia-e-rio"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Por que muitas cidades fazem piscinões e parques que podem alagar?",
+        "options": [
+         {
+          "text": "Para transformar a bacia num rio só",
+          "misconceptionCode": "bacia-e-rio"
+         },
+         {
+          "text": "Para a água ficar parada para sempre",
+          "misconceptionCode": "ciclo-linear"
+         },
+         {
+          "text": "Porque na cidade a água infiltra tanto quanto no campo",
+          "misconceptionCode": "urbano-infiltra"
+         },
+         {
+          "text": "Para guardar a água da chuva que não infiltra no asfalto"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06GE04-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: o ciclo e a bacia",
+    "prompt": "Explique com as suas palavras o caminho da água no ciclo da água e por que a chuva escorre mais na cidade do que no campo.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras o caminho da água no ciclo da água e por que a chuva escorre mais na cidade do que no campo.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
       {
-        "id": "PK2-EF06GE04-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar: água limpa e poluída",
-        "prompt": "Vamos lembrar o que já sabemos sobre a água dos rios.",
-        "estMinutes": 4,
-        "audioScript": "Vamos lembrar o que já sabemos sobre a água dos rios. Pergunta 1. Uma água transparente pode estar poluída? A: Sim, pode ter micróbios ou produtos químicos invisíveis; B: Não, transparente é sempre limpa; C: Só se tiver lixo boiando; D: Não, rios se limpam sozinhos. Pergunta 2. O que acontece com o esgoto que chega a um rio sem tratamento? A: Ele evapora e some; B: Ele vira nuvem limpa; C: Ele polui a água e prejudica a vida no rio; D: Ele só afeta aquele ponto do rio. Pergunta 3. De onde vem a água que abastece as cidades? A: Ela é fabricada no cano; B: De rios, represas e águas subterrâneas; C: Das nuvens diretamente; D: De um único rio no mundo.",
-        "questions": [
-          {
-            "question": "Uma água transparente pode estar poluída?",
-            "options": [
-              {
-                "text": "Sim, pode ter micróbios ou produtos químicos invisíveis"
-              },
-              {
-                "text": "Não, transparente é sempre limpa",
-                "misconceptionCode": "nuvem-fumaca"
-              },
-              {
-                "text": "Só se tiver lixo boiando",
-                "misconceptionCode": "bacia-e-rio"
-              },
-              {
-                "text": "Não, rios se limpam sozinhos",
-                "misconceptionCode": "ciclo-linear"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Pode, sim! Micróbios e alguns produtos químicos são invisíveis. Água limpinha nem sempre é água boa.",
-            "variants": [
-              {
-                "question": "Por que a água do rio precisa ser tratada antes de chegar à torneira?",
-                "options": [
-                  {
-                    "text": "Porque ela é azul",
-                    "misconceptionCode": "nuvem-fumaca"
-                  },
-                  {
-                    "text": "Não precisa",
-                    "misconceptionCode": "bacia-e-rio"
-                  },
-                  {
-                    "text": "Porque pode ter micróbios e sujeira que não se veem"
-                  },
-                  {
-                    "text": "Porque o rio é muito largo",
-                    "misconceptionCode": "ciclo-linear"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Uma água transparente pode estar poluída?",
-                "options": [
-                  {
-                    "text": "Não, rios se limpam sozinhos",
-                    "misconceptionCode": "ciclo-linear"
-                  },
-                  {
-                    "text": "Sim, pode ter micróbios ou produtos químicos invisíveis"
-                  },
-                  {
-                    "text": "Só se tiver lixo boiando",
-                    "misconceptionCode": "bacia-e-rio"
-                  },
-                  {
-                    "text": "Não, transparente é sempre limpa",
-                    "misconceptionCode": "nuvem-fumaca"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "O que acontece com o esgoto que chega a um rio sem tratamento?",
-            "options": [
-              {
-                "text": "Ele evapora e some",
-                "misconceptionCode": "ciclo-linear"
-              },
-              {
-                "text": "Ele vira nuvem limpa",
-                "misconceptionCode": "nuvem-fumaca"
-              },
-              {
-                "text": "Ele polui a água e prejudica a vida no rio"
-              },
-              {
-                "text": "Ele só afeta aquele ponto do rio",
-                "misconceptionCode": "bacia-e-rio"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "O esgoto suja a água e faz mal aos peixes e às plantas. E a sujeira vai descendo com o rio.",
-            "variants": [
-              {
-                "question": "A poluição jogada num rio pequeno pode chegar:",
-                "options": [
-                  {
-                    "text": "Ao rio maior em que ele deságua"
-                  },
-                  {
-                    "text": "A lugar nenhum",
-                    "misconceptionCode": "ciclo-linear"
-                  },
-                  {
-                    "text": "Só à nascente",
-                    "misconceptionCode": "nuvem-fumaca"
-                  },
-                  {
-                    "text": "Às nuvens limpas",
-                    "misconceptionCode": "bacia-e-rio"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que acontece com o esgoto que chega a um rio sem tratamento?",
-                "options": [
-                  {
-                    "text": "Ele só afeta aquele ponto do rio",
-                    "misconceptionCode": "bacia-e-rio"
-                  },
-                  {
-                    "text": "Ele vira nuvem limpa",
-                    "misconceptionCode": "nuvem-fumaca"
-                  },
-                  {
-                    "text": "Ele evapora e some",
-                    "misconceptionCode": "ciclo-linear"
-                  },
-                  {
-                    "text": "Ele polui a água e prejudica a vida no rio"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "De onde vem a água que abastece as cidades?",
-            "options": [
-              {
-                "text": "Ela é fabricada no cano",
-                "misconceptionCode": "ciclo-linear"
-              },
-              {
-                "text": "De rios, represas e águas subterrâneas"
-              },
-              {
-                "text": "Das nuvens diretamente",
-                "misconceptionCode": "nuvem-fumaca"
-              },
-              {
-                "text": "De um único rio no mundo",
-                "misconceptionCode": "bacia-e-rio"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "A água vem de rios, represas e de baixo da terra. Antes de chegar às casas, ela é tratada.",
-            "variants": [
-              {
-                "question": "Um poço artesiano retira água:",
-                "options": [
-                  {
-                    "text": "Das nuvens",
-                    "misconceptionCode": "ciclo-linear"
-                  },
-                  {
-                    "text": "Do asfalto",
-                    "misconceptionCode": "nuvem-fumaca"
-                  },
-                  {
-                    "text": "Do mar",
-                    "misconceptionCode": "bacia-e-rio"
-                  },
-                  {
-                    "text": "Do subsolo"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "De onde vem a água que abastece as cidades?",
-                "options": [
-                  {
-                    "text": "De um único rio no mundo",
-                    "misconceptionCode": "bacia-e-rio"
-                  },
-                  {
-                    "text": "Das nuvens diretamente",
-                    "misconceptionCode": "nuvem-fumaca"
-                  },
-                  {
-                    "text": "De rios, represas e águas subterrâneas"
-                  },
-                  {
-                    "text": "Ela é fabricada no cano",
-                    "misconceptionCode": "ciclo-linear"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          }
-        ]
+       "code": "etapas",
+       "description": "Cita etapas do ciclo: evaporação, condensação, chuva, infiltração ou escoamento"
       },
       {
-        "id": "PK2-EF06GE04-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Exemplo guiado: o caminho da água",
-        "prompt": "Vamos seguir juntos o caminho de uma gota de água no ciclo da água.",
-        "estMinutes": 4,
-        "audioScript": "Vamos seguir juntos o caminho de uma gota de água no ciclo da água. Pergunta 1. O Sol aquece a água do mar e dos rios. O que acontece? A: A água desaparece para sempre; B: A água vira fumaça; C: A água evapora e sobe como vapor; D: A água entra no solo. Pergunta 2. No alto, o vapor esfria. O que se forma? A: Fumaça; B: Nuvens, com gotinhas de água; C: Rios; D: Mais vapor invisível. Pergunta 3. Depois que chove, o que acontece com a água? A: Ela vai para o mar e fica lá para sempre; B: Toda ela infiltra, mesmo no asfalto; C: Ela vira nuvem na hora; D: Parte infiltra no solo, parte escorre para rios e depois evapora de novo.",
-        "questions": [
-          {
-            "question": "O Sol aquece a água do mar e dos rios. O que acontece?",
-            "options": [
-              {
-                "text": "A água desaparece para sempre",
-                "misconceptionCode": "ciclo-linear"
-              },
-              {
-                "text": "A água vira fumaça",
-                "misconceptionCode": "nuvem-fumaca"
-              },
-              {
-                "text": "A água evapora e sobe como vapor"
-              },
-              {
-                "text": "A água entra no solo",
-                "misconceptionCode": "urbano-infiltra"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Igual à água da panela no fogo: com o calor, ela vira vapor e sobe. Isso é a evaporação.",
-            "variants": [
-              {
-                "question": "A roupa molhada no varal seca porque:",
-                "options": [
-                  {
-                    "text": "A água evapora"
-                  },
-                  {
-                    "text": "A água some para sempre",
-                    "misconceptionCode": "ciclo-linear"
-                  },
-                  {
-                    "text": "A água vira fumaça",
-                    "misconceptionCode": "nuvem-fumaca"
-                  },
-                  {
-                    "text": "O pano bebe a água",
-                    "misconceptionCode": "urbano-infiltra"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O Sol aquece a água do mar e dos rios. O que acontece?",
-                "options": [
-                  {
-                    "text": "A água entra no solo",
-                    "misconceptionCode": "urbano-infiltra"
-                  },
-                  {
-                    "text": "A água vira fumaça",
-                    "misconceptionCode": "nuvem-fumaca"
-                  },
-                  {
-                    "text": "A água desaparece para sempre",
-                    "misconceptionCode": "ciclo-linear"
-                  },
-                  {
-                    "text": "A água evapora e sobe como vapor"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "No alto, o vapor esfria. O que se forma?",
-            "options": [
-              {
-                "text": "Fumaça",
-                "misconceptionCode": "nuvem-fumaca"
-              },
-              {
-                "text": "Nuvens, com gotinhas de água"
-              },
-              {
-                "text": "Rios",
-                "misconceptionCode": "bacia-e-rio"
-              },
-              {
-                "text": "Mais vapor invisível",
-                "misconceptionCode": "nuvem-fumaca"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Lá em cima é frio. O vapor vira gotinhas de água, como no espelho depois do banho, e as gotinhas formam as nuvens.",
-            "variants": [
-              {
-                "question": "As gotinhas que aparecem do lado de fora de um copo gelado são parecidas com:",
-                "options": [
-                  {
-                    "text": "Fumaça",
-                    "misconceptionCode": "nuvem-fumaca"
-                  },
-                  {
-                    "text": "Chuva de pedra",
-                    "misconceptionCode": "bacia-e-rio"
-                  },
-                  {
-                    "text": "Um rio",
-                    "misconceptionCode": "nuvem-fumaca"
-                  },
-                  {
-                    "text": "A formação das nuvens"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "No alto, o vapor esfria. O que se forma?",
-                "options": [
-                  {
-                    "text": "Mais vapor invisível",
-                    "misconceptionCode": "nuvem-fumaca"
-                  },
-                  {
-                    "text": "Rios",
-                    "misconceptionCode": "bacia-e-rio"
-                  },
-                  {
-                    "text": "Nuvens, com gotinhas de água"
-                  },
-                  {
-                    "text": "Fumaça",
-                    "misconceptionCode": "nuvem-fumaca"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Depois que chove, o que acontece com a água?",
-            "options": [
-              {
-                "text": "Ela vai para o mar e fica lá para sempre",
-                "misconceptionCode": "ciclo-linear"
-              },
-              {
-                "text": "Toda ela infiltra, mesmo no asfalto",
-                "misconceptionCode": "urbano-infiltra"
-              },
-              {
-                "text": "Ela vira nuvem na hora",
-                "misconceptionCode": "nuvem-fumaca"
-              },
-              {
-                "text": "Parte infiltra no solo, parte escorre para rios e depois evapora de novo"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Uma parte entra na terra, outra escorre para os rios, e depois o Sol esquenta tudo e ela sobe de novo. É um ciclo sem fim.",
-            "variants": [
-              {
-                "question": "Por que se diz que a água faz um ciclo?",
-                "options": [
-                  {
-                    "text": "Porque ela só cai uma vez",
-                    "misconceptionCode": "ciclo-linear"
-                  },
-                  {
-                    "text": "Porque ela volta a evaporar e chover de novo"
-                  },
-                  {
-                    "text": "Porque ela some no mar",
-                    "misconceptionCode": "urbano-infiltra"
-                  },
-                  {
-                    "text": "Porque ela fica nas nuvens",
-                    "misconceptionCode": "nuvem-fumaca"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Depois que chove, o que acontece com a água?",
-                "options": [
-                  {
-                    "text": "Parte infiltra no solo, parte escorre para rios e depois evapora de novo"
-                  },
-                  {
-                    "text": "Ela vira nuvem na hora",
-                    "misconceptionCode": "nuvem-fumaca"
-                  },
-                  {
-                    "text": "Toda ela infiltra, mesmo no asfalto",
-                    "misconceptionCode": "urbano-infiltra"
-                  },
-                  {
-                    "text": "Ela vai para o mar e fica lá para sempre",
-                    "misconceptionCode": "ciclo-linear"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          }
-        ]
+       "code": "ciclo",
+       "description": "Mostra que a água volta a evaporar, ou seja, é um ciclo"
       },
       {
-        "id": "PK2-EF06GE04-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar: cidade, campo e bacias",
-        "prompt": "Agora compare a chuva na cidade e no campo, e conheça a bacia hidrográfica.",
-        "estMinutes": 5,
-        "audioScript": "Agora compare a chuva na cidade e no campo, e conheça a bacia hidrográfica. Pergunta 1. Onde a chuva infiltra mais no solo? A: Numa avenida asfaltada; B: Numa área com mata e solo descoberto, no campo; C: Num estacionamento de concreto; D: Igual em qualquer lugar. Pergunta 2. O que é uma bacia hidrográfica? A: Um rio só; B: Uma bacia de lavar roupa; C: Só a foz do rio; D: A área de terra drenada por um rio principal e seus afluentes. Pergunta 3. Onde nasce um rio? A: Na nascente; B: Na foz; C: No afluente; D: Nas nuvens, diretamente. Pergunta 4. Um afluente é: A: O rio principal; B: A nuvem que forma o rio; C: Um rio que deságua em outro rio maior; D: O lugar onde o rio nasce.",
-        "questions": [
-          {
-            "question": "Onde a chuva infiltra mais no solo?",
-            "options": [
-              {
-                "text": "Numa avenida asfaltada",
-                "misconceptionCode": "urbano-infiltra"
-              },
-              {
-                "text": "Numa área com mata e solo descoberto, no campo"
-              },
-              {
-                "text": "Num estacionamento de concreto",
-                "misconceptionCode": "urbano-infiltra"
-              },
-              {
-                "text": "Igual em qualquer lugar",
-                "misconceptionCode": "urbano-infiltra"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Onde tem terra e plantas, a chuva entra no chão. No asfalto, ela não consegue entrar.",
-            "variants": [
-              {
-                "question": "Por que a chuva escorre mais na cidade do que no campo?",
-                "options": [
-                  {
-                    "text": "Porque chove mais na cidade",
-                    "misconceptionCode": "urbano-infiltra"
-                  },
-                  {
-                    "text": "Porque o campo não tem solo",
-                    "misconceptionCode": "urbano-infiltra"
-                  },
-                  {
-                    "text": "Porque a cidade é mais alta",
-                    "misconceptionCode": "urbano-infiltra"
-                  },
-                  {
-                    "text": "Porque o solo está coberto por asfalto e concreto"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Onde a chuva infiltra mais no solo?",
-                "options": [
-                  {
-                    "text": "Igual em qualquer lugar",
-                    "misconceptionCode": "urbano-infiltra"
-                  },
-                  {
-                    "text": "Num estacionamento de concreto",
-                    "misconceptionCode": "urbano-infiltra"
-                  },
-                  {
-                    "text": "Numa área com mata e solo descoberto, no campo"
-                  },
-                  {
-                    "text": "Numa avenida asfaltada",
-                    "misconceptionCode": "urbano-infiltra"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "O que é uma bacia hidrográfica?",
-            "options": [
-              {
-                "text": "Um rio só",
-                "misconceptionCode": "bacia-e-rio"
-              },
-              {
-                "text": "Uma bacia de lavar roupa",
-                "misconceptionCode": "nuvem-fumaca"
-              },
-              {
-                "text": "Só a foz do rio",
-                "misconceptionCode": "bacia-e-rio"
-              },
-              {
-                "text": "A área de terra drenada por um rio principal e seus afluentes"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Pense numa árvore deitada: o rio principal é o tronco, os rios menores são os galhos, e a terra em volta também faz parte.",
-            "variants": [
-              {
-                "question": "A bacia do rio São Francisco inclui:",
-                "options": [
-                  {
-                    "text": "Só o rio São Francisco",
-                    "misconceptionCode": "bacia-e-rio"
-                  },
-                  {
-                    "text": "O rio São Francisco, seus afluentes e as terras ao redor"
-                  },
-                  {
-                    "text": "Só a foz no mar",
-                    "misconceptionCode": "nuvem-fumaca"
-                  },
-                  {
-                    "text": "Só a nascente",
-                    "misconceptionCode": "bacia-e-rio"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "O que é uma bacia hidrográfica?",
-                "options": [
-                  {
-                    "text": "A área de terra drenada por um rio principal e seus afluentes"
-                  },
-                  {
-                    "text": "Só a foz do rio",
-                    "misconceptionCode": "bacia-e-rio"
-                  },
-                  {
-                    "text": "Uma bacia de lavar roupa",
-                    "misconceptionCode": "nuvem-fumaca"
-                  },
-                  {
-                    "text": "Um rio só",
-                    "misconceptionCode": "bacia-e-rio"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Onde nasce um rio?",
-            "options": [
-              {
-                "text": "Na nascente"
-              },
-              {
-                "text": "Na foz",
-                "misconceptionCode": "bacia-e-rio"
-              },
-              {
-                "text": "No afluente",
-                "misconceptionCode": "bacia-e-rio"
-              },
-              {
-                "text": "Nas nuvens, diretamente",
-                "misconceptionCode": "nuvem-fumaca"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "O rio começa na nascente, onde a água sai da terra. Onde ele termina, no mar ou em outro rio, é a foz.",
-            "variants": [
-              {
-                "question": "O lugar onde um rio deságua no mar se chama:",
-                "options": [
-                  {
-                    "text": "Nascente",
-                    "misconceptionCode": "bacia-e-rio"
-                  },
-                  {
-                    "text": "Afluente",
-                    "misconceptionCode": "bacia-e-rio"
-                  },
-                  {
-                    "text": "Foz"
-                  },
-                  {
-                    "text": "Margem",
-                    "misconceptionCode": "nuvem-fumaca"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Onde nasce um rio?",
-                "options": [
-                  {
-                    "text": "Nas nuvens, diretamente",
-                    "misconceptionCode": "nuvem-fumaca"
-                  },
-                  {
-                    "text": "Na nascente"
-                  },
-                  {
-                    "text": "No afluente",
-                    "misconceptionCode": "bacia-e-rio"
-                  },
-                  {
-                    "text": "Na foz",
-                    "misconceptionCode": "bacia-e-rio"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Um afluente é:",
-            "options": [
-              {
-                "text": "O rio principal",
-                "misconceptionCode": "bacia-e-rio"
-              },
-              {
-                "text": "A nuvem que forma o rio",
-                "misconceptionCode": "nuvem-fumaca"
-              },
-              {
-                "text": "Um rio que deságua em outro rio maior"
-              },
-              {
-                "text": "O lugar onde o rio nasce",
-                "misconceptionCode": "bacia-e-rio"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Afluente é um rio menor que deságua num rio maior, como um galho que se liga ao tronco da árvore.",
-            "variants": [
-              {
-                "question": "O rio Grande, que deságua no São Francisco, é para o São Francisco:",
-                "options": [
-                  {
-                    "text": "Um afluente"
-                  },
-                  {
-                    "text": "A nascente",
-                    "misconceptionCode": "bacia-e-rio"
-                  },
-                  {
-                    "text": "A foz",
-                    "misconceptionCode": "nuvem-fumaca"
-                  },
-                  {
-                    "text": "Uma nuvem",
-                    "misconceptionCode": "bacia-e-rio"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Um afluente é:",
-                "options": [
-                  {
-                    "text": "O lugar onde o rio nasce",
-                    "misconceptionCode": "bacia-e-rio"
-                  },
-                  {
-                    "text": "A nuvem que forma o rio",
-                    "misconceptionCode": "nuvem-fumaca"
-                  },
-                  {
-                    "text": "O rio principal",
-                    "misconceptionCode": "bacia-e-rio"
-                  },
-                  {
-                    "text": "Um rio que deságua em outro rio maior"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF06GE04-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar: a água da sua região",
-        "prompt": "Pense na água da sua cidade e da sua região.",
-        "estMinutes": 4,
-        "audioScript": "Pense na água da sua cidade e da sua região. Pergunta 1. Se uma indústria poluir um afluente, o que pode acontecer com o rio principal? A: Nada, cada rio é separado; B: A poluição evapora antes; C: Vira nuvem limpa; D: A poluição pode chegar até ele. Pergunta 2. Por que proteger a mata perto das nascentes? A: Porque ela ajuda a água a infiltrar e mantém a nascente viva; B: Não faz diferença; C: Porque a mata produz nuvens de fumaça; D: Porque a nascente é só um rio pequeno sem importância. Pergunta 3. Por que muitas cidades fazem piscinões e parques que podem alagar? A: Porque na cidade a água infiltra tanto quanto no campo; B: Para a água ficar parada para sempre; C: Para guardar a água da chuva que não infiltra no asfalto; D: Para transformar a bacia num rio só.",
-        "questions": [
-          {
-            "question": "Se uma indústria poluir um afluente, o que pode acontecer com o rio principal?",
-            "options": [
-              {
-                "text": "Nada, cada rio é separado",
-                "misconceptionCode": "bacia-e-rio"
-              },
-              {
-                "text": "A poluição evapora antes",
-                "misconceptionCode": "ciclo-linear"
-              },
-              {
-                "text": "Vira nuvem limpa",
-                "misconceptionCode": "nuvem-fumaca"
-              },
-              {
-                "text": "A poluição pode chegar até ele"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Todos os rios da bacia estão ligados. A sujeira do rio menor desce e chega ao rio principal.",
-            "variants": [
-              {
-                "question": "Esgoto jogado num riacho perto da nascente pode afetar:",
-                "options": [
-                  {
-                    "text": "Só aquele ponto",
-                    "misconceptionCode": "bacia-e-rio"
-                  },
-                  {
-                    "text": "Toda a bacia rio abaixo"
-                  },
-                  {
-                    "text": "Nada",
-                    "misconceptionCode": "ciclo-linear"
-                  },
-                  {
-                    "text": "Só as nuvens",
-                    "misconceptionCode": "nuvem-fumaca"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Se uma indústria poluir um afluente, o que pode acontecer com o rio principal?",
-                "options": [
-                  {
-                    "text": "A poluição pode chegar até ele"
-                  },
-                  {
-                    "text": "Vira nuvem limpa",
-                    "misconceptionCode": "nuvem-fumaca"
-                  },
-                  {
-                    "text": "A poluição evapora antes",
-                    "misconceptionCode": "ciclo-linear"
-                  },
-                  {
-                    "text": "Nada, cada rio é separado",
-                    "misconceptionCode": "bacia-e-rio"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Por que proteger a mata perto das nascentes?",
-            "options": [
-              {
-                "text": "Porque ela ajuda a água a infiltrar e mantém a nascente viva"
-              },
-              {
-                "text": "Não faz diferença",
-                "misconceptionCode": "urbano-infiltra"
-              },
-              {
-                "text": "Porque a mata produz nuvens de fumaça",
-                "misconceptionCode": "nuvem-fumaca"
-              },
-              {
-                "text": "Porque a nascente é só um rio pequeno sem importância",
-                "misconceptionCode": "bacia-e-rio"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "As árvores ajudam a chuva a entrar na terra e \"alimentam\" a nascente. Sem mata, ela pode secar.",
-            "variants": [
-              {
-                "question": "Se a mata ao redor de uma nascente for derrubada, a nascente pode:",
-                "options": [
-                  {
-                    "text": "Ficar mais forte",
-                    "misconceptionCode": "urbano-infiltra"
-                  },
-                  {
-                    "text": "Virar foz",
-                    "misconceptionCode": "nuvem-fumaca"
-                  },
-                  {
-                    "text": "Secar"
-                  },
-                  {
-                    "text": "Não mudar",
-                    "misconceptionCode": "bacia-e-rio"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Por que proteger a mata perto das nascentes?",
-                "options": [
-                  {
-                    "text": "Porque a nascente é só um rio pequeno sem importância",
-                    "misconceptionCode": "bacia-e-rio"
-                  },
-                  {
-                    "text": "Porque ela ajuda a água a infiltrar e mantém a nascente viva"
-                  },
-                  {
-                    "text": "Porque a mata produz nuvens de fumaça",
-                    "misconceptionCode": "nuvem-fumaca"
-                  },
-                  {
-                    "text": "Não faz diferença",
-                    "misconceptionCode": "urbano-infiltra"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Por que muitas cidades fazem piscinões e parques que podem alagar?",
-            "options": [
-              {
-                "text": "Porque na cidade a água infiltra tanto quanto no campo",
-                "misconceptionCode": "urbano-infiltra"
-              },
-              {
-                "text": "Para a água ficar parada para sempre",
-                "misconceptionCode": "ciclo-linear"
-              },
-              {
-                "text": "Para guardar a água da chuva que não infiltra no asfalto"
-              },
-              {
-                "text": "Para transformar a bacia num rio só",
-                "misconceptionCode": "bacia-e-rio"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "No asfalto a chuva escorre rápido. Piscinões e parques guardam essa água para ela não invadir as ruas e as casas.",
-            "variants": [
-              {
-                "question": "Um parque que alaga de propósito na chuva forte serve para:",
-                "options": [
-                  {
-                    "text": "Segurar a água e evitar enchente nas ruas"
-                  },
-                  {
-                    "text": "Fazer a água sumir",
-                    "misconceptionCode": "urbano-infiltra"
-                  },
-                  {
-                    "text": "Criar nuvens",
-                    "misconceptionCode": "ciclo-linear"
-                  },
-                  {
-                    "text": "Nada",
-                    "misconceptionCode": "bacia-e-rio"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Por que muitas cidades fazem piscinões e parques que podem alagar?",
-                "options": [
-                  {
-                    "text": "Para transformar a bacia num rio só",
-                    "misconceptionCode": "bacia-e-rio"
-                  },
-                  {
-                    "text": "Para a água ficar parada para sempre",
-                    "misconceptionCode": "ciclo-linear"
-                  },
-                  {
-                    "text": "Porque na cidade a água infiltra tanto quanto no campo",
-                    "misconceptionCode": "urbano-infiltra"
-                  },
-                  {
-                    "text": "Para guardar a água da chuva que não infiltra no asfalto"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF06GE04-A5",
-        "step": "explicar",
-        "type": "WRITTEN",
-        "allowSpoken": true,
-        "title": "Explicar: o ciclo e a bacia",
-        "prompt": "Explique com as suas palavras o caminho da água no ciclo da água e por que a chuva escorre mais na cidade do que no campo.",
-        "estMinutes": 6,
-        "audioScript": "Explique com as suas palavras o caminho da água no ciclo da água e por que a chuva escorre mais na cidade do que no campo.",
-        "rubric": {
-          "type": "WRITTEN",
-          "criteria": [
-            {
-              "code": "etapas",
-              "description": "Cita etapas do ciclo: evaporação, condensação, chuva, infiltração ou escoamento"
-            },
-            {
-              "code": "ciclo",
-              "description": "Mostra que a água volta a evaporar, ou seja, é um ciclo"
-            },
-            {
-              "code": "cidade-campo",
-              "description": "Explica que o asfalto e o concreto dificultam a infiltração"
-            }
-          ],
-          "exemploBoaResposta": "O Sol esquenta a água, que evapora. No alto ela esfria e vira nuvem. Depois cai como chuva: uma parte entra no solo e outra escorre para os rios, e depois evapora de novo. Na cidade, o asfalto não deixa a água entrar no chão, então ela escorre mais e pode alagar as ruas."
-        }
+       "code": "cidade-campo",
+       "description": "Explica que o asfalto e o concreto dificultam a infiltração"
       }
-    ],
-    "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED"
-  }
+     ],
+     "exemploBoaResposta": "O Sol esquenta a água, que evapora. No alto ela esfria e vira nuvem. Depois cai como chuva: uma parte entra no solo e outra escorre para os rios, e depois evapora de novo. Na cidade, o asfalto não deixa a água entrar no chão, então ela escorre mais e pode alagar as ruas."
+    }
+   }
+  ],
+  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+  "source": "SPEAKFLOW",
+  "status": "APPROVED"
+ },
+ {
+  "skillCode": "EF06GE01",
+  "subjectCode": "GE",
+  "subjectName": "Geografia",
+  "gradeYear": 6,
+  "version": 1,
+  "title": "Trilha: A paisagem muda com o tempo",
+  "tituloAluno": "Antes e depois dos lugares",
+  "activities": [
+   {
+    "id": "PK2-EF06GE01-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: o que é paisagem",
+    "prompt": "Já estudamos os elementos da paisagem.",
+    "estMinutes": 4,
+    "audioScript": "Já estudamos os elementos da paisagem. Pergunta 1. Paisagem é: A: Só o que é bonito; B: Só as matas e os rios; C: Tudo o que percebemos num lugar: o que vemos, ouvimos e sentimos; D: Só os cartões-postais. Pergunta 2. Rios, morros, matas e praias são elementos da paisagem: A: Culturais; B: Industriais; C: Artificiais; D: Naturais. Pergunta 3. Uma paisagem em que predominam os elementos criados pelas pessoas é chamada de: A: Paisagem cultural ou humanizada; B: Paisagem natural; C: Paisagem invisível; D: Paisagem parada.",
+    "questions": [
+     {
+      "question": "Paisagem é:",
+      "options": [
+       {
+        "text": "Só o que é bonito",
+        "misconceptionCode": "paisagem-so-natural"
+       },
+       {
+        "text": "Só as matas e os rios",
+        "misconceptionCode": "paisagem-so-natural"
+       },
+       {
+        "text": "Tudo o que percebemos num lugar: o que vemos, ouvimos e sentimos"
+       },
+       {
+        "text": "Só os cartões-postais",
+        "misconceptionCode": "paisagem-so-natural"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Uma rua movimentada também é uma paisagem.",
+      "variants": [
+       {
+        "question": "Uma avenida com prédios, carros e barulho é uma paisagem?",
+        "options": [
+         {
+          "text": "Sim"
+         },
+         {
+          "text": "Não, só a natureza é paisagem",
+          "misconceptionCode": "paisagem-so-natural"
+         },
+         {
+          "text": "Não, porque não é bonita",
+          "misconceptionCode": "paisagem-so-natural"
+         },
+         {
+          "text": "Só se tiver árvores",
+          "misconceptionCode": "paisagem-so-natural"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Paisagem é:",
+        "options": [
+         {
+          "text": "Só os cartões-postais",
+          "misconceptionCode": "paisagem-so-natural"
+         },
+         {
+          "text": "Só as matas e os rios",
+          "misconceptionCode": "paisagem-so-natural"
+         },
+         {
+          "text": "Só o que é bonito",
+          "misconceptionCode": "paisagem-so-natural"
+         },
+         {
+          "text": "Tudo o que percebemos num lugar: o que vemos, ouvimos e sentimos"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Rios, morros, matas e praias são elementos da paisagem:",
+      "options": [
+       {
+        "text": "Culturais",
+        "misconceptionCode": "paisagem-so-natural"
+       },
+       {
+        "text": "Industriais",
+        "misconceptionCode": "paisagem-so-natural"
+       },
+       {
+        "text": "Artificiais",
+        "misconceptionCode": "paisagem-so-natural"
+       },
+       {
+        "text": "Naturais"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Os elementos naturais não foram feitos pelas pessoas.",
+      "variants": [
+       {
+        "question": "Casas, ruas, pontes e plantações são elementos da paisagem:",
+        "options": [
+         {
+          "text": "Naturais",
+          "misconceptionCode": "paisagem-so-natural"
+         },
+         {
+          "text": "Culturais, criados pelas pessoas"
+         },
+         {
+          "text": "Que sempre existiram",
+          "misconceptionCode": "paisagem-so-natural"
+         },
+         {
+          "text": "Do relevo",
+          "misconceptionCode": "paisagem-so-natural"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Rios, morros, matas e praias são elementos da paisagem:",
+        "options": [
+         {
+          "text": "Naturais"
+         },
+         {
+          "text": "Artificiais",
+          "misconceptionCode": "paisagem-so-natural"
+         },
+         {
+          "text": "Industriais",
+          "misconceptionCode": "paisagem-so-natural"
+         },
+         {
+          "text": "Culturais",
+          "misconceptionCode": "paisagem-so-natural"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Uma paisagem em que predominam os elementos criados pelas pessoas é chamada de:",
+      "options": [
+       {
+        "text": "Paisagem cultural ou humanizada"
+       },
+       {
+        "text": "Paisagem natural",
+        "misconceptionCode": "paisagem-so-natural"
+       },
+       {
+        "text": "Paisagem invisível",
+        "misconceptionCode": "paisagem-nao-muda"
+       },
+       {
+        "text": "Paisagem parada",
+        "misconceptionCode": "paisagem-nao-muda"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Quase todas as paisagens da Terra já têm marcas humanas.",
+      "variants": [
+       {
+        "question": "Uma floresta pouco alterada pelas pessoas é um exemplo de paisagem:",
+        "options": [
+         {
+          "text": "Humanizada",
+          "misconceptionCode": "paisagem-so-natural"
+         },
+         {
+          "text": "Urbana",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "Natural"
+         },
+         {
+          "text": "Industrial",
+          "misconceptionCode": "paisagem-nao-muda"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Uma paisagem em que predominam os elementos criados pelas pessoas é chamada de:",
+        "options": [
+         {
+          "text": "Paisagem parada",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "Paisagem cultural ou humanizada"
+         },
+         {
+          "text": "Paisagem invisível",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "Paisagem natural",
+          "misconceptionCode": "paisagem-so-natural"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06GE01-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: comparando tempos",
+    "prompt": "As paisagens mudam. Algumas mudanças são rápidas, outras levam séculos. Elas podem ser causadas pela natureza ou pelas pessoas. Vamos comparar juntos.",
+    "estMinutes": 4,
+    "audioScript": "As paisagens mudam. Algumas mudanças são rápidas, outras levam séculos. Elas podem ser causadas pela natureza ou pelas pessoas. Vamos comparar juntos. Pergunta 1. Há 60 anos, uma área tinha fazendas e matas. Hoje, tem fábricas, estradas e bairros. O que aconteceu? A: Nada mudou; B: A paisagem foi transformada pela ação das pessoas; C: A natureza construiu as fábricas; D: A paisagem é a mesma. Pergunta 2. Depois de chuvas muito fortes, parte de um morro deslizou e mudou a forma do terreno. Essa mudança foi causada: A: Só pelas pessoas; B: Por ninguém; C: Pela natureza; D: Por uma fábrica. Pergunta 3. Um casarão que já foi moradia de uma família rica hoje é um museu. O que mudou? A: Nada; B: O relevo; C: O clima; D: O uso do lugar.",
+    "questions": [
+     {
+      "question": "Há 60 anos, uma área tinha fazendas e matas. Hoje, tem fábricas, estradas e bairros. O que aconteceu?",
+      "options": [
+       {
+        "text": "Nada mudou",
+        "misconceptionCode": "paisagem-nao-muda"
+       },
+       {
+        "text": "A paisagem foi transformada pela ação das pessoas"
+       },
+       {
+        "text": "A natureza construiu as fábricas",
+        "misconceptionCode": "so-humano-muda"
+       },
+       {
+        "text": "A paisagem é a mesma",
+        "misconceptionCode": "paisagem-nao-muda"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A instalação de indústrias costuma transformar muito a paisagem.",
+      "variants": [
+       {
+        "question": "A chegada de um polo industrial a uma região costuma trazer:",
+        "options": [
+         {
+          "text": "Menos moradores",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "Mais matas",
+          "misconceptionCode": "so-humano-muda"
+         },
+         {
+          "text": "Nenhuma mudança",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "Mais moradores, estradas e bairros novos"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Há 60 anos, uma área tinha fazendas e matas. Hoje, tem fábricas, estradas e bairros. O que aconteceu?",
+        "options": [
+         {
+          "text": "A paisagem é a mesma",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "A natureza construiu as fábricas",
+          "misconceptionCode": "so-humano-muda"
+         },
+         {
+          "text": "A paisagem foi transformada pela ação das pessoas"
+         },
+         {
+          "text": "Nada mudou",
+          "misconceptionCode": "paisagem-nao-muda"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Depois de chuvas muito fortes, parte de um morro deslizou e mudou a forma do terreno. Essa mudança foi causada:",
+      "options": [
+       {
+        "text": "Só pelas pessoas",
+        "misconceptionCode": "so-humano-muda"
+       },
+       {
+        "text": "Por ninguém",
+        "misconceptionCode": "paisagem-nao-muda"
+       },
+       {
+        "text": "Pela natureza"
+       },
+       {
+        "text": "Por uma fábrica",
+        "misconceptionCode": "so-humano-muda"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Chuvas, ventos, rios, mares e vulcões também modificam a paisagem.",
+      "variants": [
+       {
+        "question": "O mar que avança e destrói parte de uma praia é uma mudança causada:",
+        "options": [
+         {
+          "text": "Pela natureza"
+         },
+         {
+          "text": "Só pelas pessoas",
+          "misconceptionCode": "so-humano-muda"
+         },
+         {
+          "text": "Por ninguém",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "Pelas fábricas",
+          "misconceptionCode": "so-humano-muda"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Depois de chuvas muito fortes, parte de um morro deslizou e mudou a forma do terreno. Essa mudança foi causada:",
+        "options": [
+         {
+          "text": "Por uma fábrica",
+          "misconceptionCode": "so-humano-muda"
+         },
+         {
+          "text": "Por ninguém",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "Só pelas pessoas",
+          "misconceptionCode": "so-humano-muda"
+         },
+         {
+          "text": "Pela natureza"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Um casarão que já foi moradia de uma família rica hoje é um museu. O que mudou?",
+      "options": [
+       {
+        "text": "Nada",
+        "misconceptionCode": "uso-fixo"
+       },
+       {
+        "text": "O relevo",
+        "misconceptionCode": "uso-fixo"
+       },
+       {
+        "text": "O clima",
+        "misconceptionCode": "uso-fixo"
+       },
+       {
+        "text": "O uso do lugar"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O mesmo espaço pode ter usos diferentes ao longo do tempo.",
+      "variants": [
+       {
+        "question": "Um antigo galpão de fábrica que virou centro cultural mostra que:",
+        "options": [
+         {
+          "text": "Os lugares têm sempre o mesmo uso",
+          "misconceptionCode": "uso-fixo"
+         },
+         {
+          "text": "O uso dos lugares muda com o tempo"
+         },
+         {
+          "text": "O galpão é novo",
+          "misconceptionCode": "uso-fixo"
+         },
+         {
+          "text": "Nada mudou",
+          "misconceptionCode": "uso-fixo"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um casarão que já foi moradia de uma família rica hoje é um museu. O que mudou?",
+        "options": [
+         {
+          "text": "O uso do lugar"
+         },
+         {
+          "text": "O clima",
+          "misconceptionCode": "uso-fixo"
+         },
+         {
+          "text": "O relevo",
+          "misconceptionCode": "uso-fixo"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "uso-fixo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06GE01-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: mudanças e permanências",
+    "prompt": "Observe o seu lugar.",
+    "estMinutes": 5,
+    "audioScript": "Observe o seu lugar. Pergunta 1. Numa foto antiga da cidade, a rua principal era de terra e tinha carroças. Hoje, é asfaltada e tem carros. Isso mostra: A: Uma mudança na paisagem; B: Que a paisagem não muda; C: Uma mudança natural; D: Que a foto está errada. Pergunta 2. As paisagens mudam só pela ação das pessoas? A: Sim, só as pessoas; B: Não, a natureza também as modifica; C: Sim, a natureza não muda nada; D: Elas não mudam. Pergunta 3. Uma área de mata foi derrubada para dar lugar a um bairro. Uma consequência possível é: A: Mais animais silvestres; B: Clima mais fresco; C: Menos sombra, mais calor e mais enchentes; D: Nenhuma mudança. Pergunta 4. Quem pode ajudar a turma a descobrir como era o bairro há 50 anos? A: Ninguém; B: Só os mapas de outros países; C: Só as lojas novas; D: Os moradores mais antigos e as fotos da época.",
+    "questions": [
+     {
+      "question": "Numa foto antiga da cidade, a rua principal era de terra e tinha carroças. Hoje, é asfaltada e tem carros. Isso mostra:",
+      "options": [
+       {
+        "text": "Uma mudança na paisagem"
+       },
+       {
+        "text": "Que a paisagem não muda",
+        "misconceptionCode": "paisagem-nao-muda"
+       },
+       {
+        "text": "Uma mudança natural",
+        "misconceptionCode": "so-humano-muda"
+       },
+       {
+        "text": "Que a foto está errada",
+        "misconceptionCode": "paisagem-nao-muda"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Comparar fotos de épocas diferentes revela as transformações.",
+      "variants": [
+       {
+        "question": "Na mesma rua, a igreja antiga continua no mesmo lugar. Isso é:",
+        "options": [
+         {
+          "text": "Uma mudança",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "Um erro",
+          "misconceptionCode": "so-humano-muda"
+         },
+         {
+          "text": "Uma permanência"
+         },
+         {
+          "text": "Uma novidade",
+          "misconceptionCode": "paisagem-nao-muda"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Numa foto antiga da cidade, a rua principal era de terra e tinha carroças. Hoje, é asfaltada e tem carros. Isso mostra:",
+        "options": [
+         {
+          "text": "Que a foto está errada",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "Uma mudança na paisagem"
+         },
+         {
+          "text": "Uma mudança natural",
+          "misconceptionCode": "so-humano-muda"
+         },
+         {
+          "text": "Que a paisagem não muda",
+          "misconceptionCode": "paisagem-nao-muda"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "As paisagens mudam só pela ação das pessoas?",
+      "options": [
+       {
+        "text": "Sim, só as pessoas",
+        "misconceptionCode": "so-humano-muda"
+       },
+       {
+        "text": "Não, a natureza também as modifica"
+       },
+       {
+        "text": "Sim, a natureza não muda nada",
+        "misconceptionCode": "so-humano-muda"
+       },
+       {
+        "text": "Elas não mudam",
+        "misconceptionCode": "paisagem-nao-muda"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Rios mudam de curso, dunas se movem, vulcões criam ilhas.",
+      "variants": [
+       {
+        "question": "Qual destas mudanças é causada pela natureza?",
+        "options": [
+         {
+          "text": "A construção de uma ponte",
+          "misconceptionCode": "so-humano-muda"
+         },
+         {
+          "text": "O asfaltamento de uma rua",
+          "misconceptionCode": "so-humano-muda"
+         },
+         {
+          "text": "A instalação de uma fábrica",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "A erosão provocada pela chuva"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "As paisagens mudam só pela ação das pessoas?",
+        "options": [
+         {
+          "text": "Elas não mudam",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "Sim, a natureza não muda nada",
+          "misconceptionCode": "so-humano-muda"
+         },
+         {
+          "text": "Não, a natureza também as modifica"
+         },
+         {
+          "text": "Sim, só as pessoas",
+          "misconceptionCode": "so-humano-muda"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Uma área de mata foi derrubada para dar lugar a um bairro. Uma consequência possível é:",
+      "options": [
+       {
+        "text": "Mais animais silvestres",
+        "misconceptionCode": "paisagem-nao-muda"
+       },
+       {
+        "text": "Clima mais fresco",
+        "misconceptionCode": "paisagem-nao-muda"
+       },
+       {
+        "text": "Menos sombra, mais calor e mais enchentes"
+       },
+       {
+        "text": "Nenhuma mudança",
+        "misconceptionCode": "paisagem-nao-muda"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Sem vegetação, a água da chuva escorre mais rápido, e o solo aquece mais.",
+      "variants": [
+       {
+        "question": "O asfalto e o concreto, por não deixarem a água entrar no solo, podem favorecer:",
+        "options": [
+         {
+          "text": "Os alagamentos"
+         },
+         {
+          "text": "A infiltração",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "O crescimento das matas",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "O frio",
+          "misconceptionCode": "paisagem-nao-muda"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Uma área de mata foi derrubada para dar lugar a um bairro. Uma consequência possível é:",
+        "options": [
+         {
+          "text": "Nenhuma mudança",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "Clima mais fresco",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "Mais animais silvestres",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "Menos sombra, mais calor e mais enchentes"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quem pode ajudar a turma a descobrir como era o bairro há 50 anos?",
+      "options": [
+       {
+        "text": "Ninguém",
+        "misconceptionCode": "paisagem-nao-muda"
+       },
+       {
+        "text": "Só os mapas de outros países",
+        "misconceptionCode": "uso-fixo"
+       },
+       {
+        "text": "Só as lojas novas",
+        "misconceptionCode": "uso-fixo"
+       },
+       {
+        "text": "Os moradores mais antigos e as fotos da época"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A memória das pessoas e os documentos ajudam a reconstruir as paisagens do passado.",
+      "variants": [
+       {
+        "question": "Para comparar a paisagem de ontem e a de hoje, um bom material é:",
+        "options": [
+         {
+          "text": "Uma foto de outro país",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "Um par de fotografias do mesmo lugar em épocas diferentes"
+         },
+         {
+          "text": "Um desenho inventado",
+          "misconceptionCode": "uso-fixo"
+         },
+         {
+          "text": "Uma receita",
+          "misconceptionCode": "uso-fixo"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quem pode ajudar a turma a descobrir como era o bairro há 50 anos?",
+        "options": [
+         {
+          "text": "Os moradores mais antigos e as fotos da época"
+         },
+         {
+          "text": "Só as lojas novas",
+          "misconceptionCode": "uso-fixo"
+         },
+         {
+          "text": "Só os mapas de outros países",
+          "misconceptionCode": "uso-fixo"
+         },
+         {
+          "text": "Ninguém",
+          "misconceptionCode": "paisagem-nao-muda"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06GE01-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: lendo as transformações",
+    "prompt": "O que mudou, por quê e com quais efeitos.",
+    "estMinutes": 4,
+    "audioScript": "O que mudou, por quê e com quais efeitos. Pergunta 1. Numa cidade, um rio que era usado para pesca e banho hoje está poluído e canalizado. O que mudou? A: A paisagem e o uso do rio; B: Nada; C: Só o nome do rio; D: Só o clima. Pergunta 2. Uma praça abandonada foi reformada e voltou a ser usada pelas famílias. Essa transformação foi: A: Negativa; B: Positiva para a vida no bairro; C: Natural; D: Sem efeito. Pergunta 3. Ao comparar duas fotos do mesmo lugar, de 1960 e de hoje, o que você deve observar? A: Só as cores da foto; B: Só o que é bonito; C: O que mudou, o que permaneceu e os usos do lugar em cada época; D: Nada.",
+    "questions": [
+     {
+      "question": "Numa cidade, um rio que era usado para pesca e banho hoje está poluído e canalizado. O que mudou?",
+      "options": [
+       {
+        "text": "A paisagem e o uso do rio"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "paisagem-nao-muda"
+       },
+       {
+        "text": "Só o nome do rio",
+        "misconceptionCode": "uso-fixo"
+       },
+       {
+        "text": "Só o clima",
+        "misconceptionCode": "uso-fixo"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O crescimento da cidade sem tratamento de esgoto alterou o rio e o modo como as pessoas se relacionam com ele.",
+      "variants": [
+       {
+        "question": "O que poderia devolver ao rio parte dos usos antigos?",
+        "options": [
+         {
+          "text": "Jogar mais lixo",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "Cobrir o rio",
+          "misconceptionCode": "uso-fixo"
+         },
+         {
+          "text": "Tratar o esgoto e recuperar as margens"
+         },
+         {
+          "text": "Não fazer nada",
+          "misconceptionCode": "uso-fixo"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Numa cidade, um rio que era usado para pesca e banho hoje está poluído e canalizado. O que mudou?",
+        "options": [
+         {
+          "text": "Só o clima",
+          "misconceptionCode": "uso-fixo"
+         },
+         {
+          "text": "A paisagem e o uso do rio"
+         },
+         {
+          "text": "Só o nome do rio",
+          "misconceptionCode": "uso-fixo"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "paisagem-nao-muda"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Uma praça abandonada foi reformada e voltou a ser usada pelas famílias. Essa transformação foi:",
+      "options": [
+       {
+        "text": "Negativa",
+        "misconceptionCode": "uso-fixo"
+       },
+       {
+        "text": "Positiva para a vida no bairro"
+       },
+       {
+        "text": "Natural",
+        "misconceptionCode": "so-humano-muda"
+       },
+       {
+        "text": "Sem efeito",
+        "misconceptionCode": "paisagem-nao-muda"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Nem toda mudança na paisagem é ruim. Depende de como é feita e para quem.",
+      "variants": [
+       {
+        "question": "Uma área verde derrubada sem necessidade para virar estacionamento é uma transformação que:",
+        "options": [
+         {
+          "text": "Só traz vantagens",
+          "misconceptionCode": "uso-fixo"
+         },
+         {
+          "text": "É natural",
+          "misconceptionCode": "so-humano-muda"
+         },
+         {
+          "text": "Não muda nada",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "Traz perdas para o ambiente e para a população"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Uma praça abandonada foi reformada e voltou a ser usada pelas famílias. Essa transformação foi:",
+        "options": [
+         {
+          "text": "Sem efeito",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "Natural",
+          "misconceptionCode": "so-humano-muda"
+         },
+         {
+          "text": "Positiva para a vida no bairro"
+         },
+         {
+          "text": "Negativa",
+          "misconceptionCode": "uso-fixo"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Ao comparar duas fotos do mesmo lugar, de 1960 e de hoje, o que você deve observar?",
+      "options": [
+       {
+        "text": "Só as cores da foto",
+        "misconceptionCode": "uso-fixo"
+       },
+       {
+        "text": "Só o que é bonito",
+        "misconceptionCode": "paisagem-so-natural"
+       },
+       {
+        "text": "O que mudou, o que permaneceu e os usos do lugar em cada época"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "paisagem-nao-muda"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Mudanças, permanências e usos são as chaves para ler a paisagem.",
+      "variants": [
+       {
+        "question": "Depois de identificar as mudanças, a pergunta seguinte é:",
+        "options": [
+         {
+          "text": "Por que elas aconteceram?"
+         },
+         {
+          "text": "Qual foto é mais bonita?",
+          "misconceptionCode": "uso-fixo"
+         },
+         {
+          "text": "Quem tirou a foto?",
+          "misconceptionCode": "paisagem-so-natural"
+         },
+         {
+          "text": "Quanto custou a foto?",
+          "misconceptionCode": "paisagem-nao-muda"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Ao comparar duas fotos do mesmo lugar, de 1960 e de hoje, o que você deve observar?",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "paisagem-nao-muda"
+         },
+         {
+          "text": "Só o que é bonito",
+          "misconceptionCode": "paisagem-so-natural"
+         },
+         {
+          "text": "Só as cores da foto",
+          "misconceptionCode": "uso-fixo"
+         },
+         {
+          "text": "O que mudou, o que permaneceu e os usos do lugar em cada época"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06GE01-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: a paisagem do meu lugar",
+    "prompt": "Escolha um lugar que você conhece e explique com as suas palavras como ele era antes, como é hoje e por que mudou.",
+    "estMinutes": 6,
+    "audioScript": "Escolha um lugar que você conhece e explique com as suas palavras como ele era antes, como é hoje e por que mudou.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "antes",
+       "description": "Descreve como o lugar era no passado"
+      },
+      {
+       "code": "hoje",
+       "description": "Descreve como é hoje, incluindo o uso"
+      },
+      {
+       "code": "causa",
+       "description": "Explica o que provocou a mudança"
+      }
+     ],
+     "exemploBoaResposta": "Minha avó conta que o meu bairro era um sítio, com árvores e um riacho. Hoje, tem ruas asfaltadas, casas e lojas, e o riacho foi coberto. Mudou porque muitas pessoas vieram morar aqui para trabalhar nas fábricas, e foi preciso construir casas."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF06GE10",
+  "subjectCode": "GE",
+  "subjectName": "Geografia",
+  "gradeYear": 6,
+  "version": 1,
+  "title": "Trilha: Usos do solo e da água",
+  "tituloAluno": "Plantar, irrigar e distribuir",
+  "activities": [
+   {
+    "id": "PK2-EF06GE10-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: solo e água",
+    "prompt": "Já estudamos a importância do solo e da água.",
+    "estMinutes": 4,
+    "audioScript": "Já estudamos a importância do solo e da água. Pergunta 1. O solo é importante porque: A: Não serve para nada; B: Só serve para pisar; C: Nele se cultivam os alimentos e se constroem as moradias; D: É igual em todo lugar. Pergunta 2. A maior parte da água do planeta é: A: Doce, dos rios; B: Potável; C: Tratada; D: Salgada, dos mares e oceanos. Pergunta 3. Qual atividade humana usa mais água doce no mundo? A: A agricultura; B: Os banhos; C: As piscinas; D: A lavagem de carros.",
+    "questions": [
+     {
+      "question": "O solo é importante porque:",
+      "options": [
+       {
+        "text": "Não serve para nada",
+        "misconceptionCode": "so-vantagem"
+       },
+       {
+        "text": "Só serve para pisar",
+        "misconceptionCode": "so-vantagem"
+       },
+       {
+        "text": "Nele se cultivam os alimentos e se constroem as moradias"
+       },
+       {
+        "text": "É igual em todo lugar",
+        "misconceptionCode": "tecnica-trocada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O solo sustenta as plantas, os animais e as atividades humanas.",
+      "variants": [
+       {
+        "question": "O desgaste do solo causado pela água da chuva e pelo vento é chamado de:",
+        "options": [
+         {
+          "text": "Erosão"
+         },
+         {
+          "text": "Irrigação",
+          "misconceptionCode": "so-vantagem"
+         },
+         {
+          "text": "Rotação",
+          "misconceptionCode": "so-vantagem"
+         },
+         {
+          "text": "Aterro",
+          "misconceptionCode": "tecnica-trocada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O solo é importante porque:",
+        "options": [
+         {
+          "text": "É igual em todo lugar",
+          "misconceptionCode": "tecnica-trocada"
+         },
+         {
+          "text": "Só serve para pisar",
+          "misconceptionCode": "so-vantagem"
+         },
+         {
+          "text": "Não serve para nada",
+          "misconceptionCode": "so-vantagem"
+         },
+         {
+          "text": "Nele se cultivam os alimentos e se constroem as moradias"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "A maior parte da água do planeta é:",
+      "options": [
+       {
+        "text": "Doce, dos rios",
+        "misconceptionCode": "agua-infinita"
+       },
+       {
+        "text": "Potável",
+        "misconceptionCode": "agua-infinita"
+       },
+       {
+        "text": "Tratada",
+        "misconceptionCode": "agua-vem-pronta"
+       },
+       {
+        "text": "Salgada, dos mares e oceanos"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Só uma pequena parte é doce, e muito dela está nas geleiras.",
+      "variants": [
+       {
+        "question": "A água própria para beber é chamada de:",
+        "options": [
+         {
+          "text": "Salgada",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "Potável"
+         },
+         {
+          "text": "Poluída",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "Salobra",
+          "misconceptionCode": "agua-vem-pronta"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A maior parte da água do planeta é:",
+        "options": [
+         {
+          "text": "Salgada, dos mares e oceanos"
+         },
+         {
+          "text": "Tratada",
+          "misconceptionCode": "agua-vem-pronta"
+         },
+         {
+          "text": "Potável",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "Doce, dos rios",
+          "misconceptionCode": "agua-infinita"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Qual atividade humana usa mais água doce no mundo?",
+      "options": [
+       {
+        "text": "A agricultura"
+       },
+       {
+        "text": "Os banhos",
+        "misconceptionCode": "agua-infinita"
+       },
+       {
+        "text": "As piscinas",
+        "misconceptionCode": "agua-infinita"
+       },
+       {
+        "text": "A lavagem de carros",
+        "misconceptionCode": "agua-infinita"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A irrigação das plantações consome a maior parte da água doce utilizada.",
+      "variants": [
+       {
+        "question": "Molhar as plantações com água levada por canais ou canos é:",
+        "options": [
+         {
+          "text": "Erosão",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "Aterro",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "Irrigação"
+         },
+         {
+          "text": "Rotação",
+          "misconceptionCode": "agua-infinita"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual atividade humana usa mais água doce no mundo?",
+        "options": [
+         {
+          "text": "A lavagem de carros",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "A agricultura"
+         },
+         {
+          "text": "As piscinas",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "Os banhos",
+          "misconceptionCode": "agua-infinita"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06GE10-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: técnicas de uso do solo",
+    "prompt": "As sociedades criaram técnicas para usar o solo. Cada uma tem vantagens e desvantagens. Vamos estudar juntos.",
+    "estMinutes": 4,
+    "audioScript": "As sociedades criaram técnicas para usar o solo. Cada uma tem vantagens e desvantagens. Vamos estudar juntos. Pergunta 1. Trocar o tipo de planta cultivada num mesmo terreno a cada safra, ou deixar a terra descansar, é a técnica de: A: Terraceamento; B: Rotação de culturas ou de terras; C: Aterro; D: Irrigação. Pergunta 2. Fazer degraus nas encostas dos morros para plantar é a técnica de: A: Rotação; B: Aterro; C: Terraceamento; D: Drenagem. Pergunta 3. Colocar terra, entulho ou areia sobre uma área alagada ou sobre o mar, para construir em cima, é fazer um: A: Terraço; B: Canal de irrigação; C: Rodízio de culturas; D: Aterro.",
+    "questions": [
+     {
+      "question": "Trocar o tipo de planta cultivada num mesmo terreno a cada safra, ou deixar a terra descansar, é a técnica de:",
+      "options": [
+       {
+        "text": "Terraceamento",
+        "misconceptionCode": "tecnica-trocada"
+       },
+       {
+        "text": "Rotação de culturas ou de terras"
+       },
+       {
+        "text": "Aterro",
+        "misconceptionCode": "tecnica-trocada"
+       },
+       {
+        "text": "Irrigação",
+        "misconceptionCode": "tecnica-trocada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A rotação ajuda o solo a recuperar os nutrientes.",
+      "variants": [
+       {
+        "question": "A principal vantagem da rotação é:",
+        "options": [
+         {
+          "text": "Gastar mais água",
+          "misconceptionCode": "tecnica-trocada"
+         },
+         {
+          "text": "Aumentar a erosão",
+          "misconceptionCode": "tecnica-trocada"
+         },
+         {
+          "text": "Cobrir o solo de asfalto",
+          "misconceptionCode": "tecnica-trocada"
+         },
+         {
+          "text": "Evitar o esgotamento do solo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Trocar o tipo de planta cultivada num mesmo terreno a cada safra, ou deixar a terra descansar, é a técnica de:",
+        "options": [
+         {
+          "text": "Irrigação",
+          "misconceptionCode": "tecnica-trocada"
+         },
+         {
+          "text": "Aterro",
+          "misconceptionCode": "tecnica-trocada"
+         },
+         {
+          "text": "Rotação de culturas ou de terras"
+         },
+         {
+          "text": "Terraceamento",
+          "misconceptionCode": "tecnica-trocada"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Fazer degraus nas encostas dos morros para plantar é a técnica de:",
+      "options": [
+       {
+        "text": "Rotação",
+        "misconceptionCode": "tecnica-trocada"
+       },
+       {
+        "text": "Aterro",
+        "misconceptionCode": "tecnica-trocada"
+       },
+       {
+        "text": "Terraceamento"
+       },
+       {
+        "text": "Drenagem",
+        "misconceptionCode": "tecnica-trocada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Os degraus seguram a água e a terra, diminuindo a erosão. Os incas já usavam essa técnica.",
+      "variants": [
+       {
+        "question": "A principal vantagem do terraceamento é:",
+        "options": [
+         {
+          "text": "Diminuir a erosão nas encostas"
+         },
+         {
+          "text": "Aumentar os deslizamentos",
+          "misconceptionCode": "tecnica-trocada"
+         },
+         {
+          "text": "Secar o solo",
+          "misconceptionCode": "tecnica-trocada"
+         },
+         {
+          "text": "Poluir os rios",
+          "misconceptionCode": "tecnica-trocada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Fazer degraus nas encostas dos morros para plantar é a técnica de:",
+        "options": [
+         {
+          "text": "Drenagem",
+          "misconceptionCode": "tecnica-trocada"
+         },
+         {
+          "text": "Aterro",
+          "misconceptionCode": "tecnica-trocada"
+         },
+         {
+          "text": "Rotação",
+          "misconceptionCode": "tecnica-trocada"
+         },
+         {
+          "text": "Terraceamento"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Colocar terra, entulho ou areia sobre uma área alagada ou sobre o mar, para construir em cima, é fazer um:",
+      "options": [
+       {
+        "text": "Terraço",
+        "misconceptionCode": "tecnica-trocada"
+       },
+       {
+        "text": "Canal de irrigação",
+        "misconceptionCode": "tecnica-trocada"
+       },
+       {
+        "text": "Rodízio de culturas",
+        "misconceptionCode": "tecnica-trocada"
+       },
+       {
+        "text": "Aterro"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Muitas cidades do litoral cresceram sobre aterros.",
+      "variants": [
+       {
+        "question": "Uma desvantagem dos aterros sobre mangues e áreas alagadas é:",
+        "options": [
+         {
+          "text": "A melhoria do mangue",
+          "misconceptionCode": "tecnica-trocada"
+         },
+         {
+          "text": "A destruição desses ambientes e o risco de alagamentos"
+         },
+         {
+          "text": "O aumento dos peixes",
+          "misconceptionCode": "tecnica-trocada"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "tecnica-trocada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Colocar terra, entulho ou areia sobre uma área alagada ou sobre o mar, para construir em cima, é fazer um:",
+        "options": [
+         {
+          "text": "Aterro"
+         },
+         {
+          "text": "Rodízio de culturas",
+          "misconceptionCode": "tecnica-trocada"
+         },
+         {
+          "text": "Canal de irrigação",
+          "misconceptionCode": "tecnica-trocada"
+         },
+         {
+          "text": "Terraço",
+          "misconceptionCode": "tecnica-trocada"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06GE10-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: usos da água",
+    "prompt": "Do rio à torneira.",
+    "estMinutes": 5,
+    "audioScript": "Do rio à torneira. Pergunta 1. A água doce disponível é ilimitada? A: Não, é limitada e mal distribuída pelo planeta; B: Sim, nunca acaba; C: Sim, basta abrir a torneira; D: Sim, a chuva repõe tudo, sempre. Pergunta 2. Qual é o caminho correto da água até as casas? A: Torneira, rio, tratamento; B: Captação, tratamento, reservatório e rede de distribuição; C: Rede de distribuição, captação, rio; D: Ela já sai tratada do rio. Pergunta 3. A irrigação permite plantar em regiões secas, como no Vale do São Francisco. Uma desvantagem, se for mal planejada, é: A: Nenhuma; B: A falta de plantas; C: O grande consumo de água e o risco de salinização do solo; D: O excesso de chuva. Pergunta 4. As represas trazem vantagens, como a geração de energia e o abastecimento. Uma desvantagem é: A: Nenhuma; B: A falta de água; C: O fim da energia; D: O alagamento de matas, terras e comunidades.",
+    "questions": [
+     {
+      "question": "A água doce disponível é ilimitada?",
+      "options": [
+       {
+        "text": "Não, é limitada e mal distribuída pelo planeta"
+       },
+       {
+        "text": "Sim, nunca acaba",
+        "misconceptionCode": "agua-infinita"
+       },
+       {
+        "text": "Sim, basta abrir a torneira",
+        "misconceptionCode": "agua-vem-pronta"
+       },
+       {
+        "text": "Sim, a chuva repõe tudo, sempre",
+        "misconceptionCode": "agua-infinita"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Por isso a água precisa ser usada com cuidado.",
+      "variants": [
+       {
+        "question": "Em algumas regiões, falta água para a população. Isso mostra que a água doce é:",
+        "options": [
+         {
+          "text": "Infinita",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "Igual em todo lugar",
+          "misconceptionCode": "agua-vem-pronta"
+         },
+         {
+          "text": "Um recurso limitado"
+         },
+         {
+          "text": "Sem importância",
+          "misconceptionCode": "agua-infinita"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A água doce disponível é ilimitada?",
+        "options": [
+         {
+          "text": "Sim, a chuva repõe tudo, sempre",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "Não, é limitada e mal distribuída pelo planeta"
+         },
+         {
+          "text": "Sim, basta abrir a torneira",
+          "misconceptionCode": "agua-vem-pronta"
+         },
+         {
+          "text": "Sim, nunca acaba",
+          "misconceptionCode": "agua-infinita"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual é o caminho correto da água até as casas?",
+      "options": [
+       {
+        "text": "Torneira, rio, tratamento",
+        "misconceptionCode": "agua-vem-pronta"
+       },
+       {
+        "text": "Captação, tratamento, reservatório e rede de distribuição"
+       },
+       {
+        "text": "Rede de distribuição, captação, rio",
+        "misconceptionCode": "agua-vem-pronta"
+       },
+       {
+        "text": "Ela já sai tratada do rio",
+        "misconceptionCode": "agua-vem-pronta"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A água é retirada de rios ou represas, tratada e levada por canos até as casas.",
+      "variants": [
+       {
+        "question": "O lugar onde a água retirada do rio é limpa e recebe cloro é:",
+        "options": [
+         {
+          "text": "A caixa de correio",
+          "misconceptionCode": "agua-vem-pronta"
+         },
+         {
+          "text": "O posto de gasolina",
+          "misconceptionCode": "agua-vem-pronta"
+         },
+         {
+          "text": "A estação de trem",
+          "misconceptionCode": "agua-vem-pronta"
+         },
+         {
+          "text": "A estação de tratamento de água"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual é o caminho correto da água até as casas?",
+        "options": [
+         {
+          "text": "Ela já sai tratada do rio",
+          "misconceptionCode": "agua-vem-pronta"
+         },
+         {
+          "text": "Rede de distribuição, captação, rio",
+          "misconceptionCode": "agua-vem-pronta"
+         },
+         {
+          "text": "Captação, tratamento, reservatório e rede de distribuição"
+         },
+         {
+          "text": "Torneira, rio, tratamento",
+          "misconceptionCode": "agua-vem-pronta"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "A irrigação permite plantar em regiões secas, como no Vale do São Francisco. Uma desvantagem, se for mal planejada, é:",
+      "options": [
+       {
+        "text": "Nenhuma",
+        "misconceptionCode": "so-vantagem"
+       },
+       {
+        "text": "A falta de plantas",
+        "misconceptionCode": "so-vantagem"
+       },
+       {
+        "text": "O grande consumo de água e o risco de salinização do solo"
+       },
+       {
+        "text": "O excesso de chuva",
+        "misconceptionCode": "tecnica-trocada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Toda técnica tem vantagens e limites.",
+      "variants": [
+       {
+        "question": "Um tipo de irrigação que economiza água, por molhar só o pé da planta, é:",
+        "options": [
+         {
+          "text": "O gotejamento"
+         },
+         {
+          "text": "A inundação do terreno",
+          "misconceptionCode": "so-vantagem"
+         },
+         {
+          "text": "O jato de mangueira",
+          "misconceptionCode": "so-vantagem"
+         },
+         {
+          "text": "A chuva artificial sem controle",
+          "misconceptionCode": "tecnica-trocada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A irrigação permite plantar em regiões secas, como no Vale do São Francisco. Uma desvantagem, se for mal planejada, é:",
+        "options": [
+         {
+          "text": "O excesso de chuva",
+          "misconceptionCode": "tecnica-trocada"
+         },
+         {
+          "text": "A falta de plantas",
+          "misconceptionCode": "so-vantagem"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "so-vantagem"
+         },
+         {
+          "text": "O grande consumo de água e o risco de salinização do solo"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "As represas trazem vantagens, como a geração de energia e o abastecimento. Uma desvantagem é:",
+      "options": [
+       {
+        "text": "Nenhuma",
+        "misconceptionCode": "so-vantagem"
+       },
+       {
+        "text": "A falta de água",
+        "misconceptionCode": "agua-infinita"
+       },
+       {
+        "text": "O fim da energia",
+        "misconceptionCode": "so-vantagem"
+       },
+       {
+        "text": "O alagamento de matas, terras e comunidades"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Muitas famílias precisam deixar as suas terras quando uma represa é construída.",
+      "variants": [
+       {
+        "question": "Ao avaliar uma obra que usa a água, é preciso considerar:",
+        "options": [
+         {
+          "text": "Só as vantagens",
+          "misconceptionCode": "so-vantagem"
+         },
+         {
+          "text": "As vantagens e as desvantagens para as pessoas e o ambiente"
+         },
+         {
+          "text": "Só o custo",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "so-vantagem"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "As represas trazem vantagens, como a geração de energia e o abastecimento. Uma desvantagem é:",
+        "options": [
+         {
+          "text": "O alagamento de matas, terras e comunidades"
+         },
+         {
+          "text": "O fim da energia",
+          "misconceptionCode": "so-vantagem"
+         },
+         {
+          "text": "A falta de água",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "so-vantagem"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06GE10-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: escolhendo e avaliando",
+    "prompt": "Em lugares e tempos diferentes.",
+    "estMinutes": 4,
+    "audioScript": "Em lugares e tempos diferentes. Pergunta 1. Um agricultor planta feijão no mesmo terreno todos os anos, e a colheita vem diminuindo. O que ele pode fazer? A: Alternar com outras culturas ou deixar a terra descansar; B: Plantar mais feijão no mesmo lugar; C: Queimar o terreno todo ano; D: Fazer um aterro. Pergunta 2. Um bairro foi construído sobre um aterro numa área de mangue e sofre com alagamentos. Por quê? A: Por acaso; B: Porque a área recebia naturalmente as águas das marés e das chuvas; C: Porque choveu pouco; D: Porque o mangue era seco. Pergunta 3. Na sua casa, a água chega tratada pela rede. O que cada morador pode fazer para que ela não falte? A: Deixar a torneira aberta; B: Lavar a calçada com mangueira todos os dias; C: Evitar o desperdício e consertar os vazamentos; D: Não se preocupar.",
+    "questions": [
+     {
+      "question": "Um agricultor planta feijão no mesmo terreno todos os anos, e a colheita vem diminuindo. O que ele pode fazer?",
+      "options": [
+       {
+        "text": "Alternar com outras culturas ou deixar a terra descansar"
+       },
+       {
+        "text": "Plantar mais feijão no mesmo lugar",
+        "misconceptionCode": "so-vantagem"
+       },
+       {
+        "text": "Queimar o terreno todo ano",
+        "misconceptionCode": "so-vantagem"
+       },
+       {
+        "text": "Fazer um aterro",
+        "misconceptionCode": "tecnica-trocada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A rotação devolve nutrientes ao solo.",
+      "variants": [
+       {
+        "question": "Um agricultor planta numa encosta, e a chuva leva a terra embora. Qual técnica pode ajudar?",
+        "options": [
+         {
+          "text": "O aterro",
+          "misconceptionCode": "so-vantagem"
+         },
+         {
+          "text": "A queimada",
+          "misconceptionCode": "so-vantagem"
+         },
+         {
+          "text": "O terraceamento"
+         },
+         {
+          "text": "O desmatamento",
+          "misconceptionCode": "tecnica-trocada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um agricultor planta feijão no mesmo terreno todos os anos, e a colheita vem diminuindo. O que ele pode fazer?",
+        "options": [
+         {
+          "text": "Fazer um aterro",
+          "misconceptionCode": "tecnica-trocada"
+         },
+         {
+          "text": "Alternar com outras culturas ou deixar a terra descansar"
+         },
+         {
+          "text": "Queimar o terreno todo ano",
+          "misconceptionCode": "so-vantagem"
+         },
+         {
+          "text": "Plantar mais feijão no mesmo lugar",
+          "misconceptionCode": "so-vantagem"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um bairro foi construído sobre um aterro numa área de mangue e sofre com alagamentos. Por quê?",
+      "options": [
+       {
+        "text": "Por acaso",
+        "misconceptionCode": "so-vantagem"
+       },
+       {
+        "text": "Porque a área recebia naturalmente as águas das marés e das chuvas"
+       },
+       {
+        "text": "Porque choveu pouco",
+        "misconceptionCode": "agua-infinita"
+       },
+       {
+        "text": "Porque o mangue era seco",
+        "misconceptionCode": "tecnica-trocada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Ocupar áreas que a água naturalmente alcança traz riscos.",
+      "variants": [
+       {
+        "question": "Antes de construir numa área alagada, é preciso avaliar:",
+        "options": [
+         {
+          "text": "Só o preço do terreno",
+          "misconceptionCode": "so-vantagem"
+         },
+         {
+          "text": "Só a vista",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "tecnica-trocada"
+         },
+         {
+          "text": "Os riscos para os moradores e para o ambiente"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um bairro foi construído sobre um aterro numa área de mangue e sofre com alagamentos. Por quê?",
+        "options": [
+         {
+          "text": "Porque o mangue era seco",
+          "misconceptionCode": "tecnica-trocada"
+         },
+         {
+          "text": "Porque choveu pouco",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "Porque a área recebia naturalmente as águas das marés e das chuvas"
+         },
+         {
+          "text": "Por acaso",
+          "misconceptionCode": "so-vantagem"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Na sua casa, a água chega tratada pela rede. O que cada morador pode fazer para que ela não falte?",
+      "options": [
+       {
+        "text": "Deixar a torneira aberta",
+        "misconceptionCode": "agua-infinita"
+       },
+       {
+        "text": "Lavar a calçada com mangueira todos os dias",
+        "misconceptionCode": "agua-infinita"
+       },
+       {
+        "text": "Evitar o desperdício e consertar os vazamentos"
+       },
+       {
+        "text": "Não se preocupar",
+        "misconceptionCode": "agua-vem-pronta"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Tratar e distribuir a água custa caro, e as fontes são limitadas.",
+      "variants": [
+       {
+        "question": "Depois de usada, a água vira esgoto. Antes de voltar ao rio, o esgoto precisa:",
+        "options": [
+         {
+          "text": "Ser tratado"
+         },
+         {
+          "text": "Ser jogado direto no rio",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "Ser jogado na rua",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "Ficar a céu aberto",
+          "misconceptionCode": "agua-vem-pronta"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Na sua casa, a água chega tratada pela rede. O que cada morador pode fazer para que ela não falte?",
+        "options": [
+         {
+          "text": "Não se preocupar",
+          "misconceptionCode": "agua-vem-pronta"
+         },
+         {
+          "text": "Lavar a calçada com mangueira todos os dias",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "Deixar a torneira aberta",
+          "misconceptionCode": "agua-infinita"
+         },
+         {
+          "text": "Evitar o desperdício e consertar os vazamentos"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06GE10-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: uma técnica, dois lados",
+    "prompt": "Escolha uma forma de uso do solo ou da água (rotação, terraceamento, aterro, irrigação ou represa) e explique com as suas palavras como ela funciona, uma vantagem e uma desvantagem.",
+    "estMinutes": 6,
+    "audioScript": "Escolha uma forma de uso do solo ou da água (rotação, terraceamento, aterro, irrigação ou represa) e explique com as suas palavras como ela funciona, uma vantagem e uma desvantagem.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "tecnica",
+       "description": "Explica como a técnica funciona"
+      },
+      {
+       "code": "vantagem",
+       "description": "Cita uma vantagem"
+      },
+      {
+       "code": "desvantagem",
+       "description": "Cita uma desvantagem ou um cuidado"
+      }
+     ],
+     "exemploBoaResposta": "A irrigação é levar água por canos ou canais até as plantações. A vantagem é que dá para plantar em lugares secos, como no Vale do São Francisco. A desvantagem é que gasta muita água e, se for mal feita, pode estragar o solo."
+    }
+   }
+  ]
+ }
 ]

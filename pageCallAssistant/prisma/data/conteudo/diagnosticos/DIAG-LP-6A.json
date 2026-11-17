@@ -1,223 +1,327 @@
 {
-  "id": "DIAG2-LP-6A",
-  "version": 3,
-  "titulo": "Diagnóstico de Língua Portuguesa — 6º ano",
-  "descricao": "Leitura de notícias e de textos de humor no 6º ano, com degrau para a leitura do 5º ano.",
-  "subjectCode": "LP",
-  "subjectName": "Língua Portuguesa",
-  "gradeYear": 6,
-  "status": "APPROVED",
-  "source": "SPEAKFLOW",
-  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-  "adaptive": true,
-  "items": [
+ "id": "DIAG2-LP-6A",
+ "version": 4,
+ "titulo": "Diagnóstico de Língua Portuguesa — 6º ano",
+ "descricao": "Leitura de notícias, efeitos de sentido, classes de palavras e modos verbais e escolha de sinônimos no 6º ano, com degrau para a leitura do 5º ano.",
+ "subjectCode": "LP",
+ "subjectName": "Língua Portuguesa",
+ "gradeYear": 6,
+ "status": "APPROVED",
+ "source": "SPEAKFLOW",
+ "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+ "adaptive": true,
+ "items": [
+  {
+   "id": "DI2-EF69LP03-01",
+   "skillCode": "EF69LP03",
+   "question": "Leia: \"Moradores de um bairro de Recife criaram uma horta comunitária num terreno abandonado. Agora, as verduras são divididas entre as famílias.\" Qual é o fato central?",
+   "options": [
     {
-      "id": "DI2-EF69LP03-01",
-      "skillCode": "EF69LP03",
-      "question": "Leia: \"Moradores de um bairro de Recife criaram uma horta comunitária num terreno abandonado. Agora, as verduras são divididas entre as famílias.\" Qual é o fato central?",
-      "options": [
-        {
-          "text": "As verduras são gostosas",
-          "misconceptionCode": "opiniao-como-fato"
-        },
-        {
-          "text": "O terreno era abandonado",
-          "misconceptionCode": "detalhe-como-fato"
-        },
-        {
-          "text": "A prefeitura comprou o terreno",
-          "misconceptionCode": "informacao-de-fora"
-        },
-        {
-          "text": "Moradores criaram uma horta num terreno abandonado"
-        }
-      ],
-      "correctIndex": 3,
-      "explanation": "O fato mais importante é o que aconteceu: os moradores fizeram uma horta. Dividir as verduras é o que veio depois.",
-      "audioScript": "Pergunta 1. Leia: \"Moradores de um bairro de Recife criaram uma horta comunitária num terreno abandonado. Agora, as verduras são divididas entre as famílias.\" Qual é o fato central? A: As verduras são gostosas; B: O terreno era abandonado; C: A prefeitura comprou o terreno; D: Moradores criaram uma horta num terreno abandonado.",
-      "role": "NORMAL"
+     "text": "As verduras são gostosas",
+     "misconceptionCode": "opiniao-como-fato"
     },
     {
-      "id": "DI2-EF69LP03-02",
-      "skillCode": "EF69LP03",
-      "question": "Leia: \"Na terça-feira, a ponte do centro foi fechada para obras. Segundo a prefeitura, a reforma vai durar dois meses.\" Quando a ponte foi fechada?",
-      "options": [
-        {
-          "text": "Na terça-feira"
-        },
-        {
-          "text": "Durante dois meses",
-          "misconceptionCode": "troca-circunstancia"
-        },
-        {
-          "text": "No centro",
-          "misconceptionCode": "troca-circunstancia"
-        },
-        {
-          "text": "Quando a reforma acabar",
-          "misconceptionCode": "informacao-de-fora"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Cuidado com a pegadinha: \"dois meses\" é quanto a obra vai durar. O dia em que a ponte fechou foi terça-feira.",
-      "audioScript": "Pergunta 1. Leia: \"Na terça-feira, a ponte do centro foi fechada para obras. Segundo a prefeitura, a reforma vai durar dois meses.\" Quando a ponte foi fechada? A: Na terça-feira; B: Durante dois meses; C: No centro; D: Quando a reforma acabar.",
-      "role": "NORMAL"
+     "text": "O terreno era abandonado",
+     "misconceptionCode": "detalhe-como-fato"
     },
     {
-      "id": "DI2-EF69LP05-01",
-      "skillCode": "EF69LP05",
-      "question": "Numa tirinha, o menino derruba o sorvete no chão e a amiga diz: \"Que sorte a sua!\". O que ela quer dizer?",
-      "options": [
-        {
-          "text": "Que ele teve muita sorte",
-          "misconceptionCode": "ironia-como-verdade"
-        },
-        {
-          "text": "Que o sorvete era de chocolate",
-          "misconceptionCode": "graca-no-lugar-errado"
-        },
-        {
-          "text": "Que ele teve azar"
-        },
-        {
-          "text": "Que o chão estava limpo",
-          "misconceptionCode": "leitura-literal"
-        }
-      ],
-      "correctIndex": 2,
-      "explanation": "Derrubar o sorvete é azar, não sorte! Quando alguém fala o contrário do que quer dizer, é ironia.",
-      "audioScript": "Pergunta 1. Numa tirinha, o menino derruba o sorvete no chão e a amiga diz: \"Que sorte a sua!\". O que ela quer dizer? A: Que ele teve muita sorte; B: Que o sorvete era de chocolate; C: Que ele teve azar; D: Que o chão estava limpo.",
-      "role": "NORMAL"
+     "text": "A prefeitura comprou o terreno",
+     "misconceptionCode": "informacao-de-fora"
     },
     {
-      "id": "DI2-EF69LP05-02",
-      "skillCode": "EF69LP05",
-      "question": "Na piada \"O que o pato disse para a pata? Vem quá!\", de onde vem a graça?",
-      "options": [
-        {
-          "text": "De o pato saber falar",
-          "misconceptionCode": "leitura-literal"
-        },
-        {
-          "text": "Do som \"quá\", que lembra o som do pato e a palavra \"cá\""
-        },
-        {
-          "text": "De a pata ser bonita",
-          "misconceptionCode": "graca-no-lugar-errado"
-        },
-        {
-          "text": "De o pato estar bravo",
-          "misconceptionCode": "ironia-como-verdade"
-        }
-      ],
-      "correctIndex": 1,
-      "explanation": "\"Quá\" é o barulho do pato e também parece \"cá\". A graça está em a palavra ter dois sentidos ao mesmo tempo.",
-      "audioScript": "Pergunta 1. Na piada \"O que o pato disse para a pata? Vem quá!\", de onde vem a graça? A: De o pato saber falar; B: Do som \"quá\", que lembra o som do pato e a palavra \"cá\"; C: De a pata ser bonita; D: De o pato estar bravo.",
-      "role": "NORMAL"
-    },
-    {
-      "id": "DI2-EF35LP03-B01",
-      "skillCode": "EF35LP03",
-      "question": "Leia: \"Toda manhã, dona Rosa alimenta os passarinhos da praça. Ela leva milho, água e até banana. Os passarinhos já a conhecem e voam até ela.\" Qual é a ideia central?",
-      "options": [
-        {
-          "text": "Os passarinhos comem banana",
-          "misconceptionCode": "detalhe-como-fato"
-        },
-        {
-          "text": "A praça é bonita",
-          "misconceptionCode": "opiniao-como-fato"
-        },
-        {
-          "text": "Dona Rosa cuida dos passarinhos da praça"
-        },
-        {
-          "text": "Dona Rosa vende milho",
-          "misconceptionCode": "informacao-de-fora"
-        }
-      ],
-      "correctIndex": 2,
-      "explanation": "Milho, água, banana: tudo isso mostra a mesma coisa, que dona Rosa cuida dos passarinhos. Essa é a ideia central.",
-      "role": "DEGRAU_BANK",
-      "audioScript": "Pergunta 1. Leia: \"Toda manhã, dona Rosa alimenta os passarinhos da praça. Ela leva milho, água e até banana. Os passarinhos já a conhecem e voam até ela.\" Qual é a ideia central? A: Os passarinhos comem banana; B: A praça é bonita; C: Dona Rosa cuida dos passarinhos da praça; D: Dona Rosa vende milho."
-    },
-    {
-      "id": "DI2-EF35LP03-B02",
-      "skillCode": "EF35LP03",
-      "question": "Leia: \"Na festa da escola, cada turma preparou uma apresentação. Teve dança, teatro e música. No final, todos lancharam juntos no pátio.\" Do que o texto fala principalmente?",
-      "options": [
-        {
-          "text": "Da festa da escola"
-        },
-        {
-          "text": "Do lanche no pátio",
-          "misconceptionCode": "detalhe-como-fato"
-        },
-        {
-          "text": "Da melhor turma",
-          "misconceptionCode": "opiniao-como-fato"
-        },
-        {
-          "text": "Das férias",
-          "misconceptionCode": "informacao-de-fora"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Dança, teatro e lanche são pedaços da mesma coisa: a festa da escola. O assunto principal é o que junta tudo.",
-      "role": "DEGRAU_BANK",
-      "audioScript": "Pergunta 1. Leia: \"Na festa da escola, cada turma preparou uma apresentação. Teve dança, teatro e música. No final, todos lancharam juntos no pátio.\" Do que o texto fala principalmente? A: Da festa da escola; B: Do lanche no pátio; C: Da melhor turma; D: Das férias."
-    },
-    {
-      "id": "DI2-EF35LP04-B03",
-      "skillCode": "EF35LP04",
-      "question": "Leia: \"Bia olhou o céu escuro, pegou o casaco e a capa de chuva antes de sair.\" O que dá para inferir?",
-      "options": [
-        {
-          "text": "Bia estava com calor",
-          "misconceptionCode": "leitura-literal"
-        },
-        {
-          "text": "Bia comprou um casaco novo",
-          "misconceptionCode": "graca-no-lugar-errado"
-        },
-        {
-          "text": "Bia gosta de céu escuro",
-          "misconceptionCode": "ironia-como-verdade"
-        },
-        {
-          "text": "Bia achou que ia chover"
-        }
-      ],
-      "correctIndex": 3,
-      "explanation": "Céu escuro e capa de chuva são pistas. Juntando as pistas, dá para descobrir que a Bia achou que ia chover.",
-      "role": "DEGRAU_BANK",
-      "audioScript": "Pergunta 1. Leia: \"Bia olhou o céu escuro, pegou o casaco e a capa de chuva antes de sair.\" O que dá para inferir? A: Bia estava com calor; B: Bia comprou um casaco novo; C: Bia gosta de céu escuro; D: Bia achou que ia chover."
-    },
-    {
-      "id": "DI2-EF35LP04-B04",
-      "skillCode": "EF35LP04",
-      "question": "Leia: \"Quando a campainha tocou, o cachorro correu para a porta abanando o rabo.\" O que dá para inferir?",
-      "options": [
-        {
-          "text": "O cachorro tocou a campainha",
-          "misconceptionCode": "leitura-literal"
-        },
-        {
-          "text": "O cachorro ficou contente com a chegada de alguém"
-        },
-        {
-          "text": "A porta é de madeira",
-          "misconceptionCode": "graca-no-lugar-errado"
-        },
-        {
-          "text": "O cachorro estava com medo",
-          "misconceptionCode": "ironia-como-verdade"
-        }
-      ],
-      "correctIndex": 1,
-      "explanation": "O texto não diz \"o cachorro ficou feliz\", mas dá pistas: correr para a porta e abanar o rabo é o jeito do cachorro mostrar alegria.",
-      "role": "DEGRAU_BANK",
-      "audioScript": "Pergunta 1. Leia: \"Quando a campainha tocou, o cachorro correu para a porta abanando o rabo.\" O que dá para inferir? A: O cachorro tocou a campainha; B: O cachorro ficou contente com a chegada de alguém; C: A porta é de madeira; D: O cachorro estava com medo."
+     "text": "Moradores criaram uma horta num terreno abandonado"
     }
-  ]
+   ],
+   "correctIndex": 3,
+   "explanation": "O fato mais importante é o que aconteceu: os moradores fizeram uma horta. Dividir as verduras é o que veio depois.",
+   "audioScript": "Pergunta 1. Leia: \"Moradores de um bairro de Recife criaram uma horta comunitária num terreno abandonado. Agora, as verduras são divididas entre as famílias.\" Qual é o fato central? A: As verduras são gostosas; B: O terreno era abandonado; C: A prefeitura comprou o terreno; D: Moradores criaram uma horta num terreno abandonado.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF69LP03-02",
+   "skillCode": "EF69LP03",
+   "question": "Leia: \"Na terça-feira, a ponte do centro foi fechada para obras. Segundo a prefeitura, a reforma vai durar dois meses.\" Quando a ponte foi fechada?",
+   "options": [
+    {
+     "text": "Na terça-feira"
+    },
+    {
+     "text": "Durante dois meses",
+     "misconceptionCode": "troca-circunstancia"
+    },
+    {
+     "text": "No centro",
+     "misconceptionCode": "troca-circunstancia"
+    },
+    {
+     "text": "Quando a reforma acabar",
+     "misconceptionCode": "informacao-de-fora"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Cuidado com a pegadinha: \"dois meses\" é quanto a obra vai durar. O dia em que a ponte fechou foi terça-feira.",
+   "audioScript": "Pergunta 1. Leia: \"Na terça-feira, a ponte do centro foi fechada para obras. Segundo a prefeitura, a reforma vai durar dois meses.\" Quando a ponte foi fechada? A: Na terça-feira; B: Durante dois meses; C: No centro; D: Quando a reforma acabar.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF69LP05-01",
+   "skillCode": "EF69LP05",
+   "question": "Numa tirinha, o menino derruba o sorvete no chão e a amiga diz: \"Que sorte a sua!\". O que ela quer dizer?",
+   "options": [
+    {
+     "text": "Que ele teve muita sorte",
+     "misconceptionCode": "ironia-como-verdade"
+    },
+    {
+     "text": "Que o sorvete era de chocolate",
+     "misconceptionCode": "graca-no-lugar-errado"
+    },
+    {
+     "text": "Que ele teve azar"
+    },
+    {
+     "text": "Que o chão estava limpo",
+     "misconceptionCode": "leitura-literal"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Derrubar o sorvete é azar, não sorte! Quando alguém fala o contrário do que quer dizer, é ironia.",
+   "audioScript": "Pergunta 1. Numa tirinha, o menino derruba o sorvete no chão e a amiga diz: \"Que sorte a sua!\". O que ela quer dizer? A: Que ele teve muita sorte; B: Que o sorvete era de chocolate; C: Que ele teve azar; D: Que o chão estava limpo.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF69LP05-02",
+   "skillCode": "EF69LP05",
+   "question": "Na piada \"O que o pato disse para a pata? Vem quá!\", de onde vem a graça?",
+   "options": [
+    {
+     "text": "De o pato saber falar",
+     "misconceptionCode": "leitura-literal"
+    },
+    {
+     "text": "Do som \"quá\", que lembra o som do pato e a palavra \"cá\""
+    },
+    {
+     "text": "De a pata ser bonita",
+     "misconceptionCode": "graca-no-lugar-errado"
+    },
+    {
+     "text": "De o pato estar bravo",
+     "misconceptionCode": "ironia-como-verdade"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "\"Quá\" é o barulho do pato e também parece \"cá\". A graça está em a palavra ter dois sentidos ao mesmo tempo.",
+   "audioScript": "Pergunta 1. Na piada \"O que o pato disse para a pata? Vem quá!\", de onde vem a graça? A: De o pato saber falar; B: Do som \"quá\", que lembra o som do pato e a palavra \"cá\"; C: De a pata ser bonita; D: De o pato estar bravo.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF06LP04-01",
+   "skillCode": "EF06LP04",
+   "question": "Em \"Guarde o material\", o verbo está no modo:",
+   "options": [
+    {
+     "text": "Indicativo",
+     "misconceptionCode": "modo-trocado"
+    },
+    {
+     "text": "Subjuntivo",
+     "misconceptionCode": "modo-trocado"
+    },
+    {
+     "text": "Infinitivo",
+     "misconceptionCode": "modo-trocado"
+    },
+    {
+     "text": "Imperativo"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Expressa uma orientação.",
+   "audioScript": "Pergunta 1. Em \"Guarde o material\", o verbo está no modo: A: Indicativo; B: Subjuntivo; C: Infinitivo; D: Imperativo.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF06LP04-02",
+   "skillCode": "EF06LP04",
+   "question": "Qual é a concordância adequada?",
+   "options": [
+    {
+     "text": "As flores amarelas"
+    },
+    {
+     "text": "As flores amarelo",
+     "misconceptionCode": "concordancia-ignorada"
+    },
+    {
+     "text": "As flor amarelas",
+     "misconceptionCode": "concordancia-ignorada"
+    },
+    {
+     "text": "Os flores amarelas",
+     "misconceptionCode": "concordancia-ignorada"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "O adjetivo concorda com o substantivo.",
+   "audioScript": "Pergunta 2. Qual é a concordância adequada? A: As flores amarelas; B: As flores amarelo; C: As flor amarelas; D: Os flores amarelas.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF06LP03-01",
+   "skillCode": "EF06LP03",
+   "question": "Qual palavra expressa a alegria mais forte?",
+   "options": [
+    {
+     "text": "contente",
+     "misconceptionCode": "intensidade-ignorada"
+    },
+    {
+     "text": "eufórico"
+    },
+    {
+     "text": "satisfeito",
+     "misconceptionCode": "intensidade-ignorada"
+    },
+    {
+     "text": "As três são iguais",
+     "misconceptionCode": "sinonimo-perfeito"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "Os sinônimos diferem na intensidade.",
+   "audioScript": "Pergunta 3. Qual palavra expressa a alegria mais forte? A: contente; B: eufórico; C: satisfeito; D: As três são iguais.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-6A-EF06LP03-02",
+   "skillCode": "EF06LP03",
+   "question": "Qual palavra tem valor negativo?",
+   "options": [
+    {
+     "text": "persistente",
+     "misconceptionCode": "valor-ignorado"
+    },
+    {
+     "text": "determinado",
+     "misconceptionCode": "valor-ignorado"
+    },
+    {
+     "text": "teimoso"
+    },
+    {
+     "text": "firme",
+     "misconceptionCode": "valor-ignorado"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "\"Teimoso\" critica; \"persistente\" elogia.",
+   "audioScript": "Pergunta 4. Qual palavra tem valor negativo? A: persistente; B: determinado; C: teimoso; D: firme.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF35LP03-B01",
+   "skillCode": "EF35LP03",
+   "question": "Leia: \"Toda manhã, dona Rosa alimenta os passarinhos da praça. Ela leva milho, água e até banana. Os passarinhos já a conhecem e voam até ela.\" Qual é a ideia central?",
+   "options": [
+    {
+     "text": "Os passarinhos comem banana",
+     "misconceptionCode": "detalhe-como-fato"
+    },
+    {
+     "text": "A praça é bonita",
+     "misconceptionCode": "opiniao-como-fato"
+    },
+    {
+     "text": "Dona Rosa cuida dos passarinhos da praça"
+    },
+    {
+     "text": "Dona Rosa vende milho",
+     "misconceptionCode": "informacao-de-fora"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Milho, água, banana: tudo isso mostra a mesma coisa, que dona Rosa cuida dos passarinhos. Essa é a ideia central.",
+   "role": "DEGRAU_BANK",
+   "audioScript": "Pergunta 1. Leia: \"Toda manhã, dona Rosa alimenta os passarinhos da praça. Ela leva milho, água e até banana. Os passarinhos já a conhecem e voam até ela.\" Qual é a ideia central? A: Os passarinhos comem banana; B: A praça é bonita; C: Dona Rosa cuida dos passarinhos da praça; D: Dona Rosa vende milho."
+  },
+  {
+   "id": "DI2-EF35LP03-B02",
+   "skillCode": "EF35LP03",
+   "question": "Leia: \"Na festa da escola, cada turma preparou uma apresentação. Teve dança, teatro e música. No final, todos lancharam juntos no pátio.\" Do que o texto fala principalmente?",
+   "options": [
+    {
+     "text": "Da festa da escola"
+    },
+    {
+     "text": "Do lanche no pátio",
+     "misconceptionCode": "detalhe-como-fato"
+    },
+    {
+     "text": "Da melhor turma",
+     "misconceptionCode": "opiniao-como-fato"
+    },
+    {
+     "text": "Das férias",
+     "misconceptionCode": "informacao-de-fora"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Dança, teatro e lanche são pedaços da mesma coisa: a festa da escola. O assunto principal é o que junta tudo.",
+   "role": "DEGRAU_BANK",
+   "audioScript": "Pergunta 1. Leia: \"Na festa da escola, cada turma preparou uma apresentação. Teve dança, teatro e música. No final, todos lancharam juntos no pátio.\" Do que o texto fala principalmente? A: Da festa da escola; B: Do lanche no pátio; C: Da melhor turma; D: Das férias."
+  },
+  {
+   "id": "DI2-EF35LP04-B03",
+   "skillCode": "EF35LP04",
+   "question": "Leia: \"Bia olhou o céu escuro, pegou o casaco e a capa de chuva antes de sair.\" O que dá para inferir?",
+   "options": [
+    {
+     "text": "Bia estava com calor",
+     "misconceptionCode": "leitura-literal"
+    },
+    {
+     "text": "Bia comprou um casaco novo",
+     "misconceptionCode": "graca-no-lugar-errado"
+    },
+    {
+     "text": "Bia gosta de céu escuro",
+     "misconceptionCode": "ironia-como-verdade"
+    },
+    {
+     "text": "Bia achou que ia chover"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Céu escuro e capa de chuva são pistas. Juntando as pistas, dá para descobrir que a Bia achou que ia chover.",
+   "role": "DEGRAU_BANK",
+   "audioScript": "Pergunta 1. Leia: \"Bia olhou o céu escuro, pegou o casaco e a capa de chuva antes de sair.\" O que dá para inferir? A: Bia estava com calor; B: Bia comprou um casaco novo; C: Bia gosta de céu escuro; D: Bia achou que ia chover."
+  },
+  {
+   "id": "DI2-EF35LP04-B04",
+   "skillCode": "EF35LP04",
+   "question": "Leia: \"Quando a campainha tocou, o cachorro correu para a porta abanando o rabo.\" O que dá para inferir?",
+   "options": [
+    {
+     "text": "O cachorro tocou a campainha",
+     "misconceptionCode": "leitura-literal"
+    },
+    {
+     "text": "O cachorro ficou contente com a chegada de alguém"
+    },
+    {
+     "text": "A porta é de madeira",
+     "misconceptionCode": "graca-no-lugar-errado"
+    },
+    {
+     "text": "O cachorro estava com medo",
+     "misconceptionCode": "ironia-como-verdade"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "O texto não diz \"o cachorro ficou feliz\", mas dá pistas: correr para a porta e abanar o rabo é o jeito do cachorro mostrar alegria.",
+   "role": "DEGRAU_BANK",
+   "audioScript": "Pergunta 1. Leia: \"Quando a campainha tocou, o cachorro correu para a porta abanando o rabo.\" O que dá para inferir? A: O cachorro tocou a campainha; B: O cachorro ficou contente com a chegada de alguém; C: A porta é de madeira; D: O cachorro estava com medo."
+  }
+ ]
 }

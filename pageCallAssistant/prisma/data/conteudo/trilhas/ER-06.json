@@ -1,1890 +1,3772 @@
 [
-  {
-    "skillCode": "EF06ER01",
-    "subjectCode": "ER",
-    "subjectName": "Ensino Religioso",
-    "gradeYear": 6,
-    "version": 3,
-    "title": "Trilha: A tradição escrita",
-    "tituloAluno": "Textos escritos que guardam ensinamentos",
-    "activities": [
+ {
+  "skillCode": "EF06ER01",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 6,
+  "version": 3,
+  "title": "Trilha: A tradição escrita",
+  "tituloAluno": "Textos escritos que guardam ensinamentos",
+  "activities": [
+   {
+    "id": "PK2-EF06ER01-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: oral e escrito",
+    "prompt": "Vamos lembrar o que já sabemos sobre a tradição oral.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar o que já sabemos sobre a tradição oral. Pergunta 1. O que é tradição oral? A: A transmissão de ensinamentos e histórias pela fala; B: Um texto escrito num livro; C: Algo que vale menos do que a escrita; D: A tradição de uma única religião. Pergunta 2. Antes de serem escritos, muitos ensinamentos religiosos eram: A: Já escritos desde o primeiro dia; B: Desconhecidos; C: Transmitidos oralmente; D: Exclusivos de uma só tradição. Pergunta 3. As tradições que transmitem seus ensinamentos principalmente pela fala: A: Valem menos; B: Têm o mesmo valor que as que usam textos escritos; C: Não existem mais; D: São todas iguais.",
+    "questions": [
+     {
+      "question": "O que é tradição oral?",
+      "options": [
+       {
+        "text": "A transmissão de ensinamentos e histórias pela fala"
+       },
+       {
+        "text": "Um texto escrito num livro",
+        "misconceptionCode": "escrita-sem-oral"
+       },
+       {
+        "text": "Algo que vale menos do que a escrita",
+        "misconceptionCode": "escrita-melhor"
+       },
+       {
+        "text": "A tradição de uma única religião",
+        "misconceptionCode": "so-um-texto"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Oral vem de boca. Tradição oral é passar histórias e ensinamentos falando, de uma pessoa para outra.",
+      "variants": [
+       {
+        "question": "Aprender um canto ouvindo os mais velhos é:",
+        "options": [
+         {
+          "text": "Tradição escrita",
+          "misconceptionCode": "escrita-sem-oral"
+         },
+         {
+          "text": "Algo sem valor",
+          "misconceptionCode": "escrita-melhor"
+         },
+         {
+          "text": "Tradição oral"
+         },
+         {
+          "text": "Leitura",
+          "misconceptionCode": "so-um-texto"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que é tradição oral?",
+        "options": [
+         {
+          "text": "A tradição de uma única religião",
+          "misconceptionCode": "so-um-texto"
+         },
+         {
+          "text": "A transmissão de ensinamentos e histórias pela fala"
+         },
+         {
+          "text": "Algo que vale menos do que a escrita",
+          "misconceptionCode": "escrita-melhor"
+         },
+         {
+          "text": "Um texto escrito num livro",
+          "misconceptionCode": "escrita-sem-oral"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Antes de serem escritos, muitos ensinamentos religiosos eram:",
+      "options": [
+       {
+        "text": "Já escritos desde o primeiro dia",
+        "misconceptionCode": "escrita-sem-oral"
+       },
+       {
+        "text": "Desconhecidos",
+        "misconceptionCode": "escrita-melhor"
+       },
+       {
+        "text": "Transmitidos oralmente"
+       },
+       {
+        "text": "Exclusivos de uma só tradição",
+        "misconceptionCode": "so-um-texto"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Antes do papel e do livro, as pessoas ensinavam falando e cantando. Os ensinamentos eram transmitidos oralmente.",
+      "variants": [
+       {
+        "question": "Por que muitas histórias sagradas foram contadas por séculos antes de serem escritas?",
+        "options": [
+         {
+          "text": "Porque eram passadas oralmente entre gerações"
+         },
+         {
+          "text": "Porque ninguém as conhecia",
+          "misconceptionCode": "escrita-sem-oral"
+         },
+         {
+          "text": "Porque eram proibidas",
+          "misconceptionCode": "escrita-melhor"
+         },
+         {
+          "text": "Porque não existiam",
+          "misconceptionCode": "so-um-texto"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Antes de serem escritos, muitos ensinamentos religiosos eram:",
+        "options": [
+         {
+          "text": "Exclusivos de uma só tradição",
+          "misconceptionCode": "so-um-texto"
+         },
+         {
+          "text": "Desconhecidos",
+          "misconceptionCode": "escrita-melhor"
+         },
+         {
+          "text": "Já escritos desde o primeiro dia",
+          "misconceptionCode": "escrita-sem-oral"
+         },
+         {
+          "text": "Transmitidos oralmente"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "As tradições que transmitem seus ensinamentos principalmente pela fala:",
+      "options": [
+       {
+        "text": "Valem menos",
+        "misconceptionCode": "escrita-melhor"
+       },
+       {
+        "text": "Têm o mesmo valor que as que usam textos escritos"
+       },
+       {
+        "text": "Não existem mais",
+        "misconceptionCode": "escrita-sem-oral"
+       },
+       {
+        "text": "São todas iguais",
+        "misconceptionCode": "so-um-texto"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Falada ou escrita, toda tradição guarda a memória de um grupo. As duas têm o mesmo valor.",
+      "variants": [
+       {
+        "question": "Uma tradição indígena que ensina pela fala, comparada a uma que tem livro sagrado, é:",
+        "options": [
+         {
+          "text": "Menos importante",
+          "misconceptionCode": "escrita-melhor"
+         },
+         {
+          "text": "Errada",
+          "misconceptionCode": "escrita-sem-oral"
+         },
+         {
+          "text": "Igual em tudo",
+          "misconceptionCode": "so-um-texto"
+         },
+         {
+          "text": "Igualmente valiosa"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "As tradições que transmitem seus ensinamentos principalmente pela fala:",
+        "options": [
+         {
+          "text": "São todas iguais",
+          "misconceptionCode": "so-um-texto"
+         },
+         {
+          "text": "Não existem mais",
+          "misconceptionCode": "escrita-sem-oral"
+         },
+         {
+          "text": "Têm o mesmo valor que as que usam textos escritos"
+         },
+         {
+          "text": "Valem menos",
+          "misconceptionCode": "escrita-melhor"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER01-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: textos sagrados",
+    "prompt": "Várias tradições religiosas têm textos escritos que consideram sagrados. Vamos conhecer juntos alguns deles.",
+    "estMinutes": 4,
+    "audioScript": "Várias tradições religiosas têm textos escritos que consideram sagrados. Vamos conhecer juntos alguns deles. Pergunta 1. A Bíblia é o texto sagrado: A: Do islamismo; B: Do hinduísmo; C: Do cristianismo; D: De todas as religiões. Pergunta 2. O Alcorão é o texto sagrado: A: Do judaísmo; B: Do islamismo; C: Do budismo; D: De nenhuma religião. Pergunta 3. A Torá é um texto sagrado importante: A: Do islamismo; B: Do hinduísmo; C: Do budismo; D: Do judaísmo.",
+    "questions": [
+     {
+      "question": "A Bíblia é o texto sagrado:",
+      "options": [
+       {
+        "text": "Do islamismo",
+        "misconceptionCode": "texto-religiao-trocada"
+       },
+       {
+        "text": "Do hinduísmo",
+        "misconceptionCode": "texto-religiao-trocada"
+       },
+       {
+        "text": "Do cristianismo"
+       },
+       {
+        "text": "De todas as religiões",
+        "misconceptionCode": "so-um-texto"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A Bíblia reúne os textos sagrados dos cristãos, que seguem o cristianismo.",
+      "variants": [
+       {
+        "question": "Os cristãos têm como texto sagrado:",
+        "options": [
+         {
+          "text": "A Bíblia"
+         },
+         {
+          "text": "O Alcorão",
+          "misconceptionCode": "texto-religiao-trocada"
+         },
+         {
+          "text": "Os Vedas",
+          "misconceptionCode": "texto-religiao-trocada"
+         },
+         {
+          "text": "O Tipitaka",
+          "misconceptionCode": "so-um-texto"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A Bíblia é o texto sagrado:",
+        "options": [
+         {
+          "text": "De todas as religiões",
+          "misconceptionCode": "so-um-texto"
+         },
+         {
+          "text": "Do hinduísmo",
+          "misconceptionCode": "texto-religiao-trocada"
+         },
+         {
+          "text": "Do islamismo",
+          "misconceptionCode": "texto-religiao-trocada"
+         },
+         {
+          "text": "Do cristianismo"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O Alcorão é o texto sagrado:",
+      "options": [
+       {
+        "text": "Do judaísmo",
+        "misconceptionCode": "texto-religiao-trocada"
+       },
+       {
+        "text": "Do islamismo"
+       },
+       {
+        "text": "Do budismo",
+        "misconceptionCode": "texto-religiao-trocada"
+       },
+       {
+        "text": "De nenhuma religião",
+        "misconceptionCode": "so-um-texto"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O Alcorão é o livro sagrado do islamismo. Quem segue o islamismo é muçulmano.",
+      "variants": [
+       {
+        "question": "Os muçulmanos têm como texto sagrado:",
+        "options": [
+         {
+          "text": "A Torá",
+          "misconceptionCode": "texto-religiao-trocada"
+         },
+         {
+          "text": "Os Vedas",
+          "misconceptionCode": "texto-religiao-trocada"
+         },
+         {
+          "text": "A Bíblia apenas",
+          "misconceptionCode": "so-um-texto"
+         },
+         {
+          "text": "O Alcorão"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O Alcorão é o texto sagrado:",
+        "options": [
+         {
+          "text": "De nenhuma religião",
+          "misconceptionCode": "so-um-texto"
+         },
+         {
+          "text": "Do budismo",
+          "misconceptionCode": "texto-religiao-trocada"
+         },
+         {
+          "text": "Do islamismo"
+         },
+         {
+          "text": "Do judaísmo",
+          "misconceptionCode": "texto-religiao-trocada"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "A Torá é um texto sagrado importante:",
+      "options": [
+       {
+        "text": "Do islamismo",
+        "misconceptionCode": "texto-religiao-trocada"
+       },
+       {
+        "text": "Do hinduísmo",
+        "misconceptionCode": "texto-religiao-trocada"
+       },
+       {
+        "text": "Do budismo",
+        "misconceptionCode": "texto-religiao-trocada"
+       },
+       {
+        "text": "Do judaísmo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A Torá é formada pelos cinco primeiros livros das escrituras judaicas. Ela é central no judaísmo.",
+      "variants": [
+       {
+        "question": "Os Vedas são textos sagrados antigos:",
+        "options": [
+         {
+          "text": "Do cristianismo",
+          "misconceptionCode": "texto-religiao-trocada"
+         },
+         {
+          "text": "Do hinduísmo"
+         },
+         {
+          "text": "Do islamismo",
+          "misconceptionCode": "texto-religiao-trocada"
+         },
+         {
+          "text": "Do judaísmo",
+          "misconceptionCode": "texto-religiao-trocada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A Torá é um texto sagrado importante:",
+        "options": [
+         {
+          "text": "Do judaísmo"
+         },
+         {
+          "text": "Do budismo",
+          "misconceptionCode": "texto-religiao-trocada"
+         },
+         {
+          "text": "Do hinduísmo",
+          "misconceptionCode": "texto-religiao-trocada"
+         },
+         {
+          "text": "Do islamismo",
+          "misconceptionCode": "texto-religiao-trocada"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER01-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: por que escrever",
+    "prompt": "Pense no papel da escrita para as tradições religiosas.",
+    "estMinutes": 5,
+    "audioScript": "Pense no papel da escrita para as tradições religiosas. Pergunta 1. Por que muitas tradições religiosas registraram seus ensinamentos por escrito? A: Porque a fala não tem valor; B: Para preservar a memória e os ensinamentos ao longo do tempo; C: Porque nunca houve tradição oral antes; D: Porque todas usam o mesmo livro. Pergunta 2. Existe um único texto sagrado para toda a humanidade? A: Sim, todas usam o mesmo; B: Sim, a escrita é igual em todo lugar; C: Não, porque textos escritos não têm valor; D: Não, tradições diferentes têm textos diferentes. Pergunta 3. O Tipitaka reúne ensinamentos atribuídos a Buda. Ele é ligado: A: Ao budismo; B: Ao cristianismo; C: Ao islamismo; D: A todas as religiões. Pergunta 4. Uma tradição que só usa a oralidade, como muitas tradições indígenas, é: A: Uma tradição incompleta, porque não tem livro; B: Uma tradição que vai copiar um livro de outra; C: Uma tradição igualmente importante; D: Algo sem memória.",
+    "questions": [
+     {
+      "question": "Por que muitas tradições religiosas registraram seus ensinamentos por escrito?",
+      "options": [
+       {
+        "text": "Porque a fala não tem valor",
+        "misconceptionCode": "escrita-melhor"
+       },
+       {
+        "text": "Para preservar a memória e os ensinamentos ao longo do tempo"
+       },
+       {
+        "text": "Porque nunca houve tradição oral antes",
+        "misconceptionCode": "escrita-sem-oral"
+       },
+       {
+        "text": "Porque todas usam o mesmo livro",
+        "misconceptionCode": "so-um-texto"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Escrevendo, os ensinamentos não se perdem com o tempo e podem chegar a mais pessoas.",
+      "variants": [
+       {
+        "question": "Um texto escrito ajuda uma tradição a:",
+        "options": [
+         {
+          "text": "Esquecer o passado",
+          "misconceptionCode": "escrita-melhor"
+         },
+         {
+          "text": "Acabar com a oralidade",
+          "misconceptionCode": "escrita-sem-oral"
+         },
+         {
+          "text": "Ter um só livro no mundo",
+          "misconceptionCode": "so-um-texto"
+         },
+         {
+          "text": "Guardar e compartilhar seus ensinamentos"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Por que muitas tradições religiosas registraram seus ensinamentos por escrito?",
+        "options": [
+         {
+          "text": "Porque todas usam o mesmo livro",
+          "misconceptionCode": "so-um-texto"
+         },
+         {
+          "text": "Porque nunca houve tradição oral antes",
+          "misconceptionCode": "escrita-sem-oral"
+         },
+         {
+          "text": "Para preservar a memória e os ensinamentos ao longo do tempo"
+         },
+         {
+          "text": "Porque a fala não tem valor",
+          "misconceptionCode": "escrita-melhor"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Existe um único texto sagrado para toda a humanidade?",
+      "options": [
+       {
+        "text": "Sim, todas usam o mesmo",
+        "misconceptionCode": "so-um-texto"
+       },
+       {
+        "text": "Sim, a escrita é igual em todo lugar",
+        "misconceptionCode": "escrita-sem-oral"
+       },
+       {
+        "text": "Não, porque textos escritos não têm valor",
+        "misconceptionCode": "escrita-melhor"
+       },
+       {
+        "text": "Não, tradições diferentes têm textos diferentes"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Não. Cada tradição tem os seus textos: a Bíblia, o Alcorão, a Torá e muitos outros.",
+      "variants": [
+       {
+        "question": "Bíblia, Alcorão, Torá e Vedas mostram que:",
+        "options": [
+         {
+          "text": "Todas as religiões são iguais",
+          "misconceptionCode": "so-um-texto"
+         },
+         {
+          "text": "Há diversidade de textos sagrados"
+         },
+         {
+          "text": "Só um é verdadeiro para a escola",
+          "misconceptionCode": "escrita-sem-oral"
+         },
+         {
+          "text": "Nenhum é importante",
+          "misconceptionCode": "escrita-melhor"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Existe um único texto sagrado para toda a humanidade?",
+        "options": [
+         {
+          "text": "Não, tradições diferentes têm textos diferentes"
+         },
+         {
+          "text": "Não, porque textos escritos não têm valor",
+          "misconceptionCode": "escrita-melhor"
+         },
+         {
+          "text": "Sim, a escrita é igual em todo lugar",
+          "misconceptionCode": "escrita-sem-oral"
+         },
+         {
+          "text": "Sim, todas usam o mesmo",
+          "misconceptionCode": "so-um-texto"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O Tipitaka reúne ensinamentos atribuídos a Buda. Ele é ligado:",
+      "options": [
+       {
+        "text": "Ao budismo"
+       },
+       {
+        "text": "Ao cristianismo",
+        "misconceptionCode": "texto-religiao-trocada"
+       },
+       {
+        "text": "Ao islamismo",
+        "misconceptionCode": "texto-religiao-trocada"
+       },
+       {
+        "text": "A todas as religiões",
+        "misconceptionCode": "so-um-texto"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Buda é a figura central do budismo. O Tipitaka reúne os ensinamentos dele.",
+      "variants": [
+       {
+        "question": "Os ensinamentos atribuídos a Buda estão reunidos em textos:",
+        "options": [
+         {
+          "text": "Do judaísmo",
+          "misconceptionCode": "texto-religiao-trocada"
+         },
+         {
+          "text": "Do hinduísmo apenas",
+          "misconceptionCode": "texto-religiao-trocada"
+         },
+         {
+          "text": "Do budismo"
+         },
+         {
+          "text": "Do islamismo",
+          "misconceptionCode": "so-um-texto"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O Tipitaka reúne ensinamentos atribuídos a Buda. Ele é ligado:",
+        "options": [
+         {
+          "text": "A todas as religiões",
+          "misconceptionCode": "so-um-texto"
+         },
+         {
+          "text": "Ao budismo"
+         },
+         {
+          "text": "Ao islamismo",
+          "misconceptionCode": "texto-religiao-trocada"
+         },
+         {
+          "text": "Ao cristianismo",
+          "misconceptionCode": "texto-religiao-trocada"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Uma tradição que só usa a oralidade, como muitas tradições indígenas, é:",
+      "options": [
+       {
+        "text": "Uma tradição incompleta, porque não tem livro",
+        "misconceptionCode": "escrita-melhor"
+       },
+       {
+        "text": "Uma tradição que vai copiar um livro de outra",
+        "misconceptionCode": "so-um-texto"
+       },
+       {
+        "text": "Uma tradição igualmente importante"
+       },
+       {
+        "text": "Algo sem memória",
+        "misconceptionCode": "escrita-sem-oral"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Não ter livro não diminui o valor de uma tradição. Ela guarda a memória do povo de outro jeito, falando.",
+      "variants": [
+       {
+        "question": "Sobre as tradições que não têm textos escritos, é correto dizer que:",
+        "options": [
+         {
+          "text": "Guardam a memória pela fala e têm grande valor"
+         },
+         {
+          "text": "Não têm memória",
+          "misconceptionCode": "escrita-melhor"
+         },
+         {
+          "text": "Valem menos",
+          "misconceptionCode": "so-um-texto"
+         },
+         {
+          "text": "Não existem",
+          "misconceptionCode": "escrita-sem-oral"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Uma tradição que só usa a oralidade, como muitas tradições indígenas, é:",
+        "options": [
+         {
+          "text": "Algo sem memória",
+          "misconceptionCode": "escrita-sem-oral"
+         },
+         {
+          "text": "Uma tradição que vai copiar um livro de outra",
+          "misconceptionCode": "so-um-texto"
+         },
+         {
+          "text": "Uma tradição incompleta, porque não tem livro",
+          "misconceptionCode": "escrita-melhor"
+         },
+         {
+          "text": "Uma tradição igualmente importante"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER01-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: respeito na escola",
+    "prompt": "Pense em como lidar com a diversidade religiosa na escola.",
+    "estMinutes": 4,
+    "audioScript": "Pense em como lidar com a diversidade religiosa na escola. Pergunta 1. Um colega traz para a feira cultural um texto sagrado da tradição da família dele. Qual atitude é adequada? A: Dizer que o texto da sua religião é o único que vale; B: Dizer que só tradições escritas importam; C: Confundir o texto com o de outra religião sem perguntar; D: Ouvir e respeitar, mesmo que seja de outra tradição. Pergunta 2. A turma vai fazer um painel sobre textos sagrados. O que é mais correto? A: Apresentar textos de várias tradições, sem dizer que um é melhor; B: Mostrar só um texto, porque é o único; C: Dizer que tradições sem escrita não contam; D: Trocar os nomes das religiões. Pergunta 3. Sua avó lê em voz alta trechos do texto sagrado da tradição dela todos os domingos. Isso mostra que: A: A tradição oral acabou; B: Só o texto escrito tem valor; C: A tradição escrita e a oral podem andar juntas; D: Só existe um texto sagrado.",
+    "questions": [
+     {
+      "question": "Um colega traz para a feira cultural um texto sagrado da tradição da família dele. Qual atitude é adequada?",
+      "options": [
+       {
+        "text": "Dizer que o texto da sua religião é o único que vale",
+        "misconceptionCode": "so-um-texto"
+       },
+       {
+        "text": "Dizer que só tradições escritas importam",
+        "misconceptionCode": "escrita-melhor"
+       },
+       {
+        "text": "Confundir o texto com o de outra religião sem perguntar",
+        "misconceptionCode": "texto-religiao-trocada"
+       },
+       {
+        "text": "Ouvir e respeitar, mesmo que seja de outra tradição"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Mesmo que seja de outra tradição, o certo é ouvir com atenção e respeitar. Assim todo mundo aprende.",
+      "variants": [
+       {
+        "question": "Na feira cultural, há apresentações de várias tradições. A atitude certa é:",
+        "options": [
+         {
+          "text": "Respeitar só a sua",
+          "misconceptionCode": "so-um-texto"
+         },
+         {
+          "text": "Respeitar todas"
+         },
+         {
+          "text": "Rir das diferentes",
+          "misconceptionCode": "escrita-melhor"
+         },
+         {
+          "text": "Ignorar as tradições orais",
+          "misconceptionCode": "texto-religiao-trocada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um colega traz para a feira cultural um texto sagrado da tradição da família dele. Qual atitude é adequada?",
+        "options": [
+         {
+          "text": "Ouvir e respeitar, mesmo que seja de outra tradição"
+         },
+         {
+          "text": "Confundir o texto com o de outra religião sem perguntar",
+          "misconceptionCode": "texto-religiao-trocada"
+         },
+         {
+          "text": "Dizer que só tradições escritas importam",
+          "misconceptionCode": "escrita-melhor"
+         },
+         {
+          "text": "Dizer que o texto da sua religião é o único que vale",
+          "misconceptionCode": "so-um-texto"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "A turma vai fazer um painel sobre textos sagrados. O que é mais correto?",
+      "options": [
+       {
+        "text": "Apresentar textos de várias tradições, sem dizer que um é melhor"
+       },
+       {
+        "text": "Mostrar só um texto, porque é o único",
+        "misconceptionCode": "so-um-texto"
+       },
+       {
+        "text": "Dizer que tradições sem escrita não contam",
+        "misconceptionCode": "escrita-melhor"
+       },
+       {
+        "text": "Trocar os nomes das religiões",
+        "misconceptionCode": "texto-religiao-trocada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Na escola, todas as tradições são apresentadas com respeito, sem dizer que uma é melhor que a outra.",
+      "variants": [
+       {
+        "question": "Num trabalho escolar sobre religiões, o certo é:",
+        "options": [
+         {
+          "text": "Escolher a melhor religião",
+          "misconceptionCode": "so-um-texto"
+         },
+         {
+          "text": "Falar mal das outras",
+          "misconceptionCode": "escrita-melhor"
+         },
+         {
+          "text": "Apresentar com respeito e sem dizer qual é a melhor"
+         },
+         {
+          "text": "Falar só de uma",
+          "misconceptionCode": "texto-religiao-trocada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A turma vai fazer um painel sobre textos sagrados. O que é mais correto?",
+        "options": [
+         {
+          "text": "Trocar os nomes das religiões",
+          "misconceptionCode": "texto-religiao-trocada"
+         },
+         {
+          "text": "Apresentar textos de várias tradições, sem dizer que um é melhor"
+         },
+         {
+          "text": "Dizer que tradições sem escrita não contam",
+          "misconceptionCode": "escrita-melhor"
+         },
+         {
+          "text": "Mostrar só um texto, porque é o único",
+          "misconceptionCode": "so-um-texto"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Sua avó lê em voz alta trechos do texto sagrado da tradição dela todos os domingos. Isso mostra que:",
+      "options": [
+       {
+        "text": "A tradição oral acabou",
+        "misconceptionCode": "escrita-sem-oral"
+       },
+       {
+        "text": "Só o texto escrito tem valor",
+        "misconceptionCode": "escrita-melhor"
+       },
+       {
+        "text": "A tradição escrita e a oral podem andar juntas"
+       },
+       {
+        "text": "Só existe um texto sagrado",
+        "misconceptionCode": "so-um-texto"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O texto é escrito, mas a vovó o compartilha falando. Escrita e fala andam juntas.",
+      "variants": [
+       {
+        "question": "Cantar em grupo um texto que está escrito num livro sagrado é um exemplo de:",
+        "options": [
+         {
+          "text": "Escrita e oralidade juntas"
+         },
+         {
+          "text": "Só tradição escrita",
+          "misconceptionCode": "escrita-sem-oral"
+         },
+         {
+          "text": "Só tradição oral",
+          "misconceptionCode": "escrita-melhor"
+         },
+         {
+          "text": "Nenhuma tradição",
+          "misconceptionCode": "so-um-texto"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Sua avó lê em voz alta trechos do texto sagrado da tradição dela todos os domingos. Isso mostra que:",
+        "options": [
+         {
+          "text": "Só existe um texto sagrado",
+          "misconceptionCode": "so-um-texto"
+         },
+         {
+          "text": "Só o texto escrito tem valor",
+          "misconceptionCode": "escrita-melhor"
+         },
+         {
+          "text": "A tradição oral acabou",
+          "misconceptionCode": "escrita-sem-oral"
+         },
+         {
+          "text": "A tradição escrita e a oral podem andar juntas"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER01-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: tradição escrita",
+    "prompt": "Explique com as suas palavras por que muitas tradições religiosas registraram seus ensinamentos por escrito e cite dois textos sagrados de tradições diferentes.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras por que muitas tradições religiosas registraram seus ensinamentos por escrito e cite dois textos sagrados de tradições diferentes.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
       {
-        "id": "PK2-EF06ER01-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar: oral e escrito",
-        "prompt": "Vamos lembrar o que já sabemos sobre a tradição oral.",
-        "estMinutes": 4,
-        "audioScript": "Vamos lembrar o que já sabemos sobre a tradição oral. Pergunta 1. O que é tradição oral? A: A transmissão de ensinamentos e histórias pela fala; B: Um texto escrito num livro; C: Algo que vale menos do que a escrita; D: A tradição de uma única religião. Pergunta 2. Antes de serem escritos, muitos ensinamentos religiosos eram: A: Já escritos desde o primeiro dia; B: Desconhecidos; C: Transmitidos oralmente; D: Exclusivos de uma só tradição. Pergunta 3. As tradições que transmitem seus ensinamentos principalmente pela fala: A: Valem menos; B: Têm o mesmo valor que as que usam textos escritos; C: Não existem mais; D: São todas iguais.",
-        "questions": [
-          {
-            "question": "O que é tradição oral?",
-            "options": [
-              {
-                "text": "A transmissão de ensinamentos e histórias pela fala"
-              },
-              {
-                "text": "Um texto escrito num livro",
-                "misconceptionCode": "escrita-sem-oral"
-              },
-              {
-                "text": "Algo que vale menos do que a escrita",
-                "misconceptionCode": "escrita-melhor"
-              },
-              {
-                "text": "A tradição de uma única religião",
-                "misconceptionCode": "so-um-texto"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Oral vem de boca. Tradição oral é passar histórias e ensinamentos falando, de uma pessoa para outra.",
-            "variants": [
-              {
-                "question": "Aprender um canto ouvindo os mais velhos é:",
-                "options": [
-                  {
-                    "text": "Tradição escrita",
-                    "misconceptionCode": "escrita-sem-oral"
-                  },
-                  {
-                    "text": "Algo sem valor",
-                    "misconceptionCode": "escrita-melhor"
-                  },
-                  {
-                    "text": "Tradição oral"
-                  },
-                  {
-                    "text": "Leitura",
-                    "misconceptionCode": "so-um-texto"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "O que é tradição oral?",
-                "options": [
-                  {
-                    "text": "A tradição de uma única religião",
-                    "misconceptionCode": "so-um-texto"
-                  },
-                  {
-                    "text": "A transmissão de ensinamentos e histórias pela fala"
-                  },
-                  {
-                    "text": "Algo que vale menos do que a escrita",
-                    "misconceptionCode": "escrita-melhor"
-                  },
-                  {
-                    "text": "Um texto escrito num livro",
-                    "misconceptionCode": "escrita-sem-oral"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Antes de serem escritos, muitos ensinamentos religiosos eram:",
-            "options": [
-              {
-                "text": "Já escritos desde o primeiro dia",
-                "misconceptionCode": "escrita-sem-oral"
-              },
-              {
-                "text": "Desconhecidos",
-                "misconceptionCode": "escrita-melhor"
-              },
-              {
-                "text": "Transmitidos oralmente"
-              },
-              {
-                "text": "Exclusivos de uma só tradição",
-                "misconceptionCode": "so-um-texto"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Antes do papel e do livro, as pessoas ensinavam falando e cantando. Os ensinamentos eram transmitidos oralmente.",
-            "variants": [
-              {
-                "question": "Por que muitas histórias sagradas foram contadas por séculos antes de serem escritas?",
-                "options": [
-                  {
-                    "text": "Porque eram passadas oralmente entre gerações"
-                  },
-                  {
-                    "text": "Porque ninguém as conhecia",
-                    "misconceptionCode": "escrita-sem-oral"
-                  },
-                  {
-                    "text": "Porque eram proibidas",
-                    "misconceptionCode": "escrita-melhor"
-                  },
-                  {
-                    "text": "Porque não existiam",
-                    "misconceptionCode": "so-um-texto"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Antes de serem escritos, muitos ensinamentos religiosos eram:",
-                "options": [
-                  {
-                    "text": "Exclusivos de uma só tradição",
-                    "misconceptionCode": "so-um-texto"
-                  },
-                  {
-                    "text": "Desconhecidos",
-                    "misconceptionCode": "escrita-melhor"
-                  },
-                  {
-                    "text": "Já escritos desde o primeiro dia",
-                    "misconceptionCode": "escrita-sem-oral"
-                  },
-                  {
-                    "text": "Transmitidos oralmente"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "As tradições que transmitem seus ensinamentos principalmente pela fala:",
-            "options": [
-              {
-                "text": "Valem menos",
-                "misconceptionCode": "escrita-melhor"
-              },
-              {
-                "text": "Têm o mesmo valor que as que usam textos escritos"
-              },
-              {
-                "text": "Não existem mais",
-                "misconceptionCode": "escrita-sem-oral"
-              },
-              {
-                "text": "São todas iguais",
-                "misconceptionCode": "so-um-texto"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Falada ou escrita, toda tradição guarda a memória de um grupo. As duas têm o mesmo valor.",
-            "variants": [
-              {
-                "question": "Uma tradição indígena que ensina pela fala, comparada a uma que tem livro sagrado, é:",
-                "options": [
-                  {
-                    "text": "Menos importante",
-                    "misconceptionCode": "escrita-melhor"
-                  },
-                  {
-                    "text": "Errada",
-                    "misconceptionCode": "escrita-sem-oral"
-                  },
-                  {
-                    "text": "Igual em tudo",
-                    "misconceptionCode": "so-um-texto"
-                  },
-                  {
-                    "text": "Igualmente valiosa"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "As tradições que transmitem seus ensinamentos principalmente pela fala:",
-                "options": [
-                  {
-                    "text": "São todas iguais",
-                    "misconceptionCode": "so-um-texto"
-                  },
-                  {
-                    "text": "Não existem mais",
-                    "misconceptionCode": "escrita-sem-oral"
-                  },
-                  {
-                    "text": "Têm o mesmo valor que as que usam textos escritos"
-                  },
-                  {
-                    "text": "Valem menos",
-                    "misconceptionCode": "escrita-melhor"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          }
-        ]
+       "code": "funcao",
+       "description": "Explica que a escrita ajuda a preservar memórias e ensinamentos"
       },
       {
-        "id": "PK2-EF06ER01-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Exemplo guiado: textos sagrados",
-        "prompt": "Várias tradições religiosas têm textos escritos que consideram sagrados. Vamos conhecer juntos alguns deles.",
-        "estMinutes": 4,
-        "audioScript": "Várias tradições religiosas têm textos escritos que consideram sagrados. Vamos conhecer juntos alguns deles. Pergunta 1. A Bíblia é o texto sagrado: A: Do islamismo; B: Do hinduísmo; C: Do cristianismo; D: De todas as religiões. Pergunta 2. O Alcorão é o texto sagrado: A: Do judaísmo; B: Do islamismo; C: Do budismo; D: De nenhuma religião. Pergunta 3. A Torá é um texto sagrado importante: A: Do islamismo; B: Do hinduísmo; C: Do budismo; D: Do judaísmo.",
-        "questions": [
-          {
-            "question": "A Bíblia é o texto sagrado:",
-            "options": [
-              {
-                "text": "Do islamismo",
-                "misconceptionCode": "texto-religiao-trocada"
-              },
-              {
-                "text": "Do hinduísmo",
-                "misconceptionCode": "texto-religiao-trocada"
-              },
-              {
-                "text": "Do cristianismo"
-              },
-              {
-                "text": "De todas as religiões",
-                "misconceptionCode": "so-um-texto"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "A Bíblia reúne os textos sagrados dos cristãos, que seguem o cristianismo.",
-            "variants": [
-              {
-                "question": "Os cristãos têm como texto sagrado:",
-                "options": [
-                  {
-                    "text": "A Bíblia"
-                  },
-                  {
-                    "text": "O Alcorão",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  },
-                  {
-                    "text": "Os Vedas",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  },
-                  {
-                    "text": "O Tipitaka",
-                    "misconceptionCode": "so-um-texto"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "A Bíblia é o texto sagrado:",
-                "options": [
-                  {
-                    "text": "De todas as religiões",
-                    "misconceptionCode": "so-um-texto"
-                  },
-                  {
-                    "text": "Do hinduísmo",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  },
-                  {
-                    "text": "Do islamismo",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  },
-                  {
-                    "text": "Do cristianismo"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "O Alcorão é o texto sagrado:",
-            "options": [
-              {
-                "text": "Do judaísmo",
-                "misconceptionCode": "texto-religiao-trocada"
-              },
-              {
-                "text": "Do islamismo"
-              },
-              {
-                "text": "Do budismo",
-                "misconceptionCode": "texto-religiao-trocada"
-              },
-              {
-                "text": "De nenhuma religião",
-                "misconceptionCode": "so-um-texto"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "O Alcorão é o livro sagrado do islamismo. Quem segue o islamismo é muçulmano.",
-            "variants": [
-              {
-                "question": "Os muçulmanos têm como texto sagrado:",
-                "options": [
-                  {
-                    "text": "A Torá",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  },
-                  {
-                    "text": "Os Vedas",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  },
-                  {
-                    "text": "A Bíblia apenas",
-                    "misconceptionCode": "so-um-texto"
-                  },
-                  {
-                    "text": "O Alcorão"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "O Alcorão é o texto sagrado:",
-                "options": [
-                  {
-                    "text": "De nenhuma religião",
-                    "misconceptionCode": "so-um-texto"
-                  },
-                  {
-                    "text": "Do budismo",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  },
-                  {
-                    "text": "Do islamismo"
-                  },
-                  {
-                    "text": "Do judaísmo",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "A Torá é um texto sagrado importante:",
-            "options": [
-              {
-                "text": "Do islamismo",
-                "misconceptionCode": "texto-religiao-trocada"
-              },
-              {
-                "text": "Do hinduísmo",
-                "misconceptionCode": "texto-religiao-trocada"
-              },
-              {
-                "text": "Do budismo",
-                "misconceptionCode": "texto-religiao-trocada"
-              },
-              {
-                "text": "Do judaísmo"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "A Torá é formada pelos cinco primeiros livros das escrituras judaicas. Ela é central no judaísmo.",
-            "variants": [
-              {
-                "question": "Os Vedas são textos sagrados antigos:",
-                "options": [
-                  {
-                    "text": "Do cristianismo",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  },
-                  {
-                    "text": "Do hinduísmo"
-                  },
-                  {
-                    "text": "Do islamismo",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  },
-                  {
-                    "text": "Do judaísmo",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "A Torá é um texto sagrado importante:",
-                "options": [
-                  {
-                    "text": "Do judaísmo"
-                  },
-                  {
-                    "text": "Do budismo",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  },
-                  {
-                    "text": "Do hinduísmo",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  },
-                  {
-                    "text": "Do islamismo",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          }
-        ]
+       "code": "exemplos",
+       "description": "Cita dois textos sagrados ligados às tradições corretas"
       },
       {
-        "id": "PK2-EF06ER01-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar: por que escrever",
-        "prompt": "Pense no papel da escrita para as tradições religiosas.",
-        "estMinutes": 5,
-        "audioScript": "Pense no papel da escrita para as tradições religiosas. Pergunta 1. Por que muitas tradições religiosas registraram seus ensinamentos por escrito? A: Porque a fala não tem valor; B: Para preservar a memória e os ensinamentos ao longo do tempo; C: Porque nunca houve tradição oral antes; D: Porque todas usam o mesmo livro. Pergunta 2. Existe um único texto sagrado para toda a humanidade? A: Sim, todas usam o mesmo; B: Sim, a escrita é igual em todo lugar; C: Não, porque textos escritos não têm valor; D: Não, tradições diferentes têm textos diferentes. Pergunta 3. O Tipitaka reúne ensinamentos atribuídos a Buda. Ele é ligado: A: Ao budismo; B: Ao cristianismo; C: Ao islamismo; D: A todas as religiões. Pergunta 4. Uma tradição que só usa a oralidade, como muitas tradições indígenas, é: A: Uma tradição incompleta, porque não tem livro; B: Uma tradição que vai copiar um livro de outra; C: Uma tradição igualmente importante; D: Algo sem memória.",
-        "questions": [
-          {
-            "question": "Por que muitas tradições religiosas registraram seus ensinamentos por escrito?",
-            "options": [
-              {
-                "text": "Porque a fala não tem valor",
-                "misconceptionCode": "escrita-melhor"
-              },
-              {
-                "text": "Para preservar a memória e os ensinamentos ao longo do tempo"
-              },
-              {
-                "text": "Porque nunca houve tradição oral antes",
-                "misconceptionCode": "escrita-sem-oral"
-              },
-              {
-                "text": "Porque todas usam o mesmo livro",
-                "misconceptionCode": "so-um-texto"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Escrevendo, os ensinamentos não se perdem com o tempo e podem chegar a mais pessoas.",
-            "variants": [
-              {
-                "question": "Um texto escrito ajuda uma tradição a:",
-                "options": [
-                  {
-                    "text": "Esquecer o passado",
-                    "misconceptionCode": "escrita-melhor"
-                  },
-                  {
-                    "text": "Acabar com a oralidade",
-                    "misconceptionCode": "escrita-sem-oral"
-                  },
-                  {
-                    "text": "Ter um só livro no mundo",
-                    "misconceptionCode": "so-um-texto"
-                  },
-                  {
-                    "text": "Guardar e compartilhar seus ensinamentos"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Por que muitas tradições religiosas registraram seus ensinamentos por escrito?",
-                "options": [
-                  {
-                    "text": "Porque todas usam o mesmo livro",
-                    "misconceptionCode": "so-um-texto"
-                  },
-                  {
-                    "text": "Porque nunca houve tradição oral antes",
-                    "misconceptionCode": "escrita-sem-oral"
-                  },
-                  {
-                    "text": "Para preservar a memória e os ensinamentos ao longo do tempo"
-                  },
-                  {
-                    "text": "Porque a fala não tem valor",
-                    "misconceptionCode": "escrita-melhor"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Existe um único texto sagrado para toda a humanidade?",
-            "options": [
-              {
-                "text": "Sim, todas usam o mesmo",
-                "misconceptionCode": "so-um-texto"
-              },
-              {
-                "text": "Sim, a escrita é igual em todo lugar",
-                "misconceptionCode": "escrita-sem-oral"
-              },
-              {
-                "text": "Não, porque textos escritos não têm valor",
-                "misconceptionCode": "escrita-melhor"
-              },
-              {
-                "text": "Não, tradições diferentes têm textos diferentes"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Não. Cada tradição tem os seus textos: a Bíblia, o Alcorão, a Torá e muitos outros.",
-            "variants": [
-              {
-                "question": "Bíblia, Alcorão, Torá e Vedas mostram que:",
-                "options": [
-                  {
-                    "text": "Todas as religiões são iguais",
-                    "misconceptionCode": "so-um-texto"
-                  },
-                  {
-                    "text": "Há diversidade de textos sagrados"
-                  },
-                  {
-                    "text": "Só um é verdadeiro para a escola",
-                    "misconceptionCode": "escrita-sem-oral"
-                  },
-                  {
-                    "text": "Nenhum é importante",
-                    "misconceptionCode": "escrita-melhor"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Existe um único texto sagrado para toda a humanidade?",
-                "options": [
-                  {
-                    "text": "Não, tradições diferentes têm textos diferentes"
-                  },
-                  {
-                    "text": "Não, porque textos escritos não têm valor",
-                    "misconceptionCode": "escrita-melhor"
-                  },
-                  {
-                    "text": "Sim, a escrita é igual em todo lugar",
-                    "misconceptionCode": "escrita-sem-oral"
-                  },
-                  {
-                    "text": "Sim, todas usam o mesmo",
-                    "misconceptionCode": "so-um-texto"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "O Tipitaka reúne ensinamentos atribuídos a Buda. Ele é ligado:",
-            "options": [
-              {
-                "text": "Ao budismo"
-              },
-              {
-                "text": "Ao cristianismo",
-                "misconceptionCode": "texto-religiao-trocada"
-              },
-              {
-                "text": "Ao islamismo",
-                "misconceptionCode": "texto-religiao-trocada"
-              },
-              {
-                "text": "A todas as religiões",
-                "misconceptionCode": "so-um-texto"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Buda é a figura central do budismo. O Tipitaka reúne os ensinamentos dele.",
-            "variants": [
-              {
-                "question": "Os ensinamentos atribuídos a Buda estão reunidos em textos:",
-                "options": [
-                  {
-                    "text": "Do judaísmo",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  },
-                  {
-                    "text": "Do hinduísmo apenas",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  },
-                  {
-                    "text": "Do budismo"
-                  },
-                  {
-                    "text": "Do islamismo",
-                    "misconceptionCode": "so-um-texto"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "O Tipitaka reúne ensinamentos atribuídos a Buda. Ele é ligado:",
-                "options": [
-                  {
-                    "text": "A todas as religiões",
-                    "misconceptionCode": "so-um-texto"
-                  },
-                  {
-                    "text": "Ao budismo"
-                  },
-                  {
-                    "text": "Ao islamismo",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  },
-                  {
-                    "text": "Ao cristianismo",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Uma tradição que só usa a oralidade, como muitas tradições indígenas, é:",
-            "options": [
-              {
-                "text": "Uma tradição incompleta, porque não tem livro",
-                "misconceptionCode": "escrita-melhor"
-              },
-              {
-                "text": "Uma tradição que vai copiar um livro de outra",
-                "misconceptionCode": "so-um-texto"
-              },
-              {
-                "text": "Uma tradição igualmente importante"
-              },
-              {
-                "text": "Algo sem memória",
-                "misconceptionCode": "escrita-sem-oral"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Não ter livro não diminui o valor de uma tradição. Ela guarda a memória do povo de outro jeito, falando.",
-            "variants": [
-              {
-                "question": "Sobre as tradições que não têm textos escritos, é correto dizer que:",
-                "options": [
-                  {
-                    "text": "Guardam a memória pela fala e têm grande valor"
-                  },
-                  {
-                    "text": "Não têm memória",
-                    "misconceptionCode": "escrita-melhor"
-                  },
-                  {
-                    "text": "Valem menos",
-                    "misconceptionCode": "so-um-texto"
-                  },
-                  {
-                    "text": "Não existem",
-                    "misconceptionCode": "escrita-sem-oral"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Uma tradição que só usa a oralidade, como muitas tradições indígenas, é:",
-                "options": [
-                  {
-                    "text": "Algo sem memória",
-                    "misconceptionCode": "escrita-sem-oral"
-                  },
-                  {
-                    "text": "Uma tradição que vai copiar um livro de outra",
-                    "misconceptionCode": "so-um-texto"
-                  },
-                  {
-                    "text": "Uma tradição incompleta, porque não tem livro",
-                    "misconceptionCode": "escrita-melhor"
-                  },
-                  {
-                    "text": "Uma tradição igualmente importante"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF06ER01-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar: respeito na escola",
-        "prompt": "Pense em como lidar com a diversidade religiosa na escola.",
-        "estMinutes": 4,
-        "audioScript": "Pense em como lidar com a diversidade religiosa na escola. Pergunta 1. Um colega traz para a feira cultural um texto sagrado da tradição da família dele. Qual atitude é adequada? A: Dizer que o texto da sua religião é o único que vale; B: Dizer que só tradições escritas importam; C: Confundir o texto com o de outra religião sem perguntar; D: Ouvir e respeitar, mesmo que seja de outra tradição. Pergunta 2. A turma vai fazer um painel sobre textos sagrados. O que é mais correto? A: Apresentar textos de várias tradições, sem dizer que um é melhor; B: Mostrar só um texto, porque é o único; C: Dizer que tradições sem escrita não contam; D: Trocar os nomes das religiões. Pergunta 3. Sua avó lê em voz alta trechos do texto sagrado da tradição dela todos os domingos. Isso mostra que: A: A tradição oral acabou; B: Só o texto escrito tem valor; C: A tradição escrita e a oral podem andar juntas; D: Só existe um texto sagrado.",
-        "questions": [
-          {
-            "question": "Um colega traz para a feira cultural um texto sagrado da tradição da família dele. Qual atitude é adequada?",
-            "options": [
-              {
-                "text": "Dizer que o texto da sua religião é o único que vale",
-                "misconceptionCode": "so-um-texto"
-              },
-              {
-                "text": "Dizer que só tradições escritas importam",
-                "misconceptionCode": "escrita-melhor"
-              },
-              {
-                "text": "Confundir o texto com o de outra religião sem perguntar",
-                "misconceptionCode": "texto-religiao-trocada"
-              },
-              {
-                "text": "Ouvir e respeitar, mesmo que seja de outra tradição"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Mesmo que seja de outra tradição, o certo é ouvir com atenção e respeitar. Assim todo mundo aprende.",
-            "variants": [
-              {
-                "question": "Na feira cultural, há apresentações de várias tradições. A atitude certa é:",
-                "options": [
-                  {
-                    "text": "Respeitar só a sua",
-                    "misconceptionCode": "so-um-texto"
-                  },
-                  {
-                    "text": "Respeitar todas"
-                  },
-                  {
-                    "text": "Rir das diferentes",
-                    "misconceptionCode": "escrita-melhor"
-                  },
-                  {
-                    "text": "Ignorar as tradições orais",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Um colega traz para a feira cultural um texto sagrado da tradição da família dele. Qual atitude é adequada?",
-                "options": [
-                  {
-                    "text": "Ouvir e respeitar, mesmo que seja de outra tradição"
-                  },
-                  {
-                    "text": "Confundir o texto com o de outra religião sem perguntar",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  },
-                  {
-                    "text": "Dizer que só tradições escritas importam",
-                    "misconceptionCode": "escrita-melhor"
-                  },
-                  {
-                    "text": "Dizer que o texto da sua religião é o único que vale",
-                    "misconceptionCode": "so-um-texto"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "A turma vai fazer um painel sobre textos sagrados. O que é mais correto?",
-            "options": [
-              {
-                "text": "Apresentar textos de várias tradições, sem dizer que um é melhor"
-              },
-              {
-                "text": "Mostrar só um texto, porque é o único",
-                "misconceptionCode": "so-um-texto"
-              },
-              {
-                "text": "Dizer que tradições sem escrita não contam",
-                "misconceptionCode": "escrita-melhor"
-              },
-              {
-                "text": "Trocar os nomes das religiões",
-                "misconceptionCode": "texto-religiao-trocada"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Na escola, todas as tradições são apresentadas com respeito, sem dizer que uma é melhor que a outra.",
-            "variants": [
-              {
-                "question": "Num trabalho escolar sobre religiões, o certo é:",
-                "options": [
-                  {
-                    "text": "Escolher a melhor religião",
-                    "misconceptionCode": "so-um-texto"
-                  },
-                  {
-                    "text": "Falar mal das outras",
-                    "misconceptionCode": "escrita-melhor"
-                  },
-                  {
-                    "text": "Apresentar com respeito e sem dizer qual é a melhor"
-                  },
-                  {
-                    "text": "Falar só de uma",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "A turma vai fazer um painel sobre textos sagrados. O que é mais correto?",
-                "options": [
-                  {
-                    "text": "Trocar os nomes das religiões",
-                    "misconceptionCode": "texto-religiao-trocada"
-                  },
-                  {
-                    "text": "Apresentar textos de várias tradições, sem dizer que um é melhor"
-                  },
-                  {
-                    "text": "Dizer que tradições sem escrita não contam",
-                    "misconceptionCode": "escrita-melhor"
-                  },
-                  {
-                    "text": "Mostrar só um texto, porque é o único",
-                    "misconceptionCode": "so-um-texto"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Sua avó lê em voz alta trechos do texto sagrado da tradição dela todos os domingos. Isso mostra que:",
-            "options": [
-              {
-                "text": "A tradição oral acabou",
-                "misconceptionCode": "escrita-sem-oral"
-              },
-              {
-                "text": "Só o texto escrito tem valor",
-                "misconceptionCode": "escrita-melhor"
-              },
-              {
-                "text": "A tradição escrita e a oral podem andar juntas"
-              },
-              {
-                "text": "Só existe um texto sagrado",
-                "misconceptionCode": "so-um-texto"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "O texto é escrito, mas a vovó o compartilha falando. Escrita e fala andam juntas.",
-            "variants": [
-              {
-                "question": "Cantar em grupo um texto que está escrito num livro sagrado é um exemplo de:",
-                "options": [
-                  {
-                    "text": "Escrita e oralidade juntas"
-                  },
-                  {
-                    "text": "Só tradição escrita",
-                    "misconceptionCode": "escrita-sem-oral"
-                  },
-                  {
-                    "text": "Só tradição oral",
-                    "misconceptionCode": "escrita-melhor"
-                  },
-                  {
-                    "text": "Nenhuma tradição",
-                    "misconceptionCode": "so-um-texto"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Sua avó lê em voz alta trechos do texto sagrado da tradição dela todos os domingos. Isso mostra que:",
-                "options": [
-                  {
-                    "text": "Só existe um texto sagrado",
-                    "misconceptionCode": "so-um-texto"
-                  },
-                  {
-                    "text": "Só o texto escrito tem valor",
-                    "misconceptionCode": "escrita-melhor"
-                  },
-                  {
-                    "text": "A tradição oral acabou",
-                    "misconceptionCode": "escrita-sem-oral"
-                  },
-                  {
-                    "text": "A tradição escrita e a oral podem andar juntas"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF06ER01-A5",
-        "step": "explicar",
-        "type": "WRITTEN",
-        "allowSpoken": true,
-        "title": "Explicar: tradição escrita",
-        "prompt": "Explique com as suas palavras por que muitas tradições religiosas registraram seus ensinamentos por escrito e cite dois textos sagrados de tradições diferentes.",
-        "estMinutes": 6,
-        "audioScript": "Explique com as suas palavras por que muitas tradições religiosas registraram seus ensinamentos por escrito e cite dois textos sagrados de tradições diferentes.",
-        "rubric": {
-          "type": "WRITTEN",
-          "criteria": [
-            {
-              "code": "funcao",
-              "description": "Explica que a escrita ajuda a preservar memórias e ensinamentos"
-            },
-            {
-              "code": "exemplos",
-              "description": "Cita dois textos sagrados ligados às tradições corretas"
-            },
-            {
-              "code": "respeito",
-              "description": "Mostra respeito às tradições, incluindo as orais"
-            }
-          ],
-          "exemploBoaResposta": "Muitas tradições escreveram seus ensinamentos para guardar a memória e passar para as próximas gerações. Por exemplo, a Bíblia é o texto sagrado do cristianismo e o Alcorão é o do islamismo. Mas as tradições que ensinam só pela fala também são importantes."
-        }
+       "code": "respeito",
+       "description": "Mostra respeito às tradições, incluindo as orais"
       }
-    ],
-    "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED"
-  },
-  {
-    "skillCode": "EF06ER07",
-    "subjectCode": "ER",
-    "subjectName": "Ensino Religioso",
-    "gradeYear": 6,
-    "version": 3,
-    "title": "Trilha: Mito, rito e símbolo",
-    "tituloAluno": "Mitos, ritos e símbolos nas celebrações",
-    "activities": [
+     ],
+     "exemploBoaResposta": "Muitas tradições escreveram seus ensinamentos para guardar a memória e passar para as próximas gerações. Por exemplo, a Bíblia é o texto sagrado do cristianismo e o Alcorão é o do islamismo. Mas as tradições que ensinam só pela fala também são importantes."
+    }
+   }
+  ],
+  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+  "source": "SPEAKFLOW",
+  "status": "APPROVED"
+ },
+ {
+  "skillCode": "EF06ER07",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 6,
+  "version": 3,
+  "title": "Trilha: Mito, rito e símbolo",
+  "tituloAluno": "Mitos, ritos e símbolos nas celebrações",
+  "activities": [
+   {
+    "id": "PK2-EF06ER07-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: o que é mito",
+    "prompt": "Vamos lembrar o que é um mito no estudo das religiões.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar o que é um mito no estudo das religiões. Pergunta 1. No estudo das religiões, mito é: A: Uma celebração com gestos e cantos; B: Uma narrativa sagrada; C: Um objeto sagrado; D: Uma mentira. Pergunta 2. Os mitos de criação explicam: A: Como fazer uma celebração; B: O desenho de um símbolo; C: Nada; D: A origem do mundo, da natureza ou do ser humano. Pergunta 3. Diferentes tradições têm mitos diferentes? A: Sim, cada tradição tem as suas narrativas; B: Não, todas têm o mesmo mito; C: Não, mito é só de uma cultura; D: Mito é o mesmo que rito.",
+    "questions": [
+     {
+      "question": "No estudo das religiões, mito é:",
+      "options": [
+       {
+        "text": "Uma celebração com gestos e cantos",
+        "misconceptionCode": "rito-mito"
+       },
+       {
+        "text": "Uma narrativa sagrada"
+       },
+       {
+        "text": "Um objeto sagrado",
+        "misconceptionCode": "simbolo-objeto"
+       },
+       {
+        "text": "Uma mentira",
+        "misconceptionCode": "rito-sem-relacao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Mito é a história sagrada; rito é a celebração; símbolo é o sinal que representa algo. Aqui a resposta é narrativa sagrada.",
+      "variants": [
+       {
+        "question": "Uma narrativa sagrada sobre a origem do mundo é:",
+        "options": [
+         {
+          "text": "Um rito",
+          "misconceptionCode": "rito-mito"
+         },
+         {
+          "text": "Um símbolo",
+          "misconceptionCode": "simbolo-objeto"
+         },
+         {
+          "text": "Uma lei",
+          "misconceptionCode": "rito-sem-relacao"
+         },
+         {
+          "text": "Um mito"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "No estudo das religiões, mito é:",
+        "options": [
+         {
+          "text": "Uma mentira",
+          "misconceptionCode": "rito-sem-relacao"
+         },
+         {
+          "text": "Um objeto sagrado",
+          "misconceptionCode": "simbolo-objeto"
+         },
+         {
+          "text": "Uma narrativa sagrada"
+         },
+         {
+          "text": "Uma celebração com gestos e cantos",
+          "misconceptionCode": "rito-mito"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Os mitos de criação explicam:",
+      "options": [
+       {
+        "text": "Como fazer uma celebração",
+        "misconceptionCode": "rito-mito"
+       },
+       {
+        "text": "O desenho de um símbolo",
+        "misconceptionCode": "simbolo-objeto"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "rito-sem-relacao"
+       },
+       {
+        "text": "A origem do mundo, da natureza ou do ser humano"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Os mitos de criação contam como surgiram o mundo, a natureza e as pessoas.",
+      "variants": [
+       {
+        "question": "Uma narrativa que conta como surgiram as estrelas é um mito:",
+        "options": [
+         {
+          "text": "De rito",
+          "misconceptionCode": "rito-mito"
+         },
+         {
+          "text": "De criação"
+         },
+         {
+          "text": "De símbolo",
+          "misconceptionCode": "simbolo-objeto"
+         },
+         {
+          "text": "Científico",
+          "misconceptionCode": "rito-sem-relacao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Os mitos de criação explicam:",
+        "options": [
+         {
+          "text": "A origem do mundo, da natureza ou do ser humano"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "rito-sem-relacao"
+         },
+         {
+          "text": "O desenho de um símbolo",
+          "misconceptionCode": "simbolo-objeto"
+         },
+         {
+          "text": "Como fazer uma celebração",
+          "misconceptionCode": "rito-mito"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Diferentes tradições têm mitos diferentes?",
+      "options": [
+       {
+        "text": "Sim, cada tradição tem as suas narrativas"
+       },
+       {
+        "text": "Não, todas têm o mesmo mito",
+        "misconceptionCode": "simbolo-trocado"
+       },
+       {
+        "text": "Não, mito é só de uma cultura",
+        "misconceptionCode": "simbolo-trocado"
+       },
+       {
+        "text": "Mito é o mesmo que rito",
+        "misconceptionCode": "rito-mito"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Sim! Cada povo tem as suas histórias, porque cada um tem a sua cultura.",
+      "variants": [
+       {
+        "question": "As narrativas sagradas do mundo são:",
+        "options": [
+         {
+          "text": "Todas iguais",
+          "misconceptionCode": "simbolo-trocado"
+         },
+         {
+          "text": "De um só povo",
+          "misconceptionCode": "simbolo-trocado"
+         },
+         {
+          "text": "Muito diversas"
+         },
+         {
+          "text": "O mesmo que ritos",
+          "misconceptionCode": "rito-mito"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Diferentes tradições têm mitos diferentes?",
+        "options": [
+         {
+          "text": "Mito é o mesmo que rito",
+          "misconceptionCode": "rito-mito"
+         },
+         {
+          "text": "Sim, cada tradição tem as suas narrativas"
+         },
+         {
+          "text": "Não, mito é só de uma cultura",
+          "misconceptionCode": "simbolo-trocado"
+         },
+         {
+          "text": "Não, todas têm o mesmo mito",
+          "misconceptionCode": "simbolo-trocado"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER07-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: rito e símbolo",
+    "prompt": "Rito é uma ação celebrativa repetida, com gestos, palavras, músicas e comidas. Símbolo é um sinal que representa algo importante para uma tradição. Vamos ver juntos.",
+    "estMinutes": 4,
+    "audioScript": "Rito é uma ação celebrativa repetida, com gestos, palavras, músicas e comidas. Símbolo é um sinal que representa algo importante para uma tradição. Vamos ver juntos. Pergunta 1. Um casamento celebrado numa igreja, num templo ou num terreiro é um exemplo de: A: Mito; B: Símbolo apenas; C: Algo sem relação com a tradição; D: Rito. Pergunta 2. A cruz, para os cristãos, é: A: Um símbolo; B: Um rito; C: Só um objeto de madeira, sem significado; D: Um símbolo do judaísmo. Pergunta 3. Na Páscoa cristã, a celebração relembra a narrativa da ressurreição de Jesus. Isso mostra que: A: Rito e narrativa não têm relação; B: A Páscoa é um símbolo; C: O rito pode relembrar um mito, uma narrativa sagrada; D: A Páscoa é só judaica.",
+    "questions": [
+     {
+      "question": "Um casamento celebrado numa igreja, num templo ou num terreiro é um exemplo de:",
+      "options": [
+       {
+        "text": "Mito",
+        "misconceptionCode": "rito-mito"
+       },
+       {
+        "text": "Símbolo apenas",
+        "misconceptionCode": "simbolo-objeto"
+       },
+       {
+        "text": "Algo sem relação com a tradição",
+        "misconceptionCode": "rito-sem-relacao"
+       },
+       {
+        "text": "Rito"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Um casamento tem gestos e palavras especiais que se repetem em cada celebração. Isso é um rito.",
+      "variants": [
+       {
+        "question": "Uma cerimônia de batizado é um exemplo de:",
+        "options": [
+         {
+          "text": "Mito",
+          "misconceptionCode": "rito-mito"
+         },
+         {
+          "text": "Rito"
+         },
+         {
+          "text": "Símbolo apenas",
+          "misconceptionCode": "simbolo-objeto"
+         },
+         {
+          "text": "Narrativa",
+          "misconceptionCode": "rito-sem-relacao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um casamento celebrado numa igreja, num templo ou num terreiro é um exemplo de:",
+        "options": [
+         {
+          "text": "Rito"
+         },
+         {
+          "text": "Algo sem relação com a tradição",
+          "misconceptionCode": "rito-sem-relacao"
+         },
+         {
+          "text": "Símbolo apenas",
+          "misconceptionCode": "simbolo-objeto"
+         },
+         {
+          "text": "Mito",
+          "misconceptionCode": "rito-mito"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "A cruz, para os cristãos, é:",
+      "options": [
+       {
+        "text": "Um símbolo"
+       },
+       {
+        "text": "Um rito",
+        "misconceptionCode": "rito-mito"
+       },
+       {
+        "text": "Só um objeto de madeira, sem significado",
+        "misconceptionCode": "simbolo-objeto"
+       },
+       {
+        "text": "Um símbolo do judaísmo",
+        "misconceptionCode": "simbolo-trocado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A cruz não é só um objeto: ela representa a fé dos cristãos. Algo que representa uma ideia é um símbolo.",
+      "variants": [
+       {
+        "question": "A estrela de Davi é um símbolo ligado:",
+        "options": [
+         {
+          "text": "Ao budismo",
+          "misconceptionCode": "rito-mito"
+         },
+         {
+          "text": "Ao islamismo",
+          "misconceptionCode": "simbolo-objeto"
+         },
+         {
+          "text": "Ao judaísmo"
+         },
+         {
+          "text": "Ao hinduísmo",
+          "misconceptionCode": "simbolo-trocado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A cruz, para os cristãos, é:",
+        "options": [
+         {
+          "text": "Um símbolo do judaísmo",
+          "misconceptionCode": "simbolo-trocado"
+         },
+         {
+          "text": "Um símbolo"
+         },
+         {
+          "text": "Só um objeto de madeira, sem significado",
+          "misconceptionCode": "simbolo-objeto"
+         },
+         {
+          "text": "Um rito",
+          "misconceptionCode": "rito-mito"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Na Páscoa cristã, a celebração relembra a narrativa da ressurreição de Jesus. Isso mostra que:",
+      "options": [
+       {
+        "text": "Rito e narrativa não têm relação",
+        "misconceptionCode": "rito-sem-relacao"
+       },
+       {
+        "text": "A Páscoa é um símbolo",
+        "misconceptionCode": "simbolo-objeto"
+       },
+       {
+        "text": "O rito pode relembrar um mito, uma narrativa sagrada"
+       },
+       {
+        "text": "A Páscoa é só judaica",
+        "misconceptionCode": "simbolo-trocado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Na Páscoa, os cristãos celebram (rito) a história sagrada (mito) da ressurreição de Jesus. O rito relembra o mito.",
+      "variants": [
+       {
+        "question": "No Pessach, a Páscoa judaica, as famílias relembram a narrativa da saída do Egito. Isso mostra:",
+        "options": [
+         {
+          "text": "Um rito ligado a uma narrativa sagrada"
+         },
+         {
+          "text": "Um rito sem relação com narrativa",
+          "misconceptionCode": "rito-sem-relacao"
+         },
+         {
+          "text": "Um símbolo sem sentido",
+          "misconceptionCode": "simbolo-objeto"
+         },
+         {
+          "text": "Uma festa cristã",
+          "misconceptionCode": "simbolo-trocado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Na Páscoa cristã, a celebração relembra a narrativa da ressurreição de Jesus. Isso mostra que:",
+        "options": [
+         {
+          "text": "A Páscoa é só judaica",
+          "misconceptionCode": "simbolo-trocado"
+         },
+         {
+          "text": "A Páscoa é um símbolo",
+          "misconceptionCode": "simbolo-objeto"
+         },
+         {
+          "text": "Rito e narrativa não têm relação",
+          "misconceptionCode": "rito-sem-relacao"
+         },
+         {
+          "text": "O rito pode relembrar um mito, uma narrativa sagrada"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER07-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: mito, rito e símbolo juntos",
+    "prompt": "Classifique e relacione mito, rito e símbolo.",
+    "estMinutes": 5,
+    "audioScript": "Classifique e relacione mito, rito e símbolo. Pergunta 1. Acender velas durante o Hanucá, festa judaica, é: A: Um rito com símbolos; B: Um mito; C: Algo sem relação com a tradição; D: Uma festa cristã. Pergunta 2. O jejum durante o Ramadã é uma prática: A: Do budismo; B: Do hinduísmo; C: Do islamismo; D: Que não é rito. Pergunta 3. Por que se diz que o símbolo não é só um objeto? A: Porque é sempre caro; B: Porque representa algo sagrado e cheio de significado para o grupo; C: Porque é um rito; D: Porque é igual em todas as tradições. Pergunta 4. A roda do Dharma é um símbolo ligado: A: Ao cristianismo; B: Ao judaísmo; C: Ao islamismo; D: Ao budismo.",
+    "questions": [
+     {
+      "question": "Acender velas durante o Hanucá, festa judaica, é:",
+      "options": [
+       {
+        "text": "Um rito com símbolos"
+       },
+       {
+        "text": "Um mito",
+        "misconceptionCode": "rito-mito"
+       },
+       {
+        "text": "Algo sem relação com a tradição",
+        "misconceptionCode": "rito-sem-relacao"
+       },
+       {
+        "text": "Uma festa cristã",
+        "misconceptionCode": "simbolo-trocado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Acender as velas é o gesto da celebração, o rito. As luzes representam algo especial: são símbolos.",
+      "variants": [
+       {
+        "question": "No Diwali, festa hindu das luzes, acender lamparinas é:",
+        "options": [
+         {
+          "text": "Um mito",
+          "misconceptionCode": "rito-mito"
+         },
+         {
+          "text": "Uma festa islâmica",
+          "misconceptionCode": "rito-sem-relacao"
+         },
+         {
+          "text": "Um rito com símbolos"
+         },
+         {
+          "text": "Algo sem sentido",
+          "misconceptionCode": "simbolo-trocado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Acender velas durante o Hanucá, festa judaica, é:",
+        "options": [
+         {
+          "text": "Uma festa cristã",
+          "misconceptionCode": "simbolo-trocado"
+         },
+         {
+          "text": "Um rito com símbolos"
+         },
+         {
+          "text": "Algo sem relação com a tradição",
+          "misconceptionCode": "rito-sem-relacao"
+         },
+         {
+          "text": "Um mito",
+          "misconceptionCode": "rito-mito"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O jejum durante o Ramadã é uma prática:",
+      "options": [
+       {
+        "text": "Do budismo",
+        "misconceptionCode": "simbolo-trocado"
+       },
+       {
+        "text": "Do hinduísmo",
+        "misconceptionCode": "simbolo-trocado"
+       },
+       {
+        "text": "Do islamismo"
+       },
+       {
+        "text": "Que não é rito",
+        "misconceptionCode": "rito-mito"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Ramadã é o mês sagrado do islamismo. Nele, os muçulmanos fazem jejum durante o dia.",
+      "variants": [
+       {
+        "question": "Os muçulmanos fazem jejum durante o mês do:",
+        "options": [
+         {
+          "text": "Ramadã"
+         },
+         {
+          "text": "Diwali",
+          "misconceptionCode": "simbolo-trocado"
+         },
+         {
+          "text": "Hanucá",
+          "misconceptionCode": "simbolo-trocado"
+         },
+         {
+          "text": "Natal",
+          "misconceptionCode": "rito-mito"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O jejum durante o Ramadã é uma prática:",
+        "options": [
+         {
+          "text": "Que não é rito",
+          "misconceptionCode": "rito-mito"
+         },
+         {
+          "text": "Do hinduísmo",
+          "misconceptionCode": "simbolo-trocado"
+         },
+         {
+          "text": "Do budismo",
+          "misconceptionCode": "simbolo-trocado"
+         },
+         {
+          "text": "Do islamismo"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Por que se diz que o símbolo não é só um objeto?",
+      "options": [
+       {
+        "text": "Porque é sempre caro",
+        "misconceptionCode": "simbolo-objeto"
+       },
+       {
+        "text": "Porque representa algo sagrado e cheio de significado para o grupo"
+       },
+       {
+        "text": "Porque é um rito",
+        "misconceptionCode": "rito-mito"
+       },
+       {
+        "text": "Porque é igual em todas as tradições",
+        "misconceptionCode": "simbolo-trocado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Uma bandeira é só pano, mas representa um país. O símbolo vale pelo que ele representa para o grupo.",
+      "variants": [
+       {
+        "question": "Uma vela acesa numa celebração pode representar:",
+        "options": [
+         {
+          "text": "Só que ficou escuro",
+          "misconceptionCode": "simbolo-objeto"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "rito-mito"
+         },
+         {
+          "text": "O preço da vela",
+          "misconceptionCode": "simbolo-trocado"
+         },
+         {
+          "text": "Luz, fé ou esperança para aquela tradição"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Por que se diz que o símbolo não é só um objeto?",
+        "options": [
+         {
+          "text": "Porque é igual em todas as tradições",
+          "misconceptionCode": "simbolo-trocado"
+         },
+         {
+          "text": "Porque é um rito",
+          "misconceptionCode": "rito-mito"
+         },
+         {
+          "text": "Porque representa algo sagrado e cheio de significado para o grupo"
+         },
+         {
+          "text": "Porque é sempre caro",
+          "misconceptionCode": "simbolo-objeto"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "A roda do Dharma é um símbolo ligado:",
+      "options": [
+       {
+        "text": "Ao cristianismo",
+        "misconceptionCode": "simbolo-trocado"
+       },
+       {
+        "text": "Ao judaísmo",
+        "misconceptionCode": "simbolo-trocado"
+       },
+       {
+        "text": "Ao islamismo",
+        "misconceptionCode": "simbolo-trocado"
+       },
+       {
+        "text": "Ao budismo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A roda do Dharma representa os ensinamentos de Buda. Por isso é um símbolo do budismo.",
+      "variants": [
+       {
+        "question": "O símbolo Om é muito importante:",
+        "options": [
+         {
+          "text": "No islamismo",
+          "misconceptionCode": "simbolo-trocado"
+         },
+         {
+          "text": "No hinduísmo"
+         },
+         {
+          "text": "No judaísmo",
+          "misconceptionCode": "simbolo-trocado"
+         },
+         {
+          "text": "No cristianismo",
+          "misconceptionCode": "simbolo-trocado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A roda do Dharma é um símbolo ligado:",
+        "options": [
+         {
+          "text": "Ao budismo"
+         },
+         {
+          "text": "Ao islamismo",
+          "misconceptionCode": "simbolo-trocado"
+         },
+         {
+          "text": "Ao judaísmo",
+          "misconceptionCode": "simbolo-trocado"
+         },
+         {
+          "text": "Ao cristianismo",
+          "misconceptionCode": "simbolo-trocado"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER07-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: celebrações perto de você",
+    "prompt": "Pense nas celebrações que você conhece.",
+    "estMinutes": 4,
+    "audioScript": "Pense nas celebrações que você conhece. Pergunta 1. Numa festa de aniversário, soprar as velas do bolo é um gesto que se repete todo ano. Ele se parece com um rito porque: A: É uma narrativa; B: É só um objeto; C: É uma ação repetida, com gestos e significado; D: Não tem nenhum significado. Pergunta 2. Na feira cultural, um colega explica um símbolo da tradição da família dele. Qual atitude é adequada? A: Dizer que é só um objeto sem valor; B: Ouvir e perguntar com respeito; C: Dizer que é de outra religião sem saber; D: Rir. Pergunta 3. Qual opção relaciona corretamente mito, rito e símbolo? A: O mito é a vela, o rito é a narrativa; B: Os símbolos não têm relação com os ritos; C: O símbolo é só um enfeite; D: Uma narrativa sagrada é relembrada numa celebração que usa velas e cantos.",
+    "questions": [
+     {
+      "question": "Numa festa de aniversário, soprar as velas do bolo é um gesto que se repete todo ano. Ele se parece com um rito porque:",
+      "options": [
+       {
+        "text": "É uma narrativa",
+        "misconceptionCode": "rito-mito"
+       },
+       {
+        "text": "É só um objeto",
+        "misconceptionCode": "simbolo-objeto"
+       },
+       {
+        "text": "É uma ação repetida, com gestos e significado"
+       },
+       {
+        "text": "Não tem nenhum significado",
+        "misconceptionCode": "rito-sem-relacao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Todo ano a gente repete o mesmo gesto, com um significado especial. Ações repetidas com significado parecem ritos.",
+      "variants": [
+       {
+        "question": "Cantar parabéns todo ano é parecido com um rito porque:",
+        "options": [
+         {
+          "text": "É uma ação que se repete e tem significado"
+         },
+         {
+          "text": "É um mito",
+          "misconceptionCode": "rito-mito"
+         },
+         {
+          "text": "É um símbolo",
+          "misconceptionCode": "simbolo-objeto"
+         },
+         {
+          "text": "Não tem significado",
+          "misconceptionCode": "rito-sem-relacao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Numa festa de aniversário, soprar as velas do bolo é um gesto que se repete todo ano. Ele se parece com um rito porque:",
+        "options": [
+         {
+          "text": "Não tem nenhum significado",
+          "misconceptionCode": "rito-sem-relacao"
+         },
+         {
+          "text": "É só um objeto",
+          "misconceptionCode": "simbolo-objeto"
+         },
+         {
+          "text": "É uma narrativa",
+          "misconceptionCode": "rito-mito"
+         },
+         {
+          "text": "É uma ação repetida, com gestos e significado"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Na feira cultural, um colega explica um símbolo da tradição da família dele. Qual atitude é adequada?",
+      "options": [
+       {
+        "text": "Dizer que é só um objeto sem valor",
+        "misconceptionCode": "simbolo-objeto"
+       },
+       {
+        "text": "Ouvir e perguntar com respeito"
+       },
+       {
+        "text": "Dizer que é de outra religião sem saber",
+        "misconceptionCode": "simbolo-trocado"
+       },
+       {
+        "text": "Rir",
+        "misconceptionCode": "rito-sem-relacao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Ouvir com atenção e perguntar com respeito é o jeito certo de aprender sobre a tradição dos outros.",
+      "variants": [
+       {
+        "question": "Se não souber o que um símbolo representa, você deve:",
+        "options": [
+         {
+          "text": "Inventar",
+          "misconceptionCode": "simbolo-objeto"
+         },
+         {
+          "text": "Rir",
+          "misconceptionCode": "simbolo-trocado"
+         },
+         {
+          "text": "Dizer que não vale nada",
+          "misconceptionCode": "rito-sem-relacao"
+         },
+         {
+          "text": "Perguntar com respeito"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Na feira cultural, um colega explica um símbolo da tradição da família dele. Qual atitude é adequada?",
+        "options": [
+         {
+          "text": "Rir",
+          "misconceptionCode": "rito-sem-relacao"
+         },
+         {
+          "text": "Dizer que é de outra religião sem saber",
+          "misconceptionCode": "simbolo-trocado"
+         },
+         {
+          "text": "Ouvir e perguntar com respeito"
+         },
+         {
+          "text": "Dizer que é só um objeto sem valor",
+          "misconceptionCode": "simbolo-objeto"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual opção relaciona corretamente mito, rito e símbolo?",
+      "options": [
+       {
+        "text": "O mito é a vela, o rito é a narrativa",
+        "misconceptionCode": "rito-mito"
+       },
+       {
+        "text": "Os símbolos não têm relação com os ritos",
+        "misconceptionCode": "rito-sem-relacao"
+       },
+       {
+        "text": "O símbolo é só um enfeite",
+        "misconceptionCode": "simbolo-objeto"
+       },
+       {
+        "text": "Uma narrativa sagrada é relembrada numa celebração que usa velas e cantos"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Pense numa festa: a história contada é o mito, a celebração é o rito, e as velas e cantos são os símbolos.",
+      "variants": [
+       {
+        "question": "Numa celebração, a narrativa contada, os gestos e a luz das velas são:",
+        "options": [
+         {
+          "text": "Rito, mito e símbolo, nessa ordem",
+          "misconceptionCode": "rito-mito"
+         },
+         {
+          "text": "Mito, rito e símbolo"
+         },
+         {
+          "text": "Só símbolos",
+          "misconceptionCode": "rito-sem-relacao"
+         },
+         {
+          "text": "Nada relacionado",
+          "misconceptionCode": "simbolo-objeto"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual opção relaciona corretamente mito, rito e símbolo?",
+        "options": [
+         {
+          "text": "Uma narrativa sagrada é relembrada numa celebração que usa velas e cantos"
+         },
+         {
+          "text": "O símbolo é só um enfeite",
+          "misconceptionCode": "simbolo-objeto"
+         },
+         {
+          "text": "Os símbolos não têm relação com os ritos",
+          "misconceptionCode": "rito-sem-relacao"
+         },
+         {
+          "text": "O mito é a vela, o rito é a narrativa",
+          "misconceptionCode": "rito-mito"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER07-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: mito, rito e símbolo",
+    "prompt": "Explique com as suas palavras o que é mito, o que é rito e o que é símbolo. Dê um exemplo que mostre os três juntos, de qualquer tradição.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras o que é mito, o que é rito e o que é símbolo. Dê um exemplo que mostre os três juntos, de qualquer tradição.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
       {
-        "id": "PK2-EF06ER07-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar: o que é mito",
-        "prompt": "Vamos lembrar o que é um mito no estudo das religiões.",
-        "estMinutes": 4,
-        "audioScript": "Vamos lembrar o que é um mito no estudo das religiões. Pergunta 1. No estudo das religiões, mito é: A: Uma celebração com gestos e cantos; B: Uma narrativa sagrada; C: Um objeto sagrado; D: Uma mentira. Pergunta 2. Os mitos de criação explicam: A: Como fazer uma celebração; B: O desenho de um símbolo; C: Nada; D: A origem do mundo, da natureza ou do ser humano. Pergunta 3. Diferentes tradições têm mitos diferentes? A: Sim, cada tradição tem as suas narrativas; B: Não, todas têm o mesmo mito; C: Não, mito é só de uma cultura; D: Mito é o mesmo que rito.",
-        "questions": [
-          {
-            "question": "No estudo das religiões, mito é:",
-            "options": [
-              {
-                "text": "Uma celebração com gestos e cantos",
-                "misconceptionCode": "rito-mito"
-              },
-              {
-                "text": "Uma narrativa sagrada"
-              },
-              {
-                "text": "Um objeto sagrado",
-                "misconceptionCode": "simbolo-objeto"
-              },
-              {
-                "text": "Uma mentira",
-                "misconceptionCode": "rito-sem-relacao"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Mito é a história sagrada; rito é a celebração; símbolo é o sinal que representa algo. Aqui a resposta é narrativa sagrada.",
-            "variants": [
-              {
-                "question": "Uma narrativa sagrada sobre a origem do mundo é:",
-                "options": [
-                  {
-                    "text": "Um rito",
-                    "misconceptionCode": "rito-mito"
-                  },
-                  {
-                    "text": "Um símbolo",
-                    "misconceptionCode": "simbolo-objeto"
-                  },
-                  {
-                    "text": "Uma lei",
-                    "misconceptionCode": "rito-sem-relacao"
-                  },
-                  {
-                    "text": "Um mito"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "No estudo das religiões, mito é:",
-                "options": [
-                  {
-                    "text": "Uma mentira",
-                    "misconceptionCode": "rito-sem-relacao"
-                  },
-                  {
-                    "text": "Um objeto sagrado",
-                    "misconceptionCode": "simbolo-objeto"
-                  },
-                  {
-                    "text": "Uma narrativa sagrada"
-                  },
-                  {
-                    "text": "Uma celebração com gestos e cantos",
-                    "misconceptionCode": "rito-mito"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Os mitos de criação explicam:",
-            "options": [
-              {
-                "text": "Como fazer uma celebração",
-                "misconceptionCode": "rito-mito"
-              },
-              {
-                "text": "O desenho de um símbolo",
-                "misconceptionCode": "simbolo-objeto"
-              },
-              {
-                "text": "Nada",
-                "misconceptionCode": "rito-sem-relacao"
-              },
-              {
-                "text": "A origem do mundo, da natureza ou do ser humano"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Os mitos de criação contam como surgiram o mundo, a natureza e as pessoas.",
-            "variants": [
-              {
-                "question": "Uma narrativa que conta como surgiram as estrelas é um mito:",
-                "options": [
-                  {
-                    "text": "De rito",
-                    "misconceptionCode": "rito-mito"
-                  },
-                  {
-                    "text": "De criação"
-                  },
-                  {
-                    "text": "De símbolo",
-                    "misconceptionCode": "simbolo-objeto"
-                  },
-                  {
-                    "text": "Científico",
-                    "misconceptionCode": "rito-sem-relacao"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Os mitos de criação explicam:",
-                "options": [
-                  {
-                    "text": "A origem do mundo, da natureza ou do ser humano"
-                  },
-                  {
-                    "text": "Nada",
-                    "misconceptionCode": "rito-sem-relacao"
-                  },
-                  {
-                    "text": "O desenho de um símbolo",
-                    "misconceptionCode": "simbolo-objeto"
-                  },
-                  {
-                    "text": "Como fazer uma celebração",
-                    "misconceptionCode": "rito-mito"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Diferentes tradições têm mitos diferentes?",
-            "options": [
-              {
-                "text": "Sim, cada tradição tem as suas narrativas"
-              },
-              {
-                "text": "Não, todas têm o mesmo mito",
-                "misconceptionCode": "simbolo-trocado"
-              },
-              {
-                "text": "Não, mito é só de uma cultura",
-                "misconceptionCode": "simbolo-trocado"
-              },
-              {
-                "text": "Mito é o mesmo que rito",
-                "misconceptionCode": "rito-mito"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Sim! Cada povo tem as suas histórias, porque cada um tem a sua cultura.",
-            "variants": [
-              {
-                "question": "As narrativas sagradas do mundo são:",
-                "options": [
-                  {
-                    "text": "Todas iguais",
-                    "misconceptionCode": "simbolo-trocado"
-                  },
-                  {
-                    "text": "De um só povo",
-                    "misconceptionCode": "simbolo-trocado"
-                  },
-                  {
-                    "text": "Muito diversas"
-                  },
-                  {
-                    "text": "O mesmo que ritos",
-                    "misconceptionCode": "rito-mito"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Diferentes tradições têm mitos diferentes?",
-                "options": [
-                  {
-                    "text": "Mito é o mesmo que rito",
-                    "misconceptionCode": "rito-mito"
-                  },
-                  {
-                    "text": "Sim, cada tradição tem as suas narrativas"
-                  },
-                  {
-                    "text": "Não, mito é só de uma cultura",
-                    "misconceptionCode": "simbolo-trocado"
-                  },
-                  {
-                    "text": "Não, todas têm o mesmo mito",
-                    "misconceptionCode": "simbolo-trocado"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          }
-        ]
+       "code": "define-tres",
+       "description": "Define corretamente mito, rito e símbolo"
       },
       {
-        "id": "PK2-EF06ER07-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Exemplo guiado: rito e símbolo",
-        "prompt": "Rito é uma ação celebrativa repetida, com gestos, palavras, músicas e comidas. Símbolo é um sinal que representa algo importante para uma tradição. Vamos ver juntos.",
-        "estMinutes": 4,
-        "audioScript": "Rito é uma ação celebrativa repetida, com gestos, palavras, músicas e comidas. Símbolo é um sinal que representa algo importante para uma tradição. Vamos ver juntos. Pergunta 1. Um casamento celebrado numa igreja, num templo ou num terreiro é um exemplo de: A: Mito; B: Símbolo apenas; C: Algo sem relação com a tradição; D: Rito. Pergunta 2. A cruz, para os cristãos, é: A: Um símbolo; B: Um rito; C: Só um objeto de madeira, sem significado; D: Um símbolo do judaísmo. Pergunta 3. Na Páscoa cristã, a celebração relembra a narrativa da ressurreição de Jesus. Isso mostra que: A: Rito e narrativa não têm relação; B: A Páscoa é um símbolo; C: O rito pode relembrar um mito, uma narrativa sagrada; D: A Páscoa é só judaica.",
-        "questions": [
-          {
-            "question": "Um casamento celebrado numa igreja, num templo ou num terreiro é um exemplo de:",
-            "options": [
-              {
-                "text": "Mito",
-                "misconceptionCode": "rito-mito"
-              },
-              {
-                "text": "Símbolo apenas",
-                "misconceptionCode": "simbolo-objeto"
-              },
-              {
-                "text": "Algo sem relação com a tradição",
-                "misconceptionCode": "rito-sem-relacao"
-              },
-              {
-                "text": "Rito"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Um casamento tem gestos e palavras especiais que se repetem em cada celebração. Isso é um rito.",
-            "variants": [
-              {
-                "question": "Uma cerimônia de batizado é um exemplo de:",
-                "options": [
-                  {
-                    "text": "Mito",
-                    "misconceptionCode": "rito-mito"
-                  },
-                  {
-                    "text": "Rito"
-                  },
-                  {
-                    "text": "Símbolo apenas",
-                    "misconceptionCode": "simbolo-objeto"
-                  },
-                  {
-                    "text": "Narrativa",
-                    "misconceptionCode": "rito-sem-relacao"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Um casamento celebrado numa igreja, num templo ou num terreiro é um exemplo de:",
-                "options": [
-                  {
-                    "text": "Rito"
-                  },
-                  {
-                    "text": "Algo sem relação com a tradição",
-                    "misconceptionCode": "rito-sem-relacao"
-                  },
-                  {
-                    "text": "Símbolo apenas",
-                    "misconceptionCode": "simbolo-objeto"
-                  },
-                  {
-                    "text": "Mito",
-                    "misconceptionCode": "rito-mito"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "A cruz, para os cristãos, é:",
-            "options": [
-              {
-                "text": "Um símbolo"
-              },
-              {
-                "text": "Um rito",
-                "misconceptionCode": "rito-mito"
-              },
-              {
-                "text": "Só um objeto de madeira, sem significado",
-                "misconceptionCode": "simbolo-objeto"
-              },
-              {
-                "text": "Um símbolo do judaísmo",
-                "misconceptionCode": "simbolo-trocado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "A cruz não é só um objeto: ela representa a fé dos cristãos. Algo que representa uma ideia é um símbolo.",
-            "variants": [
-              {
-                "question": "A estrela de Davi é um símbolo ligado:",
-                "options": [
-                  {
-                    "text": "Ao budismo",
-                    "misconceptionCode": "rito-mito"
-                  },
-                  {
-                    "text": "Ao islamismo",
-                    "misconceptionCode": "simbolo-objeto"
-                  },
-                  {
-                    "text": "Ao judaísmo"
-                  },
-                  {
-                    "text": "Ao hinduísmo",
-                    "misconceptionCode": "simbolo-trocado"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "A cruz, para os cristãos, é:",
-                "options": [
-                  {
-                    "text": "Um símbolo do judaísmo",
-                    "misconceptionCode": "simbolo-trocado"
-                  },
-                  {
-                    "text": "Um símbolo"
-                  },
-                  {
-                    "text": "Só um objeto de madeira, sem significado",
-                    "misconceptionCode": "simbolo-objeto"
-                  },
-                  {
-                    "text": "Um rito",
-                    "misconceptionCode": "rito-mito"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Na Páscoa cristã, a celebração relembra a narrativa da ressurreição de Jesus. Isso mostra que:",
-            "options": [
-              {
-                "text": "Rito e narrativa não têm relação",
-                "misconceptionCode": "rito-sem-relacao"
-              },
-              {
-                "text": "A Páscoa é um símbolo",
-                "misconceptionCode": "simbolo-objeto"
-              },
-              {
-                "text": "O rito pode relembrar um mito, uma narrativa sagrada"
-              },
-              {
-                "text": "A Páscoa é só judaica",
-                "misconceptionCode": "simbolo-trocado"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Na Páscoa, os cristãos celebram (rito) a história sagrada (mito) da ressurreição de Jesus. O rito relembra o mito.",
-            "variants": [
-              {
-                "question": "No Pessach, a Páscoa judaica, as famílias relembram a narrativa da saída do Egito. Isso mostra:",
-                "options": [
-                  {
-                    "text": "Um rito ligado a uma narrativa sagrada"
-                  },
-                  {
-                    "text": "Um rito sem relação com narrativa",
-                    "misconceptionCode": "rito-sem-relacao"
-                  },
-                  {
-                    "text": "Um símbolo sem sentido",
-                    "misconceptionCode": "simbolo-objeto"
-                  },
-                  {
-                    "text": "Uma festa cristã",
-                    "misconceptionCode": "simbolo-trocado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Na Páscoa cristã, a celebração relembra a narrativa da ressurreição de Jesus. Isso mostra que:",
-                "options": [
-                  {
-                    "text": "A Páscoa é só judaica",
-                    "misconceptionCode": "simbolo-trocado"
-                  },
-                  {
-                    "text": "A Páscoa é um símbolo",
-                    "misconceptionCode": "simbolo-objeto"
-                  },
-                  {
-                    "text": "Rito e narrativa não têm relação",
-                    "misconceptionCode": "rito-sem-relacao"
-                  },
-                  {
-                    "text": "O rito pode relembrar um mito, uma narrativa sagrada"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          }
-        ]
+       "code": "relacao",
+       "description": "Mostra a relação entre eles numa celebração"
       },
       {
-        "id": "PK2-EF06ER07-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar: mito, rito e símbolo juntos",
-        "prompt": "Classifique e relacione mito, rito e símbolo.",
-        "estMinutes": 5,
-        "audioScript": "Classifique e relacione mito, rito e símbolo. Pergunta 1. Acender velas durante o Hanucá, festa judaica, é: A: Um rito com símbolos; B: Um mito; C: Algo sem relação com a tradição; D: Uma festa cristã. Pergunta 2. O jejum durante o Ramadã é uma prática: A: Do budismo; B: Do hinduísmo; C: Do islamismo; D: Que não é rito. Pergunta 3. Por que se diz que o símbolo não é só um objeto? A: Porque é sempre caro; B: Porque representa algo sagrado e cheio de significado para o grupo; C: Porque é um rito; D: Porque é igual em todas as tradições. Pergunta 4. A roda do Dharma é um símbolo ligado: A: Ao cristianismo; B: Ao judaísmo; C: Ao islamismo; D: Ao budismo.",
-        "questions": [
-          {
-            "question": "Acender velas durante o Hanucá, festa judaica, é:",
-            "options": [
-              {
-                "text": "Um rito com símbolos"
-              },
-              {
-                "text": "Um mito",
-                "misconceptionCode": "rito-mito"
-              },
-              {
-                "text": "Algo sem relação com a tradição",
-                "misconceptionCode": "rito-sem-relacao"
-              },
-              {
-                "text": "Uma festa cristã",
-                "misconceptionCode": "simbolo-trocado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Acender as velas é o gesto da celebração, o rito. As luzes representam algo especial: são símbolos.",
-            "variants": [
-              {
-                "question": "No Diwali, festa hindu das luzes, acender lamparinas é:",
-                "options": [
-                  {
-                    "text": "Um mito",
-                    "misconceptionCode": "rito-mito"
-                  },
-                  {
-                    "text": "Uma festa islâmica",
-                    "misconceptionCode": "rito-sem-relacao"
-                  },
-                  {
-                    "text": "Um rito com símbolos"
-                  },
-                  {
-                    "text": "Algo sem sentido",
-                    "misconceptionCode": "simbolo-trocado"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Acender velas durante o Hanucá, festa judaica, é:",
-                "options": [
-                  {
-                    "text": "Uma festa cristã",
-                    "misconceptionCode": "simbolo-trocado"
-                  },
-                  {
-                    "text": "Um rito com símbolos"
-                  },
-                  {
-                    "text": "Algo sem relação com a tradição",
-                    "misconceptionCode": "rito-sem-relacao"
-                  },
-                  {
-                    "text": "Um mito",
-                    "misconceptionCode": "rito-mito"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "O jejum durante o Ramadã é uma prática:",
-            "options": [
-              {
-                "text": "Do budismo",
-                "misconceptionCode": "simbolo-trocado"
-              },
-              {
-                "text": "Do hinduísmo",
-                "misconceptionCode": "simbolo-trocado"
-              },
-              {
-                "text": "Do islamismo"
-              },
-              {
-                "text": "Que não é rito",
-                "misconceptionCode": "rito-mito"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Ramadã é o mês sagrado do islamismo. Nele, os muçulmanos fazem jejum durante o dia.",
-            "variants": [
-              {
-                "question": "Os muçulmanos fazem jejum durante o mês do:",
-                "options": [
-                  {
-                    "text": "Ramadã"
-                  },
-                  {
-                    "text": "Diwali",
-                    "misconceptionCode": "simbolo-trocado"
-                  },
-                  {
-                    "text": "Hanucá",
-                    "misconceptionCode": "simbolo-trocado"
-                  },
-                  {
-                    "text": "Natal",
-                    "misconceptionCode": "rito-mito"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O jejum durante o Ramadã é uma prática:",
-                "options": [
-                  {
-                    "text": "Que não é rito",
-                    "misconceptionCode": "rito-mito"
-                  },
-                  {
-                    "text": "Do hinduísmo",
-                    "misconceptionCode": "simbolo-trocado"
-                  },
-                  {
-                    "text": "Do budismo",
-                    "misconceptionCode": "simbolo-trocado"
-                  },
-                  {
-                    "text": "Do islamismo"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Por que se diz que o símbolo não é só um objeto?",
-            "options": [
-              {
-                "text": "Porque é sempre caro",
-                "misconceptionCode": "simbolo-objeto"
-              },
-              {
-                "text": "Porque representa algo sagrado e cheio de significado para o grupo"
-              },
-              {
-                "text": "Porque é um rito",
-                "misconceptionCode": "rito-mito"
-              },
-              {
-                "text": "Porque é igual em todas as tradições",
-                "misconceptionCode": "simbolo-trocado"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Uma bandeira é só pano, mas representa um país. O símbolo vale pelo que ele representa para o grupo.",
-            "variants": [
-              {
-                "question": "Uma vela acesa numa celebração pode representar:",
-                "options": [
-                  {
-                    "text": "Só que ficou escuro",
-                    "misconceptionCode": "simbolo-objeto"
-                  },
-                  {
-                    "text": "Nada",
-                    "misconceptionCode": "rito-mito"
-                  },
-                  {
-                    "text": "O preço da vela",
-                    "misconceptionCode": "simbolo-trocado"
-                  },
-                  {
-                    "text": "Luz, fé ou esperança para aquela tradição"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Por que se diz que o símbolo não é só um objeto?",
-                "options": [
-                  {
-                    "text": "Porque é igual em todas as tradições",
-                    "misconceptionCode": "simbolo-trocado"
-                  },
-                  {
-                    "text": "Porque é um rito",
-                    "misconceptionCode": "rito-mito"
-                  },
-                  {
-                    "text": "Porque representa algo sagrado e cheio de significado para o grupo"
-                  },
-                  {
-                    "text": "Porque é sempre caro",
-                    "misconceptionCode": "simbolo-objeto"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "A roda do Dharma é um símbolo ligado:",
-            "options": [
-              {
-                "text": "Ao cristianismo",
-                "misconceptionCode": "simbolo-trocado"
-              },
-              {
-                "text": "Ao judaísmo",
-                "misconceptionCode": "simbolo-trocado"
-              },
-              {
-                "text": "Ao islamismo",
-                "misconceptionCode": "simbolo-trocado"
-              },
-              {
-                "text": "Ao budismo"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "A roda do Dharma representa os ensinamentos de Buda. Por isso é um símbolo do budismo.",
-            "variants": [
-              {
-                "question": "O símbolo Om é muito importante:",
-                "options": [
-                  {
-                    "text": "No islamismo",
-                    "misconceptionCode": "simbolo-trocado"
-                  },
-                  {
-                    "text": "No hinduísmo"
-                  },
-                  {
-                    "text": "No judaísmo",
-                    "misconceptionCode": "simbolo-trocado"
-                  },
-                  {
-                    "text": "No cristianismo",
-                    "misconceptionCode": "simbolo-trocado"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "A roda do Dharma é um símbolo ligado:",
-                "options": [
-                  {
-                    "text": "Ao budismo"
-                  },
-                  {
-                    "text": "Ao islamismo",
-                    "misconceptionCode": "simbolo-trocado"
-                  },
-                  {
-                    "text": "Ao judaísmo",
-                    "misconceptionCode": "simbolo-trocado"
-                  },
-                  {
-                    "text": "Ao cristianismo",
-                    "misconceptionCode": "simbolo-trocado"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF06ER07-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar: celebrações perto de você",
-        "prompt": "Pense nas celebrações que você conhece.",
-        "estMinutes": 4,
-        "audioScript": "Pense nas celebrações que você conhece. Pergunta 1. Numa festa de aniversário, soprar as velas do bolo é um gesto que se repete todo ano. Ele se parece com um rito porque: A: É uma narrativa; B: É só um objeto; C: É uma ação repetida, com gestos e significado; D: Não tem nenhum significado. Pergunta 2. Na feira cultural, um colega explica um símbolo da tradição da família dele. Qual atitude é adequada? A: Dizer que é só um objeto sem valor; B: Ouvir e perguntar com respeito; C: Dizer que é de outra religião sem saber; D: Rir. Pergunta 3. Qual opção relaciona corretamente mito, rito e símbolo? A: O mito é a vela, o rito é a narrativa; B: Os símbolos não têm relação com os ritos; C: O símbolo é só um enfeite; D: Uma narrativa sagrada é relembrada numa celebração que usa velas e cantos.",
-        "questions": [
-          {
-            "question": "Numa festa de aniversário, soprar as velas do bolo é um gesto que se repete todo ano. Ele se parece com um rito porque:",
-            "options": [
-              {
-                "text": "É uma narrativa",
-                "misconceptionCode": "rito-mito"
-              },
-              {
-                "text": "É só um objeto",
-                "misconceptionCode": "simbolo-objeto"
-              },
-              {
-                "text": "É uma ação repetida, com gestos e significado"
-              },
-              {
-                "text": "Não tem nenhum significado",
-                "misconceptionCode": "rito-sem-relacao"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Todo ano a gente repete o mesmo gesto, com um significado especial. Ações repetidas com significado parecem ritos.",
-            "variants": [
-              {
-                "question": "Cantar parabéns todo ano é parecido com um rito porque:",
-                "options": [
-                  {
-                    "text": "É uma ação que se repete e tem significado"
-                  },
-                  {
-                    "text": "É um mito",
-                    "misconceptionCode": "rito-mito"
-                  },
-                  {
-                    "text": "É um símbolo",
-                    "misconceptionCode": "simbolo-objeto"
-                  },
-                  {
-                    "text": "Não tem significado",
-                    "misconceptionCode": "rito-sem-relacao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Numa festa de aniversário, soprar as velas do bolo é um gesto que se repete todo ano. Ele se parece com um rito porque:",
-                "options": [
-                  {
-                    "text": "Não tem nenhum significado",
-                    "misconceptionCode": "rito-sem-relacao"
-                  },
-                  {
-                    "text": "É só um objeto",
-                    "misconceptionCode": "simbolo-objeto"
-                  },
-                  {
-                    "text": "É uma narrativa",
-                    "misconceptionCode": "rito-mito"
-                  },
-                  {
-                    "text": "É uma ação repetida, com gestos e significado"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Na feira cultural, um colega explica um símbolo da tradição da família dele. Qual atitude é adequada?",
-            "options": [
-              {
-                "text": "Dizer que é só um objeto sem valor",
-                "misconceptionCode": "simbolo-objeto"
-              },
-              {
-                "text": "Ouvir e perguntar com respeito"
-              },
-              {
-                "text": "Dizer que é de outra religião sem saber",
-                "misconceptionCode": "simbolo-trocado"
-              },
-              {
-                "text": "Rir",
-                "misconceptionCode": "rito-sem-relacao"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Ouvir com atenção e perguntar com respeito é o jeito certo de aprender sobre a tradição dos outros.",
-            "variants": [
-              {
-                "question": "Se não souber o que um símbolo representa, você deve:",
-                "options": [
-                  {
-                    "text": "Inventar",
-                    "misconceptionCode": "simbolo-objeto"
-                  },
-                  {
-                    "text": "Rir",
-                    "misconceptionCode": "simbolo-trocado"
-                  },
-                  {
-                    "text": "Dizer que não vale nada",
-                    "misconceptionCode": "rito-sem-relacao"
-                  },
-                  {
-                    "text": "Perguntar com respeito"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Na feira cultural, um colega explica um símbolo da tradição da família dele. Qual atitude é adequada?",
-                "options": [
-                  {
-                    "text": "Rir",
-                    "misconceptionCode": "rito-sem-relacao"
-                  },
-                  {
-                    "text": "Dizer que é de outra religião sem saber",
-                    "misconceptionCode": "simbolo-trocado"
-                  },
-                  {
-                    "text": "Ouvir e perguntar com respeito"
-                  },
-                  {
-                    "text": "Dizer que é só um objeto sem valor",
-                    "misconceptionCode": "simbolo-objeto"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Qual opção relaciona corretamente mito, rito e símbolo?",
-            "options": [
-              {
-                "text": "O mito é a vela, o rito é a narrativa",
-                "misconceptionCode": "rito-mito"
-              },
-              {
-                "text": "Os símbolos não têm relação com os ritos",
-                "misconceptionCode": "rito-sem-relacao"
-              },
-              {
-                "text": "O símbolo é só um enfeite",
-                "misconceptionCode": "simbolo-objeto"
-              },
-              {
-                "text": "Uma narrativa sagrada é relembrada numa celebração que usa velas e cantos"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Pense numa festa: a história contada é o mito, a celebração é o rito, e as velas e cantos são os símbolos.",
-            "variants": [
-              {
-                "question": "Numa celebração, a narrativa contada, os gestos e a luz das velas são:",
-                "options": [
-                  {
-                    "text": "Rito, mito e símbolo, nessa ordem",
-                    "misconceptionCode": "rito-mito"
-                  },
-                  {
-                    "text": "Mito, rito e símbolo"
-                  },
-                  {
-                    "text": "Só símbolos",
-                    "misconceptionCode": "rito-sem-relacao"
-                  },
-                  {
-                    "text": "Nada relacionado",
-                    "misconceptionCode": "simbolo-objeto"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Qual opção relaciona corretamente mito, rito e símbolo?",
-                "options": [
-                  {
-                    "text": "Uma narrativa sagrada é relembrada numa celebração que usa velas e cantos"
-                  },
-                  {
-                    "text": "O símbolo é só um enfeite",
-                    "misconceptionCode": "simbolo-objeto"
-                  },
-                  {
-                    "text": "Os símbolos não têm relação com os ritos",
-                    "misconceptionCode": "rito-sem-relacao"
-                  },
-                  {
-                    "text": "O mito é a vela, o rito é a narrativa",
-                    "misconceptionCode": "rito-mito"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF06ER07-A5",
-        "step": "explicar",
-        "type": "WRITTEN",
-        "allowSpoken": true,
-        "title": "Explicar: mito, rito e símbolo",
-        "prompt": "Explique com as suas palavras o que é mito, o que é rito e o que é símbolo. Dê um exemplo que mostre os três juntos, de qualquer tradição.",
-        "estMinutes": 6,
-        "audioScript": "Explique com as suas palavras o que é mito, o que é rito e o que é símbolo. Dê um exemplo que mostre os três juntos, de qualquer tradição.",
-        "rubric": {
-          "type": "WRITTEN",
-          "criteria": [
-            {
-              "code": "define-tres",
-              "description": "Define corretamente mito, rito e símbolo"
-            },
-            {
-              "code": "relacao",
-              "description": "Mostra a relação entre eles numa celebração"
-            },
-            {
-              "code": "respeito",
-              "description": "Fala da tradição com respeito"
-            }
-          ],
-          "exemploBoaResposta": "Mito é uma narrativa sagrada, rito é a celebração com gestos que se repetem e símbolo é um sinal que representa algo sagrado. Por exemplo, no Hanucá, as famílias judaicas relembram uma narrativa da sua tradição e acendem velas: a narrativa é o mito, acender as velas é o rito e a luz é o símbolo."
-        }
+       "code": "respeito",
+       "description": "Fala da tradição com respeito"
       }
-    ],
-    "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED"
-  }
+     ],
+     "exemploBoaResposta": "Mito é uma narrativa sagrada, rito é a celebração com gestos que se repetem e símbolo é um sinal que representa algo sagrado. Por exemplo, no Hanucá, as famílias judaicas relembram uma narrativa da sua tradição e acendem velas: a narrativa é o mito, acender as velas é o rito e a luz é o símbolo."
+    }
+   }
+  ],
+  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+  "source": "SPEAKFLOW",
+  "status": "APPROVED"
+ },
+ {
+  "skillCode": "EF06ER02",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 6,
+  "version": 1,
+  "title": "Trilha: Os textos sagrados escritos",
+  "tituloAluno": "Livros de muitas tradições",
+  "activities": [
+   {
+    "id": "PK2-EF06ER02-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: tradição oral e tradição escrita",
+    "prompt": "Já vimos que os ensinamentos passam pela fala e pela escrita.",
+    "estMinutes": 4,
+    "audioScript": "Já vimos que os ensinamentos passam pela fala e pela escrita. Pergunta 1. A tradição que transmite os ensinamentos pela fala é a tradição: A: Escrita; B: Impressa; C: Oral; D: Digital. Pergunta 2. Um texto considerado sagrado por uma tradição religiosa é um texto que: A: Serve só para enfeitar; B: É um livro qualquer; C: Não tem significado; D: Guarda os ensinamentos e as histórias mais importantes para aquele grupo. Pergunta 3. No Brasil, existem: A: Muitas tradições religiosas e também pessoas sem religião; B: Só uma religião; C: Só duas religiões; D: Nenhuma religião.",
+    "questions": [
+     {
+      "question": "A tradição que transmite os ensinamentos pela fala é a tradição:",
+      "options": [
+       {
+        "text": "Escrita",
+        "misconceptionCode": "livro-trocado"
+       },
+       {
+        "text": "Impressa",
+        "misconceptionCode": "livro-trocado"
+       },
+       {
+        "text": "Oral"
+       },
+       {
+        "text": "Digital",
+        "misconceptionCode": "livro-trocado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Mitos, cantos e histórias são passados de boca em boca.",
+      "variants": [
+       {
+        "question": "A tradição que registra os ensinamentos em livros é a tradição:",
+        "options": [
+         {
+          "text": "Escrita"
+         },
+         {
+          "text": "Oral",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Cantada",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Dançada",
+          "misconceptionCode": "livro-trocado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A tradição que transmite os ensinamentos pela fala é a tradição:",
+        "options": [
+         {
+          "text": "Digital",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Impressa",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Escrita",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Oral"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Um texto considerado sagrado por uma tradição religiosa é um texto que:",
+      "options": [
+       {
+        "text": "Serve só para enfeitar",
+        "misconceptionCode": "texto-sem-valor"
+       },
+       {
+        "text": "É um livro qualquer",
+        "misconceptionCode": "texto-sem-valor"
+       },
+       {
+        "text": "Não tem significado",
+        "misconceptionCode": "texto-sem-valor"
+       },
+       {
+        "text": "Guarda os ensinamentos e as histórias mais importantes para aquele grupo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Para os fiéis, esses textos orientam a vida e a fé.",
+      "variants": [
+       {
+        "question": "Os textos sagrados costumam ser tratados pelos fiéis com:",
+        "options": [
+         {
+          "text": "Descuido",
+          "misconceptionCode": "texto-sem-valor"
+         },
+         {
+          "text": "Respeito e cuidado"
+         },
+         {
+          "text": "Indiferença",
+          "misconceptionCode": "texto-sem-valor"
+         },
+         {
+          "text": "Zombaria",
+          "misconceptionCode": "texto-sem-valor"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um texto considerado sagrado por uma tradição religiosa é um texto que:",
+        "options": [
+         {
+          "text": "Guarda os ensinamentos e as histórias mais importantes para aquele grupo"
+         },
+         {
+          "text": "Não tem significado",
+          "misconceptionCode": "texto-sem-valor"
+         },
+         {
+          "text": "É um livro qualquer",
+          "misconceptionCode": "texto-sem-valor"
+         },
+         {
+          "text": "Serve só para enfeitar",
+          "misconceptionCode": "texto-sem-valor"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "No Brasil, existem:",
+      "options": [
+       {
+        "text": "Muitas tradições religiosas e também pessoas sem religião"
+       },
+       {
+        "text": "Só uma religião",
+        "misconceptionCode": "so-um-livro"
+       },
+       {
+        "text": "Só duas religiões",
+        "misconceptionCode": "so-um-livro"
+       },
+       {
+        "text": "Nenhuma religião",
+        "misconceptionCode": "sem-escrita-sem-religiao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A diversidade religiosa é uma marca do país.",
+      "variants": [
+       {
+        "question": "A liberdade de ter ou não uma religião é:",
+        "options": [
+         {
+          "text": "Um privilégio de alguns",
+          "misconceptionCode": "so-um-livro"
+         },
+         {
+          "text": "Proibida",
+          "misconceptionCode": "so-um-livro"
+         },
+         {
+          "text": "Um direito de todas as pessoas"
+         },
+         {
+          "text": "Um favor",
+          "misconceptionCode": "sem-escrita-sem-religiao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "No Brasil, existem:",
+        "options": [
+         {
+          "text": "Nenhuma religião",
+          "misconceptionCode": "sem-escrita-sem-religiao"
+         },
+         {
+          "text": "Muitas tradições religiosas e também pessoas sem religião"
+         },
+         {
+          "text": "Só duas religiões",
+          "misconceptionCode": "so-um-livro"
+         },
+         {
+          "text": "Só uma religião",
+          "misconceptionCode": "so-um-livro"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER02-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: cada tradição e o seu texto",
+    "prompt": "Muitas tradições religiosas guardam os seus ensinamentos em textos escritos. Vamos conhecer juntos alguns deles.",
+    "estMinutes": 4,
+    "audioScript": "Muitas tradições religiosas guardam os seus ensinamentos em textos escritos. Vamos conhecer juntos alguns deles. Pergunta 1. O livro sagrado do Cristianismo é: A: O Alcorão; B: A Bíblia; C: A Torá, somente; D: Os Vedas. Pergunta 2. O livro sagrado do Islamismo é: A: A Bíblia; B: A Torá; C: O Alcorão; D: Os Vedas. Pergunta 3. O texto mais importante do Judaísmo, formado pelos cinco primeiros livros da Bíblia hebraica, é: A: O Alcorão; B: Os Vedas; C: O Evangelho; D: A Torá.",
+    "questions": [
+     {
+      "question": "O livro sagrado do Cristianismo é:",
+      "options": [
+       {
+        "text": "O Alcorão",
+        "misconceptionCode": "livro-trocado"
+       },
+       {
+        "text": "A Bíblia"
+       },
+       {
+        "text": "A Torá, somente",
+        "misconceptionCode": "livro-trocado"
+       },
+       {
+        "text": "Os Vedas",
+        "misconceptionCode": "livro-trocado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A Bíblia cristã reúne o Antigo e o Novo Testamento.",
+      "variants": [
+       {
+        "question": "Os Evangelhos, que narram a vida e os ensinamentos de Jesus, fazem parte:",
+        "options": [
+         {
+          "text": "Do Alcorão",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Dos Vedas",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Do Tripitaka",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Da Bíblia"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O livro sagrado do Cristianismo é:",
+        "options": [
+         {
+          "text": "Os Vedas",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "A Torá, somente",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "A Bíblia"
+         },
+         {
+          "text": "O Alcorão",
+          "misconceptionCode": "livro-trocado"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O livro sagrado do Islamismo é:",
+      "options": [
+       {
+        "text": "A Bíblia",
+        "misconceptionCode": "livro-trocado"
+       },
+       {
+        "text": "A Torá",
+        "misconceptionCode": "livro-trocado"
+       },
+       {
+        "text": "O Alcorão"
+       },
+       {
+        "text": "Os Vedas",
+        "misconceptionCode": "livro-trocado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Para os muçulmanos, o Alcorão contém a revelação recebida pelo profeta Maomé.",
+      "variants": [
+       {
+        "question": "O Alcorão é o livro sagrado dos:",
+        "options": [
+         {
+          "text": "Muçulmanos"
+         },
+         {
+          "text": "Budistas",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Hindus",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Judeus",
+          "misconceptionCode": "livro-trocado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O livro sagrado do Islamismo é:",
+        "options": [
+         {
+          "text": "Os Vedas",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "A Torá",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "A Bíblia",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "O Alcorão"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O texto mais importante do Judaísmo, formado pelos cinco primeiros livros da Bíblia hebraica, é:",
+      "options": [
+       {
+        "text": "O Alcorão",
+        "misconceptionCode": "livro-trocado"
+       },
+       {
+        "text": "Os Vedas",
+        "misconceptionCode": "livro-trocado"
+       },
+       {
+        "text": "O Evangelho",
+        "misconceptionCode": "livro-trocado"
+       },
+       {
+        "text": "A Torá"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A Torá é lida nas sinagogas, em rolos escritos à mão.",
+      "variants": [
+       {
+        "question": "A Torá é o texto sagrado dos:",
+        "options": [
+         {
+          "text": "Muçulmanos",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Judeus"
+         },
+         {
+          "text": "Hindus",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Budistas",
+          "misconceptionCode": "livro-trocado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O texto mais importante do Judaísmo, formado pelos cinco primeiros livros da Bíblia hebraica, é:",
+        "options": [
+         {
+          "text": "A Torá"
+         },
+         {
+          "text": "O Evangelho",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Os Vedas",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "O Alcorão",
+          "misconceptionCode": "livro-trocado"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER02-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: reconhecendo e valorizando",
+    "prompt": "Diversidade de textos.",
+    "estMinutes": 5,
+    "audioScript": "Diversidade de textos. Pergunta 1. Os Vedas e o Bhagavad Gita são textos sagrados do: A: Hinduísmo; B: Islamismo; C: Judaísmo; D: Cristianismo. Pergunta 2. O conjunto de textos que reúne os ensinamentos de Buda é chamado de: A: Alcorão; B: Tripitaka; C: Torá; D: Bíblia. Pergunta 3. No Espiritismo, a obra que organiza os seus princípios, escrita por Allan Kardec, é: A: O Alcorão; B: Os Vedas; C: O Livro dos Espíritos; D: A Torá. Pergunta 4. Existe um único livro sagrado no mundo? A: Sim, um só; B: Sim, os outros não valem; C: Sim, e todos o seguem; D: Não, cada tradição tem os seus textos.",
+    "questions": [
+     {
+      "question": "Os Vedas e o Bhagavad Gita são textos sagrados do:",
+      "options": [
+       {
+        "text": "Hinduísmo"
+       },
+       {
+        "text": "Islamismo",
+        "misconceptionCode": "livro-trocado"
+       },
+       {
+        "text": "Judaísmo",
+        "misconceptionCode": "livro-trocado"
+       },
+       {
+        "text": "Cristianismo",
+        "misconceptionCode": "livro-trocado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Os Vedas estão entre os textos religiosos mais antigos do mundo.",
+      "variants": [
+       {
+        "question": "O Hinduísmo nasceu:",
+        "options": [
+         {
+          "text": "No Brasil",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Na Europa",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Na Índia"
+         },
+         {
+          "text": "Na Oceania",
+          "misconceptionCode": "livro-trocado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Os Vedas e o Bhagavad Gita são textos sagrados do:",
+        "options": [
+         {
+          "text": "Cristianismo",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Hinduísmo"
+         },
+         {
+          "text": "Judaísmo",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Islamismo",
+          "misconceptionCode": "livro-trocado"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O conjunto de textos que reúne os ensinamentos de Buda é chamado de:",
+      "options": [
+       {
+        "text": "Alcorão",
+        "misconceptionCode": "livro-trocado"
+       },
+       {
+        "text": "Tripitaka"
+       },
+       {
+        "text": "Torá",
+        "misconceptionCode": "livro-trocado"
+       },
+       {
+        "text": "Bíblia",
+        "misconceptionCode": "livro-trocado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Tripitaka significa \"três cestos\", pois os textos eram guardados em três conjuntos.",
+      "variants": [
+       {
+        "question": "O Tripitaka reúne os ensinamentos do:",
+        "options": [
+         {
+          "text": "Islamismo",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Judaísmo",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Cristianismo",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Budismo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O conjunto de textos que reúne os ensinamentos de Buda é chamado de:",
+        "options": [
+         {
+          "text": "Bíblia",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Torá",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Tripitaka"
+         },
+         {
+          "text": "Alcorão",
+          "misconceptionCode": "livro-trocado"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "No Espiritismo, a obra que organiza os seus princípios, escrita por Allan Kardec, é:",
+      "options": [
+       {
+        "text": "O Alcorão",
+        "misconceptionCode": "livro-trocado"
+       },
+       {
+        "text": "Os Vedas",
+        "misconceptionCode": "livro-trocado"
+       },
+       {
+        "text": "O Livro dos Espíritos"
+       },
+       {
+        "text": "A Torá",
+        "misconceptionCode": "livro-trocado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A obra foi publicada na França, no século XIX.",
+      "variants": [
+       {
+        "question": "\"O Livro dos Espíritos\" é uma obra fundamental do:",
+        "options": [
+         {
+          "text": "Espiritismo"
+         },
+         {
+          "text": "Budismo",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Hinduísmo",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Islamismo",
+          "misconceptionCode": "livro-trocado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "No Espiritismo, a obra que organiza os seus princípios, escrita por Allan Kardec, é:",
+        "options": [
+         {
+          "text": "A Torá",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "Os Vedas",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "O Alcorão",
+          "misconceptionCode": "livro-trocado"
+         },
+         {
+          "text": "O Livro dos Espíritos"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Existe um único livro sagrado no mundo?",
+      "options": [
+       {
+        "text": "Sim, um só",
+        "misconceptionCode": "so-um-livro"
+       },
+       {
+        "text": "Sim, os outros não valem",
+        "misconceptionCode": "texto-sem-valor"
+       },
+       {
+        "text": "Sim, e todos o seguem",
+        "misconceptionCode": "so-um-livro"
+       },
+       {
+        "text": "Não, cada tradição tem os seus textos"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A diversidade de textos mostra a diversidade de caminhos religiosos.",
+      "variants": [
+       {
+        "question": "Conhecer os textos de várias tradições ajuda a:",
+        "options": [
+         {
+          "text": "Zombar das crenças",
+          "misconceptionCode": "so-um-livro"
+         },
+         {
+          "text": "Compreender e respeitar as diferentes crenças"
+         },
+         {
+          "text": "Escolher a melhor",
+          "misconceptionCode": "texto-sem-valor"
+         },
+         {
+          "text": "Proibir as outras",
+          "misconceptionCode": "so-um-livro"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Existe um único livro sagrado no mundo?",
+        "options": [
+         {
+          "text": "Não, cada tradição tem os seus textos"
+         },
+         {
+          "text": "Sim, e todos o seguem",
+          "misconceptionCode": "so-um-livro"
+         },
+         {
+          "text": "Sim, os outros não valem",
+          "misconceptionCode": "texto-sem-valor"
+         },
+         {
+          "text": "Sim, um só",
+          "misconceptionCode": "so-um-livro"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER02-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: respeito aos textos e às tradições",
+    "prompt": "Na convivência.",
+    "estMinutes": 4,
+    "audioScript": "Na convivência. Pergunta 1. Um colega leva para a escola o livro sagrado da sua tradição, e outro o joga no chão, de brincadeira. Isso é: A: Desrespeito ao que é sagrado para o colega; B: Uma brincadeira sem problema; C: Um direito; D: Normal. Pergunta 2. As tradições indígenas e as religiões afro-brasileiras transmitem os seus ensinamentos principalmente pela oralidade. Elas são tradições religiosas? A: Não, porque não têm livro; B: Sim, com o mesmo valor das que têm textos escritos; C: Não, são só costumes; D: Só se escreverem um livro. Pergunta 3. Numa pesquisa escolar sobre textos sagrados, qual é a postura adequada? A: Defender só o da sua tradição; B: Criticar os outros; C: Apresentar cada texto com respeito, sem dizer que um é melhor que o outro; D: Ignorar os que não conhece.",
+    "questions": [
+     {
+      "question": "Um colega leva para a escola o livro sagrado da sua tradição, e outro o joga no chão, de brincadeira. Isso é:",
+      "options": [
+       {
+        "text": "Desrespeito ao que é sagrado para o colega"
+       },
+       {
+        "text": "Uma brincadeira sem problema",
+        "misconceptionCode": "texto-sem-valor"
+       },
+       {
+        "text": "Um direito",
+        "misconceptionCode": "texto-sem-valor"
+       },
+       {
+        "text": "Normal",
+        "misconceptionCode": "texto-sem-valor"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O que é sagrado para o outro merece o mesmo respeito que desejamos para o que é sagrado para nós.",
+      "variants": [
+       {
+        "question": "Ao manusear o livro sagrado de outra tradição, a atitude adequada é:",
+        "options": [
+         {
+          "text": "Riscar",
+          "misconceptionCode": "texto-sem-valor"
+         },
+         {
+          "text": "Rasgar",
+          "misconceptionCode": "texto-sem-valor"
+         },
+         {
+          "text": "Ter cuidado e respeito"
+         },
+         {
+          "text": "Fazer piadas",
+          "misconceptionCode": "texto-sem-valor"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um colega leva para a escola o livro sagrado da sua tradição, e outro o joga no chão, de brincadeira. Isso é:",
+        "options": [
+         {
+          "text": "Normal",
+          "misconceptionCode": "texto-sem-valor"
+         },
+         {
+          "text": "Desrespeito ao que é sagrado para o colega"
+         },
+         {
+          "text": "Um direito",
+          "misconceptionCode": "texto-sem-valor"
+         },
+         {
+          "text": "Uma brincadeira sem problema",
+          "misconceptionCode": "texto-sem-valor"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "As tradições indígenas e as religiões afro-brasileiras transmitem os seus ensinamentos principalmente pela oralidade. Elas são tradições religiosas?",
+      "options": [
+       {
+        "text": "Não, porque não têm livro",
+        "misconceptionCode": "sem-escrita-sem-religiao"
+       },
+       {
+        "text": "Sim, com o mesmo valor das que têm textos escritos"
+       },
+       {
+        "text": "Não, são só costumes",
+        "misconceptionCode": "sem-escrita-sem-religiao"
+       },
+       {
+        "text": "Só se escreverem um livro",
+        "misconceptionCode": "sem-escrita-sem-religiao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A forma de transmitir os ensinamentos não torna uma tradição mais ou menos importante.",
+      "variants": [
+       {
+        "question": "O que há em comum entre a tradição oral e a tradição escrita?",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "sem-escrita-sem-religiao"
+         },
+         {
+          "text": "Só a escrita ensina",
+          "misconceptionCode": "sem-escrita-sem-religiao"
+         },
+         {
+          "text": "Só a oral ensina",
+          "misconceptionCode": "sem-escrita-sem-religiao"
+         },
+         {
+          "text": "As duas guardam e transmitem ensinamentos"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "As tradições indígenas e as religiões afro-brasileiras transmitem os seus ensinamentos principalmente pela oralidade. Elas são tradições religiosas?",
+        "options": [
+         {
+          "text": "Só se escreverem um livro",
+          "misconceptionCode": "sem-escrita-sem-religiao"
+         },
+         {
+          "text": "Não, são só costumes",
+          "misconceptionCode": "sem-escrita-sem-religiao"
+         },
+         {
+          "text": "Sim, com o mesmo valor das que têm textos escritos"
+         },
+         {
+          "text": "Não, porque não têm livro",
+          "misconceptionCode": "sem-escrita-sem-religiao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Numa pesquisa escolar sobre textos sagrados, qual é a postura adequada?",
+      "options": [
+       {
+        "text": "Defender só o da sua tradição",
+        "misconceptionCode": "so-um-livro"
+       },
+       {
+        "text": "Criticar os outros",
+        "misconceptionCode": "texto-sem-valor"
+       },
+       {
+        "text": "Apresentar cada texto com respeito, sem dizer que um é melhor que o outro"
+       },
+       {
+        "text": "Ignorar os que não conhece",
+        "misconceptionCode": "so-um-livro"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Na escola, estuda-se a diversidade religiosa para conhecer e respeitar.",
+      "variants": [
+       {
+        "question": "O objetivo de estudar os textos sagrados na escola é:",
+        "options": [
+         {
+          "text": "Conhecer e respeitar a diversidade"
+         },
+         {
+          "text": "Converter os colegas",
+          "misconceptionCode": "so-um-livro"
+         },
+         {
+          "text": "Escolher a religião certa",
+          "misconceptionCode": "texto-sem-valor"
+         },
+         {
+          "text": "Proibir crenças",
+          "misconceptionCode": "so-um-livro"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Numa pesquisa escolar sobre textos sagrados, qual é a postura adequada?",
+        "options": [
+         {
+          "text": "Ignorar os que não conhece",
+          "misconceptionCode": "so-um-livro"
+         },
+         {
+          "text": "Criticar os outros",
+          "misconceptionCode": "texto-sem-valor"
+         },
+         {
+          "text": "Defender só o da sua tradição",
+          "misconceptionCode": "so-um-livro"
+         },
+         {
+          "text": "Apresentar cada texto com respeito, sem dizer que um é melhor que o outro"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER02-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: textos sagrados",
+    "prompt": "Cite dois textos sagrados escritos, de tradições diferentes, e explique com as suas palavras por que devemos respeitar os textos de todas as tradições.",
+    "estMinutes": 6,
+    "audioScript": "Cite dois textos sagrados escritos, de tradições diferentes, e explique com as suas palavras por que devemos respeitar os textos de todas as tradições.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "textos",
+       "description": "Cita dois textos e as suas tradições, corretamente"
+      },
+      {
+       "code": "importancia",
+       "description": "Diz que cada texto guarda os ensinamentos de um grupo"
+      },
+      {
+       "code": "respeito",
+       "description": "Explica por que todos merecem respeito"
+      }
+     ],
+     "exemploBoaResposta": "A Bíblia é o livro sagrado dos cristãos, e o Alcorão é o livro sagrado dos muçulmanos. Cada um guarda os ensinamentos e as histórias mais importantes para quem segue aquela religião. Devemos respeitar todos, porque o que é sagrado para o outro vale tanto quanto o que é sagrado para nós."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF06ER03",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 6,
+  "version": 1,
+  "title": "Trilha: Ensinamentos nos textos escritos",
+  "tituloAluno": "O que os textos dizem sobre viver bem",
+  "activities": [
+   {
+    "id": "PK2-EF06ER03-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: ensinamentos nas histórias",
+    "prompt": "No 5º ano, vimos os ensinamentos nos textos orais.",
+    "estMinutes": 4,
+    "audioScript": "No 5º ano, vimos os ensinamentos nos textos orais. Pergunta 1. Um ensinamento é: A: Uma notícia; B: Uma propaganda; C: Uma piada; D: Uma orientação sobre como ser e como viver. Pergunta 2. O provérbio \"Quem semeia vento colhe tempestade\" ensina que: A: As nossas ações têm consequências; B: É preciso plantar vento; C: Vai chover; D: O vento é perigoso. Pergunta 3. Uma parábola é: A: Uma lista de compras; B: Uma história curta que transmite um ensinamento; C: Um mapa; D: Uma receita.",
+    "questions": [
+     {
+      "question": "Um ensinamento é:",
+      "options": [
+       {
+        "text": "Uma notícia",
+        "misconceptionCode": "leitura-literal"
+       },
+       {
+        "text": "Uma propaganda",
+        "misconceptionCode": "leitura-literal"
+       },
+       {
+        "text": "Uma piada",
+        "misconceptionCode": "leitura-literal"
+       },
+       {
+        "text": "Uma orientação sobre como ser e como viver"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Os ensinamentos orientam as atitudes das pessoas.",
+      "variants": [
+       {
+        "question": "Os ensinamentos das tradições costumam falar de:",
+        "options": [
+         {
+          "text": "Preços",
+          "misconceptionCode": "leitura-literal"
+         },
+         {
+          "text": "Valores como respeito, justiça e solidariedade"
+         },
+         {
+          "text": "Resultados de jogos",
+          "misconceptionCode": "leitura-literal"
+         },
+         {
+          "text": "Previsão do tempo",
+          "misconceptionCode": "leitura-literal"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um ensinamento é:",
+        "options": [
+         {
+          "text": "Uma orientação sobre como ser e como viver"
+         },
+         {
+          "text": "Uma piada",
+          "misconceptionCode": "leitura-literal"
+         },
+         {
+          "text": "Uma propaganda",
+          "misconceptionCode": "leitura-literal"
+         },
+         {
+          "text": "Uma notícia",
+          "misconceptionCode": "leitura-literal"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O provérbio \"Quem semeia vento colhe tempestade\" ensina que:",
+      "options": [
+       {
+        "text": "As nossas ações têm consequências"
+       },
+       {
+        "text": "É preciso plantar vento",
+        "misconceptionCode": "leitura-literal"
+       },
+       {
+        "text": "Vai chover",
+        "misconceptionCode": "leitura-literal"
+       },
+       {
+        "text": "O vento é perigoso",
+        "misconceptionCode": "leitura-literal"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A frase usa uma comparação para falar das atitudes.",
+      "variants": [
+       {
+        "question": "Para entender um provérbio, é preciso:",
+        "options": [
+         {
+          "text": "Ler só ao pé da letra",
+          "misconceptionCode": "leitura-literal"
+         },
+         {
+          "text": "Decorar",
+          "misconceptionCode": "leitura-literal"
+         },
+         {
+          "text": "Pensar no que ele quer dizer, além das palavras"
+         },
+         {
+          "text": "Ignorar",
+          "misconceptionCode": "leitura-literal"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O provérbio \"Quem semeia vento colhe tempestade\" ensina que:",
+        "options": [
+         {
+          "text": "O vento é perigoso",
+          "misconceptionCode": "leitura-literal"
+         },
+         {
+          "text": "As nossas ações têm consequências"
+         },
+         {
+          "text": "Vai chover",
+          "misconceptionCode": "leitura-literal"
+         },
+         {
+          "text": "É preciso plantar vento",
+          "misconceptionCode": "leitura-literal"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Uma parábola é:",
+      "options": [
+       {
+        "text": "Uma lista de compras",
+        "misconceptionCode": "ensinamento-trocado"
+       },
+       {
+        "text": "Uma história curta que transmite um ensinamento"
+       },
+       {
+        "text": "Um mapa",
+        "misconceptionCode": "ensinamento-trocado"
+       },
+       {
+        "text": "Uma receita",
+        "misconceptionCode": "ensinamento-trocado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "As parábolas usam situações do cotidiano para ensinar.",
+      "variants": [
+       {
+        "question": "Depois de ler uma parábola, uma boa pergunta é:",
+        "options": [
+         {
+          "text": "Quantas páginas tem?",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Quanto custa?",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Quem a imprimiu?",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "O que essa história ensina?"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Uma parábola é:",
+        "options": [
+         {
+          "text": "Uma receita",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Um mapa",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Uma história curta que transmite um ensinamento"
+         },
+         {
+          "text": "Uma lista de compras",
+          "misconceptionCode": "ensinamento-trocado"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER03-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: lendo para compreender",
+    "prompt": "Os textos escritos das tradições trazem orientações sobre como viver. Para reconhecê-las, lemos com atenção e perguntamos: o que este trecho pede das pessoas? Vamos ler juntos.",
+    "estMinutes": 4,
+    "audioScript": "Os textos escritos das tradições trazem orientações sobre como viver. Para reconhecê-las, lemos com atenção e perguntamos: o que este trecho pede das pessoas? Vamos ler juntos. Pergunta 1. Um texto da tradição cristã diz: \"Ame o seu próximo como a si mesmo\". O que esse trecho ensina? A: Amar só a si mesmo; B: Amar só os vizinhos de porta; C: Tratar os outros com o mesmo cuidado que temos conosco; D: Não se importar com ninguém. Pergunta 2. Um ensinamento da tradição judaica diz: \"O que é odioso para você, não faça ao seu próximo\". O que ele orienta? A: Odiar o próximo; B: Fazer o que quiser; C: Vingar-se; D: Não fazer aos outros o que não gostaríamos que fizessem conosco. Pergunta 3. Um texto da tradição budista diz: \"O ódio não cessa com o ódio; o ódio cessa com o amor\". O que ele ensina? A: Responder ao mal com o bem, para interromper a violência; B: Devolver o ódio; C: Guardar rancor; D: Fugir das pessoas.",
+    "questions": [
+     {
+      "question": "Um texto da tradição cristã diz: \"Ame o seu próximo como a si mesmo\". O que esse trecho ensina?",
+      "options": [
+       {
+        "text": "Amar só a si mesmo",
+        "misconceptionCode": "ensinamento-trocado"
+       },
+       {
+        "text": "Amar só os vizinhos de porta",
+        "misconceptionCode": "leitura-literal"
+       },
+       {
+        "text": "Tratar os outros com o mesmo cuidado que temos conosco"
+       },
+       {
+        "text": "Não se importar com ninguém",
+        "misconceptionCode": "ensinamento-trocado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "\"Próximo\" quer dizer qualquer pessoa, e não só quem mora perto.",
+      "variants": [
+       {
+        "question": "Quem segue esse ensinamento procura:",
+        "options": [
+         {
+          "text": "Cuidar das outras pessoas"
+         },
+         {
+          "text": "Pensar só em si",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Prejudicar os outros",
+          "misconceptionCode": "leitura-literal"
+         },
+         {
+          "text": "Ignorar quem precisa",
+          "misconceptionCode": "ensinamento-trocado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um texto da tradição cristã diz: \"Ame o seu próximo como a si mesmo\". O que esse trecho ensina?",
+        "options": [
+         {
+          "text": "Não se importar com ninguém",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Amar só os vizinhos de porta",
+          "misconceptionCode": "leitura-literal"
+         },
+         {
+          "text": "Amar só a si mesmo",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Tratar os outros com o mesmo cuidado que temos conosco"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Um ensinamento da tradição judaica diz: \"O que é odioso para você, não faça ao seu próximo\". O que ele orienta?",
+      "options": [
+       {
+        "text": "Odiar o próximo",
+        "misconceptionCode": "ensinamento-trocado"
+       },
+       {
+        "text": "Fazer o que quiser",
+        "misconceptionCode": "ensinamento-trocado"
+       },
+       {
+        "text": "Vingar-se",
+        "misconceptionCode": "ensinamento-trocado"
+       },
+       {
+        "text": "Não fazer aos outros o que não gostaríamos que fizessem conosco"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O ensinamento pede que nos coloquemos no lugar do outro.",
+      "variants": [
+       {
+        "question": "Esse ensinamento se parece com o anterior porque os dois falam de:",
+        "options": [
+         {
+          "text": "Vingança",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Respeito ao outro"
+         },
+         {
+          "text": "Riqueza",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Competição",
+          "misconceptionCode": "ensinamento-trocado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um ensinamento da tradição judaica diz: \"O que é odioso para você, não faça ao seu próximo\". O que ele orienta?",
+        "options": [
+         {
+          "text": "Não fazer aos outros o que não gostaríamos que fizessem conosco"
+         },
+         {
+          "text": "Vingar-se",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Fazer o que quiser",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Odiar o próximo",
+          "misconceptionCode": "ensinamento-trocado"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Um texto da tradição budista diz: \"O ódio não cessa com o ódio; o ódio cessa com o amor\". O que ele ensina?",
+      "options": [
+       {
+        "text": "Responder ao mal com o bem, para interromper a violência"
+       },
+       {
+        "text": "Devolver o ódio",
+        "misconceptionCode": "ensinamento-trocado"
+       },
+       {
+        "text": "Guardar rancor",
+        "misconceptionCode": "ensinamento-trocado"
+       },
+       {
+        "text": "Fugir das pessoas",
+        "misconceptionCode": "leitura-literal"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O texto propõe um caminho de paz.",
+      "variants": [
+       {
+        "question": "Uma atitude que segue esse ensinamento é:",
+        "options": [
+         {
+          "text": "Xingar de volta",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Bater",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Não revidar uma ofensa e buscar o diálogo"
+         },
+         {
+          "text": "Planejar vingança",
+          "misconceptionCode": "leitura-literal"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um texto da tradição budista diz: \"O ódio não cessa com o ódio; o ódio cessa com o amor\". O que ele ensina?",
+        "options": [
+         {
+          "text": "Fugir das pessoas",
+          "misconceptionCode": "leitura-literal"
+         },
+         {
+          "text": "Responder ao mal com o bem, para interromper a violência"
+         },
+         {
+          "text": "Guardar rancor",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Devolver o ódio",
+          "misconceptionCode": "ensinamento-trocado"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER03-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: reconhecendo ensinamentos",
+    "prompt": "Em textos de várias tradições.",
+    "estMinutes": 5,
+    "audioScript": "Em textos de várias tradições. Pergunta 1. O Alcorão orienta os fiéis a ajudar os pobres e os necessitados. Esse ensinamento fala de: A: Acúmulo de riqueza; B: Generosidade e solidariedade; C: Indiferença; D: Competição. Pergunta 2. Um texto hindu ensina a ahimsa, a não violência contra todos os seres vivos. Esse ensinamento orienta a: A: Ferir os inimigos; B: Caçar por diversão; C: Não ferir pessoas nem animais; D: Brigar para se defender sempre. Pergunta 3. No Espiritismo, um ensinamento muito conhecido é \"Fora da caridade não há salvação\". Ele destaca o valor: A: Da riqueza; B: Do isolamento; C: Da fama; D: De fazer o bem aos outros. Pergunta 4. Os ensinamentos sobre respeito e solidariedade interessam só a quem segue aquela religião? A: Não, são valores que podem inspirar qualquer pessoa, com ou sem religião; B: Sim, só aos fiéis; C: Sim, os outros não precisam respeitar ninguém; D: Sim, quem não tem religião não tem valores.",
+    "questions": [
+     {
+      "question": "O Alcorão orienta os fiéis a ajudar os pobres e os necessitados. Esse ensinamento fala de:",
+      "options": [
+       {
+        "text": "Acúmulo de riqueza",
+        "misconceptionCode": "ensinamento-trocado"
+       },
+       {
+        "text": "Generosidade e solidariedade"
+       },
+       {
+        "text": "Indiferença",
+        "misconceptionCode": "ensinamento-trocado"
+       },
+       {
+        "text": "Competição",
+        "misconceptionCode": "ensinamento-trocado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A doação aos necessitados é um dos pilares do Islamismo.",
+      "variants": [
+       {
+        "question": "Quem pratica esse ensinamento:",
+        "options": [
+         {
+          "text": "Guarda tudo para si",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Ignora os pobres",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Desperdiça",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Partilha o que tem com quem precisa"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O Alcorão orienta os fiéis a ajudar os pobres e os necessitados. Esse ensinamento fala de:",
+        "options": [
+         {
+          "text": "Competição",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Indiferença",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Generosidade e solidariedade"
+         },
+         {
+          "text": "Acúmulo de riqueza",
+          "misconceptionCode": "ensinamento-trocado"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um texto hindu ensina a ahimsa, a não violência contra todos os seres vivos. Esse ensinamento orienta a:",
+      "options": [
+       {
+        "text": "Ferir os inimigos",
+        "misconceptionCode": "ensinamento-trocado"
+       },
+       {
+        "text": "Caçar por diversão",
+        "misconceptionCode": "ensinamento-trocado"
+       },
+       {
+        "text": "Não ferir pessoas nem animais"
+       },
+       {
+        "text": "Brigar para se defender sempre",
+        "misconceptionCode": "ensinamento-trocado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A não violência inspirou líderes como Gandhi.",
+      "variants": [
+       {
+        "question": "Uma atitude ligada à ahimsa é:",
+        "options": [
+         {
+          "text": "Resolver os conflitos sem agressão"
+         },
+         {
+          "text": "Maltratar animais",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Brigar",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Humilhar os outros",
+          "misconceptionCode": "ensinamento-trocado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um texto hindu ensina a ahimsa, a não violência contra todos os seres vivos. Esse ensinamento orienta a:",
+        "options": [
+         {
+          "text": "Brigar para se defender sempre",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Caçar por diversão",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Ferir os inimigos",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Não ferir pessoas nem animais"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "No Espiritismo, um ensinamento muito conhecido é \"Fora da caridade não há salvação\". Ele destaca o valor:",
+      "options": [
+       {
+        "text": "Da riqueza",
+        "misconceptionCode": "ensinamento-trocado"
+       },
+       {
+        "text": "Do isolamento",
+        "misconceptionCode": "ensinamento-trocado"
+       },
+       {
+        "text": "Da fama",
+        "misconceptionCode": "ensinamento-trocado"
+       },
+       {
+        "text": "De fazer o bem aos outros"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A caridade é o centro da prática espírita.",
+      "variants": [
+       {
+        "question": "Um exemplo de caridade é:",
+        "options": [
+         {
+          "text": "Ajudar só para aparecer",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Ajudar alguém sem esperar nada em troca"
+         },
+         {
+          "text": "Cobrar pela ajuda",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Negar ajuda",
+          "misconceptionCode": "ensinamento-trocado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "No Espiritismo, um ensinamento muito conhecido é \"Fora da caridade não há salvação\". Ele destaca o valor:",
+        "options": [
+         {
+          "text": "De fazer o bem aos outros"
+         },
+         {
+          "text": "Da fama",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Do isolamento",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Da riqueza",
+          "misconceptionCode": "ensinamento-trocado"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Os ensinamentos sobre respeito e solidariedade interessam só a quem segue aquela religião?",
+      "options": [
+       {
+        "text": "Não, são valores que podem inspirar qualquer pessoa, com ou sem religião"
+       },
+       {
+        "text": "Sim, só aos fiéis",
+        "misconceptionCode": "so-para-os-fieis"
+       },
+       {
+        "text": "Sim, os outros não precisam respeitar ninguém",
+        "misconceptionCode": "so-para-os-fieis"
+       },
+       {
+        "text": "Sim, quem não tem religião não tem valores",
+        "misconceptionCode": "so-para-os-fieis"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Pessoas sem religião também vivem com base em valores éticos.",
+      "variants": [
+       {
+        "question": "Uma pessoa sem religião pode ser solidária e honesta?",
+        "options": [
+         {
+          "text": "Não",
+          "misconceptionCode": "so-para-os-fieis"
+         },
+         {
+          "text": "Só às vezes",
+          "misconceptionCode": "so-para-os-fieis"
+         },
+         {
+          "text": "Sim, os valores éticos não dependem de ter religião"
+         },
+         {
+          "text": "Só se mudar de ideia",
+          "misconceptionCode": "so-para-os-fieis"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Os ensinamentos sobre respeito e solidariedade interessam só a quem segue aquela religião?",
+        "options": [
+         {
+          "text": "Sim, quem não tem religião não tem valores",
+          "misconceptionCode": "so-para-os-fieis"
+         },
+         {
+          "text": "Não, são valores que podem inspirar qualquer pessoa, com ou sem religião"
+         },
+         {
+          "text": "Sim, os outros não precisam respeitar ninguém",
+          "misconceptionCode": "so-para-os-fieis"
+         },
+         {
+          "text": "Sim, só aos fiéis",
+          "misconceptionCode": "so-para-os-fieis"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER03-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: o que há em comum",
+    "prompt": "Comparando e vivendo.",
+    "estMinutes": 4,
+    "audioScript": "Comparando e vivendo. Pergunta 1. Textos de várias tradições dizem, com palavras diferentes, que devemos tratar os outros como gostaríamos de ser tratados. Isso mostra que: A: As tradições só ensinam coisas opostas; B: Tradições diferentes compartilham valores parecidos; C: Só uma tradição ensina o respeito; D: Os textos são cópias. Pergunta 2. Um colega pegou o seu lápis sem pedir, e você ficou com raiva. Qual atitude está de acordo com os ensinamentos estudados? A: Pegar algo dele escondido; B: Xingá-lo; C: Conversar com ele com calma e pedir o lápis de volta; D: Parar de falar com ele para sempre. Pergunta 3. Ao ler um trecho de um texto sagrado de uma tradição que você não conhece, como buscar o ensinamento? A: Dizendo que não vale nada; B: Lendo só ao pé da letra, sem pensar; C: Recusando-se a ler; D: Lendo com atenção e respeito e perguntando o que ele orienta as pessoas a fazer.",
+    "questions": [
+     {
+      "question": "Textos de várias tradições dizem, com palavras diferentes, que devemos tratar os outros como gostaríamos de ser tratados. Isso mostra que:",
+      "options": [
+       {
+        "text": "As tradições só ensinam coisas opostas",
+        "misconceptionCode": "tradicoes-opostas"
+       },
+       {
+        "text": "Tradições diferentes compartilham valores parecidos"
+       },
+       {
+        "text": "Só uma tradição ensina o respeito",
+        "misconceptionCode": "tradicoes-opostas"
+       },
+       {
+        "text": "Os textos são cópias",
+        "misconceptionCode": "tradicoes-opostas"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Essa ideia é conhecida como regra de ouro.",
+      "variants": [
+       {
+        "question": "A chamada \"regra de ouro\", presente em muitas tradições, pede:",
+        "options": [
+         {
+          "text": "Acumular ouro",
+          "misconceptionCode": "tradicoes-opostas"
+         },
+         {
+          "text": "Vencer os outros",
+          "misconceptionCode": "tradicoes-opostas"
+         },
+         {
+          "text": "Pensar só em si",
+          "misconceptionCode": "tradicoes-opostas"
+         },
+         {
+          "text": "Tratar os outros como gostaríamos de ser tratados"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Textos de várias tradições dizem, com palavras diferentes, que devemos tratar os outros como gostaríamos de ser tratados. Isso mostra que:",
+        "options": [
+         {
+          "text": "Os textos são cópias",
+          "misconceptionCode": "tradicoes-opostas"
+         },
+         {
+          "text": "Só uma tradição ensina o respeito",
+          "misconceptionCode": "tradicoes-opostas"
+         },
+         {
+          "text": "Tradições diferentes compartilham valores parecidos"
+         },
+         {
+          "text": "As tradições só ensinam coisas opostas",
+          "misconceptionCode": "tradicoes-opostas"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um colega pegou o seu lápis sem pedir, e você ficou com raiva. Qual atitude está de acordo com os ensinamentos estudados?",
+      "options": [
+       {
+        "text": "Pegar algo dele escondido",
+        "misconceptionCode": "ensinamento-trocado"
+       },
+       {
+        "text": "Xingá-lo",
+        "misconceptionCode": "ensinamento-trocado"
+       },
+       {
+        "text": "Conversar com ele com calma e pedir o lápis de volta"
+       },
+       {
+        "text": "Parar de falar com ele para sempre",
+        "misconceptionCode": "ensinamento-trocado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Os ensinamentos ganham sentido quando viram atitudes.",
+      "variants": [
+       {
+        "question": "Você vê um colega sem lanche no recreio. Uma atitude ligada aos ensinamentos de solidariedade é:",
+        "options": [
+         {
+          "text": "Oferecer parte do seu lanche"
+         },
+         {
+          "text": "Comer escondido",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Rir dele",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Fingir que não viu",
+          "misconceptionCode": "ensinamento-trocado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um colega pegou o seu lápis sem pedir, e você ficou com raiva. Qual atitude está de acordo com os ensinamentos estudados?",
+        "options": [
+         {
+          "text": "Parar de falar com ele para sempre",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Xingá-lo",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Pegar algo dele escondido",
+          "misconceptionCode": "ensinamento-trocado"
+         },
+         {
+          "text": "Conversar com ele com calma e pedir o lápis de volta"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Ao ler um trecho de um texto sagrado de uma tradição que você não conhece, como buscar o ensinamento?",
+      "options": [
+       {
+        "text": "Dizendo que não vale nada",
+        "misconceptionCode": "so-para-os-fieis"
+       },
+       {
+        "text": "Lendo só ao pé da letra, sem pensar",
+        "misconceptionCode": "leitura-literal"
+       },
+       {
+        "text": "Recusando-se a ler",
+        "misconceptionCode": "so-para-os-fieis"
+       },
+       {
+        "text": "Lendo com atenção e respeito e perguntando o que ele orienta as pessoas a fazer"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Compreender não é o mesmo que aderir. Podemos conhecer e respeitar.",
+      "variants": [
+       {
+        "question": "Conhecer os ensinamentos de outra tradição significa:",
+        "options": [
+         {
+          "text": "Abandonar as próprias crenças",
+          "misconceptionCode": "so-para-os-fieis"
+         },
+         {
+          "text": "Compreender melhor as pessoas que a seguem"
+         },
+         {
+          "text": "Ser obrigado a segui-la",
+          "misconceptionCode": "leitura-literal"
+         },
+         {
+          "text": "Desrespeitar a própria família",
+          "misconceptionCode": "so-para-os-fieis"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Ao ler um trecho de um texto sagrado de uma tradição que você não conhece, como buscar o ensinamento?",
+        "options": [
+         {
+          "text": "Lendo com atenção e respeito e perguntando o que ele orienta as pessoas a fazer"
+         },
+         {
+          "text": "Recusando-se a ler",
+          "misconceptionCode": "so-para-os-fieis"
+         },
+         {
+          "text": "Lendo só ao pé da letra, sem pensar",
+          "misconceptionCode": "leitura-literal"
+         },
+         {
+          "text": "Dizendo que não vale nada",
+          "misconceptionCode": "so-para-os-fieis"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER03-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: um ensinamento e a vida",
+    "prompt": "Escolha um ensinamento de um texto escrito de alguma tradição e explique com as suas palavras o que ele quer dizer e como pode ser vivido no dia a dia.",
+    "estMinutes": 6,
+    "audioScript": "Escolha um ensinamento de um texto escrito de alguma tradição e explique com as suas palavras o que ele quer dizer e como pode ser vivido no dia a dia.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "ensinamento",
+       "description": "Apresenta um ensinamento e a tradição"
+      },
+      {
+       "code": "sentido",
+       "description": "Explica o que ele quer dizer"
+      },
+      {
+       "code": "pratica",
+       "description": "Dá um exemplo de atitude no dia a dia"
+      }
+     ],
+     "exemploBoaResposta": "Um ensinamento da tradição judaica diz para não fazer ao próximo o que é odioso para nós. Isso quer dizer que devemos pensar em como o outro se sente antes de agir. No dia a dia, se eu não gosto de receber apelidos, também não devo dar apelidos aos colegas."
+    }
+   }
+  ]
+ }
 ]

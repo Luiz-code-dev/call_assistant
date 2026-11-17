@@ -1,1890 +1,3772 @@
 [
-  {
-    "skillCode": "EF05GE03",
-    "subjectCode": "GE",
-    "subjectName": "Geografia",
-    "gradeYear": 5,
-    "version": 3,
-    "title": "Trilha: Formas e funções das cidades",
-    "tituloAluno": "Para que servem as cidades e como elas crescem",
-    "activities": [
+ {
+  "skillCode": "EF05GE03",
+  "subjectCode": "GE",
+  "subjectName": "Geografia",
+  "gradeYear": 5,
+  "version": 3,
+  "title": "Trilha: Formas e funções das cidades",
+  "tituloAluno": "Para que servem as cidades e como elas crescem",
+  "activities": [
+   {
+    "id": "PK2-EF05GE03-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: o que tem na cidade",
+    "prompt": "Vamos lembrar o que encontramos numa cidade.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar o que encontramos numa cidade. Pergunta 1. O que é um serviço público numa cidade? A: Uma casa onde alguém mora; B: Um atendimento oferecido à população, como posto de saúde e escola pública; C: Uma fábrica de carros; D: Um prédio sem uso. Pergunta 2. Além de morar, para que as pessoas vão ao centro da cidade? A: Só para morar; B: Para plantar e colher; C: Para nada; D: Para trabalhar, comprar e usar serviços. Pergunta 3. O que é a zona rural? A: A área fora da cidade, com sítios, fazendas e plantações; B: O bairro mais cheio da cidade; C: O centro comercial; D: Um lugar onde só se mora.",
+    "questions": [
+     {
+      "question": "O que é um serviço público numa cidade?",
+      "options": [
+       {
+        "text": "Uma casa onde alguém mora",
+        "misconceptionCode": "cidade-so-moradia"
+       },
+       {
+        "text": "Um atendimento oferecido à população, como posto de saúde e escola pública"
+       },
+       {
+        "text": "Uma fábrica de carros",
+        "misconceptionCode": "funcao-trocada"
+       },
+       {
+        "text": "Um prédio sem uso",
+        "misconceptionCode": "crescer-so-ruim"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Serviço público é o que a cidade oferece para todo mundo: posto de saúde, escola pública, coleta de lixo e ônibus.",
+      "variants": [
+       {
+        "question": "Qual destes é um serviço público?",
+        "options": [
+         {
+          "text": "Uma loja de roupas",
+          "misconceptionCode": "cidade-so-moradia"
+         },
+         {
+          "text": "A casa do vizinho",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "Um terreno vazio",
+          "misconceptionCode": "crescer-so-ruim"
+         },
+         {
+          "text": "A coleta de lixo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que é um serviço público numa cidade?",
+        "options": [
+         {
+          "text": "Um prédio sem uso",
+          "misconceptionCode": "crescer-so-ruim"
+         },
+         {
+          "text": "Uma fábrica de carros",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "Um atendimento oferecido à população, como posto de saúde e escola pública"
+         },
+         {
+          "text": "Uma casa onde alguém mora",
+          "misconceptionCode": "cidade-so-moradia"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Além de morar, para que as pessoas vão ao centro da cidade?",
+      "options": [
+       {
+        "text": "Só para morar",
+        "misconceptionCode": "cidade-so-moradia"
+       },
+       {
+        "text": "Para plantar e colher",
+        "misconceptionCode": "funcao-trocada"
+       },
+       {
+        "text": "Para nada",
+        "misconceptionCode": "crescer-so-ruim"
+       },
+       {
+        "text": "Para trabalhar, comprar e usar serviços"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "No centro tem lojas, bancos, empresas e escritórios. As pessoas vão lá para trabalhar, comprar e resolver coisas.",
+      "variants": [
+       {
+        "question": "Por que muita gente vai ao centro durante a semana?",
+        "options": [
+         {
+          "text": "Porque todos moram no centro",
+          "misconceptionCode": "cidade-so-moradia"
+         },
+         {
+          "text": "Porque lá há trabalho, lojas e serviços"
+         },
+         {
+          "text": "Porque lá há plantações",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "Porque é proibido ficar em casa",
+          "misconceptionCode": "crescer-so-ruim"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Além de morar, para que as pessoas vão ao centro da cidade?",
+        "options": [
+         {
+          "text": "Para trabalhar, comprar e usar serviços"
+         },
+         {
+          "text": "Para nada",
+          "misconceptionCode": "crescer-so-ruim"
+         },
+         {
+          "text": "Para plantar e colher",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "Só para morar",
+          "misconceptionCode": "cidade-so-moradia"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O que é a zona rural?",
+      "options": [
+       {
+        "text": "A área fora da cidade, com sítios, fazendas e plantações"
+       },
+       {
+        "text": "O bairro mais cheio da cidade",
+        "misconceptionCode": "funcao-trocada"
+       },
+       {
+        "text": "O centro comercial",
+        "misconceptionCode": "funcao-trocada"
+       },
+       {
+        "text": "Um lugar onde só se mora",
+        "misconceptionCode": "cidade-so-moradia"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Zona rural é o campo, fora da cidade: sítios, fazendas, plantações e criação de animais.",
+      "variants": [
+       {
+        "question": "Onde é mais comum encontrar uma plantação de mandioca?",
+        "options": [
+         {
+          "text": "No centro da cidade",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "Num shopping",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "Na zona rural"
+         },
+         {
+          "text": "Num prédio de escritórios",
+          "misconceptionCode": "cidade-so-moradia"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que é a zona rural?",
+        "options": [
+         {
+          "text": "Um lugar onde só se mora",
+          "misconceptionCode": "cidade-so-moradia"
+         },
+         {
+          "text": "A área fora da cidade, com sítios, fazendas e plantações"
+         },
+         {
+          "text": "O centro comercial",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "O bairro mais cheio da cidade",
+          "misconceptionCode": "funcao-trocada"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05GE03-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: cada cidade tem a sua função",
+    "prompt": "Algumas cidades são conhecidas por uma função principal. Vamos ver juntos.",
+    "estMinutes": 4,
+    "audioScript": "Algumas cidades são conhecidas por uma função principal. Vamos ver juntos. Pergunta 1. Porto Seguro, na Bahia, recebe muitos visitantes nas praias o ano todo. Qual é uma função importante dessa cidade? A: Indústria pesada; B: Só moradia; C: Capital do país; D: Turismo. Pergunta 2. Brasília é a sede do governo do Brasil. Qual é a função principal dela? A: Função político-administrativa, de governo; B: Turismo de praia; C: Agricultura; D: Só moradia. Pergunta 3. Camaçari, na Bahia, tem um grande polo de fábricas. Qual é uma função importante? A: Turística; B: Só de moradia; C: Industrial; D: Religiosa.",
+    "questions": [
+     {
+      "question": "Porto Seguro, na Bahia, recebe muitos visitantes nas praias o ano todo. Qual é uma função importante dessa cidade?",
+      "options": [
+       {
+        "text": "Indústria pesada",
+        "misconceptionCode": "funcao-trocada"
+       },
+       {
+        "text": "Só moradia",
+        "misconceptionCode": "cidade-so-moradia"
+       },
+       {
+        "text": "Capital do país",
+        "misconceptionCode": "funcao-trocada"
+       },
+       {
+        "text": "Turismo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Hotéis, pousadas e passeios existem para receber turistas. Por isso o turismo é muito importante em Porto Seguro.",
+      "variants": [
+       {
+        "question": "Uma cidade com muitas pousadas, restaurantes e passeios de barco tem como função importante:",
+        "options": [
+         {
+          "text": "Indústria de aço",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "Turismo"
+         },
+         {
+          "text": "Só moradia",
+          "misconceptionCode": "cidade-so-moradia"
+         },
+         {
+          "text": "Governo do país",
+          "misconceptionCode": "funcao-trocada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Porto Seguro, na Bahia, recebe muitos visitantes nas praias o ano todo. Qual é uma função importante dessa cidade?",
+        "options": [
+         {
+          "text": "Turismo"
+         },
+         {
+          "text": "Capital do país",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "Só moradia",
+          "misconceptionCode": "cidade-so-moradia"
+         },
+         {
+          "text": "Indústria pesada",
+          "misconceptionCode": "funcao-trocada"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Brasília é a sede do governo do Brasil. Qual é a função principal dela?",
+      "options": [
+       {
+        "text": "Função político-administrativa, de governo"
+       },
+       {
+        "text": "Turismo de praia",
+        "misconceptionCode": "funcao-trocada"
+       },
+       {
+        "text": "Agricultura",
+        "misconceptionCode": "funcao-trocada"
+       },
+       {
+        "text": "Só moradia",
+        "misconceptionCode": "cidade-so-moradia"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Em Brasília trabalham o presidente, os deputados e os senadores. A função dela é governar o país.",
+      "variants": [
+       {
+        "question": "Uma cidade onde ficam o palácio do governador e a assembleia do estado é:",
+        "options": [
+         {
+          "text": "Uma cidade turística de praia",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "Uma vila rural",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "Uma capital, com função de governo"
+         },
+         {
+          "text": "Uma cidade só de moradia",
+          "misconceptionCode": "cidade-so-moradia"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Brasília é a sede do governo do Brasil. Qual é a função principal dela?",
+        "options": [
+         {
+          "text": "Só moradia",
+          "misconceptionCode": "cidade-so-moradia"
+         },
+         {
+          "text": "Função político-administrativa, de governo"
+         },
+         {
+          "text": "Agricultura",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "Turismo de praia",
+          "misconceptionCode": "funcao-trocada"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Camaçari, na Bahia, tem um grande polo de fábricas. Qual é uma função importante?",
+      "options": [
+       {
+        "text": "Turística",
+        "misconceptionCode": "funcao-trocada"
+       },
+       {
+        "text": "Só de moradia",
+        "misconceptionCode": "cidade-so-moradia"
+       },
+       {
+        "text": "Industrial"
+       },
+       {
+        "text": "Religiosa",
+        "misconceptionCode": "funcao-trocada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Muitas fábricas juntas dão emprego a muita gente. Isso mostra que a função industrial é importante em Camaçari.",
+      "variants": [
+       {
+        "question": "Uma cidade com muitas fábricas e um porto para levar produtos tem função:",
+        "options": [
+         {
+          "text": "Industrial e comercial"
+         },
+         {
+          "text": "Só de moradia",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "Só turística",
+          "misconceptionCode": "cidade-so-moradia"
+         },
+         {
+          "text": "Rural",
+          "misconceptionCode": "funcao-trocada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Camaçari, na Bahia, tem um grande polo de fábricas. Qual é uma função importante?",
+        "options": [
+         {
+          "text": "Religiosa",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "Só de moradia",
+          "misconceptionCode": "cidade-so-moradia"
+         },
+         {
+          "text": "Turística",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "Industrial"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05GE03-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: quando a cidade cresce",
+    "prompt": "Quando uma cidade cresce, muitas coisas mudam. Algumas melhoram, outras pioram.",
+    "estMinutes": 5,
+    "audioScript": "Quando uma cidade cresce, muitas coisas mudam. Algumas melhoram, outras pioram. Pergunta 1. Uma mudança positiva que o crescimento da cidade pode trazer é: A: Mais empregos, lojas e serviços; B: Ruas sempre mais vazias; C: Menos escolas; D: Fim de todo o comércio. Pergunta 2. Um problema que o crescimento rápido e sem planejamento pode trazer é: A: Nenhum problema; B: Mais árvores em todos os bairros; C: Trânsito, falta de moradia e poluição; D: Menos gente nas ruas. Pergunta 3. O crescimento da cidade traz: A: Só coisas boas; B: Mudanças boas e ruins ao mesmo tempo; C: Só coisas ruins; D: Nenhuma mudança. Pergunta 4. Por que áreas verdes, como mata e manguezal, diminuem quando a cidade cresce? A: Porque o crescimento só melhora o ambiente; B: Porque as cidades não ocupam espaço; C: Porque as árvores mudam de lugar sozinhas; D: Porque são ocupadas por casas, ruas e prédios.",
+    "questions": [
+     {
+      "question": "Uma mudança positiva que o crescimento da cidade pode trazer é:",
+      "options": [
+       {
+        "text": "Mais empregos, lojas e serviços"
+       },
+       {
+        "text": "Ruas sempre mais vazias",
+        "misconceptionCode": "crescer-so-ruim"
+       },
+       {
+        "text": "Menos escolas",
+        "misconceptionCode": "crescer-so-ruim"
+       },
+       {
+        "text": "Fim de todo o comércio",
+        "misconceptionCode": "funcao-trocada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Cidade maior costuma ter mais empregos, mais lojas e mais serviços. Esse é o lado bom de crescer.",
+      "variants": [
+       {
+        "question": "Quando uma cidade cresce, pode ganhar:",
+        "options": [
+         {
+          "text": "Menos ônibus",
+          "misconceptionCode": "crescer-so-ruim"
+         },
+         {
+          "text": "Menos lojas",
+          "misconceptionCode": "crescer-so-ruim"
+         },
+         {
+          "text": "Novos hospitais e universidades"
+         },
+         {
+          "text": "Nenhuma mudança",
+          "misconceptionCode": "funcao-trocada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Uma mudança positiva que o crescimento da cidade pode trazer é:",
+        "options": [
+         {
+          "text": "Fim de todo o comércio",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "Mais empregos, lojas e serviços"
+         },
+         {
+          "text": "Menos escolas",
+          "misconceptionCode": "crescer-so-ruim"
+         },
+         {
+          "text": "Ruas sempre mais vazias",
+          "misconceptionCode": "crescer-so-ruim"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um problema que o crescimento rápido e sem planejamento pode trazer é:",
+      "options": [
+       {
+        "text": "Nenhum problema",
+        "misconceptionCode": "crescer-so-bom"
+       },
+       {
+        "text": "Mais árvores em todos os bairros",
+        "misconceptionCode": "crescer-so-bom"
+       },
+       {
+        "text": "Trânsito, falta de moradia e poluição"
+       },
+       {
+        "text": "Menos gente nas ruas",
+        "misconceptionCode": "funcao-trocada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Quando a cidade cresce rápido demais, falta rua, casa e esgoto para todos. Aí aparecem trânsito, falta de moradia e poluição.",
+      "variants": [
+       {
+        "question": "O que pode acontecer se uma cidade cresce sem planejamento?",
+        "options": [
+         {
+          "text": "Bairros sem esgoto e sem transporte"
+         },
+         {
+          "text": "Tudo melhora sozinho",
+          "misconceptionCode": "crescer-so-bom"
+         },
+         {
+          "text": "Mais áreas verdes em todo lugar",
+          "misconceptionCode": "crescer-so-bom"
+         },
+         {
+          "text": "Menos carros",
+          "misconceptionCode": "funcao-trocada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um problema que o crescimento rápido e sem planejamento pode trazer é:",
+        "options": [
+         {
+          "text": "Menos gente nas ruas",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "Mais árvores em todos os bairros",
+          "misconceptionCode": "crescer-so-bom"
+         },
+         {
+          "text": "Nenhum problema",
+          "misconceptionCode": "crescer-so-bom"
+         },
+         {
+          "text": "Trânsito, falta de moradia e poluição"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O crescimento da cidade traz:",
+      "options": [
+       {
+        "text": "Só coisas boas",
+        "misconceptionCode": "crescer-so-bom"
+       },
+       {
+        "text": "Mudanças boas e ruins ao mesmo tempo"
+       },
+       {
+        "text": "Só coisas ruins",
+        "misconceptionCode": "crescer-so-ruim"
+       },
+       {
+        "text": "Nenhuma mudança",
+        "misconceptionCode": "cidade-so-moradia"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Crescer tem os dois lados: mais oportunidades, mas também mais problemas. Por isso é preciso planejar.",
+      "variants": [
+       {
+        "question": "Sobre uma cidade que cresceu muito em 20 anos, é correto dizer que:",
+        "options": [
+         {
+          "text": "Só melhorou",
+          "misconceptionCode": "crescer-so-bom"
+         },
+         {
+          "text": "Só piorou",
+          "misconceptionCode": "crescer-so-ruim"
+         },
+         {
+          "text": "Não mudou",
+          "misconceptionCode": "cidade-so-moradia"
+         },
+         {
+          "text": "Ganhou oportunidades e também problemas"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O crescimento da cidade traz:",
+        "options": [
+         {
+          "text": "Nenhuma mudança",
+          "misconceptionCode": "cidade-so-moradia"
+         },
+         {
+          "text": "Só coisas ruins",
+          "misconceptionCode": "crescer-so-ruim"
+         },
+         {
+          "text": "Mudanças boas e ruins ao mesmo tempo"
+         },
+         {
+          "text": "Só coisas boas",
+          "misconceptionCode": "crescer-so-bom"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Por que áreas verdes, como mata e manguezal, diminuem quando a cidade cresce?",
+      "options": [
+       {
+        "text": "Porque o crescimento só melhora o ambiente",
+        "misconceptionCode": "crescer-so-bom"
+       },
+       {
+        "text": "Porque as cidades não ocupam espaço",
+        "misconceptionCode": "cidade-so-moradia"
+       },
+       {
+        "text": "Porque as árvores mudam de lugar sozinhas",
+        "misconceptionCode": "funcao-trocada"
+       },
+       {
+        "text": "Porque são ocupadas por casas, ruas e prédios"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Quando a cidade cresce, ela precisa de espaço, e muitas vezes constrói casas e ruas onde antes havia mata.",
+      "variants": [
+       {
+        "question": "Um manguezal aterrado para construir prédios é um exemplo de:",
+        "options": [
+         {
+          "text": "Melhora natural do mangue",
+          "misconceptionCode": "crescer-so-bom"
+         },
+         {
+          "text": "Mudança ambiental causada pelo crescimento da cidade"
+         },
+         {
+          "text": "Função turística",
+          "misconceptionCode": "cidade-so-moradia"
+         },
+         {
+          "text": "Zona rural crescendo",
+          "misconceptionCode": "funcao-trocada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Por que áreas verdes, como mata e manguezal, diminuem quando a cidade cresce?",
+        "options": [
+         {
+          "text": "Porque são ocupadas por casas, ruas e prédios"
+         },
+         {
+          "text": "Porque as árvores mudam de lugar sozinhas",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "Porque as cidades não ocupam espaço",
+          "misconceptionCode": "cidade-so-moradia"
+         },
+         {
+          "text": "Porque o crescimento só melhora o ambiente",
+          "misconceptionCode": "crescer-so-bom"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05GE03-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: a sua cidade",
+    "prompt": "Pense na cidade onde você mora.",
+    "estMinutes": 4,
+    "audioScript": "Pense na cidade onde você mora. Pergunta 1. Se o seu bairro ganhou uma estação de metrô, qual pode ser uma consequência? A: O bairro fica sem moradores; B: Nada muda; C: Mais gente circulando e novos comércios perto; D: O bairro vira zona rural. Pergunta 2. Para que um bairro novo tenha qualidade de vida, ele precisa de: A: Só de casas; B: Saneamento, transporte, escola e posto de saúde; C: De nada, cresce sozinho; D: Só de lojas. Pergunta 3. Um colega diz que cidade grande é só problema. O que você responde? A: Ele está certo, só tem problema; B: Cidade grande é só coisa boa; C: Cidade grande serve só para morar; D: Tem problemas, mas também oportunidades, como empregos e universidades.",
+    "questions": [
+     {
+      "question": "Se o seu bairro ganhou uma estação de metrô, qual pode ser uma consequência?",
+      "options": [
+       {
+        "text": "O bairro fica sem moradores",
+        "misconceptionCode": "cidade-so-moradia"
+       },
+       {
+        "text": "Nada muda",
+        "misconceptionCode": "crescer-so-ruim"
+       },
+       {
+        "text": "Mais gente circulando e novos comércios perto"
+       },
+       {
+        "text": "O bairro vira zona rural",
+        "misconceptionCode": "funcao-trocada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Metrô novo traz mais gente passando, e onde tem gente, abrem lojas e lanchonetes. O bairro muda.",
+      "variants": [
+       {
+        "question": "Um shopping novo no bairro costuma trazer:",
+        "options": [
+         {
+          "text": "Empregos e mais trânsito"
+         },
+         {
+          "text": "Só coisas ruins",
+          "misconceptionCode": "cidade-so-moradia"
+         },
+         {
+          "text": "Só coisas boas",
+          "misconceptionCode": "crescer-so-ruim"
+         },
+         {
+          "text": "Nenhuma mudança",
+          "misconceptionCode": "funcao-trocada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Se o seu bairro ganhou uma estação de metrô, qual pode ser uma consequência?",
+        "options": [
+         {
+          "text": "O bairro vira zona rural",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "Nada muda",
+          "misconceptionCode": "crescer-so-ruim"
+         },
+         {
+          "text": "O bairro fica sem moradores",
+          "misconceptionCode": "cidade-so-moradia"
+         },
+         {
+          "text": "Mais gente circulando e novos comércios perto"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Para que um bairro novo tenha qualidade de vida, ele precisa de:",
+      "options": [
+       {
+        "text": "Só de casas",
+        "misconceptionCode": "cidade-so-moradia"
+       },
+       {
+        "text": "Saneamento, transporte, escola e posto de saúde"
+       },
+       {
+        "text": "De nada, cresce sozinho",
+        "misconceptionCode": "crescer-so-bom"
+       },
+       {
+        "text": "Só de lojas",
+        "misconceptionCode": "funcao-trocada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Não basta ter a casa: o bairro precisa de esgoto, ônibus, escola e posto de saúde para todos viverem bem.",
+      "variants": [
+       {
+        "question": "O que falta num bairro com casas, mas sem esgoto e sem ônibus?",
+        "options": [
+         {
+          "text": "Mais casas",
+          "misconceptionCode": "cidade-so-moradia"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "crescer-so-bom"
+         },
+         {
+          "text": "Mais lojas de roupas",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "Infraestrutura e serviços"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Para que um bairro novo tenha qualidade de vida, ele precisa de:",
+        "options": [
+         {
+          "text": "Só de lojas",
+          "misconceptionCode": "funcao-trocada"
+         },
+         {
+          "text": "De nada, cresce sozinho",
+          "misconceptionCode": "crescer-so-bom"
+         },
+         {
+          "text": "Saneamento, transporte, escola e posto de saúde"
+         },
+         {
+          "text": "Só de casas",
+          "misconceptionCode": "cidade-so-moradia"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um colega diz que cidade grande é só problema. O que você responde?",
+      "options": [
+       {
+        "text": "Ele está certo, só tem problema",
+        "misconceptionCode": "crescer-so-ruim"
+       },
+       {
+        "text": "Cidade grande é só coisa boa",
+        "misconceptionCode": "crescer-so-bom"
+       },
+       {
+        "text": "Cidade grande serve só para morar",
+        "misconceptionCode": "cidade-so-moradia"
+       },
+       {
+        "text": "Tem problemas, mas também oportunidades, como empregos e universidades"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Cidade grande tem problemas, como trânsito, mas também tem empregos, hospitais e universidades. Toda cidade tem os dois lados.",
+      "variants": [
+       {
+        "question": "Outro colega diz que cidade grande é só coisa boa. O que você responde?",
+        "options": [
+         {
+          "text": "Ele está certo",
+          "misconceptionCode": "crescer-so-ruim"
+         },
+         {
+          "text": "Tem oportunidades, mas também problemas como trânsito e poluição"
+         },
+         {
+          "text": "Cidade grande é só problema",
+          "misconceptionCode": "crescer-so-bom"
+         },
+         {
+          "text": "Cidade grande serve só para turismo",
+          "misconceptionCode": "cidade-so-moradia"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um colega diz que cidade grande é só problema. O que você responde?",
+        "options": [
+         {
+          "text": "Tem problemas, mas também oportunidades, como empregos e universidades"
+         },
+         {
+          "text": "Cidade grande serve só para morar",
+          "misconceptionCode": "cidade-so-moradia"
+         },
+         {
+          "text": "Cidade grande é só coisa boa",
+          "misconceptionCode": "crescer-so-bom"
+         },
+         {
+          "text": "Ele está certo, só tem problema",
+          "misconceptionCode": "crescer-so-ruim"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05GE03-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: a cidade cresce",
+    "prompt": "Explique com as suas palavras para que serve uma cidade e cite uma coisa boa e uma ruim que acontecem quando ela cresce muito.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras para que serve uma cidade e cite uma coisa boa e uma ruim que acontecem quando ela cresce muito.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
       {
-        "id": "PK2-EF05GE03-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar: o que tem na cidade",
-        "prompt": "Vamos lembrar o que encontramos numa cidade.",
-        "estMinutes": 4,
-        "audioScript": "Vamos lembrar o que encontramos numa cidade. Pergunta 1. O que é um serviço público numa cidade? A: Uma casa onde alguém mora; B: Um atendimento oferecido à população, como posto de saúde e escola pública; C: Uma fábrica de carros; D: Um prédio sem uso. Pergunta 2. Além de morar, para que as pessoas vão ao centro da cidade? A: Só para morar; B: Para plantar e colher; C: Para nada; D: Para trabalhar, comprar e usar serviços. Pergunta 3. O que é a zona rural? A: A área fora da cidade, com sítios, fazendas e plantações; B: O bairro mais cheio da cidade; C: O centro comercial; D: Um lugar onde só se mora.",
-        "questions": [
-          {
-            "question": "O que é um serviço público numa cidade?",
-            "options": [
-              {
-                "text": "Uma casa onde alguém mora",
-                "misconceptionCode": "cidade-so-moradia"
-              },
-              {
-                "text": "Um atendimento oferecido à população, como posto de saúde e escola pública"
-              },
-              {
-                "text": "Uma fábrica de carros",
-                "misconceptionCode": "funcao-trocada"
-              },
-              {
-                "text": "Um prédio sem uso",
-                "misconceptionCode": "crescer-so-ruim"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Serviço público é o que a cidade oferece para todo mundo: posto de saúde, escola pública, coleta de lixo e ônibus.",
-            "variants": [
-              {
-                "question": "Qual destes é um serviço público?",
-                "options": [
-                  {
-                    "text": "Uma loja de roupas",
-                    "misconceptionCode": "cidade-so-moradia"
-                  },
-                  {
-                    "text": "A casa do vizinho",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "Um terreno vazio",
-                    "misconceptionCode": "crescer-so-ruim"
-                  },
-                  {
-                    "text": "A coleta de lixo"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "O que é um serviço público numa cidade?",
-                "options": [
-                  {
-                    "text": "Um prédio sem uso",
-                    "misconceptionCode": "crescer-so-ruim"
-                  },
-                  {
-                    "text": "Uma fábrica de carros",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "Um atendimento oferecido à população, como posto de saúde e escola pública"
-                  },
-                  {
-                    "text": "Uma casa onde alguém mora",
-                    "misconceptionCode": "cidade-so-moradia"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Além de morar, para que as pessoas vão ao centro da cidade?",
-            "options": [
-              {
-                "text": "Só para morar",
-                "misconceptionCode": "cidade-so-moradia"
-              },
-              {
-                "text": "Para plantar e colher",
-                "misconceptionCode": "funcao-trocada"
-              },
-              {
-                "text": "Para nada",
-                "misconceptionCode": "crescer-so-ruim"
-              },
-              {
-                "text": "Para trabalhar, comprar e usar serviços"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "No centro tem lojas, bancos, empresas e escritórios. As pessoas vão lá para trabalhar, comprar e resolver coisas.",
-            "variants": [
-              {
-                "question": "Por que muita gente vai ao centro durante a semana?",
-                "options": [
-                  {
-                    "text": "Porque todos moram no centro",
-                    "misconceptionCode": "cidade-so-moradia"
-                  },
-                  {
-                    "text": "Porque lá há trabalho, lojas e serviços"
-                  },
-                  {
-                    "text": "Porque lá há plantações",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "Porque é proibido ficar em casa",
-                    "misconceptionCode": "crescer-so-ruim"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Além de morar, para que as pessoas vão ao centro da cidade?",
-                "options": [
-                  {
-                    "text": "Para trabalhar, comprar e usar serviços"
-                  },
-                  {
-                    "text": "Para nada",
-                    "misconceptionCode": "crescer-so-ruim"
-                  },
-                  {
-                    "text": "Para plantar e colher",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "Só para morar",
-                    "misconceptionCode": "cidade-so-moradia"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "O que é a zona rural?",
-            "options": [
-              {
-                "text": "A área fora da cidade, com sítios, fazendas e plantações"
-              },
-              {
-                "text": "O bairro mais cheio da cidade",
-                "misconceptionCode": "funcao-trocada"
-              },
-              {
-                "text": "O centro comercial",
-                "misconceptionCode": "funcao-trocada"
-              },
-              {
-                "text": "Um lugar onde só se mora",
-                "misconceptionCode": "cidade-so-moradia"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Zona rural é o campo, fora da cidade: sítios, fazendas, plantações e criação de animais.",
-            "variants": [
-              {
-                "question": "Onde é mais comum encontrar uma plantação de mandioca?",
-                "options": [
-                  {
-                    "text": "No centro da cidade",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "Num shopping",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "Na zona rural"
-                  },
-                  {
-                    "text": "Num prédio de escritórios",
-                    "misconceptionCode": "cidade-so-moradia"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "O que é a zona rural?",
-                "options": [
-                  {
-                    "text": "Um lugar onde só se mora",
-                    "misconceptionCode": "cidade-so-moradia"
-                  },
-                  {
-                    "text": "A área fora da cidade, com sítios, fazendas e plantações"
-                  },
-                  {
-                    "text": "O centro comercial",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "O bairro mais cheio da cidade",
-                    "misconceptionCode": "funcao-trocada"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          }
-        ]
+       "code": "funcoes",
+       "description": "Cita funções da cidade além da moradia (trabalho, comércio, serviços)"
       },
       {
-        "id": "PK2-EF05GE03-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Exemplo guiado: cada cidade tem a sua função",
-        "prompt": "Algumas cidades são conhecidas por uma função principal. Vamos ver juntos.",
-        "estMinutes": 4,
-        "audioScript": "Algumas cidades são conhecidas por uma função principal. Vamos ver juntos. Pergunta 1. Porto Seguro, na Bahia, recebe muitos visitantes nas praias o ano todo. Qual é uma função importante dessa cidade? A: Indústria pesada; B: Só moradia; C: Capital do país; D: Turismo. Pergunta 2. Brasília é a sede do governo do Brasil. Qual é a função principal dela? A: Função político-administrativa, de governo; B: Turismo de praia; C: Agricultura; D: Só moradia. Pergunta 3. Camaçari, na Bahia, tem um grande polo de fábricas. Qual é uma função importante? A: Turística; B: Só de moradia; C: Industrial; D: Religiosa.",
-        "questions": [
-          {
-            "question": "Porto Seguro, na Bahia, recebe muitos visitantes nas praias o ano todo. Qual é uma função importante dessa cidade?",
-            "options": [
-              {
-                "text": "Indústria pesada",
-                "misconceptionCode": "funcao-trocada"
-              },
-              {
-                "text": "Só moradia",
-                "misconceptionCode": "cidade-so-moradia"
-              },
-              {
-                "text": "Capital do país",
-                "misconceptionCode": "funcao-trocada"
-              },
-              {
-                "text": "Turismo"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Hotéis, pousadas e passeios existem para receber turistas. Por isso o turismo é muito importante em Porto Seguro.",
-            "variants": [
-              {
-                "question": "Uma cidade com muitas pousadas, restaurantes e passeios de barco tem como função importante:",
-                "options": [
-                  {
-                    "text": "Indústria de aço",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "Turismo"
-                  },
-                  {
-                    "text": "Só moradia",
-                    "misconceptionCode": "cidade-so-moradia"
-                  },
-                  {
-                    "text": "Governo do país",
-                    "misconceptionCode": "funcao-trocada"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Porto Seguro, na Bahia, recebe muitos visitantes nas praias o ano todo. Qual é uma função importante dessa cidade?",
-                "options": [
-                  {
-                    "text": "Turismo"
-                  },
-                  {
-                    "text": "Capital do país",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "Só moradia",
-                    "misconceptionCode": "cidade-so-moradia"
-                  },
-                  {
-                    "text": "Indústria pesada",
-                    "misconceptionCode": "funcao-trocada"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Brasília é a sede do governo do Brasil. Qual é a função principal dela?",
-            "options": [
-              {
-                "text": "Função político-administrativa, de governo"
-              },
-              {
-                "text": "Turismo de praia",
-                "misconceptionCode": "funcao-trocada"
-              },
-              {
-                "text": "Agricultura",
-                "misconceptionCode": "funcao-trocada"
-              },
-              {
-                "text": "Só moradia",
-                "misconceptionCode": "cidade-so-moradia"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Em Brasília trabalham o presidente, os deputados e os senadores. A função dela é governar o país.",
-            "variants": [
-              {
-                "question": "Uma cidade onde ficam o palácio do governador e a assembleia do estado é:",
-                "options": [
-                  {
-                    "text": "Uma cidade turística de praia",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "Uma vila rural",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "Uma capital, com função de governo"
-                  },
-                  {
-                    "text": "Uma cidade só de moradia",
-                    "misconceptionCode": "cidade-so-moradia"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Brasília é a sede do governo do Brasil. Qual é a função principal dela?",
-                "options": [
-                  {
-                    "text": "Só moradia",
-                    "misconceptionCode": "cidade-so-moradia"
-                  },
-                  {
-                    "text": "Função político-administrativa, de governo"
-                  },
-                  {
-                    "text": "Agricultura",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "Turismo de praia",
-                    "misconceptionCode": "funcao-trocada"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Camaçari, na Bahia, tem um grande polo de fábricas. Qual é uma função importante?",
-            "options": [
-              {
-                "text": "Turística",
-                "misconceptionCode": "funcao-trocada"
-              },
-              {
-                "text": "Só de moradia",
-                "misconceptionCode": "cidade-so-moradia"
-              },
-              {
-                "text": "Industrial"
-              },
-              {
-                "text": "Religiosa",
-                "misconceptionCode": "funcao-trocada"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Muitas fábricas juntas dão emprego a muita gente. Isso mostra que a função industrial é importante em Camaçari.",
-            "variants": [
-              {
-                "question": "Uma cidade com muitas fábricas e um porto para levar produtos tem função:",
-                "options": [
-                  {
-                    "text": "Industrial e comercial"
-                  },
-                  {
-                    "text": "Só de moradia",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "Só turística",
-                    "misconceptionCode": "cidade-so-moradia"
-                  },
-                  {
-                    "text": "Rural",
-                    "misconceptionCode": "funcao-trocada"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Camaçari, na Bahia, tem um grande polo de fábricas. Qual é uma função importante?",
-                "options": [
-                  {
-                    "text": "Religiosa",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "Só de moradia",
-                    "misconceptionCode": "cidade-so-moradia"
-                  },
-                  {
-                    "text": "Turística",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "Industrial"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          }
-        ]
+       "code": "positivo",
+       "description": "Cita uma consequência positiva do crescimento"
       },
       {
-        "id": "PK2-EF05GE03-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar: quando a cidade cresce",
-        "prompt": "Quando uma cidade cresce, muitas coisas mudam. Algumas melhoram, outras pioram.",
-        "estMinutes": 5,
-        "audioScript": "Quando uma cidade cresce, muitas coisas mudam. Algumas melhoram, outras pioram. Pergunta 1. Uma mudança positiva que o crescimento da cidade pode trazer é: A: Mais empregos, lojas e serviços; B: Ruas sempre mais vazias; C: Menos escolas; D: Fim de todo o comércio. Pergunta 2. Um problema que o crescimento rápido e sem planejamento pode trazer é: A: Nenhum problema; B: Mais árvores em todos os bairros; C: Trânsito, falta de moradia e poluição; D: Menos gente nas ruas. Pergunta 3. O crescimento da cidade traz: A: Só coisas boas; B: Mudanças boas e ruins ao mesmo tempo; C: Só coisas ruins; D: Nenhuma mudança. Pergunta 4. Por que áreas verdes, como mata e manguezal, diminuem quando a cidade cresce? A: Porque o crescimento só melhora o ambiente; B: Porque as cidades não ocupam espaço; C: Porque as árvores mudam de lugar sozinhas; D: Porque são ocupadas por casas, ruas e prédios.",
-        "questions": [
-          {
-            "question": "Uma mudança positiva que o crescimento da cidade pode trazer é:",
-            "options": [
-              {
-                "text": "Mais empregos, lojas e serviços"
-              },
-              {
-                "text": "Ruas sempre mais vazias",
-                "misconceptionCode": "crescer-so-ruim"
-              },
-              {
-                "text": "Menos escolas",
-                "misconceptionCode": "crescer-so-ruim"
-              },
-              {
-                "text": "Fim de todo o comércio",
-                "misconceptionCode": "funcao-trocada"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Cidade maior costuma ter mais empregos, mais lojas e mais serviços. Esse é o lado bom de crescer.",
-            "variants": [
-              {
-                "question": "Quando uma cidade cresce, pode ganhar:",
-                "options": [
-                  {
-                    "text": "Menos ônibus",
-                    "misconceptionCode": "crescer-so-ruim"
-                  },
-                  {
-                    "text": "Menos lojas",
-                    "misconceptionCode": "crescer-so-ruim"
-                  },
-                  {
-                    "text": "Novos hospitais e universidades"
-                  },
-                  {
-                    "text": "Nenhuma mudança",
-                    "misconceptionCode": "funcao-trocada"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Uma mudança positiva que o crescimento da cidade pode trazer é:",
-                "options": [
-                  {
-                    "text": "Fim de todo o comércio",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "Mais empregos, lojas e serviços"
-                  },
-                  {
-                    "text": "Menos escolas",
-                    "misconceptionCode": "crescer-so-ruim"
-                  },
-                  {
-                    "text": "Ruas sempre mais vazias",
-                    "misconceptionCode": "crescer-so-ruim"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Um problema que o crescimento rápido e sem planejamento pode trazer é:",
-            "options": [
-              {
-                "text": "Nenhum problema",
-                "misconceptionCode": "crescer-so-bom"
-              },
-              {
-                "text": "Mais árvores em todos os bairros",
-                "misconceptionCode": "crescer-so-bom"
-              },
-              {
-                "text": "Trânsito, falta de moradia e poluição"
-              },
-              {
-                "text": "Menos gente nas ruas",
-                "misconceptionCode": "funcao-trocada"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Quando a cidade cresce rápido demais, falta rua, casa e esgoto para todos. Aí aparecem trânsito, falta de moradia e poluição.",
-            "variants": [
-              {
-                "question": "O que pode acontecer se uma cidade cresce sem planejamento?",
-                "options": [
-                  {
-                    "text": "Bairros sem esgoto e sem transporte"
-                  },
-                  {
-                    "text": "Tudo melhora sozinho",
-                    "misconceptionCode": "crescer-so-bom"
-                  },
-                  {
-                    "text": "Mais áreas verdes em todo lugar",
-                    "misconceptionCode": "crescer-so-bom"
-                  },
-                  {
-                    "text": "Menos carros",
-                    "misconceptionCode": "funcao-trocada"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Um problema que o crescimento rápido e sem planejamento pode trazer é:",
-                "options": [
-                  {
-                    "text": "Menos gente nas ruas",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "Mais árvores em todos os bairros",
-                    "misconceptionCode": "crescer-so-bom"
-                  },
-                  {
-                    "text": "Nenhum problema",
-                    "misconceptionCode": "crescer-so-bom"
-                  },
-                  {
-                    "text": "Trânsito, falta de moradia e poluição"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "O crescimento da cidade traz:",
-            "options": [
-              {
-                "text": "Só coisas boas",
-                "misconceptionCode": "crescer-so-bom"
-              },
-              {
-                "text": "Mudanças boas e ruins ao mesmo tempo"
-              },
-              {
-                "text": "Só coisas ruins",
-                "misconceptionCode": "crescer-so-ruim"
-              },
-              {
-                "text": "Nenhuma mudança",
-                "misconceptionCode": "cidade-so-moradia"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Crescer tem os dois lados: mais oportunidades, mas também mais problemas. Por isso é preciso planejar.",
-            "variants": [
-              {
-                "question": "Sobre uma cidade que cresceu muito em 20 anos, é correto dizer que:",
-                "options": [
-                  {
-                    "text": "Só melhorou",
-                    "misconceptionCode": "crescer-so-bom"
-                  },
-                  {
-                    "text": "Só piorou",
-                    "misconceptionCode": "crescer-so-ruim"
-                  },
-                  {
-                    "text": "Não mudou",
-                    "misconceptionCode": "cidade-so-moradia"
-                  },
-                  {
-                    "text": "Ganhou oportunidades e também problemas"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "O crescimento da cidade traz:",
-                "options": [
-                  {
-                    "text": "Nenhuma mudança",
-                    "misconceptionCode": "cidade-so-moradia"
-                  },
-                  {
-                    "text": "Só coisas ruins",
-                    "misconceptionCode": "crescer-so-ruim"
-                  },
-                  {
-                    "text": "Mudanças boas e ruins ao mesmo tempo"
-                  },
-                  {
-                    "text": "Só coisas boas",
-                    "misconceptionCode": "crescer-so-bom"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Por que áreas verdes, como mata e manguezal, diminuem quando a cidade cresce?",
-            "options": [
-              {
-                "text": "Porque o crescimento só melhora o ambiente",
-                "misconceptionCode": "crescer-so-bom"
-              },
-              {
-                "text": "Porque as cidades não ocupam espaço",
-                "misconceptionCode": "cidade-so-moradia"
-              },
-              {
-                "text": "Porque as árvores mudam de lugar sozinhas",
-                "misconceptionCode": "funcao-trocada"
-              },
-              {
-                "text": "Porque são ocupadas por casas, ruas e prédios"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Quando a cidade cresce, ela precisa de espaço, e muitas vezes constrói casas e ruas onde antes havia mata.",
-            "variants": [
-              {
-                "question": "Um manguezal aterrado para construir prédios é um exemplo de:",
-                "options": [
-                  {
-                    "text": "Melhora natural do mangue",
-                    "misconceptionCode": "crescer-so-bom"
-                  },
-                  {
-                    "text": "Mudança ambiental causada pelo crescimento da cidade"
-                  },
-                  {
-                    "text": "Função turística",
-                    "misconceptionCode": "cidade-so-moradia"
-                  },
-                  {
-                    "text": "Zona rural crescendo",
-                    "misconceptionCode": "funcao-trocada"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Por que áreas verdes, como mata e manguezal, diminuem quando a cidade cresce?",
-                "options": [
-                  {
-                    "text": "Porque são ocupadas por casas, ruas e prédios"
-                  },
-                  {
-                    "text": "Porque as árvores mudam de lugar sozinhas",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "Porque as cidades não ocupam espaço",
-                    "misconceptionCode": "cidade-so-moradia"
-                  },
-                  {
-                    "text": "Porque o crescimento só melhora o ambiente",
-                    "misconceptionCode": "crescer-so-bom"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF05GE03-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar: a sua cidade",
-        "prompt": "Pense na cidade onde você mora.",
-        "estMinutes": 4,
-        "audioScript": "Pense na cidade onde você mora. Pergunta 1. Se o seu bairro ganhou uma estação de metrô, qual pode ser uma consequência? A: O bairro fica sem moradores; B: Nada muda; C: Mais gente circulando e novos comércios perto; D: O bairro vira zona rural. Pergunta 2. Para que um bairro novo tenha qualidade de vida, ele precisa de: A: Só de casas; B: Saneamento, transporte, escola e posto de saúde; C: De nada, cresce sozinho; D: Só de lojas. Pergunta 3. Um colega diz que cidade grande é só problema. O que você responde? A: Ele está certo, só tem problema; B: Cidade grande é só coisa boa; C: Cidade grande serve só para morar; D: Tem problemas, mas também oportunidades, como empregos e universidades.",
-        "questions": [
-          {
-            "question": "Se o seu bairro ganhou uma estação de metrô, qual pode ser uma consequência?",
-            "options": [
-              {
-                "text": "O bairro fica sem moradores",
-                "misconceptionCode": "cidade-so-moradia"
-              },
-              {
-                "text": "Nada muda",
-                "misconceptionCode": "crescer-so-ruim"
-              },
-              {
-                "text": "Mais gente circulando e novos comércios perto"
-              },
-              {
-                "text": "O bairro vira zona rural",
-                "misconceptionCode": "funcao-trocada"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Metrô novo traz mais gente passando, e onde tem gente, abrem lojas e lanchonetes. O bairro muda.",
-            "variants": [
-              {
-                "question": "Um shopping novo no bairro costuma trazer:",
-                "options": [
-                  {
-                    "text": "Empregos e mais trânsito"
-                  },
-                  {
-                    "text": "Só coisas ruins",
-                    "misconceptionCode": "cidade-so-moradia"
-                  },
-                  {
-                    "text": "Só coisas boas",
-                    "misconceptionCode": "crescer-so-ruim"
-                  },
-                  {
-                    "text": "Nenhuma mudança",
-                    "misconceptionCode": "funcao-trocada"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Se o seu bairro ganhou uma estação de metrô, qual pode ser uma consequência?",
-                "options": [
-                  {
-                    "text": "O bairro vira zona rural",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "Nada muda",
-                    "misconceptionCode": "crescer-so-ruim"
-                  },
-                  {
-                    "text": "O bairro fica sem moradores",
-                    "misconceptionCode": "cidade-so-moradia"
-                  },
-                  {
-                    "text": "Mais gente circulando e novos comércios perto"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Para que um bairro novo tenha qualidade de vida, ele precisa de:",
-            "options": [
-              {
-                "text": "Só de casas",
-                "misconceptionCode": "cidade-so-moradia"
-              },
-              {
-                "text": "Saneamento, transporte, escola e posto de saúde"
-              },
-              {
-                "text": "De nada, cresce sozinho",
-                "misconceptionCode": "crescer-so-bom"
-              },
-              {
-                "text": "Só de lojas",
-                "misconceptionCode": "funcao-trocada"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Não basta ter a casa: o bairro precisa de esgoto, ônibus, escola e posto de saúde para todos viverem bem.",
-            "variants": [
-              {
-                "question": "O que falta num bairro com casas, mas sem esgoto e sem ônibus?",
-                "options": [
-                  {
-                    "text": "Mais casas",
-                    "misconceptionCode": "cidade-so-moradia"
-                  },
-                  {
-                    "text": "Nada",
-                    "misconceptionCode": "crescer-so-bom"
-                  },
-                  {
-                    "text": "Mais lojas de roupas",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "Infraestrutura e serviços"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Para que um bairro novo tenha qualidade de vida, ele precisa de:",
-                "options": [
-                  {
-                    "text": "Só de lojas",
-                    "misconceptionCode": "funcao-trocada"
-                  },
-                  {
-                    "text": "De nada, cresce sozinho",
-                    "misconceptionCode": "crescer-so-bom"
-                  },
-                  {
-                    "text": "Saneamento, transporte, escola e posto de saúde"
-                  },
-                  {
-                    "text": "Só de casas",
-                    "misconceptionCode": "cidade-so-moradia"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Um colega diz que cidade grande é só problema. O que você responde?",
-            "options": [
-              {
-                "text": "Ele está certo, só tem problema",
-                "misconceptionCode": "crescer-so-ruim"
-              },
-              {
-                "text": "Cidade grande é só coisa boa",
-                "misconceptionCode": "crescer-so-bom"
-              },
-              {
-                "text": "Cidade grande serve só para morar",
-                "misconceptionCode": "cidade-so-moradia"
-              },
-              {
-                "text": "Tem problemas, mas também oportunidades, como empregos e universidades"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Cidade grande tem problemas, como trânsito, mas também tem empregos, hospitais e universidades. Toda cidade tem os dois lados.",
-            "variants": [
-              {
-                "question": "Outro colega diz que cidade grande é só coisa boa. O que você responde?",
-                "options": [
-                  {
-                    "text": "Ele está certo",
-                    "misconceptionCode": "crescer-so-ruim"
-                  },
-                  {
-                    "text": "Tem oportunidades, mas também problemas como trânsito e poluição"
-                  },
-                  {
-                    "text": "Cidade grande é só problema",
-                    "misconceptionCode": "crescer-so-bom"
-                  },
-                  {
-                    "text": "Cidade grande serve só para turismo",
-                    "misconceptionCode": "cidade-so-moradia"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Um colega diz que cidade grande é só problema. O que você responde?",
-                "options": [
-                  {
-                    "text": "Tem problemas, mas também oportunidades, como empregos e universidades"
-                  },
-                  {
-                    "text": "Cidade grande serve só para morar",
-                    "misconceptionCode": "cidade-so-moradia"
-                  },
-                  {
-                    "text": "Cidade grande é só coisa boa",
-                    "misconceptionCode": "crescer-so-bom"
-                  },
-                  {
-                    "text": "Ele está certo, só tem problema",
-                    "misconceptionCode": "crescer-so-ruim"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF05GE03-A5",
-        "step": "explicar",
-        "type": "WRITTEN",
-        "allowSpoken": true,
-        "title": "Explicar: a cidade cresce",
-        "prompt": "Explique com as suas palavras para que serve uma cidade e cite uma coisa boa e uma ruim que acontecem quando ela cresce muito.",
-        "estMinutes": 6,
-        "audioScript": "Explique com as suas palavras para que serve uma cidade e cite uma coisa boa e uma ruim que acontecem quando ela cresce muito.",
-        "rubric": {
-          "type": "WRITTEN",
-          "criteria": [
-            {
-              "code": "funcoes",
-              "description": "Cita funções da cidade além da moradia (trabalho, comércio, serviços)"
-            },
-            {
-              "code": "positivo",
-              "description": "Cita uma consequência positiva do crescimento"
-            },
-            {
-              "code": "negativo",
-              "description": "Cita uma consequência negativa do crescimento"
-            }
-          ],
-          "exemploBoaResposta": "A cidade serve para morar, trabalhar, comprar e usar serviços, como escola e hospital. Quando ela cresce, aparecem mais empregos e mais lojas. Mas também pode ter mais trânsito e poluição se não houver planejamento."
-        }
+       "code": "negativo",
+       "description": "Cita uma consequência negativa do crescimento"
       }
-    ],
-    "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED"
-  },
-  {
-    "skillCode": "EF05GE10",
-    "subjectCode": "GE",
-    "subjectName": "Geografia",
-    "gradeYear": 5,
-    "version": 3,
-    "title": "Trilha: Qualidade da água e poluição",
-    "tituloAluno": "Água limpa, água poluída",
-    "activities": [
+     ],
+     "exemploBoaResposta": "A cidade serve para morar, trabalhar, comprar e usar serviços, como escola e hospital. Quando ela cresce, aparecem mais empregos e mais lojas. Mas também pode ter mais trânsito e poluição se não houver planejamento."
+    }
+   }
+  ],
+  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+  "source": "SPEAKFLOW",
+  "status": "APPROVED"
+ },
+ {
+  "skillCode": "EF05GE10",
+  "subjectCode": "GE",
+  "subjectName": "Geografia",
+  "gradeYear": 5,
+  "version": 3,
+  "title": "Trilha: Qualidade da água e poluição",
+  "tituloAluno": "Água limpa, água poluída",
+  "activities": [
+   {
+    "id": "PK2-EF05GE10-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: a água no dia a dia",
+    "prompt": "Vamos lembrar como usamos a água.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar como usamos a água. Pergunta 1. Para que usamos água em casa? A: Para beber, cozinhar, tomar banho e limpar; B: Só para beber; C: Só para lavar carro; D: Para nada. Pergunta 2. Para onde vai a água suja do banho e da pia? A: Ela some; B: Volta limpa para a torneira; C: Para a rede de esgoto, que deveria levá-la para tratamento; D: Vai para a indústria. Pergunta 3. Por que a água tratada é importante? A: Não é importante; B: Porque água contaminada pode causar doenças; C: Porque toda água transparente já é limpa; D: Só porque fica mais bonita.",
+    "questions": [
+     {
+      "question": "Para que usamos água em casa?",
+      "options": [
+       {
+        "text": "Para beber, cozinhar, tomar banho e limpar"
+       },
+       {
+        "text": "Só para beber",
+        "misconceptionCode": "poluicao-so-lixo"
+       },
+       {
+        "text": "Só para lavar carro",
+        "misconceptionCode": "culpa-so-industria"
+       },
+       {
+        "text": "Para nada",
+        "misconceptionCode": "rio-limpa-sozinho"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Pense no seu dia: você bebe água, toma banho, a comida é feita com água e a casa é limpa com água.",
+      "variants": [
+       {
+        "question": "Qual destes usos da água acontece em casa?",
+        "options": [
+         {
+          "text": "Fabricar carros",
+          "misconceptionCode": "poluicao-so-lixo"
+         },
+         {
+          "text": "Gerar energia na usina",
+          "misconceptionCode": "culpa-so-industria"
+         },
+         {
+          "text": "Lavar a louça"
+         },
+         {
+          "text": "Irrigar uma fazenda",
+          "misconceptionCode": "rio-limpa-sozinho"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Para que usamos água em casa?",
+        "options": [
+         {
+          "text": "Para nada",
+          "misconceptionCode": "rio-limpa-sozinho"
+         },
+         {
+          "text": "Para beber, cozinhar, tomar banho e limpar"
+         },
+         {
+          "text": "Só para lavar carro",
+          "misconceptionCode": "culpa-so-industria"
+         },
+         {
+          "text": "Só para beber",
+          "misconceptionCode": "poluicao-so-lixo"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Para onde vai a água suja do banho e da pia?",
+      "options": [
+       {
+        "text": "Ela some",
+        "misconceptionCode": "rio-limpa-sozinho"
+       },
+       {
+        "text": "Volta limpa para a torneira",
+        "misconceptionCode": "transparente-e-limpa"
+       },
+       {
+        "text": "Para a rede de esgoto, que deveria levá-la para tratamento"
+       },
+       {
+        "text": "Vai para a indústria",
+        "misconceptionCode": "culpa-so-industria"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A água suja vai pelo cano até a rede de esgoto. O certo é ela ser limpa (tratada) antes de voltar para o rio.",
+      "variants": [
+       {
+        "question": "A água que desce pelo ralo do chuveiro:",
+        "options": [
+         {
+          "text": "Vira esgoto"
+         },
+         {
+          "text": "Some",
+          "misconceptionCode": "rio-limpa-sozinho"
+         },
+         {
+          "text": "Vira água de beber",
+          "misconceptionCode": "transparente-e-limpa"
+         },
+         {
+          "text": "Fica no cano para sempre",
+          "misconceptionCode": "culpa-so-industria"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Para onde vai a água suja do banho e da pia?",
+        "options": [
+         {
+          "text": "Vai para a indústria",
+          "misconceptionCode": "culpa-so-industria"
+         },
+         {
+          "text": "Volta limpa para a torneira",
+          "misconceptionCode": "transparente-e-limpa"
+         },
+         {
+          "text": "Ela some",
+          "misconceptionCode": "rio-limpa-sozinho"
+         },
+         {
+          "text": "Para a rede de esgoto, que deveria levá-la para tratamento"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Por que a água tratada é importante?",
+      "options": [
+       {
+        "text": "Não é importante",
+        "misconceptionCode": "rio-limpa-sozinho"
+       },
+       {
+        "text": "Porque água contaminada pode causar doenças"
+       },
+       {
+        "text": "Porque toda água transparente já é limpa",
+        "misconceptionCode": "transparente-e-limpa"
+       },
+       {
+        "text": "Só porque fica mais bonita",
+        "misconceptionCode": "poluicao-so-lixo"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A água pode ter micróbios tão pequenos que a gente não vê. A água tratada é limpa e não deixa ninguém doente.",
+      "variants": [
+       {
+        "question": "Beber água sem tratamento pode:",
+        "options": [
+         {
+          "text": "Não causar nada",
+          "misconceptionCode": "rio-limpa-sozinho"
+         },
+         {
+          "text": "Deixar a água mais limpa",
+          "misconceptionCode": "transparente-e-limpa"
+         },
+         {
+          "text": "Ser sempre seguro",
+          "misconceptionCode": "poluicao-so-lixo"
+         },
+         {
+          "text": "Causar doenças"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Por que a água tratada é importante?",
+        "options": [
+         {
+          "text": "Só porque fica mais bonita",
+          "misconceptionCode": "poluicao-so-lixo"
+         },
+         {
+          "text": "Porque toda água transparente já é limpa",
+          "misconceptionCode": "transparente-e-limpa"
+         },
+         {
+          "text": "Porque água contaminada pode causar doenças"
+         },
+         {
+          "text": "Não é importante",
+          "misconceptionCode": "rio-limpa-sozinho"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05GE10-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o rio do bairro",
+    "prompt": "Imagine um rio que atravessa um bairro. As casas não têm esgoto tratado e algumas pessoas jogam lixo nele. Vamos analisar juntos.",
+    "estMinutes": 4,
+    "audioScript": "Imagine um rio que atravessa um bairro. As casas não têm esgoto tratado e algumas pessoas jogam lixo nele. Vamos analisar juntos. Pergunta 1. O que acontece com o rio quando recebe esgoto sem tratamento? A: Nada, o rio se limpa sozinho; B: A água fica mais limpa; C: A água fica poluída e pode ter cheiro ruim e micróbios; D: Só fica feio por causa do lixo. Pergunta 2. Quem polui esse rio? A: Só as indústrias; B: As casas sem esgoto tratado e quem joga lixo nele; C: Ninguém, é natural; D: Só os peixes. Pergunta 3. Um trecho do rio tem água transparente. Dá para beber direto dele? A: Sim, se é transparente está limpa; B: Sim, o rio se limpa sozinho; C: Sim, se não tiver lixo boiando; D: Não, ela pode ter micróbios invisíveis.",
+    "questions": [
+     {
+      "question": "O que acontece com o rio quando recebe esgoto sem tratamento?",
+      "options": [
+       {
+        "text": "Nada, o rio se limpa sozinho",
+        "misconceptionCode": "rio-limpa-sozinho"
+       },
+       {
+        "text": "A água fica mais limpa",
+        "misconceptionCode": "transparente-e-limpa"
+       },
+       {
+        "text": "A água fica poluída e pode ter cheiro ruim e micróbios"
+       },
+       {
+        "text": "Só fica feio por causa do lixo",
+        "misconceptionCode": "poluicao-so-lixo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O esgoto leva sujeira e micróbios para o rio. A água fica poluída, com cheiro ruim, e os peixes sofrem.",
+      "variants": [
+       {
+        "question": "Um rio com cheiro forte e espuma pode estar recebendo:",
+        "options": [
+         {
+          "text": "Esgoto sem tratamento"
+         },
+         {
+          "text": "Água da chuva limpa",
+          "misconceptionCode": "rio-limpa-sozinho"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "transparente-e-limpa"
+         },
+         {
+          "text": "Peixes demais",
+          "misconceptionCode": "poluicao-so-lixo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que acontece com o rio quando recebe esgoto sem tratamento?",
+        "options": [
+         {
+          "text": "Só fica feio por causa do lixo",
+          "misconceptionCode": "poluicao-so-lixo"
+         },
+         {
+          "text": "A água fica mais limpa",
+          "misconceptionCode": "transparente-e-limpa"
+         },
+         {
+          "text": "Nada, o rio se limpa sozinho",
+          "misconceptionCode": "rio-limpa-sozinho"
+         },
+         {
+          "text": "A água fica poluída e pode ter cheiro ruim e micróbios"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quem polui esse rio?",
+      "options": [
+       {
+        "text": "Só as indústrias",
+        "misconceptionCode": "culpa-so-industria"
+       },
+       {
+        "text": "As casas sem esgoto tratado e quem joga lixo nele"
+       },
+       {
+        "text": "Ninguém, é natural",
+        "misconceptionCode": "rio-limpa-sozinho"
+       },
+       {
+        "text": "Só os peixes",
+        "misconceptionCode": "poluicao-so-lixo"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O esgoto das casas que vai direto para o rio, e o lixo que as pessoas jogam, são o que mais polui.",
+      "variants": [
+       {
+        "question": "Além das fábricas, o que mais polui os rios das cidades?",
+        "options": [
+         {
+          "text": "A chuva limpa",
+          "misconceptionCode": "culpa-so-industria"
+         },
+         {
+          "text": "As árvores",
+          "misconceptionCode": "rio-limpa-sozinho"
+         },
+         {
+          "text": "Os peixes",
+          "misconceptionCode": "poluicao-so-lixo"
+         },
+         {
+          "text": "O esgoto das casas"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quem polui esse rio?",
+        "options": [
+         {
+          "text": "Só os peixes",
+          "misconceptionCode": "poluicao-so-lixo"
+         },
+         {
+          "text": "Ninguém, é natural",
+          "misconceptionCode": "rio-limpa-sozinho"
+         },
+         {
+          "text": "As casas sem esgoto tratado e quem joga lixo nele"
+         },
+         {
+          "text": "Só as indústrias",
+          "misconceptionCode": "culpa-so-industria"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um trecho do rio tem água transparente. Dá para beber direto dele?",
+      "options": [
+       {
+        "text": "Sim, se é transparente está limpa",
+        "misconceptionCode": "transparente-e-limpa"
+       },
+       {
+        "text": "Sim, o rio se limpa sozinho",
+        "misconceptionCode": "rio-limpa-sozinho"
+       },
+       {
+        "text": "Sim, se não tiver lixo boiando",
+        "misconceptionCode": "poluicao-so-lixo"
+       },
+       {
+        "text": "Não, ela pode ter micróbios invisíveis"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A água pode parecer limpinha e mesmo assim ter micróbios invisíveis. Nunca beba direto do rio.",
+      "variants": [
+       {
+        "question": "Água de um riacho bem clarinho é sempre boa para beber?",
+        "options": [
+         {
+          "text": "Sim, sempre",
+          "misconceptionCode": "transparente-e-limpa"
+         },
+         {
+          "text": "Não, precisa ser tratada"
+         },
+         {
+          "text": "Sim, se estiver gelada",
+          "misconceptionCode": "rio-limpa-sozinho"
+         },
+         {
+          "text": "Sim, se tiver peixes",
+          "misconceptionCode": "poluicao-so-lixo"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um trecho do rio tem água transparente. Dá para beber direto dele?",
+        "options": [
+         {
+          "text": "Não, ela pode ter micróbios invisíveis"
+         },
+         {
+          "text": "Sim, se não tiver lixo boiando",
+          "misconceptionCode": "poluicao-so-lixo"
+         },
+         {
+          "text": "Sim, o rio se limpa sozinho",
+          "misconceptionCode": "rio-limpa-sozinho"
+         },
+         {
+          "text": "Sim, se é transparente está limpa",
+          "misconceptionCode": "transparente-e-limpa"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05GE10-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: tipos de poluição",
+    "prompt": "Existem várias formas de poluir rios e mares.",
+    "estMinutes": 5,
+    "audioScript": "Existem várias formas de poluir rios e mares. Pergunta 1. Uma mancha de óleo no mar, depois de um acidente com navio, é chamada de: A: Maré limpa; B: Maré negra; C: Esgoto doméstico; D: Lixo boiando. Pergunta 2. Qual destas é uma forma de poluição da água que não dá para ver? A: Garrafa plástica boiando; B: Sacola na margem; C: Pneu no rio; D: Produtos químicos dissolvidos na água. Pergunta 3. Por que o rio não consegue se limpar sozinho quando recebe muito esgoto? A: Porque a quantidade de sujeira é maior do que ele consegue decompor; B: Ele sempre consegue; C: Porque o esgoto é transparente; D: Porque só o lixo atrapalha. Pergunta 4. Um sinal de boa qualidade ambiental num rio é: A: Ter água transparente, mesmo com esgoto chegando; B: Não ter lixo boiando, mesmo recebendo esgoto; C: Ter peixes, plantas nas margens e água sem cheiro ruim; D: Ter uma fábrica do lado.",
+    "questions": [
+     {
+      "question": "Uma mancha de óleo no mar, depois de um acidente com navio, é chamada de:",
+      "options": [
+       {
+        "text": "Maré limpa",
+        "misconceptionCode": "transparente-e-limpa"
+       },
+       {
+        "text": "Maré negra"
+       },
+       {
+        "text": "Esgoto doméstico",
+        "misconceptionCode": "culpa-so-industria"
+       },
+       {
+        "text": "Lixo boiando",
+        "misconceptionCode": "poluicao-so-lixo"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O petróleo escuro se espalha pelo mar como uma mancha preta. Por isso essa poluição se chama maré negra.",
+      "variants": [
+       {
+        "question": "Petróleo derramado no mar pode:",
+        "options": [
+         {
+          "text": "Limpar o mar",
+          "misconceptionCode": "transparente-e-limpa"
+         },
+         {
+          "text": "Não fazer nada",
+          "misconceptionCode": "culpa-so-industria"
+         },
+         {
+          "text": "Melhorar a pesca",
+          "misconceptionCode": "poluicao-so-lixo"
+         },
+         {
+          "text": "Prejudicar peixes, aves e praias"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Uma mancha de óleo no mar, depois de um acidente com navio, é chamada de:",
+        "options": [
+         {
+          "text": "Lixo boiando",
+          "misconceptionCode": "poluicao-so-lixo"
+         },
+         {
+          "text": "Esgoto doméstico",
+          "misconceptionCode": "culpa-so-industria"
+         },
+         {
+          "text": "Maré negra"
+         },
+         {
+          "text": "Maré limpa",
+          "misconceptionCode": "transparente-e-limpa"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual destas é uma forma de poluição da água que não dá para ver?",
+      "options": [
+       {
+        "text": "Garrafa plástica boiando",
+        "misconceptionCode": "poluicao-so-lixo"
+       },
+       {
+        "text": "Sacola na margem",
+        "misconceptionCode": "poluicao-so-lixo"
+       },
+       {
+        "text": "Pneu no rio",
+        "misconceptionCode": "poluicao-so-lixo"
+       },
+       {
+        "text": "Produtos químicos dissolvidos na água"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Alguns produtos químicos se misturam na água e somem da vista, como o sal. A água parece limpa, mas está poluída.",
+      "variants": [
+       {
+        "question": "O agrotóxico que a chuva leva das plantações para o rio é uma poluição:",
+        "options": [
+         {
+          "text": "Sempre visível",
+          "misconceptionCode": "poluicao-so-lixo"
+         },
+         {
+          "text": "Que muitas vezes não se vê"
+         },
+         {
+          "text": "Que não existe",
+          "misconceptionCode": "poluicao-so-lixo"
+         },
+         {
+          "text": "Que limpa o rio",
+          "misconceptionCode": "poluicao-so-lixo"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual destas é uma forma de poluição da água que não dá para ver?",
+        "options": [
+         {
+          "text": "Produtos químicos dissolvidos na água"
+         },
+         {
+          "text": "Pneu no rio",
+          "misconceptionCode": "poluicao-so-lixo"
+         },
+         {
+          "text": "Sacola na margem",
+          "misconceptionCode": "poluicao-so-lixo"
+         },
+         {
+          "text": "Garrafa plástica boiando",
+          "misconceptionCode": "poluicao-so-lixo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Por que o rio não consegue se limpar sozinho quando recebe muito esgoto?",
+      "options": [
+       {
+        "text": "Porque a quantidade de sujeira é maior do que ele consegue decompor"
+       },
+       {
+        "text": "Ele sempre consegue",
+        "misconceptionCode": "rio-limpa-sozinho"
+       },
+       {
+        "text": "Porque o esgoto é transparente",
+        "misconceptionCode": "transparente-e-limpa"
+       },
+       {
+        "text": "Porque só o lixo atrapalha",
+        "misconceptionCode": "poluicao-so-lixo"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O rio consegue limpar um pouquinho de sujeira, mas esgoto demais é como dar uma montanha de pratos para uma pessoa lavar.",
+      "variants": [
+       {
+        "question": "Quando um rio recebe esgoto demais, os peixes podem morrer porque:",
+        "options": [
+         {
+          "text": "O rio fica mais limpo",
+          "misconceptionCode": "rio-limpa-sozinho"
+         },
+         {
+          "text": "A água fica transparente",
+          "misconceptionCode": "transparente-e-limpa"
+         },
+         {
+          "text": "Falta oxigênio na água"
+         },
+         {
+          "text": "Não acontece nada",
+          "misconceptionCode": "poluicao-so-lixo"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Por que o rio não consegue se limpar sozinho quando recebe muito esgoto?",
+        "options": [
+         {
+          "text": "Porque só o lixo atrapalha",
+          "misconceptionCode": "poluicao-so-lixo"
+         },
+         {
+          "text": "Porque a quantidade de sujeira é maior do que ele consegue decompor"
+         },
+         {
+          "text": "Porque o esgoto é transparente",
+          "misconceptionCode": "transparente-e-limpa"
+         },
+         {
+          "text": "Ele sempre consegue",
+          "misconceptionCode": "rio-limpa-sozinho"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um sinal de boa qualidade ambiental num rio é:",
+      "options": [
+       {
+        "text": "Ter água transparente, mesmo com esgoto chegando",
+        "misconceptionCode": "transparente-e-limpa"
+       },
+       {
+        "text": "Não ter lixo boiando, mesmo recebendo esgoto",
+        "misconceptionCode": "poluicao-so-lixo"
+       },
+       {
+        "text": "Ter peixes, plantas nas margens e água sem cheiro ruim"
+       },
+       {
+        "text": "Ter uma fábrica do lado",
+        "misconceptionCode": "culpa-so-industria"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Rio saudável tem peixes, plantas nas margens e água sem cheiro ruim. Vida no rio é bom sinal.",
+      "variants": [
+       {
+        "question": "Qual rio parece mais saudável?",
+        "options": [
+         {
+          "text": "Um rio com peixes e mata nas margens"
+         },
+         {
+          "text": "Um rio com espuma e cheiro forte",
+          "misconceptionCode": "transparente-e-limpa"
+         },
+         {
+          "text": "Um rio sem vida",
+          "misconceptionCode": "poluicao-so-lixo"
+         },
+         {
+          "text": "Um rio coberto de lixo",
+          "misconceptionCode": "culpa-so-industria"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um sinal de boa qualidade ambiental num rio é:",
+        "options": [
+         {
+          "text": "Ter uma fábrica do lado",
+          "misconceptionCode": "culpa-so-industria"
+         },
+         {
+          "text": "Não ter lixo boiando, mesmo recebendo esgoto",
+          "misconceptionCode": "poluicao-so-lixo"
+         },
+         {
+          "text": "Ter água transparente, mesmo com esgoto chegando",
+          "misconceptionCode": "transparente-e-limpa"
+         },
+         {
+          "text": "Ter peixes, plantas nas margens e água sem cheiro ruim"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05GE10-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: cuidando da água",
+    "prompt": "O que cada pessoa e a cidade podem fazer pela água.",
+    "estMinutes": 4,
+    "audioScript": "O que cada pessoa e a cidade podem fazer pela água. Pergunta 1. O que a sua família pode fazer para não poluir o rio? A: Nada, só a indústria polui; B: Jogar o lixo no rio, que ele leva embora; C: Jogar só o que é transparente; D: Não jogar lixo nem óleo de cozinha no ralo. Pergunta 2. O que a cidade pode fazer para despoluir um rio? A: Coletar e tratar o esgoto antes de devolver ao rio; B: Esperar o rio se limpar sozinho; C: Tirar só o lixo boiando; D: Fechar só as indústrias. Pergunta 3. Você vai à praia e vê uma placa \"imprópria para banho\". O que isso quer dizer? A: A água está limpa, porque é transparente; B: Só tem lixo na areia; C: A água tem muitos micróbios e pode fazer mal; D: O mar já se limpou sozinho.",
+    "questions": [
+     {
+      "question": "O que a sua família pode fazer para não poluir o rio?",
+      "options": [
+       {
+        "text": "Nada, só a indústria polui",
+        "misconceptionCode": "culpa-so-industria"
+       },
+       {
+        "text": "Jogar o lixo no rio, que ele leva embora",
+        "misconceptionCode": "rio-limpa-sozinho"
+       },
+       {
+        "text": "Jogar só o que é transparente",
+        "misconceptionCode": "transparente-e-limpa"
+       },
+       {
+        "text": "Não jogar lixo nem óleo de cozinha no ralo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Um pouco de óleo no ralo suja muita água. Guarde o óleo usado numa garrafa e leve para a coleta.",
+      "variants": [
+       {
+        "question": "O óleo de fritura usado deve ser:",
+        "options": [
+         {
+          "text": "Jogado na pia",
+          "misconceptionCode": "culpa-so-industria"
+         },
+         {
+          "text": "Guardado numa garrafa e levado à coleta"
+         },
+         {
+          "text": "Jogado no rio",
+          "misconceptionCode": "rio-limpa-sozinho"
+         },
+         {
+          "text": "Jogado na rua",
+          "misconceptionCode": "transparente-e-limpa"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que a sua família pode fazer para não poluir o rio?",
+        "options": [
+         {
+          "text": "Não jogar lixo nem óleo de cozinha no ralo"
+         },
+         {
+          "text": "Jogar só o que é transparente",
+          "misconceptionCode": "transparente-e-limpa"
+         },
+         {
+          "text": "Jogar o lixo no rio, que ele leva embora",
+          "misconceptionCode": "rio-limpa-sozinho"
+         },
+         {
+          "text": "Nada, só a indústria polui",
+          "misconceptionCode": "culpa-so-industria"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O que a cidade pode fazer para despoluir um rio?",
+      "options": [
+       {
+        "text": "Coletar e tratar o esgoto antes de devolver ao rio"
+       },
+       {
+        "text": "Esperar o rio se limpar sozinho",
+        "misconceptionCode": "rio-limpa-sozinho"
+       },
+       {
+        "text": "Tirar só o lixo boiando",
+        "misconceptionCode": "poluicao-so-lixo"
+       },
+       {
+        "text": "Fechar só as indústrias",
+        "misconceptionCode": "culpa-so-industria"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A medida mais importante é coletar o esgoto e limpá-lo antes que ele chegue ao rio.",
+      "variants": [
+       {
+        "question": "A medida mais importante para limpar os rios das cidades é:",
+        "options": [
+         {
+          "text": "Pintar as pontes",
+          "misconceptionCode": "rio-limpa-sozinho"
+         },
+         {
+          "text": "Tirar os peixes",
+          "misconceptionCode": "poluicao-so-lixo"
+         },
+         {
+          "text": "Tratar o esgoto"
+         },
+         {
+          "text": "Asfaltar as margens",
+          "misconceptionCode": "culpa-so-industria"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que a cidade pode fazer para despoluir um rio?",
+        "options": [
+         {
+          "text": "Fechar só as indústrias",
+          "misconceptionCode": "culpa-so-industria"
+         },
+         {
+          "text": "Coletar e tratar o esgoto antes de devolver ao rio"
+         },
+         {
+          "text": "Tirar só o lixo boiando",
+          "misconceptionCode": "poluicao-so-lixo"
+         },
+         {
+          "text": "Esperar o rio se limpar sozinho",
+          "misconceptionCode": "rio-limpa-sozinho"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Você vai à praia e vê uma placa \"imprópria para banho\". O que isso quer dizer?",
+      "options": [
+       {
+        "text": "A água está limpa, porque é transparente",
+        "misconceptionCode": "transparente-e-limpa"
+       },
+       {
+        "text": "Só tem lixo na areia",
+        "misconceptionCode": "poluicao-so-lixo"
+       },
+       {
+        "text": "A água tem muitos micróbios e pode fazer mal"
+       },
+       {
+        "text": "O mar já se limpou sozinho",
+        "misconceptionCode": "rio-limpa-sozinho"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A placa avisa que a água tem muitos micróbios, muitas vezes por causa de esgoto. Nadar ali pode fazer mal.",
+      "variants": [
+       {
+        "question": "Por que uma praia de água bonita pode estar imprópria?",
+        "options": [
+         {
+          "text": "Porque pode ter micróbios do esgoto"
+         },
+         {
+          "text": "Porque é bonita demais",
+          "misconceptionCode": "transparente-e-limpa"
+         },
+         {
+          "text": "Porque não tem lixo",
+          "misconceptionCode": "poluicao-so-lixo"
+         },
+         {
+          "text": "Porque o sol está forte",
+          "misconceptionCode": "rio-limpa-sozinho"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Você vai à praia e vê uma placa \"imprópria para banho\". O que isso quer dizer?",
+        "options": [
+         {
+          "text": "O mar já se limpou sozinho",
+          "misconceptionCode": "rio-limpa-sozinho"
+         },
+         {
+          "text": "Só tem lixo na areia",
+          "misconceptionCode": "poluicao-so-lixo"
+         },
+         {
+          "text": "A água está limpa, porque é transparente",
+          "misconceptionCode": "transparente-e-limpa"
+         },
+         {
+          "text": "A água tem muitos micróbios e pode fazer mal"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05GE10-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: água poluída",
+    "prompt": "Explique com as suas palavras por que uma água transparente pode estar poluída e o que pode ser feito para cuidar dos rios.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras por que uma água transparente pode estar poluída e o que pode ser feito para cuidar dos rios.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
       {
-        "id": "PK2-EF05GE10-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar: a água no dia a dia",
-        "prompt": "Vamos lembrar como usamos a água.",
-        "estMinutes": 4,
-        "audioScript": "Vamos lembrar como usamos a água. Pergunta 1. Para que usamos água em casa? A: Para beber, cozinhar, tomar banho e limpar; B: Só para beber; C: Só para lavar carro; D: Para nada. Pergunta 2. Para onde vai a água suja do banho e da pia? A: Ela some; B: Volta limpa para a torneira; C: Para a rede de esgoto, que deveria levá-la para tratamento; D: Vai para a indústria. Pergunta 3. Por que a água tratada é importante? A: Não é importante; B: Porque água contaminada pode causar doenças; C: Porque toda água transparente já é limpa; D: Só porque fica mais bonita.",
-        "questions": [
-          {
-            "question": "Para que usamos água em casa?",
-            "options": [
-              {
-                "text": "Para beber, cozinhar, tomar banho e limpar"
-              },
-              {
-                "text": "Só para beber",
-                "misconceptionCode": "poluicao-so-lixo"
-              },
-              {
-                "text": "Só para lavar carro",
-                "misconceptionCode": "culpa-so-industria"
-              },
-              {
-                "text": "Para nada",
-                "misconceptionCode": "rio-limpa-sozinho"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Pense no seu dia: você bebe água, toma banho, a comida é feita com água e a casa é limpa com água.",
-            "variants": [
-              {
-                "question": "Qual destes usos da água acontece em casa?",
-                "options": [
-                  {
-                    "text": "Fabricar carros",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  },
-                  {
-                    "text": "Gerar energia na usina",
-                    "misconceptionCode": "culpa-so-industria"
-                  },
-                  {
-                    "text": "Lavar a louça"
-                  },
-                  {
-                    "text": "Irrigar uma fazenda",
-                    "misconceptionCode": "rio-limpa-sozinho"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Para que usamos água em casa?",
-                "options": [
-                  {
-                    "text": "Para nada",
-                    "misconceptionCode": "rio-limpa-sozinho"
-                  },
-                  {
-                    "text": "Para beber, cozinhar, tomar banho e limpar"
-                  },
-                  {
-                    "text": "Só para lavar carro",
-                    "misconceptionCode": "culpa-so-industria"
-                  },
-                  {
-                    "text": "Só para beber",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Para onde vai a água suja do banho e da pia?",
-            "options": [
-              {
-                "text": "Ela some",
-                "misconceptionCode": "rio-limpa-sozinho"
-              },
-              {
-                "text": "Volta limpa para a torneira",
-                "misconceptionCode": "transparente-e-limpa"
-              },
-              {
-                "text": "Para a rede de esgoto, que deveria levá-la para tratamento"
-              },
-              {
-                "text": "Vai para a indústria",
-                "misconceptionCode": "culpa-so-industria"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "A água suja vai pelo cano até a rede de esgoto. O certo é ela ser limpa (tratada) antes de voltar para o rio.",
-            "variants": [
-              {
-                "question": "A água que desce pelo ralo do chuveiro:",
-                "options": [
-                  {
-                    "text": "Vira esgoto"
-                  },
-                  {
-                    "text": "Some",
-                    "misconceptionCode": "rio-limpa-sozinho"
-                  },
-                  {
-                    "text": "Vira água de beber",
-                    "misconceptionCode": "transparente-e-limpa"
-                  },
-                  {
-                    "text": "Fica no cano para sempre",
-                    "misconceptionCode": "culpa-so-industria"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Para onde vai a água suja do banho e da pia?",
-                "options": [
-                  {
-                    "text": "Vai para a indústria",
-                    "misconceptionCode": "culpa-so-industria"
-                  },
-                  {
-                    "text": "Volta limpa para a torneira",
-                    "misconceptionCode": "transparente-e-limpa"
-                  },
-                  {
-                    "text": "Ela some",
-                    "misconceptionCode": "rio-limpa-sozinho"
-                  },
-                  {
-                    "text": "Para a rede de esgoto, que deveria levá-la para tratamento"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Por que a água tratada é importante?",
-            "options": [
-              {
-                "text": "Não é importante",
-                "misconceptionCode": "rio-limpa-sozinho"
-              },
-              {
-                "text": "Porque água contaminada pode causar doenças"
-              },
-              {
-                "text": "Porque toda água transparente já é limpa",
-                "misconceptionCode": "transparente-e-limpa"
-              },
-              {
-                "text": "Só porque fica mais bonita",
-                "misconceptionCode": "poluicao-so-lixo"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "A água pode ter micróbios tão pequenos que a gente não vê. A água tratada é limpa e não deixa ninguém doente.",
-            "variants": [
-              {
-                "question": "Beber água sem tratamento pode:",
-                "options": [
-                  {
-                    "text": "Não causar nada",
-                    "misconceptionCode": "rio-limpa-sozinho"
-                  },
-                  {
-                    "text": "Deixar a água mais limpa",
-                    "misconceptionCode": "transparente-e-limpa"
-                  },
-                  {
-                    "text": "Ser sempre seguro",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  },
-                  {
-                    "text": "Causar doenças"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Por que a água tratada é importante?",
-                "options": [
-                  {
-                    "text": "Só porque fica mais bonita",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  },
-                  {
-                    "text": "Porque toda água transparente já é limpa",
-                    "misconceptionCode": "transparente-e-limpa"
-                  },
-                  {
-                    "text": "Porque água contaminada pode causar doenças"
-                  },
-                  {
-                    "text": "Não é importante",
-                    "misconceptionCode": "rio-limpa-sozinho"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          }
-        ]
+       "code": "invisivel",
+       "description": "Explica que micróbios ou produtos químicos podem estar na água sem serem vistos"
       },
       {
-        "id": "PK2-EF05GE10-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Exemplo guiado: o rio do bairro",
-        "prompt": "Imagine um rio que atravessa um bairro. As casas não têm esgoto tratado e algumas pessoas jogam lixo nele. Vamos analisar juntos.",
-        "estMinutes": 4,
-        "audioScript": "Imagine um rio que atravessa um bairro. As casas não têm esgoto tratado e algumas pessoas jogam lixo nele. Vamos analisar juntos. Pergunta 1. O que acontece com o rio quando recebe esgoto sem tratamento? A: Nada, o rio se limpa sozinho; B: A água fica mais limpa; C: A água fica poluída e pode ter cheiro ruim e micróbios; D: Só fica feio por causa do lixo. Pergunta 2. Quem polui esse rio? A: Só as indústrias; B: As casas sem esgoto tratado e quem joga lixo nele; C: Ninguém, é natural; D: Só os peixes. Pergunta 3. Um trecho do rio tem água transparente. Dá para beber direto dele? A: Sim, se é transparente está limpa; B: Sim, o rio se limpa sozinho; C: Sim, se não tiver lixo boiando; D: Não, ela pode ter micróbios invisíveis.",
-        "questions": [
-          {
-            "question": "O que acontece com o rio quando recebe esgoto sem tratamento?",
-            "options": [
-              {
-                "text": "Nada, o rio se limpa sozinho",
-                "misconceptionCode": "rio-limpa-sozinho"
-              },
-              {
-                "text": "A água fica mais limpa",
-                "misconceptionCode": "transparente-e-limpa"
-              },
-              {
-                "text": "A água fica poluída e pode ter cheiro ruim e micróbios"
-              },
-              {
-                "text": "Só fica feio por causa do lixo",
-                "misconceptionCode": "poluicao-so-lixo"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "O esgoto leva sujeira e micróbios para o rio. A água fica poluída, com cheiro ruim, e os peixes sofrem.",
-            "variants": [
-              {
-                "question": "Um rio com cheiro forte e espuma pode estar recebendo:",
-                "options": [
-                  {
-                    "text": "Esgoto sem tratamento"
-                  },
-                  {
-                    "text": "Água da chuva limpa",
-                    "misconceptionCode": "rio-limpa-sozinho"
-                  },
-                  {
-                    "text": "Nada",
-                    "misconceptionCode": "transparente-e-limpa"
-                  },
-                  {
-                    "text": "Peixes demais",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que acontece com o rio quando recebe esgoto sem tratamento?",
-                "options": [
-                  {
-                    "text": "Só fica feio por causa do lixo",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  },
-                  {
-                    "text": "A água fica mais limpa",
-                    "misconceptionCode": "transparente-e-limpa"
-                  },
-                  {
-                    "text": "Nada, o rio se limpa sozinho",
-                    "misconceptionCode": "rio-limpa-sozinho"
-                  },
-                  {
-                    "text": "A água fica poluída e pode ter cheiro ruim e micróbios"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Quem polui esse rio?",
-            "options": [
-              {
-                "text": "Só as indústrias",
-                "misconceptionCode": "culpa-so-industria"
-              },
-              {
-                "text": "As casas sem esgoto tratado e quem joga lixo nele"
-              },
-              {
-                "text": "Ninguém, é natural",
-                "misconceptionCode": "rio-limpa-sozinho"
-              },
-              {
-                "text": "Só os peixes",
-                "misconceptionCode": "poluicao-so-lixo"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "O esgoto das casas que vai direto para o rio, e o lixo que as pessoas jogam, são o que mais polui.",
-            "variants": [
-              {
-                "question": "Além das fábricas, o que mais polui os rios das cidades?",
-                "options": [
-                  {
-                    "text": "A chuva limpa",
-                    "misconceptionCode": "culpa-so-industria"
-                  },
-                  {
-                    "text": "As árvores",
-                    "misconceptionCode": "rio-limpa-sozinho"
-                  },
-                  {
-                    "text": "Os peixes",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  },
-                  {
-                    "text": "O esgoto das casas"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Quem polui esse rio?",
-                "options": [
-                  {
-                    "text": "Só os peixes",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  },
-                  {
-                    "text": "Ninguém, é natural",
-                    "misconceptionCode": "rio-limpa-sozinho"
-                  },
-                  {
-                    "text": "As casas sem esgoto tratado e quem joga lixo nele"
-                  },
-                  {
-                    "text": "Só as indústrias",
-                    "misconceptionCode": "culpa-so-industria"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Um trecho do rio tem água transparente. Dá para beber direto dele?",
-            "options": [
-              {
-                "text": "Sim, se é transparente está limpa",
-                "misconceptionCode": "transparente-e-limpa"
-              },
-              {
-                "text": "Sim, o rio se limpa sozinho",
-                "misconceptionCode": "rio-limpa-sozinho"
-              },
-              {
-                "text": "Sim, se não tiver lixo boiando",
-                "misconceptionCode": "poluicao-so-lixo"
-              },
-              {
-                "text": "Não, ela pode ter micróbios invisíveis"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "A água pode parecer limpinha e mesmo assim ter micróbios invisíveis. Nunca beba direto do rio.",
-            "variants": [
-              {
-                "question": "Água de um riacho bem clarinho é sempre boa para beber?",
-                "options": [
-                  {
-                    "text": "Sim, sempre",
-                    "misconceptionCode": "transparente-e-limpa"
-                  },
-                  {
-                    "text": "Não, precisa ser tratada"
-                  },
-                  {
-                    "text": "Sim, se estiver gelada",
-                    "misconceptionCode": "rio-limpa-sozinho"
-                  },
-                  {
-                    "text": "Sim, se tiver peixes",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Um trecho do rio tem água transparente. Dá para beber direto dele?",
-                "options": [
-                  {
-                    "text": "Não, ela pode ter micróbios invisíveis"
-                  },
-                  {
-                    "text": "Sim, se não tiver lixo boiando",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  },
-                  {
-                    "text": "Sim, o rio se limpa sozinho",
-                    "misconceptionCode": "rio-limpa-sozinho"
-                  },
-                  {
-                    "text": "Sim, se é transparente está limpa",
-                    "misconceptionCode": "transparente-e-limpa"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          }
-        ]
+       "code": "causa",
+       "description": "Cita uma causa de poluição, como esgoto, lixo, óleo ou indústria"
       },
       {
-        "id": "PK2-EF05GE10-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar: tipos de poluição",
-        "prompt": "Existem várias formas de poluir rios e mares.",
-        "estMinutes": 5,
-        "audioScript": "Existem várias formas de poluir rios e mares. Pergunta 1. Uma mancha de óleo no mar, depois de um acidente com navio, é chamada de: A: Maré limpa; B: Maré negra; C: Esgoto doméstico; D: Lixo boiando. Pergunta 2. Qual destas é uma forma de poluição da água que não dá para ver? A: Garrafa plástica boiando; B: Sacola na margem; C: Pneu no rio; D: Produtos químicos dissolvidos na água. Pergunta 3. Por que o rio não consegue se limpar sozinho quando recebe muito esgoto? A: Porque a quantidade de sujeira é maior do que ele consegue decompor; B: Ele sempre consegue; C: Porque o esgoto é transparente; D: Porque só o lixo atrapalha. Pergunta 4. Um sinal de boa qualidade ambiental num rio é: A: Ter água transparente, mesmo com esgoto chegando; B: Não ter lixo boiando, mesmo recebendo esgoto; C: Ter peixes, plantas nas margens e água sem cheiro ruim; D: Ter uma fábrica do lado.",
-        "questions": [
-          {
-            "question": "Uma mancha de óleo no mar, depois de um acidente com navio, é chamada de:",
-            "options": [
-              {
-                "text": "Maré limpa",
-                "misconceptionCode": "transparente-e-limpa"
-              },
-              {
-                "text": "Maré negra"
-              },
-              {
-                "text": "Esgoto doméstico",
-                "misconceptionCode": "culpa-so-industria"
-              },
-              {
-                "text": "Lixo boiando",
-                "misconceptionCode": "poluicao-so-lixo"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "O petróleo escuro se espalha pelo mar como uma mancha preta. Por isso essa poluição se chama maré negra.",
-            "variants": [
-              {
-                "question": "Petróleo derramado no mar pode:",
-                "options": [
-                  {
-                    "text": "Limpar o mar",
-                    "misconceptionCode": "transparente-e-limpa"
-                  },
-                  {
-                    "text": "Não fazer nada",
-                    "misconceptionCode": "culpa-so-industria"
-                  },
-                  {
-                    "text": "Melhorar a pesca",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  },
-                  {
-                    "text": "Prejudicar peixes, aves e praias"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Uma mancha de óleo no mar, depois de um acidente com navio, é chamada de:",
-                "options": [
-                  {
-                    "text": "Lixo boiando",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  },
-                  {
-                    "text": "Esgoto doméstico",
-                    "misconceptionCode": "culpa-so-industria"
-                  },
-                  {
-                    "text": "Maré negra"
-                  },
-                  {
-                    "text": "Maré limpa",
-                    "misconceptionCode": "transparente-e-limpa"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Qual destas é uma forma de poluição da água que não dá para ver?",
-            "options": [
-              {
-                "text": "Garrafa plástica boiando",
-                "misconceptionCode": "poluicao-so-lixo"
-              },
-              {
-                "text": "Sacola na margem",
-                "misconceptionCode": "poluicao-so-lixo"
-              },
-              {
-                "text": "Pneu no rio",
-                "misconceptionCode": "poluicao-so-lixo"
-              },
-              {
-                "text": "Produtos químicos dissolvidos na água"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Alguns produtos químicos se misturam na água e somem da vista, como o sal. A água parece limpa, mas está poluída.",
-            "variants": [
-              {
-                "question": "O agrotóxico que a chuva leva das plantações para o rio é uma poluição:",
-                "options": [
-                  {
-                    "text": "Sempre visível",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  },
-                  {
-                    "text": "Que muitas vezes não se vê"
-                  },
-                  {
-                    "text": "Que não existe",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  },
-                  {
-                    "text": "Que limpa o rio",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Qual destas é uma forma de poluição da água que não dá para ver?",
-                "options": [
-                  {
-                    "text": "Produtos químicos dissolvidos na água"
-                  },
-                  {
-                    "text": "Pneu no rio",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  },
-                  {
-                    "text": "Sacola na margem",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  },
-                  {
-                    "text": "Garrafa plástica boiando",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Por que o rio não consegue se limpar sozinho quando recebe muito esgoto?",
-            "options": [
-              {
-                "text": "Porque a quantidade de sujeira é maior do que ele consegue decompor"
-              },
-              {
-                "text": "Ele sempre consegue",
-                "misconceptionCode": "rio-limpa-sozinho"
-              },
-              {
-                "text": "Porque o esgoto é transparente",
-                "misconceptionCode": "transparente-e-limpa"
-              },
-              {
-                "text": "Porque só o lixo atrapalha",
-                "misconceptionCode": "poluicao-so-lixo"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "O rio consegue limpar um pouquinho de sujeira, mas esgoto demais é como dar uma montanha de pratos para uma pessoa lavar.",
-            "variants": [
-              {
-                "question": "Quando um rio recebe esgoto demais, os peixes podem morrer porque:",
-                "options": [
-                  {
-                    "text": "O rio fica mais limpo",
-                    "misconceptionCode": "rio-limpa-sozinho"
-                  },
-                  {
-                    "text": "A água fica transparente",
-                    "misconceptionCode": "transparente-e-limpa"
-                  },
-                  {
-                    "text": "Falta oxigênio na água"
-                  },
-                  {
-                    "text": "Não acontece nada",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Por que o rio não consegue se limpar sozinho quando recebe muito esgoto?",
-                "options": [
-                  {
-                    "text": "Porque só o lixo atrapalha",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  },
-                  {
-                    "text": "Porque a quantidade de sujeira é maior do que ele consegue decompor"
-                  },
-                  {
-                    "text": "Porque o esgoto é transparente",
-                    "misconceptionCode": "transparente-e-limpa"
-                  },
-                  {
-                    "text": "Ele sempre consegue",
-                    "misconceptionCode": "rio-limpa-sozinho"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Um sinal de boa qualidade ambiental num rio é:",
-            "options": [
-              {
-                "text": "Ter água transparente, mesmo com esgoto chegando",
-                "misconceptionCode": "transparente-e-limpa"
-              },
-              {
-                "text": "Não ter lixo boiando, mesmo recebendo esgoto",
-                "misconceptionCode": "poluicao-so-lixo"
-              },
-              {
-                "text": "Ter peixes, plantas nas margens e água sem cheiro ruim"
-              },
-              {
-                "text": "Ter uma fábrica do lado",
-                "misconceptionCode": "culpa-so-industria"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Rio saudável tem peixes, plantas nas margens e água sem cheiro ruim. Vida no rio é bom sinal.",
-            "variants": [
-              {
-                "question": "Qual rio parece mais saudável?",
-                "options": [
-                  {
-                    "text": "Um rio com peixes e mata nas margens"
-                  },
-                  {
-                    "text": "Um rio com espuma e cheiro forte",
-                    "misconceptionCode": "transparente-e-limpa"
-                  },
-                  {
-                    "text": "Um rio sem vida",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  },
-                  {
-                    "text": "Um rio coberto de lixo",
-                    "misconceptionCode": "culpa-so-industria"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Um sinal de boa qualidade ambiental num rio é:",
-                "options": [
-                  {
-                    "text": "Ter uma fábrica do lado",
-                    "misconceptionCode": "culpa-so-industria"
-                  },
-                  {
-                    "text": "Não ter lixo boiando, mesmo recebendo esgoto",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  },
-                  {
-                    "text": "Ter água transparente, mesmo com esgoto chegando",
-                    "misconceptionCode": "transparente-e-limpa"
-                  },
-                  {
-                    "text": "Ter peixes, plantas nas margens e água sem cheiro ruim"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF05GE10-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar: cuidando da água",
-        "prompt": "O que cada pessoa e a cidade podem fazer pela água.",
-        "estMinutes": 4,
-        "audioScript": "O que cada pessoa e a cidade podem fazer pela água. Pergunta 1. O que a sua família pode fazer para não poluir o rio? A: Nada, só a indústria polui; B: Jogar o lixo no rio, que ele leva embora; C: Jogar só o que é transparente; D: Não jogar lixo nem óleo de cozinha no ralo. Pergunta 2. O que a cidade pode fazer para despoluir um rio? A: Coletar e tratar o esgoto antes de devolver ao rio; B: Esperar o rio se limpar sozinho; C: Tirar só o lixo boiando; D: Fechar só as indústrias. Pergunta 3. Você vai à praia e vê uma placa \"imprópria para banho\". O que isso quer dizer? A: A água está limpa, porque é transparente; B: Só tem lixo na areia; C: A água tem muitos micróbios e pode fazer mal; D: O mar já se limpou sozinho.",
-        "questions": [
-          {
-            "question": "O que a sua família pode fazer para não poluir o rio?",
-            "options": [
-              {
-                "text": "Nada, só a indústria polui",
-                "misconceptionCode": "culpa-so-industria"
-              },
-              {
-                "text": "Jogar o lixo no rio, que ele leva embora",
-                "misconceptionCode": "rio-limpa-sozinho"
-              },
-              {
-                "text": "Jogar só o que é transparente",
-                "misconceptionCode": "transparente-e-limpa"
-              },
-              {
-                "text": "Não jogar lixo nem óleo de cozinha no ralo"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Um pouco de óleo no ralo suja muita água. Guarde o óleo usado numa garrafa e leve para a coleta.",
-            "variants": [
-              {
-                "question": "O óleo de fritura usado deve ser:",
-                "options": [
-                  {
-                    "text": "Jogado na pia",
-                    "misconceptionCode": "culpa-so-industria"
-                  },
-                  {
-                    "text": "Guardado numa garrafa e levado à coleta"
-                  },
-                  {
-                    "text": "Jogado no rio",
-                    "misconceptionCode": "rio-limpa-sozinho"
-                  },
-                  {
-                    "text": "Jogado na rua",
-                    "misconceptionCode": "transparente-e-limpa"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "O que a sua família pode fazer para não poluir o rio?",
-                "options": [
-                  {
-                    "text": "Não jogar lixo nem óleo de cozinha no ralo"
-                  },
-                  {
-                    "text": "Jogar só o que é transparente",
-                    "misconceptionCode": "transparente-e-limpa"
-                  },
-                  {
-                    "text": "Jogar o lixo no rio, que ele leva embora",
-                    "misconceptionCode": "rio-limpa-sozinho"
-                  },
-                  {
-                    "text": "Nada, só a indústria polui",
-                    "misconceptionCode": "culpa-so-industria"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "O que a cidade pode fazer para despoluir um rio?",
-            "options": [
-              {
-                "text": "Coletar e tratar o esgoto antes de devolver ao rio"
-              },
-              {
-                "text": "Esperar o rio se limpar sozinho",
-                "misconceptionCode": "rio-limpa-sozinho"
-              },
-              {
-                "text": "Tirar só o lixo boiando",
-                "misconceptionCode": "poluicao-so-lixo"
-              },
-              {
-                "text": "Fechar só as indústrias",
-                "misconceptionCode": "culpa-so-industria"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "A medida mais importante é coletar o esgoto e limpá-lo antes que ele chegue ao rio.",
-            "variants": [
-              {
-                "question": "A medida mais importante para limpar os rios das cidades é:",
-                "options": [
-                  {
-                    "text": "Pintar as pontes",
-                    "misconceptionCode": "rio-limpa-sozinho"
-                  },
-                  {
-                    "text": "Tirar os peixes",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  },
-                  {
-                    "text": "Tratar o esgoto"
-                  },
-                  {
-                    "text": "Asfaltar as margens",
-                    "misconceptionCode": "culpa-so-industria"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "O que a cidade pode fazer para despoluir um rio?",
-                "options": [
-                  {
-                    "text": "Fechar só as indústrias",
-                    "misconceptionCode": "culpa-so-industria"
-                  },
-                  {
-                    "text": "Coletar e tratar o esgoto antes de devolver ao rio"
-                  },
-                  {
-                    "text": "Tirar só o lixo boiando",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  },
-                  {
-                    "text": "Esperar o rio se limpar sozinho",
-                    "misconceptionCode": "rio-limpa-sozinho"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Você vai à praia e vê uma placa \"imprópria para banho\". O que isso quer dizer?",
-            "options": [
-              {
-                "text": "A água está limpa, porque é transparente",
-                "misconceptionCode": "transparente-e-limpa"
-              },
-              {
-                "text": "Só tem lixo na areia",
-                "misconceptionCode": "poluicao-so-lixo"
-              },
-              {
-                "text": "A água tem muitos micróbios e pode fazer mal"
-              },
-              {
-                "text": "O mar já se limpou sozinho",
-                "misconceptionCode": "rio-limpa-sozinho"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "A placa avisa que a água tem muitos micróbios, muitas vezes por causa de esgoto. Nadar ali pode fazer mal.",
-            "variants": [
-              {
-                "question": "Por que uma praia de água bonita pode estar imprópria?",
-                "options": [
-                  {
-                    "text": "Porque pode ter micróbios do esgoto"
-                  },
-                  {
-                    "text": "Porque é bonita demais",
-                    "misconceptionCode": "transparente-e-limpa"
-                  },
-                  {
-                    "text": "Porque não tem lixo",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  },
-                  {
-                    "text": "Porque o sol está forte",
-                    "misconceptionCode": "rio-limpa-sozinho"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Você vai à praia e vê uma placa \"imprópria para banho\". O que isso quer dizer?",
-                "options": [
-                  {
-                    "text": "O mar já se limpou sozinho",
-                    "misconceptionCode": "rio-limpa-sozinho"
-                  },
-                  {
-                    "text": "Só tem lixo na areia",
-                    "misconceptionCode": "poluicao-so-lixo"
-                  },
-                  {
-                    "text": "A água está limpa, porque é transparente",
-                    "misconceptionCode": "transparente-e-limpa"
-                  },
-                  {
-                    "text": "A água tem muitos micróbios e pode fazer mal"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF05GE10-A5",
-        "step": "explicar",
-        "type": "WRITTEN",
-        "allowSpoken": true,
-        "title": "Explicar: água poluída",
-        "prompt": "Explique com as suas palavras por que uma água transparente pode estar poluída e o que pode ser feito para cuidar dos rios.",
-        "estMinutes": 6,
-        "audioScript": "Explique com as suas palavras por que uma água transparente pode estar poluída e o que pode ser feito para cuidar dos rios.",
-        "rubric": {
-          "type": "WRITTEN",
-          "criteria": [
-            {
-              "code": "invisivel",
-              "description": "Explica que micróbios ou produtos químicos podem estar na água sem serem vistos"
-            },
-            {
-              "code": "causa",
-              "description": "Cita uma causa de poluição, como esgoto, lixo, óleo ou indústria"
-            },
-            {
-              "code": "cuidado",
-              "description": "Cita uma forma de cuidar, como tratar o esgoto ou não jogar lixo e óleo"
-            }
-          ],
-          "exemploBoaResposta": "A água pode ser transparente e mesmo assim ter micróbios ou produtos químicos que a gente não vê. Os rios são poluídos pelo esgoto das casas, pelo lixo e pelas indústrias. Para cuidar, a cidade precisa tratar o esgoto e as pessoas não devem jogar lixo nem óleo no ralo."
-        }
+       "code": "cuidado",
+       "description": "Cita uma forma de cuidar, como tratar o esgoto ou não jogar lixo e óleo"
       }
-    ],
-    "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED"
-  }
+     ],
+     "exemploBoaResposta": "A água pode ser transparente e mesmo assim ter micróbios ou produtos químicos que a gente não vê. Os rios são poluídos pelo esgoto das casas, pelo lixo e pelas indústrias. Para cuidar, a cidade precisa tratar o esgoto e as pessoas não devem jogar lixo nem óleo no ralo."
+    }
+   }
+  ],
+  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+  "source": "SPEAKFLOW",
+  "status": "APPROVED"
+ },
+ {
+  "skillCode": "EF05GE01",
+  "subjectCode": "GE",
+  "subjectName": "Geografia",
+  "gradeYear": 5,
+  "version": 1,
+  "title": "Trilha: População e migrações no nosso estado",
+  "tituloAluno": "Quem chega, quem sai e por quê",
+  "activities": [
+   {
+    "id": "PK2-EF05GE01-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: município, estado e migração",
+    "prompt": "No 4º ano, vimos as divisões do Brasil e os povos que formaram o país.",
+    "estMinutes": 4,
+    "audioScript": "No 4º ano, vimos as divisões do Brasil e os povos que formaram o país. Pergunta 1. A Bahia é: A: Um município; B: Um estado; C: Uma região; D: Um país. Pergunta 2. Migrar é: A: Viajar nas férias; B: Ir ao mercado; C: Mudar de um lugar para outro para viver; D: Passear. Pergunta 3. O que são serviços de infraestrutura? A: Só as praias; B: Só os shoppings; C: Só as festas; D: Água tratada, esgoto, energia, transporte, escolas e hospitais.",
+    "questions": [
+     {
+      "question": "A Bahia é:",
+      "options": [
+       {
+        "text": "Um município",
+        "misconceptionCode": "populacao-parada"
+       },
+       {
+        "text": "Um estado"
+       },
+       {
+        "text": "Uma região",
+        "misconceptionCode": "populacao-parada"
+       },
+       {
+        "text": "Um país",
+        "misconceptionCode": "populacao-parada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A Bahia é um dos estados do Nordeste.",
+      "variants": [
+       {
+        "question": "Salvador, Camaçari e Feira de Santana são:",
+        "options": [
+         {
+          "text": "Estados",
+          "misconceptionCode": "populacao-parada"
+         },
+         {
+          "text": "Regiões",
+          "misconceptionCode": "populacao-parada"
+         },
+         {
+          "text": "Países",
+          "misconceptionCode": "populacao-parada"
+         },
+         {
+          "text": "Municípios da Bahia"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A Bahia é:",
+        "options": [
+         {
+          "text": "Um país",
+          "misconceptionCode": "populacao-parada"
+         },
+         {
+          "text": "Uma região",
+          "misconceptionCode": "populacao-parada"
+         },
+         {
+          "text": "Um estado"
+         },
+         {
+          "text": "Um município",
+          "misconceptionCode": "populacao-parada"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Migrar é:",
+      "options": [
+       {
+        "text": "Viajar nas férias",
+        "misconceptionCode": "migra-sem-motivo"
+       },
+       {
+        "text": "Ir ao mercado",
+        "misconceptionCode": "migra-sem-motivo"
+       },
+       {
+        "text": "Mudar de um lugar para outro para viver"
+       },
+       {
+        "text": "Passear",
+        "misconceptionCode": "migra-sem-motivo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Quem migra muda o lugar de moradia.",
+      "variants": [
+       {
+        "question": "O conjunto das pessoas que moram num lugar é:",
+        "options": [
+         {
+          "text": "A população"
+         },
+         {
+          "text": "O território",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "O relevo",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "O clima",
+          "misconceptionCode": "migra-sem-motivo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Migrar é:",
+        "options": [
+         {
+          "text": "Passear",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Ir ao mercado",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Viajar nas férias",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Mudar de um lugar para outro para viver"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que são serviços de infraestrutura?",
+      "options": [
+       {
+        "text": "Só as praias",
+        "misconceptionCode": "cidade-cresce-sem-problema"
+       },
+       {
+        "text": "Só os shoppings",
+        "misconceptionCode": "cidade-cresce-sem-problema"
+       },
+       {
+        "text": "Só as festas",
+        "misconceptionCode": "cidade-cresce-sem-problema"
+       },
+       {
+        "text": "Água tratada, esgoto, energia, transporte, escolas e hospitais"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A infraestrutura é o que permite às pessoas viver bem num lugar.",
+      "variants": [
+       {
+        "question": "Qual destes faz parte da infraestrutura de uma cidade?",
+        "options": [
+         {
+          "text": "Uma festa",
+          "misconceptionCode": "cidade-cresce-sem-problema"
+         },
+         {
+          "text": "A rede de esgoto"
+         },
+         {
+          "text": "Um time de futebol",
+          "misconceptionCode": "cidade-cresce-sem-problema"
+         },
+         {
+          "text": "Uma novela",
+          "misconceptionCode": "cidade-cresce-sem-problema"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que são serviços de infraestrutura?",
+        "options": [
+         {
+          "text": "Água tratada, esgoto, energia, transporte, escolas e hospitais"
+         },
+         {
+          "text": "Só as festas",
+          "misconceptionCode": "cidade-cresce-sem-problema"
+         },
+         {
+          "text": "Só os shoppings",
+          "misconceptionCode": "cidade-cresce-sem-problema"
+         },
+         {
+          "text": "Só as praias",
+          "misconceptionCode": "cidade-cresce-sem-problema"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05GE01-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: por que as pessoas migram dentro do estado",
+    "prompt": "A população de um lugar muda: pessoas nascem, morrem, chegam e saem. Muita gente sai de lugares com pouco trabalho e poucos serviços e vai para lugares com mais oportunidades. Vamos analisar juntos.",
+    "estMinutes": 4,
+    "audioScript": "A população de um lugar muda: pessoas nascem, morrem, chegam e saem. Muita gente sai de lugares com pouco trabalho e poucos serviços e vai para lugares com mais oportunidades. Vamos analisar juntos. Pergunta 1. A população de uma cidade pode aumentar porque: A: Nascem mais pessoas e chegam migrantes; B: Ninguém nasce; C: As pessoas vão embora; D: A população nunca muda. Pergunta 2. Por que muitas famílias saíram do interior da Bahia para Salvador e cidades vizinhas? A: Sem nenhum motivo; B: Em busca de trabalho, escolas e atendimento de saúde; C: Para passear; D: Porque foram sorteadas. Pergunta 3. A seca prolongada no sertão leva muitas famílias a: A: Ficar sem se preocupar; B: Viajar a passeio; C: Migrar para lugares onde há água e trabalho; D: Plantar mais.",
+    "questions": [
+     {
+      "question": "A população de uma cidade pode aumentar porque:",
+      "options": [
+       {
+        "text": "Nascem mais pessoas e chegam migrantes"
+       },
+       {
+        "text": "Ninguém nasce",
+        "misconceptionCode": "populacao-parada"
+       },
+       {
+        "text": "As pessoas vão embora",
+        "misconceptionCode": "populacao-parada"
+       },
+       {
+        "text": "A população nunca muda",
+        "misconceptionCode": "populacao-parada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Nascimentos e chegada de migrantes fazem a população crescer.",
+      "variants": [
+       {
+        "question": "A população de uma cidade pode diminuir porque:",
+        "options": [
+         {
+          "text": "Chegam muitos migrantes",
+          "misconceptionCode": "populacao-parada"
+         },
+         {
+          "text": "Nascem muitas crianças",
+          "misconceptionCode": "populacao-parada"
+         },
+         {
+          "text": "Muitas pessoas se mudam para outros lugares"
+         },
+         {
+          "text": "A população nunca muda",
+          "misconceptionCode": "populacao-parada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A população de uma cidade pode aumentar porque:",
+        "options": [
+         {
+          "text": "A população nunca muda",
+          "misconceptionCode": "populacao-parada"
+         },
+         {
+          "text": "Nascem mais pessoas e chegam migrantes"
+         },
+         {
+          "text": "As pessoas vão embora",
+          "misconceptionCode": "populacao-parada"
+         },
+         {
+          "text": "Ninguém nasce",
+          "misconceptionCode": "populacao-parada"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Por que muitas famílias saíram do interior da Bahia para Salvador e cidades vizinhas?",
+      "options": [
+       {
+        "text": "Sem nenhum motivo",
+        "misconceptionCode": "migra-sem-motivo"
+       },
+       {
+        "text": "Em busca de trabalho, escolas e atendimento de saúde"
+       },
+       {
+        "text": "Para passear",
+        "misconceptionCode": "migra-sem-motivo"
+       },
+       {
+        "text": "Porque foram sorteadas",
+        "misconceptionCode": "migra-sem-motivo"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A falta de oportunidades empurra as pessoas, e a oferta de trabalho e serviços atrai.",
+      "variants": [
+       {
+        "question": "A instalação de muitas fábricas em Camaçari fez com que:",
+        "options": [
+         {
+          "text": "As pessoas fossem embora",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "A população não mudasse",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Ninguém quisesse morar lá",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Muitas pessoas se mudassem para lá em busca de emprego"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Por que muitas famílias saíram do interior da Bahia para Salvador e cidades vizinhas?",
+        "options": [
+         {
+          "text": "Porque foram sorteadas",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Para passear",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Em busca de trabalho, escolas e atendimento de saúde"
+         },
+         {
+          "text": "Sem nenhum motivo",
+          "misconceptionCode": "migra-sem-motivo"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "A seca prolongada no sertão leva muitas famílias a:",
+      "options": [
+       {
+        "text": "Ficar sem se preocupar",
+        "misconceptionCode": "migra-sem-motivo"
+       },
+       {
+        "text": "Viajar a passeio",
+        "misconceptionCode": "migra-sem-motivo"
+       },
+       {
+        "text": "Migrar para lugares onde há água e trabalho"
+       },
+       {
+        "text": "Plantar mais",
+        "misconceptionCode": "migra-sem-motivo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Sem água, a lavoura e a criação de animais ficam difíceis.",
+      "variants": [
+       {
+        "question": "Um lugar com poucos empregos, sem hospital e sem escola tende a:",
+        "options": [
+         {
+          "text": "Perder população"
+         },
+         {
+          "text": "Ganhar muita população",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Ficar igual",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Atrair migrantes",
+          "misconceptionCode": "migra-sem-motivo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A seca prolongada no sertão leva muitas famílias a:",
+        "options": [
+         {
+          "text": "Plantar mais",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Viajar a passeio",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Ficar sem se preocupar",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Migrar para lugares onde há água e trabalho"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05GE01-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: população e infraestrutura",
+    "prompt": "Uma coisa puxa a outra.",
+    "estMinutes": 5,
+    "audioScript": "Uma coisa puxa a outra. Pergunta 1. Quando uma cidade recebe muitos moradores novos, ela precisa de: A: Nada a mais; B: Menos escolas; C: Menos ônibus; D: Mais moradias, escolas, transporte e postos de saúde. Pergunta 2. Quando muitos jovens saem de uma cidade pequena, o que pode acontecer nela? A: Faltam trabalhadores, e a cidade fica com mais idosos; B: Nada; C: A cidade cresce; D: Aparecem mais empregos. Pergunta 3. A área formada por Salvador e pelos municípios vizinhos muito ligados a ela, como Camaçari e Lauro de Freitas, é chamada de: A: Sertão; B: Região Metropolitana de Salvador; C: Zona rural; D: Região Sul. Pergunta 4. O que pode fazer as pessoas voltarem para o interior ou ficarem nele? A: Falta de água; B: Falta de trabalho; C: Empregos, escolas, universidades e hospitais perto de casa; D: Estradas ruins.",
+    "questions": [
+     {
+      "question": "Quando uma cidade recebe muitos moradores novos, ela precisa de:",
+      "options": [
+       {
+        "text": "Nada a mais",
+        "misconceptionCode": "cidade-cresce-sem-problema"
+       },
+       {
+        "text": "Menos escolas",
+        "misconceptionCode": "cidade-cresce-sem-problema"
+       },
+       {
+        "text": "Menos ônibus",
+        "misconceptionCode": "cidade-cresce-sem-problema"
+       },
+       {
+        "text": "Mais moradias, escolas, transporte e postos de saúde"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Mais gente precisa de mais serviços.",
+      "variants": [
+       {
+        "question": "Se a cidade cresce muito rápido e os serviços não acompanham, podem surgir:",
+        "options": [
+         {
+          "text": "Só vantagens",
+          "misconceptionCode": "cidade-cresce-sem-problema"
+         },
+         {
+          "text": "Falta de moradia, trânsito e escolas lotadas"
+         },
+         {
+          "text": "Menos trânsito",
+          "misconceptionCode": "cidade-cresce-sem-problema"
+         },
+         {
+          "text": "Nenhuma mudança",
+          "misconceptionCode": "cidade-cresce-sem-problema"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quando uma cidade recebe muitos moradores novos, ela precisa de:",
+        "options": [
+         {
+          "text": "Mais moradias, escolas, transporte e postos de saúde"
+         },
+         {
+          "text": "Menos ônibus",
+          "misconceptionCode": "cidade-cresce-sem-problema"
+         },
+         {
+          "text": "Menos escolas",
+          "misconceptionCode": "cidade-cresce-sem-problema"
+         },
+         {
+          "text": "Nada a mais",
+          "misconceptionCode": "cidade-cresce-sem-problema"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quando muitos jovens saem de uma cidade pequena, o que pode acontecer nela?",
+      "options": [
+       {
+        "text": "Faltam trabalhadores, e a cidade fica com mais idosos"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "campo-vazio-e-bom"
+       },
+       {
+        "text": "A cidade cresce",
+        "misconceptionCode": "campo-vazio-e-bom"
+       },
+       {
+        "text": "Aparecem mais empregos",
+        "misconceptionCode": "campo-vazio-e-bom"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A saída dos jovens muda a vida e a economia do lugar de origem.",
+      "variants": [
+       {
+        "question": "Numa zona rural de onde muitas famílias foram embora, é comum haver:",
+        "options": [
+         {
+          "text": "Escolas lotadas",
+          "misconceptionCode": "campo-vazio-e-bom"
+         },
+         {
+          "text": "Muito trânsito",
+          "misconceptionCode": "campo-vazio-e-bom"
+         },
+         {
+          "text": "Escolas com poucos alunos e casas fechadas"
+         },
+         {
+          "text": "Muitos prédios novos",
+          "misconceptionCode": "campo-vazio-e-bom"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quando muitos jovens saem de uma cidade pequena, o que pode acontecer nela?",
+        "options": [
+         {
+          "text": "Aparecem mais empregos",
+          "misconceptionCode": "campo-vazio-e-bom"
+         },
+         {
+          "text": "Faltam trabalhadores, e a cidade fica com mais idosos"
+         },
+         {
+          "text": "A cidade cresce",
+          "misconceptionCode": "campo-vazio-e-bom"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "campo-vazio-e-bom"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "A área formada por Salvador e pelos municípios vizinhos muito ligados a ela, como Camaçari e Lauro de Freitas, é chamada de:",
+      "options": [
+       {
+        "text": "Sertão",
+        "misconceptionCode": "migra-sem-motivo"
+       },
+       {
+        "text": "Região Metropolitana de Salvador"
+       },
+       {
+        "text": "Zona rural",
+        "misconceptionCode": "migra-sem-motivo"
+       },
+       {
+        "text": "Região Sul",
+        "misconceptionCode": "populacao-parada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Numa região metropolitana, muitas pessoas moram num município e trabalham em outro.",
+      "variants": [
+       {
+        "question": "Muitas pessoas moram em Camaçari e trabalham em Salvador, ou o contrário. Isso mostra que esses municípios:",
+        "options": [
+         {
+          "text": "Não têm relação",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Ficam em estados diferentes",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Não têm transporte",
+          "misconceptionCode": "populacao-parada"
+         },
+         {
+          "text": "São muito ligados entre si"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A área formada por Salvador e pelos municípios vizinhos muito ligados a ela, como Camaçari e Lauro de Freitas, é chamada de:",
+        "options": [
+         {
+          "text": "Região Sul",
+          "misconceptionCode": "populacao-parada"
+         },
+         {
+          "text": "Zona rural",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Região Metropolitana de Salvador"
+         },
+         {
+          "text": "Sertão",
+          "misconceptionCode": "migra-sem-motivo"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O que pode fazer as pessoas voltarem para o interior ou ficarem nele?",
+      "options": [
+       {
+        "text": "Falta de água",
+        "misconceptionCode": "migra-sem-motivo"
+       },
+       {
+        "text": "Falta de trabalho",
+        "misconceptionCode": "migra-sem-motivo"
+       },
+       {
+        "text": "Empregos, escolas, universidades e hospitais perto de casa"
+       },
+       {
+        "text": "Estradas ruins",
+        "misconceptionCode": "migra-sem-motivo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Quando o lugar oferece boas condições, as pessoas não precisam sair.",
+      "variants": [
+       {
+        "question": "A instalação de uma universidade numa cidade do interior pode:",
+        "options": [
+         {
+          "text": "Atrair moradores e evitar que os jovens saiam"
+         },
+         {
+          "text": "Fazer a cidade perder população",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Não mudar nada",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Acabar com os empregos",
+          "misconceptionCode": "migra-sem-motivo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que pode fazer as pessoas voltarem para o interior ou ficarem nele?",
+        "options": [
+         {
+          "text": "Estradas ruins",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Falta de trabalho",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Falta de água",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Empregos, escolas, universidades e hospitais perto de casa"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05GE01-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: lendo a nossa realidade",
+    "prompt": "Olhe para o seu município.",
+    "estMinutes": 4,
+    "audioScript": "Olhe para o seu município. Pergunta 1. Um bairro novo surgiu rapidamente e ainda não tem esgoto nem posto de saúde. Isso mostra que: A: O bairro não precisa desses serviços; B: A população diminuiu; C: Não há relação entre moradores e serviços; D: A infraestrutura não acompanhou o crescimento da população. Pergunta 2. Na sua turma, há colegas cujas famílias vieram de outras cidades. Isso mostra que: A: As migrações fazem parte da história do lugar onde vivemos; B: Ninguém migra; C: Só uma família é do lugar; D: A cidade nunca mudou. Pergunta 3. Um colega diz: \"Quem vem do interior tira o emprego de quem é da cidade\". O que responder? A: Ele está certo; B: Os migrantes trabalham, consomem e ajudam a cidade a crescer; C: Migrante não trabalha; D: Ninguém deveria se mudar.",
+    "questions": [
+     {
+      "question": "Um bairro novo surgiu rapidamente e ainda não tem esgoto nem posto de saúde. Isso mostra que:",
+      "options": [
+       {
+        "text": "O bairro não precisa desses serviços",
+        "misconceptionCode": "cidade-cresce-sem-problema"
+       },
+       {
+        "text": "A população diminuiu",
+        "misconceptionCode": "populacao-parada"
+       },
+       {
+        "text": "Não há relação entre moradores e serviços",
+        "misconceptionCode": "cidade-cresce-sem-problema"
+       },
+       {
+        "text": "A infraestrutura não acompanhou o crescimento da população"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Os moradores podem se organizar para cobrar esses serviços da prefeitura.",
+      "variants": [
+       {
+        "question": "Uma escola do bairro está com salas lotadas depois da chegada de muitas famílias. O que é preciso?",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "cidade-cresce-sem-problema"
+         },
+         {
+          "text": "Ampliar a escola ou construir outra"
+         },
+         {
+          "text": "Fechar a escola",
+          "misconceptionCode": "populacao-parada"
+         },
+         {
+          "text": "Mandar as famílias embora",
+          "misconceptionCode": "cidade-cresce-sem-problema"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um bairro novo surgiu rapidamente e ainda não tem esgoto nem posto de saúde. Isso mostra que:",
+        "options": [
+         {
+          "text": "A infraestrutura não acompanhou o crescimento da população"
+         },
+         {
+          "text": "Não há relação entre moradores e serviços",
+          "misconceptionCode": "cidade-cresce-sem-problema"
+         },
+         {
+          "text": "A população diminuiu",
+          "misconceptionCode": "populacao-parada"
+         },
+         {
+          "text": "O bairro não precisa desses serviços",
+          "misconceptionCode": "cidade-cresce-sem-problema"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Na sua turma, há colegas cujas famílias vieram de outras cidades. Isso mostra que:",
+      "options": [
+       {
+        "text": "As migrações fazem parte da história do lugar onde vivemos"
+       },
+       {
+        "text": "Ninguém migra",
+        "misconceptionCode": "populacao-parada"
+       },
+       {
+        "text": "Só uma família é do lugar",
+        "misconceptionCode": "populacao-parada"
+       },
+       {
+        "text": "A cidade nunca mudou",
+        "misconceptionCode": "populacao-parada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Quase toda cidade é formada por gente que veio de muitos lugares.",
+      "variants": [
+       {
+        "question": "Para saber de onde vieram as famílias da turma, vocês podem:",
+        "options": [
+         {
+          "text": "Adivinhar",
+          "misconceptionCode": "populacao-parada"
+         },
+         {
+          "text": "Dizer que todos são do mesmo lugar",
+          "misconceptionCode": "populacao-parada"
+         },
+         {
+          "text": "Fazer uma pesquisa e montar um mapa das origens"
+         },
+         {
+          "text": "Não perguntar",
+          "misconceptionCode": "populacao-parada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Na sua turma, há colegas cujas famílias vieram de outras cidades. Isso mostra que:",
+        "options": [
+         {
+          "text": "A cidade nunca mudou",
+          "misconceptionCode": "populacao-parada"
+         },
+         {
+          "text": "As migrações fazem parte da história do lugar onde vivemos"
+         },
+         {
+          "text": "Só uma família é do lugar",
+          "misconceptionCode": "populacao-parada"
+         },
+         {
+          "text": "Ninguém migra",
+          "misconceptionCode": "populacao-parada"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um colega diz: \"Quem vem do interior tira o emprego de quem é da cidade\". O que responder?",
+      "options": [
+       {
+        "text": "Ele está certo",
+        "misconceptionCode": "migra-sem-motivo"
+       },
+       {
+        "text": "Os migrantes trabalham, consomem e ajudam a cidade a crescer"
+       },
+       {
+        "text": "Migrante não trabalha",
+        "misconceptionCode": "migra-sem-motivo"
+       },
+       {
+        "text": "Ninguém deveria se mudar",
+        "misconceptionCode": "populacao-parada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "As cidades foram construídas com o trabalho de quem chegou. Preconceito contra migrantes é injusto.",
+      "variants": [
+       {
+        "question": "Como devemos tratar um colega que acabou de chegar de outra cidade?",
+        "options": [
+         {
+          "text": "Com piadas sobre o sotaque",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Ignorando",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Mandando voltar",
+          "misconceptionCode": "populacao-parada"
+         },
+         {
+          "text": "Com respeito e acolhimento"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um colega diz: \"Quem vem do interior tira o emprego de quem é da cidade\". O que responder?",
+        "options": [
+         {
+          "text": "Ninguém deveria se mudar",
+          "misconceptionCode": "populacao-parada"
+         },
+         {
+          "text": "Migrante não trabalha",
+          "misconceptionCode": "migra-sem-motivo"
+         },
+         {
+          "text": "Os migrantes trabalham, consomem e ajudam a cidade a crescer"
+         },
+         {
+          "text": "Ele está certo",
+          "misconceptionCode": "migra-sem-motivo"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05GE01-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: por que as pessoas se mudam",
+    "prompt": "Explique com as suas palavras por que muitas pessoas se mudam de um município para outro dentro do estado e o que a cidade que recebe precisa oferecer.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras por que muitas pessoas se mudam de um município para outro dentro do estado e o que a cidade que recebe precisa oferecer.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "motivo",
+       "description": "Cita motivos como trabalho, estudo, saúde ou seca"
+      },
+      {
+       "code": "infraestrutura",
+       "description": "Relaciona a mudança às condições do lugar de origem e do destino"
+      },
+      {
+       "code": "necessidade",
+       "description": "Diz que a cidade que recebe precisa de mais moradias e serviços"
+      }
+     ],
+     "exemploBoaResposta": "Muitas pessoas saem de cidades pequenas porque lá há pouco emprego e faltam hospital e escola. Elas vão para cidades com mais trabalho, como Camaçari, por causa das fábricas. A cidade que recebe essas pessoas precisa ter mais moradias, escolas, transporte e postos de saúde."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF05GE05",
+  "subjectCode": "GE",
+  "subjectName": "Geografia",
+  "gradeYear": 5,
+  "version": 1,
+  "title": "Trilha: O trabalho e a tecnologia mudam",
+  "tituloAluno": "Do arado ao computador",
+  "activities": [
+   {
+    "id": "PK2-EF05GE05-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: os tipos de trabalho",
+    "prompt": "No 4º ano, vimos o trabalho no campo e na cidade.",
+    "estMinutes": 4,
+    "audioScript": "No 4º ano, vimos o trabalho no campo e na cidade. Pergunta 1. Plantar e criar animais são atividades da: A: Indústria; B: Agropecuária; C: Loja; D: Escola. Pergunta 2. Comprar e vender produtos é atividade do: A: Campo; B: Extrativismo; C: Comércio; D: Transporte. Pergunta 3. O que é tecnologia? A: Só o celular; B: Só o computador; C: Só o que é novo; D: O conjunto de ferramentas, máquinas e conhecimentos criados para facilitar o trabalho.",
+    "questions": [
+     {
+      "question": "Plantar e criar animais são atividades da:",
+      "options": [
+       {
+        "text": "Indústria",
+        "misconceptionCode": "setor-trocado"
+       },
+       {
+        "text": "Agropecuária"
+       },
+       {
+        "text": "Loja",
+        "misconceptionCode": "setor-trocado"
+       },
+       {
+        "text": "Escola",
+        "misconceptionCode": "setor-trocado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A agropecuária reúne a agricultura e a pecuária.",
+      "variants": [
+       {
+        "question": "Transformar matérias-primas em produtos é atividade da:",
+        "options": [
+         {
+          "text": "Agropecuária",
+          "misconceptionCode": "setor-trocado"
+         },
+         {
+          "text": "Pesca",
+          "misconceptionCode": "setor-trocado"
+         },
+         {
+          "text": "Escola",
+          "misconceptionCode": "setor-trocado"
+         },
+         {
+          "text": "Indústria"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Plantar e criar animais são atividades da:",
+        "options": [
+         {
+          "text": "Escola",
+          "misconceptionCode": "setor-trocado"
+         },
+         {
+          "text": "Loja",
+          "misconceptionCode": "setor-trocado"
+         },
+         {
+          "text": "Agropecuária"
+         },
+         {
+          "text": "Indústria",
+          "misconceptionCode": "setor-trocado"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Comprar e vender produtos é atividade do:",
+      "options": [
+       {
+        "text": "Campo",
+        "misconceptionCode": "setor-trocado"
+       },
+       {
+        "text": "Extrativismo",
+        "misconceptionCode": "setor-trocado"
+       },
+       {
+        "text": "Comércio"
+       },
+       {
+        "text": "Transporte",
+        "misconceptionCode": "setor-trocado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Lojas, feiras e mercados fazem parte do comércio.",
+      "variants": [
+       {
+        "question": "O trabalho de médicos, professores e motoristas faz parte dos:",
+        "options": [
+         {
+          "text": "Serviços"
+         },
+         {
+          "text": "Produtos industriais",
+          "misconceptionCode": "setor-trocado"
+         },
+         {
+          "text": "Cultivos",
+          "misconceptionCode": "setor-trocado"
+         },
+         {
+          "text": "Rebanhos",
+          "misconceptionCode": "setor-trocado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Comprar e vender produtos é atividade do:",
+        "options": [
+         {
+          "text": "Transporte",
+          "misconceptionCode": "setor-trocado"
+         },
+         {
+          "text": "Extrativismo",
+          "misconceptionCode": "setor-trocado"
+         },
+         {
+          "text": "Campo",
+          "misconceptionCode": "setor-trocado"
+         },
+         {
+          "text": "Comércio"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que é tecnologia?",
+      "options": [
+       {
+        "text": "Só o celular",
+        "misconceptionCode": "tecnologia-so-na-cidade"
+       },
+       {
+        "text": "Só o computador",
+        "misconceptionCode": "tecnologia-so-na-cidade"
+       },
+       {
+        "text": "Só o que é novo",
+        "misconceptionCode": "trabalho-nao-muda"
+       },
+       {
+        "text": "O conjunto de ferramentas, máquinas e conhecimentos criados para facilitar o trabalho"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A enxada e o trator são tecnologias, cada uma do seu tempo.",
+      "variants": [
+       {
+        "question": "A roda, o arado e a enxada são:",
+        "options": [
+         {
+          "text": "Coisas que não são tecnologia",
+          "misconceptionCode": "tecnologia-so-na-cidade"
+         },
+         {
+          "text": "Tecnologias antigas"
+         },
+         {
+          "text": "Brinquedos",
+          "misconceptionCode": "tecnologia-so-na-cidade"
+         },
+         {
+          "text": "Enfeites",
+          "misconceptionCode": "trabalho-nao-muda"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que é tecnologia?",
+        "options": [
+         {
+          "text": "O conjunto de ferramentas, máquinas e conhecimentos criados para facilitar o trabalho"
+         },
+         {
+          "text": "Só o que é novo",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "Só o computador",
+          "misconceptionCode": "tecnologia-so-na-cidade"
+         },
+         {
+          "text": "Só o celular",
+          "misconceptionCode": "tecnologia-so-na-cidade"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05GE05-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: antes e depois",
+    "prompt": "Com o tempo, as pessoas criaram máquinas e novas formas de trabalhar. Isso mudou o trabalho no campo, nas fábricas, nas lojas e nos serviços. Vamos comparar juntos.",
+    "estMinutes": 4,
+    "audioScript": "Com o tempo, as pessoas criaram máquinas e novas formas de trabalhar. Isso mudou o trabalho no campo, nas fábricas, nas lojas e nos serviços. Vamos comparar juntos. Pergunta 1. Antigamente, a terra era preparada com arado puxado por animais. Hoje, em muitas fazendas, usa-se: A: O trator; B: A enxada, somente; C: As mãos, somente; D: Nada. Pergunta 2. Antigamente, os tecidos eram feitos em teares manuais. Hoje, nas fábricas, são feitos por: A: Só artesãos; B: Máquinas automáticas, que produzem muito mais; C: Ninguém; D: Animais. Pergunta 3. Antigamente, as compras eram feitas só no balcão da loja. Hoje, também é possível comprar: A: Só por carta; B: Só na feira; C: Pela internet; D: De jeito nenhum.",
+    "questions": [
+     {
+      "question": "Antigamente, a terra era preparada com arado puxado por animais. Hoje, em muitas fazendas, usa-se:",
+      "options": [
+       {
+        "text": "O trator"
+       },
+       {
+        "text": "A enxada, somente",
+        "misconceptionCode": "trabalho-nao-muda"
+       },
+       {
+        "text": "As mãos, somente",
+        "misconceptionCode": "trabalho-nao-muda"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "tecnologia-so-na-cidade"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O trator faz em horas o trabalho de muitos dias.",
+      "variants": [
+       {
+        "question": "Antigamente, as vacas eram ordenhadas à mão. Hoje, em muitas fazendas, usa-se:",
+        "options": [
+         {
+          "text": "Só as mãos",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "A ordenhadeira mecânica"
+         },
+         {
+          "text": "O arado",
+          "misconceptionCode": "tecnologia-so-na-cidade"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Antigamente, a terra era preparada com arado puxado por animais. Hoje, em muitas fazendas, usa-se:",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "tecnologia-so-na-cidade"
+         },
+         {
+          "text": "O trator"
+         },
+         {
+          "text": "As mãos, somente",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "A enxada, somente",
+          "misconceptionCode": "trabalho-nao-muda"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Antigamente, os tecidos eram feitos em teares manuais. Hoje, nas fábricas, são feitos por:",
+      "options": [
+       {
+        "text": "Só artesãos",
+        "misconceptionCode": "trabalho-nao-muda"
+       },
+       {
+        "text": "Máquinas automáticas, que produzem muito mais"
+       },
+       {
+        "text": "Ninguém",
+        "misconceptionCode": "trabalho-nao-muda"
+       },
+       {
+        "text": "Animais",
+        "misconceptionCode": "setor-trocado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A indústria passou do trabalho manual para as máquinas e, depois, para os robôs.",
+      "variants": [
+       {
+        "question": "Em muitas fábricas de carros, hoje, parte da montagem é feita por:",
+        "options": [
+         {
+          "text": "Carroças",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "Arados",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "Teares manuais",
+          "misconceptionCode": "setor-trocado"
+         },
+         {
+          "text": "Robôs"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Antigamente, os tecidos eram feitos em teares manuais. Hoje, nas fábricas, são feitos por:",
+        "options": [
+         {
+          "text": "Animais",
+          "misconceptionCode": "setor-trocado"
+         },
+         {
+          "text": "Ninguém",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "Máquinas automáticas, que produzem muito mais"
+         },
+         {
+          "text": "Só artesãos",
+          "misconceptionCode": "trabalho-nao-muda"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Antigamente, as compras eram feitas só no balcão da loja. Hoje, também é possível comprar:",
+      "options": [
+       {
+        "text": "Só por carta",
+        "misconceptionCode": "trabalho-nao-muda"
+       },
+       {
+        "text": "Só na feira",
+        "misconceptionCode": "trabalho-nao-muda"
+       },
+       {
+        "text": "Pela internet"
+       },
+       {
+        "text": "De jeito nenhum",
+        "misconceptionCode": "trabalho-nao-muda"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O comércio eletrônico mudou o jeito de comprar e de vender.",
+      "variants": [
+       {
+        "question": "Antigamente, pagava-se só com dinheiro em papel. Hoje, muitas pessoas pagam:",
+        "options": [
+         {
+          "text": "Com cartão e pelo celular"
+         },
+         {
+          "text": "Só com moedas",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "Só com cheque",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "Só trocando produtos",
+          "misconceptionCode": "trabalho-nao-muda"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Antigamente, as compras eram feitas só no balcão da loja. Hoje, também é possível comprar:",
+        "options": [
+         {
+          "text": "De jeito nenhum",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "Só na feira",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "Só por carta",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "Pela internet"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05GE05-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: o que mudou no trabalho",
+    "prompt": "Vantagens e desafios.",
+    "estMinutes": 5,
+    "audioScript": "Vantagens e desafios. Pergunta 1. Com as máquinas, a produção no campo e nas fábricas: A: Diminuiu; B: Ficou igual; C: Acabou; D: Aumentou e ficou mais rápida. Pergunta 2. Quando uma máquina passa a fazer o trabalho de muitas pessoas, o que pode acontecer? A: Alguns empregos deixam de existir, e surgem outros que exigem mais estudo; B: Todos ganham emprego; C: Nada muda; D: Ninguém mais trabalha. Pergunta 3. A tecnologia está presente só na cidade? A: Sim, só na cidade; B: Não, também no campo, com tratores, irrigação e satélites; C: Sim, só nas fábricas; D: Sim, só nos escritórios. Pergunta 4. Nos serviços, como os bancos, a tecnologia trouxe: A: Mais filas, somente; B: Nenhuma mudança; C: O caixa eletrônico e o aplicativo, que fazem tarefas antes feitas por pessoas; D: O fim do dinheiro.",
+    "questions": [
+     {
+      "question": "Com as máquinas, a produção no campo e nas fábricas:",
+      "options": [
+       {
+        "text": "Diminuiu",
+        "misconceptionCode": "tecnologia-so-vantagem"
+       },
+       {
+        "text": "Ficou igual",
+        "misconceptionCode": "trabalho-nao-muda"
+       },
+       {
+        "text": "Acabou",
+        "misconceptionCode": "trabalho-nao-muda"
+       },
+       {
+        "text": "Aumentou e ficou mais rápida"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "As máquinas permitem produzir muito mais em menos tempo.",
+      "variants": [
+       {
+        "question": "Uma colheitadeira colhe em um dia o que muitas pessoas levariam:",
+        "options": [
+         {
+          "text": "Um minuto",
+          "misconceptionCode": "tecnologia-so-vantagem"
+         },
+         {
+          "text": "Várias semanas para colher"
+         },
+         {
+          "text": "O mesmo tempo",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "Menos tempo",
+          "misconceptionCode": "trabalho-nao-muda"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Com as máquinas, a produção no campo e nas fábricas:",
+        "options": [
+         {
+          "text": "Aumentou e ficou mais rápida"
+         },
+         {
+          "text": "Acabou",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "Ficou igual",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "Diminuiu",
+          "misconceptionCode": "tecnologia-so-vantagem"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quando uma máquina passa a fazer o trabalho de muitas pessoas, o que pode acontecer?",
+      "options": [
+       {
+        "text": "Alguns empregos deixam de existir, e surgem outros que exigem mais estudo"
+       },
+       {
+        "text": "Todos ganham emprego",
+        "misconceptionCode": "tecnologia-so-vantagem"
+       },
+       {
+        "text": "Nada muda",
+        "misconceptionCode": "trabalho-nao-muda"
+       },
+       {
+        "text": "Ninguém mais trabalha",
+        "misconceptionCode": "tecnologia-so-vantagem"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A tecnologia traz vantagens e também desafios para os trabalhadores.",
+      "variants": [
+       {
+        "question": "Qual destas profissões surgiu por causa das novas tecnologias?",
+        "options": [
+         {
+          "text": "Ferreiro",
+          "misconceptionCode": "tecnologia-so-vantagem"
+         },
+         {
+          "text": "Lavrador",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "Programador de computadores"
+         },
+         {
+          "text": "Tecelão manual",
+          "misconceptionCode": "tecnologia-so-vantagem"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quando uma máquina passa a fazer o trabalho de muitas pessoas, o que pode acontecer?",
+        "options": [
+         {
+          "text": "Ninguém mais trabalha",
+          "misconceptionCode": "tecnologia-so-vantagem"
+         },
+         {
+          "text": "Alguns empregos deixam de existir, e surgem outros que exigem mais estudo"
+         },
+         {
+          "text": "Nada muda",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "Todos ganham emprego",
+          "misconceptionCode": "tecnologia-so-vantagem"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "A tecnologia está presente só na cidade?",
+      "options": [
+       {
+        "text": "Sim, só na cidade",
+        "misconceptionCode": "tecnologia-so-na-cidade"
+       },
+       {
+        "text": "Não, também no campo, com tratores, irrigação e satélites"
+       },
+       {
+        "text": "Sim, só nas fábricas",
+        "misconceptionCode": "tecnologia-so-na-cidade"
+       },
+       {
+        "text": "Sim, só nos escritórios",
+        "misconceptionCode": "tecnologia-so-na-cidade"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Muitas fazendas usam computadores e drones para acompanhar as plantações.",
+      "variants": [
+       {
+        "question": "Um agricultor que usa um aplicativo para saber a previsão do tempo mostra que:",
+        "options": [
+         {
+          "text": "O campo não tem tecnologia",
+          "misconceptionCode": "tecnologia-so-na-cidade"
+         },
+         {
+          "text": "Só a cidade usa aplicativos",
+          "misconceptionCode": "tecnologia-so-na-cidade"
+         },
+         {
+          "text": "Nada mudou",
+          "misconceptionCode": "tecnologia-so-na-cidade"
+         },
+         {
+          "text": "A tecnologia também está no campo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A tecnologia está presente só na cidade?",
+        "options": [
+         {
+          "text": "Sim, só nos escritórios",
+          "misconceptionCode": "tecnologia-so-na-cidade"
+         },
+         {
+          "text": "Sim, só nas fábricas",
+          "misconceptionCode": "tecnologia-so-na-cidade"
+         },
+         {
+          "text": "Não, também no campo, com tratores, irrigação e satélites"
+         },
+         {
+          "text": "Sim, só na cidade",
+          "misconceptionCode": "tecnologia-so-na-cidade"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Nos serviços, como os bancos, a tecnologia trouxe:",
+      "options": [
+       {
+        "text": "Mais filas, somente",
+        "misconceptionCode": "tecnologia-so-vantagem"
+       },
+       {
+        "text": "Nenhuma mudança",
+        "misconceptionCode": "trabalho-nao-muda"
+       },
+       {
+        "text": "O caixa eletrônico e o aplicativo, que fazem tarefas antes feitas por pessoas"
+       },
+       {
+        "text": "O fim do dinheiro",
+        "misconceptionCode": "tecnologia-so-vantagem"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Muitos atendimentos passaram a ser feitos por máquinas e pela internet.",
+      "variants": [
+       {
+        "question": "Hoje, muitas consultas e aulas podem ser feitas:",
+        "options": [
+         {
+          "text": "A distância, pela internet"
+         },
+         {
+          "text": "Só por carta",
+          "misconceptionCode": "tecnologia-so-vantagem"
+         },
+         {
+          "text": "Só pessoalmente",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "De jeito nenhum",
+          "misconceptionCode": "tecnologia-so-vantagem"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Nos serviços, como os bancos, a tecnologia trouxe:",
+        "options": [
+         {
+          "text": "O fim do dinheiro",
+          "misconceptionCode": "tecnologia-so-vantagem"
+         },
+         {
+          "text": "Nenhuma mudança",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "Mais filas, somente",
+          "misconceptionCode": "tecnologia-so-vantagem"
+         },
+         {
+          "text": "O caixa eletrônico e o aplicativo, que fazem tarefas antes feitas por pessoas"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05GE05-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: trabalho, tecnologia e futuro",
+    "prompt": "Pense no que isso muda para as pessoas.",
+    "estMinutes": 4,
+    "audioScript": "Pense no que isso muda para as pessoas. Pergunta 1. Uma fábrica troca 50 trabalhadores por máquinas. Para conseguir outro emprego, o que esses trabalhadores precisam? A: De nada; B: De menos estudo; C: De sorte, somente; D: De novas oportunidades e de cursos para aprender outras funções. Pergunta 2. Seus avós contam que, quando eram jovens, existia a profissão de datilógrafo, que escrevia à máquina. Hoje, ela quase não existe. Isso mostra que: A: As profissões mudam com a tecnologia; B: As profissões são sempre as mesmas; C: Ninguém mais escreve; D: Os avós se enganaram. Pergunta 3. Qual destas tecnologias ajuda a produzir alimento gastando menos água? A: Deixar a mangueira aberta; B: A irrigação por gotejamento; C: Regar ao meio-dia com muito sol; D: Não regar.",
+    "questions": [
+     {
+      "question": "Uma fábrica troca 50 trabalhadores por máquinas. Para conseguir outro emprego, o que esses trabalhadores precisam?",
+      "options": [
+       {
+        "text": "De nada",
+        "misconceptionCode": "tecnologia-so-vantagem"
+       },
+       {
+        "text": "De menos estudo",
+        "misconceptionCode": "trabalho-nao-muda"
+       },
+       {
+        "text": "De sorte, somente",
+        "misconceptionCode": "tecnologia-so-vantagem"
+       },
+       {
+        "text": "De novas oportunidades e de cursos para aprender outras funções"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Por isso estudar e continuar aprendendo é cada vez mais importante.",
+      "variants": [
+       {
+        "question": "Por que o estudo é cada vez mais importante para os trabalhadores?",
+        "options": [
+         {
+          "text": "Porque as máquinas não mudam nada",
+          "misconceptionCode": "tecnologia-so-vantagem"
+         },
+         {
+          "text": "Porque os trabalhos mudam e pedem novos conhecimentos"
+         },
+         {
+          "text": "Porque não existem mais empregos",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "Não é importante",
+          "misconceptionCode": "tecnologia-so-vantagem"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Uma fábrica troca 50 trabalhadores por máquinas. Para conseguir outro emprego, o que esses trabalhadores precisam?",
+        "options": [
+         {
+          "text": "De novas oportunidades e de cursos para aprender outras funções"
+         },
+         {
+          "text": "De sorte, somente",
+          "misconceptionCode": "tecnologia-so-vantagem"
+         },
+         {
+          "text": "De menos estudo",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "De nada",
+          "misconceptionCode": "tecnologia-so-vantagem"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Seus avós contam que, quando eram jovens, existia a profissão de datilógrafo, que escrevia à máquina. Hoje, ela quase não existe. Isso mostra que:",
+      "options": [
+       {
+        "text": "As profissões mudam com a tecnologia"
+       },
+       {
+        "text": "As profissões são sempre as mesmas",
+        "misconceptionCode": "trabalho-nao-muda"
+       },
+       {
+        "text": "Ninguém mais escreve",
+        "misconceptionCode": "tecnologia-so-vantagem"
+       },
+       {
+        "text": "Os avós se enganaram",
+        "misconceptionCode": "trabalho-nao-muda"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Com o computador, a máquina de escrever caiu em desuso.",
+      "variants": [
+       {
+        "question": "A profissão de acendedor de lampiões de rua desapareceu por causa:",
+        "options": [
+         {
+          "text": "Do computador",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "Da internet",
+          "misconceptionCode": "tecnologia-so-vantagem"
+         },
+         {
+          "text": "Da iluminação elétrica"
+         },
+         {
+          "text": "Do celular",
+          "misconceptionCode": "trabalho-nao-muda"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Seus avós contam que, quando eram jovens, existia a profissão de datilógrafo, que escrevia à máquina. Hoje, ela quase não existe. Isso mostra que:",
+        "options": [
+         {
+          "text": "Os avós se enganaram",
+          "misconceptionCode": "trabalho-nao-muda"
+         },
+         {
+          "text": "As profissões mudam com a tecnologia"
+         },
+         {
+          "text": "Ninguém mais escreve",
+          "misconceptionCode": "tecnologia-so-vantagem"
+         },
+         {
+          "text": "As profissões são sempre as mesmas",
+          "misconceptionCode": "trabalho-nao-muda"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual destas tecnologias ajuda a produzir alimento gastando menos água?",
+      "options": [
+       {
+        "text": "Deixar a mangueira aberta",
+        "misconceptionCode": "tecnologia-so-vantagem"
+       },
+       {
+        "text": "A irrigação por gotejamento"
+       },
+       {
+        "text": "Regar ao meio-dia com muito sol",
+        "misconceptionCode": "tecnologia-so-vantagem"
+       },
+       {
+        "text": "Não regar",
+        "misconceptionCode": "tecnologia-so-na-cidade"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A tecnologia também pode ajudar a cuidar do ambiente.",
+      "variants": [
+       {
+        "question": "Qual destas tecnologias ajuda a produzir energia sem poluir o ar?",
+        "options": [
+         {
+          "text": "A queima de carvão",
+          "misconceptionCode": "tecnologia-so-vantagem"
+         },
+         {
+          "text": "A queima de óleo",
+          "misconceptionCode": "tecnologia-so-vantagem"
+         },
+         {
+          "text": "A fogueira",
+          "misconceptionCode": "tecnologia-so-na-cidade"
+         },
+         {
+          "text": "Os painéis solares"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual destas tecnologias ajuda a produzir alimento gastando menos água?",
+        "options": [
+         {
+          "text": "Não regar",
+          "misconceptionCode": "tecnologia-so-na-cidade"
+         },
+         {
+          "text": "Regar ao meio-dia com muito sol",
+          "misconceptionCode": "tecnologia-so-vantagem"
+         },
+         {
+          "text": "A irrigação por gotejamento"
+         },
+         {
+          "text": "Deixar a mangueira aberta",
+          "misconceptionCode": "tecnologia-so-vantagem"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05GE05-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: o trabalho mudou",
+    "prompt": "Escolha um tipo de trabalho (no campo, na indústria, no comércio ou nos serviços) e explique com as suas palavras como ele era feito antes, como é feito hoje e uma consequência dessa mudança.",
+    "estMinutes": 6,
+    "audioScript": "Escolha um tipo de trabalho (no campo, na indústria, no comércio ou nos serviços) e explique com as suas palavras como ele era feito antes, como é feito hoje e uma consequência dessa mudança.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "antes",
+       "description": "Descreve como era o trabalho antes"
+      },
+      {
+       "code": "hoje",
+       "description": "Descreve como é hoje, com a tecnologia"
+      },
+      {
+       "code": "consequencia",
+       "description": "Cita uma consequência (mais produção, menos empregos manuais, novas profissões, necessidade de estudo)"
+      }
+     ],
+     "exemploBoaResposta": "No campo, antigamente a terra era preparada com o arado puxado por bois. Hoje, o trator faz esse trabalho muito mais rápido. Com isso, a produção aumentou, mas são necessárias menos pessoas para trabalhar na lavoura, e elas precisam saber operar as máquinas."
+    }
+   }
+  ]
+ }
 ]

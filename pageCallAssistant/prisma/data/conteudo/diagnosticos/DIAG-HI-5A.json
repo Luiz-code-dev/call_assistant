@@ -1,119 +1,327 @@
 {
-  "id": "DIAG2-HI-5A",
-  "version": 3,
-  "titulo": "Diagnóstico de História — 5º ano",
-  "descricao": "Formas de marcar o tempo e cidadania como respeito à diversidade no 5º ano.",
-  "subjectCode": "HI",
-  "subjectName": "História",
-  "gradeYear": 5,
-  "status": "APPROVED",
-  "source": "SPEAKFLOW",
-  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-  "adaptive": true,
-  "items": [
+ "id": "DIAG2-HI-5A",
+ "version": 4,
+ "titulo": "Diagnóstico de História — 5º ano",
+ "descricao": "Formas de marcar o tempo, cidadania e diversidade, direitos como conquista e patrimônios da humanidade no 5º ano, com degrau para mudanças e permanências e povos formadores do Brasil do 4º ano.",
+ "subjectCode": "HI",
+ "subjectName": "História",
+ "gradeYear": 5,
+ "status": "APPROVED",
+ "source": "SPEAKFLOW",
+ "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+ "adaptive": true,
+ "items": [
+  {
+   "id": "DI2-EF05HI08-01",
+   "skillCode": "EF05HI08",
+   "question": "Antes do relógio, como as pessoas sabiam a parte do dia?",
+   "options": [
     {
-      "id": "DI2-EF05HI08-01",
-      "skillCode": "EF05HI08",
-      "question": "Antes do relógio, como as pessoas sabiam a parte do dia?",
-      "options": [
-        {
-          "text": "Não sabiam de jeito nenhum",
-          "misconceptionCode": "tempo-so-relogio"
-        },
-        {
-          "text": "Usando o mesmo calendário que usamos hoje",
-          "misconceptionCode": "calendario-unico"
-        },
-        {
-          "text": "Contando os séculos",
-          "misconceptionCode": "ordem-trocada"
-        },
-        {
-          "text": "Observando a posição do Sol e as sombras"
-        }
-      ],
-      "correctIndex": 3,
-      "explanation": "Sem relógio, as pessoas olhavam para o céu: Sol nascendo é manhã, Sol no alto é meio-dia, e a sombra muda de tamanho.",
-      "audioScript": "Pergunta 1. Antes do relógio, como as pessoas sabiam a parte do dia? A: Não sabiam de jeito nenhum; B: Usando o mesmo calendário que usamos hoje; C: Contando os séculos; D: Observando a posição do Sol e as sombras.",
-      "role": "NORMAL"
+     "text": "Não sabiam de jeito nenhum",
+     "misconceptionCode": "tempo-so-relogio"
     },
     {
-      "id": "DI2-EF05HI08-02",
-      "skillCode": "EF05HI08",
-      "question": "Um povo indígena organiza o ano pelas épocas de chuva e de colheita. Isso é:",
-      "options": [
-        {
-          "text": "Uma forma de marcar o tempo pela natureza"
-        },
-        {
-          "text": "Uma forma errada de contar o tempo",
-          "misconceptionCode": "calendario-unico"
-        },
-        {
-          "text": "Um sinal de que eles não contam o tempo",
-          "misconceptionCode": "natureza-nao-marca"
-        },
-        {
-          "text": "Um relógio",
-          "misconceptionCode": "tempo-so-relogio"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Em vez de calendário de papel, esse povo usa a natureza: chegou a chuva, chegou a colheita. É outra forma de marcar o tempo.",
-      "audioScript": "Pergunta 1. Um povo indígena organiza o ano pelas épocas de chuva e de colheita. Isso é: A: Uma forma de marcar o tempo pela natureza; B: Uma forma errada de contar o tempo; C: Um sinal de que eles não contam o tempo; D: Um relógio.",
-      "role": "NORMAL"
+     "text": "Usando o mesmo calendário que usamos hoje",
+     "misconceptionCode": "calendario-unico"
     },
     {
-      "id": "DI2-EF05HI04-01",
-      "skillCode": "EF05HI04",
-      "question": "Cidadania significa:",
-      "options": [
-        {
-          "text": "Apenas votar",
-          "misconceptionCode": "cidadania-so-votar"
-        },
-        {
-          "text": "Ter direitos só para alguns",
-          "misconceptionCode": "direito-de-alguns"
-        },
-        {
-          "text": "Todos pensarem igual",
-          "misconceptionCode": "igualdade-uniformidade"
-        },
-        {
-          "text": "Ter direitos e deveres e participar da comunidade"
-        }
-      ],
-      "correctIndex": 3,
-      "explanation": "Ser cidadão é ter direitos (como estudar) e deveres (como respeitar as regras) e participar da vida da comunidade.",
-      "audioScript": "Pergunta 1. Cidadania significa: A: Apenas votar; B: Ter direitos só para alguns; C: Todos pensarem igual; D: Ter direitos e deveres e participar da comunidade.",
-      "role": "NORMAL"
+     "text": "Contando os séculos",
+     "misconceptionCode": "ordem-trocada"
     },
     {
-      "id": "DI2-EF05HI04-02",
-      "skillCode": "EF05HI04",
-      "question": "Uma escola que coloca rampas e banheiros adaptados está garantindo:",
-      "options": [
-        {
-          "text": "O direito de todos de estudar ali"
-        },
-        {
-          "text": "Um privilégio para poucos",
-          "misconceptionCode": "direito-de-alguns"
-        },
-        {
-          "text": "Algo sem importância",
-          "misconceptionCode": "so-direitos"
-        },
-        {
-          "text": "O direito de votar",
-          "misconceptionCode": "cidadania-so-votar"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Rampas e banheiros adaptados deixam quem usa cadeira de rodas estudar ali também. Isso garante o direito de todos.",
-      "audioScript": "Pergunta 1. Uma escola que coloca rampas e banheiros adaptados está garantindo: A: O direito de todos de estudar ali; B: Um privilégio para poucos; C: Algo sem importância; D: O direito de votar.",
-      "role": "NORMAL"
+     "text": "Observando a posição do Sol e as sombras"
     }
-  ]
+   ],
+   "correctIndex": 3,
+   "explanation": "Sem relógio, as pessoas olhavam para o céu: Sol nascendo é manhã, Sol no alto é meio-dia, e a sombra muda de tamanho.",
+   "audioScript": "Pergunta 1. Antes do relógio, como as pessoas sabiam a parte do dia? A: Não sabiam de jeito nenhum; B: Usando o mesmo calendário que usamos hoje; C: Contando os séculos; D: Observando a posição do Sol e as sombras.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF05HI08-02",
+   "skillCode": "EF05HI08",
+   "question": "Um povo indígena organiza o ano pelas épocas de chuva e de colheita. Isso é:",
+   "options": [
+    {
+     "text": "Uma forma de marcar o tempo pela natureza"
+    },
+    {
+     "text": "Uma forma errada de contar o tempo",
+     "misconceptionCode": "calendario-unico"
+    },
+    {
+     "text": "Um sinal de que eles não contam o tempo",
+     "misconceptionCode": "natureza-nao-marca"
+    },
+    {
+     "text": "Um relógio",
+     "misconceptionCode": "tempo-so-relogio"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Em vez de calendário de papel, esse povo usa a natureza: chegou a chuva, chegou a colheita. É outra forma de marcar o tempo.",
+   "audioScript": "Pergunta 1. Um povo indígena organiza o ano pelas épocas de chuva e de colheita. Isso é: A: Uma forma de marcar o tempo pela natureza; B: Uma forma errada de contar o tempo; C: Um sinal de que eles não contam o tempo; D: Um relógio.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF05HI04-01",
+   "skillCode": "EF05HI04",
+   "question": "Cidadania significa:",
+   "options": [
+    {
+     "text": "Apenas votar",
+     "misconceptionCode": "cidadania-so-votar"
+    },
+    {
+     "text": "Ter direitos só para alguns",
+     "misconceptionCode": "direito-de-alguns"
+    },
+    {
+     "text": "Todos pensarem igual",
+     "misconceptionCode": "igualdade-uniformidade"
+    },
+    {
+     "text": "Ter direitos e deveres e participar da comunidade"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Ser cidadão é ter direitos (como estudar) e deveres (como respeitar as regras) e participar da vida da comunidade.",
+   "audioScript": "Pergunta 1. Cidadania significa: A: Apenas votar; B: Ter direitos só para alguns; C: Todos pensarem igual; D: Ter direitos e deveres e participar da comunidade.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF05HI04-02",
+   "skillCode": "EF05HI04",
+   "question": "Uma escola que coloca rampas e banheiros adaptados está garantindo:",
+   "options": [
+    {
+     "text": "O direito de todos de estudar ali"
+    },
+    {
+     "text": "Um privilégio para poucos",
+     "misconceptionCode": "direito-de-alguns"
+    },
+    {
+     "text": "Algo sem importância",
+     "misconceptionCode": "so-direitos"
+    },
+    {
+     "text": "O direito de votar",
+     "misconceptionCode": "cidadania-so-votar"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Rampas e banheiros adaptados deixam quem usa cadeira de rodas estudar ali também. Isso garante o direito de todos.",
+   "audioScript": "Pergunta 1. Uma escola que coloca rampas e banheiros adaptados está garantindo: A: O direito de todos de estudar ali; B: Um privilégio para poucos; C: Algo sem importância; D: O direito de votar.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF05HI05-01",
+   "skillCode": "EF05HI05",
+   "question": "Os direitos que temos hoje foram:",
+   "options": [
+    {
+     "text": "Dados de presente",
+     "misconceptionCode": "direito-e-presente"
+    },
+    {
+     "text": "Sempre os mesmos",
+     "misconceptionCode": "direito-sempre-existiu"
+    },
+    {
+     "text": "Criados ontem",
+     "misconceptionCode": "direito-sempre-existiu"
+    },
+    {
+     "text": "Conquistados com a luta de muitas pessoas"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Cada direito tem uma história de luta.",
+   "audioScript": "Pergunta 1. Os direitos que temos hoje foram: A: Dados de presente; B: Sempre os mesmos; C: Criados ontem; D: Conquistados com a luta de muitas pessoas.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF05HI05-02",
+   "skillCode": "EF05HI05",
+   "question": "Ser cidadão é:",
+   "options": [
+    {
+     "text": "Ter direitos e também cumprir deveres"
+    },
+    {
+     "text": "Só ter direitos",
+     "misconceptionCode": "so-direitos"
+    },
+    {
+     "text": "Só obedecer",
+     "misconceptionCode": "so-direitos"
+    },
+    {
+     "text": "Ser rico",
+     "misconceptionCode": "direito-para-alguns"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Direitos e deveres andam juntos.",
+   "audioScript": "Pergunta 2. Ser cidadão é: A: Ter direitos e também cumprir deveres; B: Só ter direitos; C: Só obedecer; D: Ser rico.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF05HI10-01",
+   "skillCode": "EF05HI10",
+   "question": "A roda de capoeira é um patrimônio:",
+   "options": [
+    {
+     "text": "Material",
+     "misconceptionCode": "patrimonio-so-antigo-predio"
+    },
+    {
+     "text": "Imaterial"
+    },
+    {
+     "text": "Que não é patrimônio",
+     "misconceptionCode": "imaterial-nao-vale"
+    },
+    {
+     "text": "Natural",
+     "misconceptionCode": "patrimonio-so-antigo-predio"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "É um saber e uma prática.",
+   "audioScript": "Pergunta 3. A roda de capoeira é um patrimônio: A: Material; B: Imaterial; C: Que não é patrimônio; D: Natural.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF05HI10-02",
+   "skillCode": "EF05HI10",
+   "question": "Um bem reconhecido como patrimônio da humanidade é importante:",
+   "options": [
+    {
+     "text": "Só para o país onde está",
+     "misconceptionCode": "patrimonio-de-um-pais"
+    },
+    {
+     "text": "Só para os turistas",
+     "misconceptionCode": "patrimonio-de-um-pais"
+    },
+    {
+     "text": "Para todos os povos do mundo"
+    },
+    {
+     "text": "Para ninguém",
+     "misconceptionCode": "patrimonio-de-um-pais"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Conta a história dos seres humanos.",
+   "audioScript": "Pergunta 4. Um bem reconhecido como patrimônio da humanidade é importante: A: Só para o país onde está; B: Só para os turistas; C: Para todos os povos do mundo; D: Para ninguém.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF04HI01-01",
+   "skillCode": "EF04HI01",
+   "question": "Quem faz a história?",
+   "options": [
+    {
+     "text": "Só os reis e presidentes",
+     "misconceptionCode": "direito-para-alguns"
+    },
+    {
+     "text": "Só os heróis",
+     "misconceptionCode": "direito-para-alguns"
+    },
+    {
+     "text": "Só quem está nos livros",
+     "misconceptionCode": "direito-para-alguns"
+    },
+    {
+     "text": "Todas as pessoas"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Pessoas comuns também constroem a história.",
+   "audioScript": "Pergunta 5. Quem faz a história? A: Só os reis e presidentes; B: Só os heróis; C: Só quem está nos livros; D: Todas as pessoas.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-5A-EF04HI01-02",
+   "skillCode": "EF04HI01",
+   "question": "As crianças brincam de roda há muitos anos e continuam brincando. Isso é:",
+   "options": [
+    {
+     "text": "Uma permanência"
+    },
+    {
+     "text": "Uma mudança",
+     "misconceptionCode": "patrimonio-nao-muda"
+    },
+    {
+     "text": "Um erro",
+     "misconceptionCode": "imaterial-nao-vale"
+    },
+    {
+     "text": "Um atraso",
+     "misconceptionCode": "imaterial-nao-vale"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Permanência é o que continua.",
+   "audioScript": "Pergunta 6. As crianças brincam de roda há muitos anos e continuam brincando. Isso é: A: Uma permanência; B: Uma mudança; C: Um erro; D: Um atraso.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-5A-EF04HI10-01",
+   "skillCode": "EF04HI10",
+   "question": "A sociedade brasileira foi formada:",
+   "options": [
+    {
+     "text": "Só pelos portugueses",
+     "misconceptionCode": "patrimonio-de-um-pais"
+    },
+    {
+     "text": "Por muitos povos"
+    },
+    {
+     "text": "Só pelos indígenas",
+     "misconceptionCode": "patrimonio-de-um-pais"
+    },
+    {
+     "text": "Só pelos africanos",
+     "misconceptionCode": "patrimonio-de-um-pais"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "Indígenas, africanos, europeus e imigrantes.",
+   "audioScript": "Pergunta 7. A sociedade brasileira foi formada: A: Só pelos portugueses; B: Por muitos povos; C: Só pelos indígenas; D: Só pelos africanos.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-5A-EF04HI10-02",
+   "skillCode": "EF04HI10",
+   "question": "Os africanos chegaram ao Brasil, na época da colonização:",
+   "options": [
+    {
+     "text": "A passeio",
+     "misconceptionCode": "direito-sempre-existiu"
+    },
+    {
+     "text": "Por vontade própria",
+     "misconceptionCode": "direito-sempre-existiu"
+    },
+    {
+     "text": "Trazidos à força, escravizados"
+    },
+    {
+     "text": "Convidados",
+     "misconceptionCode": "direito-e-presente"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Foi uma migração forçada.",
+   "audioScript": "Pergunta 8. Os africanos chegaram ao Brasil, na época da colonização: A: A passeio; B: Por vontade própria; C: Trazidos à força, escravizados; D: Convidados.",
+   "role": "DEGRAU_BANK"
+  }
+ ]
 }

@@ -1,119 +1,327 @@
 {
-  "id": "DIAG2-AR-5A",
-  "version": 3,
-  "titulo": "Diagnóstico de Arte — 5º ano",
-  "descricao": "Elementos das artes visuais e da música no 5º ano.",
-  "subjectCode": "AR",
-  "subjectName": "Arte",
-  "gradeYear": 5,
-  "status": "APPROVED",
-  "source": "SPEAKFLOW",
-  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-  "adaptive": true,
-  "items": [
+ "id": "DIAG2-AR-5A",
+ "version": 4,
+ "titulo": "Diagnóstico de Arte — 5º ano",
+ "descricao": "Artes visuais, música, patrimônio cultural e teatralidades do cotidiano no 5º ano, com degrau para técnicas de criação e fontes sonoras do 4º ano.",
+ "subjectCode": "AR",
+ "subjectName": "Arte",
+ "gradeYear": 5,
+ "status": "APPROVED",
+ "source": "SPEAKFLOW",
+ "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+ "adaptive": true,
+ "items": [
+  {
+   "id": "DI2-EF15AR02-01",
+   "skillCode": "EF15AR02",
+   "question": "Misturando azul e amarelo, você obtém:",
+   "options": [
     {
-      "id": "DI2-EF15AR02-01",
-      "skillCode": "EF15AR02",
-      "question": "Misturando azul e amarelo, você obtém:",
-      "options": [
-        {
-          "text": "Verde"
-        },
-        {
-          "text": "Roxo",
-          "misconceptionCode": "cor-mistura-errada"
-        },
-        {
-          "text": "Laranja",
-          "misconceptionCode": "cor-mistura-errada"
-        },
-        {
-          "text": "Marrom",
-          "misconceptionCode": "cor-mistura-errada"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Teste com tinta ou lápis: pinte amarelo por cima do azul. Aparece o verde, a cor das folhas!",
-      "audioScript": "Pergunta 1. Misturando azul e amarelo, você obtém: A: Verde; B: Roxo; C: Laranja; D: Marrom.",
-      "role": "NORMAL"
+     "text": "Verde"
     },
     {
-      "id": "DI2-EF15AR02-02",
-      "skillCode": "EF15AR02",
-      "question": "Num desenho, o tronco da árvore foi feito com papel amassado para parecer áspero. Isso é um exemplo de:",
-      "options": [
-        {
-          "text": "Cor",
-          "misconceptionCode": "textura-cor"
-        },
-        {
-          "text": "Linha reta",
-          "misconceptionCode": "linha-so-reta"
-        },
-        {
-          "text": "Textura"
-        },
-        {
-          "text": "Forma geométrica",
-          "misconceptionCode": "forma-figura"
-        }
-      ],
-      "correctIndex": 2,
-      "explanation": "Passe a mão: papel amassado é áspero, como casca de árvore. O jeito que uma superfície parece ao toque é a textura.",
-      "audioScript": "Pergunta 1. Num desenho, o tronco da árvore foi feito com papel amassado para parecer áspero. Isso é um exemplo de: A: Cor; B: Linha reta; C: Textura; D: Forma geométrica.",
-      "role": "NORMAL"
+     "text": "Roxo",
+     "misconceptionCode": "cor-mistura-errada"
     },
     {
-      "id": "DI2-EF15AR14-01",
-      "skillCode": "EF15AR14",
-      "question": "O apito de um juiz é um som:",
-      "options": [
-        {
-          "text": "Grave",
-          "misconceptionCode": "altura-volume"
-        },
-        {
-          "text": "Sempre fraco",
-          "misconceptionCode": "duracao-intensidade"
-        },
-        {
-          "text": "Sem timbre",
-          "misconceptionCode": "timbre-volume"
-        },
-        {
-          "text": "Agudo"
-        }
-      ],
-      "correctIndex": 3,
-      "explanation": "O apito é fininho, como a voz de um passarinho. Som fino é agudo; som grosso, como um trovão, é grave.",
-      "audioScript": "Pergunta 1. O apito de um juiz é um som: A: Grave; B: Sempre fraco; C: Sem timbre; D: Agudo.",
-      "role": "NORMAL"
+     "text": "Laranja",
+     "misconceptionCode": "cor-mistura-errada"
     },
     {
-      "id": "DI2-EF15AR14-02",
-      "skillCode": "EF15AR14",
-      "question": "Ao aumentar o volume do rádio, o que muda?",
-      "options": [
-        {
-          "text": "A intensidade"
-        },
-        {
-          "text": "A altura",
-          "misconceptionCode": "altura-volume"
-        },
-        {
-          "text": "O timbre",
-          "misconceptionCode": "timbre-volume"
-        },
-        {
-          "text": "A melodia",
-          "misconceptionCode": "ritmo-melodia"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Aumentar o volume deixa o som mais forte, não mais fino ou mais grosso. Som forte ou fraco é a intensidade.",
-      "audioScript": "Pergunta 1. Ao aumentar o volume do rádio, o que muda? A: A intensidade; B: A altura; C: O timbre; D: A melodia.",
-      "role": "NORMAL"
+     "text": "Marrom",
+     "misconceptionCode": "cor-mistura-errada"
     }
-  ]
+   ],
+   "correctIndex": 0,
+   "explanation": "Teste com tinta ou lápis: pinte amarelo por cima do azul. Aparece o verde, a cor das folhas!",
+   "audioScript": "Pergunta 1. Misturando azul e amarelo, você obtém: A: Verde; B: Roxo; C: Laranja; D: Marrom.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF15AR02-02",
+   "skillCode": "EF15AR02",
+   "question": "Num desenho, o tronco da árvore foi feito com papel amassado para parecer áspero. Isso é um exemplo de:",
+   "options": [
+    {
+     "text": "Cor",
+     "misconceptionCode": "textura-cor"
+    },
+    {
+     "text": "Linha reta",
+     "misconceptionCode": "linha-so-reta"
+    },
+    {
+     "text": "Textura"
+    },
+    {
+     "text": "Forma geométrica",
+     "misconceptionCode": "forma-figura"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Passe a mão: papel amassado é áspero, como casca de árvore. O jeito que uma superfície parece ao toque é a textura.",
+   "audioScript": "Pergunta 1. Num desenho, o tronco da árvore foi feito com papel amassado para parecer áspero. Isso é um exemplo de: A: Cor; B: Linha reta; C: Textura; D: Forma geométrica.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF15AR14-01",
+   "skillCode": "EF15AR14",
+   "question": "O apito de um juiz é um som:",
+   "options": [
+    {
+     "text": "Grave",
+     "misconceptionCode": "altura-volume"
+    },
+    {
+     "text": "Sempre fraco",
+     "misconceptionCode": "duracao-intensidade"
+    },
+    {
+     "text": "Sem timbre",
+     "misconceptionCode": "timbre-volume"
+    },
+    {
+     "text": "Agudo"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "O apito é fininho, como a voz de um passarinho. Som fino é agudo; som grosso, como um trovão, é grave.",
+   "audioScript": "Pergunta 1. O apito de um juiz é um som: A: Grave; B: Sempre fraco; C: Sem timbre; D: Agudo.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF15AR14-02",
+   "skillCode": "EF15AR14",
+   "question": "Ao aumentar o volume do rádio, o que muda?",
+   "options": [
+    {
+     "text": "A intensidade"
+    },
+    {
+     "text": "A altura",
+     "misconceptionCode": "altura-volume"
+    },
+    {
+     "text": "O timbre",
+     "misconceptionCode": "timbre-volume"
+    },
+    {
+     "text": "A melodia",
+     "misconceptionCode": "ritmo-melodia"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Aumentar o volume deixa o som mais forte, não mais fino ou mais grosso. Som forte ou fraco é a intensidade.",
+   "audioScript": "Pergunta 1. Ao aumentar o volume do rádio, o que muda? A: A intensidade; B: A altura; C: O timbre; D: A melodia.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF15AR25-01",
+   "skillCode": "EF15AR25",
+   "question": "A capoeira e o samba de roda são heranças de origem:",
+   "options": [
+    {
+     "text": "Europeia",
+     "misconceptionCode": "matriz-trocada"
+    },
+    {
+     "text": "Indígena",
+     "misconceptionCode": "matriz-trocada"
+    },
+    {
+     "text": "Asiática",
+     "misconceptionCode": "matriz-trocada"
+    },
+    {
+     "text": "Africana"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Foram criadas e recriadas no Brasil por povos africanos e seus descendentes.",
+   "audioScript": "Pergunta 1. A capoeira e o samba de roda são heranças de origem: A: Europeia; B: Indígena; C: Asiática; D: Africana.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF15AR25-02",
+   "skillCode": "EF15AR25",
+   "question": "O artesanato de barro e de renda é:",
+   "options": [
+    {
+     "text": "Arte da cultura popular"
+    },
+    {
+     "text": "Só trabalho manual, sem valor artístico",
+     "misconceptionCode": "arte-popular-nao-e-arte"
+    },
+    {
+     "text": "Algo que só vale no museu",
+     "misconceptionCode": "arte-so-museu"
+    },
+    {
+     "text": "Menos importante que a pintura em tela",
+     "misconceptionCode": "uma-cultura-vale-mais"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "A arte popular tem técnica e significado.",
+   "audioScript": "Pergunta 2. O artesanato de barro e de renda é: A: Arte da cultura popular; B: Só trabalho manual, sem valor artístico; C: Algo que só vale no museu; D: Menos importante que a pintura em tela.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF15AR19-01",
+   "skillCode": "EF15AR19",
+   "question": "Dizer a mesma frase com entonações diferentes:",
+   "options": [
+    {
+     "text": "Não muda nada",
+     "misconceptionCode": "voz-sempre-igual"
+    },
+    {
+     "text": "Muda o sentido do que se diz"
+    },
+    {
+     "text": "Só muda o volume",
+     "misconceptionCode": "voz-sempre-igual"
+    },
+    {
+     "text": "Deixa a frase errada",
+     "misconceptionCode": "voz-sempre-igual"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "A entonação mostra a intenção.",
+   "audioScript": "Pergunta 3. Dizer a mesma frase com entonações diferentes: A: Não muda nada; B: Muda o sentido do que se diz; C: Só muda o volume; D: Deixa a frase errada.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF15AR19-02",
+   "skillCode": "EF15AR19",
+   "question": "Onde podemos encontrar teatralidade?",
+   "options": [
+    {
+     "text": "Só no palco",
+     "misconceptionCode": "teatro-so-no-palco"
+    },
+    {
+     "text": "Só no cinema",
+     "misconceptionCode": "teatro-so-no-palco"
+    },
+    {
+     "text": "Nas feiras, nas festas e nas histórias contadas no dia a dia"
+    },
+    {
+     "text": "Em lugar nenhum",
+     "misconceptionCode": "teatro-so-no-palco"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "O cotidiano está cheio de vozes, gestos e personagens.",
+   "audioScript": "Pergunta 4. Onde podemos encontrar teatralidade? A: Só no palco; B: Só no cinema; C: Nas feiras, nas festas e nas histórias contadas no dia a dia; D: Em lugar nenhum.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF15AR04-01",
+   "skillCode": "EF15AR04",
+   "question": "Juntar papéis recortados e colá-los para formar uma imagem é:",
+   "options": [
+    {
+     "text": "Modelagem",
+     "misconceptionCode": "matriz-trocada"
+    },
+    {
+     "text": "Dobradura",
+     "misconceptionCode": "matriz-trocada"
+    },
+    {
+     "text": "Escultura",
+     "misconceptionCode": "matriz-trocada"
+    },
+    {
+     "text": "Colagem"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Na colagem, as partes são coladas sobre uma superfície.",
+   "audioScript": "Pergunta 5. Juntar papéis recortados e colá-los para formar uma imagem é: A: Modelagem; B: Dobradura; C: Escultura; D: Colagem.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-5A-EF15AR04-02",
+   "skillCode": "EF15AR04",
+   "question": "Dar forma à argila ou à massinha com as mãos é:",
+   "options": [
+    {
+     "text": "Modelagem"
+    },
+    {
+     "text": "Colagem",
+     "misconceptionCode": "matriz-trocada"
+    },
+    {
+     "text": "Pintura",
+     "misconceptionCode": "matriz-trocada"
+    },
+    {
+     "text": "Desenho",
+     "misconceptionCode": "matriz-trocada"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Modelar é dar forma a um material macio.",
+   "audioScript": "Pergunta 6. Dar forma à argila ou à massinha com as mãos é: A: Modelagem; B: Colagem; C: Pintura; D: Desenho.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-5A-EF15AR15-01",
+   "skillCode": "EF15AR15",
+   "question": "Bater palmas, estalar os dedos e bater os pés são sons feitos com:",
+   "options": [
+    {
+     "text": "Instrumentos comprados",
+     "misconceptionCode": "arte-so-museu"
+    },
+    {
+     "text": "O corpo"
+    },
+    {
+     "text": "Máquinas",
+     "misconceptionCode": "arte-so-museu"
+    },
+    {
+     "text": "Objetos da cozinha",
+     "misconceptionCode": "arte-so-museu"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "É a percussão corporal.",
+   "audioScript": "Pergunta 7. Bater palmas, estalar os dedos e bater os pés são sons feitos com: A: Instrumentos comprados; B: O corpo; C: Máquinas; D: Objetos da cozinha.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-5A-EF15AR15-02",
+   "skillCode": "EF15AR15",
+   "question": "O que nos permite diferenciar o som de um apito do som de um tambor?",
+   "options": [
+    {
+     "text": "A cor",
+     "misconceptionCode": "corpo-nao-comunica"
+    },
+    {
+     "text": "O tamanho da sala",
+     "misconceptionCode": "corpo-nao-comunica"
+    },
+    {
+     "text": "O timbre"
+    },
+    {
+     "text": "O nome da música",
+     "misconceptionCode": "voz-sempre-igual"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Cada fonte sonora tem um som próprio.",
+   "audioScript": "Pergunta 8. O que nos permite diferenciar o som de um apito do som de um tambor? A: A cor; B: O tamanho da sala; C: O timbre; D: O nome da música.",
+   "role": "DEGRAU_BANK"
+  }
+ ]
 }

@@ -1,119 +1,327 @@
 {
-  "id": "DIAG2-CI-5A",
-  "version": 3,
-  "titulo": "Diagnóstico de Ciências — 5º ano",
-  "descricao": "Propriedades dos materiais e movimento de rotação da Terra no 5º ano.",
-  "subjectCode": "CI",
-  "subjectName": "Ciências",
-  "gradeYear": 5,
-  "status": "APPROVED",
-  "source": "SPEAKFLOW",
-  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-  "adaptive": true,
-  "items": [
+ "id": "DIAG2-CI-5A",
+ "version": 4,
+ "titulo": "Diagnóstico de Ciências — 5º ano",
+ "descricao": "Propriedades dos materiais, rotação da Terra, ciclo da água e nutrição do corpo no 5º ano, com degrau para misturas e pontos cardeais do 4º ano.",
+ "subjectCode": "CI",
+ "subjectName": "Ciências",
+ "gradeYear": 5,
+ "status": "APPROVED",
+ "source": "SPEAKFLOW",
+ "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+ "adaptive": true,
+ "items": [
+  {
+   "id": "DI2-EF05CI01-01",
+   "skillCode": "EF05CI01",
+   "question": "Uma bola grande de isopor e uma moeda pequena são colocadas na água. O que acontece?",
+   "options": [
     {
-      "id": "DI2-EF05CI01-01",
-      "skillCode": "EF05CI01",
-      "question": "Uma bola grande de isopor e uma moeda pequena são colocadas na água. O que acontece?",
-      "options": [
-        {
-          "text": "A bola afunda porque é maior",
-          "misconceptionCode": "pesado-afunda"
-        },
-        {
-          "text": "As duas afundam",
-          "misconceptionCode": "pesado-afunda"
-        },
-        {
-          "text": "As duas flutuam",
-          "misconceptionCode": "propriedade-trocada"
-        },
-        {
-          "text": "A bola de isopor flutua e a moeda afunda"
-        }
-      ],
-      "correctIndex": 3,
-      "explanation": "Não é o tamanho que importa, é o material. O isopor é leve e \"cheio de ar\" e flutua; o metal da moeda afunda.",
-      "audioScript": "Pergunta 1. Uma bola grande de isopor e uma moeda pequena são colocadas na água. O que acontece? A: A bola afunda porque é maior; B: As duas afundam; C: As duas flutuam; D: A bola de isopor flutua e a moeda afunda.",
-      "role": "NORMAL"
+     "text": "A bola afunda porque é maior",
+     "misconceptionCode": "pesado-afunda"
     },
     {
-      "id": "DI2-EF05CI01-02",
-      "skillCode": "EF05CI01",
-      "question": "Qual destes objetos um ímã atrai?",
-      "options": [
-        {
-          "text": "Uma tampinha de ferro"
-        },
-        {
-          "text": "Um copo de alumínio",
-          "misconceptionCode": "todo-metal-ima"
-        },
-        {
-          "text": "Uma caneta de plástico",
-          "misconceptionCode": "propriedade-trocada"
-        },
-        {
-          "text": "Um lápis de madeira",
-          "misconceptionCode": "propriedade-trocada"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "O ímã \"gruda\" no ferro. Por isso ele pega a tampinha de ferro, mas não pega latinha de alumínio nem papel.",
-      "audioScript": "Pergunta 1. Qual destes objetos um ímã atrai? A: Uma tampinha de ferro; B: Um copo de alumínio; C: Uma caneta de plástico; D: Um lápis de madeira.",
-      "role": "NORMAL"
+     "text": "As duas afundam",
+     "misconceptionCode": "pesado-afunda"
     },
     {
-      "id": "DI2-EF05CI11-01",
-      "skillCode": "EF05CI11",
-      "question": "O que causa o dia e a noite?",
-      "options": [
-        {
-          "text": "A Terra girando em torno de si mesma"
-        },
-        {
-          "text": "O Sol dando a volta na Terra",
-          "misconceptionCode": "sol-gira-terra"
-        },
-        {
-          "text": "A Terra dando a volta no Sol",
-          "misconceptionCode": "rotacao-translacao"
-        },
-        {
-          "text": "O Sol apagando à noite",
-          "misconceptionCode": "sol-apaga"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "A Terra gira como um pião. O lado virado para o Sol está de dia; o outro lado, de noite.",
-      "audioScript": "Pergunta 1. O que causa o dia e a noite? A: A Terra girando em torno de si mesma; B: O Sol dando a volta na Terra; C: A Terra dando a volta no Sol; D: O Sol apagando à noite.",
-      "role": "NORMAL"
+     "text": "As duas flutuam",
+     "misconceptionCode": "propriedade-trocada"
     },
     {
-      "id": "DI2-EF05CI11-02",
-      "skillCode": "EF05CI11",
-      "question": "Quanto tempo dura uma rotação completa da Terra?",
-      "options": [
-        {
-          "text": "Um ano",
-          "misconceptionCode": "rotacao-translacao"
-        },
-        {
-          "text": "Uma semana",
-          "misconceptionCode": "duracao-errada"
-        },
-        {
-          "text": "Cerca de 24 horas"
-        },
-        {
-          "text": "Doze meses",
-          "misconceptionCode": "duracao-errada"
-        }
-      ],
-      "correctIndex": 2,
-      "explanation": "Uma volta da Terra em torno de si mesma é um dia inteiro, com manhã, tarde e noite: cerca de 24 horas.",
-      "audioScript": "Pergunta 1. Quanto tempo dura uma rotação completa da Terra? A: Um ano; B: Uma semana; C: Cerca de 24 horas; D: Doze meses.",
-      "role": "NORMAL"
+     "text": "A bola de isopor flutua e a moeda afunda"
     }
-  ]
+   ],
+   "correctIndex": 3,
+   "explanation": "Não é o tamanho que importa, é o material. O isopor é leve e \"cheio de ar\" e flutua; o metal da moeda afunda.",
+   "audioScript": "Pergunta 1. Uma bola grande de isopor e uma moeda pequena são colocadas na água. O que acontece? A: A bola afunda porque é maior; B: As duas afundam; C: As duas flutuam; D: A bola de isopor flutua e a moeda afunda.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF05CI01-02",
+   "skillCode": "EF05CI01",
+   "question": "Qual destes objetos um ímã atrai?",
+   "options": [
+    {
+     "text": "Uma tampinha de ferro"
+    },
+    {
+     "text": "Um copo de alumínio",
+     "misconceptionCode": "todo-metal-ima"
+    },
+    {
+     "text": "Uma caneta de plástico",
+     "misconceptionCode": "propriedade-trocada"
+    },
+    {
+     "text": "Um lápis de madeira",
+     "misconceptionCode": "propriedade-trocada"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "O ímã \"gruda\" no ferro. Por isso ele pega a tampinha de ferro, mas não pega latinha de alumínio nem papel.",
+   "audioScript": "Pergunta 1. Qual destes objetos um ímã atrai? A: Uma tampinha de ferro; B: Um copo de alumínio; C: Uma caneta de plástico; D: Um lápis de madeira.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF05CI11-01",
+   "skillCode": "EF05CI11",
+   "question": "O que causa o dia e a noite?",
+   "options": [
+    {
+     "text": "A Terra girando em torno de si mesma"
+    },
+    {
+     "text": "O Sol dando a volta na Terra",
+     "misconceptionCode": "sol-gira-terra"
+    },
+    {
+     "text": "A Terra dando a volta no Sol",
+     "misconceptionCode": "rotacao-translacao"
+    },
+    {
+     "text": "O Sol apagando à noite",
+     "misconceptionCode": "sol-apaga"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "A Terra gira como um pião. O lado virado para o Sol está de dia; o outro lado, de noite.",
+   "audioScript": "Pergunta 1. O que causa o dia e a noite? A: A Terra girando em torno de si mesma; B: O Sol dando a volta na Terra; C: A Terra dando a volta no Sol; D: O Sol apagando à noite.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF05CI11-02",
+   "skillCode": "EF05CI11",
+   "question": "Quanto tempo dura uma rotação completa da Terra?",
+   "options": [
+    {
+     "text": "Um ano",
+     "misconceptionCode": "rotacao-translacao"
+    },
+    {
+     "text": "Uma semana",
+     "misconceptionCode": "duracao-errada"
+    },
+    {
+     "text": "Cerca de 24 horas"
+    },
+    {
+     "text": "Doze meses",
+     "misconceptionCode": "duracao-errada"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Uma volta da Terra em torno de si mesma é um dia inteiro, com manhã, tarde e noite: cerca de 24 horas.",
+   "audioScript": "Pergunta 1. Quanto tempo dura uma rotação completa da Terra? A: Um ano; B: Uma semana; C: Cerca de 24 horas; D: Doze meses.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF05CI02-01",
+   "skillCode": "EF05CI02",
+   "question": "Do que são feitas as nuvens?",
+   "options": [
+    {
+     "text": "De fumaça",
+     "misconceptionCode": "nuvem-e-fumaca"
+    },
+    {
+     "text": "De algodão",
+     "misconceptionCode": "nuvem-e-fumaca"
+    },
+    {
+     "text": "De vapor quente",
+     "misconceptionCode": "nuvem-e-fumaca"
+    },
+    {
+     "text": "De gotinhas de água e cristais de gelo"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "O vapor esfria e se condensa.",
+   "audioScript": "Pergunta 1. Do que são feitas as nuvens? A: De fumaça; B: De algodão; C: De vapor quente; D: De gotinhas de água e cristais de gelo.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF05CI02-02",
+   "skillCode": "EF05CI02",
+   "question": "A água que evapora:",
+   "options": [
+    {
+     "text": "Continua no ciclo, no ar"
+    },
+    {
+     "text": "Desaparece",
+     "misconceptionCode": "agua-some"
+    },
+    {
+     "text": "Vai para o espaço",
+     "misconceptionCode": "agua-some"
+    },
+    {
+     "text": "Vira ar",
+     "misconceptionCode": "agua-some"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "A água muda de estado, mas não some.",
+   "audioScript": "Pergunta 2. A água que evapora: A: Continua no ciclo, no ar; B: Desaparece; C: Vai para o espaço; D: Vira ar.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF05CI06-01",
+   "skillCode": "EF05CI06",
+   "question": "Para a célula conseguir energia, ela precisa de:",
+   "options": [
+    {
+     "text": "Só nutrientes",
+     "misconceptionCode": "sistemas-separados"
+    },
+    {
+     "text": "Nutrientes e oxigênio"
+    },
+    {
+     "text": "Só oxigênio",
+     "misconceptionCode": "sistemas-separados"
+    },
+    {
+     "text": "Só água",
+     "misconceptionCode": "respirar-so-ar"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "Digestório e respiratório trabalham juntos.",
+   "audioScript": "Pergunta 3. Para a célula conseguir energia, ela precisa de: A: Só nutrientes; B: Nutrientes e oxigênio; C: Só oxigênio; D: Só água.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF05CI06-02",
+   "skillCode": "EF05CI06",
+   "question": "Onde começa a digestão?",
+   "options": [
+    {
+     "text": "No estômago",
+     "misconceptionCode": "digestao-so-estomago"
+    },
+    {
+     "text": "No intestino",
+     "misconceptionCode": "digestao-so-estomago"
+    },
+    {
+     "text": "Na boca"
+    },
+    {
+     "text": "Nos pulmões",
+     "misconceptionCode": "orgao-trocado"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Com a mastigação e a saliva.",
+   "audioScript": "Pergunta 4. Onde começa a digestão? A: No estômago; B: No intestino; C: Na boca; D: Nos pulmões.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF04CI01-01",
+   "skillCode": "EF04CI01",
+   "question": "Na água com sal bem mexida, o sal:",
+   "options": [
+    {
+     "text": "Sumiu",
+     "misconceptionCode": "agua-some"
+    },
+    {
+     "text": "Virou água",
+     "misconceptionCode": "agua-some"
+    },
+    {
+     "text": "Virou ar",
+     "misconceptionCode": "agua-some"
+    },
+    {
+     "text": "Continua ali, só não dá para ver"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "O gosto salgado mostra que ele continua.",
+   "audioScript": "Pergunta 5. Na água com sal bem mexida, o sal: A: Sumiu; B: Virou água; C: Virou ar; D: Continua ali, só não dá para ver.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-5A-EF04CI01-02",
+   "skillCode": "EF04CI01",
+   "question": "Como separar a areia da água?",
+   "options": [
+    {
+     "text": "Com um filtro ou coador"
+    },
+    {
+     "text": "Não dá para separar",
+     "misconceptionCode": "troca-etapas"
+    },
+    {
+     "text": "Mexendo",
+     "misconceptionCode": "troca-etapas"
+    },
+    {
+     "text": "Assoprando",
+     "misconceptionCode": "troca-etapas"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "O filtro segura a areia.",
+   "audioScript": "Pergunta 6. Como separar a areia da água? A: Com um filtro ou coador; B: Não dá para separar; C: Mexendo; D: Assoprando.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-5A-EF04CI09-01",
+   "skillCode": "EF04CI09",
+   "question": "O Sol nasce a:",
+   "options": [
+    {
+     "text": "Oeste",
+     "misconceptionCode": "troca-etapas"
+    },
+    {
+     "text": "Leste"
+    },
+    {
+     "text": "Norte",
+     "misconceptionCode": "troca-etapas"
+    },
+    {
+     "text": "Sul",
+     "misconceptionCode": "troca-etapas"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "E se põe a oeste.",
+   "audioScript": "Pergunta 7. O Sol nasce a: A: Oeste; B: Leste; C: Norte; D: Sul.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-5A-EF04CI09-02",
+   "skillCode": "EF04CI09",
+   "question": "Ao longo do dia, a sombra de uma vara:",
+   "options": [
+    {
+     "text": "Fica sempre igual",
+     "misconceptionCode": "troca-etapas"
+    },
+    {
+     "text": "Desaparece para sempre",
+     "misconceptionCode": "agua-some"
+    },
+    {
+     "text": "Muda de tamanho e de direção"
+    },
+    {
+     "text": "Só muda de cor",
+     "misconceptionCode": "troca-etapas"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Porque a posição do Sol no céu muda.",
+   "audioScript": "Pergunta 8. Ao longo do dia, a sombra de uma vara: A: Fica sempre igual; B: Desaparece para sempre; C: Muda de tamanho e de direção; D: Só muda de cor.",
+   "role": "DEGRAU_BANK"
+  }
+ ]
 }

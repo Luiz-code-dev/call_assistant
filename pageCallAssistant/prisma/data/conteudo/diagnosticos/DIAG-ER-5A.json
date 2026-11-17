@@ -1,119 +1,327 @@
 {
-  "id": "DIAG2-ER-5A",
-  "version": 3,
-  "titulo": "Diagnóstico de Ensino Religioso — 5º ano",
-  "descricao": "Tradição oral e mitos de criação em diferentes culturas e tradições religiosas no 5º ano.",
-  "subjectCode": "ER",
-  "subjectName": "Ensino Religioso",
-  "gradeYear": 5,
-  "status": "APPROVED",
-  "source": "SPEAKFLOW",
-  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-  "adaptive": true,
-  "items": [
+ "id": "DIAG2-ER-5A",
+ "version": 4,
+ "titulo": "Diagnóstico de Ensino Religioso — 5º ano",
+ "descricao": "Mitos, tradição oral, sábios e anciãos e ensinamentos das narrativas no 5º ano, com degrau para ritos e representações do sagrado do 4º ano.",
+ "subjectCode": "ER",
+ "subjectName": "Ensino Religioso",
+ "gradeYear": 5,
+ "status": "APPROVED",
+ "source": "SPEAKFLOW",
+ "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+ "adaptive": true,
+ "items": [
+  {
+   "id": "DI2-EF05ER04-01",
+   "skillCode": "EF05ER04",
+   "question": "Uma história que passa dos avós para os netos pela fala é um exemplo de:",
+   "options": [
     {
-      "id": "DI2-EF05ER04-01",
-      "skillCode": "EF05ER04",
-      "question": "Uma história que passa dos avós para os netos pela fala é um exemplo de:",
-      "options": [
-        {
-          "text": "Tradição escrita",
-          "misconceptionCode": "confunde-oral-escrita"
-        },
-        {
-          "text": "Algo sem valor",
-          "misconceptionCode": "oral-sem-valor"
-        },
-        {
-          "text": "Tradição oral"
-        },
-        {
-          "text": "Algo que acabou há muito tempo",
-          "misconceptionCode": "oral-so-antigo"
-        }
-      ],
-      "correctIndex": 2,
-      "explanation": "Quando a história é contada de boca em boca, sem escrever, ela é passada pela tradição oral.",
-      "audioScript": "Pergunta 1. Uma história que passa dos avós para os netos pela fala é um exemplo de: A: Tradição escrita; B: Algo sem valor; C: Tradição oral; D: Algo que acabou há muito tempo.",
-      "role": "NORMAL"
+     "text": "Tradição escrita",
+     "misconceptionCode": "confunde-oral-escrita"
     },
     {
-      "id": "DI2-EF05ER04-02",
-      "skillCode": "EF05ER04",
-      "question": "A tradição oral está presente:",
-      "options": [
-        {
-          "text": "Só em uma religião",
-          "misconceptionCode": "oral-uma-cultura"
-        },
-        {
-          "text": "Em muitas culturas e tradições religiosas"
-        },
-        {
-          "text": "Só nos livros",
-          "misconceptionCode": "confunde-oral-escrita"
-        },
-        {
-          "text": "Em nenhuma cultura hoje",
-          "misconceptionCode": "oral-so-antigo"
-        }
-      ],
-      "correctIndex": 1,
-      "explanation": "Contar histórias de boca em boca acontece no mundo todo, em muitas religiões e culturas, até hoje.",
-      "audioScript": "Pergunta 1. A tradição oral está presente: A: Só em uma religião; B: Em muitas culturas e tradições religiosas; C: Só nos livros; D: Em nenhuma cultura hoje.",
-      "role": "NORMAL"
+     "text": "Algo sem valor",
+     "misconceptionCode": "oral-sem-valor"
     },
     {
-      "id": "DI2-EF05ER02-01",
-      "skillCode": "EF05ER02",
-      "question": "No estudo das religiões, um mito de criação é:",
-      "options": [
-        {
-          "text": "Uma mentira",
-          "misconceptionCode": "mito-mentira"
-        },
-        {
-          "text": "Uma teoria de laboratório",
-          "misconceptionCode": "mito-ciencia"
-        },
-        {
-          "text": "Uma história sem nenhum ensinamento",
-          "misconceptionCode": "mito-sem-sentido"
-        },
-        {
-          "text": "Uma narrativa sagrada sobre a origem do mundo"
-        }
-      ],
-      "correctIndex": 3,
-      "explanation": "Aqui, mito não é mentira: é uma história sagrada que um povo conta para explicar como o mundo começou.",
-      "audioScript": "Pergunta 1. No estudo das religiões, um mito de criação é: A: Uma mentira; B: Uma teoria de laboratório; C: Uma história sem nenhum ensinamento; D: Uma narrativa sagrada sobre a origem do mundo.",
-      "role": "NORMAL"
+     "text": "Tradição oral"
     },
     {
-      "id": "DI2-EF05ER02-02",
-      "skillCode": "EF05ER02",
-      "question": "Sobre as explicações para a origem do mundo, é correto dizer que:",
-      "options": [
-        {
-          "text": "Cada cultura tem as suas narrativas"
-        },
-        {
-          "text": "Só existe uma explicação",
-          "misconceptionCode": "mito-unico"
-        },
-        {
-          "text": "Todas são mentira",
-          "misconceptionCode": "mito-mentira"
-        },
-        {
-          "text": "Nenhum povo pensa nisso",
-          "misconceptionCode": "mito-sem-sentido"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Cada povo e cada religião tem a sua história sobre como o mundo começou. Conhecer todas ajuda a respeitar todo mundo.",
-      "audioScript": "Pergunta 1. Sobre as explicações para a origem do mundo, é correto dizer que: A: Cada cultura tem as suas narrativas; B: Só existe uma explicação; C: Todas são mentira; D: Nenhum povo pensa nisso.",
-      "role": "NORMAL"
+     "text": "Algo que acabou há muito tempo",
+     "misconceptionCode": "oral-so-antigo"
     }
-  ]
+   ],
+   "correctIndex": 2,
+   "explanation": "Quando a história é contada de boca em boca, sem escrever, ela é passada pela tradição oral.",
+   "audioScript": "Pergunta 1. Uma história que passa dos avós para os netos pela fala é um exemplo de: A: Tradição escrita; B: Algo sem valor; C: Tradição oral; D: Algo que acabou há muito tempo.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF05ER04-02",
+   "skillCode": "EF05ER04",
+   "question": "A tradição oral está presente:",
+   "options": [
+    {
+     "text": "Só em uma religião",
+     "misconceptionCode": "oral-uma-cultura"
+    },
+    {
+     "text": "Em muitas culturas e tradições religiosas"
+    },
+    {
+     "text": "Só nos livros",
+     "misconceptionCode": "confunde-oral-escrita"
+    },
+    {
+     "text": "Em nenhuma cultura hoje",
+     "misconceptionCode": "oral-so-antigo"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "Contar histórias de boca em boca acontece no mundo todo, em muitas religiões e culturas, até hoje.",
+   "audioScript": "Pergunta 1. A tradição oral está presente: A: Só em uma religião; B: Em muitas culturas e tradições religiosas; C: Só nos livros; D: Em nenhuma cultura hoje.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF05ER02-01",
+   "skillCode": "EF05ER02",
+   "question": "No estudo das religiões, um mito de criação é:",
+   "options": [
+    {
+     "text": "Uma mentira",
+     "misconceptionCode": "mito-mentira"
+    },
+    {
+     "text": "Uma teoria de laboratório",
+     "misconceptionCode": "mito-ciencia"
+    },
+    {
+     "text": "Uma história sem nenhum ensinamento",
+     "misconceptionCode": "mito-sem-sentido"
+    },
+    {
+     "text": "Uma narrativa sagrada sobre a origem do mundo"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Aqui, mito não é mentira: é uma história sagrada que um povo conta para explicar como o mundo começou.",
+   "audioScript": "Pergunta 1. No estudo das religiões, um mito de criação é: A: Uma mentira; B: Uma teoria de laboratório; C: Uma história sem nenhum ensinamento; D: Uma narrativa sagrada sobre a origem do mundo.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF05ER02-02",
+   "skillCode": "EF05ER02",
+   "question": "Sobre as explicações para a origem do mundo, é correto dizer que:",
+   "options": [
+    {
+     "text": "Cada cultura tem as suas narrativas"
+    },
+    {
+     "text": "Só existe uma explicação",
+     "misconceptionCode": "mito-unico"
+    },
+    {
+     "text": "Todas são mentira",
+     "misconceptionCode": "mito-mentira"
+    },
+    {
+     "text": "Nenhum povo pensa nisso",
+     "misconceptionCode": "mito-sem-sentido"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Cada povo e cada religião tem a sua história sobre como o mundo começou. Conhecer todas ajuda a respeitar todo mundo.",
+   "audioScript": "Pergunta 1. Sobre as explicações para a origem do mundo, é correto dizer que: A: Cada cultura tem as suas narrativas; B: Só existe uma explicação; C: Todas são mentira; D: Nenhum povo pensa nisso.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF05ER06-01",
+   "skillCode": "EF05ER06",
+   "question": "Na tradição oral, quem costuma guardar e contar os saberes do povo?",
+   "options": [
+    {
+     "text": "Os mais ricos",
+     "misconceptionCode": "sabio-e-rico"
+    },
+    {
+     "text": "Os mais famosos",
+     "misconceptionCode": "sabio-e-rico"
+    },
+    {
+     "text": "Ninguém",
+     "misconceptionCode": "tradicao-se-guarda-sozinha"
+    },
+    {
+     "text": "Os sábios e os anciãos"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Eles guardam a memória e ensinam os mais novos.",
+   "audioScript": "Pergunta 1. Na tradição oral, quem costuma guardar e contar os saberes do povo? A: Os mais ricos; B: Os mais famosos; C: Ninguém; D: Os sábios e os anciãos.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF05ER06-02",
+   "skillCode": "EF05ER06",
+   "question": "Se ninguém ouvir as histórias dos mais velhos, elas:",
+   "options": [
+    {
+     "text": "Podem se perder"
+    },
+    {
+     "text": "Continuam sozinhas",
+     "misconceptionCode": "tradicao-se-guarda-sozinha"
+    },
+    {
+     "text": "Vão para os livros sozinhas",
+     "misconceptionCode": "tradicao-se-guarda-sozinha"
+    },
+    {
+     "text": "Ficam mais fortes",
+     "misconceptionCode": "tradicao-se-guarda-sozinha"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "A tradição oral vive quando é contada e ouvida.",
+   "audioScript": "Pergunta 2. Se ninguém ouvir as histórias dos mais velhos, elas: A: Podem se perder; B: Continuam sozinhas; C: Vão para os livros sozinhas; D: Ficam mais fortes.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF05ER07-01",
+   "skillCode": "EF05ER07",
+   "question": "O provérbio \"A união faz a força\" ensina que:",
+   "options": [
+    {
+     "text": "É melhor fazer tudo sozinho",
+     "misconceptionCode": "licao-trocada"
+    },
+    {
+     "text": "Juntas, as pessoas conseguem mais"
+    },
+    {
+     "text": "Só os fortes vencem",
+     "misconceptionCode": "licao-trocada"
+    },
+    {
+     "text": "A força vem de exercícios",
+     "misconceptionCode": "ao-pe-da-letra"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "Fala de cooperação.",
+   "audioScript": "Pergunta 3. O provérbio \"A união faz a força\" ensina que: A: É melhor fazer tudo sozinho; B: Juntas, as pessoas conseguem mais; C: Só os fortes vencem; D: A força vem de exercícios.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF05ER07-02",
+   "skillCode": "EF05ER07",
+   "question": "As histórias das tradições servem:",
+   "options": [
+    {
+     "text": "Só para divertir",
+     "misconceptionCode": "so-diversao"
+    },
+    {
+     "text": "Para nada",
+     "misconceptionCode": "so-diversao"
+    },
+    {
+     "text": "Para ensinar valores e jeitos de viver, além de encantar"
+    },
+    {
+     "text": "Só para passar o tempo",
+     "misconceptionCode": "so-diversao"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Elas guardam ensinamentos.",
+   "audioScript": "Pergunta 4. As histórias das tradições servem: A: Só para divertir; B: Para nada; C: Para ensinar valores e jeitos de viver, além de encantar; D: Só para passar o tempo.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF04ER02-01",
+   "skillCode": "EF04ER02",
+   "question": "O batismo, em tradições cristãs, é um rito de:",
+   "options": [
+    {
+     "text": "Despedida",
+     "misconceptionCode": "licao-trocada"
+    },
+    {
+     "text": "Colheita",
+     "misconceptionCode": "licao-trocada"
+    },
+    {
+     "text": "Aniversário",
+     "misconceptionCode": "licao-trocada"
+    },
+    {
+     "text": "Iniciação, de entrada na comunidade"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Marca a entrada na comunidade de fé.",
+   "audioScript": "Pergunta 5. O batismo, em tradições cristãs, é um rito de: A: Despedida; B: Colheita; C: Aniversário; D: Iniciação, de entrada na comunidade.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-5A-EF04ER02-02",
+   "skillCode": "EF04ER02",
+   "question": "Os ritos religiosos:",
+   "options": [
+    {
+     "text": "Têm uma função e um significado para quem os pratica"
+    },
+    {
+     "text": "Não têm sentido",
+     "misconceptionCode": "so-diversao"
+    },
+    {
+     "text": "São só enfeite",
+     "misconceptionCode": "so-diversao"
+    },
+    {
+     "text": "São brincadeiras",
+     "misconceptionCode": "so-diversao"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Cada rito marca um momento importante.",
+   "audioScript": "Pergunta 6. Os ritos religiosos: A: Têm uma função e um significado para quem os pratica; B: Não têm sentido; C: São só enfeite; D: São brincadeiras.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-5A-EF04ER06-01",
+   "skillCode": "EF04ER06",
+   "question": "As tradições religiosas chamam o sagrado:",
+   "options": [
+    {
+     "text": "Por um único nome",
+     "misconceptionCode": "so-a-minha-historia"
+    },
+    {
+     "text": "Por nomes diferentes"
+    },
+    {
+     "text": "Sem nome nenhum",
+     "misconceptionCode": "so-a-minha-historia"
+    },
+    {
+     "text": "Só pelo nome da sua tradição",
+     "misconceptionCode": "so-a-minha-historia"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "Cada tradição tem os seus nomes e as suas representações.",
+   "audioScript": "Pergunta 7. As tradições religiosas chamam o sagrado: A: Por um único nome; B: Por nomes diferentes; C: Sem nome nenhum; D: Só pelo nome da sua tradição.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-5A-EF04ER06-02",
+   "skillCode": "EF04ER06",
+   "question": "Diante de uma imagem sagrada de outra tradição, a atitude correta é:",
+   "options": [
+    {
+     "text": "Zombar",
+     "misconceptionCode": "so-a-minha-historia"
+    },
+    {
+     "text": "Tratar como brinquedo",
+     "misconceptionCode": "so-diversao"
+    },
+    {
+     "text": "Respeitar"
+    },
+    {
+     "text": "Quebrar",
+     "misconceptionCode": "so-a-minha-historia"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "O que é sagrado para o outro merece respeito.",
+   "audioScript": "Pergunta 8. Diante de uma imagem sagrada de outra tradição, a atitude correta é: A: Zombar; B: Tratar como brinquedo; C: Respeitar; D: Quebrar.",
+   "role": "DEGRAU_BANK"
+  }
+ ]
 }
