@@ -306,7 +306,8 @@ jobs:
             echo "FAIL: importacao do pacote falhou no upgrade main→branch"
             exit 1
           fi
-          # O que a main tinha do gerador removido sai de circulação; ficam só os 41 + 18 do pacote
+          # O que a main tinha do gerador removido sai de circulação; fica só o que está nos arquivos do pacote
+          read -r esp_trilhas esp_diags esp_fichas <<< "$(node scripts/escolas/conteudo-contar.mjs)"
           for db in db01_up db02_up; do
             linha=$(psql -h 127.0.0.1 -U postgres -d "$db" -At -F ' ' -c "
               SELECT (SELECT COUNT(*) FROM \"EduTrack\"      WHERE \"networkId\" IS NULL AND source = 'SPEAKFLOW' AND status = 'APPROVED'),
@@ -315,8 +316,8 @@ jobs:
             set -- $linha
             trilhas=$1; diags=$2; velhos=$3
             echo "[upgrade-test] $db: $trilhas trilhas e $diags diagnósticos APPROVED; $velhos atividades antigas publicadas"
-            if [ "$trilhas" != "41" ] || [ "$diags" != "18" ] || [ "$velhos" != "0" ]; then
-              echo "FAIL: $db depois do upgrade (esperado 41 trilhas, 18 diagnósticos e 0 atividades antigas publicadas)"
+            if [ "$trilhas" != "$esp_trilhas" ] || [ "$diags" != "$esp_diags" ] || [ "$velhos" != "0" ]; then
+              echo "FAIL: $db depois do upgrade (esperado $esp_trilhas trilhas, $esp_diags diagnósticos e 0 atividades antigas publicadas)"
               exit 1
             fi
           done
