@@ -1,119 +1,327 @@
 {
-  "id": "DIAG2-GE-5A",
-  "version": 3,
-  "titulo": "Diagnóstico de Geografia — 5º ano",
-  "descricao": "Cidades e suas funções, qualidade da água e poluição no 5º ano.",
-  "subjectCode": "GE",
-  "subjectName": "Geografia",
-  "gradeYear": 5,
-  "status": "APPROVED",
-  "source": "SPEAKFLOW",
-  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-  "adaptive": true,
-  "items": [
+ "id": "DIAG2-GE-5A",
+ "version": 4,
+ "titulo": "Diagnóstico de Geografia — 5º ano",
+ "descricao": "Formas e funções das cidades, qualidade da água, população e migrações e mudanças no trabalho no 5º ano, com degrau para unidades político-administrativas e trabalho no campo e na cidade do 4º ano.",
+ "subjectCode": "GE",
+ "subjectName": "Geografia",
+ "gradeYear": 5,
+ "status": "APPROVED",
+ "source": "SPEAKFLOW",
+ "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+ "adaptive": true,
+ "items": [
+  {
+   "id": "DI2-EF05GE03-01",
+   "skillCode": "EF05GE03",
+   "question": "Uma cidade cheia de pousadas, praias e passeios tem como função importante:",
+   "options": [
     {
-      "id": "DI2-EF05GE03-01",
-      "skillCode": "EF05GE03",
-      "question": "Uma cidade cheia de pousadas, praias e passeios tem como função importante:",
-      "options": [
-        {
-          "text": "Indústria",
-          "misconceptionCode": "funcao-trocada"
-        },
-        {
-          "text": "Só moradia",
-          "misconceptionCode": "cidade-so-moradia"
-        },
-        {
-          "text": "Turismo"
-        },
-        {
-          "text": "Agricultura",
-          "misconceptionCode": "funcao-trocada"
-        }
-      ],
-      "correctIndex": 2,
-      "explanation": "Pousadas e passeios existem para receber visitantes. Cidade que vive de receber visitantes tem a função turística.",
-      "audioScript": "Pergunta 1. Uma cidade cheia de pousadas, praias e passeios tem como função importante: A: Indústria; B: Só moradia; C: Turismo; D: Agricultura.",
-      "role": "NORMAL"
+     "text": "Indústria",
+     "misconceptionCode": "funcao-trocada"
     },
     {
-      "id": "DI2-EF05GE03-02",
-      "skillCode": "EF05GE03",
-      "question": "O crescimento rápido de uma cidade, sem planejamento, costuma trazer:",
-      "options": [
-        {
-          "text": "Só benefícios",
-          "misconceptionCode": "crescer-so-bom"
-        },
-        {
-          "text": "Mais empregos, mas também trânsito e falta de moradia"
-        },
-        {
-          "text": "Só prejuízos",
-          "misconceptionCode": "crescer-so-ruim"
-        },
-        {
-          "text": "Nenhuma mudança",
-          "misconceptionCode": "cidade-so-moradia"
-        }
-      ],
-      "correctIndex": 1,
-      "explanation": "Quando muita gente chega de uma vez, aparecem empregos, mas também trânsito e falta de casa. Crescer sem planejar traz os dois lados.",
-      "audioScript": "Pergunta 1. O crescimento rápido de uma cidade, sem planejamento, costuma trazer: A: Só benefícios; B: Mais empregos, mas também trânsito e falta de moradia; C: Só prejuízos; D: Nenhuma mudança.",
-      "role": "NORMAL"
+     "text": "Só moradia",
+     "misconceptionCode": "cidade-so-moradia"
     },
     {
-      "id": "DI2-EF05GE10-01",
-      "skillCode": "EF05GE10",
-      "question": "Uma água bem transparente é sempre própria para beber?",
-      "options": [
-        {
-          "text": "Sim, transparência é sinal de limpeza",
-          "misconceptionCode": "transparente-e-limpa"
-        },
-        {
-          "text": "Sim, se não tiver lixo",
-          "misconceptionCode": "poluicao-so-lixo"
-        },
-        {
-          "text": "Sim, o rio sempre se limpa",
-          "misconceptionCode": "rio-limpa-sozinho"
-        },
-        {
-          "text": "Não, pode ter micróbios que não se veem"
-        }
-      ],
-      "correctIndex": 3,
-      "explanation": "Micróbios são tão pequenos que a gente não enxerga. A água pode parecer limpa e mesmo assim fazer mal. Beba só água tratada ou filtrada.",
-      "audioScript": "Pergunta 1. Uma água bem transparente é sempre própria para beber? A: Sim, transparência é sinal de limpeza; B: Sim, se não tiver lixo; C: Sim, o rio sempre se limpa; D: Não, pode ter micróbios que não se veem.",
-      "role": "NORMAL"
+     "text": "Turismo"
     },
     {
-      "id": "DI2-EF05GE10-02",
-      "skillCode": "EF05GE10",
-      "question": "Qual é uma das maiores causas da poluição dos rios nas cidades brasileiras?",
-      "options": [
-        {
-          "text": "O esgoto das casas sem tratamento"
-        },
-        {
-          "text": "Só as indústrias",
-          "misconceptionCode": "culpa-so-industria"
-        },
-        {
-          "text": "A água da chuva limpa",
-          "misconceptionCode": "rio-limpa-sozinho"
-        },
-        {
-          "text": "Os peixes",
-          "misconceptionCode": "poluicao-so-lixo"
-        }
-      ],
-      "correctIndex": 0,
-      "explanation": "Em muitas cidades, o esgoto das casas vai direto para o rio, sem limpeza. É isso que mais suja os rios.",
-      "audioScript": "Pergunta 1. Qual é uma das maiores causas da poluição dos rios nas cidades brasileiras? A: O esgoto das casas sem tratamento; B: Só as indústrias; C: A água da chuva limpa; D: Os peixes.",
-      "role": "NORMAL"
+     "text": "Agricultura",
+     "misconceptionCode": "funcao-trocada"
     }
-  ]
+   ],
+   "correctIndex": 2,
+   "explanation": "Pousadas e passeios existem para receber visitantes. Cidade que vive de receber visitantes tem a função turística.",
+   "audioScript": "Pergunta 1. Uma cidade cheia de pousadas, praias e passeios tem como função importante: A: Indústria; B: Só moradia; C: Turismo; D: Agricultura.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF05GE03-02",
+   "skillCode": "EF05GE03",
+   "question": "O crescimento rápido de uma cidade, sem planejamento, costuma trazer:",
+   "options": [
+    {
+     "text": "Só benefícios",
+     "misconceptionCode": "crescer-so-bom"
+    },
+    {
+     "text": "Mais empregos, mas também trânsito e falta de moradia"
+    },
+    {
+     "text": "Só prejuízos",
+     "misconceptionCode": "crescer-so-ruim"
+    },
+    {
+     "text": "Nenhuma mudança",
+     "misconceptionCode": "cidade-so-moradia"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "Quando muita gente chega de uma vez, aparecem empregos, mas também trânsito e falta de casa. Crescer sem planejar traz os dois lados.",
+   "audioScript": "Pergunta 1. O crescimento rápido de uma cidade, sem planejamento, costuma trazer: A: Só benefícios; B: Mais empregos, mas também trânsito e falta de moradia; C: Só prejuízos; D: Nenhuma mudança.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF05GE10-01",
+   "skillCode": "EF05GE10",
+   "question": "Uma água bem transparente é sempre própria para beber?",
+   "options": [
+    {
+     "text": "Sim, transparência é sinal de limpeza",
+     "misconceptionCode": "transparente-e-limpa"
+    },
+    {
+     "text": "Sim, se não tiver lixo",
+     "misconceptionCode": "poluicao-so-lixo"
+    },
+    {
+     "text": "Sim, o rio sempre se limpa",
+     "misconceptionCode": "rio-limpa-sozinho"
+    },
+    {
+     "text": "Não, pode ter micróbios que não se veem"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Micróbios são tão pequenos que a gente não enxerga. A água pode parecer limpa e mesmo assim fazer mal. Beba só água tratada ou filtrada.",
+   "audioScript": "Pergunta 1. Uma água bem transparente é sempre própria para beber? A: Sim, transparência é sinal de limpeza; B: Sim, se não tiver lixo; C: Sim, o rio sempre se limpa; D: Não, pode ter micróbios que não se veem.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-EF05GE10-02",
+   "skillCode": "EF05GE10",
+   "question": "Qual é uma das maiores causas da poluição dos rios nas cidades brasileiras?",
+   "options": [
+    {
+     "text": "O esgoto das casas sem tratamento"
+    },
+    {
+     "text": "Só as indústrias",
+     "misconceptionCode": "culpa-so-industria"
+    },
+    {
+     "text": "A água da chuva limpa",
+     "misconceptionCode": "rio-limpa-sozinho"
+    },
+    {
+     "text": "Os peixes",
+     "misconceptionCode": "poluicao-so-lixo"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Em muitas cidades, o esgoto das casas vai direto para o rio, sem limpeza. É isso que mais suja os rios.",
+   "audioScript": "Pergunta 1. Qual é uma das maiores causas da poluição dos rios nas cidades brasileiras? A: O esgoto das casas sem tratamento; B: Só as indústrias; C: A água da chuva limpa; D: Os peixes.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF05GE01-01",
+   "skillCode": "EF05GE01",
+   "question": "Muitas famílias saem do interior para as cidades maiores em busca de:",
+   "options": [
+    {
+     "text": "Nada",
+     "misconceptionCode": "migra-sem-motivo"
+    },
+    {
+     "text": "Passeio",
+     "misconceptionCode": "migra-sem-motivo"
+    },
+    {
+     "text": "Sorte",
+     "misconceptionCode": "migra-sem-motivo"
+    },
+    {
+     "text": "Trabalho, escolas e atendimento de saúde"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "A oferta de trabalho e serviços atrai migrantes.",
+   "audioScript": "Pergunta 1. Muitas famílias saem do interior para as cidades maiores em busca de: A: Nada; B: Passeio; C: Sorte; D: Trabalho, escolas e atendimento de saúde.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF05GE01-02",
+   "skillCode": "EF05GE01",
+   "question": "Quando uma cidade recebe muitos moradores novos, ela precisa de:",
+   "options": [
+    {
+     "text": "Mais moradias, escolas e transporte"
+    },
+    {
+     "text": "Nada a mais",
+     "misconceptionCode": "cidade-cresce-sem-problema"
+    },
+    {
+     "text": "Menos escolas",
+     "misconceptionCode": "cidade-cresce-sem-problema"
+    },
+    {
+     "text": "Menos ônibus",
+     "misconceptionCode": "cidade-cresce-sem-problema"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Mais gente precisa de mais serviços.",
+   "audioScript": "Pergunta 2. Quando uma cidade recebe muitos moradores novos, ela precisa de: A: Mais moradias, escolas e transporte; B: Nada a mais; C: Menos escolas; D: Menos ônibus.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF05GE05-01",
+   "skillCode": "EF05GE05",
+   "question": "Quando máquinas passam a fazer o trabalho de muitas pessoas:",
+   "options": [
+    {
+     "text": "Todos ganham emprego",
+     "misconceptionCode": "tecnologia-so-vantagem"
+    },
+    {
+     "text": "Alguns empregos acabam, e surgem outros que pedem mais estudo"
+    },
+    {
+     "text": "Nada muda",
+     "misconceptionCode": "trabalho-nao-muda"
+    },
+    {
+     "text": "Ninguém mais trabalha",
+     "misconceptionCode": "tecnologia-so-vantagem"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "A tecnologia traz vantagens e desafios.",
+   "audioScript": "Pergunta 3. Quando máquinas passam a fazer o trabalho de muitas pessoas: A: Todos ganham emprego; B: Alguns empregos acabam, e surgem outros que pedem mais estudo; C: Nada muda; D: Ninguém mais trabalha.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF05GE05-02",
+   "skillCode": "EF05GE05",
+   "question": "A tecnologia está presente:",
+   "options": [
+    {
+     "text": "Só na cidade",
+     "misconceptionCode": "tecnologia-so-na-cidade"
+    },
+    {
+     "text": "Só nas fábricas",
+     "misconceptionCode": "tecnologia-so-na-cidade"
+    },
+    {
+     "text": "No campo, na indústria, no comércio e nos serviços"
+    },
+    {
+     "text": "Só nos escritórios",
+     "misconceptionCode": "tecnologia-so-na-cidade"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Tratores, robôs, lojas virtuais e aplicativos são exemplos.",
+   "audioScript": "Pergunta 4. A tecnologia está presente: A: Só na cidade; B: Só nas fábricas; C: No campo, na indústria, no comércio e nos serviços; D: Só nos escritórios.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-5A-EF04GE05-01",
+   "skillCode": "EF04GE05",
+   "question": "Qual é a ordem correta, do menor para o maior?",
+   "options": [
+    {
+     "text": "País, região, estado, município",
+     "misconceptionCode": "populacao-parada"
+    },
+    {
+     "text": "Estado, município, país, região",
+     "misconceptionCode": "populacao-parada"
+    },
+    {
+     "text": "Região, município, estado, país",
+     "misconceptionCode": "populacao-parada"
+    },
+    {
+     "text": "Município, estado, região, país"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Um fica dentro do outro.",
+   "audioScript": "Pergunta 5. Qual é a ordem correta, do menor para o maior? A: País, região, estado, município; B: Estado, município, país, região; C: Região, município, estado, país; D: Município, estado, região, país.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-5A-EF04GE05-02",
+   "skillCode": "EF04GE05",
+   "question": "A Bahia é:",
+   "options": [
+    {
+     "text": "Um estado"
+    },
+    {
+     "text": "Um município",
+     "misconceptionCode": "populacao-parada"
+    },
+    {
+     "text": "Uma região",
+     "misconceptionCode": "populacao-parada"
+    },
+    {
+     "text": "Uma capital",
+     "misconceptionCode": "populacao-parada"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Salvador é a capital da Bahia.",
+   "audioScript": "Pergunta 6. A Bahia é: A: Um estado; B: Um município; C: Uma região; D: Uma capital.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-5A-EF04GE07-01",
+   "skillCode": "EF04GE07",
+   "question": "A fábrica que transforma o leite em queijo faz parte:",
+   "options": [
+    {
+     "text": "Da agricultura",
+     "misconceptionCode": "setor-trocado"
+    },
+    {
+     "text": "Da indústria"
+    },
+    {
+     "text": "Do comércio",
+     "misconceptionCode": "setor-trocado"
+    },
+    {
+     "text": "Da pecuária",
+     "misconceptionCode": "setor-trocado"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "A indústria transforma matérias-primas.",
+   "audioScript": "Pergunta 7. A fábrica que transforma o leite em queijo faz parte: A: Da agricultura; B: Da indústria; C: Do comércio; D: Da pecuária.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-5A-EF04GE07-02",
+   "skillCode": "EF04GE07",
+   "question": "A cidade depende do campo para ter:",
+   "options": [
+    {
+     "text": "Nada",
+     "misconceptionCode": "setor-trocado"
+    },
+    {
+     "text": "Prédios",
+     "misconceptionCode": "setor-trocado"
+    },
+    {
+     "text": "Alimentos e matérias-primas"
+    },
+    {
+     "text": "Semáforos",
+     "misconceptionCode": "setor-trocado"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Campo e cidade se completam.",
+   "audioScript": "Pergunta 8. A cidade depende do campo para ter: A: Nada; B: Prédios; C: Alimentos e matérias-primas; D: Semáforos.",
+   "role": "DEGRAU_BANK"
+  }
+ ]
 }

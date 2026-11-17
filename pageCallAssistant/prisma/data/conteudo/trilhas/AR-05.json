@@ -1,1890 +1,3772 @@
 [
-  {
-    "skillCode": "EF15AR02",
-    "subjectCode": "AR",
-    "subjectName": "Arte",
-    "gradeYear": 5,
-    "version": 3,
-    "title": "Trilha: Elementos das artes visuais",
-    "tituloAluno": "Ponto, linha, forma e cor",
-    "activities": [
+ {
+  "skillCode": "EF15AR02",
+  "subjectCode": "AR",
+  "subjectName": "Arte",
+  "gradeYear": 5,
+  "version": 3,
+  "title": "Trilha: Elementos das artes visuais",
+  "tituloAluno": "Ponto, linha, forma e cor",
+  "activities": [
+   {
+    "id": "PK2-EF15AR02-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: cores",
+    "prompt": "Vamos lembrar as cores e as misturas.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar as cores e as misturas. Pergunta 1. Na pintura com tinta, quais são as cores primárias mais usadas na escola? A: Verde, roxo e laranja; B: Preto, branco e cinza; C: Vermelho, amarelo e azul; D: Rosa, marrom e verde. Pergunta 2. Misturando azul e amarelo, que cor aparece? A: Roxo; B: Verde; C: Laranja; D: Marrom. Pergunta 3. Quais destas são consideradas cores quentes? A: Azul, verde e roxo; B: Preto e branco; C: Cinza e marrom claro; D: Vermelho, laranja e amarelo.",
+    "questions": [
+     {
+      "question": "Na pintura com tinta, quais são as cores primárias mais usadas na escola?",
+      "options": [
+       {
+        "text": "Verde, roxo e laranja",
+        "misconceptionCode": "cor-mistura-errada"
+       },
+       {
+        "text": "Preto, branco e cinza",
+        "misconceptionCode": "cor-mistura-errada"
+       },
+       {
+        "text": "Vermelho, amarelo e azul"
+       },
+       {
+        "text": "Rosa, marrom e verde",
+        "misconceptionCode": "cor-mistura-errada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Primárias são as cores \"mães\": não dá para fazer misturando outras. Com vermelho, amarelo e azul você cria quase todas as outras.",
+      "variants": [
+       {
+        "question": "Qual destas é uma cor primária na tinta escolar?",
+        "options": [
+         {
+          "text": "Amarelo"
+         },
+         {
+          "text": "Verde",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Laranja",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Roxo",
+          "misconceptionCode": "cor-mistura-errada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Na pintura com tinta, quais são as cores primárias mais usadas na escola?",
+        "options": [
+         {
+          "text": "Rosa, marrom e verde",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Preto, branco e cinza",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Verde, roxo e laranja",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Vermelho, amarelo e azul"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Misturando azul e amarelo, que cor aparece?",
+      "options": [
+       {
+        "text": "Roxo",
+        "misconceptionCode": "cor-mistura-errada"
+       },
+       {
+        "text": "Verde"
+       },
+       {
+        "text": "Laranja",
+        "misconceptionCode": "cor-mistura-errada"
+       },
+       {
+        "text": "Marrom",
+        "misconceptionCode": "cor-mistura-errada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Azul com amarelo dá verde, como as folhas. Azul com vermelho dá roxo, e vermelho com amarelo dá laranja.",
+      "variants": [
+       {
+        "question": "Misturando vermelho e amarelo, que cor aparece?",
+        "options": [
+         {
+          "text": "Verde",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Roxo",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Azul",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Laranja"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Misturando azul e amarelo, que cor aparece?",
+        "options": [
+         {
+          "text": "Marrom",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Laranja",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Verde"
+         },
+         {
+          "text": "Roxo",
+          "misconceptionCode": "cor-mistura-errada"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Quais destas são consideradas cores quentes?",
+      "options": [
+       {
+        "text": "Azul, verde e roxo",
+        "misconceptionCode": "cor-mistura-errada"
+       },
+       {
+        "text": "Preto e branco",
+        "misconceptionCode": "textura-cor"
+       },
+       {
+        "text": "Cinza e marrom claro",
+        "misconceptionCode": "textura-cor"
+       },
+       {
+        "text": "Vermelho, laranja e amarelo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Pense no fogo e no sol: vermelho, laranja e amarelo. Essas são as cores quentes. Azul e verde lembram água e são frias.",
+      "variants": [
+       {
+        "question": "Quais destas são cores frias?",
+        "options": [
+         {
+          "text": "Vermelho, laranja e amarelo",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Azul, verde e roxo"
+         },
+         {
+          "text": "Preto e marrom",
+          "misconceptionCode": "textura-cor"
+         },
+         {
+          "text": "Rosa e laranja",
+          "misconceptionCode": "textura-cor"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quais destas são consideradas cores quentes?",
+        "options": [
+         {
+          "text": "Vermelho, laranja e amarelo"
+         },
+         {
+          "text": "Cinza e marrom claro",
+          "misconceptionCode": "textura-cor"
+         },
+         {
+          "text": "Preto e branco",
+          "misconceptionCode": "textura-cor"
+         },
+         {
+          "text": "Azul, verde e roxo",
+          "misconceptionCode": "cor-mistura-errada"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF15AR02-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: linhas e formas",
+    "prompt": "Imagine um desenho com o mar cheio de ondas, um sol redondo e um prédio retangular. Vamos analisar juntos.",
+    "estMinutes": 4,
+    "audioScript": "Imagine um desenho com o mar cheio de ondas, um sol redondo e um prédio retangular. Vamos analisar juntos. Pergunta 1. Que tipo de linha representa melhor as ondas do mar? A: Só linha reta; B: Linha ondulada; C: Linha quebrada em zigue-zague; D: Não tem linha no desenho. Pergunta 2. O sol redondo e o prédio retangular são exemplos de: A: Texturas; B: Cores frias; C: Apenas o tema do desenho; D: Formas geométricas. Pergunta 3. Se o artista passar o dedo na tinta grossa para deixar o mar áspero, ele está trabalhando: A: A textura; B: A cor; C: A linha reta; D: A forma geométrica.",
+    "questions": [
+     {
+      "question": "Que tipo de linha representa melhor as ondas do mar?",
+      "options": [
+       {
+        "text": "Só linha reta",
+        "misconceptionCode": "linha-so-reta"
+       },
+       {
+        "text": "Linha ondulada"
+       },
+       {
+        "text": "Linha quebrada em zigue-zague",
+        "misconceptionCode": "linha-so-reta"
+       },
+       {
+        "text": "Não tem linha no desenho",
+        "misconceptionCode": "forma-figura"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Desenhe o mar com o dedo no ar: a mão sobe e desce. É uma linha ondulada, igual às ondas.",
+      "variants": [
+       {
+        "question": "Que tipo de linha lembra um raio numa tempestade?",
+        "options": [
+         {
+          "text": "Linha ondulada",
+          "misconceptionCode": "linha-so-reta"
+         },
+         {
+          "text": "Linha reta só",
+          "misconceptionCode": "linha-so-reta"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "forma-figura"
+         },
+         {
+          "text": "Linha quebrada, em zigue-zague"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Que tipo de linha representa melhor as ondas do mar?",
+        "options": [
+         {
+          "text": "Não tem linha no desenho",
+          "misconceptionCode": "forma-figura"
+         },
+         {
+          "text": "Linha quebrada em zigue-zague",
+          "misconceptionCode": "linha-so-reta"
+         },
+         {
+          "text": "Linha ondulada"
+         },
+         {
+          "text": "Só linha reta",
+          "misconceptionCode": "linha-so-reta"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O sol redondo e o prédio retangular são exemplos de:",
+      "options": [
+       {
+        "text": "Texturas",
+        "misconceptionCode": "textura-cor"
+       },
+       {
+        "text": "Cores frias",
+        "misconceptionCode": "cor-mistura-errada"
+       },
+       {
+        "text": "Apenas o tema do desenho",
+        "misconceptionCode": "forma-figura"
+       },
+       {
+        "text": "Formas geométricas"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Redondo é círculo, e o prédio tem forma de retângulo. Círculos, quadrados e triângulos são formas geométricas.",
+      "variants": [
+       {
+        "question": "Uma folha de árvore desenhada com contorno irregular é uma forma:",
+        "options": [
+         {
+          "text": "Geométrica",
+          "misconceptionCode": "textura-cor"
+         },
+         {
+          "text": "Orgânica, da natureza"
+         },
+         {
+          "text": "De cor quente",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Sem forma",
+          "misconceptionCode": "forma-figura"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O sol redondo e o prédio retangular são exemplos de:",
+        "options": [
+         {
+          "text": "Formas geométricas"
+         },
+         {
+          "text": "Apenas o tema do desenho",
+          "misconceptionCode": "forma-figura"
+         },
+         {
+          "text": "Cores frias",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Texturas",
+          "misconceptionCode": "textura-cor"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Se o artista passar o dedo na tinta grossa para deixar o mar áspero, ele está trabalhando:",
+      "options": [
+       {
+        "text": "A textura"
+       },
+       {
+        "text": "A cor",
+        "misconceptionCode": "textura-cor"
+       },
+       {
+        "text": "A linha reta",
+        "misconceptionCode": "linha-so-reta"
+       },
+       {
+        "text": "A forma geométrica",
+        "misconceptionCode": "forma-figura"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Tinta grossa e mexida fica cheia de \"montinhos\" e parece áspera. O jeito que a superfície parece ao toque é a textura.",
+      "variants": [
+       {
+        "question": "Colar areia no desenho de uma praia dá ao trabalho:",
+        "options": [
+         {
+          "text": "Uma cor nova",
+          "misconceptionCode": "textura-cor"
+         },
+         {
+          "text": "Uma linha reta",
+          "misconceptionCode": "linha-so-reta"
+         },
+         {
+          "text": "Textura"
+         },
+         {
+          "text": "Uma forma geométrica",
+          "misconceptionCode": "forma-figura"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Se o artista passar o dedo na tinta grossa para deixar o mar áspero, ele está trabalhando:",
+        "options": [
+         {
+          "text": "A forma geométrica",
+          "misconceptionCode": "forma-figura"
+         },
+         {
+          "text": "A textura"
+         },
+         {
+          "text": "A linha reta",
+          "misconceptionCode": "linha-so-reta"
+         },
+         {
+          "text": "A cor",
+          "misconceptionCode": "textura-cor"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF15AR02-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: observando obras",
+    "prompt": "Agora observe como os elementos aparecem nas obras.",
+    "estMinutes": 5,
+    "audioScript": "Agora observe como os elementos aparecem nas obras. Pergunta 1. Uma pintura feita só com muitos pontinhos coloridos, que de longe formam uma imagem, usa principalmente: A: A textura de tecido; B: Só linhas retas; C: Só uma cor; D: O ponto. Pergunta 2. Num desenho, as árvores do fundo são pequenas e as da frente são grandes. Isso dá a sensação de: A: Espaço e profundidade; B: Textura; C: Cor quente; D: Linha ondulada. Pergunta 3. Um artista quer mostrar uma cena calma e fria de inverno. Que cores combinam mais? A: Vermelhos e laranjas; B: Só amarelo; C: Azuis e verdes; D: Cores não mudam a sensação. Pergunta 4. Um desenho de um menino correndo com linhas atrás dele mostra: A: Textura; B: Movimento; C: Uma forma geométrica; D: Uma cor fria.",
+    "questions": [
+     {
+      "question": "Uma pintura feita só com muitos pontinhos coloridos, que de longe formam uma imagem, usa principalmente:",
+      "options": [
+       {
+        "text": "A textura de tecido",
+        "misconceptionCode": "textura-cor"
+       },
+       {
+        "text": "Só linhas retas",
+        "misconceptionCode": "linha-so-reta"
+       },
+       {
+        "text": "Só uma cor",
+        "misconceptionCode": "cor-mistura-errada"
+       },
+       {
+        "text": "O ponto"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "De perto são só pontinhos; de longe, eles se juntam e viram imagem. O elemento principal aqui é o ponto.",
+      "variants": [
+       {
+        "question": "Um desenho feito só com pontos de caneta usa principalmente:",
+        "options": [
+         {
+          "text": "A linha ondulada",
+          "misconceptionCode": "textura-cor"
+         },
+         {
+          "text": "O ponto"
+         },
+         {
+          "text": "A textura de areia",
+          "misconceptionCode": "linha-so-reta"
+         },
+         {
+          "text": "A mistura de cores",
+          "misconceptionCode": "cor-mistura-errada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Uma pintura feita só com muitos pontinhos coloridos, que de longe formam uma imagem, usa principalmente:",
+        "options": [
+         {
+          "text": "O ponto"
+         },
+         {
+          "text": "Só uma cor",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Só linhas retas",
+          "misconceptionCode": "linha-so-reta"
+         },
+         {
+          "text": "A textura de tecido",
+          "misconceptionCode": "textura-cor"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Num desenho, as árvores do fundo são pequenas e as da frente são grandes. Isso dá a sensação de:",
+      "options": [
+       {
+        "text": "Espaço e profundidade"
+       },
+       {
+        "text": "Textura",
+        "misconceptionCode": "textura-cor"
+       },
+       {
+        "text": "Cor quente",
+        "misconceptionCode": "cor-mistura-errada"
+       },
+       {
+        "text": "Linha ondulada",
+        "misconceptionCode": "linha-so-reta"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Na vida real, o que está longe parece pequeno. Por isso árvores pequenas no fundo fazem o desenho parecer ter distância.",
+      "variants": [
+       {
+        "question": "Para parecer que uma estrada vai longe, o desenhista faz as bordas:",
+        "options": [
+         {
+          "text": "Ficarem cada vez mais separadas",
+          "misconceptionCode": "textura-cor"
+         },
+         {
+          "text": "Serem de cor quente",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Se aproximarem no fundo"
+         },
+         {
+          "text": "Terem textura",
+          "misconceptionCode": "linha-so-reta"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Num desenho, as árvores do fundo são pequenas e as da frente são grandes. Isso dá a sensação de:",
+        "options": [
+         {
+          "text": "Linha ondulada",
+          "misconceptionCode": "linha-so-reta"
+         },
+         {
+          "text": "Espaço e profundidade"
+         },
+         {
+          "text": "Cor quente",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Textura",
+          "misconceptionCode": "textura-cor"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um artista quer mostrar uma cena calma e fria de inverno. Que cores combinam mais?",
+      "options": [
+       {
+        "text": "Vermelhos e laranjas",
+        "misconceptionCode": "cor-mistura-errada"
+       },
+       {
+        "text": "Só amarelo",
+        "misconceptionCode": "cor-mistura-errada"
+       },
+       {
+        "text": "Azuis e verdes"
+       },
+       {
+        "text": "Cores não mudam a sensação",
+        "misconceptionCode": "textura-cor"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Azul e verde lembram água, gelo e sombra fresca. São cores frias e passam sensação de calma.",
+      "variants": [
+       {
+        "question": "Para mostrar uma festa quente e animada, combinam mais:",
+        "options": [
+         {
+          "text": "Vermelhos, laranjas e amarelos"
+         },
+         {
+          "text": "Só azul-escuro",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Só cinza",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Cores não importam",
+          "misconceptionCode": "textura-cor"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um artista quer mostrar uma cena calma e fria de inverno. Que cores combinam mais?",
+        "options": [
+         {
+          "text": "Cores não mudam a sensação",
+          "misconceptionCode": "textura-cor"
+         },
+         {
+          "text": "Só amarelo",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Vermelhos e laranjas",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Azuis e verdes"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Um desenho de um menino correndo com linhas atrás dele mostra:",
+      "options": [
+       {
+        "text": "Textura",
+        "misconceptionCode": "textura-cor"
+       },
+       {
+        "text": "Movimento"
+       },
+       {
+        "text": "Uma forma geométrica",
+        "misconceptionCode": "forma-figura"
+       },
+       {
+        "text": "Uma cor fria",
+        "misconceptionCode": "cor-mistura-errada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Nos desenhos animados, aquelas linhas atrás do personagem mostram que ele está se mexendo rápido. Isso é movimento.",
+      "variants": [
+       {
+        "question": "Nos quadrinhos, as linhas atrás de um carro servem para mostrar:",
+        "options": [
+         {
+          "text": "Que ele é áspero",
+          "misconceptionCode": "textura-cor"
+         },
+         {
+          "text": "Que ele é redondo",
+          "misconceptionCode": "forma-figura"
+         },
+         {
+          "text": "Que ele é azul",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Que ele está em movimento"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um desenho de um menino correndo com linhas atrás dele mostra:",
+        "options": [
+         {
+          "text": "Uma cor fria",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Uma forma geométrica",
+          "misconceptionCode": "forma-figura"
+         },
+         {
+          "text": "Movimento"
+         },
+         {
+          "text": "Textura",
+          "misconceptionCode": "textura-cor"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF15AR02-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: criando a sua arte",
+    "prompt": "Pense em como você usaria os elementos num trabalho seu.",
+    "estMinutes": 4,
+    "audioScript": "Pense em como você usaria os elementos num trabalho seu. Pergunta 1. Você só tem tinta vermelha, amarela e azul e precisa de verde para as folhas. O que faz? A: Mistura azul com amarelo; B: Mistura vermelho com azul; C: Mistura vermelho com amarelo; D: Não dá para fazer verde. Pergunta 2. Você quer que o tronco da árvore pareça áspero ao toque. O que pode usar? A: Pintar de marrom bem liso; B: Fazer só uma linha reta; C: Colar pedacinhos de casca ou papel amassado; D: Desenhar um círculo. Pergunta 3. Você quer desenhar uma montanha-russa cheia de subidas e descidas. Que linha combina? A: Só linha reta horizontal; B: Linha curva e ondulada; C: Nenhuma linha; D: Só pontos azuis.",
+    "questions": [
+     {
+      "question": "Você só tem tinta vermelha, amarela e azul e precisa de verde para as folhas. O que faz?",
+      "options": [
+       {
+        "text": "Mistura azul com amarelo"
+       },
+       {
+        "text": "Mistura vermelho com azul",
+        "misconceptionCode": "cor-mistura-errada"
+       },
+       {
+        "text": "Mistura vermelho com amarelo",
+        "misconceptionCode": "cor-mistura-errada"
+       },
+       {
+        "text": "Não dá para fazer verde",
+        "misconceptionCode": "cor-mistura-errada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Misture azul com amarelo e pronto: aparece o verde para pintar as folhas.",
+      "variants": [
+       {
+        "question": "Você precisa de roxo para pintar uvas. Qual mistura faz?",
+        "options": [
+         {
+          "text": "Azul com amarelo",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Vermelho com amarelo",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Azul com vermelho"
+         },
+         {
+          "text": "Amarelo com branco",
+          "misconceptionCode": "cor-mistura-errada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Você só tem tinta vermelha, amarela e azul e precisa de verde para as folhas. O que faz?",
+        "options": [
+         {
+          "text": "Não dá para fazer verde",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Mistura azul com amarelo"
+         },
+         {
+          "text": "Mistura vermelho com amarelo",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Mistura vermelho com azul",
+          "misconceptionCode": "cor-mistura-errada"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Você quer que o tronco da árvore pareça áspero ao toque. O que pode usar?",
+      "options": [
+       {
+        "text": "Pintar de marrom bem liso",
+        "misconceptionCode": "textura-cor"
+       },
+       {
+        "text": "Fazer só uma linha reta",
+        "misconceptionCode": "linha-so-reta"
+       },
+       {
+        "text": "Colar pedacinhos de casca ou papel amassado"
+       },
+       {
+        "text": "Desenhar um círculo",
+        "misconceptionCode": "forma-figura"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Casca de verdade ou papel amassado deixam o desenho com relevo. Quem passar a mão vai sentir a textura.",
+      "variants": [
+       {
+        "question": "Para o cabelo de um boneco parecer macio, você pode usar:",
+        "options": [
+         {
+          "text": "Lã ou algodão"
+         },
+         {
+          "text": "Só tinta lisa",
+          "misconceptionCode": "textura-cor"
+         },
+         {
+          "text": "Uma linha reta",
+          "misconceptionCode": "linha-so-reta"
+         },
+         {
+          "text": "Um quadrado",
+          "misconceptionCode": "forma-figura"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Você quer que o tronco da árvore pareça áspero ao toque. O que pode usar?",
+        "options": [
+         {
+          "text": "Desenhar um círculo",
+          "misconceptionCode": "forma-figura"
+         },
+         {
+          "text": "Fazer só uma linha reta",
+          "misconceptionCode": "linha-so-reta"
+         },
+         {
+          "text": "Pintar de marrom bem liso",
+          "misconceptionCode": "textura-cor"
+         },
+         {
+          "text": "Colar pedacinhos de casca ou papel amassado"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Você quer desenhar uma montanha-russa cheia de subidas e descidas. Que linha combina?",
+      "options": [
+       {
+        "text": "Só linha reta horizontal",
+        "misconceptionCode": "linha-so-reta"
+       },
+       {
+        "text": "Linha curva e ondulada"
+       },
+       {
+        "text": "Nenhuma linha",
+        "misconceptionCode": "forma-figura"
+       },
+       {
+        "text": "Só pontos azuis",
+        "misconceptionCode": "cor-mistura-errada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A montanha-russa sobe e desce o tempo todo. Uma linha curva e ondulada mostra bem esse caminho.",
+      "variants": [
+       {
+        "question": "Para desenhar a escada de um prédio, a linha mais adequada é:",
+        "options": [
+         {
+          "text": "Linha ondulada",
+          "misconceptionCode": "linha-so-reta"
+         },
+         {
+          "text": "Só pontos",
+          "misconceptionCode": "forma-figura"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Linha quebrada em degraus"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Você quer desenhar uma montanha-russa cheia de subidas e descidas. Que linha combina?",
+        "options": [
+         {
+          "text": "Só pontos azuis",
+          "misconceptionCode": "cor-mistura-errada"
+         },
+         {
+          "text": "Nenhuma linha",
+          "misconceptionCode": "forma-figura"
+         },
+         {
+          "text": "Linha curva e ondulada"
+         },
+         {
+          "text": "Só linha reta horizontal",
+          "misconceptionCode": "linha-so-reta"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF15AR02-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: elementos visuais",
+    "prompt": "Escolha um desenho que você já fez ou imagine um. Explique com as suas palavras que linhas, formas e cores você usou e por quê.",
+    "estMinutes": 6,
+    "audioScript": "Escolha um desenho que você já fez ou imagine um. Explique com as suas palavras que linhas, formas e cores você usou e por quê.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
       {
-        "id": "PK2-EF15AR02-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar: cores",
-        "prompt": "Vamos lembrar as cores e as misturas.",
-        "estMinutes": 4,
-        "audioScript": "Vamos lembrar as cores e as misturas. Pergunta 1. Na pintura com tinta, quais são as cores primárias mais usadas na escola? A: Verde, roxo e laranja; B: Preto, branco e cinza; C: Vermelho, amarelo e azul; D: Rosa, marrom e verde. Pergunta 2. Misturando azul e amarelo, que cor aparece? A: Roxo; B: Verde; C: Laranja; D: Marrom. Pergunta 3. Quais destas são consideradas cores quentes? A: Azul, verde e roxo; B: Preto e branco; C: Cinza e marrom claro; D: Vermelho, laranja e amarelo.",
-        "questions": [
-          {
-            "question": "Na pintura com tinta, quais são as cores primárias mais usadas na escola?",
-            "options": [
-              {
-                "text": "Verde, roxo e laranja",
-                "misconceptionCode": "cor-mistura-errada"
-              },
-              {
-                "text": "Preto, branco e cinza",
-                "misconceptionCode": "cor-mistura-errada"
-              },
-              {
-                "text": "Vermelho, amarelo e azul"
-              },
-              {
-                "text": "Rosa, marrom e verde",
-                "misconceptionCode": "cor-mistura-errada"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Primárias são as cores \"mães\": não dá para fazer misturando outras. Com vermelho, amarelo e azul você cria quase todas as outras.",
-            "variants": [
-              {
-                "question": "Qual destas é uma cor primária na tinta escolar?",
-                "options": [
-                  {
-                    "text": "Amarelo"
-                  },
-                  {
-                    "text": "Verde",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Laranja",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Roxo",
-                    "misconceptionCode": "cor-mistura-errada"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Na pintura com tinta, quais são as cores primárias mais usadas na escola?",
-                "options": [
-                  {
-                    "text": "Rosa, marrom e verde",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Preto, branco e cinza",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Verde, roxo e laranja",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Vermelho, amarelo e azul"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Misturando azul e amarelo, que cor aparece?",
-            "options": [
-              {
-                "text": "Roxo",
-                "misconceptionCode": "cor-mistura-errada"
-              },
-              {
-                "text": "Verde"
-              },
-              {
-                "text": "Laranja",
-                "misconceptionCode": "cor-mistura-errada"
-              },
-              {
-                "text": "Marrom",
-                "misconceptionCode": "cor-mistura-errada"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Azul com amarelo dá verde, como as folhas. Azul com vermelho dá roxo, e vermelho com amarelo dá laranja.",
-            "variants": [
-              {
-                "question": "Misturando vermelho e amarelo, que cor aparece?",
-                "options": [
-                  {
-                    "text": "Verde",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Roxo",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Azul",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Laranja"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Misturando azul e amarelo, que cor aparece?",
-                "options": [
-                  {
-                    "text": "Marrom",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Laranja",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Verde"
-                  },
-                  {
-                    "text": "Roxo",
-                    "misconceptionCode": "cor-mistura-errada"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Quais destas são consideradas cores quentes?",
-            "options": [
-              {
-                "text": "Azul, verde e roxo",
-                "misconceptionCode": "cor-mistura-errada"
-              },
-              {
-                "text": "Preto e branco",
-                "misconceptionCode": "textura-cor"
-              },
-              {
-                "text": "Cinza e marrom claro",
-                "misconceptionCode": "textura-cor"
-              },
-              {
-                "text": "Vermelho, laranja e amarelo"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Pense no fogo e no sol: vermelho, laranja e amarelo. Essas são as cores quentes. Azul e verde lembram água e são frias.",
-            "variants": [
-              {
-                "question": "Quais destas são cores frias?",
-                "options": [
-                  {
-                    "text": "Vermelho, laranja e amarelo",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Azul, verde e roxo"
-                  },
-                  {
-                    "text": "Preto e marrom",
-                    "misconceptionCode": "textura-cor"
-                  },
-                  {
-                    "text": "Rosa e laranja",
-                    "misconceptionCode": "textura-cor"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Quais destas são consideradas cores quentes?",
-                "options": [
-                  {
-                    "text": "Vermelho, laranja e amarelo"
-                  },
-                  {
-                    "text": "Cinza e marrom claro",
-                    "misconceptionCode": "textura-cor"
-                  },
-                  {
-                    "text": "Preto e branco",
-                    "misconceptionCode": "textura-cor"
-                  },
-                  {
-                    "text": "Azul, verde e roxo",
-                    "misconceptionCode": "cor-mistura-errada"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          }
-        ]
+       "code": "elementos",
+       "description": "Cita pelo menos dois elementos visuais: ponto, linha, forma, cor, textura, espaço"
       },
       {
-        "id": "PK2-EF15AR02-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Exemplo guiado: linhas e formas",
-        "prompt": "Imagine um desenho com o mar cheio de ondas, um sol redondo e um prédio retangular. Vamos analisar juntos.",
-        "estMinutes": 4,
-        "audioScript": "Imagine um desenho com o mar cheio de ondas, um sol redondo e um prédio retangular. Vamos analisar juntos. Pergunta 1. Que tipo de linha representa melhor as ondas do mar? A: Só linha reta; B: Linha ondulada; C: Linha quebrada em zigue-zague; D: Não tem linha no desenho. Pergunta 2. O sol redondo e o prédio retangular são exemplos de: A: Texturas; B: Cores frias; C: Apenas o tema do desenho; D: Formas geométricas. Pergunta 3. Se o artista passar o dedo na tinta grossa para deixar o mar áspero, ele está trabalhando: A: A textura; B: A cor; C: A linha reta; D: A forma geométrica.",
-        "questions": [
-          {
-            "question": "Que tipo de linha representa melhor as ondas do mar?",
-            "options": [
-              {
-                "text": "Só linha reta",
-                "misconceptionCode": "linha-so-reta"
-              },
-              {
-                "text": "Linha ondulada"
-              },
-              {
-                "text": "Linha quebrada em zigue-zague",
-                "misconceptionCode": "linha-so-reta"
-              },
-              {
-                "text": "Não tem linha no desenho",
-                "misconceptionCode": "forma-figura"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Desenhe o mar com o dedo no ar: a mão sobe e desce. É uma linha ondulada, igual às ondas.",
-            "variants": [
-              {
-                "question": "Que tipo de linha lembra um raio numa tempestade?",
-                "options": [
-                  {
-                    "text": "Linha ondulada",
-                    "misconceptionCode": "linha-so-reta"
-                  },
-                  {
-                    "text": "Linha reta só",
-                    "misconceptionCode": "linha-so-reta"
-                  },
-                  {
-                    "text": "Nenhuma",
-                    "misconceptionCode": "forma-figura"
-                  },
-                  {
-                    "text": "Linha quebrada, em zigue-zague"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Que tipo de linha representa melhor as ondas do mar?",
-                "options": [
-                  {
-                    "text": "Não tem linha no desenho",
-                    "misconceptionCode": "forma-figura"
-                  },
-                  {
-                    "text": "Linha quebrada em zigue-zague",
-                    "misconceptionCode": "linha-so-reta"
-                  },
-                  {
-                    "text": "Linha ondulada"
-                  },
-                  {
-                    "text": "Só linha reta",
-                    "misconceptionCode": "linha-so-reta"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "O sol redondo e o prédio retangular são exemplos de:",
-            "options": [
-              {
-                "text": "Texturas",
-                "misconceptionCode": "textura-cor"
-              },
-              {
-                "text": "Cores frias",
-                "misconceptionCode": "cor-mistura-errada"
-              },
-              {
-                "text": "Apenas o tema do desenho",
-                "misconceptionCode": "forma-figura"
-              },
-              {
-                "text": "Formas geométricas"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Redondo é círculo, e o prédio tem forma de retângulo. Círculos, quadrados e triângulos são formas geométricas.",
-            "variants": [
-              {
-                "question": "Uma folha de árvore desenhada com contorno irregular é uma forma:",
-                "options": [
-                  {
-                    "text": "Geométrica",
-                    "misconceptionCode": "textura-cor"
-                  },
-                  {
-                    "text": "Orgânica, da natureza"
-                  },
-                  {
-                    "text": "De cor quente",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Sem forma",
-                    "misconceptionCode": "forma-figura"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "O sol redondo e o prédio retangular são exemplos de:",
-                "options": [
-                  {
-                    "text": "Formas geométricas"
-                  },
-                  {
-                    "text": "Apenas o tema do desenho",
-                    "misconceptionCode": "forma-figura"
-                  },
-                  {
-                    "text": "Cores frias",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Texturas",
-                    "misconceptionCode": "textura-cor"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Se o artista passar o dedo na tinta grossa para deixar o mar áspero, ele está trabalhando:",
-            "options": [
-              {
-                "text": "A textura"
-              },
-              {
-                "text": "A cor",
-                "misconceptionCode": "textura-cor"
-              },
-              {
-                "text": "A linha reta",
-                "misconceptionCode": "linha-so-reta"
-              },
-              {
-                "text": "A forma geométrica",
-                "misconceptionCode": "forma-figura"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Tinta grossa e mexida fica cheia de \"montinhos\" e parece áspera. O jeito que a superfície parece ao toque é a textura.",
-            "variants": [
-              {
-                "question": "Colar areia no desenho de uma praia dá ao trabalho:",
-                "options": [
-                  {
-                    "text": "Uma cor nova",
-                    "misconceptionCode": "textura-cor"
-                  },
-                  {
-                    "text": "Uma linha reta",
-                    "misconceptionCode": "linha-so-reta"
-                  },
-                  {
-                    "text": "Textura"
-                  },
-                  {
-                    "text": "Uma forma geométrica",
-                    "misconceptionCode": "forma-figura"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Se o artista passar o dedo na tinta grossa para deixar o mar áspero, ele está trabalhando:",
-                "options": [
-                  {
-                    "text": "A forma geométrica",
-                    "misconceptionCode": "forma-figura"
-                  },
-                  {
-                    "text": "A textura"
-                  },
-                  {
-                    "text": "A linha reta",
-                    "misconceptionCode": "linha-so-reta"
-                  },
-                  {
-                    "text": "A cor",
-                    "misconceptionCode": "textura-cor"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          }
-        ]
+       "code": "intencao",
+       "description": "Explica por que escolheu esses elementos (o que queria mostrar)"
       },
       {
-        "id": "PK2-EF15AR02-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar: observando obras",
-        "prompt": "Agora observe como os elementos aparecem nas obras.",
-        "estMinutes": 5,
-        "audioScript": "Agora observe como os elementos aparecem nas obras. Pergunta 1. Uma pintura feita só com muitos pontinhos coloridos, que de longe formam uma imagem, usa principalmente: A: A textura de tecido; B: Só linhas retas; C: Só uma cor; D: O ponto. Pergunta 2. Num desenho, as árvores do fundo são pequenas e as da frente são grandes. Isso dá a sensação de: A: Espaço e profundidade; B: Textura; C: Cor quente; D: Linha ondulada. Pergunta 3. Um artista quer mostrar uma cena calma e fria de inverno. Que cores combinam mais? A: Vermelhos e laranjas; B: Só amarelo; C: Azuis e verdes; D: Cores não mudam a sensação. Pergunta 4. Um desenho de um menino correndo com linhas atrás dele mostra: A: Textura; B: Movimento; C: Uma forma geométrica; D: Uma cor fria.",
-        "questions": [
-          {
-            "question": "Uma pintura feita só com muitos pontinhos coloridos, que de longe formam uma imagem, usa principalmente:",
-            "options": [
-              {
-                "text": "A textura de tecido",
-                "misconceptionCode": "textura-cor"
-              },
-              {
-                "text": "Só linhas retas",
-                "misconceptionCode": "linha-so-reta"
-              },
-              {
-                "text": "Só uma cor",
-                "misconceptionCode": "cor-mistura-errada"
-              },
-              {
-                "text": "O ponto"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "De perto são só pontinhos; de longe, eles se juntam e viram imagem. O elemento principal aqui é o ponto.",
-            "variants": [
-              {
-                "question": "Um desenho feito só com pontos de caneta usa principalmente:",
-                "options": [
-                  {
-                    "text": "A linha ondulada",
-                    "misconceptionCode": "textura-cor"
-                  },
-                  {
-                    "text": "O ponto"
-                  },
-                  {
-                    "text": "A textura de areia",
-                    "misconceptionCode": "linha-so-reta"
-                  },
-                  {
-                    "text": "A mistura de cores",
-                    "misconceptionCode": "cor-mistura-errada"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Uma pintura feita só com muitos pontinhos coloridos, que de longe formam uma imagem, usa principalmente:",
-                "options": [
-                  {
-                    "text": "O ponto"
-                  },
-                  {
-                    "text": "Só uma cor",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Só linhas retas",
-                    "misconceptionCode": "linha-so-reta"
-                  },
-                  {
-                    "text": "A textura de tecido",
-                    "misconceptionCode": "textura-cor"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Num desenho, as árvores do fundo são pequenas e as da frente são grandes. Isso dá a sensação de:",
-            "options": [
-              {
-                "text": "Espaço e profundidade"
-              },
-              {
-                "text": "Textura",
-                "misconceptionCode": "textura-cor"
-              },
-              {
-                "text": "Cor quente",
-                "misconceptionCode": "cor-mistura-errada"
-              },
-              {
-                "text": "Linha ondulada",
-                "misconceptionCode": "linha-so-reta"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Na vida real, o que está longe parece pequeno. Por isso árvores pequenas no fundo fazem o desenho parecer ter distância.",
-            "variants": [
-              {
-                "question": "Para parecer que uma estrada vai longe, o desenhista faz as bordas:",
-                "options": [
-                  {
-                    "text": "Ficarem cada vez mais separadas",
-                    "misconceptionCode": "textura-cor"
-                  },
-                  {
-                    "text": "Serem de cor quente",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Se aproximarem no fundo"
-                  },
-                  {
-                    "text": "Terem textura",
-                    "misconceptionCode": "linha-so-reta"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Num desenho, as árvores do fundo são pequenas e as da frente são grandes. Isso dá a sensação de:",
-                "options": [
-                  {
-                    "text": "Linha ondulada",
-                    "misconceptionCode": "linha-so-reta"
-                  },
-                  {
-                    "text": "Espaço e profundidade"
-                  },
-                  {
-                    "text": "Cor quente",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Textura",
-                    "misconceptionCode": "textura-cor"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Um artista quer mostrar uma cena calma e fria de inverno. Que cores combinam mais?",
-            "options": [
-              {
-                "text": "Vermelhos e laranjas",
-                "misconceptionCode": "cor-mistura-errada"
-              },
-              {
-                "text": "Só amarelo",
-                "misconceptionCode": "cor-mistura-errada"
-              },
-              {
-                "text": "Azuis e verdes"
-              },
-              {
-                "text": "Cores não mudam a sensação",
-                "misconceptionCode": "textura-cor"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Azul e verde lembram água, gelo e sombra fresca. São cores frias e passam sensação de calma.",
-            "variants": [
-              {
-                "question": "Para mostrar uma festa quente e animada, combinam mais:",
-                "options": [
-                  {
-                    "text": "Vermelhos, laranjas e amarelos"
-                  },
-                  {
-                    "text": "Só azul-escuro",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Só cinza",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Cores não importam",
-                    "misconceptionCode": "textura-cor"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Um artista quer mostrar uma cena calma e fria de inverno. Que cores combinam mais?",
-                "options": [
-                  {
-                    "text": "Cores não mudam a sensação",
-                    "misconceptionCode": "textura-cor"
-                  },
-                  {
-                    "text": "Só amarelo",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Vermelhos e laranjas",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Azuis e verdes"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Um desenho de um menino correndo com linhas atrás dele mostra:",
-            "options": [
-              {
-                "text": "Textura",
-                "misconceptionCode": "textura-cor"
-              },
-              {
-                "text": "Movimento"
-              },
-              {
-                "text": "Uma forma geométrica",
-                "misconceptionCode": "forma-figura"
-              },
-              {
-                "text": "Uma cor fria",
-                "misconceptionCode": "cor-mistura-errada"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Nos desenhos animados, aquelas linhas atrás do personagem mostram que ele está se mexendo rápido. Isso é movimento.",
-            "variants": [
-              {
-                "question": "Nos quadrinhos, as linhas atrás de um carro servem para mostrar:",
-                "options": [
-                  {
-                    "text": "Que ele é áspero",
-                    "misconceptionCode": "textura-cor"
-                  },
-                  {
-                    "text": "Que ele é redondo",
-                    "misconceptionCode": "forma-figura"
-                  },
-                  {
-                    "text": "Que ele é azul",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Que ele está em movimento"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Um desenho de um menino correndo com linhas atrás dele mostra:",
-                "options": [
-                  {
-                    "text": "Uma cor fria",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Uma forma geométrica",
-                    "misconceptionCode": "forma-figura"
-                  },
-                  {
-                    "text": "Movimento"
-                  },
-                  {
-                    "text": "Textura",
-                    "misconceptionCode": "textura-cor"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF15AR02-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar: criando a sua arte",
-        "prompt": "Pense em como você usaria os elementos num trabalho seu.",
-        "estMinutes": 4,
-        "audioScript": "Pense em como você usaria os elementos num trabalho seu. Pergunta 1. Você só tem tinta vermelha, amarela e azul e precisa de verde para as folhas. O que faz? A: Mistura azul com amarelo; B: Mistura vermelho com azul; C: Mistura vermelho com amarelo; D: Não dá para fazer verde. Pergunta 2. Você quer que o tronco da árvore pareça áspero ao toque. O que pode usar? A: Pintar de marrom bem liso; B: Fazer só uma linha reta; C: Colar pedacinhos de casca ou papel amassado; D: Desenhar um círculo. Pergunta 3. Você quer desenhar uma montanha-russa cheia de subidas e descidas. Que linha combina? A: Só linha reta horizontal; B: Linha curva e ondulada; C: Nenhuma linha; D: Só pontos azuis.",
-        "questions": [
-          {
-            "question": "Você só tem tinta vermelha, amarela e azul e precisa de verde para as folhas. O que faz?",
-            "options": [
-              {
-                "text": "Mistura azul com amarelo"
-              },
-              {
-                "text": "Mistura vermelho com azul",
-                "misconceptionCode": "cor-mistura-errada"
-              },
-              {
-                "text": "Mistura vermelho com amarelo",
-                "misconceptionCode": "cor-mistura-errada"
-              },
-              {
-                "text": "Não dá para fazer verde",
-                "misconceptionCode": "cor-mistura-errada"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Misture azul com amarelo e pronto: aparece o verde para pintar as folhas.",
-            "variants": [
-              {
-                "question": "Você precisa de roxo para pintar uvas. Qual mistura faz?",
-                "options": [
-                  {
-                    "text": "Azul com amarelo",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Vermelho com amarelo",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Azul com vermelho"
-                  },
-                  {
-                    "text": "Amarelo com branco",
-                    "misconceptionCode": "cor-mistura-errada"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Você só tem tinta vermelha, amarela e azul e precisa de verde para as folhas. O que faz?",
-                "options": [
-                  {
-                    "text": "Não dá para fazer verde",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Mistura azul com amarelo"
-                  },
-                  {
-                    "text": "Mistura vermelho com amarelo",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Mistura vermelho com azul",
-                    "misconceptionCode": "cor-mistura-errada"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Você quer que o tronco da árvore pareça áspero ao toque. O que pode usar?",
-            "options": [
-              {
-                "text": "Pintar de marrom bem liso",
-                "misconceptionCode": "textura-cor"
-              },
-              {
-                "text": "Fazer só uma linha reta",
-                "misconceptionCode": "linha-so-reta"
-              },
-              {
-                "text": "Colar pedacinhos de casca ou papel amassado"
-              },
-              {
-                "text": "Desenhar um círculo",
-                "misconceptionCode": "forma-figura"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Casca de verdade ou papel amassado deixam o desenho com relevo. Quem passar a mão vai sentir a textura.",
-            "variants": [
-              {
-                "question": "Para o cabelo de um boneco parecer macio, você pode usar:",
-                "options": [
-                  {
-                    "text": "Lã ou algodão"
-                  },
-                  {
-                    "text": "Só tinta lisa",
-                    "misconceptionCode": "textura-cor"
-                  },
-                  {
-                    "text": "Uma linha reta",
-                    "misconceptionCode": "linha-so-reta"
-                  },
-                  {
-                    "text": "Um quadrado",
-                    "misconceptionCode": "forma-figura"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Você quer que o tronco da árvore pareça áspero ao toque. O que pode usar?",
-                "options": [
-                  {
-                    "text": "Desenhar um círculo",
-                    "misconceptionCode": "forma-figura"
-                  },
-                  {
-                    "text": "Fazer só uma linha reta",
-                    "misconceptionCode": "linha-so-reta"
-                  },
-                  {
-                    "text": "Pintar de marrom bem liso",
-                    "misconceptionCode": "textura-cor"
-                  },
-                  {
-                    "text": "Colar pedacinhos de casca ou papel amassado"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Você quer desenhar uma montanha-russa cheia de subidas e descidas. Que linha combina?",
-            "options": [
-              {
-                "text": "Só linha reta horizontal",
-                "misconceptionCode": "linha-so-reta"
-              },
-              {
-                "text": "Linha curva e ondulada"
-              },
-              {
-                "text": "Nenhuma linha",
-                "misconceptionCode": "forma-figura"
-              },
-              {
-                "text": "Só pontos azuis",
-                "misconceptionCode": "cor-mistura-errada"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "A montanha-russa sobe e desce o tempo todo. Uma linha curva e ondulada mostra bem esse caminho.",
-            "variants": [
-              {
-                "question": "Para desenhar a escada de um prédio, a linha mais adequada é:",
-                "options": [
-                  {
-                    "text": "Linha ondulada",
-                    "misconceptionCode": "linha-so-reta"
-                  },
-                  {
-                    "text": "Só pontos",
-                    "misconceptionCode": "forma-figura"
-                  },
-                  {
-                    "text": "Nenhuma",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Linha quebrada em degraus"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Você quer desenhar uma montanha-russa cheia de subidas e descidas. Que linha combina?",
-                "options": [
-                  {
-                    "text": "Só pontos azuis",
-                    "misconceptionCode": "cor-mistura-errada"
-                  },
-                  {
-                    "text": "Nenhuma linha",
-                    "misconceptionCode": "forma-figura"
-                  },
-                  {
-                    "text": "Linha curva e ondulada"
-                  },
-                  {
-                    "text": "Só linha reta horizontal",
-                    "misconceptionCode": "linha-so-reta"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF15AR02-A5",
-        "step": "explicar",
-        "type": "WRITTEN",
-        "allowSpoken": true,
-        "title": "Explicar: elementos visuais",
-        "prompt": "Escolha um desenho que você já fez ou imagine um. Explique com as suas palavras que linhas, formas e cores você usou e por quê.",
-        "estMinutes": 6,
-        "audioScript": "Escolha um desenho que você já fez ou imagine um. Explique com as suas palavras que linhas, formas e cores você usou e por quê.",
-        "rubric": {
-          "type": "WRITTEN",
-          "criteria": [
-            {
-              "code": "elementos",
-              "description": "Cita pelo menos dois elementos visuais: ponto, linha, forma, cor, textura, espaço"
-            },
-            {
-              "code": "intencao",
-              "description": "Explica por que escolheu esses elementos (o que queria mostrar)"
-            },
-            {
-              "code": "vocabulario",
-              "description": "Usa os nomes dos elementos de forma correta"
-            }
-          ],
-          "exemploBoaResposta": "Eu desenhei uma praia. Usei linhas onduladas para as ondas e um círculo amarelo para o sol. Pintei o mar de azul, que é uma cor fria, e a areia com cola e areia de verdade para ter textura."
-        }
+       "code": "vocabulario",
+       "description": "Usa os nomes dos elementos de forma correta"
       }
-    ],
-    "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED"
-  },
-  {
-    "skillCode": "EF15AR14",
-    "subjectCode": "AR",
-    "subjectName": "Arte",
-    "gradeYear": 5,
-    "version": 3,
-    "title": "Trilha: Elementos da música",
-    "tituloAluno": "Grave, agudo, forte, fraco e ritmo",
-    "activities": [
+     ],
+     "exemploBoaResposta": "Eu desenhei uma praia. Usei linhas onduladas para as ondas e um círculo amarelo para o sol. Pintei o mar de azul, que é uma cor fria, e a areia com cola e areia de verdade para ter textura."
+    }
+   }
+  ],
+  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+  "source": "SPEAKFLOW",
+  "status": "APPROVED"
+ },
+ {
+  "skillCode": "EF15AR14",
+  "subjectCode": "AR",
+  "subjectName": "Arte",
+  "gradeYear": 5,
+  "version": 3,
+  "title": "Trilha: Elementos da música",
+  "tituloAluno": "Grave, agudo, forte, fraco e ritmo",
+  "activities": [
+   {
+    "id": "PK2-EF15AR14-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: sons ao redor",
+    "prompt": "Vamos lembrar os sons que ouvimos todos os dias.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar os sons que ouvimos todos os dias. Pergunta 1. Qual destes sons é mais agudo? A: O apito de um juiz; B: O trovão; C: O motor de um caminhão; D: Um tambor grande. Pergunta 2. Bater palmas bem forte e depois bem fraco muda: A: A altura do som; B: O timbre do som; C: A intensidade do som; D: A melodia. Pergunta 3. Como você reconhece a voz da sua mãe no telefone sem ver quem é? A: Pela intensidade; B: Pelo timbre, o jeito próprio da voz dela; C: Pelo ritmo da música; D: Porque é sempre um som agudo.",
+    "questions": [
+     {
+      "question": "Qual destes sons é mais agudo?",
+      "options": [
+       {
+        "text": "O apito de um juiz"
+       },
+       {
+        "text": "O trovão",
+        "misconceptionCode": "altura-volume"
+       },
+       {
+        "text": "O motor de um caminhão",
+        "misconceptionCode": "altura-volume"
+       },
+       {
+        "text": "Um tambor grande",
+        "misconceptionCode": "timbre-volume"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O apito do juiz é fininho, como piado de passarinho. Som fino é agudo; som grosso, como trovão, é grave.",
+      "variants": [
+       {
+        "question": "Qual destes sons é mais grave?",
+        "options": [
+         {
+          "text": "O apito",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "O canto de um passarinho",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "O tambor grande"
+         },
+         {
+          "text": "A flauta doce",
+          "misconceptionCode": "timbre-volume"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual destes sons é mais agudo?",
+        "options": [
+         {
+          "text": "Um tambor grande",
+          "misconceptionCode": "timbre-volume"
+         },
+         {
+          "text": "O apito de um juiz"
+         },
+         {
+          "text": "O motor de um caminhão",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "O trovão",
+          "misconceptionCode": "altura-volume"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Bater palmas bem forte e depois bem fraco muda:",
+      "options": [
+       {
+        "text": "A altura do som",
+        "misconceptionCode": "altura-volume"
+       },
+       {
+        "text": "O timbre do som",
+        "misconceptionCode": "timbre-volume"
+       },
+       {
+        "text": "A intensidade do som"
+       },
+       {
+        "text": "A melodia",
+        "misconceptionCode": "ritmo-melodia"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Forte ou fraco é o \"volume\" do som. Esse volume se chama intensidade.",
+      "variants": [
+       {
+        "question": "Falar baixinho para não acordar o bebê é mudar:",
+        "options": [
+         {
+          "text": "A intensidade"
+         },
+         {
+          "text": "A altura",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "O timbre",
+          "misconceptionCode": "timbre-volume"
+         },
+         {
+          "text": "O ritmo",
+          "misconceptionCode": "ritmo-melodia"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Bater palmas bem forte e depois bem fraco muda:",
+        "options": [
+         {
+          "text": "A melodia",
+          "misconceptionCode": "ritmo-melodia"
+         },
+         {
+          "text": "O timbre do som",
+          "misconceptionCode": "timbre-volume"
+         },
+         {
+          "text": "A altura do som",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "A intensidade do som"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Como você reconhece a voz da sua mãe no telefone sem ver quem é?",
+      "options": [
+       {
+        "text": "Pela intensidade",
+        "misconceptionCode": "timbre-volume"
+       },
+       {
+        "text": "Pelo timbre, o jeito próprio da voz dela"
+       },
+       {
+        "text": "Pelo ritmo da música",
+        "misconceptionCode": "ritmo-melodia"
+       },
+       {
+        "text": "Porque é sempre um som agudo",
+        "misconceptionCode": "altura-volume"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Cada pessoa tem um jeito único de soar, como uma impressão digital da voz. Isso é o timbre.",
+      "variants": [
+       {
+        "question": "O que faz o som de um violão ser diferente do som de um piano tocando a mesma nota?",
+        "options": [
+         {
+          "text": "A intensidade",
+          "misconceptionCode": "timbre-volume"
+         },
+         {
+          "text": "A duração",
+          "misconceptionCode": "ritmo-melodia"
+         },
+         {
+          "text": "O volume",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "O timbre"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Como você reconhece a voz da sua mãe no telefone sem ver quem é?",
+        "options": [
+         {
+          "text": "Porque é sempre um som agudo",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "Pelo ritmo da música",
+          "misconceptionCode": "ritmo-melodia"
+         },
+         {
+          "text": "Pelo timbre, o jeito próprio da voz dela"
+         },
+         {
+          "text": "Pela intensidade",
+          "misconceptionCode": "timbre-volume"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF15AR14-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o jogo dos sons",
+    "prompt": "Imagine um jogo: a professora toca sons e a turma faz gestos. Mão para cima quando o som é agudo, mão para baixo quando é grave. Vamos jogar juntos.",
+    "estMinutes": 4,
+    "audioScript": "Imagine um jogo: a professora toca sons e a turma faz gestos. Mão para cima quando o som é agudo, mão para baixo quando é grave. Vamos jogar juntos. Pergunta 1. A professora tocou uma nota bem fina na flauta. O gesto certo é: A: Mão para baixo, porque é fraco; B: Bater palmas, porque é longo; C: Mão para cima, porque é agudo; D: Mão para cima, porque é forte. Pergunta 2. Agora ela toca a mesma nota fina bem baixinho. O som continua: A: Grave, porque está baixinho; B: Agudo, só que mais fraco; C: Com outro timbre; D: Mais longo. Pergunta 3. Ela segura a nota por muito tempo: \"uuuuuuu\". Isso mostra: A: Um som forte; B: Um som agudo; C: Um timbre diferente; D: Um som de longa duração.",
+    "questions": [
+     {
+      "question": "A professora tocou uma nota bem fina na flauta. O gesto certo é:",
+      "options": [
+       {
+        "text": "Mão para baixo, porque é fraco",
+        "misconceptionCode": "altura-volume"
+       },
+       {
+        "text": "Bater palmas, porque é longo",
+        "misconceptionCode": "duracao-intensidade"
+       },
+       {
+        "text": "Mão para cima, porque é agudo"
+       },
+       {
+        "text": "Mão para cima, porque é forte",
+        "misconceptionCode": "altura-volume"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Nota fina é aguda, então a mão vai para cima. Nota grossa, grave, a mão vai para baixo.",
+      "variants": [
+       {
+        "question": "Ela tocou a nota mais grossa do violão. O gesto certo é:",
+        "options": [
+         {
+          "text": "Mão para baixo, porque é grave"
+         },
+         {
+          "text": "Mão para cima, porque é forte",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "Mão para baixo, porque é fraco",
+          "misconceptionCode": "duracao-intensidade"
+         },
+         {
+          "text": "Palmas, porque é curto",
+          "misconceptionCode": "altura-volume"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A professora tocou uma nota bem fina na flauta. O gesto certo é:",
+        "options": [
+         {
+          "text": "Mão para cima, porque é forte",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "Bater palmas, porque é longo",
+          "misconceptionCode": "duracao-intensidade"
+         },
+         {
+          "text": "Mão para baixo, porque é fraco",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "Mão para cima, porque é agudo"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Agora ela toca a mesma nota fina bem baixinho. O som continua:",
+      "options": [
+       {
+        "text": "Grave, porque está baixinho",
+        "misconceptionCode": "altura-volume"
+       },
+       {
+        "text": "Agudo, só que mais fraco"
+       },
+       {
+        "text": "Com outro timbre",
+        "misconceptionCode": "timbre-volume"
+       },
+       {
+        "text": "Mais longo",
+        "misconceptionCode": "duracao-intensidade"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Tocar baixinho muda só o volume. A nota continua fina, ou seja, aguda, só que mais fraca.",
+      "variants": [
+       {
+        "question": "Uma nota grave tocada bem forte continua:",
+        "options": [
+         {
+          "text": "Aguda, porque está forte",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "Sem altura",
+          "misconceptionCode": "timbre-volume"
+         },
+         {
+          "text": "Mais curta",
+          "misconceptionCode": "duracao-intensidade"
+         },
+         {
+          "text": "Grave, só que mais forte"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Agora ela toca a mesma nota fina bem baixinho. O som continua:",
+        "options": [
+         {
+          "text": "Mais longo",
+          "misconceptionCode": "duracao-intensidade"
+         },
+         {
+          "text": "Com outro timbre",
+          "misconceptionCode": "timbre-volume"
+         },
+         {
+          "text": "Agudo, só que mais fraco"
+         },
+         {
+          "text": "Grave, porque está baixinho",
+          "misconceptionCode": "altura-volume"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Ela segura a nota por muito tempo: \"uuuuuuu\". Isso mostra:",
+      "options": [
+       {
+        "text": "Um som forte",
+        "misconceptionCode": "duracao-intensidade"
+       },
+       {
+        "text": "Um som agudo",
+        "misconceptionCode": "altura-volume"
+       },
+       {
+        "text": "Um timbre diferente",
+        "misconceptionCode": "timbre-volume"
+       },
+       {
+        "text": "Um som de longa duração"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Um \"uuuuuu\" comprido é um som que dura muito. O tempo que o som dura se chama duração.",
+      "variants": [
+       {
+        "question": "Um toque rápido no tambor, \"tum!\", é um som:",
+        "options": [
+         {
+          "text": "De longa duração",
+          "misconceptionCode": "duracao-intensidade"
+         },
+         {
+          "text": "De curta duração"
+         },
+         {
+          "text": "Agudo",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "Fraco, por ser curto",
+          "misconceptionCode": "timbre-volume"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Ela segura a nota por muito tempo: \"uuuuuuu\". Isso mostra:",
+        "options": [
+         {
+          "text": "Um som de longa duração"
+         },
+         {
+          "text": "Um timbre diferente",
+          "misconceptionCode": "timbre-volume"
+         },
+         {
+          "text": "Um som agudo",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "Um som forte",
+          "misconceptionCode": "duracao-intensidade"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF15AR14-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: ritmo e melodia",
+    "prompt": "Ritmo é a combinação de sons longos e curtos marcados no tempo. Melodia é a sequência de notas, subindo e descendo, que dá para cantar.",
+    "estMinutes": 5,
+    "audioScript": "Ritmo é a combinação de sons longos e curtos marcados no tempo. Melodia é a sequência de notas, subindo e descendo, que dá para cantar. Pergunta 1. Bater palmas no jeito de \"pa-ra-béns pra você\" é marcar: A: A melodia, porque as palmas cantam; B: O ritmo da música; C: O timbre; D: A altura. Pergunta 2. Cantarolar uma música sem letra, só com \"lá-lá-lá\", mostra: A: Só o ritmo; B: A intensidade; C: O timbre do instrumento; D: A melodia. Pergunta 3. Na música, o \"crescendo\" é quando o som vai: A: Ficando cada vez mais forte; B: Ficando cada vez mais agudo; C: Mudando de instrumento; D: Ficando cada vez mais longo. Pergunta 4. Um mesmo ritmo tocado num tambor e num pandeiro muda: A: O ritmo; B: A altura, que fica sempre igual; C: O timbre; D: A duração.",
+    "questions": [
+     {
+      "question": "Bater palmas no jeito de \"pa-ra-béns pra você\" é marcar:",
+      "options": [
+       {
+        "text": "A melodia, porque as palmas cantam",
+        "misconceptionCode": "ritmo-melodia"
+       },
+       {
+        "text": "O ritmo da música"
+       },
+       {
+        "text": "O timbre",
+        "misconceptionCode": "timbre-volume"
+       },
+       {
+        "text": "A altura",
+        "misconceptionCode": "altura-volume"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "As palmas mostram quando cada som acontece e quanto dura. Esse \"desenho\" de batidas é o ritmo.",
+      "variants": [
+       {
+        "question": "Bater o pé no tempo de uma música marca:",
+        "options": [
+         {
+          "text": "A melodia",
+          "misconceptionCode": "ritmo-melodia"
+         },
+         {
+          "text": "O timbre",
+          "misconceptionCode": "timbre-volume"
+         },
+         {
+          "text": "A altura",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "A pulsação e o ritmo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Bater palmas no jeito de \"pa-ra-béns pra você\" é marcar:",
+        "options": [
+         {
+          "text": "A altura",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "O timbre",
+          "misconceptionCode": "timbre-volume"
+         },
+         {
+          "text": "O ritmo da música"
+         },
+         {
+          "text": "A melodia, porque as palmas cantam",
+          "misconceptionCode": "ritmo-melodia"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Cantarolar uma música sem letra, só com \"lá-lá-lá\", mostra:",
+      "options": [
+       {
+        "text": "Só o ritmo",
+        "misconceptionCode": "ritmo-melodia"
+       },
+       {
+        "text": "A intensidade",
+        "misconceptionCode": "duracao-intensidade"
+       },
+       {
+        "text": "O timbre do instrumento",
+        "misconceptionCode": "timbre-volume"
+       },
+       {
+        "text": "A melodia"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Sem letra, o que sobra são as notas subindo e descendo. Esse caminho das notas é a melodia.",
+      "variants": [
+       {
+        "question": "Assobiar uma música que todos reconhecem mostra:",
+        "options": [
+         {
+          "text": "Só o ritmo",
+          "misconceptionCode": "ritmo-melodia"
+         },
+         {
+          "text": "A melodia dela"
+         },
+         {
+          "text": "O timbre do piano",
+          "misconceptionCode": "duracao-intensidade"
+         },
+         {
+          "text": "A duração das palmas",
+          "misconceptionCode": "timbre-volume"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Cantarolar uma música sem letra, só com \"lá-lá-lá\", mostra:",
+        "options": [
+         {
+          "text": "A melodia"
+         },
+         {
+          "text": "O timbre do instrumento",
+          "misconceptionCode": "timbre-volume"
+         },
+         {
+          "text": "A intensidade",
+          "misconceptionCode": "duracao-intensidade"
+         },
+         {
+          "text": "Só o ritmo",
+          "misconceptionCode": "ritmo-melodia"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Na música, o \"crescendo\" é quando o som vai:",
+      "options": [
+       {
+        "text": "Ficando cada vez mais forte"
+       },
+       {
+        "text": "Ficando cada vez mais agudo",
+        "misconceptionCode": "altura-volume"
+       },
+       {
+        "text": "Mudando de instrumento",
+        "misconceptionCode": "timbre-volume"
+       },
+       {
+        "text": "Ficando cada vez mais longo",
+        "misconceptionCode": "duracao-intensidade"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Crescendo é o som \"crescendo\": vai ficando cada vez mais forte, como alguém chegando perto falando alto.",
+      "variants": [
+       {
+        "question": "Quando o som vai sumindo aos poucos no fim da música, a intensidade:",
+        "options": [
+         {
+          "text": "Fica mais aguda",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "Muda de timbre",
+          "misconceptionCode": "timbre-volume"
+         },
+         {
+          "text": "Diminui"
+         },
+         {
+          "text": "Aumenta",
+          "misconceptionCode": "duracao-intensidade"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Na música, o \"crescendo\" é quando o som vai:",
+        "options": [
+         {
+          "text": "Ficando cada vez mais longo",
+          "misconceptionCode": "duracao-intensidade"
+         },
+         {
+          "text": "Ficando cada vez mais forte"
+         },
+         {
+          "text": "Mudando de instrumento",
+          "misconceptionCode": "timbre-volume"
+         },
+         {
+          "text": "Ficando cada vez mais agudo",
+          "misconceptionCode": "altura-volume"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um mesmo ritmo tocado num tambor e num pandeiro muda:",
+      "options": [
+       {
+        "text": "O ritmo",
+        "misconceptionCode": "ritmo-melodia"
+       },
+       {
+        "text": "A altura, que fica sempre igual",
+        "misconceptionCode": "altura-volume"
+       },
+       {
+        "text": "O timbre"
+       },
+       {
+        "text": "A duração",
+        "misconceptionCode": "duracao-intensidade"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "As batidas são as mesmas, mas tambor e pandeiro têm \"vozes\" diferentes. Essa voz do instrumento é o timbre.",
+      "variants": [
+       {
+        "question": "A mesma melodia cantada por uma criança e por um adulto muda principalmente:",
+        "options": [
+         {
+          "text": "O timbre e a altura"
+         },
+         {
+          "text": "O ritmo",
+          "misconceptionCode": "ritmo-melodia"
+         },
+         {
+          "text": "A letra",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "duracao-intensidade"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um mesmo ritmo tocado num tambor e num pandeiro muda:",
+        "options": [
+         {
+          "text": "A duração",
+          "misconceptionCode": "duracao-intensidade"
+         },
+         {
+          "text": "A altura, que fica sempre igual",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "O ritmo",
+          "misconceptionCode": "ritmo-melodia"
+         },
+         {
+          "text": "O timbre"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF15AR14-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: música no dia a dia",
+    "prompt": "Os elementos da música estão em todo lugar.",
+    "estMinutes": 4,
+    "audioScript": "Os elementos da música estão em todo lugar. Pergunta 1. Num filme, a música fica mais forte quando vai acontecer algo emocionante. O que muda? A: A altura, que fica mais grave; B: O timbre dos atores; C: A melodia vira ritmo; D: A intensidade. Pergunta 2. Para o samba, o surdo faz um som bem grave e o tamborim, um som agudo. Isso mostra diferença de: A: Altura; B: Intensidade; C: Melodia; D: Duração. Pergunta 3. No celular, você aumenta o volume da música. Você mudou: A: A altura das notas; B: O timbre da cantora; C: A intensidade; D: O ritmo.",
+    "questions": [
+     {
+      "question": "Num filme, a música fica mais forte quando vai acontecer algo emocionante. O que muda?",
+      "options": [
+       {
+        "text": "A altura, que fica mais grave",
+        "misconceptionCode": "altura-volume"
+       },
+       {
+        "text": "O timbre dos atores",
+        "misconceptionCode": "timbre-volume"
+       },
+       {
+        "text": "A melodia vira ritmo",
+        "misconceptionCode": "ritmo-melodia"
+       },
+       {
+        "text": "A intensidade"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Quando a música fica mais forte, o coração acelera junto! Aumentar a intensidade cria emoção.",
+      "variants": [
+       {
+        "question": "Numa cena calma, a música fica bem suave. O que diminuiu?",
+        "options": [
+         {
+          "text": "O ritmo",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "A intensidade"
+         },
+         {
+          "text": "O timbre",
+          "misconceptionCode": "timbre-volume"
+         },
+         {
+          "text": "A melodia",
+          "misconceptionCode": "ritmo-melodia"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Num filme, a música fica mais forte quando vai acontecer algo emocionante. O que muda?",
+        "options": [
+         {
+          "text": "A intensidade"
+         },
+         {
+          "text": "A melodia vira ritmo",
+          "misconceptionCode": "ritmo-melodia"
+         },
+         {
+          "text": "O timbre dos atores",
+          "misconceptionCode": "timbre-volume"
+         },
+         {
+          "text": "A altura, que fica mais grave",
+          "misconceptionCode": "altura-volume"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Para o samba, o surdo faz um som bem grave e o tamborim, um som agudo. Isso mostra diferença de:",
+      "options": [
+       {
+        "text": "Altura"
+       },
+       {
+        "text": "Intensidade",
+        "misconceptionCode": "altura-volume"
+       },
+       {
+        "text": "Melodia",
+        "misconceptionCode": "ritmo-melodia"
+       },
+       {
+        "text": "Duração",
+        "misconceptionCode": "duracao-intensidade"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O surdo faz \"tum\" grosso e o tamborim faz \"tic\" fininho. Grosso e fino são diferenças de altura.",
+      "variants": [
+       {
+        "question": "Na bateria da escola de samba, o som grosso do surdo é:",
+        "options": [
+         {
+          "text": "Agudo",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "Fraco",
+          "misconceptionCode": "ritmo-melodia"
+         },
+         {
+          "text": "Grave"
+         },
+         {
+          "text": "Curto sempre",
+          "misconceptionCode": "duracao-intensidade"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Para o samba, o surdo faz um som bem grave e o tamborim, um som agudo. Isso mostra diferença de:",
+        "options": [
+         {
+          "text": "Duração",
+          "misconceptionCode": "duracao-intensidade"
+         },
+         {
+          "text": "Altura"
+         },
+         {
+          "text": "Melodia",
+          "misconceptionCode": "ritmo-melodia"
+         },
+         {
+          "text": "Intensidade",
+          "misconceptionCode": "altura-volume"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "No celular, você aumenta o volume da música. Você mudou:",
+      "options": [
+       {
+        "text": "A altura das notas",
+        "misconceptionCode": "altura-volume"
+       },
+       {
+        "text": "O timbre da cantora",
+        "misconceptionCode": "timbre-volume"
+       },
+       {
+        "text": "A intensidade"
+       },
+       {
+        "text": "O ritmo",
+        "misconceptionCode": "ritmo-melodia"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O botão de volume deixa a música mais forte ou mais fraca, sem mudar as notas. Isso é a intensidade.",
+      "variants": [
+       {
+        "question": "Se alguém diz \"abaixa o som\", ele quer que você diminua:",
+        "options": [
+         {
+          "text": "A intensidade"
+         },
+         {
+          "text": "A altura das notas",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "O ritmo",
+          "misconceptionCode": "timbre-volume"
+         },
+         {
+          "text": "A melodia",
+          "misconceptionCode": "ritmo-melodia"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "No celular, você aumenta o volume da música. Você mudou:",
+        "options": [
+         {
+          "text": "O ritmo",
+          "misconceptionCode": "ritmo-melodia"
+         },
+         {
+          "text": "O timbre da cantora",
+          "misconceptionCode": "timbre-volume"
+         },
+         {
+          "text": "A altura das notas",
+          "misconceptionCode": "altura-volume"
+         },
+         {
+          "text": "A intensidade"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF15AR14-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: grave, agudo, forte e fraco",
+    "prompt": "Explique com as suas palavras a diferença entre um som agudo e um som forte. Dê um exemplo de cada um.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras a diferença entre um som agudo e um som forte. Dê um exemplo de cada um.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
       {
-        "id": "PK2-EF15AR14-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar: sons ao redor",
-        "prompt": "Vamos lembrar os sons que ouvimos todos os dias.",
-        "estMinutes": 4,
-        "audioScript": "Vamos lembrar os sons que ouvimos todos os dias. Pergunta 1. Qual destes sons é mais agudo? A: O apito de um juiz; B: O trovão; C: O motor de um caminhão; D: Um tambor grande. Pergunta 2. Bater palmas bem forte e depois bem fraco muda: A: A altura do som; B: O timbre do som; C: A intensidade do som; D: A melodia. Pergunta 3. Como você reconhece a voz da sua mãe no telefone sem ver quem é? A: Pela intensidade; B: Pelo timbre, o jeito próprio da voz dela; C: Pelo ritmo da música; D: Porque é sempre um som agudo.",
-        "questions": [
-          {
-            "question": "Qual destes sons é mais agudo?",
-            "options": [
-              {
-                "text": "O apito de um juiz"
-              },
-              {
-                "text": "O trovão",
-                "misconceptionCode": "altura-volume"
-              },
-              {
-                "text": "O motor de um caminhão",
-                "misconceptionCode": "altura-volume"
-              },
-              {
-                "text": "Um tambor grande",
-                "misconceptionCode": "timbre-volume"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "O apito do juiz é fininho, como piado de passarinho. Som fino é agudo; som grosso, como trovão, é grave.",
-            "variants": [
-              {
-                "question": "Qual destes sons é mais grave?",
-                "options": [
-                  {
-                    "text": "O apito",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "O canto de um passarinho",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "O tambor grande"
-                  },
-                  {
-                    "text": "A flauta doce",
-                    "misconceptionCode": "timbre-volume"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Qual destes sons é mais agudo?",
-                "options": [
-                  {
-                    "text": "Um tambor grande",
-                    "misconceptionCode": "timbre-volume"
-                  },
-                  {
-                    "text": "O apito de um juiz"
-                  },
-                  {
-                    "text": "O motor de um caminhão",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "O trovão",
-                    "misconceptionCode": "altura-volume"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Bater palmas bem forte e depois bem fraco muda:",
-            "options": [
-              {
-                "text": "A altura do som",
-                "misconceptionCode": "altura-volume"
-              },
-              {
-                "text": "O timbre do som",
-                "misconceptionCode": "timbre-volume"
-              },
-              {
-                "text": "A intensidade do som"
-              },
-              {
-                "text": "A melodia",
-                "misconceptionCode": "ritmo-melodia"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Forte ou fraco é o \"volume\" do som. Esse volume se chama intensidade.",
-            "variants": [
-              {
-                "question": "Falar baixinho para não acordar o bebê é mudar:",
-                "options": [
-                  {
-                    "text": "A intensidade"
-                  },
-                  {
-                    "text": "A altura",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "O timbre",
-                    "misconceptionCode": "timbre-volume"
-                  },
-                  {
-                    "text": "O ritmo",
-                    "misconceptionCode": "ritmo-melodia"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Bater palmas bem forte e depois bem fraco muda:",
-                "options": [
-                  {
-                    "text": "A melodia",
-                    "misconceptionCode": "ritmo-melodia"
-                  },
-                  {
-                    "text": "O timbre do som",
-                    "misconceptionCode": "timbre-volume"
-                  },
-                  {
-                    "text": "A altura do som",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "A intensidade do som"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Como você reconhece a voz da sua mãe no telefone sem ver quem é?",
-            "options": [
-              {
-                "text": "Pela intensidade",
-                "misconceptionCode": "timbre-volume"
-              },
-              {
-                "text": "Pelo timbre, o jeito próprio da voz dela"
-              },
-              {
-                "text": "Pelo ritmo da música",
-                "misconceptionCode": "ritmo-melodia"
-              },
-              {
-                "text": "Porque é sempre um som agudo",
-                "misconceptionCode": "altura-volume"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Cada pessoa tem um jeito único de soar, como uma impressão digital da voz. Isso é o timbre.",
-            "variants": [
-              {
-                "question": "O que faz o som de um violão ser diferente do som de um piano tocando a mesma nota?",
-                "options": [
-                  {
-                    "text": "A intensidade",
-                    "misconceptionCode": "timbre-volume"
-                  },
-                  {
-                    "text": "A duração",
-                    "misconceptionCode": "ritmo-melodia"
-                  },
-                  {
-                    "text": "O volume",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "O timbre"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Como você reconhece a voz da sua mãe no telefone sem ver quem é?",
-                "options": [
-                  {
-                    "text": "Porque é sempre um som agudo",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "Pelo ritmo da música",
-                    "misconceptionCode": "ritmo-melodia"
-                  },
-                  {
-                    "text": "Pelo timbre, o jeito próprio da voz dela"
-                  },
-                  {
-                    "text": "Pela intensidade",
-                    "misconceptionCode": "timbre-volume"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          }
-        ]
+       "code": "altura",
+       "description": "Explica que agudo e grave se referem à altura (fino ou grosso)"
       },
       {
-        "id": "PK2-EF15AR14-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Exemplo guiado: o jogo dos sons",
-        "prompt": "Imagine um jogo: a professora toca sons e a turma faz gestos. Mão para cima quando o som é agudo, mão para baixo quando é grave. Vamos jogar juntos.",
-        "estMinutes": 4,
-        "audioScript": "Imagine um jogo: a professora toca sons e a turma faz gestos. Mão para cima quando o som é agudo, mão para baixo quando é grave. Vamos jogar juntos. Pergunta 1. A professora tocou uma nota bem fina na flauta. O gesto certo é: A: Mão para baixo, porque é fraco; B: Bater palmas, porque é longo; C: Mão para cima, porque é agudo; D: Mão para cima, porque é forte. Pergunta 2. Agora ela toca a mesma nota fina bem baixinho. O som continua: A: Grave, porque está baixinho; B: Agudo, só que mais fraco; C: Com outro timbre; D: Mais longo. Pergunta 3. Ela segura a nota por muito tempo: \"uuuuuuu\". Isso mostra: A: Um som forte; B: Um som agudo; C: Um timbre diferente; D: Um som de longa duração.",
-        "questions": [
-          {
-            "question": "A professora tocou uma nota bem fina na flauta. O gesto certo é:",
-            "options": [
-              {
-                "text": "Mão para baixo, porque é fraco",
-                "misconceptionCode": "altura-volume"
-              },
-              {
-                "text": "Bater palmas, porque é longo",
-                "misconceptionCode": "duracao-intensidade"
-              },
-              {
-                "text": "Mão para cima, porque é agudo"
-              },
-              {
-                "text": "Mão para cima, porque é forte",
-                "misconceptionCode": "altura-volume"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Nota fina é aguda, então a mão vai para cima. Nota grossa, grave, a mão vai para baixo.",
-            "variants": [
-              {
-                "question": "Ela tocou a nota mais grossa do violão. O gesto certo é:",
-                "options": [
-                  {
-                    "text": "Mão para baixo, porque é grave"
-                  },
-                  {
-                    "text": "Mão para cima, porque é forte",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "Mão para baixo, porque é fraco",
-                    "misconceptionCode": "duracao-intensidade"
-                  },
-                  {
-                    "text": "Palmas, porque é curto",
-                    "misconceptionCode": "altura-volume"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "A professora tocou uma nota bem fina na flauta. O gesto certo é:",
-                "options": [
-                  {
-                    "text": "Mão para cima, porque é forte",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "Bater palmas, porque é longo",
-                    "misconceptionCode": "duracao-intensidade"
-                  },
-                  {
-                    "text": "Mão para baixo, porque é fraco",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "Mão para cima, porque é agudo"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Agora ela toca a mesma nota fina bem baixinho. O som continua:",
-            "options": [
-              {
-                "text": "Grave, porque está baixinho",
-                "misconceptionCode": "altura-volume"
-              },
-              {
-                "text": "Agudo, só que mais fraco"
-              },
-              {
-                "text": "Com outro timbre",
-                "misconceptionCode": "timbre-volume"
-              },
-              {
-                "text": "Mais longo",
-                "misconceptionCode": "duracao-intensidade"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Tocar baixinho muda só o volume. A nota continua fina, ou seja, aguda, só que mais fraca.",
-            "variants": [
-              {
-                "question": "Uma nota grave tocada bem forte continua:",
-                "options": [
-                  {
-                    "text": "Aguda, porque está forte",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "Sem altura",
-                    "misconceptionCode": "timbre-volume"
-                  },
-                  {
-                    "text": "Mais curta",
-                    "misconceptionCode": "duracao-intensidade"
-                  },
-                  {
-                    "text": "Grave, só que mais forte"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Agora ela toca a mesma nota fina bem baixinho. O som continua:",
-                "options": [
-                  {
-                    "text": "Mais longo",
-                    "misconceptionCode": "duracao-intensidade"
-                  },
-                  {
-                    "text": "Com outro timbre",
-                    "misconceptionCode": "timbre-volume"
-                  },
-                  {
-                    "text": "Agudo, só que mais fraco"
-                  },
-                  {
-                    "text": "Grave, porque está baixinho",
-                    "misconceptionCode": "altura-volume"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Ela segura a nota por muito tempo: \"uuuuuuu\". Isso mostra:",
-            "options": [
-              {
-                "text": "Um som forte",
-                "misconceptionCode": "duracao-intensidade"
-              },
-              {
-                "text": "Um som agudo",
-                "misconceptionCode": "altura-volume"
-              },
-              {
-                "text": "Um timbre diferente",
-                "misconceptionCode": "timbre-volume"
-              },
-              {
-                "text": "Um som de longa duração"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Um \"uuuuuu\" comprido é um som que dura muito. O tempo que o som dura se chama duração.",
-            "variants": [
-              {
-                "question": "Um toque rápido no tambor, \"tum!\", é um som:",
-                "options": [
-                  {
-                    "text": "De longa duração",
-                    "misconceptionCode": "duracao-intensidade"
-                  },
-                  {
-                    "text": "De curta duração"
-                  },
-                  {
-                    "text": "Agudo",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "Fraco, por ser curto",
-                    "misconceptionCode": "timbre-volume"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Ela segura a nota por muito tempo: \"uuuuuuu\". Isso mostra:",
-                "options": [
-                  {
-                    "text": "Um som de longa duração"
-                  },
-                  {
-                    "text": "Um timbre diferente",
-                    "misconceptionCode": "timbre-volume"
-                  },
-                  {
-                    "text": "Um som agudo",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "Um som forte",
-                    "misconceptionCode": "duracao-intensidade"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          }
-        ]
+       "code": "intensidade",
+       "description": "Explica que forte e fraco se referem à intensidade (volume)"
       },
       {
-        "id": "PK2-EF15AR14-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar: ritmo e melodia",
-        "prompt": "Ritmo é a combinação de sons longos e curtos marcados no tempo. Melodia é a sequência de notas, subindo e descendo, que dá para cantar.",
-        "estMinutes": 5,
-        "audioScript": "Ritmo é a combinação de sons longos e curtos marcados no tempo. Melodia é a sequência de notas, subindo e descendo, que dá para cantar. Pergunta 1. Bater palmas no jeito de \"pa-ra-béns pra você\" é marcar: A: A melodia, porque as palmas cantam; B: O ritmo da música; C: O timbre; D: A altura. Pergunta 2. Cantarolar uma música sem letra, só com \"lá-lá-lá\", mostra: A: Só o ritmo; B: A intensidade; C: O timbre do instrumento; D: A melodia. Pergunta 3. Na música, o \"crescendo\" é quando o som vai: A: Ficando cada vez mais forte; B: Ficando cada vez mais agudo; C: Mudando de instrumento; D: Ficando cada vez mais longo. Pergunta 4. Um mesmo ritmo tocado num tambor e num pandeiro muda: A: O ritmo; B: A altura, que fica sempre igual; C: O timbre; D: A duração.",
-        "questions": [
-          {
-            "question": "Bater palmas no jeito de \"pa-ra-béns pra você\" é marcar:",
-            "options": [
-              {
-                "text": "A melodia, porque as palmas cantam",
-                "misconceptionCode": "ritmo-melodia"
-              },
-              {
-                "text": "O ritmo da música"
-              },
-              {
-                "text": "O timbre",
-                "misconceptionCode": "timbre-volume"
-              },
-              {
-                "text": "A altura",
-                "misconceptionCode": "altura-volume"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "As palmas mostram quando cada som acontece e quanto dura. Esse \"desenho\" de batidas é o ritmo.",
-            "variants": [
-              {
-                "question": "Bater o pé no tempo de uma música marca:",
-                "options": [
-                  {
-                    "text": "A melodia",
-                    "misconceptionCode": "ritmo-melodia"
-                  },
-                  {
-                    "text": "O timbre",
-                    "misconceptionCode": "timbre-volume"
-                  },
-                  {
-                    "text": "A altura",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "A pulsação e o ritmo"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Bater palmas no jeito de \"pa-ra-béns pra você\" é marcar:",
-                "options": [
-                  {
-                    "text": "A altura",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "O timbre",
-                    "misconceptionCode": "timbre-volume"
-                  },
-                  {
-                    "text": "O ritmo da música"
-                  },
-                  {
-                    "text": "A melodia, porque as palmas cantam",
-                    "misconceptionCode": "ritmo-melodia"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Cantarolar uma música sem letra, só com \"lá-lá-lá\", mostra:",
-            "options": [
-              {
-                "text": "Só o ritmo",
-                "misconceptionCode": "ritmo-melodia"
-              },
-              {
-                "text": "A intensidade",
-                "misconceptionCode": "duracao-intensidade"
-              },
-              {
-                "text": "O timbre do instrumento",
-                "misconceptionCode": "timbre-volume"
-              },
-              {
-                "text": "A melodia"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Sem letra, o que sobra são as notas subindo e descendo. Esse caminho das notas é a melodia.",
-            "variants": [
-              {
-                "question": "Assobiar uma música que todos reconhecem mostra:",
-                "options": [
-                  {
-                    "text": "Só o ritmo",
-                    "misconceptionCode": "ritmo-melodia"
-                  },
-                  {
-                    "text": "A melodia dela"
-                  },
-                  {
-                    "text": "O timbre do piano",
-                    "misconceptionCode": "duracao-intensidade"
-                  },
-                  {
-                    "text": "A duração das palmas",
-                    "misconceptionCode": "timbre-volume"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Cantarolar uma música sem letra, só com \"lá-lá-lá\", mostra:",
-                "options": [
-                  {
-                    "text": "A melodia"
-                  },
-                  {
-                    "text": "O timbre do instrumento",
-                    "misconceptionCode": "timbre-volume"
-                  },
-                  {
-                    "text": "A intensidade",
-                    "misconceptionCode": "duracao-intensidade"
-                  },
-                  {
-                    "text": "Só o ritmo",
-                    "misconceptionCode": "ritmo-melodia"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Na música, o \"crescendo\" é quando o som vai:",
-            "options": [
-              {
-                "text": "Ficando cada vez mais forte"
-              },
-              {
-                "text": "Ficando cada vez mais agudo",
-                "misconceptionCode": "altura-volume"
-              },
-              {
-                "text": "Mudando de instrumento",
-                "misconceptionCode": "timbre-volume"
-              },
-              {
-                "text": "Ficando cada vez mais longo",
-                "misconceptionCode": "duracao-intensidade"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Crescendo é o som \"crescendo\": vai ficando cada vez mais forte, como alguém chegando perto falando alto.",
-            "variants": [
-              {
-                "question": "Quando o som vai sumindo aos poucos no fim da música, a intensidade:",
-                "options": [
-                  {
-                    "text": "Fica mais aguda",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "Muda de timbre",
-                    "misconceptionCode": "timbre-volume"
-                  },
-                  {
-                    "text": "Diminui"
-                  },
-                  {
-                    "text": "Aumenta",
-                    "misconceptionCode": "duracao-intensidade"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Na música, o \"crescendo\" é quando o som vai:",
-                "options": [
-                  {
-                    "text": "Ficando cada vez mais longo",
-                    "misconceptionCode": "duracao-intensidade"
-                  },
-                  {
-                    "text": "Ficando cada vez mais forte"
-                  },
-                  {
-                    "text": "Mudando de instrumento",
-                    "misconceptionCode": "timbre-volume"
-                  },
-                  {
-                    "text": "Ficando cada vez mais agudo",
-                    "misconceptionCode": "altura-volume"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Um mesmo ritmo tocado num tambor e num pandeiro muda:",
-            "options": [
-              {
-                "text": "O ritmo",
-                "misconceptionCode": "ritmo-melodia"
-              },
-              {
-                "text": "A altura, que fica sempre igual",
-                "misconceptionCode": "altura-volume"
-              },
-              {
-                "text": "O timbre"
-              },
-              {
-                "text": "A duração",
-                "misconceptionCode": "duracao-intensidade"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "As batidas são as mesmas, mas tambor e pandeiro têm \"vozes\" diferentes. Essa voz do instrumento é o timbre.",
-            "variants": [
-              {
-                "question": "A mesma melodia cantada por uma criança e por um adulto muda principalmente:",
-                "options": [
-                  {
-                    "text": "O timbre e a altura"
-                  },
-                  {
-                    "text": "O ritmo",
-                    "misconceptionCode": "ritmo-melodia"
-                  },
-                  {
-                    "text": "A letra",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "Nada",
-                    "misconceptionCode": "duracao-intensidade"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Um mesmo ritmo tocado num tambor e num pandeiro muda:",
-                "options": [
-                  {
-                    "text": "A duração",
-                    "misconceptionCode": "duracao-intensidade"
-                  },
-                  {
-                    "text": "A altura, que fica sempre igual",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "O ritmo",
-                    "misconceptionCode": "ritmo-melodia"
-                  },
-                  {
-                    "text": "O timbre"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF15AR14-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar: música no dia a dia",
-        "prompt": "Os elementos da música estão em todo lugar.",
-        "estMinutes": 4,
-        "audioScript": "Os elementos da música estão em todo lugar. Pergunta 1. Num filme, a música fica mais forte quando vai acontecer algo emocionante. O que muda? A: A altura, que fica mais grave; B: O timbre dos atores; C: A melodia vira ritmo; D: A intensidade. Pergunta 2. Para o samba, o surdo faz um som bem grave e o tamborim, um som agudo. Isso mostra diferença de: A: Altura; B: Intensidade; C: Melodia; D: Duração. Pergunta 3. No celular, você aumenta o volume da música. Você mudou: A: A altura das notas; B: O timbre da cantora; C: A intensidade; D: O ritmo.",
-        "questions": [
-          {
-            "question": "Num filme, a música fica mais forte quando vai acontecer algo emocionante. O que muda?",
-            "options": [
-              {
-                "text": "A altura, que fica mais grave",
-                "misconceptionCode": "altura-volume"
-              },
-              {
-                "text": "O timbre dos atores",
-                "misconceptionCode": "timbre-volume"
-              },
-              {
-                "text": "A melodia vira ritmo",
-                "misconceptionCode": "ritmo-melodia"
-              },
-              {
-                "text": "A intensidade"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Quando a música fica mais forte, o coração acelera junto! Aumentar a intensidade cria emoção.",
-            "variants": [
-              {
-                "question": "Numa cena calma, a música fica bem suave. O que diminuiu?",
-                "options": [
-                  {
-                    "text": "O ritmo",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "A intensidade"
-                  },
-                  {
-                    "text": "O timbre",
-                    "misconceptionCode": "timbre-volume"
-                  },
-                  {
-                    "text": "A melodia",
-                    "misconceptionCode": "ritmo-melodia"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Num filme, a música fica mais forte quando vai acontecer algo emocionante. O que muda?",
-                "options": [
-                  {
-                    "text": "A intensidade"
-                  },
-                  {
-                    "text": "A melodia vira ritmo",
-                    "misconceptionCode": "ritmo-melodia"
-                  },
-                  {
-                    "text": "O timbre dos atores",
-                    "misconceptionCode": "timbre-volume"
-                  },
-                  {
-                    "text": "A altura, que fica mais grave",
-                    "misconceptionCode": "altura-volume"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Para o samba, o surdo faz um som bem grave e o tamborim, um som agudo. Isso mostra diferença de:",
-            "options": [
-              {
-                "text": "Altura"
-              },
-              {
-                "text": "Intensidade",
-                "misconceptionCode": "altura-volume"
-              },
-              {
-                "text": "Melodia",
-                "misconceptionCode": "ritmo-melodia"
-              },
-              {
-                "text": "Duração",
-                "misconceptionCode": "duracao-intensidade"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "O surdo faz \"tum\" grosso e o tamborim faz \"tic\" fininho. Grosso e fino são diferenças de altura.",
-            "variants": [
-              {
-                "question": "Na bateria da escola de samba, o som grosso do surdo é:",
-                "options": [
-                  {
-                    "text": "Agudo",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "Fraco",
-                    "misconceptionCode": "ritmo-melodia"
-                  },
-                  {
-                    "text": "Grave"
-                  },
-                  {
-                    "text": "Curto sempre",
-                    "misconceptionCode": "duracao-intensidade"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Para o samba, o surdo faz um som bem grave e o tamborim, um som agudo. Isso mostra diferença de:",
-                "options": [
-                  {
-                    "text": "Duração",
-                    "misconceptionCode": "duracao-intensidade"
-                  },
-                  {
-                    "text": "Altura"
-                  },
-                  {
-                    "text": "Melodia",
-                    "misconceptionCode": "ritmo-melodia"
-                  },
-                  {
-                    "text": "Intensidade",
-                    "misconceptionCode": "altura-volume"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "No celular, você aumenta o volume da música. Você mudou:",
-            "options": [
-              {
-                "text": "A altura das notas",
-                "misconceptionCode": "altura-volume"
-              },
-              {
-                "text": "O timbre da cantora",
-                "misconceptionCode": "timbre-volume"
-              },
-              {
-                "text": "A intensidade"
-              },
-              {
-                "text": "O ritmo",
-                "misconceptionCode": "ritmo-melodia"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "O botão de volume deixa a música mais forte ou mais fraca, sem mudar as notas. Isso é a intensidade.",
-            "variants": [
-              {
-                "question": "Se alguém diz \"abaixa o som\", ele quer que você diminua:",
-                "options": [
-                  {
-                    "text": "A intensidade"
-                  },
-                  {
-                    "text": "A altura das notas",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "O ritmo",
-                    "misconceptionCode": "timbre-volume"
-                  },
-                  {
-                    "text": "A melodia",
-                    "misconceptionCode": "ritmo-melodia"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "No celular, você aumenta o volume da música. Você mudou:",
-                "options": [
-                  {
-                    "text": "O ritmo",
-                    "misconceptionCode": "ritmo-melodia"
-                  },
-                  {
-                    "text": "O timbre da cantora",
-                    "misconceptionCode": "timbre-volume"
-                  },
-                  {
-                    "text": "A altura das notas",
-                    "misconceptionCode": "altura-volume"
-                  },
-                  {
-                    "text": "A intensidade"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF15AR14-A5",
-        "step": "explicar",
-        "type": "WRITTEN",
-        "allowSpoken": true,
-        "title": "Explicar: grave, agudo, forte e fraco",
-        "prompt": "Explique com as suas palavras a diferença entre um som agudo e um som forte. Dê um exemplo de cada um.",
-        "estMinutes": 6,
-        "audioScript": "Explique com as suas palavras a diferença entre um som agudo e um som forte. Dê um exemplo de cada um.",
-        "rubric": {
-          "type": "WRITTEN",
-          "criteria": [
-            {
-              "code": "altura",
-              "description": "Explica que agudo e grave se referem à altura (fino ou grosso)"
-            },
-            {
-              "code": "intensidade",
-              "description": "Explica que forte e fraco se referem à intensidade (volume)"
-            },
-            {
-              "code": "exemplos",
-              "description": "Dá exemplos corretos de cada um"
-            }
-          ],
-          "exemploBoaResposta": "Som agudo é um som fino, como o apito do juiz ou um passarinho. Som forte é um som com muito volume, como um trovão ou um grito. Um som pode ser agudo e fraco, como um apito bem baixinho."
-        }
+       "code": "exemplos",
+       "description": "Dá exemplos corretos de cada um"
       }
-    ],
-    "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED"
-  }
+     ],
+     "exemploBoaResposta": "Som agudo é um som fino, como o apito do juiz ou um passarinho. Som forte é um som com muito volume, como um trovão ou um grito. Um som pode ser agudo e fraco, como um apito bem baixinho."
+    }
+   }
+  ],
+  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+  "source": "SPEAKFLOW",
+  "status": "APPROVED"
+ },
+ {
+  "skillCode": "EF15AR25",
+  "subjectCode": "AR",
+  "subjectName": "Arte",
+  "gradeYear": 5,
+  "version": 1,
+  "title": "Trilha: Patrimônio cultural na arte",
+  "tituloAluno": "Heranças indígenas, africanas e europeias",
+  "activities": [
+   {
+    "id": "PK2-EF15AR25-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: as linguagens da arte",
+    "prompt": "Já trabalhamos com artes visuais, dança, música e teatro.",
+    "estMinutes": 4,
+    "audioScript": "Já trabalhamos com artes visuais, dança, música e teatro. Pergunta 1. Pintura, desenho e escultura fazem parte de qual linguagem? A: Música; B: Dança; C: Teatro; D: Artes visuais. Pergunta 2. Uma manifestação que passa de geração em geração é chamada de: A: Tradição; B: Novidade; C: Moda passageira; D: Propaganda. Pergunta 3. A cultura brasileira foi formada pela mistura de quais povos, principalmente? A: Só europeus; B: Indígenas, africanos e europeus; C: Só indígenas; D: Só africanos.",
+    "questions": [
+     {
+      "question": "Pintura, desenho e escultura fazem parte de qual linguagem?",
+      "options": [
+       {
+        "text": "Música",
+        "misconceptionCode": "arte-so-museu"
+       },
+       {
+        "text": "Dança",
+        "misconceptionCode": "arte-so-museu"
+       },
+       {
+        "text": "Teatro",
+        "misconceptionCode": "arte-so-museu"
+       },
+       {
+        "text": "Artes visuais"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "As artes visuais são feitas para serem vistas.",
+      "variants": [
+       {
+        "question": "Cantar e tocar instrumentos fazem parte de qual linguagem?",
+        "options": [
+         {
+          "text": "Artes visuais",
+          "misconceptionCode": "arte-so-museu"
+         },
+         {
+          "text": "Música"
+         },
+         {
+          "text": "Teatro",
+          "misconceptionCode": "arte-so-museu"
+         },
+         {
+          "text": "Escultura",
+          "misconceptionCode": "arte-so-museu"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Pintura, desenho e escultura fazem parte de qual linguagem?",
+        "options": [
+         {
+          "text": "Artes visuais"
+         },
+         {
+          "text": "Teatro",
+          "misconceptionCode": "arte-so-museu"
+         },
+         {
+          "text": "Dança",
+          "misconceptionCode": "arte-so-museu"
+         },
+         {
+          "text": "Música",
+          "misconceptionCode": "arte-so-museu"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Uma manifestação que passa de geração em geração é chamada de:",
+      "options": [
+       {
+        "text": "Tradição"
+       },
+       {
+        "text": "Novidade",
+        "misconceptionCode": "arte-popular-nao-e-arte"
+       },
+       {
+        "text": "Moda passageira",
+        "misconceptionCode": "arte-popular-nao-e-arte"
+       },
+       {
+        "text": "Propaganda",
+        "misconceptionCode": "arte-popular-nao-e-arte"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A tradição é ensinada pelos mais velhos aos mais novos.",
+      "variants": [
+       {
+        "question": "Quem costuma ensinar as tradições de um povo às crianças?",
+        "options": [
+         {
+          "text": "Só a televisão",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         },
+         {
+          "text": "Só as lojas",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         },
+         {
+          "text": "As pessoas mais velhas da comunidade"
+         },
+         {
+          "text": "Ninguém",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Uma manifestação que passa de geração em geração é chamada de:",
+        "options": [
+         {
+          "text": "Propaganda",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         },
+         {
+          "text": "Tradição"
+         },
+         {
+          "text": "Moda passageira",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         },
+         {
+          "text": "Novidade",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "A cultura brasileira foi formada pela mistura de quais povos, principalmente?",
+      "options": [
+       {
+        "text": "Só europeus",
+        "misconceptionCode": "uma-cultura-vale-mais"
+       },
+       {
+        "text": "Indígenas, africanos e europeus"
+       },
+       {
+        "text": "Só indígenas",
+        "misconceptionCode": "matriz-trocada"
+       },
+       {
+        "text": "Só africanos",
+        "misconceptionCode": "matriz-trocada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Cada povo trouxe os seus saberes, as suas músicas, danças e formas de criar.",
+      "variants": [
+       {
+        "question": "A mistura de povos tornou a cultura brasileira:",
+        "options": [
+         {
+          "text": "Pobre",
+          "misconceptionCode": "uma-cultura-vale-mais"
+         },
+         {
+          "text": "Igual em todo lugar",
+          "misconceptionCode": "matriz-trocada"
+         },
+         {
+          "text": "Sem tradições",
+          "misconceptionCode": "matriz-trocada"
+         },
+         {
+          "text": "Rica e diversa"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A cultura brasileira foi formada pela mistura de quais povos, principalmente?",
+        "options": [
+         {
+          "text": "Só africanos",
+          "misconceptionCode": "matriz-trocada"
+         },
+         {
+          "text": "Só indígenas",
+          "misconceptionCode": "matriz-trocada"
+         },
+         {
+          "text": "Indígenas, africanos e europeus"
+         },
+         {
+          "text": "Só europeus",
+          "misconceptionCode": "uma-cultura-vale-mais"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF15AR25-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: de onde vem cada herança",
+    "prompt": "Muitas manifestações artísticas do Brasil têm origem indígena, africana ou europeia, e muitas misturam as três. Vamos reconhecer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Muitas manifestações artísticas do Brasil têm origem indígena, africana ou europeia, e muitas misturam as três. Vamos reconhecer juntos. Pergunta 1. A cestaria de palha, a pintura corporal com urucum e jenipapo e a cerâmica marajoara são heranças de origem: A: Europeia; B: Africana; C: Indígena; D: Asiática. Pergunta 2. A capoeira, o samba de roda e instrumentos como o berimbau e o atabaque são heranças de origem: A: Europeia; B: Indígena; C: Asiática; D: Africana. Pergunta 3. Os azulejos pintados, as igrejas barrocas e instrumentos como o violão e a sanfona chegaram ao Brasil com os: A: Europeus; B: Indígenas; C: Africanos; D: Povos do deserto.",
+    "questions": [
+     {
+      "question": "A cestaria de palha, a pintura corporal com urucum e jenipapo e a cerâmica marajoara são heranças de origem:",
+      "options": [
+       {
+        "text": "Europeia",
+        "misconceptionCode": "matriz-trocada"
+       },
+       {
+        "text": "Africana",
+        "misconceptionCode": "matriz-trocada"
+       },
+       {
+        "text": "Indígena"
+       },
+       {
+        "text": "Asiática",
+        "misconceptionCode": "matriz-trocada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Os povos indígenas criam arte com materiais da natureza há milhares de anos.",
+      "variants": [
+       {
+        "question": "O maracá, chocalho usado em cantos e danças, é um instrumento de origem:",
+        "options": [
+         {
+          "text": "Indígena"
+         },
+         {
+          "text": "Europeia",
+          "misconceptionCode": "matriz-trocada"
+         },
+         {
+          "text": "Asiática",
+          "misconceptionCode": "matriz-trocada"
+         },
+         {
+          "text": "Industrial",
+          "misconceptionCode": "matriz-trocada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A cestaria de palha, a pintura corporal com urucum e jenipapo e a cerâmica marajoara são heranças de origem:",
+        "options": [
+         {
+          "text": "Asiática",
+          "misconceptionCode": "matriz-trocada"
+         },
+         {
+          "text": "Africana",
+          "misconceptionCode": "matriz-trocada"
+         },
+         {
+          "text": "Europeia",
+          "misconceptionCode": "matriz-trocada"
+         },
+         {
+          "text": "Indígena"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "A capoeira, o samba de roda e instrumentos como o berimbau e o atabaque são heranças de origem:",
+      "options": [
+       {
+        "text": "Europeia",
+        "misconceptionCode": "matriz-trocada"
+       },
+       {
+        "text": "Indígena",
+        "misconceptionCode": "matriz-trocada"
+       },
+       {
+        "text": "Asiática",
+        "misconceptionCode": "matriz-trocada"
+       },
+       {
+        "text": "Africana"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Os povos africanos trazidos ao Brasil mantiveram e recriaram aqui as suas músicas e danças.",
+      "variants": [
+       {
+        "question": "O maracatu e o jongo são manifestações de forte herança:",
+        "options": [
+         {
+          "text": "Europeia",
+          "misconceptionCode": "matriz-trocada"
+         },
+         {
+          "text": "Africana"
+         },
+         {
+          "text": "Asiática",
+          "misconceptionCode": "matriz-trocada"
+         },
+         {
+          "text": "Industrial",
+          "misconceptionCode": "matriz-trocada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A capoeira, o samba de roda e instrumentos como o berimbau e o atabaque são heranças de origem:",
+        "options": [
+         {
+          "text": "Africana"
+         },
+         {
+          "text": "Asiática",
+          "misconceptionCode": "matriz-trocada"
+         },
+         {
+          "text": "Indígena",
+          "misconceptionCode": "matriz-trocada"
+         },
+         {
+          "text": "Europeia",
+          "misconceptionCode": "matriz-trocada"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Os azulejos pintados, as igrejas barrocas e instrumentos como o violão e a sanfona chegaram ao Brasil com os:",
+      "options": [
+       {
+        "text": "Europeus"
+       },
+       {
+        "text": "Indígenas",
+        "misconceptionCode": "matriz-trocada"
+       },
+       {
+        "text": "Africanos",
+        "misconceptionCode": "matriz-trocada"
+       },
+       {
+        "text": "Povos do deserto",
+        "misconceptionCode": "matriz-trocada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Os portugueses e outros europeus trouxeram a sua arquitetura, os seus instrumentos e as suas festas.",
+      "variants": [
+       {
+        "question": "A quadrilha junina tem origem em danças de salão vindas da:",
+        "options": [
+         {
+          "text": "África",
+          "misconceptionCode": "matriz-trocada"
+         },
+         {
+          "text": "Ásia",
+          "misconceptionCode": "matriz-trocada"
+         },
+         {
+          "text": "Europa"
+         },
+         {
+          "text": "Oceania",
+          "misconceptionCode": "matriz-trocada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Os azulejos pintados, as igrejas barrocas e instrumentos como o violão e a sanfona chegaram ao Brasil com os:",
+        "options": [
+         {
+          "text": "Povos do deserto",
+          "misconceptionCode": "matriz-trocada"
+         },
+         {
+          "text": "Europeus"
+         },
+         {
+          "text": "Africanos",
+          "misconceptionCode": "matriz-trocada"
+         },
+         {
+          "text": "Indígenas",
+          "misconceptionCode": "matriz-trocada"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF15AR25-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: reconhecendo e valorizando",
+    "prompt": "Material e imaterial.",
+    "estMinutes": 5,
+    "audioScript": "Material e imaterial. Pergunta 1. Uma escultura de madeira feita por um mestre artesão é um patrimônio: A: Imaterial; B: Material; C: Sem valor; D: Industrial. Pergunta 2. O jeito de tocar, cantar e dançar o samba de roda é um patrimônio: A: Material; B: Sem valor; C: Imaterial; D: Industrial. Pergunta 3. O patrimônio artístico está só nos museus? A: Sim, só nos museus; B: Sim, só nas galerias; C: Sim, só nos livros; D: Não, também nas ruas, nas festas, nas feiras e nas comunidades. Pergunta 4. O artesanato de barro, de renda e de palha é arte? A: Sim, é criação com técnica, beleza e significado; B: Não, é só trabalho manual; C: Não, arte é só pintura em tela; D: Não, porque é vendido na feira.",
+    "questions": [
+     {
+      "question": "Uma escultura de madeira feita por um mestre artesão é um patrimônio:",
+      "options": [
+       {
+        "text": "Imaterial",
+        "misconceptionCode": "arte-so-museu"
+       },
+       {
+        "text": "Material"
+       },
+       {
+        "text": "Sem valor",
+        "misconceptionCode": "arte-popular-nao-e-arte"
+       },
+       {
+        "text": "Industrial",
+        "misconceptionCode": "arte-popular-nao-e-arte"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Podemos ver e tocar a escultura.",
+      "variants": [
+       {
+        "question": "Um conjunto de casarões coloniais é um patrimônio:",
+        "options": [
+         {
+          "text": "Imaterial",
+          "misconceptionCode": "arte-so-museu"
+         },
+         {
+          "text": "Sem valor",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         },
+         {
+          "text": "Passageiro",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         },
+         {
+          "text": "Material"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Uma escultura de madeira feita por um mestre artesão é um patrimônio:",
+        "options": [
+         {
+          "text": "Industrial",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         },
+         {
+          "text": "Sem valor",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         },
+         {
+          "text": "Material"
+         },
+         {
+          "text": "Imaterial",
+          "misconceptionCode": "arte-so-museu"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O jeito de tocar, cantar e dançar o samba de roda é um patrimônio:",
+      "options": [
+       {
+        "text": "Material",
+        "misconceptionCode": "arte-so-museu"
+       },
+       {
+        "text": "Sem valor",
+        "misconceptionCode": "arte-popular-nao-e-arte"
+       },
+       {
+        "text": "Imaterial"
+       },
+       {
+        "text": "Industrial",
+        "misconceptionCode": "arte-popular-nao-e-arte"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "É um saber que vive nas pessoas que o praticam.",
+      "variants": [
+       {
+        "question": "A literatura de cordel, recitada e cantada nas feiras, é um patrimônio:",
+        "options": [
+         {
+          "text": "Imaterial"
+         },
+         {
+          "text": "Industrial",
+          "misconceptionCode": "arte-so-museu"
+         },
+         {
+          "text": "Sem valor",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         },
+         {
+          "text": "Estrangeiro",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O jeito de tocar, cantar e dançar o samba de roda é um patrimônio:",
+        "options": [
+         {
+          "text": "Industrial",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         },
+         {
+          "text": "Sem valor",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         },
+         {
+          "text": "Material",
+          "misconceptionCode": "arte-so-museu"
+         },
+         {
+          "text": "Imaterial"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O patrimônio artístico está só nos museus?",
+      "options": [
+       {
+        "text": "Sim, só nos museus",
+        "misconceptionCode": "arte-so-museu"
+       },
+       {
+        "text": "Sim, só nas galerias",
+        "misconceptionCode": "arte-so-museu"
+       },
+       {
+        "text": "Sim, só nos livros",
+        "misconceptionCode": "arte-so-museu"
+       },
+       {
+        "text": "Não, também nas ruas, nas festas, nas feiras e nas comunidades"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A arte vive em muitos lugares.",
+      "variants": [
+       {
+        "question": "Onde podemos encontrar manifestações do patrimônio cultural?",
+        "options": [
+         {
+          "text": "Só num museu distante",
+          "misconceptionCode": "arte-so-museu"
+         },
+         {
+          "text": "Numa festa popular do bairro"
+         },
+         {
+          "text": "Só na internet",
+          "misconceptionCode": "arte-so-museu"
+         },
+         {
+          "text": "Em lugar nenhum",
+          "misconceptionCode": "arte-so-museu"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O patrimônio artístico está só nos museus?",
+        "options": [
+         {
+          "text": "Não, também nas ruas, nas festas, nas feiras e nas comunidades"
+         },
+         {
+          "text": "Sim, só nos livros",
+          "misconceptionCode": "arte-so-museu"
+         },
+         {
+          "text": "Sim, só nas galerias",
+          "misconceptionCode": "arte-so-museu"
+         },
+         {
+          "text": "Sim, só nos museus",
+          "misconceptionCode": "arte-so-museu"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O artesanato de barro, de renda e de palha é arte?",
+      "options": [
+       {
+        "text": "Sim, é criação com técnica, beleza e significado"
+       },
+       {
+        "text": "Não, é só trabalho manual",
+        "misconceptionCode": "arte-popular-nao-e-arte"
+       },
+       {
+        "text": "Não, arte é só pintura em tela",
+        "misconceptionCode": "arte-popular-nao-e-arte"
+       },
+       {
+        "text": "Não, porque é vendido na feira",
+        "misconceptionCode": "arte-popular-nao-e-arte"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A arte popular expressa a cultura de quem a faz.",
+      "variants": [
+       {
+        "question": "As rendeiras, os ceramistas e os cordelistas são:",
+        "options": [
+         {
+          "text": "Pessoas sem ofício",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         },
+         {
+          "text": "Apenas vendedores",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         },
+         {
+          "text": "Artistas da cultura popular"
+         },
+         {
+          "text": "Operários de fábrica",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O artesanato de barro, de renda e de palha é arte?",
+        "options": [
+         {
+          "text": "Não, porque é vendido na feira",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         },
+         {
+          "text": "Sim, é criação com técnica, beleza e significado"
+         },
+         {
+          "text": "Não, arte é só pintura em tela",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         },
+         {
+          "text": "Não, é só trabalho manual",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF15AR25-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: respeito e repertório",
+    "prompt": "Na escola e na comunidade.",
+    "estMinutes": 4,
+    "audioScript": "Na escola e na comunidade. Pergunta 1. Um colega diz que a música de orquestra é arte, mas a capoeira não é. O que responder? A: Ele está certo; B: As duas são arte; cada cultura cria as suas formas; C: Só a capoeira é arte; D: Nenhuma é arte. Pergunta 2. A turma vai pesquisar o patrimônio artístico do bairro. Qual é um bom caminho? A: Olhar só as vitrines das lojas; B: Dizer que no bairro não há arte; C: Entrevistar artesãos, músicos e moradores antigos; D: Copiar uma lista de museus de outro país. Pergunta 3. Ao observar uma máscara africana, o que ajuda a compreendê-la? A: Compará-la com um brinquedo; B: Dizer que é feia por ser diferente; C: Não perguntar nada; D: Saber de que povo ela vem e para que era usada.",
+    "questions": [
+     {
+      "question": "Um colega diz que a música de orquestra é arte, mas a capoeira não é. O que responder?",
+      "options": [
+       {
+        "text": "Ele está certo",
+        "misconceptionCode": "uma-cultura-vale-mais"
+       },
+       {
+        "text": "As duas são arte; cada cultura cria as suas formas"
+       },
+       {
+        "text": "Só a capoeira é arte",
+        "misconceptionCode": "uma-cultura-vale-mais"
+       },
+       {
+        "text": "Nenhuma é arte",
+        "misconceptionCode": "arte-popular-nao-e-arte"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Nenhuma cultura é superior à outra.",
+      "variants": [
+       {
+        "question": "Uma colega acha a pintura corporal indígena \"menos arte\" que um quadro. O que responder?",
+        "options": [
+         {
+          "text": "A colega está certa",
+          "misconceptionCode": "uma-cultura-vale-mais"
+         },
+         {
+          "text": "É só sujeira",
+          "misconceptionCode": "uma-cultura-vale-mais"
+         },
+         {
+          "text": "Não tem significado",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         },
+         {
+          "text": "Ela é arte, com técnica e significados próprios"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um colega diz que a música de orquestra é arte, mas a capoeira não é. O que responder?",
+        "options": [
+         {
+          "text": "Nenhuma é arte",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         },
+         {
+          "text": "Só a capoeira é arte",
+          "misconceptionCode": "uma-cultura-vale-mais"
+         },
+         {
+          "text": "As duas são arte; cada cultura cria as suas formas"
+         },
+         {
+          "text": "Ele está certo",
+          "misconceptionCode": "uma-cultura-vale-mais"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "A turma vai pesquisar o patrimônio artístico do bairro. Qual é um bom caminho?",
+      "options": [
+       {
+        "text": "Olhar só as vitrines das lojas",
+        "misconceptionCode": "arte-so-museu"
+       },
+       {
+        "text": "Dizer que no bairro não há arte",
+        "misconceptionCode": "arte-popular-nao-e-arte"
+       },
+       {
+        "text": "Entrevistar artesãos, músicos e moradores antigos"
+       },
+       {
+        "text": "Copiar uma lista de museus de outro país",
+        "misconceptionCode": "arte-so-museu"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O bairro guarda artistas e saberes que muitas vezes não conhecemos.",
+      "variants": [
+       {
+        "question": "Depois da pesquisa, como a turma pode valorizar o que encontrou?",
+        "options": [
+         {
+          "text": "Montando uma mostra na escola e convidando os artistas"
+         },
+         {
+          "text": "Guardando tudo na gaveta",
+          "misconceptionCode": "arte-so-museu"
+         },
+         {
+          "text": "Dizendo que não tem valor",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         },
+         {
+          "text": "Jogando fora os registros",
+          "misconceptionCode": "arte-so-museu"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A turma vai pesquisar o patrimônio artístico do bairro. Qual é um bom caminho?",
+        "options": [
+         {
+          "text": "Copiar uma lista de museus de outro país",
+          "misconceptionCode": "arte-so-museu"
+         },
+         {
+          "text": "Dizer que no bairro não há arte",
+          "misconceptionCode": "arte-popular-nao-e-arte"
+         },
+         {
+          "text": "Olhar só as vitrines das lojas",
+          "misconceptionCode": "arte-so-museu"
+         },
+         {
+          "text": "Entrevistar artesãos, músicos e moradores antigos"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Ao observar uma máscara africana, o que ajuda a compreendê-la?",
+      "options": [
+       {
+        "text": "Compará-la com um brinquedo",
+        "misconceptionCode": "uma-cultura-vale-mais"
+       },
+       {
+        "text": "Dizer que é feia por ser diferente",
+        "misconceptionCode": "uma-cultura-vale-mais"
+       },
+       {
+        "text": "Não perguntar nada",
+        "misconceptionCode": "arte-so-museu"
+       },
+       {
+        "text": "Saber de que povo ela vem e para que era usada"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Cada obra carrega a história e os significados do povo que a criou.",
+      "variants": [
+       {
+        "question": "Ao ouvir um canto indígena pela primeira vez, a melhor atitude é:",
+        "options": [
+         {
+          "text": "Rir",
+          "misconceptionCode": "uma-cultura-vale-mais"
+         },
+         {
+          "text": "Escutar com atenção e procurar saber o seu significado"
+         },
+         {
+          "text": "Tampar os ouvidos",
+          "misconceptionCode": "uma-cultura-vale-mais"
+         },
+         {
+          "text": "Dizer que não é música",
+          "misconceptionCode": "arte-so-museu"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Ao observar uma máscara africana, o que ajuda a compreendê-la?",
+        "options": [
+         {
+          "text": "Saber de que povo ela vem e para que era usada"
+         },
+         {
+          "text": "Não perguntar nada",
+          "misconceptionCode": "arte-so-museu"
+         },
+         {
+          "text": "Dizer que é feia por ser diferente",
+          "misconceptionCode": "uma-cultura-vale-mais"
+         },
+         {
+          "text": "Compará-la com um brinquedo",
+          "misconceptionCode": "uma-cultura-vale-mais"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF15AR25-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: uma herança artística",
+    "prompt": "Escolha uma manifestação artística brasileira e explique com as suas palavras de qual povo ela é herança e por que deve ser valorizada.",
+    "estMinutes": 6,
+    "audioScript": "Escolha uma manifestação artística brasileira e explique com as suas palavras de qual povo ela é herança e por que deve ser valorizada.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "manifestacao",
+       "description": "Indica uma manifestação artística"
+      },
+      {
+       "code": "origem",
+       "description": "Diz se a herança é indígena, africana, europeia ou uma mistura"
+      },
+      {
+       "code": "valor",
+       "description": "Explica por que ela deve ser valorizada"
+      }
+     ],
+     "exemploBoaResposta": "Eu escolhi a capoeira. Ela é uma herança dos povos africanos que foram trazidos para o Brasil. Ela mistura luta, dança e música, com o berimbau. Deve ser valorizada porque conta a história de resistência do povo negro e continua viva até hoje."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF15AR19",
+  "subjectCode": "AR",
+  "subjectName": "Arte",
+  "gradeYear": 5,
+  "version": 1,
+  "title": "Trilha: O teatro que existe no dia a dia",
+  "tituloAluno": "Vozes, gestos e personagens ao nosso redor",
+  "activities": [
+   {
+    "id": "PK2-EF15AR19-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: faz de conta e improvisação",
+    "prompt": "No 4º ano, brincamos de ser outro.",
+    "estMinutes": 4,
+    "audioScript": "No 4º ano, brincamos de ser outro. Pergunta 1. No teatro, quem representa um personagem é: A: A plateia; B: O cenário; C: O ator ou a atriz; D: O figurino. Pergunta 2. O que é um personagem? A: O lugar da história; B: A roupa do ator; C: A música da peça; D: Alguém que faz parte de uma história. Pergunta 3. Improvisar é: A: Criar a cena na hora, sem texto decorado; B: Decorar todas as falas; C: Ficar parado; D: Ler um livro em silêncio.",
+    "questions": [
+     {
+      "question": "No teatro, quem representa um personagem é:",
+      "options": [
+       {
+        "text": "A plateia",
+        "misconceptionCode": "teatro-so-no-palco"
+       },
+       {
+        "text": "O cenário",
+        "misconceptionCode": "corpo-nao-comunica"
+       },
+       {
+        "text": "O ator ou a atriz"
+       },
+       {
+        "text": "O figurino",
+        "misconceptionCode": "corpo-nao-comunica"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O ator empresta o corpo e a voz ao personagem.",
+      "variants": [
+       {
+        "question": "As pessoas que assistem a uma peça formam:",
+        "options": [
+         {
+          "text": "A plateia"
+         },
+         {
+          "text": "O elenco",
+          "misconceptionCode": "teatro-so-no-palco"
+         },
+         {
+          "text": "O cenário",
+          "misconceptionCode": "corpo-nao-comunica"
+         },
+         {
+          "text": "O figurino",
+          "misconceptionCode": "corpo-nao-comunica"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "No teatro, quem representa um personagem é:",
+        "options": [
+         {
+          "text": "O figurino",
+          "misconceptionCode": "corpo-nao-comunica"
+         },
+         {
+          "text": "O cenário",
+          "misconceptionCode": "corpo-nao-comunica"
+         },
+         {
+          "text": "A plateia",
+          "misconceptionCode": "teatro-so-no-palco"
+         },
+         {
+          "text": "O ator ou a atriz"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que é um personagem?",
+      "options": [
+       {
+        "text": "O lugar da história",
+        "misconceptionCode": "teatro-so-no-palco"
+       },
+       {
+        "text": "A roupa do ator",
+        "misconceptionCode": "corpo-nao-comunica"
+       },
+       {
+        "text": "A música da peça",
+        "misconceptionCode": "voz-sempre-igual"
+       },
+       {
+        "text": "Alguém que faz parte de uma história"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Personagens podem ser pessoas, animais ou seres imaginários.",
+      "variants": [
+       {
+        "question": "O que é o cenário?",
+        "options": [
+         {
+          "text": "O personagem principal",
+          "misconceptionCode": "teatro-so-no-palco"
+         },
+         {
+          "text": "O lugar onde a cena acontece"
+         },
+         {
+          "text": "A fala do ator",
+          "misconceptionCode": "corpo-nao-comunica"
+         },
+         {
+          "text": "A plateia",
+          "misconceptionCode": "voz-sempre-igual"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que é um personagem?",
+        "options": [
+         {
+          "text": "Alguém que faz parte de uma história"
+         },
+         {
+          "text": "A música da peça",
+          "misconceptionCode": "voz-sempre-igual"
+         },
+         {
+          "text": "A roupa do ator",
+          "misconceptionCode": "corpo-nao-comunica"
+         },
+         {
+          "text": "O lugar da história",
+          "misconceptionCode": "teatro-so-no-palco"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Improvisar é:",
+      "options": [
+       {
+        "text": "Criar a cena na hora, sem texto decorado"
+       },
+       {
+        "text": "Decorar todas as falas",
+        "misconceptionCode": "teatro-so-no-palco"
+       },
+       {
+        "text": "Ficar parado",
+        "misconceptionCode": "corpo-nao-comunica"
+       },
+       {
+        "text": "Ler um livro em silêncio",
+        "misconceptionCode": "voz-sempre-igual"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Na improvisação, a cena nasce do jogo entre os atores.",
+      "variants": [
+       {
+        "question": "Para improvisar bem com os colegas, é preciso:",
+        "options": [
+         {
+          "text": "Falar sozinho o tempo todo",
+          "misconceptionCode": "teatro-so-no-palco"
+         },
+         {
+          "text": "Ignorar os colegas",
+          "misconceptionCode": "corpo-nao-comunica"
+         },
+         {
+          "text": "Prestar atenção no que eles fazem e dizem"
+         },
+         {
+          "text": "Ficar de costas",
+          "misconceptionCode": "voz-sempre-igual"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Improvisar é:",
+        "options": [
+         {
+          "text": "Ler um livro em silêncio",
+          "misconceptionCode": "voz-sempre-igual"
+         },
+         {
+          "text": "Criar a cena na hora, sem texto decorado"
+         },
+         {
+          "text": "Ficar parado",
+          "misconceptionCode": "corpo-nao-comunica"
+         },
+         {
+          "text": "Decorar todas as falas",
+          "misconceptionCode": "teatro-so-no-palco"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF15AR19-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: a voz e o corpo contam",
+    "prompt": "No dia a dia, as pessoas usam a voz e o corpo de muitos jeitos para se comunicar, como os atores fazem no teatro. Vamos observar juntos.",
+    "estMinutes": 4,
+    "audioScript": "No dia a dia, as pessoas usam a voz e o corpo de muitos jeitos para se comunicar, como os atores fazem no teatro. Vamos observar juntos. Pergunta 1. Dizer \"Venha cá\" sorrindo e dizer \"Venha cá\" com a voz dura passam: A: O mesmo sentido; B: Sentidos diferentes; C: Nenhum sentido; D: Só as palavras importam. Pergunta 2. Uma pessoa com os ombros caídos, olhando para o chão e andando devagar parece estar: A: Muito animada; B: Comemorando; C: Triste ou cansada; D: Não dá para perceber nada. Pergunta 3. O feirante que anuncia as frutas cantando e fazendo rimas usa: A: Só o silêncio; B: Um texto decorado de peça; C: Nada de especial; D: A voz de um jeito teatral, para chamar a atenção.",
+    "questions": [
+     {
+      "question": "Dizer \"Venha cá\" sorrindo e dizer \"Venha cá\" com a voz dura passam:",
+      "options": [
+       {
+        "text": "O mesmo sentido",
+        "misconceptionCode": "voz-sempre-igual"
+       },
+       {
+        "text": "Sentidos diferentes"
+       },
+       {
+        "text": "Nenhum sentido",
+        "misconceptionCode": "voz-sempre-igual"
+       },
+       {
+        "text": "Só as palavras importam",
+        "misconceptionCode": "voz-sempre-igual"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A entonação é o jeito de dizer. Ela muda o sentido da fala.",
+      "variants": [
+       {
+        "question": "Quando alguém fala baixinho e devagar ao contar um segredo, a voz ajuda a criar:",
+        "options": [
+         {
+          "text": "Um clima de festa",
+          "misconceptionCode": "voz-sempre-igual"
+         },
+         {
+          "text": "Um clima de briga",
+          "misconceptionCode": "voz-sempre-igual"
+         },
+         {
+          "text": "Nenhum clima",
+          "misconceptionCode": "voz-sempre-igual"
+         },
+         {
+          "text": "Um clima de mistério"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Dizer \"Venha cá\" sorrindo e dizer \"Venha cá\" com a voz dura passam:",
+        "options": [
+         {
+          "text": "Só as palavras importam",
+          "misconceptionCode": "voz-sempre-igual"
+         },
+         {
+          "text": "Nenhum sentido",
+          "misconceptionCode": "voz-sempre-igual"
+         },
+         {
+          "text": "Sentidos diferentes"
+         },
+         {
+          "text": "O mesmo sentido",
+          "misconceptionCode": "voz-sempre-igual"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Uma pessoa com os ombros caídos, olhando para o chão e andando devagar parece estar:",
+      "options": [
+       {
+        "text": "Muito animada",
+        "misconceptionCode": "corpo-nao-comunica"
+       },
+       {
+        "text": "Comemorando",
+        "misconceptionCode": "corpo-nao-comunica"
+       },
+       {
+        "text": "Triste ou cansada"
+       },
+       {
+        "text": "Não dá para perceber nada",
+        "misconceptionCode": "corpo-nao-comunica"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A postura e o jeito de andar comunicam sem palavras.",
+      "variants": [
+       {
+        "question": "Uma pessoa que pula, levanta os braços e sorri parece estar:",
+        "options": [
+         {
+          "text": "Alegre"
+         },
+         {
+          "text": "Triste",
+          "misconceptionCode": "corpo-nao-comunica"
+         },
+         {
+          "text": "Com sono",
+          "misconceptionCode": "corpo-nao-comunica"
+         },
+         {
+          "text": "Com medo",
+          "misconceptionCode": "corpo-nao-comunica"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Uma pessoa com os ombros caídos, olhando para o chão e andando devagar parece estar:",
+        "options": [
+         {
+          "text": "Não dá para perceber nada",
+          "misconceptionCode": "corpo-nao-comunica"
+         },
+         {
+          "text": "Comemorando",
+          "misconceptionCode": "corpo-nao-comunica"
+         },
+         {
+          "text": "Muito animada",
+          "misconceptionCode": "corpo-nao-comunica"
+         },
+         {
+          "text": "Triste ou cansada"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O feirante que anuncia as frutas cantando e fazendo rimas usa:",
+      "options": [
+       {
+        "text": "Só o silêncio",
+        "misconceptionCode": "voz-sempre-igual"
+       },
+       {
+        "text": "Um texto decorado de peça",
+        "misconceptionCode": "teatro-so-no-palco"
+       },
+       {
+        "text": "Nada de especial",
+        "misconceptionCode": "teatro-so-no-palco"
+       },
+       {
+        "text": "A voz de um jeito teatral, para chamar a atenção"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Há teatralidade em muitas situações do cotidiano.",
+      "variants": [
+       {
+        "question": "O narrador de futebol que grita \"gol\" de forma longa e empolgada usa:",
+        "options": [
+         {
+          "text": "Uma voz sempre igual",
+          "misconceptionCode": "voz-sempre-igual"
+         },
+         {
+          "text": "A entonação para transmitir emoção"
+         },
+         {
+          "text": "Só gestos",
+          "misconceptionCode": "teatro-so-no-palco"
+         },
+         {
+          "text": "Nenhum recurso",
+          "misconceptionCode": "teatro-so-no-palco"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O feirante que anuncia as frutas cantando e fazendo rimas usa:",
+        "options": [
+         {
+          "text": "A voz de um jeito teatral, para chamar a atenção"
+         },
+         {
+          "text": "Nada de especial",
+          "misconceptionCode": "teatro-so-no-palco"
+         },
+         {
+          "text": "Um texto decorado de peça",
+          "misconceptionCode": "teatro-so-no-palco"
+         },
+         {
+          "text": "Só o silêncio",
+          "misconceptionCode": "voz-sempre-igual"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF15AR19-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: elementos teatrais ao redor",
+    "prompt": "Observe como um ator.",
+    "estMinutes": 5,
+    "audioScript": "Observe como um ator. Pergunta 1. Só existe teatralidade dentro de um teatro? A: Não, ela aparece nas feiras, nas festas, nas brincadeiras e nas conversas; B: Sim, só no palco; C: Sim, só com cortina; D: Sim, só com ingresso. Pergunta 2. Quando a contadora de histórias engrossa a voz para falar como o lobo, ela está: A: Errando a leitura; B: Criando um personagem com a voz; C: Falando sem intenção; D: Zombando de alguém. Pergunta 3. Quando um colega conta o que aconteceu no recreio, imitando as falas e os gestos de quem estava lá, ele está: A: Só falando palavras; B: Fazendo algo sem relação com o teatro; C: Usando recursos do teatro para narrar; D: Ficando calado. Pergunta 4. Observar as pessoas para criar um personagem é o mesmo que zombar delas? A: Sim, é igual; B: Sim, o teatro serve para humilhar; C: Sim, quanto mais ridículo melhor; D: Não, é observar com atenção e respeito para representar.",
+    "questions": [
+     {
+      "question": "Só existe teatralidade dentro de um teatro?",
+      "options": [
+       {
+        "text": "Não, ela aparece nas feiras, nas festas, nas brincadeiras e nas conversas"
+       },
+       {
+        "text": "Sim, só no palco",
+        "misconceptionCode": "teatro-so-no-palco"
+       },
+       {
+        "text": "Sim, só com cortina",
+        "misconceptionCode": "teatro-so-no-palco"
+       },
+       {
+        "text": "Sim, só com ingresso",
+        "misconceptionCode": "teatro-so-no-palco"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O teatro nasce do jeito humano de contar e de representar.",
+      "variants": [
+       {
+        "question": "Em qual destas situações há teatralidade?",
+        "options": [
+         {
+          "text": "Uma pedra no chão",
+          "misconceptionCode": "teatro-so-no-palco"
+         },
+         {
+          "text": "Uma cadeira vazia",
+          "misconceptionCode": "teatro-so-no-palco"
+         },
+         {
+          "text": "Uma contadora de histórias que faz vozes diferentes"
+         },
+         {
+          "text": "Um muro",
+          "misconceptionCode": "teatro-so-no-palco"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Só existe teatralidade dentro de um teatro?",
+        "options": [
+         {
+          "text": "Sim, só com ingresso",
+          "misconceptionCode": "teatro-so-no-palco"
+         },
+         {
+          "text": "Não, ela aparece nas feiras, nas festas, nas brincadeiras e nas conversas"
+         },
+         {
+          "text": "Sim, só com cortina",
+          "misconceptionCode": "teatro-so-no-palco"
+         },
+         {
+          "text": "Sim, só no palco",
+          "misconceptionCode": "teatro-so-no-palco"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quando a contadora de histórias engrossa a voz para falar como o lobo, ela está:",
+      "options": [
+       {
+        "text": "Errando a leitura",
+        "misconceptionCode": "voz-sempre-igual"
+       },
+       {
+        "text": "Criando um personagem com a voz"
+       },
+       {
+        "text": "Falando sem intenção",
+        "misconceptionCode": "voz-sempre-igual"
+       },
+       {
+        "text": "Zombando de alguém",
+        "misconceptionCode": "imitar-e-zombar"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Mudar a voz ajuda o público a imaginar o personagem.",
+      "variants": [
+       {
+        "question": "Para representar uma pessoa muito idosa, o ator pode:",
+        "options": [
+         {
+          "text": "Não mudar nada",
+          "misconceptionCode": "voz-sempre-igual"
+         },
+         {
+          "text": "Só trocar o cenário",
+          "misconceptionCode": "voz-sempre-igual"
+         },
+         {
+          "text": "Fazer caretas para rir dela",
+          "misconceptionCode": "imitar-e-zombar"
+         },
+         {
+          "text": "Mudar o jeito de andar e a voz, com respeito"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quando a contadora de histórias engrossa a voz para falar como o lobo, ela está:",
+        "options": [
+         {
+          "text": "Zombando de alguém",
+          "misconceptionCode": "imitar-e-zombar"
+         },
+         {
+          "text": "Falando sem intenção",
+          "misconceptionCode": "voz-sempre-igual"
+         },
+         {
+          "text": "Criando um personagem com a voz"
+         },
+         {
+          "text": "Errando a leitura",
+          "misconceptionCode": "voz-sempre-igual"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Quando um colega conta o que aconteceu no recreio, imitando as falas e os gestos de quem estava lá, ele está:",
+      "options": [
+       {
+        "text": "Só falando palavras",
+        "misconceptionCode": "corpo-nao-comunica"
+       },
+       {
+        "text": "Fazendo algo sem relação com o teatro",
+        "misconceptionCode": "teatro-so-no-palco"
+       },
+       {
+        "text": "Usando recursos do teatro para narrar"
+       },
+       {
+        "text": "Ficando calado",
+        "misconceptionCode": "voz-sempre-igual"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Narrar com gestos e vozes é uma forma cotidiana de representar.",
+      "variants": [
+       {
+        "question": "Numa história contada com gestos, o corpo de quem conta:",
+        "options": [
+         {
+          "text": "Ajuda a mostrar o que aconteceu"
+         },
+         {
+          "text": "Atrapalha",
+          "misconceptionCode": "corpo-nao-comunica"
+         },
+         {
+          "text": "Não comunica nada",
+          "misconceptionCode": "teatro-so-no-palco"
+         },
+         {
+          "text": "Deve ficar parado",
+          "misconceptionCode": "voz-sempre-igual"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quando um colega conta o que aconteceu no recreio, imitando as falas e os gestos de quem estava lá, ele está:",
+        "options": [
+         {
+          "text": "Ficando calado",
+          "misconceptionCode": "voz-sempre-igual"
+         },
+         {
+          "text": "Fazendo algo sem relação com o teatro",
+          "misconceptionCode": "teatro-so-no-palco"
+         },
+         {
+          "text": "Só falando palavras",
+          "misconceptionCode": "corpo-nao-comunica"
+         },
+         {
+          "text": "Usando recursos do teatro para narrar"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Observar as pessoas para criar um personagem é o mesmo que zombar delas?",
+      "options": [
+       {
+        "text": "Sim, é igual",
+        "misconceptionCode": "imitar-e-zombar"
+       },
+       {
+        "text": "Sim, o teatro serve para humilhar",
+        "misconceptionCode": "imitar-e-zombar"
+       },
+       {
+        "text": "Sim, quanto mais ridículo melhor",
+        "misconceptionCode": "imitar-e-zombar"
+       },
+       {
+        "text": "Não, é observar com atenção e respeito para representar"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O ator observa para compreender, e não para ridicularizar.",
+      "variants": [
+       {
+        "question": "Ao representar o jeito de falar de alguém de outra região, o correto é:",
+        "options": [
+         {
+          "text": "Exagerar para humilhar",
+          "misconceptionCode": "imitar-e-zombar"
+         },
+         {
+          "text": "Fazer com respeito, sem transformar em piada ofensiva"
+         },
+         {
+          "text": "Dizer que aquele jeito é errado",
+          "misconceptionCode": "imitar-e-zombar"
+         },
+         {
+          "text": "Rir da pessoa",
+          "misconceptionCode": "imitar-e-zombar"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Observar as pessoas para criar um personagem é o mesmo que zombar delas?",
+        "options": [
+         {
+          "text": "Não, é observar com atenção e respeito para representar"
+         },
+         {
+          "text": "Sim, quanto mais ridículo melhor",
+          "misconceptionCode": "imitar-e-zombar"
+         },
+         {
+          "text": "Sim, o teatro serve para humilhar",
+          "misconceptionCode": "imitar-e-zombar"
+         },
+         {
+          "text": "Sim, é igual",
+          "misconceptionCode": "imitar-e-zombar"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF15AR19-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: do cotidiano para a cena",
+    "prompt": "Use o que você observou.",
+    "estMinutes": 4,
+    "audioScript": "Use o que você observou. Pergunta 1. A turma vai criar uma cena de feira. Para ela ficar viva, os atores podem: A: Usar os pregões, os gestos e os jeitos de falar observados numa feira; B: Ficar parados e calados; C: Falar todos com a mesma voz; D: Dizer que feira não vira teatro. Pergunta 2. Você precisa dizer a frase \"Já vou\" como alguém com muita preguiça. O que muda? A: Nada muda; B: A voz fica lenta e arrastada, e o corpo, mole; C: A voz fica rápida e animada; D: Só as palavras mudam. Pergunta 3. Numa cena, dois personagens são um vendedor animado e um cliente tímido. Como diferenciá-los? A: Fazendo os dois iguais; B: Só mudando o nome; C: Com vozes, posturas e gestos diferentes para cada um; D: Zombando de pessoas tímidas.",
+    "questions": [
+     {
+      "question": "A turma vai criar uma cena de feira. Para ela ficar viva, os atores podem:",
+      "options": [
+       {
+        "text": "Usar os pregões, os gestos e os jeitos de falar observados numa feira"
+       },
+       {
+        "text": "Ficar parados e calados",
+        "misconceptionCode": "corpo-nao-comunica"
+       },
+       {
+        "text": "Falar todos com a mesma voz",
+        "misconceptionCode": "voz-sempre-igual"
+       },
+       {
+        "text": "Dizer que feira não vira teatro",
+        "misconceptionCode": "teatro-so-no-palco"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O cotidiano é uma fonte rica para criar cenas.",
+      "variants": [
+       {
+        "question": "Para criar uma cena de ponto de ônibus, é útil:",
+        "options": [
+         {
+          "text": "Não pensar em nada",
+          "misconceptionCode": "corpo-nao-comunica"
+         },
+         {
+          "text": "Imitar um robô",
+          "misconceptionCode": "voz-sempre-igual"
+         },
+         {
+          "text": "Lembrar como as pessoas esperam, olham e conversam ali"
+         },
+         {
+          "text": "Ficar de costas para a plateia",
+          "misconceptionCode": "teatro-so-no-palco"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A turma vai criar uma cena de feira. Para ela ficar viva, os atores podem:",
+        "options": [
+         {
+          "text": "Dizer que feira não vira teatro",
+          "misconceptionCode": "teatro-so-no-palco"
+         },
+         {
+          "text": "Usar os pregões, os gestos e os jeitos de falar observados numa feira"
+         },
+         {
+          "text": "Falar todos com a mesma voz",
+          "misconceptionCode": "voz-sempre-igual"
+         },
+         {
+          "text": "Ficar parados e calados",
+          "misconceptionCode": "corpo-nao-comunica"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Você precisa dizer a frase \"Já vou\" como alguém com muita preguiça. O que muda?",
+      "options": [
+       {
+        "text": "Nada muda",
+        "misconceptionCode": "voz-sempre-igual"
+       },
+       {
+        "text": "A voz fica lenta e arrastada, e o corpo, mole"
+       },
+       {
+        "text": "A voz fica rápida e animada",
+        "misconceptionCode": "voz-sempre-igual"
+       },
+       {
+        "text": "Só as palavras mudam",
+        "misconceptionCode": "corpo-nao-comunica"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A mesma frase ganha outro sentido conforme a intenção.",
+      "variants": [
+       {
+        "question": "Para dizer \"Já vou\" como alguém com muita pressa, a voz e o corpo ficam:",
+        "options": [
+         {
+          "text": "Lentos e moles",
+          "misconceptionCode": "voz-sempre-igual"
+         },
+         {
+          "text": "Parados",
+          "misconceptionCode": "voz-sempre-igual"
+         },
+         {
+          "text": "Sem mudança",
+          "misconceptionCode": "corpo-nao-comunica"
+         },
+         {
+          "text": "Rápidos e agitados"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Você precisa dizer a frase \"Já vou\" como alguém com muita preguiça. O que muda?",
+        "options": [
+         {
+          "text": "Só as palavras mudam",
+          "misconceptionCode": "corpo-nao-comunica"
+         },
+         {
+          "text": "A voz fica rápida e animada",
+          "misconceptionCode": "voz-sempre-igual"
+         },
+         {
+          "text": "A voz fica lenta e arrastada, e o corpo, mole"
+         },
+         {
+          "text": "Nada muda",
+          "misconceptionCode": "voz-sempre-igual"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Numa cena, dois personagens são um vendedor animado e um cliente tímido. Como diferenciá-los?",
+      "options": [
+       {
+        "text": "Fazendo os dois iguais",
+        "misconceptionCode": "corpo-nao-comunica"
+       },
+       {
+        "text": "Só mudando o nome",
+        "misconceptionCode": "voz-sempre-igual"
+       },
+       {
+        "text": "Com vozes, posturas e gestos diferentes para cada um"
+       },
+       {
+        "text": "Zombando de pessoas tímidas",
+        "misconceptionCode": "imitar-e-zombar"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A diversidade de personagens aparece no corpo e na voz.",
+      "variants": [
+       {
+        "question": "Um personagem tímido pode ser mostrado com:",
+        "options": [
+         {
+          "text": "Voz baixa, olhar desviado e gestos pequenos"
+         },
+         {
+          "text": "Gritos e pulos",
+          "misconceptionCode": "corpo-nao-comunica"
+         },
+         {
+          "text": "Braços muito abertos",
+          "misconceptionCode": "voz-sempre-igual"
+         },
+         {
+          "text": "Gargalhadas altas",
+          "misconceptionCode": "imitar-e-zombar"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Numa cena, dois personagens são um vendedor animado e um cliente tímido. Como diferenciá-los?",
+        "options": [
+         {
+          "text": "Zombando de pessoas tímidas",
+          "misconceptionCode": "imitar-e-zombar"
+         },
+         {
+          "text": "Só mudando o nome",
+          "misconceptionCode": "voz-sempre-igual"
+         },
+         {
+          "text": "Fazendo os dois iguais",
+          "misconceptionCode": "corpo-nao-comunica"
+         },
+         {
+          "text": "Com vozes, posturas e gestos diferentes para cada um"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF15AR19-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: teatro no cotidiano",
+    "prompt": "Conte uma situação do dia a dia em que você percebeu alguém usando a voz e o corpo de um jeito teatral e explique com as suas palavras o que essa pessoa fazia.",
+    "estMinutes": 6,
+    "audioScript": "Conte uma situação do dia a dia em que você percebeu alguém usando a voz e o corpo de um jeito teatral e explique com as suas palavras o que essa pessoa fazia.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "situacao",
+       "description": "Descreve uma situação do cotidiano"
+      },
+      {
+       "code": "voz",
+       "description": "Diz como a pessoa usava a voz"
+      },
+      {
+       "code": "corpo",
+       "description": "Diz como a pessoa usava o corpo ou os gestos"
+      }
+     ],
+     "exemploBoaResposta": "Na feira, um vendedor de frutas chamava os clientes cantando e rimando. Ele falava bem alto e mudava a voz para fazer graça. Também abria os braços e mostrava as frutas com gestos grandes. Parecia um ator chamando a atenção da plateia."
+    }
+   }
+  ]
+ }
 ]

@@ -1,1890 +1,3772 @@
 [
-  {
-    "skillCode": "EF35EF07",
-    "subjectCode": "EF",
-    "subjectName": "Educação Física",
-    "gradeYear": 5,
-    "version": 3,
-    "title": "Trilha: Elementos da ginástica geral",
-    "tituloAluno": "Equilíbrio, saltos, giros e rolamentos",
-    "activities": [
+ {
+  "skillCode": "EF35EF07",
+  "subjectCode": "EF",
+  "subjectName": "Educação Física",
+  "gradeYear": 5,
+  "version": 3,
+  "title": "Trilha: Elementos da ginástica geral",
+  "tituloAluno": "Equilíbrio, saltos, giros e rolamentos",
+  "activities": [
+   {
+    "id": "PK2-EF35EF07-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: movimentos do corpo",
+    "prompt": "Vamos lembrar movimentos que fazemos nas brincadeiras.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar movimentos que fazemos nas brincadeiras. Pergunta 1. Ficar num pé só por alguns segundos, sem cair, é um exemplo de: A: Equilíbrio; B: Salto; C: Giro; D: Corrida. Pergunta 2. Pular corda é um exemplo de: A: Equilíbrio parado; B: Giro; C: Salto; D: Rolamento. Pergunta 3. Rodar em volta do próprio corpo, como um pião, é um: A: Salto; B: Giro; C: Rolamento; D: Equilíbrio.",
+    "questions": [
+     {
+      "question": "Ficar num pé só por alguns segundos, sem cair, é um exemplo de:",
+      "options": [
+       {
+        "text": "Equilíbrio"
+       },
+       {
+        "text": "Salto",
+        "misconceptionCode": "confunde-elemento"
+       },
+       {
+        "text": "Giro",
+        "misconceptionCode": "confunde-elemento"
+       },
+       {
+        "text": "Corrida",
+        "misconceptionCode": "confunde-elemento"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Ficar firme numa posição sem cair é equilíbrio. Experimente: abrir os braços ajuda o corpo a não tombar.",
+      "variants": [
+       {
+        "question": "Andar sobre uma linha no chão sem sair dela trabalha:",
+        "options": [
+         {
+          "text": "Salto",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Força só dos braços",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Equilíbrio"
+         },
+         {
+          "text": "Giro",
+          "misconceptionCode": "confunde-elemento"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Ficar num pé só por alguns segundos, sem cair, é um exemplo de:",
+        "options": [
+         {
+          "text": "Corrida",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Equilíbrio"
+         },
+         {
+          "text": "Giro",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Salto",
+          "misconceptionCode": "confunde-elemento"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Pular corda é um exemplo de:",
+      "options": [
+       {
+        "text": "Equilíbrio parado",
+        "misconceptionCode": "equilibrio-so-parado"
+       },
+       {
+        "text": "Giro",
+        "misconceptionCode": "confunde-elemento"
+       },
+       {
+        "text": "Salto"
+       },
+       {
+        "text": "Rolamento",
+        "misconceptionCode": "confunde-elemento"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Pulando corda, os seus pés saem do chão a cada volta. Quando o corpo sai do chão, é um salto.",
+      "variants": [
+       {
+        "question": "Na amarelinha, quando você pula de uma casa para outra, faz:",
+        "options": [
+         {
+          "text": "Saltos"
+         },
+         {
+          "text": "Giros",
+          "misconceptionCode": "equilibrio-so-parado"
+         },
+         {
+          "text": "Rolamentos",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Só equilíbrio parado",
+          "misconceptionCode": "confunde-elemento"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Pular corda é um exemplo de:",
+        "options": [
+         {
+          "text": "Rolamento",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Giro",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Equilíbrio parado",
+          "misconceptionCode": "equilibrio-so-parado"
+         },
+         {
+          "text": "Salto"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Rodar em volta do próprio corpo, como um pião, é um:",
+      "options": [
+       {
+        "text": "Salto",
+        "misconceptionCode": "confunde-elemento"
+       },
+       {
+        "text": "Giro"
+       },
+       {
+        "text": "Rolamento",
+        "misconceptionCode": "confunde-elemento"
+       },
+       {
+        "text": "Equilíbrio",
+        "misconceptionCode": "confunde-elemento"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Rodar em volta de si mesmo, em pé, como um pião, é um giro.",
+      "variants": [
+       {
+        "question": "Na dança, quando a pessoa roda sobre um pé, faz um:",
+        "options": [
+         {
+          "text": "Salto",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Rolamento",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Apoio invertido",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Giro"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Rodar em volta do próprio corpo, como um pião, é um:",
+        "options": [
+         {
+          "text": "Equilíbrio",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Rolamento",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Giro"
+         },
+         {
+          "text": "Salto",
+          "misconceptionCode": "confunde-elemento"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF07-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: montando uma sequência",
+    "prompt": "Vamos montar juntos uma pequena sequência de ginástica: um equilíbrio, um salto e um rolamento.",
+    "estMinutes": 4,
+    "audioScript": "Vamos montar juntos uma pequena sequência de ginástica: um equilíbrio, um salto e um rolamento. Pergunta 1. O que fazer antes de começar a sequência? A: Começar direto pelo mais difícil; B: Nada, ginástica não precisa de preparo; C: Aquecer o corpo e alongar; D: Correr o mais rápido possível sem parar. Pergunta 2. Onde fazer o rolamento para frente com segurança? A: No chão de cimento; B: Num colchonete, com o queixo encostado no peito; C: Com a cabeça esticada para trás; D: Em cima da mesa. Pergunta 3. Ficar parado na \"posição de avião\", num pé só com os braços abertos, é qual elemento? A: Salto; B: Rolamento; C: Giro; D: Equilíbrio.",
+    "questions": [
+     {
+      "question": "O que fazer antes de começar a sequência?",
+      "options": [
+       {
+        "text": "Começar direto pelo mais difícil",
+        "misconceptionCode": "seguranca-ignorada"
+       },
+       {
+        "text": "Nada, ginástica não precisa de preparo",
+        "misconceptionCode": "seguranca-ignorada"
+       },
+       {
+        "text": "Aquecer o corpo e alongar"
+       },
+       {
+        "text": "Correr o mais rápido possível sem parar",
+        "misconceptionCode": "confunde-elemento"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Aquecer e alongar acorda os músculos, como esticar o corpo ao acordar. Assim fica mais difícil se machucar.",
+      "variants": [
+       {
+        "question": "Por que aquecer antes da ginástica?",
+        "options": [
+         {
+          "text": "Para preparar o corpo e evitar lesões"
+         },
+         {
+          "text": "Para cansar logo",
+          "misconceptionCode": "seguranca-ignorada"
+         },
+         {
+          "text": "Não precisa",
+          "misconceptionCode": "seguranca-ignorada"
+         },
+         {
+          "text": "Para ganhar pontos",
+          "misconceptionCode": "confunde-elemento"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que fazer antes de começar a sequência?",
+        "options": [
+         {
+          "text": "Correr o mais rápido possível sem parar",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Nada, ginástica não precisa de preparo",
+          "misconceptionCode": "seguranca-ignorada"
+         },
+         {
+          "text": "Começar direto pelo mais difícil",
+          "misconceptionCode": "seguranca-ignorada"
+         },
+         {
+          "text": "Aquecer o corpo e alongar"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Onde fazer o rolamento para frente com segurança?",
+      "options": [
+       {
+        "text": "No chão de cimento",
+        "misconceptionCode": "seguranca-ignorada"
+       },
+       {
+        "text": "Num colchonete, com o queixo encostado no peito"
+       },
+       {
+        "text": "Com a cabeça esticada para trás",
+        "misconceptionCode": "seguranca-ignorada"
+       },
+       {
+        "text": "Em cima da mesa",
+        "misconceptionCode": "seguranca-ignorada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O colchonete deixa o chão macio, e o queixo no peito protege o pescoço na hora de rolar.",
+      "variants": [
+       {
+        "question": "Para rolar para frente com segurança, a cabeça deve estar:",
+        "options": [
+         {
+          "text": "Esticada para trás",
+          "misconceptionCode": "seguranca-ignorada"
+         },
+         {
+          "text": "Encostada no chão com força",
+          "misconceptionCode": "seguranca-ignorada"
+         },
+         {
+          "text": "Virada de lado",
+          "misconceptionCode": "seguranca-ignorada"
+         },
+         {
+          "text": "Com o queixo no peito"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Onde fazer o rolamento para frente com segurança?",
+        "options": [
+         {
+          "text": "Em cima da mesa",
+          "misconceptionCode": "seguranca-ignorada"
+         },
+         {
+          "text": "Com a cabeça esticada para trás",
+          "misconceptionCode": "seguranca-ignorada"
+         },
+         {
+          "text": "Num colchonete, com o queixo encostado no peito"
+         },
+         {
+          "text": "No chão de cimento",
+          "misconceptionCode": "seguranca-ignorada"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Ficar parado na \"posição de avião\", num pé só com os braços abertos, é qual elemento?",
+      "options": [
+       {
+        "text": "Salto",
+        "misconceptionCode": "confunde-elemento"
+       },
+       {
+        "text": "Rolamento",
+        "misconceptionCode": "confunde-elemento"
+       },
+       {
+        "text": "Giro",
+        "misconceptionCode": "confunde-elemento"
+       },
+       {
+        "text": "Equilíbrio"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Ficar parado num pé só, de braços abertos, sem cair, é equilíbrio.",
+      "variants": [
+       {
+        "question": "Ficar parado como uma estátua, num pé só, é:",
+        "options": [
+         {
+          "text": "Giro",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Equilíbrio"
+         },
+         {
+          "text": "Salto",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Rolamento",
+          "misconceptionCode": "confunde-elemento"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Ficar parado na \"posição de avião\", num pé só com os braços abertos, é qual elemento?",
+        "options": [
+         {
+          "text": "Equilíbrio"
+         },
+         {
+          "text": "Giro",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Rolamento",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Salto",
+          "misconceptionCode": "confunde-elemento"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF07-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: ginástica para todos",
+    "prompt": "A ginástica geral pode ser feita por todos, com criatividade e sem competição.",
+    "estMinutes": 5,
+    "audioScript": "A ginástica geral pode ser feita por todos, com criatividade e sem competição. Pergunta 1. A ginástica geral é: A: Só para atletas de competição; B: Uma prática para todos, que combina movimentos de forma criativa; C: Só para quem já sabe dar mortal; D: Um jogo com bola. Pergunta 2. Andar sobre um banco estreito, devagar, é um equilíbrio: A: Parado; B: Que não é equilíbrio; C: De salto; D: Em movimento. Pergunta 3. Um bambolê girando na cintura e uma fita sendo balançada são exemplos de: A: Ginástica com materiais; B: Ginástica sem nenhum material; C: Esportes de invasão; D: Equilíbrio parado. Pergunta 4. Uma colega tem medo de fazer o rolamento. O que fazer? A: Obrigar a fazer na hora; B: Rir dela; C: Respeitar o tempo dela e oferecer ajuda e colchonete; D: Dizer que ginástica não é para ela.",
+    "questions": [
+     {
+      "question": "A ginástica geral é:",
+      "options": [
+       {
+        "text": "Só para atletas de competição",
+        "misconceptionCode": "ginastica-so-competicao"
+       },
+       {
+        "text": "Uma prática para todos, que combina movimentos de forma criativa"
+       },
+       {
+        "text": "Só para quem já sabe dar mortal",
+        "misconceptionCode": "ginastica-so-competicao"
+       },
+       {
+        "text": "Um jogo com bola",
+        "misconceptionCode": "confunde-elemento"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Na ginástica geral todo mundo pode participar e inventar movimentos. O importante é criar junto, não ganhar.",
+      "variants": [
+       {
+        "question": "Uma apresentação da turma, com cada aluno fazendo movimentos que consegue, é:",
+        "options": [
+         {
+          "text": "Só para atletas",
+          "misconceptionCode": "ginastica-so-competicao"
+         },
+         {
+          "text": "Um jogo de futebol",
+          "misconceptionCode": "ginastica-so-competicao"
+         },
+         {
+          "text": "Uma corrida",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Ginástica geral"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A ginástica geral é:",
+        "options": [
+         {
+          "text": "Um jogo com bola",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Só para quem já sabe dar mortal",
+          "misconceptionCode": "ginastica-so-competicao"
+         },
+         {
+          "text": "Uma prática para todos, que combina movimentos de forma criativa"
+         },
+         {
+          "text": "Só para atletas de competição",
+          "misconceptionCode": "ginastica-so-competicao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Andar sobre um banco estreito, devagar, é um equilíbrio:",
+      "options": [
+       {
+        "text": "Parado",
+        "misconceptionCode": "equilibrio-so-parado"
+       },
+       {
+        "text": "Que não é equilíbrio",
+        "misconceptionCode": "equilibrio-so-parado"
+       },
+       {
+        "text": "De salto",
+        "misconceptionCode": "confunde-elemento"
+       },
+       {
+        "text": "Em movimento"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Equilíbrio não é só ficar parado. Andar num banco estreito sem cair também é equilíbrio, só que em movimento.",
+      "variants": [
+       {
+        "question": "Andar de bicicleta sem cair exige:",
+        "options": [
+         {
+          "text": "Só equilíbrio parado",
+          "misconceptionCode": "equilibrio-so-parado"
+         },
+         {
+          "text": "Equilíbrio em movimento"
+         },
+         {
+          "text": "Só salto",
+          "misconceptionCode": "equilibrio-so-parado"
+         },
+         {
+          "text": "Só giro",
+          "misconceptionCode": "confunde-elemento"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Andar sobre um banco estreito, devagar, é um equilíbrio:",
+        "options": [
+         {
+          "text": "Em movimento"
+         },
+         {
+          "text": "De salto",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Que não é equilíbrio",
+          "misconceptionCode": "equilibrio-so-parado"
+         },
+         {
+          "text": "Parado",
+          "misconceptionCode": "equilibrio-so-parado"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Um bambolê girando na cintura e uma fita sendo balançada são exemplos de:",
+      "options": [
+       {
+        "text": "Ginástica com materiais"
+       },
+       {
+        "text": "Ginástica sem nenhum material",
+        "misconceptionCode": "confunde-elemento"
+       },
+       {
+        "text": "Esportes de invasão",
+        "misconceptionCode": "ginastica-so-competicao"
+       },
+       {
+        "text": "Equilíbrio parado",
+        "misconceptionCode": "equilibrio-so-parado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Bambolê, fita, bola e corda são materiais que a ginástica usa para criar movimentos bonitos.",
+      "variants": [
+       {
+        "question": "Fazer movimentos com uma corda e uma bola é ginástica:",
+        "options": [
+         {
+          "text": "Sem materiais",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "De competição apenas",
+          "misconceptionCode": "ginastica-so-competicao"
+         },
+         {
+          "text": "Com materiais"
+         },
+         {
+          "text": "De luta",
+          "misconceptionCode": "equilibrio-so-parado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um bambolê girando na cintura e uma fita sendo balançada são exemplos de:",
+        "options": [
+         {
+          "text": "Equilíbrio parado",
+          "misconceptionCode": "equilibrio-so-parado"
+         },
+         {
+          "text": "Ginástica com materiais"
+         },
+         {
+          "text": "Esportes de invasão",
+          "misconceptionCode": "ginastica-so-competicao"
+         },
+         {
+          "text": "Ginástica sem nenhum material",
+          "misconceptionCode": "confunde-elemento"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Uma colega tem medo de fazer o rolamento. O que fazer?",
+      "options": [
+       {
+        "text": "Obrigar a fazer na hora",
+        "misconceptionCode": "seguranca-ignorada"
+       },
+       {
+        "text": "Rir dela",
+        "misconceptionCode": "seguranca-ignorada"
+       },
+       {
+        "text": "Respeitar o tempo dela e oferecer ajuda e colchonete"
+       },
+       {
+        "text": "Dizer que ginástica não é para ela",
+        "misconceptionCode": "ginastica-so-competicao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Cada pessoa aprende no seu tempo. Respeitar, ajudar e colocar o colchonete deixa a colega segura para tentar.",
+      "variants": [
+       {
+        "question": "Um colega não consegue saltar alto. O certo é:",
+        "options": [
+         {
+          "text": "Incentivar e adaptar o movimento"
+         },
+         {
+          "text": "Tirar ele da atividade",
+          "misconceptionCode": "seguranca-ignorada"
+         },
+         {
+          "text": "Rir dele",
+          "misconceptionCode": "seguranca-ignorada"
+         },
+         {
+          "text": "Obrigar a pular mais alto",
+          "misconceptionCode": "ginastica-so-competicao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Uma colega tem medo de fazer o rolamento. O que fazer?",
+        "options": [
+         {
+          "text": "Dizer que ginástica não é para ela",
+          "misconceptionCode": "ginastica-so-competicao"
+         },
+         {
+          "text": "Rir dela",
+          "misconceptionCode": "seguranca-ignorada"
+         },
+         {
+          "text": "Obrigar a fazer na hora",
+          "misconceptionCode": "seguranca-ignorada"
+         },
+         {
+          "text": "Respeitar o tempo dela e oferecer ajuda e colchonete"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF07-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: ginástica no recreio",
+    "prompt": "Use o que aprendeu em brincadeiras do dia a dia.",
+    "estMinutes": 4,
+    "audioScript": "Use o que aprendeu em brincadeiras do dia a dia. Pergunta 1. Na brincadeira de \"estátua\", quando a música para, você trabalha: A: Salto; B: Giro; C: Rolamento; D: Equilíbrio. Pergunta 2. Você e seus amigos querem treinar estrelas no pátio de cimento. O que é mais seguro? A: Levar para a grama ou usar colchonetes; B: Fazer no cimento mesmo; C: Fazer sem aquecer; D: Fazer de olhos fechados. Pergunta 3. Pular de um banco baixo, girar no ar e cair em pé combina quais elementos? A: Só equilíbrio; B: Só rolamento; C: Salto e giro; D: Nenhum elemento de ginástica.",
+    "questions": [
+     {
+      "question": "Na brincadeira de \"estátua\", quando a música para, você trabalha:",
+      "options": [
+       {
+        "text": "Salto",
+        "misconceptionCode": "confunde-elemento"
+       },
+       {
+        "text": "Giro",
+        "misconceptionCode": "confunde-elemento"
+       },
+       {
+        "text": "Rolamento",
+        "misconceptionCode": "confunde-elemento"
+       },
+       {
+        "text": "Equilíbrio"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Quando a música para e você congela na posição, o corpo precisa de equilíbrio para não se mexer.",
+      "variants": [
+       {
+        "question": "Na brincadeira \"vivo ou morto\", agachar e levantar rápido sem cair exige:",
+        "options": [
+         {
+          "text": "Só giro",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Equilíbrio e agilidade"
+         },
+         {
+          "text": "Só rolamento",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "confunde-elemento"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Na brincadeira de \"estátua\", quando a música para, você trabalha:",
+        "options": [
+         {
+          "text": "Equilíbrio"
+         },
+         {
+          "text": "Rolamento",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Giro",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Salto",
+          "misconceptionCode": "confunde-elemento"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Você e seus amigos querem treinar estrelas no pátio de cimento. O que é mais seguro?",
+      "options": [
+       {
+        "text": "Levar para a grama ou usar colchonetes"
+       },
+       {
+        "text": "Fazer no cimento mesmo",
+        "misconceptionCode": "seguranca-ignorada"
+       },
+       {
+        "text": "Fazer sem aquecer",
+        "misconceptionCode": "seguranca-ignorada"
+       },
+       {
+        "text": "Fazer de olhos fechados",
+        "misconceptionCode": "seguranca-ignorada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Cimento é duro e machuca se você cair. Grama ou colchonete deixam o treino muito mais seguro.",
+      "variants": [
+       {
+        "question": "Para treinar cambalhota em casa, o melhor lugar é:",
+        "options": [
+         {
+          "text": "O chão de cerâmica",
+          "misconceptionCode": "seguranca-ignorada"
+         },
+         {
+          "text": "Perto da escada",
+          "misconceptionCode": "seguranca-ignorada"
+         },
+         {
+          "text": "Um colchão no chão, longe de móveis"
+         },
+         {
+          "text": "Em cima do sofá",
+          "misconceptionCode": "seguranca-ignorada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Você e seus amigos querem treinar estrelas no pátio de cimento. O que é mais seguro?",
+        "options": [
+         {
+          "text": "Fazer de olhos fechados",
+          "misconceptionCode": "seguranca-ignorada"
+         },
+         {
+          "text": "Levar para a grama ou usar colchonetes"
+         },
+         {
+          "text": "Fazer sem aquecer",
+          "misconceptionCode": "seguranca-ignorada"
+         },
+         {
+          "text": "Fazer no cimento mesmo",
+          "misconceptionCode": "seguranca-ignorada"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Pular de um banco baixo, girar no ar e cair em pé combina quais elementos?",
+      "options": [
+       {
+        "text": "Só equilíbrio",
+        "misconceptionCode": "equilibrio-so-parado"
+       },
+       {
+        "text": "Só rolamento",
+        "misconceptionCode": "confunde-elemento"
+       },
+       {
+        "text": "Salto e giro"
+       },
+       {
+        "text": "Nenhum elemento de ginástica",
+        "misconceptionCode": "ginastica-so-competicao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Sair do chão é salto e rodar no ar é giro. Dá para juntar os dois numa mesma sequência.",
+      "variants": [
+       {
+        "question": "Rolar no colchonete e terminar parado num pé só combina:",
+        "options": [
+         {
+          "text": "Rolamento e equilíbrio"
+         },
+         {
+          "text": "Salto e giro",
+          "misconceptionCode": "equilibrio-so-parado"
+         },
+         {
+          "text": "Só corrida",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Nenhum elemento",
+          "misconceptionCode": "ginastica-so-competicao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Pular de um banco baixo, girar no ar e cair em pé combina quais elementos?",
+        "options": [
+         {
+          "text": "Nenhum elemento de ginástica",
+          "misconceptionCode": "ginastica-so-competicao"
+         },
+         {
+          "text": "Só rolamento",
+          "misconceptionCode": "confunde-elemento"
+         },
+         {
+          "text": "Só equilíbrio",
+          "misconceptionCode": "equilibrio-so-parado"
+         },
+         {
+          "text": "Salto e giro"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF07-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: minha sequência",
+    "prompt": "Explique com as suas palavras uma sequência de ginástica que você faria, com três elementos, e um cuidado de segurança.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras uma sequência de ginástica que você faria, com três elementos, e um cuidado de segurança.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
       {
-        "id": "PK2-EF35EF07-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar: movimentos do corpo",
-        "prompt": "Vamos lembrar movimentos que fazemos nas brincadeiras.",
-        "estMinutes": 4,
-        "audioScript": "Vamos lembrar movimentos que fazemos nas brincadeiras. Pergunta 1. Ficar num pé só por alguns segundos, sem cair, é um exemplo de: A: Equilíbrio; B: Salto; C: Giro; D: Corrida. Pergunta 2. Pular corda é um exemplo de: A: Equilíbrio parado; B: Giro; C: Salto; D: Rolamento. Pergunta 3. Rodar em volta do próprio corpo, como um pião, é um: A: Salto; B: Giro; C: Rolamento; D: Equilíbrio.",
-        "questions": [
-          {
-            "question": "Ficar num pé só por alguns segundos, sem cair, é um exemplo de:",
-            "options": [
-              {
-                "text": "Equilíbrio"
-              },
-              {
-                "text": "Salto",
-                "misconceptionCode": "confunde-elemento"
-              },
-              {
-                "text": "Giro",
-                "misconceptionCode": "confunde-elemento"
-              },
-              {
-                "text": "Corrida",
-                "misconceptionCode": "confunde-elemento"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Ficar firme numa posição sem cair é equilíbrio. Experimente: abrir os braços ajuda o corpo a não tombar.",
-            "variants": [
-              {
-                "question": "Andar sobre uma linha no chão sem sair dela trabalha:",
-                "options": [
-                  {
-                    "text": "Salto",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Força só dos braços",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Equilíbrio"
-                  },
-                  {
-                    "text": "Giro",
-                    "misconceptionCode": "confunde-elemento"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Ficar num pé só por alguns segundos, sem cair, é um exemplo de:",
-                "options": [
-                  {
-                    "text": "Corrida",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Equilíbrio"
-                  },
-                  {
-                    "text": "Giro",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Salto",
-                    "misconceptionCode": "confunde-elemento"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Pular corda é um exemplo de:",
-            "options": [
-              {
-                "text": "Equilíbrio parado",
-                "misconceptionCode": "equilibrio-so-parado"
-              },
-              {
-                "text": "Giro",
-                "misconceptionCode": "confunde-elemento"
-              },
-              {
-                "text": "Salto"
-              },
-              {
-                "text": "Rolamento",
-                "misconceptionCode": "confunde-elemento"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Pulando corda, os seus pés saem do chão a cada volta. Quando o corpo sai do chão, é um salto.",
-            "variants": [
-              {
-                "question": "Na amarelinha, quando você pula de uma casa para outra, faz:",
-                "options": [
-                  {
-                    "text": "Saltos"
-                  },
-                  {
-                    "text": "Giros",
-                    "misconceptionCode": "equilibrio-so-parado"
-                  },
-                  {
-                    "text": "Rolamentos",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Só equilíbrio parado",
-                    "misconceptionCode": "confunde-elemento"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Pular corda é um exemplo de:",
-                "options": [
-                  {
-                    "text": "Rolamento",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Giro",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Equilíbrio parado",
-                    "misconceptionCode": "equilibrio-so-parado"
-                  },
-                  {
-                    "text": "Salto"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Rodar em volta do próprio corpo, como um pião, é um:",
-            "options": [
-              {
-                "text": "Salto",
-                "misconceptionCode": "confunde-elemento"
-              },
-              {
-                "text": "Giro"
-              },
-              {
-                "text": "Rolamento",
-                "misconceptionCode": "confunde-elemento"
-              },
-              {
-                "text": "Equilíbrio",
-                "misconceptionCode": "confunde-elemento"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Rodar em volta de si mesmo, em pé, como um pião, é um giro.",
-            "variants": [
-              {
-                "question": "Na dança, quando a pessoa roda sobre um pé, faz um:",
-                "options": [
-                  {
-                    "text": "Salto",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Rolamento",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Apoio invertido",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Giro"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Rodar em volta do próprio corpo, como um pião, é um:",
-                "options": [
-                  {
-                    "text": "Equilíbrio",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Rolamento",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Giro"
-                  },
-                  {
-                    "text": "Salto",
-                    "misconceptionCode": "confunde-elemento"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          }
-        ]
+       "code": "elementos",
+       "description": "Cita três elementos da ginástica (equilíbrio, salto, giro, rolamento)"
       },
       {
-        "id": "PK2-EF35EF07-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Exemplo guiado: montando uma sequência",
-        "prompt": "Vamos montar juntos uma pequena sequência de ginástica: um equilíbrio, um salto e um rolamento.",
-        "estMinutes": 4,
-        "audioScript": "Vamos montar juntos uma pequena sequência de ginástica: um equilíbrio, um salto e um rolamento. Pergunta 1. O que fazer antes de começar a sequência? A: Começar direto pelo mais difícil; B: Nada, ginástica não precisa de preparo; C: Aquecer o corpo e alongar; D: Correr o mais rápido possível sem parar. Pergunta 2. Onde fazer o rolamento para frente com segurança? A: No chão de cimento; B: Num colchonete, com o queixo encostado no peito; C: Com a cabeça esticada para trás; D: Em cima da mesa. Pergunta 3. Ficar parado na \"posição de avião\", num pé só com os braços abertos, é qual elemento? A: Salto; B: Rolamento; C: Giro; D: Equilíbrio.",
-        "questions": [
-          {
-            "question": "O que fazer antes de começar a sequência?",
-            "options": [
-              {
-                "text": "Começar direto pelo mais difícil",
-                "misconceptionCode": "seguranca-ignorada"
-              },
-              {
-                "text": "Nada, ginástica não precisa de preparo",
-                "misconceptionCode": "seguranca-ignorada"
-              },
-              {
-                "text": "Aquecer o corpo e alongar"
-              },
-              {
-                "text": "Correr o mais rápido possível sem parar",
-                "misconceptionCode": "confunde-elemento"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Aquecer e alongar acorda os músculos, como esticar o corpo ao acordar. Assim fica mais difícil se machucar.",
-            "variants": [
-              {
-                "question": "Por que aquecer antes da ginástica?",
-                "options": [
-                  {
-                    "text": "Para preparar o corpo e evitar lesões"
-                  },
-                  {
-                    "text": "Para cansar logo",
-                    "misconceptionCode": "seguranca-ignorada"
-                  },
-                  {
-                    "text": "Não precisa",
-                    "misconceptionCode": "seguranca-ignorada"
-                  },
-                  {
-                    "text": "Para ganhar pontos",
-                    "misconceptionCode": "confunde-elemento"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que fazer antes de começar a sequência?",
-                "options": [
-                  {
-                    "text": "Correr o mais rápido possível sem parar",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Nada, ginástica não precisa de preparo",
-                    "misconceptionCode": "seguranca-ignorada"
-                  },
-                  {
-                    "text": "Começar direto pelo mais difícil",
-                    "misconceptionCode": "seguranca-ignorada"
-                  },
-                  {
-                    "text": "Aquecer o corpo e alongar"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Onde fazer o rolamento para frente com segurança?",
-            "options": [
-              {
-                "text": "No chão de cimento",
-                "misconceptionCode": "seguranca-ignorada"
-              },
-              {
-                "text": "Num colchonete, com o queixo encostado no peito"
-              },
-              {
-                "text": "Com a cabeça esticada para trás",
-                "misconceptionCode": "seguranca-ignorada"
-              },
-              {
-                "text": "Em cima da mesa",
-                "misconceptionCode": "seguranca-ignorada"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "O colchonete deixa o chão macio, e o queixo no peito protege o pescoço na hora de rolar.",
-            "variants": [
-              {
-                "question": "Para rolar para frente com segurança, a cabeça deve estar:",
-                "options": [
-                  {
-                    "text": "Esticada para trás",
-                    "misconceptionCode": "seguranca-ignorada"
-                  },
-                  {
-                    "text": "Encostada no chão com força",
-                    "misconceptionCode": "seguranca-ignorada"
-                  },
-                  {
-                    "text": "Virada de lado",
-                    "misconceptionCode": "seguranca-ignorada"
-                  },
-                  {
-                    "text": "Com o queixo no peito"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Onde fazer o rolamento para frente com segurança?",
-                "options": [
-                  {
-                    "text": "Em cima da mesa",
-                    "misconceptionCode": "seguranca-ignorada"
-                  },
-                  {
-                    "text": "Com a cabeça esticada para trás",
-                    "misconceptionCode": "seguranca-ignorada"
-                  },
-                  {
-                    "text": "Num colchonete, com o queixo encostado no peito"
-                  },
-                  {
-                    "text": "No chão de cimento",
-                    "misconceptionCode": "seguranca-ignorada"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Ficar parado na \"posição de avião\", num pé só com os braços abertos, é qual elemento?",
-            "options": [
-              {
-                "text": "Salto",
-                "misconceptionCode": "confunde-elemento"
-              },
-              {
-                "text": "Rolamento",
-                "misconceptionCode": "confunde-elemento"
-              },
-              {
-                "text": "Giro",
-                "misconceptionCode": "confunde-elemento"
-              },
-              {
-                "text": "Equilíbrio"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Ficar parado num pé só, de braços abertos, sem cair, é equilíbrio.",
-            "variants": [
-              {
-                "question": "Ficar parado como uma estátua, num pé só, é:",
-                "options": [
-                  {
-                    "text": "Giro",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Equilíbrio"
-                  },
-                  {
-                    "text": "Salto",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Rolamento",
-                    "misconceptionCode": "confunde-elemento"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Ficar parado na \"posição de avião\", num pé só com os braços abertos, é qual elemento?",
-                "options": [
-                  {
-                    "text": "Equilíbrio"
-                  },
-                  {
-                    "text": "Giro",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Rolamento",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Salto",
-                    "misconceptionCode": "confunde-elemento"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          }
-        ]
+       "code": "ordem",
+       "description": "Organiza os elementos numa sequência"
       },
       {
-        "id": "PK2-EF35EF07-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar: ginástica para todos",
-        "prompt": "A ginástica geral pode ser feita por todos, com criatividade e sem competição.",
-        "estMinutes": 5,
-        "audioScript": "A ginástica geral pode ser feita por todos, com criatividade e sem competição. Pergunta 1. A ginástica geral é: A: Só para atletas de competição; B: Uma prática para todos, que combina movimentos de forma criativa; C: Só para quem já sabe dar mortal; D: Um jogo com bola. Pergunta 2. Andar sobre um banco estreito, devagar, é um equilíbrio: A: Parado; B: Que não é equilíbrio; C: De salto; D: Em movimento. Pergunta 3. Um bambolê girando na cintura e uma fita sendo balançada são exemplos de: A: Ginástica com materiais; B: Ginástica sem nenhum material; C: Esportes de invasão; D: Equilíbrio parado. Pergunta 4. Uma colega tem medo de fazer o rolamento. O que fazer? A: Obrigar a fazer na hora; B: Rir dela; C: Respeitar o tempo dela e oferecer ajuda e colchonete; D: Dizer que ginástica não é para ela.",
-        "questions": [
-          {
-            "question": "A ginástica geral é:",
-            "options": [
-              {
-                "text": "Só para atletas de competição",
-                "misconceptionCode": "ginastica-so-competicao"
-              },
-              {
-                "text": "Uma prática para todos, que combina movimentos de forma criativa"
-              },
-              {
-                "text": "Só para quem já sabe dar mortal",
-                "misconceptionCode": "ginastica-so-competicao"
-              },
-              {
-                "text": "Um jogo com bola",
-                "misconceptionCode": "confunde-elemento"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Na ginástica geral todo mundo pode participar e inventar movimentos. O importante é criar junto, não ganhar.",
-            "variants": [
-              {
-                "question": "Uma apresentação da turma, com cada aluno fazendo movimentos que consegue, é:",
-                "options": [
-                  {
-                    "text": "Só para atletas",
-                    "misconceptionCode": "ginastica-so-competicao"
-                  },
-                  {
-                    "text": "Um jogo de futebol",
-                    "misconceptionCode": "ginastica-so-competicao"
-                  },
-                  {
-                    "text": "Uma corrida",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Ginástica geral"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "A ginástica geral é:",
-                "options": [
-                  {
-                    "text": "Um jogo com bola",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Só para quem já sabe dar mortal",
-                    "misconceptionCode": "ginastica-so-competicao"
-                  },
-                  {
-                    "text": "Uma prática para todos, que combina movimentos de forma criativa"
-                  },
-                  {
-                    "text": "Só para atletas de competição",
-                    "misconceptionCode": "ginastica-so-competicao"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Andar sobre um banco estreito, devagar, é um equilíbrio:",
-            "options": [
-              {
-                "text": "Parado",
-                "misconceptionCode": "equilibrio-so-parado"
-              },
-              {
-                "text": "Que não é equilíbrio",
-                "misconceptionCode": "equilibrio-so-parado"
-              },
-              {
-                "text": "De salto",
-                "misconceptionCode": "confunde-elemento"
-              },
-              {
-                "text": "Em movimento"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Equilíbrio não é só ficar parado. Andar num banco estreito sem cair também é equilíbrio, só que em movimento.",
-            "variants": [
-              {
-                "question": "Andar de bicicleta sem cair exige:",
-                "options": [
-                  {
-                    "text": "Só equilíbrio parado",
-                    "misconceptionCode": "equilibrio-so-parado"
-                  },
-                  {
-                    "text": "Equilíbrio em movimento"
-                  },
-                  {
-                    "text": "Só salto",
-                    "misconceptionCode": "equilibrio-so-parado"
-                  },
-                  {
-                    "text": "Só giro",
-                    "misconceptionCode": "confunde-elemento"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Andar sobre um banco estreito, devagar, é um equilíbrio:",
-                "options": [
-                  {
-                    "text": "Em movimento"
-                  },
-                  {
-                    "text": "De salto",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Que não é equilíbrio",
-                    "misconceptionCode": "equilibrio-so-parado"
-                  },
-                  {
-                    "text": "Parado",
-                    "misconceptionCode": "equilibrio-so-parado"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Um bambolê girando na cintura e uma fita sendo balançada são exemplos de:",
-            "options": [
-              {
-                "text": "Ginástica com materiais"
-              },
-              {
-                "text": "Ginástica sem nenhum material",
-                "misconceptionCode": "confunde-elemento"
-              },
-              {
-                "text": "Esportes de invasão",
-                "misconceptionCode": "ginastica-so-competicao"
-              },
-              {
-                "text": "Equilíbrio parado",
-                "misconceptionCode": "equilibrio-so-parado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Bambolê, fita, bola e corda são materiais que a ginástica usa para criar movimentos bonitos.",
-            "variants": [
-              {
-                "question": "Fazer movimentos com uma corda e uma bola é ginástica:",
-                "options": [
-                  {
-                    "text": "Sem materiais",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "De competição apenas",
-                    "misconceptionCode": "ginastica-so-competicao"
-                  },
-                  {
-                    "text": "Com materiais"
-                  },
-                  {
-                    "text": "De luta",
-                    "misconceptionCode": "equilibrio-so-parado"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Um bambolê girando na cintura e uma fita sendo balançada são exemplos de:",
-                "options": [
-                  {
-                    "text": "Equilíbrio parado",
-                    "misconceptionCode": "equilibrio-so-parado"
-                  },
-                  {
-                    "text": "Ginástica com materiais"
-                  },
-                  {
-                    "text": "Esportes de invasão",
-                    "misconceptionCode": "ginastica-so-competicao"
-                  },
-                  {
-                    "text": "Ginástica sem nenhum material",
-                    "misconceptionCode": "confunde-elemento"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Uma colega tem medo de fazer o rolamento. O que fazer?",
-            "options": [
-              {
-                "text": "Obrigar a fazer na hora",
-                "misconceptionCode": "seguranca-ignorada"
-              },
-              {
-                "text": "Rir dela",
-                "misconceptionCode": "seguranca-ignorada"
-              },
-              {
-                "text": "Respeitar o tempo dela e oferecer ajuda e colchonete"
-              },
-              {
-                "text": "Dizer que ginástica não é para ela",
-                "misconceptionCode": "ginastica-so-competicao"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Cada pessoa aprende no seu tempo. Respeitar, ajudar e colocar o colchonete deixa a colega segura para tentar.",
-            "variants": [
-              {
-                "question": "Um colega não consegue saltar alto. O certo é:",
-                "options": [
-                  {
-                    "text": "Incentivar e adaptar o movimento"
-                  },
-                  {
-                    "text": "Tirar ele da atividade",
-                    "misconceptionCode": "seguranca-ignorada"
-                  },
-                  {
-                    "text": "Rir dele",
-                    "misconceptionCode": "seguranca-ignorada"
-                  },
-                  {
-                    "text": "Obrigar a pular mais alto",
-                    "misconceptionCode": "ginastica-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Uma colega tem medo de fazer o rolamento. O que fazer?",
-                "options": [
-                  {
-                    "text": "Dizer que ginástica não é para ela",
-                    "misconceptionCode": "ginastica-so-competicao"
-                  },
-                  {
-                    "text": "Rir dela",
-                    "misconceptionCode": "seguranca-ignorada"
-                  },
-                  {
-                    "text": "Obrigar a fazer na hora",
-                    "misconceptionCode": "seguranca-ignorada"
-                  },
-                  {
-                    "text": "Respeitar o tempo dela e oferecer ajuda e colchonete"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF35EF07-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar: ginástica no recreio",
-        "prompt": "Use o que aprendeu em brincadeiras do dia a dia.",
-        "estMinutes": 4,
-        "audioScript": "Use o que aprendeu em brincadeiras do dia a dia. Pergunta 1. Na brincadeira de \"estátua\", quando a música para, você trabalha: A: Salto; B: Giro; C: Rolamento; D: Equilíbrio. Pergunta 2. Você e seus amigos querem treinar estrelas no pátio de cimento. O que é mais seguro? A: Levar para a grama ou usar colchonetes; B: Fazer no cimento mesmo; C: Fazer sem aquecer; D: Fazer de olhos fechados. Pergunta 3. Pular de um banco baixo, girar no ar e cair em pé combina quais elementos? A: Só equilíbrio; B: Só rolamento; C: Salto e giro; D: Nenhum elemento de ginástica.",
-        "questions": [
-          {
-            "question": "Na brincadeira de \"estátua\", quando a música para, você trabalha:",
-            "options": [
-              {
-                "text": "Salto",
-                "misconceptionCode": "confunde-elemento"
-              },
-              {
-                "text": "Giro",
-                "misconceptionCode": "confunde-elemento"
-              },
-              {
-                "text": "Rolamento",
-                "misconceptionCode": "confunde-elemento"
-              },
-              {
-                "text": "Equilíbrio"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Quando a música para e você congela na posição, o corpo precisa de equilíbrio para não se mexer.",
-            "variants": [
-              {
-                "question": "Na brincadeira \"vivo ou morto\", agachar e levantar rápido sem cair exige:",
-                "options": [
-                  {
-                    "text": "Só giro",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Equilíbrio e agilidade"
-                  },
-                  {
-                    "text": "Só rolamento",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Nada",
-                    "misconceptionCode": "confunde-elemento"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Na brincadeira de \"estátua\", quando a música para, você trabalha:",
-                "options": [
-                  {
-                    "text": "Equilíbrio"
-                  },
-                  {
-                    "text": "Rolamento",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Giro",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Salto",
-                    "misconceptionCode": "confunde-elemento"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Você e seus amigos querem treinar estrelas no pátio de cimento. O que é mais seguro?",
-            "options": [
-              {
-                "text": "Levar para a grama ou usar colchonetes"
-              },
-              {
-                "text": "Fazer no cimento mesmo",
-                "misconceptionCode": "seguranca-ignorada"
-              },
-              {
-                "text": "Fazer sem aquecer",
-                "misconceptionCode": "seguranca-ignorada"
-              },
-              {
-                "text": "Fazer de olhos fechados",
-                "misconceptionCode": "seguranca-ignorada"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Cimento é duro e machuca se você cair. Grama ou colchonete deixam o treino muito mais seguro.",
-            "variants": [
-              {
-                "question": "Para treinar cambalhota em casa, o melhor lugar é:",
-                "options": [
-                  {
-                    "text": "O chão de cerâmica",
-                    "misconceptionCode": "seguranca-ignorada"
-                  },
-                  {
-                    "text": "Perto da escada",
-                    "misconceptionCode": "seguranca-ignorada"
-                  },
-                  {
-                    "text": "Um colchão no chão, longe de móveis"
-                  },
-                  {
-                    "text": "Em cima do sofá",
-                    "misconceptionCode": "seguranca-ignorada"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Você e seus amigos querem treinar estrelas no pátio de cimento. O que é mais seguro?",
-                "options": [
-                  {
-                    "text": "Fazer de olhos fechados",
-                    "misconceptionCode": "seguranca-ignorada"
-                  },
-                  {
-                    "text": "Levar para a grama ou usar colchonetes"
-                  },
-                  {
-                    "text": "Fazer sem aquecer",
-                    "misconceptionCode": "seguranca-ignorada"
-                  },
-                  {
-                    "text": "Fazer no cimento mesmo",
-                    "misconceptionCode": "seguranca-ignorada"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Pular de um banco baixo, girar no ar e cair em pé combina quais elementos?",
-            "options": [
-              {
-                "text": "Só equilíbrio",
-                "misconceptionCode": "equilibrio-so-parado"
-              },
-              {
-                "text": "Só rolamento",
-                "misconceptionCode": "confunde-elemento"
-              },
-              {
-                "text": "Salto e giro"
-              },
-              {
-                "text": "Nenhum elemento de ginástica",
-                "misconceptionCode": "ginastica-so-competicao"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Sair do chão é salto e rodar no ar é giro. Dá para juntar os dois numa mesma sequência.",
-            "variants": [
-              {
-                "question": "Rolar no colchonete e terminar parado num pé só combina:",
-                "options": [
-                  {
-                    "text": "Rolamento e equilíbrio"
-                  },
-                  {
-                    "text": "Salto e giro",
-                    "misconceptionCode": "equilibrio-so-parado"
-                  },
-                  {
-                    "text": "Só corrida",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Nenhum elemento",
-                    "misconceptionCode": "ginastica-so-competicao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Pular de um banco baixo, girar no ar e cair em pé combina quais elementos?",
-                "options": [
-                  {
-                    "text": "Nenhum elemento de ginástica",
-                    "misconceptionCode": "ginastica-so-competicao"
-                  },
-                  {
-                    "text": "Só rolamento",
-                    "misconceptionCode": "confunde-elemento"
-                  },
-                  {
-                    "text": "Só equilíbrio",
-                    "misconceptionCode": "equilibrio-so-parado"
-                  },
-                  {
-                    "text": "Salto e giro"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF35EF07-A5",
-        "step": "explicar",
-        "type": "WRITTEN",
-        "allowSpoken": true,
-        "title": "Explicar: minha sequência",
-        "prompt": "Explique com as suas palavras uma sequência de ginástica que você faria, com três elementos, e um cuidado de segurança.",
-        "estMinutes": 6,
-        "audioScript": "Explique com as suas palavras uma sequência de ginástica que você faria, com três elementos, e um cuidado de segurança.",
-        "rubric": {
-          "type": "WRITTEN",
-          "criteria": [
-            {
-              "code": "elementos",
-              "description": "Cita três elementos da ginástica (equilíbrio, salto, giro, rolamento)"
-            },
-            {
-              "code": "ordem",
-              "description": "Organiza os elementos numa sequência"
-            },
-            {
-              "code": "seguranca",
-              "description": "Cita um cuidado de segurança, como aquecer ou usar colchonete"
-            }
-          ],
-          "exemploBoaResposta": "Primeiro eu aqueço o corpo. Depois faço um equilíbrio num pé só, um salto com os braços para cima e um rolamento para frente no colchonete, com o queixo no peito. No fim, termino parado em pé."
-        }
+       "code": "seguranca",
+       "description": "Cita um cuidado de segurança, como aquecer ou usar colchonete"
       }
-    ],
-    "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED"
-  },
-  {
-    "skillCode": "EF35EF05",
-    "subjectCode": "EF",
-    "subjectName": "Educação Física",
-    "gradeYear": 5,
-    "version": 3,
-    "title": "Trilha: Esportes de campo e taco, rede e invasão",
-    "tituloAluno": "Tipos de esporte: rede, invasão e campo e taco",
-    "activities": [
+     ],
+     "exemploBoaResposta": "Primeiro eu aqueço o corpo. Depois faço um equilíbrio num pé só, um salto com os braços para cima e um rolamento para frente no colchonete, com o queixo no peito. No fim, termino parado em pé."
+    }
+   }
+  ],
+  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+  "source": "SPEAKFLOW",
+  "status": "APPROVED"
+ },
+ {
+  "skillCode": "EF35EF05",
+  "subjectCode": "EF",
+  "subjectName": "Educação Física",
+  "gradeYear": 5,
+  "version": 3,
+  "title": "Trilha: Esportes de campo e taco, rede e invasão",
+  "tituloAluno": "Tipos de esporte: rede, invasão e campo e taco",
+  "activities": [
+   {
+    "id": "PK2-EF35EF05-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: jogos com bola",
+    "prompt": "Vamos lembrar os jogos com bola que você conhece.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar os jogos com bola que você conhece. Pergunta 1. No futebol, qual é o objetivo principal? A: Passar a bola por cima de uma rede; B: Levar a bola até o gol adversário e marcar; C: Rebater a bola com um taco; D: Acertar um alvo parado. Pergunta 2. No vôlei, a bola deve: A: Ser levada até o gol; B: Ser rebatida com um taco; C: Ficar parada no chão; D: Passar por cima da rede e cair na quadra do adversário. Pergunta 3. No jogo de taco (bets), uma dupla usa o taco para: A: Rebater a bola e correr entre as bases; B: Passar a bola por cima de uma rede; C: Chutar a bola no gol; D: Acertar uma cesta.",
+    "questions": [
+     {
+      "question": "No futebol, qual é o objetivo principal?",
+      "options": [
+       {
+        "text": "Passar a bola por cima de uma rede",
+        "misconceptionCode": "rede-invasao"
+       },
+       {
+        "text": "Levar a bola até o gol adversário e marcar"
+       },
+       {
+        "text": "Rebater a bola com um taco",
+        "misconceptionCode": "taco-precisao"
+       },
+       {
+        "text": "Acertar um alvo parado",
+        "misconceptionCode": "objetivo-errado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "No futebol, o time entra no campo do outro para levar a bola até o gol e marcar.",
+      "variants": [
+       {
+        "question": "No basquete, qual é o objetivo?",
+        "options": [
+         {
+          "text": "Passar a bola por cima da rede",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Rebater com taco",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "Correr sem a bola",
+          "misconceptionCode": "objetivo-errado"
+         },
+         {
+          "text": "Fazer a bola entrar na cesta do adversário"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "No futebol, qual é o objetivo principal?",
+        "options": [
+         {
+          "text": "Acertar um alvo parado",
+          "misconceptionCode": "objetivo-errado"
+         },
+         {
+          "text": "Rebater a bola com um taco",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "Levar a bola até o gol adversário e marcar"
+         },
+         {
+          "text": "Passar a bola por cima de uma rede",
+          "misconceptionCode": "rede-invasao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "No vôlei, a bola deve:",
+      "options": [
+       {
+        "text": "Ser levada até o gol",
+        "misconceptionCode": "rede-invasao"
+       },
+       {
+        "text": "Ser rebatida com um taco",
+        "misconceptionCode": "taco-precisao"
+       },
+       {
+        "text": "Ficar parada no chão",
+        "misconceptionCode": "objetivo-errado"
+       },
+       {
+        "text": "Passar por cima da rede e cair na quadra do adversário"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A bola precisa passar por cima da rede e cair no chão do outro time, sem que eles consigam devolver.",
+      "variants": [
+       {
+        "question": "No tênis, a bola deve:",
+        "options": [
+         {
+          "text": "Entrar num gol",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Passar por cima da rede"
+         },
+         {
+          "text": "Entrar numa cesta",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "Ficar no chão",
+          "misconceptionCode": "objetivo-errado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "No vôlei, a bola deve:",
+        "options": [
+         {
+          "text": "Passar por cima da rede e cair na quadra do adversário"
+         },
+         {
+          "text": "Ficar parada no chão",
+          "misconceptionCode": "objetivo-errado"
+         },
+         {
+          "text": "Ser rebatida com um taco",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "Ser levada até o gol",
+          "misconceptionCode": "rede-invasao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "No jogo de taco (bets), uma dupla usa o taco para:",
+      "options": [
+       {
+        "text": "Rebater a bola e correr entre as bases"
+       },
+       {
+        "text": "Passar a bola por cima de uma rede",
+        "misconceptionCode": "rede-invasao"
+       },
+       {
+        "text": "Chutar a bola no gol",
+        "misconceptionCode": "objetivo-errado"
+       },
+       {
+        "text": "Acertar uma cesta",
+        "misconceptionCode": "taco-precisao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Quem tem o taco rebate a bola para longe e corre entre as casinhas para fazer pontos.",
+      "variants": [
+       {
+        "question": "No taco, o que a dupla que rebate faz depois de bater na bola?",
+        "options": [
+         {
+          "text": "Fica parada",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Joga a bola na cesta",
+          "misconceptionCode": "objetivo-errado"
+         },
+         {
+          "text": "Corre trocando de lugar para marcar pontos"
+         },
+         {
+          "text": "Passa a bola pela rede",
+          "misconceptionCode": "taco-precisao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "No jogo de taco (bets), uma dupla usa o taco para:",
+        "options": [
+         {
+          "text": "Acertar uma cesta",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "Rebater a bola e correr entre as bases"
+         },
+         {
+          "text": "Chutar a bola no gol",
+          "misconceptionCode": "objetivo-errado"
+         },
+         {
+          "text": "Passar a bola por cima de uma rede",
+          "misconceptionCode": "rede-invasao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF05-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: agrupando os esportes",
+    "prompt": "Os esportes podem ser agrupados pelo jeito de jogar. Vamos agrupar juntos.",
+    "estMinutes": 4,
+    "audioScript": "Os esportes podem ser agrupados pelo jeito de jogar. Vamos agrupar juntos. Pergunta 1. Futebol, basquete e handebol são esportes de: A: Rede; B: Campo e taco; C: Nenhum grupo; D: Invasão. Pergunta 2. Vôlei, tênis e peteca são esportes de: A: Rede; B: Invasão; C: Campo e taco; D: Luta. Pergunta 3. Beisebol e taco (bets) são esportes de: A: Rede; B: Invasão; C: Campo e taco; D: Precisão.",
+    "questions": [
+     {
+      "question": "Futebol, basquete e handebol são esportes de:",
+      "options": [
+       {
+        "text": "Rede",
+        "misconceptionCode": "rede-invasao"
+       },
+       {
+        "text": "Campo e taco",
+        "misconceptionCode": "taco-precisao"
+       },
+       {
+        "text": "Nenhum grupo",
+        "misconceptionCode": "objetivo-errado"
+       },
+       {
+        "text": "Invasão"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Nesses jogos, os times correm no mesmo espaço e entram no lado do outro para marcar. Isso é esporte de invasão.",
+      "variants": [
+       {
+        "question": "Um jogo em que o time leva a bola até a área do outro para marcar é de:",
+        "options": [
+         {
+          "text": "Rede",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Invasão"
+         },
+         {
+          "text": "Campo e taco",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "Marca",
+          "misconceptionCode": "objetivo-errado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Futebol, basquete e handebol são esportes de:",
+        "options": [
+         {
+          "text": "Invasão"
+         },
+         {
+          "text": "Nenhum grupo",
+          "misconceptionCode": "objetivo-errado"
+         },
+         {
+          "text": "Campo e taco",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "Rede",
+          "misconceptionCode": "rede-invasao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Vôlei, tênis e peteca são esportes de:",
+      "options": [
+       {
+        "text": "Rede"
+       },
+       {
+        "text": "Invasão",
+        "misconceptionCode": "rede-invasao"
+       },
+       {
+        "text": "Campo e taco",
+        "misconceptionCode": "taco-precisao"
+       },
+       {
+        "text": "Luta",
+        "misconceptionCode": "objetivo-errado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A rede separa os times, e ninguém entra no lado do outro. São esportes de rede.",
+      "variants": [
+       {
+        "question": "Badminton, em que a peteca passa por cima de uma rede, é um esporte de:",
+        "options": [
+         {
+          "text": "Invasão",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Campo e taco",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "Rede"
+         },
+         {
+          "text": "Luta",
+          "misconceptionCode": "objetivo-errado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Vôlei, tênis e peteca são esportes de:",
+        "options": [
+         {
+          "text": "Luta",
+          "misconceptionCode": "objetivo-errado"
+         },
+         {
+          "text": "Rede"
+         },
+         {
+          "text": "Campo e taco",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "Invasão",
+          "misconceptionCode": "rede-invasao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Beisebol e taco (bets) são esportes de:",
+      "options": [
+       {
+        "text": "Rede",
+        "misconceptionCode": "rede-invasao"
+       },
+       {
+        "text": "Invasão",
+        "misconceptionCode": "rede-invasao"
+       },
+       {
+        "text": "Campo e taco"
+       },
+       {
+        "text": "Precisão",
+        "misconceptionCode": "taco-precisao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Nesses jogos, você rebate a bola com um taco e corre para marcar. São esportes de campo e taco.",
+      "variants": [
+       {
+        "question": "O críquete, em que se rebate a bola com um bastão e se corre entre marcas, é de:",
+        "options": [
+         {
+          "text": "Campo e taco"
+         },
+         {
+          "text": "Rede",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Invasão",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Ginástica",
+          "misconceptionCode": "taco-precisao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Beisebol e taco (bets) são esportes de:",
+        "options": [
+         {
+          "text": "Precisão",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "Invasão",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Rede",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Campo e taco"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF05-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: o que é comum em cada grupo",
+    "prompt": "Cada grupo de esportes tem elementos em comum.",
+    "estMinutes": 5,
+    "audioScript": "Cada grupo de esportes tem elementos em comum. Pergunta 1. O que é comum nos esportes de invasão? A: Ataque e defesa no mesmo espaço, para marcar no alvo do outro; B: Uma rede separando os times; C: Rebater com taco e correr entre bases; D: Jogar sempre sozinho. Pergunta 2. O que é comum nos esportes de rede? A: Invadir o campo do adversário; B: Correr entre bases; C: Mandar a bola para o lado do outro de modo que ele não consiga devolver; D: Fazer gol. Pergunta 3. Na escola, a turma jogou vôlei com uma corda no lugar da rede e deixou a bola quicar uma vez. Isso é: A: Errado, regra não pode mudar; B: Uma adaptação das regras, que é permitida; C: Outro esporte, de invasão; D: Um esporte de taco. Pergunta 4. O que é comum nos esportes de campo e taco? A: Uma rede no meio; B: Fazer gol; C: Acertar um alvo parado sem correr; D: Rebater a bola e correr para marcar pontos, enquanto o outro time tenta recuperar a bola.",
+    "questions": [
+     {
+      "question": "O que é comum nos esportes de invasão?",
+      "options": [
+       {
+        "text": "Ataque e defesa no mesmo espaço, para marcar no alvo do outro"
+       },
+       {
+        "text": "Uma rede separando os times",
+        "misconceptionCode": "rede-invasao"
+       },
+       {
+        "text": "Rebater com taco e correr entre bases",
+        "misconceptionCode": "taco-precisao"
+       },
+       {
+        "text": "Jogar sempre sozinho",
+        "misconceptionCode": "objetivo-errado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Os dois times atacam e defendem no mesmo espaço, tentando marcar no gol ou na cesta do outro.",
+      "variants": [
+       {
+        "question": "No handebol, os dois times:",
+        "options": [
+         {
+          "text": "Ficam separados por rede",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Rebatem com taco",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "Jogam no mesmo espaço, atacando e defendendo"
+         },
+         {
+          "text": "Jogam sem bola",
+          "misconceptionCode": "objetivo-errado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que é comum nos esportes de invasão?",
+        "options": [
+         {
+          "text": "Jogar sempre sozinho",
+          "misconceptionCode": "objetivo-errado"
+         },
+         {
+          "text": "Ataque e defesa no mesmo espaço, para marcar no alvo do outro"
+         },
+         {
+          "text": "Rebater com taco e correr entre bases",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "Uma rede separando os times",
+          "misconceptionCode": "rede-invasao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O que é comum nos esportes de rede?",
+      "options": [
+       {
+        "text": "Invadir o campo do adversário",
+        "misconceptionCode": "rede-invasao"
+       },
+       {
+        "text": "Correr entre bases",
+        "misconceptionCode": "taco-precisao"
+       },
+       {
+        "text": "Mandar a bola para o lado do outro de modo que ele não consiga devolver"
+       },
+       {
+        "text": "Fazer gol",
+        "misconceptionCode": "objetivo-errado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O segredo é mandar a bola para o lado do outro de um jeito que ele não consiga devolver.",
+      "variants": [
+       {
+        "question": "No vôlei, o ponto acontece quando:",
+        "options": [
+         {
+          "text": "A bola cai na quadra do adversário"
+         },
+         {
+          "text": "O time invade a outra quadra",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Alguém corre entre bases",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "A bola entra no gol",
+          "misconceptionCode": "objetivo-errado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que é comum nos esportes de rede?",
+        "options": [
+         {
+          "text": "Fazer gol",
+          "misconceptionCode": "objetivo-errado"
+         },
+         {
+          "text": "Correr entre bases",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "Invadir o campo do adversário",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Mandar a bola para o lado do outro de modo que ele não consiga devolver"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Na escola, a turma jogou vôlei com uma corda no lugar da rede e deixou a bola quicar uma vez. Isso é:",
+      "options": [
+       {
+        "text": "Errado, regra não pode mudar",
+        "misconceptionCode": "regra-fixa"
+       },
+       {
+        "text": "Uma adaptação das regras, que é permitida"
+       },
+       {
+        "text": "Outro esporte, de invasão",
+        "misconceptionCode": "rede-invasao"
+       },
+       {
+        "text": "Um esporte de taco",
+        "misconceptionCode": "taco-precisao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Pode mudar a regra, sim! Adaptar o jogo ajuda todo mundo a participar e se divertir.",
+      "variants": [
+       {
+        "question": "Jogar futebol com bola de meia e gols de chinelo é:",
+        "options": [
+         {
+          "text": "Proibido",
+          "misconceptionCode": "regra-fixa"
+         },
+         {
+          "text": "Outro esporte, de rede",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Um esporte de taco",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "Uma adaptação do futebol"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Na escola, a turma jogou vôlei com uma corda no lugar da rede e deixou a bola quicar uma vez. Isso é:",
+        "options": [
+         {
+          "text": "Um esporte de taco",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "Outro esporte, de invasão",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Uma adaptação das regras, que é permitida"
+         },
+         {
+          "text": "Errado, regra não pode mudar",
+          "misconceptionCode": "regra-fixa"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O que é comum nos esportes de campo e taco?",
+      "options": [
+       {
+        "text": "Uma rede no meio",
+        "misconceptionCode": "rede-invasao"
+       },
+       {
+        "text": "Fazer gol",
+        "misconceptionCode": "objetivo-errado"
+       },
+       {
+        "text": "Acertar um alvo parado sem correr",
+        "misconceptionCode": "taco-precisao"
+       },
+       {
+        "text": "Rebater a bola e correr para marcar pontos, enquanto o outro time tenta recuperar a bola"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Um time rebate e corre para marcar; o outro corre atrás da bola para impedir. Rebater e correr são o centro do jogo.",
+      "variants": [
+       {
+        "question": "No bets, enquanto a dupla corre, o outro time:",
+        "options": [
+         {
+          "text": "Fica parado",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Busca a bola para derrubar a casinha"
+         },
+         {
+          "text": "Passa a bola pela rede",
+          "misconceptionCode": "objetivo-errado"
+         },
+         {
+          "text": "Faz gol",
+          "misconceptionCode": "taco-precisao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que é comum nos esportes de campo e taco?",
+        "options": [
+         {
+          "text": "Rebater a bola e correr para marcar pontos, enquanto o outro time tenta recuperar a bola"
+         },
+         {
+          "text": "Acertar um alvo parado sem correr",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "Fazer gol",
+          "misconceptionCode": "objetivo-errado"
+         },
+         {
+          "text": "Uma rede no meio",
+          "misconceptionCode": "rede-invasao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF05-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: jogando no pátio",
+    "prompt": "Use o que aprendeu para organizar jogos no pátio.",
+    "estMinutes": 4,
+    "audioScript": "Use o que aprendeu para organizar jogos no pátio. Pergunta 1. A turma tem uma bola e duas traves pequenas. Que tipo de esporte dá para jogar? A: Um esporte de rede; B: Um esporte de campo e taco; C: Um esporte de invasão, como futebol; D: Nenhum. Pergunta 2. Vocês têm uma corda esticada entre duas árvores e uma bola leve. Que esporte combina? A: Um esporte de invasão; B: Um esporte de rede, como vôlei; C: Um esporte de campo e taco; D: Nenhum. Pergunta 3. Vocês têm garrafas, um pedaço de cabo de vassoura e uma bolinha. Que jogo dá para fazer? A: Vôlei; B: Handebol; C: Nenhum, faltam as regras oficiais; D: Bets, de campo e taco.",
+    "questions": [
+     {
+      "question": "A turma tem uma bola e duas traves pequenas. Que tipo de esporte dá para jogar?",
+      "options": [
+       {
+        "text": "Um esporte de rede",
+        "misconceptionCode": "rede-invasao"
+       },
+       {
+        "text": "Um esporte de campo e taco",
+        "misconceptionCode": "taco-precisao"
+       },
+       {
+        "text": "Um esporte de invasão, como futebol"
+       },
+       {
+        "text": "Nenhum",
+        "misconceptionCode": "regra-fixa"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Traves são alvos para fazer gol, como no futebol. Dá para jogar um esporte de invasão.",
+      "variants": [
+       {
+        "question": "Com uma bola e duas cestas de lixo como alvo, dá para jogar algo parecido com:",
+        "options": [
+         {
+          "text": "Basquete, de invasão"
+         },
+         {
+          "text": "Vôlei",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Taco",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "Tênis",
+          "misconceptionCode": "regra-fixa"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A turma tem uma bola e duas traves pequenas. Que tipo de esporte dá para jogar?",
+        "options": [
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "regra-fixa"
+         },
+         {
+          "text": "Um esporte de campo e taco",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "Um esporte de rede",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Um esporte de invasão, como futebol"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Vocês têm uma corda esticada entre duas árvores e uma bola leve. Que esporte combina?",
+      "options": [
+       {
+        "text": "Um esporte de invasão",
+        "misconceptionCode": "rede-invasao"
+       },
+       {
+        "text": "Um esporte de rede, como vôlei"
+       },
+       {
+        "text": "Um esporte de campo e taco",
+        "misconceptionCode": "taco-precisao"
+       },
+       {
+        "text": "Nenhum",
+        "misconceptionCode": "regra-fixa"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A corda vira a rede! Com uma bola leve, dá para jogar um esporte de rede, como o vôlei.",
+      "variants": [
+       {
+        "question": "Com uma corda no meio e raquetes de papelão, dá para jogar:",
+        "options": [
+         {
+          "text": "Futebol",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Bets",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "Basquete",
+          "misconceptionCode": "regra-fixa"
+         },
+         {
+          "text": "Algo parecido com tênis, de rede"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Vocês têm uma corda esticada entre duas árvores e uma bola leve. Que esporte combina?",
+        "options": [
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "regra-fixa"
+         },
+         {
+          "text": "Um esporte de campo e taco",
+          "misconceptionCode": "taco-precisao"
+         },
+         {
+          "text": "Um esporte de rede, como vôlei"
+         },
+         {
+          "text": "Um esporte de invasão",
+          "misconceptionCode": "rede-invasao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Vocês têm garrafas, um pedaço de cabo de vassoura e uma bolinha. Que jogo dá para fazer?",
+      "options": [
+       {
+        "text": "Vôlei",
+        "misconceptionCode": "rede-invasao"
+       },
+       {
+        "text": "Handebol",
+        "misconceptionCode": "rede-invasao"
+       },
+       {
+        "text": "Nenhum, faltam as regras oficiais",
+        "misconceptionCode": "regra-fixa"
+       },
+       {
+        "text": "Bets, de campo e taco"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "As garrafas viram as casinhas e o cabo de vassoura vira o taco: é o jogo de bets!",
+      "variants": [
+       {
+        "question": "Para jogar taco na rua, você precisa principalmente de:",
+        "options": [
+         {
+          "text": "Uma rede",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Um taco, uma bolinha e as casinhas"
+         },
+         {
+          "text": "Duas cestas",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Um gol grande",
+          "misconceptionCode": "regra-fixa"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Vocês têm garrafas, um pedaço de cabo de vassoura e uma bolinha. Que jogo dá para fazer?",
+        "options": [
+         {
+          "text": "Bets, de campo e taco"
+         },
+         {
+          "text": "Nenhum, faltam as regras oficiais",
+          "misconceptionCode": "regra-fixa"
+         },
+         {
+          "text": "Handebol",
+          "misconceptionCode": "rede-invasao"
+         },
+         {
+          "text": "Vôlei",
+          "misconceptionCode": "rede-invasao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF05-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: grupos de esportes",
+    "prompt": "Explique com as suas palavras a diferença entre um esporte de rede e um esporte de invasão. Dê um exemplo de cada.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras a diferença entre um esporte de rede e um esporte de invasão. Dê um exemplo de cada.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
       {
-        "id": "PK2-EF35EF05-A1",
-        "step": "relembrar",
-        "type": "QUIZ",
-        "title": "Relembrar: jogos com bola",
-        "prompt": "Vamos lembrar os jogos com bola que você conhece.",
-        "estMinutes": 4,
-        "audioScript": "Vamos lembrar os jogos com bola que você conhece. Pergunta 1. No futebol, qual é o objetivo principal? A: Passar a bola por cima de uma rede; B: Levar a bola até o gol adversário e marcar; C: Rebater a bola com um taco; D: Acertar um alvo parado. Pergunta 2. No vôlei, a bola deve: A: Ser levada até o gol; B: Ser rebatida com um taco; C: Ficar parada no chão; D: Passar por cima da rede e cair na quadra do adversário. Pergunta 3. No jogo de taco (bets), uma dupla usa o taco para: A: Rebater a bola e correr entre as bases; B: Passar a bola por cima de uma rede; C: Chutar a bola no gol; D: Acertar uma cesta.",
-        "questions": [
-          {
-            "question": "No futebol, qual é o objetivo principal?",
-            "options": [
-              {
-                "text": "Passar a bola por cima de uma rede",
-                "misconceptionCode": "rede-invasao"
-              },
-              {
-                "text": "Levar a bola até o gol adversário e marcar"
-              },
-              {
-                "text": "Rebater a bola com um taco",
-                "misconceptionCode": "taco-precisao"
-              },
-              {
-                "text": "Acertar um alvo parado",
-                "misconceptionCode": "objetivo-errado"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "No futebol, o time entra no campo do outro para levar a bola até o gol e marcar.",
-            "variants": [
-              {
-                "question": "No basquete, qual é o objetivo?",
-                "options": [
-                  {
-                    "text": "Passar a bola por cima da rede",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Rebater com taco",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "Correr sem a bola",
-                    "misconceptionCode": "objetivo-errado"
-                  },
-                  {
-                    "text": "Fazer a bola entrar na cesta do adversário"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "No futebol, qual é o objetivo principal?",
-                "options": [
-                  {
-                    "text": "Acertar um alvo parado",
-                    "misconceptionCode": "objetivo-errado"
-                  },
-                  {
-                    "text": "Rebater a bola com um taco",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "Levar a bola até o gol adversário e marcar"
-                  },
-                  {
-                    "text": "Passar a bola por cima de uma rede",
-                    "misconceptionCode": "rede-invasao"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "No vôlei, a bola deve:",
-            "options": [
-              {
-                "text": "Ser levada até o gol",
-                "misconceptionCode": "rede-invasao"
-              },
-              {
-                "text": "Ser rebatida com um taco",
-                "misconceptionCode": "taco-precisao"
-              },
-              {
-                "text": "Ficar parada no chão",
-                "misconceptionCode": "objetivo-errado"
-              },
-              {
-                "text": "Passar por cima da rede e cair na quadra do adversário"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "A bola precisa passar por cima da rede e cair no chão do outro time, sem que eles consigam devolver.",
-            "variants": [
-              {
-                "question": "No tênis, a bola deve:",
-                "options": [
-                  {
-                    "text": "Entrar num gol",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Passar por cima da rede"
-                  },
-                  {
-                    "text": "Entrar numa cesta",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "Ficar no chão",
-                    "misconceptionCode": "objetivo-errado"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "No vôlei, a bola deve:",
-                "options": [
-                  {
-                    "text": "Passar por cima da rede e cair na quadra do adversário"
-                  },
-                  {
-                    "text": "Ficar parada no chão",
-                    "misconceptionCode": "objetivo-errado"
-                  },
-                  {
-                    "text": "Ser rebatida com um taco",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "Ser levada até o gol",
-                    "misconceptionCode": "rede-invasao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "No jogo de taco (bets), uma dupla usa o taco para:",
-            "options": [
-              {
-                "text": "Rebater a bola e correr entre as bases"
-              },
-              {
-                "text": "Passar a bola por cima de uma rede",
-                "misconceptionCode": "rede-invasao"
-              },
-              {
-                "text": "Chutar a bola no gol",
-                "misconceptionCode": "objetivo-errado"
-              },
-              {
-                "text": "Acertar uma cesta",
-                "misconceptionCode": "taco-precisao"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Quem tem o taco rebate a bola para longe e corre entre as casinhas para fazer pontos.",
-            "variants": [
-              {
-                "question": "No taco, o que a dupla que rebate faz depois de bater na bola?",
-                "options": [
-                  {
-                    "text": "Fica parada",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Joga a bola na cesta",
-                    "misconceptionCode": "objetivo-errado"
-                  },
-                  {
-                    "text": "Corre trocando de lugar para marcar pontos"
-                  },
-                  {
-                    "text": "Passa a bola pela rede",
-                    "misconceptionCode": "taco-precisao"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "No jogo de taco (bets), uma dupla usa o taco para:",
-                "options": [
-                  {
-                    "text": "Acertar uma cesta",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "Rebater a bola e correr entre as bases"
-                  },
-                  {
-                    "text": "Chutar a bola no gol",
-                    "misconceptionCode": "objetivo-errado"
-                  },
-                  {
-                    "text": "Passar a bola por cima de uma rede",
-                    "misconceptionCode": "rede-invasao"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          }
-        ]
+       "code": "rede",
+       "description": "Explica que nos esportes de rede os times ficam separados e a bola passa para o outro lado"
       },
       {
-        "id": "PK2-EF35EF05-A2",
-        "step": "exemplo_guiado",
-        "type": "QUIZ",
-        "title": "Exemplo guiado: agrupando os esportes",
-        "prompt": "Os esportes podem ser agrupados pelo jeito de jogar. Vamos agrupar juntos.",
-        "estMinutes": 4,
-        "audioScript": "Os esportes podem ser agrupados pelo jeito de jogar. Vamos agrupar juntos. Pergunta 1. Futebol, basquete e handebol são esportes de: A: Rede; B: Campo e taco; C: Nenhum grupo; D: Invasão. Pergunta 2. Vôlei, tênis e peteca são esportes de: A: Rede; B: Invasão; C: Campo e taco; D: Luta. Pergunta 3. Beisebol e taco (bets) são esportes de: A: Rede; B: Invasão; C: Campo e taco; D: Precisão.",
-        "questions": [
-          {
-            "question": "Futebol, basquete e handebol são esportes de:",
-            "options": [
-              {
-                "text": "Rede",
-                "misconceptionCode": "rede-invasao"
-              },
-              {
-                "text": "Campo e taco",
-                "misconceptionCode": "taco-precisao"
-              },
-              {
-                "text": "Nenhum grupo",
-                "misconceptionCode": "objetivo-errado"
-              },
-              {
-                "text": "Invasão"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Nesses jogos, os times correm no mesmo espaço e entram no lado do outro para marcar. Isso é esporte de invasão.",
-            "variants": [
-              {
-                "question": "Um jogo em que o time leva a bola até a área do outro para marcar é de:",
-                "options": [
-                  {
-                    "text": "Rede",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Invasão"
-                  },
-                  {
-                    "text": "Campo e taco",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "Marca",
-                    "misconceptionCode": "objetivo-errado"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Futebol, basquete e handebol são esportes de:",
-                "options": [
-                  {
-                    "text": "Invasão"
-                  },
-                  {
-                    "text": "Nenhum grupo",
-                    "misconceptionCode": "objetivo-errado"
-                  },
-                  {
-                    "text": "Campo e taco",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "Rede",
-                    "misconceptionCode": "rede-invasao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          },
-          {
-            "question": "Vôlei, tênis e peteca são esportes de:",
-            "options": [
-              {
-                "text": "Rede"
-              },
-              {
-                "text": "Invasão",
-                "misconceptionCode": "rede-invasao"
-              },
-              {
-                "text": "Campo e taco",
-                "misconceptionCode": "taco-precisao"
-              },
-              {
-                "text": "Luta",
-                "misconceptionCode": "objetivo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "A rede separa os times, e ninguém entra no lado do outro. São esportes de rede.",
-            "variants": [
-              {
-                "question": "Badminton, em que a peteca passa por cima de uma rede, é um esporte de:",
-                "options": [
-                  {
-                    "text": "Invasão",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Campo e taco",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "Rede"
-                  },
-                  {
-                    "text": "Luta",
-                    "misconceptionCode": "objetivo-errado"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "Vôlei, tênis e peteca são esportes de:",
-                "options": [
-                  {
-                    "text": "Luta",
-                    "misconceptionCode": "objetivo-errado"
-                  },
-                  {
-                    "text": "Rede"
-                  },
-                  {
-                    "text": "Campo e taco",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "Invasão",
-                    "misconceptionCode": "rede-invasao"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "Beisebol e taco (bets) são esportes de:",
-            "options": [
-              {
-                "text": "Rede",
-                "misconceptionCode": "rede-invasao"
-              },
-              {
-                "text": "Invasão",
-                "misconceptionCode": "rede-invasao"
-              },
-              {
-                "text": "Campo e taco"
-              },
-              {
-                "text": "Precisão",
-                "misconceptionCode": "taco-precisao"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Nesses jogos, você rebate a bola com um taco e corre para marcar. São esportes de campo e taco.",
-            "variants": [
-              {
-                "question": "O críquete, em que se rebate a bola com um bastão e se corre entre marcas, é de:",
-                "options": [
-                  {
-                    "text": "Campo e taco"
-                  },
-                  {
-                    "text": "Rede",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Invasão",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Ginástica",
-                    "misconceptionCode": "taco-precisao"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "Beisebol e taco (bets) são esportes de:",
-                "options": [
-                  {
-                    "text": "Precisão",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "Invasão",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Rede",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Campo e taco"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          }
-        ]
+       "code": "invasao",
+       "description": "Explica que nos esportes de invasão o time entra no campo do outro para marcar"
       },
       {
-        "id": "PK2-EF35EF05-A3",
-        "step": "praticar",
-        "type": "QUIZ",
-        "title": "Praticar: o que é comum em cada grupo",
-        "prompt": "Cada grupo de esportes tem elementos em comum.",
-        "estMinutes": 5,
-        "audioScript": "Cada grupo de esportes tem elementos em comum. Pergunta 1. O que é comum nos esportes de invasão? A: Ataque e defesa no mesmo espaço, para marcar no alvo do outro; B: Uma rede separando os times; C: Rebater com taco e correr entre bases; D: Jogar sempre sozinho. Pergunta 2. O que é comum nos esportes de rede? A: Invadir o campo do adversário; B: Correr entre bases; C: Mandar a bola para o lado do outro de modo que ele não consiga devolver; D: Fazer gol. Pergunta 3. Na escola, a turma jogou vôlei com uma corda no lugar da rede e deixou a bola quicar uma vez. Isso é: A: Errado, regra não pode mudar; B: Uma adaptação das regras, que é permitida; C: Outro esporte, de invasão; D: Um esporte de taco. Pergunta 4. O que é comum nos esportes de campo e taco? A: Uma rede no meio; B: Fazer gol; C: Acertar um alvo parado sem correr; D: Rebater a bola e correr para marcar pontos, enquanto o outro time tenta recuperar a bola.",
-        "questions": [
-          {
-            "question": "O que é comum nos esportes de invasão?",
-            "options": [
-              {
-                "text": "Ataque e defesa no mesmo espaço, para marcar no alvo do outro"
-              },
-              {
-                "text": "Uma rede separando os times",
-                "misconceptionCode": "rede-invasao"
-              },
-              {
-                "text": "Rebater com taco e correr entre bases",
-                "misconceptionCode": "taco-precisao"
-              },
-              {
-                "text": "Jogar sempre sozinho",
-                "misconceptionCode": "objetivo-errado"
-              }
-            ],
-            "correctIndex": 0,
-            "explanation": "Os dois times atacam e defendem no mesmo espaço, tentando marcar no gol ou na cesta do outro.",
-            "variants": [
-              {
-                "question": "No handebol, os dois times:",
-                "options": [
-                  {
-                    "text": "Ficam separados por rede",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Rebatem com taco",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "Jogam no mesmo espaço, atacando e defendendo"
-                  },
-                  {
-                    "text": "Jogam sem bola",
-                    "misconceptionCode": "objetivo-errado"
-                  }
-                ],
-                "correctIndex": 2
-              },
-              {
-                "question": "O que é comum nos esportes de invasão?",
-                "options": [
-                  {
-                    "text": "Jogar sempre sozinho",
-                    "misconceptionCode": "objetivo-errado"
-                  },
-                  {
-                    "text": "Ataque e defesa no mesmo espaço, para marcar no alvo do outro"
-                  },
-                  {
-                    "text": "Rebater com taco e correr entre bases",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "Uma rede separando os times",
-                    "misconceptionCode": "rede-invasao"
-                  }
-                ],
-                "correctIndex": 1
-              }
-            ]
-          },
-          {
-            "question": "O que é comum nos esportes de rede?",
-            "options": [
-              {
-                "text": "Invadir o campo do adversário",
-                "misconceptionCode": "rede-invasao"
-              },
-              {
-                "text": "Correr entre bases",
-                "misconceptionCode": "taco-precisao"
-              },
-              {
-                "text": "Mandar a bola para o lado do outro de modo que ele não consiga devolver"
-              },
-              {
-                "text": "Fazer gol",
-                "misconceptionCode": "objetivo-errado"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "O segredo é mandar a bola para o lado do outro de um jeito que ele não consiga devolver.",
-            "variants": [
-              {
-                "question": "No vôlei, o ponto acontece quando:",
-                "options": [
-                  {
-                    "text": "A bola cai na quadra do adversário"
-                  },
-                  {
-                    "text": "O time invade a outra quadra",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Alguém corre entre bases",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "A bola entra no gol",
-                    "misconceptionCode": "objetivo-errado"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "O que é comum nos esportes de rede?",
-                "options": [
-                  {
-                    "text": "Fazer gol",
-                    "misconceptionCode": "objetivo-errado"
-                  },
-                  {
-                    "text": "Correr entre bases",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "Invadir o campo do adversário",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Mandar a bola para o lado do outro de modo que ele não consiga devolver"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Na escola, a turma jogou vôlei com uma corda no lugar da rede e deixou a bola quicar uma vez. Isso é:",
-            "options": [
-              {
-                "text": "Errado, regra não pode mudar",
-                "misconceptionCode": "regra-fixa"
-              },
-              {
-                "text": "Uma adaptação das regras, que é permitida"
-              },
-              {
-                "text": "Outro esporte, de invasão",
-                "misconceptionCode": "rede-invasao"
-              },
-              {
-                "text": "Um esporte de taco",
-                "misconceptionCode": "taco-precisao"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "Pode mudar a regra, sim! Adaptar o jogo ajuda todo mundo a participar e se divertir.",
-            "variants": [
-              {
-                "question": "Jogar futebol com bola de meia e gols de chinelo é:",
-                "options": [
-                  {
-                    "text": "Proibido",
-                    "misconceptionCode": "regra-fixa"
-                  },
-                  {
-                    "text": "Outro esporte, de rede",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Um esporte de taco",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "Uma adaptação do futebol"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Na escola, a turma jogou vôlei com uma corda no lugar da rede e deixou a bola quicar uma vez. Isso é:",
-                "options": [
-                  {
-                    "text": "Um esporte de taco",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "Outro esporte, de invasão",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Uma adaptação das regras, que é permitida"
-                  },
-                  {
-                    "text": "Errado, regra não pode mudar",
-                    "misconceptionCode": "regra-fixa"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "O que é comum nos esportes de campo e taco?",
-            "options": [
-              {
-                "text": "Uma rede no meio",
-                "misconceptionCode": "rede-invasao"
-              },
-              {
-                "text": "Fazer gol",
-                "misconceptionCode": "objetivo-errado"
-              },
-              {
-                "text": "Acertar um alvo parado sem correr",
-                "misconceptionCode": "taco-precisao"
-              },
-              {
-                "text": "Rebater a bola e correr para marcar pontos, enquanto o outro time tenta recuperar a bola"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "Um time rebate e corre para marcar; o outro corre atrás da bola para impedir. Rebater e correr são o centro do jogo.",
-            "variants": [
-              {
-                "question": "No bets, enquanto a dupla corre, o outro time:",
-                "options": [
-                  {
-                    "text": "Fica parado",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Busca a bola para derrubar a casinha"
-                  },
-                  {
-                    "text": "Passa a bola pela rede",
-                    "misconceptionCode": "objetivo-errado"
-                  },
-                  {
-                    "text": "Faz gol",
-                    "misconceptionCode": "taco-precisao"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "O que é comum nos esportes de campo e taco?",
-                "options": [
-                  {
-                    "text": "Rebater a bola e correr para marcar pontos, enquanto o outro time tenta recuperar a bola"
-                  },
-                  {
-                    "text": "Acertar um alvo parado sem correr",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "Fazer gol",
-                    "misconceptionCode": "objetivo-errado"
-                  },
-                  {
-                    "text": "Uma rede no meio",
-                    "misconceptionCode": "rede-invasao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF35EF05-A4",
-        "step": "aplicar",
-        "type": "QUIZ",
-        "title": "Aplicar: jogando no pátio",
-        "prompt": "Use o que aprendeu para organizar jogos no pátio.",
-        "estMinutes": 4,
-        "audioScript": "Use o que aprendeu para organizar jogos no pátio. Pergunta 1. A turma tem uma bola e duas traves pequenas. Que tipo de esporte dá para jogar? A: Um esporte de rede; B: Um esporte de campo e taco; C: Um esporte de invasão, como futebol; D: Nenhum. Pergunta 2. Vocês têm uma corda esticada entre duas árvores e uma bola leve. Que esporte combina? A: Um esporte de invasão; B: Um esporte de rede, como vôlei; C: Um esporte de campo e taco; D: Nenhum. Pergunta 3. Vocês têm garrafas, um pedaço de cabo de vassoura e uma bolinha. Que jogo dá para fazer? A: Vôlei; B: Handebol; C: Nenhum, faltam as regras oficiais; D: Bets, de campo e taco.",
-        "questions": [
-          {
-            "question": "A turma tem uma bola e duas traves pequenas. Que tipo de esporte dá para jogar?",
-            "options": [
-              {
-                "text": "Um esporte de rede",
-                "misconceptionCode": "rede-invasao"
-              },
-              {
-                "text": "Um esporte de campo e taco",
-                "misconceptionCode": "taco-precisao"
-              },
-              {
-                "text": "Um esporte de invasão, como futebol"
-              },
-              {
-                "text": "Nenhum",
-                "misconceptionCode": "regra-fixa"
-              }
-            ],
-            "correctIndex": 2,
-            "explanation": "Traves são alvos para fazer gol, como no futebol. Dá para jogar um esporte de invasão.",
-            "variants": [
-              {
-                "question": "Com uma bola e duas cestas de lixo como alvo, dá para jogar algo parecido com:",
-                "options": [
-                  {
-                    "text": "Basquete, de invasão"
-                  },
-                  {
-                    "text": "Vôlei",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Taco",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "Tênis",
-                    "misconceptionCode": "regra-fixa"
-                  }
-                ],
-                "correctIndex": 0
-              },
-              {
-                "question": "A turma tem uma bola e duas traves pequenas. Que tipo de esporte dá para jogar?",
-                "options": [
-                  {
-                    "text": "Nenhum",
-                    "misconceptionCode": "regra-fixa"
-                  },
-                  {
-                    "text": "Um esporte de campo e taco",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "Um esporte de rede",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Um esporte de invasão, como futebol"
-                  }
-                ],
-                "correctIndex": 3
-              }
-            ]
-          },
-          {
-            "question": "Vocês têm uma corda esticada entre duas árvores e uma bola leve. Que esporte combina?",
-            "options": [
-              {
-                "text": "Um esporte de invasão",
-                "misconceptionCode": "rede-invasao"
-              },
-              {
-                "text": "Um esporte de rede, como vôlei"
-              },
-              {
-                "text": "Um esporte de campo e taco",
-                "misconceptionCode": "taco-precisao"
-              },
-              {
-                "text": "Nenhum",
-                "misconceptionCode": "regra-fixa"
-              }
-            ],
-            "correctIndex": 1,
-            "explanation": "A corda vira a rede! Com uma bola leve, dá para jogar um esporte de rede, como o vôlei.",
-            "variants": [
-              {
-                "question": "Com uma corda no meio e raquetes de papelão, dá para jogar:",
-                "options": [
-                  {
-                    "text": "Futebol",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Bets",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "Basquete",
-                    "misconceptionCode": "regra-fixa"
-                  },
-                  {
-                    "text": "Algo parecido com tênis, de rede"
-                  }
-                ],
-                "correctIndex": 3
-              },
-              {
-                "question": "Vocês têm uma corda esticada entre duas árvores e uma bola leve. Que esporte combina?",
-                "options": [
-                  {
-                    "text": "Nenhum",
-                    "misconceptionCode": "regra-fixa"
-                  },
-                  {
-                    "text": "Um esporte de campo e taco",
-                    "misconceptionCode": "taco-precisao"
-                  },
-                  {
-                    "text": "Um esporte de rede, como vôlei"
-                  },
-                  {
-                    "text": "Um esporte de invasão",
-                    "misconceptionCode": "rede-invasao"
-                  }
-                ],
-                "correctIndex": 2
-              }
-            ]
-          },
-          {
-            "question": "Vocês têm garrafas, um pedaço de cabo de vassoura e uma bolinha. Que jogo dá para fazer?",
-            "options": [
-              {
-                "text": "Vôlei",
-                "misconceptionCode": "rede-invasao"
-              },
-              {
-                "text": "Handebol",
-                "misconceptionCode": "rede-invasao"
-              },
-              {
-                "text": "Nenhum, faltam as regras oficiais",
-                "misconceptionCode": "regra-fixa"
-              },
-              {
-                "text": "Bets, de campo e taco"
-              }
-            ],
-            "correctIndex": 3,
-            "explanation": "As garrafas viram as casinhas e o cabo de vassoura vira o taco: é o jogo de bets!",
-            "variants": [
-              {
-                "question": "Para jogar taco na rua, você precisa principalmente de:",
-                "options": [
-                  {
-                    "text": "Uma rede",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Um taco, uma bolinha e as casinhas"
-                  },
-                  {
-                    "text": "Duas cestas",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Um gol grande",
-                    "misconceptionCode": "regra-fixa"
-                  }
-                ],
-                "correctIndex": 1
-              },
-              {
-                "question": "Vocês têm garrafas, um pedaço de cabo de vassoura e uma bolinha. Que jogo dá para fazer?",
-                "options": [
-                  {
-                    "text": "Bets, de campo e taco"
-                  },
-                  {
-                    "text": "Nenhum, faltam as regras oficiais",
-                    "misconceptionCode": "regra-fixa"
-                  },
-                  {
-                    "text": "Handebol",
-                    "misconceptionCode": "rede-invasao"
-                  },
-                  {
-                    "text": "Vôlei",
-                    "misconceptionCode": "rede-invasao"
-                  }
-                ],
-                "correctIndex": 0
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "PK2-EF35EF05-A5",
-        "step": "explicar",
-        "type": "WRITTEN",
-        "allowSpoken": true,
-        "title": "Explicar: grupos de esportes",
-        "prompt": "Explique com as suas palavras a diferença entre um esporte de rede e um esporte de invasão. Dê um exemplo de cada.",
-        "estMinutes": 6,
-        "audioScript": "Explique com as suas palavras a diferença entre um esporte de rede e um esporte de invasão. Dê um exemplo de cada.",
-        "rubric": {
-          "type": "WRITTEN",
-          "criteria": [
-            {
-              "code": "rede",
-              "description": "Explica que nos esportes de rede os times ficam separados e a bola passa para o outro lado"
-            },
-            {
-              "code": "invasao",
-              "description": "Explica que nos esportes de invasão o time entra no campo do outro para marcar"
-            },
-            {
-              "code": "exemplos",
-              "description": "Dá exemplos corretos"
-            }
-          ],
-          "exemploBoaResposta": "No esporte de rede, os times ficam cada um do seu lado e a bola tem que passar por cima da rede, como no vôlei. No esporte de invasão, os times jogam no mesmo espaço e um tenta entrar na área do outro para marcar, como no futebol."
-        }
+       "code": "exemplos",
+       "description": "Dá exemplos corretos"
       }
-    ],
-    "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
-    "source": "SPEAKFLOW",
-    "status": "APPROVED"
-  }
+     ],
+     "exemploBoaResposta": "No esporte de rede, os times ficam cada um do seu lado e a bola tem que passar por cima da rede, como no vôlei. No esporte de invasão, os times jogam no mesmo espaço e um tenta entrar na área do outro para marcar, como no futebol."
+    }
+   }
+  ],
+  "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+  "source": "SPEAKFLOW",
+  "status": "APPROVED"
+ },
+ {
+  "skillCode": "EF35EF12",
+  "subjectCode": "EF",
+  "subjectName": "Educação Física",
+  "gradeYear": 5,
+  "version": 1,
+  "title": "Trilha: Sem preconceito nas danças e nos jogos",
+  "tituloAluno": "Todo mundo pode participar",
+  "activities": [
+   {
+    "id": "PK2-EF35EF12-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: as danças e o respeito",
+    "prompt": "No 4º ano, vimos que cada dança tem o seu jeito.",
+    "estMinutes": 4,
+    "audioScript": "No 4º ano, vimos que cada dança tem o seu jeito. Pergunta 1. Uma dança diferente da que você conhece é: A: Errada; B: Apenas diferente, com o seu próprio valor; C: Feia; D: Sem importância. Pergunta 2. O que é preconceito? A: Respeitar todos; B: Fazer um elogio; C: Julgar mal uma pessoa sem conhecê-la, por ela ser diferente; D: Ajudar um colega. Pergunta 3. Nas aulas de Educação Física, quem tem o direito de participar? A: Só os mais rápidos; B: Só os meninos; C: Só quem já sabe; D: Todos os alunos.",
+    "questions": [
+     {
+      "question": "Uma dança diferente da que você conhece é:",
+      "options": [
+       {
+        "text": "Errada",
+        "misconceptionCode": "zoar-e-brincadeira"
+       },
+       {
+        "text": "Apenas diferente, com o seu próprio valor"
+       },
+       {
+        "text": "Feia",
+        "misconceptionCode": "zoar-e-brincadeira"
+       },
+       {
+        "text": "Sem importância",
+        "misconceptionCode": "zoar-e-brincadeira"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Cada dança expressa a cultura de um povo.",
+      "variants": [
+       {
+        "question": "Como devemos tratar a dança de outra cultura?",
+        "options": [
+         {
+          "text": "Com risadas",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Com desprezo",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Fingindo que não existe",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Com respeito e curiosidade"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Uma dança diferente da que você conhece é:",
+        "options": [
+         {
+          "text": "Sem importância",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Feia",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Apenas diferente, com o seu próprio valor"
+         },
+         {
+          "text": "Errada",
+          "misconceptionCode": "zoar-e-brincadeira"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O que é preconceito?",
+      "options": [
+       {
+        "text": "Respeitar todos",
+        "misconceptionCode": "nao-e-comigo"
+       },
+       {
+        "text": "Fazer um elogio",
+        "misconceptionCode": "zoar-e-brincadeira"
+       },
+       {
+        "text": "Julgar mal uma pessoa sem conhecê-la, por ela ser diferente"
+       },
+       {
+        "text": "Ajudar um colega",
+        "misconceptionCode": "nao-e-comigo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O preconceito é um julgamento injusto.",
+      "variants": [
+       {
+        "question": "O que é uma injustiça?",
+        "options": [
+         {
+          "text": "Tratar alguém de forma desigual, sem motivo justo"
+         },
+         {
+          "text": "Dividir igualmente",
+          "misconceptionCode": "nao-e-comigo"
+         },
+         {
+          "text": "Respeitar a vez de cada um",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Incluir todos",
+          "misconceptionCode": "nao-e-comigo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que é preconceito?",
+        "options": [
+         {
+          "text": "Ajudar um colega",
+          "misconceptionCode": "nao-e-comigo"
+         },
+         {
+          "text": "Fazer um elogio",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Respeitar todos",
+          "misconceptionCode": "nao-e-comigo"
+         },
+         {
+          "text": "Julgar mal uma pessoa sem conhecê-la, por ela ser diferente"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Nas aulas de Educação Física, quem tem o direito de participar?",
+      "options": [
+       {
+        "text": "Só os mais rápidos",
+        "misconceptionCode": "so-os-melhores"
+       },
+       {
+        "text": "Só os meninos",
+        "misconceptionCode": "coisa-de-menino-menina"
+       },
+       {
+        "text": "Só quem já sabe",
+        "misconceptionCode": "so-os-melhores"
+       },
+       {
+        "text": "Todos os alunos"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A aula é para todos aprenderem.",
+      "variants": [
+       {
+        "question": "A Educação Física na escola serve para:",
+        "options": [
+         {
+          "text": "Escolher os melhores atletas",
+          "misconceptionCode": "so-os-melhores"
+         },
+         {
+          "text": "Todos aprenderem e experimentarem as práticas"
+         },
+         {
+          "text": "Deixar alguns no banco",
+          "misconceptionCode": "coisa-de-menino-menina"
+         },
+         {
+          "text": "Ver quem perde",
+          "misconceptionCode": "so-os-melhores"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Nas aulas de Educação Física, quem tem o direito de participar?",
+        "options": [
+         {
+          "text": "Todos os alunos"
+         },
+         {
+          "text": "Só quem já sabe",
+          "misconceptionCode": "so-os-melhores"
+         },
+         {
+          "text": "Só os meninos",
+          "misconceptionCode": "coisa-de-menino-menina"
+         },
+         {
+          "text": "Só os mais rápidos",
+          "misconceptionCode": "so-os-melhores"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF12-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: reconhecendo a injustiça",
+    "prompt": "Às vezes, nas danças, nos jogos e nos esportes, alguém é deixado de fora ou é alvo de piadas. Vamos analisar juntos algumas situações.",
+    "estMinutes": 4,
+    "audioScript": "Às vezes, nas danças, nos jogos e nos esportes, alguém é deixado de fora ou é alvo de piadas. Vamos analisar juntos algumas situações. Pergunta 1. Um menino quer dançar na apresentação da escola, e os colegas dizem que \"dança é coisa de menina\". Isso é: A: Preconceito; B: Uma regra da dança; C: Uma verdade; D: Um elogio. Pergunta 2. Na hora de formar os times, um colega fica sempre por último e ouve que \"atrapalha\". Isso é: A: Normal e justo; B: Uma situação de exclusão, que magoa; C: Bom para o time; D: Engraçado. Pergunta 3. Durante a dança, alguns alunos riem do corpo de uma colega. Isso é: A: Só uma brincadeira; B: Um jeito de ajudar; C: Desrespeito, que precisa parar; D: Problema só dela.",
+    "questions": [
+     {
+      "question": "Um menino quer dançar na apresentação da escola, e os colegas dizem que \"dança é coisa de menina\". Isso é:",
+      "options": [
+       {
+        "text": "Preconceito"
+       },
+       {
+        "text": "Uma regra da dança",
+        "misconceptionCode": "coisa-de-menino-menina"
+       },
+       {
+        "text": "Uma verdade",
+        "misconceptionCode": "coisa-de-menino-menina"
+       },
+       {
+        "text": "Um elogio",
+        "misconceptionCode": "zoar-e-brincadeira"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Dançar é para todas as pessoas. Há bailarinos e dançarinos em todas as culturas.",
+      "variants": [
+       {
+        "question": "Uma menina quer jogar futebol, e dizem que \"futebol é coisa de menino\". Isso é:",
+        "options": [
+         {
+          "text": "Uma regra do futebol",
+          "misconceptionCode": "coisa-de-menino-menina"
+         },
+         {
+          "text": "Uma verdade",
+          "misconceptionCode": "coisa-de-menino-menina"
+         },
+         {
+          "text": "Preconceito"
+         },
+         {
+          "text": "Um cuidado",
+          "misconceptionCode": "zoar-e-brincadeira"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um menino quer dançar na apresentação da escola, e os colegas dizem que \"dança é coisa de menina\". Isso é:",
+        "options": [
+         {
+          "text": "Um elogio",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Preconceito"
+         },
+         {
+          "text": "Uma verdade",
+          "misconceptionCode": "coisa-de-menino-menina"
+         },
+         {
+          "text": "Uma regra da dança",
+          "misconceptionCode": "coisa-de-menino-menina"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Na hora de formar os times, um colega fica sempre por último e ouve que \"atrapalha\". Isso é:",
+      "options": [
+       {
+        "text": "Normal e justo",
+        "misconceptionCode": "so-os-melhores"
+       },
+       {
+        "text": "Uma situação de exclusão, que magoa"
+       },
+       {
+        "text": "Bom para o time",
+        "misconceptionCode": "so-os-melhores"
+       },
+       {
+        "text": "Engraçado",
+        "misconceptionCode": "zoar-e-brincadeira"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Ninguém aprende ficando de fora.",
+      "variants": [
+       {
+        "question": "Um time que nunca passa a bola para um colega está:",
+        "options": [
+         {
+          "text": "Jogando bem",
+          "misconceptionCode": "so-os-melhores"
+         },
+         {
+          "text": "Sendo justo",
+          "misconceptionCode": "so-os-melhores"
+         },
+         {
+          "text": "Ajudando o colega",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Excluindo esse colega"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Na hora de formar os times, um colega fica sempre por último e ouve que \"atrapalha\". Isso é:",
+        "options": [
+         {
+          "text": "Engraçado",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Bom para o time",
+          "misconceptionCode": "so-os-melhores"
+         },
+         {
+          "text": "Uma situação de exclusão, que magoa"
+         },
+         {
+          "text": "Normal e justo",
+          "misconceptionCode": "so-os-melhores"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Durante a dança, alguns alunos riem do corpo de uma colega. Isso é:",
+      "options": [
+       {
+        "text": "Só uma brincadeira",
+        "misconceptionCode": "zoar-e-brincadeira"
+       },
+       {
+        "text": "Um jeito de ajudar",
+        "misconceptionCode": "zoar-e-brincadeira"
+       },
+       {
+        "text": "Desrespeito, que precisa parar"
+       },
+       {
+        "text": "Problema só dela",
+        "misconceptionCode": "nao-e-comigo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Rir do corpo de alguém fere e afasta a pessoa das práticas.",
+      "variants": [
+       {
+        "question": "Dar um apelido a um colega por causa do jeito de ele correr é:",
+        "options": [
+         {
+          "text": "Desrespeito"
+         },
+         {
+          "text": "Carinho",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Uma regra do jogo",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Um elogio",
+          "misconceptionCode": "nao-e-comigo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Durante a dança, alguns alunos riem do corpo de uma colega. Isso é:",
+        "options": [
+         {
+          "text": "Problema só dela",
+          "misconceptionCode": "nao-e-comigo"
+         },
+         {
+          "text": "Um jeito de ajudar",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Só uma brincadeira",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Desrespeito, que precisa parar"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF12-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: identificando situações",
+    "prompt": "Justo ou injusto?",
+    "estMinutes": 5,
+    "audioScript": "Justo ou injusto? Pergunta 1. Um colega com deficiência física é deixado só olhando a aula. Isso é: A: Justo; B: O melhor para ele; C: Não é problema da turma; D: Injusto; a atividade deve ser adaptada para ele participar. Pergunta 2. Zombar de uma dança de origem africana ou indígena, dizendo que é \"esquisita\", é: A: Preconceito contra a cultura de um povo; B: Opinião sem problema; C: Brincadeira inocente; D: Um jeito de aprender. Pergunta 3. Você vê um colega sendo humilhado num jogo e não faz nada. O que acontece? A: O problema se resolve sozinho; B: A injustiça continua, e o colega fica sem apoio; C: Você ajudou; D: Ninguém se magoa. Pergunta 4. Um jogo em que só os mais habilidosos tocam na bola é bom para a turma? A: Sim, o importante é ganhar; B: Sim, os outros atrapalham; C: Não, porque os outros não aprendem nem se divertem; D: Sim, é o mais justo.",
+    "questions": [
+     {
+      "question": "Um colega com deficiência física é deixado só olhando a aula. Isso é:",
+      "options": [
+       {
+        "text": "Justo",
+        "misconceptionCode": "so-os-melhores"
+       },
+       {
+        "text": "O melhor para ele",
+        "misconceptionCode": "so-os-melhores"
+       },
+       {
+        "text": "Não é problema da turma",
+        "misconceptionCode": "nao-e-comigo"
+       },
+       {
+        "text": "Injusto; a atividade deve ser adaptada para ele participar"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Adaptar regras, espaços e materiais permite que todos participem.",
+      "variants": [
+       {
+        "question": "Para incluir um colega que usa cadeira de rodas num jogo de bola, a turma pode:",
+        "options": [
+         {
+          "text": "Deixá-lo de fora",
+          "misconceptionCode": "so-os-melhores"
+         },
+         {
+          "text": "Combinar regras adaptadas"
+         },
+         {
+          "text": "Cancelar o jogo para sempre",
+          "misconceptionCode": "so-os-melhores"
+         },
+         {
+          "text": "Fingir que ele não está ali",
+          "misconceptionCode": "nao-e-comigo"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um colega com deficiência física é deixado só olhando a aula. Isso é:",
+        "options": [
+         {
+          "text": "Injusto; a atividade deve ser adaptada para ele participar"
+         },
+         {
+          "text": "Não é problema da turma",
+          "misconceptionCode": "nao-e-comigo"
+         },
+         {
+          "text": "O melhor para ele",
+          "misconceptionCode": "so-os-melhores"
+         },
+         {
+          "text": "Justo",
+          "misconceptionCode": "so-os-melhores"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Zombar de uma dança de origem africana ou indígena, dizendo que é \"esquisita\", é:",
+      "options": [
+       {
+        "text": "Preconceito contra a cultura de um povo"
+       },
+       {
+        "text": "Opinião sem problema",
+        "misconceptionCode": "zoar-e-brincadeira"
+       },
+       {
+        "text": "Brincadeira inocente",
+        "misconceptionCode": "zoar-e-brincadeira"
+       },
+       {
+        "text": "Um jeito de aprender",
+        "misconceptionCode": "zoar-e-brincadeira"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Toda manifestação cultural merece respeito.",
+      "variants": [
+       {
+        "question": "Recusar-se a dançar com um colega por causa da cor da pele dele é:",
+        "options": [
+         {
+          "text": "Um direito",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Uma brincadeira",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Racismo, que é crime e fere a pessoa"
+         },
+         {
+          "text": "Uma regra da dança",
+          "misconceptionCode": "zoar-e-brincadeira"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Zombar de uma dança de origem africana ou indígena, dizendo que é \"esquisita\", é:",
+        "options": [
+         {
+          "text": "Um jeito de aprender",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Preconceito contra a cultura de um povo"
+         },
+         {
+          "text": "Brincadeira inocente",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Opinião sem problema",
+          "misconceptionCode": "zoar-e-brincadeira"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Você vê um colega sendo humilhado num jogo e não faz nada. O que acontece?",
+      "options": [
+       {
+        "text": "O problema se resolve sozinho",
+        "misconceptionCode": "nao-e-comigo"
+       },
+       {
+        "text": "A injustiça continua, e o colega fica sem apoio"
+       },
+       {
+        "text": "Você ajudou",
+        "misconceptionCode": "nao-e-comigo"
+       },
+       {
+        "text": "Ninguém se magoa",
+        "misconceptionCode": "zoar-e-brincadeira"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Quem assiste também pode ajudar: apoiar o colega e avisar um adulto.",
+      "variants": [
+       {
+        "question": "Ao ver uma situação de preconceito na quadra, uma boa atitude é:",
+        "options": [
+         {
+          "text": "Rir junto",
+          "misconceptionCode": "nao-e-comigo"
+         },
+         {
+          "text": "Filmar para zoar",
+          "misconceptionCode": "nao-e-comigo"
+         },
+         {
+          "text": "Ir embora sem falar nada",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Apoiar o colega e avisar o professor"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Você vê um colega sendo humilhado num jogo e não faz nada. O que acontece?",
+        "options": [
+         {
+          "text": "Ninguém se magoa",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Você ajudou",
+          "misconceptionCode": "nao-e-comigo"
+         },
+         {
+          "text": "A injustiça continua, e o colega fica sem apoio"
+         },
+         {
+          "text": "O problema se resolve sozinho",
+          "misconceptionCode": "nao-e-comigo"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um jogo em que só os mais habilidosos tocam na bola é bom para a turma?",
+      "options": [
+       {
+        "text": "Sim, o importante é ganhar",
+        "misconceptionCode": "so-os-melhores"
+       },
+       {
+        "text": "Sim, os outros atrapalham",
+        "misconceptionCode": "so-os-melhores"
+       },
+       {
+        "text": "Não, porque os outros não aprendem nem se divertem"
+       },
+       {
+        "text": "Sim, é o mais justo",
+        "misconceptionCode": "so-os-melhores"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Na escola, o objetivo é que todos participem e aprendam.",
+      "variants": [
+       {
+        "question": "Qual regra ajuda todos a participar de um jogo de bola?",
+        "options": [
+         {
+          "text": "Todos devem tocar na bola antes do arremesso"
+         },
+         {
+          "text": "Só os melhores arremessam",
+          "misconceptionCode": "so-os-melhores"
+         },
+         {
+          "text": "Quem erra sai do jogo",
+          "misconceptionCode": "so-os-melhores"
+         },
+         {
+          "text": "Os mais lentos ficam no banco",
+          "misconceptionCode": "so-os-melhores"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um jogo em que só os mais habilidosos tocam na bola é bom para a turma?",
+        "options": [
+         {
+          "text": "Sim, é o mais justo",
+          "misconceptionCode": "so-os-melhores"
+         },
+         {
+          "text": "Sim, os outros atrapalham",
+          "misconceptionCode": "so-os-melhores"
+         },
+         {
+          "text": "Sim, o importante é ganhar",
+          "misconceptionCode": "so-os-melhores"
+         },
+         {
+          "text": "Não, porque os outros não aprendem nem se divertem"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF12-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: alternativas para superar",
+    "prompt": "O que fazer de diferente.",
+    "estMinutes": 4,
+    "audioScript": "O que fazer de diferente. Pergunta 1. Para evitar que os mesmos colegas fiquem sempre por último na escolha dos times, a turma pode: A: Manter como está; B: Deixar esses colegas de fora; C: Rir da situação; D: Formar os times por sorteio ou com a ajuda do professor. Pergunta 2. A turma vai montar uma coreografia. Como garantir que todos participem? A: Criando movimentos que todos consigam fazer e ouvindo as ideias de cada um; B: Só os que dançam melhor na frente, e o resto fora; C: Só as meninas; D: Só os meninos. Pergunta 3. Um colega diz que só estava \"brincando\" ao dar um apelido que magoou alguém. O que explicar a ele? A: Que ele está certo; B: Brincadeira é quando todos se divertem; se magoa, não é brincadeira; C: Que o colega magoado exagera; D: Que apelido não machuca.",
+    "questions": [
+     {
+      "question": "Para evitar que os mesmos colegas fiquem sempre por último na escolha dos times, a turma pode:",
+      "options": [
+       {
+        "text": "Manter como está",
+        "misconceptionCode": "so-os-melhores"
+       },
+       {
+        "text": "Deixar esses colegas de fora",
+        "misconceptionCode": "so-os-melhores"
+       },
+       {
+        "text": "Rir da situação",
+        "misconceptionCode": "zoar-e-brincadeira"
+       },
+       {
+        "text": "Formar os times por sorteio ou com a ajuda do professor"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Mudar a forma de organizar evita a exclusão.",
+      "variants": [
+       {
+        "question": "Outra forma justa de formar os times é:",
+        "options": [
+         {
+          "text": "Colocar os melhores num time só",
+          "misconceptionCode": "so-os-melhores"
+         },
+         {
+          "text": "Misturar colegas com habilidades diferentes"
+         },
+         {
+          "text": "Separar meninos e meninas sempre",
+          "misconceptionCode": "so-os-melhores"
+         },
+         {
+          "text": "Deixar alguns sem time",
+          "misconceptionCode": "zoar-e-brincadeira"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Para evitar que os mesmos colegas fiquem sempre por último na escolha dos times, a turma pode:",
+        "options": [
+         {
+          "text": "Formar os times por sorteio ou com a ajuda do professor"
+         },
+         {
+          "text": "Rir da situação",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Deixar esses colegas de fora",
+          "misconceptionCode": "so-os-melhores"
+         },
+         {
+          "text": "Manter como está",
+          "misconceptionCode": "so-os-melhores"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "A turma vai montar uma coreografia. Como garantir que todos participem?",
+      "options": [
+       {
+        "text": "Criando movimentos que todos consigam fazer e ouvindo as ideias de cada um"
+       },
+       {
+        "text": "Só os que dançam melhor na frente, e o resto fora",
+        "misconceptionCode": "so-os-melhores"
+       },
+       {
+        "text": "Só as meninas",
+        "misconceptionCode": "coisa-de-menino-menina"
+       },
+       {
+        "text": "Só os meninos",
+        "misconceptionCode": "coisa-de-menino-menina"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Uma boa apresentação coletiva valoriza cada participante.",
+      "variants": [
+       {
+        "question": "Numa coreografia, um colega tem dificuldade num passo. O grupo pode:",
+        "options": [
+         {
+          "text": "Tirá-lo da apresentação",
+          "misconceptionCode": "so-os-melhores"
+         },
+         {
+          "text": "Rir dele",
+          "misconceptionCode": "coisa-de-menino-menina"
+         },
+         {
+          "text": "Ajudá-lo ou adaptar o passo"
+         },
+         {
+          "text": "Ignorá-lo",
+          "misconceptionCode": "coisa-de-menino-menina"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A turma vai montar uma coreografia. Como garantir que todos participem?",
+        "options": [
+         {
+          "text": "Só os meninos",
+          "misconceptionCode": "coisa-de-menino-menina"
+         },
+         {
+          "text": "Criando movimentos que todos consigam fazer e ouvindo as ideias de cada um"
+         },
+         {
+          "text": "Só as meninas",
+          "misconceptionCode": "coisa-de-menino-menina"
+         },
+         {
+          "text": "Só os que dançam melhor na frente, e o resto fora",
+          "misconceptionCode": "so-os-melhores"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um colega diz que só estava \"brincando\" ao dar um apelido que magoou alguém. O que explicar a ele?",
+      "options": [
+       {
+        "text": "Que ele está certo",
+        "misconceptionCode": "zoar-e-brincadeira"
+       },
+       {
+        "text": "Brincadeira é quando todos se divertem; se magoa, não é brincadeira"
+       },
+       {
+        "text": "Que o colega magoado exagera",
+        "misconceptionCode": "zoar-e-brincadeira"
+       },
+       {
+        "text": "Que apelido não machuca",
+        "misconceptionCode": "zoar-e-brincadeira"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O que vale é como a outra pessoa se sente.",
+      "variants": [
+       {
+        "question": "Depois de magoar um colega, a atitude correta é:",
+        "options": [
+         {
+          "text": "Rir de novo",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Dizer que foi sem querer e continuar",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Culpar o colega",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Pedir desculpas e não repetir"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um colega diz que só estava \"brincando\" ao dar um apelido que magoou alguém. O que explicar a ele?",
+        "options": [
+         {
+          "text": "Que apelido não machuca",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Que o colega magoado exagera",
+          "misconceptionCode": "zoar-e-brincadeira"
+         },
+         {
+          "text": "Brincadeira é quando todos se divertem; se magoa, não é brincadeira"
+         },
+         {
+          "text": "Que ele está certo",
+          "misconceptionCode": "zoar-e-brincadeira"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF12-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: uma situação e uma saída",
+    "prompt": "Descreva uma situação de injustiça ou de preconceito que pode acontecer numa dança, num jogo ou num esporte e explique com as suas palavras o que pode ser feito para mudar.",
+    "estMinutes": 6,
+    "audioScript": "Descreva uma situação de injustiça ou de preconceito que pode acontecer numa dança, num jogo ou num esporte e explique com as suas palavras o que pode ser feito para mudar.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "situacao",
+       "description": "Descreve uma situação de injustiça ou de preconceito"
+      },
+      {
+       "code": "por-que",
+       "description": "Explica por que ela é injusta"
+      },
+      {
+       "code": "alternativa",
+       "description": "Propõe uma atitude ou regra para superá-la"
+      }
+     ],
+     "exemploBoaResposta": "Às vezes, as meninas não são chamadas para jogar futebol no recreio. Isso é injusto, porque todos têm o direito de jogar, e futebol não é só de menino. Para mudar, a turma pode combinar times mistos e fazer um sorteio para escolher os jogadores."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF35EF08",
+  "subjectCode": "EF",
+  "subjectName": "Educação Física",
+  "gradeYear": 5,
+  "version": 1,
+  "title": "Trilha: Apresentação de ginástica em grupo",
+  "tituloAluno": "Planejar, ajudar e fazer com segurança",
+  "activities": [
+   {
+    "id": "PK2-EF35EF08-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: os elementos da ginástica",
+    "prompt": "Já experimentamos rolar, equilibrar, saltar e girar.",
+    "estMinutes": 4,
+    "audioScript": "Já experimentamos rolar, equilibrar, saltar e girar. Pergunta 1. Ficar parado num pé só, sem cair, é um exercício de: A: Rolamento; B: Salto; C: Equilíbrio; D: Corrida. Pergunta 2. Antes de uma aula de ginástica, é importante: A: Comer muito; B: Correr sem olhar; C: Ficar parado no frio; D: Fazer o aquecimento. Pergunta 3. O material que protege o corpo nos rolamentos e nas quedas é: A: O colchão; B: A bola; C: A corda; D: O apito.",
+    "questions": [
+     {
+      "question": "Ficar parado num pé só, sem cair, é um exercício de:",
+      "options": [
+       {
+        "text": "Rolamento",
+        "misconceptionCode": "sem-planejar"
+       },
+       {
+        "text": "Salto",
+        "misconceptionCode": "sem-planejar"
+       },
+       {
+        "text": "Equilíbrio"
+       },
+       {
+        "text": "Corrida",
+        "misconceptionCode": "sem-planejar"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "No equilíbrio, o corpo se mantém numa posição.",
+      "variants": [
+       {
+        "question": "Girar o corpo no chão, como uma bolinha, é um:",
+        "options": [
+         {
+          "text": "Rolamento"
+         },
+         {
+          "text": "Equilíbrio",
+          "misconceptionCode": "sem-planejar"
+         },
+         {
+          "text": "Salto",
+          "misconceptionCode": "sem-planejar"
+         },
+         {
+          "text": "Arremesso",
+          "misconceptionCode": "sem-planejar"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Ficar parado num pé só, sem cair, é um exercício de:",
+        "options": [
+         {
+          "text": "Corrida",
+          "misconceptionCode": "sem-planejar"
+         },
+         {
+          "text": "Salto",
+          "misconceptionCode": "sem-planejar"
+         },
+         {
+          "text": "Rolamento",
+          "misconceptionCode": "sem-planejar"
+         },
+         {
+          "text": "Equilíbrio"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Antes de uma aula de ginástica, é importante:",
+      "options": [
+       {
+        "text": "Comer muito",
+        "misconceptionCode": "sem-seguranca"
+       },
+       {
+        "text": "Correr sem olhar",
+        "misconceptionCode": "sem-seguranca"
+       },
+       {
+        "text": "Ficar parado no frio",
+        "misconceptionCode": "sem-seguranca"
+       },
+       {
+        "text": "Fazer o aquecimento"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O aquecimento prepara os músculos e as articulações.",
+      "variants": [
+       {
+        "question": "Para que serve o aquecimento?",
+        "options": [
+         {
+          "text": "Para cansar",
+          "misconceptionCode": "sem-seguranca"
+         },
+         {
+          "text": "Para preparar o corpo e evitar que ele se machuque"
+         },
+         {
+          "text": "Para perder tempo",
+          "misconceptionCode": "sem-seguranca"
+         },
+         {
+          "text": "Para enfeitar a aula",
+          "misconceptionCode": "sem-seguranca"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Antes de uma aula de ginástica, é importante:",
+        "options": [
+         {
+          "text": "Fazer o aquecimento"
+         },
+         {
+          "text": "Ficar parado no frio",
+          "misconceptionCode": "sem-seguranca"
+         },
+         {
+          "text": "Correr sem olhar",
+          "misconceptionCode": "sem-seguranca"
+         },
+         {
+          "text": "Comer muito",
+          "misconceptionCode": "sem-seguranca"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O material que protege o corpo nos rolamentos e nas quedas é:",
+      "options": [
+       {
+        "text": "O colchão"
+       },
+       {
+        "text": "A bola",
+        "misconceptionCode": "sem-seguranca"
+       },
+       {
+        "text": "A corda",
+        "misconceptionCode": "sem-seguranca"
+       },
+       {
+        "text": "O apito",
+        "misconceptionCode": "sem-seguranca"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O colchão amortece o impacto.",
+      "variants": [
+       {
+        "question": "Em qual lugar é mais seguro treinar um rolamento?",
+        "options": [
+         {
+          "text": "No cimento",
+          "misconceptionCode": "sem-seguranca"
+         },
+         {
+          "text": "Na escada",
+          "misconceptionCode": "sem-seguranca"
+         },
+         {
+          "text": "Sobre o colchão"
+         },
+         {
+          "text": "No asfalto",
+          "misconceptionCode": "sem-seguranca"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O material que protege o corpo nos rolamentos e nas quedas é:",
+        "options": [
+         {
+          "text": "O apito",
+          "misconceptionCode": "sem-seguranca"
+         },
+         {
+          "text": "O colchão"
+         },
+         {
+          "text": "A corda",
+          "misconceptionCode": "sem-seguranca"
+         },
+         {
+          "text": "A bola",
+          "misconceptionCode": "sem-seguranca"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF08-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: planejando a apresentação",
+    "prompt": "Uma apresentação coletiva de ginástica precisa de combinados: quais movimentos, em que ordem, quem faz o quê e como fazer com segurança. Vamos planejar juntos.",
+    "estMinutes": 4,
+    "audioScript": "Uma apresentação coletiva de ginástica precisa de combinados: quais movimentos, em que ordem, quem faz o quê e como fazer com segurança. Vamos planejar juntos. Pergunta 1. Qual é o primeiro passo para criar uma apresentação em grupo? A: Começar sem combinar nada; B: Conversar e escolher os movimentos que o grupo consegue fazer; C: Cada um fazer o que quiser; D: Escolher o movimento mais difícil que existe. Pergunta 2. Uma colega ainda não consegue fazer a estrela. O que o grupo pode fazer? A: Obrigá-la a fazer; B: Tirá-la do grupo; C: Dar a ela outro movimento, como um equilíbrio ou um giro; D: Rir dela. Pergunta 3. Para montar uma figura em que um colega se apoia no outro, é preciso: A: Fazer rápido e sem aviso; B: Fazer no cimento; C: Fazer sem conversar; D: Colchão, combinar os apoios e ter alguém por perto para ajudar.",
+    "questions": [
+     {
+      "question": "Qual é o primeiro passo para criar uma apresentação em grupo?",
+      "options": [
+       {
+        "text": "Começar sem combinar nada",
+        "misconceptionCode": "sem-planejar"
+       },
+       {
+        "text": "Conversar e escolher os movimentos que o grupo consegue fazer"
+       },
+       {
+        "text": "Cada um fazer o que quiser",
+        "misconceptionCode": "cada-um-por-si"
+       },
+       {
+        "text": "Escolher o movimento mais difícil que existe",
+        "misconceptionCode": "ignora-limite"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O planejamento começa pelas possibilidades do grupo.",
+      "variants": [
+       {
+        "question": "Depois de escolher os movimentos, o grupo deve:",
+        "options": [
+         {
+          "text": "Apresentar sem ensaiar",
+          "misconceptionCode": "sem-planejar"
+         },
+         {
+          "text": "Esquecer o combinado",
+          "misconceptionCode": "cada-um-por-si"
+         },
+         {
+          "text": "Mudar tudo na hora",
+          "misconceptionCode": "ignora-limite"
+         },
+         {
+          "text": "Decidir a ordem e ensaiar"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual é o primeiro passo para criar uma apresentação em grupo?",
+        "options": [
+         {
+          "text": "Escolher o movimento mais difícil que existe",
+          "misconceptionCode": "ignora-limite"
+         },
+         {
+          "text": "Cada um fazer o que quiser",
+          "misconceptionCode": "cada-um-por-si"
+         },
+         {
+          "text": "Conversar e escolher os movimentos que o grupo consegue fazer"
+         },
+         {
+          "text": "Começar sem combinar nada",
+          "misconceptionCode": "sem-planejar"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Uma colega ainda não consegue fazer a estrela. O que o grupo pode fazer?",
+      "options": [
+       {
+        "text": "Obrigá-la a fazer",
+        "misconceptionCode": "ignora-limite"
+       },
+       {
+        "text": "Tirá-la do grupo",
+        "misconceptionCode": "cada-um-por-si"
+       },
+       {
+        "text": "Dar a ela outro movimento, como um equilíbrio ou um giro"
+       },
+       {
+        "text": "Rir dela",
+        "misconceptionCode": "cada-um-por-si"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Cada pessoa tem possibilidades e limites. A apresentação pode valorizar o que cada um faz bem.",
+      "variants": [
+       {
+        "question": "Um colega é muito bom em equilíbrio. O grupo pode:",
+        "options": [
+         {
+          "text": "Dar a ele uma parte da apresentação com equilíbrios"
+         },
+         {
+          "text": "Proibi-lo de se equilibrar",
+          "misconceptionCode": "ignora-limite"
+         },
+         {
+          "text": "Deixá-lo de fora",
+          "misconceptionCode": "cada-um-por-si"
+         },
+         {
+          "text": "Ignorar o que ele sabe",
+          "misconceptionCode": "cada-um-por-si"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Uma colega ainda não consegue fazer a estrela. O que o grupo pode fazer?",
+        "options": [
+         {
+          "text": "Rir dela",
+          "misconceptionCode": "cada-um-por-si"
+         },
+         {
+          "text": "Tirá-la do grupo",
+          "misconceptionCode": "cada-um-por-si"
+         },
+         {
+          "text": "Obrigá-la a fazer",
+          "misconceptionCode": "ignora-limite"
+         },
+         {
+          "text": "Dar a ela outro movimento, como um equilíbrio ou um giro"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Para montar uma figura em que um colega se apoia no outro, é preciso:",
+      "options": [
+       {
+        "text": "Fazer rápido e sem aviso",
+        "misconceptionCode": "sem-seguranca"
+       },
+       {
+        "text": "Fazer no cimento",
+        "misconceptionCode": "sem-seguranca"
+       },
+       {
+        "text": "Fazer sem conversar",
+        "misconceptionCode": "cada-um-por-si"
+       },
+       {
+        "text": "Colchão, combinar os apoios e ter alguém por perto para ajudar"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "As figuras em grupo exigem confiança, comunicação e segurança.",
+      "variants": [
+       {
+        "question": "O colega que fica ao lado, pronto para amparar quem faz o movimento, está fazendo:",
+        "options": [
+         {
+          "text": "Uma brincadeira",
+          "misconceptionCode": "sem-seguranca"
+         },
+         {
+          "text": "A ajuda de segurança"
+         },
+         {
+          "text": "Um movimento errado",
+          "misconceptionCode": "sem-seguranca"
+         },
+         {
+          "text": "Nada importante",
+          "misconceptionCode": "cada-um-por-si"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Para montar uma figura em que um colega se apoia no outro, é preciso:",
+        "options": [
+         {
+          "text": "Colchão, combinar os apoios e ter alguém por perto para ajudar"
+         },
+         {
+          "text": "Fazer sem conversar",
+          "misconceptionCode": "cada-um-por-si"
+         },
+         {
+          "text": "Fazer no cimento",
+          "misconceptionCode": "sem-seguranca"
+         },
+         {
+          "text": "Fazer rápido e sem aviso",
+          "misconceptionCode": "sem-seguranca"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF08-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: desafios e estratégias",
+    "prompt": "Como resolver.",
+    "estMinutes": 5,
+    "audioScript": "Como resolver. Pergunta 1. O grupo não consegue terminar os movimentos todos ao mesmo tempo. Qual estratégia ajuda? A: Contar os tempos em voz alta ou usar uma música; B: Cada um fazer no seu tempo; C: Desistir; D: Fazer mais rápido, sem combinar. Pergunta 2. Um colega sente dor ao tentar um movimento. O que ele deve fazer? A: Continuar com força; B: Parar e avisar o professor; C: Esconder a dor; D: Tentar algo mais difícil. Pergunta 3. Como aprender um movimento novo e difícil com segurança? A: Tentando o mais difícil logo de início; B: Sozinho, sem colchão; C: Por etapas, começando pelo mais simples, com ajuda; D: Sem aquecer. Pergunta 4. Durante o ensaio, dois grupos usam o mesmo espaço e quase se chocam. O que fazer? A: Continuar sem olhar; B: Empurrar os colegas; C: Correr mais rápido; D: Combinar o espaço de cada grupo e olhar ao redor.",
+    "questions": [
+     {
+      "question": "O grupo não consegue terminar os movimentos todos ao mesmo tempo. Qual estratégia ajuda?",
+      "options": [
+       {
+        "text": "Contar os tempos em voz alta ou usar uma música"
+       },
+       {
+        "text": "Cada um fazer no seu tempo",
+        "misconceptionCode": "cada-um-por-si"
+       },
+       {
+        "text": "Desistir",
+        "misconceptionCode": "sem-planejar"
+       },
+       {
+        "text": "Fazer mais rápido, sem combinar",
+        "misconceptionCode": "sem-planejar"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A contagem e a música ajudam a sincronizar.",
+      "variants": [
+       {
+        "question": "Para todos começarem juntos, o grupo pode combinar:",
+        "options": [
+         {
+          "text": "Que cada um comece quando quiser",
+          "misconceptionCode": "cada-um-por-si"
+         },
+         {
+          "text": "Que ninguém olhe para ninguém",
+          "misconceptionCode": "sem-planejar"
+         },
+         {
+          "text": "Um sinal de início"
+         },
+         {
+          "text": "Que não haja começo",
+          "misconceptionCode": "sem-planejar"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O grupo não consegue terminar os movimentos todos ao mesmo tempo. Qual estratégia ajuda?",
+        "options": [
+         {
+          "text": "Fazer mais rápido, sem combinar",
+          "misconceptionCode": "sem-planejar"
+         },
+         {
+          "text": "Contar os tempos em voz alta ou usar uma música"
+         },
+         {
+          "text": "Desistir",
+          "misconceptionCode": "sem-planejar"
+         },
+         {
+          "text": "Cada um fazer no seu tempo",
+          "misconceptionCode": "cada-um-por-si"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um colega sente dor ao tentar um movimento. O que ele deve fazer?",
+      "options": [
+       {
+        "text": "Continuar com força",
+        "misconceptionCode": "ignora-limite"
+       },
+       {
+        "text": "Parar e avisar o professor"
+       },
+       {
+        "text": "Esconder a dor",
+        "misconceptionCode": "ignora-limite"
+       },
+       {
+        "text": "Tentar algo mais difícil",
+        "misconceptionCode": "ignora-limite"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A dor é um aviso do corpo. Respeitar o limite evita lesões.",
+      "variants": [
+       {
+        "question": "Reconhecer o limite do próprio corpo é:",
+        "options": [
+         {
+          "text": "Uma fraqueza",
+          "misconceptionCode": "ignora-limite"
+         },
+         {
+          "text": "Um erro",
+          "misconceptionCode": "ignora-limite"
+         },
+         {
+          "text": "Falta de coragem",
+          "misconceptionCode": "ignora-limite"
+         },
+         {
+          "text": "Um cuidado importante"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um colega sente dor ao tentar um movimento. O que ele deve fazer?",
+        "options": [
+         {
+          "text": "Tentar algo mais difícil",
+          "misconceptionCode": "ignora-limite"
+         },
+         {
+          "text": "Esconder a dor",
+          "misconceptionCode": "ignora-limite"
+         },
+         {
+          "text": "Parar e avisar o professor"
+         },
+         {
+          "text": "Continuar com força",
+          "misconceptionCode": "ignora-limite"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Como aprender um movimento novo e difícil com segurança?",
+      "options": [
+       {
+        "text": "Tentando o mais difícil logo de início",
+        "misconceptionCode": "ignora-limite"
+       },
+       {
+        "text": "Sozinho, sem colchão",
+        "misconceptionCode": "sem-seguranca"
+       },
+       {
+        "text": "Por etapas, começando pelo mais simples, com ajuda"
+       },
+       {
+        "text": "Sem aquecer",
+        "misconceptionCode": "sem-seguranca"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Aprender aos poucos dá confiança e protege o corpo.",
+      "variants": [
+       {
+        "question": "Antes de tentar a parada de mãos, é bom treinar:",
+        "options": [
+         {
+          "text": "Apoios mais simples, com a ajuda de um colega e colchão"
+         },
+         {
+          "text": "Um salto do muro",
+          "misconceptionCode": "ignora-limite"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "sem-seguranca"
+         },
+         {
+          "text": "Uma corrida na escada",
+          "misconceptionCode": "sem-seguranca"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Como aprender um movimento novo e difícil com segurança?",
+        "options": [
+         {
+          "text": "Sem aquecer",
+          "misconceptionCode": "sem-seguranca"
+         },
+         {
+          "text": "Sozinho, sem colchão",
+          "misconceptionCode": "sem-seguranca"
+         },
+         {
+          "text": "Tentando o mais difícil logo de início",
+          "misconceptionCode": "ignora-limite"
+         },
+         {
+          "text": "Por etapas, começando pelo mais simples, com ajuda"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Durante o ensaio, dois grupos usam o mesmo espaço e quase se chocam. O que fazer?",
+      "options": [
+       {
+        "text": "Continuar sem olhar",
+        "misconceptionCode": "sem-seguranca"
+       },
+       {
+        "text": "Empurrar os colegas",
+        "misconceptionCode": "cada-um-por-si"
+       },
+       {
+        "text": "Correr mais rápido",
+        "misconceptionCode": "sem-seguranca"
+       },
+       {
+        "text": "Combinar o espaço de cada grupo e olhar ao redor"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Organizar o espaço é parte da segurança.",
+      "variants": [
+       {
+        "question": "Antes de fazer um rolamento, é preciso verificar se:",
+        "options": [
+         {
+          "text": "Há alguém no caminho para desviar depois",
+          "misconceptionCode": "sem-seguranca"
+         },
+         {
+          "text": "O espaço à frente está livre"
+         },
+         {
+          "text": "O chão está molhado para deslizar",
+          "misconceptionCode": "cada-um-por-si"
+         },
+         {
+          "text": "Ninguém está olhando",
+          "misconceptionCode": "sem-seguranca"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Durante o ensaio, dois grupos usam o mesmo espaço e quase se chocam. O que fazer?",
+        "options": [
+         {
+          "text": "Combinar o espaço de cada grupo e olhar ao redor"
+         },
+         {
+          "text": "Correr mais rápido",
+          "misconceptionCode": "sem-seguranca"
+         },
+         {
+          "text": "Empurrar os colegas",
+          "misconceptionCode": "cada-um-por-si"
+         },
+         {
+          "text": "Continuar sem olhar",
+          "misconceptionCode": "sem-seguranca"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF08-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: a nossa apresentação",
+    "prompt": "Do plano à cena.",
+    "estMinutes": 4,
+    "audioScript": "Do plano à cena. Pergunta 1. O grupo tem um minuto para se apresentar. Qual plano é o melhor? A: Uma sequência curta, ensaiada, com entrada, movimentos e final combinados; B: Improvisar tudo na hora; C: Cada um fazer algo sem relação com os outros; D: Incluir saltos perigosos para impressionar. Pergunta 2. No dia da apresentação, um colega faltou. O que o grupo pode fazer? A: Cancelar tudo; B: Reorganizar a sequência com quem está presente; C: Brigar; D: Fazer a figura mesmo faltando um apoio. Pergunta 3. Depois da apresentação, o que ajuda o grupo a melhorar? A: Culpar quem errou; B: Não falar mais nisso; C: Conversar sobre o que deu certo e o que pode mudar; D: Dizer que tudo foi perfeito.",
+    "questions": [
+     {
+      "question": "O grupo tem um minuto para se apresentar. Qual plano é o melhor?",
+      "options": [
+       {
+        "text": "Uma sequência curta, ensaiada, com entrada, movimentos e final combinados"
+       },
+       {
+        "text": "Improvisar tudo na hora",
+        "misconceptionCode": "sem-planejar"
+       },
+       {
+        "text": "Cada um fazer algo sem relação com os outros",
+        "misconceptionCode": "cada-um-por-si"
+       },
+       {
+        "text": "Incluir saltos perigosos para impressionar",
+        "misconceptionCode": "ignora-limite"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Uma boa apresentação é simples, organizada e segura.",
+      "variants": [
+       {
+        "question": "Como o grupo pode guardar a sequência combinada?",
+        "options": [
+         {
+          "text": "Confiando só na sorte",
+          "misconceptionCode": "sem-planejar"
+         },
+         {
+          "text": "Mudando a cada ensaio",
+          "misconceptionCode": "cada-um-por-si"
+         },
+         {
+          "text": "Desenhando ou anotando a ordem dos movimentos"
+         },
+         {
+          "text": "Não combinando nada",
+          "misconceptionCode": "ignora-limite"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O grupo tem um minuto para se apresentar. Qual plano é o melhor?",
+        "options": [
+         {
+          "text": "Incluir saltos perigosos para impressionar",
+          "misconceptionCode": "ignora-limite"
+         },
+         {
+          "text": "Uma sequência curta, ensaiada, com entrada, movimentos e final combinados"
+         },
+         {
+          "text": "Cada um fazer algo sem relação com os outros",
+          "misconceptionCode": "cada-um-por-si"
+         },
+         {
+          "text": "Improvisar tudo na hora",
+          "misconceptionCode": "sem-planejar"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "No dia da apresentação, um colega faltou. O que o grupo pode fazer?",
+      "options": [
+       {
+        "text": "Cancelar tudo",
+        "misconceptionCode": "sem-planejar"
+       },
+       {
+        "text": "Reorganizar a sequência com quem está presente"
+       },
+       {
+        "text": "Brigar",
+        "misconceptionCode": "cada-um-por-si"
+       },
+       {
+        "text": "Fazer a figura mesmo faltando um apoio",
+        "misconceptionCode": "sem-seguranca"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Planejar também é saber adaptar, sem abrir mão da segurança.",
+      "variants": [
+       {
+        "question": "Uma figura precisa de três pessoas, e só há duas. O grupo deve:",
+        "options": [
+         {
+          "text": "Fazer assim mesmo",
+          "misconceptionCode": "sem-planejar"
+         },
+         {
+          "text": "Chamar alguém que nunca ensaiou",
+          "misconceptionCode": "cada-um-por-si"
+         },
+         {
+          "text": "Fazer sem colchão",
+          "misconceptionCode": "sem-seguranca"
+         },
+         {
+          "text": "Trocar por uma figura segura para duas pessoas"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "No dia da apresentação, um colega faltou. O que o grupo pode fazer?",
+        "options": [
+         {
+          "text": "Fazer a figura mesmo faltando um apoio",
+          "misconceptionCode": "sem-seguranca"
+         },
+         {
+          "text": "Brigar",
+          "misconceptionCode": "cada-um-por-si"
+         },
+         {
+          "text": "Reorganizar a sequência com quem está presente"
+         },
+         {
+          "text": "Cancelar tudo",
+          "misconceptionCode": "sem-planejar"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Depois da apresentação, o que ajuda o grupo a melhorar?",
+      "options": [
+       {
+        "text": "Culpar quem errou",
+        "misconceptionCode": "cada-um-por-si"
+       },
+       {
+        "text": "Não falar mais nisso",
+        "misconceptionCode": "sem-planejar"
+       },
+       {
+        "text": "Conversar sobre o que deu certo e o que pode mudar"
+       },
+       {
+        "text": "Dizer que tudo foi perfeito",
+        "misconceptionCode": "sem-planejar"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Avaliar juntos faz parte do trabalho coletivo.",
+      "variants": [
+       {
+        "question": "Ao comentar a apresentação de outro grupo, o correto é:",
+        "options": [
+         {
+          "text": "Apontar o que foi bom e sugerir com respeito"
+         },
+         {
+          "text": "Vaiar",
+          "misconceptionCode": "cada-um-por-si"
+         },
+         {
+          "text": "Rir dos erros",
+          "misconceptionCode": "sem-planejar"
+         },
+         {
+          "text": "Não prestar atenção",
+          "misconceptionCode": "sem-planejar"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Depois da apresentação, o que ajuda o grupo a melhorar?",
+        "options": [
+         {
+          "text": "Dizer que tudo foi perfeito",
+          "misconceptionCode": "sem-planejar"
+         },
+         {
+          "text": "Não falar mais nisso",
+          "misconceptionCode": "sem-planejar"
+         },
+         {
+          "text": "Culpar quem errou",
+          "misconceptionCode": "cada-um-por-si"
+         },
+         {
+          "text": "Conversar sobre o que deu certo e o que pode mudar"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF08-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: o plano do grupo",
+    "prompt": "Explique com as suas palavras como um grupo deve se preparar para uma apresentação de ginástica, falando do planejamento, dos limites de cada um e da segurança.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras como um grupo deve se preparar para uma apresentação de ginástica, falando do planejamento, dos limites de cada um e da segurança.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "planejamento",
+       "description": "Diz que o grupo combina os movimentos e ensaia"
+      },
+      {
+       "code": "limites",
+       "description": "Diz que é preciso respeitar o que cada um consegue fazer"
+      },
+      {
+       "code": "seguranca",
+       "description": "Cita um cuidado de segurança (colchão, aquecimento, ajuda)"
+      }
+     ],
+     "exemploBoaResposta": "O grupo precisa conversar, escolher os movimentos, combinar a ordem e ensaiar. Cada um deve fazer o que consegue, sem forçar o corpo. Também é preciso aquecer, usar colchão e ter um colega por perto para ajudar."
+    }
+   }
+  ]
+ }
 ]
