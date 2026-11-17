@@ -1,0 +1,327 @@
+{
+ "id": "DIAG2-LP-4A",
+ "version": 1,
+ "titulo": "Diagnóstico de Língua Portuguesa — 4º ano",
+ "descricao": "Acentuação de paroxítonas, pontuação e vírgula, concordância verbal e concordância nominal no 4º ano, com degrau para pontuação e para substantivos e verbos do 3º ano.",
+ "subjectCode": "LP",
+ "subjectName": "Língua Portuguesa",
+ "gradeYear": 4,
+ "status": "APPROVED",
+ "source": "SPEAKFLOW",
+ "reviewNote": "conteúdo SpeakFlow, em revisão pela equipe pedagógica",
+ "adaptive": true,
+ "items": [
+  {
+   "id": "DI2-4A-EF04LP04-01",
+   "skillCode": "EF04LP04",
+   "question": "Qual palavra está escrita corretamente?",
+   "options": [
+    {
+     "text": "facil",
+     "misconceptionCode": "nao-acentua"
+    },
+    {
+     "text": "facíl",
+     "misconceptionCode": "acento-na-silaba-errada"
+    },
+    {
+     "text": "fàcil",
+     "misconceptionCode": "acento-na-silaba-errada"
+    },
+    {
+     "text": "fácil"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Paroxítona terminada em l.",
+   "audioScript": "Pergunta 1. Qual palavra está escrita corretamente? A: facil; B: facíl; C: fàcil; D: fácil.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-4A-EF04LP04-02",
+   "skillCode": "EF04LP04",
+   "question": "Qual destas palavras NÃO leva acento?",
+   "options": [
+    {
+     "text": "mesa"
+    },
+    {
+     "text": "lapis",
+     "misconceptionCode": "nao-acentua"
+    },
+    {
+     "text": "acucar",
+     "misconceptionCode": "nao-acentua"
+    },
+    {
+     "text": "util",
+     "misconceptionCode": "nao-acentua"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Paroxítona terminada em a não leva acento.",
+   "audioScript": "Pergunta 2. Qual destas palavras NÃO leva acento? A: mesa; B: lapis; C: acucar; D: util.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-4A-EF04LP05-01",
+   "skillCode": "EF04LP05",
+   "question": "Qual frase está pontuada corretamente?",
+   "options": [
+    {
+     "text": "Comprei banana maçã uva e pera.",
+     "misconceptionCode": "virgula-ausente-lista"
+    },
+    {
+     "text": "Comprei banana, maçã, uva e pera."
+    },
+    {
+     "text": "Comprei banana, maçã, uva, e, pera.",
+     "misconceptionCode": "virgula-antes-do-e"
+    },
+    {
+     "text": "Comprei, banana maçã uva e pera.",
+     "misconceptionCode": "virgula-ausente-lista"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "A vírgula separa os itens da lista.",
+   "audioScript": "Pergunta 3. Qual frase está pontuada corretamente? A: Comprei banana maçã uva e pera.; B: Comprei banana, maçã, uva e pera.; C: Comprei banana, maçã, uva, e, pera.; D: Comprei, banana maçã uva e pera..",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-4A-EF04LP05-02",
+   "skillCode": "EF04LP05",
+   "question": "Em qual frase o chamado está separado corretamente?",
+   "options": [
+    {
+     "text": "Lucas feche a porta.",
+     "misconceptionCode": "vocativo-sem-virgula"
+    },
+    {
+     "text": "Lucas feche, a porta.",
+     "misconceptionCode": "vocativo-sem-virgula"
+    },
+    {
+     "text": "Lucas, feche a porta."
+    },
+    {
+     "text": "Lucas feche a, porta.",
+     "misconceptionCode": "vocativo-sem-virgula"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "O chamado vem separado por vírgula.",
+   "audioScript": "Pergunta 4. Em qual frase o chamado está separado corretamente? A: Lucas feche a porta.; B: Lucas feche, a porta.; C: Lucas, feche a porta.; D: Lucas feche a, porta..",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-4A-EF04LP06-01",
+   "skillCode": "EF04LP06",
+   "question": "Complete: \"Os alunos ___ a lição.\"",
+   "options": [
+    {
+     "text": "fez",
+     "misconceptionCode": "verbo-no-singular"
+    },
+    {
+     "text": "fiz",
+     "misconceptionCode": "pronome-verbo-errado"
+    },
+    {
+     "text": "fizemos",
+     "misconceptionCode": "pronome-verbo-errado"
+    },
+    {
+     "text": "fizeram"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Sujeito no plural, verbo no plural.",
+   "audioScript": "Pergunta 5. Complete: \"Os alunos ___ a lição.\" A: fez; B: fiz; C: fizemos; D: fizeram.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-4A-EF04LP06-02",
+   "skillCode": "EF04LP06",
+   "question": "Complete: \"A gente ___ no recreio.\"",
+   "options": [
+    {
+     "text": "brinca"
+    },
+    {
+     "text": "brincamos",
+     "misconceptionCode": "a-gente-e-nos"
+    },
+    {
+     "text": "brincam",
+     "misconceptionCode": "pronome-verbo-errado"
+    },
+    {
+     "text": "brinco",
+     "misconceptionCode": "pronome-verbo-errado"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "\"A gente\" pede o verbo no singular.",
+   "audioScript": "Pergunta 6. Complete: \"A gente ___ no recreio.\" A: brinca; B: brincamos; C: brincam; D: brinco.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-4A-EF04LP07-01",
+   "skillCode": "EF04LP07",
+   "question": "Qual expressão está de acordo com a escrita da escola?",
+   "options": [
+    {
+     "text": "os carro novo",
+     "misconceptionCode": "plural-so-no-artigo"
+    },
+    {
+     "text": "os carros novos"
+    },
+    {
+     "text": "os carros novo",
+     "misconceptionCode": "adjetivo-invariavel"
+    },
+    {
+     "text": "o carros novos",
+     "misconceptionCode": "plural-so-no-artigo"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "O plural aparece em todas as palavras.",
+   "audioScript": "Pergunta 7. Qual expressão está de acordo com a escrita da escola? A: os carro novo; B: os carros novos; C: os carros novo; D: o carros novos.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-4A-EF04LP07-02",
+   "skillCode": "EF04LP07",
+   "question": "Qual é o plural de \"o animal manso\"?",
+   "options": [
+    {
+     "text": "os animals manso",
+     "misconceptionCode": "plural-errado"
+    },
+    {
+     "text": "os animal manso",
+     "misconceptionCode": "plural-so-no-artigo"
+    },
+    {
+     "text": "os animais mansos"
+    },
+    {
+     "text": "os animais manso",
+     "misconceptionCode": "adjetivo-invariavel"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "\"Animal\" vira \"animais\".",
+   "audioScript": "Pergunta 8. Qual é o plural de \"o animal manso\"? A: os animals manso; B: os animal manso; C: os animais mansos; D: os animais manso.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-4A-EF03LP07-01",
+   "skillCode": "EF03LP07",
+   "question": "Qual sinal completa a frase \"Você vem comigo\"?",
+   "options": [
+    {
+     "text": ".",
+     "misconceptionCode": "virgula-ausente-lista"
+    },
+    {
+     "text": ",",
+     "misconceptionCode": "virgula-ausente-lista"
+    },
+    {
+     "text": ":",
+     "misconceptionCode": "aposto-nao-visto"
+    },
+    {
+     "text": "?"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "É uma pergunta.",
+   "audioScript": "Pergunta 9. Qual sinal completa a frase \"Você vem comigo\"? A: .; B: ,; C: :; D: ?.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-4A-EF03LP07-02",
+   "skillCode": "EF03LP07",
+   "question": "Leia: \"A mãe disse: — Vamos sair.\" Para que serve o travessão?",
+   "options": [
+    {
+     "text": "Para mostrar a fala de alguém"
+    },
+    {
+     "text": "Para terminar a frase",
+     "misconceptionCode": "aposto-nao-visto"
+    },
+    {
+     "text": "Para separar uma lista",
+     "misconceptionCode": "virgula-ausente-lista"
+    },
+    {
+     "text": "Para fazer uma pergunta",
+     "misconceptionCode": "aposto-nao-visto"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "O travessão marca o começo da fala.",
+   "audioScript": "Pergunta 10. Leia: \"A mãe disse: — Vamos sair.\" Para que serve o travessão? A: Para mostrar a fala de alguém; B: Para terminar a frase; C: Para separar uma lista; D: Para fazer uma pergunta.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-4A-EF03LP08-01",
+   "skillCode": "EF03LP08",
+   "question": "Na frase \"O gato pulou o muro\", qual é o verbo?",
+   "options": [
+    {
+     "text": "gato",
+     "misconceptionCode": "verbo-no-singular"
+    },
+    {
+     "text": "pulou"
+    },
+    {
+     "text": "muro",
+     "misconceptionCode": "verbo-no-singular"
+    },
+    {
+     "text": "o",
+     "misconceptionCode": "verbo-no-singular"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "\"Pulou\" indica a ação.",
+   "audioScript": "Pergunta 11. Na frase \"O gato pulou o muro\", qual é o verbo? A: gato; B: pulou; C: muro; D: o.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-4A-EF03LP08-02",
+   "skillCode": "EF03LP08",
+   "question": "Na frase \"A menina abriu a janela\", quem fez a ação?",
+   "options": [
+    {
+     "text": "A janela",
+     "misconceptionCode": "sujeito-composto"
+    },
+    {
+     "text": "Abriu",
+     "misconceptionCode": "verbo-no-singular"
+    },
+    {
+     "text": "A menina"
+    },
+    {
+     "text": "Ninguém",
+     "misconceptionCode": "verbo-no-singular"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Quem abriu? A menina.",
+   "audioScript": "Pergunta 12. Na frase \"A menina abriu a janela\", quem fez a ação? A: A janela; B: Abriu; C: A menina; D: Ninguém.",
+   "role": "DEGRAU_BANK"
+  }
+ ]
+}

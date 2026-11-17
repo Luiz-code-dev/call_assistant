@@ -1,0 +1,3766 @@
+[
+ {
+  "skillCode": "EF04MA03",
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 4,
+  "version": 1,
+  "title": "Trilha: Adição e subtração com números maiores",
+  "tituloAluno": "Calcular, estimar e conferir",
+  "activities": [
+   {
+    "id": "PK2-EF04MA03-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: contas com troca",
+    "prompt": "No 3º ano, aprendemos a somar e a subtrair com troca.",
+    "estMinutes": 4,
+    "audioScript": "No 3º ano, aprendemos a somar e a subtrair com troca. Pergunta 1. Quanto é 47 + 38? A: 85; B: 75; C: 715; D: 9. Pergunta 2. Quanto é 82 − 37? A: 55; B: 45; C: 119; D: 35. Pergunta 3. Qual conta desfaz uma adição? A: A multiplicação; B: Outra adição; C: A subtração; D: Nenhuma.",
+    "questions": [
+     {
+      "question": "Quanto é 47 + 38?",
+      "options": [
+       {
+        "text": "85"
+       },
+       {
+        "text": "75",
+        "misconceptionCode": "reagrupa-errado"
+       },
+       {
+        "text": "715",
+        "misconceptionCode": "reagrupa-errado"
+       },
+       {
+        "text": "9",
+        "misconceptionCode": "operacao-trocada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "7 + 8 = 15: fica 5 e vai 1. 4 + 3 + 1 = 8.",
+      "variants": [
+       {
+        "question": "Quanto é 56 + 29?",
+        "options": [
+         {
+          "text": "75",
+          "misconceptionCode": "reagrupa-errado"
+         },
+         {
+          "text": "715",
+          "misconceptionCode": "reagrupa-errado"
+         },
+         {
+          "text": "85"
+         },
+         {
+          "text": "27",
+          "misconceptionCode": "operacao-trocada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quanto é 47 + 38?",
+        "options": [
+         {
+          "text": "9",
+          "misconceptionCode": "operacao-trocada"
+         },
+         {
+          "text": "85"
+         },
+         {
+          "text": "715",
+          "misconceptionCode": "reagrupa-errado"
+         },
+         {
+          "text": "75",
+          "misconceptionCode": "reagrupa-errado"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 82 − 37?",
+      "options": [
+       {
+        "text": "55",
+        "misconceptionCode": "reagrupa-errado"
+       },
+       {
+        "text": "45"
+       },
+       {
+        "text": "119",
+        "misconceptionCode": "operacao-trocada"
+       },
+       {
+        "text": "35",
+        "misconceptionCode": "reagrupa-errado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Troco 1 dezena por 10 unidades: 12 − 7 = 5. Ficam 7 dezenas: 7 − 3 = 4.",
+      "variants": [
+       {
+        "question": "Quanto é 73 − 46?",
+        "options": [
+         {
+          "text": "33",
+          "misconceptionCode": "reagrupa-errado"
+         },
+         {
+          "text": "119",
+          "misconceptionCode": "operacao-trocada"
+         },
+         {
+          "text": "37",
+          "misconceptionCode": "reagrupa-errado"
+         },
+         {
+          "text": "27"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quanto é 82 − 37?",
+        "options": [
+         {
+          "text": "35",
+          "misconceptionCode": "reagrupa-errado"
+         },
+         {
+          "text": "119",
+          "misconceptionCode": "operacao-trocada"
+         },
+         {
+          "text": "45"
+         },
+         {
+          "text": "55",
+          "misconceptionCode": "reagrupa-errado"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual conta desfaz uma adição?",
+      "options": [
+       {
+        "text": "A multiplicação",
+        "misconceptionCode": "operacao-trocada"
+       },
+       {
+        "text": "Outra adição",
+        "misconceptionCode": "operacao-trocada"
+       },
+       {
+        "text": "A subtração"
+       },
+       {
+        "text": "Nenhuma",
+        "misconceptionCode": "nao-estima"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Se 20 + 15 = 35, então 35 − 15 = 20. Uma desfaz a outra.",
+      "variants": [
+       {
+        "question": "Para conferir se 35 − 15 = 20 está certo, posso fazer:",
+        "options": [
+         {
+          "text": "20 + 15"
+         },
+         {
+          "text": "35 + 15",
+          "misconceptionCode": "operacao-trocada"
+         },
+         {
+          "text": "35 × 15",
+          "misconceptionCode": "operacao-trocada"
+         },
+         {
+          "text": "20 − 15",
+          "misconceptionCode": "nao-estima"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual conta desfaz uma adição?",
+        "options": [
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "nao-estima"
+         },
+         {
+          "text": "Outra adição",
+          "misconceptionCode": "operacao-trocada"
+         },
+         {
+          "text": "A multiplicação",
+          "misconceptionCode": "operacao-trocada"
+         },
+         {
+          "text": "A subtração"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04MA03-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: estimar antes de calcular",
+    "prompt": "Estimar é achar um valor aproximado, usando números redondos. A estimativa ajuda a ver se o resultado da conta faz sentido. Vamos fazer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Estimar é achar um valor aproximado, usando números redondos. A estimativa ajuda a ver se o resultado da conta faz sentido. Vamos fazer juntos. Pergunta 1. Sem fazer a conta exata, 398 + 204 dá mais ou menos: A: 200; B: 6.000; C: 100; D: 600. Pergunta 2. Quanto é 1.468 + 2.375? A: 3.843; B: 3.733; C: 3.833; D: 907. Pergunta 3. Quanto é 3.000 − 1.275? A: 2.275; B: 1.725; C: 2.725; D: 4.275.",
+    "questions": [
+     {
+      "question": "Sem fazer a conta exata, 398 + 204 dá mais ou menos:",
+      "options": [
+       {
+        "text": "200",
+        "misconceptionCode": "nao-estima"
+       },
+       {
+        "text": "6.000",
+        "misconceptionCode": "nao-estima"
+       },
+       {
+        "text": "100",
+        "misconceptionCode": "nao-estima"
+       },
+       {
+        "text": "600"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "398 é quase 400, e 204 é quase 200. 400 + 200 = 600.",
+      "variants": [
+       {
+        "question": "Sem fazer a conta exata, 702 − 298 dá mais ou menos:",
+        "options": [
+         {
+          "text": "1.000",
+          "misconceptionCode": "nao-estima"
+         },
+         {
+          "text": "400"
+         },
+         {
+          "text": "40",
+          "misconceptionCode": "nao-estima"
+         },
+         {
+          "text": "4.000",
+          "misconceptionCode": "nao-estima"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Sem fazer a conta exata, 398 + 204 dá mais ou menos:",
+        "options": [
+         {
+          "text": "600"
+         },
+         {
+          "text": "100",
+          "misconceptionCode": "nao-estima"
+         },
+         {
+          "text": "6.000",
+          "misconceptionCode": "nao-estima"
+         },
+         {
+          "text": "200",
+          "misconceptionCode": "nao-estima"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 1.468 + 2.375?",
+      "options": [
+       {
+        "text": "3.843"
+       },
+       {
+        "text": "3.733",
+        "misconceptionCode": "reagrupa-errado"
+       },
+       {
+        "text": "3.833",
+        "misconceptionCode": "reagrupa-errado"
+       },
+       {
+        "text": "907",
+        "misconceptionCode": "operacao-trocada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "8 + 5 = 13: fica 3, vai 1. 6 + 7 + 1 = 14: fica 4, vai 1. 4 + 3 + 1 = 8. 1 + 2 = 3.",
+      "variants": [
+       {
+        "question": "Quanto é 2.587 + 1.246?",
+        "options": [
+         {
+          "text": "3.723",
+          "misconceptionCode": "reagrupa-errado"
+         },
+         {
+          "text": "3.823",
+          "misconceptionCode": "reagrupa-errado"
+         },
+         {
+          "text": "3.833"
+         },
+         {
+          "text": "1.341",
+          "misconceptionCode": "operacao-trocada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quanto é 1.468 + 2.375?",
+        "options": [
+         {
+          "text": "907",
+          "misconceptionCode": "operacao-trocada"
+         },
+         {
+          "text": "3.843"
+         },
+         {
+          "text": "3.833",
+          "misconceptionCode": "reagrupa-errado"
+         },
+         {
+          "text": "3.733",
+          "misconceptionCode": "reagrupa-errado"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 3.000 − 1.275?",
+      "options": [
+       {
+        "text": "2.275",
+        "misconceptionCode": "zero-no-minuendo"
+       },
+       {
+        "text": "1.725"
+       },
+       {
+        "text": "2.725",
+        "misconceptionCode": "zero-no-minuendo"
+       },
+       {
+        "text": "4.275",
+        "misconceptionCode": "operacao-trocada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Com zeros em cima, as trocas vêm em cadeia. Para conferir: 1.725 + 1.275 = 3.000.",
+      "variants": [
+       {
+        "question": "Quanto é 5.000 − 2.340?",
+        "options": [
+         {
+          "text": "3.340",
+          "misconceptionCode": "zero-no-minuendo"
+         },
+         {
+          "text": "3.660",
+          "misconceptionCode": "zero-no-minuendo"
+         },
+         {
+          "text": "7.340",
+          "misconceptionCode": "operacao-trocada"
+         },
+         {
+          "text": "2.660"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quanto é 3.000 − 1.275?",
+        "options": [
+         {
+          "text": "4.275",
+          "misconceptionCode": "operacao-trocada"
+         },
+         {
+          "text": "2.725",
+          "misconceptionCode": "zero-no-minuendo"
+         },
+         {
+          "text": "1.725"
+         },
+         {
+          "text": "2.275",
+          "misconceptionCode": "zero-no-minuendo"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04MA03-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: calculando e conferindo",
+    "prompt": "Estime, calcule e confira.",
+    "estMinutes": 5,
+    "audioScript": "Estime, calcule e confira. Pergunta 1. Quanto é 4.705 − 1.368? A: 3.447; B: 3.463; C: 3.337; D: 6.073. Pergunta 2. Para calcular 299 + 150 de cabeça, um bom jeito é: A: Fazer 299 + 100 e parar; B: Fazer 200 + 100; C: Fazer 299 − 150; D: Fazer 300 + 150 e tirar 1. Pergunta 3. Um aluno calculou 480 + 315 e achou 7.950. Sem refazer a conta, dá para saber que: A: Está errado, porque o resultado deveria ficar perto de 800; B: Está certo; C: Está errado, porque deveria dar perto de 80; D: Não dá para saber. Pergunta 4. Quanto é 12.350 + 8.975? A: 20.225; B: 21.325; C: 21.225; D: 3.375.",
+    "questions": [
+     {
+      "question": "Quanto é 4.705 − 1.368?",
+      "options": [
+       {
+        "text": "3.447",
+        "misconceptionCode": "reagrupa-errado"
+       },
+       {
+        "text": "3.463",
+        "misconceptionCode": "zero-no-minuendo"
+       },
+       {
+        "text": "3.337"
+       },
+       {
+        "text": "6.073",
+        "misconceptionCode": "operacao-trocada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Conferindo: 3.337 + 1.368 = 4.705.",
+      "variants": [
+       {
+        "question": "Quanto é 6.204 − 2.857?",
+        "options": [
+         {
+          "text": "3.347"
+         },
+         {
+          "text": "4.453",
+          "misconceptionCode": "reagrupa-errado"
+         },
+         {
+          "text": "3.457",
+          "misconceptionCode": "zero-no-minuendo"
+         },
+         {
+          "text": "9.061",
+          "misconceptionCode": "operacao-trocada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quanto é 4.705 − 1.368?",
+        "options": [
+         {
+          "text": "6.073",
+          "misconceptionCode": "operacao-trocada"
+         },
+         {
+          "text": "3.463",
+          "misconceptionCode": "zero-no-minuendo"
+         },
+         {
+          "text": "3.447",
+          "misconceptionCode": "reagrupa-errado"
+         },
+         {
+          "text": "3.337"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Para calcular 299 + 150 de cabeça, um bom jeito é:",
+      "options": [
+       {
+        "text": "Fazer 299 + 100 e parar",
+        "misconceptionCode": "reagrupa-errado"
+       },
+       {
+        "text": "Fazer 200 + 100",
+        "misconceptionCode": "nao-estima"
+       },
+       {
+        "text": "Fazer 299 − 150",
+        "misconceptionCode": "operacao-trocada"
+       },
+       {
+        "text": "Fazer 300 + 150 e tirar 1"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "300 + 150 = 450. Tirando 1, dá 449.",
+      "variants": [
+       {
+        "question": "Para calcular 500 − 199 de cabeça, um bom jeito é:",
+        "options": [
+         {
+          "text": "Fazer 500 − 100 e parar",
+          "misconceptionCode": "reagrupa-errado"
+         },
+         {
+          "text": "Fazer 500 − 200 e somar 1"
+         },
+         {
+          "text": "Fazer 500 + 199",
+          "misconceptionCode": "nao-estima"
+         },
+         {
+          "text": "Fazer 400 − 100",
+          "misconceptionCode": "operacao-trocada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Para calcular 299 + 150 de cabeça, um bom jeito é:",
+        "options": [
+         {
+          "text": "Fazer 300 + 150 e tirar 1"
+         },
+         {
+          "text": "Fazer 299 − 150",
+          "misconceptionCode": "operacao-trocada"
+         },
+         {
+          "text": "Fazer 200 + 100",
+          "misconceptionCode": "nao-estima"
+         },
+         {
+          "text": "Fazer 299 + 100 e parar",
+          "misconceptionCode": "reagrupa-errado"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Um aluno calculou 480 + 315 e achou 7.950. Sem refazer a conta, dá para saber que:",
+      "options": [
+       {
+        "text": "Está errado, porque o resultado deveria ficar perto de 800"
+       },
+       {
+        "text": "Está certo",
+        "misconceptionCode": "nao-estima"
+       },
+       {
+        "text": "Está errado, porque deveria dar perto de 80",
+        "misconceptionCode": "nao-estima"
+       },
+       {
+        "text": "Não dá para saber",
+        "misconceptionCode": "nao-estima"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "480 + 315 é mais ou menos 500 + 300 = 800. O resultado 7.950 é grande demais.",
+      "variants": [
+       {
+        "question": "Um aluno calculou 902 − 398 e achou 54. Sem refazer a conta, dá para saber que:",
+        "options": [
+         {
+          "text": "Está certo",
+          "misconceptionCode": "nao-estima"
+         },
+         {
+          "text": "Está errado, porque deveria dar perto de 5.000",
+          "misconceptionCode": "nao-estima"
+         },
+         {
+          "text": "Está errado, porque o resultado deveria ficar perto de 500"
+         },
+         {
+          "text": "Não dá para saber",
+          "misconceptionCode": "nao-estima"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um aluno calculou 480 + 315 e achou 7.950. Sem refazer a conta, dá para saber que:",
+        "options": [
+         {
+          "text": "Não dá para saber",
+          "misconceptionCode": "nao-estima"
+         },
+         {
+          "text": "Está errado, porque o resultado deveria ficar perto de 800"
+         },
+         {
+          "text": "Está errado, porque deveria dar perto de 80",
+          "misconceptionCode": "nao-estima"
+         },
+         {
+          "text": "Está certo",
+          "misconceptionCode": "nao-estima"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 12.350 + 8.975?",
+      "options": [
+       {
+        "text": "20.225",
+        "misconceptionCode": "reagrupa-errado"
+       },
+       {
+        "text": "21.325"
+       },
+       {
+        "text": "21.225",
+        "misconceptionCode": "reagrupa-errado"
+       },
+       {
+        "text": "3.375",
+        "misconceptionCode": "operacao-trocada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Some casa por casa, levando as trocas: 21.325.",
+      "variants": [
+       {
+        "question": "Quanto é 15.480 + 7.865?",
+        "options": [
+         {
+          "text": "22.245",
+          "misconceptionCode": "reagrupa-errado"
+         },
+         {
+          "text": "23.245",
+          "misconceptionCode": "reagrupa-errado"
+         },
+         {
+          "text": "7.615",
+          "misconceptionCode": "operacao-trocada"
+         },
+         {
+          "text": "23.345"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quanto é 12.350 + 8.975?",
+        "options": [
+         {
+          "text": "3.375",
+          "misconceptionCode": "operacao-trocada"
+         },
+         {
+          "text": "21.225",
+          "misconceptionCode": "reagrupa-errado"
+         },
+         {
+          "text": "21.325"
+         },
+         {
+          "text": "20.225",
+          "misconceptionCode": "reagrupa-errado"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04MA03-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: problemas com números maiores",
+    "prompt": "Pense no que acontece na situação.",
+    "estMinutes": 4,
+    "audioScript": "Pense no que acontece na situação. Pergunta 1. Uma escola tinha 1.250 livros na biblioteca e ganhou 475. Quantos livros tem agora? A: 775; B: 1.625; C: 1.725; D: 6.000. Pergunta 2. Um estádio tem 5.000 lugares. Já foram vendidos 3.860 ingressos. Quantos lugares ainda há? A: 8.860; B: 2.860; C: 2.140; D: 1.140. Pergunta 3. Um pai quer comprar uma TV de 1.890 reais e um fogão de 1.150 reais. Ele tem 3.000 reais. O dinheiro dá? A: Não, faltam 40 reais; B: Sim, sobram 40 reais; C: Sim, sobram 960 reais; D: Não, faltam 1.040 reais.",
+    "questions": [
+     {
+      "question": "Uma escola tinha 1.250 livros na biblioteca e ganhou 475. Quantos livros tem agora?",
+      "options": [
+       {
+        "text": "775",
+        "misconceptionCode": "operacao-trocada"
+       },
+       {
+        "text": "1.625",
+        "misconceptionCode": "reagrupa-errado"
+       },
+       {
+        "text": "1.725"
+       },
+       {
+        "text": "6.000",
+        "misconceptionCode": "nao-estima"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Ganhar é acrescentar: 1.250 + 475 = 1.725.",
+      "variants": [
+       {
+        "question": "Uma loja tinha 2.380 camisetas e recebeu mais 645. Quantas camisetas tem agora?",
+        "options": [
+         {
+          "text": "3.025"
+         },
+         {
+          "text": "1.735",
+          "misconceptionCode": "operacao-trocada"
+         },
+         {
+          "text": "2.925",
+          "misconceptionCode": "reagrupa-errado"
+         },
+         {
+          "text": "8.830",
+          "misconceptionCode": "nao-estima"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Uma escola tinha 1.250 livros na biblioteca e ganhou 475. Quantos livros tem agora?",
+        "options": [
+         {
+          "text": "6.000",
+          "misconceptionCode": "nao-estima"
+         },
+         {
+          "text": "1.625",
+          "misconceptionCode": "reagrupa-errado"
+         },
+         {
+          "text": "775",
+          "misconceptionCode": "operacao-trocada"
+         },
+         {
+          "text": "1.725"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Um estádio tem 5.000 lugares. Já foram vendidos 3.860 ingressos. Quantos lugares ainda há?",
+      "options": [
+       {
+        "text": "8.860",
+        "misconceptionCode": "operacao-trocada"
+       },
+       {
+        "text": "2.860",
+        "misconceptionCode": "zero-no-minuendo"
+       },
+       {
+        "text": "2.140",
+        "misconceptionCode": "zero-no-minuendo"
+       },
+       {
+        "text": "1.140"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "5.000 − 3.860 = 1.140. Conferindo: 3.860 + 1.140 = 5.000.",
+      "variants": [
+       {
+        "question": "Uma caixa-d'água tem 2.000 litros. Já foram gastos 1.285. Quantos litros ainda há?",
+        "options": [
+         {
+          "text": "3.285",
+          "misconceptionCode": "operacao-trocada"
+         },
+         {
+          "text": "715"
+         },
+         {
+          "text": "1.285",
+          "misconceptionCode": "zero-no-minuendo"
+         },
+         {
+          "text": "1.715",
+          "misconceptionCode": "zero-no-minuendo"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um estádio tem 5.000 lugares. Já foram vendidos 3.860 ingressos. Quantos lugares ainda há?",
+        "options": [
+         {
+          "text": "1.140"
+         },
+         {
+          "text": "2.140",
+          "misconceptionCode": "zero-no-minuendo"
+         },
+         {
+          "text": "2.860",
+          "misconceptionCode": "zero-no-minuendo"
+         },
+         {
+          "text": "8.860",
+          "misconceptionCode": "operacao-trocada"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Um pai quer comprar uma TV de 1.890 reais e um fogão de 1.150 reais. Ele tem 3.000 reais. O dinheiro dá?",
+      "options": [
+       {
+        "text": "Não, faltam 40 reais"
+       },
+       {
+        "text": "Sim, sobram 40 reais",
+        "misconceptionCode": "reagrupa-errado"
+       },
+       {
+        "text": "Sim, sobram 960 reais",
+        "misconceptionCode": "operacao-trocada"
+       },
+       {
+        "text": "Não, faltam 1.040 reais",
+        "misconceptionCode": "nao-estima"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "1.890 + 1.150 = 3.040. Como 3.040 é maior que 3.000, faltam 40 reais.",
+      "variants": [
+       {
+        "question": "Uma mãe quer comprar uma geladeira de 2.450 reais e um micro-ondas de 520 reais. Ela tem 3.000 reais. O dinheiro dá?",
+        "options": [
+         {
+          "text": "Não, faltam 30 reais",
+          "misconceptionCode": "reagrupa-errado"
+         },
+         {
+          "text": "Sim, sobram 1.930 reais",
+          "misconceptionCode": "operacao-trocada"
+         },
+         {
+          "text": "Sim, sobram 30 reais"
+         },
+         {
+          "text": "Não, faltam 970 reais",
+          "misconceptionCode": "nao-estima"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um pai quer comprar uma TV de 1.890 reais e um fogão de 1.150 reais. Ele tem 3.000 reais. O dinheiro dá?",
+        "options": [
+         {
+          "text": "Não, faltam 1.040 reais",
+          "misconceptionCode": "nao-estima"
+         },
+         {
+          "text": "Não, faltam 40 reais"
+         },
+         {
+          "text": "Sim, sobram 960 reais",
+          "misconceptionCode": "operacao-trocada"
+         },
+         {
+          "text": "Sim, sobram 40 reais",
+          "misconceptionCode": "reagrupa-errado"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04MA03-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: como saber se a conta faz sentido",
+    "prompt": "Um colega calculou 1.980 + 2.010 e achou 399. Explique com as suas palavras como saber, sem refazer a conta, que o resultado está errado.",
+    "estMinutes": 6,
+    "audioScript": "Um colega calculou 1.980 + 2.010 e achou 399. Explique com as suas palavras como saber, sem refazer a conta, que o resultado está errado.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "estimativa",
+       "description": "Arredonda os números (2.000 + 2.000)"
+      },
+      {
+       "code": "comparacao",
+       "description": "Compara a estimativa (perto de 4.000) com o resultado dado"
+      },
+      {
+       "code": "conclusao",
+       "description": "Conclui que 399 é pequeno demais"
+      }
+     ],
+     "exemploBoaResposta": "Eu arredondo: 1.980 é quase 2.000, e 2.010 também. Então o resultado tem de ficar perto de 4.000. Como o colega achou 399, que é muito menor, dá para saber que está errado. O certo é 3.990."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF04MA06",
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 4,
+  "version": 1,
+  "title": "Trilha: Multiplicação: três jeitos de pensar",
+  "tituloAluno": "Parcelas iguais, fileiras e proporção",
+  "activities": [
+   {
+    "id": "PK2-EF04MA06-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: tabuada",
+    "prompt": "Multiplicar é somar grupos iguais.",
+    "estMinutes": 4,
+    "audioScript": "Multiplicar é somar grupos iguais. Pergunta 1. Quanto é 6 × 4? A: 10; B: 20; C: 28; D: 24. Pergunta 2. Quanto é 8 × 3? A: 24; B: 11; C: 21; D: 27. Pergunta 3. Quanto é 5 × 10? A: 15; B: 50; C: 510; D: 5.",
+    "questions": [
+     {
+      "question": "Quanto é 6 × 4?",
+      "options": [
+       {
+        "text": "10",
+        "misconceptionCode": "soma-em-vez-de-multiplicar"
+       },
+       {
+        "text": "20",
+        "misconceptionCode": "esquece-reserva"
+       },
+       {
+        "text": "28",
+        "misconceptionCode": "esquece-reserva"
+       },
+       {
+        "text": "24"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "6 grupos de 4: 4 + 4 + 4 + 4 + 4 + 4 = 24.",
+      "variants": [
+       {
+        "question": "Quanto é 7 × 5?",
+        "options": [
+         {
+          "text": "12",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         },
+         {
+          "text": "35"
+         },
+         {
+          "text": "30",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "40",
+          "misconceptionCode": "esquece-reserva"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é 6 × 4?",
+        "options": [
+         {
+          "text": "24"
+         },
+         {
+          "text": "28",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "20",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "10",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 8 × 3?",
+      "options": [
+       {
+        "text": "24"
+       },
+       {
+        "text": "11",
+        "misconceptionCode": "soma-em-vez-de-multiplicar"
+       },
+       {
+        "text": "21",
+        "misconceptionCode": "esquece-reserva"
+       },
+       {
+        "text": "27",
+        "misconceptionCode": "esquece-reserva"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "8 × 3 é o mesmo que 3 × 8: 24.",
+      "variants": [
+       {
+        "question": "Quanto é 9 × 4?",
+        "options": [
+         {
+          "text": "13",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         },
+         {
+          "text": "32",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "36"
+         },
+         {
+          "text": "40",
+          "misconceptionCode": "esquece-reserva"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quanto é 8 × 3?",
+        "options": [
+         {
+          "text": "27",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "24"
+         },
+         {
+          "text": "21",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "11",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 5 × 10?",
+      "options": [
+       {
+        "text": "15",
+        "misconceptionCode": "soma-em-vez-de-multiplicar"
+       },
+       {
+        "text": "50"
+       },
+       {
+        "text": "510",
+        "misconceptionCode": "multiplica-so-unidade"
+       },
+       {
+        "text": "5",
+        "misconceptionCode": "multiplica-so-unidade"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Multiplicar por 10 é formar dezenas: 5 dezenas são 50.",
+      "variants": [
+       {
+        "question": "Quanto é 7 × 100?",
+        "options": [
+         {
+          "text": "107",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         },
+         {
+          "text": "7.100",
+          "misconceptionCode": "multiplica-so-unidade"
+         },
+         {
+          "text": "70",
+          "misconceptionCode": "multiplica-so-unidade"
+         },
+         {
+          "text": "700"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quanto é 5 × 10?",
+        "options": [
+         {
+          "text": "5",
+          "misconceptionCode": "multiplica-so-unidade"
+         },
+         {
+          "text": "510",
+          "misconceptionCode": "multiplica-so-unidade"
+         },
+         {
+          "text": "50"
+         },
+         {
+          "text": "15",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04MA06-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: multiplicando números maiores",
+    "prompt": "Para multiplicar 23 × 4, podemos separar: 20 × 4 = 80 e 3 × 4 = 12. Depois somamos: 80 + 12 = 92. Vamos fazer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Para multiplicar 23 × 4, podemos separar: 20 × 4 = 80 e 3 × 4 = 12. Depois somamos: 80 + 12 = 92. Vamos fazer juntos. Pergunta 1. Quanto é 23 × 4? A: 27; B: 812; C: 92; D: 82. Pergunta 2. Num auditório, há 12 fileiras com 8 cadeiras em cada uma. Quantas cadeiras há? A: 20; B: 86; C: 16; D: 96. Pergunta 3. Se 1 caderno custa 7 reais, quanto custam 6 cadernos? A: 42 reais; B: 13 reais; C: 36 reais; D: 49 reais.",
+    "questions": [
+     {
+      "question": "Quanto é 23 × 4?",
+      "options": [
+       {
+        "text": "27",
+        "misconceptionCode": "soma-em-vez-de-multiplicar"
+       },
+       {
+        "text": "812",
+        "misconceptionCode": "esquece-reserva"
+       },
+       {
+        "text": "92"
+       },
+       {
+        "text": "82",
+        "misconceptionCode": "esquece-reserva"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "3 × 4 = 12: fica 2 e vai 1. 2 × 4 = 8, mais 1 = 9. Resultado: 92.",
+      "variants": [
+       {
+        "question": "Quanto é 36 × 3?",
+        "options": [
+         {
+          "text": "108"
+         },
+         {
+          "text": "39",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         },
+         {
+          "text": "918",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "98",
+          "misconceptionCode": "esquece-reserva"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quanto é 23 × 4?",
+        "options": [
+         {
+          "text": "82",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "812",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "27",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         },
+         {
+          "text": "92"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Num auditório, há 12 fileiras com 8 cadeiras em cada uma. Quantas cadeiras há?",
+      "options": [
+       {
+        "text": "20",
+        "misconceptionCode": "soma-em-vez-de-multiplicar"
+       },
+       {
+        "text": "86",
+        "misconceptionCode": "esquece-reserva"
+       },
+       {
+        "text": "16",
+        "misconceptionCode": "multiplica-so-unidade"
+       },
+       {
+        "text": "96"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Fileiras e colunas: 12 × 8. 10 × 8 = 80 e 2 × 8 = 16. 80 + 16 = 96.",
+      "variants": [
+       {
+        "question": "Numa caixa, há 15 fileiras com 6 bombons em cada uma. Quantos bombons há?",
+        "options": [
+         {
+          "text": "21",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         },
+         {
+          "text": "90"
+         },
+         {
+          "text": "80",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "30",
+          "misconceptionCode": "multiplica-so-unidade"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Num auditório, há 12 fileiras com 8 cadeiras em cada uma. Quantas cadeiras há?",
+        "options": [
+         {
+          "text": "96"
+         },
+         {
+          "text": "16",
+          "misconceptionCode": "multiplica-so-unidade"
+         },
+         {
+          "text": "86",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "20",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Se 1 caderno custa 7 reais, quanto custam 6 cadernos?",
+      "options": [
+       {
+        "text": "42 reais"
+       },
+       {
+        "text": "13 reais",
+        "misconceptionCode": "proporcao-por-soma"
+       },
+       {
+        "text": "36 reais",
+        "misconceptionCode": "esquece-reserva"
+       },
+       {
+        "text": "49 reais",
+        "misconceptionCode": "esquece-reserva"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "6 vezes mais cadernos, 6 vezes o preço: 6 × 7 = 42.",
+      "variants": [
+       {
+        "question": "Se 1 pacote tem 8 figurinhas, quantas figurinhas há em 7 pacotes?",
+        "options": [
+         {
+          "text": "15",
+          "misconceptionCode": "proporcao-por-soma"
+         },
+         {
+          "text": "48",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "56"
+         },
+         {
+          "text": "64",
+          "misconceptionCode": "esquece-reserva"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Se 1 caderno custa 7 reais, quanto custam 6 cadernos?",
+        "options": [
+         {
+          "text": "49 reais",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "42 reais"
+         },
+         {
+          "text": "36 reais",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "13 reais",
+          "misconceptionCode": "proporcao-por-soma"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04MA06-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: calculando multiplicações",
+    "prompt": "Não se esqueça da reserva.",
+    "estMinutes": 5,
+    "audioScript": "Não se esqueça da reserva. Pergunta 1. Quanto é 47 × 5? A: 52; B: 235; C: 205; D: 2.035. Pergunta 2. Quanto é 125 × 4? A: 129; B: 480; C: 500; D: 20. Pergunta 3. Quanto é 30 × 20? A: 50; B: 60; C: 6.000; D: 600. Pergunta 4. Uma receita para 4 pessoas leva 3 ovos. Quantos ovos são necessários para 8 pessoas? A: 6; B: 7; C: 11; D: 3.",
+    "questions": [
+     {
+      "question": "Quanto é 47 × 5?",
+      "options": [
+       {
+        "text": "52",
+        "misconceptionCode": "soma-em-vez-de-multiplicar"
+       },
+       {
+        "text": "235"
+       },
+       {
+        "text": "205",
+        "misconceptionCode": "esquece-reserva"
+       },
+       {
+        "text": "2.035",
+        "misconceptionCode": "esquece-reserva"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "7 × 5 = 35: fica 5, vão 3. 4 × 5 = 20, mais 3 = 23. Resultado: 235.",
+      "variants": [
+       {
+        "question": "Quanto é 38 × 6?",
+        "options": [
+         {
+          "text": "44",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         },
+         {
+          "text": "188",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "1.848",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "228"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quanto é 47 × 5?",
+        "options": [
+         {
+          "text": "2.035",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "205",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "235"
+         },
+         {
+          "text": "52",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 125 × 4?",
+      "options": [
+       {
+        "text": "129",
+        "misconceptionCode": "soma-em-vez-de-multiplicar"
+       },
+       {
+        "text": "480",
+        "misconceptionCode": "esquece-reserva"
+       },
+       {
+        "text": "500"
+       },
+       {
+        "text": "20",
+        "misconceptionCode": "multiplica-so-unidade"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "5 × 4 = 20: fica 0, vão 2. 2 × 4 = 8, mais 2 = 10: fica 0, vai 1. 1 × 4 = 4, mais 1 = 5.",
+      "variants": [
+       {
+        "question": "Quanto é 213 × 3?",
+        "options": [
+         {
+          "text": "639"
+         },
+         {
+          "text": "216",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         },
+         {
+          "text": "629",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "9",
+          "misconceptionCode": "multiplica-so-unidade"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quanto é 125 × 4?",
+        "options": [
+         {
+          "text": "20",
+          "misconceptionCode": "multiplica-so-unidade"
+         },
+         {
+          "text": "480",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "129",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         },
+         {
+          "text": "500"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 30 × 20?",
+      "options": [
+       {
+        "text": "50",
+        "misconceptionCode": "soma-em-vez-de-multiplicar"
+       },
+       {
+        "text": "60",
+        "misconceptionCode": "multiplica-so-unidade"
+       },
+       {
+        "text": "6.000",
+        "misconceptionCode": "multiplica-so-unidade"
+       },
+       {
+        "text": "600"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "3 × 2 = 6, e acrescentamos os dois zeros: 600.",
+      "variants": [
+       {
+        "question": "Quanto é 40 × 30?",
+        "options": [
+         {
+          "text": "70",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         },
+         {
+          "text": "1.200"
+         },
+         {
+          "text": "120",
+          "misconceptionCode": "multiplica-so-unidade"
+         },
+         {
+          "text": "12.000",
+          "misconceptionCode": "multiplica-so-unidade"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é 30 × 20?",
+        "options": [
+         {
+          "text": "600"
+         },
+         {
+          "text": "6.000",
+          "misconceptionCode": "multiplica-so-unidade"
+         },
+         {
+          "text": "60",
+          "misconceptionCode": "multiplica-so-unidade"
+         },
+         {
+          "text": "50",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Uma receita para 4 pessoas leva 3 ovos. Quantos ovos são necessários para 8 pessoas?",
+      "options": [
+       {
+        "text": "6"
+       },
+       {
+        "text": "7",
+        "misconceptionCode": "proporcao-por-soma"
+       },
+       {
+        "text": "11",
+        "misconceptionCode": "soma-em-vez-de-multiplicar"
+       },
+       {
+        "text": "3",
+        "misconceptionCode": "multiplica-so-unidade"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Dobrando as pessoas, dobram os ovos: 2 × 3 = 6.",
+      "variants": [
+       {
+        "question": "Uma receita para 2 pessoas leva 5 batatas. Quantas batatas são necessárias para 6 pessoas?",
+        "options": [
+         {
+          "text": "9",
+          "misconceptionCode": "proporcao-por-soma"
+         },
+         {
+          "text": "11",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         },
+         {
+          "text": "15"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "multiplica-so-unidade"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Uma receita para 4 pessoas leva 3 ovos. Quantos ovos são necessários para 8 pessoas?",
+        "options": [
+         {
+          "text": "3",
+          "misconceptionCode": "multiplica-so-unidade"
+         },
+         {
+          "text": "6"
+         },
+         {
+          "text": "11",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         },
+         {
+          "text": "7",
+          "misconceptionCode": "proporcao-por-soma"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04MA06-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: problemas de multiplicação",
+    "prompt": "Descubra que ideia de multiplicação aparece.",
+    "estMinutes": 4,
+    "audioScript": "Descubra que ideia de multiplicação aparece. Pergunta 1. Uma escola comprou 24 caixas de lápis, com 12 lápis em cada uma. Quantos lápis comprou? A: 36; B: 288; C: 72; D: 248. Pergunta 2. Um piso retangular tem 9 fileiras de 14 lajotas. Quantas lajotas tem o piso? A: 23; B: 96; C: 126; D: 36. Pergunta 3. Três quilos de feijão custam 24 reais. Quanto custam 9 quilos? A: 30 reais; B: 33 reais; C: 216 reais; D: 72 reais.",
+    "questions": [
+     {
+      "question": "Uma escola comprou 24 caixas de lápis, com 12 lápis em cada uma. Quantos lápis comprou?",
+      "options": [
+       {
+        "text": "36",
+        "misconceptionCode": "soma-em-vez-de-multiplicar"
+       },
+       {
+        "text": "288"
+       },
+       {
+        "text": "72",
+        "misconceptionCode": "multiplica-so-unidade"
+       },
+       {
+        "text": "248",
+        "misconceptionCode": "esquece-reserva"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "24 × 12 = 24 × 10 + 24 × 2 = 240 + 48 = 288.",
+      "variants": [
+       {
+        "question": "Uma loja recebeu 15 caixas de suco, com 12 garrafas em cada uma. Quantas garrafas recebeu?",
+        "options": [
+         {
+          "text": "27",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         },
+         {
+          "text": "45",
+          "misconceptionCode": "multiplica-so-unidade"
+         },
+         {
+          "text": "150",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "180"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Uma escola comprou 24 caixas de lápis, com 12 lápis em cada uma. Quantos lápis comprou?",
+        "options": [
+         {
+          "text": "248",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "72",
+          "misconceptionCode": "multiplica-so-unidade"
+         },
+         {
+          "text": "288"
+         },
+         {
+          "text": "36",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um piso retangular tem 9 fileiras de 14 lajotas. Quantas lajotas tem o piso?",
+      "options": [
+       {
+        "text": "23",
+        "misconceptionCode": "soma-em-vez-de-multiplicar"
+       },
+       {
+        "text": "96",
+        "misconceptionCode": "esquece-reserva"
+       },
+       {
+        "text": "126"
+       },
+       {
+        "text": "36",
+        "misconceptionCode": "multiplica-so-unidade"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "9 × 14 = 9 × 10 + 9 × 4 = 90 + 36 = 126.",
+      "variants": [
+       {
+        "question": "Um muro tem 8 fileiras de 25 tijolos. Quantos tijolos tem o muro?",
+        "options": [
+         {
+          "text": "200"
+         },
+         {
+          "text": "33",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         },
+         {
+          "text": "160",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "40",
+          "misconceptionCode": "multiplica-so-unidade"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um piso retangular tem 9 fileiras de 14 lajotas. Quantas lajotas tem o piso?",
+        "options": [
+         {
+          "text": "36",
+          "misconceptionCode": "multiplica-so-unidade"
+         },
+         {
+          "text": "96",
+          "misconceptionCode": "esquece-reserva"
+         },
+         {
+          "text": "23",
+          "misconceptionCode": "soma-em-vez-de-multiplicar"
+         },
+         {
+          "text": "126"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Três quilos de feijão custam 24 reais. Quanto custam 9 quilos?",
+      "options": [
+       {
+        "text": "30 reais",
+        "misconceptionCode": "proporcao-por-soma"
+       },
+       {
+        "text": "33 reais",
+        "misconceptionCode": "proporcao-por-soma"
+       },
+       {
+        "text": "216 reais",
+        "misconceptionCode": "multiplica-so-unidade"
+       },
+       {
+        "text": "72 reais"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "9 quilos é o triplo de 3 quilos. O preço também triplica: 3 × 24 = 72.",
+      "variants": [
+       {
+        "question": "Dois quilos de arroz custam 14 reais. Quanto custam 6 quilos?",
+        "options": [
+         {
+          "text": "18 reais",
+          "misconceptionCode": "proporcao-por-soma"
+         },
+         {
+          "text": "42 reais"
+         },
+         {
+          "text": "20 reais",
+          "misconceptionCode": "proporcao-por-soma"
+         },
+         {
+          "text": "84 reais",
+          "misconceptionCode": "multiplica-so-unidade"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Três quilos de feijão custam 24 reais. Quanto custam 9 quilos?",
+        "options": [
+         {
+          "text": "72 reais"
+         },
+         {
+          "text": "216 reais",
+          "misconceptionCode": "multiplica-so-unidade"
+         },
+         {
+          "text": "33 reais",
+          "misconceptionCode": "proporcao-por-soma"
+         },
+         {
+          "text": "30 reais",
+          "misconceptionCode": "proporcao-por-soma"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04MA06-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: multiplicando por partes",
+    "prompt": "Explique com as suas palavras como calcular 34 × 5 separando o 34 em duas partes.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras como calcular 34 × 5 separando o 34 em duas partes.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "decompoe",
+       "description": "Separa 34 em 30 e 4"
+      },
+      {
+       "code": "multiplica",
+       "description": "Calcula 30 × 5 = 150 e 4 × 5 = 20"
+      },
+      {
+       "code": "soma",
+       "description": "Soma e chega a 170"
+      }
+     ],
+     "exemploBoaResposta": "Eu separo o 34 em 30 e 4. Faço 30 × 5, que dá 150, e 4 × 5, que dá 20. Depois somo os dois resultados: 150 + 20 = 170."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF04MA07",
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 4,
+  "version": 1,
+  "title": "Trilha: Divisão com números maiores",
+  "tituloAluno": "Repartir e formar grupos",
+  "activities": [
+   {
+    "id": "PK2-EF04MA07-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: dividir é repartir",
+    "prompt": "No 3º ano, aprendemos a repartir em partes iguais.",
+    "estMinutes": 4,
+    "audioScript": "No 3º ano, aprendemos a repartir em partes iguais. Pergunta 1. Quanto é 24 ÷ 4? A: 6; B: 20; C: 28; D: 8. Pergunta 2. Quanto é 17 ÷ 5? A: 3, sem resto; B: 3, com resto 2; C: 2, com resto 7; D: 12. Pergunta 3. Para conferir uma divisão, usamos: A: A subtração, somente; B: Outra divisão; C: A multiplicação; D: Nada.",
+    "questions": [
+     {
+      "question": "Quanto é 24 ÷ 4?",
+      "options": [
+       {
+        "text": "6"
+       },
+       {
+        "text": "20",
+        "misconceptionCode": "divide-ao-contrario"
+       },
+       {
+        "text": "28",
+        "misconceptionCode": "divide-ao-contrario"
+       },
+       {
+        "text": "8",
+        "misconceptionCode": "resto-maior"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "4 × 6 = 24.",
+      "variants": [
+       {
+        "question": "Quanto é 35 ÷ 5?",
+        "options": [
+         {
+          "text": "30",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "40",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "7"
+         },
+         {
+          "text": "6",
+          "misconceptionCode": "resto-maior"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quanto é 24 ÷ 4?",
+        "options": [
+         {
+          "text": "8",
+          "misconceptionCode": "resto-maior"
+         },
+         {
+          "text": "6"
+         },
+         {
+          "text": "28",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "20",
+          "misconceptionCode": "divide-ao-contrario"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 17 ÷ 5?",
+      "options": [
+       {
+        "text": "3, sem resto",
+        "misconceptionCode": "ignora-o-resto"
+       },
+       {
+        "text": "3, com resto 2"
+       },
+       {
+        "text": "2, com resto 7",
+        "misconceptionCode": "resto-maior"
+       },
+       {
+        "text": "12",
+        "misconceptionCode": "divide-ao-contrario"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "5 × 3 = 15. De 17, sobram 2. O resto tem de ser menor que 5.",
+      "variants": [
+       {
+        "question": "Quanto é 22 ÷ 4?",
+        "options": [
+         {
+          "text": "5, sem resto",
+          "misconceptionCode": "ignora-o-resto"
+         },
+         {
+          "text": "4, com resto 6",
+          "misconceptionCode": "resto-maior"
+         },
+         {
+          "text": "18",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "5, com resto 2"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quanto é 17 ÷ 5?",
+        "options": [
+         {
+          "text": "12",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "2, com resto 7",
+          "misconceptionCode": "resto-maior"
+         },
+         {
+          "text": "3, com resto 2"
+         },
+         {
+          "text": "3, sem resto",
+          "misconceptionCode": "ignora-o-resto"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Para conferir uma divisão, usamos:",
+      "options": [
+       {
+        "text": "A subtração, somente",
+        "misconceptionCode": "divide-ao-contrario"
+       },
+       {
+        "text": "Outra divisão",
+        "misconceptionCode": "divide-ao-contrario"
+       },
+       {
+        "text": "A multiplicação"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "ignora-o-resto"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Se 24 ÷ 4 = 6, então 6 × 4 = 24.",
+      "variants": [
+       {
+        "question": "Se 6 × 7 = 42, então 42 ÷ 7 é:",
+        "options": [
+         {
+          "text": "6"
+         },
+         {
+          "text": "7",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "35",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "49",
+          "misconceptionCode": "ignora-o-resto"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Para conferir uma divisão, usamos:",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "ignora-o-resto"
+         },
+         {
+          "text": "Outra divisão",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "A subtração, somente",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "A multiplicação"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04MA07-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: dividindo por partes",
+    "prompt": "Para dividir 84 por 4, dividimos primeiro as dezenas e depois as unidades. 8 dezenas ÷ 4 = 2 dezenas. 4 unidades ÷ 4 = 1 unidade. Resultado: 21. Vamos fazer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Para dividir 84 por 4, dividimos primeiro as dezenas e depois as unidades. 8 dezenas ÷ 4 = 2 dezenas. 4 unidades ÷ 4 = 1 unidade. Resultado: 21. Vamos fazer juntos. Pergunta 1. Quanto é 84 ÷ 4? A: 80; B: 12; C: 2; D: 21. Pergunta 2. Quanto é 75 ÷ 5? A: 15; B: 70; C: 11; D: 10, com resto 25. Pergunta 3. Quanto é 408 ÷ 4? A: 12; B: 102; C: 120; D: 404.",
+    "questions": [
+     {
+      "question": "Quanto é 84 ÷ 4?",
+      "options": [
+       {
+        "text": "80",
+        "misconceptionCode": "divide-ao-contrario"
+       },
+       {
+        "text": "12",
+        "misconceptionCode": "divide-ao-contrario"
+       },
+       {
+        "text": "2",
+        "misconceptionCode": "esquece-zero-quociente"
+       },
+       {
+        "text": "21"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "8 ÷ 4 = 2 e 4 ÷ 4 = 1. Conferindo: 21 × 4 = 84.",
+      "variants": [
+       {
+        "question": "Quanto é 96 ÷ 3?",
+        "options": [
+         {
+          "text": "93",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "32"
+         },
+         {
+          "text": "23",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "3",
+          "misconceptionCode": "esquece-zero-quociente"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é 84 ÷ 4?",
+        "options": [
+         {
+          "text": "21"
+         },
+         {
+          "text": "2",
+          "misconceptionCode": "esquece-zero-quociente"
+         },
+         {
+          "text": "12",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "80",
+          "misconceptionCode": "divide-ao-contrario"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 75 ÷ 5?",
+      "options": [
+       {
+        "text": "15"
+       },
+       {
+        "text": "70",
+        "misconceptionCode": "divide-ao-contrario"
+       },
+       {
+        "text": "11",
+        "misconceptionCode": "esquece-zero-quociente"
+       },
+       {
+        "text": "10, com resto 25",
+        "misconceptionCode": "resto-maior"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "7 dezenas ÷ 5 = 1 dezena, e sobram 2 dezenas. 25 unidades ÷ 5 = 5. Resultado: 15.",
+      "variants": [
+       {
+        "question": "Quanto é 92 ÷ 4?",
+        "options": [
+         {
+          "text": "88",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "20, com resto 12",
+          "misconceptionCode": "esquece-zero-quociente"
+         },
+         {
+          "text": "23"
+         },
+         {
+          "text": "21",
+          "misconceptionCode": "resto-maior"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quanto é 75 ÷ 5?",
+        "options": [
+         {
+          "text": "10, com resto 25",
+          "misconceptionCode": "resto-maior"
+         },
+         {
+          "text": "15"
+         },
+         {
+          "text": "11",
+          "misconceptionCode": "esquece-zero-quociente"
+         },
+         {
+          "text": "70",
+          "misconceptionCode": "divide-ao-contrario"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 408 ÷ 4?",
+      "options": [
+       {
+        "text": "12",
+        "misconceptionCode": "esquece-zero-quociente"
+       },
+       {
+        "text": "102"
+       },
+       {
+        "text": "120",
+        "misconceptionCode": "esquece-zero-quociente"
+       },
+       {
+        "text": "404",
+        "misconceptionCode": "divide-ao-contrario"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "4 centenas ÷ 4 = 1. 0 dezenas ÷ 4 = 0. 8 unidades ÷ 4 = 2. O zero do meio precisa aparecer: 102.",
+      "variants": [
+       {
+        "question": "Quanto é 615 ÷ 3?",
+        "options": [
+         {
+          "text": "25",
+          "misconceptionCode": "esquece-zero-quociente"
+         },
+         {
+          "text": "250",
+          "misconceptionCode": "esquece-zero-quociente"
+         },
+         {
+          "text": "612",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "205"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quanto é 408 ÷ 4?",
+        "options": [
+         {
+          "text": "404",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "120",
+          "misconceptionCode": "esquece-zero-quociente"
+         },
+         {
+          "text": "102"
+         },
+         {
+          "text": "12",
+          "misconceptionCode": "esquece-zero-quociente"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04MA07-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: divisões e restos",
+    "prompt": "Confira sempre com a multiplicação.",
+    "estMinutes": 5,
+    "audioScript": "Confira sempre com a multiplicação. Pergunta 1. Quanto é 135 ÷ 5? A: 130; B: 25, com resto 10; C: 27; D: 207. Pergunta 2. Quanto é 250 ÷ 10? A: 240; B: 2.500; C: 2; D: 25. Pergunta 3. Quanto é 96 ÷ 12? A: 8; B: 84; C: 6, com resto 24; D: 80. Pergunta 4. Numa divisão por 6, qual destes restos é impossível? A: 0; B: 7; C: 3; D: 5.",
+    "questions": [
+     {
+      "question": "Quanto é 135 ÷ 5?",
+      "options": [
+       {
+        "text": "130",
+        "misconceptionCode": "divide-ao-contrario"
+       },
+       {
+        "text": "25, com resto 10",
+        "misconceptionCode": "resto-maior"
+       },
+       {
+        "text": "27"
+       },
+       {
+        "text": "207",
+        "misconceptionCode": "esquece-zero-quociente"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "13 dezenas ÷ 5 = 2 dezenas, sobram 3. 35 ÷ 5 = 7. Conferindo: 27 × 5 = 135.",
+      "variants": [
+       {
+        "question": "Quanto é 144 ÷ 6?",
+        "options": [
+         {
+          "text": "24"
+         },
+         {
+          "text": "138",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "22, com resto 12",
+          "misconceptionCode": "resto-maior"
+         },
+         {
+          "text": "204",
+          "misconceptionCode": "esquece-zero-quociente"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quanto é 135 ÷ 5?",
+        "options": [
+         {
+          "text": "207",
+          "misconceptionCode": "esquece-zero-quociente"
+         },
+         {
+          "text": "25, com resto 10",
+          "misconceptionCode": "resto-maior"
+         },
+         {
+          "text": "130",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "27"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 250 ÷ 10?",
+      "options": [
+       {
+        "text": "240",
+        "misconceptionCode": "divide-ao-contrario"
+       },
+       {
+        "text": "2.500",
+        "misconceptionCode": "divide-ao-contrario"
+       },
+       {
+        "text": "2",
+        "misconceptionCode": "esquece-zero-quociente"
+       },
+       {
+        "text": "25"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Dividir por 10 é tirar um zero: 250 ÷ 10 = 25.",
+      "variants": [
+       {
+        "question": "Quanto é 480 ÷ 10?",
+        "options": [
+         {
+          "text": "470",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "48"
+         },
+         {
+          "text": "4.800",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "4",
+          "misconceptionCode": "esquece-zero-quociente"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é 250 ÷ 10?",
+        "options": [
+         {
+          "text": "25"
+         },
+         {
+          "text": "2",
+          "misconceptionCode": "esquece-zero-quociente"
+         },
+         {
+          "text": "2.500",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "240",
+          "misconceptionCode": "divide-ao-contrario"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 96 ÷ 12?",
+      "options": [
+       {
+        "text": "8"
+       },
+       {
+        "text": "84",
+        "misconceptionCode": "divide-ao-contrario"
+       },
+       {
+        "text": "6, com resto 24",
+        "misconceptionCode": "resto-maior"
+       },
+       {
+        "text": "80",
+        "misconceptionCode": "esquece-zero-quociente"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Quantas vezes o 12 cabe em 96? 12 × 8 = 96.",
+      "variants": [
+       {
+        "question": "Quanto é 75 ÷ 15?",
+        "options": [
+         {
+          "text": "60",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "3, com resto 30",
+          "misconceptionCode": "resto-maior"
+         },
+         {
+          "text": "5"
+         },
+         {
+          "text": "50",
+          "misconceptionCode": "esquece-zero-quociente"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quanto é 96 ÷ 12?",
+        "options": [
+         {
+          "text": "80",
+          "misconceptionCode": "esquece-zero-quociente"
+         },
+         {
+          "text": "8"
+         },
+         {
+          "text": "6, com resto 24",
+          "misconceptionCode": "resto-maior"
+         },
+         {
+          "text": "84",
+          "misconceptionCode": "divide-ao-contrario"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Numa divisão por 6, qual destes restos é impossível?",
+      "options": [
+       {
+        "text": "0",
+        "misconceptionCode": "resto-maior"
+       },
+       {
+        "text": "7"
+       },
+       {
+        "text": "3",
+        "misconceptionCode": "resto-maior"
+       },
+       {
+        "text": "5",
+        "misconceptionCode": "resto-maior"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O resto é sempre menor que o divisor. Se sobram 7, ainda dá para formar mais um grupo de 6.",
+      "variants": [
+       {
+        "question": "Numa divisão por 4, qual destes restos é impossível?",
+        "options": [
+         {
+          "text": "0",
+          "misconceptionCode": "resto-maior"
+         },
+         {
+          "text": "2",
+          "misconceptionCode": "resto-maior"
+         },
+         {
+          "text": "3",
+          "misconceptionCode": "resto-maior"
+         },
+         {
+          "text": "4"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Numa divisão por 6, qual destes restos é impossível?",
+        "options": [
+         {
+          "text": "5",
+          "misconceptionCode": "resto-maior"
+         },
+         {
+          "text": "3",
+          "misconceptionCode": "resto-maior"
+         },
+         {
+          "text": "7"
+         },
+         {
+          "text": "0",
+          "misconceptionCode": "resto-maior"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04MA07-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: problemas de divisão",
+    "prompt": "O que fazer com o que sobra?",
+    "estMinutes": 4,
+    "audioScript": "O que fazer com o que sobra? Pergunta 1. Uma professora tem 120 folhas para distribuir igualmente entre 8 grupos. Quantas folhas cada grupo recebe? A: 112; B: 128; C: 15; D: 105. Pergunta 2. Um ônibus leva 40 pessoas. Quantos ônibus são necessários para levar 130 alunos a um passeio? A: 3; B: 90; C: 3, e 10 alunos ficam; D: 4. Pergunta 3. Uma costureira tem 50 metros de fita e usa 6 metros em cada vestido. Quantos vestidos completos ela consegue enfeitar? A: 8; B: 9; C: 44; D: 300.",
+    "questions": [
+     {
+      "question": "Uma professora tem 120 folhas para distribuir igualmente entre 8 grupos. Quantas folhas cada grupo recebe?",
+      "options": [
+       {
+        "text": "112",
+        "misconceptionCode": "divide-ao-contrario"
+       },
+       {
+        "text": "128",
+        "misconceptionCode": "divide-ao-contrario"
+       },
+       {
+        "text": "15"
+       },
+       {
+        "text": "105",
+        "misconceptionCode": "esquece-zero-quociente"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "120 ÷ 8 = 15. Conferindo: 15 × 8 = 120.",
+      "variants": [
+       {
+        "question": "Um agricultor tem 180 mudas para plantar igualmente em 9 canteiros. Quantas mudas ficam em cada canteiro?",
+        "options": [
+         {
+          "text": "20"
+         },
+         {
+          "text": "171",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "189",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "2",
+          "misconceptionCode": "esquece-zero-quociente"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Uma professora tem 120 folhas para distribuir igualmente entre 8 grupos. Quantas folhas cada grupo recebe?",
+        "options": [
+         {
+          "text": "105",
+          "misconceptionCode": "esquece-zero-quociente"
+         },
+         {
+          "text": "128",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "112",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "15"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Um ônibus leva 40 pessoas. Quantos ônibus são necessários para levar 130 alunos a um passeio?",
+      "options": [
+       {
+        "text": "3",
+        "misconceptionCode": "ignora-o-resto"
+       },
+       {
+        "text": "90",
+        "misconceptionCode": "divide-ao-contrario"
+       },
+       {
+        "text": "3, e 10 alunos ficam",
+        "misconceptionCode": "ignora-o-resto"
+       },
+       {
+        "text": "4"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "3 ônibus levam 120 alunos. Sobram 10, que também precisam ir. São necessários 4 ônibus.",
+      "variants": [
+       {
+        "question": "Uma caixa guarda 12 ovos. Quantas caixas são necessárias para guardar 50 ovos?",
+        "options": [
+         {
+          "text": "4",
+          "misconceptionCode": "ignora-o-resto"
+         },
+         {
+          "text": "5"
+         },
+         {
+          "text": "38",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "4, e 2 ovos ficam de fora",
+          "misconceptionCode": "ignora-o-resto"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um ônibus leva 40 pessoas. Quantos ônibus são necessários para levar 130 alunos a um passeio?",
+        "options": [
+         {
+          "text": "4"
+         },
+         {
+          "text": "3, e 10 alunos ficam",
+          "misconceptionCode": "ignora-o-resto"
+         },
+         {
+          "text": "90",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "3",
+          "misconceptionCode": "ignora-o-resto"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Uma costureira tem 50 metros de fita e usa 6 metros em cada vestido. Quantos vestidos completos ela consegue enfeitar?",
+      "options": [
+       {
+        "text": "8"
+       },
+       {
+        "text": "9",
+        "misconceptionCode": "ignora-o-resto"
+       },
+       {
+        "text": "44",
+        "misconceptionCode": "divide-ao-contrario"
+       },
+       {
+        "text": "300",
+        "misconceptionCode": "divide-ao-contrario"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "6 × 8 = 48. Sobram 2 metros, que não dão para outro vestido. São 8 vestidos.",
+      "variants": [
+       {
+        "question": "Um marceneiro tem 70 parafusos e usa 8 em cada banco. Quantos bancos completos ele consegue montar?",
+        "options": [
+         {
+          "text": "9",
+          "misconceptionCode": "ignora-o-resto"
+         },
+         {
+          "text": "62",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "8"
+         },
+         {
+          "text": "560",
+          "misconceptionCode": "divide-ao-contrario"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Uma costureira tem 50 metros de fita e usa 6 metros em cada vestido. Quantos vestidos completos ela consegue enfeitar?",
+        "options": [
+         {
+          "text": "300",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "8"
+         },
+         {
+          "text": "44",
+          "misconceptionCode": "divide-ao-contrario"
+         },
+         {
+          "text": "9",
+          "misconceptionCode": "ignora-o-resto"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04MA07-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: o que fazer com o resto",
+    "prompt": "Leia: \"Cada carro leva 5 pessoas. Quantos carros são necessários para levar 23 pessoas?\" Explique com as suas palavras como resolver e por que a resposta não é 4.",
+    "estMinutes": 6,
+    "audioScript": "Leia: \"Cada carro leva 5 pessoas. Quantos carros são necessários para levar 23 pessoas?\" Explique com as suas palavras como resolver e por que a resposta não é 4.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "divisao",
+       "description": "Faz 23 ÷ 5 = 4, com resto 3"
+      },
+      {
+       "code": "resto",
+       "description": "Explica que as 3 pessoas que sobram também precisam de carro"
+      },
+      {
+       "code": "resposta",
+       "description": "Conclui que são 5 carros"
+      }
+     ],
+     "exemploBoaResposta": "Eu divido 23 por 5. Dá 4 e sobram 3. Quatro carros levam só 20 pessoas, e ainda faltam 3 pessoas, que também precisam ir. Por isso é preciso mais um carro. A resposta é 5 carros."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF04MA10",
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 4,
+  "version": 1,
+  "title": "Trilha: Décimos, centésimos e o nosso dinheiro",
+  "tituloAluno": "Números com vírgula",
+  "activities": [
+   {
+    "id": "PK2-EF04MA10-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: nosso dinheiro",
+    "prompt": "O dinheiro do Brasil é o real.",
+    "estMinutes": 4,
+    "audioScript": "O dinheiro do Brasil é o real. Pergunta 1. Quantos centavos formam 1 real? A: 10; B: 1.000; C: 100; D: 50. Pergunta 2. Quantas moedas de 10 centavos formam 1 real? A: 1; B: 100; C: 5; D: 10. Pergunta 3. Como se lê R$ 3,50? A: Três reais e cinquenta centavos; B: Trezentos e cinquenta reais; C: Três reais e cinco centavos; D: Trinta e cinco reais.",
+    "questions": [
+     {
+      "question": "Quantos centavos formam 1 real?",
+      "options": [
+       {
+        "text": "10",
+        "misconceptionCode": "decimo-e-centesimo"
+       },
+       {
+        "text": "1.000",
+        "misconceptionCode": "centavo-como-real"
+       },
+       {
+        "text": "100"
+       },
+       {
+        "text": "50",
+        "misconceptionCode": "centavo-como-real"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "1 real vale 100 centavos.",
+      "variants": [
+       {
+        "question": "Quantas moedas de 50 centavos formam 1 real?",
+        "options": [
+         {
+          "text": "2"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "decimo-e-centesimo"
+         },
+         {
+          "text": "50",
+          "misconceptionCode": "centavo-como-real"
+         },
+         {
+          "text": "10",
+          "misconceptionCode": "centavo-como-real"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quantos centavos formam 1 real?",
+        "options": [
+         {
+          "text": "50",
+          "misconceptionCode": "centavo-como-real"
+         },
+         {
+          "text": "1.000",
+          "misconceptionCode": "centavo-como-real"
+         },
+         {
+          "text": "10",
+          "misconceptionCode": "decimo-e-centesimo"
+         },
+         {
+          "text": "100"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quantas moedas de 10 centavos formam 1 real?",
+      "options": [
+       {
+        "text": "1",
+        "misconceptionCode": "centavo-como-real"
+       },
+       {
+        "text": "100",
+        "misconceptionCode": "decimo-e-centesimo"
+       },
+       {
+        "text": "5",
+        "misconceptionCode": "centavo-como-real"
+       },
+       {
+        "text": "10"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "10 × 10 centavos = 100 centavos = 1 real.",
+      "variants": [
+       {
+        "question": "Quantas moedas de 25 centavos formam 1 real?",
+        "options": [
+         {
+          "text": "25",
+          "misconceptionCode": "centavo-como-real"
+         },
+         {
+          "text": "4"
+         },
+         {
+          "text": "2",
+          "misconceptionCode": "decimo-e-centesimo"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "centavo-como-real"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quantas moedas de 10 centavos formam 1 real?",
+        "options": [
+         {
+          "text": "10"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "centavo-como-real"
+         },
+         {
+          "text": "100",
+          "misconceptionCode": "decimo-e-centesimo"
+         },
+         {
+          "text": "1",
+          "misconceptionCode": "centavo-como-real"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Como se lê R$ 3,50?",
+      "options": [
+       {
+        "text": "Três reais e cinquenta centavos"
+       },
+       {
+        "text": "Trezentos e cinquenta reais",
+        "misconceptionCode": "virgula-ignorada"
+       },
+       {
+        "text": "Três reais e cinco centavos",
+        "misconceptionCode": "decimo-e-centesimo"
+       },
+       {
+        "text": "Trinta e cinco reais",
+        "misconceptionCode": "virgula-ignorada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Antes da vírgula ficam os reais. Depois, os centavos.",
+      "variants": [
+       {
+        "question": "Como se lê R$ 7,25?",
+        "options": [
+         {
+          "text": "Setecentos e vinte e cinco reais",
+          "misconceptionCode": "virgula-ignorada"
+         },
+         {
+          "text": "Sete reais e dois centavos",
+          "misconceptionCode": "decimo-e-centesimo"
+         },
+         {
+          "text": "Sete reais e vinte e cinco centavos"
+         },
+         {
+          "text": "Setenta e dois reais",
+          "misconceptionCode": "virgula-ignorada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Como se lê R$ 3,50?",
+        "options": [
+         {
+          "text": "Trinta e cinco reais",
+          "misconceptionCode": "virgula-ignorada"
+         },
+         {
+          "text": "Três reais e cinquenta centavos"
+         },
+         {
+          "text": "Três reais e cinco centavos",
+          "misconceptionCode": "decimo-e-centesimo"
+         },
+         {
+          "text": "Trezentos e cinquenta reais",
+          "misconceptionCode": "virgula-ignorada"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04MA10-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: décimos e centésimos",
+    "prompt": "Dividindo 1 inteiro em 10 partes iguais, cada parte é um décimo: 0,1. Dividindo em 100 partes iguais, cada parte é um centésimo: 0,01. A moeda de 10 centavos é um décimo do real, e a de 1 centavo é um centésimo. Vamos ver juntos.",
+    "estMinutes": 4,
+    "audioScript": "Dividindo 1 inteiro em 10 partes iguais, cada parte é um décimo: 0,1. Dividindo em 100 partes iguais, cada parte é um centésimo: 0,01. A moeda de 10 centavos é um décimo do real, e a de 1 centavo é um centésimo. Vamos ver juntos. Pergunta 1. A moeda de 10 centavos, escrita em reais, é: A: R$ 10,00; B: R$ 0,10; C: R$ 0,01; D: R$ 1,00. Pergunta 2. Qual é maior: 0,5 ou 0,05? A: 0,05; B: São iguais; C: 0,5; D: Não dá para comparar. Pergunta 3. O número 0,7 é o mesmo que: A: 0,07; B: 7; C: 70; D: 0,70.",
+    "questions": [
+     {
+      "question": "A moeda de 10 centavos, escrita em reais, é:",
+      "options": [
+       {
+        "text": "R$ 10,00",
+        "misconceptionCode": "virgula-ignorada"
+       },
+       {
+        "text": "R$ 0,10"
+       },
+       {
+        "text": "R$ 0,01",
+        "misconceptionCode": "decimo-e-centesimo"
+       },
+       {
+        "text": "R$ 1,00",
+        "misconceptionCode": "centavo-como-real"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "10 centavos são um décimo do real: 0,10.",
+      "variants": [
+       {
+        "question": "A moeda de 5 centavos, escrita em reais, é:",
+        "options": [
+         {
+          "text": "R$ 5,00",
+          "misconceptionCode": "virgula-ignorada"
+         },
+         {
+          "text": "R$ 0,50",
+          "misconceptionCode": "decimo-e-centesimo"
+         },
+         {
+          "text": "R$ 0,5",
+          "misconceptionCode": "centavo-como-real"
+         },
+         {
+          "text": "R$ 0,05"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A moeda de 10 centavos, escrita em reais, é:",
+        "options": [
+         {
+          "text": "R$ 1,00",
+          "misconceptionCode": "centavo-como-real"
+         },
+         {
+          "text": "R$ 0,01",
+          "misconceptionCode": "decimo-e-centesimo"
+         },
+         {
+          "text": "R$ 0,10"
+         },
+         {
+          "text": "R$ 10,00",
+          "misconceptionCode": "virgula-ignorada"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual é maior: 0,5 ou 0,05?",
+      "options": [
+       {
+        "text": "0,05",
+        "misconceptionCode": "mais-casas-e-maior"
+       },
+       {
+        "text": "São iguais",
+        "misconceptionCode": "decimo-e-centesimo"
+       },
+       {
+        "text": "0,5"
+       },
+       {
+        "text": "Não dá para comparar",
+        "misconceptionCode": "virgula-ignorada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "0,5 são 5 décimos, como 50 centavos. 0,05 são 5 centésimos, como 5 centavos.",
+      "variants": [
+       {
+        "question": "Qual é maior: 0,3 ou 0,03?",
+        "options": [
+         {
+          "text": "0,3"
+         },
+         {
+          "text": "0,03",
+          "misconceptionCode": "mais-casas-e-maior"
+         },
+         {
+          "text": "São iguais",
+          "misconceptionCode": "decimo-e-centesimo"
+         },
+         {
+          "text": "Não dá para comparar",
+          "misconceptionCode": "virgula-ignorada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual é maior: 0,5 ou 0,05?",
+        "options": [
+         {
+          "text": "Não dá para comparar",
+          "misconceptionCode": "virgula-ignorada"
+         },
+         {
+          "text": "São iguais",
+          "misconceptionCode": "decimo-e-centesimo"
+         },
+         {
+          "text": "0,05",
+          "misconceptionCode": "mais-casas-e-maior"
+         },
+         {
+          "text": "0,5"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O número 0,7 é o mesmo que:",
+      "options": [
+       {
+        "text": "0,07",
+        "misconceptionCode": "decimo-e-centesimo"
+       },
+       {
+        "text": "7",
+        "misconceptionCode": "virgula-ignorada"
+       },
+       {
+        "text": "70",
+        "misconceptionCode": "virgula-ignorada"
+       },
+       {
+        "text": "0,70"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "7 décimos são o mesmo que 70 centésimos. Como 70 centavos.",
+      "variants": [
+       {
+        "question": "O número 0,4 é o mesmo que:",
+        "options": [
+         {
+          "text": "0,04",
+          "misconceptionCode": "decimo-e-centesimo"
+         },
+         {
+          "text": "0,40"
+         },
+         {
+          "text": "4",
+          "misconceptionCode": "virgula-ignorada"
+         },
+         {
+          "text": "40",
+          "misconceptionCode": "virgula-ignorada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O número 0,7 é o mesmo que:",
+        "options": [
+         {
+          "text": "0,70"
+         },
+         {
+          "text": "70",
+          "misconceptionCode": "virgula-ignorada"
+         },
+         {
+          "text": "7",
+          "misconceptionCode": "virgula-ignorada"
+         },
+         {
+          "text": "0,07",
+          "misconceptionCode": "decimo-e-centesimo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04MA10-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: comparando e calculando",
+    "prompt": "Olhe primeiro a parte inteira, depois os décimos e os centésimos.",
+    "estMinutes": 5,
+    "audioScript": "Olhe primeiro a parte inteira, depois os décimos e os centésimos. Pergunta 1. Qual é maior: 2,5 ou 2,35? A: 2,5; B: 2,35; C: São iguais; D: Não dá para comparar. Pergunta 2. Qual é a ordem do menor para o maior? A: 1,2; 0,5; 0,09; B: 0,09; 0,5; 1,2; C: 0,5; 0,09; 1,2; D: 0,09; 1,2; 0,5. Pergunta 3. Quanto é R$ 2,50 + R$ 1,75? A: R$ 3,125; B: R$ 3,25; C: R$ 4,25; D: R$ 425,00. Pergunta 4. Quanto é R$ 5,00 − R$ 3,20? A: R$ 2,20; B: R$ 2,80; C: R$ 8,20; D: R$ 1,80.",
+    "questions": [
+     {
+      "question": "Qual é maior: 2,5 ou 2,35?",
+      "options": [
+       {
+        "text": "2,5"
+       },
+       {
+        "text": "2,35",
+        "misconceptionCode": "mais-casas-e-maior"
+       },
+       {
+        "text": "São iguais",
+        "misconceptionCode": "decimo-e-centesimo"
+       },
+       {
+        "text": "Não dá para comparar",
+        "misconceptionCode": "virgula-ignorada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "2,5 é o mesmo que 2,50. E 2,50 é maior que 2,35.",
+      "variants": [
+       {
+        "question": "Qual é maior: 1,8 ou 1,75?",
+        "options": [
+         {
+          "text": "1,75",
+          "misconceptionCode": "mais-casas-e-maior"
+         },
+         {
+          "text": "São iguais",
+          "misconceptionCode": "decimo-e-centesimo"
+         },
+         {
+          "text": "1,8"
+         },
+         {
+          "text": "Não dá para comparar",
+          "misconceptionCode": "virgula-ignorada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual é maior: 2,5 ou 2,35?",
+        "options": [
+         {
+          "text": "Não dá para comparar",
+          "misconceptionCode": "virgula-ignorada"
+         },
+         {
+          "text": "2,5"
+         },
+         {
+          "text": "São iguais",
+          "misconceptionCode": "decimo-e-centesimo"
+         },
+         {
+          "text": "2,35",
+          "misconceptionCode": "mais-casas-e-maior"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual é a ordem do menor para o maior?",
+      "options": [
+       {
+        "text": "1,2; 0,5; 0,09",
+        "misconceptionCode": "mais-casas-e-maior"
+       },
+       {
+        "text": "0,09; 0,5; 1,2"
+       },
+       {
+        "text": "0,5; 0,09; 1,2",
+        "misconceptionCode": "decimo-e-centesimo"
+       },
+       {
+        "text": "0,09; 1,2; 0,5",
+        "misconceptionCode": "virgula-ignorada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "0,09 são 9 centésimos; 0,5 são 50 centésimos; 1,2 passa de 1 inteiro.",
+      "variants": [
+       {
+        "question": "Qual é a ordem do menor para o maior?",
+        "options": [
+         {
+          "text": "2,1; 0,6; 0,08",
+          "misconceptionCode": "mais-casas-e-maior"
+         },
+         {
+          "text": "0,6; 0,08; 2,1",
+          "misconceptionCode": "decimo-e-centesimo"
+         },
+         {
+          "text": "0,08; 2,1; 0,6",
+          "misconceptionCode": "virgula-ignorada"
+         },
+         {
+          "text": "0,08; 0,6; 2,1"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual é a ordem do menor para o maior?",
+        "options": [
+         {
+          "text": "0,09; 1,2; 0,5",
+          "misconceptionCode": "virgula-ignorada"
+         },
+         {
+          "text": "0,5; 0,09; 1,2",
+          "misconceptionCode": "decimo-e-centesimo"
+         },
+         {
+          "text": "0,09; 0,5; 1,2"
+         },
+         {
+          "text": "1,2; 0,5; 0,09",
+          "misconceptionCode": "mais-casas-e-maior"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Quanto é R$ 2,50 + R$ 1,75?",
+      "options": [
+       {
+        "text": "R$ 3,125",
+        "misconceptionCode": "centavo-como-real"
+       },
+       {
+        "text": "R$ 3,25",
+        "misconceptionCode": "centavo-como-real"
+       },
+       {
+        "text": "R$ 4,25"
+       },
+       {
+        "text": "R$ 425,00",
+        "misconceptionCode": "virgula-ignorada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "50 + 75 centavos = 125 centavos = 1 real e 25 centavos. 2 + 1 + 1 = 4 reais. Total: 4,25.",
+      "variants": [
+       {
+        "question": "Quanto é R$ 3,80 + R$ 2,40?",
+        "options": [
+         {
+          "text": "R$ 6,20"
+         },
+         {
+          "text": "R$ 5,120",
+          "misconceptionCode": "centavo-como-real"
+         },
+         {
+          "text": "R$ 5,20",
+          "misconceptionCode": "centavo-como-real"
+         },
+         {
+          "text": "R$ 620,00",
+          "misconceptionCode": "virgula-ignorada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quanto é R$ 2,50 + R$ 1,75?",
+        "options": [
+         {
+          "text": "R$ 425,00",
+          "misconceptionCode": "virgula-ignorada"
+         },
+         {
+          "text": "R$ 3,25",
+          "misconceptionCode": "centavo-como-real"
+         },
+         {
+          "text": "R$ 3,125",
+          "misconceptionCode": "centavo-como-real"
+         },
+         {
+          "text": "R$ 4,25"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quanto é R$ 5,00 − R$ 3,20?",
+      "options": [
+       {
+        "text": "R$ 2,20",
+        "misconceptionCode": "centavo-como-real"
+       },
+       {
+        "text": "R$ 2,80",
+        "misconceptionCode": "centavo-como-real"
+       },
+       {
+        "text": "R$ 8,20",
+        "misconceptionCode": "virgula-ignorada"
+       },
+       {
+        "text": "R$ 1,80"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "De 3,20 para 4,00 faltam 0,80. De 4,00 para 5,00, mais 1,00. Total: 1,80.",
+      "variants": [
+       {
+        "question": "Quanto é R$ 10,00 − R$ 6,50?",
+        "options": [
+         {
+          "text": "R$ 4,50",
+          "misconceptionCode": "centavo-como-real"
+         },
+         {
+          "text": "R$ 3,50"
+         },
+         {
+          "text": "R$ 4,00",
+          "misconceptionCode": "centavo-como-real"
+         },
+         {
+          "text": "R$ 16,50",
+          "misconceptionCode": "virgula-ignorada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é R$ 5,00 − R$ 3,20?",
+        "options": [
+         {
+          "text": "R$ 1,80"
+         },
+         {
+          "text": "R$ 8,20",
+          "misconceptionCode": "virgula-ignorada"
+         },
+         {
+          "text": "R$ 2,80",
+          "misconceptionCode": "centavo-como-real"
+         },
+         {
+          "text": "R$ 2,20",
+          "misconceptionCode": "centavo-como-real"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04MA10-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: compras e troco",
+    "prompt": "Use o que aprendeu no dia a dia.",
+    "estMinutes": 4,
+    "audioScript": "Use o que aprendeu no dia a dia. Pergunta 1. Um suco custa R$ 4,50 e um salgado custa R$ 3,75. Quanto custam os dois? A: R$ 8,25; B: R$ 7,125; C: R$ 7,25; D: R$ 825,00. Pergunta 2. Você compra um lanche de R$ 7,30 e paga com uma nota de R$ 10,00. Qual é o troco? A: R$ 3,30; B: R$ 2,70; C: R$ 3,70; D: R$ 17,30. Pergunta 3. No mercado, o pacote A custa R$ 3,9 e o pacote B custa R$ 3,85. Qual é o mais barato? A: O pacote A; B: Custam o mesmo; C: O pacote B; D: Não dá para saber.",
+    "questions": [
+     {
+      "question": "Um suco custa R$ 4,50 e um salgado custa R$ 3,75. Quanto custam os dois?",
+      "options": [
+       {
+        "text": "R$ 8,25"
+       },
+       {
+        "text": "R$ 7,125",
+        "misconceptionCode": "centavo-como-real"
+       },
+       {
+        "text": "R$ 7,25",
+        "misconceptionCode": "centavo-como-real"
+       },
+       {
+        "text": "R$ 825,00",
+        "misconceptionCode": "virgula-ignorada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "4,50 + 3,75: 50 + 75 centavos = 1,25. 4 + 3 + 1 = 8. Total: 8,25.",
+      "variants": [
+       {
+        "question": "Uma caneta custa R$ 2,80 e uma borracha custa R$ 1,50. Quanto custam as duas?",
+        "options": [
+         {
+          "text": "R$ 3,130",
+          "misconceptionCode": "centavo-como-real"
+         },
+         {
+          "text": "R$ 3,30",
+          "misconceptionCode": "centavo-como-real"
+         },
+         {
+          "text": "R$ 4,30"
+         },
+         {
+          "text": "R$ 430,00",
+          "misconceptionCode": "virgula-ignorada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um suco custa R$ 4,50 e um salgado custa R$ 3,75. Quanto custam os dois?",
+        "options": [
+         {
+          "text": "R$ 825,00",
+          "misconceptionCode": "virgula-ignorada"
+         },
+         {
+          "text": "R$ 8,25"
+         },
+         {
+          "text": "R$ 7,25",
+          "misconceptionCode": "centavo-como-real"
+         },
+         {
+          "text": "R$ 7,125",
+          "misconceptionCode": "centavo-como-real"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Você compra um lanche de R$ 7,30 e paga com uma nota de R$ 10,00. Qual é o troco?",
+      "options": [
+       {
+        "text": "R$ 3,30",
+        "misconceptionCode": "centavo-como-real"
+       },
+       {
+        "text": "R$ 2,70"
+       },
+       {
+        "text": "R$ 3,70",
+        "misconceptionCode": "centavo-como-real"
+       },
+       {
+        "text": "R$ 17,30",
+        "misconceptionCode": "virgula-ignorada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "De 7,30 para 8,00 faltam 0,70. De 8,00 para 10,00, mais 2,00. Troco: 2,70.",
+      "variants": [
+       {
+        "question": "Você compra um caderno de R$ 12,60 e paga com uma nota de R$ 20,00. Qual é o troco?",
+        "options": [
+         {
+          "text": "R$ 8,60",
+          "misconceptionCode": "centavo-como-real"
+         },
+         {
+          "text": "R$ 8,40",
+          "misconceptionCode": "centavo-como-real"
+         },
+         {
+          "text": "R$ 32,60",
+          "misconceptionCode": "virgula-ignorada"
+         },
+         {
+          "text": "R$ 7,40"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Você compra um lanche de R$ 7,30 e paga com uma nota de R$ 10,00. Qual é o troco?",
+        "options": [
+         {
+          "text": "R$ 17,30",
+          "misconceptionCode": "virgula-ignorada"
+         },
+         {
+          "text": "R$ 3,70",
+          "misconceptionCode": "centavo-como-real"
+         },
+         {
+          "text": "R$ 2,70"
+         },
+         {
+          "text": "R$ 3,30",
+          "misconceptionCode": "centavo-como-real"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "No mercado, o pacote A custa R$ 3,9 e o pacote B custa R$ 3,85. Qual é o mais barato?",
+      "options": [
+       {
+        "text": "O pacote A",
+        "misconceptionCode": "mais-casas-e-maior"
+       },
+       {
+        "text": "Custam o mesmo",
+        "misconceptionCode": "decimo-e-centesimo"
+       },
+       {
+        "text": "O pacote B"
+       },
+       {
+        "text": "Não dá para saber",
+        "misconceptionCode": "virgula-ignorada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "3,9 é o mesmo que 3,90. Como 3,85 é menor que 3,90, o B é mais barato.",
+      "variants": [
+       {
+        "question": "Num posto, o litro custa R$ 5,7 no posto A e R$ 5,69 no posto B. Qual é o mais barato?",
+        "options": [
+         {
+          "text": "O posto B"
+         },
+         {
+          "text": "O posto A",
+          "misconceptionCode": "mais-casas-e-maior"
+         },
+         {
+          "text": "Custam o mesmo",
+          "misconceptionCode": "decimo-e-centesimo"
+         },
+         {
+          "text": "Não dá para saber",
+          "misconceptionCode": "virgula-ignorada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "No mercado, o pacote A custa R$ 3,9 e o pacote B custa R$ 3,85. Qual é o mais barato?",
+        "options": [
+         {
+          "text": "Não dá para saber",
+          "misconceptionCode": "virgula-ignorada"
+         },
+         {
+          "text": "Custam o mesmo",
+          "misconceptionCode": "decimo-e-centesimo"
+         },
+         {
+          "text": "O pacote A",
+          "misconceptionCode": "mais-casas-e-maior"
+         },
+         {
+          "text": "O pacote B"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04MA10-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: comparando números com vírgula",
+    "prompt": "Explique com as suas palavras por que 0,5 é maior que 0,25, mesmo tendo menos algarismos depois da vírgula. Você pode usar o dinheiro como exemplo.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras por que 0,5 é maior que 0,25, mesmo tendo menos algarismos depois da vírgula. Você pode usar o dinheiro como exemplo.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "igualdade",
+       "description": "Diz que 0,5 é o mesmo que 0,50"
+      },
+      {
+       "code": "comparacao",
+       "description": "Compara 50 centésimos (ou centavos) com 25"
+      },
+      {
+       "code": "conclusao",
+       "description": "Conclui que 0,5 é maior"
+      }
+     ],
+     "exemploBoaResposta": "0,5 é o mesmo que 0,50. Pensando em dinheiro, 0,50 são 50 centavos e 0,25 são 25 centavos. Como 50 centavos é mais que 25 centavos, 0,5 é maior que 0,25. O que importa é o valor de cada casa, e não a quantidade de algarismos."
+    }
+   }
+  ]
+ }
+]
