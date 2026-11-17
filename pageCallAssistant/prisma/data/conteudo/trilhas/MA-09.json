@@ -1,0 +1,3766 @@
+[
+ {
+  "skillCode": "EF09MA09",
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 9,
+  "version": 1,
+  "title": "Trilha: Equações do 2º grau",
+  "tituloAluno": "Quando a incógnita aparece ao quadrado",
+  "activities": [
+   {
+    "id": "PK2-EF09MA09-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: potências e equações do 1º grau",
+    "prompt": "Antes das equações do 2º grau, vamos lembrar o que já sabemos.",
+    "estMinutes": 4,
+    "audioScript": "Antes das equações do 2º grau, vamos lembrar o que já sabemos. Pergunta 1. Quanto é (−3)²? A: −9; B: −6; C: 6; D: 9. Pergunta 2. Quanto vale x em 2x + 6 = 0? A: −3; B: 3; C: −6; D: 12. Pergunta 3. Se um produto de dois números é zero, então: A: Os dois são iguais a 1; B: Pelo menos um deles é zero; C: Os dois são negativos; D: Nenhum deles é zero.",
+    "questions": [
+     {
+      "question": "Quanto é (−3)²?",
+      "options": [
+       {
+        "text": "−9",
+        "misconceptionCode": "raiz-de-negativo"
+       },
+       {
+        "text": "−6",
+        "misconceptionCode": "trata-como-1grau"
+       },
+       {
+        "text": "6",
+        "misconceptionCode": "trata-como-1grau"
+       },
+       {
+        "text": "9"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "(−3) × (−3) = 9. Um número negativo ao quadrado dá resultado positivo.",
+      "variants": [
+       {
+        "question": "Quanto é (−5)²?",
+        "options": [
+         {
+          "text": "−25",
+          "misconceptionCode": "raiz-de-negativo"
+         },
+         {
+          "text": "25"
+         },
+         {
+          "text": "−10",
+          "misconceptionCode": "trata-como-1grau"
+         },
+         {
+          "text": "10",
+          "misconceptionCode": "trata-como-1grau"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é (−3)²?",
+        "options": [
+         {
+          "text": "9"
+         },
+         {
+          "text": "6",
+          "misconceptionCode": "trata-como-1grau"
+         },
+         {
+          "text": "−6",
+          "misconceptionCode": "trata-como-1grau"
+         },
+         {
+          "text": "−9",
+          "misconceptionCode": "raiz-de-negativo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quanto vale x em 2x + 6 = 0?",
+      "options": [
+       {
+        "text": "−3"
+       },
+       {
+        "text": "3",
+        "misconceptionCode": "raiz-de-negativo"
+       },
+       {
+        "text": "−6",
+        "misconceptionCode": "trata-como-1grau"
+       },
+       {
+        "text": "12",
+        "misconceptionCode": "fatoracao-errada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "2x = −6, então x = −3.",
+      "variants": [
+       {
+        "question": "Quanto vale x em 3x − 12 = 0?",
+        "options": [
+         {
+          "text": "−4",
+          "misconceptionCode": "raiz-de-negativo"
+         },
+         {
+          "text": "12",
+          "misconceptionCode": "trata-como-1grau"
+         },
+         {
+          "text": "4"
+         },
+         {
+          "text": "36",
+          "misconceptionCode": "fatoracao-errada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quanto vale x em 2x + 6 = 0?",
+        "options": [
+         {
+          "text": "12",
+          "misconceptionCode": "fatoracao-errada"
+         },
+         {
+          "text": "−3"
+         },
+         {
+          "text": "−6",
+          "misconceptionCode": "trata-como-1grau"
+         },
+         {
+          "text": "3",
+          "misconceptionCode": "raiz-de-negativo"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Se um produto de dois números é zero, então:",
+      "options": [
+       {
+        "text": "Os dois são iguais a 1",
+        "misconceptionCode": "fatoracao-errada"
+       },
+       {
+        "text": "Pelo menos um deles é zero"
+       },
+       {
+        "text": "Os dois são negativos",
+        "misconceptionCode": "raiz-de-negativo"
+       },
+       {
+        "text": "Nenhum deles é zero",
+        "misconceptionCode": "fatoracao-errada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Só existe um jeito de uma multiplicação dar zero: um dos fatores ser zero.",
+      "variants": [
+       {
+        "question": "Se a × b = 0 e a = 5, quanto vale b?",
+        "options": [
+         {
+          "text": "5",
+          "misconceptionCode": "fatoracao-errada"
+         },
+         {
+          "text": "−5",
+          "misconceptionCode": "raiz-de-negativo"
+         },
+         {
+          "text": "1",
+          "misconceptionCode": "fatoracao-errada"
+         },
+         {
+          "text": "0"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Se um produto de dois números é zero, então:",
+        "options": [
+         {
+          "text": "Nenhum deles é zero",
+          "misconceptionCode": "fatoracao-errada"
+         },
+         {
+          "text": "Os dois são negativos",
+          "misconceptionCode": "raiz-de-negativo"
+         },
+         {
+          "text": "Pelo menos um deles é zero"
+         },
+         {
+          "text": "Os dois são iguais a 1",
+          "misconceptionCode": "fatoracao-errada"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09MA09-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: duas soluções",
+    "prompt": "Uma equação do 2º grau tem a incógnita elevada ao quadrado e pode ter duas soluções, chamadas raízes. Vamos resolver juntos.",
+    "estMinutes": 4,
+    "audioScript": "Uma equação do 2º grau tem a incógnita elevada ao quadrado e pode ter duas soluções, chamadas raízes. Vamos resolver juntos. Pergunta 1. Quais são as soluções de x² = 16? A: Só 4; B: 8; C: 4 e −4; D: 16 e −16. Pergunta 2. Para resolver x² − 5x = 0, colocamos x em evidência: x(x − 5) = 0. Quais são as soluções? A: Só 5; B: 0 e −5; C: 5 e −5; D: 0 e 5. Pergunta 3. A equação x² − 5x + 6 = 0 pode ser escrita como (x − 2)(x − 3) = 0. Quais são as soluções? A: 2 e 3; B: −2 e −3; C: Só 2; D: 5 e 6.",
+    "questions": [
+     {
+      "question": "Quais são as soluções de x² = 16?",
+      "options": [
+       {
+        "text": "Só 4",
+        "misconceptionCode": "uma-raiz-so"
+       },
+       {
+        "text": "8",
+        "misconceptionCode": "trata-como-1grau"
+       },
+       {
+        "text": "4 e −4"
+       },
+       {
+        "text": "16 e −16",
+        "misconceptionCode": "trata-como-1grau"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Tanto 4² quanto (−4)² dão 16. Por isso há duas soluções.",
+      "variants": [
+       {
+        "question": "Quais são as soluções de x² = 25?",
+        "options": [
+         {
+          "text": "5 e −5"
+         },
+         {
+          "text": "Só 5",
+          "misconceptionCode": "uma-raiz-so"
+         },
+         {
+          "text": "12,5",
+          "misconceptionCode": "trata-como-1grau"
+         },
+         {
+          "text": "25 e −25",
+          "misconceptionCode": "trata-como-1grau"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quais são as soluções de x² = 16?",
+        "options": [
+         {
+          "text": "16 e −16",
+          "misconceptionCode": "trata-como-1grau"
+         },
+         {
+          "text": "8",
+          "misconceptionCode": "trata-como-1grau"
+         },
+         {
+          "text": "Só 4",
+          "misconceptionCode": "uma-raiz-so"
+         },
+         {
+          "text": "4 e −4"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Para resolver x² − 5x = 0, colocamos x em evidência: x(x − 5) = 0. Quais são as soluções?",
+      "options": [
+       {
+        "text": "Só 5",
+        "misconceptionCode": "uma-raiz-so"
+       },
+       {
+        "text": "0 e −5",
+        "misconceptionCode": "raiz-de-negativo"
+       },
+       {
+        "text": "5 e −5",
+        "misconceptionCode": "fatoracao-errada"
+       },
+       {
+        "text": "0 e 5"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Ou x = 0, ou x − 5 = 0, que dá x = 5.",
+      "variants": [
+       {
+        "question": "Para resolver x² − 3x = 0, escrevemos x(x − 3) = 0. Quais são as soluções?",
+        "options": [
+         {
+          "text": "Só 3",
+          "misconceptionCode": "uma-raiz-so"
+         },
+         {
+          "text": "0 e 3"
+         },
+         {
+          "text": "0 e −3",
+          "misconceptionCode": "raiz-de-negativo"
+         },
+         {
+          "text": "3 e −3",
+          "misconceptionCode": "fatoracao-errada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Para resolver x² − 5x = 0, colocamos x em evidência: x(x − 5) = 0. Quais são as soluções?",
+        "options": [
+         {
+          "text": "0 e 5"
+         },
+         {
+          "text": "5 e −5",
+          "misconceptionCode": "fatoracao-errada"
+         },
+         {
+          "text": "0 e −5",
+          "misconceptionCode": "raiz-de-negativo"
+         },
+         {
+          "text": "Só 5",
+          "misconceptionCode": "uma-raiz-so"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "A equação x² − 5x + 6 = 0 pode ser escrita como (x − 2)(x − 3) = 0. Quais são as soluções?",
+      "options": [
+       {
+        "text": "2 e 3"
+       },
+       {
+        "text": "−2 e −3",
+        "misconceptionCode": "raiz-de-negativo"
+       },
+       {
+        "text": "Só 2",
+        "misconceptionCode": "uma-raiz-so"
+       },
+       {
+        "text": "5 e 6",
+        "misconceptionCode": "fatoracao-errada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Para o produto dar zero: x − 2 = 0, então x = 2; ou x − 3 = 0, então x = 3.",
+      "variants": [
+       {
+        "question": "A equação x² − 7x + 10 = 0 pode ser escrita como (x − 2)(x − 5) = 0. Quais são as soluções?",
+        "options": [
+         {
+          "text": "−2 e −5",
+          "misconceptionCode": "raiz-de-negativo"
+         },
+         {
+          "text": "Só 2",
+          "misconceptionCode": "uma-raiz-so"
+         },
+         {
+          "text": "2 e 5"
+         },
+         {
+          "text": "7 e 10",
+          "misconceptionCode": "fatoracao-errada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A equação x² − 5x + 6 = 0 pode ser escrita como (x − 2)(x − 3) = 0. Quais são as soluções?",
+        "options": [
+         {
+          "text": "5 e 6",
+          "misconceptionCode": "fatoracao-errada"
+         },
+         {
+          "text": "2 e 3"
+         },
+         {
+          "text": "Só 2",
+          "misconceptionCode": "uma-raiz-so"
+         },
+         {
+          "text": "−2 e −3",
+          "misconceptionCode": "raiz-de-negativo"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09MA09-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: resolvendo equações do 2º grau",
+    "prompt": "Para fatorar x² + bx + c, procure dois números que multiplicados deem c e somados deem b.",
+    "estMinutes": 5,
+    "audioScript": "Para fatorar x² + bx + c, procure dois números que multiplicados deem c e somados deem b. Pergunta 1. Quais são as soluções de x² = 49? A: Só 7; B: 7 e −7; C: 24,5; D: 49 e −49. Pergunta 2. Quais são as soluções de x² − 4x = 0? A: Só 4; B: 0 e −4; C: 0 e 4; D: 2 e −2. Pergunta 3. Quais são as soluções de x² − 6x + 8 = 0? A: −2 e −4; B: 6 e 8; C: Só 2; D: 2 e 4. Pergunta 4. Quais são as soluções de x² + 5x + 6 = 0? A: −2 e −3; B: 2 e 3; C: 5 e 6; D: Só −2.",
+    "questions": [
+     {
+      "question": "Quais são as soluções de x² = 49?",
+      "options": [
+       {
+        "text": "Só 7",
+        "misconceptionCode": "uma-raiz-so"
+       },
+       {
+        "text": "7 e −7"
+       },
+       {
+        "text": "24,5",
+        "misconceptionCode": "trata-como-1grau"
+       },
+       {
+        "text": "49 e −49",
+        "misconceptionCode": "trata-como-1grau"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "7² = 49 e (−7)² = 49.",
+      "variants": [
+       {
+        "question": "Quais são as soluções de x² = 81?",
+        "options": [
+         {
+          "text": "Só 9",
+          "misconceptionCode": "uma-raiz-so"
+         },
+         {
+          "text": "40,5",
+          "misconceptionCode": "trata-como-1grau"
+         },
+         {
+          "text": "81 e −81",
+          "misconceptionCode": "trata-como-1grau"
+         },
+         {
+          "text": "9 e −9"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quais são as soluções de x² = 49?",
+        "options": [
+         {
+          "text": "49 e −49",
+          "misconceptionCode": "trata-como-1grau"
+         },
+         {
+          "text": "24,5",
+          "misconceptionCode": "trata-como-1grau"
+         },
+         {
+          "text": "7 e −7"
+         },
+         {
+          "text": "Só 7",
+          "misconceptionCode": "uma-raiz-so"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Quais são as soluções de x² − 4x = 0?",
+      "options": [
+       {
+        "text": "Só 4",
+        "misconceptionCode": "uma-raiz-so"
+       },
+       {
+        "text": "0 e −4",
+        "misconceptionCode": "raiz-de-negativo"
+       },
+       {
+        "text": "0 e 4"
+       },
+       {
+        "text": "2 e −2",
+        "misconceptionCode": "fatoracao-errada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "x(x − 4) = 0. Então x = 0 ou x = 4.",
+      "variants": [
+       {
+        "question": "Quais são as soluções de x² − 6x = 0?",
+        "options": [
+         {
+          "text": "0 e 6"
+         },
+         {
+          "text": "Só 6",
+          "misconceptionCode": "uma-raiz-so"
+         },
+         {
+          "text": "0 e −6",
+          "misconceptionCode": "raiz-de-negativo"
+         },
+         {
+          "text": "3 e −3",
+          "misconceptionCode": "fatoracao-errada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quais são as soluções de x² − 4x = 0?",
+        "options": [
+         {
+          "text": "2 e −2",
+          "misconceptionCode": "fatoracao-errada"
+         },
+         {
+          "text": "0 e −4",
+          "misconceptionCode": "raiz-de-negativo"
+         },
+         {
+          "text": "Só 4",
+          "misconceptionCode": "uma-raiz-so"
+         },
+         {
+          "text": "0 e 4"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quais são as soluções de x² − 6x + 8 = 0?",
+      "options": [
+       {
+        "text": "−2 e −4",
+        "misconceptionCode": "raiz-de-negativo"
+       },
+       {
+        "text": "6 e 8",
+        "misconceptionCode": "fatoracao-errada"
+       },
+       {
+        "text": "Só 2",
+        "misconceptionCode": "uma-raiz-so"
+       },
+       {
+        "text": "2 e 4"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Dois números com produto 8 e soma 6: 2 e 4. Então (x − 2)(x − 4) = 0.",
+      "variants": [
+       {
+        "question": "Quais são as soluções de x² − 8x + 15 = 0?",
+        "options": [
+         {
+          "text": "−3 e −5",
+          "misconceptionCode": "raiz-de-negativo"
+         },
+         {
+          "text": "3 e 5"
+         },
+         {
+          "text": "8 e 15",
+          "misconceptionCode": "fatoracao-errada"
+         },
+         {
+          "text": "Só 3",
+          "misconceptionCode": "uma-raiz-so"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quais são as soluções de x² − 6x + 8 = 0?",
+        "options": [
+         {
+          "text": "2 e 4"
+         },
+         {
+          "text": "Só 2",
+          "misconceptionCode": "uma-raiz-so"
+         },
+         {
+          "text": "6 e 8",
+          "misconceptionCode": "fatoracao-errada"
+         },
+         {
+          "text": "−2 e −4",
+          "misconceptionCode": "raiz-de-negativo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quais são as soluções de x² + 5x + 6 = 0?",
+      "options": [
+       {
+        "text": "−2 e −3"
+       },
+       {
+        "text": "2 e 3",
+        "misconceptionCode": "raiz-de-negativo"
+       },
+       {
+        "text": "5 e 6",
+        "misconceptionCode": "fatoracao-errada"
+       },
+       {
+        "text": "Só −2",
+        "misconceptionCode": "uma-raiz-so"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "(x + 2)(x + 3) = 0. Então x = −2 ou x = −3.",
+      "variants": [
+       {
+        "question": "Quais são as soluções de x² + 7x + 12 = 0?",
+        "options": [
+         {
+          "text": "3 e 4",
+          "misconceptionCode": "raiz-de-negativo"
+         },
+         {
+          "text": "7 e 12",
+          "misconceptionCode": "fatoracao-errada"
+         },
+         {
+          "text": "−3 e −4"
+         },
+         {
+          "text": "Só −3",
+          "misconceptionCode": "uma-raiz-so"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quais são as soluções de x² + 5x + 6 = 0?",
+        "options": [
+         {
+          "text": "Só −2",
+          "misconceptionCode": "uma-raiz-so"
+         },
+         {
+          "text": "−2 e −3"
+         },
+         {
+          "text": "5 e 6",
+          "misconceptionCode": "fatoracao-errada"
+         },
+         {
+          "text": "2 e 3",
+          "misconceptionCode": "raiz-de-negativo"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09MA09-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: problemas com equações do 2º grau",
+    "prompt": "Em problemas, verifique se as duas soluções fazem sentido.",
+    "estMinutes": 4,
+    "audioScript": "Em problemas, verifique se as duas soluções fazem sentido. Pergunta 1. Um quadrado tem área de 64 m². Quanto mede o lado? A: −8 m; B: 8 m; C: 32 m; D: 16 m. Pergunta 2. Um retângulo tem comprimento 2 m maior que a largura e área de 15 m². Qual é a largura? A: 5 m; B: 7,5 m; C: 3 m; D: −5 m. Pergunta 3. O quadrado de um número menos o próprio número é igual a zero. Que números podem ser? A: Só 1; B: 0 e −1; C: 1 e −1; D: 0 e 1.",
+    "questions": [
+     {
+      "question": "Um quadrado tem área de 64 m². Quanto mede o lado?",
+      "options": [
+       {
+        "text": "−8 m",
+        "misconceptionCode": "raiz-de-negativo"
+       },
+       {
+        "text": "8 m"
+       },
+       {
+        "text": "32 m",
+        "misconceptionCode": "trata-como-1grau"
+       },
+       {
+        "text": "16 m",
+        "misconceptionCode": "trata-como-1grau"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "x² = 64 tem soluções 8 e −8. Como é uma medida, só vale 8.",
+      "variants": [
+       {
+        "question": "Um quadrado tem área de 100 m². Quanto mede o lado?",
+        "options": [
+         {
+          "text": "−10 m",
+          "misconceptionCode": "raiz-de-negativo"
+         },
+         {
+          "text": "50 m",
+          "misconceptionCode": "trata-como-1grau"
+         },
+         {
+          "text": "25 m",
+          "misconceptionCode": "trata-como-1grau"
+         },
+         {
+          "text": "10 m"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um quadrado tem área de 64 m². Quanto mede o lado?",
+        "options": [
+         {
+          "text": "16 m",
+          "misconceptionCode": "trata-como-1grau"
+         },
+         {
+          "text": "32 m",
+          "misconceptionCode": "trata-como-1grau"
+         },
+         {
+          "text": "8 m"
+         },
+         {
+          "text": "−8 m",
+          "misconceptionCode": "raiz-de-negativo"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um retângulo tem comprimento 2 m maior que a largura e área de 15 m². Qual é a largura?",
+      "options": [
+       {
+        "text": "5 m",
+        "misconceptionCode": "uma-raiz-so"
+       },
+       {
+        "text": "7,5 m",
+        "misconceptionCode": "trata-como-1grau"
+       },
+       {
+        "text": "3 m"
+       },
+       {
+        "text": "−5 m",
+        "misconceptionCode": "raiz-de-negativo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "x(x + 2) = 15, então x² + 2x − 15 = 0, ou (x − 3)(x + 5) = 0. A solução positiva é 3.",
+      "variants": [
+       {
+        "question": "Um retângulo tem comprimento 3 m maior que a largura e área de 10 m². Qual é a largura?",
+        "options": [
+         {
+          "text": "2 m"
+         },
+         {
+          "text": "5 m",
+          "misconceptionCode": "uma-raiz-so"
+         },
+         {
+          "text": "3,3 m",
+          "misconceptionCode": "trata-como-1grau"
+         },
+         {
+          "text": "−5 m",
+          "misconceptionCode": "raiz-de-negativo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um retângulo tem comprimento 2 m maior que a largura e área de 15 m². Qual é a largura?",
+        "options": [
+         {
+          "text": "−5 m",
+          "misconceptionCode": "raiz-de-negativo"
+         },
+         {
+          "text": "7,5 m",
+          "misconceptionCode": "trata-como-1grau"
+         },
+         {
+          "text": "5 m",
+          "misconceptionCode": "uma-raiz-so"
+         },
+         {
+          "text": "3 m"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O quadrado de um número menos o próprio número é igual a zero. Que números podem ser?",
+      "options": [
+       {
+        "text": "Só 1",
+        "misconceptionCode": "uma-raiz-so"
+       },
+       {
+        "text": "0 e −1",
+        "misconceptionCode": "raiz-de-negativo"
+       },
+       {
+        "text": "1 e −1",
+        "misconceptionCode": "fatoracao-errada"
+       },
+       {
+        "text": "0 e 1"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "x² − x = 0, então x(x − 1) = 0. As soluções são 0 e 1.",
+      "variants": [
+       {
+        "question": "O quadrado de um número é igual ao dobro dele. Que números podem ser?",
+        "options": [
+         {
+          "text": "Só 2",
+          "misconceptionCode": "uma-raiz-so"
+         },
+         {
+          "text": "0 e 2"
+         },
+         {
+          "text": "0 e −2",
+          "misconceptionCode": "raiz-de-negativo"
+         },
+         {
+          "text": "2 e −2",
+          "misconceptionCode": "fatoracao-errada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O quadrado de um número menos o próprio número é igual a zero. Que números podem ser?",
+        "options": [
+         {
+          "text": "0 e 1"
+         },
+         {
+          "text": "1 e −1",
+          "misconceptionCode": "fatoracao-errada"
+         },
+         {
+          "text": "0 e −1",
+          "misconceptionCode": "raiz-de-negativo"
+         },
+         {
+          "text": "Só 1",
+          "misconceptionCode": "uma-raiz-so"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09MA09-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: por que duas soluções",
+    "prompt": "Explique com as suas palavras por que a equação x² = 9 tem duas soluções e quais são elas.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras por que a equação x² = 9 tem duas soluções e quais são elas.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "solucoes",
+       "description": "Indica as soluções 3 e −3"
+      },
+      {
+       "code": "quadrado",
+       "description": "Explica que os dois números, elevados ao quadrado, dão 9"
+      },
+      {
+       "code": "negativo",
+       "description": "Menciona que negativo vezes negativo dá positivo"
+      }
+     ],
+     "exemploBoaResposta": "A equação x² = 9 tem duas soluções: 3 e −3. Isso acontece porque 3 × 3 = 9 e (−3) × (−3) também é 9, já que negativo vezes negativo dá positivo."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF09MA14",
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 9,
+  "version": 1,
+  "title": "Trilha: Teorema de Pitágoras",
+  "tituloAluno": "Os lados do triângulo retângulo",
+  "activities": [
+   {
+    "id": "PK2-EF09MA14-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: quadrados, raízes e ângulo reto",
+    "prompt": "Vamos lembrar o que será usado.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar o que será usado. Pergunta 1. Quanto é a raiz quadrada de 25? A: 12,5; B: 625; C: 50; D: 5. Pergunta 2. Quanto é 3² + 4²? A: 25; B: 14; C: 49; D: 7. Pergunta 3. Um triângulo retângulo é aquele que tem: A: Três lados iguais; B: Um ângulo de 90 graus; C: Três ângulos iguais; D: Dois ângulos de 90 graus.",
+    "questions": [
+     {
+      "question": "Quanto é a raiz quadrada de 25?",
+      "options": [
+       {
+        "text": "12,5",
+        "misconceptionCode": "esquece-a-raiz"
+       },
+       {
+        "text": "625",
+        "misconceptionCode": "esquece-a-raiz"
+       },
+       {
+        "text": "50",
+        "misconceptionCode": "soma-os-lados"
+       },
+       {
+        "text": "5"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "5 × 5 = 25, então a raiz quadrada de 25 é 5.",
+      "variants": [
+       {
+        "question": "Quanto é a raiz quadrada de 100?",
+        "options": [
+         {
+          "text": "50",
+          "misconceptionCode": "esquece-a-raiz"
+         },
+         {
+          "text": "10"
+         },
+         {
+          "text": "10.000",
+          "misconceptionCode": "esquece-a-raiz"
+         },
+         {
+          "text": "200",
+          "misconceptionCode": "soma-os-lados"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é a raiz quadrada de 25?",
+        "options": [
+         {
+          "text": "5"
+         },
+         {
+          "text": "50",
+          "misconceptionCode": "soma-os-lados"
+         },
+         {
+          "text": "625",
+          "misconceptionCode": "esquece-a-raiz"
+         },
+         {
+          "text": "12,5",
+          "misconceptionCode": "esquece-a-raiz"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 3² + 4²?",
+      "options": [
+       {
+        "text": "25"
+       },
+       {
+        "text": "14",
+        "misconceptionCode": "soma-os-lados"
+       },
+       {
+        "text": "49",
+        "misconceptionCode": "soma-os-lados"
+       },
+       {
+        "text": "7",
+        "misconceptionCode": "soma-os-lados"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "3² = 9 e 4² = 16. Somando: 25.",
+      "variants": [
+       {
+        "question": "Quanto é 6² + 8²?",
+        "options": [
+         {
+          "text": "28",
+          "misconceptionCode": "soma-os-lados"
+         },
+         {
+          "text": "196",
+          "misconceptionCode": "soma-os-lados"
+         },
+         {
+          "text": "100"
+         },
+         {
+          "text": "14",
+          "misconceptionCode": "soma-os-lados"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quanto é 3² + 4²?",
+        "options": [
+         {
+          "text": "7",
+          "misconceptionCode": "soma-os-lados"
+         },
+         {
+          "text": "25"
+         },
+         {
+          "text": "49",
+          "misconceptionCode": "soma-os-lados"
+         },
+         {
+          "text": "14",
+          "misconceptionCode": "soma-os-lados"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um triângulo retângulo é aquele que tem:",
+      "options": [
+       {
+        "text": "Três lados iguais",
+        "misconceptionCode": "qualquer-triangulo"
+       },
+       {
+        "text": "Um ângulo de 90 graus"
+       },
+       {
+        "text": "Três ângulos iguais",
+        "misconceptionCode": "qualquer-triangulo"
+       },
+       {
+        "text": "Dois ângulos de 90 graus",
+        "misconceptionCode": "qualquer-triangulo"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O ângulo reto mede 90 graus, como o canto de uma folha de papel.",
+      "variants": [
+       {
+        "question": "O ângulo formado entre a parede e o chão, em geral, mede:",
+        "options": [
+         {
+          "text": "45 graus",
+          "misconceptionCode": "qualquer-triangulo"
+         },
+         {
+          "text": "180 graus",
+          "misconceptionCode": "qualquer-triangulo"
+         },
+         {
+          "text": "60 graus",
+          "misconceptionCode": "qualquer-triangulo"
+         },
+         {
+          "text": "90 graus"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um triângulo retângulo é aquele que tem:",
+        "options": [
+         {
+          "text": "Dois ângulos de 90 graus",
+          "misconceptionCode": "qualquer-triangulo"
+         },
+         {
+          "text": "Três ângulos iguais",
+          "misconceptionCode": "qualquer-triangulo"
+         },
+         {
+          "text": "Um ângulo de 90 graus"
+         },
+         {
+          "text": "Três lados iguais",
+          "misconceptionCode": "qualquer-triangulo"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09MA14-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o teorema",
+    "prompt": "No triângulo retângulo, os lados que formam o ângulo reto são os catetos. O lado oposto ao ângulo reto, o maior, é a hipotenusa. O teorema diz: hipotenusa² = cateto² + cateto². Vamos aplicar juntos.",
+    "estMinutes": 4,
+    "audioScript": "No triângulo retângulo, os lados que formam o ângulo reto são os catetos. O lado oposto ao ângulo reto, o maior, é a hipotenusa. O teorema diz: hipotenusa² = cateto² + cateto². Vamos aplicar juntos. Pergunta 1. Num triângulo retângulo, a hipotenusa é: A: O menor lado; B: Qualquer um dos lados; C: O lado oposto ao ângulo reto, o maior dos três; D: Um dos lados que formam o ângulo reto. Pergunta 2. Os catetos de um triângulo retângulo medem 3 cm e 4 cm. Quanto mede a hipotenusa? A: 7 cm; B: 25 cm; C: 12 cm; D: 5 cm. Pergunta 3. A hipotenusa mede 13 cm e um cateto mede 5 cm. Quanto mede o outro cateto? A: 12 cm; B: 8 cm; C: 18 cm; D: 144 cm.",
+    "questions": [
+     {
+      "question": "Num triângulo retângulo, a hipotenusa é:",
+      "options": [
+       {
+        "text": "O menor lado",
+        "misconceptionCode": "troca-hipotenusa"
+       },
+       {
+        "text": "Qualquer um dos lados",
+        "misconceptionCode": "troca-hipotenusa"
+       },
+       {
+        "text": "O lado oposto ao ângulo reto, o maior dos três"
+       },
+       {
+        "text": "Um dos lados que formam o ângulo reto",
+        "misconceptionCode": "troca-hipotenusa"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A hipotenusa fica \"de frente\" para o ângulo de 90 graus e é sempre o maior lado.",
+      "variants": [
+       {
+        "question": "Num triângulo retângulo, os catetos são:",
+        "options": [
+         {
+          "text": "Os dois lados que formam o ângulo reto"
+         },
+         {
+          "text": "O maior lado",
+          "misconceptionCode": "troca-hipotenusa"
+         },
+         {
+          "text": "Os três lados",
+          "misconceptionCode": "troca-hipotenusa"
+         },
+         {
+          "text": "O lado oposto ao ângulo reto",
+          "misconceptionCode": "troca-hipotenusa"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Num triângulo retângulo, a hipotenusa é:",
+        "options": [
+         {
+          "text": "Um dos lados que formam o ângulo reto",
+          "misconceptionCode": "troca-hipotenusa"
+         },
+         {
+          "text": "Qualquer um dos lados",
+          "misconceptionCode": "troca-hipotenusa"
+         },
+         {
+          "text": "O menor lado",
+          "misconceptionCode": "troca-hipotenusa"
+         },
+         {
+          "text": "O lado oposto ao ângulo reto, o maior dos três"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Os catetos de um triângulo retângulo medem 3 cm e 4 cm. Quanto mede a hipotenusa?",
+      "options": [
+       {
+        "text": "7 cm",
+        "misconceptionCode": "soma-os-lados"
+       },
+       {
+        "text": "25 cm",
+        "misconceptionCode": "esquece-a-raiz"
+       },
+       {
+        "text": "12 cm",
+        "misconceptionCode": "soma-os-lados"
+       },
+       {
+        "text": "5 cm"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "h² = 3² + 4² = 9 + 16 = 25. A raiz de 25 é 5.",
+      "variants": [
+       {
+        "question": "Os catetos de um triângulo retângulo medem 6 cm e 8 cm. Quanto mede a hipotenusa?",
+        "options": [
+         {
+          "text": "14 cm",
+          "misconceptionCode": "soma-os-lados"
+         },
+         {
+          "text": "10 cm"
+         },
+         {
+          "text": "100 cm",
+          "misconceptionCode": "esquece-a-raiz"
+         },
+         {
+          "text": "48 cm",
+          "misconceptionCode": "soma-os-lados"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Os catetos de um triângulo retângulo medem 3 cm e 4 cm. Quanto mede a hipotenusa?",
+        "options": [
+         {
+          "text": "5 cm"
+         },
+         {
+          "text": "12 cm",
+          "misconceptionCode": "soma-os-lados"
+         },
+         {
+          "text": "25 cm",
+          "misconceptionCode": "esquece-a-raiz"
+         },
+         {
+          "text": "7 cm",
+          "misconceptionCode": "soma-os-lados"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "A hipotenusa mede 13 cm e um cateto mede 5 cm. Quanto mede o outro cateto?",
+      "options": [
+       {
+        "text": "12 cm"
+       },
+       {
+        "text": "8 cm",
+        "misconceptionCode": "soma-os-lados"
+       },
+       {
+        "text": "18 cm",
+        "misconceptionCode": "troca-hipotenusa"
+       },
+       {
+        "text": "144 cm",
+        "misconceptionCode": "esquece-a-raiz"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "13² = 5² + c², então 169 = 25 + c² e c² = 144. A raiz de 144 é 12.",
+      "variants": [
+       {
+        "question": "A hipotenusa mede 10 cm e um cateto mede 6 cm. Quanto mede o outro cateto?",
+        "options": [
+         {
+          "text": "4 cm",
+          "misconceptionCode": "soma-os-lados"
+         },
+         {
+          "text": "16 cm",
+          "misconceptionCode": "troca-hipotenusa"
+         },
+         {
+          "text": "8 cm"
+         },
+         {
+          "text": "64 cm",
+          "misconceptionCode": "esquece-a-raiz"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A hipotenusa mede 13 cm e um cateto mede 5 cm. Quanto mede o outro cateto?",
+        "options": [
+         {
+          "text": "144 cm",
+          "misconceptionCode": "esquece-a-raiz"
+         },
+         {
+          "text": "12 cm"
+         },
+         {
+          "text": "18 cm",
+          "misconceptionCode": "troca-hipotenusa"
+         },
+         {
+          "text": "8 cm",
+          "misconceptionCode": "soma-os-lados"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09MA14-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: aplicando o teorema",
+    "prompt": "Identifique a hipotenusa antes de calcular.",
+    "estMinutes": 5,
+    "audioScript": "Identifique a hipotenusa antes de calcular. Pergunta 1. Os catetos medem 5 cm e 12 cm. Quanto mede a hipotenusa? A: 17 cm; B: 13 cm; C: 169 cm; D: 60 cm. Pergunta 2. A hipotenusa mede 5 cm e um cateto mede 3 cm. Quanto mede o outro cateto? A: 2 cm; B: 8 cm; C: 4 cm; D: 16 cm. Pergunta 3. Um triângulo tem lados de 3 cm, 4 cm e 5 cm. Ele é retângulo? A: Não, porque os lados são diferentes; B: Sim, porque 3 + 4 é maior que 5; C: Não dá para saber; D: Sim, porque 3² + 4² = 5². Pergunta 4. O teorema de Pitágoras vale para: A: Triângulos retângulos, somente; B: Qualquer triângulo; C: Quadrados; D: Círculos.",
+    "questions": [
+     {
+      "question": "Os catetos medem 5 cm e 12 cm. Quanto mede a hipotenusa?",
+      "options": [
+       {
+        "text": "17 cm",
+        "misconceptionCode": "soma-os-lados"
+       },
+       {
+        "text": "13 cm"
+       },
+       {
+        "text": "169 cm",
+        "misconceptionCode": "esquece-a-raiz"
+       },
+       {
+        "text": "60 cm",
+        "misconceptionCode": "soma-os-lados"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "h² = 25 + 144 = 169. A raiz de 169 é 13.",
+      "variants": [
+       {
+        "question": "Os catetos medem 9 cm e 12 cm. Quanto mede a hipotenusa?",
+        "options": [
+         {
+          "text": "21 cm",
+          "misconceptionCode": "soma-os-lados"
+         },
+         {
+          "text": "225 cm",
+          "misconceptionCode": "esquece-a-raiz"
+         },
+         {
+          "text": "108 cm",
+          "misconceptionCode": "soma-os-lados"
+         },
+         {
+          "text": "15 cm"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Os catetos medem 5 cm e 12 cm. Quanto mede a hipotenusa?",
+        "options": [
+         {
+          "text": "60 cm",
+          "misconceptionCode": "soma-os-lados"
+         },
+         {
+          "text": "169 cm",
+          "misconceptionCode": "esquece-a-raiz"
+         },
+         {
+          "text": "13 cm"
+         },
+         {
+          "text": "17 cm",
+          "misconceptionCode": "soma-os-lados"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "A hipotenusa mede 5 cm e um cateto mede 3 cm. Quanto mede o outro cateto?",
+      "options": [
+       {
+        "text": "2 cm",
+        "misconceptionCode": "soma-os-lados"
+       },
+       {
+        "text": "8 cm",
+        "misconceptionCode": "troca-hipotenusa"
+       },
+       {
+        "text": "4 cm"
+       },
+       {
+        "text": "16 cm",
+        "misconceptionCode": "esquece-a-raiz"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "25 = 9 + c², então c² = 16 e c = 4.",
+      "variants": [
+       {
+        "question": "A hipotenusa mede 15 cm e um cateto mede 9 cm. Quanto mede o outro cateto?",
+        "options": [
+         {
+          "text": "12 cm"
+         },
+         {
+          "text": "6 cm",
+          "misconceptionCode": "soma-os-lados"
+         },
+         {
+          "text": "24 cm",
+          "misconceptionCode": "troca-hipotenusa"
+         },
+         {
+          "text": "144 cm",
+          "misconceptionCode": "esquece-a-raiz"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A hipotenusa mede 5 cm e um cateto mede 3 cm. Quanto mede o outro cateto?",
+        "options": [
+         {
+          "text": "16 cm",
+          "misconceptionCode": "esquece-a-raiz"
+         },
+         {
+          "text": "8 cm",
+          "misconceptionCode": "troca-hipotenusa"
+         },
+         {
+          "text": "2 cm",
+          "misconceptionCode": "soma-os-lados"
+         },
+         {
+          "text": "4 cm"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Um triângulo tem lados de 3 cm, 4 cm e 5 cm. Ele é retângulo?",
+      "options": [
+       {
+        "text": "Não, porque os lados são diferentes",
+        "misconceptionCode": "qualquer-triangulo"
+       },
+       {
+        "text": "Sim, porque 3 + 4 é maior que 5",
+        "misconceptionCode": "soma-os-lados"
+       },
+       {
+        "text": "Não dá para saber",
+        "misconceptionCode": "qualquer-triangulo"
+       },
+       {
+        "text": "Sim, porque 3² + 4² = 5²"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "9 + 16 = 25. Quando a soma dos quadrados dos lados menores é igual ao quadrado do maior, o triângulo é retângulo.",
+      "variants": [
+       {
+        "question": "Um triângulo tem lados de 4 cm, 5 cm e 6 cm. Ele é retângulo?",
+        "options": [
+         {
+          "text": "Sim, porque todo triângulo é retângulo",
+          "misconceptionCode": "qualquer-triangulo"
+         },
+         {
+          "text": "Não, porque 4² + 5² não é igual a 6²"
+         },
+         {
+          "text": "Sim, porque 4 + 5 é maior que 6",
+          "misconceptionCode": "soma-os-lados"
+         },
+         {
+          "text": "Não dá para saber",
+          "misconceptionCode": "qualquer-triangulo"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um triângulo tem lados de 3 cm, 4 cm e 5 cm. Ele é retângulo?",
+        "options": [
+         {
+          "text": "Sim, porque 3² + 4² = 5²"
+         },
+         {
+          "text": "Não dá para saber",
+          "misconceptionCode": "qualquer-triangulo"
+         },
+         {
+          "text": "Sim, porque 3 + 4 é maior que 5",
+          "misconceptionCode": "soma-os-lados"
+         },
+         {
+          "text": "Não, porque os lados são diferentes",
+          "misconceptionCode": "qualquer-triangulo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O teorema de Pitágoras vale para:",
+      "options": [
+       {
+        "text": "Triângulos retângulos, somente"
+       },
+       {
+        "text": "Qualquer triângulo",
+        "misconceptionCode": "qualquer-triangulo"
+       },
+       {
+        "text": "Quadrados",
+        "misconceptionCode": "qualquer-triangulo"
+       },
+       {
+        "text": "Círculos",
+        "misconceptionCode": "qualquer-triangulo"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A relação só vale quando o triângulo tem um ângulo de 90 graus.",
+      "variants": [
+       {
+        "question": "Num triângulo com três ângulos de 60 graus, podemos usar o teorema de Pitágoras nos três lados?",
+        "options": [
+         {
+          "text": "Sim, vale para qualquer triângulo",
+          "misconceptionCode": "qualquer-triangulo"
+         },
+         {
+          "text": "Sim, porque os lados são iguais",
+          "misconceptionCode": "qualquer-triangulo"
+         },
+         {
+          "text": "Não, porque ele não é retângulo"
+         },
+         {
+          "text": "Sim, se os lados forem pequenos",
+          "misconceptionCode": "qualquer-triangulo"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O teorema de Pitágoras vale para:",
+        "options": [
+         {
+          "text": "Círculos",
+          "misconceptionCode": "qualquer-triangulo"
+         },
+         {
+          "text": "Triângulos retângulos, somente"
+         },
+         {
+          "text": "Quadrados",
+          "misconceptionCode": "qualquer-triangulo"
+         },
+         {
+          "text": "Qualquer triângulo",
+          "misconceptionCode": "qualquer-triangulo"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09MA14-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: Pitágoras no dia a dia",
+    "prompt": "Desenhe a situação e identifique o triângulo retângulo.",
+    "estMinutes": 4,
+    "audioScript": "Desenhe a situação e identifique o triângulo retângulo. Pergunta 1. Uma escada está apoiada numa parede. O pé da escada fica a 3 m da parede, e o topo alcança 4 m de altura. Qual é o comprimento da escada? A: 7 m; B: 5 m; C: 25 m; D: 1 m. Pergunta 2. Um terreno retangular mede 30 m por 40 m. Quanto mede a diagonal? A: 70 m; B: 2.500 m; C: 50 m; D: 10 m. Pergunta 3. Uma escada de 10 m está apoiada num muro, com o pé a 6 m do muro. A que altura ela alcança? A: 16 m; B: 4 m; C: 64 m; D: 8 m.",
+    "questions": [
+     {
+      "question": "Uma escada está apoiada numa parede. O pé da escada fica a 3 m da parede, e o topo alcança 4 m de altura. Qual é o comprimento da escada?",
+      "options": [
+       {
+        "text": "7 m",
+        "misconceptionCode": "soma-os-lados"
+       },
+       {
+        "text": "5 m"
+       },
+       {
+        "text": "25 m",
+        "misconceptionCode": "esquece-a-raiz"
+       },
+       {
+        "text": "1 m",
+        "misconceptionCode": "troca-hipotenusa"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A escada é a hipotenusa: h² = 9 + 16 = 25, então h = 5.",
+      "variants": [
+       {
+        "question": "Uma escada está apoiada numa parede. O pé da escada fica a 6 m da parede, e o topo alcança 8 m de altura. Qual é o comprimento da escada?",
+        "options": [
+         {
+          "text": "14 m",
+          "misconceptionCode": "soma-os-lados"
+         },
+         {
+          "text": "100 m",
+          "misconceptionCode": "esquece-a-raiz"
+         },
+         {
+          "text": "2 m",
+          "misconceptionCode": "troca-hipotenusa"
+         },
+         {
+          "text": "10 m"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Uma escada está apoiada numa parede. O pé da escada fica a 3 m da parede, e o topo alcança 4 m de altura. Qual é o comprimento da escada?",
+        "options": [
+         {
+          "text": "1 m",
+          "misconceptionCode": "troca-hipotenusa"
+         },
+         {
+          "text": "25 m",
+          "misconceptionCode": "esquece-a-raiz"
+         },
+         {
+          "text": "5 m"
+         },
+         {
+          "text": "7 m",
+          "misconceptionCode": "soma-os-lados"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um terreno retangular mede 30 m por 40 m. Quanto mede a diagonal?",
+      "options": [
+       {
+        "text": "70 m",
+        "misconceptionCode": "soma-os-lados"
+       },
+       {
+        "text": "2.500 m",
+        "misconceptionCode": "esquece-a-raiz"
+       },
+       {
+        "text": "50 m"
+       },
+       {
+        "text": "10 m",
+        "misconceptionCode": "troca-hipotenusa"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A diagonal é a hipotenusa: d² = 900 + 1.600 = 2.500, então d = 50.",
+      "variants": [
+       {
+        "question": "Um campo retangular mede 60 m por 80 m. Quanto mede a diagonal?",
+        "options": [
+         {
+          "text": "100 m"
+         },
+         {
+          "text": "140 m",
+          "misconceptionCode": "soma-os-lados"
+         },
+         {
+          "text": "10.000 m",
+          "misconceptionCode": "esquece-a-raiz"
+         },
+         {
+          "text": "20 m",
+          "misconceptionCode": "troca-hipotenusa"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um terreno retangular mede 30 m por 40 m. Quanto mede a diagonal?",
+        "options": [
+         {
+          "text": "10 m",
+          "misconceptionCode": "troca-hipotenusa"
+         },
+         {
+          "text": "2.500 m",
+          "misconceptionCode": "esquece-a-raiz"
+         },
+         {
+          "text": "70 m",
+          "misconceptionCode": "soma-os-lados"
+         },
+         {
+          "text": "50 m"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Uma escada de 10 m está apoiada num muro, com o pé a 6 m do muro. A que altura ela alcança?",
+      "options": [
+       {
+        "text": "16 m",
+        "misconceptionCode": "troca-hipotenusa"
+       },
+       {
+        "text": "4 m",
+        "misconceptionCode": "soma-os-lados"
+       },
+       {
+        "text": "64 m",
+        "misconceptionCode": "esquece-a-raiz"
+       },
+       {
+        "text": "8 m"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A escada é a hipotenusa: 100 = 36 + a², então a² = 64 e a = 8.",
+      "variants": [
+       {
+        "question": "Uma escada de 13 m está apoiada num muro, com o pé a 5 m do muro. A que altura ela alcança?",
+        "options": [
+         {
+          "text": "18 m",
+          "misconceptionCode": "troca-hipotenusa"
+         },
+         {
+          "text": "12 m"
+         },
+         {
+          "text": "8 m",
+          "misconceptionCode": "soma-os-lados"
+         },
+         {
+          "text": "144 m",
+          "misconceptionCode": "esquece-a-raiz"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Uma escada de 10 m está apoiada num muro, com o pé a 6 m do muro. A que altura ela alcança?",
+        "options": [
+         {
+          "text": "8 m"
+         },
+         {
+          "text": "64 m",
+          "misconceptionCode": "esquece-a-raiz"
+         },
+         {
+          "text": "4 m",
+          "misconceptionCode": "soma-os-lados"
+         },
+         {
+          "text": "16 m",
+          "misconceptionCode": "troca-hipotenusa"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09MA14-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: o teorema de Pitágoras",
+    "prompt": "Explique com as suas palavras o que diz o teorema de Pitágoras e como usá-lo para achar a hipotenusa quando os catetos medem 3 e 4.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras o que diz o teorema de Pitágoras e como usá-lo para achar a hipotenusa quando os catetos medem 3 e 4.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "enunciado",
+       "description": "Diz que o quadrado da hipotenusa é a soma dos quadrados dos catetos"
+      },
+      {
+       "code": "calculo",
+       "description": "Faz 9 + 16 = 25"
+      },
+      {
+       "code": "raiz",
+       "description": "Extrai a raiz e chega a 5"
+      }
+     ],
+     "exemploBoaResposta": "O teorema de Pitágoras diz que, no triângulo retângulo, o quadrado da hipotenusa é igual à soma dos quadrados dos catetos. Com catetos 3 e 4, faço 9 + 16 = 25. Depois tiro a raiz quadrada de 25 e acho que a hipotenusa mede 5."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF09MA05",
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 9,
+  "version": 1,
+  "title": "Trilha: Porcentagens, acréscimos e descontos",
+  "tituloAluno": "Aumentos, descontos e juros",
+  "activities": [
+   {
+    "id": "PK2-EF09MA05-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: calculando porcentagem",
+    "prompt": "Porcentagem é uma parte de 100.",
+    "estMinutes": 4,
+    "audioScript": "Porcentagem é uma parte de 100. Pergunta 1. Quanto é 10% de 200? A: 10; B: 190; C: 2; D: 20. Pergunta 2. Quanto é 50% de 80? A: 40; B: 50; C: 30; D: 130. Pergunta 3. Um produto de 100 reais tem 20% de desconto. Quanto custa? A: 20 reais; B: 80 reais; C: 120 reais; D: 98 reais.",
+    "questions": [
+     {
+      "question": "Quanto é 10% de 200?",
+      "options": [
+       {
+        "text": "10",
+        "misconceptionCode": "porcento-como-reais"
+       },
+       {
+        "text": "190",
+        "misconceptionCode": "base-errada"
+       },
+       {
+        "text": "2",
+        "misconceptionCode": "base-errada"
+       },
+       {
+        "text": "20"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "10% é a décima parte: 200 ÷ 10 = 20.",
+      "variants": [
+       {
+        "question": "Quanto é 10% de 350?",
+        "options": [
+         {
+          "text": "10",
+          "misconceptionCode": "porcento-como-reais"
+         },
+         {
+          "text": "35"
+         },
+         {
+          "text": "340",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "3,5",
+          "misconceptionCode": "base-errada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é 10% de 200?",
+        "options": [
+         {
+          "text": "20"
+         },
+         {
+          "text": "2",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "190",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "10",
+          "misconceptionCode": "porcento-como-reais"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 50% de 80?",
+      "options": [
+       {
+        "text": "40"
+       },
+       {
+        "text": "50",
+        "misconceptionCode": "porcento-como-reais"
+       },
+       {
+        "text": "30",
+        "misconceptionCode": "base-errada"
+       },
+       {
+        "text": "130",
+        "misconceptionCode": "soma-percentuais"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "50% é a metade: 80 ÷ 2 = 40.",
+      "variants": [
+       {
+        "question": "Quanto é 25% de 80?",
+        "options": [
+         {
+          "text": "25",
+          "misconceptionCode": "porcento-como-reais"
+         },
+         {
+          "text": "55",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "20"
+         },
+         {
+          "text": "105",
+          "misconceptionCode": "soma-percentuais"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quanto é 50% de 80?",
+        "options": [
+         {
+          "text": "130",
+          "misconceptionCode": "soma-percentuais"
+         },
+         {
+          "text": "40"
+         },
+         {
+          "text": "30",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "50",
+          "misconceptionCode": "porcento-como-reais"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um produto de 100 reais tem 20% de desconto. Quanto custa?",
+      "options": [
+       {
+        "text": "20 reais",
+        "misconceptionCode": "porcento-como-reais"
+       },
+       {
+        "text": "80 reais"
+       },
+       {
+        "text": "120 reais",
+        "misconceptionCode": "base-errada"
+       },
+       {
+        "text": "98 reais",
+        "misconceptionCode": "porcento-como-reais"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O desconto é de 20 reais (20% de 100). Então 100 − 20 = 80.",
+      "variants": [
+       {
+        "question": "Um produto de 200 reais tem 10% de desconto. Quanto custa?",
+        "options": [
+         {
+          "text": "20 reais",
+          "misconceptionCode": "porcento-como-reais"
+         },
+         {
+          "text": "220 reais",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "190 reais",
+          "misconceptionCode": "porcento-como-reais"
+         },
+         {
+          "text": "180 reais"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um produto de 100 reais tem 20% de desconto. Quanto custa?",
+        "options": [
+         {
+          "text": "98 reais",
+          "misconceptionCode": "porcento-como-reais"
+         },
+         {
+          "text": "120 reais",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "80 reais"
+         },
+         {
+          "text": "20 reais",
+          "misconceptionCode": "porcento-como-reais"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09MA05-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: aumentos e descontos sucessivos",
+    "prompt": "Quando há dois aumentos ou descontos seguidos, o segundo é calculado sobre o valor já alterado. Vamos calcular juntos.",
+    "estMinutes": 4,
+    "audioScript": "Quando há dois aumentos ou descontos seguidos, o segundo é calculado sobre o valor já alterado. Vamos calcular juntos. Pergunta 1. Um produto de 100 reais aumenta 10% e, depois, mais 10%. Qual é o preço final? A: 120 reais; B: 110 reais; C: 121 reais; D: 200 reais. Pergunta 2. Um produto de 100 reais aumenta 10% e, depois, tem desconto de 10%. Qual é o preço final? A: 100 reais; B: 110 reais; C: 90 reais; D: 99 reais. Pergunta 3. Aumentar um valor em 10% é o mesmo que multiplicá-lo por: A: 1,10; B: 10; C: 0,10; D: 0,90.",
+    "questions": [
+     {
+      "question": "Um produto de 100 reais aumenta 10% e, depois, mais 10%. Qual é o preço final?",
+      "options": [
+       {
+        "text": "120 reais",
+        "misconceptionCode": "soma-percentuais"
+       },
+       {
+        "text": "110 reais",
+        "misconceptionCode": "base-errada"
+       },
+       {
+        "text": "121 reais"
+       },
+       {
+        "text": "200 reais",
+        "misconceptionCode": "porcento-como-reais"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Primeiro aumento: 100 + 10 = 110. Segundo: 10% de 110 é 11, então 110 + 11 = 121.",
+      "variants": [
+       {
+        "question": "Um produto de 200 reais aumenta 10% e, depois, mais 10%. Qual é o preço final?",
+        "options": [
+         {
+          "text": "242 reais"
+         },
+         {
+          "text": "240 reais",
+          "misconceptionCode": "soma-percentuais"
+         },
+         {
+          "text": "220 reais",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "400 reais",
+          "misconceptionCode": "porcento-como-reais"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um produto de 100 reais aumenta 10% e, depois, mais 10%. Qual é o preço final?",
+        "options": [
+         {
+          "text": "200 reais",
+          "misconceptionCode": "porcento-como-reais"
+         },
+         {
+          "text": "110 reais",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "120 reais",
+          "misconceptionCode": "soma-percentuais"
+         },
+         {
+          "text": "121 reais"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Um produto de 100 reais aumenta 10% e, depois, tem desconto de 10%. Qual é o preço final?",
+      "options": [
+       {
+        "text": "100 reais",
+        "misconceptionCode": "desfaz-com-mesmo"
+       },
+       {
+        "text": "110 reais",
+        "misconceptionCode": "base-errada"
+       },
+       {
+        "text": "90 reais",
+        "misconceptionCode": "base-errada"
+       },
+       {
+        "text": "99 reais"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Sobe para 110. O desconto de 10% é sobre 110: 11 reais. Fica 99. Não volta ao valor inicial.",
+      "variants": [
+       {
+        "question": "Um produto de 200 reais aumenta 10% e, depois, tem desconto de 10%. Qual é o preço final?",
+        "options": [
+         {
+          "text": "200 reais",
+          "misconceptionCode": "desfaz-com-mesmo"
+         },
+         {
+          "text": "198 reais"
+         },
+         {
+          "text": "220 reais",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "180 reais",
+          "misconceptionCode": "base-errada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um produto de 100 reais aumenta 10% e, depois, tem desconto de 10%. Qual é o preço final?",
+        "options": [
+         {
+          "text": "99 reais"
+         },
+         {
+          "text": "90 reais",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "110 reais",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "100 reais",
+          "misconceptionCode": "desfaz-com-mesmo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Aumentar um valor em 10% é o mesmo que multiplicá-lo por:",
+      "options": [
+       {
+        "text": "1,10"
+       },
+       {
+        "text": "10",
+        "misconceptionCode": "porcento-como-reais"
+       },
+       {
+        "text": "0,10",
+        "misconceptionCode": "base-errada"
+       },
+       {
+        "text": "0,90",
+        "misconceptionCode": "desfaz-com-mesmo"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O valor inteiro (1) mais o aumento (0,10): 1,10.",
+      "variants": [
+       {
+        "question": "Dar um desconto de 10% é o mesmo que multiplicar o valor por:",
+        "options": [
+         {
+          "text": "10",
+          "misconceptionCode": "porcento-como-reais"
+         },
+         {
+          "text": "0,10",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "0,90"
+         },
+         {
+          "text": "1,10",
+          "misconceptionCode": "desfaz-com-mesmo"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Aumentar um valor em 10% é o mesmo que multiplicá-lo por:",
+        "options": [
+         {
+          "text": "0,90",
+          "misconceptionCode": "desfaz-com-mesmo"
+         },
+         {
+          "text": "1,10"
+         },
+         {
+          "text": "0,10",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "10",
+          "misconceptionCode": "porcento-como-reais"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09MA05-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: calculando acréscimos e descontos",
+    "prompt": "Atenção ao valor sobre o qual se calcula.",
+    "estMinutes": 5,
+    "audioScript": "Atenção ao valor sobre o qual se calcula. Pergunta 1. Uma loja dá 20% de desconto e, no caixa, mais 10% sobre o valor já com desconto. Num produto de 100 reais, quanto se paga? A: 70 reais; B: 72 reais; C: 80 reais; D: 30 reais. Pergunta 2. Um salário de 2.000 reais teve aumento de 5%. Qual é o novo salário? A: 2.005 reais; B: 100 reais; C: 2.100 reais; D: 2.500 reais. Pergunta 3. Um produto passou de 50 para 60 reais. Qual foi o aumento percentual? A: 10%; B: 16,7%; C: 60%; D: 20%. Pergunta 4. Uma calça custava 100 reais, subiu 50% e depois entrou em promoção com 50% de desconto. Quanto custa agora? A: 75 reais; B: 100 reais; C: 150 reais; D: 50 reais.",
+    "questions": [
+     {
+      "question": "Uma loja dá 20% de desconto e, no caixa, mais 10% sobre o valor já com desconto. Num produto de 100 reais, quanto se paga?",
+      "options": [
+       {
+        "text": "70 reais",
+        "misconceptionCode": "soma-percentuais"
+       },
+       {
+        "text": "72 reais"
+       },
+       {
+        "text": "80 reais",
+        "misconceptionCode": "base-errada"
+       },
+       {
+        "text": "30 reais",
+        "misconceptionCode": "porcento-como-reais"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Com 20%: 80 reais. Depois 10% de 80 é 8, então 72.",
+      "variants": [
+       {
+        "question": "Uma loja dá 10% de desconto e, no caixa, mais 10% sobre o valor já com desconto. Num produto de 100 reais, quanto se paga?",
+        "options": [
+         {
+          "text": "80 reais",
+          "misconceptionCode": "soma-percentuais"
+         },
+         {
+          "text": "90 reais",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "20 reais",
+          "misconceptionCode": "porcento-como-reais"
+         },
+         {
+          "text": "81 reais"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Uma loja dá 20% de desconto e, no caixa, mais 10% sobre o valor já com desconto. Num produto de 100 reais, quanto se paga?",
+        "options": [
+         {
+          "text": "30 reais",
+          "misconceptionCode": "porcento-como-reais"
+         },
+         {
+          "text": "80 reais",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "72 reais"
+         },
+         {
+          "text": "70 reais",
+          "misconceptionCode": "soma-percentuais"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um salário de 2.000 reais teve aumento de 5%. Qual é o novo salário?",
+      "options": [
+       {
+        "text": "2.005 reais",
+        "misconceptionCode": "porcento-como-reais"
+       },
+       {
+        "text": "100 reais",
+        "misconceptionCode": "base-errada"
+       },
+       {
+        "text": "2.100 reais"
+       },
+       {
+        "text": "2.500 reais",
+        "misconceptionCode": "base-errada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "5% de 2.000 é 100. O novo salário é 2.100.",
+      "variants": [
+       {
+        "question": "Um salário de 3.000 reais teve aumento de 10%. Qual é o novo salário?",
+        "options": [
+         {
+          "text": "3.300 reais"
+         },
+         {
+          "text": "3.010 reais",
+          "misconceptionCode": "porcento-como-reais"
+         },
+         {
+          "text": "300 reais",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "4.000 reais",
+          "misconceptionCode": "base-errada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um salário de 2.000 reais teve aumento de 5%. Qual é o novo salário?",
+        "options": [
+         {
+          "text": "2.500 reais",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "100 reais",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "2.005 reais",
+          "misconceptionCode": "porcento-como-reais"
+         },
+         {
+          "text": "2.100 reais"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Um produto passou de 50 para 60 reais. Qual foi o aumento percentual?",
+      "options": [
+       {
+        "text": "10%",
+        "misconceptionCode": "porcento-como-reais"
+       },
+       {
+        "text": "16,7%",
+        "misconceptionCode": "base-errada"
+       },
+       {
+        "text": "60%",
+        "misconceptionCode": "base-errada"
+       },
+       {
+        "text": "20%"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O aumento foi de 10 reais sobre o valor inicial de 50: 10 ÷ 50 = 0,20, ou 20%.",
+      "variants": [
+       {
+        "question": "Um produto passou de 80 para 100 reais. Qual foi o aumento percentual?",
+        "options": [
+         {
+          "text": "20%",
+          "misconceptionCode": "porcento-como-reais"
+         },
+         {
+          "text": "25%"
+         },
+         {
+          "text": "80%",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "100%",
+          "misconceptionCode": "base-errada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um produto passou de 50 para 60 reais. Qual foi o aumento percentual?",
+        "options": [
+         {
+          "text": "20%"
+         },
+         {
+          "text": "60%",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "16,7%",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "10%",
+          "misconceptionCode": "porcento-como-reais"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Uma calça custava 100 reais, subiu 50% e depois entrou em promoção com 50% de desconto. Quanto custa agora?",
+      "options": [
+       {
+        "text": "75 reais"
+       },
+       {
+        "text": "100 reais",
+        "misconceptionCode": "desfaz-com-mesmo"
+       },
+       {
+        "text": "150 reais",
+        "misconceptionCode": "base-errada"
+       },
+       {
+        "text": "50 reais",
+        "misconceptionCode": "base-errada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Sobe para 150. Metade de 150 é 75. A \"promoção\" deixou o preço abaixo do original, mas não com 50% de desconto sobre ele.",
+      "variants": [
+       {
+        "question": "Um tênis custava 200 reais, subiu 50% e depois entrou em promoção com 50% de desconto. Quanto custa agora?",
+        "options": [
+         {
+          "text": "200 reais",
+          "misconceptionCode": "desfaz-com-mesmo"
+         },
+         {
+          "text": "300 reais",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "150 reais"
+         },
+         {
+          "text": "100 reais",
+          "misconceptionCode": "base-errada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Uma calça custava 100 reais, subiu 50% e depois entrou em promoção com 50% de desconto. Quanto custa agora?",
+        "options": [
+         {
+          "text": "50 reais",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "75 reais"
+         },
+         {
+          "text": "150 reais",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "100 reais",
+          "misconceptionCode": "desfaz-com-mesmo"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09MA05-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: educação financeira",
+    "prompt": "Use porcentagem para decidir melhor.",
+    "estMinutes": 4,
+    "audioScript": "Use porcentagem para decidir melhor. Pergunta 1. Você aplica 1.000 reais a 10% ao ano, com juros sobre juros. Quanto terá depois de 2 anos? A: 1.200 reais; B: 1.210 reais; C: 1.100 reais; D: 1.020 reais. Pergunta 2. Uma dívida de 500 reais no cartão cresce 10% ao mês. Sem nenhum pagamento, quanto será a dívida depois de 2 meses? A: 600 reais; B: 550 reais; C: 605 reais; D: 520 reais. Pergunta 3. Um celular custa 1.000 reais. À vista, tem 10% de desconto. A prazo, tem acréscimo de 10%. Qual é a diferença entre os dois preços? A: 100 reais; B: 20 reais; C: 0, são iguais; D: 200 reais.",
+    "questions": [
+     {
+      "question": "Você aplica 1.000 reais a 10% ao ano, com juros sobre juros. Quanto terá depois de 2 anos?",
+      "options": [
+       {
+        "text": "1.200 reais",
+        "misconceptionCode": "soma-percentuais"
+       },
+       {
+        "text": "1.210 reais"
+       },
+       {
+        "text": "1.100 reais",
+        "misconceptionCode": "base-errada"
+       },
+       {
+        "text": "1.020 reais",
+        "misconceptionCode": "porcento-como-reais"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Depois de 1 ano: 1.100. No segundo ano, os 10% são sobre 1.100: mais 110. Total: 1.210.",
+      "variants": [
+       {
+        "question": "Você aplica 2.000 reais a 10% ao ano, com juros sobre juros. Quanto terá depois de 2 anos?",
+        "options": [
+         {
+          "text": "2.400 reais",
+          "misconceptionCode": "soma-percentuais"
+         },
+         {
+          "text": "2.200 reais",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "2.020 reais",
+          "misconceptionCode": "porcento-como-reais"
+         },
+         {
+          "text": "2.420 reais"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Você aplica 1.000 reais a 10% ao ano, com juros sobre juros. Quanto terá depois de 2 anos?",
+        "options": [
+         {
+          "text": "1.020 reais",
+          "misconceptionCode": "porcento-como-reais"
+         },
+         {
+          "text": "1.100 reais",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "1.210 reais"
+         },
+         {
+          "text": "1.200 reais",
+          "misconceptionCode": "soma-percentuais"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Uma dívida de 500 reais no cartão cresce 10% ao mês. Sem nenhum pagamento, quanto será a dívida depois de 2 meses?",
+      "options": [
+       {
+        "text": "600 reais",
+        "misconceptionCode": "soma-percentuais"
+       },
+       {
+        "text": "550 reais",
+        "misconceptionCode": "base-errada"
+       },
+       {
+        "text": "605 reais"
+       },
+       {
+        "text": "520 reais",
+        "misconceptionCode": "porcento-como-reais"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Primeiro mês: 550. Segundo: 10% de 550 é 55, então 605. Juros sobre juros fazem a dívida crescer rápido.",
+      "variants": [
+       {
+        "question": "Uma dívida de 1.000 reais cresce 10% ao mês. Sem nenhum pagamento, quanto será a dívida depois de 2 meses?",
+        "options": [
+         {
+          "text": "1.210 reais"
+         },
+         {
+          "text": "1.200 reais",
+          "misconceptionCode": "soma-percentuais"
+         },
+         {
+          "text": "1.100 reais",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "1.020 reais",
+          "misconceptionCode": "porcento-como-reais"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Uma dívida de 500 reais no cartão cresce 10% ao mês. Sem nenhum pagamento, quanto será a dívida depois de 2 meses?",
+        "options": [
+         {
+          "text": "520 reais",
+          "misconceptionCode": "porcento-como-reais"
+         },
+         {
+          "text": "550 reais",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "600 reais",
+          "misconceptionCode": "soma-percentuais"
+         },
+         {
+          "text": "605 reais"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Um celular custa 1.000 reais. À vista, tem 10% de desconto. A prazo, tem acréscimo de 10%. Qual é a diferença entre os dois preços?",
+      "options": [
+       {
+        "text": "100 reais",
+        "misconceptionCode": "base-errada"
+       },
+       {
+        "text": "20 reais",
+        "misconceptionCode": "porcento-como-reais"
+       },
+       {
+        "text": "0, são iguais",
+        "misconceptionCode": "desfaz-com-mesmo"
+       },
+       {
+        "text": "200 reais"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "À vista: 900. A prazo: 1.100. A diferença é de 200 reais.",
+      "variants": [
+       {
+        "question": "Uma TV custa 2.000 reais. À vista, tem 10% de desconto. A prazo, tem acréscimo de 10%. Qual é a diferença entre os dois preços?",
+        "options": [
+         {
+          "text": "200 reais",
+          "misconceptionCode": "base-errada"
+         },
+         {
+          "text": "400 reais"
+         },
+         {
+          "text": "20 reais",
+          "misconceptionCode": "porcento-como-reais"
+         },
+         {
+          "text": "0, são iguais",
+          "misconceptionCode": "desfaz-com-mesmo"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um celular custa 1.000 reais. À vista, tem 10% de desconto. A prazo, tem acréscimo de 10%. Qual é a diferença entre os dois preços?",
+        "options": [
+         {
+          "text": "200 reais"
+         },
+         {
+          "text": "0, são iguais",
+          "misconceptionCode": "desfaz-com-mesmo"
+         },
+         {
+          "text": "20 reais",
+          "misconceptionCode": "porcento-como-reais"
+         },
+         {
+          "text": "100 reais",
+          "misconceptionCode": "base-errada"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09MA05-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: por que não volta ao mesmo valor",
+    "prompt": "Explique com as suas palavras por que um produto de 100 reais que sobe 10% e depois tem desconto de 10% não volta a custar 100 reais.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras por que um produto de 100 reais que sobe 10% e depois tem desconto de 10% não volta a custar 100 reais.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "aumento",
+       "description": "Calcula que o preço sobe para 110"
+      },
+      {
+       "code": "base",
+       "description": "Explica que o desconto é calculado sobre 110, e não sobre 100"
+      },
+      {
+       "code": "final",
+       "description": "Chega a 99 reais"
+      }
+     ],
+     "exemploBoaResposta": "Quando sobe 10%, o produto passa a custar 110 reais. O desconto de 10% é calculado sobre 110, e não sobre 100, então é de 11 reais. O preço final fica 99 reais, um pouco menos que no começo."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF09MA06",
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 9,
+  "version": 1,
+  "title": "Trilha: Funções: relação entre duas grandezas",
+  "tituloAluno": "Uma grandeza que depende da outra",
+  "activities": [
+   {
+    "id": "PK2-EF09MA06-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: valor numérico e proporção",
+    "prompt": "Vamos lembrar como calcular com letras.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar como calcular com letras. Pergunta 1. Qual é o valor de 2x + 3 quando x = 4? A: 11; B: 9; C: 27; D: 14. Pergunta 2. Um pão custa 2 reais. Quanto custam 6 pães? A: 8 reais; B: 12 reais; C: 3 reais; D: 62 reais. Pergunta 3. No plano cartesiano, o eixo horizontal é chamado de: A: Eixo y; B: Origem; C: Eixo x; D: Diagonal.",
+    "questions": [
+     {
+      "question": "Qual é o valor de 2x + 3 quando x = 4?",
+      "options": [
+       {
+        "text": "11"
+       },
+       {
+        "text": "9",
+        "misconceptionCode": "ignora-parte-fixa"
+       },
+       {
+        "text": "27",
+        "misconceptionCode": "troca-variaveis"
+       },
+       {
+        "text": "14",
+        "misconceptionCode": "sempre-proporcional"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "2 × 4 + 3 = 8 + 3 = 11.",
+      "variants": [
+       {
+        "question": "Qual é o valor de 3x + 2 quando x = 5?",
+        "options": [
+         {
+          "text": "15",
+          "misconceptionCode": "ignora-parte-fixa"
+         },
+         {
+          "text": "37",
+          "misconceptionCode": "troca-variaveis"
+         },
+         {
+          "text": "17"
+         },
+         {
+          "text": "21",
+          "misconceptionCode": "sempre-proporcional"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual é o valor de 2x + 3 quando x = 4?",
+        "options": [
+         {
+          "text": "14",
+          "misconceptionCode": "sempre-proporcional"
+         },
+         {
+          "text": "11"
+         },
+         {
+          "text": "27",
+          "misconceptionCode": "troca-variaveis"
+         },
+         {
+          "text": "9",
+          "misconceptionCode": "ignora-parte-fixa"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um pão custa 2 reais. Quanto custam 6 pães?",
+      "options": [
+       {
+        "text": "8 reais",
+        "misconceptionCode": "ignora-parte-fixa"
+       },
+       {
+        "text": "12 reais"
+       },
+       {
+        "text": "3 reais",
+        "misconceptionCode": "troca-variaveis"
+       },
+       {
+        "text": "62 reais",
+        "misconceptionCode": "le-grafico-errado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "6 × 2 = 12. O preço depende da quantidade.",
+      "variants": [
+       {
+        "question": "Um ingresso custa 15 reais. Quanto custam 4 ingressos?",
+        "options": [
+         {
+          "text": "19 reais",
+          "misconceptionCode": "ignora-parte-fixa"
+         },
+         {
+          "text": "3,75 reais",
+          "misconceptionCode": "troca-variaveis"
+         },
+         {
+          "text": "154 reais",
+          "misconceptionCode": "le-grafico-errado"
+         },
+         {
+          "text": "60 reais"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um pão custa 2 reais. Quanto custam 6 pães?",
+        "options": [
+         {
+          "text": "62 reais",
+          "misconceptionCode": "le-grafico-errado"
+         },
+         {
+          "text": "3 reais",
+          "misconceptionCode": "troca-variaveis"
+         },
+         {
+          "text": "12 reais"
+         },
+         {
+          "text": "8 reais",
+          "misconceptionCode": "ignora-parte-fixa"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "No plano cartesiano, o eixo horizontal é chamado de:",
+      "options": [
+       {
+        "text": "Eixo y",
+        "misconceptionCode": "le-grafico-errado"
+       },
+       {
+        "text": "Origem",
+        "misconceptionCode": "le-grafico-errado"
+       },
+       {
+        "text": "Eixo x"
+       },
+       {
+        "text": "Diagonal",
+        "misconceptionCode": "le-grafico-errado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O eixo horizontal é o x e o vertical é o y.",
+      "variants": [
+       {
+        "question": "No plano cartesiano, o eixo vertical é chamado de:",
+        "options": [
+         {
+          "text": "Eixo y"
+         },
+         {
+          "text": "Eixo x",
+          "misconceptionCode": "le-grafico-errado"
+         },
+         {
+          "text": "Origem",
+          "misconceptionCode": "le-grafico-errado"
+         },
+         {
+          "text": "Diagonal",
+          "misconceptionCode": "le-grafico-errado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "No plano cartesiano, o eixo horizontal é chamado de:",
+        "options": [
+         {
+          "text": "Diagonal",
+          "misconceptionCode": "le-grafico-errado"
+         },
+         {
+          "text": "Origem",
+          "misconceptionCode": "le-grafico-errado"
+         },
+         {
+          "text": "Eixo y",
+          "misconceptionCode": "le-grafico-errado"
+         },
+         {
+          "text": "Eixo x"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09MA06-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o que é uma função",
+    "prompt": "Numa função, cada valor de uma variável (x) corresponde a um único valor da outra (y). Dizemos que y depende de x. Um táxi cobra 5 reais fixos mais 2 reais por quilômetro: y = 5 + 2x. Vamos analisar juntos.",
+    "estMinutes": 4,
+    "audioScript": "Numa função, cada valor de uma variável (x) corresponde a um único valor da outra (y). Dizemos que y depende de x. Um táxi cobra 5 reais fixos mais 2 reais por quilômetro: y = 5 + 2x. Vamos analisar juntos. Pergunta 1. Na função do táxi, y = 5 + 2x, o que representa x? A: O preço da corrida; B: O valor fixo; C: O número de passageiros; D: Os quilômetros percorridos. Pergunta 2. Usando y = 5 + 2x, quanto custa uma corrida de 10 km? A: 25 reais; B: 20 reais; C: 70 reais; D: 17 reais. Pergunta 3. No táxi, uma corrida de 5 km custa 15 reais. Uma corrida de 10 km custa o dobro? A: Sim, 30 reais; B: Não, custa 25 reais, por causa do valor fixo; C: Sim, porque dobrou a distância; D: Não, custa 20 reais.",
+    "questions": [
+     {
+      "question": "Na função do táxi, y = 5 + 2x, o que representa x?",
+      "options": [
+       {
+        "text": "O preço da corrida",
+        "misconceptionCode": "troca-variaveis"
+       },
+       {
+        "text": "O valor fixo",
+        "misconceptionCode": "ignora-parte-fixa"
+       },
+       {
+        "text": "O número de passageiros",
+        "misconceptionCode": "troca-variaveis"
+       },
+       {
+        "text": "Os quilômetros percorridos"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O preço (y) depende da distância (x). A distância é a variável que escolhemos.",
+      "variants": [
+       {
+        "question": "Na função do táxi, y = 5 + 2x, o que representa y?",
+        "options": [
+         {
+          "text": "Os quilômetros percorridos",
+          "misconceptionCode": "troca-variaveis"
+         },
+         {
+          "text": "O preço da corrida"
+         },
+         {
+          "text": "O valor fixo",
+          "misconceptionCode": "ignora-parte-fixa"
+         },
+         {
+          "text": "O número de passageiros",
+          "misconceptionCode": "troca-variaveis"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Na função do táxi, y = 5 + 2x, o que representa x?",
+        "options": [
+         {
+          "text": "Os quilômetros percorridos"
+         },
+         {
+          "text": "O número de passageiros",
+          "misconceptionCode": "troca-variaveis"
+         },
+         {
+          "text": "O valor fixo",
+          "misconceptionCode": "ignora-parte-fixa"
+         },
+         {
+          "text": "O preço da corrida",
+          "misconceptionCode": "troca-variaveis"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Usando y = 5 + 2x, quanto custa uma corrida de 10 km?",
+      "options": [
+       {
+        "text": "25 reais"
+       },
+       {
+        "text": "20 reais",
+        "misconceptionCode": "ignora-parte-fixa"
+       },
+       {
+        "text": "70 reais",
+        "misconceptionCode": "troca-variaveis"
+       },
+       {
+        "text": "17 reais",
+        "misconceptionCode": "sempre-proporcional"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "y = 5 + 2 × 10 = 5 + 20 = 25.",
+      "variants": [
+       {
+        "question": "Usando y = 5 + 2x, quanto custa uma corrida de 6 km?",
+        "options": [
+         {
+          "text": "12 reais",
+          "misconceptionCode": "ignora-parte-fixa"
+         },
+         {
+          "text": "42 reais",
+          "misconceptionCode": "troca-variaveis"
+         },
+         {
+          "text": "17 reais"
+         },
+         {
+          "text": "13 reais",
+          "misconceptionCode": "sempre-proporcional"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Usando y = 5 + 2x, quanto custa uma corrida de 10 km?",
+        "options": [
+         {
+          "text": "17 reais",
+          "misconceptionCode": "sempre-proporcional"
+         },
+         {
+          "text": "25 reais"
+         },
+         {
+          "text": "70 reais",
+          "misconceptionCode": "troca-variaveis"
+         },
+         {
+          "text": "20 reais",
+          "misconceptionCode": "ignora-parte-fixa"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "No táxi, uma corrida de 5 km custa 15 reais. Uma corrida de 10 km custa o dobro?",
+      "options": [
+       {
+        "text": "Sim, 30 reais",
+        "misconceptionCode": "sempre-proporcional"
+       },
+       {
+        "text": "Não, custa 25 reais, por causa do valor fixo"
+       },
+       {
+        "text": "Sim, porque dobrou a distância",
+        "misconceptionCode": "sempre-proporcional"
+       },
+       {
+        "text": "Não, custa 20 reais",
+        "misconceptionCode": "ignora-parte-fixa"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Como há uma parte fixa de 5 reais, o preço não dobra quando a distância dobra.",
+      "variants": [
+       {
+        "question": "Num estacionamento que cobra y = 10 + 3x (x em horas), 2 horas custam 16 reais. Quatro horas custam o dobro?",
+        "options": [
+         {
+          "text": "Sim, 32 reais",
+          "misconceptionCode": "sempre-proporcional"
+         },
+         {
+          "text": "Sim, porque dobrou o tempo",
+          "misconceptionCode": "sempre-proporcional"
+         },
+         {
+          "text": "Não, custam 12 reais",
+          "misconceptionCode": "ignora-parte-fixa"
+         },
+         {
+          "text": "Não, custam 22 reais, por causa do valor fixo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "No táxi, uma corrida de 5 km custa 15 reais. Uma corrida de 10 km custa o dobro?",
+        "options": [
+         {
+          "text": "Não, custa 20 reais",
+          "misconceptionCode": "ignora-parte-fixa"
+         },
+         {
+          "text": "Sim, porque dobrou a distância",
+          "misconceptionCode": "sempre-proporcional"
+         },
+         {
+          "text": "Não, custa 25 reais, por causa do valor fixo"
+         },
+         {
+          "text": "Sim, 30 reais",
+          "misconceptionCode": "sempre-proporcional"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09MA06-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: tabela, fórmula e gráfico",
+    "prompt": "Passe de uma representação para outra.",
+    "estMinutes": 5,
+    "audioScript": "Passe de uma representação para outra. Pergunta 1. Uma tabela mostra: x = 1, y = 3; x = 2, y = 6; x = 3, y = 9. Qual é a expressão da função? A: y = x + 3; B: y = x + 2; C: y = 3x; D: x = 3y. Pergunta 2. Uma tabela mostra: x = 0, y = 4; x = 1, y = 6; x = 2, y = 8. Qual é a expressão da função? A: y = 2x; B: y = 4x; C: y = x + 4; D: y = 2x + 4. Pergunta 3. O ponto (3, 7) está no gráfico de uma função. Isso significa que: A: Quando x = 3, y = 7; B: Quando x = 7, y = 3; C: x + y = 37; D: A função vale 3. Pergunta 4. O gráfico da função y = 2x + 1 é: A: Uma curva em forma de U; B: Uma reta; C: Um círculo; D: Pontos soltos sem padrão.",
+    "questions": [
+     {
+      "question": "Uma tabela mostra: x = 1, y = 3; x = 2, y = 6; x = 3, y = 9. Qual é a expressão da função?",
+      "options": [
+       {
+        "text": "y = x + 3",
+        "misconceptionCode": "ignora-parte-fixa"
+       },
+       {
+        "text": "y = x + 2",
+        "misconceptionCode": "ignora-parte-fixa"
+       },
+       {
+        "text": "y = 3x"
+       },
+       {
+        "text": "x = 3y",
+        "misconceptionCode": "troca-variaveis"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Cada y é o triplo do x.",
+      "variants": [
+       {
+        "question": "Uma tabela mostra: x = 1, y = 5; x = 2, y = 10; x = 3, y = 15. Qual é a expressão da função?",
+        "options": [
+         {
+          "text": "y = 5x"
+         },
+         {
+          "text": "y = x + 5",
+          "misconceptionCode": "ignora-parte-fixa"
+         },
+         {
+          "text": "y = x + 4",
+          "misconceptionCode": "ignora-parte-fixa"
+         },
+         {
+          "text": "x = 5y",
+          "misconceptionCode": "troca-variaveis"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Uma tabela mostra: x = 1, y = 3; x = 2, y = 6; x = 3, y = 9. Qual é a expressão da função?",
+        "options": [
+         {
+          "text": "x = 3y",
+          "misconceptionCode": "troca-variaveis"
+         },
+         {
+          "text": "y = x + 2",
+          "misconceptionCode": "ignora-parte-fixa"
+         },
+         {
+          "text": "y = x + 3",
+          "misconceptionCode": "ignora-parte-fixa"
+         },
+         {
+          "text": "y = 3x"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Uma tabela mostra: x = 0, y = 4; x = 1, y = 6; x = 2, y = 8. Qual é a expressão da função?",
+      "options": [
+       {
+        "text": "y = 2x",
+        "misconceptionCode": "ignora-parte-fixa"
+       },
+       {
+        "text": "y = 4x",
+        "misconceptionCode": "sempre-proporcional"
+       },
+       {
+        "text": "y = x + 4",
+        "misconceptionCode": "ignora-parte-fixa"
+       },
+       {
+        "text": "y = 2x + 4"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Quando x = 0, y = 4: esse é o valor fixo. A cada unidade de x, y aumenta 2.",
+      "variants": [
+       {
+        "question": "Uma tabela mostra: x = 0, y = 1; x = 1, y = 4; x = 2, y = 7. Qual é a expressão da função?",
+        "options": [
+         {
+          "text": "y = 3x",
+          "misconceptionCode": "ignora-parte-fixa"
+         },
+         {
+          "text": "y = 3x + 1"
+         },
+         {
+          "text": "y = x + 1",
+          "misconceptionCode": "sempre-proporcional"
+         },
+         {
+          "text": "y = 4x",
+          "misconceptionCode": "ignora-parte-fixa"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Uma tabela mostra: x = 0, y = 4; x = 1, y = 6; x = 2, y = 8. Qual é a expressão da função?",
+        "options": [
+         {
+          "text": "y = 2x + 4"
+         },
+         {
+          "text": "y = x + 4",
+          "misconceptionCode": "ignora-parte-fixa"
+         },
+         {
+          "text": "y = 4x",
+          "misconceptionCode": "sempre-proporcional"
+         },
+         {
+          "text": "y = 2x",
+          "misconceptionCode": "ignora-parte-fixa"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O ponto (3, 7) está no gráfico de uma função. Isso significa que:",
+      "options": [
+       {
+        "text": "Quando x = 3, y = 7"
+       },
+       {
+        "text": "Quando x = 7, y = 3",
+        "misconceptionCode": "le-grafico-errado"
+       },
+       {
+        "text": "x + y = 37",
+        "misconceptionCode": "le-grafico-errado"
+       },
+       {
+        "text": "A função vale 3",
+        "misconceptionCode": "troca-variaveis"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "No par ordenado, o primeiro número é x e o segundo é y.",
+      "variants": [
+       {
+        "question": "O ponto (2, 9) está no gráfico de uma função. Isso significa que:",
+        "options": [
+         {
+          "text": "Quando x = 9, y = 2",
+          "misconceptionCode": "le-grafico-errado"
+         },
+         {
+          "text": "x + y = 29",
+          "misconceptionCode": "le-grafico-errado"
+         },
+         {
+          "text": "Quando x = 2, y = 9"
+         },
+         {
+          "text": "A função vale 2",
+          "misconceptionCode": "troca-variaveis"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O ponto (3, 7) está no gráfico de uma função. Isso significa que:",
+        "options": [
+         {
+          "text": "A função vale 3",
+          "misconceptionCode": "troca-variaveis"
+         },
+         {
+          "text": "Quando x = 3, y = 7"
+         },
+         {
+          "text": "x + y = 37",
+          "misconceptionCode": "le-grafico-errado"
+         },
+         {
+          "text": "Quando x = 7, y = 3",
+          "misconceptionCode": "le-grafico-errado"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O gráfico da função y = 2x + 1 é:",
+      "options": [
+       {
+        "text": "Uma curva em forma de U",
+        "misconceptionCode": "le-grafico-errado"
+       },
+       {
+        "text": "Uma reta"
+       },
+       {
+        "text": "Um círculo",
+        "misconceptionCode": "le-grafico-errado"
+       },
+       {
+        "text": "Pontos soltos sem padrão",
+        "misconceptionCode": "le-grafico-errado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Funções do tipo y = ax + b têm como gráfico uma reta.",
+      "variants": [
+       {
+        "question": "O gráfico da função y = 3x é:",
+        "options": [
+         {
+          "text": "Uma curva em forma de U",
+          "misconceptionCode": "le-grafico-errado"
+         },
+         {
+          "text": "Um círculo",
+          "misconceptionCode": "le-grafico-errado"
+         },
+         {
+          "text": "Uma reta que não passa pela origem",
+          "misconceptionCode": "le-grafico-errado"
+         },
+         {
+          "text": "Uma reta que passa pela origem"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O gráfico da função y = 2x + 1 é:",
+        "options": [
+         {
+          "text": "Pontos soltos sem padrão",
+          "misconceptionCode": "le-grafico-errado"
+         },
+         {
+          "text": "Um círculo",
+          "misconceptionCode": "le-grafico-errado"
+         },
+         {
+          "text": "Uma reta"
+         },
+         {
+          "text": "Uma curva em forma de U",
+          "misconceptionCode": "le-grafico-errado"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09MA06-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: funções em situações reais",
+    "prompt": "Monte a função e responda.",
+    "estMinutes": 4,
+    "audioScript": "Monte a função e responda. Pergunta 1. Um plano de celular custa 30 reais fixos mais 2 reais por gigabyte usado. Qual expressão dá o valor da conta (y) para x gigabytes? A: y = 32x; B: y = 2 + 30x; C: y = 30 + 2x; D: y = 2x. Pergunta 2. Uma costureira ganha 800 reais fixos mais 5 reais por peça. Quanto ela ganha num mês em que faz 100 peças? A: 500 reais; B: 805 reais; C: 80.500 reais; D: 1.300 reais. Pergunta 3. A conta do táxi foi de 25 reais, com y = 5 + 2x. Quantos quilômetros foram percorridos? A: 10 km; B: 12,5 km; C: 55 km; D: 20 km.",
+    "questions": [
+     {
+      "question": "Um plano de celular custa 30 reais fixos mais 2 reais por gigabyte usado. Qual expressão dá o valor da conta (y) para x gigabytes?",
+      "options": [
+       {
+        "text": "y = 32x",
+        "misconceptionCode": "ignora-parte-fixa"
+       },
+       {
+        "text": "y = 2 + 30x",
+        "misconceptionCode": "troca-variaveis"
+       },
+       {
+        "text": "y = 30 + 2x"
+       },
+       {
+        "text": "y = 2x",
+        "misconceptionCode": "ignora-parte-fixa"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O valor fixo é 30, e cada gigabyte acrescenta 2 reais.",
+      "variants": [
+       {
+        "question": "Uma academia cobra 50 reais de matrícula mais 80 reais por mês. Qual expressão dá o total pago (y) depois de x meses?",
+        "options": [
+         {
+          "text": "y = 50 + 80x"
+         },
+         {
+          "text": "y = 130x",
+          "misconceptionCode": "ignora-parte-fixa"
+         },
+         {
+          "text": "y = 80 + 50x",
+          "misconceptionCode": "troca-variaveis"
+         },
+         {
+          "text": "y = 80x",
+          "misconceptionCode": "ignora-parte-fixa"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um plano de celular custa 30 reais fixos mais 2 reais por gigabyte usado. Qual expressão dá o valor da conta (y) para x gigabytes?",
+        "options": [
+         {
+          "text": "y = 2x",
+          "misconceptionCode": "ignora-parte-fixa"
+         },
+         {
+          "text": "y = 2 + 30x",
+          "misconceptionCode": "troca-variaveis"
+         },
+         {
+          "text": "y = 32x",
+          "misconceptionCode": "ignora-parte-fixa"
+         },
+         {
+          "text": "y = 30 + 2x"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Uma costureira ganha 800 reais fixos mais 5 reais por peça. Quanto ela ganha num mês em que faz 100 peças?",
+      "options": [
+       {
+        "text": "500 reais",
+        "misconceptionCode": "ignora-parte-fixa"
+       },
+       {
+        "text": "805 reais",
+        "misconceptionCode": "sempre-proporcional"
+       },
+       {
+        "text": "80.500 reais",
+        "misconceptionCode": "troca-variaveis"
+       },
+       {
+        "text": "1.300 reais"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "y = 800 + 5 × 100 = 800 + 500 = 1.300.",
+      "variants": [
+       {
+        "question": "Um vendedor ganha 1.000 reais fixos mais 10 reais por venda. Quanto ele ganha num mês com 50 vendas?",
+        "options": [
+         {
+          "text": "500 reais",
+          "misconceptionCode": "ignora-parte-fixa"
+         },
+         {
+          "text": "1.500 reais"
+         },
+         {
+          "text": "1.010 reais",
+          "misconceptionCode": "sempre-proporcional"
+         },
+         {
+          "text": "50.010 reais",
+          "misconceptionCode": "troca-variaveis"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Uma costureira ganha 800 reais fixos mais 5 reais por peça. Quanto ela ganha num mês em que faz 100 peças?",
+        "options": [
+         {
+          "text": "1.300 reais"
+         },
+         {
+          "text": "80.500 reais",
+          "misconceptionCode": "troca-variaveis"
+         },
+         {
+          "text": "805 reais",
+          "misconceptionCode": "sempre-proporcional"
+         },
+         {
+          "text": "500 reais",
+          "misconceptionCode": "ignora-parte-fixa"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "A conta do táxi foi de 25 reais, com y = 5 + 2x. Quantos quilômetros foram percorridos?",
+      "options": [
+       {
+        "text": "10 km"
+       },
+       {
+        "text": "12,5 km",
+        "misconceptionCode": "ignora-parte-fixa"
+       },
+       {
+        "text": "55 km",
+        "misconceptionCode": "troca-variaveis"
+       },
+       {
+        "text": "20 km",
+        "misconceptionCode": "ignora-parte-fixa"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "25 = 5 + 2x, então 2x = 20 e x = 10.",
+      "variants": [
+       {
+        "question": "A conta do táxi foi de 35 reais, com y = 5 + 2x. Quantos quilômetros foram percorridos?",
+        "options": [
+         {
+          "text": "17,5 km",
+          "misconceptionCode": "ignora-parte-fixa"
+         },
+         {
+          "text": "75 km",
+          "misconceptionCode": "troca-variaveis"
+         },
+         {
+          "text": "15 km"
+         },
+         {
+          "text": "30 km",
+          "misconceptionCode": "ignora-parte-fixa"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A conta do táxi foi de 25 reais, com y = 5 + 2x. Quantos quilômetros foram percorridos?",
+        "options": [
+         {
+          "text": "20 km",
+          "misconceptionCode": "ignora-parte-fixa"
+         },
+         {
+          "text": "10 km"
+         },
+         {
+          "text": "55 km",
+          "misconceptionCode": "troca-variaveis"
+         },
+         {
+          "text": "12,5 km",
+          "misconceptionCode": "ignora-parte-fixa"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09MA06-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: o que é uma função",
+    "prompt": "Um aplicativo cobra 4 reais fixos mais 3 reais por quilômetro. Explique com as suas palavras como escrever a função e quanto custa uma corrida de 5 km.",
+    "estMinutes": 6,
+    "audioScript": "Um aplicativo cobra 4 reais fixos mais 3 reais por quilômetro. Explique com as suas palavras como escrever a função e quanto custa uma corrida de 5 km.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "variaveis",
+       "description": "Identifica que o preço depende dos quilômetros"
+      },
+      {
+       "code": "expressao",
+       "description": "Escreve y = 4 + 3x (ou equivalente)"
+      },
+      {
+       "code": "calculo",
+       "description": "Calcula 19 reais para 5 km"
+      }
+     ],
+     "exemploBoaResposta": "O preço da corrida depende dos quilômetros. Chamando o preço de y e os quilômetros de x, a função é y = 4 + 3x. Para 5 km, fica 4 + 3 × 5 = 19 reais."
+    }
+   }
+  ]
+ }
+]

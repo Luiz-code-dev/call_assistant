@@ -1,0 +1,3766 @@
+[
+ {
+  "skillCode": "EF09CI01",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 9,
+  "version": 1,
+  "title": "Trilha: Estados físicos e mudanças de estado",
+  "tituloAluno": "Sólido, líquido e gasoso: o que muda por dentro",
+  "activities": [
+   {
+    "id": "PK2-EF09CI01-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: calor e temperatura",
+    "prompt": "No 7º ano, vimos que o calor passa do corpo mais quente para o mais frio.",
+    "estMinutes": 4,
+    "audioScript": "No 7º ano, vimos que o calor passa do corpo mais quente para o mais frio. Pergunta 1. Em que estado físico está a água do mar? A: Sólido; B: Líquido; C: Gasoso; D: Nenhum. Pergunta 2. O que acontece quando colocamos gelo num copo, fora da geladeira? A: Ele perde calor e congela mais; B: Ele desaparece; C: Ele recebe calor do ambiente e derrete; D: Nada. Pergunta 3. A que temperatura a água pura congela, ao nível do mar? A: 100 °C; B: 50 °C; C: 37 °C; D: 0 °C.",
+    "questions": [
+     {
+      "question": "Em que estado físico está a água do mar?",
+      "options": [
+       {
+        "text": "Sólido",
+        "misconceptionCode": "troca-nomes"
+       },
+       {
+        "text": "Líquido"
+       },
+       {
+        "text": "Gasoso",
+        "misconceptionCode": "troca-nomes"
+       },
+       {
+        "text": "Nenhum",
+        "misconceptionCode": "materia-some"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A água do mar é líquida: escorre e toma a forma do recipiente.",
+      "variants": [
+       {
+        "question": "Em que estado físico está um cubo de gelo?",
+        "options": [
+         {
+          "text": "Líquido",
+          "misconceptionCode": "troca-nomes"
+         },
+         {
+          "text": "Gasoso",
+          "misconceptionCode": "troca-nomes"
+         },
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "materia-some"
+         },
+         {
+          "text": "Sólido"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Em que estado físico está a água do mar?",
+        "options": [
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "materia-some"
+         },
+         {
+          "text": "Gasoso",
+          "misconceptionCode": "troca-nomes"
+         },
+         {
+          "text": "Líquido"
+         },
+         {
+          "text": "Sólido",
+          "misconceptionCode": "troca-nomes"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O que acontece quando colocamos gelo num copo, fora da geladeira?",
+      "options": [
+       {
+        "text": "Ele perde calor e congela mais",
+        "misconceptionCode": "temperatura-sobe-sempre"
+       },
+       {
+        "text": "Ele desaparece",
+        "misconceptionCode": "materia-some"
+       },
+       {
+        "text": "Ele recebe calor do ambiente e derrete"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "particula-muda"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O ambiente está mais quente que o gelo. O calor passa para o gelo, que derrete.",
+      "variants": [
+       {
+        "question": "O que acontece quando colocamos água líquida no congelador?",
+        "options": [
+         {
+          "text": "Ela perde calor e vira gelo"
+         },
+         {
+          "text": "Ela recebe calor e ferve",
+          "misconceptionCode": "temperatura-sobe-sempre"
+         },
+         {
+          "text": "Ela desaparece",
+          "misconceptionCode": "materia-some"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "particula-muda"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que acontece quando colocamos gelo num copo, fora da geladeira?",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "particula-muda"
+         },
+         {
+          "text": "Ele desaparece",
+          "misconceptionCode": "materia-some"
+         },
+         {
+          "text": "Ele perde calor e congela mais",
+          "misconceptionCode": "temperatura-sobe-sempre"
+         },
+         {
+          "text": "Ele recebe calor do ambiente e derrete"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "A que temperatura a água pura congela, ao nível do mar?",
+      "options": [
+       {
+        "text": "100 °C",
+        "misconceptionCode": "troca-nomes"
+       },
+       {
+        "text": "50 °C",
+        "misconceptionCode": "temperatura-sobe-sempre"
+       },
+       {
+        "text": "37 °C",
+        "misconceptionCode": "temperatura-sobe-sempre"
+       },
+       {
+        "text": "0 °C"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A 0 °C a água passa de líquida para sólida, ou de sólida para líquida.",
+      "variants": [
+       {
+        "question": "A que temperatura a água pura ferve, ao nível do mar?",
+        "options": [
+         {
+          "text": "0 °C",
+          "misconceptionCode": "troca-nomes"
+         },
+         {
+          "text": "100 °C"
+         },
+         {
+          "text": "50 °C",
+          "misconceptionCode": "temperatura-sobe-sempre"
+         },
+         {
+          "text": "37 °C",
+          "misconceptionCode": "temperatura-sobe-sempre"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A que temperatura a água pura congela, ao nível do mar?",
+        "options": [
+         {
+          "text": "0 °C"
+         },
+         {
+          "text": "37 °C",
+          "misconceptionCode": "temperatura-sobe-sempre"
+         },
+         {
+          "text": "50 °C",
+          "misconceptionCode": "temperatura-sobe-sempre"
+         },
+         {
+          "text": "100 °C",
+          "misconceptionCode": "troca-nomes"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09CI01-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o modelo de partículas",
+    "prompt": "Toda matéria é formada por partículas muito pequenas. No sólido, elas ficam bem juntas e só vibram. No líquido, ficam próximas, mas deslizam umas sobre as outras. No gás, ficam afastadas e se movem livremente. Vamos entender juntos.",
+    "estMinutes": 4,
+    "audioScript": "Toda matéria é formada por partículas muito pequenas. No sólido, elas ficam bem juntas e só vibram. No líquido, ficam próximas, mas deslizam umas sobre as outras. No gás, ficam afastadas e se movem livremente. Vamos entender juntos. Pergunta 1. Como estão as partículas de um sólido? A: Bem juntas, organizadas, apenas vibrando; B: Muito afastadas e se movendo livremente; C: Paradas e sem nenhum movimento; D: Maiores do que as do líquido. Pergunta 2. Quando o gelo derrete, o que acontece com as partículas de água? A: Ficam maiores; B: Recebem energia, vibram mais e passam a deslizar umas sobre as outras; C: Viram outra substância; D: Desaparecem. Pergunta 3. Gelo, água líquida e vapor de água são: A: Três substâncias diferentes; B: Substâncias com partículas de tamanhos diferentes; C: A mesma substância, em estados físicos diferentes; D: Misturas.",
+    "questions": [
+     {
+      "question": "Como estão as partículas de um sólido?",
+      "options": [
+       {
+        "text": "Bem juntas, organizadas, apenas vibrando"
+       },
+       {
+        "text": "Muito afastadas e se movendo livremente",
+        "misconceptionCode": "troca-nomes"
+       },
+       {
+        "text": "Paradas e sem nenhum movimento",
+        "misconceptionCode": "particula-muda"
+       },
+       {
+        "text": "Maiores do que as do líquido",
+        "misconceptionCode": "particula-muda"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "No sólido, as partículas estão presas em posições fixas, mas vibram. Por isso o sólido tem forma própria.",
+      "variants": [
+       {
+        "question": "Como estão as partículas de um gás?",
+        "options": [
+         {
+          "text": "Bem juntas e organizadas",
+          "misconceptionCode": "troca-nomes"
+         },
+         {
+          "text": "Paradas",
+          "misconceptionCode": "particula-muda"
+         },
+         {
+          "text": "Muito afastadas, movendo-se livremente em todas as direções"
+         },
+         {
+          "text": "Menores do que as do sólido",
+          "misconceptionCode": "particula-muda"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Como estão as partículas de um sólido?",
+        "options": [
+         {
+          "text": "Maiores do que as do líquido",
+          "misconceptionCode": "particula-muda"
+         },
+         {
+          "text": "Bem juntas, organizadas, apenas vibrando"
+         },
+         {
+          "text": "Paradas e sem nenhum movimento",
+          "misconceptionCode": "particula-muda"
+         },
+         {
+          "text": "Muito afastadas e se movendo livremente",
+          "misconceptionCode": "troca-nomes"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quando o gelo derrete, o que acontece com as partículas de água?",
+      "options": [
+       {
+        "text": "Ficam maiores",
+        "misconceptionCode": "particula-muda"
+       },
+       {
+        "text": "Recebem energia, vibram mais e passam a deslizar umas sobre as outras"
+       },
+       {
+        "text": "Viram outra substância",
+        "misconceptionCode": "particula-muda"
+       },
+       {
+        "text": "Desaparecem",
+        "misconceptionCode": "materia-some"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "As partículas continuam as mesmas. O que muda é a forma como se movem e se organizam.",
+      "variants": [
+       {
+        "question": "Quando a água líquida vira vapor, o que acontece com as partículas?",
+        "options": [
+         {
+          "text": "Ficam maiores",
+          "misconceptionCode": "particula-muda"
+         },
+         {
+          "text": "Viram outra substância",
+          "misconceptionCode": "particula-muda"
+         },
+         {
+          "text": "Desaparecem",
+          "misconceptionCode": "materia-some"
+         },
+         {
+          "text": "Recebem energia e se afastam muito umas das outras"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quando o gelo derrete, o que acontece com as partículas de água?",
+        "options": [
+         {
+          "text": "Desaparecem",
+          "misconceptionCode": "materia-some"
+         },
+         {
+          "text": "Viram outra substância",
+          "misconceptionCode": "particula-muda"
+         },
+         {
+          "text": "Recebem energia, vibram mais e passam a deslizar umas sobre as outras"
+         },
+         {
+          "text": "Ficam maiores",
+          "misconceptionCode": "particula-muda"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Gelo, água líquida e vapor de água são:",
+      "options": [
+       {
+        "text": "Três substâncias diferentes",
+        "misconceptionCode": "particula-muda"
+       },
+       {
+        "text": "Substâncias com partículas de tamanhos diferentes",
+        "misconceptionCode": "particula-muda"
+       },
+       {
+        "text": "A mesma substância, em estados físicos diferentes"
+       },
+       {
+        "text": "Misturas",
+        "misconceptionCode": "particula-muda"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Nos três casos, as partículas são de água. Só muda a organização delas.",
+      "variants": [
+       {
+        "question": "Ao derreter, uma barra de chocolate:",
+        "options": [
+         {
+          "text": "Continua sendo chocolate, em outro estado físico"
+         },
+         {
+          "text": "Vira outra substância",
+          "misconceptionCode": "particula-muda"
+         },
+         {
+          "text": "Passa a ter partículas maiores",
+          "misconceptionCode": "particula-muda"
+         },
+         {
+          "text": "Deixa de ser matéria",
+          "misconceptionCode": "particula-muda"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Gelo, água líquida e vapor de água são:",
+        "options": [
+         {
+          "text": "Misturas",
+          "misconceptionCode": "particula-muda"
+         },
+         {
+          "text": "Substâncias com partículas de tamanhos diferentes",
+          "misconceptionCode": "particula-muda"
+         },
+         {
+          "text": "Três substâncias diferentes",
+          "misconceptionCode": "particula-muda"
+         },
+         {
+          "text": "A mesma substância, em estados físicos diferentes"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09CI01-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: os nomes das mudanças",
+    "prompt": "Fusão: sólido para líquido. Solidificação: líquido para sólido. Vaporização: líquido para gás. Condensação: gás para líquido. Sublimação: sólido direto para gás.",
+    "estMinutes": 5,
+    "audioScript": "Fusão: sólido para líquido. Solidificação: líquido para sólido. Vaporização: líquido para gás. Condensação: gás para líquido. Sublimação: sólido direto para gás. Pergunta 1. Como se chama a passagem do estado sólido para o líquido? A: Solidificação; B: Condensação; C: Vaporização; D: Fusão. Pergunta 2. Como se chama a passagem do estado líquido para o gasoso? A: Vaporização; B: Condensação; C: Fusão; D: Solidificação. Pergunta 3. As gotinhas que se formam do lado de fora de um copo com água gelada vêm: A: Da água que atravessa o vidro; B: Do vapor de água do ar, que se condensa ao encostar no copo frio; C: Do vidro que derrete; D: Do gelo que evapora. Pergunta 4. Durante a fervura, enquanto ainda há água líquida na panela, a temperatura da água: A: Continua subindo sem parar; B: Cai para 0 °C; C: Fica em torno de 100 °C, sem subir; D: Varia sem nenhum padrão.",
+    "questions": [
+     {
+      "question": "Como se chama a passagem do estado sólido para o líquido?",
+      "options": [
+       {
+        "text": "Solidificação",
+        "misconceptionCode": "troca-nomes"
+       },
+       {
+        "text": "Condensação",
+        "misconceptionCode": "troca-nomes"
+       },
+       {
+        "text": "Vaporização",
+        "misconceptionCode": "troca-nomes"
+       },
+       {
+        "text": "Fusão"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O gelo derretendo é um exemplo de fusão.",
+      "variants": [
+       {
+        "question": "Como se chama a passagem do estado líquido para o sólido?",
+        "options": [
+         {
+          "text": "Fusão",
+          "misconceptionCode": "troca-nomes"
+         },
+         {
+          "text": "Solidificação"
+         },
+         {
+          "text": "Condensação",
+          "misconceptionCode": "troca-nomes"
+         },
+         {
+          "text": "Vaporização",
+          "misconceptionCode": "troca-nomes"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Como se chama a passagem do estado sólido para o líquido?",
+        "options": [
+         {
+          "text": "Fusão"
+         },
+         {
+          "text": "Vaporização",
+          "misconceptionCode": "troca-nomes"
+         },
+         {
+          "text": "Condensação",
+          "misconceptionCode": "troca-nomes"
+         },
+         {
+          "text": "Solidificação",
+          "misconceptionCode": "troca-nomes"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Como se chama a passagem do estado líquido para o gasoso?",
+      "options": [
+       {
+        "text": "Vaporização"
+       },
+       {
+        "text": "Condensação",
+        "misconceptionCode": "troca-nomes"
+       },
+       {
+        "text": "Fusão",
+        "misconceptionCode": "troca-nomes"
+       },
+       {
+        "text": "Solidificação",
+        "misconceptionCode": "troca-nomes"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A água fervendo e a roupa secando no varal são exemplos de vaporização.",
+      "variants": [
+       {
+        "question": "Como se chama a passagem do estado gasoso para o líquido?",
+        "options": [
+         {
+          "text": "Vaporização",
+          "misconceptionCode": "troca-nomes"
+         },
+         {
+          "text": "Fusão",
+          "misconceptionCode": "troca-nomes"
+         },
+         {
+          "text": "Condensação"
+         },
+         {
+          "text": "Solidificação",
+          "misconceptionCode": "troca-nomes"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Como se chama a passagem do estado líquido para o gasoso?",
+        "options": [
+         {
+          "text": "Solidificação",
+          "misconceptionCode": "troca-nomes"
+         },
+         {
+          "text": "Vaporização"
+         },
+         {
+          "text": "Fusão",
+          "misconceptionCode": "troca-nomes"
+         },
+         {
+          "text": "Condensação",
+          "misconceptionCode": "troca-nomes"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "As gotinhas que se formam do lado de fora de um copo com água gelada vêm:",
+      "options": [
+       {
+        "text": "Da água que atravessa o vidro",
+        "misconceptionCode": "materia-some"
+       },
+       {
+        "text": "Do vapor de água do ar, que se condensa ao encostar no copo frio"
+       },
+       {
+        "text": "Do vidro que derrete",
+        "misconceptionCode": "particula-muda"
+       },
+       {
+        "text": "Do gelo que evapora",
+        "misconceptionCode": "troca-nomes"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O ar tem vapor de água. Ao tocar a superfície fria, ele perde calor e volta a ser líquido.",
+      "variants": [
+       {
+        "question": "O espelho do banheiro fica embaçado depois do banho quente porque:",
+        "options": [
+         {
+          "text": "A água atravessa o espelho",
+          "misconceptionCode": "materia-some"
+         },
+         {
+          "text": "O espelho derrete",
+          "misconceptionCode": "particula-muda"
+         },
+         {
+          "text": "O vidro evapora",
+          "misconceptionCode": "troca-nomes"
+         },
+         {
+          "text": "O vapor de água se condensa ao encostar no espelho mais frio"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "As gotinhas que se formam do lado de fora de um copo com água gelada vêm:",
+        "options": [
+         {
+          "text": "Do gelo que evapora",
+          "misconceptionCode": "troca-nomes"
+         },
+         {
+          "text": "Do vidro que derrete",
+          "misconceptionCode": "particula-muda"
+         },
+         {
+          "text": "Do vapor de água do ar, que se condensa ao encostar no copo frio"
+         },
+         {
+          "text": "Da água que atravessa o vidro",
+          "misconceptionCode": "materia-some"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Durante a fervura, enquanto ainda há água líquida na panela, a temperatura da água:",
+      "options": [
+       {
+        "text": "Continua subindo sem parar",
+        "misconceptionCode": "temperatura-sobe-sempre"
+       },
+       {
+        "text": "Cai para 0 °C",
+        "misconceptionCode": "troca-nomes"
+       },
+       {
+        "text": "Fica em torno de 100 °C, sem subir"
+       },
+       {
+        "text": "Varia sem nenhum padrão",
+        "misconceptionCode": "temperatura-sobe-sempre"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Durante a mudança de estado, a energia recebida é usada para separar as partículas, e não para aumentar a temperatura.",
+      "variants": [
+       {
+        "question": "Enquanto o gelo está derretendo, a temperatura da mistura de gelo e água:",
+        "options": [
+         {
+          "text": "Fica em torno de 0 °C"
+         },
+         {
+          "text": "Continua subindo sem parar",
+          "misconceptionCode": "temperatura-sobe-sempre"
+         },
+         {
+          "text": "Sobe para 100 °C",
+          "misconceptionCode": "troca-nomes"
+         },
+         {
+          "text": "Varia sem nenhum padrão",
+          "misconceptionCode": "temperatura-sobe-sempre"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Durante a fervura, enquanto ainda há água líquida na panela, a temperatura da água:",
+        "options": [
+         {
+          "text": "Varia sem nenhum padrão",
+          "misconceptionCode": "temperatura-sobe-sempre"
+         },
+         {
+          "text": "Cai para 0 °C",
+          "misconceptionCode": "troca-nomes"
+         },
+         {
+          "text": "Continua subindo sem parar",
+          "misconceptionCode": "temperatura-sobe-sempre"
+         },
+         {
+          "text": "Fica em torno de 100 °C, sem subir"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09CI01-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: mudanças de estado no dia a dia",
+    "prompt": "Explique os fenômenos.",
+    "estMinutes": 4,
+    "audioScript": "Explique os fenômenos. Pergunta 1. A roupa molhada seca no varal. Para onde vai a água? A: Desaparece; B: Entra no tecido para sempre; C: Vira outra substância; D: Para o ar, na forma de vapor. Pergunta 2. Por que a roupa seca mais rápido num dia quente e com vento? A: Porque o calor dá mais energia às partículas e o vento leva o vapor embora; B: Porque o vento esfria a roupa; C: Porque a água desaparece mais rápido; D: Porque as partículas ficam menores. Pergunta 3. A chuva se forma quando: A: A água do mar sobe em estado líquido; B: O vapor de água do ar esfria e se condensa em gotas; C: As nuvens derretem; D: O ar vira água.",
+    "questions": [
+     {
+      "question": "A roupa molhada seca no varal. Para onde vai a água?",
+      "options": [
+       {
+        "text": "Desaparece",
+        "misconceptionCode": "materia-some"
+       },
+       {
+        "text": "Entra no tecido para sempre",
+        "misconceptionCode": "materia-some"
+       },
+       {
+        "text": "Vira outra substância",
+        "misconceptionCode": "particula-muda"
+       },
+       {
+        "text": "Para o ar, na forma de vapor"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A água evapora: passa para o estado gasoso e se mistura ao ar. Ela não deixa de existir.",
+      "variants": [
+       {
+        "question": "Uma poça de água seca depois de algumas horas de sol. Para onde vai a água?",
+        "options": [
+         {
+          "text": "Desaparece",
+          "misconceptionCode": "materia-some"
+         },
+         {
+          "text": "Para o ar, na forma de vapor"
+         },
+         {
+          "text": "Entra no chão para sempre, toda ela",
+          "misconceptionCode": "materia-some"
+         },
+         {
+          "text": "Vira outra substância",
+          "misconceptionCode": "particula-muda"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A roupa molhada seca no varal. Para onde vai a água?",
+        "options": [
+         {
+          "text": "Para o ar, na forma de vapor"
+         },
+         {
+          "text": "Vira outra substância",
+          "misconceptionCode": "particula-muda"
+         },
+         {
+          "text": "Entra no tecido para sempre",
+          "misconceptionCode": "materia-some"
+         },
+         {
+          "text": "Desaparece",
+          "misconceptionCode": "materia-some"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Por que a roupa seca mais rápido num dia quente e com vento?",
+      "options": [
+       {
+        "text": "Porque o calor dá mais energia às partículas e o vento leva o vapor embora"
+       },
+       {
+        "text": "Porque o vento esfria a roupa",
+        "misconceptionCode": "temperatura-sobe-sempre"
+       },
+       {
+        "text": "Porque a água desaparece mais rápido",
+        "misconceptionCode": "materia-some"
+       },
+       {
+        "text": "Porque as partículas ficam menores",
+        "misconceptionCode": "particula-muda"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Mais energia facilita a evaporação, e o vento renova o ar próximo à roupa.",
+      "variants": [
+       {
+        "question": "Por que a roupa demora mais para secar num dia frio e úmido?",
+        "options": [
+         {
+          "text": "Porque a água congela",
+          "misconceptionCode": "temperatura-sobe-sempre"
+         },
+         {
+          "text": "Porque a água desaparece mais devagar",
+          "misconceptionCode": "materia-some"
+         },
+         {
+          "text": "Porque há menos energia para a evaporação e o ar já tem muito vapor"
+         },
+         {
+          "text": "Porque as partículas ficam maiores",
+          "misconceptionCode": "particula-muda"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Por que a roupa seca mais rápido num dia quente e com vento?",
+        "options": [
+         {
+          "text": "Porque as partículas ficam menores",
+          "misconceptionCode": "particula-muda"
+         },
+         {
+          "text": "Porque o calor dá mais energia às partículas e o vento leva o vapor embora"
+         },
+         {
+          "text": "Porque a água desaparece mais rápido",
+          "misconceptionCode": "materia-some"
+         },
+         {
+          "text": "Porque o vento esfria a roupa",
+          "misconceptionCode": "temperatura-sobe-sempre"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "A chuva se forma quando:",
+      "options": [
+       {
+        "text": "A água do mar sobe em estado líquido",
+        "misconceptionCode": "troca-nomes"
+       },
+       {
+        "text": "O vapor de água do ar esfria e se condensa em gotas"
+       },
+       {
+        "text": "As nuvens derretem",
+        "misconceptionCode": "troca-nomes"
+       },
+       {
+        "text": "O ar vira água",
+        "misconceptionCode": "particula-muda"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A água evapora, sobe, esfria e se condensa em gotinhas, que formam as nuvens e depois caem.",
+      "variants": [
+       {
+        "question": "As nuvens são formadas por:",
+        "options": [
+         {
+          "text": "Fumaça",
+          "misconceptionCode": "troca-nomes"
+         },
+         {
+          "text": "Algodão",
+          "misconceptionCode": "troca-nomes"
+         },
+         {
+          "text": "Ar sólido",
+          "misconceptionCode": "particula-muda"
+         },
+         {
+          "text": "Gotinhas de água ou cristais de gelo, vindos da condensação do vapor"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A chuva se forma quando:",
+        "options": [
+         {
+          "text": "O ar vira água",
+          "misconceptionCode": "particula-muda"
+         },
+         {
+          "text": "As nuvens derretem",
+          "misconceptionCode": "troca-nomes"
+         },
+         {
+          "text": "O vapor de água do ar esfria e se condensa em gotas"
+         },
+         {
+          "text": "A água do mar sobe em estado líquido",
+          "misconceptionCode": "troca-nomes"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09CI01-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: o que acontece quando o gelo derrete",
+    "prompt": "Explique com as suas palavras o que acontece com as partículas de água quando o gelo derrete e por que a água continua sendo água.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras o que acontece com as partículas de água quando o gelo derrete e por que a água continua sendo água.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "energia",
+       "description": "Diz que as partículas recebem calor ou energia"
+      },
+      {
+       "code": "movimento",
+       "description": "Explica que elas passam a se mover mais e a deslizar"
+      },
+      {
+       "code": "mesma-substancia",
+       "description": "Afirma que as partículas não mudam, só a organização"
+      }
+     ],
+     "exemploBoaResposta": "Quando o gelo recebe calor, as partículas de água ganham energia e vibram mais, até se soltarem e deslizarem umas sobre as outras. As partículas são as mesmas, só mudou a forma como estão organizadas. Por isso continua sendo água, agora líquida."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF09CI03",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 9,
+  "version": 1,
+  "title": "Trilha: O átomo e a estrutura da matéria",
+  "tituloAluno": "Do que as coisas são feitas",
+  "activities": [
+   {
+    "id": "PK2-EF09CI03-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: matéria e partículas",
+    "prompt": "Tudo o que tem massa e ocupa lugar no espaço é matéria.",
+    "estMinutes": 4,
+    "audioScript": "Tudo o que tem massa e ocupa lugar no espaço é matéria. Pergunta 1. Qual destes é um exemplo de matéria? A: A luz; B: O som; C: O calor; D: O ar. Pergunta 2. A matéria é formada por: A: Partículas muito pequenas; B: Um material contínuo, sem partes; C: Só energia; D: Nada. Pergunta 3. O que é um modelo científico? A: Uma fotografia exata; B: Uma representação criada para explicar algo que não podemos ver diretamente; C: Uma verdade que nunca muda; D: Um desenho sem relação com a realidade.",
+    "questions": [
+     {
+      "question": "Qual destes é um exemplo de matéria?",
+      "options": [
+       {
+        "text": "A luz",
+        "misconceptionCode": "modelo-e-foto"
+       },
+       {
+        "text": "O som",
+        "misconceptionCode": "modelo-e-foto"
+       },
+       {
+        "text": "O calor",
+        "misconceptionCode": "modelo-e-foto"
+       },
+       {
+        "text": "O ar"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O ar tem massa e ocupa espaço. Luz, som e calor são formas de energia.",
+      "variants": [
+       {
+        "question": "Qual destes é um exemplo de matéria?",
+        "options": [
+         {
+          "text": "A luz",
+          "misconceptionCode": "modelo-e-foto"
+         },
+         {
+          "text": "A água"
+         },
+         {
+          "text": "O som",
+          "misconceptionCode": "modelo-e-foto"
+         },
+         {
+          "text": "A sombra",
+          "misconceptionCode": "modelo-e-foto"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual destes é um exemplo de matéria?",
+        "options": [
+         {
+          "text": "O ar"
+         },
+         {
+          "text": "O calor",
+          "misconceptionCode": "modelo-e-foto"
+         },
+         {
+          "text": "O som",
+          "misconceptionCode": "modelo-e-foto"
+         },
+         {
+          "text": "A luz",
+          "misconceptionCode": "modelo-e-foto"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "A matéria é formada por:",
+      "options": [
+       {
+        "text": "Partículas muito pequenas"
+       },
+       {
+        "text": "Um material contínuo, sem partes",
+        "misconceptionCode": "atomo-indivisivel"
+       },
+       {
+        "text": "Só energia",
+        "misconceptionCode": "modelo-e-foto"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "atomo-indivisivel"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Toda matéria é feita de partículas minúsculas, que não vemos a olho nu.",
+      "variants": [
+       {
+        "question": "As partículas que formam a matéria:",
+        "options": [
+         {
+          "text": "Podem ser vistas com uma lupa comum",
+          "misconceptionCode": "atomo-indivisivel"
+         },
+         {
+          "text": "Não existem",
+          "misconceptionCode": "modelo-e-foto"
+         },
+         {
+          "text": "São pequenas demais para serem vistas a olho nu"
+         },
+         {
+          "text": "São do tamanho de um grão de areia",
+          "misconceptionCode": "atomo-indivisivel"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A matéria é formada por:",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "atomo-indivisivel"
+         },
+         {
+          "text": "Partículas muito pequenas"
+         },
+         {
+          "text": "Só energia",
+          "misconceptionCode": "modelo-e-foto"
+         },
+         {
+          "text": "Um material contínuo, sem partes",
+          "misconceptionCode": "atomo-indivisivel"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O que é um modelo científico?",
+      "options": [
+       {
+        "text": "Uma fotografia exata",
+        "misconceptionCode": "modelo-e-foto"
+       },
+       {
+        "text": "Uma representação criada para explicar algo que não podemos ver diretamente"
+       },
+       {
+        "text": "Uma verdade que nunca muda",
+        "misconceptionCode": "ciencia-nao-muda"
+       },
+       {
+        "text": "Um desenho sem relação com a realidade",
+        "misconceptionCode": "modelo-e-foto"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Os cientistas criam modelos a partir de experimentos. O modelo ajuda a explicar e a prever.",
+      "variants": [
+       {
+        "question": "Um mapa é um modelo de uma cidade porque:",
+        "options": [
+         {
+          "text": "É a própria cidade",
+          "misconceptionCode": "modelo-e-foto"
+         },
+         {
+          "text": "É uma fotografia exata",
+          "misconceptionCode": "ciencia-nao-muda"
+         },
+         {
+          "text": "Não tem relação com a cidade",
+          "misconceptionCode": "modelo-e-foto"
+         },
+         {
+          "text": "Representa a cidade de forma simplificada, para ajudar a entendê-la"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que é um modelo científico?",
+        "options": [
+         {
+          "text": "Um desenho sem relação com a realidade",
+          "misconceptionCode": "modelo-e-foto"
+         },
+         {
+          "text": "Uma verdade que nunca muda",
+          "misconceptionCode": "ciencia-nao-muda"
+         },
+         {
+          "text": "Uma representação criada para explicar algo que não podemos ver diretamente"
+         },
+         {
+          "text": "Uma fotografia exata",
+          "misconceptionCode": "modelo-e-foto"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09CI03-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: como é o átomo",
+    "prompt": "O átomo é a unidade que forma a matéria. No modelo atual mais simples, ele tem um núcleo, com prótons (carga positiva) e nêutrons (sem carga), e uma região ao redor, a eletrosfera, onde ficam os elétrons (carga negativa). Vamos entender juntos.",
+    "estMinutes": 4,
+    "audioScript": "O átomo é a unidade que forma a matéria. No modelo atual mais simples, ele tem um núcleo, com prótons (carga positiva) e nêutrons (sem carga), e uma região ao redor, a eletrosfera, onde ficam os elétrons (carga negativa). Vamos entender juntos. Pergunta 1. Quais partículas ficam no núcleo do átomo? A: Elétrons e prótons; B: Só elétrons; C: Prótons e nêutrons; D: Elétrons e nêutrons. Pergunta 2. Qual é a carga elétrica do elétron? A: Positiva; B: Neutra; C: Não tem carga; D: Negativa. Pergunta 3. A palavra \"átomo\" quer dizer \"que não se divide\". Hoje sabemos que o átomo: A: É formado por partículas menores; B: É uma bolinha maciça e indivisível; C: Não existe; D: É feito só de luz.",
+    "questions": [
+     {
+      "question": "Quais partículas ficam no núcleo do átomo?",
+      "options": [
+       {
+        "text": "Elétrons e prótons",
+        "misconceptionCode": "troca-particulas"
+       },
+       {
+        "text": "Só elétrons",
+        "misconceptionCode": "troca-particulas"
+       },
+       {
+        "text": "Prótons e nêutrons"
+       },
+       {
+        "text": "Elétrons e nêutrons",
+        "misconceptionCode": "troca-particulas"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O núcleo, no centro, reúne prótons e nêutrons e concentra quase toda a massa do átomo.",
+      "variants": [
+       {
+        "question": "Onde ficam os elétrons no átomo?",
+        "options": [
+         {
+          "text": "Na eletrosfera, ao redor do núcleo"
+         },
+         {
+          "text": "Dentro do núcleo",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "Fora do átomo",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "Grudados nos nêutrons",
+          "misconceptionCode": "troca-particulas"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quais partículas ficam no núcleo do átomo?",
+        "options": [
+         {
+          "text": "Elétrons e nêutrons",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "Só elétrons",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "Elétrons e prótons",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "Prótons e nêutrons"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual é a carga elétrica do elétron?",
+      "options": [
+       {
+        "text": "Positiva",
+        "misconceptionCode": "troca-particulas"
+       },
+       {
+        "text": "Neutra",
+        "misconceptionCode": "troca-particulas"
+       },
+       {
+        "text": "Não tem carga",
+        "misconceptionCode": "troca-particulas"
+       },
+       {
+        "text": "Negativa"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Elétrons são negativos, prótons são positivos e nêutrons não têm carga.",
+      "variants": [
+       {
+        "question": "Qual é a carga elétrica do próton?",
+        "options": [
+         {
+          "text": "Negativa",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "Positiva"
+         },
+         {
+          "text": "Neutra",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "Não tem carga",
+          "misconceptionCode": "troca-particulas"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual é a carga elétrica do elétron?",
+        "options": [
+         {
+          "text": "Negativa"
+         },
+         {
+          "text": "Não tem carga",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "Neutra",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "Positiva",
+          "misconceptionCode": "troca-particulas"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "A palavra \"átomo\" quer dizer \"que não se divide\". Hoje sabemos que o átomo:",
+      "options": [
+       {
+        "text": "É formado por partículas menores"
+       },
+       {
+        "text": "É uma bolinha maciça e indivisível",
+        "misconceptionCode": "atomo-indivisivel"
+       },
+       {
+        "text": "Não existe",
+        "misconceptionCode": "ciencia-nao-muda"
+       },
+       {
+        "text": "É feito só de luz",
+        "misconceptionCode": "modelo-e-foto"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O nome vem dos gregos antigos. Depois se descobriu que o átomo tem partes: prótons, nêutrons e elétrons.",
+      "variants": [
+       {
+        "question": "A descoberta do elétron mostrou que o átomo:",
+        "options": [
+         {
+          "text": "É indivisível",
+          "misconceptionCode": "atomo-indivisivel"
+         },
+         {
+          "text": "É maciço",
+          "misconceptionCode": "ciencia-nao-muda"
+         },
+         {
+          "text": "Tem partes menores"
+         },
+         {
+          "text": "Não tem carga nenhuma",
+          "misconceptionCode": "modelo-e-foto"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A palavra \"átomo\" quer dizer \"que não se divide\". Hoje sabemos que o átomo:",
+        "options": [
+         {
+          "text": "É feito só de luz",
+          "misconceptionCode": "modelo-e-foto"
+         },
+         {
+          "text": "É formado por partículas menores"
+         },
+         {
+          "text": "Não existe",
+          "misconceptionCode": "ciencia-nao-muda"
+         },
+         {
+          "text": "É uma bolinha maciça e indivisível",
+          "misconceptionCode": "atomo-indivisivel"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09CI03-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: os modelos ao longo do tempo",
+    "prompt": "Cada modelo respondeu às descobertas da sua época.",
+    "estMinutes": 5,
+    "audioScript": "Cada modelo respondeu às descobertas da sua época. Pergunta 1. No modelo de Dalton, do início do século XIX, o átomo era: A: Um núcleo com elétrons ao redor; B: Uma esfera maciça e indivisível; C: Uma massa positiva com elétrons espalhados; D: Uma nuvem. Pergunta 2. O modelo de Thomson, conhecido como \"pudim de passas\", propunha: A: Uma esfera maciça sem cargas; B: Um núcleo pequeno com muito espaço vazio; C: Uma esfera positiva com elétrons negativos espalhados; D: Elétrons girando em órbitas definidas. Pergunta 3. O experimento de Rutherford mostrou que o átomo: A: É maciço; B: Não tem cargas; C: É uma esfera positiva com elétrons misturados; D: Tem um núcleo pequeno e denso e é formado, em grande parte, por espaço vazio. Pergunta 4. Por que os modelos de átomo mudaram ao longo do tempo? A: Porque novos experimentos trouxeram descobertas que os modelos antigos não explicavam; B: Porque os cientistas antigos não eram inteligentes; C: Porque o átomo mudou; D: Por moda.",
+    "questions": [
+     {
+      "question": "No modelo de Dalton, do início do século XIX, o átomo era:",
+      "options": [
+       {
+        "text": "Um núcleo com elétrons ao redor",
+        "misconceptionCode": "ciencia-nao-muda"
+       },
+       {
+        "text": "Uma esfera maciça e indivisível"
+       },
+       {
+        "text": "Uma massa positiva com elétrons espalhados",
+        "misconceptionCode": "troca-particulas"
+       },
+       {
+        "text": "Uma nuvem",
+        "misconceptionCode": "modelo-e-foto"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Dalton imaginou o átomo como uma bolinha, parecida com uma bola de bilhar.",
+      "variants": [
+       {
+        "question": "O modelo de átomo conhecido como \"bola de bilhar\" foi proposto por:",
+        "options": [
+         {
+          "text": "Thomson",
+          "misconceptionCode": "ciencia-nao-muda"
+         },
+         {
+          "text": "Rutherford",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "Bohr",
+          "misconceptionCode": "modelo-e-foto"
+         },
+         {
+          "text": "Dalton"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "No modelo de Dalton, do início do século XIX, o átomo era:",
+        "options": [
+         {
+          "text": "Uma nuvem",
+          "misconceptionCode": "modelo-e-foto"
+         },
+         {
+          "text": "Uma massa positiva com elétrons espalhados",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "Uma esfera maciça e indivisível"
+         },
+         {
+          "text": "Um núcleo com elétrons ao redor",
+          "misconceptionCode": "ciencia-nao-muda"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O modelo de Thomson, conhecido como \"pudim de passas\", propunha:",
+      "options": [
+       {
+        "text": "Uma esfera maciça sem cargas",
+        "misconceptionCode": "atomo-indivisivel"
+       },
+       {
+        "text": "Um núcleo pequeno com muito espaço vazio",
+        "misconceptionCode": "troca-particulas"
+       },
+       {
+        "text": "Uma esfera positiva com elétrons negativos espalhados"
+       },
+       {
+        "text": "Elétrons girando em órbitas definidas",
+        "misconceptionCode": "troca-particulas"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Thomson descobriu o elétron e precisou de um modelo que incluísse cargas.",
+      "variants": [
+       {
+        "question": "Qual cientista descobriu o elétron?",
+        "options": [
+         {
+          "text": "Thomson"
+         },
+         {
+          "text": "Dalton",
+          "misconceptionCode": "atomo-indivisivel"
+         },
+         {
+          "text": "Rutherford",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "Mendel",
+          "misconceptionCode": "troca-particulas"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O modelo de Thomson, conhecido como \"pudim de passas\", propunha:",
+        "options": [
+         {
+          "text": "Elétrons girando em órbitas definidas",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "Um núcleo pequeno com muito espaço vazio",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "Uma esfera maciça sem cargas",
+          "misconceptionCode": "atomo-indivisivel"
+         },
+         {
+          "text": "Uma esfera positiva com elétrons negativos espalhados"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O experimento de Rutherford mostrou que o átomo:",
+      "options": [
+       {
+        "text": "É maciço",
+        "misconceptionCode": "atomo-indivisivel"
+       },
+       {
+        "text": "Não tem cargas",
+        "misconceptionCode": "troca-particulas"
+       },
+       {
+        "text": "É uma esfera positiva com elétrons misturados",
+        "misconceptionCode": "troca-particulas"
+       },
+       {
+        "text": "Tem um núcleo pequeno e denso e é formado, em grande parte, por espaço vazio"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A maioria das partículas lançadas contra uma folha de ouro atravessou-a, e poucas voltaram. Isso indicou um núcleo pequeno.",
+      "variants": [
+       {
+        "question": "A ideia de que o átomo tem um núcleo foi proposta por:",
+        "options": [
+         {
+          "text": "Dalton",
+          "misconceptionCode": "atomo-indivisivel"
+         },
+         {
+          "text": "Rutherford"
+         },
+         {
+          "text": "Thomson",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "Darwin",
+          "misconceptionCode": "troca-particulas"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O experimento de Rutherford mostrou que o átomo:",
+        "options": [
+         {
+          "text": "Tem um núcleo pequeno e denso e é formado, em grande parte, por espaço vazio"
+         },
+         {
+          "text": "É uma esfera positiva com elétrons misturados",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "Não tem cargas",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "É maciço",
+          "misconceptionCode": "atomo-indivisivel"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Por que os modelos de átomo mudaram ao longo do tempo?",
+      "options": [
+       {
+        "text": "Porque novos experimentos trouxeram descobertas que os modelos antigos não explicavam"
+       },
+       {
+        "text": "Porque os cientistas antigos não eram inteligentes",
+        "misconceptionCode": "ciencia-nao-muda"
+       },
+       {
+        "text": "Porque o átomo mudou",
+        "misconceptionCode": "modelo-e-foto"
+       },
+       {
+        "text": "Por moda",
+        "misconceptionCode": "ciencia-nao-muda"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A ciência avança testando e melhorando suas explicações. Cada modelo foi importante no seu tempo.",
+      "variants": [
+       {
+        "question": "O fato de os modelos atômicos terem mudado mostra que a ciência:",
+        "options": [
+         {
+          "text": "Não é confiável",
+          "misconceptionCode": "ciencia-nao-muda"
+         },
+         {
+          "text": "Nunca acerta",
+          "misconceptionCode": "modelo-e-foto"
+         },
+         {
+          "text": "Está sempre revendo e melhorando suas explicações"
+         },
+         {
+          "text": "Não muda",
+          "misconceptionCode": "ciencia-nao-muda"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Por que os modelos de átomo mudaram ao longo do tempo?",
+        "options": [
+         {
+          "text": "Por moda",
+          "misconceptionCode": "ciencia-nao-muda"
+         },
+         {
+          "text": "Porque novos experimentos trouxeram descobertas que os modelos antigos não explicavam"
+         },
+         {
+          "text": "Porque o átomo mudou",
+          "misconceptionCode": "modelo-e-foto"
+         },
+         {
+          "text": "Porque os cientistas antigos não eram inteligentes",
+          "misconceptionCode": "ciencia-nao-muda"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09CI03-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: pensando como cientista",
+    "prompt": "Use o que sabe sobre átomos e modelos.",
+    "estMinutes": 4,
+    "audioScript": "Use o que sabe sobre átomos e modelos. Pergunta 1. Um desenho do átomo no livro mostra bolinhas coloridas. Os átomos são assim de verdade? A: Sim, são bolinhas coloridas; B: Não: o desenho é um modelo que ajuda a entender, e não uma fotografia; C: Sim, têm exatamente essas cores; D: Não, porque átomos não existem. Pergunta 2. Um átomo neutro tem 6 prótons. Quantos elétrons ele tem? A: 12; B: 0; C: 6; D: 3. Pergunta 3. O que diferencia um átomo de ouro de um átomo de ferro? A: A cor do átomo; B: O tamanho da bolinha, somente; C: Nada, todos os átomos são iguais; D: O número de prótons no núcleo.",
+    "questions": [
+     {
+      "question": "Um desenho do átomo no livro mostra bolinhas coloridas. Os átomos são assim de verdade?",
+      "options": [
+       {
+        "text": "Sim, são bolinhas coloridas",
+        "misconceptionCode": "modelo-e-foto"
+       },
+       {
+        "text": "Não: o desenho é um modelo que ajuda a entender, e não uma fotografia"
+       },
+       {
+        "text": "Sim, têm exatamente essas cores",
+        "misconceptionCode": "modelo-e-foto"
+       },
+       {
+        "text": "Não, porque átomos não existem",
+        "misconceptionCode": "ciencia-nao-muda"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Átomos são pequenos demais para ter cor como a que vemos. As cores do desenho só ajudam a diferenciar as partículas.",
+      "variants": [
+       {
+        "question": "Num modelo de átomo feito com bolinhas de isopor, o tamanho das partes:",
+        "options": [
+         {
+          "text": "É exatamente como no átomo real",
+          "misconceptionCode": "modelo-e-foto"
+         },
+         {
+          "text": "Mostra a cor verdadeira das partículas",
+          "misconceptionCode": "modelo-e-foto"
+         },
+         {
+          "text": "Prova que o átomo é de isopor",
+          "misconceptionCode": "ciencia-nao-muda"
+         },
+         {
+          "text": "Não está na proporção real; é só uma representação"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um desenho do átomo no livro mostra bolinhas coloridas. Os átomos são assim de verdade?",
+        "options": [
+         {
+          "text": "Não, porque átomos não existem",
+          "misconceptionCode": "ciencia-nao-muda"
+         },
+         {
+          "text": "Sim, têm exatamente essas cores",
+          "misconceptionCode": "modelo-e-foto"
+         },
+         {
+          "text": "Não: o desenho é um modelo que ajuda a entender, e não uma fotografia"
+         },
+         {
+          "text": "Sim, são bolinhas coloridas",
+          "misconceptionCode": "modelo-e-foto"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um átomo neutro tem 6 prótons. Quantos elétrons ele tem?",
+      "options": [
+       {
+        "text": "12",
+        "misconceptionCode": "troca-particulas"
+       },
+       {
+        "text": "0",
+        "misconceptionCode": "troca-particulas"
+       },
+       {
+        "text": "6"
+       },
+       {
+        "text": "3",
+        "misconceptionCode": "troca-particulas"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "No átomo neutro, o número de cargas positivas é igual ao de negativas.",
+      "variants": [
+       {
+        "question": "Um átomo neutro tem 8 prótons. Quantos elétrons ele tem?",
+        "options": [
+         {
+          "text": "8"
+         },
+         {
+          "text": "16",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "0",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "4",
+          "misconceptionCode": "troca-particulas"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um átomo neutro tem 6 prótons. Quantos elétrons ele tem?",
+        "options": [
+         {
+          "text": "3",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "0",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "12",
+          "misconceptionCode": "troca-particulas"
+         },
+         {
+          "text": "6"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que diferencia um átomo de ouro de um átomo de ferro?",
+      "options": [
+       {
+        "text": "A cor do átomo",
+        "misconceptionCode": "modelo-e-foto"
+       },
+       {
+        "text": "O tamanho da bolinha, somente",
+        "misconceptionCode": "atomo-indivisivel"
+       },
+       {
+        "text": "Nada, todos os átomos são iguais",
+        "misconceptionCode": "atomo-indivisivel"
+       },
+       {
+        "text": "O número de prótons no núcleo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Cada elemento químico tem um número próprio de prótons, chamado número atômico.",
+      "variants": [
+       {
+        "question": "O número de prótons de um átomo é chamado de:",
+        "options": [
+         {
+          "text": "Número de massa",
+          "misconceptionCode": "modelo-e-foto"
+         },
+         {
+          "text": "Número atômico"
+         },
+         {
+          "text": "Carga do elétron",
+          "misconceptionCode": "atomo-indivisivel"
+         },
+         {
+          "text": "Peso",
+          "misconceptionCode": "atomo-indivisivel"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que diferencia um átomo de ouro de um átomo de ferro?",
+        "options": [
+         {
+          "text": "O número de prótons no núcleo"
+         },
+         {
+          "text": "Nada, todos os átomos são iguais",
+          "misconceptionCode": "atomo-indivisivel"
+         },
+         {
+          "text": "O tamanho da bolinha, somente",
+          "misconceptionCode": "atomo-indivisivel"
+         },
+         {
+          "text": "A cor do átomo",
+          "misconceptionCode": "modelo-e-foto"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09CI03-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: como é o átomo",
+    "prompt": "Explique com as suas palavras como é o átomo no modelo com núcleo e eletrosfera e por que os modelos mudaram com o tempo.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras como é o átomo no modelo com núcleo e eletrosfera e por que os modelos mudaram com o tempo.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "nucleo",
+       "description": "Diz que o núcleo tem prótons e nêutrons"
+      },
+      {
+       "code": "eletrosfera",
+       "description": "Diz que os elétrons ficam ao redor do núcleo"
+      },
+      {
+       "code": "mudanca",
+       "description": "Explica que os modelos mudaram por causa de novas descobertas"
+      }
+     ],
+     "exemploBoaResposta": "O átomo tem um núcleo no centro, com prótons, que são positivos, e nêutrons, que não têm carga. Ao redor do núcleo ficam os elétrons, que são negativos. Os modelos mudaram porque os cientistas fizeram novos experimentos e descobriram coisas que os modelos antigos não explicavam."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF09CI08",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 9,
+  "version": 1,
+  "title": "Trilha: Hereditariedade",
+  "tituloAluno": "Por que nos parecemos com a família",
+  "activities": [
+   {
+    "id": "PK2-EF09CI08-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: reprodução e células",
+    "prompt": "Todos os seres vivos são formados por células.",
+    "estMinutes": 4,
+    "audioScript": "Todos os seres vivos são formados por células. Pergunta 1. Na reprodução humana, um novo ser se forma a partir da união de: A: Um óvulo e um espermatozoide; B: Dois óvulos; C: Sangue da mãe e do pai; D: Só um espermatozoide. Pergunta 2. Óvulos e espermatozoides são chamados de: A: Órgãos; B: Gametas; C: Hormônios; D: Tecidos. Pergunta 3. Onde fica guardada a informação que define as características de um ser vivo? A: No sangue; B: No estômago; C: No DNA, dentro das células; D: No ar.",
+    "questions": [
+     {
+      "question": "Na reprodução humana, um novo ser se forma a partir da união de:",
+      "options": [
+       {
+        "text": "Um óvulo e um espermatozoide"
+       },
+       {
+        "text": "Dois óvulos",
+        "misconceptionCode": "so-de-um"
+       },
+       {
+        "text": "Sangue da mãe e do pai",
+        "misconceptionCode": "sangue-transmite"
+       },
+       {
+        "text": "Só um espermatozoide",
+        "misconceptionCode": "so-de-um"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O óvulo (da mãe) e o espermatozoide (do pai) se unem na fecundação.",
+      "variants": [
+       {
+        "question": "A união do óvulo com o espermatozoide é chamada de:",
+        "options": [
+         {
+          "text": "Digestão",
+          "misconceptionCode": "so-de-um"
+         },
+         {
+          "text": "Respiração",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "Fecundação"
+         },
+         {
+          "text": "Circulação",
+          "misconceptionCode": "so-de-um"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Na reprodução humana, um novo ser se forma a partir da união de:",
+        "options": [
+         {
+          "text": "Só um espermatozoide",
+          "misconceptionCode": "so-de-um"
+         },
+         {
+          "text": "Um óvulo e um espermatozoide"
+         },
+         {
+          "text": "Sangue da mãe e do pai",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "Dois óvulos",
+          "misconceptionCode": "so-de-um"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Óvulos e espermatozoides são chamados de:",
+      "options": [
+       {
+        "text": "Órgãos",
+        "misconceptionCode": "sangue-transmite"
+       },
+       {
+        "text": "Gametas"
+       },
+       {
+        "text": "Hormônios",
+        "misconceptionCode": "sangue-transmite"
+       },
+       {
+        "text": "Tecidos",
+        "misconceptionCode": "sangue-transmite"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Gametas são as células de reprodução.",
+      "variants": [
+       {
+        "question": "As células de reprodução dos seres vivos são os:",
+        "options": [
+         {
+          "text": "Neurônios",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "Glóbulos vermelhos",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "Músculos",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "Gametas"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Óvulos e espermatozoides são chamados de:",
+        "options": [
+         {
+          "text": "Tecidos",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "Hormônios",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "Gametas"
+         },
+         {
+          "text": "Órgãos",
+          "misconceptionCode": "sangue-transmite"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Onde fica guardada a informação que define as características de um ser vivo?",
+      "options": [
+       {
+        "text": "No sangue",
+        "misconceptionCode": "sangue-transmite"
+       },
+       {
+        "text": "No estômago",
+        "misconceptionCode": "sangue-transmite"
+       },
+       {
+        "text": "No DNA, dentro das células"
+       },
+       {
+        "text": "No ar",
+        "misconceptionCode": "sangue-transmite"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O DNA é a molécula que carrega as informações hereditárias. Ele fica no núcleo das células.",
+      "variants": [
+       {
+        "question": "A molécula que carrega as informações hereditárias é o:",
+        "options": [
+         {
+          "text": "DNA"
+         },
+         {
+          "text": "Sangue",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "Oxigênio",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "Açúcar",
+          "misconceptionCode": "sangue-transmite"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Onde fica guardada a informação que define as características de um ser vivo?",
+        "options": [
+         {
+          "text": "No ar",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "No estômago",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "No sangue",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "No DNA, dentro das células"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09CI08-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: como as características passam",
+    "prompt": "Os genes são trechos do DNA com informações para as características. Cada pessoa recebe metade dos seus genes da mãe e metade do pai, por meio dos gametas. Vamos entender juntos.",
+    "estMinutes": 4,
+    "audioScript": "Os genes são trechos do DNA com informações para as características. Cada pessoa recebe metade dos seus genes da mãe e metade do pai, por meio dos gametas. Vamos entender juntos. Pergunta 1. De quem uma pessoa recebe os seus genes? A: Só da mãe; B: Só do pai; C: Dos avós, diretamente; D: Metade da mãe e metade do pai. Pergunta 2. Como as características dos pais passam para os filhos? A: Pelos genes presentes nos gametas; B: Pelo sangue; C: Pelo leite materno; D: Pela convivência. Pergunta 3. Um homem malhou muito e ficou musculoso. O filho dele nascerá musculoso por causa disso? A: Sim, o filho herda os músculos; B: Não, porque características adquiridas em vida não mudam os genes; C: Sim, se ele malhou antes de o filho nascer; D: Sim, sempre.",
+    "questions": [
+     {
+      "question": "De quem uma pessoa recebe os seus genes?",
+      "options": [
+       {
+        "text": "Só da mãe",
+        "misconceptionCode": "so-de-um"
+       },
+       {
+        "text": "Só do pai",
+        "misconceptionCode": "so-de-um"
+       },
+       {
+        "text": "Dos avós, diretamente",
+        "misconceptionCode": "so-de-um"
+       },
+       {
+        "text": "Metade da mãe e metade do pai"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O óvulo leva metade das informações, e o espermatozoide, a outra metade.",
+      "variants": [
+       {
+        "question": "Cada gameta humano carrega:",
+        "options": [
+         {
+          "text": "Todas as informações da pessoa",
+          "misconceptionCode": "so-de-um"
+         },
+         {
+          "text": "Metade das informações genéticas da pessoa"
+         },
+         {
+          "text": "Nenhuma informação",
+          "misconceptionCode": "so-de-um"
+         },
+         {
+          "text": "Só informações sobre a cor dos olhos",
+          "misconceptionCode": "so-de-um"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "De quem uma pessoa recebe os seus genes?",
+        "options": [
+         {
+          "text": "Metade da mãe e metade do pai"
+         },
+         {
+          "text": "Dos avós, diretamente",
+          "misconceptionCode": "so-de-um"
+         },
+         {
+          "text": "Só do pai",
+          "misconceptionCode": "so-de-um"
+         },
+         {
+          "text": "Só da mãe",
+          "misconceptionCode": "so-de-um"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Como as características dos pais passam para os filhos?",
+      "options": [
+       {
+        "text": "Pelos genes presentes nos gametas"
+       },
+       {
+        "text": "Pelo sangue",
+        "misconceptionCode": "sangue-transmite"
+       },
+       {
+        "text": "Pelo leite materno",
+        "misconceptionCode": "sangue-transmite"
+       },
+       {
+        "text": "Pela convivência",
+        "misconceptionCode": "adquirido-e-herdado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A expressão \"sangue do meu sangue\" é só um jeito de falar. O que transmite as características são os genes.",
+      "variants": [
+       {
+        "question": "A frase \"está no sangue\", usada para falar de herança, cientificamente:",
+        "options": [
+         {
+          "text": "Está correta",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "Mostra que o sangue guarda as características",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "Não é exata, porque a herança está nos genes"
+         },
+         {
+          "text": "Explica a hereditariedade",
+          "misconceptionCode": "adquirido-e-herdado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Como as características dos pais passam para os filhos?",
+        "options": [
+         {
+          "text": "Pela convivência",
+          "misconceptionCode": "adquirido-e-herdado"
+         },
+         {
+          "text": "Pelos genes presentes nos gametas"
+         },
+         {
+          "text": "Pelo leite materno",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "Pelo sangue",
+          "misconceptionCode": "sangue-transmite"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um homem malhou muito e ficou musculoso. O filho dele nascerá musculoso por causa disso?",
+      "options": [
+       {
+        "text": "Sim, o filho herda os músculos",
+        "misconceptionCode": "adquirido-e-herdado"
+       },
+       {
+        "text": "Não, porque características adquiridas em vida não mudam os genes"
+       },
+       {
+        "text": "Sim, se ele malhou antes de o filho nascer",
+        "misconceptionCode": "adquirido-e-herdado"
+       },
+       {
+        "text": "Sim, sempre",
+        "misconceptionCode": "adquirido-e-herdado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Músculos ganhos com exercício, cicatrizes e bronzeado não são passados aos filhos.",
+      "variants": [
+       {
+        "question": "Uma mulher tem uma cicatriz no braço por causa de um acidente. A filha dela nascerá com a cicatriz?",
+        "options": [
+         {
+          "text": "Sim, a filha herda a cicatriz",
+          "misconceptionCode": "adquirido-e-herdado"
+         },
+         {
+          "text": "Sim, se o acidente foi antes da gravidez",
+          "misconceptionCode": "adquirido-e-herdado"
+         },
+         {
+          "text": "Sim, sempre",
+          "misconceptionCode": "adquirido-e-herdado"
+         },
+         {
+          "text": "Não, porque características adquiridas em vida não são herdadas"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um homem malhou muito e ficou musculoso. O filho dele nascerá musculoso por causa disso?",
+        "options": [
+         {
+          "text": "Sim, sempre",
+          "misconceptionCode": "adquirido-e-herdado"
+         },
+         {
+          "text": "Sim, se ele malhou antes de o filho nascer",
+          "misconceptionCode": "adquirido-e-herdado"
+         },
+         {
+          "text": "Não, porque características adquiridas em vida não mudam os genes"
+         },
+         {
+          "text": "Sim, o filho herda os músculos",
+          "misconceptionCode": "adquirido-e-herdado"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09CI08-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: genes dominantes e recessivos",
+    "prompt": "Para muitas características, temos dois genes: um da mãe e um do pai. O dominante (letra maiúscula) se manifesta mesmo com um só. O recessivo (letra minúscula) só se manifesta quando vem em dose dupla.",
+    "estMinutes": 5,
+    "audioScript": "Para muitas características, temos dois genes: um da mãe e um do pai. O dominante (letra maiúscula) se manifesta mesmo com um só. O recessivo (letra minúscula) só se manifesta quando vem em dose dupla. Pergunta 1. Numa planta, A (flor roxa) é dominante e a (flor branca) é recessivo. Uma planta Aa tem flor: A: Branca; B: Metade roxa, metade branca; C: Roxa; D: Sem cor. Pergunta 2. Dois pais de olhos castanhos podem ter um filho de olhos claros? A: Não, é impossível; B: Só se um avô tiver doado sangue; C: Só se a criança tomar muito sol; D: Sim, se os dois carregarem o gene recessivo, mesmo sem manifestá-lo. Pergunta 3. \"Dominante\" quer dizer que a característica é melhor? A: Não, só indica que ela se manifesta mesmo com um único gene; B: Sim, é sempre a melhor; C: Sim, é sempre a mais forte; D: Sim, é sempre a mais comum. Pergunta 4. Quem realizou os primeiros estudos sobre hereditariedade, cruzando ervilhas? A: Charles Darwin; B: Gregor Mendel; C: Isaac Newton; D: Louis Pasteur.",
+    "questions": [
+     {
+      "question": "Numa planta, A (flor roxa) é dominante e a (flor branca) é recessivo. Uma planta Aa tem flor:",
+      "options": [
+       {
+        "text": "Branca",
+        "misconceptionCode": "dominante-e-melhor"
+       },
+       {
+        "text": "Metade roxa, metade branca",
+        "misconceptionCode": "so-de-um"
+       },
+       {
+        "text": "Roxa"
+       },
+       {
+        "text": "Sem cor",
+        "misconceptionCode": "so-de-um"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O gene dominante A se manifesta mesmo na presença de a.",
+      "variants": [
+       {
+        "question": "Numa planta, A (flor roxa) é dominante e a (flor branca) é recessivo. Uma planta aa tem flor:",
+        "options": [
+         {
+          "text": "Branca"
+         },
+         {
+          "text": "Roxa",
+          "misconceptionCode": "dominante-e-melhor"
+         },
+         {
+          "text": "Metade roxa, metade branca",
+          "misconceptionCode": "so-de-um"
+         },
+         {
+          "text": "Sem cor",
+          "misconceptionCode": "so-de-um"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Numa planta, A (flor roxa) é dominante e a (flor branca) é recessivo. Uma planta Aa tem flor:",
+        "options": [
+         {
+          "text": "Sem cor",
+          "misconceptionCode": "so-de-um"
+         },
+         {
+          "text": "Metade roxa, metade branca",
+          "misconceptionCode": "so-de-um"
+         },
+         {
+          "text": "Branca",
+          "misconceptionCode": "dominante-e-melhor"
+         },
+         {
+          "text": "Roxa"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Dois pais de olhos castanhos podem ter um filho de olhos claros?",
+      "options": [
+       {
+        "text": "Não, é impossível",
+        "misconceptionCode": "so-de-um"
+       },
+       {
+        "text": "Só se um avô tiver doado sangue",
+        "misconceptionCode": "sangue-transmite"
+       },
+       {
+        "text": "Só se a criança tomar muito sol",
+        "misconceptionCode": "adquirido-e-herdado"
+       },
+       {
+        "text": "Sim, se os dois carregarem o gene recessivo, mesmo sem manifestá-lo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Um gene recessivo pode ficar \"escondido\" por gerações e aparecer quando vem dos dois lados.",
+      "variants": [
+       {
+        "question": "Uma característica que não aparece nos pais, mas aparece no filho, pode ser explicada:",
+        "options": [
+         {
+          "text": "Por um erro da natureza",
+          "misconceptionCode": "so-de-um"
+         },
+         {
+          "text": "Por genes recessivos que os pais carregam sem manifestar"
+         },
+         {
+          "text": "Pelo sangue dos avós",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "Pela alimentação da criança",
+          "misconceptionCode": "adquirido-e-herdado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Dois pais de olhos castanhos podem ter um filho de olhos claros?",
+        "options": [
+         {
+          "text": "Sim, se os dois carregarem o gene recessivo, mesmo sem manifestá-lo"
+         },
+         {
+          "text": "Só se a criança tomar muito sol",
+          "misconceptionCode": "adquirido-e-herdado"
+         },
+         {
+          "text": "Só se um avô tiver doado sangue",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "Não, é impossível",
+          "misconceptionCode": "so-de-um"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "\"Dominante\" quer dizer que a característica é melhor?",
+      "options": [
+       {
+        "text": "Não, só indica que ela se manifesta mesmo com um único gene"
+       },
+       {
+        "text": "Sim, é sempre a melhor",
+        "misconceptionCode": "dominante-e-melhor"
+       },
+       {
+        "text": "Sim, é sempre a mais forte",
+        "misconceptionCode": "dominante-e-melhor"
+       },
+       {
+        "text": "Sim, é sempre a mais comum",
+        "misconceptionCode": "dominante-e-melhor"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Dominância tem a ver com a forma de manifestação, e não com vantagem ou frequência.",
+      "variants": [
+       {
+        "question": "Uma característica recessiva é:",
+        "options": [
+         {
+          "text": "Sempre uma doença",
+          "misconceptionCode": "dominante-e-melhor"
+         },
+         {
+          "text": "Sempre pior",
+          "misconceptionCode": "dominante-e-melhor"
+         },
+         {
+          "text": "Aquela que só se manifesta quando os dois genes são iguais"
+         },
+         {
+          "text": "Sempre rara",
+          "misconceptionCode": "dominante-e-melhor"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "\"Dominante\" quer dizer que a característica é melhor?",
+        "options": [
+         {
+          "text": "Sim, é sempre a mais comum",
+          "misconceptionCode": "dominante-e-melhor"
+         },
+         {
+          "text": "Não, só indica que ela se manifesta mesmo com um único gene"
+         },
+         {
+          "text": "Sim, é sempre a mais forte",
+          "misconceptionCode": "dominante-e-melhor"
+         },
+         {
+          "text": "Sim, é sempre a melhor",
+          "misconceptionCode": "dominante-e-melhor"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quem realizou os primeiros estudos sobre hereditariedade, cruzando ervilhas?",
+      "options": [
+       {
+        "text": "Charles Darwin",
+        "misconceptionCode": "so-de-um"
+       },
+       {
+        "text": "Gregor Mendel"
+       },
+       {
+        "text": "Isaac Newton",
+        "misconceptionCode": "so-de-um"
+       },
+       {
+        "text": "Louis Pasteur",
+        "misconceptionCode": "so-de-um"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Mendel, no século XIX, descobriu padrões de herança estudando ervilhas. Ele é considerado o pai da genética.",
+      "variants": [
+       {
+        "question": "Mendel descobriu as primeiras regras da hereditariedade estudando:",
+        "options": [
+         {
+          "text": "Pássaros",
+          "misconceptionCode": "so-de-um"
+         },
+         {
+          "text": "Rochas",
+          "misconceptionCode": "so-de-um"
+         },
+         {
+          "text": "Estrelas",
+          "misconceptionCode": "so-de-um"
+         },
+         {
+          "text": "Ervilhas"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quem realizou os primeiros estudos sobre hereditariedade, cruzando ervilhas?",
+        "options": [
+         {
+          "text": "Louis Pasteur",
+          "misconceptionCode": "so-de-um"
+         },
+         {
+          "text": "Isaac Newton",
+          "misconceptionCode": "so-de-um"
+         },
+         {
+          "text": "Gregor Mendel"
+         },
+         {
+          "text": "Charles Darwin",
+          "misconceptionCode": "so-de-um"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09CI08-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: hereditariedade na vida real",
+    "prompt": "Use o que aprendeu.",
+    "estMinutes": 4,
+    "audioScript": "Use o que aprendeu. Pergunta 1. Irmãos filhos dos mesmos pais não são idênticos (a não ser gêmeos idênticos). Por quê? A: Porque têm sangues diferentes; B: Porque um puxou só à mãe e o outro só ao pai; C: Porque cada gameta carrega uma combinação diferente de genes; D: Porque comeram coisas diferentes. Pergunta 2. Uma criança parece muito com a avó. Como isso se explica? A: A avó doou sangue para a criança; B: A criança convive muito com a avó; C: É coincidência, sem explicação; D: Genes da avó passaram para um dos pais e, dele, para a criança. Pergunta 3. Uma pessoa aprendeu a tocar violão muito bem. O filho dela nascerá sabendo tocar? A: Não: o que se aprende não passa pelos genes; B: Sim, herda a habilidade pronta; C: Sim, se o pai tocou durante a gravidez; D: Sim, está no sangue.",
+    "questions": [
+     {
+      "question": "Irmãos filhos dos mesmos pais não são idênticos (a não ser gêmeos idênticos). Por quê?",
+      "options": [
+       {
+        "text": "Porque têm sangues diferentes",
+        "misconceptionCode": "sangue-transmite"
+       },
+       {
+        "text": "Porque um puxou só à mãe e o outro só ao pai",
+        "misconceptionCode": "so-de-um"
+       },
+       {
+        "text": "Porque cada gameta carrega uma combinação diferente de genes"
+       },
+       {
+        "text": "Porque comeram coisas diferentes",
+        "misconceptionCode": "adquirido-e-herdado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Cada óvulo e cada espermatozoide tem uma mistura única de genes, o que gera combinações diferentes.",
+      "variants": [
+       {
+        "question": "Gêmeos idênticos se parecem tanto porque:",
+        "options": [
+         {
+          "text": "Vieram do mesmo óvulo fecundado e têm os mesmos genes"
+         },
+         {
+          "text": "Têm o mesmo sangue",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "Comem a mesma comida",
+          "misconceptionCode": "so-de-um"
+         },
+         {
+          "text": "Usam as mesmas roupas",
+          "misconceptionCode": "adquirido-e-herdado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Irmãos filhos dos mesmos pais não são idênticos (a não ser gêmeos idênticos). Por quê?",
+        "options": [
+         {
+          "text": "Porque comeram coisas diferentes",
+          "misconceptionCode": "adquirido-e-herdado"
+         },
+         {
+          "text": "Porque um puxou só à mãe e o outro só ao pai",
+          "misconceptionCode": "so-de-um"
+         },
+         {
+          "text": "Porque têm sangues diferentes",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "Porque cada gameta carrega uma combinação diferente de genes"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Uma criança parece muito com a avó. Como isso se explica?",
+      "options": [
+       {
+        "text": "A avó doou sangue para a criança",
+        "misconceptionCode": "sangue-transmite"
+       },
+       {
+        "text": "A criança convive muito com a avó",
+        "misconceptionCode": "adquirido-e-herdado"
+       },
+       {
+        "text": "É coincidência, sem explicação",
+        "misconceptionCode": "so-de-um"
+       },
+       {
+        "text": "Genes da avó passaram para um dos pais e, dele, para a criança"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Os genes passam de geração em geração. Por isso há semelhanças com avós, tios e primos.",
+      "variants": [
+       {
+        "question": "Semelhanças entre primos podem ser explicadas porque:",
+        "options": [
+         {
+          "text": "Eles têm o mesmo sangue",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "Eles têm avós em comum e compartilham parte dos genes"
+         },
+         {
+          "text": "Eles estudam na mesma escola",
+          "misconceptionCode": "adquirido-e-herdado"
+         },
+         {
+          "text": "É coincidência, sem explicação",
+          "misconceptionCode": "so-de-um"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Uma criança parece muito com a avó. Como isso se explica?",
+        "options": [
+         {
+          "text": "Genes da avó passaram para um dos pais e, dele, para a criança"
+         },
+         {
+          "text": "É coincidência, sem explicação",
+          "misconceptionCode": "so-de-um"
+         },
+         {
+          "text": "A criança convive muito com a avó",
+          "misconceptionCode": "adquirido-e-herdado"
+         },
+         {
+          "text": "A avó doou sangue para a criança",
+          "misconceptionCode": "sangue-transmite"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Uma pessoa aprendeu a tocar violão muito bem. O filho dela nascerá sabendo tocar?",
+      "options": [
+       {
+        "text": "Não: o que se aprende não passa pelos genes"
+       },
+       {
+        "text": "Sim, herda a habilidade pronta",
+        "misconceptionCode": "adquirido-e-herdado"
+       },
+       {
+        "text": "Sim, se o pai tocou durante a gravidez",
+        "misconceptionCode": "adquirido-e-herdado"
+       },
+       {
+        "text": "Sim, está no sangue",
+        "misconceptionCode": "sangue-transmite"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A criança pode aprender com a convivência e o estímulo, mas isso é aprendizado, e não herança genética.",
+      "variants": [
+       {
+        "question": "Uma pessoa fala três línguas. A filha dela nascerá falando essas línguas?",
+        "options": [
+         {
+          "text": "Sim, herda as línguas prontas",
+          "misconceptionCode": "adquirido-e-herdado"
+         },
+         {
+          "text": "Sim, se a mãe falou durante a gravidez",
+          "misconceptionCode": "adquirido-e-herdado"
+         },
+         {
+          "text": "Não: o que se aprende não passa pelos genes"
+         },
+         {
+          "text": "Sim, está no sangue",
+          "misconceptionCode": "sangue-transmite"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Uma pessoa aprendeu a tocar violão muito bem. O filho dela nascerá sabendo tocar?",
+        "options": [
+         {
+          "text": "Sim, está no sangue",
+          "misconceptionCode": "sangue-transmite"
+         },
+         {
+          "text": "Não: o que se aprende não passa pelos genes"
+         },
+         {
+          "text": "Sim, se o pai tocou durante a gravidez",
+          "misconceptionCode": "adquirido-e-herdado"
+         },
+         {
+          "text": "Sim, herda a habilidade pronta",
+          "misconceptionCode": "adquirido-e-herdado"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09CI08-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: como herdamos as características",
+    "prompt": "Explique com as suas palavras como as características passam dos pais para os filhos e dê um exemplo de algo que não é herdado.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras como as características passam dos pais para os filhos e dê um exemplo de algo que não é herdado.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "genes",
+       "description": "Diz que as características passam pelos genes ou pelo DNA"
+      },
+      {
+       "code": "gametas",
+       "description": "Menciona os gametas ou que metade vem da mãe e metade do pai"
+      },
+      {
+       "code": "nao-herdado",
+       "description": "Dá um exemplo de característica adquirida (cicatriz, músculos, o que se aprende)"
+      }
+     ],
+     "exemploBoaResposta": "As características passam dos pais para os filhos pelos genes, que ficam no DNA. Metade vem da mãe, pelo óvulo, e metade do pai, pelo espermatozoide. Uma coisa que não é herdada é uma cicatriz, porque ela aconteceu durante a vida e não mudou os genes."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF09CI11",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 9,
+  "version": 1,
+  "title": "Trilha: Evolução e seleção natural",
+  "tituloAluno": "Como as espécies mudam ao longo do tempo",
+  "activities": [
+   {
+    "id": "PK2-EF09CI11-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: seres vivos e ambiente",
+    "prompt": "Cada ser vivo vive num ambiente e depende dele.",
+    "estMinutes": 4,
+    "audioScript": "Cada ser vivo vive num ambiente e depende dele. Pergunta 1. Os indivíduos de uma mesma espécie são todos iguais? A: Sim, são idênticos; B: Sim, a não ser quando estão doentes; C: Não, há diferenças entre eles; D: Só os animais são diferentes. Pergunta 2. O que os fósseis mostram? A: Que os seres vivos nunca mudaram; B: Que os dinossauros ainda vivem; C: Nada sobre o passado; D: Que existiram no passado seres diferentes dos atuais. Pergunta 3. Uma característica que ajuda um ser vivo a sobreviver no seu ambiente é chamada de: A: Adaptação; B: Doença; C: Fóssil; D: Extinção.",
+    "questions": [
+     {
+      "question": "Os indivíduos de uma mesma espécie são todos iguais?",
+      "options": [
+       {
+        "text": "Sim, são idênticos",
+        "misconceptionCode": "individuo-evolui"
+       },
+       {
+        "text": "Sim, a não ser quando estão doentes",
+        "misconceptionCode": "individuo-evolui"
+       },
+       {
+        "text": "Não, há diferenças entre eles"
+       },
+       {
+        "text": "Só os animais são diferentes",
+        "misconceptionCode": "individuo-evolui"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Numa população, há variação: tamanhos, cores e comportamentos diferentes.",
+      "variants": [
+       {
+        "question": "Numa ninhada de filhotes de cachorro, é comum haver:",
+        "options": [
+         {
+          "text": "Filhotes com cores e tamanhos diferentes"
+         },
+         {
+          "text": "Filhotes exatamente iguais",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Filhotes de outras espécies",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Nenhuma diferença",
+          "misconceptionCode": "individuo-evolui"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Os indivíduos de uma mesma espécie são todos iguais?",
+        "options": [
+         {
+          "text": "Só os animais são diferentes",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Sim, a não ser quando estão doentes",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Sim, são idênticos",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Não, há diferenças entre eles"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que os fósseis mostram?",
+      "options": [
+       {
+        "text": "Que os seres vivos nunca mudaram",
+        "misconceptionCode": "evolucao-e-progresso"
+       },
+       {
+        "text": "Que os dinossauros ainda vivem",
+        "misconceptionCode": "individuo-evolui"
+       },
+       {
+        "text": "Nada sobre o passado",
+        "misconceptionCode": "evolucao-e-progresso"
+       },
+       {
+        "text": "Que existiram no passado seres diferentes dos atuais"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Fósseis são restos ou marcas de seres que viveram há muito tempo. Eles são evidências da história da vida.",
+      "variants": [
+       {
+        "question": "Restos e marcas de seres vivos do passado, preservados nas rochas, são chamados de:",
+        "options": [
+         {
+          "text": "Minerais",
+          "misconceptionCode": "evolucao-e-progresso"
+         },
+         {
+          "text": "Fósseis"
+         },
+         {
+          "text": "Vulcões",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Genes",
+          "misconceptionCode": "evolucao-e-progresso"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que os fósseis mostram?",
+        "options": [
+         {
+          "text": "Que existiram no passado seres diferentes dos atuais"
+         },
+         {
+          "text": "Nada sobre o passado",
+          "misconceptionCode": "evolucao-e-progresso"
+         },
+         {
+          "text": "Que os dinossauros ainda vivem",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Que os seres vivos nunca mudaram",
+          "misconceptionCode": "evolucao-e-progresso"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Uma característica que ajuda um ser vivo a sobreviver no seu ambiente é chamada de:",
+      "options": [
+       {
+        "text": "Adaptação"
+       },
+       {
+        "text": "Doença",
+        "misconceptionCode": "muda-porque-precisa"
+       },
+       {
+        "text": "Fóssil",
+        "misconceptionCode": "individuo-evolui"
+       },
+       {
+        "text": "Extinção",
+        "misconceptionCode": "evolucao-e-progresso"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O pelo grosso do urso-polar e os espinhos do cacto são exemplos de adaptações.",
+      "variants": [
+       {
+        "question": "Os espinhos do mandacaru, que reduzem a perda de água, são um exemplo de:",
+        "options": [
+         {
+          "text": "Doença",
+          "misconceptionCode": "muda-porque-precisa"
+         },
+         {
+          "text": "Fóssil",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Adaptação"
+         },
+         {
+          "text": "Extinção",
+          "misconceptionCode": "evolucao-e-progresso"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Uma característica que ajuda um ser vivo a sobreviver no seu ambiente é chamada de:",
+        "options": [
+         {
+          "text": "Extinção",
+          "misconceptionCode": "evolucao-e-progresso"
+         },
+         {
+          "text": "Adaptação"
+         },
+         {
+          "text": "Fóssil",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Doença",
+          "misconceptionCode": "muda-porque-precisa"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09CI11-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: como a seleção natural funciona",
+    "prompt": "Numa população, os indivíduos são diferentes. Os que têm características vantajosas naquele ambiente sobrevivem mais e deixam mais filhotes, que herdam essas características. Com o tempo, elas se tornam mais comuns. Vamos acompanhar juntos um exemplo: mariposas claras e escuras vivem em árvores de tronco claro. Os pássaros comem as que enxergam melhor.",
+    "estMinutes": 4,
+    "audioScript": "Numa população, os indivíduos são diferentes. Os que têm características vantajosas naquele ambiente sobrevivem mais e deixam mais filhotes, que herdam essas características. Com o tempo, elas se tornam mais comuns. Vamos acompanhar juntos um exemplo: mariposas claras e escuras vivem em árvores de tronco claro. Os pássaros comem as que enxergam melhor. Pergunta 1. Nos troncos claros, quais mariposas os pássaros encontram com mais facilidade? A: As claras; B: As escuras; C: As duas igualmente; D: Nenhuma. Pergunta 2. Com o tempo, nessa floresta de troncos claros, a população de mariposas terá: A: Mais mariposas escuras; B: O mesmo número de cada; C: Mais mariposas claras; D: Nenhuma mariposa. Pergunta 3. As mariposas claras ficaram claras porque quiseram se esconder? A: Sim, mudaram de cor para se proteger; B: Sim, cada uma clareou durante a vida; C: Sim, porque precisavam; D: Não: as claras já existiam, e o ambiente favoreceu a sobrevivência delas.",
+    "questions": [
+     {
+      "question": "Nos troncos claros, quais mariposas os pássaros encontram com mais facilidade?",
+      "options": [
+       {
+        "text": "As claras",
+        "misconceptionCode": "muda-porque-precisa"
+       },
+       {
+        "text": "As escuras"
+       },
+       {
+        "text": "As duas igualmente",
+        "misconceptionCode": "individuo-evolui"
+       },
+       {
+        "text": "Nenhuma",
+        "misconceptionCode": "evolucao-e-progresso"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "As escuras se destacam no tronco claro e são mais comidas.",
+      "variants": [
+       {
+        "question": "Nos troncos claros, quais mariposas ficam mais bem escondidas?",
+        "options": [
+         {
+          "text": "As escuras",
+          "misconceptionCode": "muda-porque-precisa"
+         },
+         {
+          "text": "As duas igualmente",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "evolucao-e-progresso"
+         },
+         {
+          "text": "As claras"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Nos troncos claros, quais mariposas os pássaros encontram com mais facilidade?",
+        "options": [
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "evolucao-e-progresso"
+         },
+         {
+          "text": "As duas igualmente",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "As escuras"
+         },
+         {
+          "text": "As claras",
+          "misconceptionCode": "muda-porque-precisa"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Com o tempo, nessa floresta de troncos claros, a população de mariposas terá:",
+      "options": [
+       {
+        "text": "Mais mariposas escuras",
+        "misconceptionCode": "muda-porque-precisa"
+       },
+       {
+        "text": "O mesmo número de cada",
+        "misconceptionCode": "individuo-evolui"
+       },
+       {
+        "text": "Mais mariposas claras"
+       },
+       {
+        "text": "Nenhuma mariposa",
+        "misconceptionCode": "evolucao-e-progresso"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "As claras sobrevivem mais, têm mais filhotes, e esses filhotes herdam a cor clara.",
+      "variants": [
+       {
+        "question": "A poluição escurece os troncos das árvores. Com o tempo, a população de mariposas terá:",
+        "options": [
+         {
+          "text": "Mais mariposas escuras"
+         },
+         {
+          "text": "Mais mariposas claras",
+          "misconceptionCode": "muda-porque-precisa"
+         },
+         {
+          "text": "O mesmo número de cada",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Mariposas de outra espécie",
+          "misconceptionCode": "evolucao-e-progresso"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Com o tempo, nessa floresta de troncos claros, a população de mariposas terá:",
+        "options": [
+         {
+          "text": "Nenhuma mariposa",
+          "misconceptionCode": "evolucao-e-progresso"
+         },
+         {
+          "text": "O mesmo número de cada",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Mais mariposas escuras",
+          "misconceptionCode": "muda-porque-precisa"
+         },
+         {
+          "text": "Mais mariposas claras"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "As mariposas claras ficaram claras porque quiseram se esconder?",
+      "options": [
+       {
+        "text": "Sim, mudaram de cor para se proteger",
+        "misconceptionCode": "muda-porque-precisa"
+       },
+       {
+        "text": "Sim, cada uma clareou durante a vida",
+        "misconceptionCode": "individuo-evolui"
+       },
+       {
+        "text": "Sim, porque precisavam",
+        "misconceptionCode": "muda-porque-precisa"
+       },
+       {
+        "text": "Não: as claras já existiam, e o ambiente favoreceu a sobrevivência delas"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A variação vem antes. O ambiente seleciona quem sobrevive e se reproduz mais. Ninguém muda por vontade.",
+      "variants": [
+       {
+        "question": "Na seleção natural, a variação entre os indivíduos:",
+        "options": [
+         {
+          "text": "Aparece porque o indivíduo quer",
+          "misconceptionCode": "muda-porque-precisa"
+         },
+         {
+          "text": "Já existe antes, e o ambiente favorece alguns"
+         },
+         {
+          "text": "Aparece porque o indivíduo precisa",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Não existe",
+          "misconceptionCode": "muda-porque-precisa"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "As mariposas claras ficaram claras porque quiseram se esconder?",
+        "options": [
+         {
+          "text": "Não: as claras já existiam, e o ambiente favoreceu a sobrevivência delas"
+         },
+         {
+          "text": "Sim, porque precisavam",
+          "misconceptionCode": "muda-porque-precisa"
+         },
+         {
+          "text": "Sim, cada uma clareou durante a vida",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Sim, mudaram de cor para se proteger",
+          "misconceptionCode": "muda-porque-precisa"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09CI11-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: entendendo a evolução",
+    "prompt": "Cuidado com as ideias comuns, mas erradas.",
+    "estMinutes": 5,
+    "audioScript": "Cuidado com as ideias comuns, mas erradas. Pergunta 1. A evolução acontece: A: Nas populações, ao longo de muitas gerações; B: Num indivíduo, durante a vida; C: De um dia para o outro; D: Só nos animais. Pergunta 2. Quem propôs a teoria da evolução por seleção natural? A: Gregor Mendel; B: Charles Darwin; C: Isaac Newton; D: Albert Einstein. Pergunta 3. \"Evoluir\" quer dizer ficar melhor? A: Sim, sempre melhor; B: Sim, mais inteligente; C: Não: quer dizer mudar ao longo das gerações, de acordo com o ambiente; D: Sim, mais forte. Pergunta 4. Os seres humanos vieram dos macacos que vemos hoje? A: Sim, os chimpanzés viraram humanos; B: Sim, e um dia os macacos de hoje vão virar gente; C: Não, porque humanos não têm parentesco com outros animais; D: Não: humanos e macacos atuais têm um ancestral em comum, que viveu há milhões de anos.",
+    "questions": [
+     {
+      "question": "A evolução acontece:",
+      "options": [
+       {
+        "text": "Nas populações, ao longo de muitas gerações"
+       },
+       {
+        "text": "Num indivíduo, durante a vida",
+        "misconceptionCode": "individuo-evolui"
+       },
+       {
+        "text": "De um dia para o outro",
+        "misconceptionCode": "individuo-evolui"
+       },
+       {
+        "text": "Só nos animais",
+        "misconceptionCode": "evolucao-e-progresso"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Um indivíduo não evolui. O que muda é a frequência das características na população, geração após geração.",
+      "variants": [
+       {
+        "question": "Para que a evolução aconteça, é preciso:",
+        "options": [
+         {
+          "text": "Um único dia",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "A vontade do animal",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Muitas gerações"
+         },
+         {
+          "text": "Um único indivíduo",
+          "misconceptionCode": "evolucao-e-progresso"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A evolução acontece:",
+        "options": [
+         {
+          "text": "Só nos animais",
+          "misconceptionCode": "evolucao-e-progresso"
+         },
+         {
+          "text": "Nas populações, ao longo de muitas gerações"
+         },
+         {
+          "text": "De um dia para o outro",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Num indivíduo, durante a vida",
+          "misconceptionCode": "individuo-evolui"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quem propôs a teoria da evolução por seleção natural?",
+      "options": [
+       {
+        "text": "Gregor Mendel",
+        "misconceptionCode": "individuo-evolui"
+       },
+       {
+        "text": "Charles Darwin"
+       },
+       {
+        "text": "Isaac Newton",
+        "misconceptionCode": "evolucao-e-progresso"
+       },
+       {
+        "text": "Albert Einstein",
+        "misconceptionCode": "evolucao-e-progresso"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Darwin publicou \"A Origem das Espécies\" em 1859. Alfred Wallace chegou a ideias parecidas na mesma época.",
+      "variants": [
+       {
+        "question": "O livro \"A Origem das Espécies\", sobre a evolução, foi escrito por:",
+        "options": [
+         {
+          "text": "Gregor Mendel",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Isaac Newton",
+          "misconceptionCode": "evolucao-e-progresso"
+         },
+         {
+          "text": "Louis Pasteur",
+          "misconceptionCode": "evolucao-e-progresso"
+         },
+         {
+          "text": "Charles Darwin"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quem propôs a teoria da evolução por seleção natural?",
+        "options": [
+         {
+          "text": "Albert Einstein",
+          "misconceptionCode": "evolucao-e-progresso"
+         },
+         {
+          "text": "Isaac Newton",
+          "misconceptionCode": "evolucao-e-progresso"
+         },
+         {
+          "text": "Charles Darwin"
+         },
+         {
+          "text": "Gregor Mendel",
+          "misconceptionCode": "individuo-evolui"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "\"Evoluir\" quer dizer ficar melhor?",
+      "options": [
+       {
+        "text": "Sim, sempre melhor",
+        "misconceptionCode": "evolucao-e-progresso"
+       },
+       {
+        "text": "Sim, mais inteligente",
+        "misconceptionCode": "evolucao-e-progresso"
+       },
+       {
+        "text": "Não: quer dizer mudar ao longo das gerações, de acordo com o ambiente"
+       },
+       {
+        "text": "Sim, mais forte",
+        "misconceptionCode": "evolucao-e-progresso"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Não existe espécie \"mais evoluída\". Uma bactéria e um elefante estão igualmente adaptados aos seus modos de vida.",
+      "variants": [
+       {
+        "question": "Qual frase está correta?",
+        "options": [
+         {
+          "text": "Todas as espécies atuais passaram por evolução e estão adaptadas aos seus ambientes"
+         },
+         {
+          "text": "Os humanos são mais evoluídos que os outros seres",
+          "misconceptionCode": "evolucao-e-progresso"
+         },
+         {
+          "text": "As bactérias não evoluíram",
+          "misconceptionCode": "evolucao-e-progresso"
+         },
+         {
+          "text": "Evoluir é sempre melhorar",
+          "misconceptionCode": "evolucao-e-progresso"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "\"Evoluir\" quer dizer ficar melhor?",
+        "options": [
+         {
+          "text": "Sim, mais forte",
+          "misconceptionCode": "evolucao-e-progresso"
+         },
+         {
+          "text": "Sim, mais inteligente",
+          "misconceptionCode": "evolucao-e-progresso"
+         },
+         {
+          "text": "Sim, sempre melhor",
+          "misconceptionCode": "evolucao-e-progresso"
+         },
+         {
+          "text": "Não: quer dizer mudar ao longo das gerações, de acordo com o ambiente"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Os seres humanos vieram dos macacos que vemos hoje?",
+      "options": [
+       {
+        "text": "Sim, os chimpanzés viraram humanos",
+        "misconceptionCode": "homem-veio-do-macaco"
+       },
+       {
+        "text": "Sim, e um dia os macacos de hoje vão virar gente",
+        "misconceptionCode": "homem-veio-do-macaco"
+       },
+       {
+        "text": "Não, porque humanos não têm parentesco com outros animais",
+        "misconceptionCode": "evolucao-e-progresso"
+       },
+       {
+        "text": "Não: humanos e macacos atuais têm um ancestral em comum, que viveu há milhões de anos"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Humanos e chimpanzés são como primos: descendem de um mesmo ancestral, mas seguiram caminhos diferentes.",
+      "variants": [
+       {
+        "question": "Humanos e chimpanzés:",
+        "options": [
+         {
+          "text": "Não têm nenhum parentesco",
+          "misconceptionCode": "homem-veio-do-macaco"
+         },
+         {
+          "text": "Têm um ancestral em comum"
+         },
+         {
+          "text": "São a mesma espécie",
+          "misconceptionCode": "homem-veio-do-macaco"
+         },
+         {
+          "text": "Um veio diretamente do outro",
+          "misconceptionCode": "evolucao-e-progresso"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Os seres humanos vieram dos macacos que vemos hoje?",
+        "options": [
+         {
+          "text": "Não: humanos e macacos atuais têm um ancestral em comum, que viveu há milhões de anos"
+         },
+         {
+          "text": "Não, porque humanos não têm parentesco com outros animais",
+          "misconceptionCode": "evolucao-e-progresso"
+         },
+         {
+          "text": "Sim, e um dia os macacos de hoje vão virar gente",
+          "misconceptionCode": "homem-veio-do-macaco"
+         },
+         {
+          "text": "Sim, os chimpanzés viraram humanos",
+          "misconceptionCode": "homem-veio-do-macaco"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09CI11-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: seleção natural hoje",
+    "prompt": "A evolução continua acontecendo.",
+    "estMinutes": 4,
+    "audioScript": "A evolução continua acontecendo. Pergunta 1. Uma pessoa toma antibiótico de forma errada, e algumas bactérias sobrevivem. O que pode acontecer? A: As bactérias resistentes se multiplicam, e o remédio deixa de funcionar; B: As bactérias aprendem a resistir; C: Cada bactéria fica mais forte; D: Nada. Pergunta 2. Por que não devemos tomar antibióticos sem orientação médica? A: Porque antibióticos não funcionam; B: Porque o uso errado favorece o surgimento de bactérias resistentes; C: Porque as bactérias ficam com raiva; D: Por nenhum motivo. Pergunta 3. Um colega diz: \"As girafas esticaram o pescoço para alcançar as folhas, e por isso ele cresceu\". Qual é a explicação aceita hoje? A: Ele está certo; B: Cada girafa aumentou o pescoço durante a vida e passou isso aos filhotes; C: As girafas de pescoço mais longo conseguiam mais alimento e deixavam mais filhotes; D: As girafas quiseram ter pescoço longo.",
+    "questions": [
+     {
+      "question": "Uma pessoa toma antibiótico de forma errada, e algumas bactérias sobrevivem. O que pode acontecer?",
+      "options": [
+       {
+        "text": "As bactérias resistentes se multiplicam, e o remédio deixa de funcionar"
+       },
+       {
+        "text": "As bactérias aprendem a resistir",
+        "misconceptionCode": "muda-porque-precisa"
+       },
+       {
+        "text": "Cada bactéria fica mais forte",
+        "misconceptionCode": "individuo-evolui"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "evolucao-e-progresso"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Algumas bactérias já eram resistentes. O antibiótico mata as outras, e as resistentes se reproduzem. É seleção natural.",
+      "variants": [
+       {
+        "question": "O uso repetido do mesmo veneno numa plantação pode levar a:",
+        "options": [
+         {
+          "text": "Insetos que aprendem a resistir",
+          "misconceptionCode": "muda-porque-precisa"
+         },
+         {
+          "text": "Insetos que ficam mais fortes durante a vida",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Uma população de insetos resistentes ao veneno"
+         },
+         {
+          "text": "Nenhuma mudança",
+          "misconceptionCode": "evolucao-e-progresso"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Uma pessoa toma antibiótico de forma errada, e algumas bactérias sobrevivem. O que pode acontecer?",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "evolucao-e-progresso"
+         },
+         {
+          "text": "As bactérias resistentes se multiplicam, e o remédio deixa de funcionar"
+         },
+         {
+          "text": "Cada bactéria fica mais forte",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "As bactérias aprendem a resistir",
+          "misconceptionCode": "muda-porque-precisa"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Por que não devemos tomar antibióticos sem orientação médica?",
+      "options": [
+       {
+        "text": "Porque antibióticos não funcionam",
+        "misconceptionCode": "evolucao-e-progresso"
+       },
+       {
+        "text": "Porque o uso errado favorece o surgimento de bactérias resistentes"
+       },
+       {
+        "text": "Porque as bactérias ficam com raiva",
+        "misconceptionCode": "muda-porque-precisa"
+       },
+       {
+        "text": "Por nenhum motivo",
+        "misconceptionCode": "individuo-evolui"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Seguir a dose e o tempo indicados reduz a chance de sobrarem bactérias resistentes.",
+      "variants": [
+       {
+        "question": "Parar de tomar o antibiótico antes do tempo indicado pelo médico pode:",
+        "options": [
+         {
+          "text": "Fortalecer o corpo",
+          "misconceptionCode": "evolucao-e-progresso"
+         },
+         {
+          "text": "Não ter nenhum efeito",
+          "misconceptionCode": "muda-porque-precisa"
+         },
+         {
+          "text": "Matar todas as bactérias mais rápido",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Deixar vivas as bactérias mais resistentes"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Por que não devemos tomar antibióticos sem orientação médica?",
+        "options": [
+         {
+          "text": "Por nenhum motivo",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Porque as bactérias ficam com raiva",
+          "misconceptionCode": "muda-porque-precisa"
+         },
+         {
+          "text": "Porque o uso errado favorece o surgimento de bactérias resistentes"
+         },
+         {
+          "text": "Porque antibióticos não funcionam",
+          "misconceptionCode": "evolucao-e-progresso"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um colega diz: \"As girafas esticaram o pescoço para alcançar as folhas, e por isso ele cresceu\". Qual é a explicação aceita hoje?",
+      "options": [
+       {
+        "text": "Ele está certo",
+        "misconceptionCode": "muda-porque-precisa"
+       },
+       {
+        "text": "Cada girafa aumentou o pescoço durante a vida e passou isso aos filhotes",
+        "misconceptionCode": "individuo-evolui"
+       },
+       {
+        "text": "As girafas de pescoço mais longo conseguiam mais alimento e deixavam mais filhotes"
+       },
+       {
+        "text": "As girafas quiseram ter pescoço longo",
+        "misconceptionCode": "muda-porque-precisa"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Já havia girafas com pescoços de tamanhos diferentes. As de pescoço mais longo tinham vantagem e se reproduziam mais.",
+      "variants": [
+       {
+        "question": "Qual frase explica corretamente a evolução da girafa?",
+        "options": [
+         {
+          "text": "As de pescoço mais longo sobreviviam mais e deixavam mais descendentes"
+         },
+         {
+          "text": "Elas esticaram o pescoço de tanto tentar",
+          "misconceptionCode": "muda-porque-precisa"
+         },
+         {
+          "text": "Elas quiseram ter pescoço longo",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "O pescoço cresceu num único animal e todos copiaram",
+          "misconceptionCode": "muda-porque-precisa"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um colega diz: \"As girafas esticaram o pescoço para alcançar as folhas, e por isso ele cresceu\". Qual é a explicação aceita hoje?",
+        "options": [
+         {
+          "text": "As girafas quiseram ter pescoço longo",
+          "misconceptionCode": "muda-porque-precisa"
+         },
+         {
+          "text": "Cada girafa aumentou o pescoço durante a vida e passou isso aos filhotes",
+          "misconceptionCode": "individuo-evolui"
+         },
+         {
+          "text": "Ele está certo",
+          "misconceptionCode": "muda-porque-precisa"
+         },
+         {
+          "text": "As girafas de pescoço mais longo conseguiam mais alimento e deixavam mais filhotes"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF09CI11-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: o que é seleção natural",
+    "prompt": "Explique com as suas palavras como a seleção natural funciona. Use um exemplo.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras como a seleção natural funciona. Use um exemplo.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "variacao",
+       "description": "Diz que os indivíduos de uma população são diferentes"
+      },
+      {
+       "code": "sobrevivencia",
+       "description": "Explica que alguns sobrevivem mais e deixam mais descendentes"
+      },
+      {
+       "code": "geracoes",
+       "description": "Diz que a característica fica mais comum ao longo das gerações (e não por vontade)"
+      }
+     ],
+     "exemploBoaResposta": "Numa população, os indivíduos são diferentes uns dos outros. Os que têm uma característica que ajuda naquele ambiente sobrevivem mais e têm mais filhotes, que herdam essa característica. Por exemplo, as mariposas claras se escondem melhor nos troncos claros. Depois de muitas gerações, quase todas são claras."
+    }
+   }
+  ]
+ }
+]

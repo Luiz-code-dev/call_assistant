@@ -1,0 +1,752 @@
+// 9º ano — Matemática
+
+#TRILHA EF09MA09 | MA | 9 | Trilha: Equações do 2º grau | Quando a incógnita aparece ao quadrado
+FAZ: Resolve problemas que podem ser representados por equações do 2º grau, usando a fatoração e a relação entre os produtos e as raízes.
+ERRO: uma-raiz-so | Encontra só uma solução e esquece a outra
+ERRO: raiz-de-negativo | Erra o sinal das raízes ou não considera a raiz negativa
+ERRO: trata-como-1grau | Resolve como equação do 1º grau, dividindo ou passando o quadrado para o outro lado
+ERRO: fatoracao-errada | Fatora de forma errada ou não iguala a zero antes de fatorar
+NOTA: Comece por x² = número, depois x² + bx = 0 e só então o trinômio. Use áreas de quadrados e retângulos. Insista em testar as soluções na equação.
+
+@relembrar | Relembrar: potências e equações do 1º grau | Antes das equações do 2º grau, vamos lembrar o que já sabemos.
+Q: Quanto é (−3)²?
++ 9
+- −9 | raiz-de-negativo
+- −6 | trata-como-1grau
+- 6 | trata-como-1grau
+E: (−3) × (−3) = 9. Um número negativo ao quadrado dá resultado positivo.
+V: Quanto é (−5)²?
++ 25
+- −25
+- −10
+- 10
+Q: Quanto vale x em 2x + 6 = 0?
++ −3
+- 3 | raiz-de-negativo
+- −6 | trata-como-1grau
+- 12 | fatoracao-errada
+E: 2x = −6, então x = −3.
+V: Quanto vale x em 3x − 12 = 0?
++ 4
+- −4
+- 12
+- 36
+Q: Se um produto de dois números é zero, então:
++ Pelo menos um deles é zero
+- Os dois são iguais a 1 | fatoracao-errada
+- Os dois são negativos | raiz-de-negativo
+- Nenhum deles é zero | fatoracao-errada
+E: Só existe um jeito de uma multiplicação dar zero: um dos fatores ser zero.
+V: Se a × b = 0 e a = 5, quanto vale b?
++ 0
+- 5
+- −5
+- 1
+
+@exemplo_guiado | Exemplo guiado: duas soluções | Uma equação do 2º grau tem a incógnita elevada ao quadrado e pode ter duas soluções, chamadas raízes. Vamos resolver juntos.
+Q: Quais são as soluções de x² = 16?
++ 4 e −4
+- Só 4 | uma-raiz-so
+- 8 | trata-como-1grau
+- 16 e −16 | trata-como-1grau
+E: Tanto 4² quanto (−4)² dão 16. Por isso há duas soluções.
+V: Quais são as soluções de x² = 25?
++ 5 e −5
+- Só 5
+- 12,5
+- 25 e −25
+Q: Para resolver x² − 5x = 0, colocamos x em evidência: x(x − 5) = 0. Quais são as soluções?
++ 0 e 5
+- Só 5 | uma-raiz-so
+- 0 e −5 | raiz-de-negativo
+- 5 e −5 | fatoracao-errada
+E: Ou x = 0, ou x − 5 = 0, que dá x = 5.
+V: Para resolver x² − 3x = 0, escrevemos x(x − 3) = 0. Quais são as soluções?
++ 0 e 3
+- Só 3
+- 0 e −3
+- 3 e −3
+Q: A equação x² − 5x + 6 = 0 pode ser escrita como (x − 2)(x − 3) = 0. Quais são as soluções?
++ 2 e 3
+- −2 e −3 | raiz-de-negativo
+- Só 2 | uma-raiz-so
+- 5 e 6 | fatoracao-errada
+E: Para o produto dar zero: x − 2 = 0, então x = 2; ou x − 3 = 0, então x = 3.
+V: A equação x² − 7x + 10 = 0 pode ser escrita como (x − 2)(x − 5) = 0. Quais são as soluções?
++ 2 e 5
+- −2 e −5
+- Só 2
+- 7 e 10
+
+@praticar | Praticar: resolvendo equações do 2º grau | Para fatorar x² + bx + c, procure dois números que multiplicados deem c e somados deem b.
+Q: Quais são as soluções de x² = 49?
++ 7 e −7
+- Só 7 | uma-raiz-so
+- 24,5 | trata-como-1grau
+- 49 e −49 | trata-como-1grau
+E: 7² = 49 e (−7)² = 49.
+V: Quais são as soluções de x² = 81?
++ 9 e −9
+- Só 9
+- 40,5
+- 81 e −81
+Q: Quais são as soluções de x² − 4x = 0?
++ 0 e 4
+- Só 4 | uma-raiz-so
+- 0 e −4 | raiz-de-negativo
+- 2 e −2 | fatoracao-errada
+E: x(x − 4) = 0. Então x = 0 ou x = 4.
+V: Quais são as soluções de x² − 6x = 0?
++ 0 e 6
+- Só 6
+- 0 e −6
+- 3 e −3
+Q: Quais são as soluções de x² − 6x + 8 = 0?
++ 2 e 4
+- −2 e −4 | raiz-de-negativo
+- 6 e 8 | fatoracao-errada
+- Só 2 | uma-raiz-so
+E: Dois números com produto 8 e soma 6: 2 e 4. Então (x − 2)(x − 4) = 0.
+V: Quais são as soluções de x² − 8x + 15 = 0?
++ 3 e 5
+- −3 e −5
+- 8 e 15
+- Só 3
+Q: Quais são as soluções de x² + 5x + 6 = 0?
++ −2 e −3
+- 2 e 3 | raiz-de-negativo
+- 5 e 6 | fatoracao-errada
+- Só −2 | uma-raiz-so
+E: (x + 2)(x + 3) = 0. Então x = −2 ou x = −3.
+V: Quais são as soluções de x² + 7x + 12 = 0?
++ −3 e −4
+- 3 e 4
+- 7 e 12
+- Só −3
+
+@aplicar | Aplicar: problemas com equações do 2º grau | Em problemas, verifique se as duas soluções fazem sentido.
+Q: Um quadrado tem área de 64 m². Quanto mede o lado?
++ 8 m
+- −8 m | raiz-de-negativo
+- 32 m | trata-como-1grau
+- 16 m | trata-como-1grau
+E: x² = 64 tem soluções 8 e −8. Como é uma medida, só vale 8.
+V: Um quadrado tem área de 100 m². Quanto mede o lado?
++ 10 m
+- −10 m
+- 50 m
+- 25 m
+Q: Um retângulo tem comprimento 2 m maior que a largura e área de 15 m². Qual é a largura?
++ 3 m
+- 5 m | uma-raiz-so
+- 7,5 m | trata-como-1grau
+- −5 m | raiz-de-negativo
+E: x(x + 2) = 15, então x² + 2x − 15 = 0, ou (x − 3)(x + 5) = 0. A solução positiva é 3.
+V: Um retângulo tem comprimento 3 m maior que a largura e área de 10 m². Qual é a largura?
++ 2 m
+- 5 m
+- 3,3 m
+- −5 m
+Q: O quadrado de um número menos o próprio número é igual a zero. Que números podem ser?
++ 0 e 1
+- Só 1 | uma-raiz-so
+- 0 e −1 | raiz-de-negativo
+- 1 e −1 | fatoracao-errada
+E: x² − x = 0, então x(x − 1) = 0. As soluções são 0 e 1.
+V: O quadrado de um número é igual ao dobro dele. Que números podem ser?
++ 0 e 2
+- Só 2
+- 0 e −2
+- 2 e −2
+
+@explicar | Explicar: por que duas soluções | Explique com as suas palavras por que a equação x² = 9 tem duas soluções e quais são elas.
+C: solucoes | Indica as soluções 3 e −3
+C: quadrado | Explica que os dois números, elevados ao quadrado, dão 9
+C: negativo | Menciona que negativo vezes negativo dá positivo
+BOA: A equação x² = 9 tem duas soluções: 3 e −3. Isso acontece porque 3 × 3 = 9 e (−3) × (−3) também é 9, já que negativo vezes negativo dá positivo.
+
+#TRILHA EF09MA14 | MA | 9 | Trilha: Teorema de Pitágoras | Os lados do triângulo retângulo
+FAZ: Resolve problemas que envolvem o teorema de Pitágoras, calculando medidas de lados de triângulos retângulos em situações do cotidiano.
+ERRO: soma-os-lados | Soma os catetos em vez de somar os quadrados
+ERRO: esquece-a-raiz | Calcula a soma dos quadrados e esquece de extrair a raiz
+ERRO: troca-hipotenusa | Não identifica a hipotenusa ou soma quando deveria subtrair
+ERRO: qualquer-triangulo | Aplica o teorema em triângulos que não são retângulos
+NOTA: Use o triângulo 3, 4, 5 com barbante. Mostre situações reais: escada na parede, diagonal da TV, rampa. Faça os alunos desenharem antes de calcular.
+
+@relembrar | Relembrar: quadrados, raízes e ângulo reto | Vamos lembrar o que será usado.
+Q: Quanto é a raiz quadrada de 25?
++ 5
+- 12,5 | esquece-a-raiz
+- 625 | esquece-a-raiz
+- 50 | soma-os-lados
+E: 5 × 5 = 25, então a raiz quadrada de 25 é 5.
+V: Quanto é a raiz quadrada de 100?
++ 10
+- 50
+- 10.000
+- 200
+Q: Quanto é 3² + 4²?
++ 25
+- 14 | soma-os-lados
+- 49 | soma-os-lados
+- 7 | soma-os-lados
+E: 3² = 9 e 4² = 16. Somando: 25.
+V: Quanto é 6² + 8²?
++ 100
+- 28
+- 196
+- 14
+Q: Um triângulo retângulo é aquele que tem:
++ Um ângulo de 90 graus
+- Três lados iguais | qualquer-triangulo
+- Três ângulos iguais | qualquer-triangulo
+- Dois ângulos de 90 graus | qualquer-triangulo
+E: O ângulo reto mede 90 graus, como o canto de uma folha de papel.
+V: O ângulo formado entre a parede e o chão, em geral, mede:
++ 90 graus
+- 45 graus
+- 180 graus
+- 60 graus
+
+@exemplo_guiado | Exemplo guiado: o teorema | No triângulo retângulo, os lados que formam o ângulo reto são os catetos. O lado oposto ao ângulo reto, o maior, é a hipotenusa. O teorema diz: hipotenusa² = cateto² + cateto². Vamos aplicar juntos.
+Q: Num triângulo retângulo, a hipotenusa é:
++ O lado oposto ao ângulo reto, o maior dos três
+- O menor lado | troca-hipotenusa
+- Qualquer um dos lados | troca-hipotenusa
+- Um dos lados que formam o ângulo reto | troca-hipotenusa
+E: A hipotenusa fica "de frente" para o ângulo de 90 graus e é sempre o maior lado.
+V: Num triângulo retângulo, os catetos são:
++ Os dois lados que formam o ângulo reto
+- O maior lado
+- Os três lados
+- O lado oposto ao ângulo reto
+Q: Os catetos de um triângulo retângulo medem 3 cm e 4 cm. Quanto mede a hipotenusa?
++ 5 cm
+- 7 cm | soma-os-lados
+- 25 cm | esquece-a-raiz
+- 12 cm | soma-os-lados
+E: h² = 3² + 4² = 9 + 16 = 25. A raiz de 25 é 5.
+V: Os catetos de um triângulo retângulo medem 6 cm e 8 cm. Quanto mede a hipotenusa?
++ 10 cm
+- 14 cm
+- 100 cm
+- 48 cm
+Q: A hipotenusa mede 13 cm e um cateto mede 5 cm. Quanto mede o outro cateto?
++ 12 cm
+- 8 cm | soma-os-lados
+- 18 cm | troca-hipotenusa
+- 144 cm | esquece-a-raiz
+E: 13² = 5² + c², então 169 = 25 + c² e c² = 144. A raiz de 144 é 12.
+V: A hipotenusa mede 10 cm e um cateto mede 6 cm. Quanto mede o outro cateto?
++ 8 cm
+- 4 cm
+- 16 cm
+- 64 cm
+
+@praticar | Praticar: aplicando o teorema | Identifique a hipotenusa antes de calcular.
+Q: Os catetos medem 5 cm e 12 cm. Quanto mede a hipotenusa?
++ 13 cm
+- 17 cm | soma-os-lados
+- 169 cm | esquece-a-raiz
+- 60 cm | soma-os-lados
+E: h² = 25 + 144 = 169. A raiz de 169 é 13.
+V: Os catetos medem 9 cm e 12 cm. Quanto mede a hipotenusa?
++ 15 cm
+- 21 cm
+- 225 cm
+- 108 cm
+Q: A hipotenusa mede 5 cm e um cateto mede 3 cm. Quanto mede o outro cateto?
++ 4 cm
+- 2 cm | soma-os-lados
+- 8 cm | troca-hipotenusa
+- 16 cm | esquece-a-raiz
+E: 25 = 9 + c², então c² = 16 e c = 4.
+V: A hipotenusa mede 15 cm e um cateto mede 9 cm. Quanto mede o outro cateto?
++ 12 cm
+- 6 cm
+- 24 cm
+- 144 cm
+Q: Um triângulo tem lados de 3 cm, 4 cm e 5 cm. Ele é retângulo?
++ Sim, porque 3² + 4² = 5²
+- Não, porque os lados são diferentes | qualquer-triangulo
+- Sim, porque 3 + 4 é maior que 5 | soma-os-lados
+- Não dá para saber | qualquer-triangulo
+E: 9 + 16 = 25. Quando a soma dos quadrados dos lados menores é igual ao quadrado do maior, o triângulo é retângulo.
+V: Um triângulo tem lados de 4 cm, 5 cm e 6 cm. Ele é retângulo?
++ Não, porque 4² + 5² não é igual a 6²
+- Sim, porque todo triângulo é retângulo
+- Sim, porque 4 + 5 é maior que 6
+- Não dá para saber
+Q: O teorema de Pitágoras vale para:
++ Triângulos retângulos, somente
+- Qualquer triângulo | qualquer-triangulo
+- Quadrados | qualquer-triangulo
+- Círculos | qualquer-triangulo
+E: A relação só vale quando o triângulo tem um ângulo de 90 graus.
+V: Num triângulo com três ângulos de 60 graus, podemos usar o teorema de Pitágoras nos três lados?
++ Não, porque ele não é retângulo
+- Sim, vale para qualquer triângulo
+- Sim, porque os lados são iguais
+- Sim, se os lados forem pequenos
+
+@aplicar | Aplicar: Pitágoras no dia a dia | Desenhe a situação e identifique o triângulo retângulo.
+Q: Uma escada está apoiada numa parede. O pé da escada fica a 3 m da parede, e o topo alcança 4 m de altura. Qual é o comprimento da escada?
++ 5 m
+- 7 m | soma-os-lados
+- 25 m | esquece-a-raiz
+- 1 m | troca-hipotenusa
+E: A escada é a hipotenusa: h² = 9 + 16 = 25, então h = 5.
+V: Uma escada está apoiada numa parede. O pé da escada fica a 6 m da parede, e o topo alcança 8 m de altura. Qual é o comprimento da escada?
++ 10 m
+- 14 m
+- 100 m
+- 2 m
+Q: Um terreno retangular mede 30 m por 40 m. Quanto mede a diagonal?
++ 50 m
+- 70 m | soma-os-lados
+- 2.500 m | esquece-a-raiz
+- 10 m | troca-hipotenusa
+E: A diagonal é a hipotenusa: d² = 900 + 1.600 = 2.500, então d = 50.
+V: Um campo retangular mede 60 m por 80 m. Quanto mede a diagonal?
++ 100 m
+- 140 m
+- 10.000 m
+- 20 m
+Q: Uma escada de 10 m está apoiada num muro, com o pé a 6 m do muro. A que altura ela alcança?
++ 8 m
+- 16 m | troca-hipotenusa
+- 4 m | soma-os-lados
+- 64 m | esquece-a-raiz
+E: A escada é a hipotenusa: 100 = 36 + a², então a² = 64 e a = 8.
+V: Uma escada de 13 m está apoiada num muro, com o pé a 5 m do muro. A que altura ela alcança?
++ 12 m
+- 18 m
+- 8 m
+- 144 m
+
+@explicar | Explicar: o teorema de Pitágoras | Explique com as suas palavras o que diz o teorema de Pitágoras e como usá-lo para achar a hipotenusa quando os catetos medem 3 e 4.
+C: enunciado | Diz que o quadrado da hipotenusa é a soma dos quadrados dos catetos
+C: calculo | Faz 9 + 16 = 25
+C: raiz | Extrai a raiz e chega a 5
+BOA: O teorema de Pitágoras diz que, no triângulo retângulo, o quadrado da hipotenusa é igual à soma dos quadrados dos catetos. Com catetos 3 e 4, faço 9 + 16 = 25. Depois tiro a raiz quadrada de 25 e acho que a hipotenusa mede 5.
+
+#TRILHA EF09MA05 | MA | 9 | Trilha: Porcentagens, acréscimos e descontos | Aumentos, descontos e juros
+FAZ: Resolve problemas com porcentagens, incluindo acréscimos e descontos sucessivos e a ideia de taxa percentual, em situações de educação financeira.
+ERRO: soma-percentuais | Soma os percentuais em aumentos ou descontos sucessivos
+ERRO: desfaz-com-mesmo | Pensa que um aumento de 10% seguido de desconto de 10% volta ao valor inicial
+ERRO: porcento-como-reais | Trata o percentual como valor em reais
+ERRO: base-errada | Calcula a porcentagem sobre o valor errado
+NOTA: Use panfletos de lojas e contas reais. Mostre o cálculo em duas etapas antes de usar fatores como 1,10 e 0,90.
+
+@relembrar | Relembrar: calculando porcentagem | Porcentagem é uma parte de 100.
+Q: Quanto é 10% de 200?
++ 20
+- 10 | porcento-como-reais
+- 190 | base-errada
+- 2 | base-errada
+E: 10% é a décima parte: 200 ÷ 10 = 20.
+V: Quanto é 10% de 350?
++ 35
+- 10
+- 340
+- 3,5
+Q: Quanto é 50% de 80?
++ 40
+- 50 | porcento-como-reais
+- 30 | base-errada
+- 130 | soma-percentuais
+E: 50% é a metade: 80 ÷ 2 = 40.
+V: Quanto é 25% de 80?
++ 20
+- 25
+- 55
+- 105
+Q: Um produto de 100 reais tem 20% de desconto. Quanto custa?
++ 80 reais
+- 20 reais | porcento-como-reais
+- 120 reais | base-errada
+- 98 reais | porcento-como-reais
+E: O desconto é de 20 reais (20% de 100). Então 100 − 20 = 80.
+V: Um produto de 200 reais tem 10% de desconto. Quanto custa?
++ 180 reais
+- 20 reais
+- 220 reais
+- 190 reais
+
+@exemplo_guiado | Exemplo guiado: aumentos e descontos sucessivos | Quando há dois aumentos ou descontos seguidos, o segundo é calculado sobre o valor já alterado. Vamos calcular juntos.
+Q: Um produto de 100 reais aumenta 10% e, depois, mais 10%. Qual é o preço final?
++ 121 reais
+- 120 reais | soma-percentuais
+- 110 reais | base-errada
+- 200 reais | porcento-como-reais
+E: Primeiro aumento: 100 + 10 = 110. Segundo: 10% de 110 é 11, então 110 + 11 = 121.
+V: Um produto de 200 reais aumenta 10% e, depois, mais 10%. Qual é o preço final?
++ 242 reais
+- 240 reais
+- 220 reais
+- 400 reais
+Q: Um produto de 100 reais aumenta 10% e, depois, tem desconto de 10%. Qual é o preço final?
++ 99 reais
+- 100 reais | desfaz-com-mesmo
+- 110 reais | base-errada
+- 90 reais | base-errada
+E: Sobe para 110. O desconto de 10% é sobre 110: 11 reais. Fica 99. Não volta ao valor inicial.
+V: Um produto de 200 reais aumenta 10% e, depois, tem desconto de 10%. Qual é o preço final?
++ 198 reais
+- 200 reais
+- 220 reais
+- 180 reais
+Q: Aumentar um valor em 10% é o mesmo que multiplicá-lo por:
++ 1,10
+- 10 | porcento-como-reais
+- 0,10 | base-errada
+- 0,90 | desfaz-com-mesmo
+E: O valor inteiro (1) mais o aumento (0,10): 1,10.
+V: Dar um desconto de 10% é o mesmo que multiplicar o valor por:
++ 0,90
+- 10
+- 0,10
+- 1,10
+
+@praticar | Praticar: calculando acréscimos e descontos | Atenção ao valor sobre o qual se calcula.
+Q: Uma loja dá 20% de desconto e, no caixa, mais 10% sobre o valor já com desconto. Num produto de 100 reais, quanto se paga?
++ 72 reais
+- 70 reais | soma-percentuais
+- 80 reais | base-errada
+- 30 reais | porcento-como-reais
+E: Com 20%: 80 reais. Depois 10% de 80 é 8, então 72.
+V: Uma loja dá 10% de desconto e, no caixa, mais 10% sobre o valor já com desconto. Num produto de 100 reais, quanto se paga?
++ 81 reais
+- 80 reais
+- 90 reais
+- 20 reais
+Q: Um salário de 2.000 reais teve aumento de 5%. Qual é o novo salário?
++ 2.100 reais
+- 2.005 reais | porcento-como-reais
+- 100 reais | base-errada
+- 2.500 reais | base-errada
+E: 5% de 2.000 é 100. O novo salário é 2.100.
+V: Um salário de 3.000 reais teve aumento de 10%. Qual é o novo salário?
++ 3.300 reais
+- 3.010 reais
+- 300 reais
+- 4.000 reais
+Q: Um produto passou de 50 para 60 reais. Qual foi o aumento percentual?
++ 20%
+- 10% | porcento-como-reais
+- 16,7% | base-errada
+- 60% | base-errada
+E: O aumento foi de 10 reais sobre o valor inicial de 50: 10 ÷ 50 = 0,20, ou 20%.
+V: Um produto passou de 80 para 100 reais. Qual foi o aumento percentual?
++ 25%
+- 20%
+- 80%
+- 100%
+Q: Uma calça custava 100 reais, subiu 50% e depois entrou em promoção com 50% de desconto. Quanto custa agora?
++ 75 reais
+- 100 reais | desfaz-com-mesmo
+- 150 reais | base-errada
+- 50 reais | base-errada
+E: Sobe para 150. Metade de 150 é 75. A "promoção" deixou o preço abaixo do original, mas não com 50% de desconto sobre ele.
+V: Um tênis custava 200 reais, subiu 50% e depois entrou em promoção com 50% de desconto. Quanto custa agora?
++ 150 reais
+- 200 reais
+- 300 reais
+- 100 reais
+
+@aplicar | Aplicar: educação financeira | Use porcentagem para decidir melhor.
+Q: Você aplica 1.000 reais a 10% ao ano, com juros sobre juros. Quanto terá depois de 2 anos?
++ 1.210 reais
+- 1.200 reais | soma-percentuais
+- 1.100 reais | base-errada
+- 1.020 reais | porcento-como-reais
+E: Depois de 1 ano: 1.100. No segundo ano, os 10% são sobre 1.100: mais 110. Total: 1.210.
+V: Você aplica 2.000 reais a 10% ao ano, com juros sobre juros. Quanto terá depois de 2 anos?
++ 2.420 reais
+- 2.400 reais
+- 2.200 reais
+- 2.020 reais
+Q: Uma dívida de 500 reais no cartão cresce 10% ao mês. Sem nenhum pagamento, quanto será a dívida depois de 2 meses?
++ 605 reais
+- 600 reais | soma-percentuais
+- 550 reais | base-errada
+- 520 reais | porcento-como-reais
+E: Primeiro mês: 550. Segundo: 10% de 550 é 55, então 605. Juros sobre juros fazem a dívida crescer rápido.
+V: Uma dívida de 1.000 reais cresce 10% ao mês. Sem nenhum pagamento, quanto será a dívida depois de 2 meses?
++ 1.210 reais
+- 1.200 reais
+- 1.100 reais
+- 1.020 reais
+Q: Um celular custa 1.000 reais. À vista, tem 10% de desconto. A prazo, tem acréscimo de 10%. Qual é a diferença entre os dois preços?
++ 200 reais
+- 100 reais | base-errada
+- 20 reais | porcento-como-reais
+- 0, são iguais | desfaz-com-mesmo
+E: À vista: 900. A prazo: 1.100. A diferença é de 200 reais.
+V: Uma TV custa 2.000 reais. À vista, tem 10% de desconto. A prazo, tem acréscimo de 10%. Qual é a diferença entre os dois preços?
++ 400 reais
+- 200 reais
+- 20 reais
+- 0, são iguais
+
+@explicar | Explicar: por que não volta ao mesmo valor | Explique com as suas palavras por que um produto de 100 reais que sobe 10% e depois tem desconto de 10% não volta a custar 100 reais.
+C: aumento | Calcula que o preço sobe para 110
+C: base | Explica que o desconto é calculado sobre 110, e não sobre 100
+C: final | Chega a 99 reais
+BOA: Quando sobe 10%, o produto passa a custar 110 reais. O desconto de 10% é calculado sobre 110, e não sobre 100, então é de 11 reais. O preço final fica 99 reais, um pouco menos que no começo.
+
+#TRILHA EF09MA06 | MA | 9 | Trilha: Funções: relação entre duas grandezas | Uma grandeza que depende da outra
+FAZ: Compreende função como relação de dependência entre duas variáveis e a representa por tabela, expressão algébrica e gráfico, em situações do cotidiano.
+ERRO: troca-variaveis | Troca a variável que depende pela que é escolhida
+ERRO: ignora-parte-fixa | Esquece o valor fixo da função e calcula só a parte variável
+ERRO: le-grafico-errado | Lê o gráfico trocando os eixos
+ERRO: sempre-proporcional | Pensa que toda função dobra quando a entrada dobra
+NOTA: Use tarifas reais: táxi, conta de água, plano de celular. Passe da situação para a tabela, da tabela para a fórmula e daí para o gráfico.
+
+@relembrar | Relembrar: valor numérico e proporção | Vamos lembrar como calcular com letras.
+Q: Qual é o valor de 2x + 3 quando x = 4?
++ 11
+- 9 | ignora-parte-fixa
+- 27 | troca-variaveis
+- 14 | sempre-proporcional
+E: 2 × 4 + 3 = 8 + 3 = 11.
+V: Qual é o valor de 3x + 2 quando x = 5?
++ 17
+- 15
+- 37
+- 21
+Q: Um pão custa 2 reais. Quanto custam 6 pães?
++ 12 reais
+- 8 reais | ignora-parte-fixa
+- 3 reais | troca-variaveis
+- 62 reais | le-grafico-errado
+E: 6 × 2 = 12. O preço depende da quantidade.
+V: Um ingresso custa 15 reais. Quanto custam 4 ingressos?
++ 60 reais
+- 19 reais
+- 3,75 reais
+- 154 reais
+Q: No plano cartesiano, o eixo horizontal é chamado de:
++ Eixo x
+- Eixo y | le-grafico-errado
+- Origem | le-grafico-errado
+- Diagonal | le-grafico-errado
+E: O eixo horizontal é o x e o vertical é o y.
+V: No plano cartesiano, o eixo vertical é chamado de:
++ Eixo y
+- Eixo x
+- Origem
+- Diagonal
+
+@exemplo_guiado | Exemplo guiado: o que é uma função | Numa função, cada valor de uma variável (x) corresponde a um único valor da outra (y). Dizemos que y depende de x. Um táxi cobra 5 reais fixos mais 2 reais por quilômetro: y = 5 + 2x. Vamos analisar juntos.
+Q: Na função do táxi, y = 5 + 2x, o que representa x?
++ Os quilômetros percorridos
+- O preço da corrida | troca-variaveis
+- O valor fixo | ignora-parte-fixa
+- O número de passageiros | troca-variaveis
+E: O preço (y) depende da distância (x). A distância é a variável que escolhemos.
+V: Na função do táxi, y = 5 + 2x, o que representa y?
++ O preço da corrida
+- Os quilômetros percorridos
+- O valor fixo
+- O número de passageiros
+Q: Usando y = 5 + 2x, quanto custa uma corrida de 10 km?
++ 25 reais
+- 20 reais | ignora-parte-fixa
+- 70 reais | troca-variaveis
+- 17 reais | sempre-proporcional
+E: y = 5 + 2 × 10 = 5 + 20 = 25.
+V: Usando y = 5 + 2x, quanto custa uma corrida de 6 km?
++ 17 reais
+- 12 reais
+- 42 reais
+- 13 reais
+Q: No táxi, uma corrida de 5 km custa 15 reais. Uma corrida de 10 km custa o dobro?
++ Não, custa 25 reais, por causa do valor fixo
+- Sim, 30 reais | sempre-proporcional
+- Sim, porque dobrou a distância | sempre-proporcional
+- Não, custa 20 reais | ignora-parte-fixa
+E: Como há uma parte fixa de 5 reais, o preço não dobra quando a distância dobra.
+V: Num estacionamento que cobra y = 10 + 3x (x em horas), 2 horas custam 16 reais. Quatro horas custam o dobro?
++ Não, custam 22 reais, por causa do valor fixo
+- Sim, 32 reais
+- Sim, porque dobrou o tempo
+- Não, custam 12 reais
+
+@praticar | Praticar: tabela, fórmula e gráfico | Passe de uma representação para outra.
+Q: Uma tabela mostra: x = 1, y = 3; x = 2, y = 6; x = 3, y = 9. Qual é a expressão da função?
++ y = 3x
+- y = x + 3 | ignora-parte-fixa
+- y = x + 2 | ignora-parte-fixa
+- x = 3y | troca-variaveis
+E: Cada y é o triplo do x.
+V: Uma tabela mostra: x = 1, y = 5; x = 2, y = 10; x = 3, y = 15. Qual é a expressão da função?
++ y = 5x
+- y = x + 5
+- y = x + 4
+- x = 5y
+Q: Uma tabela mostra: x = 0, y = 4; x = 1, y = 6; x = 2, y = 8. Qual é a expressão da função?
++ y = 2x + 4
+- y = 2x | ignora-parte-fixa
+- y = 4x | sempre-proporcional
+- y = x + 4 | ignora-parte-fixa
+E: Quando x = 0, y = 4: esse é o valor fixo. A cada unidade de x, y aumenta 2.
+V: Uma tabela mostra: x = 0, y = 1; x = 1, y = 4; x = 2, y = 7. Qual é a expressão da função?
++ y = 3x + 1
+- y = 3x
+- y = x + 1
+- y = 4x
+Q: O ponto (3, 7) está no gráfico de uma função. Isso significa que:
++ Quando x = 3, y = 7
+- Quando x = 7, y = 3 | le-grafico-errado
+- x + y = 37 | le-grafico-errado
+- A função vale 3 | troca-variaveis
+E: No par ordenado, o primeiro número é x e o segundo é y.
+V: O ponto (2, 9) está no gráfico de uma função. Isso significa que:
++ Quando x = 2, y = 9
+- Quando x = 9, y = 2
+- x + y = 29
+- A função vale 2
+Q: O gráfico da função y = 2x + 1 é:
++ Uma reta
+- Uma curva em forma de U | le-grafico-errado
+- Um círculo | le-grafico-errado
+- Pontos soltos sem padrão | le-grafico-errado
+E: Funções do tipo y = ax + b têm como gráfico uma reta.
+V: O gráfico da função y = 3x é:
++ Uma reta que passa pela origem
+- Uma curva em forma de U
+- Um círculo
+- Uma reta que não passa pela origem
+
+@aplicar | Aplicar: funções em situações reais | Monte a função e responda.
+Q: Um plano de celular custa 30 reais fixos mais 2 reais por gigabyte usado. Qual expressão dá o valor da conta (y) para x gigabytes?
++ y = 30 + 2x
+- y = 32x | ignora-parte-fixa
+- y = 2 + 30x | troca-variaveis
+- y = 2x | ignora-parte-fixa
+E: O valor fixo é 30, e cada gigabyte acrescenta 2 reais.
+V: Uma academia cobra 50 reais de matrícula mais 80 reais por mês. Qual expressão dá o total pago (y) depois de x meses?
++ y = 50 + 80x
+- y = 130x
+- y = 80 + 50x
+- y = 80x
+Q: Uma costureira ganha 800 reais fixos mais 5 reais por peça. Quanto ela ganha num mês em que faz 100 peças?
++ 1.300 reais
+- 500 reais | ignora-parte-fixa
+- 805 reais | sempre-proporcional
+- 80.500 reais | troca-variaveis
+E: y = 800 + 5 × 100 = 800 + 500 = 1.300.
+V: Um vendedor ganha 1.000 reais fixos mais 10 reais por venda. Quanto ele ganha num mês com 50 vendas?
++ 1.500 reais
+- 500 reais
+- 1.010 reais
+- 50.010 reais
+Q: A conta do táxi foi de 25 reais, com y = 5 + 2x. Quantos quilômetros foram percorridos?
++ 10 km
+- 12,5 km | ignora-parte-fixa
+- 55 km | troca-variaveis
+- 20 km | ignora-parte-fixa
+E: 25 = 5 + 2x, então 2x = 20 e x = 10.
+V: A conta do táxi foi de 35 reais, com y = 5 + 2x. Quantos quilômetros foram percorridos?
++ 15 km
+- 17,5 km
+- 75 km
+- 30 km
+
+@explicar | Explicar: o que é uma função | Um aplicativo cobra 4 reais fixos mais 3 reais por quilômetro. Explique com as suas palavras como escrever a função e quanto custa uma corrida de 5 km.
+C: variaveis | Identifica que o preço depende dos quilômetros
+C: expressao | Escreve y = 4 + 3x (ou equivalente)
+C: calculo | Calcula 19 reais para 5 km
+BOA: O preço da corrida depende dos quilômetros. Chamando o preço de y e os quilômetros de x, a função é y = 4 + 3x. Para 5 km, fica 4 + 3 × 5 = 19 reais.
+
+#DIAG DIAG2-MA-9A | MA | 9 | Diagnóstico de Matemática — 9º ano | Equações do 2º grau, teorema de Pitágoras, porcentagens sucessivas e funções no 9º ano, com degrau para expressões algébricas e proporcionalidade do 8º ano.
+I: EF09MA09 | NORMAL
+Q: Quais são as soluções de x² = 36?
++ 6 e −6
+- Só 6 | uma-raiz-so
+- 18 | trata-como-1grau
+- 36 e −36 | trata-como-1grau
+E: 6² = 36 e (−6)² = 36.
+I: EF09MA09 | NORMAL
+Q: Quais são as soluções de x² − 5x + 4 = 0?
++ 1 e 4
+- −1 e −4 | raiz-de-negativo
+- 5 e 4 | fatoracao-errada
+- Só 1 | uma-raiz-so
+E: (x − 1)(x − 4) = 0.
+I: EF09MA14 | NORMAL
+Q: Os catetos de um triângulo retângulo medem 6 cm e 8 cm. A hipotenusa mede:
++ 10 cm
+- 14 cm | soma-os-lados
+- 100 cm | esquece-a-raiz
+- 48 cm | soma-os-lados
+E: 36 + 64 = 100, e a raiz de 100 é 10.
+I: EF09MA14 | NORMAL
+Q: Uma escada de 5 m está apoiada com o pé a 3 m da parede. A que altura ela alcança?
++ 4 m
+- 8 m | troca-hipotenusa
+- 2 m | soma-os-lados
+- 16 m | esquece-a-raiz
+E: 25 = 9 + a², então a = 4.
+I: EF09MA05 | NORMAL
+Q: Um produto de 100 reais aumenta 20% e, depois, mais 10%. Preço final:
++ 132 reais
+- 130 reais | soma-percentuais
+- 120 reais | base-errada
+- 300 reais | porcento-como-reais
+E: 100 → 120 → 132.
+I: EF09MA05 | NORMAL
+Q: Um produto de 100 reais sobe 20% e depois tem 20% de desconto. Preço final:
++ 96 reais
+- 100 reais | desfaz-com-mesmo
+- 120 reais | base-errada
+- 80 reais | base-errada
+E: 100 → 120 → 96.
+I: EF09MA06 | NORMAL
+Q: Um serviço cobra y = 10 + 4x. Quanto vale y quando x = 5?
++ 30
+- 20 | ignora-parte-fixa
+- 70 | troca-variaveis
+- 19 | sempre-proporcional
+E: 10 + 4 × 5 = 30.
+I: EF09MA06 | NORMAL
+Q: O ponto (4, 9) no gráfico de uma função indica que:
++ Quando x = 4, y = 9
+- Quando x = 9, y = 4 | le-grafico-errado
+- x + y = 49 | le-grafico-errado
+- A função vale 4 | troca-variaveis
+E: O primeiro número é x; o segundo, y.
+I: EF08MA06 | DEGRAU
+Q: Qual é o valor de 3x + 2 quando x = 4?
++ 14
+- 36 | troca-variaveis
+- 18 | sempre-proporcional
+- 12 | ignora-parte-fixa
+E: 3 × 4 + 2 = 14.
+I: EF08MA06 | DEGRAU
+Q: Qual é o valor de x² quando x = −3?
++ 9
+- −9 | raiz-de-negativo
+- −6 | trata-como-1grau
+- 6 | trata-como-1grau
+E: (−3) × (−3) = 9.
+I: EF08MA13 | DEGRAU
+Q: 3 canetas custam 12 reais. Quanto custam 5 canetas?
++ 20 reais
+- 14 reais | ignora-parte-fixa
+- 7,20 reais | troca-variaveis
+- 60 reais | sempre-proporcional
+E: Cada caneta custa 4 reais.
+I: EF08MA13 | DEGRAU
+Q: 2 pintores levam 6 dias para pintar uma casa. No mesmo ritmo, 4 pintores levam:
++ 3 dias
+- 12 dias | sempre-proporcional
+- 8 dias | ignora-parte-fixa
+- 4 dias | ignora-parte-fixa
+E: Grandezas inversas: dobrando os pintores, o tempo cai pela metade.
+
+#PRE EF09MA09 > EF08MA06 | 3
+#PRE EF09MA06 > EF08MA13 | 3
+#PRE EF09MA14 > EF08MA01 | 2
+#PRE EF09MA05 > EF07MA02 | 2
