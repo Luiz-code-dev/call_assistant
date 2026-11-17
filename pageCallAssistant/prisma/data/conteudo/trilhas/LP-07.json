@@ -1,0 +1,3766 @@
+[
+ {
+  "skillCode": "EF07LP07",
+  "subjectCode": "LP",
+  "subjectName": "Língua Portuguesa",
+  "gradeYear": 7,
+  "version": 1,
+  "title": "Trilha: Sujeito, predicado e complementos",
+  "tituloAluno": "Quem faz o quê: as partes da oração",
+  "activities": [
+   {
+    "id": "PK2-EF07LP07-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: o verbo e quem pratica a ação",
+    "prompt": "Toda oração gira em torno de um verbo. Vamos lembrar como achar o verbo e quem faz a ação.",
+    "estMinutes": 4,
+    "audioScript": "Toda oração gira em torno de um verbo. Vamos lembrar como achar o verbo e quem faz a ação. Pergunta 1. Na frase \"O cachorro latiu a noite toda\", qual é o verbo? A: cachorro; B: latiu; C: noite; D: toda. Pergunta 2. Na frase \"Marina comprou um livro\", quem praticou a ação? A: um livro; B: comprou; C: Marina; D: Ninguém. Pergunta 3. Qual destas é uma oração completa? A: O ônibus azul da escola.; B: Na rua de cima.; C: Muito cedo hoje.; D: O ônibus chegou..",
+    "questions": [
+     {
+      "question": "Na frase \"O cachorro latiu a noite toda\", qual é o verbo?",
+      "options": [
+       {
+        "text": "cachorro",
+        "misconceptionCode": "sujeito-primeira-palavra"
+       },
+       {
+        "text": "latiu"
+       },
+       {
+        "text": "noite",
+        "misconceptionCode": "confunde-sujeito-objeto"
+       },
+       {
+        "text": "toda",
+        "misconceptionCode": "predicado-so-verbo"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O verbo indica a ação. Quem fez algo? O cachorro. O que ele fez? Latiu.",
+      "variants": [
+       {
+        "question": "Na frase \"As crianças correram no pátio\", qual é o verbo?",
+        "options": [
+         {
+          "text": "crianças",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "pátio",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "no",
+          "misconceptionCode": "predicado-so-verbo"
+         },
+         {
+          "text": "correram"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Na frase \"O cachorro latiu a noite toda\", qual é o verbo?",
+        "options": [
+         {
+          "text": "toda",
+          "misconceptionCode": "predicado-so-verbo"
+         },
+         {
+          "text": "noite",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "latiu"
+         },
+         {
+          "text": "cachorro",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Na frase \"Marina comprou um livro\", quem praticou a ação?",
+      "options": [
+       {
+        "text": "um livro",
+        "misconceptionCode": "confunde-sujeito-objeto"
+       },
+       {
+        "text": "comprou",
+        "misconceptionCode": "predicado-so-verbo"
+       },
+       {
+        "text": "Marina"
+       },
+       {
+        "text": "Ninguém",
+        "misconceptionCode": "sujeito-primeira-palavra"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Pergunte ao verbo: quem comprou? Marina. Ela é quem pratica a ação.",
+      "variants": [
+       {
+        "question": "Na frase \"O professor explicou a lição\", quem praticou a ação?",
+        "options": [
+         {
+          "text": "O professor"
+         },
+         {
+          "text": "a lição",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "explicou",
+          "misconceptionCode": "predicado-so-verbo"
+         },
+         {
+          "text": "Ninguém",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Na frase \"Marina comprou um livro\", quem praticou a ação?",
+        "options": [
+         {
+          "text": "Ninguém",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "comprou",
+          "misconceptionCode": "predicado-so-verbo"
+         },
+         {
+          "text": "um livro",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "Marina"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual destas é uma oração completa?",
+      "options": [
+       {
+        "text": "O ônibus azul da escola.",
+        "misconceptionCode": "predicado-so-verbo"
+       },
+       {
+        "text": "Na rua de cima.",
+        "misconceptionCode": "sujeito-primeira-palavra"
+       },
+       {
+        "text": "Muito cedo hoje.",
+        "misconceptionCode": "confunde-sujeito-objeto"
+       },
+       {
+        "text": "O ônibus chegou."
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Para ser oração, precisa ter verbo. Só \"O ônibus chegou\" tem verbo.",
+      "variants": [
+       {
+        "question": "Qual destas é uma oração completa?",
+        "options": [
+         {
+          "text": "A chuva forte de ontem.",
+          "misconceptionCode": "predicado-so-verbo"
+         },
+         {
+          "text": "A chuva parou."
+         },
+         {
+          "text": "Na janela da sala.",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "Bem devagar agora.",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual destas é uma oração completa?",
+        "options": [
+         {
+          "text": "O ônibus chegou."
+         },
+         {
+          "text": "Muito cedo hoje.",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "Na rua de cima.",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "O ônibus azul da escola.",
+          "misconceptionCode": "predicado-so-verbo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07LP07-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: achando o sujeito e o predicado",
+    "prompt": "Sujeito é de quem a oração fala. Predicado é tudo o que se diz sobre o sujeito, e sempre tem o verbo. Para achar o sujeito, pergunte ao verbo: \"quem?\". Vamos fazer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Sujeito é de quem a oração fala. Predicado é tudo o que se diz sobre o sujeito, e sempre tem o verbo. Para achar o sujeito, pergunte ao verbo: \"quem?\". Vamos fazer juntos. Pergunta 1. Em \"Os alunos do 7º ano organizaram a feira\", qual é o sujeito? A: Os alunos do 7º ano; B: Os; C: a feira; D: organizaram. Pergunta 2. Em \"Os alunos do 7º ano organizaram a feira\", qual é o predicado? A: organizaram; B: organizaram a feira; C: Os alunos do 7º ano; D: a feira. Pergunta 3. Em \"Ontem à noite, chegou a encomenda\", qual é o sujeito? A: Ontem à noite; B: chegou; C: a encomenda; D: Não tem sujeito.",
+    "questions": [
+     {
+      "question": "Em \"Os alunos do 7º ano organizaram a feira\", qual é o sujeito?",
+      "options": [
+       {
+        "text": "Os alunos do 7º ano"
+       },
+       {
+        "text": "Os",
+        "misconceptionCode": "sujeito-primeira-palavra"
+       },
+       {
+        "text": "a feira",
+        "misconceptionCode": "confunde-sujeito-objeto"
+       },
+       {
+        "text": "organizaram",
+        "misconceptionCode": "predicado-so-verbo"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Quem organizou? Os alunos do 7º ano. O sujeito é o grupo inteiro de palavras, não só a primeira.",
+      "variants": [
+       {
+        "question": "Em \"A irmã de Paulo ganhou a corrida\", qual é o sujeito?",
+        "options": [
+         {
+          "text": "A",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "a corrida",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "A irmã de Paulo"
+         },
+         {
+          "text": "ganhou",
+          "misconceptionCode": "predicado-so-verbo"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Em \"Os alunos do 7º ano organizaram a feira\", qual é o sujeito?",
+        "options": [
+         {
+          "text": "organizaram",
+          "misconceptionCode": "predicado-so-verbo"
+         },
+         {
+          "text": "Os alunos do 7º ano"
+         },
+         {
+          "text": "a feira",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "Os",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Em \"Os alunos do 7º ano organizaram a feira\", qual é o predicado?",
+      "options": [
+       {
+        "text": "organizaram",
+        "misconceptionCode": "predicado-so-verbo"
+       },
+       {
+        "text": "organizaram a feira"
+       },
+       {
+        "text": "Os alunos do 7º ano",
+        "misconceptionCode": "confunde-sujeito-objeto"
+       },
+       {
+        "text": "a feira",
+        "misconceptionCode": "sujeito-primeira-palavra"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O predicado é tudo o que se diz sobre o sujeito: o verbo e o que vem com ele.",
+      "variants": [
+       {
+        "question": "Em \"A irmã de Paulo ganhou a corrida\", qual é o predicado?",
+        "options": [
+         {
+          "text": "ganhou",
+          "misconceptionCode": "predicado-so-verbo"
+         },
+         {
+          "text": "A irmã de Paulo",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "a corrida",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "ganhou a corrida"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Em \"Os alunos do 7º ano organizaram a feira\", qual é o predicado?",
+        "options": [
+         {
+          "text": "a feira",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "Os alunos do 7º ano",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "organizaram a feira"
+         },
+         {
+          "text": "organizaram",
+          "misconceptionCode": "predicado-so-verbo"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Em \"Ontem à noite, chegou a encomenda\", qual é o sujeito?",
+      "options": [
+       {
+        "text": "Ontem à noite",
+        "misconceptionCode": "sujeito-primeira-palavra"
+       },
+       {
+        "text": "chegou",
+        "misconceptionCode": "predicado-so-verbo"
+       },
+       {
+        "text": "a encomenda"
+       },
+       {
+        "text": "Não tem sujeito",
+        "misconceptionCode": "confunde-sujeito-objeto"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Quem chegou? A encomenda. O sujeito nem sempre vem no começo da frase.",
+      "variants": [
+       {
+        "question": "Em \"No fim da tarde, apareceram as nuvens\", qual é o sujeito?",
+        "options": [
+         {
+          "text": "as nuvens"
+         },
+         {
+          "text": "No fim da tarde",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "apareceram",
+          "misconceptionCode": "predicado-so-verbo"
+         },
+         {
+          "text": "Não tem sujeito",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Em \"Ontem à noite, chegou a encomenda\", qual é o sujeito?",
+        "options": [
+         {
+          "text": "Não tem sujeito",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "chegou",
+          "misconceptionCode": "predicado-so-verbo"
+         },
+         {
+          "text": "Ontem à noite",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "a encomenda"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07LP07-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: os complementos do verbo",
+    "prompt": "Alguns verbos pedem complemento. Se o complemento vem sem preposição, é objeto direto. Se vem com preposição (de, a, em, com), é objeto indireto.",
+    "estMinutes": 5,
+    "audioScript": "Alguns verbos pedem complemento. Se o complemento vem sem preposição, é objeto direto. Se vem com preposição (de, a, em, com), é objeto indireto. Pergunta 1. Em \"Lucas chutou a bola\", o termo \"a bola\" é: A: Sujeito; B: Objeto indireto; C: Predicado; D: Objeto direto. Pergunta 2. Em \"Eu gosto de música\", o termo \"de música\" é: A: Objeto indireto; B: Objeto direto; C: Sujeito; D: Verbo. Pergunta 3. Em \"A professora entregou as provas aos alunos\", qual é o objeto direto? A: aos alunos; B: as provas; C: A professora; D: entregou. Pergunta 4. Em \"O bebê dormiu\", o verbo: A: Tem objeto direto; B: Tem objeto indireto; C: Não precisa de complemento; D: Não tem sujeito.",
+    "questions": [
+     {
+      "question": "Em \"Lucas chutou a bola\", o termo \"a bola\" é:",
+      "options": [
+       {
+        "text": "Sujeito",
+        "misconceptionCode": "confunde-sujeito-objeto"
+       },
+       {
+        "text": "Objeto indireto",
+        "misconceptionCode": "direto-indireto"
+       },
+       {
+        "text": "Predicado",
+        "misconceptionCode": "predicado-so-verbo"
+       },
+       {
+        "text": "Objeto direto"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Chutou o quê? A bola. Liga-se ao verbo sem preposição: é objeto direto.",
+      "variants": [
+       {
+        "question": "Em \"Júlia leu o bilhete\", o termo \"o bilhete\" é:",
+        "options": [
+         {
+          "text": "Sujeito",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "Objeto direto"
+         },
+         {
+          "text": "Objeto indireto",
+          "misconceptionCode": "direto-indireto"
+         },
+         {
+          "text": "Predicado",
+          "misconceptionCode": "predicado-so-verbo"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Em \"Lucas chutou a bola\", o termo \"a bola\" é:",
+        "options": [
+         {
+          "text": "Objeto direto"
+         },
+         {
+          "text": "Predicado",
+          "misconceptionCode": "predicado-so-verbo"
+         },
+         {
+          "text": "Objeto indireto",
+          "misconceptionCode": "direto-indireto"
+         },
+         {
+          "text": "Sujeito",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Em \"Eu gosto de música\", o termo \"de música\" é:",
+      "options": [
+       {
+        "text": "Objeto indireto"
+       },
+       {
+        "text": "Objeto direto",
+        "misconceptionCode": "direto-indireto"
+       },
+       {
+        "text": "Sujeito",
+        "misconceptionCode": "confunde-sujeito-objeto"
+       },
+       {
+        "text": "Verbo",
+        "misconceptionCode": "predicado-so-verbo"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Gosto de quê? De música. O complemento vem com a preposição \"de\": é objeto indireto.",
+      "variants": [
+       {
+        "question": "Em \"Nós precisamos de ajuda\", o termo \"de ajuda\" é:",
+        "options": [
+         {
+          "text": "Objeto direto",
+          "misconceptionCode": "direto-indireto"
+         },
+         {
+          "text": "Sujeito",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "Objeto indireto"
+         },
+         {
+          "text": "Verbo",
+          "misconceptionCode": "predicado-so-verbo"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Em \"Eu gosto de música\", o termo \"de música\" é:",
+        "options": [
+         {
+          "text": "Verbo",
+          "misconceptionCode": "predicado-so-verbo"
+         },
+         {
+          "text": "Objeto indireto"
+         },
+         {
+          "text": "Sujeito",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "Objeto direto",
+          "misconceptionCode": "direto-indireto"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Em \"A professora entregou as provas aos alunos\", qual é o objeto direto?",
+      "options": [
+       {
+        "text": "aos alunos",
+        "misconceptionCode": "direto-indireto"
+       },
+       {
+        "text": "as provas"
+       },
+       {
+        "text": "A professora",
+        "misconceptionCode": "confunde-sujeito-objeto"
+       },
+       {
+        "text": "entregou",
+        "misconceptionCode": "predicado-so-verbo"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Entregou o quê? As provas (sem preposição). \"Aos alunos\" tem preposição e é objeto indireto.",
+      "variants": [
+       {
+        "question": "Em \"O carteiro entregou a carta ao vizinho\", qual é o objeto direto?",
+        "options": [
+         {
+          "text": "ao vizinho",
+          "misconceptionCode": "direto-indireto"
+         },
+         {
+          "text": "O carteiro",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "entregou",
+          "misconceptionCode": "predicado-so-verbo"
+         },
+         {
+          "text": "a carta"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Em \"A professora entregou as provas aos alunos\", qual é o objeto direto?",
+        "options": [
+         {
+          "text": "entregou",
+          "misconceptionCode": "predicado-so-verbo"
+         },
+         {
+          "text": "A professora",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "as provas"
+         },
+         {
+          "text": "aos alunos",
+          "misconceptionCode": "direto-indireto"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Em \"O bebê dormiu\", o verbo:",
+      "options": [
+       {
+        "text": "Tem objeto direto",
+        "misconceptionCode": "direto-indireto"
+       },
+       {
+        "text": "Tem objeto indireto",
+        "misconceptionCode": "confunde-sujeito-objeto"
+       },
+       {
+        "text": "Não precisa de complemento"
+       },
+       {
+        "text": "Não tem sujeito",
+        "misconceptionCode": "sujeito-primeira-palavra"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "\"Dormiu\" já tem sentido completo. Verbos assim não pedem complemento.",
+      "variants": [
+       {
+        "question": "Em \"O sol nasceu\", o verbo:",
+        "options": [
+         {
+          "text": "Não precisa de complemento"
+         },
+         {
+          "text": "Tem objeto direto",
+          "misconceptionCode": "direto-indireto"
+         },
+         {
+          "text": "Tem objeto indireto",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "Não tem sujeito",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Em \"O bebê dormiu\", o verbo:",
+        "options": [
+         {
+          "text": "Não tem sujeito",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "Tem objeto indireto",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "Tem objeto direto",
+          "misconceptionCode": "direto-indireto"
+         },
+         {
+          "text": "Não precisa de complemento"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07LP07-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: analisando frases de um texto",
+    "prompt": "Leia cada frase com atenção e responda.",
+    "estMinutes": 4,
+    "audioScript": "Leia cada frase com atenção e responda. Pergunta 1. Na manchete \"Chuva forte alaga ruas do centro\", quem pratica a ação? A: ruas do centro; B: Chuva; C: alaga; D: Chuva forte. Pergunta 2. Em \"Minha avó contou uma história para os netos\", o termo \"para os netos\" é: A: Objeto indireto; B: Objeto direto; C: Sujeito; D: Predicado. Pergunta 3. Qual frase tem sujeito, verbo e objeto direto? A: O gato dormiu.; B: O gato derrubou o vaso.; C: O gato preto do vizinho.; D: Gosto de gatos..",
+    "questions": [
+     {
+      "question": "Na manchete \"Chuva forte alaga ruas do centro\", quem pratica a ação?",
+      "options": [
+       {
+        "text": "ruas do centro",
+        "misconceptionCode": "confunde-sujeito-objeto"
+       },
+       {
+        "text": "Chuva",
+        "misconceptionCode": "sujeito-primeira-palavra"
+       },
+       {
+        "text": "alaga",
+        "misconceptionCode": "predicado-so-verbo"
+       },
+       {
+        "text": "Chuva forte"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O que alaga? A chuva forte. As ruas do centro são o que foi alagado, o complemento.",
+      "variants": [
+       {
+        "question": "Na manchete \"Vento forte derruba árvores na praça\", quem pratica a ação?",
+        "options": [
+         {
+          "text": "árvores",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "Vento forte"
+         },
+         {
+          "text": "Vento",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "derruba",
+          "misconceptionCode": "predicado-so-verbo"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Na manchete \"Chuva forte alaga ruas do centro\", quem pratica a ação?",
+        "options": [
+         {
+          "text": "Chuva forte"
+         },
+         {
+          "text": "alaga",
+          "misconceptionCode": "predicado-so-verbo"
+         },
+         {
+          "text": "Chuva",
+          "misconceptionCode": "sujeito-primeira-palavra"
+         },
+         {
+          "text": "ruas do centro",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Em \"Minha avó contou uma história para os netos\", o termo \"para os netos\" é:",
+      "options": [
+       {
+        "text": "Objeto indireto"
+       },
+       {
+        "text": "Objeto direto",
+        "misconceptionCode": "direto-indireto"
+       },
+       {
+        "text": "Sujeito",
+        "misconceptionCode": "confunde-sujeito-objeto"
+       },
+       {
+        "text": "Predicado",
+        "misconceptionCode": "predicado-so-verbo"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Contou para quem? Para os netos. Vem com preposição: é objeto indireto.",
+      "variants": [
+       {
+        "question": "Em \"O técnico deu um conselho ao goleiro\", o termo \"ao goleiro\" é:",
+        "options": [
+         {
+          "text": "Objeto direto",
+          "misconceptionCode": "direto-indireto"
+         },
+         {
+          "text": "Sujeito",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "Objeto indireto"
+         },
+         {
+          "text": "Predicado",
+          "misconceptionCode": "predicado-so-verbo"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Em \"Minha avó contou uma história para os netos\", o termo \"para os netos\" é:",
+        "options": [
+         {
+          "text": "Predicado",
+          "misconceptionCode": "predicado-so-verbo"
+         },
+         {
+          "text": "Objeto indireto"
+         },
+         {
+          "text": "Sujeito",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "Objeto direto",
+          "misconceptionCode": "direto-indireto"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual frase tem sujeito, verbo e objeto direto?",
+      "options": [
+       {
+        "text": "O gato dormiu.",
+        "misconceptionCode": "direto-indireto"
+       },
+       {
+        "text": "O gato derrubou o vaso."
+       },
+       {
+        "text": "O gato preto do vizinho.",
+        "misconceptionCode": "predicado-so-verbo"
+       },
+       {
+        "text": "Gosto de gatos.",
+        "misconceptionCode": "confunde-sujeito-objeto"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "\"O gato\" é o sujeito, \"derrubou\" é o verbo e \"o vaso\" é o objeto direto.",
+      "variants": [
+       {
+        "question": "Qual frase tem sujeito, verbo e objeto direto?",
+        "options": [
+         {
+          "text": "A menina sorriu.",
+          "misconceptionCode": "direto-indireto"
+         },
+         {
+          "text": "A menina alta da turma.",
+          "misconceptionCode": "predicado-so-verbo"
+         },
+         {
+          "text": "Preciso de silêncio.",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "A menina abriu a janela."
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual frase tem sujeito, verbo e objeto direto?",
+        "options": [
+         {
+          "text": "Gosto de gatos.",
+          "misconceptionCode": "confunde-sujeito-objeto"
+         },
+         {
+          "text": "O gato preto do vizinho.",
+          "misconceptionCode": "predicado-so-verbo"
+         },
+         {
+          "text": "O gato derrubou o vaso."
+         },
+         {
+          "text": "O gato dormiu.",
+          "misconceptionCode": "direto-indireto"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07LP07-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: como achar o sujeito",
+    "prompt": "Explique com as suas palavras como você descobre o sujeito e o objeto direto da frase \"No recreio, os meninos jogaram futebol\".",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras como você descobre o sujeito e o objeto direto da frase \"No recreio, os meninos jogaram futebol\".",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "pergunta-ao-verbo",
+       "description": "Usa a pergunta \"quem?\" feita ao verbo para achar o sujeito"
+      },
+      {
+       "code": "sujeito",
+       "description": "Identifica \"os meninos\" como sujeito, mesmo sem estar no começo"
+      },
+      {
+       "code": "objeto",
+       "description": "Identifica \"futebol\" como objeto direto"
+      }
+     ],
+     "exemploBoaResposta": "Primeiro acho o verbo, que é \"jogaram\". Pergunto: quem jogou? Os meninos. Esse é o sujeito, mesmo não estando no começo da frase. Depois pergunto: jogaram o quê? Futebol. Esse é o objeto direto, porque completa o verbo sem preposição."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF07LP06",
+  "subjectCode": "LP",
+  "subjectName": "Língua Portuguesa",
+  "gradeYear": 7,
+  "version": 1,
+  "title": "Trilha: Concordância verbal e nominal",
+  "tituloAluno": "Combinando as palavras: singular e plural, masculino e feminino",
+  "activities": [
+   {
+    "id": "PK2-EF07LP06-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: singular e plural",
+    "prompt": "Vamos lembrar como as palavras mudam do singular para o plural.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar como as palavras mudam do singular para o plural. Pergunta 1. Qual é o plural de \"o menino alto\"? A: os meninos altos; B: os menino alto; C: os meninos alto; D: o meninos altos. Pergunta 2. Qual forma do verbo combina com \"Nós\"? A: estuda; B: estudamos; C: estudam; D: estudo. Pergunta 3. Qual palavra combina com \"a professora\"? A: dedicado; B: dedicados; C: dedicada; D: dedicadas.",
+    "questions": [
+     {
+      "question": "Qual é o plural de \"o menino alto\"?",
+      "options": [
+       {
+        "text": "os meninos altos"
+       },
+       {
+        "text": "os menino alto",
+        "misconceptionCode": "so-primeiro-plural"
+       },
+       {
+        "text": "os meninos alto",
+        "misconceptionCode": "so-primeiro-plural"
+       },
+       {
+        "text": "o meninos altos",
+        "misconceptionCode": "verbo-singular"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "No plural, o artigo, o substantivo e o adjetivo mudam juntos: os meninos altos.",
+      "variants": [
+       {
+        "question": "Qual é o plural de \"a casa amarela\"?",
+        "options": [
+         {
+          "text": "as casa amarela",
+          "misconceptionCode": "so-primeiro-plural"
+         },
+         {
+          "text": "as casas amarela",
+          "misconceptionCode": "so-primeiro-plural"
+         },
+         {
+          "text": "as casas amarelas"
+         },
+         {
+          "text": "a casas amarelas",
+          "misconceptionCode": "verbo-singular"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual é o plural de \"o menino alto\"?",
+        "options": [
+         {
+          "text": "o meninos altos",
+          "misconceptionCode": "verbo-singular"
+         },
+         {
+          "text": "os meninos altos"
+         },
+         {
+          "text": "os meninos alto",
+          "misconceptionCode": "so-primeiro-plural"
+         },
+         {
+          "text": "os menino alto",
+          "misconceptionCode": "so-primeiro-plural"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual forma do verbo combina com \"Nós\"?",
+      "options": [
+       {
+        "text": "estuda",
+        "misconceptionCode": "verbo-singular"
+       },
+       {
+        "text": "estudamos"
+       },
+       {
+        "text": "estudam",
+        "misconceptionCode": "concorda-com-perto"
+       },
+       {
+        "text": "estudo",
+        "misconceptionCode": "genero-errado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Com \"nós\", o verbo termina em -mos: nós estudamos.",
+      "variants": [
+       {
+        "question": "Qual forma do verbo combina com \"Eles\"?",
+        "options": [
+         {
+          "text": "brinca",
+          "misconceptionCode": "verbo-singular"
+         },
+         {
+          "text": "brincamos",
+          "misconceptionCode": "concorda-com-perto"
+         },
+         {
+          "text": "brinco",
+          "misconceptionCode": "genero-errado"
+         },
+         {
+          "text": "brincam"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual forma do verbo combina com \"Nós\"?",
+        "options": [
+         {
+          "text": "estudo",
+          "misconceptionCode": "genero-errado"
+         },
+         {
+          "text": "estudam",
+          "misconceptionCode": "concorda-com-perto"
+         },
+         {
+          "text": "estudamos"
+         },
+         {
+          "text": "estuda",
+          "misconceptionCode": "verbo-singular"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual palavra combina com \"a professora\"?",
+      "options": [
+       {
+        "text": "dedicado",
+        "misconceptionCode": "genero-errado"
+       },
+       {
+        "text": "dedicados",
+        "misconceptionCode": "so-primeiro-plural"
+       },
+       {
+        "text": "dedicada"
+       },
+       {
+        "text": "dedicadas",
+        "misconceptionCode": "verbo-singular"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "\"Professora\" é feminino e singular, então o adjetivo também: dedicada.",
+      "variants": [
+       {
+        "question": "Qual palavra combina com \"os livros\"?",
+        "options": [
+         {
+          "text": "novos"
+         },
+         {
+          "text": "nova",
+          "misconceptionCode": "genero-errado"
+         },
+         {
+          "text": "novo",
+          "misconceptionCode": "so-primeiro-plural"
+         },
+         {
+          "text": "novas",
+          "misconceptionCode": "verbo-singular"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual palavra combina com \"a professora\"?",
+        "options": [
+         {
+          "text": "dedicadas",
+          "misconceptionCode": "verbo-singular"
+         },
+         {
+          "text": "dedicados",
+          "misconceptionCode": "so-primeiro-plural"
+         },
+         {
+          "text": "dedicado",
+          "misconceptionCode": "genero-errado"
+         },
+         {
+          "text": "dedicada"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07LP06-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o verbo concorda com o sujeito",
+    "prompt": "Regra principal: sujeito no singular, verbo no singular; sujeito no plural, verbo no plural. Primeiro ache o sujeito. Vamos fazer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Regra principal: sujeito no singular, verbo no singular; sujeito no plural, verbo no plural. Primeiro ache o sujeito. Vamos fazer juntos. Pergunta 1. Complete: \"Os alunos ___ a tarefa.\" A: fez; B: fazemos; C: faz; D: fizeram. Pergunta 2. Complete: \"A caixa de lápis ___ no chão.\" A: caiu; B: caíram; C: caímos; D: caem. Pergunta 3. Complete: \"Chegaram ___.\" A: a encomenda; B: as encomendas; C: o pacote; D: a caixa.",
+    "questions": [
+     {
+      "question": "Complete: \"Os alunos ___ a tarefa.\"",
+      "options": [
+       {
+        "text": "fez",
+        "misconceptionCode": "verbo-singular"
+       },
+       {
+        "text": "fazemos",
+        "misconceptionCode": "concorda-com-perto"
+       },
+       {
+        "text": "faz",
+        "misconceptionCode": "verbo-singular"
+       },
+       {
+        "text": "fizeram"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Quem fez? Os alunos. O sujeito está no plural, então o verbo também: fizeram.",
+      "variants": [
+       {
+        "question": "Complete: \"As meninas ___ o jogo.\"",
+        "options": [
+         {
+          "text": "ganhou",
+          "misconceptionCode": "verbo-singular"
+         },
+         {
+          "text": "ganharam"
+         },
+         {
+          "text": "ganhamos",
+          "misconceptionCode": "concorda-com-perto"
+         },
+         {
+          "text": "ganha",
+          "misconceptionCode": "verbo-singular"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Complete: \"Os alunos ___ a tarefa.\"",
+        "options": [
+         {
+          "text": "fizeram"
+         },
+         {
+          "text": "faz",
+          "misconceptionCode": "verbo-singular"
+         },
+         {
+          "text": "fazemos",
+          "misconceptionCode": "concorda-com-perto"
+         },
+         {
+          "text": "fez",
+          "misconceptionCode": "verbo-singular"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Complete: \"A caixa de lápis ___ no chão.\"",
+      "options": [
+       {
+        "text": "caiu"
+       },
+       {
+        "text": "caíram",
+        "misconceptionCode": "concorda-com-perto"
+       },
+       {
+        "text": "caímos",
+        "misconceptionCode": "genero-errado"
+       },
+       {
+        "text": "caem",
+        "misconceptionCode": "concorda-com-perto"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O que caiu? A caixa. \"De lápis\" só explica qual caixa. O sujeito é \"a caixa\", no singular.",
+      "variants": [
+       {
+        "question": "Complete: \"O grupo de amigos ___ cedo.\"",
+        "options": [
+         {
+          "text": "chegaram",
+          "misconceptionCode": "concorda-com-perto"
+         },
+         {
+          "text": "chegamos",
+          "misconceptionCode": "genero-errado"
+         },
+         {
+          "text": "chegou"
+         },
+         {
+          "text": "chegam",
+          "misconceptionCode": "concorda-com-perto"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Complete: \"A caixa de lápis ___ no chão.\"",
+        "options": [
+         {
+          "text": "caem",
+          "misconceptionCode": "concorda-com-perto"
+         },
+         {
+          "text": "caiu"
+         },
+         {
+          "text": "caímos",
+          "misconceptionCode": "genero-errado"
+         },
+         {
+          "text": "caíram",
+          "misconceptionCode": "concorda-com-perto"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Complete: \"Chegaram ___.\"",
+      "options": [
+       {
+        "text": "a encomenda",
+        "misconceptionCode": "verbo-singular"
+       },
+       {
+        "text": "as encomendas"
+       },
+       {
+        "text": "o pacote",
+        "misconceptionCode": "verbo-singular"
+       },
+       {
+        "text": "a caixa",
+        "misconceptionCode": "genero-errado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "\"Chegaram\" está no plural, então o sujeito também precisa estar: as encomendas.",
+      "variants": [
+       {
+        "question": "Complete: \"Faltaram ___ na reunião.\"",
+        "options": [
+         {
+          "text": "um professor",
+          "misconceptionCode": "verbo-singular"
+         },
+         {
+          "text": "a diretora",
+          "misconceptionCode": "verbo-singular"
+         },
+         {
+          "text": "o aluno",
+          "misconceptionCode": "genero-errado"
+         },
+         {
+          "text": "dois professores"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Complete: \"Chegaram ___.\"",
+        "options": [
+         {
+          "text": "a caixa",
+          "misconceptionCode": "genero-errado"
+         },
+         {
+          "text": "o pacote",
+          "misconceptionCode": "verbo-singular"
+         },
+         {
+          "text": "as encomendas"
+         },
+         {
+          "text": "a encomenda",
+          "misconceptionCode": "verbo-singular"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07LP06-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: escolhendo a forma certa",
+    "prompt": "Ache o sujeito e faça o verbo, o artigo e o adjetivo combinarem com ele.",
+    "estMinutes": 5,
+    "audioScript": "Ache o sujeito e faça o verbo, o artigo e o adjetivo combinarem com ele. Pergunta 1. Qual frase está de acordo com a escrita formal? A: As criança brinca no parque.; B: As crianças brinca no parque.; C: As crianças brincam no parque.; D: A crianças brincam no parque.. Pergunta 2. Complete: \"Meus primos e eu ___ ao cinema.\" A: foram; B: foi; C: fui; D: fomos. Pergunta 3. Complete: \"As janelas da sala estavam ___.\" A: abertas; B: aberta; C: abertos; D: aberto. Pergunta 4. Complete: \"Aquele par de sapatos ___ muito caro.\" A: custaram; B: custou; C: custamos; D: custam.",
+    "questions": [
+     {
+      "question": "Qual frase está de acordo com a escrita formal?",
+      "options": [
+       {
+        "text": "As criança brinca no parque.",
+        "misconceptionCode": "so-primeiro-plural"
+       },
+       {
+        "text": "As crianças brinca no parque.",
+        "misconceptionCode": "verbo-singular"
+       },
+       {
+        "text": "As crianças brincam no parque."
+       },
+       {
+        "text": "A crianças brincam no parque.",
+        "misconceptionCode": "genero-errado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Sujeito no plural (as crianças) pede verbo no plural (brincam).",
+      "variants": [
+       {
+        "question": "Qual frase está de acordo com a escrita formal?",
+        "options": [
+         {
+          "text": "Os pássaros cantam cedo."
+         },
+         {
+          "text": "Os pássaro canta cedo.",
+          "misconceptionCode": "so-primeiro-plural"
+         },
+         {
+          "text": "Os pássaros canta cedo.",
+          "misconceptionCode": "verbo-singular"
+         },
+         {
+          "text": "O pássaros cantam cedo.",
+          "misconceptionCode": "genero-errado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual frase está de acordo com a escrita formal?",
+        "options": [
+         {
+          "text": "A crianças brincam no parque.",
+          "misconceptionCode": "genero-errado"
+         },
+         {
+          "text": "As crianças brinca no parque.",
+          "misconceptionCode": "verbo-singular"
+         },
+         {
+          "text": "As criança brinca no parque.",
+          "misconceptionCode": "so-primeiro-plural"
+         },
+         {
+          "text": "As crianças brincam no parque."
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Complete: \"Meus primos e eu ___ ao cinema.\"",
+      "options": [
+       {
+        "text": "foram",
+        "misconceptionCode": "concorda-com-perto"
+       },
+       {
+        "text": "foi",
+        "misconceptionCode": "verbo-singular"
+       },
+       {
+        "text": "fui",
+        "misconceptionCode": "concorda-com-perto"
+       },
+       {
+        "text": "fomos"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "\"Meus primos e eu\" é o mesmo que \"nós\". Com nós, o verbo fica: fomos.",
+      "variants": [
+       {
+        "question": "Complete: \"Minha mãe e eu ___ um bolo.\"",
+        "options": [
+         {
+          "text": "fizeram",
+          "misconceptionCode": "concorda-com-perto"
+         },
+         {
+          "text": "fizemos"
+         },
+         {
+          "text": "fez",
+          "misconceptionCode": "verbo-singular"
+         },
+         {
+          "text": "fiz",
+          "misconceptionCode": "concorda-com-perto"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Complete: \"Meus primos e eu ___ ao cinema.\"",
+        "options": [
+         {
+          "text": "fomos"
+         },
+         {
+          "text": "fui",
+          "misconceptionCode": "concorda-com-perto"
+         },
+         {
+          "text": "foi",
+          "misconceptionCode": "verbo-singular"
+         },
+         {
+          "text": "foram",
+          "misconceptionCode": "concorda-com-perto"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Complete: \"As janelas da sala estavam ___.\"",
+      "options": [
+       {
+        "text": "abertas"
+       },
+       {
+        "text": "aberta",
+        "misconceptionCode": "so-primeiro-plural"
+       },
+       {
+        "text": "abertos",
+        "misconceptionCode": "genero-errado"
+       },
+       {
+        "text": "aberto",
+        "misconceptionCode": "genero-errado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O adjetivo concorda com \"as janelas\": feminino e plural. Então: abertas.",
+      "variants": [
+       {
+        "question": "Complete: \"Os portões da escola estavam ___.\"",
+        "options": [
+         {
+          "text": "fechado",
+          "misconceptionCode": "so-primeiro-plural"
+         },
+         {
+          "text": "fechadas",
+          "misconceptionCode": "genero-errado"
+         },
+         {
+          "text": "fechados"
+         },
+         {
+          "text": "fechada",
+          "misconceptionCode": "genero-errado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Complete: \"As janelas da sala estavam ___.\"",
+        "options": [
+         {
+          "text": "aberto",
+          "misconceptionCode": "genero-errado"
+         },
+         {
+          "text": "abertas"
+         },
+         {
+          "text": "abertos",
+          "misconceptionCode": "genero-errado"
+         },
+         {
+          "text": "aberta",
+          "misconceptionCode": "so-primeiro-plural"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Complete: \"Aquele par de sapatos ___ muito caro.\"",
+      "options": [
+       {
+        "text": "custaram",
+        "misconceptionCode": "concorda-com-perto"
+       },
+       {
+        "text": "custou"
+       },
+       {
+        "text": "custamos",
+        "misconceptionCode": "genero-errado"
+       },
+       {
+        "text": "custam",
+        "misconceptionCode": "concorda-com-perto"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O sujeito é \"aquele par\", no singular. \"De sapatos\" só diz de que é o par.",
+      "variants": [
+       {
+        "question": "Complete: \"Essa turma de alunos ___ muito bem.\"",
+        "options": [
+         {
+          "text": "cantam",
+          "misconceptionCode": "concorda-com-perto"
+         },
+         {
+          "text": "cantamos",
+          "misconceptionCode": "genero-errado"
+         },
+         {
+          "text": "cantaram",
+          "misconceptionCode": "concorda-com-perto"
+         },
+         {
+          "text": "canta"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Complete: \"Aquele par de sapatos ___ muito caro.\"",
+        "options": [
+         {
+          "text": "custam",
+          "misconceptionCode": "concorda-com-perto"
+         },
+         {
+          "text": "custamos",
+          "misconceptionCode": "genero-errado"
+         },
+         {
+          "text": "custou"
+         },
+         {
+          "text": "custaram",
+          "misconceptionCode": "concorda-com-perto"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07LP06-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: revisando um texto",
+    "prompt": "Imagine que você está revisando o texto de um colega. Encontre e corrija os problemas de concordância.",
+    "estMinutes": 4,
+    "audioScript": "Imagine que você está revisando o texto de um colega. Encontre e corrija os problemas de concordância. Pergunta 1. No bilhete \"Os meninos da turma chegou atrasado\", como fica a frase revisada? A: Os meninos da turma chegou atrasados.; B: Os menino da turma chegaram atrasado.; C: Os meninos da turma chegaram atrasados.; D: Os meninos da turma chegaram atrasado.. Pergunta 2. Qual frase precisa de correção na escrita formal? A: Faltaram três alunos hoje.; B: Três alunos faltaram hoje.; C: Hoje três alunos faltaram.; D: Faltou três alunos hoje.. Pergunta 3. Num aviso da escola, qual frase está correta? A: As inscrições estão abertas.; B: As inscrições está aberta.; C: As inscrição estão abertas.; D: As inscrições estão abertos..",
+    "questions": [
+     {
+      "question": "No bilhete \"Os meninos da turma chegou atrasado\", como fica a frase revisada?",
+      "options": [
+       {
+        "text": "Os meninos da turma chegou atrasados.",
+        "misconceptionCode": "verbo-singular"
+       },
+       {
+        "text": "Os menino da turma chegaram atrasado.",
+        "misconceptionCode": "so-primeiro-plural"
+       },
+       {
+        "text": "Os meninos da turma chegaram atrasados."
+       },
+       {
+        "text": "Os meninos da turma chegaram atrasado.",
+        "misconceptionCode": "so-primeiro-plural"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O sujeito \"os meninos\" é plural e masculino. O verbo e o adjetivo acompanham: chegaram atrasados.",
+      "variants": [
+       {
+        "question": "No bilhete \"As meninas do time jogou bem\", como fica a frase revisada?",
+        "options": [
+         {
+          "text": "As meninas do time jogaram bem."
+         },
+         {
+          "text": "As meninas do time joga bem.",
+          "misconceptionCode": "verbo-singular"
+         },
+         {
+          "text": "As menina do time jogaram bem.",
+          "misconceptionCode": "so-primeiro-plural"
+         },
+         {
+          "text": "A meninas do time jogou bem.",
+          "misconceptionCode": "so-primeiro-plural"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "No bilhete \"Os meninos da turma chegou atrasado\", como fica a frase revisada?",
+        "options": [
+         {
+          "text": "Os meninos da turma chegaram atrasado.",
+          "misconceptionCode": "so-primeiro-plural"
+         },
+         {
+          "text": "Os menino da turma chegaram atrasado.",
+          "misconceptionCode": "so-primeiro-plural"
+         },
+         {
+          "text": "Os meninos da turma chegou atrasados.",
+          "misconceptionCode": "verbo-singular"
+         },
+         {
+          "text": "Os meninos da turma chegaram atrasados."
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual frase precisa de correção na escrita formal?",
+      "options": [
+       {
+        "text": "Faltaram três alunos hoje.",
+        "misconceptionCode": "verbo-singular"
+       },
+       {
+        "text": "Três alunos faltaram hoje.",
+        "misconceptionCode": "concorda-com-perto"
+       },
+       {
+        "text": "Hoje três alunos faltaram.",
+        "misconceptionCode": "so-primeiro-plural"
+       },
+       {
+        "text": "Faltou três alunos hoje."
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O sujeito é \"três alunos\", no plural. O certo é \"Faltaram três alunos hoje\".",
+      "variants": [
+       {
+        "question": "Qual frase precisa de correção na escrita formal?",
+        "options": [
+         {
+          "text": "Chegaram as provas corrigidas.",
+          "misconceptionCode": "verbo-singular"
+         },
+         {
+          "text": "Chegou as provas corrigidas."
+         },
+         {
+          "text": "As provas corrigidas chegaram.",
+          "misconceptionCode": "concorda-com-perto"
+         },
+         {
+          "text": "Hoje as provas corrigidas chegaram.",
+          "misconceptionCode": "so-primeiro-plural"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual frase precisa de correção na escrita formal?",
+        "options": [
+         {
+          "text": "Faltou três alunos hoje."
+         },
+         {
+          "text": "Hoje três alunos faltaram.",
+          "misconceptionCode": "so-primeiro-plural"
+         },
+         {
+          "text": "Três alunos faltaram hoje.",
+          "misconceptionCode": "concorda-com-perto"
+         },
+         {
+          "text": "Faltaram três alunos hoje.",
+          "misconceptionCode": "verbo-singular"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Num aviso da escola, qual frase está correta?",
+      "options": [
+       {
+        "text": "As inscrições estão abertas."
+       },
+       {
+        "text": "As inscrições está aberta.",
+        "misconceptionCode": "verbo-singular"
+       },
+       {
+        "text": "As inscrição estão abertas.",
+        "misconceptionCode": "so-primeiro-plural"
+       },
+       {
+        "text": "As inscrições estão abertos.",
+        "misconceptionCode": "genero-errado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "\"As inscrições\" é feminino e plural: o verbo fica \"estão\" e o adjetivo, \"abertas\".",
+      "variants": [
+       {
+        "question": "Num cartaz da biblioteca, qual frase está correta?",
+        "options": [
+         {
+          "text": "Os livros novos chegou.",
+          "misconceptionCode": "verbo-singular"
+         },
+         {
+          "text": "Os livro novo chegaram.",
+          "misconceptionCode": "so-primeiro-plural"
+         },
+         {
+          "text": "Os livros novos chegaram."
+         },
+         {
+          "text": "Os livros novas chegaram.",
+          "misconceptionCode": "genero-errado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Num aviso da escola, qual frase está correta?",
+        "options": [
+         {
+          "text": "As inscrições estão abertos.",
+          "misconceptionCode": "genero-errado"
+         },
+         {
+          "text": "As inscrições estão abertas."
+         },
+         {
+          "text": "As inscrição estão abertas.",
+          "misconceptionCode": "so-primeiro-plural"
+         },
+         {
+          "text": "As inscrições está aberta.",
+          "misconceptionCode": "verbo-singular"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07LP06-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: por que o verbo muda",
+    "prompt": "Explique com as suas palavras por que o certo na escrita formal é \"A turma de alunos chegou\" e não \"A turma de alunos chegaram\".",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras por que o certo na escrita formal é \"A turma de alunos chegou\" e não \"A turma de alunos chegaram\".",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "acha-sujeito",
+       "description": "Identifica que o sujeito é \"a turma\""
+      },
+      {
+       "code": "singular",
+       "description": "Explica que \"a turma\" está no singular, mesmo sendo várias pessoas"
+      },
+      {
+       "code": "verbo",
+       "description": "Conclui que o verbo fica no singular"
+      }
+     ],
+     "exemploBoaResposta": "Quem chegou foi a turma. A palavra \"turma\" está no singular, mesmo falando de muita gente, e \"de alunos\" só explica que turma é. Como o verbo concorda com o sujeito, ele fica no singular: chegou."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF07LP12",
+  "subjectCode": "LP",
+  "subjectName": "Língua Portuguesa",
+  "gradeYear": 7,
+  "version": 1,
+  "title": "Trilha: Coesão: pronomes e sinônimos que retomam",
+  "tituloAluno": "Sem repetir: palavras que retomam o que já foi dito",
+  "activities": [
+   {
+    "id": "PK2-EF07LP12-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: pronomes no lugar de nomes",
+    "prompt": "Pronomes como ele, ela, eles, seu e isso ficam no lugar de nomes. Vamos lembrar como funcionam.",
+    "estMinutes": 4,
+    "audioScript": "Pronomes como ele, ela, eles, seu e isso ficam no lugar de nomes. Vamos lembrar como funcionam. Pergunta 1. Em \"Ana chegou cedo. Ela abriu a sala\", a palavra \"Ela\" está no lugar de: A: a sala; B: Ana; C: cedo; D: Outra pessoa que não aparece. Pergunta 2. Qual pronome pode ficar no lugar de \"as meninas\"? A: ele; B: ela; C: elas; D: eles. Pergunta 3. Qual palavra pode substituir \"cachorro\" sem mudar o sentido? A: gato; B: dono; C: casa; D: cão.",
+    "questions": [
+     {
+      "question": "Em \"Ana chegou cedo. Ela abriu a sala\", a palavra \"Ela\" está no lugar de:",
+      "options": [
+       {
+        "text": "a sala",
+        "misconceptionCode": "referente-mais-perto"
+       },
+       {
+        "text": "Ana"
+       },
+       {
+        "text": "cedo",
+        "misconceptionCode": "ignora-genero-numero"
+       },
+       {
+        "text": "Outra pessoa que não aparece",
+        "misconceptionCode": "sinonimo-novo-personagem"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "\"Ela\" retoma Ana, para não repetir o nome.",
+      "variants": [
+       {
+        "question": "Em \"Pedro perdeu o ônibus. Ele foi a pé\", a palavra \"Ele\" está no lugar de:",
+        "options": [
+         {
+          "text": "o ônibus",
+          "misconceptionCode": "referente-mais-perto"
+         },
+         {
+          "text": "a pé",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "Outra pessoa que não aparece",
+          "misconceptionCode": "sinonimo-novo-personagem"
+         },
+         {
+          "text": "Pedro"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Em \"Ana chegou cedo. Ela abriu a sala\", a palavra \"Ela\" está no lugar de:",
+        "options": [
+         {
+          "text": "Outra pessoa que não aparece",
+          "misconceptionCode": "sinonimo-novo-personagem"
+         },
+         {
+          "text": "cedo",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "Ana"
+         },
+         {
+          "text": "a sala",
+          "misconceptionCode": "referente-mais-perto"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual pronome pode ficar no lugar de \"as meninas\"?",
+      "options": [
+       {
+        "text": "ele",
+        "misconceptionCode": "ignora-genero-numero"
+       },
+       {
+        "text": "ela",
+        "misconceptionCode": "ignora-genero-numero"
+       },
+       {
+        "text": "elas"
+       },
+       {
+        "text": "eles",
+        "misconceptionCode": "ignora-genero-numero"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "\"As meninas\" é feminino e plural. O pronome que combina é \"elas\".",
+      "variants": [
+       {
+        "question": "Qual pronome pode ficar no lugar de \"os vizinhos\"?",
+        "options": [
+         {
+          "text": "eles"
+         },
+         {
+          "text": "ela",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "ele",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "elas",
+          "misconceptionCode": "ignora-genero-numero"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual pronome pode ficar no lugar de \"as meninas\"?",
+        "options": [
+         {
+          "text": "eles",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "ela",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "ele",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "elas"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual palavra pode substituir \"cachorro\" sem mudar o sentido?",
+      "options": [
+       {
+        "text": "gato",
+        "misconceptionCode": "sinonimo-novo-personagem"
+       },
+       {
+        "text": "dono",
+        "misconceptionCode": "referente-mais-perto"
+       },
+       {
+        "text": "casa",
+        "misconceptionCode": "repete-termo"
+       },
+       {
+        "text": "cão"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "\"Cão\" é sinônimo de \"cachorro\": é outra palavra para o mesmo animal.",
+      "variants": [
+       {
+        "question": "Qual palavra pode substituir \"garoto\" sem mudar o sentido?",
+        "options": [
+         {
+          "text": "homem",
+          "misconceptionCode": "sinonimo-novo-personagem"
+         },
+         {
+          "text": "menino"
+         },
+         {
+          "text": "irmã",
+          "misconceptionCode": "referente-mais-perto"
+         },
+         {
+          "text": "escola",
+          "misconceptionCode": "repete-termo"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual palavra pode substituir \"cachorro\" sem mudar o sentido?",
+        "options": [
+         {
+          "text": "cão"
+         },
+         {
+          "text": "casa",
+          "misconceptionCode": "repete-termo"
+         },
+         {
+          "text": "dono",
+          "misconceptionCode": "referente-mais-perto"
+         },
+         {
+          "text": "gato",
+          "misconceptionCode": "sinonimo-novo-personagem"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07LP12-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: a quem o pronome se refere",
+    "prompt": "Para descobrir o que um pronome retoma, veja se ele é masculino ou feminino, singular ou plural, e confira se a frase faz sentido. Vamos fazer juntos. Texto: \"Carla emprestou o caderno para Joana. Ela devolveu o material no dia seguinte.\"",
+    "estMinutes": 4,
+    "audioScript": "Para descobrir o que um pronome retoma, veja se ele é masculino ou feminino, singular ou plural, e confira se a frase faz sentido. Vamos fazer juntos. Texto: \"Carla emprestou o caderno para Joana. Ela devolveu o material no dia seguinte.\" Pergunta 1. Em \"Carla emprestou o caderno para Joana. Ela devolveu o material no dia seguinte.\" Quem devolveu o material? A: Joana; B: Carla; C: O caderno; D: Não dá para saber de jeito nenhum. Pergunta 2. Em \"Carla emprestou o caderno para Joana. Ela devolveu o material no dia seguinte.\" A expressão \"o material\" retoma: A: Carla; B: o caderno; C: Joana; D: o dia seguinte. Pergunta 3. Em \"Os jogadores entraram em campo. A torcida aplaudiu os atletas\", \"os atletas\" são: A: A torcida; B: Outras pessoas que chegaram depois; C: Os jogadores; D: O campo.",
+    "questions": [
+     {
+      "question": "Em \"Carla emprestou o caderno para Joana. Ela devolveu o material no dia seguinte.\" Quem devolveu o material?",
+      "options": [
+       {
+        "text": "Joana"
+       },
+       {
+        "text": "Carla",
+        "misconceptionCode": "referente-mais-perto"
+       },
+       {
+        "text": "O caderno",
+        "misconceptionCode": "ignora-genero-numero"
+       },
+       {
+        "text": "Não dá para saber de jeito nenhum",
+        "misconceptionCode": "sinonimo-novo-personagem"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Quem devolve é quem pegou emprestado. Joana recebeu o caderno, então foi ela quem devolveu.",
+      "variants": [
+       {
+        "question": "Em \"Rui emprestou a bola para Beto. Ele devolveu o brinquedo à tarde\", quem devolveu?",
+        "options": [
+         {
+          "text": "Rui",
+          "misconceptionCode": "referente-mais-perto"
+         },
+         {
+          "text": "A bola",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "Beto"
+         },
+         {
+          "text": "Não dá para saber de jeito nenhum",
+          "misconceptionCode": "sinonimo-novo-personagem"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Em \"Carla emprestou o caderno para Joana. Ela devolveu o material no dia seguinte.\" Quem devolveu o material?",
+        "options": [
+         {
+          "text": "Não dá para saber de jeito nenhum",
+          "misconceptionCode": "sinonimo-novo-personagem"
+         },
+         {
+          "text": "Joana"
+         },
+         {
+          "text": "O caderno",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "Carla",
+          "misconceptionCode": "referente-mais-perto"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Em \"Carla emprestou o caderno para Joana. Ela devolveu o material no dia seguinte.\" A expressão \"o material\" retoma:",
+      "options": [
+       {
+        "text": "Carla",
+        "misconceptionCode": "sinonimo-novo-personagem"
+       },
+       {
+        "text": "o caderno"
+       },
+       {
+        "text": "Joana",
+        "misconceptionCode": "referente-mais-perto"
+       },
+       {
+        "text": "o dia seguinte",
+        "misconceptionCode": "ignora-genero-numero"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "\"O material\" é outra forma de dizer \"o caderno\", para não repetir a palavra.",
+      "variants": [
+       {
+        "question": "Em \"Rui emprestou a bola para Beto. Ele devolveu o brinquedo à tarde\", \"o brinquedo\" retoma:",
+        "options": [
+         {
+          "text": "Rui",
+          "misconceptionCode": "sinonimo-novo-personagem"
+         },
+         {
+          "text": "Beto",
+          "misconceptionCode": "referente-mais-perto"
+         },
+         {
+          "text": "a tarde",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "a bola"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Em \"Carla emprestou o caderno para Joana. Ela devolveu o material no dia seguinte.\" A expressão \"o material\" retoma:",
+        "options": [
+         {
+          "text": "o dia seguinte",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "Joana",
+          "misconceptionCode": "referente-mais-perto"
+         },
+         {
+          "text": "o caderno"
+         },
+         {
+          "text": "Carla",
+          "misconceptionCode": "sinonimo-novo-personagem"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Em \"Os jogadores entraram em campo. A torcida aplaudiu os atletas\", \"os atletas\" são:",
+      "options": [
+       {
+        "text": "A torcida",
+        "misconceptionCode": "referente-mais-perto"
+       },
+       {
+        "text": "Outras pessoas que chegaram depois",
+        "misconceptionCode": "sinonimo-novo-personagem"
+       },
+       {
+        "text": "Os jogadores"
+       },
+       {
+        "text": "O campo",
+        "misconceptionCode": "ignora-genero-numero"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "\"Atletas\" é um sinônimo usado para não repetir \"jogadores\". São as mesmas pessoas.",
+      "variants": [
+       {
+        "question": "Em \"A médica chegou ao hospital. Os pacientes esperavam a doutora\", \"a doutora\" é:",
+        "options": [
+         {
+          "text": "A médica"
+         },
+         {
+          "text": "Os pacientes",
+          "misconceptionCode": "referente-mais-perto"
+         },
+         {
+          "text": "Outra pessoa que chegou depois",
+          "misconceptionCode": "sinonimo-novo-personagem"
+         },
+         {
+          "text": "O hospital",
+          "misconceptionCode": "ignora-genero-numero"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Em \"Os jogadores entraram em campo. A torcida aplaudiu os atletas\", \"os atletas\" são:",
+        "options": [
+         {
+          "text": "O campo",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "Outras pessoas que chegaram depois",
+          "misconceptionCode": "sinonimo-novo-personagem"
+         },
+         {
+          "text": "A torcida",
+          "misconceptionCode": "referente-mais-perto"
+         },
+         {
+          "text": "Os jogadores"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07LP12-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: identificando retomadas",
+    "prompt": "Leia cada trecho e descubra o que a palavra destacada retoma.",
+    "estMinutes": 5,
+    "audioScript": "Leia cada trecho e descubra o que a palavra destacada retoma. Pergunta 1. Em \"O prefeito visitou a escola. Lá, ele conversou com os alunos\", a palavra \"Lá\" retoma: A: o prefeito; B: os alunos; C: a cidade; D: a escola. Pergunta 2. Em \"Comprei laranjas e bananas. Estas estavam verdes\", \"Estas\" retoma: A: as bananas; B: as laranjas; C: as laranjas e as bananas; D: a compra. Pergunta 3. Em \"A onça-pintada vive na mata. O felino caça à noite\", \"o felino\" é: A: Outro animal da mata; B: A onça-pintada; C: A mata; D: A noite. Pergunta 4. Em \"Os alunos pediram mais tempo. A professora atendeu o pedido deles\", \"deles\" se refere a: A: a professora; B: o tempo; C: os alunos; D: o pedido.",
+    "questions": [
+     {
+      "question": "Em \"O prefeito visitou a escola. Lá, ele conversou com os alunos\", a palavra \"Lá\" retoma:",
+      "options": [
+       {
+        "text": "o prefeito",
+        "misconceptionCode": "referente-mais-perto"
+       },
+       {
+        "text": "os alunos",
+        "misconceptionCode": "ignora-genero-numero"
+       },
+       {
+        "text": "a cidade",
+        "misconceptionCode": "sinonimo-novo-personagem"
+       },
+       {
+        "text": "a escola"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "\"Lá\" indica um lugar já citado: a escola.",
+      "variants": [
+       {
+        "question": "Em \"Maria foi à feira. Lá, ela comprou frutas\", a palavra \"Lá\" retoma:",
+        "options": [
+         {
+          "text": "Maria",
+          "misconceptionCode": "referente-mais-perto"
+         },
+         {
+          "text": "a feira"
+         },
+         {
+          "text": "as frutas",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "a rua",
+          "misconceptionCode": "sinonimo-novo-personagem"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Em \"O prefeito visitou a escola. Lá, ele conversou com os alunos\", a palavra \"Lá\" retoma:",
+        "options": [
+         {
+          "text": "a escola"
+         },
+         {
+          "text": "a cidade",
+          "misconceptionCode": "sinonimo-novo-personagem"
+         },
+         {
+          "text": "os alunos",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "o prefeito",
+          "misconceptionCode": "referente-mais-perto"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Em \"Comprei laranjas e bananas. Estas estavam verdes\", \"Estas\" retoma:",
+      "options": [
+       {
+        "text": "as bananas"
+       },
+       {
+        "text": "as laranjas",
+        "misconceptionCode": "referente-mais-perto"
+       },
+       {
+        "text": "as laranjas e as bananas",
+        "misconceptionCode": "ignora-genero-numero"
+       },
+       {
+        "text": "a compra",
+        "misconceptionCode": "sinonimo-novo-personagem"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "\"Estas\" retoma o termo mais próximo na frase anterior: as bananas.",
+      "variants": [
+       {
+        "question": "Em \"Li contos e poemas. Estes eram mais curtos\", \"Estes\" retoma:",
+        "options": [
+         {
+          "text": "os contos",
+          "misconceptionCode": "referente-mais-perto"
+         },
+         {
+          "text": "os contos e os poemas",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "os poemas"
+         },
+         {
+          "text": "a leitura",
+          "misconceptionCode": "sinonimo-novo-personagem"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Em \"Comprei laranjas e bananas. Estas estavam verdes\", \"Estas\" retoma:",
+        "options": [
+         {
+          "text": "a compra",
+          "misconceptionCode": "sinonimo-novo-personagem"
+         },
+         {
+          "text": "as bananas"
+         },
+         {
+          "text": "as laranjas e as bananas",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "as laranjas",
+          "misconceptionCode": "referente-mais-perto"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Em \"A onça-pintada vive na mata. O felino caça à noite\", \"o felino\" é:",
+      "options": [
+       {
+        "text": "Outro animal da mata",
+        "misconceptionCode": "sinonimo-novo-personagem"
+       },
+       {
+        "text": "A onça-pintada"
+       },
+       {
+        "text": "A mata",
+        "misconceptionCode": "referente-mais-perto"
+       },
+       {
+        "text": "A noite",
+        "misconceptionCode": "ignora-genero-numero"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A onça é um felino. O texto usou essa palavra para não repetir \"onça-pintada\".",
+      "variants": [
+       {
+        "question": "Em \"O sabiá cantava no galho. A ave parecia feliz\", \"a ave\" é:",
+        "options": [
+         {
+          "text": "Outro bicho do galho",
+          "misconceptionCode": "sinonimo-novo-personagem"
+         },
+         {
+          "text": "O galho",
+          "misconceptionCode": "referente-mais-perto"
+         },
+         {
+          "text": "A felicidade",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "O sabiá"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Em \"A onça-pintada vive na mata. O felino caça à noite\", \"o felino\" é:",
+        "options": [
+         {
+          "text": "A noite",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "A mata",
+          "misconceptionCode": "referente-mais-perto"
+         },
+         {
+          "text": "A onça-pintada"
+         },
+         {
+          "text": "Outro animal da mata",
+          "misconceptionCode": "sinonimo-novo-personagem"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Em \"Os alunos pediram mais tempo. A professora atendeu o pedido deles\", \"deles\" se refere a:",
+      "options": [
+       {
+        "text": "a professora",
+        "misconceptionCode": "ignora-genero-numero"
+       },
+       {
+        "text": "o tempo",
+        "misconceptionCode": "referente-mais-perto"
+       },
+       {
+        "text": "os alunos"
+       },
+       {
+        "text": "o pedido",
+        "misconceptionCode": "referente-mais-perto"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "\"Deles\" é masculino e plural: só pode retomar \"os alunos\".",
+      "variants": [
+       {
+        "question": "Em \"As vizinhas pediram silêncio. O síndico atendeu o pedido delas\", \"delas\" se refere a:",
+        "options": [
+         {
+          "text": "as vizinhas"
+         },
+         {
+          "text": "o síndico",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "o silêncio",
+          "misconceptionCode": "referente-mais-perto"
+         },
+         {
+          "text": "o pedido",
+          "misconceptionCode": "referente-mais-perto"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Em \"Os alunos pediram mais tempo. A professora atendeu o pedido deles\", \"deles\" se refere a:",
+        "options": [
+         {
+          "text": "o pedido",
+          "misconceptionCode": "referente-mais-perto"
+         },
+         {
+          "text": "o tempo",
+          "misconceptionCode": "referente-mais-perto"
+         },
+         {
+          "text": "a professora",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "os alunos"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07LP12-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: melhorando um texto",
+    "prompt": "Use pronomes e sinônimos para deixar o texto mais claro e sem repetições.",
+    "estMinutes": 4,
+    "audioScript": "Use pronomes e sinônimos para deixar o texto mais claro e sem repetições. Pergunta 1. Qual versão evita a repetição em \"O gato subiu no muro. O gato pulou no quintal\"? A: O gato subiu no muro. O gato pulou no quintal do gato.; B: O gato subiu no muro. Ela pulou no quintal.; C: O gato subiu no muro. O cachorro pulou no quintal.; D: O gato subiu no muro. Depois, ele pulou no quintal.. Pergunta 2. Numa notícia sobre \"o Rio Amazonas\", qual expressão pode retomá-lo depois? A: o rio; B: a floresta; C: eles; D: o Rio Amazonas, o Rio Amazonas. Pergunta 3. Em \"João disse a Marcos que ele estava atrasado\", por que a frase é confusa? A: Porque falta um verbo; B: Porque \"ele\" pode ser João ou Marcos; C: Porque \"ele\" deveria ser \"ela\"; D: Porque tem palavras repetidas.",
+    "questions": [
+     {
+      "question": "Qual versão evita a repetição em \"O gato subiu no muro. O gato pulou no quintal\"?",
+      "options": [
+       {
+        "text": "O gato subiu no muro. O gato pulou no quintal do gato.",
+        "misconceptionCode": "repete-termo"
+       },
+       {
+        "text": "O gato subiu no muro. Ela pulou no quintal.",
+        "misconceptionCode": "ignora-genero-numero"
+       },
+       {
+        "text": "O gato subiu no muro. O cachorro pulou no quintal.",
+        "misconceptionCode": "sinonimo-novo-personagem"
+       },
+       {
+        "text": "O gato subiu no muro. Depois, ele pulou no quintal."
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "\"Ele\" retoma \"o gato\" sem repetir a palavra e sem mudar o sentido.",
+      "variants": [
+       {
+        "question": "Qual versão evita a repetição em \"A chuva começou cedo. A chuva durou o dia todo\"?",
+        "options": [
+         {
+          "text": "A chuva começou cedo. A chuva da chuva durou o dia todo.",
+          "misconceptionCode": "repete-termo"
+         },
+         {
+          "text": "A chuva começou cedo. Ela durou o dia todo."
+         },
+         {
+          "text": "A chuva começou cedo. Ele durou o dia todo.",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "A chuva começou cedo. O sol durou o dia todo.",
+          "misconceptionCode": "sinonimo-novo-personagem"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual versão evita a repetição em \"O gato subiu no muro. O gato pulou no quintal\"?",
+        "options": [
+         {
+          "text": "O gato subiu no muro. Depois, ele pulou no quintal."
+         },
+         {
+          "text": "O gato subiu no muro. O cachorro pulou no quintal.",
+          "misconceptionCode": "sinonimo-novo-personagem"
+         },
+         {
+          "text": "O gato subiu no muro. Ela pulou no quintal.",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "O gato subiu no muro. O gato pulou no quintal do gato.",
+          "misconceptionCode": "repete-termo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Numa notícia sobre \"o Rio Amazonas\", qual expressão pode retomá-lo depois?",
+      "options": [
+       {
+        "text": "o rio"
+       },
+       {
+        "text": "a floresta",
+        "misconceptionCode": "sinonimo-novo-personagem"
+       },
+       {
+        "text": "eles",
+        "misconceptionCode": "ignora-genero-numero"
+       },
+       {
+        "text": "o Rio Amazonas, o Rio Amazonas",
+        "misconceptionCode": "repete-termo"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "\"O rio\" retoma \"o Rio Amazonas\" de forma mais curta, sem trocar o assunto.",
+      "variants": [
+       {
+        "question": "Numa notícia sobre \"a cidade de Salvador\", qual expressão pode retomá-la depois?",
+        "options": [
+         {
+          "text": "o estado vizinho",
+          "misconceptionCode": "sinonimo-novo-personagem"
+         },
+         {
+          "text": "eles",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "a capital baiana"
+         },
+         {
+          "text": "a cidade de Salvador, a cidade de Salvador",
+          "misconceptionCode": "repete-termo"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Numa notícia sobre \"o Rio Amazonas\", qual expressão pode retomá-lo depois?",
+        "options": [
+         {
+          "text": "o Rio Amazonas, o Rio Amazonas",
+          "misconceptionCode": "repete-termo"
+         },
+         {
+          "text": "o rio"
+         },
+         {
+          "text": "eles",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "a floresta",
+          "misconceptionCode": "sinonimo-novo-personagem"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Em \"João disse a Marcos que ele estava atrasado\", por que a frase é confusa?",
+      "options": [
+       {
+        "text": "Porque falta um verbo",
+        "misconceptionCode": "repete-termo"
+       },
+       {
+        "text": "Porque \"ele\" pode ser João ou Marcos"
+       },
+       {
+        "text": "Porque \"ele\" deveria ser \"ela\"",
+        "misconceptionCode": "ignora-genero-numero"
+       },
+       {
+        "text": "Porque tem palavras repetidas",
+        "misconceptionCode": "referente-mais-perto"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Os dois nomes são masculinos e singulares. O pronome \"ele\" serve para qualquer um, e o leitor fica em dúvida.",
+      "variants": [
+       {
+        "question": "Em \"Lia contou a Rosa que ela tinha vencido\", por que a frase é confusa?",
+        "options": [
+         {
+          "text": "Porque falta um verbo",
+          "misconceptionCode": "repete-termo"
+         },
+         {
+          "text": "Porque \"ela\" deveria ser \"ele\"",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "Porque tem palavras repetidas",
+          "misconceptionCode": "referente-mais-perto"
+         },
+         {
+          "text": "Porque \"ela\" pode ser Lia ou Rosa"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Em \"João disse a Marcos que ele estava atrasado\", por que a frase é confusa?",
+        "options": [
+         {
+          "text": "Porque tem palavras repetidas",
+          "misconceptionCode": "referente-mais-perto"
+         },
+         {
+          "text": "Porque \"ele\" deveria ser \"ela\"",
+          "misconceptionCode": "ignora-genero-numero"
+         },
+         {
+          "text": "Porque \"ele\" pode ser João ou Marcos"
+         },
+         {
+          "text": "Porque falta um verbo",
+          "misconceptionCode": "repete-termo"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07LP12-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: para que servem as retomadas",
+    "prompt": "Reescreva sem repetir e explique o que você mudou: \"A diretora chegou. A diretora cumprimentou os alunos. Os alunos sorriram para a diretora.\"",
+    "estMinutes": 6,
+    "audioScript": "Reescreva sem repetir e explique o que você mudou: \"A diretora chegou. A diretora cumprimentou os alunos. Os alunos sorriram para a diretora.\"",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "usa-pronome",
+       "description": "Troca pelo menos uma repetição por pronome (ela, eles)"
+      },
+      {
+       "code": "mantem-sentido",
+       "description": "Mantém claro quem fez cada ação"
+      },
+      {
+       "code": "explica",
+       "description": "Explica que a troca evita repetição"
+      }
+     ],
+     "exemploBoaResposta": "A diretora chegou e cumprimentou os alunos. Eles sorriram para ela. Troquei \"a diretora\" por \"ela\" e \"os alunos\" por \"eles\" para não repetir as mesmas palavras, e continua claro quem fez o quê."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF67LP04",
+  "subjectCode": "LP",
+  "subjectName": "Língua Portuguesa",
+  "gradeYear": 7,
+  "version": 1,
+  "title": "Trilha: Fato e opinião",
+  "tituloAluno": "Aconteceu ou alguém acha? Separando fato de opinião",
+  "activities": [
+   {
+    "id": "PK2-EF67LP04-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: o que é um fato",
+    "prompt": "Fato é algo que aconteceu e pode ser comprovado. Opinião é o que alguém pensa ou sente sobre isso.",
+    "estMinutes": 4,
+    "audioScript": "Fato é algo que aconteceu e pode ser comprovado. Opinião é o que alguém pensa ou sente sobre isso. Pergunta 1. Qual frase é um fato? A: O jogo terminou 2 a 1.; B: O jogo foi emocionante.; C: O time jogou muito mal.; D: O juiz foi péssimo.. Pergunta 2. Qual frase é uma opinião? A: A sorveteria abre às 10 horas.; B: Sorvete de chocolate é o melhor.; C: O sorvete custa 8 reais.; D: A sorveteria fica na praça.. Pergunta 3. Como saber se uma informação é um fato? A: Ver se eu concordo com ela; B: Ver se foi dita com firmeza; C: Ver se ela pode ser comprovada; D: Ver se muita gente repete.",
+    "questions": [
+     {
+      "question": "Qual frase é um fato?",
+      "options": [
+       {
+        "text": "O jogo terminou 2 a 1."
+       },
+       {
+        "text": "O jogo foi emocionante.",
+        "misconceptionCode": "opiniao-como-fato"
+       },
+       {
+        "text": "O time jogou muito mal.",
+        "misconceptionCode": "concordo-entao-fato"
+       },
+       {
+        "text": "O juiz foi péssimo.",
+        "misconceptionCode": "ignora-marcas"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O placar pode ser conferido. As outras frases dizem o que alguém achou do jogo.",
+      "variants": [
+       {
+        "question": "Qual frase é um fato?",
+        "options": [
+         {
+          "text": "A prova foi muito difícil.",
+          "misconceptionCode": "opiniao-como-fato"
+         },
+         {
+          "text": "A prova foi injusta.",
+          "misconceptionCode": "concordo-entao-fato"
+         },
+         {
+          "text": "A prova teve dez questões."
+         },
+         {
+          "text": "O professor exagerou.",
+          "misconceptionCode": "ignora-marcas"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual frase é um fato?",
+        "options": [
+         {
+          "text": "O juiz foi péssimo.",
+          "misconceptionCode": "ignora-marcas"
+         },
+         {
+          "text": "O jogo terminou 2 a 1."
+         },
+         {
+          "text": "O time jogou muito mal.",
+          "misconceptionCode": "concordo-entao-fato"
+         },
+         {
+          "text": "O jogo foi emocionante.",
+          "misconceptionCode": "opiniao-como-fato"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual frase é uma opinião?",
+      "options": [
+       {
+        "text": "A sorveteria abre às 10 horas.",
+        "misconceptionCode": "fato-como-opiniao"
+       },
+       {
+        "text": "Sorvete de chocolate é o melhor."
+       },
+       {
+        "text": "O sorvete custa 8 reais.",
+        "misconceptionCode": "fato-como-opiniao"
+       },
+       {
+        "text": "A sorveteria fica na praça.",
+        "misconceptionCode": "fato-como-opiniao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "\"O melhor\" depende do gosto de cada um. As outras frases podem ser conferidas.",
+      "variants": [
+       {
+        "question": "Qual frase é uma opinião?",
+        "options": [
+         {
+          "text": "O filme estreou na sexta-feira.",
+          "misconceptionCode": "fato-como-opiniao"
+         },
+         {
+          "text": "O filme dura duas horas.",
+          "misconceptionCode": "fato-como-opiniao"
+         },
+         {
+          "text": "O ingresso custa 20 reais.",
+          "misconceptionCode": "fato-como-opiniao"
+         },
+         {
+          "text": "Esse filme é o mais divertido do ano."
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual frase é uma opinião?",
+        "options": [
+         {
+          "text": "A sorveteria fica na praça.",
+          "misconceptionCode": "fato-como-opiniao"
+         },
+         {
+          "text": "O sorvete custa 8 reais.",
+          "misconceptionCode": "fato-como-opiniao"
+         },
+         {
+          "text": "Sorvete de chocolate é o melhor."
+         },
+         {
+          "text": "A sorveteria abre às 10 horas.",
+          "misconceptionCode": "fato-como-opiniao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Como saber se uma informação é um fato?",
+      "options": [
+       {
+        "text": "Ver se eu concordo com ela",
+        "misconceptionCode": "concordo-entao-fato"
+       },
+       {
+        "text": "Ver se foi dita com firmeza",
+        "misconceptionCode": "opiniao-como-fato"
+       },
+       {
+        "text": "Ver se ela pode ser comprovada"
+       },
+       {
+        "text": "Ver se muita gente repete",
+        "misconceptionCode": "opiniao-como-fato"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Fato é o que dá para comprovar com dados, documentos ou registros, mesmo que a gente não goste dele.",
+      "variants": [
+       {
+        "question": "O que torna uma frase uma opinião?",
+        "options": [
+         {
+          "text": "Ela mostra o que alguém pensa ou sente"
+         },
+         {
+          "text": "Ela é sempre mentira",
+          "misconceptionCode": "concordo-entao-fato"
+         },
+         {
+          "text": "Ela não tem verbo",
+          "misconceptionCode": "opiniao-como-fato"
+         },
+         {
+          "text": "Ela fala de números",
+          "misconceptionCode": "opiniao-como-fato"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Como saber se uma informação é um fato?",
+        "options": [
+         {
+          "text": "Ver se muita gente repete",
+          "misconceptionCode": "opiniao-como-fato"
+         },
+         {
+          "text": "Ver se foi dita com firmeza",
+          "misconceptionCode": "opiniao-como-fato"
+         },
+         {
+          "text": "Ver se eu concordo com ela",
+          "misconceptionCode": "concordo-entao-fato"
+         },
+         {
+          "text": "Ver se ela pode ser comprovada"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF67LP04-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: as pistas da opinião",
+    "prompt": "Algumas palavras entregam a opinião: acho, na minha visão, infelizmente, ótimo, péssimo, deveria. Vamos fazer juntos. Texto: \"A prefeitura inaugurou ontem a nova praça do bairro. O espaço tem quadra e parquinho. Para os moradores, a obra demorou demais.\"",
+    "estMinutes": 4,
+    "audioScript": "Algumas palavras entregam a opinião: acho, na minha visão, infelizmente, ótimo, péssimo, deveria. Vamos fazer juntos. Texto: \"A prefeitura inaugurou ontem a nova praça do bairro. O espaço tem quadra e parquinho. Para os moradores, a obra demorou demais.\" Pergunta 1. Qual trecho do texto é um fato? A: A obra demorou demais.; B: A praça é a mais bonita da cidade.; C: Os moradores estão certos.; D: A prefeitura inaugurou ontem a nova praça.. Pergunta 2. No trecho \"Para os moradores, a obra demorou demais\", de quem é a opinião? A: Dos moradores; B: Da prefeitura; C: De ninguém, é um fato; D: Do jornal, com certeza. Pergunta 3. Qual palavra do trecho \"a obra demorou demais\" marca opinião? A: obra; B: demais; C: a; D: demorou.",
+    "questions": [
+     {
+      "question": "Qual trecho do texto é um fato?",
+      "options": [
+       {
+        "text": "A obra demorou demais.",
+        "misconceptionCode": "opiniao-como-fato"
+       },
+       {
+        "text": "A praça é a mais bonita da cidade.",
+        "misconceptionCode": "ignora-marcas"
+       },
+       {
+        "text": "Os moradores estão certos.",
+        "misconceptionCode": "concordo-entao-fato"
+       },
+       {
+        "text": "A prefeitura inaugurou ontem a nova praça."
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A inauguração aconteceu e pode ser comprovada. \"Demorou demais\" é o que os moradores acham.",
+      "variants": [
+       {
+        "question": "No texto, \"O espaço tem quadra e parquinho\" é:",
+        "options": [
+         {
+          "text": "Uma opinião, porque elogia a praça",
+          "misconceptionCode": "opiniao-como-fato"
+         },
+         {
+          "text": "Um fato, porque dá para conferir"
+         },
+         {
+          "text": "Uma opinião, porque é da prefeitura",
+          "misconceptionCode": "ignora-marcas"
+         },
+         {
+          "text": "Nem fato nem opinião",
+          "misconceptionCode": "concordo-entao-fato"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual trecho do texto é um fato?",
+        "options": [
+         {
+          "text": "A prefeitura inaugurou ontem a nova praça."
+         },
+         {
+          "text": "Os moradores estão certos.",
+          "misconceptionCode": "concordo-entao-fato"
+         },
+         {
+          "text": "A praça é a mais bonita da cidade.",
+          "misconceptionCode": "ignora-marcas"
+         },
+         {
+          "text": "A obra demorou demais.",
+          "misconceptionCode": "opiniao-como-fato"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "No trecho \"Para os moradores, a obra demorou demais\", de quem é a opinião?",
+      "options": [
+       {
+        "text": "Dos moradores"
+       },
+       {
+        "text": "Da prefeitura",
+        "misconceptionCode": "ignora-marcas"
+       },
+       {
+        "text": "De ninguém, é um fato",
+        "misconceptionCode": "opiniao-como-fato"
+       },
+       {
+        "text": "Do jornal, com certeza",
+        "misconceptionCode": "fato-como-opiniao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "\"Para os moradores\" mostra de quem é a avaliação. O texto só relata o que eles pensam.",
+      "variants": [
+       {
+        "question": "Em \"Segundo o técnico, o time merecia vencer\", de quem é a opinião?",
+        "options": [
+         {
+          "text": "Do time adversário",
+          "misconceptionCode": "ignora-marcas"
+         },
+         {
+          "text": "De ninguém, é um fato",
+          "misconceptionCode": "opiniao-como-fato"
+         },
+         {
+          "text": "Do técnico"
+         },
+         {
+          "text": "Do juiz",
+          "misconceptionCode": "fato-como-opiniao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "No trecho \"Para os moradores, a obra demorou demais\", de quem é a opinião?",
+        "options": [
+         {
+          "text": "Do jornal, com certeza",
+          "misconceptionCode": "fato-como-opiniao"
+         },
+         {
+          "text": "Dos moradores"
+         },
+         {
+          "text": "De ninguém, é um fato",
+          "misconceptionCode": "opiniao-como-fato"
+         },
+         {
+          "text": "Da prefeitura",
+          "misconceptionCode": "ignora-marcas"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual palavra do trecho \"a obra demorou demais\" marca opinião?",
+      "options": [
+       {
+        "text": "obra",
+        "misconceptionCode": "fato-como-opiniao"
+       },
+       {
+        "text": "demais"
+       },
+       {
+        "text": "a",
+        "misconceptionCode": "ignora-marcas"
+       },
+       {
+        "text": "demorou",
+        "misconceptionCode": "fato-como-opiniao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "\"Demais\" mostra um julgamento: para quem fala, o tempo passou do aceitável.",
+      "variants": [
+       {
+        "question": "Em \"Infelizmente, o show foi cancelado\", qual palavra marca opinião?",
+        "options": [
+         {
+          "text": "show",
+          "misconceptionCode": "fato-como-opiniao"
+         },
+         {
+          "text": "foi",
+          "misconceptionCode": "ignora-marcas"
+         },
+         {
+          "text": "cancelado",
+          "misconceptionCode": "fato-como-opiniao"
+         },
+         {
+          "text": "Infelizmente"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual palavra do trecho \"a obra demorou demais\" marca opinião?",
+        "options": [
+         {
+          "text": "demorou",
+          "misconceptionCode": "fato-como-opiniao"
+         },
+         {
+          "text": "a",
+          "misconceptionCode": "ignora-marcas"
+         },
+         {
+          "text": "demais"
+         },
+         {
+          "text": "obra",
+          "misconceptionCode": "fato-como-opiniao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF67LP04-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: fato ou opinião",
+    "prompt": "Classifique cada frase. Pergunte: dá para comprovar?",
+    "estMinutes": 5,
+    "audioScript": "Classifique cada frase. Pergunte: dá para comprovar? Pergunta 1. \"A escola tem 600 alunos.\" Essa frase é: A: Opinião, porque fala de escola; B: Opinião, porque o número é grande; C: Fato; D: Nem fato nem opinião. Pergunta 2. \"A merenda da escola é horrível.\" Essa frase é: A: Fato, porque muita gente diz isso; B: Fato, porque eu concordo; C: Fato, porque fala da merenda; D: Opinião. Pergunta 3. Qual frase mistura fato e opinião? A: O time venceu por 3 a 0 e jogou de forma brilhante.; B: O time venceu por 3 a 0.; C: O jogo começou às 16 horas.; D: O estádio tem 40 mil lugares.. Pergunta 4. \"Todo mundo sabe que este é o melhor celular.\" Essa frase é: A: Fato, porque todo mundo sabe; B: Opinião apresentada como se fosse fato; C: Fato, porque fala de um produto; D: Fato, se eu tiver esse celular.",
+    "questions": [
+     {
+      "question": "\"A escola tem 600 alunos.\" Essa frase é:",
+      "options": [
+       {
+        "text": "Opinião, porque fala de escola",
+        "misconceptionCode": "fato-como-opiniao"
+       },
+       {
+        "text": "Opinião, porque o número é grande",
+        "misconceptionCode": "fato-como-opiniao"
+       },
+       {
+        "text": "Fato"
+       },
+       {
+        "text": "Nem fato nem opinião",
+        "misconceptionCode": "ignora-marcas"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O número de alunos pode ser conferido na secretaria. É um fato.",
+      "variants": [
+       {
+        "question": "\"A biblioteca abre às 8 horas.\" Essa frase é:",
+        "options": [
+         {
+          "text": "Fato"
+         },
+         {
+          "text": "Opinião, porque fala de biblioteca",
+          "misconceptionCode": "fato-como-opiniao"
+         },
+         {
+          "text": "Opinião, porque é cedo",
+          "misconceptionCode": "fato-como-opiniao"
+         },
+         {
+          "text": "Nem fato nem opinião",
+          "misconceptionCode": "ignora-marcas"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "\"A escola tem 600 alunos.\" Essa frase é:",
+        "options": [
+         {
+          "text": "Nem fato nem opinião",
+          "misconceptionCode": "ignora-marcas"
+         },
+         {
+          "text": "Opinião, porque o número é grande",
+          "misconceptionCode": "fato-como-opiniao"
+         },
+         {
+          "text": "Opinião, porque fala de escola",
+          "misconceptionCode": "fato-como-opiniao"
+         },
+         {
+          "text": "Fato"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "\"A merenda da escola é horrível.\" Essa frase é:",
+      "options": [
+       {
+        "text": "Fato, porque muita gente diz isso",
+        "misconceptionCode": "opiniao-como-fato"
+       },
+       {
+        "text": "Fato, porque eu concordo",
+        "misconceptionCode": "concordo-entao-fato"
+       },
+       {
+        "text": "Fato, porque fala da merenda",
+        "misconceptionCode": "ignora-marcas"
+       },
+       {
+        "text": "Opinião"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "\"Horrível\" é um julgamento. Outra pessoa pode achar a merenda boa.",
+      "variants": [
+       {
+        "question": "\"O uniforme novo é lindo.\" Essa frase é:",
+        "options": [
+         {
+          "text": "Fato, porque muita gente diz isso",
+          "misconceptionCode": "opiniao-como-fato"
+         },
+         {
+          "text": "Opinião"
+         },
+         {
+          "text": "Fato, porque eu concordo",
+          "misconceptionCode": "concordo-entao-fato"
+         },
+         {
+          "text": "Fato, porque fala do uniforme",
+          "misconceptionCode": "ignora-marcas"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "\"A merenda da escola é horrível.\" Essa frase é:",
+        "options": [
+         {
+          "text": "Opinião"
+         },
+         {
+          "text": "Fato, porque fala da merenda",
+          "misconceptionCode": "ignora-marcas"
+         },
+         {
+          "text": "Fato, porque eu concordo",
+          "misconceptionCode": "concordo-entao-fato"
+         },
+         {
+          "text": "Fato, porque muita gente diz isso",
+          "misconceptionCode": "opiniao-como-fato"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Qual frase mistura fato e opinião?",
+      "options": [
+       {
+        "text": "O time venceu por 3 a 0 e jogou de forma brilhante."
+       },
+       {
+        "text": "O time venceu por 3 a 0.",
+        "misconceptionCode": "ignora-marcas"
+       },
+       {
+        "text": "O jogo começou às 16 horas.",
+        "misconceptionCode": "fato-como-opiniao"
+       },
+       {
+        "text": "O estádio tem 40 mil lugares.",
+        "misconceptionCode": "fato-como-opiniao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O placar é fato. \"De forma brilhante\" é a avaliação de quem escreveu.",
+      "variants": [
+       {
+        "question": "Qual frase mistura fato e opinião?",
+        "options": [
+         {
+          "text": "Choveu 80 milímetros ontem.",
+          "misconceptionCode": "ignora-marcas"
+         },
+         {
+          "text": "A chuva começou às 15 horas.",
+          "misconceptionCode": "fato-como-opiniao"
+         },
+         {
+          "text": "Choveu 80 milímetros ontem, um absurdo."
+         },
+         {
+          "text": "Três ruas foram alagadas.",
+          "misconceptionCode": "fato-como-opiniao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual frase mistura fato e opinião?",
+        "options": [
+         {
+          "text": "O estádio tem 40 mil lugares.",
+          "misconceptionCode": "fato-como-opiniao"
+         },
+         {
+          "text": "O time venceu por 3 a 0 e jogou de forma brilhante."
+         },
+         {
+          "text": "O jogo começou às 16 horas.",
+          "misconceptionCode": "fato-como-opiniao"
+         },
+         {
+          "text": "O time venceu por 3 a 0.",
+          "misconceptionCode": "ignora-marcas"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "\"Todo mundo sabe que este é o melhor celular.\" Essa frase é:",
+      "options": [
+       {
+        "text": "Fato, porque todo mundo sabe",
+        "misconceptionCode": "opiniao-como-fato"
+       },
+       {
+        "text": "Opinião apresentada como se fosse fato"
+       },
+       {
+        "text": "Fato, porque fala de um produto",
+        "misconceptionCode": "ignora-marcas"
+       },
+       {
+        "text": "Fato, se eu tiver esse celular",
+        "misconceptionCode": "concordo-entao-fato"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "\"O melhor\" é opinião. Dizer \"todo mundo sabe\" não comprova nada: é um jeito de convencer.",
+      "variants": [
+       {
+        "question": "\"É claro que esse é o melhor time do país.\" Essa frase é:",
+        "options": [
+         {
+          "text": "Fato, porque é claro",
+          "misconceptionCode": "opiniao-como-fato"
+         },
+         {
+          "text": "Fato, porque fala de um time",
+          "misconceptionCode": "ignora-marcas"
+         },
+         {
+          "text": "Fato, se eu torcer para ele",
+          "misconceptionCode": "concordo-entao-fato"
+         },
+         {
+          "text": "Opinião apresentada como se fosse fato"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "\"Todo mundo sabe que este é o melhor celular.\" Essa frase é:",
+        "options": [
+         {
+          "text": "Fato, se eu tiver esse celular",
+          "misconceptionCode": "concordo-entao-fato"
+         },
+         {
+          "text": "Fato, porque fala de um produto",
+          "misconceptionCode": "ignora-marcas"
+         },
+         {
+          "text": "Opinião apresentada como se fosse fato"
+         },
+         {
+          "text": "Fato, porque todo mundo sabe",
+          "misconceptionCode": "opiniao-como-fato"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF67LP04-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: lendo notícias e comentários",
+    "prompt": "Leia com atenção e separe o que aconteceu do que as pessoas acham.",
+    "estMinutes": 4,
+    "audioScript": "Leia com atenção e separe o que aconteceu do que as pessoas acham. Pergunta 1. Uma notícia diz: \"A cidade registrou 35 graus ontem, a maior temperatura do ano\". Um leitor comenta: \"Calor insuportável!\". O comentário é: A: Um fato novo; B: Uma correção da notícia; C: Uma opinião sobre o fato noticiado; D: A parte mais confiável da notícia. Pergunta 2. Para fazer um trabalho escolar sobre o lixo no bairro, qual frase serve como dado? A: O bairro é o mais sujo da cidade.; B: Ninguém aqui se importa com o lixo.; C: A coleta é uma vergonha.; D: O bairro produz 2 toneladas de lixo por dia, segundo a prefeitura.. Pergunta 3. Um amigo diz: \"Isso é fato, porque eu vi num vídeo\". O que você deve fazer? A: Conferir a informação em fontes confiáveis; B: Acreditar, porque estava num vídeo; C: Acreditar, se o vídeo tiver muitas curtidas; D: Desacreditar, porque é da internet.",
+    "questions": [
+     {
+      "question": "Uma notícia diz: \"A cidade registrou 35 graus ontem, a maior temperatura do ano\". Um leitor comenta: \"Calor insuportável!\". O comentário é:",
+      "options": [
+       {
+        "text": "Um fato novo",
+        "misconceptionCode": "opiniao-como-fato"
+       },
+       {
+        "text": "Uma correção da notícia",
+        "misconceptionCode": "ignora-marcas"
+       },
+       {
+        "text": "Uma opinião sobre o fato noticiado"
+       },
+       {
+        "text": "A parte mais confiável da notícia",
+        "misconceptionCode": "concordo-entao-fato"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A temperatura é o fato. \"Insuportável\" é como o leitor se sente em relação a ele.",
+      "variants": [
+       {
+        "question": "Uma notícia diz: \"O ônibus passará a custar 5 reais\". Um leitor comenta: \"Um roubo!\". O comentário é:",
+        "options": [
+         {
+          "text": "Uma opinião sobre o fato noticiado"
+         },
+         {
+          "text": "Um fato novo",
+          "misconceptionCode": "opiniao-como-fato"
+         },
+         {
+          "text": "Uma correção da notícia",
+          "misconceptionCode": "ignora-marcas"
+         },
+         {
+          "text": "A parte mais confiável da notícia",
+          "misconceptionCode": "concordo-entao-fato"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Uma notícia diz: \"A cidade registrou 35 graus ontem, a maior temperatura do ano\". Um leitor comenta: \"Calor insuportável!\". O comentário é:",
+        "options": [
+         {
+          "text": "A parte mais confiável da notícia",
+          "misconceptionCode": "concordo-entao-fato"
+         },
+         {
+          "text": "Uma correção da notícia",
+          "misconceptionCode": "ignora-marcas"
+         },
+         {
+          "text": "Um fato novo",
+          "misconceptionCode": "opiniao-como-fato"
+         },
+         {
+          "text": "Uma opinião sobre o fato noticiado"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Para fazer um trabalho escolar sobre o lixo no bairro, qual frase serve como dado?",
+      "options": [
+       {
+        "text": "O bairro é o mais sujo da cidade.",
+        "misconceptionCode": "opiniao-como-fato"
+       },
+       {
+        "text": "Ninguém aqui se importa com o lixo.",
+        "misconceptionCode": "concordo-entao-fato"
+       },
+       {
+        "text": "A coleta é uma vergonha.",
+        "misconceptionCode": "ignora-marcas"
+       },
+       {
+        "text": "O bairro produz 2 toneladas de lixo por dia, segundo a prefeitura."
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O dado tem número e fonte, e pode ser conferido. As outras frases são julgamentos.",
+      "variants": [
+       {
+        "question": "Para um trabalho sobre o trânsito, qual frase serve como dado?",
+        "options": [
+         {
+          "text": "A avenida é a pior da cidade.",
+          "misconceptionCode": "opiniao-como-fato"
+         },
+         {
+          "text": "A avenida recebe 10 mil carros por dia, segundo a prefeitura."
+         },
+         {
+          "text": "Ninguém respeita o sinal.",
+          "misconceptionCode": "concordo-entao-fato"
+         },
+         {
+          "text": "O trânsito é uma vergonha.",
+          "misconceptionCode": "ignora-marcas"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Para fazer um trabalho escolar sobre o lixo no bairro, qual frase serve como dado?",
+        "options": [
+         {
+          "text": "O bairro produz 2 toneladas de lixo por dia, segundo a prefeitura."
+         },
+         {
+          "text": "A coleta é uma vergonha.",
+          "misconceptionCode": "ignora-marcas"
+         },
+         {
+          "text": "Ninguém aqui se importa com o lixo.",
+          "misconceptionCode": "concordo-entao-fato"
+         },
+         {
+          "text": "O bairro é o mais sujo da cidade.",
+          "misconceptionCode": "opiniao-como-fato"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Um amigo diz: \"Isso é fato, porque eu vi num vídeo\". O que você deve fazer?",
+      "options": [
+       {
+        "text": "Conferir a informação em fontes confiáveis"
+       },
+       {
+        "text": "Acreditar, porque estava num vídeo",
+        "misconceptionCode": "opiniao-como-fato"
+       },
+       {
+        "text": "Acreditar, se o vídeo tiver muitas curtidas",
+        "misconceptionCode": "concordo-entao-fato"
+       },
+       {
+        "text": "Desacreditar, porque é da internet",
+        "misconceptionCode": "fato-como-opiniao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Estar num vídeo não comprova nada. Fato se confirma em fontes confiáveis, como jornais e órgãos oficiais.",
+      "variants": [
+       {
+        "question": "Uma mensagem diz: \"Compartilhe, é verdade!\". O que você deve fazer?",
+        "options": [
+         {
+          "text": "Compartilhar, porque a mensagem garante",
+          "misconceptionCode": "opiniao-como-fato"
+         },
+         {
+          "text": "Compartilhar, se muita gente já mandou",
+          "misconceptionCode": "concordo-entao-fato"
+         },
+         {
+          "text": "Conferir a informação em fontes confiáveis"
+         },
+         {
+          "text": "Apagar sem ler",
+          "misconceptionCode": "fato-como-opiniao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um amigo diz: \"Isso é fato, porque eu vi num vídeo\". O que você deve fazer?",
+        "options": [
+         {
+          "text": "Desacreditar, porque é da internet",
+          "misconceptionCode": "fato-como-opiniao"
+         },
+         {
+          "text": "Conferir a informação em fontes confiáveis"
+         },
+         {
+          "text": "Acreditar, se o vídeo tiver muitas curtidas",
+          "misconceptionCode": "concordo-entao-fato"
+         },
+         {
+          "text": "Acreditar, porque estava num vídeo",
+          "misconceptionCode": "opiniao-como-fato"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF67LP04-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: a diferença entre fato e opinião",
+    "prompt": "Explique com as suas palavras a diferença entre fato e opinião e dê um exemplo de cada sobre a sua escola.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras a diferença entre fato e opinião e dê um exemplo de cada sobre a sua escola.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "fato",
+       "description": "Explica que fato pode ser comprovado"
+      },
+      {
+       "code": "opiniao",
+       "description": "Explica que opinião é o que alguém pensa ou sente"
+      },
+      {
+       "code": "exemplos",
+       "description": "Dá um exemplo correto de cada"
+      }
+     ],
+     "exemploBoaResposta": "Fato é o que aconteceu e dá para comprovar, como \"minha escola tem uma quadra\". Opinião é o que alguém acha, como \"a quadra da minha escola é a melhor do bairro\". Outra pessoa pode discordar da opinião, mas o fato dá para conferir."
+    }
+   }
+  ]
+ }
+]

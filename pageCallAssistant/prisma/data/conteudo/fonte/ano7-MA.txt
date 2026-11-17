@@ -1,0 +1,751 @@
+// 7º ano — Matemática
+
+#TRILHA EF07MA04 | MA | 7 | Trilha: Operações com números inteiros | Números negativos: contas com dívida, temperatura e saldo
+FAZ: Resolve problemas com adição, subtração, multiplicação e divisão de números inteiros, positivos e negativos, em situações como saldo, temperatura e altitude.
+ERRO: ignora-sinal | Faz a conta com os números sem olhar o sinal
+ERRO: sinal-do-maior | Erra o sinal do resultado ao somar números de sinais diferentes
+ERRO: regra-de-sinais | Aplica errado a regra de sinais da multiplicação e da divisão
+ERRO: menos-menos | Não percebe que subtrair um número negativo é o mesmo que somar
+NOTA: Use extrato bancário, termômetro e andares de prédio com subsolo. A reta numérica ajuda a enxergar os movimentos.
+
+@relembrar | Relembrar: números abaixo de zero | Números negativos aparecem em temperaturas, dívidas e subsolos. Vamos lembrar como eles funcionam.
+Q: Num termômetro, qual temperatura é a mais fria?
++ −8 °C
+- −2 °C | ignora-sinal
+- 0 °C | sinal-do-maior
+- 3 °C | regra-de-sinais
+E: Quanto mais longe do zero para o lado negativo, mais frio. −8 fica abaixo de −2.
+V: Qual destes números é o menor?
++ −10
+- −1
+- 0
+- 5
+Q: Um prédio tem térreo (andar 0) e dois subsolos. O segundo subsolo é o andar:
++ −2
+- 2 | ignora-sinal
+- −1 | sinal-do-maior
+- 0 | regra-de-sinais
+E: Abaixo do térreo os andares são negativos: primeiro subsolo é −1 e o segundo é −2.
+V: Um mergulhador está 5 metros abaixo do nível do mar. A posição dele é:
++ −5 m
+- 5 m
+- 0 m
+- −50 m
+Q: Na reta numérica, o número −3 fica:
++ À esquerda do zero
+- À direita do zero | ignora-sinal
+- No mesmo lugar do 3 | sinal-do-maior
+- Depois do 3 | regra-de-sinais
+E: Na reta, os negativos ficam à esquerda do zero e os positivos à direita.
+V: Na reta numérica, qual número fica entre −4 e −2?
++ −3
+- 3
+- −5
+- −1
+
+@exemplo_guiado | Exemplo guiado: somar e subtrair inteiros | Pense em dinheiro: positivo é o que você tem e negativo é o que você deve. Para somar sinais diferentes, tire o menor do maior e fique com o sinal de quem é maior. Vamos fazer juntos.
+Q: Você deve 7 reais e recebe 10. A conta é −7 + 10. Qual é o resultado?
++ 3
+- −3 | sinal-do-maior
+- 17 | ignora-sinal
+- −17 | regra-de-sinais
+E: Com 10 você paga a dívida de 7 e ainda sobram 3. O resultado é positivo porque você recebeu mais do que devia.
+V: Você deve 4 reais e recebe 9. Quanto é −4 + 9?
++ 5
+- −5
+- 13
+- −13
+Q: Você deve 5 reais e faz outra dívida de 3. A conta é −5 + (−3). Qual é o resultado?
++ −8
+- 8 | ignora-sinal
+- −2 | sinal-do-maior
+- 2 | regra-de-sinais
+E: Duas dívidas se juntam: 5 mais 3 dá 8 de dívida, ou seja, −8.
+V: Quanto é −6 + (−4)?
++ −10
+- 10
+- −2
+- 2
+Q: Quanto é 4 − (−3)?
++ 7
+- 1 | menos-menos
+- −7 | regra-de-sinais
+- −1 | sinal-do-maior
+E: Tirar uma dívida é o mesmo que ganhar. Então 4 − (−3) vira 4 + 3, que dá 7.
+V: Quanto é 2 − (−5)?
++ 7
+- −3
+- −7
+- 3
+
+@praticar | Praticar: as quatro operações | Agora é com você. Na multiplicação e na divisão: sinais iguais dão resultado positivo, sinais diferentes dão resultado negativo.
+Q: Quanto é (−4) × 3?
++ −12
+- 12 | regra-de-sinais
+- −1 | ignora-sinal
+- 7 | sinal-do-maior
+E: Sinais diferentes: o resultado é negativo. 4 vezes 3 é 12, então dá −12.
+V: Quanto é 5 × (−2)?
++ −10
+- 10
+- 3
+- −7
+Q: Quanto é (−6) × (−2)?
++ 12
+- −12 | regra-de-sinais
+- −8 | ignora-sinal
+- 8 | sinal-do-maior
+E: Sinais iguais: o resultado é positivo. 6 vezes 2 é 12.
+V: Quanto é (−3) × (−5)?
++ 15
+- −15
+- −8
+- 8
+Q: Quanto é (−20) ÷ 4?
++ −5
+- 5 | regra-de-sinais
+- −16 | ignora-sinal
+- 16 | sinal-do-maior
+E: Sinais diferentes dão resultado negativo. 20 dividido por 4 é 5, então dá −5.
+V: Quanto é (−18) ÷ 3?
++ −6
+- 6
+- −15
+- 15
+Q: Quanto é −9 + 4?
++ −5
+- 5 | sinal-do-maior
+- −13 | ignora-sinal
+- 13 | regra-de-sinais
+E: Você deve 9 e tem 4: paga uma parte e ainda fica devendo 5. O resultado é −5.
+V: Quanto é −12 + 7?
++ −5
+- 5
+- −19
+- 19
+
+@aplicar | Aplicar: problemas do dia a dia | Use o que você praticou para resolver estas situações.
+Q: De manhã fazia −3 °C. Até a tarde a temperatura subiu 8 graus. Quanto ficou?
++ 5 °C
+- −5 °C | sinal-do-maior
+- 11 °C | ignora-sinal
+- −11 °C | regra-de-sinais
+E: Subir é somar: −3 + 8 = 5. Os 3 primeiros graus levam até o zero e sobram 5.
+V: À noite fazia −2 °C e a temperatura subiu 6 graus. Quanto ficou?
++ 4 °C
+- −4 °C
+- 8 °C
+- −8 °C
+Q: O saldo da conta de Ana era −50 reais. Ela depositou 120 reais. Qual é o novo saldo?
++ 70 reais
+- −70 reais | sinal-do-maior
+- 170 reais | ignora-sinal
+- −170 reais | regra-de-sinais
+E: −50 + 120: os 120 pagam a dívida de 50 e sobram 70.
+V: O saldo de Rui era −30 reais e ele depositou 100 reais. Qual é o novo saldo?
++ 70 reais
+- −70 reais
+- 130 reais
+- −130 reais
+Q: Um submarino estava a −40 metros e desceu mais 25 metros. Em que posição ele ficou?
++ −65 m
+- −15 m | sinal-do-maior
+- 65 m | ignora-sinal
+- 15 m | menos-menos
+E: Descer é ir mais para o negativo: −40 − 25 = −65.
+V: Um elevador estava no andar −1 e desceu mais 2 andares. Em que andar ele parou?
++ −3
+- 1
+- 3
+- −1
+
+@explicar | Explicar: por que menos com menos dá mais | Explique com as suas palavras por que 5 − (−2) dá 7. Use um exemplo de dinheiro ou de temperatura.
+C: tirar-divida | Explica que tirar um negativo é o mesmo que somar
+C: exemplo | Dá um exemplo concreto, como dívida perdoada ou temperatura
+C: resultado | Chega ao resultado 7
+BOA: Se eu tenho 5 reais e alguém tira uma dívida minha de 2 reais, é como se eu ganhasse 2. Então 5 − (−2) é o mesmo que 5 + 2, que dá 7.
+
+#TRILHA EF07MA02 | MA | 7 | Trilha: Porcentagem, acréscimos e descontos | Porcentagem: descontos, aumentos e partes de um total
+FAZ: Calcula porcentagens de uma quantidade e resolve problemas de desconto e de acréscimo simples, de cabeça ou com cálculo escrito.
+ERRO: pct-como-reais | Trata a porcentagem como se fosse o valor em reais
+ERRO: esquece-aplicar | Calcula a porcentagem, mas não soma nem subtrai do valor original
+ERRO: divide-errado | Erra a conversão da porcentagem em fração ou divisão
+ERRO: sentido-trocado | Soma quando é desconto ou subtrai quando é acréscimo
+NOTA: Use panfletos de loja e contas reais. Comece por 50%, 25% e 10%, que os alunos calculam de cabeça.
+
+@relembrar | Relembrar: o que é porcentagem | Porcentagem quer dizer "de cada 100". 50% é a metade, 25% é a quarta parte e 10% é a décima parte.
+Q: 50% de uma pizza é o mesmo que:
++ A metade da pizza
+- 50 pizzas | pct-como-reais
+- A pizza inteira | esquece-aplicar
+- A quarta parte da pizza | divide-errado
+E: 50 de cada 100 é a metade. 50% de qualquer coisa é a metade dela.
+V: 25% de um bolo é o mesmo que:
++ A quarta parte do bolo
+- 25 bolos
+- O bolo inteiro
+- A metade do bolo
+Q: Qual fração é igual a 10%?
++ 1/10
+- 1/100 | divide-errado
+- 10/1 | pct-como-reais
+- 1/2 | sentido-trocado
+E: 10% é 10 de cada 100, ou 10/100, que simplificando dá 1/10.
+V: Qual fração é igual a 50%?
++ 1/2
+- 1/50
+- 50/1
+- 1/5
+Q: 100% de uma turma de 30 alunos são:
++ 30 alunos
+- 100 alunos | pct-como-reais
+- 15 alunos | divide-errado
+- 3 alunos | esquece-aplicar
+E: 100% é o total. Se a turma tem 30 alunos, 100% são os 30.
+V: 100% de 80 reais são:
++ 80 reais
+- 100 reais
+- 40 reais
+- 8 reais
+
+@exemplo_guiado | Exemplo guiado: calcular 10% e chegar nos outros | Para achar 10%, divida por 10. Com os 10% você chega em 20% (dobro), 5% (metade) e 30% (triplo). Vamos fazer juntos.
+Q: Quanto é 10% de 80 reais?
++ 8 reais
+- 10 reais | pct-como-reais
+- 70 reais | esquece-aplicar
+- 0,8 real | divide-errado
+E: 10% é a décima parte. 80 dividido por 10 dá 8.
+V: Quanto é 10% de 250 reais?
++ 25 reais
+- 10 reais
+- 240 reais
+- 2,50 reais
+Q: Se 10% de 80 é 8, quanto é 20% de 80?
++ 16
+- 8 | esquece-aplicar
+- 20 | pct-como-reais
+- 4 | divide-errado
+E: 20% é o dobro de 10%. O dobro de 8 é 16.
+V: Se 10% de 60 é 6, quanto é 30% de 60?
++ 18
+- 6
+- 30
+- 2
+Q: Se 10% de 80 é 8, quanto é 5% de 80?
++ 4
+- 16 | sentido-trocado
+- 5 | pct-como-reais
+- 40 | divide-errado
+E: 5% é a metade de 10%. A metade de 8 é 4.
+V: Se 10% de 200 é 20, quanto é 5% de 200?
++ 10
+- 40
+- 5
+- 100
+
+@praticar | Praticar: descontos e acréscimos | No desconto, você calcula a porcentagem e tira do preço. No acréscimo, você soma.
+Q: Uma camiseta de 60 reais está com 10% de desconto. Quanto ela custa agora?
++ 54 reais
+- 6 reais | esquece-aplicar
+- 50 reais | pct-como-reais
+- 66 reais | sentido-trocado
+E: 10% de 60 é 6. Desconto se tira: 60 − 6 = 54.
+V: Um boné de 40 reais está com 10% de desconto. Quanto ele custa agora?
++ 36 reais
+- 4 reais
+- 30 reais
+- 44 reais
+Q: Um tênis de 200 reais está com 25% de desconto. Qual é o valor do desconto?
++ 50 reais
+- 25 reais | pct-como-reais
+- 150 reais | esquece-aplicar
+- 8 reais | divide-errado
+E: 25% é a quarta parte. 200 dividido por 4 dá 50.
+V: Uma mochila de 120 reais está com 25% de desconto. Qual é o valor do desconto?
++ 30 reais
+- 25 reais
+- 90 reais
+- 60 reais
+Q: A conta de luz era de 100 reais e teve um acréscimo de 20%. Quanto ficou?
++ 120 reais
+- 80 reais | sentido-trocado
+- 20 reais | esquece-aplicar
+- 102 reais | divide-errado
+E: 20% de 100 é 20. Acréscimo se soma: 100 + 20 = 120.
+V: A mensalidade era de 200 reais e teve um acréscimo de 10%. Quanto ficou?
++ 220 reais
+- 180 reais
+- 20 reais
+- 210 reais
+Q: Um celular de 800 reais tem 5% de desconto à vista. Quanto ele custa à vista?
++ 760 reais
+- 795 reais | pct-como-reais
+- 40 reais | esquece-aplicar
+- 840 reais | sentido-trocado
+E: 10% de 800 é 80, então 5% é 40. À vista: 800 − 40 = 760.
+V: Uma bicicleta de 600 reais tem 5% de desconto à vista. Quanto ela custa à vista?
++ 570 reais
+- 595 reais
+- 30 reais
+- 630 reais
+
+@aplicar | Aplicar: porcentagem em situações reais | Leia com calma e descubra se a situação pede a parte, o desconto ou o acréscimo.
+Q: Numa turma de 40 alunos, 25% vão de bicicleta para a escola. Quantos alunos vão de bicicleta?
++ 10
+- 25 | pct-como-reais
+- 30 | esquece-aplicar
+- 15 | divide-errado
+E: 25% é a quarta parte. 40 dividido por 4 dá 10 alunos.
+V: Numa turma de 32 alunos, 50% jogam futebol. Quantos jogam futebol?
++ 16
+- 50
+- 8
+- 18
+Q: Um lanche custava 20 reais e subiu 10%. Qual é o novo preço?
++ 22 reais
+- 30 reais | pct-como-reais
+- 18 reais | sentido-trocado
+- 2 reais | esquece-aplicar
+E: 10% de 20 é 2. Como subiu, soma: 20 + 2 = 22.
+V: Uma passagem custava 5 reais e subiu 20%. Qual é o novo preço?
++ 6 reais
+- 25 reais
+- 4 reais
+- 1 real
+Q: Uma loja dá 20% de desconto numa calça de 150 reais. Quanto o cliente paga?
++ 120 reais
+- 130 reais | pct-como-reais
+- 30 reais | esquece-aplicar
+- 180 reais | sentido-trocado
+E: 10% de 150 é 15, então 20% é 30. O cliente paga 150 − 30 = 120.
+V: Uma loja dá 20% de desconto num vestido de 250 reais. Quanto a cliente paga?
++ 200 reais
+- 230 reais
+- 50 reais
+- 300 reais
+
+@explicar | Explicar: como calcular um desconto | Explique com as suas palavras como você calcula o preço de um produto de 90 reais com 10% de desconto.
+C: calcula-pct | Calcula 10% de 90 e chega a 9
+C: subtrai | Tira o desconto do preço original
+C: resultado | Chega a 81 reais
+BOA: Primeiro eu acho 10% de 90, dividindo por 10, que dá 9 reais. Como é desconto, eu tiro do preço: 90 menos 9 dá 81 reais.
+
+#TRILHA EF07MA18 | MA | 7 | Trilha: Equações do 1º grau | Equações: descobrindo o número escondido
+FAZ: Representa problemas por equações do 1º grau do tipo ax + b = c e resolve usando as operações inversas e as propriedades da igualdade.
+ERRO: nao-inverte | Passa o número para o outro lado sem trocar a operação
+ERRO: ordem-errada | Divide antes de desfazer a soma ou a subtração
+ERRO: so-um-lado | Faz a operação só de um lado da igualdade
+ERRO: monta-errado | Monta a equação trocando o que o problema diz
+NOTA: Use a balança de dois pratos: o que se faz de um lado se faz do outro. Comece com "pensei em um número".
+
+@relembrar | Relembrar: operações inversas | Toda operação tem uma inversa que a desfaz: soma e subtração, multiplicação e divisão.
+Q: Qual operação desfaz "somar 5"?
++ Subtrair 5
+- Somar 5 de novo | nao-inverte
+- Multiplicar por 5 | ordem-errada
+- Dividir por 5 | so-um-lado
+E: Se você somou 5 e quer voltar ao número de antes, tire 5.
+V: Qual operação desfaz "multiplicar por 3"?
++ Dividir por 3
+- Multiplicar por 3 de novo
+- Subtrair 3
+- Somar 3
+Q: Pensei em um número, somei 4 e deu 10. Em que número pensei?
++ 6
+- 14 | nao-inverte
+- 40 | monta-errado
+- 4 | so-um-lado
+E: Para voltar, desfaça a soma: 10 − 4 = 6.
+V: Pensei em um número, somei 7 e deu 15. Em que número pensei?
++ 8
+- 22
+- 105
+- 7
+Q: Pensei em um número, multipliquei por 2 e deu 18. Em que número pensei?
++ 9
+- 36 | nao-inverte
+- 16 | ordem-errada
+- 20 | monta-errado
+E: Para voltar, desfaça a multiplicação: 18 ÷ 2 = 9.
+V: Pensei em um número, multipliquei por 5 e deu 30. Em que número pensei?
++ 6
+- 150
+- 25
+- 35
+
+@exemplo_guiado | Exemplo guiado: resolver passo a passo | Para resolver 2x + 3 = 11, pense numa balança. Primeiro tire 3 dos dois lados. Depois divida os dois lados por 2. Vamos fazer juntos.
+Q: Na equação 2x + 3 = 11, o que fazer primeiro?
++ Tirar 3 dos dois lados
+- Dividir tudo por 2, deixando o 3 como está | ordem-errada
+- Somar 3 dos dois lados | nao-inverte
+- Tirar 3 só do lado esquerdo | so-um-lado
+E: Primeiro desfazemos a soma. Tirando 3 dos dois lados, fica 2x = 8.
+V: Na equação 3x + 5 = 20, o que fazer primeiro?
++ Tirar 5 dos dois lados
+- Dividir tudo por 3, deixando o 5 como está
+- Somar 5 dos dois lados
+- Tirar 5 só do lado esquerdo
+Q: Depois de tirar 3, ficou 2x = 8. Quanto vale x?
++ 4
+- 16 | nao-inverte
+- 6 | ordem-errada
+- 8 | so-um-lado
+E: 2x é "duas vezes x". Dividindo os dois lados por 2: x = 4.
+V: Ficou 3x = 15. Quanto vale x?
++ 5
+- 45
+- 12
+- 15
+Q: Como conferir se x = 4 resolve 2x + 3 = 11?
++ Trocar x por 4 e ver se dá 11
+- Trocar x por 11 e ver se dá 4 | monta-errado
+- Somar 4 com 11 | nao-inverte
+- Não dá para conferir | so-um-lado
+E: 2 × 4 + 3 = 8 + 3 = 11. Deu certo: x = 4 é a solução.
+V: Para conferir se x = 5 resolve 3x + 5 = 20, calculamos:
++ 3 × 5 + 5 e vemos se dá 20
+- 3 × 20 + 5 e vemos se dá 5
+- 5 + 20
+- 3 + 5 + 5
+
+@praticar | Praticar: resolvendo equações | Resolva cada equação desfazendo as operações, uma de cada vez.
+Q: Quanto vale x em x + 9 = 20?
++ 11
+- 29 | nao-inverte
+- 180 | monta-errado
+- 9 | so-um-lado
+E: Tire 9 dos dois lados: x = 20 − 9 = 11.
+V: Quanto vale x em x + 6 = 14?
++ 8
+- 20
+- 84
+- 6
+Q: Quanto vale x em 3x = 21?
++ 7
+- 63 | nao-inverte
+- 18 | ordem-errada
+- 24 | monta-errado
+E: Divida os dois lados por 3: x = 21 ÷ 3 = 7.
+V: Quanto vale x em 4x = 28?
++ 7
+- 112
+- 24
+- 32
+Q: Quanto vale x em 2x + 1 = 15?
++ 7
+- 8 | nao-inverte
+- 14 | so-um-lado
+- 6,5 | ordem-errada
+E: Tire 1: 2x = 14. Divida por 2: x = 7.
+V: Quanto vale x em 2x + 4 = 14?
++ 5
+- 9
+- 10
+- 3
+Q: Quanto vale x em 5x − 5 = 20?
++ 5
+- 3 | nao-inverte
+- 25 | so-um-lado
+- 4 | ordem-errada
+E: Some 5 dos dois lados: 5x = 25. Divida por 5: x = 5.
+V: Quanto vale x em 4x − 8 = 12?
++ 5
+- 1
+- 20
+- 3
+
+@aplicar | Aplicar: do problema para a equação | Transforme cada situação numa equação e resolva.
+Q: O dobro da idade de Lia mais 4 é igual a 30. Qual equação representa isso?
++ 2x + 4 = 30
+- x + 2 + 4 = 30 | monta-errado
+- 2x = 30 + 4 | nao-inverte
+- 4x + 2 = 30 | ordem-errada
+E: "O dobro" é 2x. "Mais 4" é + 4. "É igual a 30" é = 30.
+V: O triplo de um número mais 2 é igual a 17. Qual equação representa isso?
++ 3x + 2 = 17
+- x + 3 + 2 = 17
+- 3x = 17 + 2
+- 2x + 3 = 17
+Q: O dobro da idade de Lia mais 4 é igual a 30. Quantos anos Lia tem?
++ 13
+- 17 | nao-inverte
+- 26 | so-um-lado
+- 11 | ordem-errada
+E: 2x + 4 = 30. Tire 4: 2x = 26. Divida por 2: x = 13.
+V: O triplo de um número mais 2 é igual a 17. Que número é esse?
++ 5
+- 15
+- 6
+- 19
+Q: Um táxi cobra 5 reais fixos mais 3 reais por quilômetro. A corrida custou 26 reais. Quantos quilômetros foram?
++ 7
+- 21 | so-um-lado
+- 10 | nao-inverte
+- 8 | ordem-errada
+E: 3x + 5 = 26. Tire 5: 3x = 21. Divida por 3: x = 7 quilômetros.
+V: Um aplicativo cobra 4 reais fixos mais 2 reais por quilômetro. A corrida custou 20 reais. Quantos quilômetros foram?
++ 8
+- 16
+- 12
+- 10
+
+@explicar | Explicar: como resolver uma equação | Explique com as suas palavras os passos para resolver 3x + 2 = 14.
+C: desfaz-soma | Tira 2 dos dois lados e chega a 3x = 12
+C: desfaz-vezes | Divide os dois lados por 3
+C: resultado | Chega a x = 4 e confere
+BOA: Primeiro eu tiro 2 dos dois lados e fica 3x = 12. Depois divido os dois lados por 3 e fica x = 4. Para conferir: 3 vezes 4 é 12, mais 2 dá 14.
+
+#TRILHA EF07MA12 | MA | 7 | Trilha: Operações com números racionais | Frações e decimais: contas que aparecem todo dia
+FAZ: Resolve problemas com adição, subtração, multiplicação e divisão de números racionais, na forma de fração e de decimal.
+ERRO: soma-denominadores | Soma numerador com numerador e denominador com denominador
+ERRO: virgula-desalinhada | Opera decimais sem alinhar a vírgula
+ERRO: mult-so-numerador | Multiplica só o numerador ou só o denominador
+ERRO: operacao-errada | Escolhe a operação errada para o problema
+NOTA: Use dinheiro para os decimais e receitas para as frações. Retome as frações equivalentes antes de somar.
+
+@relembrar | Relembrar: frações e decimais | Vamos lembrar como frações e decimais representam partes.
+Q: Quanto é 1/2 na forma decimal?
++ 0,5
+- 1,2 | virgula-desalinhada
+- 0,2 | mult-so-numerador
+- 2,1 | operacao-errada
+E: 1/2 é 1 dividido por 2, que dá 0,5. É a metade.
+V: Quanto é 1/4 na forma decimal?
++ 0,25
+- 1,4
+- 0,4
+- 4,1
+Q: Quanto é 1/4 + 2/4?
++ 3/4
+- 3/8 | soma-denominadores
+- 2/16 | mult-so-numerador
+- 1/4 | operacao-errada
+E: Com denominadores iguais, some só os numeradores: 1 + 2 = 3. O denominador continua 4.
+V: Quanto é 2/5 + 1/5?
++ 3/5
+- 3/10
+- 2/25
+- 1/5
+Q: Quanto é 1,5 + 2,25?
++ 3,75
+- 2,40 | virgula-desalinhada
+- 3,30 | soma-denominadores
+- 0,75 | operacao-errada
+E: Alinhe as vírgulas: 1,50 + 2,25 = 3,75.
+V: Quanto é 2,5 + 1,25?
++ 3,75
+- 1,50
+- 3,30
+- 1,25
+
+@exemplo_guiado | Exemplo guiado: denominadores diferentes | Para somar 1/2 + 1/4, as partes precisam ter o mesmo tamanho. Trocamos 1/2 por 2/4, que é a mesma quantidade. Vamos fazer juntos.
+Q: Qual fração é equivalente a 1/2?
++ 2/4
+- 1/4 | mult-so-numerador
+- 2/2 | soma-denominadores
+- 1/3 | operacao-errada
+E: Multiplicando em cima e embaixo por 2: 1/2 = 2/4. É a mesma quantidade com partes menores.
+V: Qual fração é equivalente a 1/3?
++ 2/6
+- 1/6
+- 2/3
+- 1/4
+Q: Quanto é 1/2 + 1/4?
++ 3/4
+- 2/6 | soma-denominadores
+- 1/8 | mult-so-numerador
+- 1/4 | operacao-errada
+E: Troque 1/2 por 2/4. Aí 2/4 + 1/4 = 3/4.
+V: Quanto é 1/3 + 1/6?
++ 3/6
+- 2/9
+- 1/18
+- 1/6
+Q: Quanto é 1/2 × 1/4?
++ 1/8
+- 2/6 | soma-denominadores
+- 1/4 | mult-so-numerador
+- 3/4 | operacao-errada
+E: Na multiplicação, multiplique em cima e embaixo: 1 × 1 = 1 e 2 × 4 = 8. É a metade de um quarto.
+V: Quanto é 1/3 × 1/2?
++ 1/6
+- 2/5
+- 1/3
+- 5/6
+
+@praticar | Praticar: contas com racionais | Resolva com calma. Nos decimais, alinhe a vírgula.
+Q: Quanto é 3/4 − 1/2?
++ 1/4
+- 2/2 | soma-denominadores
+- 3/8 | mult-so-numerador
+- 5/4 | operacao-errada
+E: Troque 1/2 por 2/4. Aí 3/4 − 2/4 = 1/4.
+V: Quanto é 5/6 − 1/3?
++ 3/6
+- 4/3
+- 5/18
+- 7/6
+Q: Quanto é 0,5 × 6?
++ 3
+- 30 | virgula-desalinhada
+- 6,5 | operacao-errada
+- 0,3 | mult-so-numerador
+E: 0,5 é a metade. A metade de 6 é 3.
+V: Quanto é 0,5 × 10?
++ 5
+- 50
+- 10,5
+- 0,5
+Q: Quanto é 4,8 ÷ 2?
++ 2,4
+- 24 | virgula-desalinhada
+- 9,6 | operacao-errada
+- 2,8 | mult-so-numerador
+E: Dividir por 2 é achar a metade. A metade de 4,8 é 2,4.
+V: Quanto é 6,4 ÷ 2?
++ 3,2
+- 32
+- 12,8
+- 3,4
+Q: Quanto é 2/3 de 12?
++ 8
+- 4 | mult-so-numerador
+- 18 | operacao-errada
+- 6 | soma-denominadores
+E: Divida 12 por 3, que dá 4. Depois multiplique por 2: 8.
+V: Quanto é 3/4 de 20?
++ 15
+- 5
+- 60
+- 10
+
+@aplicar | Aplicar: racionais em situações reais | Descubra qual conta cada situação pede e resolva.
+Q: Uma receita usa 1/2 xícara de leite e 1/4 de xícara de óleo. Quanto de líquido ela usa ao todo?
++ 3/4 de xícara
+- 2/6 de xícara | soma-denominadores
+- 1/8 de xícara | operacao-errada
+- 1/4 de xícara | mult-so-numerador
+E: 1/2 é o mesmo que 2/4. Somando com 1/4, dá 3/4 de xícara.
+V: Lia andou 1/2 km de manhã e 1/4 km à tarde. Quanto ela andou ao todo?
++ 3/4 km
+- 2/6 km
+- 1/8 km
+- 1/4 km
+Q: Pedro comprou 3 cadernos de 4,50 reais cada. Quanto ele pagou?
++ 13,50 reais
+- 7,50 reais | operacao-errada
+- 12,50 reais | mult-so-numerador
+- 135 reais | virgula-desalinhada
+E: 3 × 4,50: três vezes 4 é 12 e três vezes 0,50 é 1,50. Total: 13,50.
+V: Ana comprou 4 canetas de 2,50 reais cada. Quanto ela pagou?
++ 10 reais
+- 6,50 reais
+- 8,50 reais
+- 100 reais
+Q: Uma fita de 6 metros será cortada em pedaços de 0,5 metro. Quantos pedaços dá?
++ 12
+- 3 | operacao-errada
+- 6,5 | virgula-desalinhada
+- 30 | mult-so-numerador
+E: Em cada metro cabem 2 pedaços de meio metro. Em 6 metros cabem 12.
+V: Uma corda de 4 metros será cortada em pedaços de 0,5 metro. Quantos pedaços dá?
++ 8
+- 2
+- 4,5
+- 20
+
+@explicar | Explicar: somar frações de denominadores diferentes | Explique com as suas palavras como somar 1/2 + 1/3 e por que não se pode somar direto os denominadores.
+C: mesmo-tamanho | Explica que as partes precisam ter o mesmo tamanho
+C: equivalentes | Troca por frações equivalentes de denominador 6
+C: resultado | Chega a 5/6
+BOA: Não dá para somar direto porque metade e terço são pedaços de tamanhos diferentes. Eu troco 1/2 por 3/6 e 1/3 por 2/6, que são as mesmas quantidades em sextos. Aí somo 3/6 + 2/6 e dá 5/6.
+
+#DIAG DIAG2-MA-7A | MA | 7 | Diagnóstico de Matemática — 7º ano | Números inteiros, porcentagem, equações e operações com racionais no 7º ano, com degrau para frações do 6º ano.
+I: EF07MA04 | NORMAL
+Q: Quanto é −7 + 3?
++ −4
+- 4 | sinal-do-maior
+- −10 | ignora-sinal
+- 10 | regra-de-sinais
+E: Você deve 7 e tem 3: paga uma parte e ainda fica devendo 4.
+I: EF07MA04 | NORMAL
+Q: Quanto é (−5) × (−4)?
++ 20
+- −20 | regra-de-sinais
+- −9 | ignora-sinal
+- 9 | sinal-do-maior
+E: Na multiplicação, sinais iguais dão resultado positivo. 5 vezes 4 é 20.
+I: EF07MA02 | NORMAL
+Q: Quanto é 10% de 150 reais?
++ 15 reais
+- 10 reais | pct-como-reais
+- 140 reais | esquece-aplicar
+- 1,50 real | divide-errado
+E: 10% é a décima parte. 150 dividido por 10 dá 15.
+I: EF07MA02 | NORMAL
+Q: Um jogo de 80 reais está com 25% de desconto. Quanto ele custa agora?
++ 60 reais
+- 20 reais | esquece-aplicar
+- 55 reais | pct-como-reais
+- 100 reais | sentido-trocado
+E: 25% é a quarta parte: 80 ÷ 4 = 20. Com o desconto: 80 − 20 = 60.
+I: EF07MA18 | NORMAL
+Q: Quanto vale x em 2x + 5 = 17?
++ 6
+- 11 | nao-inverte
+- 12 | so-um-lado
+- 3,5 | ordem-errada
+E: Tire 5 dos dois lados: 2x = 12. Divida por 2: x = 6.
+I: EF07MA18 | NORMAL
+Q: O triplo de um número menos 4 é igual a 11. Que número é esse?
++ 5
+- 15 | so-um-lado
+- 7 | ordem-errada
+- 45 | nao-inverte
+E: 3x − 4 = 11. Some 4: 3x = 15. Divida por 3: x = 5.
+I: EF07MA12 | NORMAL
+Q: Quanto é 1/2 + 1/3?
++ 5/6
+- 2/5 | soma-denominadores
+- 1/6 | mult-so-numerador
+- 1/5 | operacao-errada
+E: Troque por sextos: 3/6 + 2/6 = 5/6.
+I: EF07MA12 | NORMAL
+Q: Quanto é 2,5 × 4?
++ 10
+- 100 | virgula-desalinhada
+- 6,5 | operacao-errada
+- 8,5 | mult-so-numerador
+E: 4 vezes 2 é 8 e 4 vezes 0,5 é 2. Somando, dá 10.
+I: EF06MA10 | DEGRAU
+Q: Quanto é 2/7 + 3/7?
++ 5/7
+- 5/14 | soma-denominadores
+- 6/7 | mult-so-numerador
+- 1/7 | operacao-errada
+E: Com denominadores iguais, some só os numeradores: 2 + 3 = 5. O denominador continua 7.
+I: EF06MA10 | DEGRAU
+Q: Quanto é 5/8 − 2/8?
++ 3/8
+- 3/16 | soma-denominadores
+- 7/8 | operacao-errada
+- 10/8 | mult-so-numerador
+E: Com denominadores iguais, subtraia só os numeradores: 5 − 2 = 3. O denominador continua 8.
+I: EF06MA09 | DEGRAU
+Q: Quanto é 1/4 de 20?
++ 5
+- 80 | operacao-errada
+- 4 | mult-so-numerador
+- 16 | soma-denominadores
+E: Um quarto é dividir por 4. 20 dividido por 4 dá 5.
+I: EF06MA09 | DEGRAU
+Q: Quanto é 3/5 de 10?
++ 6
+- 2 | mult-so-numerador
+- 30 | operacao-errada
+- 8 | soma-denominadores
+E: Divida 10 por 5, que dá 2. Depois multiplique por 3: 6.
+
+#PRE EF07MA12 > EF06MA10 | 3
+#PRE EF07MA02 > EF06MA09 | 3
+#PRE EF07MA18 > EF07MA04 | 2
