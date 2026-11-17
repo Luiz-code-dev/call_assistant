@@ -1,0 +1,3766 @@
+[
+ {
+  "skillCode": "EF07MA04",
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 7,
+  "version": 1,
+  "title": "Trilha: Operações com números inteiros",
+  "tituloAluno": "Números negativos: contas com dívida, temperatura e saldo",
+  "activities": [
+   {
+    "id": "PK2-EF07MA04-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: números abaixo de zero",
+    "prompt": "Números negativos aparecem em temperaturas, dívidas e subsolos. Vamos lembrar como eles funcionam.",
+    "estMinutes": 4,
+    "audioScript": "Números negativos aparecem em temperaturas, dívidas e subsolos. Vamos lembrar como eles funcionam. Pergunta 1. Num termômetro, qual temperatura é a mais fria? A: −8 °C; B: −2 °C; C: 0 °C; D: 3 °C. Pergunta 2. Um prédio tem térreo (andar 0) e dois subsolos. O segundo subsolo é o andar: A: 2; B: −2; C: −1; D: 0. Pergunta 3. Na reta numérica, o número −3 fica: A: À direita do zero; B: No mesmo lugar do 3; C: À esquerda do zero; D: Depois do 3.",
+    "questions": [
+     {
+      "question": "Num termômetro, qual temperatura é a mais fria?",
+      "options": [
+       {
+        "text": "−8 °C"
+       },
+       {
+        "text": "−2 °C",
+        "misconceptionCode": "ignora-sinal"
+       },
+       {
+        "text": "0 °C",
+        "misconceptionCode": "sinal-do-maior"
+       },
+       {
+        "text": "3 °C",
+        "misconceptionCode": "regra-de-sinais"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Quanto mais longe do zero para o lado negativo, mais frio. −8 fica abaixo de −2.",
+      "variants": [
+       {
+        "question": "Qual destes números é o menor?",
+        "options": [
+         {
+          "text": "−1",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "0",
+          "misconceptionCode": "sinal-do-maior"
+         },
+         {
+          "text": "−10"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "regra-de-sinais"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Num termômetro, qual temperatura é a mais fria?",
+        "options": [
+         {
+          "text": "3 °C",
+          "misconceptionCode": "regra-de-sinais"
+         },
+         {
+          "text": "−8 °C"
+         },
+         {
+          "text": "0 °C",
+          "misconceptionCode": "sinal-do-maior"
+         },
+         {
+          "text": "−2 °C",
+          "misconceptionCode": "ignora-sinal"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um prédio tem térreo (andar 0) e dois subsolos. O segundo subsolo é o andar:",
+      "options": [
+       {
+        "text": "2",
+        "misconceptionCode": "ignora-sinal"
+       },
+       {
+        "text": "−2"
+       },
+       {
+        "text": "−1",
+        "misconceptionCode": "sinal-do-maior"
+       },
+       {
+        "text": "0",
+        "misconceptionCode": "regra-de-sinais"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Abaixo do térreo os andares são negativos: primeiro subsolo é −1 e o segundo é −2.",
+      "variants": [
+       {
+        "question": "Um mergulhador está 5 metros abaixo do nível do mar. A posição dele é:",
+        "options": [
+         {
+          "text": "5 m",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "0 m",
+          "misconceptionCode": "sinal-do-maior"
+         },
+         {
+          "text": "−50 m",
+          "misconceptionCode": "regra-de-sinais"
+         },
+         {
+          "text": "−5 m"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um prédio tem térreo (andar 0) e dois subsolos. O segundo subsolo é o andar:",
+        "options": [
+         {
+          "text": "0",
+          "misconceptionCode": "regra-de-sinais"
+         },
+         {
+          "text": "−1",
+          "misconceptionCode": "sinal-do-maior"
+         },
+         {
+          "text": "−2"
+         },
+         {
+          "text": "2",
+          "misconceptionCode": "ignora-sinal"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Na reta numérica, o número −3 fica:",
+      "options": [
+       {
+        "text": "À direita do zero",
+        "misconceptionCode": "ignora-sinal"
+       },
+       {
+        "text": "No mesmo lugar do 3",
+        "misconceptionCode": "sinal-do-maior"
+       },
+       {
+        "text": "À esquerda do zero"
+       },
+       {
+        "text": "Depois do 3",
+        "misconceptionCode": "regra-de-sinais"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Na reta, os negativos ficam à esquerda do zero e os positivos à direita.",
+      "variants": [
+       {
+        "question": "Na reta numérica, qual número fica entre −4 e −2?",
+        "options": [
+         {
+          "text": "−3"
+         },
+         {
+          "text": "3",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "−5",
+          "misconceptionCode": "sinal-do-maior"
+         },
+         {
+          "text": "−1",
+          "misconceptionCode": "regra-de-sinais"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Na reta numérica, o número −3 fica:",
+        "options": [
+         {
+          "text": "Depois do 3",
+          "misconceptionCode": "regra-de-sinais"
+         },
+         {
+          "text": "No mesmo lugar do 3",
+          "misconceptionCode": "sinal-do-maior"
+         },
+         {
+          "text": "À direita do zero",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "À esquerda do zero"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07MA04-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: somar e subtrair inteiros",
+    "prompt": "Pense em dinheiro: positivo é o que você tem e negativo é o que você deve. Para somar sinais diferentes, tire o menor do maior e fique com o sinal de quem é maior. Vamos fazer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Pense em dinheiro: positivo é o que você tem e negativo é o que você deve. Para somar sinais diferentes, tire o menor do maior e fique com o sinal de quem é maior. Vamos fazer juntos. Pergunta 1. Você deve 7 reais e recebe 10. A conta é −7 + 10. Qual é o resultado? A: −3; B: 17; C: −17; D: 3. Pergunta 2. Você deve 5 reais e faz outra dívida de 3. A conta é −5 + (−3). Qual é o resultado? A: −8; B: 8; C: −2; D: 2. Pergunta 3. Quanto é 4 − (−3)? A: 1; B: 7; C: −7; D: −1.",
+    "questions": [
+     {
+      "question": "Você deve 7 reais e recebe 10. A conta é −7 + 10. Qual é o resultado?",
+      "options": [
+       {
+        "text": "−3",
+        "misconceptionCode": "sinal-do-maior"
+       },
+       {
+        "text": "17",
+        "misconceptionCode": "ignora-sinal"
+       },
+       {
+        "text": "−17",
+        "misconceptionCode": "regra-de-sinais"
+       },
+       {
+        "text": "3"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Com 10 você paga a dívida de 7 e ainda sobram 3. O resultado é positivo porque você recebeu mais do que devia.",
+      "variants": [
+       {
+        "question": "Você deve 4 reais e recebe 9. Quanto é −4 + 9?",
+        "options": [
+         {
+          "text": "−5",
+          "misconceptionCode": "sinal-do-maior"
+         },
+         {
+          "text": "5"
+         },
+         {
+          "text": "13",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "−13",
+          "misconceptionCode": "regra-de-sinais"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Você deve 7 reais e recebe 10. A conta é −7 + 10. Qual é o resultado?",
+        "options": [
+         {
+          "text": "3"
+         },
+         {
+          "text": "−17",
+          "misconceptionCode": "regra-de-sinais"
+         },
+         {
+          "text": "17",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "−3",
+          "misconceptionCode": "sinal-do-maior"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Você deve 5 reais e faz outra dívida de 3. A conta é −5 + (−3). Qual é o resultado?",
+      "options": [
+       {
+        "text": "−8"
+       },
+       {
+        "text": "8",
+        "misconceptionCode": "ignora-sinal"
+       },
+       {
+        "text": "−2",
+        "misconceptionCode": "sinal-do-maior"
+       },
+       {
+        "text": "2",
+        "misconceptionCode": "regra-de-sinais"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Duas dívidas se juntam: 5 mais 3 dá 8 de dívida, ou seja, −8.",
+      "variants": [
+       {
+        "question": "Quanto é −6 + (−4)?",
+        "options": [
+         {
+          "text": "10",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "−2",
+          "misconceptionCode": "sinal-do-maior"
+         },
+         {
+          "text": "−10"
+         },
+         {
+          "text": "2",
+          "misconceptionCode": "regra-de-sinais"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Você deve 5 reais e faz outra dívida de 3. A conta é −5 + (−3). Qual é o resultado?",
+        "options": [
+         {
+          "text": "2",
+          "misconceptionCode": "regra-de-sinais"
+         },
+         {
+          "text": "−8"
+         },
+         {
+          "text": "−2",
+          "misconceptionCode": "sinal-do-maior"
+         },
+         {
+          "text": "8",
+          "misconceptionCode": "ignora-sinal"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 4 − (−3)?",
+      "options": [
+       {
+        "text": "1",
+        "misconceptionCode": "menos-menos"
+       },
+       {
+        "text": "7"
+       },
+       {
+        "text": "−7",
+        "misconceptionCode": "regra-de-sinais"
+       },
+       {
+        "text": "−1",
+        "misconceptionCode": "sinal-do-maior"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Tirar uma dívida é o mesmo que ganhar. Então 4 − (−3) vira 4 + 3, que dá 7.",
+      "variants": [
+       {
+        "question": "Quanto é 2 − (−5)?",
+        "options": [
+         {
+          "text": "−3",
+          "misconceptionCode": "menos-menos"
+         },
+         {
+          "text": "−7",
+          "misconceptionCode": "regra-de-sinais"
+         },
+         {
+          "text": "3",
+          "misconceptionCode": "sinal-do-maior"
+         },
+         {
+          "text": "7"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quanto é 4 − (−3)?",
+        "options": [
+         {
+          "text": "−1",
+          "misconceptionCode": "sinal-do-maior"
+         },
+         {
+          "text": "−7",
+          "misconceptionCode": "regra-de-sinais"
+         },
+         {
+          "text": "7"
+         },
+         {
+          "text": "1",
+          "misconceptionCode": "menos-menos"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07MA04-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: as quatro operações",
+    "prompt": "Agora é com você. Na multiplicação e na divisão: sinais iguais dão resultado positivo, sinais diferentes dão resultado negativo.",
+    "estMinutes": 5,
+    "audioScript": "Agora é com você. Na multiplicação e na divisão: sinais iguais dão resultado positivo, sinais diferentes dão resultado negativo. Pergunta 1. Quanto é (−4) × 3? A: 12; B: −1; C: −12; D: 7. Pergunta 2. Quanto é (−6) × (−2)? A: −12; B: −8; C: 8; D: 12. Pergunta 3. Quanto é (−20) ÷ 4? A: −5; B: 5; C: −16; D: 16. Pergunta 4. Quanto é −9 + 4? A: 5; B: −5; C: −13; D: 13.",
+    "questions": [
+     {
+      "question": "Quanto é (−4) × 3?",
+      "options": [
+       {
+        "text": "12",
+        "misconceptionCode": "regra-de-sinais"
+       },
+       {
+        "text": "−1",
+        "misconceptionCode": "ignora-sinal"
+       },
+       {
+        "text": "−12"
+       },
+       {
+        "text": "7",
+        "misconceptionCode": "sinal-do-maior"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Sinais diferentes: o resultado é negativo. 4 vezes 3 é 12, então dá −12.",
+      "variants": [
+       {
+        "question": "Quanto é 5 × (−2)?",
+        "options": [
+         {
+          "text": "−10"
+         },
+         {
+          "text": "10",
+          "misconceptionCode": "regra-de-sinais"
+         },
+         {
+          "text": "3",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "−7",
+          "misconceptionCode": "sinal-do-maior"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quanto é (−4) × 3?",
+        "options": [
+         {
+          "text": "7",
+          "misconceptionCode": "sinal-do-maior"
+         },
+         {
+          "text": "−1",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "12",
+          "misconceptionCode": "regra-de-sinais"
+         },
+         {
+          "text": "−12"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quanto é (−6) × (−2)?",
+      "options": [
+       {
+        "text": "−12",
+        "misconceptionCode": "regra-de-sinais"
+       },
+       {
+        "text": "−8",
+        "misconceptionCode": "ignora-sinal"
+       },
+       {
+        "text": "8",
+        "misconceptionCode": "sinal-do-maior"
+       },
+       {
+        "text": "12"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Sinais iguais: o resultado é positivo. 6 vezes 2 é 12.",
+      "variants": [
+       {
+        "question": "Quanto é (−3) × (−5)?",
+        "options": [
+         {
+          "text": "−15",
+          "misconceptionCode": "regra-de-sinais"
+         },
+         {
+          "text": "15"
+         },
+         {
+          "text": "−8",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "8",
+          "misconceptionCode": "sinal-do-maior"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é (−6) × (−2)?",
+        "options": [
+         {
+          "text": "12"
+         },
+         {
+          "text": "8",
+          "misconceptionCode": "sinal-do-maior"
+         },
+         {
+          "text": "−8",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "−12",
+          "misconceptionCode": "regra-de-sinais"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quanto é (−20) ÷ 4?",
+      "options": [
+       {
+        "text": "−5"
+       },
+       {
+        "text": "5",
+        "misconceptionCode": "regra-de-sinais"
+       },
+       {
+        "text": "−16",
+        "misconceptionCode": "ignora-sinal"
+       },
+       {
+        "text": "16",
+        "misconceptionCode": "sinal-do-maior"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Sinais diferentes dão resultado negativo. 20 dividido por 4 é 5, então dá −5.",
+      "variants": [
+       {
+        "question": "Quanto é (−18) ÷ 3?",
+        "options": [
+         {
+          "text": "6",
+          "misconceptionCode": "regra-de-sinais"
+         },
+         {
+          "text": "−15",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "−6"
+         },
+         {
+          "text": "15",
+          "misconceptionCode": "sinal-do-maior"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quanto é (−20) ÷ 4?",
+        "options": [
+         {
+          "text": "16",
+          "misconceptionCode": "sinal-do-maior"
+         },
+         {
+          "text": "−5"
+         },
+         {
+          "text": "−16",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "regra-de-sinais"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quanto é −9 + 4?",
+      "options": [
+       {
+        "text": "5",
+        "misconceptionCode": "sinal-do-maior"
+       },
+       {
+        "text": "−5"
+       },
+       {
+        "text": "−13",
+        "misconceptionCode": "ignora-sinal"
+       },
+       {
+        "text": "13",
+        "misconceptionCode": "regra-de-sinais"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Você deve 9 e tem 4: paga uma parte e ainda fica devendo 5. O resultado é −5.",
+      "variants": [
+       {
+        "question": "Quanto é −12 + 7?",
+        "options": [
+         {
+          "text": "5",
+          "misconceptionCode": "sinal-do-maior"
+         },
+         {
+          "text": "−19",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "19",
+          "misconceptionCode": "regra-de-sinais"
+         },
+         {
+          "text": "−5"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quanto é −9 + 4?",
+        "options": [
+         {
+          "text": "13",
+          "misconceptionCode": "regra-de-sinais"
+         },
+         {
+          "text": "−13",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "−5"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "sinal-do-maior"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07MA04-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: problemas do dia a dia",
+    "prompt": "Use o que você praticou para resolver estas situações.",
+    "estMinutes": 4,
+    "audioScript": "Use o que você praticou para resolver estas situações. Pergunta 1. De manhã fazia −3 °C. Até a tarde a temperatura subiu 8 graus. Quanto ficou? A: −5 °C; B: 11 °C; C: 5 °C; D: −11 °C. Pergunta 2. O saldo da conta de Ana era −50 reais. Ela depositou 120 reais. Qual é o novo saldo? A: −70 reais; B: 170 reais; C: −170 reais; D: 70 reais. Pergunta 3. Um submarino estava a −40 metros e desceu mais 25 metros. Em que posição ele ficou? A: −65 m; B: −15 m; C: 65 m; D: 15 m.",
+    "questions": [
+     {
+      "question": "De manhã fazia −3 °C. Até a tarde a temperatura subiu 8 graus. Quanto ficou?",
+      "options": [
+       {
+        "text": "−5 °C",
+        "misconceptionCode": "sinal-do-maior"
+       },
+       {
+        "text": "11 °C",
+        "misconceptionCode": "ignora-sinal"
+       },
+       {
+        "text": "5 °C"
+       },
+       {
+        "text": "−11 °C",
+        "misconceptionCode": "regra-de-sinais"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Subir é somar: −3 + 8 = 5. Os 3 primeiros graus levam até o zero e sobram 5.",
+      "variants": [
+       {
+        "question": "À noite fazia −2 °C e a temperatura subiu 6 graus. Quanto ficou?",
+        "options": [
+         {
+          "text": "4 °C"
+         },
+         {
+          "text": "−4 °C",
+          "misconceptionCode": "sinal-do-maior"
+         },
+         {
+          "text": "8 °C",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "−8 °C",
+          "misconceptionCode": "regra-de-sinais"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "De manhã fazia −3 °C. Até a tarde a temperatura subiu 8 graus. Quanto ficou?",
+        "options": [
+         {
+          "text": "−11 °C",
+          "misconceptionCode": "regra-de-sinais"
+         },
+         {
+          "text": "11 °C",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "−5 °C",
+          "misconceptionCode": "sinal-do-maior"
+         },
+         {
+          "text": "5 °C"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O saldo da conta de Ana era −50 reais. Ela depositou 120 reais. Qual é o novo saldo?",
+      "options": [
+       {
+        "text": "−70 reais",
+        "misconceptionCode": "sinal-do-maior"
+       },
+       {
+        "text": "170 reais",
+        "misconceptionCode": "ignora-sinal"
+       },
+       {
+        "text": "−170 reais",
+        "misconceptionCode": "regra-de-sinais"
+       },
+       {
+        "text": "70 reais"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "−50 + 120: os 120 pagam a dívida de 50 e sobram 70.",
+      "variants": [
+       {
+        "question": "O saldo de Rui era −30 reais e ele depositou 100 reais. Qual é o novo saldo?",
+        "options": [
+         {
+          "text": "−70 reais",
+          "misconceptionCode": "sinal-do-maior"
+         },
+         {
+          "text": "70 reais"
+         },
+         {
+          "text": "130 reais",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "−130 reais",
+          "misconceptionCode": "regra-de-sinais"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O saldo da conta de Ana era −50 reais. Ela depositou 120 reais. Qual é o novo saldo?",
+        "options": [
+         {
+          "text": "70 reais"
+         },
+         {
+          "text": "−170 reais",
+          "misconceptionCode": "regra-de-sinais"
+         },
+         {
+          "text": "170 reais",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "−70 reais",
+          "misconceptionCode": "sinal-do-maior"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Um submarino estava a −40 metros e desceu mais 25 metros. Em que posição ele ficou?",
+      "options": [
+       {
+        "text": "−65 m"
+       },
+       {
+        "text": "−15 m",
+        "misconceptionCode": "sinal-do-maior"
+       },
+       {
+        "text": "65 m",
+        "misconceptionCode": "ignora-sinal"
+       },
+       {
+        "text": "15 m",
+        "misconceptionCode": "menos-menos"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Descer é ir mais para o negativo: −40 − 25 = −65.",
+      "variants": [
+       {
+        "question": "Um elevador estava no andar −1 e desceu mais 2 andares. Em que andar ele parou?",
+        "options": [
+         {
+          "text": "1",
+          "misconceptionCode": "sinal-do-maior"
+         },
+         {
+          "text": "3",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "−3"
+         },
+         {
+          "text": "−1",
+          "misconceptionCode": "menos-menos"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um submarino estava a −40 metros e desceu mais 25 metros. Em que posição ele ficou?",
+        "options": [
+         {
+          "text": "15 m",
+          "misconceptionCode": "menos-menos"
+         },
+         {
+          "text": "−65 m"
+         },
+         {
+          "text": "65 m",
+          "misconceptionCode": "ignora-sinal"
+         },
+         {
+          "text": "−15 m",
+          "misconceptionCode": "sinal-do-maior"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07MA04-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: por que menos com menos dá mais",
+    "prompt": "Explique com as suas palavras por que 5 − (−2) dá 7. Use um exemplo de dinheiro ou de temperatura.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras por que 5 − (−2) dá 7. Use um exemplo de dinheiro ou de temperatura.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "tirar-divida",
+       "description": "Explica que tirar um negativo é o mesmo que somar"
+      },
+      {
+       "code": "exemplo",
+       "description": "Dá um exemplo concreto, como dívida perdoada ou temperatura"
+      },
+      {
+       "code": "resultado",
+       "description": "Chega ao resultado 7"
+      }
+     ],
+     "exemploBoaResposta": "Se eu tenho 5 reais e alguém tira uma dívida minha de 2 reais, é como se eu ganhasse 2. Então 5 − (−2) é o mesmo que 5 + 2, que dá 7."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF07MA02",
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 7,
+  "version": 1,
+  "title": "Trilha: Porcentagem, acréscimos e descontos",
+  "tituloAluno": "Porcentagem: descontos, aumentos e partes de um total",
+  "activities": [
+   {
+    "id": "PK2-EF07MA02-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: o que é porcentagem",
+    "prompt": "Porcentagem quer dizer \"de cada 100\". 50% é a metade, 25% é a quarta parte e 10% é a décima parte.",
+    "estMinutes": 4,
+    "audioScript": "Porcentagem quer dizer \"de cada 100\". 50% é a metade, 25% é a quarta parte e 10% é a décima parte. Pergunta 1. 50% de uma pizza é o mesmo que: A: 50 pizzas; B: A pizza inteira; C: A metade da pizza; D: A quarta parte da pizza. Pergunta 2. Qual fração é igual a 10%? A: 1/100; B: 10/1; C: 1/2; D: 1/10. Pergunta 3. 100% de uma turma de 30 alunos são: A: 30 alunos; B: 100 alunos; C: 15 alunos; D: 3 alunos.",
+    "questions": [
+     {
+      "question": "50% de uma pizza é o mesmo que:",
+      "options": [
+       {
+        "text": "50 pizzas",
+        "misconceptionCode": "pct-como-reais"
+       },
+       {
+        "text": "A pizza inteira",
+        "misconceptionCode": "esquece-aplicar"
+       },
+       {
+        "text": "A metade da pizza"
+       },
+       {
+        "text": "A quarta parte da pizza",
+        "misconceptionCode": "divide-errado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "50 de cada 100 é a metade. 50% de qualquer coisa é a metade dela.",
+      "variants": [
+       {
+        "question": "25% de um bolo é o mesmo que:",
+        "options": [
+         {
+          "text": "A quarta parte do bolo"
+         },
+         {
+          "text": "25 bolos",
+          "misconceptionCode": "pct-como-reais"
+         },
+         {
+          "text": "O bolo inteiro",
+          "misconceptionCode": "esquece-aplicar"
+         },
+         {
+          "text": "A metade do bolo",
+          "misconceptionCode": "divide-errado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "50% de uma pizza é o mesmo que:",
+        "options": [
+         {
+          "text": "A quarta parte da pizza",
+          "misconceptionCode": "divide-errado"
+         },
+         {
+          "text": "A pizza inteira",
+          "misconceptionCode": "esquece-aplicar"
+         },
+         {
+          "text": "50 pizzas",
+          "misconceptionCode": "pct-como-reais"
+         },
+         {
+          "text": "A metade da pizza"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual fração é igual a 10%?",
+      "options": [
+       {
+        "text": "1/100",
+        "misconceptionCode": "divide-errado"
+       },
+       {
+        "text": "10/1",
+        "misconceptionCode": "pct-como-reais"
+       },
+       {
+        "text": "1/2",
+        "misconceptionCode": "sentido-trocado"
+       },
+       {
+        "text": "1/10"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "10% é 10 de cada 100, ou 10/100, que simplificando dá 1/10.",
+      "variants": [
+       {
+        "question": "Qual fração é igual a 50%?",
+        "options": [
+         {
+          "text": "1/50",
+          "misconceptionCode": "divide-errado"
+         },
+         {
+          "text": "1/2"
+         },
+         {
+          "text": "50/1",
+          "misconceptionCode": "pct-como-reais"
+         },
+         {
+          "text": "1/5",
+          "misconceptionCode": "sentido-trocado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual fração é igual a 10%?",
+        "options": [
+         {
+          "text": "1/10"
+         },
+         {
+          "text": "1/2",
+          "misconceptionCode": "sentido-trocado"
+         },
+         {
+          "text": "10/1",
+          "misconceptionCode": "pct-como-reais"
+         },
+         {
+          "text": "1/100",
+          "misconceptionCode": "divide-errado"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "100% de uma turma de 30 alunos são:",
+      "options": [
+       {
+        "text": "30 alunos"
+       },
+       {
+        "text": "100 alunos",
+        "misconceptionCode": "pct-como-reais"
+       },
+       {
+        "text": "15 alunos",
+        "misconceptionCode": "divide-errado"
+       },
+       {
+        "text": "3 alunos",
+        "misconceptionCode": "esquece-aplicar"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "100% é o total. Se a turma tem 30 alunos, 100% são os 30.",
+      "variants": [
+       {
+        "question": "100% de 80 reais são:",
+        "options": [
+         {
+          "text": "100 reais",
+          "misconceptionCode": "pct-como-reais"
+         },
+         {
+          "text": "40 reais",
+          "misconceptionCode": "divide-errado"
+         },
+         {
+          "text": "80 reais"
+         },
+         {
+          "text": "8 reais",
+          "misconceptionCode": "esquece-aplicar"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "100% de uma turma de 30 alunos são:",
+        "options": [
+         {
+          "text": "3 alunos",
+          "misconceptionCode": "esquece-aplicar"
+         },
+         {
+          "text": "30 alunos"
+         },
+         {
+          "text": "15 alunos",
+          "misconceptionCode": "divide-errado"
+         },
+         {
+          "text": "100 alunos",
+          "misconceptionCode": "pct-como-reais"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07MA02-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: calcular 10% e chegar nos outros",
+    "prompt": "Para achar 10%, divida por 10. Com os 10% você chega em 20% (dobro), 5% (metade) e 30% (triplo). Vamos fazer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Para achar 10%, divida por 10. Com os 10% você chega em 20% (dobro), 5% (metade) e 30% (triplo). Vamos fazer juntos. Pergunta 1. Quanto é 10% de 80 reais? A: 10 reais; B: 8 reais; C: 70 reais; D: 0,8 real. Pergunta 2. Se 10% de 80 é 8, quanto é 20% de 80? A: 8; B: 20; C: 16; D: 4. Pergunta 3. Se 10% de 80 é 8, quanto é 5% de 80? A: 16; B: 5; C: 40; D: 4.",
+    "questions": [
+     {
+      "question": "Quanto é 10% de 80 reais?",
+      "options": [
+       {
+        "text": "10 reais",
+        "misconceptionCode": "pct-como-reais"
+       },
+       {
+        "text": "8 reais"
+       },
+       {
+        "text": "70 reais",
+        "misconceptionCode": "esquece-aplicar"
+       },
+       {
+        "text": "0,8 real",
+        "misconceptionCode": "divide-errado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "10% é a décima parte. 80 dividido por 10 dá 8.",
+      "variants": [
+       {
+        "question": "Quanto é 10% de 250 reais?",
+        "options": [
+         {
+          "text": "10 reais",
+          "misconceptionCode": "pct-como-reais"
+         },
+         {
+          "text": "240 reais",
+          "misconceptionCode": "esquece-aplicar"
+         },
+         {
+          "text": "2,50 reais",
+          "misconceptionCode": "divide-errado"
+         },
+         {
+          "text": "25 reais"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quanto é 10% de 80 reais?",
+        "options": [
+         {
+          "text": "0,8 real",
+          "misconceptionCode": "divide-errado"
+         },
+         {
+          "text": "70 reais",
+          "misconceptionCode": "esquece-aplicar"
+         },
+         {
+          "text": "8 reais"
+         },
+         {
+          "text": "10 reais",
+          "misconceptionCode": "pct-como-reais"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Se 10% de 80 é 8, quanto é 20% de 80?",
+      "options": [
+       {
+        "text": "8",
+        "misconceptionCode": "esquece-aplicar"
+       },
+       {
+        "text": "20",
+        "misconceptionCode": "pct-como-reais"
+       },
+       {
+        "text": "16"
+       },
+       {
+        "text": "4",
+        "misconceptionCode": "divide-errado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "20% é o dobro de 10%. O dobro de 8 é 16.",
+      "variants": [
+       {
+        "question": "Se 10% de 60 é 6, quanto é 30% de 60?",
+        "options": [
+         {
+          "text": "18"
+         },
+         {
+          "text": "6",
+          "misconceptionCode": "esquece-aplicar"
+         },
+         {
+          "text": "30",
+          "misconceptionCode": "pct-como-reais"
+         },
+         {
+          "text": "2",
+          "misconceptionCode": "divide-errado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Se 10% de 80 é 8, quanto é 20% de 80?",
+        "options": [
+         {
+          "text": "4",
+          "misconceptionCode": "divide-errado"
+         },
+         {
+          "text": "20",
+          "misconceptionCode": "pct-como-reais"
+         },
+         {
+          "text": "8",
+          "misconceptionCode": "esquece-aplicar"
+         },
+         {
+          "text": "16"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Se 10% de 80 é 8, quanto é 5% de 80?",
+      "options": [
+       {
+        "text": "16",
+        "misconceptionCode": "sentido-trocado"
+       },
+       {
+        "text": "5",
+        "misconceptionCode": "pct-como-reais"
+       },
+       {
+        "text": "40",
+        "misconceptionCode": "divide-errado"
+       },
+       {
+        "text": "4"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "5% é a metade de 10%. A metade de 8 é 4.",
+      "variants": [
+       {
+        "question": "Se 10% de 200 é 20, quanto é 5% de 200?",
+        "options": [
+         {
+          "text": "40",
+          "misconceptionCode": "sentido-trocado"
+         },
+         {
+          "text": "10"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "pct-como-reais"
+         },
+         {
+          "text": "100",
+          "misconceptionCode": "divide-errado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Se 10% de 80 é 8, quanto é 5% de 80?",
+        "options": [
+         {
+          "text": "4"
+         },
+         {
+          "text": "40",
+          "misconceptionCode": "divide-errado"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "pct-como-reais"
+         },
+         {
+          "text": "16",
+          "misconceptionCode": "sentido-trocado"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07MA02-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: descontos e acréscimos",
+    "prompt": "No desconto, você calcula a porcentagem e tira do preço. No acréscimo, você soma.",
+    "estMinutes": 5,
+    "audioScript": "No desconto, você calcula a porcentagem e tira do preço. No acréscimo, você soma. Pergunta 1. Uma camiseta de 60 reais está com 10% de desconto. Quanto ela custa agora? A: 54 reais; B: 6 reais; C: 50 reais; D: 66 reais. Pergunta 2. Um tênis de 200 reais está com 25% de desconto. Qual é o valor do desconto? A: 25 reais; B: 50 reais; C: 150 reais; D: 8 reais. Pergunta 3. A conta de luz era de 100 reais e teve um acréscimo de 20%. Quanto ficou? A: 80 reais; B: 20 reais; C: 120 reais; D: 102 reais. Pergunta 4. Um celular de 800 reais tem 5% de desconto à vista. Quanto ele custa à vista? A: 795 reais; B: 40 reais; C: 840 reais; D: 760 reais.",
+    "questions": [
+     {
+      "question": "Uma camiseta de 60 reais está com 10% de desconto. Quanto ela custa agora?",
+      "options": [
+       {
+        "text": "54 reais"
+       },
+       {
+        "text": "6 reais",
+        "misconceptionCode": "esquece-aplicar"
+       },
+       {
+        "text": "50 reais",
+        "misconceptionCode": "pct-como-reais"
+       },
+       {
+        "text": "66 reais",
+        "misconceptionCode": "sentido-trocado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "10% de 60 é 6. Desconto se tira: 60 − 6 = 54.",
+      "variants": [
+       {
+        "question": "Um boné de 40 reais está com 10% de desconto. Quanto ele custa agora?",
+        "options": [
+         {
+          "text": "4 reais",
+          "misconceptionCode": "esquece-aplicar"
+         },
+         {
+          "text": "30 reais",
+          "misconceptionCode": "pct-como-reais"
+         },
+         {
+          "text": "36 reais"
+         },
+         {
+          "text": "44 reais",
+          "misconceptionCode": "sentido-trocado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Uma camiseta de 60 reais está com 10% de desconto. Quanto ela custa agora?",
+        "options": [
+         {
+          "text": "66 reais",
+          "misconceptionCode": "sentido-trocado"
+         },
+         {
+          "text": "54 reais"
+         },
+         {
+          "text": "50 reais",
+          "misconceptionCode": "pct-como-reais"
+         },
+         {
+          "text": "6 reais",
+          "misconceptionCode": "esquece-aplicar"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um tênis de 200 reais está com 25% de desconto. Qual é o valor do desconto?",
+      "options": [
+       {
+        "text": "25 reais",
+        "misconceptionCode": "pct-como-reais"
+       },
+       {
+        "text": "50 reais"
+       },
+       {
+        "text": "150 reais",
+        "misconceptionCode": "esquece-aplicar"
+       },
+       {
+        "text": "8 reais",
+        "misconceptionCode": "divide-errado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "25% é a quarta parte. 200 dividido por 4 dá 50.",
+      "variants": [
+       {
+        "question": "Uma mochila de 120 reais está com 25% de desconto. Qual é o valor do desconto?",
+        "options": [
+         {
+          "text": "25 reais",
+          "misconceptionCode": "pct-como-reais"
+         },
+         {
+          "text": "90 reais",
+          "misconceptionCode": "esquece-aplicar"
+         },
+         {
+          "text": "60 reais",
+          "misconceptionCode": "divide-errado"
+         },
+         {
+          "text": "30 reais"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um tênis de 200 reais está com 25% de desconto. Qual é o valor do desconto?",
+        "options": [
+         {
+          "text": "8 reais",
+          "misconceptionCode": "divide-errado"
+         },
+         {
+          "text": "150 reais",
+          "misconceptionCode": "esquece-aplicar"
+         },
+         {
+          "text": "50 reais"
+         },
+         {
+          "text": "25 reais",
+          "misconceptionCode": "pct-como-reais"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "A conta de luz era de 100 reais e teve um acréscimo de 20%. Quanto ficou?",
+      "options": [
+       {
+        "text": "80 reais",
+        "misconceptionCode": "sentido-trocado"
+       },
+       {
+        "text": "20 reais",
+        "misconceptionCode": "esquece-aplicar"
+       },
+       {
+        "text": "120 reais"
+       },
+       {
+        "text": "102 reais",
+        "misconceptionCode": "divide-errado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "20% de 100 é 20. Acréscimo se soma: 100 + 20 = 120.",
+      "variants": [
+       {
+        "question": "A mensalidade era de 200 reais e teve um acréscimo de 10%. Quanto ficou?",
+        "options": [
+         {
+          "text": "220 reais"
+         },
+         {
+          "text": "180 reais",
+          "misconceptionCode": "sentido-trocado"
+         },
+         {
+          "text": "20 reais",
+          "misconceptionCode": "esquece-aplicar"
+         },
+         {
+          "text": "210 reais",
+          "misconceptionCode": "divide-errado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A conta de luz era de 100 reais e teve um acréscimo de 20%. Quanto ficou?",
+        "options": [
+         {
+          "text": "102 reais",
+          "misconceptionCode": "divide-errado"
+         },
+         {
+          "text": "20 reais",
+          "misconceptionCode": "esquece-aplicar"
+         },
+         {
+          "text": "80 reais",
+          "misconceptionCode": "sentido-trocado"
+         },
+         {
+          "text": "120 reais"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Um celular de 800 reais tem 5% de desconto à vista. Quanto ele custa à vista?",
+      "options": [
+       {
+        "text": "795 reais",
+        "misconceptionCode": "pct-como-reais"
+       },
+       {
+        "text": "40 reais",
+        "misconceptionCode": "esquece-aplicar"
+       },
+       {
+        "text": "840 reais",
+        "misconceptionCode": "sentido-trocado"
+       },
+       {
+        "text": "760 reais"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "10% de 800 é 80, então 5% é 40. À vista: 800 − 40 = 760.",
+      "variants": [
+       {
+        "question": "Uma bicicleta de 600 reais tem 5% de desconto à vista. Quanto ela custa à vista?",
+        "options": [
+         {
+          "text": "595 reais",
+          "misconceptionCode": "pct-como-reais"
+         },
+         {
+          "text": "570 reais"
+         },
+         {
+          "text": "30 reais",
+          "misconceptionCode": "esquece-aplicar"
+         },
+         {
+          "text": "630 reais",
+          "misconceptionCode": "sentido-trocado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um celular de 800 reais tem 5% de desconto à vista. Quanto ele custa à vista?",
+        "options": [
+         {
+          "text": "760 reais"
+         },
+         {
+          "text": "840 reais",
+          "misconceptionCode": "sentido-trocado"
+         },
+         {
+          "text": "40 reais",
+          "misconceptionCode": "esquece-aplicar"
+         },
+         {
+          "text": "795 reais",
+          "misconceptionCode": "pct-como-reais"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07MA02-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: porcentagem em situações reais",
+    "prompt": "Leia com calma e descubra se a situação pede a parte, o desconto ou o acréscimo.",
+    "estMinutes": 4,
+    "audioScript": "Leia com calma e descubra se a situação pede a parte, o desconto ou o acréscimo. Pergunta 1. Numa turma de 40 alunos, 25% vão de bicicleta para a escola. Quantos alunos vão de bicicleta? A: 10; B: 25; C: 30; D: 15. Pergunta 2. Um lanche custava 20 reais e subiu 10%. Qual é o novo preço? A: 30 reais; B: 22 reais; C: 18 reais; D: 2 reais. Pergunta 3. Uma loja dá 20% de desconto numa calça de 150 reais. Quanto o cliente paga? A: 130 reais; B: 30 reais; C: 120 reais; D: 180 reais.",
+    "questions": [
+     {
+      "question": "Numa turma de 40 alunos, 25% vão de bicicleta para a escola. Quantos alunos vão de bicicleta?",
+      "options": [
+       {
+        "text": "10"
+       },
+       {
+        "text": "25",
+        "misconceptionCode": "pct-como-reais"
+       },
+       {
+        "text": "30",
+        "misconceptionCode": "esquece-aplicar"
+       },
+       {
+        "text": "15",
+        "misconceptionCode": "divide-errado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "25% é a quarta parte. 40 dividido por 4 dá 10 alunos.",
+      "variants": [
+       {
+        "question": "Numa turma de 32 alunos, 50% jogam futebol. Quantos jogam futebol?",
+        "options": [
+         {
+          "text": "50",
+          "misconceptionCode": "pct-como-reais"
+         },
+         {
+          "text": "8",
+          "misconceptionCode": "esquece-aplicar"
+         },
+         {
+          "text": "16"
+         },
+         {
+          "text": "18",
+          "misconceptionCode": "divide-errado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Numa turma de 40 alunos, 25% vão de bicicleta para a escola. Quantos alunos vão de bicicleta?",
+        "options": [
+         {
+          "text": "15",
+          "misconceptionCode": "divide-errado"
+         },
+         {
+          "text": "10"
+         },
+         {
+          "text": "30",
+          "misconceptionCode": "esquece-aplicar"
+         },
+         {
+          "text": "25",
+          "misconceptionCode": "pct-como-reais"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um lanche custava 20 reais e subiu 10%. Qual é o novo preço?",
+      "options": [
+       {
+        "text": "30 reais",
+        "misconceptionCode": "pct-como-reais"
+       },
+       {
+        "text": "22 reais"
+       },
+       {
+        "text": "18 reais",
+        "misconceptionCode": "sentido-trocado"
+       },
+       {
+        "text": "2 reais",
+        "misconceptionCode": "esquece-aplicar"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "10% de 20 é 2. Como subiu, soma: 20 + 2 = 22.",
+      "variants": [
+       {
+        "question": "Uma passagem custava 5 reais e subiu 20%. Qual é o novo preço?",
+        "options": [
+         {
+          "text": "25 reais",
+          "misconceptionCode": "pct-como-reais"
+         },
+         {
+          "text": "4 reais",
+          "misconceptionCode": "sentido-trocado"
+         },
+         {
+          "text": "1 real",
+          "misconceptionCode": "esquece-aplicar"
+         },
+         {
+          "text": "6 reais"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um lanche custava 20 reais e subiu 10%. Qual é o novo preço?",
+        "options": [
+         {
+          "text": "2 reais",
+          "misconceptionCode": "esquece-aplicar"
+         },
+         {
+          "text": "18 reais",
+          "misconceptionCode": "sentido-trocado"
+         },
+         {
+          "text": "22 reais"
+         },
+         {
+          "text": "30 reais",
+          "misconceptionCode": "pct-como-reais"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Uma loja dá 20% de desconto numa calça de 150 reais. Quanto o cliente paga?",
+      "options": [
+       {
+        "text": "130 reais",
+        "misconceptionCode": "pct-como-reais"
+       },
+       {
+        "text": "30 reais",
+        "misconceptionCode": "esquece-aplicar"
+       },
+       {
+        "text": "120 reais"
+       },
+       {
+        "text": "180 reais",
+        "misconceptionCode": "sentido-trocado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "10% de 150 é 15, então 20% é 30. O cliente paga 150 − 30 = 120.",
+      "variants": [
+       {
+        "question": "Uma loja dá 20% de desconto num vestido de 250 reais. Quanto a cliente paga?",
+        "options": [
+         {
+          "text": "200 reais"
+         },
+         {
+          "text": "230 reais",
+          "misconceptionCode": "pct-como-reais"
+         },
+         {
+          "text": "50 reais",
+          "misconceptionCode": "esquece-aplicar"
+         },
+         {
+          "text": "300 reais",
+          "misconceptionCode": "sentido-trocado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Uma loja dá 20% de desconto numa calça de 150 reais. Quanto o cliente paga?",
+        "options": [
+         {
+          "text": "180 reais",
+          "misconceptionCode": "sentido-trocado"
+         },
+         {
+          "text": "30 reais",
+          "misconceptionCode": "esquece-aplicar"
+         },
+         {
+          "text": "130 reais",
+          "misconceptionCode": "pct-como-reais"
+         },
+         {
+          "text": "120 reais"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07MA02-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: como calcular um desconto",
+    "prompt": "Explique com as suas palavras como você calcula o preço de um produto de 90 reais com 10% de desconto.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras como você calcula o preço de um produto de 90 reais com 10% de desconto.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "calcula-pct",
+       "description": "Calcula 10% de 90 e chega a 9"
+      },
+      {
+       "code": "subtrai",
+       "description": "Tira o desconto do preço original"
+      },
+      {
+       "code": "resultado",
+       "description": "Chega a 81 reais"
+      }
+     ],
+     "exemploBoaResposta": "Primeiro eu acho 10% de 90, dividindo por 10, que dá 9 reais. Como é desconto, eu tiro do preço: 90 menos 9 dá 81 reais."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF07MA18",
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 7,
+  "version": 1,
+  "title": "Trilha: Equações do 1º grau",
+  "tituloAluno": "Equações: descobrindo o número escondido",
+  "activities": [
+   {
+    "id": "PK2-EF07MA18-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: operações inversas",
+    "prompt": "Toda operação tem uma inversa que a desfaz: soma e subtração, multiplicação e divisão.",
+    "estMinutes": 4,
+    "audioScript": "Toda operação tem uma inversa que a desfaz: soma e subtração, multiplicação e divisão. Pergunta 1. Qual operação desfaz \"somar 5\"? A: Somar 5 de novo; B: Subtrair 5; C: Multiplicar por 5; D: Dividir por 5. Pergunta 2. Pensei em um número, somei 4 e deu 10. Em que número pensei? A: 14; B: 40; C: 6; D: 4. Pergunta 3. Pensei em um número, multipliquei por 2 e deu 18. Em que número pensei? A: 36; B: 16; C: 20; D: 9.",
+    "questions": [
+     {
+      "question": "Qual operação desfaz \"somar 5\"?",
+      "options": [
+       {
+        "text": "Somar 5 de novo",
+        "misconceptionCode": "nao-inverte"
+       },
+       {
+        "text": "Subtrair 5"
+       },
+       {
+        "text": "Multiplicar por 5",
+        "misconceptionCode": "ordem-errada"
+       },
+       {
+        "text": "Dividir por 5",
+        "misconceptionCode": "so-um-lado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Se você somou 5 e quer voltar ao número de antes, tire 5.",
+      "variants": [
+       {
+        "question": "Qual operação desfaz \"multiplicar por 3\"?",
+        "options": [
+         {
+          "text": "Multiplicar por 3 de novo",
+          "misconceptionCode": "nao-inverte"
+         },
+         {
+          "text": "Subtrair 3",
+          "misconceptionCode": "ordem-errada"
+         },
+         {
+          "text": "Somar 3",
+          "misconceptionCode": "so-um-lado"
+         },
+         {
+          "text": "Dividir por 3"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual operação desfaz \"somar 5\"?",
+        "options": [
+         {
+          "text": "Dividir por 5",
+          "misconceptionCode": "so-um-lado"
+         },
+         {
+          "text": "Multiplicar por 5",
+          "misconceptionCode": "ordem-errada"
+         },
+         {
+          "text": "Subtrair 5"
+         },
+         {
+          "text": "Somar 5 de novo",
+          "misconceptionCode": "nao-inverte"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Pensei em um número, somei 4 e deu 10. Em que número pensei?",
+      "options": [
+       {
+        "text": "14",
+        "misconceptionCode": "nao-inverte"
+       },
+       {
+        "text": "40",
+        "misconceptionCode": "monta-errado"
+       },
+       {
+        "text": "6"
+       },
+       {
+        "text": "4",
+        "misconceptionCode": "so-um-lado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Para voltar, desfaça a soma: 10 − 4 = 6.",
+      "variants": [
+       {
+        "question": "Pensei em um número, somei 7 e deu 15. Em que número pensei?",
+        "options": [
+         {
+          "text": "8"
+         },
+         {
+          "text": "22",
+          "misconceptionCode": "nao-inverte"
+         },
+         {
+          "text": "105",
+          "misconceptionCode": "monta-errado"
+         },
+         {
+          "text": "7",
+          "misconceptionCode": "so-um-lado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Pensei em um número, somei 4 e deu 10. Em que número pensei?",
+        "options": [
+         {
+          "text": "4",
+          "misconceptionCode": "so-um-lado"
+         },
+         {
+          "text": "40",
+          "misconceptionCode": "monta-errado"
+         },
+         {
+          "text": "14",
+          "misconceptionCode": "nao-inverte"
+         },
+         {
+          "text": "6"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Pensei em um número, multipliquei por 2 e deu 18. Em que número pensei?",
+      "options": [
+       {
+        "text": "36",
+        "misconceptionCode": "nao-inverte"
+       },
+       {
+        "text": "16",
+        "misconceptionCode": "ordem-errada"
+       },
+       {
+        "text": "20",
+        "misconceptionCode": "monta-errado"
+       },
+       {
+        "text": "9"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Para voltar, desfaça a multiplicação: 18 ÷ 2 = 9.",
+      "variants": [
+       {
+        "question": "Pensei em um número, multipliquei por 5 e deu 30. Em que número pensei?",
+        "options": [
+         {
+          "text": "150",
+          "misconceptionCode": "nao-inverte"
+         },
+         {
+          "text": "6"
+         },
+         {
+          "text": "25",
+          "misconceptionCode": "ordem-errada"
+         },
+         {
+          "text": "35",
+          "misconceptionCode": "monta-errado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Pensei em um número, multipliquei por 2 e deu 18. Em que número pensei?",
+        "options": [
+         {
+          "text": "9"
+         },
+         {
+          "text": "20",
+          "misconceptionCode": "monta-errado"
+         },
+         {
+          "text": "16",
+          "misconceptionCode": "ordem-errada"
+         },
+         {
+          "text": "36",
+          "misconceptionCode": "nao-inverte"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07MA18-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: resolver passo a passo",
+    "prompt": "Para resolver 2x + 3 = 11, pense numa balança. Primeiro tire 3 dos dois lados. Depois divida os dois lados por 2. Vamos fazer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Para resolver 2x + 3 = 11, pense numa balança. Primeiro tire 3 dos dois lados. Depois divida os dois lados por 2. Vamos fazer juntos. Pergunta 1. Na equação 2x + 3 = 11, o que fazer primeiro? A: Tirar 3 dos dois lados; B: Dividir tudo por 2, deixando o 3 como está; C: Somar 3 dos dois lados; D: Tirar 3 só do lado esquerdo. Pergunta 2. Depois de tirar 3, ficou 2x = 8. Quanto vale x? A: 16; B: 4; C: 6; D: 8. Pergunta 3. Como conferir se x = 4 resolve 2x + 3 = 11? A: Trocar x por 11 e ver se dá 4; B: Somar 4 com 11; C: Trocar x por 4 e ver se dá 11; D: Não dá para conferir.",
+    "questions": [
+     {
+      "question": "Na equação 2x + 3 = 11, o que fazer primeiro?",
+      "options": [
+       {
+        "text": "Tirar 3 dos dois lados"
+       },
+       {
+        "text": "Dividir tudo por 2, deixando o 3 como está",
+        "misconceptionCode": "ordem-errada"
+       },
+       {
+        "text": "Somar 3 dos dois lados",
+        "misconceptionCode": "nao-inverte"
+       },
+       {
+        "text": "Tirar 3 só do lado esquerdo",
+        "misconceptionCode": "so-um-lado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Primeiro desfazemos a soma. Tirando 3 dos dois lados, fica 2x = 8.",
+      "variants": [
+       {
+        "question": "Na equação 3x + 5 = 20, o que fazer primeiro?",
+        "options": [
+         {
+          "text": "Dividir tudo por 3, deixando o 5 como está",
+          "misconceptionCode": "ordem-errada"
+         },
+         {
+          "text": "Somar 5 dos dois lados",
+          "misconceptionCode": "nao-inverte"
+         },
+         {
+          "text": "Tirar 5 dos dois lados"
+         },
+         {
+          "text": "Tirar 5 só do lado esquerdo",
+          "misconceptionCode": "so-um-lado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Na equação 2x + 3 = 11, o que fazer primeiro?",
+        "options": [
+         {
+          "text": "Tirar 3 só do lado esquerdo",
+          "misconceptionCode": "so-um-lado"
+         },
+         {
+          "text": "Tirar 3 dos dois lados"
+         },
+         {
+          "text": "Somar 3 dos dois lados",
+          "misconceptionCode": "nao-inverte"
+         },
+         {
+          "text": "Dividir tudo por 2, deixando o 3 como está",
+          "misconceptionCode": "ordem-errada"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Depois de tirar 3, ficou 2x = 8. Quanto vale x?",
+      "options": [
+       {
+        "text": "16",
+        "misconceptionCode": "nao-inverte"
+       },
+       {
+        "text": "4"
+       },
+       {
+        "text": "6",
+        "misconceptionCode": "ordem-errada"
+       },
+       {
+        "text": "8",
+        "misconceptionCode": "so-um-lado"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "2x é \"duas vezes x\". Dividindo os dois lados por 2: x = 4.",
+      "variants": [
+       {
+        "question": "Ficou 3x = 15. Quanto vale x?",
+        "options": [
+         {
+          "text": "45",
+          "misconceptionCode": "nao-inverte"
+         },
+         {
+          "text": "12",
+          "misconceptionCode": "ordem-errada"
+         },
+         {
+          "text": "15",
+          "misconceptionCode": "so-um-lado"
+         },
+         {
+          "text": "5"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Depois de tirar 3, ficou 2x = 8. Quanto vale x?",
+        "options": [
+         {
+          "text": "8",
+          "misconceptionCode": "so-um-lado"
+         },
+         {
+          "text": "6",
+          "misconceptionCode": "ordem-errada"
+         },
+         {
+          "text": "4"
+         },
+         {
+          "text": "16",
+          "misconceptionCode": "nao-inverte"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Como conferir se x = 4 resolve 2x + 3 = 11?",
+      "options": [
+       {
+        "text": "Trocar x por 11 e ver se dá 4",
+        "misconceptionCode": "monta-errado"
+       },
+       {
+        "text": "Somar 4 com 11",
+        "misconceptionCode": "nao-inverte"
+       },
+       {
+        "text": "Trocar x por 4 e ver se dá 11"
+       },
+       {
+        "text": "Não dá para conferir",
+        "misconceptionCode": "so-um-lado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "2 × 4 + 3 = 8 + 3 = 11. Deu certo: x = 4 é a solução.",
+      "variants": [
+       {
+        "question": "Para conferir se x = 5 resolve 3x + 5 = 20, calculamos:",
+        "options": [
+         {
+          "text": "3 × 5 + 5 e vemos se dá 20"
+         },
+         {
+          "text": "3 × 20 + 5 e vemos se dá 5",
+          "misconceptionCode": "monta-errado"
+         },
+         {
+          "text": "5 + 20",
+          "misconceptionCode": "nao-inverte"
+         },
+         {
+          "text": "3 + 5 + 5",
+          "misconceptionCode": "so-um-lado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Como conferir se x = 4 resolve 2x + 3 = 11?",
+        "options": [
+         {
+          "text": "Não dá para conferir",
+          "misconceptionCode": "so-um-lado"
+         },
+         {
+          "text": "Somar 4 com 11",
+          "misconceptionCode": "nao-inverte"
+         },
+         {
+          "text": "Trocar x por 11 e ver se dá 4",
+          "misconceptionCode": "monta-errado"
+         },
+         {
+          "text": "Trocar x por 4 e ver se dá 11"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07MA18-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: resolvendo equações",
+    "prompt": "Resolva cada equação desfazendo as operações, uma de cada vez.",
+    "estMinutes": 5,
+    "audioScript": "Resolva cada equação desfazendo as operações, uma de cada vez. Pergunta 1. Quanto vale x em x + 9 = 20? A: 29; B: 180; C: 9; D: 11. Pergunta 2. Quanto vale x em 3x = 21? A: 7; B: 63; C: 18; D: 24. Pergunta 3. Quanto vale x em 2x + 1 = 15? A: 8; B: 7; C: 14; D: 6,5. Pergunta 4. Quanto vale x em 5x − 5 = 20? A: 3; B: 25; C: 5; D: 4.",
+    "questions": [
+     {
+      "question": "Quanto vale x em x + 9 = 20?",
+      "options": [
+       {
+        "text": "29",
+        "misconceptionCode": "nao-inverte"
+       },
+       {
+        "text": "180",
+        "misconceptionCode": "monta-errado"
+       },
+       {
+        "text": "9",
+        "misconceptionCode": "so-um-lado"
+       },
+       {
+        "text": "11"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Tire 9 dos dois lados: x = 20 − 9 = 11.",
+      "variants": [
+       {
+        "question": "Quanto vale x em x + 6 = 14?",
+        "options": [
+         {
+          "text": "20",
+          "misconceptionCode": "nao-inverte"
+         },
+         {
+          "text": "8"
+         },
+         {
+          "text": "84",
+          "misconceptionCode": "monta-errado"
+         },
+         {
+          "text": "6",
+          "misconceptionCode": "so-um-lado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto vale x em x + 9 = 20?",
+        "options": [
+         {
+          "text": "11"
+         },
+         {
+          "text": "9",
+          "misconceptionCode": "so-um-lado"
+         },
+         {
+          "text": "180",
+          "misconceptionCode": "monta-errado"
+         },
+         {
+          "text": "29",
+          "misconceptionCode": "nao-inverte"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quanto vale x em 3x = 21?",
+      "options": [
+       {
+        "text": "7"
+       },
+       {
+        "text": "63",
+        "misconceptionCode": "nao-inverte"
+       },
+       {
+        "text": "18",
+        "misconceptionCode": "ordem-errada"
+       },
+       {
+        "text": "24",
+        "misconceptionCode": "monta-errado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Divida os dois lados por 3: x = 21 ÷ 3 = 7.",
+      "variants": [
+       {
+        "question": "Quanto vale x em 4x = 28?",
+        "options": [
+         {
+          "text": "112",
+          "misconceptionCode": "nao-inverte"
+         },
+         {
+          "text": "24",
+          "misconceptionCode": "ordem-errada"
+         },
+         {
+          "text": "7"
+         },
+         {
+          "text": "32",
+          "misconceptionCode": "monta-errado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quanto vale x em 3x = 21?",
+        "options": [
+         {
+          "text": "24",
+          "misconceptionCode": "monta-errado"
+         },
+         {
+          "text": "7"
+         },
+         {
+          "text": "18",
+          "misconceptionCode": "ordem-errada"
+         },
+         {
+          "text": "63",
+          "misconceptionCode": "nao-inverte"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quanto vale x em 2x + 1 = 15?",
+      "options": [
+       {
+        "text": "8",
+        "misconceptionCode": "nao-inverte"
+       },
+       {
+        "text": "7"
+       },
+       {
+        "text": "14",
+        "misconceptionCode": "so-um-lado"
+       },
+       {
+        "text": "6,5",
+        "misconceptionCode": "ordem-errada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Tire 1: 2x = 14. Divida por 2: x = 7.",
+      "variants": [
+       {
+        "question": "Quanto vale x em 2x + 4 = 14?",
+        "options": [
+         {
+          "text": "9",
+          "misconceptionCode": "nao-inverte"
+         },
+         {
+          "text": "10",
+          "misconceptionCode": "so-um-lado"
+         },
+         {
+          "text": "3",
+          "misconceptionCode": "ordem-errada"
+         },
+         {
+          "text": "5"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quanto vale x em 2x + 1 = 15?",
+        "options": [
+         {
+          "text": "6,5",
+          "misconceptionCode": "ordem-errada"
+         },
+         {
+          "text": "14",
+          "misconceptionCode": "so-um-lado"
+         },
+         {
+          "text": "7"
+         },
+         {
+          "text": "8",
+          "misconceptionCode": "nao-inverte"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Quanto vale x em 5x − 5 = 20?",
+      "options": [
+       {
+        "text": "3",
+        "misconceptionCode": "nao-inverte"
+       },
+       {
+        "text": "25",
+        "misconceptionCode": "so-um-lado"
+       },
+       {
+        "text": "5"
+       },
+       {
+        "text": "4",
+        "misconceptionCode": "ordem-errada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Some 5 dos dois lados: 5x = 25. Divida por 5: x = 5.",
+      "variants": [
+       {
+        "question": "Quanto vale x em 4x − 8 = 12?",
+        "options": [
+         {
+          "text": "5"
+         },
+         {
+          "text": "1",
+          "misconceptionCode": "nao-inverte"
+         },
+         {
+          "text": "20",
+          "misconceptionCode": "so-um-lado"
+         },
+         {
+          "text": "3",
+          "misconceptionCode": "ordem-errada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quanto vale x em 5x − 5 = 20?",
+        "options": [
+         {
+          "text": "4",
+          "misconceptionCode": "ordem-errada"
+         },
+         {
+          "text": "25",
+          "misconceptionCode": "so-um-lado"
+         },
+         {
+          "text": "3",
+          "misconceptionCode": "nao-inverte"
+         },
+         {
+          "text": "5"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07MA18-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: do problema para a equação",
+    "prompt": "Transforme cada situação numa equação e resolva.",
+    "estMinutes": 4,
+    "audioScript": "Transforme cada situação numa equação e resolva. Pergunta 1. O dobro da idade de Lia mais 4 é igual a 30. Qual equação representa isso? A: x + 2 + 4 = 30; B: 2x = 30 + 4; C: 4x + 2 = 30; D: 2x + 4 = 30. Pergunta 2. O dobro da idade de Lia mais 4 é igual a 30. Quantos anos Lia tem? A: 13; B: 17; C: 26; D: 11. Pergunta 3. Um táxi cobra 5 reais fixos mais 3 reais por quilômetro. A corrida custou 26 reais. Quantos quilômetros foram? A: 21; B: 7; C: 10; D: 8.",
+    "questions": [
+     {
+      "question": "O dobro da idade de Lia mais 4 é igual a 30. Qual equação representa isso?",
+      "options": [
+       {
+        "text": "x + 2 + 4 = 30",
+        "misconceptionCode": "monta-errado"
+       },
+       {
+        "text": "2x = 30 + 4",
+        "misconceptionCode": "nao-inverte"
+       },
+       {
+        "text": "4x + 2 = 30",
+        "misconceptionCode": "ordem-errada"
+       },
+       {
+        "text": "2x + 4 = 30"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "\"O dobro\" é 2x. \"Mais 4\" é + 4. \"É igual a 30\" é = 30.",
+      "variants": [
+       {
+        "question": "O triplo de um número mais 2 é igual a 17. Qual equação representa isso?",
+        "options": [
+         {
+          "text": "x + 3 + 2 = 17",
+          "misconceptionCode": "monta-errado"
+         },
+         {
+          "text": "3x + 2 = 17"
+         },
+         {
+          "text": "3x = 17 + 2",
+          "misconceptionCode": "nao-inverte"
+         },
+         {
+          "text": "2x + 3 = 17",
+          "misconceptionCode": "ordem-errada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O dobro da idade de Lia mais 4 é igual a 30. Qual equação representa isso?",
+        "options": [
+         {
+          "text": "2x + 4 = 30"
+         },
+         {
+          "text": "4x + 2 = 30",
+          "misconceptionCode": "ordem-errada"
+         },
+         {
+          "text": "2x = 30 + 4",
+          "misconceptionCode": "nao-inverte"
+         },
+         {
+          "text": "x + 2 + 4 = 30",
+          "misconceptionCode": "monta-errado"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O dobro da idade de Lia mais 4 é igual a 30. Quantos anos Lia tem?",
+      "options": [
+       {
+        "text": "13"
+       },
+       {
+        "text": "17",
+        "misconceptionCode": "nao-inverte"
+       },
+       {
+        "text": "26",
+        "misconceptionCode": "so-um-lado"
+       },
+       {
+        "text": "11",
+        "misconceptionCode": "ordem-errada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "2x + 4 = 30. Tire 4: 2x = 26. Divida por 2: x = 13.",
+      "variants": [
+       {
+        "question": "O triplo de um número mais 2 é igual a 17. Que número é esse?",
+        "options": [
+         {
+          "text": "15",
+          "misconceptionCode": "nao-inverte"
+         },
+         {
+          "text": "6",
+          "misconceptionCode": "so-um-lado"
+         },
+         {
+          "text": "5"
+         },
+         {
+          "text": "19",
+          "misconceptionCode": "ordem-errada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O dobro da idade de Lia mais 4 é igual a 30. Quantos anos Lia tem?",
+        "options": [
+         {
+          "text": "11",
+          "misconceptionCode": "ordem-errada"
+         },
+         {
+          "text": "13"
+         },
+         {
+          "text": "26",
+          "misconceptionCode": "so-um-lado"
+         },
+         {
+          "text": "17",
+          "misconceptionCode": "nao-inverte"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um táxi cobra 5 reais fixos mais 3 reais por quilômetro. A corrida custou 26 reais. Quantos quilômetros foram?",
+      "options": [
+       {
+        "text": "21",
+        "misconceptionCode": "so-um-lado"
+       },
+       {
+        "text": "7"
+       },
+       {
+        "text": "10",
+        "misconceptionCode": "nao-inverte"
+       },
+       {
+        "text": "8",
+        "misconceptionCode": "ordem-errada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "3x + 5 = 26. Tire 5: 3x = 21. Divida por 3: x = 7 quilômetros.",
+      "variants": [
+       {
+        "question": "Um aplicativo cobra 4 reais fixos mais 2 reais por quilômetro. A corrida custou 20 reais. Quantos quilômetros foram?",
+        "options": [
+         {
+          "text": "16",
+          "misconceptionCode": "so-um-lado"
+         },
+         {
+          "text": "12",
+          "misconceptionCode": "nao-inverte"
+         },
+         {
+          "text": "10",
+          "misconceptionCode": "ordem-errada"
+         },
+         {
+          "text": "8"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um táxi cobra 5 reais fixos mais 3 reais por quilômetro. A corrida custou 26 reais. Quantos quilômetros foram?",
+        "options": [
+         {
+          "text": "8",
+          "misconceptionCode": "ordem-errada"
+         },
+         {
+          "text": "10",
+          "misconceptionCode": "nao-inverte"
+         },
+         {
+          "text": "7"
+         },
+         {
+          "text": "21",
+          "misconceptionCode": "so-um-lado"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07MA18-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: como resolver uma equação",
+    "prompt": "Explique com as suas palavras os passos para resolver 3x + 2 = 14.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras os passos para resolver 3x + 2 = 14.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "desfaz-soma",
+       "description": "Tira 2 dos dois lados e chega a 3x = 12"
+      },
+      {
+       "code": "desfaz-vezes",
+       "description": "Divide os dois lados por 3"
+      },
+      {
+       "code": "resultado",
+       "description": "Chega a x = 4 e confere"
+      }
+     ],
+     "exemploBoaResposta": "Primeiro eu tiro 2 dos dois lados e fica 3x = 12. Depois divido os dois lados por 3 e fica x = 4. Para conferir: 3 vezes 4 é 12, mais 2 dá 14."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF07MA12",
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 7,
+  "version": 1,
+  "title": "Trilha: Operações com números racionais",
+  "tituloAluno": "Frações e decimais: contas que aparecem todo dia",
+  "activities": [
+   {
+    "id": "PK2-EF07MA12-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: frações e decimais",
+    "prompt": "Vamos lembrar como frações e decimais representam partes.",
+    "estMinutes": 4,
+    "audioScript": "Vamos lembrar como frações e decimais representam partes. Pergunta 1. Quanto é 1/2 na forma decimal? A: 1,2; B: 0,2; C: 2,1; D: 0,5. Pergunta 2. Quanto é 1/4 + 2/4? A: 3/4; B: 3/8; C: 2/16; D: 1/4. Pergunta 3. Quanto é 1,5 + 2,25? A: 2,40; B: 3,75; C: 3,30; D: 0,75.",
+    "questions": [
+     {
+      "question": "Quanto é 1/2 na forma decimal?",
+      "options": [
+       {
+        "text": "1,2",
+        "misconceptionCode": "virgula-desalinhada"
+       },
+       {
+        "text": "0,2",
+        "misconceptionCode": "mult-so-numerador"
+       },
+       {
+        "text": "2,1",
+        "misconceptionCode": "operacao-errada"
+       },
+       {
+        "text": "0,5"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "1/2 é 1 dividido por 2, que dá 0,5. É a metade.",
+      "variants": [
+       {
+        "question": "Quanto é 1/4 na forma decimal?",
+        "options": [
+         {
+          "text": "1,4",
+          "misconceptionCode": "virgula-desalinhada"
+         },
+         {
+          "text": "0,25"
+         },
+         {
+          "text": "0,4",
+          "misconceptionCode": "mult-so-numerador"
+         },
+         {
+          "text": "4,1",
+          "misconceptionCode": "operacao-errada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é 1/2 na forma decimal?",
+        "options": [
+         {
+          "text": "0,5"
+         },
+         {
+          "text": "2,1",
+          "misconceptionCode": "operacao-errada"
+         },
+         {
+          "text": "0,2",
+          "misconceptionCode": "mult-so-numerador"
+         },
+         {
+          "text": "1,2",
+          "misconceptionCode": "virgula-desalinhada"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 1/4 + 2/4?",
+      "options": [
+       {
+        "text": "3/4"
+       },
+       {
+        "text": "3/8",
+        "misconceptionCode": "soma-denominadores"
+       },
+       {
+        "text": "2/16",
+        "misconceptionCode": "mult-so-numerador"
+       },
+       {
+        "text": "1/4",
+        "misconceptionCode": "operacao-errada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Com denominadores iguais, some só os numeradores: 1 + 2 = 3. O denominador continua 4.",
+      "variants": [
+       {
+        "question": "Quanto é 2/5 + 1/5?",
+        "options": [
+         {
+          "text": "3/10",
+          "misconceptionCode": "soma-denominadores"
+         },
+         {
+          "text": "2/25",
+          "misconceptionCode": "mult-so-numerador"
+         },
+         {
+          "text": "3/5"
+         },
+         {
+          "text": "1/5",
+          "misconceptionCode": "operacao-errada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quanto é 1/4 + 2/4?",
+        "options": [
+         {
+          "text": "1/4",
+          "misconceptionCode": "operacao-errada"
+         },
+         {
+          "text": "3/4"
+         },
+         {
+          "text": "2/16",
+          "misconceptionCode": "mult-so-numerador"
+         },
+         {
+          "text": "3/8",
+          "misconceptionCode": "soma-denominadores"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 1,5 + 2,25?",
+      "options": [
+       {
+        "text": "2,40",
+        "misconceptionCode": "virgula-desalinhada"
+       },
+       {
+        "text": "3,75"
+       },
+       {
+        "text": "3,30",
+        "misconceptionCode": "soma-denominadores"
+       },
+       {
+        "text": "0,75",
+        "misconceptionCode": "operacao-errada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Alinhe as vírgulas: 1,50 + 2,25 = 3,75.",
+      "variants": [
+       {
+        "question": "Quanto é 2,5 + 1,25?",
+        "options": [
+         {
+          "text": "1,50",
+          "misconceptionCode": "virgula-desalinhada"
+         },
+         {
+          "text": "3,30",
+          "misconceptionCode": "soma-denominadores"
+         },
+         {
+          "text": "1,25",
+          "misconceptionCode": "operacao-errada"
+         },
+         {
+          "text": "3,75"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quanto é 1,5 + 2,25?",
+        "options": [
+         {
+          "text": "0,75",
+          "misconceptionCode": "operacao-errada"
+         },
+         {
+          "text": "3,30",
+          "misconceptionCode": "soma-denominadores"
+         },
+         {
+          "text": "3,75"
+         },
+         {
+          "text": "2,40",
+          "misconceptionCode": "virgula-desalinhada"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07MA12-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: denominadores diferentes",
+    "prompt": "Para somar 1/2 + 1/4, as partes precisam ter o mesmo tamanho. Trocamos 1/2 por 2/4, que é a mesma quantidade. Vamos fazer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Para somar 1/2 + 1/4, as partes precisam ter o mesmo tamanho. Trocamos 1/2 por 2/4, que é a mesma quantidade. Vamos fazer juntos. Pergunta 1. Qual fração é equivalente a 1/2? A: 1/4; B: 2/2; C: 2/4; D: 1/3. Pergunta 2. Quanto é 1/2 + 1/4? A: 2/6; B: 1/8; C: 1/4; D: 3/4. Pergunta 3. Quanto é 1/2 × 1/4? A: 1/8; B: 2/6; C: 1/4; D: 3/4.",
+    "questions": [
+     {
+      "question": "Qual fração é equivalente a 1/2?",
+      "options": [
+       {
+        "text": "1/4",
+        "misconceptionCode": "mult-so-numerador"
+       },
+       {
+        "text": "2/2",
+        "misconceptionCode": "soma-denominadores"
+       },
+       {
+        "text": "2/4"
+       },
+       {
+        "text": "1/3",
+        "misconceptionCode": "operacao-errada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Multiplicando em cima e embaixo por 2: 1/2 = 2/4. É a mesma quantidade com partes menores.",
+      "variants": [
+       {
+        "question": "Qual fração é equivalente a 1/3?",
+        "options": [
+         {
+          "text": "2/6"
+         },
+         {
+          "text": "1/6",
+          "misconceptionCode": "mult-so-numerador"
+         },
+         {
+          "text": "2/3",
+          "misconceptionCode": "soma-denominadores"
+         },
+         {
+          "text": "1/4",
+          "misconceptionCode": "operacao-errada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual fração é equivalente a 1/2?",
+        "options": [
+         {
+          "text": "1/3",
+          "misconceptionCode": "operacao-errada"
+         },
+         {
+          "text": "2/2",
+          "misconceptionCode": "soma-denominadores"
+         },
+         {
+          "text": "1/4",
+          "misconceptionCode": "mult-so-numerador"
+         },
+         {
+          "text": "2/4"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 1/2 + 1/4?",
+      "options": [
+       {
+        "text": "2/6",
+        "misconceptionCode": "soma-denominadores"
+       },
+       {
+        "text": "1/8",
+        "misconceptionCode": "mult-so-numerador"
+       },
+       {
+        "text": "1/4",
+        "misconceptionCode": "operacao-errada"
+       },
+       {
+        "text": "3/4"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Troque 1/2 por 2/4. Aí 2/4 + 1/4 = 3/4.",
+      "variants": [
+       {
+        "question": "Quanto é 1/3 + 1/6?",
+        "options": [
+         {
+          "text": "2/9",
+          "misconceptionCode": "soma-denominadores"
+         },
+         {
+          "text": "3/6"
+         },
+         {
+          "text": "1/18",
+          "misconceptionCode": "mult-so-numerador"
+         },
+         {
+          "text": "1/6",
+          "misconceptionCode": "operacao-errada"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é 1/2 + 1/4?",
+        "options": [
+         {
+          "text": "3/4"
+         },
+         {
+          "text": "1/4",
+          "misconceptionCode": "operacao-errada"
+         },
+         {
+          "text": "1/8",
+          "misconceptionCode": "mult-so-numerador"
+         },
+         {
+          "text": "2/6",
+          "misconceptionCode": "soma-denominadores"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 1/2 × 1/4?",
+      "options": [
+       {
+        "text": "1/8"
+       },
+       {
+        "text": "2/6",
+        "misconceptionCode": "soma-denominadores"
+       },
+       {
+        "text": "1/4",
+        "misconceptionCode": "mult-so-numerador"
+       },
+       {
+        "text": "3/4",
+        "misconceptionCode": "operacao-errada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Na multiplicação, multiplique em cima e embaixo: 1 × 1 = 1 e 2 × 4 = 8. É a metade de um quarto.",
+      "variants": [
+       {
+        "question": "Quanto é 1/3 × 1/2?",
+        "options": [
+         {
+          "text": "2/5",
+          "misconceptionCode": "soma-denominadores"
+         },
+         {
+          "text": "1/3",
+          "misconceptionCode": "mult-so-numerador"
+         },
+         {
+          "text": "1/6"
+         },
+         {
+          "text": "5/6",
+          "misconceptionCode": "operacao-errada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quanto é 1/2 × 1/4?",
+        "options": [
+         {
+          "text": "3/4",
+          "misconceptionCode": "operacao-errada"
+         },
+         {
+          "text": "1/8"
+         },
+         {
+          "text": "1/4",
+          "misconceptionCode": "mult-so-numerador"
+         },
+         {
+          "text": "2/6",
+          "misconceptionCode": "soma-denominadores"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07MA12-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: contas com racionais",
+    "prompt": "Resolva com calma. Nos decimais, alinhe a vírgula.",
+    "estMinutes": 5,
+    "audioScript": "Resolva com calma. Nos decimais, alinhe a vírgula. Pergunta 1. Quanto é 3/4 − 1/2? A: 2/2; B: 1/4; C: 3/8; D: 5/4. Pergunta 2. Quanto é 0,5 × 6? A: 30; B: 6,5; C: 3; D: 0,3. Pergunta 3. Quanto é 4,8 ÷ 2? A: 24; B: 9,6; C: 2,8; D: 2,4. Pergunta 4. Quanto é 2/3 de 12? A: 8; B: 4; C: 18; D: 6.",
+    "questions": [
+     {
+      "question": "Quanto é 3/4 − 1/2?",
+      "options": [
+       {
+        "text": "2/2",
+        "misconceptionCode": "soma-denominadores"
+       },
+       {
+        "text": "1/4"
+       },
+       {
+        "text": "3/8",
+        "misconceptionCode": "mult-so-numerador"
+       },
+       {
+        "text": "5/4",
+        "misconceptionCode": "operacao-errada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Troque 1/2 por 2/4. Aí 3/4 − 2/4 = 1/4.",
+      "variants": [
+       {
+        "question": "Quanto é 5/6 − 1/3?",
+        "options": [
+         {
+          "text": "4/3",
+          "misconceptionCode": "soma-denominadores"
+         },
+         {
+          "text": "5/18",
+          "misconceptionCode": "mult-so-numerador"
+         },
+         {
+          "text": "7/6",
+          "misconceptionCode": "operacao-errada"
+         },
+         {
+          "text": "3/6"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quanto é 3/4 − 1/2?",
+        "options": [
+         {
+          "text": "5/4",
+          "misconceptionCode": "operacao-errada"
+         },
+         {
+          "text": "3/8",
+          "misconceptionCode": "mult-so-numerador"
+         },
+         {
+          "text": "1/4"
+         },
+         {
+          "text": "2/2",
+          "misconceptionCode": "soma-denominadores"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 0,5 × 6?",
+      "options": [
+       {
+        "text": "30",
+        "misconceptionCode": "virgula-desalinhada"
+       },
+       {
+        "text": "6,5",
+        "misconceptionCode": "operacao-errada"
+       },
+       {
+        "text": "3"
+       },
+       {
+        "text": "0,3",
+        "misconceptionCode": "mult-so-numerador"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "0,5 é a metade. A metade de 6 é 3.",
+      "variants": [
+       {
+        "question": "Quanto é 0,5 × 10?",
+        "options": [
+         {
+          "text": "5"
+         },
+         {
+          "text": "50",
+          "misconceptionCode": "virgula-desalinhada"
+         },
+         {
+          "text": "10,5",
+          "misconceptionCode": "operacao-errada"
+         },
+         {
+          "text": "0,5",
+          "misconceptionCode": "mult-so-numerador"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quanto é 0,5 × 6?",
+        "options": [
+         {
+          "text": "0,3",
+          "misconceptionCode": "mult-so-numerador"
+         },
+         {
+          "text": "6,5",
+          "misconceptionCode": "operacao-errada"
+         },
+         {
+          "text": "30",
+          "misconceptionCode": "virgula-desalinhada"
+         },
+         {
+          "text": "3"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 4,8 ÷ 2?",
+      "options": [
+       {
+        "text": "24",
+        "misconceptionCode": "virgula-desalinhada"
+       },
+       {
+        "text": "9,6",
+        "misconceptionCode": "operacao-errada"
+       },
+       {
+        "text": "2,8",
+        "misconceptionCode": "mult-so-numerador"
+       },
+       {
+        "text": "2,4"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Dividir por 2 é achar a metade. A metade de 4,8 é 2,4.",
+      "variants": [
+       {
+        "question": "Quanto é 6,4 ÷ 2?",
+        "options": [
+         {
+          "text": "32",
+          "misconceptionCode": "virgula-desalinhada"
+         },
+         {
+          "text": "3,2"
+         },
+         {
+          "text": "12,8",
+          "misconceptionCode": "operacao-errada"
+         },
+         {
+          "text": "3,4",
+          "misconceptionCode": "mult-so-numerador"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é 4,8 ÷ 2?",
+        "options": [
+         {
+          "text": "2,4"
+         },
+         {
+          "text": "2,8",
+          "misconceptionCode": "mult-so-numerador"
+         },
+         {
+          "text": "9,6",
+          "misconceptionCode": "operacao-errada"
+         },
+         {
+          "text": "24",
+          "misconceptionCode": "virgula-desalinhada"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 2/3 de 12?",
+      "options": [
+       {
+        "text": "8"
+       },
+       {
+        "text": "4",
+        "misconceptionCode": "mult-so-numerador"
+       },
+       {
+        "text": "18",
+        "misconceptionCode": "operacao-errada"
+       },
+       {
+        "text": "6",
+        "misconceptionCode": "soma-denominadores"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Divida 12 por 3, que dá 4. Depois multiplique por 2: 8.",
+      "variants": [
+       {
+        "question": "Quanto é 3/4 de 20?",
+        "options": [
+         {
+          "text": "5",
+          "misconceptionCode": "mult-so-numerador"
+         },
+         {
+          "text": "60",
+          "misconceptionCode": "operacao-errada"
+         },
+         {
+          "text": "15"
+         },
+         {
+          "text": "10",
+          "misconceptionCode": "soma-denominadores"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quanto é 2/3 de 12?",
+        "options": [
+         {
+          "text": "6",
+          "misconceptionCode": "soma-denominadores"
+         },
+         {
+          "text": "8"
+         },
+         {
+          "text": "18",
+          "misconceptionCode": "operacao-errada"
+         },
+         {
+          "text": "4",
+          "misconceptionCode": "mult-so-numerador"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07MA12-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: racionais em situações reais",
+    "prompt": "Descubra qual conta cada situação pede e resolva.",
+    "estMinutes": 4,
+    "audioScript": "Descubra qual conta cada situação pede e resolva. Pergunta 1. Uma receita usa 1/2 xícara de leite e 1/4 de xícara de óleo. Quanto de líquido ela usa ao todo? A: 2/6 de xícara; B: 3/4 de xícara; C: 1/8 de xícara; D: 1/4 de xícara. Pergunta 2. Pedro comprou 3 cadernos de 4,50 reais cada. Quanto ele pagou? A: 7,50 reais; B: 12,50 reais; C: 13,50 reais; D: 135 reais. Pergunta 3. Uma fita de 6 metros será cortada em pedaços de 0,5 metro. Quantos pedaços dá? A: 3; B: 6,5; C: 30; D: 12.",
+    "questions": [
+     {
+      "question": "Uma receita usa 1/2 xícara de leite e 1/4 de xícara de óleo. Quanto de líquido ela usa ao todo?",
+      "options": [
+       {
+        "text": "2/6 de xícara",
+        "misconceptionCode": "soma-denominadores"
+       },
+       {
+        "text": "3/4 de xícara"
+       },
+       {
+        "text": "1/8 de xícara",
+        "misconceptionCode": "operacao-errada"
+       },
+       {
+        "text": "1/4 de xícara",
+        "misconceptionCode": "mult-so-numerador"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "1/2 é o mesmo que 2/4. Somando com 1/4, dá 3/4 de xícara.",
+      "variants": [
+       {
+        "question": "Lia andou 1/2 km de manhã e 1/4 km à tarde. Quanto ela andou ao todo?",
+        "options": [
+         {
+          "text": "2/6 km",
+          "misconceptionCode": "soma-denominadores"
+         },
+         {
+          "text": "1/8 km",
+          "misconceptionCode": "operacao-errada"
+         },
+         {
+          "text": "1/4 km",
+          "misconceptionCode": "mult-so-numerador"
+         },
+         {
+          "text": "3/4 km"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Uma receita usa 1/2 xícara de leite e 1/4 de xícara de óleo. Quanto de líquido ela usa ao todo?",
+        "options": [
+         {
+          "text": "1/4 de xícara",
+          "misconceptionCode": "mult-so-numerador"
+         },
+         {
+          "text": "1/8 de xícara",
+          "misconceptionCode": "operacao-errada"
+         },
+         {
+          "text": "3/4 de xícara"
+         },
+         {
+          "text": "2/6 de xícara",
+          "misconceptionCode": "soma-denominadores"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Pedro comprou 3 cadernos de 4,50 reais cada. Quanto ele pagou?",
+      "options": [
+       {
+        "text": "7,50 reais",
+        "misconceptionCode": "operacao-errada"
+       },
+       {
+        "text": "12,50 reais",
+        "misconceptionCode": "mult-so-numerador"
+       },
+       {
+        "text": "13,50 reais"
+       },
+       {
+        "text": "135 reais",
+        "misconceptionCode": "virgula-desalinhada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "3 × 4,50: três vezes 4 é 12 e três vezes 0,50 é 1,50. Total: 13,50.",
+      "variants": [
+       {
+        "question": "Ana comprou 4 canetas de 2,50 reais cada. Quanto ela pagou?",
+        "options": [
+         {
+          "text": "10 reais"
+         },
+         {
+          "text": "6,50 reais",
+          "misconceptionCode": "operacao-errada"
+         },
+         {
+          "text": "8,50 reais",
+          "misconceptionCode": "mult-so-numerador"
+         },
+         {
+          "text": "100 reais",
+          "misconceptionCode": "virgula-desalinhada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Pedro comprou 3 cadernos de 4,50 reais cada. Quanto ele pagou?",
+        "options": [
+         {
+          "text": "135 reais",
+          "misconceptionCode": "virgula-desalinhada"
+         },
+         {
+          "text": "12,50 reais",
+          "misconceptionCode": "mult-so-numerador"
+         },
+         {
+          "text": "7,50 reais",
+          "misconceptionCode": "operacao-errada"
+         },
+         {
+          "text": "13,50 reais"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Uma fita de 6 metros será cortada em pedaços de 0,5 metro. Quantos pedaços dá?",
+      "options": [
+       {
+        "text": "3",
+        "misconceptionCode": "operacao-errada"
+       },
+       {
+        "text": "6,5",
+        "misconceptionCode": "virgula-desalinhada"
+       },
+       {
+        "text": "30",
+        "misconceptionCode": "mult-so-numerador"
+       },
+       {
+        "text": "12"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Em cada metro cabem 2 pedaços de meio metro. Em 6 metros cabem 12.",
+      "variants": [
+       {
+        "question": "Uma corda de 4 metros será cortada em pedaços de 0,5 metro. Quantos pedaços dá?",
+        "options": [
+         {
+          "text": "2",
+          "misconceptionCode": "operacao-errada"
+         },
+         {
+          "text": "8"
+         },
+         {
+          "text": "4,5",
+          "misconceptionCode": "virgula-desalinhada"
+         },
+         {
+          "text": "20",
+          "misconceptionCode": "mult-so-numerador"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Uma fita de 6 metros será cortada em pedaços de 0,5 metro. Quantos pedaços dá?",
+        "options": [
+         {
+          "text": "12"
+         },
+         {
+          "text": "30",
+          "misconceptionCode": "mult-so-numerador"
+         },
+         {
+          "text": "6,5",
+          "misconceptionCode": "virgula-desalinhada"
+         },
+         {
+          "text": "3",
+          "misconceptionCode": "operacao-errada"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07MA12-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: somar frações de denominadores diferentes",
+    "prompt": "Explique com as suas palavras como somar 1/2 + 1/3 e por que não se pode somar direto os denominadores.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras como somar 1/2 + 1/3 e por que não se pode somar direto os denominadores.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "mesmo-tamanho",
+       "description": "Explica que as partes precisam ter o mesmo tamanho"
+      },
+      {
+       "code": "equivalentes",
+       "description": "Troca por frações equivalentes de denominador 6"
+      },
+      {
+       "code": "resultado",
+       "description": "Chega a 5/6"
+      }
+     ],
+     "exemploBoaResposta": "Não dá para somar direto porque metade e terço são pedaços de tamanhos diferentes. Eu troco 1/2 por 3/6 e 1/3 por 2/6, que são as mesmas quantidades em sextos. Aí somo 3/6 + 2/6 e dá 5/6."
+    }
+   }
+  ]
+ }
+]

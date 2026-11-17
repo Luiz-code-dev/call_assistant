@@ -1,0 +1,327 @@
+{
+ "id": "DIAG2-MA-7A",
+ "version": 1,
+ "titulo": "Diagnóstico de Matemática — 7º ano",
+ "descricao": "Números inteiros, porcentagem, equações e operações com racionais no 7º ano, com degrau para frações do 6º ano.",
+ "subjectCode": "MA",
+ "subjectName": "Matemática",
+ "gradeYear": 7,
+ "status": "APPROVED",
+ "source": "SPEAKFLOW",
+ "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
+ "adaptive": true,
+ "items": [
+  {
+   "id": "DI2-7A-EF07MA04-01",
+   "skillCode": "EF07MA04",
+   "question": "Quanto é −7 + 3?",
+   "options": [
+    {
+     "text": "4",
+     "misconceptionCode": "sinal-do-maior"
+    },
+    {
+     "text": "−10",
+     "misconceptionCode": "ignora-sinal"
+    },
+    {
+     "text": "10",
+     "misconceptionCode": "regra-de-sinais"
+    },
+    {
+     "text": "−4"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Você deve 7 e tem 3: paga uma parte e ainda fica devendo 4.",
+   "audioScript": "Pergunta 1. Quanto é −7 + 3? A: 4; B: −10; C: 10; D: −4.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-7A-EF07MA04-02",
+   "skillCode": "EF07MA04",
+   "question": "Quanto é (−5) × (−4)?",
+   "options": [
+    {
+     "text": "20"
+    },
+    {
+     "text": "−20",
+     "misconceptionCode": "regra-de-sinais"
+    },
+    {
+     "text": "−9",
+     "misconceptionCode": "ignora-sinal"
+    },
+    {
+     "text": "9",
+     "misconceptionCode": "sinal-do-maior"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Na multiplicação, sinais iguais dão resultado positivo. 5 vezes 4 é 20.",
+   "audioScript": "Pergunta 2. Quanto é (−5) × (−4)? A: 20; B: −20; C: −9; D: 9.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-7A-EF07MA02-01",
+   "skillCode": "EF07MA02",
+   "question": "Quanto é 10% de 150 reais?",
+   "options": [
+    {
+     "text": "10 reais",
+     "misconceptionCode": "pct-como-reais"
+    },
+    {
+     "text": "15 reais"
+    },
+    {
+     "text": "140 reais",
+     "misconceptionCode": "esquece-aplicar"
+    },
+    {
+     "text": "1,50 real",
+     "misconceptionCode": "divide-errado"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "10% é a décima parte. 150 dividido por 10 dá 15.",
+   "audioScript": "Pergunta 3. Quanto é 10% de 150 reais? A: 10 reais; B: 15 reais; C: 140 reais; D: 1,50 real.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-7A-EF07MA02-02",
+   "skillCode": "EF07MA02",
+   "question": "Um jogo de 80 reais está com 25% de desconto. Quanto ele custa agora?",
+   "options": [
+    {
+     "text": "20 reais",
+     "misconceptionCode": "esquece-aplicar"
+    },
+    {
+     "text": "55 reais",
+     "misconceptionCode": "pct-como-reais"
+    },
+    {
+     "text": "60 reais"
+    },
+    {
+     "text": "100 reais",
+     "misconceptionCode": "sentido-trocado"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "25% é a quarta parte: 80 ÷ 4 = 20. Com o desconto: 80 − 20 = 60.",
+   "audioScript": "Pergunta 4. Um jogo de 80 reais está com 25% de desconto. Quanto ele custa agora? A: 20 reais; B: 55 reais; C: 60 reais; D: 100 reais.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-7A-EF07MA18-01",
+   "skillCode": "EF07MA18",
+   "question": "Quanto vale x em 2x + 5 = 17?",
+   "options": [
+    {
+     "text": "11",
+     "misconceptionCode": "nao-inverte"
+    },
+    {
+     "text": "12",
+     "misconceptionCode": "so-um-lado"
+    },
+    {
+     "text": "3,5",
+     "misconceptionCode": "ordem-errada"
+    },
+    {
+     "text": "6"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Tire 5 dos dois lados: 2x = 12. Divida por 2: x = 6.",
+   "audioScript": "Pergunta 5. Quanto vale x em 2x + 5 = 17? A: 11; B: 12; C: 3,5; D: 6.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-7A-EF07MA18-02",
+   "skillCode": "EF07MA18",
+   "question": "O triplo de um número menos 4 é igual a 11. Que número é esse?",
+   "options": [
+    {
+     "text": "5"
+    },
+    {
+     "text": "15",
+     "misconceptionCode": "so-um-lado"
+    },
+    {
+     "text": "7",
+     "misconceptionCode": "ordem-errada"
+    },
+    {
+     "text": "45",
+     "misconceptionCode": "nao-inverte"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "3x − 4 = 11. Some 4: 3x = 15. Divida por 3: x = 5.",
+   "audioScript": "Pergunta 6. O triplo de um número menos 4 é igual a 11. Que número é esse? A: 5; B: 15; C: 7; D: 45.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-7A-EF07MA12-01",
+   "skillCode": "EF07MA12",
+   "question": "Quanto é 1/2 + 1/3?",
+   "options": [
+    {
+     "text": "2/5",
+     "misconceptionCode": "soma-denominadores"
+    },
+    {
+     "text": "5/6"
+    },
+    {
+     "text": "1/6",
+     "misconceptionCode": "mult-so-numerador"
+    },
+    {
+     "text": "1/5",
+     "misconceptionCode": "operacao-errada"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "Troque por sextos: 3/6 + 2/6 = 5/6.",
+   "audioScript": "Pergunta 7. Quanto é 1/2 + 1/3? A: 2/5; B: 5/6; C: 1/6; D: 1/5.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-7A-EF07MA12-02",
+   "skillCode": "EF07MA12",
+   "question": "Quanto é 2,5 × 4?",
+   "options": [
+    {
+     "text": "100",
+     "misconceptionCode": "virgula-desalinhada"
+    },
+    {
+     "text": "6,5",
+     "misconceptionCode": "operacao-errada"
+    },
+    {
+     "text": "10"
+    },
+    {
+     "text": "8,5",
+     "misconceptionCode": "mult-so-numerador"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "4 vezes 2 é 8 e 4 vezes 0,5 é 2. Somando, dá 10.",
+   "audioScript": "Pergunta 8. Quanto é 2,5 × 4? A: 100; B: 6,5; C: 10; D: 8,5.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-7A-EF06MA10-01",
+   "skillCode": "EF06MA10",
+   "question": "Quanto é 2/7 + 3/7?",
+   "options": [
+    {
+     "text": "5/14",
+     "misconceptionCode": "soma-denominadores"
+    },
+    {
+     "text": "6/7",
+     "misconceptionCode": "mult-so-numerador"
+    },
+    {
+     "text": "1/7",
+     "misconceptionCode": "operacao-errada"
+    },
+    {
+     "text": "5/7"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Com denominadores iguais, some só os numeradores: 2 + 3 = 5. O denominador continua 7.",
+   "audioScript": "Pergunta 9. Quanto é 2/7 + 3/7? A: 5/14; B: 6/7; C: 1/7; D: 5/7.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-7A-EF06MA10-02",
+   "skillCode": "EF06MA10",
+   "question": "Quanto é 5/8 − 2/8?",
+   "options": [
+    {
+     "text": "3/8"
+    },
+    {
+     "text": "3/16",
+     "misconceptionCode": "soma-denominadores"
+    },
+    {
+     "text": "7/8",
+     "misconceptionCode": "operacao-errada"
+    },
+    {
+     "text": "10/8",
+     "misconceptionCode": "mult-so-numerador"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Com denominadores iguais, subtraia só os numeradores: 5 − 2 = 3. O denominador continua 8.",
+   "audioScript": "Pergunta 10. Quanto é 5/8 − 2/8? A: 3/8; B: 3/16; C: 7/8; D: 10/8.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-7A-EF06MA09-01",
+   "skillCode": "EF06MA09",
+   "question": "Quanto é 1/4 de 20?",
+   "options": [
+    {
+     "text": "80",
+     "misconceptionCode": "operacao-errada"
+    },
+    {
+     "text": "5"
+    },
+    {
+     "text": "4",
+     "misconceptionCode": "mult-so-numerador"
+    },
+    {
+     "text": "16",
+     "misconceptionCode": "soma-denominadores"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "Um quarto é dividir por 4. 20 dividido por 4 dá 5.",
+   "audioScript": "Pergunta 11. Quanto é 1/4 de 20? A: 80; B: 5; C: 4; D: 16.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-7A-EF06MA09-02",
+   "skillCode": "EF06MA09",
+   "question": "Quanto é 3/5 de 10?",
+   "options": [
+    {
+     "text": "2",
+     "misconceptionCode": "mult-so-numerador"
+    },
+    {
+     "text": "30",
+     "misconceptionCode": "operacao-errada"
+    },
+    {
+     "text": "6"
+    },
+    {
+     "text": "8",
+     "misconceptionCode": "soma-denominadores"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Divida 10 por 5, que dá 2. Depois multiplique por 3: 6.",
+   "audioScript": "Pergunta 12. Quanto é 3/5 de 10? A: 2; B: 30; C: 6; D: 8.",
+   "role": "DEGRAU_BANK"
+  }
+ ]
+}

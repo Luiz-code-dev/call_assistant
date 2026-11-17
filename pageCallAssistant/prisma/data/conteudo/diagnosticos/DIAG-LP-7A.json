@@ -1,0 +1,327 @@
+{
+ "id": "DIAG2-LP-7A",
+ "version": 1,
+ "titulo": "Diagnóstico de Língua Portuguesa — 7º ano",
+ "descricao": "Partes da oração, concordância, retomadas no texto e fato e opinião no 7º ano, com degrau para leitura de notícia e inferência.",
+ "subjectCode": "LP",
+ "subjectName": "Língua Portuguesa",
+ "gradeYear": 7,
+ "status": "APPROVED",
+ "source": "SPEAKFLOW",
+ "reviewNote": "pacote de demonstração, revisão pedagógica pendente",
+ "adaptive": true,
+ "items": [
+  {
+   "id": "DI2-7A-EF07LP07-01",
+   "skillCode": "EF07LP07",
+   "question": "Em \"A equipe da escola venceu o campeonato\", qual é o sujeito?",
+   "options": [
+    {
+     "text": "o campeonato",
+     "misconceptionCode": "confunde-sujeito-objeto"
+    },
+    {
+     "text": "A",
+     "misconceptionCode": "sujeito-primeira-palavra"
+    },
+    {
+     "text": "venceu",
+     "misconceptionCode": "predicado-so-verbo"
+    },
+    {
+     "text": "A equipe da escola"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "Quem venceu? A equipe da escola. Esse é o sujeito.",
+   "audioScript": "Pergunta 1. Em \"A equipe da escola venceu o campeonato\", qual é o sujeito? A: o campeonato; B: A; C: venceu; D: A equipe da escola.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-7A-EF07LP07-02",
+   "skillCode": "EF07LP07",
+   "question": "Em \"Eu preciso de um lápis\", o termo \"de um lápis\" é:",
+   "options": [
+    {
+     "text": "Objeto indireto"
+    },
+    {
+     "text": "Objeto direto",
+     "misconceptionCode": "direto-indireto"
+    },
+    {
+     "text": "Sujeito",
+     "misconceptionCode": "confunde-sujeito-objeto"
+    },
+    {
+     "text": "Verbo",
+     "misconceptionCode": "predicado-so-verbo"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "Preciso de quê? De um lápis. O complemento vem com preposição: é objeto indireto.",
+   "audioScript": "Pergunta 2. Em \"Eu preciso de um lápis\", o termo \"de um lápis\" é: A: Objeto indireto; B: Objeto direto; C: Sujeito; D: Verbo.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-7A-EF07LP06-01",
+   "skillCode": "EF07LP06",
+   "question": "Complete: \"Os moradores do prédio ___ a reunião.\"",
+   "options": [
+    {
+     "text": "marcou",
+     "misconceptionCode": "concorda-com-perto"
+    },
+    {
+     "text": "marcaram"
+    },
+    {
+     "text": "marca",
+     "misconceptionCode": "verbo-singular"
+    },
+    {
+     "text": "marcamos",
+     "misconceptionCode": "genero-errado"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "O sujeito é \"os moradores\", no plural. O verbo acompanha: marcaram.",
+   "audioScript": "Pergunta 3. Complete: \"Os moradores do prédio ___ a reunião.\" A: marcou; B: marcaram; C: marca; D: marcamos.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-7A-EF07LP06-02",
+   "skillCode": "EF07LP06",
+   "question": "Qual frase está de acordo com a escrita formal?",
+   "options": [
+    {
+     "text": "As portas estava fechada.",
+     "misconceptionCode": "verbo-singular"
+    },
+    {
+     "text": "As porta estavam fechadas.",
+     "misconceptionCode": "so-primeiro-plural"
+    },
+    {
+     "text": "As portas estavam fechadas."
+    },
+    {
+     "text": "As portas estavam fechados.",
+     "misconceptionCode": "genero-errado"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "\"As portas\" é feminino e plural: o verbo fica \"estavam\" e o adjetivo, \"fechadas\".",
+   "audioScript": "Pergunta 4. Qual frase está de acordo com a escrita formal? A: As portas estava fechada.; B: As porta estavam fechadas.; C: As portas estavam fechadas.; D: As portas estavam fechados..",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-7A-EF07LP12-01",
+   "skillCode": "EF07LP12",
+   "question": "Em \"Bia ligou para o irmão. Ele não atendeu\", a palavra \"Ele\" retoma:",
+   "options": [
+    {
+     "text": "Bia",
+     "misconceptionCode": "ignora-genero-numero"
+    },
+    {
+     "text": "o telefone",
+     "misconceptionCode": "sinonimo-novo-personagem"
+    },
+    {
+     "text": "a ligação",
+     "misconceptionCode": "referente-mais-perto"
+    },
+    {
+     "text": "o irmão"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "\"Ele\" é masculino e singular: retoma \"o irmão\".",
+   "audioScript": "Pergunta 5. Em \"Bia ligou para o irmão. Ele não atendeu\", a palavra \"Ele\" retoma: A: Bia; B: o telefone; C: a ligação; D: o irmão.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-7A-EF07LP12-02",
+   "skillCode": "EF07LP12",
+   "question": "Em \"A baleia apareceu na praia. O animal foi devolvido ao mar\", \"o animal\" é:",
+   "options": [
+    {
+     "text": "A baleia"
+    },
+    {
+     "text": "Outro bicho que estava na praia",
+     "misconceptionCode": "sinonimo-novo-personagem"
+    },
+    {
+     "text": "O mar",
+     "misconceptionCode": "referente-mais-perto"
+    },
+    {
+     "text": "A praia",
+     "misconceptionCode": "ignora-genero-numero"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "\"O animal\" retoma \"a baleia\" com outra palavra, para não repetir.",
+   "audioScript": "Pergunta 6. Em \"A baleia apareceu na praia. O animal foi devolvido ao mar\", \"o animal\" é: A: A baleia; B: Outro bicho que estava na praia; C: O mar; D: A praia.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-7A-EF67LP04-01",
+   "skillCode": "EF67LP04",
+   "question": "Qual frase é um fato?",
+   "options": [
+    {
+     "text": "A feira é a melhor do bairro.",
+     "misconceptionCode": "opiniao-como-fato"
+    },
+    {
+     "text": "A feira acontece aos sábados."
+    },
+    {
+     "text": "As frutas de lá são deliciosas.",
+     "misconceptionCode": "concordo-entao-fato"
+    },
+    {
+     "text": "A feira é barulhenta demais.",
+     "misconceptionCode": "ignora-marcas"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "O dia da feira pode ser conferido. As outras frases são avaliações.",
+   "audioScript": "Pergunta 7. Qual frase é um fato? A: A feira é a melhor do bairro.; B: A feira acontece aos sábados.; C: As frutas de lá são deliciosas.; D: A feira é barulhenta demais..",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-7A-EF67LP04-02",
+   "skillCode": "EF67LP04",
+   "question": "Em \"O prédio tem 20 andares e é feio\", qual parte é opinião?",
+   "options": [
+    {
+     "text": "tem 20 andares",
+     "misconceptionCode": "fato-como-opiniao"
+    },
+    {
+     "text": "O prédio",
+     "misconceptionCode": "ignora-marcas"
+    },
+    {
+     "text": "é feio"
+    },
+    {
+     "text": "Nenhuma parte",
+     "misconceptionCode": "opiniao-como-fato"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "O número de andares dá para conferir. \"Feio\" é o que alguém acha.",
+   "audioScript": "Pergunta 8. Em \"O prédio tem 20 andares e é feio\", qual parte é opinião? A: tem 20 andares; B: O prédio; C: é feio; D: Nenhuma parte.",
+   "role": "NORMAL"
+  },
+  {
+   "id": "DI2-7A-EF69LP03-01",
+   "skillCode": "EF69LP03",
+   "question": "Leia a notícia: \"Um incêndio atingiu um galpão na zona norte na madrugada de ontem. Ninguém se feriu. Os bombeiros controlaram o fogo em duas horas.\" Qual é o fato principal?",
+   "options": [
+    {
+     "text": "Os bombeiros trabalham de madrugada",
+     "misconceptionCode": "ignora-marcas"
+    },
+    {
+     "text": "Galpões são perigosos",
+     "misconceptionCode": "opiniao-como-fato"
+    },
+    {
+     "text": "A zona norte fica longe",
+     "misconceptionCode": "fato-como-opiniao"
+    },
+    {
+     "text": "Um incêndio atingiu um galpão"
+    }
+   ],
+   "correctIndex": 3,
+   "explanation": "O fato principal responde \"o que aconteceu?\": um incêndio atingiu um galpão.",
+   "audioScript": "Pergunta 9. Leia a notícia: \"Um incêndio atingiu um galpão na zona norte na madrugada de ontem. Ninguém se feriu. Os bombeiros controlaram o fogo em duas horas.\" Qual é o fato principal? A: Os bombeiros trabalham de madrugada; B: Galpões são perigosos; C: A zona norte fica longe; D: Um incêndio atingiu um galpão.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-7A-EF69LP03-02",
+   "skillCode": "EF69LP03",
+   "question": "Na mesma notícia, qual informação responde \"quando aconteceu?\"",
+   "options": [
+    {
+     "text": "Na madrugada de ontem"
+    },
+    {
+     "text": "Na zona norte",
+     "misconceptionCode": "ignora-marcas"
+    },
+    {
+     "text": "Em duas horas",
+     "misconceptionCode": "fato-como-opiniao"
+    },
+    {
+     "text": "Ninguém se feriu",
+     "misconceptionCode": "opiniao-como-fato"
+    }
+   ],
+   "correctIndex": 0,
+   "explanation": "\"Na madrugada de ontem\" diz quando. \"Na zona norte\" diz onde.",
+   "audioScript": "Pergunta 10. Na mesma notícia, qual informação responde \"quando aconteceu?\" A: Na madrugada de ontem; B: Na zona norte; C: Em duas horas; D: Ninguém se feriu.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-7A-EF35LP04-01",
+   "skillCode": "EF35LP04",
+   "question": "\"Lia olhou pela janela, pegou o guarda-chuva e saiu.\" O que dá para concluir?",
+   "options": [
+    {
+     "text": "Lia estava com calor",
+     "misconceptionCode": "referente-mais-perto"
+    },
+    {
+     "text": "Estava chovendo ou ia chover"
+    },
+    {
+     "text": "Lia ia à praia",
+     "misconceptionCode": "sinonimo-novo-personagem"
+    },
+    {
+     "text": "Era noite",
+     "misconceptionCode": "ignora-genero-numero"
+    }
+   ],
+   "correctIndex": 1,
+   "explanation": "O texto não diz que chovia, mas o guarda-chuva é a pista para concluir isso.",
+   "audioScript": "Pergunta 11. \"Lia olhou pela janela, pegou o guarda-chuva e saiu.\" O que dá para concluir? A: Lia estava com calor; B: Estava chovendo ou ia chover; C: Lia ia à praia; D: Era noite.",
+   "role": "DEGRAU_BANK"
+  },
+  {
+   "id": "DI2-7A-EF35LP04-02",
+   "skillCode": "EF35LP04",
+   "question": "\"Ao ouvir o resultado, Davi pulou e abraçou os amigos.\" Como Davi se sentiu?",
+   "options": [
+    {
+     "text": "Triste",
+     "misconceptionCode": "referente-mais-perto"
+    },
+    {
+     "text": "Com sono",
+     "misconceptionCode": "ignora-genero-numero"
+    },
+    {
+     "text": "Feliz"
+    },
+    {
+     "text": "Com medo",
+     "misconceptionCode": "sinonimo-novo-personagem"
+    }
+   ],
+   "correctIndex": 2,
+   "explanation": "Pular e abraçar os amigos são sinais de alegria, mesmo sem o texto dizer \"feliz\".",
+   "audioScript": "Pergunta 12. \"Ao ouvir o resultado, Davi pulou e abraçou os amigos.\" Como Davi se sentiu? A: Triste; B: Com sono; C: Feliz; D: Com medo.",
+   "role": "DEGRAU_BANK"
+  }
+ ]
+}
