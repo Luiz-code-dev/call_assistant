@@ -1,0 +1,3766 @@
+[
+ {
+  "skillCode": "EF03ER01",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: Os lugares sagrados",
+  "tituloAluno": "Espaços de fé de cada tradição",
+  "activities": [
+   {
+    "id": "PK2-EF03ER01-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: respeito às diferenças",
+    "prompt": "As pessoas são diferentes e acreditam em coisas diferentes.",
+    "estMinutes": 4,
+    "audioScript": "As pessoas são diferentes e acreditam em coisas diferentes. Pergunta 1. Todas as famílias têm a mesma religião? A: Sim, todas têm a mesma; B: Sim, é obrigatório; C: Não, há religiões diferentes, e há famílias sem religião; D: Ninguém tem religião. Pergunta 2. Como devemos tratar um colega que tem uma religião diferente da nossa? A: Com risadas; B: Com desprezo; C: Deixando-o de lado; D: Com respeito. Pergunta 3. O que quer dizer \"sagrado\"? A: Algo muito especial e respeitado por um grupo, ligado à sua fé; B: Algo sujo; C: Algo sem importância; D: Algo de comer.",
+    "questions": [
+     {
+      "question": "Todas as famílias têm a mesma religião?",
+      "options": [
+       {
+        "text": "Sim, todas têm a mesma",
+        "misconceptionCode": "so-um-lugar"
+       },
+       {
+        "text": "Sim, é obrigatório",
+        "misconceptionCode": "so-um-lugar"
+       },
+       {
+        "text": "Não, há religiões diferentes, e há famílias sem religião"
+       },
+       {
+        "text": "Ninguém tem religião",
+        "misconceptionCode": "so-um-lugar"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Cada família vive a fé do seu jeito, e algumas não têm religião.",
+      "variants": [
+       {
+        "question": "Um colega tem uma religião diferente da sua. Isso é:",
+        "options": [
+         {
+          "text": "Normal, cada família tem o seu jeito de crer"
+         },
+         {
+          "text": "Errado",
+          "misconceptionCode": "so-um-lugar"
+         },
+         {
+          "text": "Proibido",
+          "misconceptionCode": "so-um-lugar"
+         },
+         {
+          "text": "Motivo de briga",
+          "misconceptionCode": "so-um-lugar"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Todas as famílias têm a mesma religião?",
+        "options": [
+         {
+          "text": "Ninguém tem religião",
+          "misconceptionCode": "so-um-lugar"
+         },
+         {
+          "text": "Sim, é obrigatório",
+          "misconceptionCode": "so-um-lugar"
+         },
+         {
+          "text": "Sim, todas têm a mesma",
+          "misconceptionCode": "so-um-lugar"
+         },
+         {
+          "text": "Não, há religiões diferentes, e há famílias sem religião"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Como devemos tratar um colega que tem uma religião diferente da nossa?",
+      "options": [
+       {
+        "text": "Com risadas",
+        "misconceptionCode": "zomba-do-lugar"
+       },
+       {
+        "text": "Com desprezo",
+        "misconceptionCode": "zomba-do-lugar"
+       },
+       {
+        "text": "Deixando-o de lado",
+        "misconceptionCode": "zomba-do-lugar"
+       },
+       {
+        "text": "Com respeito"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Respeitar é reconhecer que o outro tem o direito de crer.",
+      "variants": [
+       {
+        "question": "Uma colega não tem religião. Como tratá-la?",
+        "options": [
+         {
+          "text": "Com risadas",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "Com respeito"
+         },
+         {
+          "text": "Com desprezo",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "Deixando-a de lado",
+          "misconceptionCode": "zomba-do-lugar"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Como devemos tratar um colega que tem uma religião diferente da nossa?",
+        "options": [
+         {
+          "text": "Com respeito"
+         },
+         {
+          "text": "Deixando-o de lado",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "Com desprezo",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "Com risadas",
+          "misconceptionCode": "zomba-do-lugar"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O que quer dizer \"sagrado\"?",
+      "options": [
+       {
+        "text": "Algo muito especial e respeitado por um grupo, ligado à sua fé"
+       },
+       {
+        "text": "Algo sujo",
+        "misconceptionCode": "zomba-do-lugar"
+       },
+       {
+        "text": "Algo sem importância",
+        "misconceptionCode": "zomba-do-lugar"
+       },
+       {
+        "text": "Algo de comer",
+        "misconceptionCode": "troca-lugares"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Para quem crê, o sagrado merece cuidado e respeito especiais.",
+      "variants": [
+       {
+        "question": "Um lugar sagrado é:",
+        "options": [
+         {
+          "text": "Um lugar qualquer",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "Um lugar sujo",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "Um lugar especial para as pessoas de uma tradição religiosa"
+         },
+         {
+          "text": "Um mercado",
+          "misconceptionCode": "troca-lugares"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que quer dizer \"sagrado\"?",
+        "options": [
+         {
+          "text": "Algo de comer",
+          "misconceptionCode": "troca-lugares"
+         },
+         {
+          "text": "Algo muito especial e respeitado por um grupo, ligado à sua fé"
+         },
+         {
+          "text": "Algo sem importância",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "Algo sujo",
+          "misconceptionCode": "zomba-do-lugar"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER01-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: cada tradição, um espaço",
+    "prompt": "As pessoas se reúnem em lugares especiais para rezar, cantar e celebrar. Cada tradição tem o seu. Vamos conhecer juntos.",
+    "estMinutes": 4,
+    "audioScript": "As pessoas se reúnem em lugares especiais para rezar, cantar e celebrar. Cada tradição tem o seu. Vamos conhecer juntos. Pergunta 1. Onde os cristãos católicos e evangélicos costumam se reunir para rezar? A: Na mesquita; B: Na igreja; C: Na sinagoga; D: No terreiro. Pergunta 2. Onde os muçulmanos se reúnem para rezar? A: Na igreja; B: No terreiro; C: Na mesquita; D: Na sinagoga. Pergunta 3. Para muitos povos indígenas, o lugar sagrado pode ser: A: Só um prédio; B: Um shopping; C: Nenhum lugar; D: A mata, o rio ou uma montanha.",
+    "questions": [
+     {
+      "question": "Onde os cristãos católicos e evangélicos costumam se reunir para rezar?",
+      "options": [
+       {
+        "text": "Na mesquita",
+        "misconceptionCode": "troca-lugares"
+       },
+       {
+        "text": "Na igreja"
+       },
+       {
+        "text": "Na sinagoga",
+        "misconceptionCode": "troca-lugares"
+       },
+       {
+        "text": "No terreiro",
+        "misconceptionCode": "troca-lugares"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A igreja é o lugar de encontro e oração dos cristãos.",
+      "variants": [
+       {
+        "question": "Onde os seguidores do candomblé e da umbanda costumam se reunir?",
+        "options": [
+         {
+          "text": "Na mesquita",
+          "misconceptionCode": "troca-lugares"
+         },
+         {
+          "text": "Na sinagoga",
+          "misconceptionCode": "troca-lugares"
+         },
+         {
+          "text": "Na igreja",
+          "misconceptionCode": "troca-lugares"
+         },
+         {
+          "text": "No terreiro"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Onde os cristãos católicos e evangélicos costumam se reunir para rezar?",
+        "options": [
+         {
+          "text": "No terreiro",
+          "misconceptionCode": "troca-lugares"
+         },
+         {
+          "text": "Na sinagoga",
+          "misconceptionCode": "troca-lugares"
+         },
+         {
+          "text": "Na igreja"
+         },
+         {
+          "text": "Na mesquita",
+          "misconceptionCode": "troca-lugares"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Onde os muçulmanos se reúnem para rezar?",
+      "options": [
+       {
+        "text": "Na igreja",
+        "misconceptionCode": "troca-lugares"
+       },
+       {
+        "text": "No terreiro",
+        "misconceptionCode": "troca-lugares"
+       },
+       {
+        "text": "Na mesquita"
+       },
+       {
+        "text": "Na sinagoga",
+        "misconceptionCode": "troca-lugares"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A mesquita é o lugar de oração da religião islâmica.",
+      "variants": [
+       {
+        "question": "Onde os judeus se reúnem para rezar?",
+        "options": [
+         {
+          "text": "Na sinagoga"
+         },
+         {
+          "text": "Na igreja",
+          "misconceptionCode": "troca-lugares"
+         },
+         {
+          "text": "No terreiro",
+          "misconceptionCode": "troca-lugares"
+         },
+         {
+          "text": "Na mesquita",
+          "misconceptionCode": "troca-lugares"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Onde os muçulmanos se reúnem para rezar?",
+        "options": [
+         {
+          "text": "Na sinagoga",
+          "misconceptionCode": "troca-lugares"
+         },
+         {
+          "text": "No terreiro",
+          "misconceptionCode": "troca-lugares"
+         },
+         {
+          "text": "Na igreja",
+          "misconceptionCode": "troca-lugares"
+         },
+         {
+          "text": "Na mesquita"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Para muitos povos indígenas, o lugar sagrado pode ser:",
+      "options": [
+       {
+        "text": "Só um prédio",
+        "misconceptionCode": "lugar-sagrado-e-predio"
+       },
+       {
+        "text": "Um shopping",
+        "misconceptionCode": "lugar-sagrado-e-predio"
+       },
+       {
+        "text": "Nenhum lugar",
+        "misconceptionCode": "so-um-lugar"
+       },
+       {
+        "text": "A mata, o rio ou uma montanha"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Para muitos povos, a natureza é sagrada.",
+      "variants": [
+       {
+        "question": "Uma cachoeira ou uma árvore antiga pode ser um lugar sagrado?",
+        "options": [
+         {
+          "text": "Não, só prédios são sagrados",
+          "misconceptionCode": "lugar-sagrado-e-predio"
+         },
+         {
+          "text": "Sim, para algumas tradições"
+         },
+         {
+          "text": "Não, a natureza nunca é sagrada",
+          "misconceptionCode": "lugar-sagrado-e-predio"
+         },
+         {
+          "text": "Não, em nenhuma tradição",
+          "misconceptionCode": "so-um-lugar"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Para muitos povos indígenas, o lugar sagrado pode ser:",
+        "options": [
+         {
+          "text": "A mata, o rio ou uma montanha"
+         },
+         {
+          "text": "Nenhum lugar",
+          "misconceptionCode": "so-um-lugar"
+         },
+         {
+          "text": "Um shopping",
+          "misconceptionCode": "lugar-sagrado-e-predio"
+         },
+         {
+          "text": "Só um prédio",
+          "misconceptionCode": "lugar-sagrado-e-predio"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER01-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: reconhecendo os espaços",
+    "prompt": "Há muitos lugares sagrados.",
+    "estMinutes": 5,
+    "audioScript": "Há muitos lugares sagrados. Pergunta 1. O templo budista é o lugar onde se reúnem os seguidores: A: Do budismo; B: Do cristianismo; C: Do islamismo; D: Do judaísmo. Pergunta 2. Existe só um tipo de lugar sagrado no mundo? A: Sim, só a igreja; B: Não, há muitos, de acordo com cada tradição; C: Sim, só o templo; D: Sim, só o terreiro. Pergunta 3. O que há em comum entre os lugares sagrados das várias tradições? A: Todos têm a mesma aparência; B: Todos são feitos de pedra; C: São lugares de encontro, oração e respeito; D: Nada. Pergunta 4. Um cemitério também é um lugar que pede respeito porque: A: É um lugar sem importância; B: É um lugar para brincar; C: É um parque; D: Ali as famílias lembram e homenageiam quem morreu.",
+    "questions": [
+     {
+      "question": "O templo budista é o lugar onde se reúnem os seguidores:",
+      "options": [
+       {
+        "text": "Do budismo"
+       },
+       {
+        "text": "Do cristianismo",
+        "misconceptionCode": "troca-lugares"
+       },
+       {
+        "text": "Do islamismo",
+        "misconceptionCode": "troca-lugares"
+       },
+       {
+        "text": "Do judaísmo",
+        "misconceptionCode": "troca-lugares"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Nos templos budistas, as pessoas meditam e fazem suas práticas.",
+      "variants": [
+       {
+        "question": "O centro espírita é o lugar onde se reúnem os seguidores:",
+        "options": [
+         {
+          "text": "Do islamismo",
+          "misconceptionCode": "troca-lugares"
+         },
+         {
+          "text": "Do judaísmo",
+          "misconceptionCode": "troca-lugares"
+         },
+         {
+          "text": "Do espiritismo"
+         },
+         {
+          "text": "Do budismo",
+          "misconceptionCode": "troca-lugares"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O templo budista é o lugar onde se reúnem os seguidores:",
+        "options": [
+         {
+          "text": "Do judaísmo",
+          "misconceptionCode": "troca-lugares"
+         },
+         {
+          "text": "Do budismo"
+         },
+         {
+          "text": "Do islamismo",
+          "misconceptionCode": "troca-lugares"
+         },
+         {
+          "text": "Do cristianismo",
+          "misconceptionCode": "troca-lugares"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Existe só um tipo de lugar sagrado no mundo?",
+      "options": [
+       {
+        "text": "Sim, só a igreja",
+        "misconceptionCode": "so-um-lugar"
+       },
+       {
+        "text": "Não, há muitos, de acordo com cada tradição"
+       },
+       {
+        "text": "Sim, só o templo",
+        "misconceptionCode": "so-um-lugar"
+       },
+       {
+        "text": "Sim, só o terreiro",
+        "misconceptionCode": "so-um-lugar"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A diversidade de espaços mostra a diversidade de crenças.",
+      "variants": [
+       {
+        "question": "Igrejas, terreiros, mesquitas, sinagogas e templos são:",
+        "options": [
+         {
+          "text": "O mesmo lugar com nomes diferentes",
+          "misconceptionCode": "so-um-lugar"
+         },
+         {
+          "text": "Lugares sem importância",
+          "misconceptionCode": "so-um-lugar"
+         },
+         {
+          "text": "Lojas",
+          "misconceptionCode": "so-um-lugar"
+         },
+         {
+          "text": "Lugares sagrados de tradições diferentes"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Existe só um tipo de lugar sagrado no mundo?",
+        "options": [
+         {
+          "text": "Sim, só o terreiro",
+          "misconceptionCode": "so-um-lugar"
+         },
+         {
+          "text": "Sim, só o templo",
+          "misconceptionCode": "so-um-lugar"
+         },
+         {
+          "text": "Não, há muitos, de acordo com cada tradição"
+         },
+         {
+          "text": "Sim, só a igreja",
+          "misconceptionCode": "so-um-lugar"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O que há em comum entre os lugares sagrados das várias tradições?",
+      "options": [
+       {
+        "text": "Todos têm a mesma aparência",
+        "misconceptionCode": "so-um-lugar"
+       },
+       {
+        "text": "Todos são feitos de pedra",
+        "misconceptionCode": "lugar-sagrado-e-predio"
+       },
+       {
+        "text": "São lugares de encontro, oração e respeito"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "zomba-do-lugar"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Por fora são diferentes, mas todos são especiais para quem os frequenta.",
+      "variants": [
+       {
+        "question": "Em todos os lugares sagrados, espera-se que os visitantes:",
+        "options": [
+         {
+          "text": "Tenham atitude de respeito"
+         },
+         {
+          "text": "Gritem",
+          "misconceptionCode": "so-um-lugar"
+         },
+         {
+          "text": "Corram",
+          "misconceptionCode": "lugar-sagrado-e-predio"
+         },
+         {
+          "text": "Joguem lixo",
+          "misconceptionCode": "zomba-do-lugar"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que há em comum entre os lugares sagrados das várias tradições?",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "Todos são feitos de pedra",
+          "misconceptionCode": "lugar-sagrado-e-predio"
+         },
+         {
+          "text": "Todos têm a mesma aparência",
+          "misconceptionCode": "so-um-lugar"
+         },
+         {
+          "text": "São lugares de encontro, oração e respeito"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Um cemitério também é um lugar que pede respeito porque:",
+      "options": [
+       {
+        "text": "É um lugar sem importância",
+        "misconceptionCode": "zomba-do-lugar"
+       },
+       {
+        "text": "É um lugar para brincar",
+        "misconceptionCode": "zomba-do-lugar"
+       },
+       {
+        "text": "É um parque",
+        "misconceptionCode": "zomba-do-lugar"
+       },
+       {
+        "text": "Ali as famílias lembram e homenageiam quem morreu"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Para muitas tradições, o cemitério é um espaço de memória e de fé.",
+      "variants": [
+       {
+        "question": "Um caminho que os fiéis percorrem a pé, até um santuário, é:",
+        "options": [
+         {
+          "text": "Uma estrada qualquer",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "Um espaço sagrado para quem faz a caminhada"
+         },
+         {
+          "text": "Um lugar para corridas",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "Um lugar sem sentido",
+          "misconceptionCode": "zomba-do-lugar"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um cemitério também é um lugar que pede respeito porque:",
+        "options": [
+         {
+          "text": "Ali as famílias lembram e homenageiam quem morreu"
+         },
+         {
+          "text": "É um parque",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "É um lugar para brincar",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "É um lugar sem importância",
+          "misconceptionCode": "zomba-do-lugar"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER01-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: respeitando os lugares sagrados",
+    "prompt": "Como agir.",
+    "estMinutes": 4,
+    "audioScript": "Como agir. Pergunta 1. Você visita com a escola um lugar sagrado de outra religião. Como se comportar? A: Com respeito, falando baixo e seguindo as orientações; B: Rindo e correndo; C: Mexendo em tudo; D: Dizendo que o lugar é esquisito. Pergunta 2. Um colega diz que o lugar onde a família de outro colega reza é \"estranho\". O que responder? A: Que é estranho mesmo; B: Que cada tradição tem o seu lugar sagrado, e todos merecem respeito; C: Que só o seu é certo; D: Nada, e rir junto. Pergunta 3. Perto da sua escola há uma igreja, um terreiro e um centro espírita. Isso mostra que: A: Só uma está certa; B: O bairro está errado; C: No bairro convivem pessoas de várias tradições; D: As pessoas não se respeitam.",
+    "questions": [
+     {
+      "question": "Você visita com a escola um lugar sagrado de outra religião. Como se comportar?",
+      "options": [
+       {
+        "text": "Com respeito, falando baixo e seguindo as orientações"
+       },
+       {
+        "text": "Rindo e correndo",
+        "misconceptionCode": "zomba-do-lugar"
+       },
+       {
+        "text": "Mexendo em tudo",
+        "misconceptionCode": "zomba-do-lugar"
+       },
+       {
+        "text": "Dizendo que o lugar é esquisito",
+        "misconceptionCode": "zomba-do-lugar"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O respeito vale para todos os lugares sagrados, não só os da nossa tradição.",
+      "variants": [
+       {
+        "question": "Em alguns lugares sagrados, as pessoas tiram os sapatos para entrar. Se você visitar um deles, deve:",
+        "options": [
+         {
+          "text": "Entrar de sapato mesmo",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "Rir do costume",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "Seguir o costume do lugar"
+         },
+         {
+          "text": "Reclamar",
+          "misconceptionCode": "zomba-do-lugar"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Você visita com a escola um lugar sagrado de outra religião. Como se comportar?",
+        "options": [
+         {
+          "text": "Dizendo que o lugar é esquisito",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "Com respeito, falando baixo e seguindo as orientações"
+         },
+         {
+          "text": "Mexendo em tudo",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "Rindo e correndo",
+          "misconceptionCode": "zomba-do-lugar"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um colega diz que o lugar onde a família de outro colega reza é \"estranho\". O que responder?",
+      "options": [
+       {
+        "text": "Que é estranho mesmo",
+        "misconceptionCode": "zomba-do-lugar"
+       },
+       {
+        "text": "Que cada tradição tem o seu lugar sagrado, e todos merecem respeito"
+       },
+       {
+        "text": "Que só o seu é certo",
+        "misconceptionCode": "so-um-lugar"
+       },
+       {
+        "text": "Nada, e rir junto",
+        "misconceptionCode": "zomba-do-lugar"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O que é diferente não é errado.",
+      "variants": [
+       {
+        "question": "Alguém joga pedras num lugar sagrado. Isso é:",
+        "options": [
+         {
+          "text": "Uma brincadeira",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "Algo sem importância",
+          "misconceptionCode": "so-um-lugar"
+         },
+         {
+          "text": "Um direito",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "Desrespeito, e é crime"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um colega diz que o lugar onde a família de outro colega reza é \"estranho\". O que responder?",
+        "options": [
+         {
+          "text": "Nada, e rir junto",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "Que só o seu é certo",
+          "misconceptionCode": "so-um-lugar"
+         },
+         {
+          "text": "Que cada tradição tem o seu lugar sagrado, e todos merecem respeito"
+         },
+         {
+          "text": "Que é estranho mesmo",
+          "misconceptionCode": "zomba-do-lugar"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Perto da sua escola há uma igreja, um terreiro e um centro espírita. Isso mostra que:",
+      "options": [
+       {
+        "text": "Só uma está certa",
+        "misconceptionCode": "so-um-lugar"
+       },
+       {
+        "text": "O bairro está errado",
+        "misconceptionCode": "zomba-do-lugar"
+       },
+       {
+        "text": "No bairro convivem pessoas de várias tradições"
+       },
+       {
+        "text": "As pessoas não se respeitam",
+        "misconceptionCode": "zomba-do-lugar"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A presença de vários espaços mostra a diversidade religiosa do lugar.",
+      "variants": [
+       {
+        "question": "Para conhecer os lugares sagrados do bairro, a turma pode:",
+        "options": [
+         {
+          "text": "Fazer uma lista, com respeito, perguntando às famílias"
+         },
+         {
+          "text": "Dizer qual é o melhor",
+          "misconceptionCode": "so-um-lugar"
+         },
+         {
+          "text": "Rir dos que não conhece",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "Não pesquisar",
+          "misconceptionCode": "zomba-do-lugar"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Perto da sua escola há uma igreja, um terreiro e um centro espírita. Isso mostra que:",
+        "options": [
+         {
+          "text": "As pessoas não se respeitam",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "O bairro está errado",
+          "misconceptionCode": "zomba-do-lugar"
+         },
+         {
+          "text": "Só uma está certa",
+          "misconceptionCode": "so-um-lugar"
+         },
+         {
+          "text": "No bairro convivem pessoas de várias tradições"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER01-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: os lugares sagrados",
+    "prompt": "Explique com as suas palavras o que é um lugar sagrado, dê dois exemplos de lugares de tradições diferentes e diga como devemos agir neles.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras o que é um lugar sagrado, dê dois exemplos de lugares de tradições diferentes e diga como devemos agir neles.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "definicao",
+       "description": "Diz que é um lugar especial para a fé de um grupo"
+      },
+      {
+       "code": "exemplos",
+       "description": "Dá dois exemplos de tradições diferentes"
+      },
+      {
+       "code": "respeito",
+       "description": "Diz que devemos agir com respeito"
+      }
+     ],
+     "exemploBoaResposta": "Lugar sagrado é um lugar muito especial para as pessoas de uma religião, onde elas rezam e se encontram. A igreja é o lugar sagrado dos cristãos, e o terreiro é o do candomblé. Em todos eles, devemos falar baixo e respeitar."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF03ER02",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: O que acontece nos lugares sagrados",
+  "tituloAluno": "Espaços para celebrar",
+  "activities": [
+   {
+    "id": "PK2-EF03ER02-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: os lugares sagrados",
+    "prompt": "Cada tradição tem os seus espaços.",
+    "estMinutes": 4,
+    "audioScript": "Cada tradição tem os seus espaços. Pergunta 1. O lugar onde os cristãos se reúnem é: A: A mesquita; B: O terreiro; C: A sinagoga; D: A igreja. Pergunta 2. As pessoas vão a um lugar sagrado para: A: Rezar, cantar e celebrar juntas; B: Fazer compras; C: Jogar futebol; D: Nada. Pergunta 3. O que é celebrar? A: Ficar sozinho; B: Comemorar algo importante, junto com outras pessoas; C: Trabalhar; D: Dormir.",
+    "questions": [
+     {
+      "question": "O lugar onde os cristãos se reúnem é:",
+      "options": [
+       {
+        "text": "A mesquita",
+        "misconceptionCode": "igual-em-todos"
+       },
+       {
+        "text": "O terreiro",
+        "misconceptionCode": "igual-em-todos"
+       },
+       {
+        "text": "A sinagoga",
+        "misconceptionCode": "igual-em-todos"
+       },
+       {
+        "text": "A igreja"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Cada tradição tem o seu lugar de encontro.",
+      "variants": [
+       {
+        "question": "O lugar onde os seguidores do candomblé se reúnem é:",
+        "options": [
+         {
+          "text": "A mesquita",
+          "misconceptionCode": "igual-em-todos"
+         },
+         {
+          "text": "O terreiro"
+         },
+         {
+          "text": "A igreja",
+          "misconceptionCode": "igual-em-todos"
+         },
+         {
+          "text": "A sinagoga",
+          "misconceptionCode": "igual-em-todos"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O lugar onde os cristãos se reúnem é:",
+        "options": [
+         {
+          "text": "A igreja"
+         },
+         {
+          "text": "A sinagoga",
+          "misconceptionCode": "igual-em-todos"
+         },
+         {
+          "text": "O terreiro",
+          "misconceptionCode": "igual-em-todos"
+         },
+         {
+          "text": "A mesquita",
+          "misconceptionCode": "igual-em-todos"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "As pessoas vão a um lugar sagrado para:",
+      "options": [
+       {
+        "text": "Rezar, cantar e celebrar juntas"
+       },
+       {
+        "text": "Fazer compras",
+        "misconceptionCode": "lugar-vazio"
+       },
+       {
+        "text": "Jogar futebol",
+        "misconceptionCode": "lugar-vazio"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "lugar-vazio"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O espaço religioso é um lugar de encontro e de celebração.",
+      "variants": [
+       {
+        "question": "Um lugar sagrado é importante porque:",
+        "options": [
+         {
+          "text": "É um prédio bonito, somente",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "É um lugar vazio",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "Ali as pessoas vivem a sua fé juntas"
+         },
+         {
+          "text": "Vende coisas",
+          "misconceptionCode": "lugar-vazio"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "As pessoas vão a um lugar sagrado para:",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "Rezar, cantar e celebrar juntas"
+         },
+         {
+          "text": "Jogar futebol",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "Fazer compras",
+          "misconceptionCode": "lugar-vazio"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O que é celebrar?",
+      "options": [
+       {
+        "text": "Ficar sozinho",
+        "misconceptionCode": "so-rezar-calado"
+       },
+       {
+        "text": "Comemorar algo importante, junto com outras pessoas"
+       },
+       {
+        "text": "Trabalhar",
+        "misconceptionCode": "lugar-vazio"
+       },
+       {
+        "text": "Dormir",
+        "misconceptionCode": "lugar-vazio"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Celebramos aniversários, casamentos e também momentos de fé.",
+      "variants": [
+       {
+        "question": "Uma festa de aniversário é uma forma de:",
+        "options": [
+         {
+          "text": "Trabalhar",
+          "misconceptionCode": "so-rezar-calado"
+         },
+         {
+          "text": "Estudar",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "Dormir",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "Celebrar"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que é celebrar?",
+        "options": [
+         {
+          "text": "Dormir",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "Trabalhar",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "Comemorar algo importante, junto com outras pessoas"
+         },
+         {
+          "text": "Ficar sozinho",
+          "misconceptionCode": "so-rezar-calado"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER02-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o que se faz em cada espaço",
+    "prompt": "Nos espaços religiosos, as pessoas rezam, cantam, dançam, leem textos sagrados, acendem velas, fazem oferendas e comem juntas. Cada tradição tem o seu jeito. Vamos ver juntos.",
+    "estMinutes": 4,
+    "audioScript": "Nos espaços religiosos, as pessoas rezam, cantam, dançam, leem textos sagrados, acendem velas, fazem oferendas e comem juntas. Cada tradição tem o seu jeito. Vamos ver juntos. Pergunta 1. Numa igreja, durante a missa ou o culto, as pessoas costumam: A: Fazer compras; B: Praticar esportes; C: Cantar, rezar e ouvir leituras; D: Ficar sem fazer nada. Pergunta 2. Num terreiro de candomblé, as celebrações têm: A: Só silêncio; B: Só leitura em voz baixa; C: Nenhuma música; D: Cantos, danças e toques de atabaque. Pergunta 3. Num templo budista, é comum as pessoas: A: Meditarem em silêncio; B: Dançarem ao som de atabaques; C: Fazerem a mesma coisa que em todos os outros lugares; D: Jogarem bola.",
+    "questions": [
+     {
+      "question": "Numa igreja, durante a missa ou o culto, as pessoas costumam:",
+      "options": [
+       {
+        "text": "Fazer compras",
+        "misconceptionCode": "lugar-vazio"
+       },
+       {
+        "text": "Praticar esportes",
+        "misconceptionCode": "lugar-vazio"
+       },
+       {
+        "text": "Cantar, rezar e ouvir leituras"
+       },
+       {
+        "text": "Ficar sem fazer nada",
+        "misconceptionCode": "lugar-vazio"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A celebração reúne canto, oração e ensinamentos.",
+      "variants": [
+       {
+        "question": "Numa sinagoga, as pessoas costumam:",
+        "options": [
+         {
+          "text": "Rezar e ler os textos sagrados do judaísmo"
+         },
+         {
+          "text": "Fazer compras",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "Praticar esportes",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "Ficar sem fazer nada",
+          "misconceptionCode": "lugar-vazio"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Numa igreja, durante a missa ou o culto, as pessoas costumam:",
+        "options": [
+         {
+          "text": "Ficar sem fazer nada",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "Praticar esportes",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "Fazer compras",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "Cantar, rezar e ouvir leituras"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Num terreiro de candomblé, as celebrações têm:",
+      "options": [
+       {
+        "text": "Só silêncio",
+        "misconceptionCode": "so-rezar-calado"
+       },
+       {
+        "text": "Só leitura em voz baixa",
+        "misconceptionCode": "so-rezar-calado"
+       },
+       {
+        "text": "Nenhuma música",
+        "misconceptionCode": "so-rezar-calado"
+       },
+       {
+        "text": "Cantos, danças e toques de atabaque"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Nas religiões de matriz africana, a música e a dança são formas de oração.",
+      "variants": [
+       {
+        "question": "Numa festa indígena, as celebrações podem ter:",
+        "options": [
+         {
+          "text": "Só silêncio",
+          "misconceptionCode": "so-rezar-calado"
+         },
+         {
+          "text": "Cantos, danças e pinturas corporais"
+         },
+         {
+          "text": "Só leitura em voz baixa",
+          "misconceptionCode": "so-rezar-calado"
+         },
+         {
+          "text": "Nenhum movimento",
+          "misconceptionCode": "so-rezar-calado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Num terreiro de candomblé, as celebrações têm:",
+        "options": [
+         {
+          "text": "Cantos, danças e toques de atabaque"
+         },
+         {
+          "text": "Nenhuma música",
+          "misconceptionCode": "so-rezar-calado"
+         },
+         {
+          "text": "Só leitura em voz baixa",
+          "misconceptionCode": "so-rezar-calado"
+         },
+         {
+          "text": "Só silêncio",
+          "misconceptionCode": "so-rezar-calado"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Num templo budista, é comum as pessoas:",
+      "options": [
+       {
+        "text": "Meditarem em silêncio"
+       },
+       {
+        "text": "Dançarem ao som de atabaques",
+        "misconceptionCode": "igual-em-todos"
+       },
+       {
+        "text": "Fazerem a mesma coisa que em todos os outros lugares",
+        "misconceptionCode": "igual-em-todos"
+       },
+       {
+        "text": "Jogarem bola",
+        "misconceptionCode": "lugar-vazio"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Cada tradição celebra do seu jeito: algumas com silêncio, outras com música e dança.",
+      "variants": [
+       {
+        "question": "Numa mesquita, os muçulmanos rezam:",
+        "options": [
+         {
+          "text": "Dançando ao som de atabaques",
+          "misconceptionCode": "igual-em-todos"
+         },
+         {
+          "text": "Exatamente como em todos os outros lugares",
+          "misconceptionCode": "igual-em-todos"
+         },
+         {
+          "text": "Voltados para a cidade sagrada de Meca, fazendo movimentos com o corpo"
+         },
+         {
+          "text": "Jogando bola",
+          "misconceptionCode": "lugar-vazio"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Num templo budista, é comum as pessoas:",
+        "options": [
+         {
+          "text": "Jogarem bola",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "Meditarem em silêncio"
+         },
+         {
+          "text": "Fazerem a mesma coisa que em todos os outros lugares",
+          "misconceptionCode": "igual-em-todos"
+         },
+         {
+          "text": "Dançarem ao som de atabaques",
+          "misconceptionCode": "igual-em-todos"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER02-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: objetos e partes do espaço",
+    "prompt": "Tudo ali tem um sentido.",
+    "estMinutes": 5,
+    "audioScript": "Tudo ali tem um sentido. Pergunta 1. O altar, encontrado em muitos espaços religiosos, é: A: Uma mesa qualquer; B: O lugar principal das celebrações; C: Um enfeite; D: Um armário. Pergunta 2. As velas acesas num lugar sagrado costumam representar: A: A falta de energia elétrica; B: Um enfeite sem sentido; C: A fé, a oração e a luz; D: Uma brincadeira. Pergunta 3. Em todos os espaços religiosos se faz exatamente a mesma coisa? A: Sim, é tudo igual; B: Sim, só muda o prédio; C: Sim, por lei; D: Não, cada tradição tem as suas práticas. Pergunta 4. Em muitos espaços religiosos, depois da celebração, as pessoas comem juntas. Isso serve para: A: Fortalecer a amizade e a união do grupo; B: Nada; C: Vender comida; D: Passar o tempo.",
+    "questions": [
+     {
+      "question": "O altar, encontrado em muitos espaços religiosos, é:",
+      "options": [
+       {
+        "text": "Uma mesa qualquer",
+        "misconceptionCode": "objetos-sem-sentido"
+       },
+       {
+        "text": "O lugar principal das celebrações"
+       },
+       {
+        "text": "Um enfeite",
+        "misconceptionCode": "objetos-sem-sentido"
+       },
+       {
+        "text": "Um armário",
+        "misconceptionCode": "objetos-sem-sentido"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O altar é um lugar especial, onde acontecem os momentos mais importantes.",
+      "variants": [
+       {
+        "question": "Nos terreiros, os atabaques são:",
+        "options": [
+         {
+          "text": "Brinquedos",
+          "misconceptionCode": "objetos-sem-sentido"
+         },
+         {
+          "text": "Enfeites",
+          "misconceptionCode": "objetos-sem-sentido"
+         },
+         {
+          "text": "Móveis",
+          "misconceptionCode": "objetos-sem-sentido"
+         },
+         {
+          "text": "Instrumentos sagrados, usados nas celebrações"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O altar, encontrado em muitos espaços religiosos, é:",
+        "options": [
+         {
+          "text": "Um armário",
+          "misconceptionCode": "objetos-sem-sentido"
+         },
+         {
+          "text": "Um enfeite",
+          "misconceptionCode": "objetos-sem-sentido"
+         },
+         {
+          "text": "O lugar principal das celebrações"
+         },
+         {
+          "text": "Uma mesa qualquer",
+          "misconceptionCode": "objetos-sem-sentido"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "As velas acesas num lugar sagrado costumam representar:",
+      "options": [
+       {
+        "text": "A falta de energia elétrica",
+        "misconceptionCode": "objetos-sem-sentido"
+       },
+       {
+        "text": "Um enfeite sem sentido",
+        "misconceptionCode": "objetos-sem-sentido"
+       },
+       {
+        "text": "A fé, a oração e a luz"
+       },
+       {
+        "text": "Uma brincadeira",
+        "misconceptionCode": "objetos-sem-sentido"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Em muitas tradições, a luz da vela é um símbolo.",
+      "variants": [
+       {
+        "question": "O incenso queimado em alguns templos representa:",
+        "options": [
+         {
+          "text": "Uma forma de oração e de purificação"
+         },
+         {
+          "text": "Um perfume para vender",
+          "misconceptionCode": "objetos-sem-sentido"
+         },
+         {
+          "text": "Um enfeite sem sentido",
+          "misconceptionCode": "objetos-sem-sentido"
+         },
+         {
+          "text": "Uma brincadeira",
+          "misconceptionCode": "objetos-sem-sentido"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "As velas acesas num lugar sagrado costumam representar:",
+        "options": [
+         {
+          "text": "Uma brincadeira",
+          "misconceptionCode": "objetos-sem-sentido"
+         },
+         {
+          "text": "Um enfeite sem sentido",
+          "misconceptionCode": "objetos-sem-sentido"
+         },
+         {
+          "text": "A falta de energia elétrica",
+          "misconceptionCode": "objetos-sem-sentido"
+         },
+         {
+          "text": "A fé, a oração e a luz"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Em todos os espaços religiosos se faz exatamente a mesma coisa?",
+      "options": [
+       {
+        "text": "Sim, é tudo igual",
+        "misconceptionCode": "igual-em-todos"
+       },
+       {
+        "text": "Sim, só muda o prédio",
+        "misconceptionCode": "igual-em-todos"
+       },
+       {
+        "text": "Sim, por lei",
+        "misconceptionCode": "igual-em-todos"
+       },
+       {
+        "text": "Não, cada tradição tem as suas práticas"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Há jeitos diferentes de rezar e de celebrar.",
+      "variants": [
+       {
+        "question": "Em algumas tradições se reza em silêncio; em outras, com música e dança. Isso mostra que:",
+        "options": [
+         {
+          "text": "Só uma está certa",
+          "misconceptionCode": "igual-em-todos"
+         },
+         {
+          "text": "Há muitas formas de celebrar"
+         },
+         {
+          "text": "As outras estão erradas",
+          "misconceptionCode": "igual-em-todos"
+         },
+         {
+          "text": "Ninguém sabe rezar",
+          "misconceptionCode": "igual-em-todos"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Em todos os espaços religiosos se faz exatamente a mesma coisa?",
+        "options": [
+         {
+          "text": "Não, cada tradição tem as suas práticas"
+         },
+         {
+          "text": "Sim, por lei",
+          "misconceptionCode": "igual-em-todos"
+         },
+         {
+          "text": "Sim, só muda o prédio",
+          "misconceptionCode": "igual-em-todos"
+         },
+         {
+          "text": "Sim, é tudo igual",
+          "misconceptionCode": "igual-em-todos"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Em muitos espaços religiosos, depois da celebração, as pessoas comem juntas. Isso serve para:",
+      "options": [
+       {
+        "text": "Fortalecer a amizade e a união do grupo"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "lugar-vazio"
+       },
+       {
+        "text": "Vender comida",
+        "misconceptionCode": "lugar-vazio"
+       },
+       {
+        "text": "Passar o tempo",
+        "misconceptionCode": "lugar-vazio"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Partilhar o alimento é um gesto de união em muitas tradições.",
+      "variants": [
+       {
+        "question": "Nas festas das religiões de matriz africana, é comum oferecer comida a todos os presentes. Isso mostra:",
+        "options": [
+         {
+          "text": "Desperdício",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "Comércio",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "Acolhimento e partilha"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "lugar-vazio"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Em muitos espaços religiosos, depois da celebração, as pessoas comem juntas. Isso serve para:",
+        "options": [
+         {
+          "text": "Passar o tempo",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "Fortalecer a amizade e a união do grupo"
+         },
+         {
+          "text": "Vender comida",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "lugar-vazio"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER02-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: entendendo e respeitando",
+    "prompt": "Olhe com atenção e respeito.",
+    "estMinutes": 4,
+    "audioScript": "Olhe com atenção e respeito. Pergunta 1. Numa visita a um espaço religioso, você vê um objeto que não conhece. O que fazer? A: Pegar sem pedir; B: Perguntar com respeito o que ele significa; C: Rir; D: Dizer que é esquisito. Pergunta 2. Um colega conta que na religião dele as pessoas dançam para rezar. O que você pensa? A: Que não é oração de verdade; B: Que é errado; C: Que é uma forma de celebrar diferente da minha, e merece respeito; D: Que é engraçado. Pergunta 3. Por que um espaço religioso é mais do que um prédio? A: Porque é grande; B: Porque é antigo; C: Não é mais do que um prédio; D: Porque é o lugar onde uma comunidade se encontra e celebra.",
+    "questions": [
+     {
+      "question": "Numa visita a um espaço religioso, você vê um objeto que não conhece. O que fazer?",
+      "options": [
+       {
+        "text": "Pegar sem pedir",
+        "misconceptionCode": "objetos-sem-sentido"
+       },
+       {
+        "text": "Perguntar com respeito o que ele significa"
+       },
+       {
+        "text": "Rir",
+        "misconceptionCode": "objetos-sem-sentido"
+       },
+       {
+        "text": "Dizer que é esquisito",
+        "misconceptionCode": "objetos-sem-sentido"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Perguntar com respeito é um bom jeito de aprender.",
+      "variants": [
+       {
+        "question": "Numa visita a um terreiro, você vê os atabaques. O que fazer?",
+        "options": [
+         {
+          "text": "Bater neles sem pedir",
+          "misconceptionCode": "objetos-sem-sentido"
+         },
+         {
+          "text": "Rir",
+          "misconceptionCode": "objetos-sem-sentido"
+         },
+         {
+          "text": "Dizer que são só tambores",
+          "misconceptionCode": "objetos-sem-sentido"
+         },
+         {
+          "text": "Olhar com respeito e só tocar se for convidado"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Numa visita a um espaço religioso, você vê um objeto que não conhece. O que fazer?",
+        "options": [
+         {
+          "text": "Dizer que é esquisito",
+          "misconceptionCode": "objetos-sem-sentido"
+         },
+         {
+          "text": "Rir",
+          "misconceptionCode": "objetos-sem-sentido"
+         },
+         {
+          "text": "Perguntar com respeito o que ele significa"
+         },
+         {
+          "text": "Pegar sem pedir",
+          "misconceptionCode": "objetos-sem-sentido"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um colega conta que na religião dele as pessoas dançam para rezar. O que você pensa?",
+      "options": [
+       {
+        "text": "Que não é oração de verdade",
+        "misconceptionCode": "so-rezar-calado"
+       },
+       {
+        "text": "Que é errado",
+        "misconceptionCode": "so-rezar-calado"
+       },
+       {
+        "text": "Que é uma forma de celebrar diferente da minha, e merece respeito"
+       },
+       {
+        "text": "Que é engraçado",
+        "misconceptionCode": "igual-em-todos"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Dançar, cantar e ficar em silêncio são formas de oração.",
+      "variants": [
+       {
+        "question": "Uma colega conta que na religião dela as pessoas rezam em silêncio por muito tempo. O que você pensa?",
+        "options": [
+         {
+          "text": "Que é uma forma de celebrar diferente da minha, e merece respeito"
+         },
+         {
+          "text": "Que não é oração de verdade",
+          "misconceptionCode": "so-rezar-calado"
+         },
+         {
+          "text": "Que é errado",
+          "misconceptionCode": "so-rezar-calado"
+         },
+         {
+          "text": "Que é chato",
+          "misconceptionCode": "igual-em-todos"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um colega conta que na religião dele as pessoas dançam para rezar. O que você pensa?",
+        "options": [
+         {
+          "text": "Que é engraçado",
+          "misconceptionCode": "igual-em-todos"
+         },
+         {
+          "text": "Que é errado",
+          "misconceptionCode": "so-rezar-calado"
+         },
+         {
+          "text": "Que não é oração de verdade",
+          "misconceptionCode": "so-rezar-calado"
+         },
+         {
+          "text": "Que é uma forma de celebrar diferente da minha, e merece respeito"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Por que um espaço religioso é mais do que um prédio?",
+      "options": [
+       {
+        "text": "Porque é grande",
+        "misconceptionCode": "lugar-vazio"
+       },
+       {
+        "text": "Porque é antigo",
+        "misconceptionCode": "lugar-vazio"
+       },
+       {
+        "text": "Não é mais do que um prédio",
+        "misconceptionCode": "lugar-vazio"
+       },
+       {
+        "text": "Porque é o lugar onde uma comunidade se encontra e celebra"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O que faz o lugar ser especial são as pessoas e o que elas vivem ali.",
+      "variants": [
+       {
+        "question": "O que torna um terreiro ou uma igreja um lugar especial?",
+        "options": [
+         {
+          "text": "O tamanho",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "As pessoas que se reúnem e o que celebram ali"
+         },
+         {
+          "text": "A cor das paredes",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "O preço",
+          "misconceptionCode": "lugar-vazio"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Por que um espaço religioso é mais do que um prédio?",
+        "options": [
+         {
+          "text": "Porque é o lugar onde uma comunidade se encontra e celebra"
+         },
+         {
+          "text": "Não é mais do que um prédio",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "Porque é antigo",
+          "misconceptionCode": "lugar-vazio"
+         },
+         {
+          "text": "Porque é grande",
+          "misconceptionCode": "lugar-vazio"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER02-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: o que acontece num lugar sagrado",
+    "prompt": "Escolha um espaço religioso que você conhece ou sobre o qual aprendeu e explique com as suas palavras o que as pessoas fazem lá.",
+    "estMinutes": 6,
+    "audioScript": "Escolha um espaço religioso que você conhece ou sobre o qual aprendeu e explique com as suas palavras o que as pessoas fazem lá.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "espaco",
+       "description": "Indica um espaço religioso"
+      },
+      {
+       "code": "praticas",
+       "description": "Descreve o que as pessoas fazem (cantam, rezam, dançam, meditam, leem)"
+      },
+      {
+       "code": "sentido",
+       "description": "Mostra que o lugar é de encontro e celebração, com respeito"
+      }
+     ],
+     "exemploBoaResposta": "Eu aprendi sobre o terreiro de candomblé. Lá as pessoas se reúnem para celebrar com cantos, danças e toques de atabaque. Depois, todos comem juntos. É um lugar de encontro e de fé para essa comunidade."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF03ER03",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: Celebrações religiosas",
+  "tituloAluno": "Festas, orações e caminhadas de fé",
+  "activities": [
+   {
+    "id": "PK2-EF03ER03-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: celebrar",
+    "prompt": "Celebrar é comemorar algo importante.",
+    "estMinutes": 4,
+    "audioScript": "Celebrar é comemorar algo importante. Pergunta 1. O que comemoramos numa festa de aniversário? A: O dia em que a pessoa nasceu; B: O fim das aulas; C: O dia da semana; D: Nada. Pergunta 2. Nas festas, as pessoas costumam: A: Ficar sozinhas; B: Reunir-se, cantar, comer e se alegrar juntas; C: Trabalhar; D: Brigar. Pergunta 3. As religiões também têm festas e celebrações? A: Não, só as famílias têm festas; B: Só uma religião tem; C: Sim, cada tradição tem as suas; D: Nenhuma tem.",
+    "questions": [
+     {
+      "question": "O que comemoramos numa festa de aniversário?",
+      "options": [
+       {
+        "text": "O dia em que a pessoa nasceu"
+       },
+       {
+        "text": "O fim das aulas",
+        "misconceptionCode": "festa-so-comida"
+       },
+       {
+        "text": "O dia da semana",
+        "misconceptionCode": "festa-so-comida"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "festa-so-comida"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Celebramos para lembrar e festejar algo importante.",
+      "variants": [
+       {
+        "question": "O que comemoramos numa festa de casamento?",
+        "options": [
+         {
+          "text": "O fim das aulas",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "Um jogo de futebol",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "A união de duas pessoas"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "festa-so-comida"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que comemoramos numa festa de aniversário?",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "O dia em que a pessoa nasceu"
+         },
+         {
+          "text": "O dia da semana",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "O fim das aulas",
+          "misconceptionCode": "festa-so-comida"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Nas festas, as pessoas costumam:",
+      "options": [
+       {
+        "text": "Ficar sozinhas",
+        "misconceptionCode": "festa-so-comida"
+       },
+       {
+        "text": "Reunir-se, cantar, comer e se alegrar juntas"
+       },
+       {
+        "text": "Trabalhar",
+        "misconceptionCode": "festa-so-comida"
+       },
+       {
+        "text": "Brigar",
+        "misconceptionCode": "so-a-minha-festa"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A festa une as pessoas.",
+      "variants": [
+       {
+        "question": "Uma celebração reúne:",
+        "options": [
+         {
+          "text": "Pessoas que não se conhecem e não querem se conhecer",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "Só uma pessoa",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "Ninguém",
+          "misconceptionCode": "so-a-minha-festa"
+         },
+         {
+          "text": "Pessoas que têm algo em comum para comemorar"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Nas festas, as pessoas costumam:",
+        "options": [
+         {
+          "text": "Brigar",
+          "misconceptionCode": "so-a-minha-festa"
+         },
+         {
+          "text": "Trabalhar",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "Reunir-se, cantar, comer e se alegrar juntas"
+         },
+         {
+          "text": "Ficar sozinhas",
+          "misconceptionCode": "festa-so-comida"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "As religiões também têm festas e celebrações?",
+      "options": [
+       {
+        "text": "Não, só as famílias têm festas",
+        "misconceptionCode": "todos-comemoram"
+       },
+       {
+        "text": "Só uma religião tem",
+        "misconceptionCode": "so-a-minha-festa"
+       },
+       {
+        "text": "Sim, cada tradição tem as suas"
+       },
+       {
+        "text": "Nenhuma tem",
+        "misconceptionCode": "todos-comemoram"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "As celebrações lembram momentos importantes para cada fé.",
+      "variants": [
+       {
+        "question": "As festas religiosas servem para:",
+        "options": [
+         {
+          "text": "Lembrar e celebrar momentos importantes da fé"
+         },
+         {
+          "text": "Vender produtos",
+          "misconceptionCode": "todos-comemoram"
+         },
+         {
+          "text": "Passar o tempo",
+          "misconceptionCode": "so-a-minha-festa"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "todos-comemoram"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "As religiões também têm festas e celebrações?",
+        "options": [
+         {
+          "text": "Nenhuma tem",
+          "misconceptionCode": "todos-comemoram"
+         },
+         {
+          "text": "Só uma religião tem",
+          "misconceptionCode": "so-a-minha-festa"
+         },
+         {
+          "text": "Não, só as famílias têm festas",
+          "misconceptionCode": "todos-comemoram"
+         },
+         {
+          "text": "Sim, cada tradição tem as suas"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER03-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: celebrações de várias tradições",
+    "prompt": "Cada tradição tem cerimônias, orações, festas e, às vezes, caminhadas de fé chamadas peregrinações. Vamos conhecer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Cada tradição tem cerimônias, orações, festas e, às vezes, caminhadas de fé chamadas peregrinações. Vamos conhecer juntos. Pergunta 1. O Natal é uma festa em que os cristãos comemoram: A: O Ano-Novo; B: O fim das aulas; C: A chegada do Papai Noel, somente; D: O nascimento de Jesus. Pergunta 2. A festa de Iemanjá, em 2 de fevereiro, com flores levadas ao mar, é uma celebração: A: Das religiões de matriz africana; B: Do judaísmo; C: Do budismo; D: Do islamismo. Pergunta 3. O que é uma peregrinação? A: Uma festa de aniversário; B: Uma viagem ou caminhada até um lugar sagrado; C: Um jogo; D: Um passeio no shopping.",
+    "questions": [
+     {
+      "question": "O Natal é uma festa em que os cristãos comemoram:",
+      "options": [
+       {
+        "text": "O Ano-Novo",
+        "misconceptionCode": "troca-celebracoes"
+       },
+       {
+        "text": "O fim das aulas",
+        "misconceptionCode": "festa-so-comida"
+       },
+       {
+        "text": "A chegada do Papai Noel, somente",
+        "misconceptionCode": "festa-so-comida"
+       },
+       {
+        "text": "O nascimento de Jesus"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Para os cristãos, o Natal lembra o nascimento de Jesus.",
+      "variants": [
+       {
+        "question": "A Páscoa é uma festa em que os cristãos comemoram:",
+        "options": [
+         {
+          "text": "O Ano-Novo",
+          "misconceptionCode": "troca-celebracoes"
+         },
+         {
+          "text": "A ressurreição de Jesus"
+         },
+         {
+          "text": "O fim das aulas",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "O coelho, somente",
+          "misconceptionCode": "festa-so-comida"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O Natal é uma festa em que os cristãos comemoram:",
+        "options": [
+         {
+          "text": "O nascimento de Jesus"
+         },
+         {
+          "text": "A chegada do Papai Noel, somente",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "O fim das aulas",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "O Ano-Novo",
+          "misconceptionCode": "troca-celebracoes"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "A festa de Iemanjá, em 2 de fevereiro, com flores levadas ao mar, é uma celebração:",
+      "options": [
+       {
+        "text": "Das religiões de matriz africana"
+       },
+       {
+        "text": "Do judaísmo",
+        "misconceptionCode": "troca-celebracoes"
+       },
+       {
+        "text": "Do budismo",
+        "misconceptionCode": "troca-celebracoes"
+       },
+       {
+        "text": "Do islamismo",
+        "misconceptionCode": "troca-celebracoes"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Iemanjá é a orixá das águas do mar. Milhares de pessoas participam da festa em Salvador.",
+      "variants": [
+       {
+        "question": "O Ramadã, mês de jejum e oração, é uma celebração:",
+        "options": [
+         {
+          "text": "Do candomblé",
+          "misconceptionCode": "troca-celebracoes"
+         },
+         {
+          "text": "Do budismo",
+          "misconceptionCode": "troca-celebracoes"
+         },
+         {
+          "text": "Do islamismo"
+         },
+         {
+          "text": "Do cristianismo",
+          "misconceptionCode": "troca-celebracoes"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A festa de Iemanjá, em 2 de fevereiro, com flores levadas ao mar, é uma celebração:",
+        "options": [
+         {
+          "text": "Do islamismo",
+          "misconceptionCode": "troca-celebracoes"
+         },
+         {
+          "text": "Das religiões de matriz africana"
+         },
+         {
+          "text": "Do budismo",
+          "misconceptionCode": "troca-celebracoes"
+         },
+         {
+          "text": "Do judaísmo",
+          "misconceptionCode": "troca-celebracoes"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O que é uma peregrinação?",
+      "options": [
+       {
+        "text": "Uma festa de aniversário",
+        "misconceptionCode": "troca-celebracoes"
+       },
+       {
+        "text": "Uma viagem ou caminhada até um lugar sagrado"
+       },
+       {
+        "text": "Um jogo",
+        "misconceptionCode": "festa-so-comida"
+       },
+       {
+        "text": "Um passeio no shopping",
+        "misconceptionCode": "festa-so-comida"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Na peregrinação, as pessoas caminham por fé, para agradecer ou pedir.",
+      "variants": [
+       {
+        "question": "Pessoas que caminham muitos quilômetros até um santuário estão fazendo:",
+        "options": [
+         {
+          "text": "Uma corrida",
+          "misconceptionCode": "troca-celebracoes"
+         },
+         {
+          "text": "Um passeio de compras",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "Uma brincadeira",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "Uma peregrinação"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que é uma peregrinação?",
+        "options": [
+         {
+          "text": "Um passeio no shopping",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "Um jogo",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "Uma viagem ou caminhada até um lugar sagrado"
+         },
+         {
+          "text": "Uma festa de aniversário",
+          "misconceptionCode": "troca-celebracoes"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER03-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: reconhecendo as celebrações",
+    "prompt": "Cada uma tem o seu sentido.",
+    "estMinutes": 5,
+    "audioScript": "Cada uma tem o seu sentido. Pergunta 1. Rezar é: A: Uma brincadeira; B: Um tipo de comida; C: Uma forma de falar com o sagrado, presente em muitas tradições; D: Algo de uma só religião. Pergunta 2. A Lavagem do Bonfim, em Salvador, reúne: A: Só turistas; B: Só atletas; C: Ninguém; D: Pessoas do catolicismo e das religiões de matriz africana. Pergunta 3. Todas as pessoas comemoram as mesmas festas religiosas? A: Não, cada tradição tem as suas, e há quem não comemore nenhuma; B: Sim, todas comemoram tudo; C: Sim, é obrigatório; D: Sim, no mundo inteiro. Pergunta 4. Uma festa religiosa é só comida e diversão? A: Sim, é só comida; B: Não, ela tem um sentido de fé para quem celebra; C: Sim, é só música; D: Sim, é só feriado.",
+    "questions": [
+     {
+      "question": "Rezar é:",
+      "options": [
+       {
+        "text": "Uma brincadeira",
+        "misconceptionCode": "festa-so-comida"
+       },
+       {
+        "text": "Um tipo de comida",
+        "misconceptionCode": "festa-so-comida"
+       },
+       {
+        "text": "Uma forma de falar com o sagrado, presente em muitas tradições"
+       },
+       {
+        "text": "Algo de uma só religião",
+        "misconceptionCode": "so-a-minha-festa"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Cada tradição tem as suas orações e os seus jeitos de rezar.",
+      "variants": [
+       {
+        "question": "Orações, cantos e meditação são:",
+        "options": [
+         {
+          "text": "Formas de celebrar a fé"
+         },
+         {
+          "text": "Brincadeiras",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "Tipos de comida",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "Esportes",
+          "misconceptionCode": "so-a-minha-festa"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Rezar é:",
+        "options": [
+         {
+          "text": "Algo de uma só religião",
+          "misconceptionCode": "so-a-minha-festa"
+         },
+         {
+          "text": "Um tipo de comida",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "Uma brincadeira",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "Uma forma de falar com o sagrado, presente em muitas tradições"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "A Lavagem do Bonfim, em Salvador, reúne:",
+      "options": [
+       {
+        "text": "Só turistas",
+        "misconceptionCode": "festa-so-comida"
+       },
+       {
+        "text": "Só atletas",
+        "misconceptionCode": "festa-so-comida"
+       },
+       {
+        "text": "Ninguém",
+        "misconceptionCode": "todos-comemoram"
+       },
+       {
+        "text": "Pessoas do catolicismo e das religiões de matriz africana"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "É uma grande festa popular e religiosa, em que diferentes tradições se encontram.",
+      "variants": [
+       {
+        "question": "Nas festas juninas, comemoram-se santos como:",
+        "options": [
+         {
+          "text": "Papai Noel",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "São João, Santo Antônio e São Pedro"
+         },
+         {
+          "text": "Iemanjá",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "Buda",
+          "misconceptionCode": "todos-comemoram"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A Lavagem do Bonfim, em Salvador, reúne:",
+        "options": [
+         {
+          "text": "Pessoas do catolicismo e das religiões de matriz africana"
+         },
+         {
+          "text": "Ninguém",
+          "misconceptionCode": "todos-comemoram"
+         },
+         {
+          "text": "Só atletas",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "Só turistas",
+          "misconceptionCode": "festa-so-comida"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Todas as pessoas comemoram as mesmas festas religiosas?",
+      "options": [
+       {
+        "text": "Não, cada tradição tem as suas, e há quem não comemore nenhuma"
+       },
+       {
+        "text": "Sim, todas comemoram tudo",
+        "misconceptionCode": "todos-comemoram"
+       },
+       {
+        "text": "Sim, é obrigatório",
+        "misconceptionCode": "todos-comemoram"
+       },
+       {
+        "text": "Sim, no mundo inteiro",
+        "misconceptionCode": "todos-comemoram"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Há famílias que não comemoram o Natal ou as festas juninas, por exemplo.",
+      "variants": [
+       {
+        "question": "Um colega não participa da festa junina por causa da religião da família. Isso é:",
+        "options": [
+         {
+          "text": "Errado",
+          "misconceptionCode": "todos-comemoram"
+         },
+         {
+          "text": "Estranho",
+          "misconceptionCode": "todos-comemoram"
+         },
+         {
+          "text": "Um direito dele, que deve ser respeitado"
+         },
+         {
+          "text": "Motivo de piada",
+          "misconceptionCode": "todos-comemoram"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Todas as pessoas comemoram as mesmas festas religiosas?",
+        "options": [
+         {
+          "text": "Sim, no mundo inteiro",
+          "misconceptionCode": "todos-comemoram"
+         },
+         {
+          "text": "Não, cada tradição tem as suas, e há quem não comemore nenhuma"
+         },
+         {
+          "text": "Sim, é obrigatório",
+          "misconceptionCode": "todos-comemoram"
+         },
+         {
+          "text": "Sim, todas comemoram tudo",
+          "misconceptionCode": "todos-comemoram"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Uma festa religiosa é só comida e diversão?",
+      "options": [
+       {
+        "text": "Sim, é só comida",
+        "misconceptionCode": "festa-so-comida"
+       },
+       {
+        "text": "Não, ela tem um sentido de fé para quem celebra"
+       },
+       {
+        "text": "Sim, é só música",
+        "misconceptionCode": "festa-so-comida"
+       },
+       {
+        "text": "Sim, é só feriado",
+        "misconceptionCode": "festa-so-comida"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A comida e a música fazem parte, mas a festa lembra algo importante para a fé.",
+      "variants": [
+       {
+        "question": "Para quem participa, uma procissão é:",
+        "options": [
+         {
+          "text": "Um desfile de moda",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "Um bloco de Carnaval",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "Um passeio qualquer",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "Um gesto de fé"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Uma festa religiosa é só comida e diversão?",
+        "options": [
+         {
+          "text": "Sim, é só feriado",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "Sim, é só música",
+          "misconceptionCode": "festa-so-comida"
+         },
+         {
+          "text": "Não, ela tem um sentido de fé para quem celebra"
+         },
+         {
+          "text": "Sim, é só comida",
+          "misconceptionCode": "festa-so-comida"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER03-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: respeito às celebrações",
+    "prompt": "Conviver com as diferenças.",
+    "estMinutes": 4,
+    "audioScript": "Conviver com as diferenças. Pergunta 1. Um colega faltou à aula para participar de uma celebração da religião dele. O que é correto? A: Zombar; B: Dizer que a festa dele não vale; C: Respeitar; D: Reclamar. Pergunta 2. Você vê uma procissão passando na rua. O que fazer? A: Gritar; B: Rir das pessoas; C: Passar no meio correndo; D: Respeitar e não atrapalhar. Pergunta 3. A escola vai falar das celebrações de várias religiões. Isso é bom porque: A: Ajuda a conhecer e a respeitar todas; B: Mostra qual é a melhor; C: Obriga todos a participar; D: Não serve para nada.",
+    "questions": [
+     {
+      "question": "Um colega faltou à aula para participar de uma celebração da religião dele. O que é correto?",
+      "options": [
+       {
+        "text": "Zombar",
+        "misconceptionCode": "so-a-minha-festa"
+       },
+       {
+        "text": "Dizer que a festa dele não vale",
+        "misconceptionCode": "so-a-minha-festa"
+       },
+       {
+        "text": "Respeitar"
+       },
+       {
+        "text": "Reclamar",
+        "misconceptionCode": "so-a-minha-festa"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Cada pessoa tem o direito de viver as celebrações da sua tradição.",
+      "variants": [
+       {
+        "question": "Uma colega conta sobre uma festa da religião dela que você não conhece. O que fazer?",
+        "options": [
+         {
+          "text": "Ouvir com interesse e respeito"
+         },
+         {
+          "text": "Rir",
+          "misconceptionCode": "so-a-minha-festa"
+         },
+         {
+          "text": "Dizer que só a sua festa é boa",
+          "misconceptionCode": "so-a-minha-festa"
+         },
+         {
+          "text": "Mudar de assunto",
+          "misconceptionCode": "so-a-minha-festa"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um colega faltou à aula para participar de uma celebração da religião dele. O que é correto?",
+        "options": [
+         {
+          "text": "Reclamar",
+          "misconceptionCode": "so-a-minha-festa"
+         },
+         {
+          "text": "Dizer que a festa dele não vale",
+          "misconceptionCode": "so-a-minha-festa"
+         },
+         {
+          "text": "Zombar",
+          "misconceptionCode": "so-a-minha-festa"
+         },
+         {
+          "text": "Respeitar"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Você vê uma procissão passando na rua. O que fazer?",
+      "options": [
+       {
+        "text": "Gritar",
+        "misconceptionCode": "so-a-minha-festa"
+       },
+       {
+        "text": "Rir das pessoas",
+        "misconceptionCode": "so-a-minha-festa"
+       },
+       {
+        "text": "Passar no meio correndo",
+        "misconceptionCode": "so-a-minha-festa"
+       },
+       {
+        "text": "Respeitar e não atrapalhar"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Quem não participa também pode respeitar.",
+      "variants": [
+       {
+        "question": "Você vê pessoas levando flores ao mar na festa de Iemanjá. O que fazer?",
+        "options": [
+         {
+          "text": "Rir",
+          "misconceptionCode": "so-a-minha-festa"
+         },
+         {
+          "text": "Respeitar o momento de fé delas"
+         },
+         {
+          "text": "Pegar as flores",
+          "misconceptionCode": "so-a-minha-festa"
+         },
+         {
+          "text": "Atrapalhar",
+          "misconceptionCode": "so-a-minha-festa"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Você vê uma procissão passando na rua. O que fazer?",
+        "options": [
+         {
+          "text": "Respeitar e não atrapalhar"
+         },
+         {
+          "text": "Passar no meio correndo",
+          "misconceptionCode": "so-a-minha-festa"
+         },
+         {
+          "text": "Rir das pessoas",
+          "misconceptionCode": "so-a-minha-festa"
+         },
+         {
+          "text": "Gritar",
+          "misconceptionCode": "so-a-minha-festa"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "A escola vai falar das celebrações de várias religiões. Isso é bom porque:",
+      "options": [
+       {
+        "text": "Ajuda a conhecer e a respeitar todas"
+       },
+       {
+        "text": "Mostra qual é a melhor",
+        "misconceptionCode": "so-a-minha-festa"
+       },
+       {
+        "text": "Obriga todos a participar",
+        "misconceptionCode": "todos-comemoram"
+       },
+       {
+        "text": "Não serve para nada",
+        "misconceptionCode": "so-a-minha-festa"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Conhecer é o primeiro passo para respeitar.",
+      "variants": [
+       {
+        "question": "Num calendário da turma com festas de várias tradições, o importante é:",
+        "options": [
+         {
+          "text": "Destacar só uma",
+          "misconceptionCode": "so-a-minha-festa"
+         },
+         {
+          "text": "Apagar as que não conhece",
+          "misconceptionCode": "todos-comemoram"
+         },
+         {
+          "text": "Dar o mesmo respeito a todas"
+         },
+         {
+          "text": "Rir das outras",
+          "misconceptionCode": "so-a-minha-festa"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A escola vai falar das celebrações de várias religiões. Isso é bom porque:",
+        "options": [
+         {
+          "text": "Não serve para nada",
+          "misconceptionCode": "so-a-minha-festa"
+         },
+         {
+          "text": "Ajuda a conhecer e a respeitar todas"
+         },
+         {
+          "text": "Obriga todos a participar",
+          "misconceptionCode": "todos-comemoram"
+         },
+         {
+          "text": "Mostra qual é a melhor",
+          "misconceptionCode": "so-a-minha-festa"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER03-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: uma celebração",
+    "prompt": "Escolha uma celebração religiosa que você conhece ou sobre a qual aprendeu e explique com as suas palavras o que as pessoas comemoram e como celebram.",
+    "estMinutes": 6,
+    "audioScript": "Escolha uma celebração religiosa que você conhece ou sobre a qual aprendeu e explique com as suas palavras o que as pessoas comemoram e como celebram.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "celebracao",
+       "description": "Indica uma celebração"
+      },
+      {
+       "code": "sentido",
+       "description": "Diz o que é comemorado"
+      },
+      {
+       "code": "como",
+       "description": "Descreve como as pessoas celebram"
+      }
+     ],
+     "exemploBoaResposta": "Eu escolhi a festa de Iemanjá. As pessoas das religiões de matriz africana homenageiam Iemanjá, a orixá do mar. Elas vão à praia, cantam e levam flores e presentes para o mar."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF03ER05",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: Roupas e símbolos das tradições",
+  "tituloAluno": "O que as vestes dizem",
+  "activities": [
+   {
+    "id": "PK2-EF03ER05-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: as roupas dizem algo",
+    "prompt": "As roupas mostram onde estamos e o que vamos fazer.",
+    "estMinutes": 4,
+    "audioScript": "As roupas mostram onde estamos e o que vamos fazer. Pergunta 1. Que roupa usamos para ir à escola? A: Fantasia; B: Pijama; C: O uniforme; D: Roupa de banho. Pergunta 2. O uniforme de um time serve para: A: Nada; B: Esconder a pessoa; C: Enfeitar, somente; D: Mostrar a que grupo a pessoa pertence. Pergunta 3. Em dias especiais, como um casamento, as pessoas costumam vestir: A: Roupas especiais para a ocasião; B: Qualquer roupa; C: Pijama; D: Uniforme da escola.",
+    "questions": [
+     {
+      "question": "Que roupa usamos para ir à escola?",
+      "options": [
+       {
+        "text": "Fantasia",
+        "misconceptionCode": "roupa-e-fantasia"
+       },
+       {
+        "text": "Pijama",
+        "misconceptionCode": "roupa-e-fantasia"
+       },
+       {
+        "text": "O uniforme"
+       },
+       {
+        "text": "Roupa de banho",
+        "misconceptionCode": "roupa-e-fantasia"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O uniforme mostra que fazemos parte da escola.",
+      "variants": [
+       {
+        "question": "Que roupa um time de futebol usa no jogo?",
+        "options": [
+         {
+          "text": "O uniforme do time"
+         },
+         {
+          "text": "Pijama",
+          "misconceptionCode": "roupa-e-fantasia"
+         },
+         {
+          "text": "Roupa de festa",
+          "misconceptionCode": "roupa-e-fantasia"
+         },
+         {
+          "text": "Fantasia",
+          "misconceptionCode": "roupa-e-fantasia"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que roupa usamos para ir à escola?",
+        "options": [
+         {
+          "text": "Roupa de banho",
+          "misconceptionCode": "roupa-e-fantasia"
+         },
+         {
+          "text": "Pijama",
+          "misconceptionCode": "roupa-e-fantasia"
+         },
+         {
+          "text": "Fantasia",
+          "misconceptionCode": "roupa-e-fantasia"
+         },
+         {
+          "text": "O uniforme"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O uniforme de um time serve para:",
+      "options": [
+       {
+        "text": "Nada",
+        "misconceptionCode": "sem-significado"
+       },
+       {
+        "text": "Esconder a pessoa",
+        "misconceptionCode": "sem-significado"
+       },
+       {
+        "text": "Enfeitar, somente",
+        "misconceptionCode": "sem-significado"
+       },
+       {
+        "text": "Mostrar a que grupo a pessoa pertence"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Roupas podem mostrar que alguém faz parte de um grupo.",
+      "variants": [
+       {
+        "question": "O jaleco branco de uma médica mostra:",
+        "options": [
+         {
+          "text": "Que ela está fantasiada",
+          "misconceptionCode": "sem-significado"
+         },
+         {
+          "text": "A profissão dela"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "sem-significado"
+         },
+         {
+          "text": "Que ela está com frio",
+          "misconceptionCode": "sem-significado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O uniforme de um time serve para:",
+        "options": [
+         {
+          "text": "Mostrar a que grupo a pessoa pertence"
+         },
+         {
+          "text": "Enfeitar, somente",
+          "misconceptionCode": "sem-significado"
+         },
+         {
+          "text": "Esconder a pessoa",
+          "misconceptionCode": "sem-significado"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "sem-significado"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Em dias especiais, como um casamento, as pessoas costumam vestir:",
+      "options": [
+       {
+        "text": "Roupas especiais para a ocasião"
+       },
+       {
+        "text": "Qualquer roupa",
+        "misconceptionCode": "sem-significado"
+       },
+       {
+        "text": "Pijama",
+        "misconceptionCode": "roupa-e-fantasia"
+       },
+       {
+        "text": "Uniforme da escola",
+        "misconceptionCode": "sem-significado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A roupa especial mostra que o momento é importante.",
+      "variants": [
+       {
+        "question": "A noiva, em muitos casamentos, usa:",
+        "options": [
+         {
+          "text": "Pijama",
+          "misconceptionCode": "sem-significado"
+         },
+         {
+          "text": "Uniforme",
+          "misconceptionCode": "roupa-e-fantasia"
+         },
+         {
+          "text": "Um vestido especial"
+         },
+         {
+          "text": "Roupa de banho",
+          "misconceptionCode": "sem-significado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Em dias especiais, como um casamento, as pessoas costumam vestir:",
+        "options": [
+         {
+          "text": "Uniforme da escola",
+          "misconceptionCode": "sem-significado"
+         },
+         {
+          "text": "Roupas especiais para a ocasião"
+         },
+         {
+          "text": "Pijama",
+          "misconceptionCode": "roupa-e-fantasia"
+         },
+         {
+          "text": "Qualquer roupa",
+          "misconceptionCode": "sem-significado"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER05-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: indumentárias religiosas",
+    "prompt": "Indumentária é o conjunto de roupas, acessórios, símbolos e pinturas usados numa tradição. Cada peça tem um significado para quem crê. Vamos conhecer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Indumentária é o conjunto de roupas, acessórios, símbolos e pinturas usados numa tradição. Cada peça tem um significado para quem crê. Vamos conhecer juntos. Pergunta 1. As roupas brancas e os fios de contas coloridos são usados: A: No judaísmo; B: Nas religiões de matriz africana, como o candomblé; C: No budismo; D: No islamismo. Pergunta 2. O véu que cobre os cabelos, chamado hijab, é usado: A: Por monges budistas; B: Por padres católicos; C: Por muitas mulheres muçulmanas; D: Por pajés. Pergunta 3. As pinturas no corpo e os cocares de penas são usados: A: Por padres; B: Por rabinos; C: Por monges; D: Por povos indígenas, em rituais e festas.",
+    "questions": [
+     {
+      "question": "As roupas brancas e os fios de contas coloridos são usados:",
+      "options": [
+       {
+        "text": "No judaísmo",
+        "misconceptionCode": "troca-indumentaria"
+       },
+       {
+        "text": "Nas religiões de matriz africana, como o candomblé"
+       },
+       {
+        "text": "No budismo",
+        "misconceptionCode": "troca-indumentaria"
+       },
+       {
+        "text": "No islamismo",
+        "misconceptionCode": "troca-indumentaria"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "As cores das contas estão ligadas aos orixás.",
+      "variants": [
+       {
+        "question": "O quipá, pequeno chapéu usado na cabeça, é usado:",
+        "options": [
+         {
+          "text": "No candomblé",
+          "misconceptionCode": "troca-indumentaria"
+         },
+         {
+          "text": "No budismo",
+          "misconceptionCode": "troca-indumentaria"
+         },
+         {
+          "text": "No hinduísmo",
+          "misconceptionCode": "troca-indumentaria"
+         },
+         {
+          "text": "Por homens judeus"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "As roupas brancas e os fios de contas coloridos são usados:",
+        "options": [
+         {
+          "text": "No islamismo",
+          "misconceptionCode": "troca-indumentaria"
+         },
+         {
+          "text": "No budismo",
+          "misconceptionCode": "troca-indumentaria"
+         },
+         {
+          "text": "Nas religiões de matriz africana, como o candomblé"
+         },
+         {
+          "text": "No judaísmo",
+          "misconceptionCode": "troca-indumentaria"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O véu que cobre os cabelos, chamado hijab, é usado:",
+      "options": [
+       {
+        "text": "Por monges budistas",
+        "misconceptionCode": "troca-indumentaria"
+       },
+       {
+        "text": "Por padres católicos",
+        "misconceptionCode": "troca-indumentaria"
+       },
+       {
+        "text": "Por muitas mulheres muçulmanas"
+       },
+       {
+        "text": "Por pajés",
+        "misconceptionCode": "troca-indumentaria"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Para muitas muçulmanas, o véu é uma expressão da fé.",
+      "variants": [
+       {
+        "question": "A batina e a estola são roupas usadas:",
+        "options": [
+         {
+          "text": "Por padres católicos"
+         },
+         {
+          "text": "Por muçulmanas",
+          "misconceptionCode": "troca-indumentaria"
+         },
+         {
+          "text": "Por monges budistas",
+          "misconceptionCode": "troca-indumentaria"
+         },
+         {
+          "text": "Por pajés",
+          "misconceptionCode": "troca-indumentaria"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O véu que cobre os cabelos, chamado hijab, é usado:",
+        "options": [
+         {
+          "text": "Por pajés",
+          "misconceptionCode": "troca-indumentaria"
+         },
+         {
+          "text": "Por padres católicos",
+          "misconceptionCode": "troca-indumentaria"
+         },
+         {
+          "text": "Por monges budistas",
+          "misconceptionCode": "troca-indumentaria"
+         },
+         {
+          "text": "Por muitas mulheres muçulmanas"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "As pinturas no corpo e os cocares de penas são usados:",
+      "options": [
+       {
+        "text": "Por padres",
+        "misconceptionCode": "troca-indumentaria"
+       },
+       {
+        "text": "Por rabinos",
+        "misconceptionCode": "troca-indumentaria"
+       },
+       {
+        "text": "Por monges",
+        "misconceptionCode": "troca-indumentaria"
+       },
+       {
+        "text": "Por povos indígenas, em rituais e festas"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "As pinturas e os adornos têm significados e identificam cada povo.",
+      "variants": [
+       {
+        "question": "O manto cor de laranja ou vinho e a cabeça raspada são marcas:",
+        "options": [
+         {
+          "text": "Dos padres católicos",
+          "misconceptionCode": "troca-indumentaria"
+         },
+         {
+          "text": "Dos monges budistas"
+         },
+         {
+          "text": "Dos povos indígenas",
+          "misconceptionCode": "troca-indumentaria"
+         },
+         {
+          "text": "Das muçulmanas",
+          "misconceptionCode": "troca-indumentaria"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "As pinturas no corpo e os cocares de penas são usados:",
+        "options": [
+         {
+          "text": "Por povos indígenas, em rituais e festas"
+         },
+         {
+          "text": "Por monges",
+          "misconceptionCode": "troca-indumentaria"
+         },
+         {
+          "text": "Por rabinos",
+          "misconceptionCode": "troca-indumentaria"
+         },
+         {
+          "text": "Por padres",
+          "misconceptionCode": "troca-indumentaria"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER05-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: o significado das vestes e dos símbolos",
+    "prompt": "Nada ali é enfeite.",
+    "estMinutes": 5,
+    "audioScript": "Nada ali é enfeite. Pergunta 1. As roupas usadas numa celebração religiosa são fantasias? A: Não, são vestes com significado para a fé; B: Sim, são fantasias; C: Sim, são para brincar; D: Sim, como no Carnaval. Pergunta 2. A cruz usada num cordão por muitos cristãos é: A: Só uma joia; B: Um símbolo da fé cristã; C: Um enfeite sem sentido; D: Um brinquedo. Pergunta 3. A cor branca, usada em muitas tradições, costuma representar: A: Tristeza, sempre; B: Nada; C: Paz e pureza; D: Raiva. Pergunta 4. Por que as pessoas usam roupas e símbolos religiosos? A: Para chamar atenção, somente; B: Para se fantasiar; C: Por nenhum motivo; D: Para expressar a sua fé e mostrar a que tradição pertencem.",
+    "questions": [
+     {
+      "question": "As roupas usadas numa celebração religiosa são fantasias?",
+      "options": [
+       {
+        "text": "Não, são vestes com significado para a fé"
+       },
+       {
+        "text": "Sim, são fantasias",
+        "misconceptionCode": "roupa-e-fantasia"
+       },
+       {
+        "text": "Sim, são para brincar",
+        "misconceptionCode": "roupa-e-fantasia"
+       },
+       {
+        "text": "Sim, como no Carnaval",
+        "misconceptionCode": "roupa-e-fantasia"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Fantasia é para brincar. A veste religiosa expressa a crença.",
+      "variants": [
+       {
+        "question": "O cocar de um líder indígena é:",
+        "options": [
+         {
+          "text": "Uma fantasia",
+          "misconceptionCode": "roupa-e-fantasia"
+         },
+         {
+          "text": "Um brinquedo",
+          "misconceptionCode": "roupa-e-fantasia"
+         },
+         {
+          "text": "Um símbolo importante para o seu povo"
+         },
+         {
+          "text": "Um chapéu qualquer",
+          "misconceptionCode": "roupa-e-fantasia"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "As roupas usadas numa celebração religiosa são fantasias?",
+        "options": [
+         {
+          "text": "Sim, como no Carnaval",
+          "misconceptionCode": "roupa-e-fantasia"
+         },
+         {
+          "text": "Não, são vestes com significado para a fé"
+         },
+         {
+          "text": "Sim, são para brincar",
+          "misconceptionCode": "roupa-e-fantasia"
+         },
+         {
+          "text": "Sim, são fantasias",
+          "misconceptionCode": "roupa-e-fantasia"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "A cruz usada num cordão por muitos cristãos é:",
+      "options": [
+       {
+        "text": "Só uma joia",
+        "misconceptionCode": "sem-significado"
+       },
+       {
+        "text": "Um símbolo da fé cristã"
+       },
+       {
+        "text": "Um enfeite sem sentido",
+        "misconceptionCode": "sem-significado"
+       },
+       {
+        "text": "Um brinquedo",
+        "misconceptionCode": "roupa-e-fantasia"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Os símbolos lembram a quem crê algo importante da sua fé.",
+      "variants": [
+       {
+        "question": "A estrela de seis pontas, chamada estrela de Davi, é um símbolo:",
+        "options": [
+         {
+          "text": "Do budismo",
+          "misconceptionCode": "sem-significado"
+         },
+         {
+          "text": "Do candomblé",
+          "misconceptionCode": "sem-significado"
+         },
+         {
+          "text": "Do islamismo",
+          "misconceptionCode": "roupa-e-fantasia"
+         },
+         {
+          "text": "Do judaísmo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A cruz usada num cordão por muitos cristãos é:",
+        "options": [
+         {
+          "text": "Um brinquedo",
+          "misconceptionCode": "roupa-e-fantasia"
+         },
+         {
+          "text": "Um enfeite sem sentido",
+          "misconceptionCode": "sem-significado"
+         },
+         {
+          "text": "Um símbolo da fé cristã"
+         },
+         {
+          "text": "Só uma joia",
+          "misconceptionCode": "sem-significado"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "A cor branca, usada em muitas tradições, costuma representar:",
+      "options": [
+       {
+        "text": "Tristeza, sempre",
+        "misconceptionCode": "sem-significado"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "sem-significado"
+       },
+       {
+        "text": "Paz e pureza"
+       },
+       {
+        "text": "Raiva",
+        "misconceptionCode": "sem-significado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "As cores também têm significados, que mudam de uma tradição para outra.",
+      "variants": [
+       {
+        "question": "No candomblé, a cor das contas de cada pessoa está ligada:",
+        "options": [
+         {
+          "text": "Ao orixá que a protege"
+         },
+         {
+          "text": "À moda",
+          "misconceptionCode": "sem-significado"
+         },
+         {
+          "text": "A nada",
+          "misconceptionCode": "sem-significado"
+         },
+         {
+          "text": "Ao time de futebol",
+          "misconceptionCode": "sem-significado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A cor branca, usada em muitas tradições, costuma representar:",
+        "options": [
+         {
+          "text": "Raiva",
+          "misconceptionCode": "sem-significado"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "sem-significado"
+         },
+         {
+          "text": "Tristeza, sempre",
+          "misconceptionCode": "sem-significado"
+         },
+         {
+          "text": "Paz e pureza"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Por que as pessoas usam roupas e símbolos religiosos?",
+      "options": [
+       {
+        "text": "Para chamar atenção, somente",
+        "misconceptionCode": "sem-significado"
+       },
+       {
+        "text": "Para se fantasiar",
+        "misconceptionCode": "roupa-e-fantasia"
+       },
+       {
+        "text": "Por nenhum motivo",
+        "misconceptionCode": "sem-significado"
+       },
+       {
+        "text": "Para expressar a sua fé e mostrar a que tradição pertencem"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A indumentária faz parte da identidade de quem crê.",
+      "variants": [
+       {
+        "question": "Usar um símbolo religioso é, para a pessoa:",
+        "options": [
+         {
+          "text": "Uma brincadeira",
+          "misconceptionCode": "sem-significado"
+         },
+         {
+          "text": "Um jeito de mostrar aquilo em que acredita"
+         },
+         {
+          "text": "Uma fantasia",
+          "misconceptionCode": "roupa-e-fantasia"
+         },
+         {
+          "text": "Uma obrigação da escola",
+          "misconceptionCode": "sem-significado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Por que as pessoas usam roupas e símbolos religiosos?",
+        "options": [
+         {
+          "text": "Para expressar a sua fé e mostrar a que tradição pertencem"
+         },
+         {
+          "text": "Por nenhum motivo",
+          "misconceptionCode": "sem-significado"
+         },
+         {
+          "text": "Para se fantasiar",
+          "misconceptionCode": "roupa-e-fantasia"
+         },
+         {
+          "text": "Para chamar atenção, somente",
+          "misconceptionCode": "sem-significado"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER05-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: respeito às vestes e aos símbolos",
+    "prompt": "Como agir.",
+    "estMinutes": 4,
+    "audioScript": "Como agir. Pergunta 1. Uma colega usa um véu por causa da religião dela. O que é correto? A: Respeitar; B: Puxar o véu; C: Rir; D: Perguntar por que ela usa \"isso\" com deboche. Pergunta 2. Um colega chama de \"fantasia\" a roupa religiosa de outro. O que dizer? A: Que é fantasia mesmo; B: Que é uma veste com significado e merece respeito; C: Que é engraçada; D: Nada, e rir junto. Pergunta 3. Você tem curiosidade sobre o símbolo que um colega usa. O que fazer? A: Pegar para olhar sem pedir; B: Rir; C: Perguntar com educação o que ele significa; D: Inventar um significado.",
+    "questions": [
+     {
+      "question": "Uma colega usa um véu por causa da religião dela. O que é correto?",
+      "options": [
+       {
+        "text": "Respeitar"
+       },
+       {
+        "text": "Puxar o véu",
+        "misconceptionCode": "zomba-da-roupa"
+       },
+       {
+        "text": "Rir",
+        "misconceptionCode": "zomba-da-roupa"
+       },
+       {
+        "text": "Perguntar por que ela usa \"isso\" com deboche",
+        "misconceptionCode": "zomba-da-roupa"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Tocar ou zombar da veste religiosa de alguém é desrespeito.",
+      "variants": [
+       {
+        "question": "Um colega usa um fio de contas no pescoço por causa da religião dele. O que é correto?",
+        "options": [
+         {
+          "text": "Puxar o fio",
+          "misconceptionCode": "zomba-da-roupa"
+         },
+         {
+          "text": "Rir",
+          "misconceptionCode": "zomba-da-roupa"
+         },
+         {
+          "text": "Respeitar e não tocar sem permissão"
+         },
+         {
+          "text": "Dizer que é feio",
+          "misconceptionCode": "zomba-da-roupa"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Uma colega usa um véu por causa da religião dela. O que é correto?",
+        "options": [
+         {
+          "text": "Perguntar por que ela usa \"isso\" com deboche",
+          "misconceptionCode": "zomba-da-roupa"
+         },
+         {
+          "text": "Respeitar"
+         },
+         {
+          "text": "Rir",
+          "misconceptionCode": "zomba-da-roupa"
+         },
+         {
+          "text": "Puxar o véu",
+          "misconceptionCode": "zomba-da-roupa"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um colega chama de \"fantasia\" a roupa religiosa de outro. O que dizer?",
+      "options": [
+       {
+        "text": "Que é fantasia mesmo",
+        "misconceptionCode": "roupa-e-fantasia"
+       },
+       {
+        "text": "Que é uma veste com significado e merece respeito"
+       },
+       {
+        "text": "Que é engraçada",
+        "misconceptionCode": "zomba-da-roupa"
+       },
+       {
+        "text": "Nada, e rir junto",
+        "misconceptionCode": "zomba-da-roupa"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Chamar de fantasia diminui o que é sagrado para o outro.",
+      "variants": [
+       {
+        "question": "Alguém quer usar um cocar indígena só para fazer piada. O que dizer?",
+        "options": [
+         {
+          "text": "Que pode, é só uma fantasia",
+          "misconceptionCode": "roupa-e-fantasia"
+         },
+         {
+          "text": "Que é engraçado",
+          "misconceptionCode": "zomba-da-roupa"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "zomba-da-roupa"
+         },
+         {
+          "text": "Que o cocar é um símbolo sagrado e não é brincadeira"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um colega chama de \"fantasia\" a roupa religiosa de outro. O que dizer?",
+        "options": [
+         {
+          "text": "Nada, e rir junto",
+          "misconceptionCode": "zomba-da-roupa"
+         },
+         {
+          "text": "Que é engraçada",
+          "misconceptionCode": "zomba-da-roupa"
+         },
+         {
+          "text": "Que é uma veste com significado e merece respeito"
+         },
+         {
+          "text": "Que é fantasia mesmo",
+          "misconceptionCode": "roupa-e-fantasia"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Você tem curiosidade sobre o símbolo que um colega usa. O que fazer?",
+      "options": [
+       {
+        "text": "Pegar para olhar sem pedir",
+        "misconceptionCode": "zomba-da-roupa"
+       },
+       {
+        "text": "Rir",
+        "misconceptionCode": "zomba-da-roupa"
+       },
+       {
+        "text": "Perguntar com educação o que ele significa"
+       },
+       {
+        "text": "Inventar um significado",
+        "misconceptionCode": "sem-significado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Perguntar com respeito ajuda a conhecer e aproxima as pessoas.",
+      "variants": [
+       {
+        "question": "Na rua, você vê uma pessoa com roupas religiosas que não conhece. O que fazer?",
+        "options": [
+         {
+          "text": "Respeitar, sem apontar nem rir"
+         },
+         {
+          "text": "Apontar e rir",
+          "misconceptionCode": "zomba-da-roupa"
+         },
+         {
+          "text": "Gritar",
+          "misconceptionCode": "zomba-da-roupa"
+         },
+         {
+          "text": "Tirar foto escondido para zombar",
+          "misconceptionCode": "sem-significado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Você tem curiosidade sobre o símbolo que um colega usa. O que fazer?",
+        "options": [
+         {
+          "text": "Inventar um significado",
+          "misconceptionCode": "sem-significado"
+         },
+         {
+          "text": "Rir",
+          "misconceptionCode": "zomba-da-roupa"
+         },
+         {
+          "text": "Pegar para olhar sem pedir",
+          "misconceptionCode": "zomba-da-roupa"
+         },
+         {
+          "text": "Perguntar com educação o que ele significa"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER05-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: roupas e símbolos",
+    "prompt": "Explique com as suas palavras por que as roupas e os símbolos religiosos não são fantasias. Dê um exemplo.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras por que as roupas e os símbolos religiosos não são fantasias. Dê um exemplo.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "significado",
+       "description": "Diz que têm significado para a fé de quem usa"
+      },
+      {
+       "code": "diferenca",
+       "description": "Diferencia de fantasia ou enfeite"
+      },
+      {
+       "code": "exemplo",
+       "description": "Dá um exemplo de roupa ou símbolo e da tradição"
+      }
+     ],
+     "exemploBoaResposta": "As roupas e os símbolos religiosos não são fantasias porque têm um significado para a fé de quem usa. Fantasia é para brincar. Um exemplo são os fios de contas do candomblé, que têm cores ligadas aos orixás."
+    }
+   }
+  ]
+ }
+]

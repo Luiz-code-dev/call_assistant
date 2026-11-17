@@ -1,0 +1,3766 @@
+[
+ {
+  "skillCode": "EF35EF01",
+  "subjectCode": "EF",
+  "subjectName": "Educação Física",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: Brincadeiras e jogos populares",
+  "tituloAluno": "Brincar é coisa séria",
+  "activities": [
+   {
+    "id": "PK2-EF35EF01-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: brincar",
+    "prompt": "Brincar faz bem ao corpo e às amizades.",
+    "estMinutes": 4,
+    "audioScript": "Brincar faz bem ao corpo e às amizades. Pergunta 1. Qual destas é uma brincadeira de correr? A: Damas; B: Dominó; C: Quebra-cabeça; D: Pega-pega. Pergunta 2. Para brincar junto, é preciso: A: Combinar as regras; B: Cada um fazer o que quer; C: Não falar com ninguém; D: Brigar. Pergunta 3. Quem ensinou as brincadeiras mais antigas para as crianças de hoje? A: Ninguém; B: As pessoas mais velhas, como pais e avós; C: A televisão, somente; D: O celular, somente.",
+    "questions": [
+     {
+      "question": "Qual destas é uma brincadeira de correr?",
+      "options": [
+       {
+        "text": "Damas",
+        "misconceptionCode": "so-eletronico"
+       },
+       {
+        "text": "Dominó",
+        "misconceptionCode": "so-eletronico"
+       },
+       {
+        "text": "Quebra-cabeça",
+        "misconceptionCode": "so-eletronico"
+       },
+       {
+        "text": "Pega-pega"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "No pega-pega, um corre atrás dos outros.",
+      "variants": [
+       {
+        "question": "Qual destas é uma brincadeira de pular?",
+        "options": [
+         {
+          "text": "Dominó",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "Amarelinha"
+         },
+         {
+          "text": "Damas",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "Jogo da memória",
+          "misconceptionCode": "so-eletronico"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual destas é uma brincadeira de correr?",
+        "options": [
+         {
+          "text": "Pega-pega"
+         },
+         {
+          "text": "Quebra-cabeça",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "Dominó",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "Damas",
+          "misconceptionCode": "so-eletronico"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Para brincar junto, é preciso:",
+      "options": [
+       {
+        "text": "Combinar as regras"
+       },
+       {
+        "text": "Cada um fazer o que quer",
+        "misconceptionCode": "regra-nao-importa"
+       },
+       {
+        "text": "Não falar com ninguém",
+        "misconceptionCode": "regra-nao-importa"
+       },
+       {
+        "text": "Brigar",
+        "misconceptionCode": "ganhar-e-tudo"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "As regras deixam a brincadeira justa e divertida para todos.",
+      "variants": [
+       {
+        "question": "O que acontece quando ninguém respeita as regras da brincadeira?",
+        "options": [
+         {
+          "text": "Fica mais divertida",
+          "misconceptionCode": "regra-nao-importa"
+         },
+         {
+          "text": "Todos ganham",
+          "misconceptionCode": "regra-nao-importa"
+         },
+         {
+          "text": "A brincadeira vira confusão"
+         },
+         {
+          "text": "Nada muda",
+          "misconceptionCode": "ganhar-e-tudo"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Para brincar junto, é preciso:",
+        "options": [
+         {
+          "text": "Brigar",
+          "misconceptionCode": "ganhar-e-tudo"
+         },
+         {
+          "text": "Combinar as regras"
+         },
+         {
+          "text": "Não falar com ninguém",
+          "misconceptionCode": "regra-nao-importa"
+         },
+         {
+          "text": "Cada um fazer o que quer",
+          "misconceptionCode": "regra-nao-importa"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quem ensinou as brincadeiras mais antigas para as crianças de hoje?",
+      "options": [
+       {
+        "text": "Ninguém",
+        "misconceptionCode": "brincadeira-sem-origem"
+       },
+       {
+        "text": "As pessoas mais velhas, como pais e avós"
+       },
+       {
+        "text": "A televisão, somente",
+        "misconceptionCode": "so-eletronico"
+       },
+       {
+        "text": "O celular, somente",
+        "misconceptionCode": "so-eletronico"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "As brincadeiras passam de uma geração para outra.",
+      "variants": [
+       {
+        "question": "Uma brincadeira que os avós já faziam quando eram crianças é uma brincadeira:",
+        "options": [
+         {
+          "text": "Eletrônica",
+          "misconceptionCode": "brincadeira-sem-origem"
+         },
+         {
+          "text": "Nova",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "Sem regras",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "Tradicional"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quem ensinou as brincadeiras mais antigas para as crianças de hoje?",
+        "options": [
+         {
+          "text": "O celular, somente",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "A televisão, somente",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "As pessoas mais velhas, como pais e avós"
+         },
+         {
+          "text": "Ninguém",
+          "misconceptionCode": "brincadeira-sem-origem"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF01-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: de onde vêm as brincadeiras",
+    "prompt": "Muitas brincadeiras que conhecemos foram criadas por povos indígenas, por povos africanos e por povos de outros países. Elas fazem parte da nossa cultura. Vamos conhecer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Muitas brincadeiras que conhecemos foram criadas por povos indígenas, por povos africanos e por povos de outros países. Elas fazem parte da nossa cultura. Vamos conhecer juntos. Pergunta 1. A peteca, jogada com as mãos, foi criada: A: Por uma fábrica de brinquedos; B: Na televisão; C: Por povos indígenas do Brasil; D: Por ninguém. Pergunta 2. A mancala é um jogo de tabuleiro com sementes, de origem: A: Japonesa; B: Brasileira, criada ontem; C: Desconhecida, sem povo; D: Africana. Pergunta 3. A amarelinha, a pipa e o pião são brincadeiras: A: Que existem em muitos países, com nomes e jeitos diferentes; B: Só do Brasil; C: Que só existem na internet; D: Inventadas este ano.",
+    "questions": [
+     {
+      "question": "A peteca, jogada com as mãos, foi criada:",
+      "options": [
+       {
+        "text": "Por uma fábrica de brinquedos",
+        "misconceptionCode": "brincadeira-sem-origem"
+       },
+       {
+        "text": "Na televisão",
+        "misconceptionCode": "so-eletronico"
+       },
+       {
+        "text": "Por povos indígenas do Brasil"
+       },
+       {
+        "text": "Por ninguém",
+        "misconceptionCode": "brincadeira-sem-origem"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A peteca já era jogada pelos povos indígenas muito antes da chegada dos portugueses.",
+      "variants": [
+       {
+        "question": "O cabo de guerra, em que dois grupos puxam uma corda, é praticado:",
+        "options": [
+         {
+          "text": "Por muitos povos, inclusive indígenas"
+         },
+         {
+          "text": "Só em videogames",
+          "misconceptionCode": "brincadeira-sem-origem"
+         },
+         {
+          "text": "Só por adultos",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "Por ninguém",
+          "misconceptionCode": "brincadeira-sem-origem"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A peteca, jogada com as mãos, foi criada:",
+        "options": [
+         {
+          "text": "Por ninguém",
+          "misconceptionCode": "brincadeira-sem-origem"
+         },
+         {
+          "text": "Na televisão",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "Por uma fábrica de brinquedos",
+          "misconceptionCode": "brincadeira-sem-origem"
+         },
+         {
+          "text": "Por povos indígenas do Brasil"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "A mancala é um jogo de tabuleiro com sementes, de origem:",
+      "options": [
+       {
+        "text": "Japonesa",
+        "misconceptionCode": "brincadeira-sem-origem"
+       },
+       {
+        "text": "Brasileira, criada ontem",
+        "misconceptionCode": "brincadeira-sem-origem"
+       },
+       {
+        "text": "Desconhecida, sem povo",
+        "misconceptionCode": "brincadeira-sem-origem"
+       },
+       {
+        "text": "Africana"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A mancala é um dos jogos mais antigos do mundo e veio da África.",
+      "variants": [
+       {
+        "question": "O jogo de mancala usa:",
+        "options": [
+         {
+          "text": "Uma bola e uma rede",
+          "misconceptionCode": "brincadeira-sem-origem"
+         },
+         {
+          "text": "Um tabuleiro com cavidades e sementes"
+         },
+         {
+          "text": "Um controle e uma tela",
+          "misconceptionCode": "brincadeira-sem-origem"
+         },
+         {
+          "text": "Uma corda",
+          "misconceptionCode": "brincadeira-sem-origem"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A mancala é um jogo de tabuleiro com sementes, de origem:",
+        "options": [
+         {
+          "text": "Africana"
+         },
+         {
+          "text": "Desconhecida, sem povo",
+          "misconceptionCode": "brincadeira-sem-origem"
+         },
+         {
+          "text": "Brasileira, criada ontem",
+          "misconceptionCode": "brincadeira-sem-origem"
+         },
+         {
+          "text": "Japonesa",
+          "misconceptionCode": "brincadeira-sem-origem"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "A amarelinha, a pipa e o pião são brincadeiras:",
+      "options": [
+       {
+        "text": "Que existem em muitos países, com nomes e jeitos diferentes"
+       },
+       {
+        "text": "Só do Brasil",
+        "misconceptionCode": "brincadeira-sem-origem"
+       },
+       {
+        "text": "Que só existem na internet",
+        "misconceptionCode": "so-eletronico"
+       },
+       {
+        "text": "Inventadas este ano",
+        "misconceptionCode": "brincadeira-sem-origem"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Crianças do mundo todo brincam de coisas parecidas.",
+      "variants": [
+       {
+        "question": "A pipa também é chamada de papagaio, pandorga e arraia. Isso mostra que:",
+        "options": [
+         {
+          "text": "São brinquedos diferentes",
+          "misconceptionCode": "brincadeira-sem-origem"
+         },
+         {
+          "text": "Só um nome está certo",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "A mesma brincadeira tem nomes diferentes em cada lugar"
+         },
+         {
+          "text": "A brincadeira não existe",
+          "misconceptionCode": "brincadeira-sem-origem"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A amarelinha, a pipa e o pião são brincadeiras:",
+        "options": [
+         {
+          "text": "Inventadas este ano",
+          "misconceptionCode": "brincadeira-sem-origem"
+         },
+         {
+          "text": "Que existem em muitos países, com nomes e jeitos diferentes"
+         },
+         {
+          "text": "Que só existem na internet",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "Só do Brasil",
+          "misconceptionCode": "brincadeira-sem-origem"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF01-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: brincar com regras e respeito",
+    "prompt": "Brincar bem é brincar junto.",
+    "estMinutes": 5,
+    "audioScript": "Brincar bem é brincar junto. Pergunta 1. Para que servem as regras de um jogo? A: Para atrapalhar; B: Para que todos saibam como jogar e o jogo seja justo; C: Para um só ganhar; D: Para nada. Pergunta 2. Jogos de tabuleiro, de rua e de roda são jogos de verdade? A: Não, só o eletrônico é jogo; B: Não, são coisas de antigamente; C: Sim, tanto quanto os jogos eletrônicos; D: Não, não têm regras. Pergunta 3. Você perdeu no jogo. Uma boa atitude é: A: Chorar e brigar; B: Dizer que o outro roubou; C: Nunca mais jogar; D: Cumprimentar quem ganhou e jogar de novo. Pergunta 4. Um colega quer entrar na brincadeira. O que fazer? A: Explicar as regras e deixar entrar; B: Dizer que não tem vaga, sempre; C: Fingir que não ouviu; D: Parar de brincar.",
+    "questions": [
+     {
+      "question": "Para que servem as regras de um jogo?",
+      "options": [
+       {
+        "text": "Para atrapalhar",
+        "misconceptionCode": "regra-nao-importa"
+       },
+       {
+        "text": "Para que todos saibam como jogar e o jogo seja justo"
+       },
+       {
+        "text": "Para um só ganhar",
+        "misconceptionCode": "ganhar-e-tudo"
+       },
+       {
+        "text": "Para nada",
+        "misconceptionCode": "regra-nao-importa"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Com regras iguais para todos, o jogo é justo.",
+      "variants": [
+       {
+        "question": "Na amarelinha, quem pisa na linha perde a vez. Essa é:",
+        "options": [
+         {
+          "text": "Uma injustiça",
+          "misconceptionCode": "regra-nao-importa"
+         },
+         {
+          "text": "Uma brincadeira diferente",
+          "misconceptionCode": "ganhar-e-tudo"
+         },
+         {
+          "text": "Uma punição sem motivo",
+          "misconceptionCode": "regra-nao-importa"
+         },
+         {
+          "text": "Uma regra do jogo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Para que servem as regras de um jogo?",
+        "options": [
+         {
+          "text": "Para nada",
+          "misconceptionCode": "regra-nao-importa"
+         },
+         {
+          "text": "Para um só ganhar",
+          "misconceptionCode": "ganhar-e-tudo"
+         },
+         {
+          "text": "Para que todos saibam como jogar e o jogo seja justo"
+         },
+         {
+          "text": "Para atrapalhar",
+          "misconceptionCode": "regra-nao-importa"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Jogos de tabuleiro, de rua e de roda são jogos de verdade?",
+      "options": [
+       {
+        "text": "Não, só o eletrônico é jogo",
+        "misconceptionCode": "so-eletronico"
+       },
+       {
+        "text": "Não, são coisas de antigamente",
+        "misconceptionCode": "so-eletronico"
+       },
+       {
+        "text": "Sim, tanto quanto os jogos eletrônicos"
+       },
+       {
+        "text": "Não, não têm regras",
+        "misconceptionCode": "regra-nao-importa"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Há muitos jeitos de jogar. Os jogos tradicionais divertem e fazem o corpo se mexer.",
+      "variants": [
+       {
+        "question": "Brincar de pega-pega no pátio:",
+        "options": [
+         {
+          "text": "É um jogo e faz bem ao corpo"
+         },
+         {
+          "text": "Não é jogo de verdade",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "É só para crianças pequenas",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "Não tem valor",
+          "misconceptionCode": "regra-nao-importa"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Jogos de tabuleiro, de rua e de roda são jogos de verdade?",
+        "options": [
+         {
+          "text": "Não, não têm regras",
+          "misconceptionCode": "regra-nao-importa"
+         },
+         {
+          "text": "Não, são coisas de antigamente",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "Não, só o eletrônico é jogo",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "Sim, tanto quanto os jogos eletrônicos"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Você perdeu no jogo. Uma boa atitude é:",
+      "options": [
+       {
+        "text": "Chorar e brigar",
+        "misconceptionCode": "ganhar-e-tudo"
+       },
+       {
+        "text": "Dizer que o outro roubou",
+        "misconceptionCode": "ganhar-e-tudo"
+       },
+       {
+        "text": "Nunca mais jogar",
+        "misconceptionCode": "ganhar-e-tudo"
+       },
+       {
+        "text": "Cumprimentar quem ganhou e jogar de novo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Ganhar e perder fazem parte. O importante é se divertir e aprender.",
+      "variants": [
+       {
+        "question": "Você ganhou no jogo. Uma boa atitude é:",
+        "options": [
+         {
+          "text": "Rir de quem perdeu",
+          "misconceptionCode": "ganhar-e-tudo"
+         },
+         {
+          "text": "Comemorar sem zombar de quem perdeu"
+         },
+         {
+          "text": "Dizer que os outros são fracos",
+          "misconceptionCode": "ganhar-e-tudo"
+         },
+         {
+          "text": "Não deixar ninguém mais jogar",
+          "misconceptionCode": "ganhar-e-tudo"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Você perdeu no jogo. Uma boa atitude é:",
+        "options": [
+         {
+          "text": "Cumprimentar quem ganhou e jogar de novo"
+         },
+         {
+          "text": "Nunca mais jogar",
+          "misconceptionCode": "ganhar-e-tudo"
+         },
+         {
+          "text": "Dizer que o outro roubou",
+          "misconceptionCode": "ganhar-e-tudo"
+         },
+         {
+          "text": "Chorar e brigar",
+          "misconceptionCode": "ganhar-e-tudo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Um colega quer entrar na brincadeira. O que fazer?",
+      "options": [
+       {
+        "text": "Explicar as regras e deixar entrar"
+       },
+       {
+        "text": "Dizer que não tem vaga, sempre",
+        "misconceptionCode": "ganhar-e-tudo"
+       },
+       {
+        "text": "Fingir que não ouviu",
+        "misconceptionCode": "ganhar-e-tudo"
+       },
+       {
+        "text": "Parar de brincar",
+        "misconceptionCode": "regra-nao-importa"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A brincadeira fica melhor quando todos podem participar.",
+      "variants": [
+       {
+        "question": "Uma colega não conhece a brincadeira. O que fazer?",
+        "options": [
+         {
+          "text": "Rir dela",
+          "misconceptionCode": "ganhar-e-tudo"
+         },
+         {
+          "text": "Deixá-la de fora",
+          "misconceptionCode": "ganhar-e-tudo"
+         },
+         {
+          "text": "Ensinar com paciência"
+         },
+         {
+          "text": "Mudar as regras para ela perder",
+          "misconceptionCode": "regra-nao-importa"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um colega quer entrar na brincadeira. O que fazer?",
+        "options": [
+         {
+          "text": "Parar de brincar",
+          "misconceptionCode": "regra-nao-importa"
+         },
+         {
+          "text": "Explicar as regras e deixar entrar"
+         },
+         {
+          "text": "Fingir que não ouviu",
+          "misconceptionCode": "ganhar-e-tudo"
+         },
+         {
+          "text": "Dizer que não tem vaga, sempre",
+          "misconceptionCode": "ganhar-e-tudo"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF01-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: brincadeiras da nossa cultura",
+    "prompt": "As brincadeiras são um patrimônio.",
+    "estMinutes": 4,
+    "audioScript": "As brincadeiras são um patrimônio. Pergunta 1. Por que as brincadeiras tradicionais são um patrimônio cultural? A: Porque custam caro; B: Porque guardam a história e os costumes de um povo; C: Porque são novas; D: Porque ninguém brinca mais. Pergunta 2. Na sua rua, não há mais crianças brincando de roda. O que você pode fazer? A: Achar que a brincadeira não presta; B: Não fazer nada; C: Aprender com os mais velhos e ensinar aos amigos; D: Rir de quem brincava. Pergunta 3. Sua turma vai brincar de cabo de guerra. Para ser seguro e justo, é importante: A: Colocar os mais fortes do mesmo lado; B: Não combinar nada; C: Puxar de surpresa; D: Dividir os times de forma equilibrada e combinar o sinal de parar.",
+    "questions": [
+     {
+      "question": "Por que as brincadeiras tradicionais são um patrimônio cultural?",
+      "options": [
+       {
+        "text": "Porque custam caro",
+        "misconceptionCode": "brincadeira-sem-origem"
+       },
+       {
+        "text": "Porque guardam a história e os costumes de um povo"
+       },
+       {
+        "text": "Porque são novas",
+        "misconceptionCode": "brincadeira-sem-origem"
+       },
+       {
+        "text": "Porque ninguém brinca mais",
+        "misconceptionCode": "so-eletronico"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Ao brincar, mantemos viva uma parte da cultura.",
+      "variants": [
+       {
+        "question": "Como manter vivas as brincadeiras tradicionais?",
+        "options": [
+         {
+          "text": "Esquecendo",
+          "misconceptionCode": "brincadeira-sem-origem"
+         },
+         {
+          "text": "Proibindo",
+          "misconceptionCode": "brincadeira-sem-origem"
+         },
+         {
+          "text": "Trocando todas por jogos de celular",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "Brincando e ensinando para outras crianças"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Por que as brincadeiras tradicionais são um patrimônio cultural?",
+        "options": [
+         {
+          "text": "Porque ninguém brinca mais",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "Porque são novas",
+          "misconceptionCode": "brincadeira-sem-origem"
+         },
+         {
+          "text": "Porque guardam a história e os costumes de um povo"
+         },
+         {
+          "text": "Porque custam caro",
+          "misconceptionCode": "brincadeira-sem-origem"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Na sua rua, não há mais crianças brincando de roda. O que você pode fazer?",
+      "options": [
+       {
+        "text": "Achar que a brincadeira não presta",
+        "misconceptionCode": "so-eletronico"
+       },
+       {
+        "text": "Não fazer nada",
+        "misconceptionCode": "brincadeira-sem-origem"
+       },
+       {
+        "text": "Aprender com os mais velhos e ensinar aos amigos"
+       },
+       {
+        "text": "Rir de quem brincava",
+        "misconceptionCode": "so-eletronico"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "As brincadeiras só continuam existindo se alguém as pratica.",
+      "variants": [
+       {
+        "question": "Para conhecer brincadeiras antigas, a turma pode:",
+        "options": [
+         {
+          "text": "Entrevistar os avós e outras pessoas mais velhas"
+         },
+         {
+          "text": "Procurar só em videogames",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "Não perguntar a ninguém",
+          "misconceptionCode": "brincadeira-sem-origem"
+         },
+         {
+          "text": "Inventar que não existiam",
+          "misconceptionCode": "so-eletronico"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Na sua rua, não há mais crianças brincando de roda. O que você pode fazer?",
+        "options": [
+         {
+          "text": "Rir de quem brincava",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "Não fazer nada",
+          "misconceptionCode": "brincadeira-sem-origem"
+         },
+         {
+          "text": "Achar que a brincadeira não presta",
+          "misconceptionCode": "so-eletronico"
+         },
+         {
+          "text": "Aprender com os mais velhos e ensinar aos amigos"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Sua turma vai brincar de cabo de guerra. Para ser seguro e justo, é importante:",
+      "options": [
+       {
+        "text": "Colocar os mais fortes do mesmo lado",
+        "misconceptionCode": "ganhar-e-tudo"
+       },
+       {
+        "text": "Não combinar nada",
+        "misconceptionCode": "regra-nao-importa"
+       },
+       {
+        "text": "Puxar de surpresa",
+        "misconceptionCode": "regra-nao-importa"
+       },
+       {
+        "text": "Dividir os times de forma equilibrada e combinar o sinal de parar"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Times equilibrados e regras combinadas evitam machucados.",
+      "variants": [
+       {
+        "question": "Na brincadeira de queimada, para ser seguro, é importante:",
+        "options": [
+         {
+          "text": "Jogar a bola com toda a força no rosto",
+          "misconceptionCode": "ganhar-e-tudo"
+         },
+         {
+          "text": "Combinar que a bola não pode acertar a cabeça"
+         },
+         {
+          "text": "Não ter regras",
+          "misconceptionCode": "regra-nao-importa"
+         },
+         {
+          "text": "Mirar sempre no menor",
+          "misconceptionCode": "regra-nao-importa"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Sua turma vai brincar de cabo de guerra. Para ser seguro e justo, é importante:",
+        "options": [
+         {
+          "text": "Dividir os times de forma equilibrada e combinar o sinal de parar"
+         },
+         {
+          "text": "Puxar de surpresa",
+          "misconceptionCode": "regra-nao-importa"
+         },
+         {
+          "text": "Não combinar nada",
+          "misconceptionCode": "regra-nao-importa"
+         },
+         {
+          "text": "Colocar os mais fortes do mesmo lado",
+          "misconceptionCode": "ganhar-e-tudo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF01-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: uma brincadeira tradicional",
+    "prompt": "Escolha uma brincadeira tradicional e explique com as suas palavras como se brinca e quem ensinou para você.",
+    "estMinutes": 6,
+    "audioScript": "Escolha uma brincadeira tradicional e explique com as suas palavras como se brinca e quem ensinou para você.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "brincadeira",
+       "description": "Indica uma brincadeira tradicional"
+      },
+      {
+       "code": "regras",
+       "description": "Explica como se brinca"
+      },
+      {
+       "code": "origem",
+       "description": "Diz quem ensinou ou de onde vem"
+      }
+     ],
+     "exemploBoaResposta": "Eu gosto de amarelinha. A gente desenha as casas no chão, joga a pedrinha e pula num pé só, sem pisar na linha. Quem me ensinou foi a minha avó, que brincava disso quando era criança."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF35EF03",
+  "subjectCode": "EF",
+  "subjectName": "Educação Física",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: Contando como se brinca",
+  "tituloAluno": "Explicar um jogo para os outros",
+  "activities": [
+   {
+    "id": "PK2-EF35EF03-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: brincadeiras e regras",
+    "prompt": "Toda brincadeira tem um jeito de ser feita.",
+    "estMinutes": 4,
+    "audioScript": "Toda brincadeira tem um jeito de ser feita. Pergunta 1. O que precisamos saber para brincar de um jogo novo? A: A cor da roupa; B: As regras; C: O nome dos avós; D: Nada. Pergunta 2. Do que se precisa para brincar de pular corda? A: De uma bola; B: De um tabuleiro; C: De uma corda; D: De um pião. Pergunta 3. Qual é o objetivo do pega-pega? A: Ficar parado; B: Pular num pé só; C: Jogar uma bola na cesta; D: O pegador alcançar os outros, e os outros fugirem.",
+    "questions": [
+     {
+      "question": "O que precisamos saber para brincar de um jogo novo?",
+      "options": [
+       {
+        "text": "A cor da roupa",
+        "misconceptionCode": "esquece-material"
+       },
+       {
+        "text": "As regras"
+       },
+       {
+        "text": "O nome dos avós",
+        "misconceptionCode": "esquece-material"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "regra-na-hora"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Sem conhecer as regras, não dá para jogar junto.",
+      "variants": [
+       {
+        "question": "Quem nunca jogou um jogo precisa primeiro:",
+        "options": [
+         {
+          "text": "Ganhar",
+          "misconceptionCode": "esquece-material"
+         },
+         {
+          "text": "Assistir de longe para sempre",
+          "misconceptionCode": "esquece-material"
+         },
+         {
+          "text": "Inventar sozinho",
+          "misconceptionCode": "regra-na-hora"
+         },
+         {
+          "text": "Aprender como se joga"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que precisamos saber para brincar de um jogo novo?",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "regra-na-hora"
+         },
+         {
+          "text": "O nome dos avós",
+          "misconceptionCode": "esquece-material"
+         },
+         {
+          "text": "As regras"
+         },
+         {
+          "text": "A cor da roupa",
+          "misconceptionCode": "esquece-material"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Do que se precisa para brincar de pular corda?",
+      "options": [
+       {
+        "text": "De uma bola",
+        "misconceptionCode": "esquece-material"
+       },
+       {
+        "text": "De um tabuleiro",
+        "misconceptionCode": "esquece-material"
+       },
+       {
+        "text": "De uma corda"
+       },
+       {
+        "text": "De um pião",
+        "misconceptionCode": "esquece-material"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Cada brincadeira pede um material.",
+      "variants": [
+       {
+        "question": "Do que se precisa para brincar de amarelinha?",
+        "options": [
+         {
+          "text": "De um desenho no chão e de uma pedrinha"
+         },
+         {
+          "text": "De uma bola",
+          "misconceptionCode": "esquece-material"
+         },
+         {
+          "text": "De uma corda",
+          "misconceptionCode": "esquece-material"
+         },
+         {
+          "text": "De um tabuleiro",
+          "misconceptionCode": "esquece-material"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Do que se precisa para brincar de pular corda?",
+        "options": [
+         {
+          "text": "De um pião",
+          "misconceptionCode": "esquece-material"
+         },
+         {
+          "text": "De um tabuleiro",
+          "misconceptionCode": "esquece-material"
+         },
+         {
+          "text": "De uma bola",
+          "misconceptionCode": "esquece-material"
+         },
+         {
+          "text": "De uma corda"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual é o objetivo do pega-pega?",
+      "options": [
+       {
+        "text": "Ficar parado",
+        "misconceptionCode": "explica-sem-ordem"
+       },
+       {
+        "text": "Pular num pé só",
+        "misconceptionCode": "explica-sem-ordem"
+       },
+       {
+        "text": "Jogar uma bola na cesta",
+        "misconceptionCode": "explica-sem-ordem"
+       },
+       {
+        "text": "O pegador alcançar os outros, e os outros fugirem"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O objetivo é o que cada um tenta fazer no jogo.",
+      "variants": [
+       {
+        "question": "Qual é o objetivo do esconde-esconde?",
+        "options": [
+         {
+          "text": "Pular corda",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "Quem procura achar todos os que se esconderam"
+         },
+         {
+          "text": "Chutar a bola no gol",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "Girar o pião",
+          "misconceptionCode": "explica-sem-ordem"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual é o objetivo do pega-pega?",
+        "options": [
+         {
+          "text": "O pegador alcançar os outros, e os outros fugirem"
+         },
+         {
+          "text": "Jogar uma bola na cesta",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "Pular num pé só",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "Ficar parado",
+          "misconceptionCode": "explica-sem-ordem"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF03-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: como explicar uma brincadeira",
+    "prompt": "Para explicar bem uma brincadeira, dizemos: o nome, quantas pessoas brincam, do que se precisa, o objetivo e as regras, na ordem certa. Vamos explicar juntos o esconde-esconde.",
+    "estMinutes": 4,
+    "audioScript": "Para explicar bem uma brincadeira, dizemos: o nome, quantas pessoas brincam, do que se precisa, o objetivo e as regras, na ordem certa. Vamos explicar juntos o esconde-esconde. Pergunta 1. O que dizer primeiro ao explicar uma brincadeira? A: O nome e o objetivo; B: Quem ganhou da última vez; C: O final do jogo; D: A sua opinião. Pergunta 2. No esconde-esconde, o que acontece primeiro? A: Todos são achados; B: Uma pessoa conta de olhos fechados, e as outras se escondem; C: O jogo termina; D: Escolhe-se o vencedor. Pergunta 3. Ao explicar a queimada, além das regras, é preciso dizer: A: A cor do céu; B: O nome do professor; C: Que se usa uma bola e que há dois times; D: Nada mais.",
+    "questions": [
+     {
+      "question": "O que dizer primeiro ao explicar uma brincadeira?",
+      "options": [
+       {
+        "text": "O nome e o objetivo"
+       },
+       {
+        "text": "Quem ganhou da última vez",
+        "misconceptionCode": "explica-sem-ordem"
+       },
+       {
+        "text": "O final do jogo",
+        "misconceptionCode": "explica-sem-ordem"
+       },
+       {
+        "text": "A sua opinião",
+        "misconceptionCode": "explica-sem-ordem"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Começamos dizendo qual é a brincadeira e o que se quer fazer nela.",
+      "variants": [
+       {
+        "question": "Ao explicar um jogo, é importante dizer logo no começo:",
+        "options": [
+         {
+          "text": "Quem perdeu ontem",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "A cor da sua roupa",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "O que cada jogador precisa fazer para vencer ou cumprir o jogo"
+         },
+         {
+          "text": "O que comeu no almoço",
+          "misconceptionCode": "explica-sem-ordem"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que dizer primeiro ao explicar uma brincadeira?",
+        "options": [
+         {
+          "text": "A sua opinião",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "O nome e o objetivo"
+         },
+         {
+          "text": "O final do jogo",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "Quem ganhou da última vez",
+          "misconceptionCode": "explica-sem-ordem"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "No esconde-esconde, o que acontece primeiro?",
+      "options": [
+       {
+        "text": "Todos são achados",
+        "misconceptionCode": "explica-sem-ordem"
+       },
+       {
+        "text": "Uma pessoa conta de olhos fechados, e as outras se escondem"
+       },
+       {
+        "text": "O jogo termina",
+        "misconceptionCode": "explica-sem-ordem"
+       },
+       {
+        "text": "Escolhe-se o vencedor",
+        "misconceptionCode": "explica-sem-ordem"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A ordem ajuda quem ouve a entender o jogo.",
+      "variants": [
+       {
+        "question": "No esconde-esconde, o que acontece depois que a pessoa termina de contar?",
+        "options": [
+         {
+          "text": "Todos se escondem de novo",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "O jogo acaba",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "Ela fecha os olhos",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "Ela sai para procurar os outros"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "No esconde-esconde, o que acontece primeiro?",
+        "options": [
+         {
+          "text": "Escolhe-se o vencedor",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "O jogo termina",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "Uma pessoa conta de olhos fechados, e as outras se escondem"
+         },
+         {
+          "text": "Todos são achados",
+          "misconceptionCode": "explica-sem-ordem"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Ao explicar a queimada, além das regras, é preciso dizer:",
+      "options": [
+       {
+        "text": "A cor do céu",
+        "misconceptionCode": "esquece-material"
+       },
+       {
+        "text": "O nome do professor",
+        "misconceptionCode": "esquece-material"
+       },
+       {
+        "text": "Que se usa uma bola e que há dois times"
+       },
+       {
+        "text": "Nada mais",
+        "misconceptionCode": "esquece-material"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Quem vai jogar precisa saber do que precisa e como se organiza.",
+      "variants": [
+       {
+        "question": "Ao explicar a amarelinha, além das regras, é preciso dizer:",
+        "options": [
+         {
+          "text": "Que se desenham casas numeradas no chão e se usa uma pedrinha"
+         },
+         {
+          "text": "A cor do céu",
+          "misconceptionCode": "esquece-material"
+         },
+         {
+          "text": "O nome do professor",
+          "misconceptionCode": "esquece-material"
+         },
+         {
+          "text": "Nada mais",
+          "misconceptionCode": "esquece-material"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Ao explicar a queimada, além das regras, é preciso dizer:",
+        "options": [
+         {
+          "text": "Nada mais",
+          "misconceptionCode": "esquece-material"
+         },
+         {
+          "text": "O nome do professor",
+          "misconceptionCode": "esquece-material"
+         },
+         {
+          "text": "A cor do céu",
+          "misconceptionCode": "esquece-material"
+         },
+         {
+          "text": "Que se usa uma bola e que há dois times"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF03-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: muitos jeitos de explicar",
+    "prompt": "Podemos falar, mostrar, escrever e desenhar.",
+    "estMinutes": 5,
+    "audioScript": "Podemos falar, mostrar, escrever e desenhar. Pergunta 1. Além de falar, como podemos ensinar uma brincadeira? A: Só falando, não vale mostrar; B: Ficando em silêncio; C: Não ensinando; D: Mostrando com o corpo como se faz. Pergunta 2. Um desenho do tabuleiro da amarelinha ajuda a: A: Mostrar como é o espaço do jogo; B: Atrapalhar a explicação; C: Nada; D: Mudar as regras. Pergunta 3. Quando se combinam as regras de uma brincadeira? A: No meio da briga; B: Antes de começar; C: Depois que alguém perde; D: Nunca. Pergunta 4. Para escrever as regras de um jogo num cartaz, é bom: A: Escrever tudo junto, sem ordem; B: Não escrever o nome do jogo; C: Usar frases curtas, em ordem, uma para cada regra; D: Usar só desenhos sem sentido.",
+    "questions": [
+     {
+      "question": "Além de falar, como podemos ensinar uma brincadeira?",
+      "options": [
+       {
+        "text": "Só falando, não vale mostrar",
+        "misconceptionCode": "mostrar-nao-vale"
+       },
+       {
+        "text": "Ficando em silêncio",
+        "misconceptionCode": "mostrar-nao-vale"
+       },
+       {
+        "text": "Não ensinando",
+        "misconceptionCode": "mostrar-nao-vale"
+       },
+       {
+        "text": "Mostrando com o corpo como se faz"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Mostrar os movimentos ajuda muito quem está aprendendo.",
+      "variants": [
+       {
+        "question": "Para ensinar um colega a bater corda, o melhor é:",
+        "options": [
+         {
+          "text": "Só falar bem rápido",
+          "misconceptionCode": "mostrar-nao-vale"
+         },
+         {
+          "text": "Explicar e mostrar o movimento"
+         },
+         {
+          "text": "Não mostrar",
+          "misconceptionCode": "mostrar-nao-vale"
+         },
+         {
+          "text": "Rir se ele errar",
+          "misconceptionCode": "mostrar-nao-vale"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Além de falar, como podemos ensinar uma brincadeira?",
+        "options": [
+         {
+          "text": "Mostrando com o corpo como se faz"
+         },
+         {
+          "text": "Não ensinando",
+          "misconceptionCode": "mostrar-nao-vale"
+         },
+         {
+          "text": "Ficando em silêncio",
+          "misconceptionCode": "mostrar-nao-vale"
+         },
+         {
+          "text": "Só falando, não vale mostrar",
+          "misconceptionCode": "mostrar-nao-vale"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Um desenho do tabuleiro da amarelinha ajuda a:",
+      "options": [
+       {
+        "text": "Mostrar como é o espaço do jogo"
+       },
+       {
+        "text": "Atrapalhar a explicação",
+        "misconceptionCode": "mostrar-nao-vale"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "mostrar-nao-vale"
+       },
+       {
+        "text": "Mudar as regras",
+        "misconceptionCode": "regra-na-hora"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O desenho mostra de um jeito rápido o que seria difícil dizer só com palavras.",
+      "variants": [
+       {
+        "question": "Um desenho da quadra de queimada, com os dois campos, ajuda a:",
+        "options": [
+         {
+          "text": "Atrapalhar a explicação",
+          "misconceptionCode": "mostrar-nao-vale"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "mostrar-nao-vale"
+         },
+         {
+          "text": "Mostrar onde cada time fica"
+         },
+         {
+          "text": "Mudar as regras",
+          "misconceptionCode": "regra-na-hora"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um desenho do tabuleiro da amarelinha ajuda a:",
+        "options": [
+         {
+          "text": "Mudar as regras",
+          "misconceptionCode": "regra-na-hora"
+         },
+         {
+          "text": "Mostrar como é o espaço do jogo"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "mostrar-nao-vale"
+         },
+         {
+          "text": "Atrapalhar a explicação",
+          "misconceptionCode": "mostrar-nao-vale"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quando se combinam as regras de uma brincadeira?",
+      "options": [
+       {
+        "text": "No meio da briga",
+        "misconceptionCode": "regra-na-hora"
+       },
+       {
+        "text": "Antes de começar"
+       },
+       {
+        "text": "Depois que alguém perde",
+        "misconceptionCode": "regra-na-hora"
+       },
+       {
+        "text": "Nunca",
+        "misconceptionCode": "regra-na-hora"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Combinar antes evita confusão durante o jogo.",
+      "variants": [
+       {
+        "question": "Um colega muda a regra no meio do jogo para ganhar. Isso é:",
+        "options": [
+         {
+          "text": "Certo",
+          "misconceptionCode": "regra-na-hora"
+         },
+         {
+          "text": "Esperto",
+          "misconceptionCode": "regra-na-hora"
+         },
+         {
+          "text": "Normal",
+          "misconceptionCode": "regra-na-hora"
+         },
+         {
+          "text": "Injusto, porque as regras devem ser combinadas antes"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quando se combinam as regras de uma brincadeira?",
+        "options": [
+         {
+          "text": "Nunca",
+          "misconceptionCode": "regra-na-hora"
+         },
+         {
+          "text": "Depois que alguém perde",
+          "misconceptionCode": "regra-na-hora"
+         },
+         {
+          "text": "Antes de começar"
+         },
+         {
+          "text": "No meio da briga",
+          "misconceptionCode": "regra-na-hora"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Para escrever as regras de um jogo num cartaz, é bom:",
+      "options": [
+       {
+        "text": "Escrever tudo junto, sem ordem",
+        "misconceptionCode": "explica-sem-ordem"
+       },
+       {
+        "text": "Não escrever o nome do jogo",
+        "misconceptionCode": "explica-sem-ordem"
+       },
+       {
+        "text": "Usar frases curtas, em ordem, uma para cada regra"
+       },
+       {
+        "text": "Usar só desenhos sem sentido",
+        "misconceptionCode": "esquece-material"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Regras claras e em ordem são fáceis de ler e de seguir.",
+      "variants": [
+       {
+        "question": "Num cartaz com as regras do jogo, é importante aparecer:",
+        "options": [
+         {
+          "text": "O nome do jogo, o material e as regras"
+         },
+         {
+          "text": "Só o nome de quem escreveu",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "Só um desenho bonito",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "esquece-material"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Para escrever as regras de um jogo num cartaz, é bom:",
+        "options": [
+         {
+          "text": "Usar só desenhos sem sentido",
+          "misconceptionCode": "esquece-material"
+         },
+         {
+          "text": "Não escrever o nome do jogo",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "Escrever tudo junto, sem ordem",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "Usar frases curtas, em ordem, uma para cada regra"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF03-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: ensinando a turma",
+    "prompt": "Você é o professor da brincadeira.",
+    "estMinutes": 4,
+    "audioScript": "Você é o professor da brincadeira. Pergunta 1. Você vai ensinar uma brincadeira nova para a turma. Por onde começar? A: Começar a jogar sem explicar; B: Explicar só o final; C: Escolher quem vai perder; D: Dizer o nome, o objetivo e do que se precisa. Pergunta 2. Um colega não entendeu a explicação. O que fazer? A: Explicar de novo, de outro jeito, mostrando com o corpo; B: Rir dele; C: Deixá-lo de fora; D: Repetir igual, bem rápido. Pergunta 3. Por que é importante registrar as brincadeiras num caderno ou cartaz? A: Para ninguém mais brincar; B: Para não esquecê-las e poder ensiná-las a outras pessoas; C: Para guardar segredo; D: Não é importante.",
+    "questions": [
+     {
+      "question": "Você vai ensinar uma brincadeira nova para a turma. Por onde começar?",
+      "options": [
+       {
+        "text": "Começar a jogar sem explicar",
+        "misconceptionCode": "regra-na-hora"
+       },
+       {
+        "text": "Explicar só o final",
+        "misconceptionCode": "explica-sem-ordem"
+       },
+       {
+        "text": "Escolher quem vai perder",
+        "misconceptionCode": "explica-sem-ordem"
+       },
+       {
+        "text": "Dizer o nome, o objetivo e do que se precisa"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Uma boa explicação começa pelo começo.",
+      "variants": [
+       {
+        "question": "Depois de explicar as regras de uma brincadeira, é bom:",
+        "options": [
+         {
+          "text": "Começar valendo sem testar",
+          "misconceptionCode": "regra-na-hora"
+         },
+         {
+          "text": "Fazer uma rodada de teste para ver se todos entenderam"
+         },
+         {
+          "text": "Mudar as regras",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "Não deixar perguntar",
+          "misconceptionCode": "explica-sem-ordem"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Você vai ensinar uma brincadeira nova para a turma. Por onde começar?",
+        "options": [
+         {
+          "text": "Dizer o nome, o objetivo e do que se precisa"
+         },
+         {
+          "text": "Escolher quem vai perder",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "Explicar só o final",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "Começar a jogar sem explicar",
+          "misconceptionCode": "regra-na-hora"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Um colega não entendeu a explicação. O que fazer?",
+      "options": [
+       {
+        "text": "Explicar de novo, de outro jeito, mostrando com o corpo"
+       },
+       {
+        "text": "Rir dele",
+        "misconceptionCode": "mostrar-nao-vale"
+       },
+       {
+        "text": "Deixá-lo de fora",
+        "misconceptionCode": "mostrar-nao-vale"
+       },
+       {
+        "text": "Repetir igual, bem rápido",
+        "misconceptionCode": "explica-sem-ordem"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Cada pessoa entende de um jeito. Mostrar e dar exemplos ajuda.",
+      "variants": [
+       {
+        "question": "Uma colega com dificuldade para ouvir vai participar. Como explicar a brincadeira para ela?",
+        "options": [
+         {
+          "text": "Só falando de costas",
+          "misconceptionCode": "mostrar-nao-vale"
+         },
+         {
+          "text": "Não explicando",
+          "misconceptionCode": "mostrar-nao-vale"
+         },
+         {
+          "text": "Mostrando com gestos, desenhos e com o corpo"
+         },
+         {
+          "text": "Deixando-a de fora",
+          "misconceptionCode": "explica-sem-ordem"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um colega não entendeu a explicação. O que fazer?",
+        "options": [
+         {
+          "text": "Repetir igual, bem rápido",
+          "misconceptionCode": "explica-sem-ordem"
+         },
+         {
+          "text": "Explicar de novo, de outro jeito, mostrando com o corpo"
+         },
+         {
+          "text": "Deixá-lo de fora",
+          "misconceptionCode": "mostrar-nao-vale"
+         },
+         {
+          "text": "Rir dele",
+          "misconceptionCode": "mostrar-nao-vale"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Por que é importante registrar as brincadeiras num caderno ou cartaz?",
+      "options": [
+       {
+        "text": "Para ninguém mais brincar",
+        "misconceptionCode": "regra-na-hora"
+       },
+       {
+        "text": "Para não esquecê-las e poder ensiná-las a outras pessoas"
+       },
+       {
+        "text": "Para guardar segredo",
+        "misconceptionCode": "mostrar-nao-vale"
+       },
+       {
+        "text": "Não é importante",
+        "misconceptionCode": "regra-na-hora"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Registrar ajuda a guardar e a espalhar as brincadeiras.",
+      "variants": [
+       {
+        "question": "Um caderno de brincadeiras feito pela turma serve para:",
+        "options": [
+         {
+          "text": "Enfeitar a estante, somente",
+          "misconceptionCode": "regra-na-hora"
+         },
+         {
+          "text": "Esconder as regras",
+          "misconceptionCode": "mostrar-nao-vale"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "regra-na-hora"
+         },
+         {
+          "text": "Guardar e compartilhar as brincadeiras que a turma conhece"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Por que é importante registrar as brincadeiras num caderno ou cartaz?",
+        "options": [
+         {
+          "text": "Não é importante",
+          "misconceptionCode": "regra-na-hora"
+         },
+         {
+          "text": "Para guardar segredo",
+          "misconceptionCode": "mostrar-nao-vale"
+         },
+         {
+          "text": "Para não esquecê-las e poder ensiná-las a outras pessoas"
+         },
+         {
+          "text": "Para ninguém mais brincar",
+          "misconceptionCode": "regra-na-hora"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF03-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: ensinando uma brincadeira",
+    "prompt": "Escolha uma brincadeira e explique com as suas palavras, em ordem, como se brinca: o que é preciso, o objetivo e as regras principais.",
+    "estMinutes": 6,
+    "audioScript": "Escolha uma brincadeira e explique com as suas palavras, em ordem, como se brinca: o que é preciso, o objetivo e as regras principais.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "material",
+       "description": "Diz o que é preciso (material, espaço ou pessoas)"
+      },
+      {
+       "code": "objetivo",
+       "description": "Diz o objetivo"
+      },
+      {
+       "code": "regras",
+       "description": "Explica as regras em ordem"
+      }
+     ],
+     "exemploBoaResposta": "Para brincar de queimada, é preciso uma bola e dois times, cada um de um lado da quadra. O objetivo é acertar a bola nos jogadores do outro time. Quem é acertado sai. Não vale acertar na cabeça. Ganha o time que queimar todos do outro lado."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF35EF09",
+  "subjectCode": "EF",
+  "subjectName": "Educação Física",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: Danças populares do Brasil",
+  "tituloAluno": "O corpo que festeja",
+  "activities": [
+   {
+    "id": "PK2-EF35EF09-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: dançar",
+    "prompt": "Dançar é mover o corpo no ritmo.",
+    "estMinutes": 4,
+    "audioScript": "Dançar é mover o corpo no ritmo. Pergunta 1. O que guia os passos de uma dança? A: A cor do chão; B: O tamanho da sala; C: O nome do professor; D: O ritmo da música. Pergunta 2. Qual destas é uma dança de festa junina? A: Quadrilha; B: Balé; C: Hip-hop; D: Valsa. Pergunta 3. Dançar em grupo pede: A: Cada um ir para um lado; B: Atenção aos colegas e ao ritmo; C: Empurrar os outros; D: Ficar parado.",
+    "questions": [
+     {
+      "question": "O que guia os passos de uma dança?",
+      "options": [
+       {
+        "text": "A cor do chão",
+        "misconceptionCode": "danca-sem-lugar"
+       },
+       {
+        "text": "O tamanho da sala",
+        "misconceptionCode": "danca-sem-lugar"
+       },
+       {
+        "text": "O nome do professor",
+        "misconceptionCode": "danca-sem-lugar"
+       },
+       {
+        "text": "O ritmo da música"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O ritmo marca quando e como nos movemos.",
+      "variants": [
+       {
+        "question": "Bater palmas junto com a música é acompanhar:",
+        "options": [
+         {
+          "text": "A letra",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "O ritmo"
+         },
+         {
+          "text": "O cenário",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "A roupa",
+          "misconceptionCode": "danca-sem-lugar"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que guia os passos de uma dança?",
+        "options": [
+         {
+          "text": "O ritmo da música"
+         },
+         {
+          "text": "O nome do professor",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "O tamanho da sala",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "A cor do chão",
+          "misconceptionCode": "danca-sem-lugar"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Qual destas é uma dança de festa junina?",
+      "options": [
+       {
+        "text": "Quadrilha"
+       },
+       {
+        "text": "Balé",
+        "misconceptionCode": "danca-sem-lugar"
+       },
+       {
+        "text": "Hip-hop",
+        "misconceptionCode": "danca-sem-lugar"
+       },
+       {
+        "text": "Valsa",
+        "misconceptionCode": "danca-sem-lugar"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A quadrilha é dançada em pares no São João.",
+      "variants": [
+       {
+        "question": "Qual destas é uma dança de Carnaval?",
+        "options": [
+         {
+          "text": "Quadrilha",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "Ciranda de ninar",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "Frevo"
+         },
+         {
+          "text": "Valsa",
+          "misconceptionCode": "danca-sem-lugar"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual destas é uma dança de festa junina?",
+        "options": [
+         {
+          "text": "Valsa",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "Quadrilha"
+         },
+         {
+          "text": "Hip-hop",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "Balé",
+          "misconceptionCode": "danca-sem-lugar"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Dançar em grupo pede:",
+      "options": [
+       {
+        "text": "Cada um ir para um lado",
+        "misconceptionCode": "danca-so-quem-sabe"
+       },
+       {
+        "text": "Atenção aos colegas e ao ritmo"
+       },
+       {
+        "text": "Empurrar os outros",
+        "misconceptionCode": "danca-esquisita"
+       },
+       {
+        "text": "Ficar parado",
+        "misconceptionCode": "danca-so-quem-sabe"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Na dança em grupo, todos se movem juntos.",
+      "variants": [
+       {
+        "question": "Numa roda de dança, para a roda não quebrar, é preciso:",
+        "options": [
+         {
+          "text": "Correr na frente",
+          "misconceptionCode": "danca-so-quem-sabe"
+         },
+         {
+          "text": "Soltar as mãos",
+          "misconceptionCode": "danca-esquisita"
+         },
+         {
+          "text": "Parar no meio",
+          "misconceptionCode": "danca-so-quem-sabe"
+         },
+         {
+          "text": "Segurar as mãos e andar no mesmo ritmo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Dançar em grupo pede:",
+        "options": [
+         {
+          "text": "Ficar parado",
+          "misconceptionCode": "danca-so-quem-sabe"
+         },
+         {
+          "text": "Empurrar os outros",
+          "misconceptionCode": "danca-esquisita"
+         },
+         {
+          "text": "Atenção aos colegas e ao ritmo"
+         },
+         {
+          "text": "Cada um ir para um lado",
+          "misconceptionCode": "danca-so-quem-sabe"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF09-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: danças de cada canto do Brasil",
+    "prompt": "Cada região do Brasil tem danças próprias, criadas por povos indígenas, africanos e europeus e pelas misturas entre eles. Vamos conhecer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Cada região do Brasil tem danças próprias, criadas por povos indígenas, africanos e europeus e pelas misturas entre eles. Vamos conhecer juntos. Pergunta 1. A ciranda, dançada em roda, de mãos dadas, é típica: A: Do Japão; B: Da Europa, somente; C: De Pernambuco; D: De lugar nenhum. Pergunta 2. O samba de roda, com palmas, pandeiro e umbigada, nasceu: A: Em Portugal; B: Nos Estados Unidos; C: Na televisão; D: Na Bahia, da cultura de origem africana. Pergunta 3. Para muitos povos indígenas, as danças servem para: A: Celebrar, agradecer e fortalecer a união do grupo; B: Só passar o tempo; C: Competir por prêmios; D: Nada.",
+    "questions": [
+     {
+      "question": "A ciranda, dançada em roda, de mãos dadas, é típica:",
+      "options": [
+       {
+        "text": "Do Japão",
+        "misconceptionCode": "danca-sem-lugar"
+       },
+       {
+        "text": "Da Europa, somente",
+        "misconceptionCode": "danca-sem-lugar"
+       },
+       {
+        "text": "De Pernambuco"
+       },
+       {
+        "text": "De lugar nenhum",
+        "misconceptionCode": "danca-sem-lugar"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A ciranda nasceu no litoral de Pernambuco e hoje é dançada em todo o Brasil.",
+      "variants": [
+       {
+        "question": "O carimbó, com saias rodadas e tambores, é típico:",
+        "options": [
+         {
+          "text": "Do Pará"
+         },
+         {
+          "text": "Do Japão",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "Da Europa, somente",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "De lugar nenhum",
+          "misconceptionCode": "danca-sem-lugar"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A ciranda, dançada em roda, de mãos dadas, é típica:",
+        "options": [
+         {
+          "text": "De lugar nenhum",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "Da Europa, somente",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "Do Japão",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "De Pernambuco"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O samba de roda, com palmas, pandeiro e umbigada, nasceu:",
+      "options": [
+       {
+        "text": "Em Portugal",
+        "misconceptionCode": "danca-sem-lugar"
+       },
+       {
+        "text": "Nos Estados Unidos",
+        "misconceptionCode": "danca-sem-lugar"
+       },
+       {
+        "text": "Na televisão",
+        "misconceptionCode": "danca-sem-lugar"
+       },
+       {
+        "text": "Na Bahia, da cultura de origem africana"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O samba de roda do Recôncavo Baiano é um patrimônio cultural.",
+      "variants": [
+       {
+        "question": "A capoeira, que mistura luta, dança e música, foi criada:",
+        "options": [
+         {
+          "text": "Em Portugal",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "No Brasil, por africanos escravizados e seus descendentes"
+         },
+         {
+          "text": "Nos Estados Unidos",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "Na televisão",
+          "misconceptionCode": "danca-sem-lugar"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O samba de roda, com palmas, pandeiro e umbigada, nasceu:",
+        "options": [
+         {
+          "text": "Na Bahia, da cultura de origem africana"
+         },
+         {
+          "text": "Na televisão",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "Nos Estados Unidos",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "Em Portugal",
+          "misconceptionCode": "danca-sem-lugar"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Para muitos povos indígenas, as danças servem para:",
+      "options": [
+       {
+        "text": "Celebrar, agradecer e fortalecer a união do grupo"
+       },
+       {
+        "text": "Só passar o tempo",
+        "misconceptionCode": "danca-so-diversao"
+       },
+       {
+        "text": "Competir por prêmios",
+        "misconceptionCode": "danca-so-diversao"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "danca-so-diversao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "As danças fazem parte dos rituais e da vida da comunidade.",
+      "variants": [
+       {
+        "question": "Uma dança feita por um povo para agradecer a colheita tem:",
+        "options": [
+         {
+          "text": "Só diversão",
+          "misconceptionCode": "danca-so-diversao"
+         },
+         {
+          "text": "Nenhum sentido",
+          "misconceptionCode": "danca-so-diversao"
+         },
+         {
+          "text": "Um significado importante para esse povo"
+         },
+         {
+          "text": "Só enfeite",
+          "misconceptionCode": "danca-so-diversao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Para muitos povos indígenas, as danças servem para:",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "danca-so-diversao"
+         },
+         {
+          "text": "Celebrar, agradecer e fortalecer a união do grupo"
+         },
+         {
+          "text": "Competir por prêmios",
+          "misconceptionCode": "danca-so-diversao"
+         },
+         {
+          "text": "Só passar o tempo",
+          "misconceptionCode": "danca-so-diversao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF09-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: os sentidos das danças",
+    "prompt": "Cada dança conta algo.",
+    "estMinutes": 5,
+    "audioScript": "Cada dança conta algo. Pergunta 1. O bumba meu boi é uma dança que conta: A: Um jogo de futebol; B: A história da morte e da volta à vida de um boi; C: Uma receita; D: Nada. Pergunta 2. As roupas coloridas e os enfeites usados numa dança popular: A: São só enfeite sem sentido; B: Atrapalham a dança; C: Fazem parte da tradição e têm significado; D: Podem ser quaisquer. Pergunta 3. Você vê pela primeira vez uma dança de outro povo, com passos e roupas diferentes. O que fazer? A: Rir; B: Dizer que é esquisita; C: Imitar para zombar; D: Assistir com respeito e curiosidade. Pergunta 4. Quem nunca dançou uma dança popular pode aprender? A: Sim, observando e praticando; B: Não, só quem nasceu sabendo; C: Não, só os adultos; D: Não, só artistas.",
+    "questions": [
+     {
+      "question": "O bumba meu boi é uma dança que conta:",
+      "options": [
+       {
+        "text": "Um jogo de futebol",
+        "misconceptionCode": "danca-so-diversao"
+       },
+       {
+        "text": "A história da morte e da volta à vida de um boi"
+       },
+       {
+        "text": "Uma receita",
+        "misconceptionCode": "danca-so-diversao"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "danca-so-diversao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Muitas danças populares contam histórias com música, fantasias e personagens.",
+      "variants": [
+       {
+        "question": "Na quadrilha, os pares representam:",
+        "options": [
+         {
+          "text": "Um jogo de futebol",
+          "misconceptionCode": "danca-so-diversao"
+         },
+         {
+          "text": "Uma luta",
+          "misconceptionCode": "danca-so-diversao"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "danca-so-diversao"
+         },
+         {
+          "text": "Os convidados de um casamento na roça"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O bumba meu boi é uma dança que conta:",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "danca-so-diversao"
+         },
+         {
+          "text": "Uma receita",
+          "misconceptionCode": "danca-so-diversao"
+         },
+         {
+          "text": "A história da morte e da volta à vida de um boi"
+         },
+         {
+          "text": "Um jogo de futebol",
+          "misconceptionCode": "danca-so-diversao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "As roupas coloridas e os enfeites usados numa dança popular:",
+      "options": [
+       {
+        "text": "São só enfeite sem sentido",
+        "misconceptionCode": "danca-so-diversao"
+       },
+       {
+        "text": "Atrapalham a dança",
+        "misconceptionCode": "danca-esquisita"
+       },
+       {
+        "text": "Fazem parte da tradição e têm significado"
+       },
+       {
+        "text": "Podem ser quaisquer",
+        "misconceptionCode": "danca-so-diversao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Trajes e adereços ajudam a contar a história e a identificar a dança.",
+      "variants": [
+       {
+        "question": "A sombrinha colorida do frevo:",
+        "options": [
+         {
+          "text": "Faz parte da tradição da dança"
+         },
+         {
+          "text": "É só para a chuva",
+          "misconceptionCode": "danca-so-diversao"
+         },
+         {
+          "text": "Atrapalha a dança",
+          "misconceptionCode": "danca-esquisita"
+         },
+         {
+          "text": "Não tem sentido",
+          "misconceptionCode": "danca-so-diversao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "As roupas coloridas e os enfeites usados numa dança popular:",
+        "options": [
+         {
+          "text": "Podem ser quaisquer",
+          "misconceptionCode": "danca-so-diversao"
+         },
+         {
+          "text": "Atrapalham a dança",
+          "misconceptionCode": "danca-esquisita"
+         },
+         {
+          "text": "São só enfeite sem sentido",
+          "misconceptionCode": "danca-so-diversao"
+         },
+         {
+          "text": "Fazem parte da tradição e têm significado"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Você vê pela primeira vez uma dança de outro povo, com passos e roupas diferentes. O que fazer?",
+      "options": [
+       {
+        "text": "Rir",
+        "misconceptionCode": "danca-esquisita"
+       },
+       {
+        "text": "Dizer que é esquisita",
+        "misconceptionCode": "danca-esquisita"
+       },
+       {
+        "text": "Imitar para zombar",
+        "misconceptionCode": "danca-esquisita"
+       },
+       {
+        "text": "Assistir com respeito e curiosidade"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O que é diferente para nós tem valor e sentido para quem criou.",
+      "variants": [
+       {
+        "question": "Um colega mostra uma dança da cultura da família dele. O que fazer?",
+        "options": [
+         {
+          "text": "Rir",
+          "misconceptionCode": "danca-esquisita"
+         },
+         {
+          "text": "Respeitar e querer aprender"
+         },
+         {
+          "text": "Dizer que é feia",
+          "misconceptionCode": "danca-esquisita"
+         },
+         {
+          "text": "Virar as costas",
+          "misconceptionCode": "danca-esquisita"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Você vê pela primeira vez uma dança de outro povo, com passos e roupas diferentes. O que fazer?",
+        "options": [
+         {
+          "text": "Assistir com respeito e curiosidade"
+         },
+         {
+          "text": "Imitar para zombar",
+          "misconceptionCode": "danca-esquisita"
+         },
+         {
+          "text": "Dizer que é esquisita",
+          "misconceptionCode": "danca-esquisita"
+         },
+         {
+          "text": "Rir",
+          "misconceptionCode": "danca-esquisita"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quem nunca dançou uma dança popular pode aprender?",
+      "options": [
+       {
+        "text": "Sim, observando e praticando"
+       },
+       {
+        "text": "Não, só quem nasceu sabendo",
+        "misconceptionCode": "danca-so-quem-sabe"
+       },
+       {
+        "text": "Não, só os adultos",
+        "misconceptionCode": "danca-so-quem-sabe"
+       },
+       {
+        "text": "Não, só artistas",
+        "misconceptionCode": "danca-so-quem-sabe"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "As danças populares são passadas de pessoa para pessoa.",
+      "variants": [
+       {
+        "question": "Nas festas populares, as crianças aprendem a dançar:",
+        "options": [
+         {
+          "text": "Em silêncio, sem se mexer",
+          "misconceptionCode": "danca-so-quem-sabe"
+         },
+         {
+          "text": "Só em escolas caras",
+          "misconceptionCode": "danca-so-quem-sabe"
+         },
+         {
+          "text": "Olhando os mais velhos e dançando junto"
+         },
+         {
+          "text": "Sozinhas, trancadas em casa",
+          "misconceptionCode": "danca-so-quem-sabe"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quem nunca dançou uma dança popular pode aprender?",
+        "options": [
+         {
+          "text": "Não, só artistas",
+          "misconceptionCode": "danca-so-quem-sabe"
+         },
+         {
+          "text": "Sim, observando e praticando"
+         },
+         {
+          "text": "Não, só os adultos",
+          "misconceptionCode": "danca-so-quem-sabe"
+         },
+         {
+          "text": "Não, só quem nasceu sabendo",
+          "misconceptionCode": "danca-so-quem-sabe"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF09-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: dançando e respeitando",
+    "prompt": "Leve a dança para a escola.",
+    "estMinutes": 4,
+    "audioScript": "Leve a dança para a escola. Pergunta 1. A turma vai apresentar uma dança popular. Antes de dançar, é importante: A: Só decorar os passos; B: Conhecer de onde ela vem e o que significa; C: Mudar tudo; D: Não pesquisar nada. Pergunta 2. Na roda de coco, um colega bate o pé fora do ritmo. O que fazer? A: Tirar o colega da roda; B: Rir; C: Continuar e ajudar o colega a pegar o ritmo; D: Parar a roda. Pergunta 3. Por que é importante manter vivas as danças populares? A: Porque são novas; B: Porque custam caro; C: Não é importante; D: Porque guardam a história e a alegria de um povo.",
+    "questions": [
+     {
+      "question": "A turma vai apresentar uma dança popular. Antes de dançar, é importante:",
+      "options": [
+       {
+        "text": "Só decorar os passos",
+        "misconceptionCode": "danca-so-diversao"
+       },
+       {
+        "text": "Conhecer de onde ela vem e o que significa"
+       },
+       {
+        "text": "Mudar tudo",
+        "misconceptionCode": "danca-sem-lugar"
+       },
+       {
+        "text": "Não pesquisar nada",
+        "misconceptionCode": "danca-sem-lugar"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Conhecer a história da dança é uma forma de respeitar quem a criou.",
+      "variants": [
+       {
+        "question": "Para aprender uma dança tradicional do bairro, a turma pode:",
+        "options": [
+         {
+          "text": "Inventar que ela não existe",
+          "misconceptionCode": "danca-so-diversao"
+         },
+         {
+          "text": "Não perguntar a ninguém",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "Rir de quem dança",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "Convidar pessoas da comunidade que dançam"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A turma vai apresentar uma dança popular. Antes de dançar, é importante:",
+        "options": [
+         {
+          "text": "Não pesquisar nada",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "Mudar tudo",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "Conhecer de onde ela vem e o que significa"
+         },
+         {
+          "text": "Só decorar os passos",
+          "misconceptionCode": "danca-so-diversao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Na roda de coco, um colega bate o pé fora do ritmo. O que fazer?",
+      "options": [
+       {
+        "text": "Tirar o colega da roda",
+        "misconceptionCode": "danca-so-quem-sabe"
+       },
+       {
+        "text": "Rir",
+        "misconceptionCode": "danca-so-quem-sabe"
+       },
+       {
+        "text": "Continuar e ajudar o colega a pegar o ritmo"
+       },
+       {
+        "text": "Parar a roda",
+        "misconceptionCode": "danca-so-quem-sabe"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Na dança popular, todos participam e aprendem juntos.",
+      "variants": [
+       {
+        "question": "Uma colega usa cadeira de rodas e quer dançar a ciranda. O que fazer?",
+        "options": [
+         {
+          "text": "Adaptar a roda para ela participar"
+         },
+         {
+          "text": "Dizer que ela não pode",
+          "misconceptionCode": "danca-so-quem-sabe"
+         },
+         {
+          "text": "Deixá-la olhando",
+          "misconceptionCode": "danca-so-quem-sabe"
+         },
+         {
+          "text": "Mudar de brincadeira sem ela",
+          "misconceptionCode": "danca-so-quem-sabe"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Na roda de coco, um colega bate o pé fora do ritmo. O que fazer?",
+        "options": [
+         {
+          "text": "Parar a roda",
+          "misconceptionCode": "danca-so-quem-sabe"
+         },
+         {
+          "text": "Rir",
+          "misconceptionCode": "danca-so-quem-sabe"
+         },
+         {
+          "text": "Tirar o colega da roda",
+          "misconceptionCode": "danca-so-quem-sabe"
+         },
+         {
+          "text": "Continuar e ajudar o colega a pegar o ritmo"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Por que é importante manter vivas as danças populares?",
+      "options": [
+       {
+        "text": "Porque são novas",
+        "misconceptionCode": "danca-sem-lugar"
+       },
+       {
+        "text": "Porque custam caro",
+        "misconceptionCode": "danca-so-diversao"
+       },
+       {
+        "text": "Não é importante",
+        "misconceptionCode": "danca-so-diversao"
+       },
+       {
+        "text": "Porque guardam a história e a alegria de um povo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "As danças populares são patrimônio cultural.",
+      "variants": [
+       {
+        "question": "As danças populares continuam existindo quando:",
+        "options": [
+         {
+          "text": "Ninguém dança",
+          "misconceptionCode": "danca-sem-lugar"
+         },
+         {
+          "text": "As pessoas dançam e ensinam às crianças"
+         },
+         {
+          "text": "São proibidas",
+          "misconceptionCode": "danca-so-diversao"
+         },
+         {
+          "text": "Ficam só em fotos",
+          "misconceptionCode": "danca-so-diversao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Por que é importante manter vivas as danças populares?",
+        "options": [
+         {
+          "text": "Porque guardam a história e a alegria de um povo"
+         },
+         {
+          "text": "Não é importante",
+          "misconceptionCode": "danca-so-diversao"
+         },
+         {
+          "text": "Porque custam caro",
+          "misconceptionCode": "danca-so-diversao"
+         },
+         {
+          "text": "Porque são novas",
+          "misconceptionCode": "danca-sem-lugar"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF09-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: uma dança popular",
+    "prompt": "Escolha uma dança popular que você conhece e explique com as suas palavras de onde ela vem e como é dançada.",
+    "estMinutes": 6,
+    "audioScript": "Escolha uma dança popular que você conhece e explique com as suas palavras de onde ela vem e como é dançada.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "danca",
+       "description": "Indica uma dança popular"
+      },
+      {
+       "code": "origem",
+       "description": "Diz de onde ela vem (região, festa ou povo)"
+      },
+      {
+       "code": "como",
+       "description": "Descreve como é dançada"
+      }
+     ],
+     "exemploBoaResposta": "Eu conheço a ciranda. Ela vem de Pernambuco. As pessoas dão as mãos, formam uma roda grande e giram dando passos para a frente e para trás, no ritmo da música."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF35EF13",
+  "subjectCode": "EF",
+  "subjectName": "Educação Física",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: Lutas da nossa cultura",
+  "tituloAluno": "Luta tem regra e respeito",
+  "activities": [
+   {
+    "id": "PK2-EF35EF13-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: respeito ao colega",
+    "prompt": "Brincar junto pede cuidado com o outro.",
+    "estMinutes": 4,
+    "audioScript": "Brincar junto pede cuidado com o outro. Pergunta 1. Numa brincadeira de empurrar, o colega pede para parar. O que fazer? A: Continuar; B: Empurrar mais forte; C: Parar na hora; D: Rir. Pergunta 2. Dois colegas discutem e se batem no recreio. Isso é: A: Uma luta; B: Um esporte; C: Uma brincadeira; D: Uma briga. Pergunta 3. Antes de uma brincadeira de luta, é importante: A: Combinar as regras e o sinal de parar; B: Não combinar nada; C: Pegar o colega de surpresa; D: Escolher alguém menor.",
+    "questions": [
+     {
+      "question": "Numa brincadeira de empurrar, o colega pede para parar. O que fazer?",
+      "options": [
+       {
+        "text": "Continuar",
+        "misconceptionCode": "vale-machucar"
+       },
+       {
+        "text": "Empurrar mais forte",
+        "misconceptionCode": "vale-machucar"
+       },
+       {
+        "text": "Parar na hora"
+       },
+       {
+        "text": "Rir",
+        "misconceptionCode": "vale-machucar"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Quando alguém pede para parar, a brincadeira para.",
+      "variants": [
+       {
+        "question": "Numa brincadeira de puxar, o colega cai e reclama de dor. O que fazer?",
+        "options": [
+         {
+          "text": "Parar e ver se ele está bem"
+         },
+         {
+          "text": "Continuar puxando",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "Rir",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "Ir embora",
+          "misconceptionCode": "vale-machucar"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Numa brincadeira de empurrar, o colega pede para parar. O que fazer?",
+        "options": [
+         {
+          "text": "Rir",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "Empurrar mais forte",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "Continuar",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "Parar na hora"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Dois colegas discutem e se batem no recreio. Isso é:",
+      "options": [
+       {
+        "text": "Uma luta",
+        "misconceptionCode": "luta-e-briga"
+       },
+       {
+        "text": "Um esporte",
+        "misconceptionCode": "luta-e-briga"
+       },
+       {
+        "text": "Uma brincadeira",
+        "misconceptionCode": "luta-e-briga"
+       },
+       {
+        "text": "Uma briga"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Briga é violência. Ninguém combinou regras, e alguém pode se machucar.",
+      "variants": [
+       {
+        "question": "Empurrar um colega com raiva, para machucar, é:",
+        "options": [
+         {
+          "text": "Luta",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Briga"
+         },
+         {
+          "text": "Esporte",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Brincadeira",
+          "misconceptionCode": "luta-e-briga"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Dois colegas discutem e se batem no recreio. Isso é:",
+        "options": [
+         {
+          "text": "Uma briga"
+         },
+         {
+          "text": "Uma brincadeira",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Um esporte",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Uma luta",
+          "misconceptionCode": "luta-e-briga"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Antes de uma brincadeira de luta, é importante:",
+      "options": [
+       {
+        "text": "Combinar as regras e o sinal de parar"
+       },
+       {
+        "text": "Não combinar nada",
+        "misconceptionCode": "luta-e-briga"
+       },
+       {
+        "text": "Pegar o colega de surpresa",
+        "misconceptionCode": "vale-machucar"
+       },
+       {
+        "text": "Escolher alguém menor",
+        "misconceptionCode": "vale-machucar"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Combinar antes protege todos.",
+      "variants": [
+       {
+        "question": "O que os lutadores fazem antes de começar?",
+        "options": [
+         {
+          "text": "Xingam-se",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Empurram-se",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "Cumprimentam-se, em sinal de respeito"
+         },
+         {
+          "text": "Viram as costas",
+          "misconceptionCode": "vale-machucar"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Antes de uma brincadeira de luta, é importante:",
+        "options": [
+         {
+          "text": "Escolher alguém menor",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "Combinar as regras e o sinal de parar"
+         },
+         {
+          "text": "Pegar o colega de surpresa",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "Não combinar nada",
+          "misconceptionCode": "luta-e-briga"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF13-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o que é luta",
+    "prompt": "Luta é uma prática com regras, em que duas pessoas se enfrentam com técnica e respeito, sem querer machucar. Briga não tem regras e nasce da raiva. Vamos entender juntos.",
+    "estMinutes": 4,
+    "audioScript": "Luta é uma prática com regras, em que duas pessoas se enfrentam com técnica e respeito, sem querer machucar. Briga não tem regras e nasce da raiva. Vamos entender juntos. Pergunta 1. Qual é a diferença entre luta e briga? A: Não há diferença; B: A luta tem regras e respeito; a briga não; C: A briga tem regras; D: Na luta vale tudo. Pergunta 2. A capoeira, com ginga, música e roda, foi criada: A: No Japão; B: Na França; C: No Brasil, por africanos escravizados e seus descendentes; D: Por ninguém. Pergunta 3. A huka-huka é uma luta em que os lutadores começam ajoelhados e tentam derrubar o oponente. Ela é praticada: A: Por lutadores do Japão; B: Só na televisão; C: Por ninguém; D: Por povos indígenas do Xingu.",
+    "questions": [
+     {
+      "question": "Qual é a diferença entre luta e briga?",
+      "options": [
+       {
+        "text": "Não há diferença",
+        "misconceptionCode": "luta-e-briga"
+       },
+       {
+        "text": "A luta tem regras e respeito; a briga não"
+       },
+       {
+        "text": "A briga tem regras",
+        "misconceptionCode": "luta-e-briga"
+       },
+       {
+        "text": "Na luta vale tudo",
+        "misconceptionCode": "vale-machucar"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Na luta, os dois combinaram as regras e cuidam um do outro.",
+      "variants": [
+       {
+        "question": "Numa luta, os dois participantes:",
+        "options": [
+         {
+          "text": "Estão com raiva",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Querem machucar",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Não se conhecem",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "Combinaram as regras e se respeitam"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual é a diferença entre luta e briga?",
+        "options": [
+         {
+          "text": "Na luta vale tudo",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "A briga tem regras",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "A luta tem regras e respeito; a briga não"
+         },
+         {
+          "text": "Não há diferença",
+          "misconceptionCode": "luta-e-briga"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "A capoeira, com ginga, música e roda, foi criada:",
+      "options": [
+       {
+        "text": "No Japão",
+        "misconceptionCode": "luta-sem-origem"
+       },
+       {
+        "text": "Na França",
+        "misconceptionCode": "luta-sem-origem"
+       },
+       {
+        "text": "No Brasil, por africanos escravizados e seus descendentes"
+       },
+       {
+        "text": "Por ninguém",
+        "misconceptionCode": "luta-sem-origem"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A capoeira é luta, dança e jogo. Faz parte da cultura afro-brasileira.",
+      "variants": [
+       {
+        "question": "Na capoeira, os instrumentos que marcam o ritmo são:",
+        "options": [
+         {
+          "text": "O berimbau, o pandeiro e o atabaque"
+         },
+         {
+          "text": "A guitarra e a bateria",
+          "misconceptionCode": "luta-sem-origem"
+         },
+         {
+          "text": "O piano e o violino",
+          "misconceptionCode": "luta-sem-origem"
+         },
+         {
+          "text": "A sanfona e o triângulo",
+          "misconceptionCode": "luta-sem-origem"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A capoeira, com ginga, música e roda, foi criada:",
+        "options": [
+         {
+          "text": "Por ninguém",
+          "misconceptionCode": "luta-sem-origem"
+         },
+         {
+          "text": "Na França",
+          "misconceptionCode": "luta-sem-origem"
+         },
+         {
+          "text": "No Japão",
+          "misconceptionCode": "luta-sem-origem"
+         },
+         {
+          "text": "No Brasil, por africanos escravizados e seus descendentes"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "A huka-huka é uma luta em que os lutadores começam ajoelhados e tentam derrubar o oponente. Ela é praticada:",
+      "options": [
+       {
+        "text": "Por lutadores do Japão",
+        "misconceptionCode": "luta-sem-origem"
+       },
+       {
+        "text": "Só na televisão",
+        "misconceptionCode": "luta-sem-origem"
+       },
+       {
+        "text": "Por ninguém",
+        "misconceptionCode": "luta-sem-origem"
+       },
+       {
+        "text": "Por povos indígenas do Xingu"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A huka-huka faz parte das festas e dos rituais de povos indígenas.",
+      "variants": [
+       {
+        "question": "Para os povos do Xingu, a huka-huka faz parte:",
+        "options": [
+         {
+          "text": "De uma briga",
+          "misconceptionCode": "luta-sem-origem"
+         },
+         {
+          "text": "Das festas e cerimônias da comunidade"
+         },
+         {
+          "text": "De um jogo de videogame",
+          "misconceptionCode": "luta-sem-origem"
+         },
+         {
+          "text": "De nada",
+          "misconceptionCode": "luta-sem-origem"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A huka-huka é uma luta em que os lutadores começam ajoelhados e tentam derrubar o oponente. Ela é praticada:",
+        "options": [
+         {
+          "text": "Por povos indígenas do Xingu"
+         },
+         {
+          "text": "Por ninguém",
+          "misconceptionCode": "luta-sem-origem"
+         },
+         {
+          "text": "Só na televisão",
+          "misconceptionCode": "luta-sem-origem"
+         },
+         {
+          "text": "Por lutadores do Japão",
+          "misconceptionCode": "luta-sem-origem"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF13-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: lutar com segurança",
+    "prompt": "Cuidar do outro é a primeira regra.",
+    "estMinutes": 5,
+    "audioScript": "Cuidar do outro é a primeira regra. Pergunta 1. Numa luta, o objetivo é: A: Superar o oponente com técnica, sem machucar; B: Machucar o outro; C: Fazer o outro chorar; D: Bater com força. Pergunta 2. Quais golpes NÃO são permitidos nas brincadeiras de luta da escola? A: Empurrar com as palmas das mãos, como combinado; B: Socos, chutes e puxões de cabelo; C: Tentar desequilibrar, como combinado; D: Segurar o braço, como combinado. Pergunta 3. Meninas podem praticar lutas? A: Não, é só para meninos; B: Só se forem fortes; C: Sim, as lutas são para todas as pessoas; D: Só assistindo. Pergunta 4. Para lutar com segurança, o lugar deve ser: A: Cheio de cadeiras; B: Molhado e escorregadio; C: Com pedras no chão; D: Livre de objetos e com piso macio ou colchonetes.",
+    "questions": [
+     {
+      "question": "Numa luta, o objetivo é:",
+      "options": [
+       {
+        "text": "Superar o oponente com técnica, sem machucar"
+       },
+       {
+        "text": "Machucar o outro",
+        "misconceptionCode": "vale-machucar"
+       },
+       {
+        "text": "Fazer o outro chorar",
+        "misconceptionCode": "vale-machucar"
+       },
+       {
+        "text": "Bater com força",
+        "misconceptionCode": "vale-machucar"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A luta mede habilidade, equilíbrio e estratégia.",
+      "variants": [
+       {
+        "question": "Num jogo de tentar tirar a fita presa na cintura do colega, vence quem:",
+        "options": [
+         {
+          "text": "Derruba o outro com força",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "Bate no outro",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "Pega a fita sem machucar"
+         },
+         {
+          "text": "Puxa o cabelo",
+          "misconceptionCode": "vale-machucar"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Numa luta, o objetivo é:",
+        "options": [
+         {
+          "text": "Bater com força",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "Superar o oponente com técnica, sem machucar"
+         },
+         {
+          "text": "Fazer o outro chorar",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "Machucar o outro",
+          "misconceptionCode": "vale-machucar"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quais golpes NÃO são permitidos nas brincadeiras de luta da escola?",
+      "options": [
+       {
+        "text": "Empurrar com as palmas das mãos, como combinado",
+        "misconceptionCode": "luta-e-briga"
+       },
+       {
+        "text": "Socos, chutes e puxões de cabelo"
+       },
+       {
+        "text": "Tentar desequilibrar, como combinado",
+        "misconceptionCode": "luta-e-briga"
+       },
+       {
+        "text": "Segurar o braço, como combinado",
+        "misconceptionCode": "luta-e-briga"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Só vale o que foi combinado e é seguro.",
+      "variants": [
+       {
+        "question": "Numa brincadeira de desequilibrar o colega, é proibido:",
+        "options": [
+         {
+          "text": "Empurrar com as palmas das mãos, como combinado",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Mudar a posição dos pés",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Rir junto no final",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Bater, morder ou beliscar"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quais golpes NÃO são permitidos nas brincadeiras de luta da escola?",
+        "options": [
+         {
+          "text": "Segurar o braço, como combinado",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Tentar desequilibrar, como combinado",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Socos, chutes e puxões de cabelo"
+         },
+         {
+          "text": "Empurrar com as palmas das mãos, como combinado",
+          "misconceptionCode": "luta-e-briga"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Meninas podem praticar lutas?",
+      "options": [
+       {
+        "text": "Não, é só para meninos",
+        "misconceptionCode": "luta-so-menino"
+       },
+       {
+        "text": "Só se forem fortes",
+        "misconceptionCode": "luta-so-menino"
+       },
+       {
+        "text": "Sim, as lutas são para todas as pessoas"
+       },
+       {
+        "text": "Só assistindo",
+        "misconceptionCode": "luta-so-menino"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Há grandes campeãs brasileiras de judô, boxe e capoeira.",
+      "variants": [
+       {
+        "question": "Numa roda de capoeira, quem pode jogar?",
+        "options": [
+         {
+          "text": "Meninos e meninas, de todas as idades"
+         },
+         {
+          "text": "Só os meninos",
+          "misconceptionCode": "luta-so-menino"
+         },
+         {
+          "text": "Só os adultos",
+          "misconceptionCode": "luta-so-menino"
+         },
+         {
+          "text": "Só os mais fortes",
+          "misconceptionCode": "luta-so-menino"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Meninas podem praticar lutas?",
+        "options": [
+         {
+          "text": "Só assistindo",
+          "misconceptionCode": "luta-so-menino"
+         },
+         {
+          "text": "Só se forem fortes",
+          "misconceptionCode": "luta-so-menino"
+         },
+         {
+          "text": "Não, é só para meninos",
+          "misconceptionCode": "luta-so-menino"
+         },
+         {
+          "text": "Sim, as lutas são para todas as pessoas"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Para lutar com segurança, o lugar deve ser:",
+      "options": [
+       {
+        "text": "Cheio de cadeiras",
+        "misconceptionCode": "vale-machucar"
+       },
+       {
+        "text": "Molhado e escorregadio",
+        "misconceptionCode": "vale-machucar"
+       },
+       {
+        "text": "Com pedras no chão",
+        "misconceptionCode": "vale-machucar"
+       },
+       {
+        "text": "Livre de objetos e com piso macio ou colchonetes"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "O espaço seguro evita machucados nas quedas.",
+      "variants": [
+       {
+        "question": "Antes de uma brincadeira de luta, é bom tirar:",
+        "options": [
+         {
+          "text": "Só o tênis do colega",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "Relógios, brincos e objetos que possam machucar"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "A camiseta do colega",
+          "misconceptionCode": "vale-machucar"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Para lutar com segurança, o lugar deve ser:",
+        "options": [
+         {
+          "text": "Livre de objetos e com piso macio ou colchonetes"
+         },
+         {
+          "text": "Com pedras no chão",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "Molhado e escorregadio",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "Cheio de cadeiras",
+          "misconceptionCode": "vale-machucar"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF13-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: valores das lutas",
+    "prompt": "O que a luta ensina.",
+    "estMinutes": 4,
+    "audioScript": "O que a luta ensina. Pergunta 1. Um colega que faz capoeira ameaça outro no recreio. Ele está certo? A: Não, a luta ensina respeito e não deve ser usada para ameaçar; B: Sim, para isso serve a luta; C: Sim, se o outro for menor; D: Sim, quem treina pode. Pergunta 2. No fim de uma brincadeira de luta, o que os dois devem fazer? A: Zombar de quem perdeu; B: Cumprimentar-se e agradecer; C: Ir embora sem falar; D: Continuar fora das regras. Pergunta 3. Por que a capoeira é importante para a cultura brasileira? A: Porque é uma briga; B: Porque veio do Japão; C: Porque guarda a história e a resistência do povo negro; D: Não é importante.",
+    "questions": [
+     {
+      "question": "Um colega que faz capoeira ameaça outro no recreio. Ele está certo?",
+      "options": [
+       {
+        "text": "Não, a luta ensina respeito e não deve ser usada para ameaçar"
+       },
+       {
+        "text": "Sim, para isso serve a luta",
+        "misconceptionCode": "luta-e-briga"
+       },
+       {
+        "text": "Sim, se o outro for menor",
+        "misconceptionCode": "vale-machucar"
+       },
+       {
+        "text": "Sim, quem treina pode",
+        "misconceptionCode": "luta-e-briga"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Quem aprende uma luta aprende também a se controlar.",
+      "variants": [
+       {
+        "question": "Uma colega que treina judô é provocada na fila. O melhor é:",
+        "options": [
+         {
+          "text": "Derrubar quem provocou",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Mostrar um golpe",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "Manter a calma e avisar um adulto"
+         },
+         {
+          "text": "Chamar os amigos para brigar",
+          "misconceptionCode": "luta-e-briga"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um colega que faz capoeira ameaça outro no recreio. Ele está certo?",
+        "options": [
+         {
+          "text": "Sim, quem treina pode",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Não, a luta ensina respeito e não deve ser usada para ameaçar"
+         },
+         {
+          "text": "Sim, se o outro for menor",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "Sim, para isso serve a luta",
+          "misconceptionCode": "luta-e-briga"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "No fim de uma brincadeira de luta, o que os dois devem fazer?",
+      "options": [
+       {
+        "text": "Zombar de quem perdeu",
+        "misconceptionCode": "vale-machucar"
+       },
+       {
+        "text": "Cumprimentar-se e agradecer"
+       },
+       {
+        "text": "Ir embora sem falar",
+        "misconceptionCode": "luta-e-briga"
+       },
+       {
+        "text": "Continuar fora das regras",
+        "misconceptionCode": "luta-e-briga"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O cumprimento mostra que o outro é parceiro, e não inimigo.",
+      "variants": [
+       {
+        "question": "Você venceu a brincadeira de luta. Uma boa atitude é:",
+        "options": [
+         {
+          "text": "Rir dele",
+          "misconceptionCode": "vale-machucar"
+         },
+         {
+          "text": "Dizer que ele é fraco",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Comemorar na cara dele",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Ajudar o colega a se levantar e agradecer"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "No fim de uma brincadeira de luta, o que os dois devem fazer?",
+        "options": [
+         {
+          "text": "Continuar fora das regras",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Ir embora sem falar",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Cumprimentar-se e agradecer"
+         },
+         {
+          "text": "Zombar de quem perdeu",
+          "misconceptionCode": "vale-machucar"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Por que a capoeira é importante para a cultura brasileira?",
+      "options": [
+       {
+        "text": "Porque é uma briga",
+        "misconceptionCode": "luta-e-briga"
+       },
+       {
+        "text": "Porque veio do Japão",
+        "misconceptionCode": "luta-sem-origem"
+       },
+       {
+        "text": "Porque guarda a história e a resistência do povo negro"
+       },
+       {
+        "text": "Não é importante",
+        "misconceptionCode": "luta-sem-origem"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "A capoeira nasceu como forma de resistência e hoje é patrimônio cultural.",
+      "variants": [
+       {
+        "question": "A roda de capoeira é reconhecida como:",
+        "options": [
+         {
+          "text": "Patrimônio cultural"
+         },
+         {
+          "text": "Uma briga de rua",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Um esporte japonês",
+          "misconceptionCode": "luta-sem-origem"
+         },
+         {
+          "text": "Algo sem valor",
+          "misconceptionCode": "luta-sem-origem"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Por que a capoeira é importante para a cultura brasileira?",
+        "options": [
+         {
+          "text": "Não é importante",
+          "misconceptionCode": "luta-sem-origem"
+         },
+         {
+          "text": "Porque veio do Japão",
+          "misconceptionCode": "luta-sem-origem"
+         },
+         {
+          "text": "Porque é uma briga",
+          "misconceptionCode": "luta-e-briga"
+         },
+         {
+          "text": "Porque guarda a história e a resistência do povo negro"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF13-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: luta não é briga",
+    "prompt": "Explique com as suas palavras a diferença entre luta e briga e conte o nome de uma luta da cultura brasileira.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras a diferença entre luta e briga e conte o nome de uma luta da cultura brasileira.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "luta",
+       "description": "Diz que a luta tem regras e respeito"
+      },
+      {
+       "code": "briga",
+       "description": "Diz que a briga é violência, sem regras"
+      },
+      {
+       "code": "exemplo",
+       "description": "Cita uma luta da cultura brasileira (capoeira, huka-huka)"
+      }
+     ],
+     "exemploBoaResposta": "Na luta, as duas pessoas combinam regras, se respeitam e não querem machucar. A briga acontece com raiva, sem regras, e alguém pode se ferir. Uma luta da cultura brasileira é a capoeira."
+    }
+   }
+  ]
+ }
+]

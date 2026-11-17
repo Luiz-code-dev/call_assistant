@@ -1,0 +1,3766 @@
+[
+ {
+  "skillCode": "EF03MA01",
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: Números até a unidade de milhar",
+  "tituloAluno": "Lendo e comparando números grandes",
+  "activities": [
+   {
+    "id": "PK2-EF03MA01-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: unidades e dezenas",
+    "prompt": "Dez unidades formam uma dezena.",
+    "estMinutes": 4,
+    "audioScript": "Dez unidades formam uma dezena. Pergunta 1. Quantas unidades tem uma dezena? A: 1; B: 10; C: 100; D: 5. Pergunta 2. No número 47, quanto vale o algarismo 4? A: 4; B: 400; C: 40; D: 7. Pergunta 3. Qual número é maior? A: 26; B: 16; C: 6; D: 62.",
+    "questions": [
+     {
+      "question": "Quantas unidades tem uma dezena?",
+      "options": [
+       {
+        "text": "1",
+        "misconceptionCode": "valor-do-algarismo"
+       },
+       {
+        "text": "10"
+       },
+       {
+        "text": "100",
+        "misconceptionCode": "ordem-trocada"
+       },
+       {
+        "text": "5",
+        "misconceptionCode": "compara-pelo-ultimo"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Uma dezena é um grupo de 10 unidades.",
+      "variants": [
+       {
+        "question": "Quantas dezenas formam uma centena?",
+        "options": [
+         {
+          "text": "1",
+          "misconceptionCode": "valor-do-algarismo"
+         },
+         {
+          "text": "100",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "compara-pelo-ultimo"
+         },
+         {
+          "text": "10"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quantas unidades tem uma dezena?",
+        "options": [
+         {
+          "text": "5",
+          "misconceptionCode": "compara-pelo-ultimo"
+         },
+         {
+          "text": "100",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "10"
+         },
+         {
+          "text": "1",
+          "misconceptionCode": "valor-do-algarismo"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "No número 47, quanto vale o algarismo 4?",
+      "options": [
+       {
+        "text": "4",
+        "misconceptionCode": "valor-do-algarismo"
+       },
+       {
+        "text": "400",
+        "misconceptionCode": "ordem-trocada"
+       },
+       {
+        "text": "40"
+       },
+       {
+        "text": "7",
+        "misconceptionCode": "compara-pelo-ultimo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O 4 está na casa das dezenas: são 4 dezenas, ou 40.",
+      "variants": [
+       {
+        "question": "No número 83, quanto vale o algarismo 8?",
+        "options": [
+         {
+          "text": "80"
+         },
+         {
+          "text": "8",
+          "misconceptionCode": "valor-do-algarismo"
+         },
+         {
+          "text": "800",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "3",
+          "misconceptionCode": "compara-pelo-ultimo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "No número 47, quanto vale o algarismo 4?",
+        "options": [
+         {
+          "text": "7",
+          "misconceptionCode": "compara-pelo-ultimo"
+         },
+         {
+          "text": "400",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "4",
+          "misconceptionCode": "valor-do-algarismo"
+         },
+         {
+          "text": "40"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual número é maior?",
+      "options": [
+       {
+        "text": "26",
+        "misconceptionCode": "compara-pelo-ultimo"
+       },
+       {
+        "text": "16",
+        "misconceptionCode": "compara-pelo-ultimo"
+       },
+       {
+        "text": "6",
+        "misconceptionCode": "valor-do-algarismo"
+       },
+       {
+        "text": "62"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "62 tem 6 dezenas. Os outros têm menos dezenas.",
+      "variants": [
+       {
+        "question": "Qual número é menor?",
+        "options": [
+         {
+          "text": "91",
+          "misconceptionCode": "compara-pelo-ultimo"
+         },
+         {
+          "text": "19"
+         },
+         {
+          "text": "39",
+          "misconceptionCode": "compara-pelo-ultimo"
+         },
+         {
+          "text": "90",
+          "misconceptionCode": "valor-do-algarismo"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual número é maior?",
+        "options": [
+         {
+          "text": "62"
+         },
+         {
+          "text": "6",
+          "misconceptionCode": "valor-do-algarismo"
+         },
+         {
+          "text": "16",
+          "misconceptionCode": "compara-pelo-ultimo"
+         },
+         {
+          "text": "26",
+          "misconceptionCode": "compara-pelo-ultimo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03MA01-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: centenas e unidade de milhar",
+    "prompt": "Dez dezenas formam uma centena (100). Dez centenas formam uma unidade de milhar (1.000). Cada algarismo vale conforme o lugar em que está. Vamos ler juntos.",
+    "estMinutes": 4,
+    "audioScript": "Dez dezenas formam uma centena (100). Dez centenas formam uma unidade de milhar (1.000). Cada algarismo vale conforme o lugar em que está. Vamos ler juntos. Pergunta 1. No número 352, quanto vale o algarismo 3? A: 300; B: 3; C: 30; D: 52. Pergunta 2. Como se escreve o número trezentos e cinco? A: 35; B: 305; C: 3.005; D: 350. Pergunta 3. Quantas centenas formam 1.000? A: 1; B: 100; C: 10; D: 1.000.",
+    "questions": [
+     {
+      "question": "No número 352, quanto vale o algarismo 3?",
+      "options": [
+       {
+        "text": "300"
+       },
+       {
+        "text": "3",
+        "misconceptionCode": "valor-do-algarismo"
+       },
+       {
+        "text": "30",
+        "misconceptionCode": "ordem-trocada"
+       },
+       {
+        "text": "52",
+        "misconceptionCode": "compara-pelo-ultimo"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O 3 está na casa das centenas: são 3 centenas, ou 300.",
+      "variants": [
+       {
+        "question": "No número 746, quanto vale o algarismo 7?",
+        "options": [
+         {
+          "text": "7",
+          "misconceptionCode": "valor-do-algarismo"
+         },
+         {
+          "text": "70",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "700"
+         },
+         {
+          "text": "46",
+          "misconceptionCode": "compara-pelo-ultimo"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "No número 352, quanto vale o algarismo 3?",
+        "options": [
+         {
+          "text": "52",
+          "misconceptionCode": "compara-pelo-ultimo"
+         },
+         {
+          "text": "300"
+         },
+         {
+          "text": "30",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "3",
+          "misconceptionCode": "valor-do-algarismo"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Como se escreve o número trezentos e cinco?",
+      "options": [
+       {
+        "text": "35",
+        "misconceptionCode": "zero-esquecido"
+       },
+       {
+        "text": "305"
+       },
+       {
+        "text": "3.005",
+        "misconceptionCode": "ordem-trocada"
+       },
+       {
+        "text": "350",
+        "misconceptionCode": "ordem-trocada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "São 3 centenas, 0 dezenas e 5 unidades. O zero guarda o lugar das dezenas.",
+      "variants": [
+       {
+        "question": "Como se escreve o número quatrocentos e oito?",
+        "options": [
+         {
+          "text": "48",
+          "misconceptionCode": "zero-esquecido"
+         },
+         {
+          "text": "4.008",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "480",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "408"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Como se escreve o número trezentos e cinco?",
+        "options": [
+         {
+          "text": "350",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "3.005",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "305"
+         },
+         {
+          "text": "35",
+          "misconceptionCode": "zero-esquecido"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Quantas centenas formam 1.000?",
+      "options": [
+       {
+        "text": "1",
+        "misconceptionCode": "valor-do-algarismo"
+       },
+       {
+        "text": "100",
+        "misconceptionCode": "ordem-trocada"
+       },
+       {
+        "text": "10"
+       },
+       {
+        "text": "1.000",
+        "misconceptionCode": "ordem-trocada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Dez centenas juntas formam uma unidade de milhar: 1.000.",
+      "variants": [
+       {
+        "question": "O número que vem logo depois de 999 é:",
+        "options": [
+         {
+          "text": "1.000"
+         },
+         {
+          "text": "9.910",
+          "misconceptionCode": "valor-do-algarismo"
+         },
+         {
+          "text": "100",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "9.999",
+          "misconceptionCode": "ordem-trocada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quantas centenas formam 1.000?",
+        "options": [
+         {
+          "text": "1.000",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "100",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "1",
+          "misconceptionCode": "valor-do-algarismo"
+         },
+         {
+          "text": "10"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03MA01-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: lendo e comparando",
+    "prompt": "Olhe primeiro a casa de maior valor.",
+    "estMinutes": 5,
+    "audioScript": "Olhe primeiro a casa de maior valor. Pergunta 1. Qual destes é o maior número? A: 498; B: 399; C: 89; D: 520. Pergunta 2. Como se lê o número 1.240? A: Mil duzentos e quarenta; B: Cento e vinte e quatro; C: Doze mil e quarenta; D: Mil e vinte e quatro. Pergunta 3. Qual é a ordem do menor para o maior? A: 902, 290, 209; B: 209, 290, 902; C: 290, 209, 902; D: 209, 902, 290. Pergunta 4. Qual número tem 6 centenas, 0 dezenas e 4 unidades? A: 64; B: 640; C: 604; D: 406.",
+    "questions": [
+     {
+      "question": "Qual destes é o maior número?",
+      "options": [
+       {
+        "text": "498",
+        "misconceptionCode": "compara-pelo-ultimo"
+       },
+       {
+        "text": "399",
+        "misconceptionCode": "compara-pelo-ultimo"
+       },
+       {
+        "text": "89",
+        "misconceptionCode": "valor-do-algarismo"
+       },
+       {
+        "text": "520"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "520 tem 5 centenas. É o que tem mais centenas.",
+      "variants": [
+       {
+        "question": "Qual número é maior?",
+        "options": [
+         {
+          "text": "699",
+          "misconceptionCode": "compara-pelo-ultimo"
+         },
+         {
+          "text": "701"
+         },
+         {
+          "text": "170",
+          "misconceptionCode": "compara-pelo-ultimo"
+         },
+         {
+          "text": "99",
+          "misconceptionCode": "valor-do-algarismo"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual destes é o maior número?",
+        "options": [
+         {
+          "text": "520"
+         },
+         {
+          "text": "89",
+          "misconceptionCode": "valor-do-algarismo"
+         },
+         {
+          "text": "399",
+          "misconceptionCode": "compara-pelo-ultimo"
+         },
+         {
+          "text": "498",
+          "misconceptionCode": "compara-pelo-ultimo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Como se lê o número 1.240?",
+      "options": [
+       {
+        "text": "Mil duzentos e quarenta"
+       },
+       {
+        "text": "Cento e vinte e quatro",
+        "misconceptionCode": "zero-esquecido"
+       },
+       {
+        "text": "Doze mil e quarenta",
+        "misconceptionCode": "ordem-trocada"
+       },
+       {
+        "text": "Mil e vinte e quatro",
+        "misconceptionCode": "ordem-trocada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "1 unidade de milhar, 2 centenas, 4 dezenas e 0 unidades.",
+      "variants": [
+       {
+        "question": "Como se lê o número 2.035?",
+        "options": [
+         {
+          "text": "Duzentos e trinta e cinco",
+          "misconceptionCode": "zero-esquecido"
+         },
+         {
+          "text": "Vinte mil e trinta e cinco",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "Dois mil e trinta e cinco"
+         },
+         {
+          "text": "Dois mil trezentos e cinco",
+          "misconceptionCode": "ordem-trocada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Como se lê o número 1.240?",
+        "options": [
+         {
+          "text": "Mil e vinte e quatro",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "Mil duzentos e quarenta"
+         },
+         {
+          "text": "Doze mil e quarenta",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "Cento e vinte e quatro",
+          "misconceptionCode": "zero-esquecido"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual é a ordem do menor para o maior?",
+      "options": [
+       {
+        "text": "902, 290, 209",
+        "misconceptionCode": "compara-pelo-ultimo"
+       },
+       {
+        "text": "209, 290, 902"
+       },
+       {
+        "text": "290, 209, 902",
+        "misconceptionCode": "compara-pelo-ultimo"
+       },
+       {
+        "text": "209, 902, 290",
+        "misconceptionCode": "compara-pelo-ultimo"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "209 e 290 têm 2 centenas; 209 tem menos dezenas. 902 tem 9 centenas.",
+      "variants": [
+       {
+        "question": "Qual é a ordem do menor para o maior?",
+        "options": [
+         {
+          "text": "513, 351, 315",
+          "misconceptionCode": "compara-pelo-ultimo"
+         },
+         {
+          "text": "351, 315, 513",
+          "misconceptionCode": "compara-pelo-ultimo"
+         },
+         {
+          "text": "315, 513, 351",
+          "misconceptionCode": "compara-pelo-ultimo"
+         },
+         {
+          "text": "315, 351, 513"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual é a ordem do menor para o maior?",
+        "options": [
+         {
+          "text": "209, 902, 290",
+          "misconceptionCode": "compara-pelo-ultimo"
+         },
+         {
+          "text": "290, 209, 902",
+          "misconceptionCode": "compara-pelo-ultimo"
+         },
+         {
+          "text": "209, 290, 902"
+         },
+         {
+          "text": "902, 290, 209",
+          "misconceptionCode": "compara-pelo-ultimo"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual número tem 6 centenas, 0 dezenas e 4 unidades?",
+      "options": [
+       {
+        "text": "64",
+        "misconceptionCode": "zero-esquecido"
+       },
+       {
+        "text": "640",
+        "misconceptionCode": "ordem-trocada"
+       },
+       {
+        "text": "604"
+       },
+       {
+        "text": "406",
+        "misconceptionCode": "ordem-trocada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "600 + 0 + 4 = 604.",
+      "variants": [
+       {
+        "question": "Qual número tem 8 centenas, 2 dezenas e 0 unidades?",
+        "options": [
+         {
+          "text": "820"
+         },
+         {
+          "text": "82",
+          "misconceptionCode": "zero-esquecido"
+         },
+         {
+          "text": "802",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "280",
+          "misconceptionCode": "ordem-trocada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual número tem 6 centenas, 0 dezenas e 4 unidades?",
+        "options": [
+         {
+          "text": "406",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "640",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "64",
+          "misconceptionCode": "zero-esquecido"
+         },
+         {
+          "text": "604"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03MA01-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: números no dia a dia",
+    "prompt": "Use o que aprendeu.",
+    "estMinutes": 4,
+    "audioScript": "Use o que aprendeu. Pergunta 1. Uma escola tem 485 alunos de manhã e 458 à tarde. Em qual turno há mais alunos? A: À tarde; B: Os dois têm o mesmo número; C: Não dá para saber; D: De manhã. Pergunta 2. Uma bicicleta custa mil e cinquenta reais. Como se escreve esse valor com algarismos? A: 1.050; B: 150; C: 1.500; D: 10.050. Pergunta 3. Juntando 3 notas de 100 reais, 2 notas de 10 e 5 moedas de 1 real, quanto dá? A: 10 reais; B: 325 reais; C: 352 reais; D: 3.025 reais.",
+    "questions": [
+     {
+      "question": "Uma escola tem 485 alunos de manhã e 458 à tarde. Em qual turno há mais alunos?",
+      "options": [
+       {
+        "text": "À tarde",
+        "misconceptionCode": "compara-pelo-ultimo"
+       },
+       {
+        "text": "Os dois têm o mesmo número",
+        "misconceptionCode": "valor-do-algarismo"
+       },
+       {
+        "text": "Não dá para saber",
+        "misconceptionCode": "compara-pelo-ultimo"
+       },
+       {
+        "text": "De manhã"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Os dois têm 4 centenas. 485 tem 8 dezenas e 458 tem 5. Então 485 é maior.",
+      "variants": [
+       {
+        "question": "Um livro tem 236 páginas e outro tem 263. Qual tem mais páginas?",
+        "options": [
+         {
+          "text": "O de 236 páginas",
+          "misconceptionCode": "compara-pelo-ultimo"
+         },
+         {
+          "text": "O de 263 páginas"
+         },
+         {
+          "text": "Os dois têm o mesmo número",
+          "misconceptionCode": "valor-do-algarismo"
+         },
+         {
+          "text": "Não dá para saber",
+          "misconceptionCode": "compara-pelo-ultimo"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Uma escola tem 485 alunos de manhã e 458 à tarde. Em qual turno há mais alunos?",
+        "options": [
+         {
+          "text": "De manhã"
+         },
+         {
+          "text": "Não dá para saber",
+          "misconceptionCode": "compara-pelo-ultimo"
+         },
+         {
+          "text": "Os dois têm o mesmo número",
+          "misconceptionCode": "valor-do-algarismo"
+         },
+         {
+          "text": "À tarde",
+          "misconceptionCode": "compara-pelo-ultimo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Uma bicicleta custa mil e cinquenta reais. Como se escreve esse valor com algarismos?",
+      "options": [
+       {
+        "text": "1.050"
+       },
+       {
+        "text": "150",
+        "misconceptionCode": "zero-esquecido"
+       },
+       {
+        "text": "1.500",
+        "misconceptionCode": "ordem-trocada"
+       },
+       {
+        "text": "10.050",
+        "misconceptionCode": "ordem-trocada"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "1 unidade de milhar, 0 centenas, 5 dezenas e 0 unidades.",
+      "variants": [
+       {
+        "question": "Uma geladeira custa dois mil e trezentos reais. Como se escreve esse valor com algarismos?",
+        "options": [
+         {
+          "text": "230",
+          "misconceptionCode": "zero-esquecido"
+         },
+         {
+          "text": "2.003",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "2.300"
+         },
+         {
+          "text": "20.300",
+          "misconceptionCode": "ordem-trocada"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Uma bicicleta custa mil e cinquenta reais. Como se escreve esse valor com algarismos?",
+        "options": [
+         {
+          "text": "10.050",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "1.050"
+         },
+         {
+          "text": "1.500",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "150",
+          "misconceptionCode": "zero-esquecido"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Juntando 3 notas de 100 reais, 2 notas de 10 e 5 moedas de 1 real, quanto dá?",
+      "options": [
+       {
+        "text": "10 reais",
+        "misconceptionCode": "valor-do-algarismo"
+       },
+       {
+        "text": "325 reais"
+       },
+       {
+        "text": "352 reais",
+        "misconceptionCode": "ordem-trocada"
+       },
+       {
+        "text": "3.025 reais",
+        "misconceptionCode": "ordem-trocada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "300 + 20 + 5 = 325.",
+      "variants": [
+       {
+        "question": "Juntando 5 notas de 100 reais, 4 notas de 10 e 2 moedas de 1 real, quanto dá?",
+        "options": [
+         {
+          "text": "11 reais",
+          "misconceptionCode": "valor-do-algarismo"
+         },
+         {
+          "text": "524 reais",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "5.042 reais",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "542 reais"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Juntando 3 notas de 100 reais, 2 notas de 10 e 5 moedas de 1 real, quanto dá?",
+        "options": [
+         {
+          "text": "3.025 reais",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "352 reais",
+          "misconceptionCode": "ordem-trocada"
+         },
+         {
+          "text": "325 reais"
+         },
+         {
+          "text": "10 reais",
+          "misconceptionCode": "valor-do-algarismo"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03MA01-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: o valor de cada algarismo",
+    "prompt": "Explique com as suas palavras quanto vale cada algarismo no número 472.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras quanto vale cada algarismo no número 472.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "centenas",
+       "description": "Diz que o 4 vale 400"
+      },
+      {
+       "code": "dezenas",
+       "description": "Diz que o 7 vale 70"
+      },
+      {
+       "code": "unidades",
+       "description": "Diz que o 2 vale 2"
+      }
+     ],
+     "exemploBoaResposta": "No número 472, o 4 está na casa das centenas e vale 400. O 7 está na casa das dezenas e vale 70. O 2 está na casa das unidades e vale 2. Juntando, dá 400 + 70 + 2."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF03MA06",
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: Problemas de adição e subtração",
+  "tituloAluno": "Juntar, tirar e comparar",
+  "activities": [
+   {
+    "id": "PK2-EF03MA06-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: somar e subtrair",
+    "prompt": "Somar é juntar. Subtrair é tirar.",
+    "estMinutes": 4,
+    "audioScript": "Somar é juntar. Subtrair é tirar. Pergunta 1. Quanto é 8 + 7? A: 14; B: 1; C: 15; D: 16. Pergunta 2. Quanto é 13 − 5? A: 18; B: 7; C: 12; D: 8. Pergunta 3. Ana tinha 5 figurinhas e ganhou 4. Que conta resolve o problema? A: 5 + 4; B: 5 − 4; C: 4 − 5; D: 5 + 5.",
+    "questions": [
+     {
+      "question": "Quanto é 8 + 7?",
+      "options": [
+       {
+        "text": "14",
+        "misconceptionCode": "esquece-reagrupar"
+       },
+       {
+        "text": "1",
+        "misconceptionCode": "sempre-soma"
+       },
+       {
+        "text": "15"
+       },
+       {
+        "text": "16",
+        "misconceptionCode": "esquece-reagrupar"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "8 + 2 = 10, e ainda faltam 5: 15.",
+      "variants": [
+       {
+        "question": "Quanto é 9 + 6?",
+        "options": [
+         {
+          "text": "15"
+         },
+         {
+          "text": "14",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "3",
+          "misconceptionCode": "sempre-soma"
+         },
+         {
+          "text": "16",
+          "misconceptionCode": "esquece-reagrupar"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quanto é 8 + 7?",
+        "options": [
+         {
+          "text": "16",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "1",
+          "misconceptionCode": "sempre-soma"
+         },
+         {
+          "text": "14",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "15"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 13 − 5?",
+      "options": [
+       {
+        "text": "18",
+        "misconceptionCode": "sempre-soma"
+       },
+       {
+        "text": "7",
+        "misconceptionCode": "esquece-reagrupar"
+       },
+       {
+        "text": "12",
+        "misconceptionCode": "subtrai-menor-do-maior"
+       },
+       {
+        "text": "8"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "De 13, tiro 3 e chego a 10. Tiro mais 2 e chego a 8.",
+      "variants": [
+       {
+        "question": "Quanto é 14 − 6?",
+        "options": [
+         {
+          "text": "20",
+          "misconceptionCode": "sempre-soma"
+         },
+         {
+          "text": "8"
+         },
+         {
+          "text": "7",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "12",
+          "misconceptionCode": "subtrai-menor-do-maior"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é 13 − 5?",
+        "options": [
+         {
+          "text": "8"
+         },
+         {
+          "text": "12",
+          "misconceptionCode": "subtrai-menor-do-maior"
+         },
+         {
+          "text": "7",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "18",
+          "misconceptionCode": "sempre-soma"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Ana tinha 5 figurinhas e ganhou 4. Que conta resolve o problema?",
+      "options": [
+       {
+        "text": "5 + 4"
+       },
+       {
+        "text": "5 − 4",
+        "misconceptionCode": "comparacao-errada"
+       },
+       {
+        "text": "4 − 5",
+        "misconceptionCode": "comparacao-errada"
+       },
+       {
+        "text": "5 + 5",
+        "misconceptionCode": "sempre-soma"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Ganhar é acrescentar. Somamos.",
+      "variants": [
+       {
+        "question": "Leo tinha 9 balas e comeu 3. Que conta resolve o problema?",
+        "options": [
+         {
+          "text": "9 + 3",
+          "misconceptionCode": "comparacao-errada"
+         },
+         {
+          "text": "3 + 3",
+          "misconceptionCode": "comparacao-errada"
+         },
+         {
+          "text": "9 − 3"
+         },
+         {
+          "text": "3 − 9",
+          "misconceptionCode": "sempre-soma"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Ana tinha 5 figurinhas e ganhou 4. Que conta resolve o problema?",
+        "options": [
+         {
+          "text": "5 + 5",
+          "misconceptionCode": "sempre-soma"
+         },
+         {
+          "text": "5 + 4"
+         },
+         {
+          "text": "4 − 5",
+          "misconceptionCode": "comparacao-errada"
+         },
+         {
+          "text": "5 − 4",
+          "misconceptionCode": "comparacao-errada"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03MA06-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: contas com troca",
+    "prompt": "Quando a soma de uma casa passa de 9, formamos um grupo de 10 e levamos para a casa seguinte. Na subtração, quando não dá para tirar, trocamos 1 dezena por 10 unidades. Vamos fazer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Quando a soma de uma casa passa de 9, formamos um grupo de 10 e levamos para a casa seguinte. Na subtração, quando não dá para tirar, trocamos 1 dezena por 10 unidades. Vamos fazer juntos. Pergunta 1. Quanto é 38 + 25? A: 53; B: 63; C: 513; D: 13. Pergunta 2. Quanto é 52 − 27? A: 35; B: 79; C: 25; D: 15. Pergunta 3. Num ônibus havia 45 pessoas. Desceram 18. Quantas ficaram? A: 63; B: 33; C: 37; D: 27.",
+    "questions": [
+     {
+      "question": "Quanto é 38 + 25?",
+      "options": [
+       {
+        "text": "53",
+        "misconceptionCode": "esquece-reagrupar"
+       },
+       {
+        "text": "63"
+       },
+       {
+        "text": "513",
+        "misconceptionCode": "esquece-reagrupar"
+       },
+       {
+        "text": "13",
+        "misconceptionCode": "sempre-soma"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "8 + 5 = 13: fica 3 e vai 1 dezena. 3 + 2 + 1 = 6 dezenas. Resultado: 63.",
+      "variants": [
+       {
+        "question": "Quanto é 47 + 36?",
+        "options": [
+         {
+          "text": "73",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "713",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "11",
+          "misconceptionCode": "sempre-soma"
+         },
+         {
+          "text": "83"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quanto é 38 + 25?",
+        "options": [
+         {
+          "text": "13",
+          "misconceptionCode": "sempre-soma"
+         },
+         {
+          "text": "513",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "63"
+         },
+         {
+          "text": "53",
+          "misconceptionCode": "esquece-reagrupar"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 52 − 27?",
+      "options": [
+       {
+        "text": "35",
+        "misconceptionCode": "subtrai-menor-do-maior"
+       },
+       {
+        "text": "79",
+        "misconceptionCode": "sempre-soma"
+       },
+       {
+        "text": "25"
+       },
+       {
+        "text": "15",
+        "misconceptionCode": "esquece-reagrupar"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Não dá para tirar 7 de 2. Troco 1 dezena por 10 unidades: 12 − 7 = 5. Ficam 4 dezenas: 4 − 2 = 2. Resultado: 25.",
+      "variants": [
+       {
+        "question": "Quanto é 63 − 38?",
+        "options": [
+         {
+          "text": "25"
+         },
+         {
+          "text": "35",
+          "misconceptionCode": "subtrai-menor-do-maior"
+         },
+         {
+          "text": "101",
+          "misconceptionCode": "sempre-soma"
+         },
+         {
+          "text": "15",
+          "misconceptionCode": "esquece-reagrupar"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quanto é 52 − 27?",
+        "options": [
+         {
+          "text": "15",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "79",
+          "misconceptionCode": "sempre-soma"
+         },
+         {
+          "text": "35",
+          "misconceptionCode": "subtrai-menor-do-maior"
+         },
+         {
+          "text": "25"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Num ônibus havia 45 pessoas. Desceram 18. Quantas ficaram?",
+      "options": [
+       {
+        "text": "63",
+        "misconceptionCode": "sempre-soma"
+       },
+       {
+        "text": "33",
+        "misconceptionCode": "subtrai-menor-do-maior"
+       },
+       {
+        "text": "37",
+        "misconceptionCode": "esquece-reagrupar"
+       },
+       {
+        "text": "27"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Descer é retirar: 45 − 18 = 27.",
+      "variants": [
+       {
+        "question": "Numa caixa havia 52 lápis. Foram usados 26. Quantos sobraram?",
+        "options": [
+         {
+          "text": "78",
+          "misconceptionCode": "sempre-soma"
+         },
+         {
+          "text": "26"
+         },
+         {
+          "text": "34",
+          "misconceptionCode": "subtrai-menor-do-maior"
+         },
+         {
+          "text": "36",
+          "misconceptionCode": "esquece-reagrupar"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Num ônibus havia 45 pessoas. Desceram 18. Quantas ficaram?",
+        "options": [
+         {
+          "text": "27"
+         },
+         {
+          "text": "37",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "33",
+          "misconceptionCode": "subtrai-menor-do-maior"
+         },
+         {
+          "text": "63",
+          "misconceptionCode": "sempre-soma"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03MA06-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: resolvendo problemas",
+    "prompt": "Leia, pense no que aconteceu e escolha a conta.",
+    "estMinutes": 5,
+    "audioScript": "Leia, pense no que aconteceu e escolha a conta. Pergunta 1. Bia tem 34 adesivos e Caio tem 29. Quantos adesivos eles têm juntos? A: 63; B: 5; C: 53; D: 513. Pergunta 2. João tem 42 bolinhas e Pedro tem 30. Quantas bolinhas João tem a mais? A: 72; B: 12; C: 30; D: 42. Pergunta 3. Um álbum tem 80 figurinhas. Mara já colou 65. Quantas faltam? A: 145; B: 25; C: 15; D: 65. Pergunta 4. Quanto é 156 + 237? A: 383; B: 81; C: 3.813; D: 393.",
+    "questions": [
+     {
+      "question": "Bia tem 34 adesivos e Caio tem 29. Quantos adesivos eles têm juntos?",
+      "options": [
+       {
+        "text": "63"
+       },
+       {
+        "text": "5",
+        "misconceptionCode": "comparacao-errada"
+       },
+       {
+        "text": "53",
+        "misconceptionCode": "esquece-reagrupar"
+       },
+       {
+        "text": "513",
+        "misconceptionCode": "esquece-reagrupar"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Juntar é somar: 34 + 29 = 63.",
+      "variants": [
+       {
+        "question": "Uma turma tem 28 alunos e outra tem 35. Quantos alunos há nas duas turmas?",
+        "options": [
+         {
+          "text": "7",
+          "misconceptionCode": "comparacao-errada"
+         },
+         {
+          "text": "53",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "63"
+         },
+         {
+          "text": "513",
+          "misconceptionCode": "esquece-reagrupar"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Bia tem 34 adesivos e Caio tem 29. Quantos adesivos eles têm juntos?",
+        "options": [
+         {
+          "text": "513",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "63"
+         },
+         {
+          "text": "53",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "comparacao-errada"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "João tem 42 bolinhas e Pedro tem 30. Quantas bolinhas João tem a mais?",
+      "options": [
+       {
+        "text": "72",
+        "misconceptionCode": "sempre-soma"
+       },
+       {
+        "text": "12"
+       },
+       {
+        "text": "30",
+        "misconceptionCode": "comparacao-errada"
+       },
+       {
+        "text": "42",
+        "misconceptionCode": "comparacao-errada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Para saber quantos a mais, comparamos com uma subtração: 42 − 30 = 12.",
+      "variants": [
+       {
+        "question": "Lia tem 55 figurinhas e Rui tem 40. Quantas figurinhas Lia tem a mais?",
+        "options": [
+         {
+          "text": "95",
+          "misconceptionCode": "sempre-soma"
+         },
+         {
+          "text": "40",
+          "misconceptionCode": "comparacao-errada"
+         },
+         {
+          "text": "55",
+          "misconceptionCode": "comparacao-errada"
+         },
+         {
+          "text": "15"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "João tem 42 bolinhas e Pedro tem 30. Quantas bolinhas João tem a mais?",
+        "options": [
+         {
+          "text": "42",
+          "misconceptionCode": "comparacao-errada"
+         },
+         {
+          "text": "30",
+          "misconceptionCode": "comparacao-errada"
+         },
+         {
+          "text": "12"
+         },
+         {
+          "text": "72",
+          "misconceptionCode": "sempre-soma"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um álbum tem 80 figurinhas. Mara já colou 65. Quantas faltam?",
+      "options": [
+       {
+        "text": "145",
+        "misconceptionCode": "sempre-soma"
+       },
+       {
+        "text": "25",
+        "misconceptionCode": "esquece-reagrupar"
+       },
+       {
+        "text": "15"
+       },
+       {
+        "text": "65",
+        "misconceptionCode": "comparacao-errada"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Para saber quanto falta, fazemos 80 − 65 = 15.",
+      "variants": [
+       {
+        "question": "Um livro tem 90 páginas. Davi já leu 72. Quantas páginas faltam?",
+        "options": [
+         {
+          "text": "18"
+         },
+         {
+          "text": "162",
+          "misconceptionCode": "sempre-soma"
+         },
+         {
+          "text": "28",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "72",
+          "misconceptionCode": "comparacao-errada"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um álbum tem 80 figurinhas. Mara já colou 65. Quantas faltam?",
+        "options": [
+         {
+          "text": "65",
+          "misconceptionCode": "comparacao-errada"
+         },
+         {
+          "text": "25",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "145",
+          "misconceptionCode": "sempre-soma"
+         },
+         {
+          "text": "15"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 156 + 237?",
+      "options": [
+       {
+        "text": "383",
+        "misconceptionCode": "esquece-reagrupar"
+       },
+       {
+        "text": "81",
+        "misconceptionCode": "sempre-soma"
+       },
+       {
+        "text": "3.813",
+        "misconceptionCode": "esquece-reagrupar"
+       },
+       {
+        "text": "393"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "6 + 7 = 13: fica 3, vai 1. 5 + 3 + 1 = 9. 1 + 2 = 3. Resultado: 393.",
+      "variants": [
+       {
+        "question": "Quanto é 248 + 135?",
+        "options": [
+         {
+          "text": "373",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "383"
+         },
+         {
+          "text": "113",
+          "misconceptionCode": "sempre-soma"
+         },
+         {
+          "text": "3.713",
+          "misconceptionCode": "esquece-reagrupar"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é 156 + 237?",
+        "options": [
+         {
+          "text": "393"
+         },
+         {
+          "text": "3.813",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "81",
+          "misconceptionCode": "sempre-soma"
+         },
+         {
+          "text": "383",
+          "misconceptionCode": "esquece-reagrupar"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03MA06-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: problemas do dia a dia",
+    "prompt": "Atenção ao que cada problema pede.",
+    "estMinutes": 4,
+    "audioScript": "Atenção ao que cada problema pede. Pergunta 1. Luísa tinha 50 reais. Comprou um caderno de 18 reais. Quanto sobrou? A: 32 reais; B: 68 reais; C: 42 reais; D: 38 reais. Pergunta 2. Numa festa havia 26 crianças. Chegaram mais 17. Depois, 8 foram embora. Quantas ficaram? A: 51; B: 35; C: 43; D: 1. Pergunta 3. Uma caneta custa 4 reais e um estojo custa 15 reais. Com uma nota de 20 reais, dá para comprar os dois? A: Não, falta 1 real; B: Sim, e não sobra nada; C: Sim, e ainda sobra 1 real; D: Não, faltam 19 reais.",
+    "questions": [
+     {
+      "question": "Luísa tinha 50 reais. Comprou um caderno de 18 reais. Quanto sobrou?",
+      "options": [
+       {
+        "text": "32 reais"
+       },
+       {
+        "text": "68 reais",
+        "misconceptionCode": "sempre-soma"
+       },
+       {
+        "text": "42 reais",
+        "misconceptionCode": "esquece-reagrupar"
+       },
+       {
+        "text": "38 reais",
+        "misconceptionCode": "subtrai-menor-do-maior"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Gastar é retirar: 50 − 18 = 32.",
+      "variants": [
+       {
+        "question": "Tiago tinha 70 reais. Comprou uma bola de 25 reais. Quanto sobrou?",
+        "options": [
+         {
+          "text": "95 reais",
+          "misconceptionCode": "sempre-soma"
+         },
+         {
+          "text": "55 reais",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "45 reais"
+         },
+         {
+          "text": "35 reais",
+          "misconceptionCode": "subtrai-menor-do-maior"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Luísa tinha 50 reais. Comprou um caderno de 18 reais. Quanto sobrou?",
+        "options": [
+         {
+          "text": "38 reais",
+          "misconceptionCode": "subtrai-menor-do-maior"
+         },
+         {
+          "text": "32 reais"
+         },
+         {
+          "text": "42 reais",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "68 reais",
+          "misconceptionCode": "sempre-soma"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Numa festa havia 26 crianças. Chegaram mais 17. Depois, 8 foram embora. Quantas ficaram?",
+      "options": [
+       {
+        "text": "51",
+        "misconceptionCode": "sempre-soma"
+       },
+       {
+        "text": "35"
+       },
+       {
+        "text": "43",
+        "misconceptionCode": "comparacao-errada"
+       },
+       {
+        "text": "1",
+        "misconceptionCode": "comparacao-errada"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "26 + 17 = 43. Depois 43 − 8 = 35.",
+      "variants": [
+       {
+        "question": "Num estacionamento havia 34 carros. Chegaram mais 18. Depois, 10 saíram. Quantos ficaram?",
+        "options": [
+         {
+          "text": "62",
+          "misconceptionCode": "sempre-soma"
+         },
+         {
+          "text": "52",
+          "misconceptionCode": "comparacao-errada"
+         },
+         {
+          "text": "6",
+          "misconceptionCode": "comparacao-errada"
+         },
+         {
+          "text": "42"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Numa festa havia 26 crianças. Chegaram mais 17. Depois, 8 foram embora. Quantas ficaram?",
+        "options": [
+         {
+          "text": "1",
+          "misconceptionCode": "comparacao-errada"
+         },
+         {
+          "text": "43",
+          "misconceptionCode": "comparacao-errada"
+         },
+         {
+          "text": "35"
+         },
+         {
+          "text": "51",
+          "misconceptionCode": "sempre-soma"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Uma caneta custa 4 reais e um estojo custa 15 reais. Com uma nota de 20 reais, dá para comprar os dois?",
+      "options": [
+       {
+        "text": "Não, falta 1 real",
+        "misconceptionCode": "esquece-reagrupar"
+       },
+       {
+        "text": "Sim, e não sobra nada",
+        "misconceptionCode": "esquece-reagrupar"
+       },
+       {
+        "text": "Sim, e ainda sobra 1 real"
+       },
+       {
+        "text": "Não, faltam 19 reais",
+        "misconceptionCode": "sempre-soma"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "4 + 15 = 19. Como 19 é menor que 20, dá para comprar e sobra 1 real.",
+      "variants": [
+       {
+        "question": "Um suco custa 6 reais e um lanche custa 12 reais. Com uma nota de 20 reais, dá para comprar os dois?",
+        "options": [
+         {
+          "text": "Sim, e ainda sobram 2 reais"
+         },
+         {
+          "text": "Não, faltam 2 reais",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "Sim, e não sobra nada",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "Não, faltam 18 reais",
+          "misconceptionCode": "sempre-soma"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Uma caneta custa 4 reais e um estojo custa 15 reais. Com uma nota de 20 reais, dá para comprar os dois?",
+        "options": [
+         {
+          "text": "Não, faltam 19 reais",
+          "misconceptionCode": "sempre-soma"
+         },
+         {
+          "text": "Sim, e não sobra nada",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "Não, falta 1 real",
+          "misconceptionCode": "esquece-reagrupar"
+         },
+         {
+          "text": "Sim, e ainda sobra 1 real"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03MA06-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: como escolher a conta",
+    "prompt": "Leia: \"Sofia tem 35 lápis e Miguel tem 20. Quantos lápis Sofia tem a mais?\" Explique com as suas palavras que conta resolve o problema e por quê.",
+    "estMinutes": 6,
+    "audioScript": "Leia: \"Sofia tem 35 lápis e Miguel tem 20. Quantos lápis Sofia tem a mais?\" Explique com as suas palavras que conta resolve o problema e por quê.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "operacao",
+       "description": "Escolhe a subtração"
+      },
+      {
+       "code": "motivo",
+       "description": "Explica que é uma comparação (quantos a mais)"
+      },
+      {
+       "code": "resultado",
+       "description": "Chega a 15"
+      }
+     ],
+     "exemploBoaResposta": "Eu faço uma subtração, porque o problema quer saber a diferença entre o que Sofia tem e o que Miguel tem. 35 − 20 = 15. Sofia tem 15 lápis a mais."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF03MA07",
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: Multiplicação: grupos iguais",
+  "tituloAluno": "Somar várias vezes o mesmo número",
+  "activities": [
+   {
+    "id": "PK2-EF03MA07-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: somar o mesmo número",
+    "prompt": "Às vezes somamos várias vezes a mesma quantidade.",
+    "estMinutes": 4,
+    "audioScript": "Às vezes somamos várias vezes a mesma quantidade. Pergunta 1. Quanto é 2 + 2 + 2? A: 4; B: 8; C: 222; D: 6. Pergunta 2. Contando de 5 em 5, que número vem depois de 15? A: 20; B: 16; C: 25; D: 10. Pergunta 3. Há 3 pratos com 2 biscoitos em cada um. Quantos biscoitos há? A: 5; B: 6; C: 2; D: 3.",
+    "questions": [
+     {
+      "question": "Quanto é 2 + 2 + 2?",
+      "options": [
+       {
+        "text": "4",
+        "misconceptionCode": "conta-um-grupo"
+       },
+       {
+        "text": "8",
+        "misconceptionCode": "tabuada-vizinha"
+       },
+       {
+        "text": "222",
+        "misconceptionCode": "soma-em-vez-de-vezes"
+       },
+       {
+        "text": "6"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "2 + 2 = 4, e mais 2 dá 6.",
+      "variants": [
+       {
+        "question": "Quanto é 5 + 5 + 5?",
+        "options": [
+         {
+          "text": "10",
+          "misconceptionCode": "conta-um-grupo"
+         },
+         {
+          "text": "15"
+         },
+         {
+          "text": "20",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "555",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é 2 + 2 + 2?",
+        "options": [
+         {
+          "text": "6"
+         },
+         {
+          "text": "222",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         },
+         {
+          "text": "8",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "4",
+          "misconceptionCode": "conta-um-grupo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Contando de 5 em 5, que número vem depois de 15?",
+      "options": [
+       {
+        "text": "20"
+       },
+       {
+        "text": "16",
+        "misconceptionCode": "soma-em-vez-de-vezes"
+       },
+       {
+        "text": "25",
+        "misconceptionCode": "tabuada-vizinha"
+       },
+       {
+        "text": "10",
+        "misconceptionCode": "tabuada-vizinha"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "5, 10, 15, 20. Cada passo acrescenta 5.",
+      "variants": [
+       {
+        "question": "Contando de 2 em 2, que número vem depois de 8?",
+        "options": [
+         {
+          "text": "9",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         },
+         {
+          "text": "12",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "10"
+         },
+         {
+          "text": "6",
+          "misconceptionCode": "tabuada-vizinha"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Contando de 5 em 5, que número vem depois de 15?",
+        "options": [
+         {
+          "text": "10",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "20"
+         },
+         {
+          "text": "25",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "16",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Há 3 pratos com 2 biscoitos em cada um. Quantos biscoitos há?",
+      "options": [
+       {
+        "text": "5",
+        "misconceptionCode": "soma-em-vez-de-vezes"
+       },
+       {
+        "text": "6"
+       },
+       {
+        "text": "2",
+        "misconceptionCode": "conta-um-grupo"
+       },
+       {
+        "text": "3",
+        "misconceptionCode": "conta-um-grupo"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "2 + 2 + 2 = 6. São 3 grupos de 2.",
+      "variants": [
+       {
+        "question": "Há 2 caixas com 4 lápis em cada uma. Quantos lápis há?",
+        "options": [
+         {
+          "text": "6",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         },
+         {
+          "text": "4",
+          "misconceptionCode": "conta-um-grupo"
+         },
+         {
+          "text": "2",
+          "misconceptionCode": "conta-um-grupo"
+         },
+         {
+          "text": "8"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Há 3 pratos com 2 biscoitos em cada um. Quantos biscoitos há?",
+        "options": [
+         {
+          "text": "3",
+          "misconceptionCode": "conta-um-grupo"
+         },
+         {
+          "text": "2",
+          "misconceptionCode": "conta-um-grupo"
+         },
+         {
+          "text": "6"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03MA07-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o sinal de vezes",
+    "prompt": "Quando somamos grupos iguais, podemos usar a multiplicação. 3 grupos de 4 se escreve 3 × 4, que é o mesmo que 4 + 4 + 4. Vamos fazer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Quando somamos grupos iguais, podemos usar a multiplicação. 3 grupos de 4 se escreve 3 × 4, que é o mesmo que 4 + 4 + 4. Vamos fazer juntos. Pergunta 1. Como escrever 5 + 5 + 5 + 5 usando a multiplicação? A: 5 × 5; B: 4 + 5; C: 4 × 5; D: 5 × 3. Pergunta 2. Quanto é 3 × 4? A: 7; B: 9; C: 16; D: 12. Pergunta 3. Numa caixa, os ovos estão em 2 fileiras de 6. Quantos ovos há? A: 12; B: 8; C: 6; D: 10.",
+    "questions": [
+     {
+      "question": "Como escrever 5 + 5 + 5 + 5 usando a multiplicação?",
+      "options": [
+       {
+        "text": "5 × 5",
+        "misconceptionCode": "tabuada-vizinha"
+       },
+       {
+        "text": "4 + 5",
+        "misconceptionCode": "soma-em-vez-de-vezes"
+       },
+       {
+        "text": "4 × 5"
+       },
+       {
+        "text": "5 × 3",
+        "misconceptionCode": "tabuada-vizinha"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O 5 aparece 4 vezes: 4 × 5.",
+      "variants": [
+       {
+        "question": "Como escrever 3 + 3 + 3 + 3 + 3 usando a multiplicação?",
+        "options": [
+         {
+          "text": "5 × 3"
+         },
+         {
+          "text": "3 × 3",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "5 + 3",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         },
+         {
+          "text": "4 × 3",
+          "misconceptionCode": "tabuada-vizinha"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Como escrever 5 + 5 + 5 + 5 usando a multiplicação?",
+        "options": [
+         {
+          "text": "5 × 3",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "4 + 5",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         },
+         {
+          "text": "5 × 5",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "4 × 5"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 3 × 4?",
+      "options": [
+       {
+        "text": "7",
+        "misconceptionCode": "soma-em-vez-de-vezes"
+       },
+       {
+        "text": "9",
+        "misconceptionCode": "tabuada-vizinha"
+       },
+       {
+        "text": "16",
+        "misconceptionCode": "tabuada-vizinha"
+       },
+       {
+        "text": "12"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "3 × 4 é 4 + 4 + 4 = 12.",
+      "variants": [
+       {
+        "question": "Quanto é 4 × 5?",
+        "options": [
+         {
+          "text": "9",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         },
+         {
+          "text": "20"
+         },
+         {
+          "text": "15",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "25",
+          "misconceptionCode": "tabuada-vizinha"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é 3 × 4?",
+        "options": [
+         {
+          "text": "12"
+         },
+         {
+          "text": "16",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "9",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "7",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Numa caixa, os ovos estão em 2 fileiras de 6. Quantos ovos há?",
+      "options": [
+       {
+        "text": "12"
+       },
+       {
+        "text": "8",
+        "misconceptionCode": "soma-em-vez-de-vezes"
+       },
+       {
+        "text": "6",
+        "misconceptionCode": "conta-um-grupo"
+       },
+       {
+        "text": "10",
+        "misconceptionCode": "tabuada-vizinha"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "2 fileiras de 6: 2 × 6 = 12.",
+      "variants": [
+       {
+        "question": "Numa sala, as carteiras estão em 3 fileiras de 5. Quantas carteiras há?",
+        "options": [
+         {
+          "text": "8",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "conta-um-grupo"
+         },
+         {
+          "text": "15"
+         },
+         {
+          "text": "10",
+          "misconceptionCode": "tabuada-vizinha"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Numa caixa, os ovos estão em 2 fileiras de 6. Quantos ovos há?",
+        "options": [
+         {
+          "text": "10",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "12"
+         },
+         {
+          "text": "6",
+          "misconceptionCode": "conta-um-grupo"
+         },
+         {
+          "text": "8",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03MA07-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: tabuadas do 2, 3, 4, 5 e 10",
+    "prompt": "Lembre os grupos iguais.",
+    "estMinutes": 5,
+    "audioScript": "Lembre os grupos iguais. Pergunta 1. Quanto é 5 × 3? A: 8; B: 15; C: 12; D: 18. Pergunta 2. Quanto é 6 × 10? A: 16; B: 50; C: 60; D: 610. Pergunta 3. Quanto é 7 × 2? A: 9; B: 12; C: 16; D: 14. Pergunta 4. Quanto é 4 × 4? A: 16; B: 8; C: 12; D: 20.",
+    "questions": [
+     {
+      "question": "Quanto é 5 × 3?",
+      "options": [
+       {
+        "text": "8",
+        "misconceptionCode": "soma-em-vez-de-vezes"
+       },
+       {
+        "text": "15"
+       },
+       {
+        "text": "12",
+        "misconceptionCode": "tabuada-vizinha"
+       },
+       {
+        "text": "18",
+        "misconceptionCode": "tabuada-vizinha"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "3 + 3 + 3 + 3 + 3 = 15.",
+      "variants": [
+       {
+        "question": "Quanto é 4 × 3?",
+        "options": [
+         {
+          "text": "7",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         },
+         {
+          "text": "9",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "15",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "12"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quanto é 5 × 3?",
+        "options": [
+         {
+          "text": "18",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "12",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "15"
+         },
+         {
+          "text": "8",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 6 × 10?",
+      "options": [
+       {
+        "text": "16",
+        "misconceptionCode": "soma-em-vez-de-vezes"
+       },
+       {
+        "text": "50",
+        "misconceptionCode": "tabuada-vizinha"
+       },
+       {
+        "text": "60"
+       },
+       {
+        "text": "610",
+        "misconceptionCode": "conta-um-grupo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Seis grupos de 10: 10, 20, 30, 40, 50, 60.",
+      "variants": [
+       {
+        "question": "Quanto é 8 × 10?",
+        "options": [
+         {
+          "text": "80"
+         },
+         {
+          "text": "18",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         },
+         {
+          "text": "70",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "810",
+          "misconceptionCode": "conta-um-grupo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quanto é 6 × 10?",
+        "options": [
+         {
+          "text": "610",
+          "misconceptionCode": "conta-um-grupo"
+         },
+         {
+          "text": "50",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "16",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         },
+         {
+          "text": "60"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 7 × 2?",
+      "options": [
+       {
+        "text": "9",
+        "misconceptionCode": "soma-em-vez-de-vezes"
+       },
+       {
+        "text": "12",
+        "misconceptionCode": "tabuada-vizinha"
+       },
+       {
+        "text": "16",
+        "misconceptionCode": "tabuada-vizinha"
+       },
+       {
+        "text": "14"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Multiplicar por 2 é achar o dobro: 7 + 7 = 14.",
+      "variants": [
+       {
+        "question": "Quanto é 9 × 2?",
+        "options": [
+         {
+          "text": "11",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         },
+         {
+          "text": "18"
+         },
+         {
+          "text": "16",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "20",
+          "misconceptionCode": "tabuada-vizinha"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é 7 × 2?",
+        "options": [
+         {
+          "text": "14"
+         },
+         {
+          "text": "16",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "12",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "9",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 4 × 4?",
+      "options": [
+       {
+        "text": "16"
+       },
+       {
+        "text": "8",
+        "misconceptionCode": "soma-em-vez-de-vezes"
+       },
+       {
+        "text": "12",
+        "misconceptionCode": "tabuada-vizinha"
+       },
+       {
+        "text": "20",
+        "misconceptionCode": "tabuada-vizinha"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "4 + 4 + 4 + 4 = 16.",
+      "variants": [
+       {
+        "question": "Quanto é 5 × 5?",
+        "options": [
+         {
+          "text": "10",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         },
+         {
+          "text": "20",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "25"
+         },
+         {
+          "text": "30",
+          "misconceptionCode": "tabuada-vizinha"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quanto é 4 × 4?",
+        "options": [
+         {
+          "text": "20",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "16"
+         },
+         {
+          "text": "12",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "8",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03MA07-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: problemas com grupos iguais",
+    "prompt": "Descubra quantos grupos há e quanto tem em cada um.",
+    "estMinutes": 4,
+    "audioScript": "Descubra quantos grupos há e quanto tem em cada um. Pergunta 1. Cada pacote tem 5 figurinhas. Quantas figurinhas há em 6 pacotes? A: 11; B: 30; C: 5; D: 25. Pergunta 2. Uma bicicleta tem 2 rodas. Quantas rodas têm 8 bicicletas? A: 10; B: 8; C: 16; D: 14. Pergunta 3. Um ingresso custa 10 reais. Quanto custam 7 ingressos? A: 17 reais; B: 10 reais; C: 60 reais; D: 70 reais.",
+    "questions": [
+     {
+      "question": "Cada pacote tem 5 figurinhas. Quantas figurinhas há em 6 pacotes?",
+      "options": [
+       {
+        "text": "11",
+        "misconceptionCode": "soma-em-vez-de-vezes"
+       },
+       {
+        "text": "30"
+       },
+       {
+        "text": "5",
+        "misconceptionCode": "conta-um-grupo"
+       },
+       {
+        "text": "25",
+        "misconceptionCode": "tabuada-vizinha"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "6 grupos de 5: 6 × 5 = 30.",
+      "variants": [
+       {
+        "question": "Cada caixa tem 4 bombons. Quantos bombons há em 5 caixas?",
+        "options": [
+         {
+          "text": "9",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         },
+         {
+          "text": "4",
+          "misconceptionCode": "conta-um-grupo"
+         },
+         {
+          "text": "16",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "20"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Cada pacote tem 5 figurinhas. Quantas figurinhas há em 6 pacotes?",
+        "options": [
+         {
+          "text": "25",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "conta-um-grupo"
+         },
+         {
+          "text": "30"
+         },
+         {
+          "text": "11",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Uma bicicleta tem 2 rodas. Quantas rodas têm 8 bicicletas?",
+      "options": [
+       {
+        "text": "10",
+        "misconceptionCode": "soma-em-vez-de-vezes"
+       },
+       {
+        "text": "8",
+        "misconceptionCode": "conta-um-grupo"
+       },
+       {
+        "text": "16"
+       },
+       {
+        "text": "14",
+        "misconceptionCode": "tabuada-vizinha"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "8 × 2 = 16.",
+      "variants": [
+       {
+        "question": "Um triciclo tem 3 rodas. Quantas rodas têm 4 triciclos?",
+        "options": [
+         {
+          "text": "12"
+         },
+         {
+          "text": "7",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         },
+         {
+          "text": "4",
+          "misconceptionCode": "conta-um-grupo"
+         },
+         {
+          "text": "9",
+          "misconceptionCode": "tabuada-vizinha"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Uma bicicleta tem 2 rodas. Quantas rodas têm 8 bicicletas?",
+        "options": [
+         {
+          "text": "14",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "8",
+          "misconceptionCode": "conta-um-grupo"
+         },
+         {
+          "text": "10",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         },
+         {
+          "text": "16"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Um ingresso custa 10 reais. Quanto custam 7 ingressos?",
+      "options": [
+       {
+        "text": "17 reais",
+        "misconceptionCode": "soma-em-vez-de-vezes"
+       },
+       {
+        "text": "10 reais",
+        "misconceptionCode": "conta-um-grupo"
+       },
+       {
+        "text": "60 reais",
+        "misconceptionCode": "tabuada-vizinha"
+       },
+       {
+        "text": "70 reais"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "7 × 10 = 70.",
+      "variants": [
+       {
+        "question": "Um caderno custa 5 reais. Quanto custam 8 cadernos?",
+        "options": [
+         {
+          "text": "13 reais",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         },
+         {
+          "text": "40 reais"
+         },
+         {
+          "text": "5 reais",
+          "misconceptionCode": "conta-um-grupo"
+         },
+         {
+          "text": "35 reais",
+          "misconceptionCode": "tabuada-vizinha"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um ingresso custa 10 reais. Quanto custam 7 ingressos?",
+        "options": [
+         {
+          "text": "70 reais"
+         },
+         {
+          "text": "60 reais",
+          "misconceptionCode": "tabuada-vizinha"
+         },
+         {
+          "text": "10 reais",
+          "misconceptionCode": "conta-um-grupo"
+         },
+         {
+          "text": "17 reais",
+          "misconceptionCode": "soma-em-vez-de-vezes"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03MA07-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: o que é multiplicar",
+    "prompt": "Explique com as suas palavras o que quer dizer 4 × 3 e como achar o resultado.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras o que quer dizer 4 × 3 e como achar o resultado.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "grupos",
+       "description": "Explica que são 4 grupos de 3 (ou o 3 somado 4 vezes)"
+      },
+      {
+       "code": "soma",
+       "description": "Mostra 3 + 3 + 3 + 3"
+      },
+      {
+       "code": "resultado",
+       "description": "Chega a 12"
+      }
+     ],
+     "exemploBoaResposta": "4 × 3 quer dizer 4 grupos de 3. É o mesmo que somar 3 + 3 + 3 + 3. O resultado é 12."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF03MA08",
+  "subjectCode": "MA",
+  "subjectName": "Matemática",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: Divisão: repartir e formar grupos",
+  "tituloAluno": "Dividindo em partes iguais",
+  "activities": [
+   {
+    "id": "PK2-EF03MA08-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: grupos iguais",
+    "prompt": "Na multiplicação, juntamos grupos iguais. Na divisão, separamos em grupos iguais.",
+    "estMinutes": 4,
+    "audioScript": "Na multiplicação, juntamos grupos iguais. Na divisão, separamos em grupos iguais. Pergunta 1. Quanto é 2 × 5? A: 10; B: 7; C: 3; D: 25. Pergunta 2. Qual é a metade de 8? A: 2; B: 4; C: 16; D: 6. Pergunta 3. Duas crianças dividem 6 balas igualmente. Quantas balas cada uma recebe? A: 4; B: 6; C: 3; D: 2.",
+    "questions": [
+     {
+      "question": "Quanto é 2 × 5?",
+      "options": [
+       {
+        "text": "10"
+       },
+       {
+        "text": "7",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       },
+       {
+        "text": "3",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       },
+       {
+        "text": "25",
+        "misconceptionCode": "troca-divisao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Dois grupos de 5: 5 + 5 = 10.",
+      "variants": [
+       {
+        "question": "Quanto é 3 × 4?",
+        "options": [
+         {
+          "text": "7",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "1",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "12"
+         },
+         {
+          "text": "34",
+          "misconceptionCode": "troca-divisao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Quanto é 2 × 5?",
+        "options": [
+         {
+          "text": "25",
+          "misconceptionCode": "troca-divisao"
+         },
+         {
+          "text": "10"
+         },
+         {
+          "text": "3",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "7",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual é a metade de 8?",
+      "options": [
+       {
+        "text": "2",
+        "misconceptionCode": "partes-desiguais"
+       },
+       {
+        "text": "4"
+       },
+       {
+        "text": "16",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       },
+       {
+        "text": "6",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Metade é dividir em 2 partes iguais: 4 e 4.",
+      "variants": [
+       {
+        "question": "Qual é a metade de 10?",
+        "options": [
+         {
+          "text": "2",
+          "misconceptionCode": "partes-desiguais"
+         },
+         {
+          "text": "20",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "8",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "5"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual é a metade de 8?",
+        "options": [
+         {
+          "text": "6",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "16",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "4"
+         },
+         {
+          "text": "2",
+          "misconceptionCode": "partes-desiguais"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Duas crianças dividem 6 balas igualmente. Quantas balas cada uma recebe?",
+      "options": [
+       {
+        "text": "4",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       },
+       {
+        "text": "6",
+        "misconceptionCode": "ignora-resto"
+       },
+       {
+        "text": "3"
+       },
+       {
+        "text": "2",
+        "misconceptionCode": "troca-divisao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "3 para uma e 3 para a outra. As partes são iguais.",
+      "variants": [
+       {
+        "question": "Duas crianças dividem 8 figurinhas igualmente. Quantas cada uma recebe?",
+        "options": [
+         {
+          "text": "4"
+         },
+         {
+          "text": "6",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "8",
+          "misconceptionCode": "ignora-resto"
+         },
+         {
+          "text": "2",
+          "misconceptionCode": "troca-divisao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Duas crianças dividem 6 balas igualmente. Quantas balas cada uma recebe?",
+        "options": [
+         {
+          "text": "2",
+          "misconceptionCode": "troca-divisao"
+         },
+         {
+          "text": "6",
+          "misconceptionCode": "ignora-resto"
+         },
+         {
+          "text": "4",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "3"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03MA08-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: repartir igualmente",
+    "prompt": "Dividir é repartir em partes iguais. 12 ÷ 3 quer dizer: 12 repartido em 3 partes iguais. Podemos conferir com a multiplicação: 3 × 4 = 12. Vamos fazer juntos.",
+    "estMinutes": 4,
+    "audioScript": "Dividir é repartir em partes iguais. 12 ÷ 3 quer dizer: 12 repartido em 3 partes iguais. Podemos conferir com a multiplicação: 3 × 4 = 12. Vamos fazer juntos. Pergunta 1. Quanto é 12 ÷ 3? A: 9; B: 15; C: 3; D: 4. Pergunta 2. A professora tem 20 lápis para repartir igualmente entre 4 alunos. Quantos lápis cada um recebe? A: 5; B: 16; C: 24; D: 4. Pergunta 3. Tenho 10 bolinhas e quero fazer saquinhos com 2 bolinhas em cada um. Quantos saquinhos consigo fazer? A: 8; B: 5; C: 2; D: 12.",
+    "questions": [
+     {
+      "question": "Quanto é 12 ÷ 3?",
+      "options": [
+       {
+        "text": "9",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       },
+       {
+        "text": "15",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       },
+       {
+        "text": "3",
+        "misconceptionCode": "troca-divisao"
+       },
+       {
+        "text": "4"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "12 repartido em 3 partes iguais dá 4 em cada parte, porque 3 × 4 = 12.",
+      "variants": [
+       {
+        "question": "Quanto é 15 ÷ 3?",
+        "options": [
+         {
+          "text": "12",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "5"
+         },
+         {
+          "text": "18",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "3",
+          "misconceptionCode": "troca-divisao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é 12 ÷ 3?",
+        "options": [
+         {
+          "text": "4"
+         },
+         {
+          "text": "3",
+          "misconceptionCode": "troca-divisao"
+         },
+         {
+          "text": "15",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "9",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "A professora tem 20 lápis para repartir igualmente entre 4 alunos. Quantos lápis cada um recebe?",
+      "options": [
+       {
+        "text": "5"
+       },
+       {
+        "text": "16",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       },
+       {
+        "text": "24",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       },
+       {
+        "text": "4",
+        "misconceptionCode": "troca-divisao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "20 ÷ 4 = 5, porque 4 × 5 = 20.",
+      "variants": [
+       {
+        "question": "A mãe tem 18 biscoitos para repartir igualmente entre 2 filhos. Quantos cada um recebe?",
+        "options": [
+         {
+          "text": "16",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "20",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "9"
+         },
+         {
+          "text": "2",
+          "misconceptionCode": "troca-divisao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A professora tem 20 lápis para repartir igualmente entre 4 alunos. Quantos lápis cada um recebe?",
+        "options": [
+         {
+          "text": "4",
+          "misconceptionCode": "troca-divisao"
+         },
+         {
+          "text": "5"
+         },
+         {
+          "text": "24",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "16",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Tenho 10 bolinhas e quero fazer saquinhos com 2 bolinhas em cada um. Quantos saquinhos consigo fazer?",
+      "options": [
+       {
+        "text": "8",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       },
+       {
+        "text": "5"
+       },
+       {
+        "text": "2",
+        "misconceptionCode": "troca-divisao"
+       },
+       {
+        "text": "12",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Quantos grupos de 2 cabem em 10? 10 ÷ 2 = 5.",
+      "variants": [
+       {
+        "question": "Tenho 15 flores e quero fazer buquês com 5 flores em cada um. Quantos buquês consigo fazer?",
+        "options": [
+         {
+          "text": "10",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "troca-divisao"
+         },
+         {
+          "text": "20",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "3"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Tenho 10 bolinhas e quero fazer saquinhos com 2 bolinhas em cada um. Quantos saquinhos consigo fazer?",
+        "options": [
+         {
+          "text": "12",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "2",
+          "misconceptionCode": "troca-divisao"
+         },
+         {
+          "text": "5"
+         },
+         {
+          "text": "8",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03MA08-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: divisões e sobras",
+    "prompt": "Às vezes sobra algo. Essa sobra é o resto.",
+    "estMinutes": 5,
+    "audioScript": "Às vezes sobra algo. Essa sobra é o resto. Pergunta 1. Quanto é 16 ÷ 4? A: 12; B: 20; C: 4; D: 8. Pergunta 2. Quanto é 30 ÷ 10? A: 20; B: 40; C: 300; D: 3. Pergunta 3. Três amigos repartem 10 balas igualmente. Quantas cada um recebe e quantas sobram? A: 3 para cada um, e sobra 1; B: 3 para cada um, e não sobra nada; C: 4 para dois deles e 2 para o outro; D: 7 para cada um. Pergunta 4. Para descobrir quanto é 18 ÷ 2, posso pensar: A: Quanto é 18 − 2?; B: Que número vezes 2 dá 18?; C: Quanto é 18 + 2?; D: Quanto é 18 × 2?.",
+    "questions": [
+     {
+      "question": "Quanto é 16 ÷ 4?",
+      "options": [
+       {
+        "text": "12",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       },
+       {
+        "text": "20",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       },
+       {
+        "text": "4"
+       },
+       {
+        "text": "8",
+        "misconceptionCode": "partes-desiguais"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "4 × 4 = 16.",
+      "variants": [
+       {
+        "question": "Quanto é 20 ÷ 5?",
+        "options": [
+         {
+          "text": "4"
+         },
+         {
+          "text": "15",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "25",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "partes-desiguais"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quanto é 16 ÷ 4?",
+        "options": [
+         {
+          "text": "8",
+          "misconceptionCode": "partes-desiguais"
+         },
+         {
+          "text": "20",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "12",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "4"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quanto é 30 ÷ 10?",
+      "options": [
+       {
+        "text": "20",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       },
+       {
+        "text": "40",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       },
+       {
+        "text": "300",
+        "misconceptionCode": "troca-divisao"
+       },
+       {
+        "text": "3"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "10 × 3 = 30.",
+      "variants": [
+       {
+        "question": "Quanto é 50 ÷ 10?",
+        "options": [
+         {
+          "text": "40",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "5"
+         },
+         {
+          "text": "60",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "500",
+          "misconceptionCode": "troca-divisao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quanto é 30 ÷ 10?",
+        "options": [
+         {
+          "text": "3"
+         },
+         {
+          "text": "300",
+          "misconceptionCode": "troca-divisao"
+         },
+         {
+          "text": "40",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "20",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Três amigos repartem 10 balas igualmente. Quantas cada um recebe e quantas sobram?",
+      "options": [
+       {
+        "text": "3 para cada um, e sobra 1"
+       },
+       {
+        "text": "3 para cada um, e não sobra nada",
+        "misconceptionCode": "ignora-resto"
+       },
+       {
+        "text": "4 para dois deles e 2 para o outro",
+        "misconceptionCode": "partes-desiguais"
+       },
+       {
+        "text": "7 para cada um",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "3 × 3 = 9. De 10, sobra 1. As partes têm de ser iguais.",
+      "variants": [
+       {
+        "question": "Quatro amigos repartem 14 figurinhas igualmente. Quantas cada um recebe e quantas sobram?",
+        "options": [
+         {
+          "text": "3 para cada um, e não sobra nada",
+          "misconceptionCode": "ignora-resto"
+         },
+         {
+          "text": "4 para três deles e 2 para o outro",
+          "misconceptionCode": "partes-desiguais"
+         },
+         {
+          "text": "3 para cada um, e sobram 2"
+         },
+         {
+          "text": "10 para cada um",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Três amigos repartem 10 balas igualmente. Quantas cada um recebe e quantas sobram?",
+        "options": [
+         {
+          "text": "7 para cada um",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "3 para cada um, e sobra 1"
+         },
+         {
+          "text": "4 para dois deles e 2 para o outro",
+          "misconceptionCode": "partes-desiguais"
+         },
+         {
+          "text": "3 para cada um, e não sobra nada",
+          "misconceptionCode": "ignora-resto"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Para descobrir quanto é 18 ÷ 2, posso pensar:",
+      "options": [
+       {
+        "text": "Quanto é 18 − 2?",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       },
+       {
+        "text": "Que número vezes 2 dá 18?"
+       },
+       {
+        "text": "Quanto é 18 + 2?",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       },
+       {
+        "text": "Quanto é 18 × 2?",
+        "misconceptionCode": "troca-divisao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A divisão desfaz a multiplicação. 9 × 2 = 18, então 18 ÷ 2 = 9.",
+      "variants": [
+       {
+        "question": "Para descobrir quanto é 24 ÷ 4, posso pensar:",
+        "options": [
+         {
+          "text": "Quanto é 24 − 4?",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "Quanto é 24 + 4?",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "Quanto é 24 × 4?",
+          "misconceptionCode": "troca-divisao"
+         },
+         {
+          "text": "Que número vezes 4 dá 24?"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Para descobrir quanto é 18 ÷ 2, posso pensar:",
+        "options": [
+         {
+          "text": "Quanto é 18 × 2?",
+          "misconceptionCode": "troca-divisao"
+         },
+         {
+          "text": "Quanto é 18 + 2?",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "Que número vezes 2 dá 18?"
+         },
+         {
+          "text": "Quanto é 18 − 2?",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03MA08-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: problemas de divisão",
+    "prompt": "Pense se o problema pede para repartir ou para formar grupos.",
+    "estMinutes": 4,
+    "audioScript": "Pense se o problema pede para repartir ou para formar grupos. Pergunta 1. Um pacote tem 24 bolachas. Quatro irmãos vão dividi-las igualmente. Quantas bolachas cada um recebe? A: 20; B: 28; C: 6; D: 4. Pergunta 2. Numa gincana, 20 alunos formam equipes de 5. Quantas equipes são formadas? A: 15; B: 5; C: 25; D: 4. Pergunta 3. Cada carro leva 4 pessoas. Quantos carros são necessários para levar 9 pessoas? A: 3 carros; B: 2 carros; C: 5 carros; D: 4 carros.",
+    "questions": [
+     {
+      "question": "Um pacote tem 24 bolachas. Quatro irmãos vão dividi-las igualmente. Quantas bolachas cada um recebe?",
+      "options": [
+       {
+        "text": "20",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       },
+       {
+        "text": "28",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       },
+       {
+        "text": "6"
+       },
+       {
+        "text": "4",
+        "misconceptionCode": "troca-divisao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "24 ÷ 4 = 6, porque 4 × 6 = 24.",
+      "variants": [
+       {
+        "question": "Uma caixa tem 30 lápis. Cinco alunos vão dividi-los igualmente. Quantos lápis cada um recebe?",
+        "options": [
+         {
+          "text": "6"
+         },
+         {
+          "text": "25",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "35",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "troca-divisao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um pacote tem 24 bolachas. Quatro irmãos vão dividi-las igualmente. Quantas bolachas cada um recebe?",
+        "options": [
+         {
+          "text": "4",
+          "misconceptionCode": "troca-divisao"
+         },
+         {
+          "text": "28",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "20",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "6"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Numa gincana, 20 alunos formam equipes de 5. Quantas equipes são formadas?",
+      "options": [
+       {
+        "text": "15",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       },
+       {
+        "text": "5",
+        "misconceptionCode": "troca-divisao"
+       },
+       {
+        "text": "25",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       },
+       {
+        "text": "4"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Quantos grupos de 5 cabem em 20? 20 ÷ 5 = 4.",
+      "variants": [
+       {
+        "question": "Numa festa, 12 crianças se sentam em mesas de 4 lugares. Quantas mesas são ocupadas?",
+        "options": [
+         {
+          "text": "8",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "3"
+         },
+         {
+          "text": "4",
+          "misconceptionCode": "troca-divisao"
+         },
+         {
+          "text": "16",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Numa gincana, 20 alunos formam equipes de 5. Quantas equipes são formadas?",
+        "options": [
+         {
+          "text": "4"
+         },
+         {
+          "text": "25",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "5",
+          "misconceptionCode": "troca-divisao"
+         },
+         {
+          "text": "15",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Cada carro leva 4 pessoas. Quantos carros são necessários para levar 9 pessoas?",
+      "options": [
+       {
+        "text": "3 carros"
+       },
+       {
+        "text": "2 carros",
+        "misconceptionCode": "ignora-resto"
+       },
+       {
+        "text": "5 carros",
+        "misconceptionCode": "subtrai-em-vez-de-dividir"
+       },
+       {
+        "text": "4 carros",
+        "misconceptionCode": "troca-divisao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Dois carros levam 8 pessoas. Sobra 1 pessoa, que também precisa de um carro. São 3 carros.",
+      "variants": [
+       {
+        "question": "Cada mesa tem 5 lugares. Quantas mesas são necessárias para 12 pessoas?",
+        "options": [
+         {
+          "text": "2 mesas",
+          "misconceptionCode": "ignora-resto"
+         },
+         {
+          "text": "7 mesas",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "3 mesas"
+         },
+         {
+          "text": "5 mesas",
+          "misconceptionCode": "troca-divisao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Cada carro leva 4 pessoas. Quantos carros são necessários para levar 9 pessoas?",
+        "options": [
+         {
+          "text": "4 carros",
+          "misconceptionCode": "troca-divisao"
+         },
+         {
+          "text": "3 carros"
+         },
+         {
+          "text": "5 carros",
+          "misconceptionCode": "subtrai-em-vez-de-dividir"
+         },
+         {
+          "text": "2 carros",
+          "misconceptionCode": "ignora-resto"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03MA08-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: repartir em partes iguais",
+    "prompt": "Explique com as suas palavras como repartir 12 balas igualmente entre 3 crianças e como conferir se está certo.",
+    "estMinutes": 6,
+    "audioScript": "Explique com as suas palavras como repartir 12 balas igualmente entre 3 crianças e como conferir se está certo.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "reparticao",
+       "description": "Explica que distribui em partes iguais"
+      },
+      {
+       "code": "resultado",
+       "description": "Chega a 4 para cada criança"
+      },
+      {
+       "code": "confere",
+       "description": "Confere com a multiplicação (3 × 4 = 12) ou somando"
+      }
+     ],
+     "exemploBoaResposta": "Eu dou uma bala para cada criança, depois outra, até acabar. Cada uma fica com 4 balas. Para conferir, faço 3 × 4, que dá 12. Então está certo."
+    }
+   }
+  ]
+ }
+]
