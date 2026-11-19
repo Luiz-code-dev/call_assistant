@@ -4,6 +4,8 @@ import { getFamilyContext } from "@/lib/escola/family-context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { guardianOwnsStudent } from "@/lib/escola/family-guard";
 import { subjectInfo } from "@/lib/escola/subjects";
+import { consolidate, type MasteryLevel } from "@/lib/escola/mastery-event";
+import { anoDoConteudo, resumirEvolucao } from "@/lib/escola/evolucao-degraus";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -20,7 +22,7 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
     const studentId = params.studentId;
     const student = await (prismaEdu as any).eduStudent.findUnique({
       where: { id: studentId },
-      select: { fullName: true, enrollments: { where: { status: "ACTIVE" }, take: 1, orderBy: { startedAt: "desc" }, select: { class: { select: { name: true } } } } },
+      select: { fullName: true, enrollments: { where: { status: "ACTIVE" }, take: 1, orderBy: { startedAt: "desc" }, select: { class: { select: { name: true, gradeYear: true } } } } },
     });
 
     const masteries = await (prismaEdu as any).eduSkillMastery.findMany({
@@ -29,11 +31,24 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
     });
 
     // Nivel do PRIMEIRO diagnostico por habilidade (evento DIAGNOSTIC mais antigo).
+    // Todas as observações do aluno, da mais antiga para a mais recente: servem para o ponto
+    // de partida (primeiro diagnóstico) e para o nível que ele tinha 7 dias atrás.
     const events = await (prismaEdu as any).eduSkillMasteryEvent.findMany({
-      where: { studentId, source: "DIAGNOSTIC" }, orderBy: { createdAt: "asc" }, select: { skillId: true, level: true },
+      where: { studentId }, orderBy: { createdAt: "asc" }, select: { skillId: true, level: true, source: true, createdAt: true },
     });
+    const seteDiasAtras = Date.now() - 7 * 24 * 60 * 60 * 1000;
     const firstLevel = new Map<string, string>();
-    for (const e of events) if (!firstLevel.has(e.skillId)) firstLevel.set(e.skillId, e.level);
+    const antesDaSemana = new Map<string, MasteryLevel[]>();
+    const ultimaEm = new Map<string, Date>();
+    for (const e of events) {
+      if (e.source === "DIAGNOSTIC" && !firstLevel.has(e.skillId)) firstLevel.set(e.skillId, e.level);
+      const quando = new Date(e.createdAt);
+      if (quando.getTime() < seteDiasAtras) {
+        if (!antesDaSemana.has(e.skillId)) antesDaSemana.set(e.skillId, []);
+        antesDaSemana.get(e.skillId)!.push(e.level as MasteryLevel);
+      }
+      ultimaEm.set(e.skillId, quando);
+    }
 
     const resumo = { MASTERED: 0, ALMOST: 0, NOT_YET: 0 };
     const grupos = new Map<string, { name: string; color: string; habilidades: any[] }>();
@@ -47,12 +62,22 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
         label: m.skill.shortLabel || m.skill.description,
         level: m.level,
         levelInicial: firstLevel.get(m.skill.id) ?? null,
+        // Nível consolidado que o aluno tinha 7 dias atrás (null = sem observação antes disso).
+        levelSemana: antesDaSemana.has(m.skill.id) ? consolidate(antesDaSemana.get(m.skill.id)!) : null,
+        ano: anoDoConteudo(m.skill.code),
+        ultimaAtividadeEm: ultimaEm.get(m.skill.id)?.toISOString() ?? null,
       });
     }
+    const todas = Array.from(grupos.values()).flatMap((g) => g.habilidades);
 
     return NextResponse.json({
-      aluno: { fullName: student?.fullName ?? null, className: student?.enrollments?.[0]?.class?.name ?? null },
+      aluno: {
+        fullName: student?.fullName ?? null,
+        className: student?.enrollments?.[0]?.class?.name ?? null,
+        gradeYear: student?.enrollments?.[0]?.class?.gradeYear ?? null,
+      },
       resumo,
+      evolucao: resumirEvolucao(todas),
       componentes: Array.from(grupos.values()),
     });
   } catch (err) {
