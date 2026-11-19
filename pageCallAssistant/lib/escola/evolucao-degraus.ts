@@ -82,3 +82,42 @@ export function fraseDoCaminho(levelInicial: string | null | undefined, level: s
   if (level === "MASTERED") return "Já dominava no diagnóstico e continua dominando.";
   return `Começou em ${NOME[levelInicial]} e continua neste degrau.`;
 }
+
+/** Janela do primeiro diagnóstico: as questões de um mesmo diagnóstico caem dentro dela. */
+const JANELA_DIAGNOSTICO_MS = 60 * 60 * 1000;
+
+export interface ObservacaoDegrau {
+  level: string;
+  source: string;
+  createdAt: Date | string;
+}
+
+/**
+ * Observações do PRIMEIRO diagnóstico de um conteúdo, da mais antiga para a mais recente.
+ *
+ * O diagnóstico grava uma observação por questão. O ponto de partida do aluno é o conjunto
+ * dessas questões (consolidado pela mesma regra do nível atual), e não só a primeira delas:
+ * quem acerta a primeira e erra as duas seguintes não começou em Domina.
+ * Recebe as observações de UM conteúdo, já em ordem de data.
+ */
+export function observacoesDoPrimeiroDiagnostico(observacoes: ObservacaoDegrau[]): Degrau[] {
+  const diag = observacoes.filter((o) => o.source === "DIAGNOSTIC" && ehDegrau(o.level));
+  if (!diag.length) return [];
+  const inicio = new Date(diag[0].createdAt).getTime();
+  return diag
+    .filter((o) => new Date(o.createdAt).getTime() - inicio <= JANELA_DIAGNOSTICO_MS)
+    .map((o) => o.level as Degrau);
+}
+
+/** A mesma leitura do caminho, falando com o aluno: curta, sem nota e sem código. */
+export function fraseParaAluno(levelInicial: string | null | undefined, level: string): string {
+  if (!ehDegrau(level)) return "";
+  if (!ehDegrau(levelInicial)) {
+    return level === "MASTERED" ? "Você já domina este conteúdo." : `Você está em ${NOME[level]}.`;
+  }
+  const p = ORDEM_DEGRAU[level] - ORDEM_DEGRAU[levelInicial];
+  if (p > 0) return `Você começou em ${NOME[levelInicial]} e subiu ${p} ${p === 1 ? "degrau" : "degraus"}.`;
+  if (p < 0) return "Vale praticar este conteúdo de novo para voltar a subir.";
+  if (level === "MASTERED") return "Você já dominava e continua dominando.";
+  return "Você continua neste degrau. Pratique mais um pouco para subir.";
+}
