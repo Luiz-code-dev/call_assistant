@@ -97,7 +97,7 @@ export default async function ProfessorPage() {
   try {
     if (ctx.role === "TEACHER") {
       sugestoesPendentes = await p.eduTeacherAlert.count({
-        where: { networkId: ctx.networkId, teacherUserId: ctx.userId, type: "TRACK_SUGGESTION", status: "PENDING" },
+        where: { networkId: ctx.networkId, teacherUserId: ctx.userId, type: "TRACK_SUGGESTION", readAt: null },
       });
     }
   } catch (err) { console.error("[professor/page] sugestoes query:", err); sugestoesPendentes = 0; }
@@ -140,7 +140,6 @@ export default async function ProfessorPage() {
               {a.trackId && trackTitleMap[a.trackId] ? <span className="italic">{trackTitleMap[a.trackId]}</span> : null}.
             </p>
           ))}
-          <Link href="/api/escola/professor/alertas" className="text-xs text-[#92400E] underline">Ver todos</Link>
         </div>
       )}
 

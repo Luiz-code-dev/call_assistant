@@ -57,15 +57,8 @@ export default function DiagnosticosPage() {
     const r1 = await fetch(`/api/escola/diagnosticos/${diagId}/abrir`, { method: "POST" });
     if (!r1.ok) { setMsgRede(prev => ({ ...prev, [id]: "Erro ao abrir diagnóstico." })); setAbrindoRede(null); return; }
 
-    // Associa a turmas do gradeYear
+    // O diagnóstico vale pelo ano escolar: aberto, fica disponível para todas as turmas daquele ano.
     const turmasAno = turmas.filter(t => t.gradeYear === gradeYear);
-    if (turmasAno.length > 0) {
-      await fetch(`/api/escola/diagnosticos/${diagId}/aplicar`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ classIds: turmasAno.map(t => t.id) }),
-      }).catch(() => null);
-    }
     setMsgRede(prev => ({ ...prev, [id]: `Aberto para ${turmasAno.length > 0 ? `${turmasAno.length} turma(s) do ${gradeYear}º ano` : "a rede"}.` }));
     setAbrindoRede(null);
     load();

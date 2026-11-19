@@ -11,9 +11,11 @@ export async function GET() {
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
   if (ctx?.db) setTenantDb(ctx.db);
-  if (ctx.role !== "NETWORK_ADMIN") return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
+  // A direção vê os vínculos da própria escola (precisa da lista de professores para montar as turmas).
+  if (ctx.role !== "NETWORK_ADMIN" && ctx.role !== "SCHOOL_ADMIN") return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
+  if (ctx.role === "SCHOOL_ADMIN" && !ctx.schoolId) return NextResponse.json({ members: [] });
   const members = await prismaEdu.eduMembership.findMany({
-    where: { networkId: ctx.networkId },
+    where: { networkId: ctx.networkId, ...(ctx.role === "SCHOOL_ADMIN" ? { schoolId: ctx.schoolId } : {}) },
     include: { user: { select: { name: true, email: true } }, school: { select: { name: true } } },
     orderBy: { createdAt: "desc" },
   });

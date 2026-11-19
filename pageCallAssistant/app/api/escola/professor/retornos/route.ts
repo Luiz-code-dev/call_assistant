@@ -43,7 +43,9 @@ export async function GET(req: NextRequest) {
     studentId: { in: studentIds },
     status: { not: "IN_PROGRESS" },
   };
-  if (flagged) where.flagged = true;
+  // "Sinalizado" = a correção automática falhou e a entrega precisa do olhar do professor.
+  // (EduSubmission não tem coluna "flagged"; a consulta antiga falhava e a tela ficava sempre vazia.)
+  if (flagged) where.aiStatus = "FAILED";
 
   const subs = await P.eduSubmission.findMany({
     where,
@@ -54,7 +56,7 @@ export async function GET(req: NextRequest) {
       studentId: true,
       activityId: true,
       masteryLevel: true,
-      flagged: true,
+      aiStatus: true,
       submittedAt: true,
       activity: { select: { title: true } },
     },
@@ -62,14 +64,14 @@ export async function GET(req: NextRequest) {
 
   const submissions = (subs as {
     id: string; studentId: string; activityId: string; masteryLevel: string | null;
-    flagged: boolean | null; submittedAt: string | Date;
+    aiStatus: string | null; submittedAt: string | Date;
     activity: { title: string } | null;
   }[]).map(s => ({
     id: s.id,
     studentName: studentNameMap.get(s.studentId) ?? "Aluno",
     activityTitle: s.activity?.title ?? "Atividade",
     masteryLevel: s.masteryLevel,
-    flagged: !!s.flagged,
+    flagged: s.aiStatus === "FAILED",
     submittedAt: s.submittedAt,
   }));
 

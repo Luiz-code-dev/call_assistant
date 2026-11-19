@@ -76,16 +76,9 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
     const tracks = await p.eduTrack.findMany({
       where: { ...base, status: "SUBMITTED" },
-      include: {
-        ...TRACK_INCLUDE,
-        createdByUser: { select: { id: true, name: true, email: true } },
-      },
-      orderBy: { updatedAt: "desc" as const },
-    }).catch(() => p.eduTrack.findMany({
-      where: { ...base, status: "SUBMITTED" },
       include: TRACK_INCLUDE,
-      orderBy: { createdAt: "desc" as const },
-    }));
+      orderBy: [{ submittedAt: "desc" as const }, { createdAt: "desc" as const }],
+    });
     return NextResponse.json({ tracks });
   }
 

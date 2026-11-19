@@ -18,15 +18,26 @@ export async function GET(_: NextRequest) {
   if (ctx?.db) setTenantDb(ctx.db);
   if (ctx.role !== "TEACHER") return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 
-  const alertas = await p.eduTeacherAlert.findMany({
-    where: { networkId: ctx.networkId, teacherUserId: ctx.userId },
-    orderBy: { createdAt: "desc" as const },
-    take: 20,
-    include: {
-      student: { select: { fullName: true } },
-      track:   { select: { title: true } },
-    },
-  });
+  // O aviso guarda só os ids do aluno e da trilha (não há relação no banco): busca os nomes à parte.
+  const brutos: Array<{ id: string; studentId: string | null; trackId: string | null; readAt: Date | null }> =
+    await p.eduTeacherAlert.findMany({
+      where: { networkId: ctx.networkId, teacherUserId: ctx.userId },
+      orderBy: { createdAt: "desc" as const },
+      take: 20,
+    });
+  const alunoIds = brutos.map((a) => a.studentId).filter((v): v is string => Boolean(v));
+  const trilhaIds = brutos.map((a) => a.trackId).filter((v): v is string => Boolean(v));
+  const [alunos, trilhas]: [Array<{ id: string; fullName: string }>, Array<{ id: string; title: string }>] = await Promise.all([
+    alunoIds.length ? p.eduStudent.findMany({ where: { id: { in: alunoIds }, networkId: ctx.networkId }, select: { id: true, fullName: true } }) : [],
+    trilhaIds.length ? p.eduTrack.findMany({ where: { id: { in: trilhaIds } }, select: { id: true, title: true } }) : [],
+  ]);
+  const nomeAluno = new Map(alunos.map((a) => [a.id, a.fullName]));
+  const tituloTrilha = new Map(trilhas.map((t) => [t.id, t.title]));
+  const alertas = brutos.map((a) => ({
+    ...a,
+    student: a.studentId && nomeAluno.has(a.studentId) ? { fullName: nomeAluno.get(a.studentId) } : null,
+    track: a.trackId && tituloTrilha.has(a.trackId) ? { title: tituloTrilha.get(a.trackId) } : null,
+  }));
 
   const naoLidos = alertas.filter((a: { readAt: Date | null }) => !a.readAt).length;
 

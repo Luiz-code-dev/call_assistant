@@ -39,7 +39,8 @@ async function reindexDb(tenantId, db) {
   }
 
   // GUARDIAN: EduGuardian desta rede com email
-  const guardians = await db.eduGuardian.findMany({ where: { networkId: tenantId, isActive: true } });
+  // EduGuardian não tem coluna isActive: indexa todos os responsáveis da rede que têm e-mail.
+  const guardians = await db.eduGuardian.findMany({ where: { networkId: tenantId, email: { not: null } } });
   for (const g of guardians) {
     if (!g.email) continue;
     await catalog.loginIndex.upsert({
@@ -76,12 +77,14 @@ async function reindexDb(tenantId, db) {
   // FAMILY_CODE desta rede
   const familyCodes = await db.eduFamilyCode.findMany({
     where: { networkId: tenantId },
-    select: { code: true, expiresAt: true },
+    select: { codeHash: true, expiresAt: true },
   }).catch(() => []);
   for (const fc of familyCodes) {
+    // O banco guarda só o hash do código; a chave do catálogo é "FAM" + hash (lib/escola/codigo-familia.ts).
+    const chave = `FAM${String(fc.codeHash).toUpperCase()}`;
     await catalog.codeIndex.upsert({
-      where: { code: fc.code.toUpperCase() },
-      create: { code: fc.code.toUpperCase(), kind: "FAMILY_CODE", tenantId, expiresAt: fc.expiresAt ?? null },
+      where: { code: chave },
+      create: { code: chave, kind: "FAMILY_CODE", tenantId, expiresAt: fc.expiresAt ?? null },
       update: { expiresAt: fc.expiresAt ?? null, tenantId },
     });
   }

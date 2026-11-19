@@ -1,91 +1,30 @@
 /**
  * POST /api/escola/familia/convidar
- * Cria/envia convite de responsável para um aluno (wrapper sobre /alunos/[id]/responsaveis)
+ * Convida um responsável para acompanhar um aluno, a partir do e-mail.
+ *
+ * É um atalho para POST /api/escola/alunos/[id]/responsaveis, que é quem cria o
+ * responsável, o vínculo e o convite (e envia o e-mail). Esta rota gravava campos que
+ * não existem no vínculo (inviteToken, status) e sempre falhava.
  */
 import { NextRequest, NextResponse } from "next/server";
-import { getEduContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
-import { prismaEdu, setTenantDb } from "@/lib/escola/db";
-import { randomBytes } from "crypto";
-
-const P = prismaEdu as any; // eslint-disable-line @typescript-eslint/no-explicit-any
+import { POST as vincularResponsavel } from "@/app/api/escola/alunos/[id]/responsaveis/route";
 
 export async function POST(req: NextRequest) {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
-  const ctx = await getEduContext();
-  if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
-  if (ctx?.db) setTenantDb(ctx.db);
-  if (!["SCHOOL_ADMIN", "NETWORK_ADMIN"].includes(ctx.role))
-    return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 
   const { studentId, email, name, relation } = await req.json().catch(() => ({}));
-  if (!studentId || !email) return NextResponse.json({ error: "studentId e email são obrigatórios" }, { status: 400 });
+  const emailN = typeof email === "string" ? email.trim() : "";
+  if (!studentId || !emailN) return NextResponse.json({ error: "Informe o aluno e o e-mail do responsável." }, { status: 400 });
 
-  // Verifica que o aluno pertence à rede
-  const student = await P.eduStudent.findFirst({
-    where: { id: studentId, networkId: ctx.networkId },
-  }).catch(() => null);
-  if (!student) return NextResponse.json({ error: "Aluno não encontrado" }, { status: 404 });
-
-  // Verifica se já existe responsável com esse e-mail
-  const existing = await P.eduGuardian.findFirst({
-    where: { email, networkId: ctx.networkId },
-  }).catch(() => null);
-
-  let guardianId: string;
-  if (existing) {
-    guardianId = existing.id;
-  } else {
-    const guardian = await P.eduGuardian.create({
-      data: {
-        networkId: ctx.networkId,
-        name: name ?? email.split("@")[0],
-        email,
-        relation: relation ?? "OUTRO",
-      },
-    });
-    guardianId = guardian.id;
-  }
-
-  // Cria ou atualiza o vínculo
-  const linkExisting = await P.eduGuardianLink.findFirst({
-    where: { guardianId, studentId, networkId: ctx.networkId },
-  }).catch(() => null);
-
-  const token = randomBytes(24).toString("hex");
-  const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 dias
-
-  if (linkExisting) {
-    await P.eduGuardianLink.update({
-      where: { id: linkExisting.id },
-      data: { inviteToken: token, inviteExpiresAt: expiresAt, status: "PENDING" },
-    });
-  } else {
-    await P.eduGuardianLink.create({
-      data: {
-        networkId: ctx.networkId,
-        guardianId,
-        studentId,
-        relation: relation ?? "OUTRO",
-        inviteToken: token,
-        inviteExpiresAt: expiresAt,
-        status: "PENDING",
-        isActive: false,
-      },
-    });
-  }
-
-  await P.eduAuditLog.create({
-    data: {
-      networkId: ctx.networkId,
-      actorType: "user",
-      actorId: ctx.userId,
-      action: "guardian.invite.sent",
-      entity: "EduGuardianLink",
-      entityId: studentId,
-    },
-  }).catch(() => null);
-
-  const invitePath = `/escola/familia/convite/${token}`;
-  return NextResponse.json({ ok: true, invitePath, token });
+  const interno = new NextRequest(new URL(`/api/escola/alunos/${studentId}/responsaveis`, req.url), {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      name: (typeof name === "string" && name.trim()) || emailN.split("@")[0],
+      relation: relation || "OUTRO",
+      email: emailN,
+    }),
+  });
+  return vincularResponsavel(interno, { params: { id: String(studentId) } });
 }

@@ -197,8 +197,8 @@ async function importTrilhas(db) {
 
         // Habilidade × atividade
         await db.eduActivitySkill.upsert({
-          where: { id: `${act.id}-${skill.id}` },
-          create: { id: `${act.id}-${skill.id}`, activityId: act.id, skillId: skill.id },
+          where: { activityId_skillId: { activityId: act.id, skillId: skill.id } },
+          create: { activityId: act.id, skillId: skill.id },
           update: {},
         }).catch(() => null);
       }
@@ -275,8 +275,8 @@ async function importDiagnosticos(db) {
               });
             }
             await db.eduActivitySkill.upsert({
-              where: { id: `${act.id}-${skill.id}` },
-              create: { id: `${act.id}-${skill.id}`, activityId: act.id, skillId: skill.id },
+              where: { activityId_skillId: { activityId: act.id, skillId: skill.id } },
+              create: { activityId: act.id, skillId: skill.id },
               update: {},
             }).catch(() => null);
           }
@@ -307,8 +307,8 @@ async function importDiagnosticos(db) {
               });
             }
             await db.eduActivitySkill.upsert({
-              where: { id: `${diagActId}-${skill.id}` },
-              create: { id: `${diagActId}-${skill.id}`, activityId: diagActId, skillId: skill.id },
+              where: { activityId_skillId: { activityId: diagActId, skillId: skill.id } },
+              create: { activityId: diagActId, skillId: skill.id },
               update: {},
             }).catch(() => null);
           }

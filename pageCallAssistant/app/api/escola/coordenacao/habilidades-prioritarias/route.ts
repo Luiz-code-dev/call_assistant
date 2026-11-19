@@ -41,11 +41,11 @@ export async function GET(req: NextRequest) {
 
   const skillIds = events.map((e: { skillId: string }) => e.skillId);
   const skills: Array<{
-    id: string; code: string; description: string; gradeYear: number;
+    id: string; code: string; description: string; gradeYears: number[];
     thematicUnit: string | null; knowledgeObject: string | null; subjectCode: string;
   }> = await P.eduSkill.findMany({
     where: { id: { in: skillIds }, ...(subjectCode ? { subjectCode } : {}) },
-    select: { id: true, code: true, description: true, gradeYear: true, thematicUnit: true, knowledgeObject: true, subjectCode: true },
+    select: { id: true, code: true, description: true, gradeYears: true, thematicUnit: true, knowledgeObject: true, subjectCode: true },
   });
 
   const skillMap = new Map(skills.map(s => [s.id, s]));
@@ -84,7 +84,7 @@ export async function GET(req: NextRequest) {
     if (!objMap.has(obj)) objMap.set(obj, []);
     objMap.get(obj)!.push({
       skillCode: s.code, skillName: s.description,
-      gradeYear: s.gradeYear, knowledgeObject: obj, thematicUnit: unit, subjectCode: sub,
+      gradeYear: s.gradeYears?.[0] ?? null, knowledgeObject: obj, thematicUnit: unit, subjectCode: sub,
       notYetCount: countMap.get(s.id) ?? 0,
       almostCount: almostMap.get(s.id) ?? 0,
       masteredCount: masteredMap.get(s.id) ?? 0,

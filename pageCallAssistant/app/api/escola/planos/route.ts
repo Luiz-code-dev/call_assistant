@@ -11,12 +11,22 @@ export async function GET() {
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
   if (ctx?.db) setTenantDb(ctx.db);
   const where: Record<string, unknown> = { networkId: ctx.networkId };
-  if (ctx.role === "TEACHER") where["authorId"] = ctx.userId;
-  const plans = await prismaEdu.eduTeachingPlan.findMany({
+  if (ctx.role === "TEACHER") where["createdById"] = ctx.userId;
+  // O plano guarda só os ids do componente e do ano letivo (sem relação no banco): busca os nomes à parte.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const brutos: any[] = await prismaEdu.eduTeachingPlan.findMany({
     where,
-    include: { subject: { select: { name: true, color: true } }, schoolYear: { select: { year: true } } },
-    orderBy: { createdAt: "desc" },
+    orderBy: [{ gradeYear: "asc" }, { title: "asc" }, { version: "desc" }],
   });
+  const [subjects, years]: [Array<{ id: string; name: string; color: string | null }>, Array<{ id: string; year: number }>] = await Promise.all([
+    prismaEdu.eduSubject.findMany({ where: { networkId: ctx.networkId }, select: { id: true, name: true, color: true } }),
+    prismaEdu.eduSchoolYear.findMany({ where: { networkId: ctx.networkId }, select: { id: true, year: true } }),
+  ]);
+  const plans = brutos.map((pl) => ({
+    ...pl,
+    subject: subjects.find((s) => s.id === pl.subjectId) ?? null,
+    schoolYear: years.find((y) => y.id === pl.schoolYearId) ?? null,
+  }));
   return NextResponse.json({ plans });
 }
 
@@ -29,7 +39,7 @@ export async function POST(req: NextRequest) {
   const { subjectId, stage, gradeYear, schoolYearId, title, objectives } = await req.json();
   if (!subjectId || !stage || !gradeYear || !schoolYearId || !title || !objectives) return NextResponse.json({ error: "Campos obrigatórios faltando" }, { status: 400 });
   const plan = await prismaEdu.eduTeachingPlan.create({
-    data: { networkId: ctx.networkId, authorId: ctx.userId, subjectId, stage, gradeYear: +gradeYear, schoolYearId, title, objectives, status: "DRAFT", version: 1 },
+    data: { networkId: ctx.networkId, createdById: ctx.userId, schoolId: ctx.schoolId ?? null, subjectId, stage, gradeYear: +gradeYear, schoolYearId, title, objectives, status: "DRAFT", version: 1 },
   });
   return NextResponse.json({ plan }, { status: 201 });
 }

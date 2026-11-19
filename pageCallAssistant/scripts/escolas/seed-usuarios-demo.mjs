@@ -17,6 +17,8 @@
  *     prof.demo@speakflow.escola     TEACHER
  *   DB02 – Rede Demo B:
  *     gestor.b@speakflow.escola      NETWORK_ADMIN
+ *     coord.b@speakflow.escola       COORDINATOR
+ *     direcao.b@speakflow.escola     SCHOOL_ADMIN
  *     prof.b@speakflow.escola        TEACHER
  *
  * Uso:
@@ -149,6 +151,134 @@ async function syncLogin(email, tenantId) {
   });
 }
 
+// ── Turma de demonstração com dados (professor, colegas e evolução) ──────────
+//
+// Sem isto, o professor de demonstração não tinha turma nem matéria atribuída e os painéis
+// (Mapa da Turma, coordenação, secretaria) apareciam vazios. Tudo aqui é fictício e
+// idempotente: rodar de novo regrava os mesmos registros. Não toca no aluno principal
+// do demo (ele faz o diagnóstico de verdade nas demonstrações).
+
+const COLEGAS = [
+  "Ana Demo Ribeiro", "Caio Demo Almeida", "Davi Demo Moreira", "Lara Demo Queiroz",
+  "Luan Demo Pacheco", "Maya Demo Teixeira", "Nina Demo Barros", "Theo Demo Vidal",
+];
+// Caminho de cada colega por conteúdo: [diagnóstico, depois da 1ª trilha, depois da 2ª trilha]
+const CAMINHOS = [
+  ["NOT_YET", "ALMOST", "MASTERED"],
+  ["NOT_YET", "NOT_YET", "ALMOST"],
+  ["ALMOST", "MASTERED", "MASTERED"],
+  ["NOT_YET", "ALMOST", "ALMOST"],
+  ["MASTERED", "MASTERED", "MASTERED"],
+  ["NOT_YET", "NOT_YET", "NOT_YET"],
+  ["ALMOST", "ALMOST", "MASTERED"],
+];
+const DIA = 86_400_000;
+
+/** Mesma regra de lib/escola/mastery-event.ts (consolidate). */
+function consolidar(levels) {
+  if (!levels.length) return "NOT_YET";
+  const ordem = { NOT_YET: 1, ALMOST: 2, MASTERED: 3 };
+  const last3 = levels.slice(-3);
+  const ultima = last3[last3.length - 1];
+  const conta = (l) => last3.filter((x) => x === l).length;
+  const anteriores = last3.slice(0, -1);
+  const historicoBom = anteriores.length > 0 && anteriores.every((x) => ordem[x] >= ordem.ALMOST);
+  if (ultima === "MASTERED") return conta("MASTERED") >= 2 || historicoBom || anteriores.length === 0 ? "MASTERED" : "ALMOST";
+  if (ultima === "ALMOST") return "ALMOST";
+  return conta("NOT_YET") >= 2 || anteriores.length === 0 ? "NOT_YET" : "ALMOST";
+}
+
+async function seedTurmaComDados(db, { networkId, classIds, turmaId, schoolYearId, teacherId, skillCodes }) {
+  // 1. Matérias da rede e vínculo do professor com as turmas
+  const materias = [
+    { name: "Matemática", area: "Matemática", color: "#1D4ED8", code: "MA" },
+    { name: "Língua Portuguesa", area: "Linguagens", color: "#BE185D", code: "LP" },
+  ];
+  for (const m of materias) {
+    const subject = await db.eduSubject.upsert({
+      where: { networkId_name: { networkId, name: m.name } },
+      create: { networkId, name: m.name, area: m.area, color: m.color, isActive: true },
+      update: { isActive: true },
+    });
+    for (const classId of classIds) {
+      await db.eduClassSubject.upsert({
+        where: { classId_subjectId: { classId, subjectId: subject.id } },
+        create: { networkId, classId, subjectId: subject.id, teacherId },
+        update: { teacherId },
+      });
+    }
+  }
+
+  // 2. Colegas fictícios na turma principal
+  const colegaIds = [];
+  for (let i = 0; i < COLEGAS.length; i++) {
+    const id = `colega${i + 1}-${networkId}`;
+    await db.eduStudent.upsert({
+      where: { id },
+      create: { id, networkId, fullName: COLEGAS[i], enrollmentCode: `DEMOCOLEGA${i + 1}`, pinHash: hashPin(String(4000 + i * 137)), isActive: true },
+      update: { isActive: true, fullName: COLEGAS[i] },
+    });
+    await db.eduEnrollment.upsert({
+      where: { id: `enroll-${id}` },
+      create: { id: `enroll-${id}`, studentId: id, classId: turmaId, schoolYearId, networkId, status: "ACTIVE" },
+      update: { status: "ACTIVE", classId: turmaId },
+    });
+    colegaIds.push(id);
+  }
+
+  // 3. Evolução por conteúdo: diagnóstico há 3 semanas, trilhas depois
+  const skills = await db.eduSkill.findMany({ where: { code: { in: skillCodes } }, select: { id: true, code: true } });
+  if (!skills.length) { console.log("  (sem habilidades da BNCC no banco: turma criada sem evolução)"); return; }
+  const agora = Date.now();
+  await db.eduSkillMasteryEvent.deleteMany({ where: { networkId, studentId: { in: colegaIds } } });
+  const eventos = [];
+  const niveis = [];
+  colegaIds.forEach((studentId, a) => {
+    skills.forEach((skill, k) => {
+      const caminho = CAMINHOS[(a * 3 + k) % CAMINHOS.length];
+      const obs = [
+        { level: caminho[0], source: "DIAGNOSTIC", createdAt: new Date(agora - 21 * DIA + k * 60_000) },
+        { level: caminho[0], source: "DIAGNOSTIC", createdAt: new Date(agora - 21 * DIA + k * 60_000 + 30_000) },
+        { level: caminho[1], source: "TRACK", createdAt: new Date(agora - 12 * DIA + k * 60_000) },
+        { level: caminho[2], source: "TRACK", createdAt: new Date(agora - (2 + (a % 4)) * DIA + k * 60_000) },
+      ];
+      for (const o of obs) eventos.push({ networkId, studentId, skillId: skill.id, ...o });
+      niveis.push({ studentId, skillId: skill.id, level: consolidar(obs.map((o) => o.level)) });
+    });
+  });
+  await db.eduSkillMasteryEvent.createMany({ data: eventos });
+  for (const n of niveis) {
+    await db.eduSkillMastery.upsert({
+      where: { studentId_skillId: { studentId: n.studentId, skillId: n.skillId } },
+      create: { networkId, studentId: n.studentId, skillId: n.skillId, level: n.level, source: "TRACK" },
+      update: { level: n.level, source: "TRACK" },
+    });
+  }
+
+  // 4. Entregas recentes numa atividade pronta de cada conteúdo (alimentam "praticaram na semana")
+  let entregas = 0;
+  for (const skill of skills) {
+    const atividade = await db.eduActivity.findFirst({
+      where: { networkId: null, skillIds: { has: skill.id }, type: "QUIZ" },
+      select: { id: true },
+      orderBy: { id: "asc" },
+    }).catch(() => null);
+    if (!atividade) continue;
+    for (let a = 0; a < colegaIds.length; a++) {
+      const studentId = colegaIds[a];
+      const nivel = niveis.find((n) => n.studentId === studentId && n.skillId === skill.id)?.level ?? "ALMOST";
+      const quando = new Date(agora - (1 + (a % 5)) * DIA);
+      await db.eduSubmission.upsert({
+        where: { activityId_studentId_attempt: { activityId: atividade.id, studentId, attempt: 1 } },
+        create: { networkId, activityId: atividade.id, studentId, attempt: 1, status: "EVALUATED", masteryLevel: nivel, skillId: skill.id, submittedAt: quando, evaluatedAt: quando },
+        update: { status: "EVALUATED", masteryLevel: nivel, submittedAt: quando, evaluatedAt: quando },
+      });
+      entregas++;
+    }
+  }
+  console.log(`  ✓ Turma com dados: ${colegaIds.length} colegas, ${skills.length} conteúdos, ${eventos.length} observações, ${entregas} entregas`);
+}
+
 // ── Rede A — escolas-dados-01 ─────────────────────────────────────────────────
 
 async function seedRedeA() {
@@ -256,6 +386,14 @@ async function seedRedeA() {
       },
       update: { expiresAt: new Date("2099-12-31"), closedAt: null },
     });
+
+    if (profUserId) {
+      await seedTurmaComDados(db, {
+        networkId: rede.id, classIds: [`turma-${NETWORK_ID}`], turmaId: `turma-${NETWORK_ID}`,
+        schoolYearId: anoLetivoA.id, teacherId: profUserId,
+        skillCodes: ["EF05MA01", "EF05MA03", "EF05MA07", "EF05MA08", "EF05LP01", "EF05LP03", "EF35LP03"],
+      });
+    }
 
     console.log(`  ✓ Aluno: "Aluno Demo Silva" | código DEMA25 | PIN 1234`);
   } finally {
@@ -385,6 +523,9 @@ async function seedRedeB() {
     const usuarios = [
       { email: "gestor.b@speakflow.escola", name: "Gestor Demo B", role: "NETWORK_ADMIN", school: null },
       { email: "prof.b@speakflow.escola",   name: "Prof Demo B",   role: "TEACHER",        school: escola.id },
+      // Coordenação e direção na mesma rede do aluno do 6º ano: os perfis enxergam os mesmos dados
+      { email: "coord.b@speakflow.escola",   name: "Coord Demo B",   role: "COORDINATOR",  school: null },
+      { email: "direcao.b@speakflow.escola", name: "Direção Demo B", role: "SCHOOL_ADMIN", school: escola.id },
     ];
 
     let profUserId = null;
@@ -408,6 +549,14 @@ async function seedRedeB() {
       },
       update: { expiresAt: new Date("2099-12-31"), closedAt: null },
     });
+
+    if (profUserId) {
+      await seedTurmaComDados(db, {
+        networkId: rede.id, classIds: [`turma-${NETWORK_ID}`, `turma5-${NETWORK_ID}`], turmaId: `turma-${NETWORK_ID}`,
+        schoolYearId: anoLetivoB.id, teacherId: profUserId,
+        skillCodes: ["EF06MA01", "EF06MA03", "EF06MA05", "EF06MA06", "EF06LP04", "EF06LP06", "EF67LP04"],
+      });
+    }
 
     console.log(`  ✓ Aluno: "Aluno Demo B Santos" | código DEMB25 | PIN 5678`);
     console.log(`  ✓ Aluna: "Bia Demo B Santos" (5º Ano B) | PIN 2468`);
@@ -440,6 +589,8 @@ async function main() {
 ╠══════════════════════════════════════════════════════════════╣
 ║  escolas-dados-02 — Escola Particular Demo B (isolado)       ║
 ║    gestor.b@speakflow.escola      NETWORK_ADMIN              ║
+║    coord.b@speakflow.escola       COORDINATOR                ║
+║    direcao.b@speakflow.escola     SCHOOL_ADMIN               ║
 ║    prof.b@speakflow.escola        TEACHER                    ║
 ║    Aluno: código DEMB25  PIN 5678                          ║
 ║    Aluna 5º B (irmã): Bia Demo B Santos  PIN 2468          ║

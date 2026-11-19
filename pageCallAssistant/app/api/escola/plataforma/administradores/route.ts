@@ -5,9 +5,8 @@
 import { NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
-import { prismaEdu, setTenantDb } from "@/lib/escola/db";
-
-const P = prismaEdu as any; // eslint-disable-line @typescript-eslint/no-explicit-any
+import { setTenantDb } from "@/lib/escola/db";
+import { catalogDb } from "@/lib/escola/catalogo";
 
 export async function GET() {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
@@ -16,20 +15,11 @@ export async function GET() {
   if (ctx?.db) setTenantDb(ctx.db);
   if (ctx.role !== "PLATFORM_ADMIN") return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
 
-  const members = await P.eduNetworkMember.findMany({
-    where: { role: "PLATFORM_ADMIN" },
-    select: { id: true, isActive: true, user: { select: { id: true, name: true, email: true } } },
-    orderBy: { createdAt: "asc" },
+  // Administradores de plataforma ficam no catálogo, e não no banco de uma rede.
+  const admins: { id: string; name: string; email: string; isActive: boolean }[] = await catalogDb.platformAdmin.findMany({
+    select: { id: true, name: true, email: true, isActive: true },
+    orderBy: { name: "asc" },
   }).catch(() => []);
-
-  const admins = (members as { id: string; isActive: boolean; user: { id: string; name: string; email: string } | null }[])
-    .filter(m => m.user)
-    .map(m => ({
-      id: m.user!.id,
-      name: m.user!.name ?? "—",
-      email: m.user!.email ?? "—",
-      isActive: m.isActive,
-    }));
 
   return NextResponse.json({ admins });
 }

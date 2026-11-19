@@ -48,7 +48,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   let targetStudentIds: string[] = studentIds ?? [];
   if (classId && targetStudentIds.length === 0) {
     const enrollments = await p.eduEnrollment.findMany({
-      where: { classId, networkId: ctx.networkId, isActive: true },
+      where: { classId, networkId: ctx.networkId, status: "ACTIVE" },
       select: { studentId: true },
     });
     targetStudentIds = enrollments.map((e: { studentId: string }) => e.studentId);
