@@ -42,7 +42,6 @@ export async function POST(
       subjectId: original.subjectId,
       gradeYear: original.gradeYear,
       title,
-      description: original.description,
       skillIds: original.skillIds,
       status: "DRAFT",
       source,

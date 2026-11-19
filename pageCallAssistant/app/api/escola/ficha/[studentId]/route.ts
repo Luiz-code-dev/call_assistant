@@ -100,13 +100,13 @@ export async function GET(_req: NextRequest, { params }: { params: { studentId: 
       readAt: null,
     },
     orderBy: { createdAt: "desc" },
-    select: { id: true, metadata: true },
+    select: { id: true, trackId: true },
   });
 
   let suggestedAssignment: { id: string; trackId: string; trackTitle: string } | null = null;
-  if (suggestAlert?.metadata) {
-    const meta = suggestAlert.metadata as { trackId?: string };
-    if (meta.trackId) {
+  if (suggestAlert?.trackId) {
+    const meta = { trackId: suggestAlert.trackId as string };
+    {
       const track = await P.eduTrack.findFirst({
         where: { id: meta.trackId },
         select: { id: true, title: true },

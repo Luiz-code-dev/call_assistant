@@ -16,6 +16,8 @@ export async function POST(_: Request, { params }: { params: { id: string } }) {
     where: { id: params.id, networkId: ctx.networkId },
   });
   if (!diag) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
+  // Já aberto: nada a fazer (a tela "Abrir para a rede" pode ser acionada mais de uma vez).
+  if (diag.status === "OPEN") return NextResponse.json({ diagnostic: diag });
   if (diag.status !== "DRAFT") return NextResponse.json({ error: "Apenas rascunhos podem ser abertos" }, { status: 400 });
 
   const updated = await (prismaEdu as any).eduDiagnostic.update({

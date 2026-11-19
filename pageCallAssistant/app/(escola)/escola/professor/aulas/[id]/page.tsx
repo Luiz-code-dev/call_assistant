@@ -61,10 +61,10 @@ export default function PainelDaAulaPage({ params }: { params: Promise<{ id: str
     if (acao) return;
     setAcao(tipo); setAcaoMsg("");
     const r = await fetch(`/api/escola/professor/aulas/${id}/${tipo}`, { method: "POST", credentials: "include" });
-    const d = await r.json();
+    const d = await r.json().catch(() => ({}));
     setAcao(null);
-    setAcaoMsg(r.ok ? "Ação concluída com sucesso." : (d.error ?? "Erro ao executar ação."));
-    setTimeout(() => setAcaoMsg(""), 5000);
+    setAcaoMsg(r.ok ? (d.message ?? "Ação concluída com sucesso.") : (d.error ?? "Erro ao executar ação."));
+    setTimeout(() => setAcaoMsg(""), 12000);
     load();
   }
 

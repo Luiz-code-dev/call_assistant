@@ -16,7 +16,7 @@ export async function GET(_: NextRequest, { params }: { params: { id: string } }
   const assessments = await prismaEdu.eduAssessment.findMany({
     where: { classSubjectId: params.id, networkId: ctx.networkId },
     include: { term: { select: { name: true } }, _count: { select: { entries: true } } },
-    orderBy: { createdAt: "desc" },
+    orderBy: [{ appliedAt: "desc" }, { title: "asc" }],
   });
   return NextResponse.json({ assessments });
 }

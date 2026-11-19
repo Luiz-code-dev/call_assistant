@@ -27,16 +27,17 @@ export async function POST(req: NextRequest) {
     const where: Record<string, unknown> = {
       networkId: ctx.networkId,
       type: "TRACK_SUGGESTION",
-      status: "PENDING",
+      readAt: null,
     };
-    if (ctx.role === "TEACHER") where.teacherId = ctx.userId;
+    if (ctx.role === "TEACHER") where.teacherUserId = ctx.userId;
 
     const alerts = await P.eduTeacherAlert.findMany({ where, take: 100 }).catch(() => []);
     let atribuidos = 0;
 
     for (const alert of alerts) {
-      const payload = alert.payload as Record<string, string> | null;
-      if (!payload?.trackId || !payload?.studentId) continue;
+      // O aviso guarda a trilha e o aluno nas colunas trackId e studentId.
+      const payload = { trackId: alert.trackId as string | null, studentId: alert.studentId as string | null };
+      if (!payload.trackId || !payload.studentId) continue;
       try {
         const existing = await P.eduTrackAssignment.findFirst({
           where: { trackId: payload.trackId, studentId: payload.studentId, endedAt: null },
@@ -53,7 +54,7 @@ export async function POST(req: NextRequest) {
           });
           atribuidos++;
         }
-        await P.eduTeacherAlert.update({ where: { id: alert.id }, data: { status: "ACCEPTED" } });
+        await P.eduTeacherAlert.update({ where: { id: alert.id }, data: { readAt: new Date() } });
       } catch { /* continua para o próximo */ }
     }
     return NextResponse.json({ atribuidos, total: alerts.length });
@@ -62,7 +63,7 @@ export async function POST(req: NextRequest) {
   if (action === "cancelar" && alertId) {
     await P.eduTeacherAlert.updateMany({
       where: { id: alertId, networkId: ctx.networkId },
-      data: { status: "DISMISSED" },
+      data: { readAt: new Date() },
     }).catch(() => null);
     return NextResponse.json({ ok: true });
   }

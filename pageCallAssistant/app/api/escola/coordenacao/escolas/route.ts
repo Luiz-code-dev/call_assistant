@@ -21,11 +21,15 @@ export async function GET(_req: NextRequest) {
 
   const schools = await prismaEdu.eduSchool.findMany({
     where: { networkId: ctx.networkId },
-    select: { id: true, name: true, city: true },
+    select: { id: true, name: true },
     orderBy: { name: "asc" },
   });
 
-  type EduSchoolRow = { id: string; name: string; city: string | null };
+  // A escola não tem cidade própria no cadastro: vale a cidade da rede.
+  const rede = await prismaEdu.eduNetwork.findUnique({ where: { id: ctx.networkId }, select: { city: true } }).catch(() => null);
+  const cidadeDaRede: string = rede?.city ?? "";
+
+  type EduSchoolRow = { id: string; name: string };
   type EduClassRow  = { id: string; name: string; gradeYear: number; shift: string };
 
   const escolas = await Promise.all((schools as EduSchoolRow[]).map(async (school) => {
@@ -36,17 +40,23 @@ export async function GET(_req: NextRequest) {
     });
 
     const turmas = await Promise.all((turmasRaw as EduClassRow[]).map(async (t) => {
-      const studentCount = await prismaEdu.eduEnrollment.count({
-        where: { classId: t.id, status: "ACTIVE" },
-      }).catch(() => 0);
+      // Alunos ativos da turma e, entre eles, quantos entregaram alguma atividade na semana.
+      // EduSubmission não tem relação com a matrícula: o vínculo é pelo aluno.
+      const matriculas: { studentId: string }[] = await prismaEdu.eduEnrollment.findMany({
+        where: { classId: t.id, networkId: ctx.networkId, status: "ACTIVE" },
+        select: { studentId: true },
+      }).catch(() => []);
+      const alunoIds = matriculas.map((m) => m.studentId);
+      const studentCount = alunoIds.length;
 
-      const practiceCount = await prismaEdu.eduSubmission.count({
-        where: {
-          networkId: ctx.networkId,
-          submittedAt: { gte: since7d },
-          enrollment: { classId: t.id },
-        },
-      }).catch(() => 0);
+      const praticaram: { studentId: string }[] = alunoIds.length
+        ? await prismaEdu.eduSubmission.findMany({
+            where: { networkId: ctx.networkId, studentId: { in: alunoIds }, submittedAt: { gte: since7d } },
+            select: { studentId: true },
+            distinct: ["studentId"],
+          }).catch(() => [])
+        : [];
+      const practiceCount = praticaram.length;
 
       const participationPct = studentCount > 0
         ? Math.min(100, Math.round((practiceCount / studentCount) * 100))
@@ -55,7 +65,7 @@ export async function GET(_req: NextRequest) {
       return { id: t.id, name: t.name, gradeYear: t.gradeYear, shift: t.shift ?? "", studentCount, practiceCount, participationPct };
     }));
 
-    return { id: school.id, name: school.name, city: school.city ?? "", turmas };
+    return { id: school.id, name: school.name, city: cidadeDaRede, turmas };
   }));
 
   return NextResponse.json({ escolas });

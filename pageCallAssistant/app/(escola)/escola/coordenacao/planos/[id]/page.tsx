@@ -84,14 +84,6 @@ export default function PlanoDetailPage({ params }: { params: { id: string } }) 
                   <label className="text-[#5B5470] text-sm block mb-1">Ordem</label>
                   <input type="number" min={1} className="w-full bg-[#FAF9FD] text-[#1F1A2E] rounded-lg px-3 py-2.5 text-base border border-[#DDD6EE] focus:border-purple-500 outline-none" value={unitForm.order} onChange={e => setUnitForm(f => ({...f, order: +e.target.value}))} />
                 </div>
-                <div>
-                  <label className="text-[#5B5470] text-sm block mb-1">Semana início</label>
-                  <input type="number" min={1} max={52} className="w-full bg-[#FAF9FD] text-[#1F1A2E] rounded-lg px-3 py-2.5 text-base border border-[#DDD6EE] focus:border-purple-500 outline-none" value={unitForm.startWeek} onChange={e => setUnitForm(f => ({...f, startWeek: e.target.value}))} />
-                </div>
-                <div>
-                  <label className="text-[#5B5470] text-sm block mb-1">Semana fim</label>
-                  <input type="number" min={1} max={52} className="w-full bg-[#FAF9FD] text-[#1F1A2E] rounded-lg px-3 py-2.5 text-base border border-[#DDD6EE] focus:border-purple-500 outline-none" value={unitForm.endWeek} onChange={e => setUnitForm(f => ({...f, endWeek: e.target.value}))} />
-                </div>
               </div>
               <div>
                 <label className="text-[#5B5470] text-sm block mb-1">Tópicos (um por linha)</label>

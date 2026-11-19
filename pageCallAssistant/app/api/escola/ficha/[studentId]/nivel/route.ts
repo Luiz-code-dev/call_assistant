@@ -1,3 +1,4 @@
+import { recordMasteryEvent } from "@/lib/escola/mastery-event";
 import { NextRequest, NextResponse } from "next/server";
 import { getEduContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
@@ -19,9 +20,18 @@ export async function PATCH(req: NextRequest, { params }: { params: { studentId:
   const enrollment = await P.eduEnrollment.findFirst({ where: { studentId: params.studentId, networkId: ctx.networkId, status: "ACTIVE" }, select: { id: true } });
   if (!enrollment) return NextResponse.json({ error: "Aluno não encontrado nesta rede" }, { status: 404 });
 
-  await P.eduSkillMasteryEvent.create({
-    data: { networkId: ctx.networkId, studentId: params.studentId, skillId, level, source: "TEACHER", comment: comment ?? null },
-  });
+  if (!["NOT_YET", "ALMOST", "MASTERED"].includes(level)) return NextResponse.json({ error: "Nível inválido" }, { status: 400 });
+
+  // Grava a observação do professor e recalcula o nível consolidado do aluno.
+  // (O evento não tem coluna de comentário: o texto fica no registro de auditoria.)
+  await recordMasteryEvent({ networkId: ctx.networkId, studentId: params.studentId, skillId, level, source: "TEACHER" });
+  await P.eduAuditLog.create({
+    data: {
+      networkId: ctx.networkId, actorType: "user", actorId: ctx.userId,
+      action: "mastery.teacher.set", entity: "EduSkillMastery", entityId: `${params.studentId}:${skillId}`,
+      metadata: comment ? { level, comment: String(comment).slice(0, 500) } : { level },
+    },
+  }).catch(() => null);
 
   return NextResponse.json({ ok: true });
 }
