@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { anoDoConteudo, fraseDoCaminho, passos, resumirEvolucao } from "./evolucao-degraus";
+import { anoDoConteudo, fraseDoCaminho, fraseParaAluno, observacoesDoPrimeiroDiagnostico, passos, resumirEvolucao } from "./evolucao-degraus";
 
 describe("anoDoConteudo", () => {
   it("lê o ano de um código de ano único", () => {
@@ -57,5 +57,37 @@ describe("fraseDoCaminho", () => {
     expect(fraseDoCaminho("MASTERED", "MASTERED")).toBe("Já dominava no diagnóstico e continua dominando.");
     expect(fraseDoCaminho("ALMOST", "ALMOST")).toBe("Começou em Quase lá e continua neste degrau.");
     expect(fraseDoCaminho("MASTERED", "ALMOST")).toContain("precisa retomar");
+  });
+});
+
+describe("observacoesDoPrimeiroDiagnostico", () => {
+  const em = (min: number) => new Date(Date.UTC(2026, 10, 1, 10, min));
+  it("junta as questões do primeiro diagnóstico e ignora o resto", () => {
+    const obs = [
+      { level: "MASTERED", source: "DIAGNOSTIC", createdAt: em(0) },
+      { level: "NOT_YET", source: "DIAGNOSTIC", createdAt: em(3) },
+      { level: "MASTERED", source: "TRACK", createdAt: em(20) },
+      { level: "NOT_YET", source: "DIAGNOSTIC", createdAt: em(8) },
+    ];
+    expect(observacoesDoPrimeiroDiagnostico(obs)).toEqual(["MASTERED", "NOT_YET", "NOT_YET"]);
+  });
+  it("não mistura um diagnóstico refeito dias depois", () => {
+    const obs = [
+      { level: "NOT_YET", source: "DIAGNOSTIC", createdAt: "2026-11-01T10:00:00Z" },
+      { level: "MASTERED", source: "DIAGNOSTIC", createdAt: "2026-11-09T10:00:00Z" },
+    ];
+    expect(observacoesDoPrimeiroDiagnostico(obs)).toEqual(["NOT_YET"]);
+  });
+  it("devolve vazio quando o conteúdo não passou por diagnóstico", () => {
+    expect(observacoesDoPrimeiroDiagnostico([{ level: "ALMOST", source: "TRACK", createdAt: em(0) }])).toEqual([]);
+  });
+});
+
+describe("fraseParaAluno", () => {
+  it("fala com o aluno sobre o caminho", () => {
+    expect(fraseParaAluno("NOT_YET", "MASTERED")).toBe("Você começou em Praticando e subiu 2 degraus.");
+    expect(fraseParaAluno("ALMOST", "ALMOST")).toContain("continua neste degrau");
+    expect(fraseParaAluno(null, "ALMOST")).toBe("Você está em Quase lá.");
+    expect(fraseParaAluno("MASTERED", "ALMOST")).toContain("praticar");
   });
 });

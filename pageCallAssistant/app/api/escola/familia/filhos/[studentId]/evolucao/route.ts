@@ -5,7 +5,7 @@ import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { guardianOwnsStudent } from "@/lib/escola/family-guard";
 import { subjectInfo } from "@/lib/escola/subjects";
 import { consolidate, type MasteryLevel } from "@/lib/escola/mastery-event";
-import { anoDoConteudo, resumirEvolucao } from "@/lib/escola/evolucao-degraus";
+import { anoDoConteudo, observacoesDoPrimeiroDiagnostico, resumirEvolucao, type ObservacaoDegrau } from "@/lib/escola/evolucao-degraus";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -37,11 +37,12 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
       where: { studentId }, orderBy: { createdAt: "asc" }, select: { skillId: true, level: true, source: true, createdAt: true },
     });
     const seteDiasAtras = Date.now() - 7 * 24 * 60 * 60 * 1000;
-    const firstLevel = new Map<string, string>();
+    const porConteudo = new Map<string, ObservacaoDegrau[]>();
     const antesDaSemana = new Map<string, MasteryLevel[]>();
     const ultimaEm = new Map<string, Date>();
     for (const e of events) {
-      if (e.source === "DIAGNOSTIC" && !firstLevel.has(e.skillId)) firstLevel.set(e.skillId, e.level);
+      if (!porConteudo.has(e.skillId)) porConteudo.set(e.skillId, []);
+      porConteudo.get(e.skillId)!.push(e);
       const quando = new Date(e.createdAt);
       if (quando.getTime() < seteDiasAtras) {
         if (!antesDaSemana.has(e.skillId)) antesDaSemana.set(e.skillId, []);
@@ -49,6 +50,13 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
       }
       ultimaEm.set(e.skillId, quando);
     }
+    // Ponto de partida: as questões do primeiro diagnóstico do conteúdo, consolidadas pela
+    // mesma regra do nível atual (uma questão sozinha não diz onde o aluno começou).
+    const firstLevel = new Map<string, string>();
+    porConteudo.forEach((obs, skillId) => {
+      const iniciais = observacoesDoPrimeiroDiagnostico(obs);
+      if (iniciais.length) firstLevel.set(skillId, consolidate(iniciais));
+    });
 
     const resumo = { MASTERED: 0, ALMOST: 0, NOT_YET: 0 };
     const grupos = new Map<string, { name: string; color: string; habilidades: any[] }>();
