@@ -9,7 +9,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { getTenantDb } from "@/lib/escola/tenant-db";
-import { setTenantDb } from "@/lib/escola/db";
 import { chaveDoCabecalho, hashDaChave, ipPermitido, redeDaChave, type Escopo } from "./chave";
 import { contar, excedeu, ipDoCliente } from "./limite";
 import { limparDePara } from "./mapa";
@@ -56,7 +55,6 @@ export async function autenticarIntegracao(req: NextRequest, escopo: Escopo | nu
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let db: any;
   try { db = await getTenantDb(networkId); } catch { return falhou(); }
-  setTenantDb(db);
 
   const registro = await db.eduIntegrationKey.findUnique({ where: { keyHash: hashDaChave(chave) } }).catch(() => null);
   if (!registro || registro.networkId !== networkId) return falhou();

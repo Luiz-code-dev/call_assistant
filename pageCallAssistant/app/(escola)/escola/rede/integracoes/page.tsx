@@ -65,7 +65,11 @@ export default function IntegracoesPage() {
 
   const carregar = useCallback(async () => {
     const r = await fetch("/api/escola/rede/integracoes", { credentials: "include" });
-    if (!r.ok) { setErro("Não foi possível carregar as integrações."); return; }
+    if (!r.ok) {
+      const d = await r.json().catch(() => ({}));
+      setErro(`${d.error ?? "Não foi possível carregar as integrações."} (código ${r.status})`);
+      return;
+    }
     setDados(await r.json());
   }, []);
   useEffect(() => { carregar().catch(() => setErro("Não foi possível carregar as integrações.")); }, [carregar]);

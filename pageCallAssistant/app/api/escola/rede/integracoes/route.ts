@@ -24,7 +24,6 @@ async function gestor() {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
-  if (ctx.db) setTenantDb(ctx.db);
   if (ctx.role !== "NETWORK_ADMIN") return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
   return ctx;
 }
@@ -32,7 +31,11 @@ async function gestor() {
 export async function GET() {
   const ctx = await gestor();
   if (ctx instanceof NextResponse) return ctx;
+  // O contexto do banco precisa ser definido aqui, no próprio tratador: definido dentro de
+  // uma função auxiliar aguardada, ele não chega a este ponto (AsyncLocalStorage.enterWith).
+  if (ctx.db) setTenantDb(ctx.db);
 
+  try {
   const [chaves, enderecos, historico, entregas] = await Promise.all([
     prismaEdu.eduIntegrationKey.findMany({
       where: { networkId: ctx.networkId },
@@ -59,11 +62,18 @@ export async function GET() {
   ]);
 
   return NextResponse.json({ chaves, enderecos, historico, entregas, escopos: ESCOPOS, eventos: EVENTOS }, { headers: { "Cache-Control": "no-store" } });
+  } catch (err) {
+    console.error("[rede/integracoes] GET:", (err as Error).message);
+    return NextResponse.json({ error: "Não foi possível carregar as integrações agora." }, { status: 500 });
+  }
 }
 
 export async function POST(req: NextRequest) {
   const ctx = await gestor();
   if (ctx instanceof NextResponse) return ctx;
+  // O contexto do banco precisa ser definido aqui, no próprio tratador: definido dentro de
+  // uma função auxiliar aguardada, ele não chega a este ponto (AsyncLocalStorage.enterWith).
+  if (ctx.db) setTenantDb(ctx.db);
   const body = await req.json().catch(() => ({}));
 
   if (body.tipo === "endereco") {
