@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify } from "jose";
 import { staffSecret, studentSecret, familySecret } from "@/lib/escola/secrets";
 import { STAFF_COOKIE, STUDENT_COOKIE, FAMILY_COOKIE } from "@/lib/escola/cookies";
+import { apenasEscolas, decidirEscopoEscolas } from "@/lib/escola/escopo";
 
 const secret = new TextEncoder().encode(
   process.env.JWT_SECRET || "dev-secret-change-in-production"
@@ -15,8 +16,17 @@ export async function middleware(req: NextRequest) {
   const host = req.headers.get("host") ?? "";
   const proto = req.headers.get("x-forwarded-proto") ?? "https";
 
+  // Instância só do SpeakFlow Escolas (APP_SCOPE=escolas). Sem a variável, nada aqui roda
+  // e o middleware segue exatamente como sempre foi.
+  const soEscolas = apenasEscolas();
+  if (soEscolas) {
+    const decisao = decidirEscopoEscolas({ url: req.url, host, proto });
+    if (decisao.tipo === "redirecionar") return NextResponse.redirect(decisao.destino, 307);
+    if (decisao.tipo === "liberar") return NextResponse.next();
+  }
+
   const isLocalhost = host.startsWith("localhost") || host.startsWith("127.0.0.1");
-  if (!isLocalhost && (host === "speakf.com.br" || proto === "http")) {
+  if (!soEscolas && !isLocalhost && (host === "speakf.com.br" || proto === "http")) {
     const url = new URL(req.url);
     url.protocol = "https:";
     url.host = "www.speakf.com.br";

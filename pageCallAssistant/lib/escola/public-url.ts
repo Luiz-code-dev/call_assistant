@@ -17,7 +17,32 @@ export function publicUrl(req: NextRequest, path: string): string {
  * O domínio sem "www" (speakflow.ia.br) não abre: sempre usa www.speakflow.ia.br.
  */
 export const SITE_PADRAO = "https://www.speakflow.ia.br";
+
+/**
+ * Endereço próprio do Escolas, para quando ele roda separado do SpeakFlow IA
+ * (ESCOLAS_PUBLIC_URL, lida na hora em que o servidor roda, e não na construção da imagem).
+ * Sem a variável, devolve null e todos os links continuam exatamente como hoje.
+ */
+export function enderecoProprioDoEscolas(valor: string | undefined = process.env.ESCOLAS_PUBLIC_URL): string | null {
+  const c = (valor ?? "").trim().replace(/^["']+|["']+$/g, "").replace(/\/+$/, "");
+  if (!/^https:\/\//.test(c)) return null;
+  try { return new URL(c).origin; } catch { return null; }
+}
+
+/**
+ * No navegador: endereço para montar links (por exemplo, o QR da aula).
+ * No domínio atual (ou em localhost) usa o endereço padrão, como sempre; em um domínio
+ * próprio do Escolas, usa o endereço em que a pessoa está.
+ */
+export function enderecoNoNavegador(origin: string, hostname: string): string {
+  const atual = hostname === "speakflow.ia.br" || hostname.endsWith(".speakflow.ia.br");
+  const local = hostname === "localhost" || hostname === "127.0.0.1" || hostname === "";
+  return atual || local ? SITE_PADRAO : origin;
+}
+
 export function urlDoSite(candidata?: string | null): string {
+  const proprio = enderecoProprioDoEscolas();
+  if (proprio) return proprio;
   const c = (candidata ?? "").trim().replace(/\/+$/, "");
   if (!/^https?:\/\//.test(c)) return SITE_PADRAO;
   try {

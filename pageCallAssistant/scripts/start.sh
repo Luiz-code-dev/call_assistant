@@ -5,8 +5,23 @@ set -e
 # CI e local via node_modules/.bin do projeto)
 export PATH="$(pwd)/node_modules/.bin:/app/node_modules/.bin:$PATH"
 
-echo "[start] migrando banco SpeakFlow AI"
-prisma migrate deploy
+# APP_SCOPE=escolas: esta instancia serve so o SpeakFlow Escolas. Nao migra o banco do
+# SpeakFlow IA (que nem precisa existir) e fecha as rotas dele. Sem a variavel, nada muda.
+ESCOPO="$(printf '%s' "${APP_SCOPE:-}" | tr -d "\"'[:space:]" | tr '[:upper:]' '[:lower:]')"
+
+if [ "$ESCOPO" = "escolas" ]; then
+  echo "[start] APP_SCOPE=escolas: banco do SpeakFlow AI nao e migrado nesta instancia"
+  # As rotas do SpeakFlow IA aceitam o segredo padrao de desenvolvimento quando JWT_SECRET
+  # nao existe. Aqui elas nao sao usadas: um segredo aleatorio a cada inicializacao (mesmo
+  # que alguem tenha copiado o JWT_SECRET de outro ambiente) garante que nenhuma sessao do
+  # SpeakFlow IA seja aceita por esta instancia. O Escolas usa EDU_JWT_SECRET,
+  # EDU_STUDENT_JWT_SECRET e EDU_FAMILY_JWT_SECRET, que nao sao tocados.
+  JWT_SECRET="$(node -e 'process.stdout.write(require("crypto").randomBytes(48).toString("hex"))')"
+  export JWT_SECRET
+else
+  echo "[start] migrando banco SpeakFlow AI"
+  prisma migrate deploy
+fi
 
 echo "[start] migrando catálogo do Escolas"
 prisma migrate deploy --schema prisma/escolas-catalogo/schema.prisma

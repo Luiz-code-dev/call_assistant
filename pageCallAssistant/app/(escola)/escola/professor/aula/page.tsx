@@ -2,6 +2,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import { Monitor, X } from "lucide-react";
+import { SITE_PADRAO, enderecoNoNavegador } from "@/lib/escola/public-url";
 
 interface ClassOffer { id: string; classId: string; class: { name: string; gradeYear: number; shift: string } }
 interface ActiveSession { id: string; code: string; expiresAt: string; class: { name: string; gradeYear: number; shift: string }; classId: string }
@@ -102,7 +103,9 @@ export default function AulaPage() {
         const expiresStr = farFuture
           ? expiresAt.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric" })
           : expiresAt.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
-        const aulaUrl = `https://www.speakflow.ia.br/escola/aluno/entrar?aula=${s.code}`;
+        // No endereço atual o link é o de sempre; em endereço próprio do Escolas, usa o endereço aberto.
+        const site = typeof window === "undefined" ? SITE_PADRAO : enderecoNoNavegador(window.location.origin, window.location.hostname);
+        const aulaUrl = `${site}/escola/aluno/entrar?aula=${s.code}`;
         const info = presentes[s.id];
 
         return (

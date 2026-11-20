@@ -5,11 +5,13 @@ import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { genInviteToken, hashToken } from "@/lib/escola/familia";
 import { registerFamilyInviteInCatalog } from "@/lib/escola/invite";
 import { normalizePhone } from "@/lib/escola/phone";
+import { enderecoProprioDoEscolas } from "@/lib/escola/public-url";
 import { sendGuardianInviteEmail } from "@/lib/email";
 
 function flag() { return isEscolasEnabled(); }
 
-const ESCOLA_BASE = process.env.NEXT_PUBLIC_ESCOLA_URL || "https://www.speakflow.ia.br";
+// Com ESCOLAS_PUBLIC_URL (Escolas em endereço próprio), ela vale; sem ela, tudo como antes.
+const ESCOLA_BASE = enderecoProprioDoEscolas() ?? (process.env.NEXT_PUBLIC_ESCOLA_URL || "https://www.speakflow.ia.br");
 
 const RELATIONS = ["MAE", "PAI", "AVO_AVO", "TIO_TIA", "TUTOR_LEGAL", "OUTRO"];
 

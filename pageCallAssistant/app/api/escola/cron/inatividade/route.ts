@@ -12,6 +12,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { catalogDb } from "@/lib/escola/catalogo";
 import { getTenantDb } from "@/lib/escola/tenant-db";
+import { urlDoSite } from "@/lib/escola/public-url";
 
 export const runtime = "nodejs";
 export const maxDuration = 120;
@@ -179,7 +180,7 @@ async function sendInactivityEmail({ email, studentName }: { email: string; stud
         html: `<p>Olá!</p>
                <p><strong>${studentName}</strong> está há 7 dias sem praticar no SpeakFlow Escolas.</p>
                <p>Que tal incentivá-lo(a) a fazer uma atividade hoje? Basta abrir o app.</p>
-               <p><a href="https://www.speakflow.ia.br/escola/aluno/entrar">Acessar o app</a></p>
+               <p><a href="${urlDoSite()}/escola/aluno/entrar">Acessar o app</a></p>
                <hr/>
                <p style="font-size:12px;color:#888">Para não receber mais estes avisos, acesse sua conta da família e desative as notificações de inatividade.</p>`,
       }),
