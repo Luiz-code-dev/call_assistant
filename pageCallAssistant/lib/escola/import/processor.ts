@@ -7,6 +7,7 @@
 import bcrypt from "bcryptjs";
 import crypto from "crypto";
 import { prismaEdu } from "@/lib/escola/db";
+import { garantirCodigoAluno } from "@/lib/escola/codigo-aluno";
 import type { ParsedRow } from "./parser";
 import { parseDate, normalizeStage, normalizeShift, normalizeRole } from "./validators";
 
@@ -46,7 +47,8 @@ export async function processImportBatch(batchId: string) {
 
     await prismaEdu.eduImportBatch.update({
       where: { id: batchId },
-      data: { status: "DONE", finishedAt: new Date(), created, updated, failed, errors: errors.length ? errors : null },
+      // Campo Json opcional não aceita null direto no Prisma: lista vazia quando não houve erro.
+      data: { status: "DONE", finishedAt: new Date(), created, updated, failed, errors },
     });
 
     await prismaEdu.eduAuditLog.create({
@@ -120,8 +122,9 @@ async function upsertStaff(networkId: string, row: ParsedRow): Promise<"created"
     schoolId = school.id;
   }
 
-  // Find SpeakFlow user
-  const user = await prismaEdu.user.findFirst({ where: { email } });
+  // Conta do servidor nesta rede (EduUser). O banco da rede não tem a tabela "user":
+  // a consulta antiga falhava e nenhum servidor era importado.
+  const user = await prismaEdu.eduUser.findFirst({ where: { networkId, email } });
 
   // Create invite regardless (will be sent via email separately)
   const tokenRaw = crypto.randomBytes(32).toString("hex");
@@ -190,6 +193,8 @@ async function upsertStudent(networkId: string, row: ParsedRow, defaultSchoolId:
     const pinHash = await bcrypt.hash(pin, 10);
     const student = await prismaEdu.eduStudent.create({ data: { networkId, enrollmentCode, fullName, birthDate, pinHash, isActive: true } });
     studentId = student.id;
+    // Código do aluno para entrar no reforço (o aluno importado ficava sem código).
+    await garantirCodigoAluno(prismaEdu, studentId, networkId).catch(() => null);
   }
 
   // Handle class enrollment if turma is provided
@@ -238,8 +243,8 @@ async function upsertAssignment(networkId: string, row: ParsedRow, schoolId: str
     resolvedSchoolId = school.id;
   }
 
-  const teacher = await prismaEdu.user.findFirst({ where: { email: emailProfessor } });
-  if (!teacher) throw new Error(`Professor com e-mail ${emailProfessor} não encontrado`);
+  const teacher = await prismaEdu.eduUser.findFirst({ where: { networkId, email: emailProfessor } });
+  if (!teacher) throw new Error(`Professor com e-mail ${emailProfessor} ainda não tem conta nesta rede (o convite precisa ser aceito antes da atribuição)`);
 
   const currentYear = await prismaEdu.eduSchoolYear.findFirst({ where: { networkId, isCurrent: true } });
   if (!currentYear) throw new Error("Nenhum ano letivo corrente definido");
@@ -254,8 +259,10 @@ async function upsertAssignment(networkId: string, row: ParsedRow, schoolId: str
   const subject = await prismaEdu.eduSubject.findFirst({ where: { networkId, name: componente } });
   if (!subject) throw new Error(`Componente '${componente}' não encontrado`);
 
-  const offer = await prismaEdu.eduClassSubject.findFirst({ where: { classId: cls.id, subjectId: subject.id } });
-  if (!offer) throw new Error(`Oferta de '${componente}' não existe na turma '${turma}'`);
-
-  await prismaEdu.eduClassSubject.update({ where: { id: offer.id }, data: { teacherId: teacher.id } });
+  // Cria a oferta do componente na turma se ainda não existir, e liga o professor.
+  await prismaEdu.eduClassSubject.upsert({
+    where: { classId_subjectId: { classId: cls.id, subjectId: subject.id } },
+    create: { networkId, classId: cls.id, subjectId: subject.id, teacherId: teacher.id },
+    update: { teacherId: teacher.id },
+  });
 }
