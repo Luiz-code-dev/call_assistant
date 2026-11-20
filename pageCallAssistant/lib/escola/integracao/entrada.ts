@@ -6,7 +6,7 @@
  * aparece no histórico de importações da rede e reenviar o mesmo lote não duplica nada
  * (escola pelo INEP, aluno pela matrícula, servidor pelo e-mail).
  */
-import { prismaEdu } from "@/lib/escola/db";
+import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { parseCsvString } from "@/lib/escola/import/parser";
 import { processImportBatch } from "@/lib/escola/import/processor";
 import { validateAssignmentRow, validateSchoolRow, validateStaffRow, validateStudentRow } from "@/lib/escola/import/validators";
@@ -46,6 +46,10 @@ export async function lerItens(req: Request): Promise<{ itens: unknown[]; origem
 
 /** Valida, grava e registra um lote. O contexto do banco já foi definido por autenticarIntegracao. */
 export async function receberLote(ctx: IntegracaoCtx, tipo: TipoCadastro, itens: unknown[], recurso: string): Promise<ResultadoLote> {
+  // Define o banco da rede neste ponto: o processador de importação usa prismaEdu, e o
+  // contexto definido dentro de autenticarIntegracao não chega até aqui.
+  setTenantDb(ctx.db);
+
   const erros: ErroDeItem[] = [];
   const validas: Linha[] = [];
   const posicao: number[] = []; // posição de cada linha válida no lote enviado (começa em 1)

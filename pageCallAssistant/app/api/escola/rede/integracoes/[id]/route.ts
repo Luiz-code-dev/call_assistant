@@ -17,7 +17,6 @@ async function gestor() {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
   const ctx = await getEduContext();
   if (!ctx) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
-  if (ctx.db) setTenantDb(ctx.db);
   if (ctx.role !== "NETWORK_ADMIN") return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
   return ctx;
 }
@@ -25,6 +24,9 @@ async function gestor() {
 export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
   const ctx = await gestor();
   if (ctx instanceof NextResponse) return ctx;
+  // O contexto do banco precisa ser definido aqui, no próprio tratador: definido dentro de
+  // uma função auxiliar aguardada, ele não chega a este ponto (AsyncLocalStorage.enterWith).
+  if (ctx.db) setTenantDb(ctx.db);
   const tipo = new URL(req.url).searchParams.get("tipo");
   const body = await req.json().catch(() => ({}));
 
@@ -57,6 +59,9 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
 export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
   const ctx = await gestor();
   if (ctx instanceof NextResponse) return ctx;
+  // O contexto do banco precisa ser definido aqui, no próprio tratador: definido dentro de
+  // uma função auxiliar aguardada, ele não chega a este ponto (AsyncLocalStorage.enterWith).
+  if (ctx.db) setTenantDb(ctx.db);
   const tipo = new URL(req.url).searchParams.get("tipo");
 
   if (tipo === "endereco") {
