@@ -64,12 +64,39 @@ export async function recordMasteryEvent(opts: {
   const levels: MasteryLevel[] = events.map((e: { level: string }) => e.level as MasteryLevel);
   const consolidated = consolidate(levels);
 
+  // Nível consolidado de antes, para saber se o aluno mudou de degrau
+  let antes: { level: string } | null = null;
+  try {
+    antes = await p.eduSkillMastery.findUnique({
+      where: { studentId_skillId: { studentId, skillId } },
+      select: { level: true },
+    });
+  } catch {
+    antes = null;
+  }
+
   // Upsert no EduSkillMastery
   await p.eduSkillMastery.upsert({
     where: { studentId_skillId: { studentId, skillId } },
     create: { networkId, studentId, skillId, level: consolidated, source, updatedAt: new Date() },
     update: { level: consolidated, source, updatedAt: new Date() },
   });
+
+  // Mudou de degrau: avisa os sistemas externos cadastrados pela rede (se houver).
+  // Não espera a entrega e nunca falha por causa dela.
+  if (antes?.level !== consolidated) {
+    try {
+      // Importação tardia: mantém este módulo leve (e os testes sem banco).
+      const [{ getTenantDb }, { avisarMudancaDeNivel }] = await Promise.all([
+        import("@/lib/escola/tenant-db"),
+        import("@/lib/escola/integracao/webhook"),
+      ]);
+      const rede = await getTenantDb(networkId);
+      void avisarMudancaDeNivel(rede, { networkId, studentId, skillId, de: antes?.level ?? null, para: consolidated, origem: source });
+    } catch {
+      // aviso externo é melhor esforço
+    }
+  }
 }
 
 /**

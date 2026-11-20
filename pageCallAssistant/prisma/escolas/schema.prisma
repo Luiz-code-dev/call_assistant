@@ -1330,3 +1330,84 @@ model EduAttemptSession {
   @@index([networkId, studentId])
   @@index([networkId, activityId])
 }
+
+// ── Integrações externas ─────────────────────────────────────────────────────
+// Camada única para sistemas de gestão das secretarias e escolas (matrícula, diário etc.).
+// Sem relações no banco, como EduRetornoFamilia: só acrescenta tabelas.
+
+/// Chave de acesso de um sistema externo. Guardamos só o hash: a chave aparece uma vez.
+model EduIntegrationKey {
+  id          String    @id @default(cuid())
+  networkId   String
+  name        String
+  /// Início da chave, para o gestor reconhecer qual é (não dá acesso)
+  prefix      String
+  keyHash     String    @unique
+  /// O que a chave pode fazer: cadastros:escrever, resultados:ler
+  scopes      String[]
+  /// Se preenchido, só estes endereços IP podem usar a chave
+  allowedIps  String[]
+  /// De-para de campos do sistema externo para os nossos: { "campo_deles": "campo_nosso" }
+  fieldMap    Json?
+  createdById String
+  createdAt   DateTime  @default(now()) @db.Timestamptz
+  expiresAt   DateTime? @db.Timestamptz
+  lastUsedAt  DateTime? @db.Timestamptz
+  revokedAt   DateTime? @db.Timestamptz
+
+  @@index([networkId, createdAt])
+}
+
+/// Histórico de cada chamada de integração (entrada e saída), sem dados pessoais.
+model EduIntegrationLog {
+  id        String   @id @default(cuid())
+  networkId String
+  keyId     String?
+  /// IN (o sistema externo enviou) ou OUT (o sistema externo consultou / recebeu aviso)
+  direction String
+  resource  String
+  status    String
+  received  Int      @default(0)
+  created   Int      @default(0)
+  updated   Int      @default(0)
+  failed    Int      @default(0)
+  errors    Json?
+  ip        String?
+  createdAt DateTime @default(now()) @db.Timestamptz
+
+  @@index([networkId, createdAt])
+}
+
+/// Endereço do sistema externo que recebe avisos (webhooks). O segredo fica cifrado.
+model EduWebhookEndpoint {
+  id             String    @id @default(cuid())
+  networkId      String
+  url            String
+  secretEnc      String    @db.Text
+  events         String[]
+  isActive       Boolean   @default(true)
+  failCount      Int       @default(0)
+  createdById    String
+  createdAt      DateTime  @default(now()) @db.Timestamptz
+  lastDeliveryAt DateTime? @db.Timestamptz
+  lastStatus     String?
+
+  @@index([networkId, isActive])
+}
+
+/// Cada aviso enviado a um endereço externo, com o resultado da entrega.
+model EduWebhookDelivery {
+  id           String    @id @default(cuid())
+  networkId    String
+  endpointId   String
+  event        String
+  payload      Json
+  status       String
+  attempts     Int       @default(0)
+  responseCode Int?
+  createdAt    DateTime  @default(now()) @db.Timestamptz
+  deliveredAt  DateTime? @db.Timestamptz
+
+  @@index([networkId, createdAt])
+  @@index([endpointId, createdAt])
+}
