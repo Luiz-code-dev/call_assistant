@@ -129,7 +129,7 @@ async function responderTudo(
   let atual = ini.body;
   const sessionId = ini.body.sessionId as string;
   const passos: Passo[] = [];
-  for (let guarda = 0; guarda < 30; guarda++) {
+  for (let guarda = 0; guarda < 60; guarda++) {
     const atividade = atual.atividade;
     const q = atividade.questions[0];
     const passo = { skillCode: atividade.skillCode, isDegrau: !!atividade.isDegrau, question: q.question };
@@ -141,7 +141,7 @@ async function responderTudo(
     if (r.body.concluido) return { passos, final: r.body, sessionId };
     atual = r.body;
   }
-  throw new Error("diagnóstico não terminou em 30 respostas");
+  throw new Error("diagnóstico não terminou em 60 respostas");
 }
 
 /** Responsável ativo do aluno do 6º B; cria um só para o teste se o seed não tiver */
@@ -237,22 +237,29 @@ describe("2.1 — o navegador nunca recebe misconceptionCode nem correctIndex", 
 describe("Degrau por aluno — Matemática do 6º B", () => {
   let resultadoMA: { passos: Passo[]; final: Record<string, unknown> };
 
-  it("2/5 em 1/2 + 1/3: 2 questões de EF05MA04 logo em seguida; errando, 2 de EF04MA09", async () => {
+  it("errando a habilidade de 1/2 + 1/3 até a regra decidir: 2 questões de EF05MA04; errando, 2 de EF04MA09", async () => {
     const r = await materias(alunoB);
     const ma = r.body.materias.find((m: { codigo: string }) => m.codigo === "MA");
+    // Habilidade da questão de 1/2 + 1/3, descoberta quando ela aparecer
+    let alvo: string | null = null;
     resultadoMA = await responderTudo(alunoB, ma.diagnosticoId, (p, g) => {
-      if (/1\/2 \+ 1\/3/.test(p.question)) {
+      if (alvo === null && /1\/2 \+ 1\/3/.test(p.question)) {
+        alvo = p.skillCode;
         const i = g.opcoes.findIndex((o) => o.text.trim() === "2/5");
         expect(i, "alternativa 2/5").toBeGreaterThanOrEqual(0);
         return i;
       }
-      if (p.isDegrau) return errada(g);
+      if (p.isDegrau || p.skillCode === alvo) return errada(g);
       return g.correctIndex;
     });
 
     const k = resultadoMA.passos.findIndex((p) => /1\/2 \+ 1\/3/.test(p.question));
     expect(k).toBeGreaterThanOrEqual(0);
-    const depois = resultadoMA.passos.slice(k + 1, k + 5).map((p) => `${p.skillCode}${p.isDegrau ? "*" : ""}`);
+    // Depois dela: mais questões da mesma habilidade até a regra decidir "não domina"; então o degrau
+    const resto = resultadoMA.passos.slice(k + 1);
+    const mesmas = resto.findIndex((p) => !(p.skillCode === alvo && !p.isDegrau));
+    expect(mesmas, "pelo menos uma questão de confirmação").toBeGreaterThanOrEqual(1);
+    const depois = resto.slice(mesmas, mesmas + 4).map((p) => `${p.skillCode}${p.isDegrau ? "*" : ""}`);
     expect(depois).toEqual(["EF05MA04*", "EF05MA04*", "EF04MA09*", "EF04MA09*"]);
   });
 
