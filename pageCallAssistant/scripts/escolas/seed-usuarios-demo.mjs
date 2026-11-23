@@ -281,6 +281,28 @@ async function seedTurmaComDados(db, { networkId, classIds, turmaId, schoolYearI
 
 // ── Rede A — escolas-dados-01 ─────────────────────────────────────────────────
 
+/** Proposta de redação de exemplo para a turma demo (idempotente; não apaga textos dos alunos). */
+async function seedRedacaoDemo(db, { networkId, classIds, teacherId }) {
+  try {
+    for (const classId of classIds) {
+      const turma = await db.eduClass.findUnique({ where: { id: classId }, select: { schoolId: true } });
+      if (!turma) continue;
+      await db.eduEssayPrompt.upsert({
+        where: { id: `redacao-demo-${classId}` },
+        create: {
+          id: `redacao-demo-${classId}`, networkId, schoolId: turma.schoolId, classId, createdById: teacherId,
+          title: "O esporte na escola",
+          instructions: "A escola deveria ter mais aulas de esporte? Escreva um texto dando a sua opinião. Explique os seus motivos e dê pelo menos um exemplo do seu dia a dia.",
+          genre: "DISSERTATIVO", minWords: 40, maxWords: 300, maxVersions: 3,
+        },
+        update: { isOpen: true },
+      });
+    }
+  } catch (e) {
+    console.log(`  (redação demo não criada: ${e.message})`);
+  }
+}
+
 async function seedRedeA() {
   const NETWORK_ID = "demo-rede-a";
   const db = tenantDb("ESCOLAS_DB_01_URL");
@@ -393,6 +415,7 @@ async function seedRedeA() {
         schoolYearId: anoLetivoA.id, teacherId: profUserId,
         skillCodes: ["EF05MA01", "EF05MA03", "EF05MA07", "EF05MA08", "EF05LP01", "EF05LP03", "EF35LP03"],
       });
+      await seedRedacaoDemo(db, { networkId: rede.id, classIds: [`turma-${NETWORK_ID}`], teacherId: profUserId });
     }
 
     console.log(`  ✓ Aluno: "Aluno Demo Silva" | código DEMA25 | PIN 1234`);
@@ -556,6 +579,7 @@ async function seedRedeB() {
         schoolYearId: anoLetivoB.id, teacherId: profUserId,
         skillCodes: ["EF06MA01", "EF06MA03", "EF06MA05", "EF06MA06", "EF06LP04", "EF06LP06", "EF67LP04"],
       });
+      await seedRedacaoDemo(db, { networkId: rede.id, classIds: [`turma-${NETWORK_ID}`, `turma5-${NETWORK_ID}`], teacherId: profUserId });
     }
 
     console.log(`  ✓ Aluno: "Aluno Demo B Santos" | código DEMB25 | PIN 5678`);

@@ -218,7 +218,7 @@ export default function AlunoHomePage() {
         {/* Foto do dever da escola */}
         <DeverCard />
 
-        {/* Redação guiada (só aparece quando o professor abriu alguma) */}
+        {/* Redação guiada */}
         <RedacaoCard />
 
         {/* Semana */}
