@@ -7,7 +7,7 @@ import { getStudentContext, type StudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { setTenantDb } from "@/lib/escola/db";
 import {
-  GENEROS, generoValido, contarPalavras, dividirParagrafos, normalizarTexto, podeEscrever, visaoDoAluno,
+  nomeDoGenero, contarPalavras, dividirParagrafos, normalizarTexto, podeEscrever, visaoDoAluno,
   type RetornoRedacao, type RevisaoProfessor,
 } from "@/lib/escola/redacao";
 
@@ -35,7 +35,7 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
   return NextResponse.json({
     proposta: {
       id: p.id, titulo: p.title, enunciado: p.instructions,
-      genero: generoValido(p.genre) ? GENEROS[p.genre] : "", generoId: p.genre,
+      genero: nomeDoGenero(p.genre), generoId: p.genre,
       minPalavras: p.minWords, maxPalavras: p.maxWords, maxVersoes: p.maxVersions, prazo: p.dueAt, aberta,
     },
     podeEscrever: podeEscrever({ aberta, maxVersoes: p.maxVersions }, ultima ? { versao: ultima.version, status: ultima.status } : null),

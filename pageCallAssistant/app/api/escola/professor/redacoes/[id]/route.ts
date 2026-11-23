@@ -7,7 +7,7 @@ import { getEduContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { PAPEIS_REDACAO, propostaPermitida } from "@/lib/escola/redacao-acesso";
-import { GENEROS, generoValido } from "@/lib/escola/redacao";
+import { nomeDoGenero } from "@/lib/escola/redacao";
 
 export const runtime = "nodejs";
 
@@ -63,7 +63,7 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
   return NextResponse.json({
     proposta: {
       id: p.id, titulo: p.title, enunciado: p.instructions, genero: p.genre,
-      generoNome: generoValido(p.genre) ? GENEROS[p.genre] : p.genre,
+      generoNome: nomeDoGenero(p.genre) || p.genre,
       minPalavras: p.minWords, maxPalavras: p.maxWords, maxVersoes: p.maxVersions, prazo: p.dueAt, aberta: p.isOpen,
     },
     turma,

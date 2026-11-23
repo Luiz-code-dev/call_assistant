@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { setTenantDb } from "@/lib/escola/db";
-import { situacaoDaVersao, GENEROS, generoValido } from "@/lib/escola/redacao";
+import { situacaoDaVersao, nomeDoGenero } from "@/lib/escola/redacao";
 
 export const runtime = "nodejs";
 
@@ -38,7 +38,7 @@ export async function GET() {
       .map((p: { id: string; title: string; genre: string; dueAt: Date | null; isOpen: boolean }) => ({
         id: p.id,
         titulo: p.title,
-        genero: generoValido(p.genre) ? GENEROS[p.genre] : "",
+        genero: nomeDoGenero(p.genre),
         prazo: p.dueAt,
         aberta: p.isOpen,
         situacao: situacaoDaVersao(ultima.get(p.id)?.status),

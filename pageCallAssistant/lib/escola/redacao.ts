@@ -26,6 +26,10 @@ export type Genero = keyof typeof GENEROS;
 export function generoValido(g: unknown): g is Genero {
   return typeof g === "string" && Object.prototype.hasOwnProperty.call(GENEROS, g);
 }
+/** Nome do gênero para a tela; vazio se não for um gênero conhecido. */
+export function nomeDoGenero(g: unknown): string {
+  return generoValido(g) ? GENEROS[g] : "";
+}
 
 export const CRITERIOS = ["PROPOSTA", "COESAO", "ARGUMENTACAO", "GRAMATICA"] as const;
 export type Criterio = (typeof CRITERIOS)[number];
@@ -131,7 +135,7 @@ export interface PropostaParaIA {
 }
 
 export function promptDaRedacao(p: PropostaParaIA): string {
-  const genero = generoValido(p.genero) ? GENEROS[p.genero] : "Texto livre";
+  const genero = nomeDoGenero(p.genero) || "Texto livre";
   return `Você é o Flow, o ajudante de redação do reforço escolar. Um aluno${p.anoEscolar ? ` do ${p.anoEscolar}º ano` : ""} escreveu um texto e você vai devolver um retorno para ele melhorar sozinho. ${tomPorAno(p.anoEscolar)}
 
 REGRAS QUE VOCÊ NUNCA QUEBRA:
