@@ -10,11 +10,12 @@ import { Send, RefreshCw, PencilLine, CheckCircle2 } from "lucide-react";
 import { Capa, Carregando } from "@/components/escola/reforco-ui";
 import { RoboFlow } from "@/components/escola/aluno/Mascote";
 import { ParagrafoComRetorno } from "@/components/escola/redacao/RetornoDaRedacao";
+import FotoDaRedacao from "@/components/escola/redacao/FotoDaRedacao";
 import { contarPalavras, type RetornoDoAluno } from "@/lib/escola/redacao";
 
 type Versao = { versao: number; status: string; texto: string | null; paragrafos: string[]; palavras: number; enviadoEm: string | null; retorno: RetornoDoAluno | null };
 type Dados = {
-  proposta: { id: string; titulo: string; enunciado: string; genero: string; generoId: string; minPalavras: number; maxPalavras: number; maxVersoes: number; prazo: string | null; aberta: boolean };
+  proposta: { id: string; titulo: string; enunciado: string; genero: string; generoId: string; minPalavras: number; maxPalavras: number; maxVersoes: number; prazo: string | null; aberta: boolean; propria?: boolean };
   podeEscrever: boolean;
   versoes: Versao[];
 };
@@ -29,6 +30,7 @@ export default function RedacaoAlunoPage() {
   const [salvo, setSalvo] = useState<"" | "salvando" | "salvo">("");
   const [enviando, setEnviando] = useState(false);
   const [vendo, setVendo] = useState<number | null>(null);
+  const [antesDaFoto, setAntesDaFoto] = useState<string | null>(null);
   const espera = useRef<ReturnType<typeof setTimeout> | null>(null);
   const ultimoSalvo = useRef("");
 
@@ -79,6 +81,11 @@ export default function RedacaoAlunoPage() {
     } finally { setEnviando(false); }
   }
 
+  function textoDaFoto(t: string) {
+    setAntesDaFoto(texto);
+    digitar(t);
+  }
+
   function reescrever() {
     const ultima = dados?.versoes[dados.versoes.length - 1];
     const base = ultima?.paragrafos.join("\n\n") ?? "";
@@ -112,8 +119,8 @@ export default function RedacaoAlunoPage() {
 
         <section className="rounded-3xl bg-white p-4 shadow-[0_4px_18px_rgba(91,33,182,0.08)] space-y-1">
           <p className="text-xs font-bold uppercase tracking-wide text-[#6D28D9]">Proposta</p>
-          <p className="text-[15px] leading-relaxed text-[#1F1A2E] whitespace-pre-wrap">{p.enunciado}</p>
-          <p className="text-[13px] text-[#5B5470]">Entre {p.minPalavras} e {p.maxPalavras} palavras{p.prazo ? ` · até ${new Date(p.prazo).toLocaleDateString("pt-BR")}` : ""}</p>
+          <p className="text-[15px] leading-relaxed text-[#1F1A2E] whitespace-pre-wrap">{p.enunciado || `Tema: ${p.titulo}`}</p>
+          <p className="text-[13px] text-[#5B5470]">{p.propria ? "Redação que você trouxe da escola" : `Entre ${p.minPalavras} e ${p.maxPalavras} palavras`}{p.prazo ? ` · até ${new Date(p.prazo).toLocaleDateString("pt-BR")}` : ""}</p>
         </section>
 
         {erro && <p className="rounded-2xl bg-[#FEF2F2] text-[#B91C1C] text-sm px-4 py-3">{erro}</p>}
@@ -124,11 +131,18 @@ export default function RedacaoAlunoPage() {
               <p className="text-xs font-bold uppercase tracking-wide text-[#6D28D9]">{ultimaEnviada ? `Reescrita (versão ${ultimaEnviada.versao + 1})` : "Seu texto"}</p>
               <p className="text-[12px] text-[#5B5470]">{salvo === "salvando" ? "Guardando..." : salvo === "salvo" ? "Guardado" : ""}</p>
             </div>
+            <FotoDaRedacao aoLer={(t) => textoDaFoto(t)} />
+            {antesDaFoto !== null && (
+              <p className="rounded-2xl bg-[#FFFBEB] border border-[#FCD34D] px-3 py-2 text-[14px] text-[#78350F]">
+                Confira se o texto ficou igual ao do seu caderno e arrume o que o Flow não conseguiu ler (marcado com [?]).{" "}
+                <button type="button" className="font-bold underline" onClick={() => { digitar(antesDaFoto); setAntesDaFoto(null); }}>Desfazer</button>
+              </p>
+            )}
             <textarea
               value={texto}
               onChange={(e) => digitar(e.target.value)}
-              rows={14}
-              maxLength={8000}
+              rows={16}
+              maxLength={16000}
               placeholder="Comece aqui. Para começar um parágrafo novo, pule uma linha."
               className="block w-full rounded-2xl border-[1.5px] border-[#DDD6EE] focus:border-[#6D28D9] outline-none px-3 py-3 text-[16px] leading-relaxed text-[#1F1A2E]"
               aria-label="Seu texto"

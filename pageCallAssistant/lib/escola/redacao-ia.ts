@@ -12,6 +12,9 @@ import {
   type PropostaParaIA, type RetornoRedacao,
 } from "@/lib/escola/redacao";
 
+/** Modelo da redação: leitura mais cuidadosa que a das conversas. Pode ser trocado por variável de ambiente. */
+export const MODELO_REDACAO = process.env.ESCOLAS_REDACAO_MODELO || "gpt-4o";
+
 export type ResultadoDaAvaliacao =
   | { status: "DONE" | "FALLBACK"; retorno: RetornoRedacao; tokens: number; erro: string | null }
   | { status: "FLAGGED"; retorno: null; tokens: 0; erro: string };
@@ -34,9 +37,9 @@ export async function avaliarRedacao(p: PropostaParaIA, texto: string, nomeDoAlu
   for (let tentativa = 0; tentativa < 2; tentativa++) {
     try {
       const r = await getOpenAI().chat.completions.create({
-        model: "gpt-4o-mini",
+        model: MODELO_REDACAO,
         temperature: 0.2,
-        max_tokens: 1800,
+        max_tokens: 3000,
         response_format: { type: "json_object" },
         messages: [
           { role: "system", content: promptDaRedacao(p) },

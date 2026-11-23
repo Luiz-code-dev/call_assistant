@@ -293,9 +293,9 @@ async function seedRedacaoDemo(db, { networkId, classIds, teacherId }) {
           id: `redacao-demo-${classId}`, networkId, schoolId: turma.schoolId, classId, createdById: teacherId,
           title: "O esporte na escola",
           instructions: "A escola deveria ter mais aulas de esporte? Escreva um texto dando a sua opinião. Explique os seus motivos e dê pelo menos um exemplo do seu dia a dia.",
-          genre: "DISSERTATIVO", minWords: 40, maxWords: 300, maxVersions: 3,
+          genre: "DISSERTATIVO", minWords: 40, maxWords: 800, maxVersions: 3,
         },
-        update: { isOpen: true },
+        update: { isOpen: true, maxWords: 800 },
       });
     }
   } catch (e) {

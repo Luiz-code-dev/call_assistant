@@ -1430,10 +1430,13 @@ model EduEssayPrompt {
   dueAt        DateTime? @db.Timestamptz
   isOpen       Boolean   @default(true)
   createdAt    DateTime  @default(now()) @db.Timestamptz
+  /// Preenchido quando é o próprio aluno que traz uma redação da escola para corrigir
+  ownerStudentId String?
 
   essays EduEssay[]
 
   @@index([networkId, classId, isOpen])
+  @@index([ownerStudentId])
 }
 
 /// Texto do aluno numa proposta. Cada reescrita é uma nova versão.
