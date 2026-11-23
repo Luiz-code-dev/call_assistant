@@ -29,7 +29,7 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
   const { proposta: p, turma } = achada;
 
   const matriculas = await db.eduEnrollment.findMany({
-    where: { networkId: ctx.networkId, classId: p.classId, status: "ACTIVE" },
+    where: { networkId: ctx.networkId, classId: p.classId, status: "ACTIVE", ...(p.ownerStudentId ? { studentId: p.ownerStudentId } : {}) },
     select: { studentId: true, student: { select: { fullName: true } } },
   });
   const textos = await db.eduEssay.findMany({
@@ -65,6 +65,7 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
       id: p.id, titulo: p.title, enunciado: p.instructions, genero: p.genre,
       generoNome: nomeDoGenero(p.genre) || p.genre,
       minPalavras: p.minWords, maxPalavras: p.maxWords, maxVersoes: p.maxVersions, prazo: p.dueAt, aberta: p.isOpen,
+      doAluno: !!p.ownerStudentId,
     },
     turma,
     alunos,

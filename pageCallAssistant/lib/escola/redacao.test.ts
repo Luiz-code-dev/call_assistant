@@ -3,7 +3,7 @@ import {
   dividirParagrafos, contarPalavras, erroDoEnvio, normalizarTexto,
   perguntaSegura, fraseSegura, trechoDoParagrafo, lerRetorno, retornoPorRegras,
   visaoDoAluno, lerRevisao, marcarTrechos, podeEscrever, situacaoDaVersao,
-  promptDaRedacao, textoParaIA, nomeDoCriterio, generoValido,
+  promptDaRedacao, textoParaIA, nomeDoCriterio, generoValido, lerTranscricao,
 } from "./redacao";
 
 const TEXTO = [
@@ -25,7 +25,7 @@ describe("texto do aluno", () => {
   });
 
   it("normaliza e limita o tamanho", () => {
-    expect(normalizarTexto("a".repeat(9000)).length).toBe(8000);
+    expect(normalizarTexto("a".repeat(20000)).length).toBe(16000);
     expect(normalizarTexto(null)).toBe("");
   });
 
@@ -35,7 +35,7 @@ describe("texto do aluno", () => {
     expect(erroDoEnvio("Texto curto demais.", lim)).toMatch(/pelo menos 10/);
     expect(erroDoEnvio("palavra ".repeat(41), lim)).toMatch(/limite de 40/);
     expect(erroDoEnvio("Uma frase com palavras suficientes para o envio do texto do aluno.", lim)).toBeNull();
-    expect(erroDoEnvio(Array.from({ length: 16 }, () => "linha").join("\n"), { minPalavras: 1, maxPalavras: 100 })).toMatch(/15 parágrafos/);
+    expect(erroDoEnvio(Array.from({ length: 26 }, () => "linha").join("\n"), { minPalavras: 1, maxPalavras: 100 })).toMatch(/25 parágrafos/);
   });
 });
 
@@ -210,5 +210,27 @@ describe("prompt", () => {
     expect(nomeDoCriterio("ARGUMENTACAO", "NARRATIVO")).toBe("Desenvolvimento das ideias");
     expect(generoValido("CARTA")).toBe(true);
     expect(generoValido("toString")).toBe(false);
+  });
+});
+
+describe("foto da redação", () => {
+  it("aceita o texto transcrito sem mexer nos erros", () => {
+    const t = lerTranscricao(JSON.stringify({ titulo: "A agua", texto: "A agua e muito inportante para todos nos.\n\nSem ela nao tem vida." }))!;
+    expect(t.titulo).toBe("A agua");
+    expect(t.texto).toContain("inportante");
+    expect(dividirParagrafos(t.texto)).toHaveLength(2);
+  });
+
+  it("recusa quando não há redação na foto", () => {
+    expect(lerTranscricao(JSON.stringify({ texto: "NAO_E_REDACAO" }))).toBeNull();
+    expect(lerTranscricao(JSON.stringify({ texto: "oi" }))).toBeNull();
+    expect(lerTranscricao("lixo")).toBeNull();
+  });
+
+  it("o prompt da correção explica o gênero e a fase escolar", () => {
+    const s = promptDaRedacao({ titulo: "Carta ao prefeito", enunciado: "", genero: "CARTA", anoEscolar: 4 });
+    expect(s).toContain("vocativo");
+    expect(s).toContain("pontuação básica");
+    expect(s).toContain("considere o título como tema");
   });
 });

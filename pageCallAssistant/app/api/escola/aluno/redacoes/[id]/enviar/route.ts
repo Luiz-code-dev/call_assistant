@@ -23,7 +23,7 @@ export async function POST(_req: NextRequest, { params }: { params: { id: string
   setTenantDb(ctx.db);
   const db = ctx.db;
 
-  const p = await db.eduEssayPrompt.findFirst({ where: { id: params.id, networkId: ctx.networkId, classId: ctx.classId } });
+  const p = await db.eduEssayPrompt.findFirst({ where: { id: params.id, networkId: ctx.networkId, classId: ctx.classId, OR: [{ ownerStudentId: null }, { ownerStudentId: ctx.studentId }] } });
   if (!p) return NextResponse.json({ error: "Proposta não encontrada" }, { status: 404 });
   if (!p.isOpen || (p.dueAt && new Date(p.dueAt).getTime() <= Date.now())) return NextResponse.json({ error: "Esta proposta está encerrada." }, { status: 409 });
 

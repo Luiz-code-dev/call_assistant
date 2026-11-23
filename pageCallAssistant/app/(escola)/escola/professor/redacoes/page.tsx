@@ -5,7 +5,7 @@ import Link from "next/link";
 import { FilePen, Plus, X } from "lucide-react";
 
 type Turma = { id: string; name: string; gradeYear: number; schoolName: string };
-type Proposta = { id: string; titulo: string; genero: string; aberta: boolean; prazo: string | null; turma: string; escola: string; alunos: number; enviadas: number; paraRevisar: number };
+type Proposta = { id: string; titulo: string; genero: string; aberta: boolean; prazo: string | null; turma: string; escola: string; alunos: number; enviadas: number; paraRevisar: number; doAluno?: boolean };
 type Genero = { id: string; nome: string };
 
 const CAMPO = "w-full rounded-xl border border-[#DDD6EE] focus:border-[#6D28D9] outline-none px-3 py-2.5 text-sm text-[#1F1A2E] bg-white";
@@ -15,7 +15,7 @@ export default function RedacoesProfessorPage() {
   const [erro, setErro] = useState("");
   const [criando, setCriando] = useState(false);
   const [salvando, setSalvando] = useState(false);
-  const [form, setForm] = useState({ classId: "", titulo: "", genero: "DISSERTATIVO", enunciado: "", minPalavras: 80, maxPalavras: 350, maxVersoes: 2, prazo: "" });
+  const [form, setForm] = useState({ classId: "", titulo: "", genero: "DISSERTATIVO", enunciado: "", minPalavras: 80, maxPalavras: 600, maxVersoes: 2, prazo: "" });
 
   function carregar() {
     fetch("/api/escola/professor/redacoes", { cache: "no-store" })
@@ -83,7 +83,7 @@ export default function RedacoesProfessorPage() {
                 <input type="number" className={CAMPO} min={10} max={1000} value={form.minPalavras} onChange={(e) => setForm({ ...form, minPalavras: Number(e.target.value) })} />
               </label>
               <label className="text-sm font-semibold text-[#1F1A2E] space-y-1">Máximo de palavras
-                <input type="number" className={CAMPO} min={20} max={1500} value={form.maxPalavras} onChange={(e) => setForm({ ...form, maxPalavras: Number(e.target.value) })} />
+                <input type="number" className={CAMPO} min={20} max={2000} value={form.maxPalavras} onChange={(e) => setForm({ ...form, maxPalavras: Number(e.target.value) })} />
               </label>
               <label className="text-sm font-semibold text-[#1F1A2E] space-y-1">Versões por aluno (com reescritas)
                 <select className={CAMPO} value={form.maxVersoes} onChange={(e) => setForm({ ...form, maxVersoes: Number(e.target.value) })}>
@@ -118,7 +118,8 @@ export default function RedacoesProfessorPage() {
                 <p className="text-[#5B5470] text-xs">{p.turma}{p.escola ? ` · ${p.escola}` : ""}{p.prazo ? ` · até ${new Date(p.prazo).toLocaleDateString("pt-BR")}` : ""}</p>
               </div>
               <div className="flex items-center gap-2 text-xs">
-                <span className="rounded-full bg-[#F5F3FF] text-[#5B21B6] px-2.5 py-1 font-semibold">{p.enviadas} de {p.alunos} enviaram</span>
+                {p.doAluno ? <span className="rounded-full bg-[#ECFDF5] text-[#065F46] px-2.5 py-1 font-semibold">Trazida pelo aluno</span>
+                  : <span className="rounded-full bg-[#F5F3FF] text-[#5B21B6] px-2.5 py-1 font-semibold">{p.enviadas} de {p.alunos} enviaram</span>}
                 {p.paraRevisar > 0 && <span className="rounded-full bg-[#FEF3C7] text-[#92400E] px-2.5 py-1 font-semibold">{p.paraRevisar} para revisar</span>}
                 {!p.aberta && <span className="rounded-full bg-[#F3F4F6] text-[#4B5563] px-2.5 py-1 font-semibold">Encerrada</span>}
               </div>

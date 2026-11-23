@@ -7,7 +7,7 @@ import { getEduContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { prismaEdu, setTenantDb } from "@/lib/escola/db";
 import { PAPEIS_REDACAO, turmasDaRedacao, turmaPermitida } from "@/lib/escola/redacao-acesso";
-import { GENEROS, generoValido } from "@/lib/escola/redacao";
+import { GENEROS, generoValido, MAX_PALAVRAS } from "@/lib/escola/redacao";
 
 export const runtime = "nodejs";
 
@@ -49,12 +49,14 @@ export async function GET() {
   return NextResponse.json({
     turmas,
     generos: Object.entries(GENEROS).map(([id, nome]) => ({ id, nome })),
-    propostas: propostas.map((p: { id: string; classId: string; title: string; genre: string; isOpen: boolean; dueAt: Date | null; createdAt: Date }) => {
+    propostas: propostas.map((p: { id: string; classId: string; title: string; genre: string; isOpen: boolean; dueAt: Date | null; createdAt: Date; ownerStudentId: string | null }) => {
       const desta = Array.from(ultima.values()).filter((u) => u.promptId === p.id);
       return {
         id: p.id, titulo: p.title, genero: p.genre, aberta: p.isOpen, prazo: p.dueAt, criadaEm: p.createdAt,
         turma: nomeDaTurma.get(p.classId)?.name ?? "", escola: nomeDaTurma.get(p.classId)?.schoolName ?? "",
-        alunos: alunosPorTurma.get(p.classId) ?? 0,
+        alunos: p.ownerStudentId ? 1 : alunosPorTurma.get(p.classId) ?? 0,
+        /** Redação da escola que o próprio aluno trouxe para o Flow ler */
+        doAluno: !!p.ownerStudentId,
         enviadas: desta.length,
         paraRevisar: desta.filter((u) => u.status === "FEEDBACK" || u.status === "SUBMITTED").length,
       };
@@ -82,7 +84,7 @@ export async function POST(req: NextRequest) {
   if (!turma) return NextResponse.json({ error: "Turma não encontrada ou fora do seu acesso." }, { status: 403 });
 
   const minWords = inteiro(b.minPalavras, 60, 10, 1000);
-  const maxWords = inteiro(b.maxPalavras, 400, minWords + 10, 1500);
+  const maxWords = inteiro(b.maxPalavras, 600, minWords + 10, MAX_PALAVRAS);
   let dueAt: Date | null = null;
   if (b.prazo) {
     const d = new Date(String(b.prazo));

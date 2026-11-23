@@ -14,7 +14,7 @@ import {
 export const runtime = "nodejs";
 
 async function propostaDoAluno(ctx: StudentContext, id: string) {
-  return ctx.db.eduEssayPrompt.findFirst({ where: { id, networkId: ctx.networkId, classId: ctx.classId } });
+  return ctx.db.eduEssayPrompt.findFirst({ where: { id, networkId: ctx.networkId, classId: ctx.classId, OR: [{ ownerStudentId: null }, { ownerStudentId: ctx.studentId }] } });
 }
 
 export async function GET(_req: NextRequest, { params }: { params: { id: string } }) {
@@ -37,6 +37,7 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
       id: p.id, titulo: p.title, enunciado: p.instructions,
       genero: nomeDoGenero(p.genre), generoId: p.genre,
       minPalavras: p.minWords, maxPalavras: p.maxWords, maxVersoes: p.maxVersions, prazo: p.dueAt, aberta,
+      propria: !!p.ownerStudentId,
     },
     podeEscrever: podeEscrever({ aberta, maxVersoes: p.maxVersions }, ultima ? { versao: ultima.version, status: ultima.status } : null),
     versoes: versoes.map((v: { version: number; status: string; text: string; wordCount: number; submittedAt: Date | null; aiFeedback: unknown; teacherReview: unknown }) => ({
