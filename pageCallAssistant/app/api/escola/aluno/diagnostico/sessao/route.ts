@@ -19,7 +19,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { prismaEdu, setTenantDb } from "@/lib/escola/db";
-import { calcularDegrau, deveDescerDegrau } from "@/lib/escola/diagnostico-degrau";
+import { calcularDegrau } from "@/lib/escola/diagnostico-degrau";
+import { decidir, precisaDeMaisQuestoes, nivelFinal, nivelDeDominio, chaveDaQuestao, escolherQuestao, type NivelFinal } from "@/lib/escola/diagnostico-sequencial";
 import { questaoParaAluno } from "@/lib/escola/opcoes-aluno";
 import { recordMasteryEvent } from "@/lib/escola/mastery-event";
 import { assignAfterDiagnostic } from "@/lib/escola/track-assignment";
@@ -30,6 +31,10 @@ const P = prismaEdu as any;
 
 const SESSION_HOURS = 4;
 const MIN_MS_PER_Q = 5_000;
+/** Máximo de questões numa sessão (habilidades do ano + degraus + questões extras de confirmação) */
+const MAX_SESSAO = 40;
+/** Quantos degraus para trás, no máximo */
+const MAX_DEGRAUS = 2;
 
 function shuffleWithSeed<T>(arr: T[], seed: number): T[] {
   const a = [...arr];
@@ -49,6 +54,10 @@ type ExtraItem = {
   degrau: number;
   /** Habilidade cujo erro gerou este degrau */
   fromSkillCode?: string;
+  /** Questão extra da mesma habilidade, para confirmar o nível (não é degrau) */
+  evidencia?: boolean;
+  /** Saiu da sequência porque a habilidade já foi decidida */
+  descartada?: boolean;
   questions: Array<{ id: string; question: string; options: Array<{ text: string; misconceptionCode?: string }>; correctIndex: number; explanation?: string }>;
 };
 
@@ -59,10 +68,10 @@ type ExtraItem = {
  * não estão em shuffleOrder vão para o fim, como antes.
  */
 type Posicao = { tipo: "normal"; item: number } | { tipo: "extra"; extra: number };
-function posicoes(seq: number[], extrasLen: number): Posicao[] {
+function posicoes(seq: number[], extras: Array<{ descartada?: boolean }>): Posicao[] {
   const pos: Posicao[] = seq.map((e) => (e >= 0 ? { tipo: "normal", item: e } : { tipo: "extra", extra: -e - 1 }));
   const usados = new Set(seq.filter((e) => e < 0).map((e) => -e - 1));
-  for (let k = 0; k < extrasLen; k++) if (!usados.has(k)) pos.push({ tipo: "extra", extra: k });
+  for (let k = 0; k < extras.length; k++) if (!usados.has(k) && !extras[k]?.descartada) pos.push({ tipo: "extra", extra: k });
   return pos;
 }
 
@@ -79,7 +88,7 @@ function atividadeParaAluno(p: Posicao | undefined, items: ItemNormal[], extras:
       prompt: "", // a questão já traz o enunciado
       questions: extra.questions.map(questaoParaAluno),
       skillCode: extra.skillCode,
-      isDegrau: true,
+      isDegrau: !extra.evidencia,
     } : null;
   }
   const item = items[p.item];
@@ -141,7 +150,7 @@ export async function POST(req: NextRequest) {
     });
     if (existing && new Date() < existing.expiresAt) {
       const extraItems = (existing.extraItems ?? []) as ExtraItem[];
-      const pos = posicoes(existing.shuffleOrder as number[], extraItems.length);
+      const pos = posicoes(existing.shuffleOrder as number[], extraItems);
       const idx = existing.currentQuestion;
       const atividade = atividadeParaAluno(pos[idx], items, extraItems);
       return NextResponse.json({ sessionId: existing.id, questaoAtual: idx + 1, totalQuestoes: pos.length, atividade, retomada: true, materia: diag.subjectCode ?? null });
@@ -227,7 +236,7 @@ export async function POST(req: NextRequest) {
     const extraItems = (session.extraItems ?? []) as ExtraItem[];
     const qIdx = session.currentQuestion;
     const prevAnswers = (session.answers as Array<Record<string, unknown>>) ?? [];
-    const posAtual = posicoes(shuffleOrder, extraItems.length)[qIdx];
+    const posAtual = posicoes(shuffleOrder, extraItems)[qIdx];
     if (!posAtual) return NextResponse.json({ error: "Item não encontrado" }, { status: 404 });
 
     // Questão normal ou extra (degrau)
@@ -273,19 +282,8 @@ export async function POST(req: NextRequest) {
       activityId = item.activityId;
     }
 
-    const masteryLevel = isCorrect ? "MASTERED" : "NOT_YET";
-
-    // Grava evento de domínio
-    if (skillId) {
-      await recordMasteryEvent({
-        networkId: ctx.networkId,
-        studentId: ctx.studentId,
-        skillId,
-        level: masteryLevel as "MASTERED" | "NOT_YET",
-        source: "DIAGNOSTIC",
-      }).catch((err: Error) => console.error("[diagnostico/sessao] recordMasteryEvent:", err.message));
-    }
-
+    // O nível de cada habilidade é decidido pelo teste sequencial (diagnostico-sequencial.ts)
+    // e gravado uma vez por habilidade, no fim da sessão.
     const newAnswer = {
       qIdx,
       activityId,
@@ -304,89 +302,113 @@ export async function POST(req: NextRequest) {
     };
     const newAnswers = [...prevAnswers, newAnswer];
 
-    // Degrau: questões do pré-requisito entram logo depois desta (ficam só na sessão do aluno)
     const newExtraItems = [...extraItems];
-    const newShuffleOrder = [...shuffleOrder];
+    // Sequência explícita (sessões antigas tinham extras implícitos no fim)
+    let newShuffleOrder = posicoes(shuffleOrder, extraItems).map((p) => (p.tipo === "extra" ? -p.extra - 1 : p.item));
     let degrauAplicado = false;
     let degrauSkillCode: string | null = null;
 
-    const totalAntes = posicoes(shuffleOrder, extraItems.length).length;
-    const descer = !!skillCode && deveDescerDegrau({
-      acertou: isCorrect,
-      temErroComum: !!misconceptionCode,
-      errosNaHabilidade: newAnswers.filter((a) => a.skillCode === skillCode && !a.isCorrect).length,
-      nivelAtual,
-      jaDesceuDestaHabilidade: extraItems.some((e) => e.fromSkillCode === skillCode),
-    });
+    const habilidadeDa = (e: number): string | null => (e >= 0 ? items[e]?.skill.code ?? null : newExtraItems[-e - 1]?.skillCode ?? null);
+    const respostasDe = (code: string) => newAnswers.filter((a) => a.skillCode === code).map((a) => !!a.isCorrect);
+    const extraAtual = posAtual.tipo === "extra" ? extraItems[posAtual.extra] : null;
 
-    if (descer && skillCode && totalAntes < 20) try {
-      const degrauResult = await calcularDegrau({
-        networkId: ctx.networkId,
-        diagnosticId: session.diagnosticId,
-        studentId: ctx.studentId,
-        skillCode,
-        nivel: nivelAtual + 1,
-        currentItemCount: totalAntes,
-        currentMinutes: totalAntes * 2,
-        excluirActivityIds: [...items.map((i) => i.activityId), ...extraItems.map((e) => e.activityId)],
-      });
+    if (skillCode) {
+      const respostas = respostasDe(skillCode);
+      const decisao = decidir(respostas);
+      const antes = newShuffleOrder.slice(0, qIdx + 1);
+      let depois = newShuffleOrder.slice(qIdx + 1);
 
-      const novos: number[] = [];
-      for (const added of degrauResult.added) {
-        const act = await P.eduActivity.findUnique({
-          where: { id: added.activityId },
-          include: { questions: { orderBy: { order: "asc" }, take: 1 } },
-        });
-        if (!act?.questions?.length) {
-          console.error(`[diagnostico/sessao] degrau: atividade ${added.activityId} sem questão (habilidade ${added.skillCode})`);
-          continue;
-        }
-        const prereq = degrauResult.prereqs.find((pr) => pr.skillCode === added.skillCode);
-        newExtraItems.push({
-          activityId: added.activityId,
-          skillCode: added.skillCode,
-          skillId: prereq?.skillId ?? "",
-          degrau: added.degrau,
-          fromSkillCode: skillCode,
-          // Guardado só no servidor: inclui correctIndex e misconceptionCode
-          questions: act.questions.map((q: { id: string; question: string; options: Opcao[]; correctIndex: number; explanation?: string }) => ({
-            id: q.id,
-            question: q.question,
-            options: formatOpcoes(q.options),
-            correctIndex: q.correctIndex,
-            explanation: q.explanation,
-          })),
-        });
-        novos.push(-(newExtraItems.length - 1) - 1);
-      }
-      if (novos.length > 0) {
-        // Sessões antigas guardavam o degrau só no fim; aqui os extras passam a fazer parte da sequência
-        const legados = posicoes(shuffleOrder, extraItems.length).slice(shuffleOrder.length)
-          .map((p) => (p.tipo === "extra" ? -p.extra - 1 : p.item));
-        newShuffleOrder.push(...legados);
-        // Entra logo depois desta questão; se ela é de um degrau, depois das outras do mesmo degrau
-        let inserirEm = qIdx + 1;
-        if (posAtual.tipo === "extra") {
-          const grupo = newExtraItems[posAtual.extra];
-          while (inserirEm < newShuffleOrder.length) {
-            const e = newShuffleOrder[inserirEm];
-            const vizinho = e < 0 ? newExtraItems[-e - 1] : null;
-            if (!vizinho || vizinho.skillCode !== grupo.skillCode || vizinho.fromSkillCode !== grupo.fromSkillCode) break;
-            inserirEm++;
+      if (decisao !== "INDEFINIDO") {
+        // Decidido: as questões que ainda faltavam desta habilidade saem da sessão
+        for (const e of depois) if (e < 0 && habilidadeDa(e) === skillCode) newExtraItems[-e - 1] = { ...newExtraItems[-e - 1], descartada: true };
+        depois = depois.filter((e) => habilidadeDa(e) !== skillCode);
+      } else if (precisaDeMaisQuestoes(respostas)) {
+        // Ainda sem decisão: a próxima questão é desta mesma habilidade
+        const pendente = depois.findIndex((e) => habilidadeDa(e) === skillCode);
+        if (pendente > 0) {
+          const [e] = depois.splice(pendente, 1);
+          depois.unshift(e);
+        } else if (pendente < 0 && antes.length + depois.length < MAX_SESSAO && skillId) {
+          const usadas = questoesUsadas(items, newExtraItems);
+          const q = await questaoDeConfirmacao(ctx.networkId, skillId, usadas, sementeDe(sessionId, qIdx)).catch((err: Error) => {
+            console.error(`[diagnostico/sessao] questão de confirmação (${skillCode}):`, err.message);
+            return null;
+          });
+          if (q) {
+            newExtraItems.push({
+              activityId: q.activityId,
+              skillCode,
+              skillId,
+              degrau: nivelAtual,
+              fromSkillCode: extraAtual?.fromSkillCode,
+              evidencia: true,
+              questions: [q.questao],
+            });
+            depois.unshift(-(newExtraItems.length - 1) - 1);
           }
         }
-        newShuffleOrder.splice(inserirEm, 0, ...novos);
-        degrauAplicado = true;
-        degrauSkillCode = degrauResult.prereqs[0]?.skillCode ?? null;
-      } else {
-        console.error(`[diagnostico/sessao] degrau sem questões para ${skillCode} (diagnóstico ${session.diagnosticId})`);
       }
-    } catch (err) {
-      // A resposta do aluno continua valendo; o degrau desta questão fica de fora
-      console.error(`[diagnostico/sessao] degrau falhou para ${skillCode} (diagnóstico ${session.diagnosticId}, sessão ${sessionId}):`, (err as Error).message);
+      newShuffleOrder = [...antes, ...depois];
+
+      // Não domina: desce um degrau para o pré-requisito, até MAX_DEGRAUS
+      const jaDesceu = newExtraItems.some((e) => !e.evidencia && e.fromSkillCode === skillCode);
+      if (decisao === "NAO_DOMINA" && nivelAtual < MAX_DEGRAUS && !jaDesceu && newShuffleOrder.length < MAX_SESSAO) try {
+        const degrauResult = await calcularDegrau({
+          networkId: ctx.networkId,
+          diagnosticId: session.diagnosticId,
+          studentId: ctx.studentId,
+          skillCode,
+          nivel: nivelAtual + 1,
+          // O tamanho da sessão é controlado aqui (MAX_SESSAO)
+          currentItemCount: 0,
+          currentMinutes: 0,
+          excluirActivityIds: [...items.map((i) => i.activityId), ...newExtraItems.map((e) => e.activityId)],
+        });
+
+        const novos: number[] = [];
+        for (const added of degrauResult.added) {
+          if (newShuffleOrder.length + novos.length >= MAX_SESSAO) break;
+          const act = await P.eduActivity.findUnique({
+            where: { id: added.activityId },
+            include: { questions: { orderBy: { order: "asc" }, take: 1 } },
+          });
+          if (!act?.questions?.length) {
+            console.error(`[diagnostico/sessao] degrau: atividade ${added.activityId} sem questão (habilidade ${added.skillCode})`);
+            continue;
+          }
+          const prereq = degrauResult.prereqs.find((pr) => pr.skillCode === added.skillCode);
+          newExtraItems.push({
+            activityId: added.activityId,
+            skillCode: added.skillCode,
+            skillId: prereq?.skillId ?? "",
+            degrau: added.degrau,
+            fromSkillCode: skillCode,
+            // Guardado só no servidor: inclui correctIndex e misconceptionCode
+            questions: act.questions.map((q: { id: string; question: string; options: Opcao[]; correctIndex: number; explanation?: string }) => ({
+              id: q.id,
+              question: q.question,
+              options: formatOpcoes(q.options),
+              correctIndex: q.correctIndex,
+              explanation: q.explanation,
+            })),
+          });
+          novos.push(-(newExtraItems.length - 1) - 1);
+        }
+        if (novos.length > 0) {
+          // Entra logo depois desta questão
+          newShuffleOrder.splice(qIdx + 1, 0, ...novos);
+          degrauAplicado = true;
+          degrauSkillCode = degrauResult.prereqs[0]?.skillCode ?? null;
+        } else {
+          console.error(`[diagnostico/sessao] degrau sem questões para ${skillCode} (diagnóstico ${session.diagnosticId})`);
+        }
+      } catch (err) {
+        // A resposta do aluno continua valendo; o degrau desta questão fica de fora
+        console.error(`[diagnostico/sessao] degrau falhou para ${skillCode} (diagnóstico ${session.diagnosticId}, sessão ${sessionId}):`, (err as Error).message);
+      }
     }
 
-    const novasPosicoes = posicoes(newShuffleOrder, newExtraItems.length);
+    const novasPosicoes = posicoes(newShuffleOrder, newExtraItems);
     const totalQuestoes = novasPosicoes.length;
     const nextQ = qIdx + 1;
     const isLast = nextQ >= totalQuestoes;
@@ -398,33 +420,42 @@ export async function POST(req: NextRequest) {
         data: { answers: newAnswers, extraItems: newExtraItems, shuffleOrder: newShuffleOrder, completedAt: new Date(), lastActivityAt: new Date() },
       });
 
-      // Calcula habilidades em NOT_YET para atribuição da trilha
-      // Agrupa por skillId: 1 de 2 certas = PARTIAL, 0 de 2 = NOT_YET
-      const skillAnswers: Record<string, { certas: number; total: number; skillId: string }> = {};
+      // Nível de cada habilidade pelo teste sequencial, com todas as respostas dela
+      const skillAnswers: Record<string, { skillId: string; nivel: NivelFinal }> = {};
       for (const a of newAnswers) {
-        if (!a.skillId || !a.skillCode) continue;
-        const key = a.skillCode as string;
-        if (!skillAnswers[key]) skillAnswers[key] = { certas: 0, total: 0, skillId: a.skillId as string };
-        skillAnswers[key].total++;
-        if (a.isCorrect) skillAnswers[key].certas++;
+        if (!a.skillId || !a.skillCode || skillAnswers[a.skillCode as string]) continue;
+        const n = nivelFinal(newAnswers.filter((x) => x.skillCode === a.skillCode).map((x) => !!x.isCorrect));
+        if (n) skillAnswers[a.skillCode as string] = { skillId: a.skillId as string, nivel: n };
+      }
+
+      // Um registro de domínio por habilidade (antes era um por questão)
+      for (const v of Object.values(skillAnswers)) {
+        await recordMasteryEvent({
+          networkId: ctx.networkId,
+          studentId: ctx.studentId,
+          skillId: v.skillId,
+          level: nivelDeDominio(v.nivel),
+          source: "DIAGNOSTIC",
+        }).catch((err: Error) => console.error("[diagnostico/sessao] recordMasteryEvent:", err.message));
       }
 
       // Cadeia do degrau, da mais básica (degrau maior) para a mais avançada,
-      // só com as habilidades em que o aluno errou alguma questão
+      // só com as habilidades que o aluno não domina
+      const degraus = newExtraItems.filter((e) => e.degrau >= 1);
       const porSkillId = Object.fromEntries(Object.values(skillAnswers).map((v) => [v.skillId, v]));
       const degrauSkillIds = Array.from(new Set(
-        [...newExtraItems].sort((a, b) => b.degrau - a.degrau).map((e) => e.skillId).filter(Boolean)
-      )).filter((id) => porSkillId[id] && porSkillId[id].certas < porSkillId[id].total);
-      // Habilidade de partida: a mais básica em NOT_YET na cadeia do degrau
-      const startSkillId = degrauSkillIds.find((id) => porSkillId[id].certas === 0) ?? degrauSkillIds[0] ?? null;
+        [...degraus].sort((a, b) => b.degrau - a.degrau).map((e) => e.skillId).filter(Boolean)
+      )).filter((id) => porSkillId[id] && porSkillId[id].nivel !== "DOMINA");
+      // Habilidade de partida: a mais básica em "ainda não" na cadeia do degrau
+      const startSkillId = degrauSkillIds.find((id) => porSkillId[id].nivel === "AINDA_NAO") ?? degrauSkillIds[0] ?? null;
 
       const notYetSkillIds: string[] = [];
       const dominaSkillIds: string[] = [];
       const quaseLaSkillIds: string[] = [];
 
       for (const [, v] of Object.entries(skillAnswers)) {
-        if (v.certas === 0) notYetSkillIds.push(v.skillId);
-        else if (v.certas < v.total) quaseLaSkillIds.push(v.skillId);
+        if (v.nivel === "AINDA_NAO") notYetSkillIds.push(v.skillId);
+        else if (v.nivel === "QUASE_LA") quaseLaSkillIds.push(v.skillId);
         else dominaSkillIds.push(v.skillId);
       }
 
@@ -478,10 +509,10 @@ export async function POST(req: NextRequest) {
         ids.map((id) => nomes[id]).filter(Boolean).map((h) => ({ ...h, nivel }));
       // Caminho do degrau, do ano do aluno até a base: ex. 6º > 5º > 4º
       const idPorCode: Record<string, string> = Object.fromEntries(Object.entries(skillAnswers).map(([code, v]) => [code, v.skillId]));
-      const raiz = newExtraItems.find((e) => e.degrau === 1)?.fromSkillCode;
+      const raiz = degraus.find((e) => e.degrau === 1 && !e.evidencia)?.fromSkillCode;
       const cadeiaIds = Array.from(new Set([
         ...(raiz && idPorCode[raiz] ? [idPorCode[raiz]] : []),
-        ...newExtraItems.slice().sort((x, y) => x.degrau - y.degrau).map((e) => e.skillId),
+        ...degraus.slice().sort((x, y) => x.degrau - y.degrau).map((e) => e.skillId),
       ].filter(Boolean)));
       const cadeia = cadeiaIds.map((id) => nomes[id]).filter(Boolean);
 
@@ -527,6 +558,48 @@ export async function POST(req: NextRequest) {
   return NextResponse.json({ error: "action inválida (iniciar|responder)" }, { status: 400 });
 }
 
+
+// ── Questões de confirmação do teste sequencial ─────────────────────────────
+
+type QuestaoDaSessao = ExtraItem["questions"][number];
+
+/** Enunciados já usados na sessão, para não repetir questão. */
+function questoesUsadas(items: ItemNormal[], extras: ExtraItem[]): Set<string> {
+  const s = new Set<string>();
+  for (const i of items) for (const q of i.activity.questions) s.add(chaveDaQuestao(q.question));
+  for (const e of extras) for (const q of e.questions) s.add(chaveDaQuestao(q.question));
+  return s;
+}
+
+function sementeDe(sessionId: string, qIdx: number): number {
+  let h = qIdx * 2654435761;
+  for (let i = 0; i < sessionId.length; i++) h = (h * 31 + sessionId.charCodeAt(i)) | 0;
+  return Math.abs(h);
+}
+
+/**
+ * Uma questão nova da mesma habilidade, tirada das atividades publicadas dela
+ * (trilhas SpeakFlow ou da rede). Só questões com 4 alternativas: a regra
+ * considera 25% de chance de acerto no chute.
+ */
+async function questaoDeConfirmacao(networkId: string, skillId: string, usadas: Set<string>, semente: number): Promise<{ activityId: string; questao: QuestaoDaSessao } | null> {
+  const atividades: Array<{ id: string; questions: Array<{ id: string; question: string; options: Opcao[]; correctIndex: number; explanation: string | null }> }> = await P.eduActivity.findMany({
+    where: { OR: [{ networkId }, { networkId: null }], skillIds: { has: skillId }, type: "QUIZ", status: "PUBLISHED" },
+    select: { id: true, questions: { orderBy: { order: "asc" }, select: { id: true, question: true, options: true, correctIndex: true, explanation: true } } },
+    orderBy: { id: "asc" },
+    take: 40,
+  });
+  const banco = atividades.flatMap((a) => a.questions
+    .map((q) => ({ activityId: a.id, question: q.question, q }))
+    .filter(({ q }) => Array.isArray(q.options) && q.options.length === 4 && q.correctIndex >= 0 && q.correctIndex < 4 && !!q.question?.trim()));
+  const escolhida = escolherQuestao(banco, usadas, semente);
+  if (!escolhida) return null;
+  const q = escolhida.q;
+  return {
+    activityId: escolhida.activityId,
+    questao: { id: q.id, question: q.question, options: formatOpcoes(q.options), correctIndex: q.correctIndex, explanation: q.explanation ?? undefined },
+  };
+}
 
 // ── Textos do resultado para o aluno ────────────────────────────────────────
 
