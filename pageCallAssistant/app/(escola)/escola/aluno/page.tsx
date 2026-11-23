@@ -13,6 +13,7 @@ import { RecadoDaFamilia, AgendaDeHoje, AtivarAvisos } from "@/components/escola
 import FlowBoasVindas from "@/components/escola/aluno/FlowBoasVindas";
 import MissoesDoDia from "@/components/escola/aluno/MissoesDoDia";
 import DeverCard from "@/components/escola/aluno/DeverCard";
+import RedacaoCard from "@/components/escola/aluno/RedacaoCard";
 
 interface Subject { id: string; name: string; color: string | null }
 interface Submission { id: string; status: string; evaluatedAt: string | null; masteryLevel: string | null }
@@ -216,6 +217,9 @@ export default function AlunoHomePage() {
 
         {/* Foto do dever da escola */}
         <DeverCard />
+
+        {/* Redação guiada (só aparece quando o professor abriu alguma) */}
+        <RedacaoCard />
 
         {/* Semana */}
         <section className="bg-white rounded-3xl p-4 shadow-[0_8px_24px_rgba(91,33,182,0.12)]">

@@ -53,6 +53,7 @@ export const NAV_BY_ROLE: Record<EduRole, NavItem[]> = {
     { label: "Atividades da turma",    href: "/escola/professor/aulas",      icon: "CalendarDays"  },
     { label: "Abrir aula",             href: "/escola/professor/aula",       icon: "Presentation"  },
     { label: "Atividades",             href: "/escola/professor/atividades", icon: "BookOpen"      },
+    { label: "Redações",               href: "/escola/professor/redacoes",   icon: "FilePen"       },
     { label: "Retornos para revisar",  href: "/escola/professor/retornos",   icon: "MessageSquare" },
     { label: "Avisar as famílias",     href: "/escola/professor/indicar-reforco", icon: "HeartHandshake" },
   ],
