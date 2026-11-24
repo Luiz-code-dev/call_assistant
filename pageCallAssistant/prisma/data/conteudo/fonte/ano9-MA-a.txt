@@ -1,0 +1,667 @@
+// 9º ano — Matemática (parte 1): EF09MA01, EF09MA02, EF09MA03, EF09MA04
+
+#TRILHA EF09MA01 | MA | 9 | Trilha: Segmentos incomensuráveis | Quando a medida não é racional
+FAZ: Reconhece que, fixada uma unidade, existem segmentos cujo comprimento não é expresso por número racional, como a diagonal do quadrado de lado 1.
+ERRO: racional | Acha que toda medida é uma fração
+ERRO: aproximacao | Confunde o valor aproximado (1,41) com o valor exato (√2)
+ERRO: pitagoras | Erra o cálculo da diagonal
+ERRO: calculo | Erra a conta
+NOTA: A diagonal do quadrado de lado 1 mede √2. Nenhuma fração p/q ao quadrado dá exatamente 2. Por isso a diagonal e o lado são incomensuráveis.
+
+@relembrar | Relembrar: a diagonal do quadrado | Quadrado de lado 1: diagonal d, com d² = 1² + 1² = 2. Então d = √2 ≈ 1,414..., um número que não é fração.
+Q: Qual é a medida da diagonal de um quadrado de lado 1?
++ √2
+- 2 | pitagoras
+- 1 | pitagoras
+- 1,4 exatamente | aproximacao
+E: d² = 1 + 1 = 2; d = √2.
+V: Qual é a medida da diagonal de um quadrado de lado 3?
++ 3√2
+- 6
+- 9
+- 4,2 exatamente
+Q: O número √2 pode ser escrito como uma fração de inteiros?
++ Não, √2 é irracional
+- Sim, é 1,41 = 141/100 | aproximacao
+- Sim, é 7/5 | aproximacao
+- Sim, é 2/1 | racional
+E: (141/100)² = 1,9881, não 2. Nenhuma fração ao quadrado dá exatamente 2.
+V: O número √3 pode ser escrito como uma fração de inteiros?
++ Não, √3 é irracional
+- Sim, é 1,73 = 173/100
+- Sim, é 7/4
+- Sim, é 3/1
+Q: Num triângulo equilátero de lado 2, a altura mede √3. Essa medida é racional?
++ Não, √3 é irracional
+- Sim, é 1,7 | aproximacao
+- Sim, é 3/2 | racional
+- Sim, é 1 | calculo
+E: 3 não é quadrado perfeito, então √3 é irracional.
+V: A diagonal de um retângulo de lados 1 e 2 mede √5. Essa medida é racional?
++ Não, √5 é irracional
+- Sim, é 2,2
+- Sim, é 5/2
+- Sim, é 3
+
+@exemplo_guiado | Exemplo guiado: por que não é fração | Se √2 fosse a/b (fração irredutível), teríamos a² = 2b². Então a² é par, e a é par. Escrevendo a = 2c: 4c² = 2b², ou b² = 2c², e b também é par. Mas a fração era irredutível: contradição. Logo √2 não é fração.
+Q: Na prova, por que chegar a "a e b são pares" é uma contradição?
++ Porque a fração a/b foi suposta irredutível, e dois pares têm o fator 2 em comum
+- Porque números pares não existem | racional
+- Porque a² nunca é par | calculo
+- Não há contradição | racional
+E: Uma fração irredutível não pode ter numerador e denominador pares.
+V: Na prova, de "a² = 2b²" conclui-se que:
++ a² é par, então a é par
+- a é ímpar
+- b é ímpar com certeza
+- a = b
+Q: Quais destes números são irracionais?
++ √2 e √7
+- √4 e √9 | racional
+- 1/3 e 0,5 | racional
+- √16 e √25 | racional
+E: 4, 9, 16 e 25 são quadrados perfeitos; 2 e 7 não são.
+V: Quais destes números são irracionais?
++ √3 e √11
+- √36 e √49
+- 2/7 e 0,25
+- √1 e √100
+Q: Um quadrado tem lado 5 cm. A diagonal mede:
++ 5√2 cm, aproximadamente 7,07 cm
+- 10 cm | pitagoras
+- 25 cm | pitagoras
+- 7 cm exatamente | aproximacao
+E: d² = 25 + 25 = 50; d = √50 = 5√2.
+V: Um quadrado tem lado 4 cm. A diagonal mede:
++ 4√2 cm, aproximadamente 5,66 cm
+- 8 cm
+- 16 cm
+- 5,6 cm exatamente
+
+@praticar | Praticar: racional ou irracional | Quadrado perfeito ou não?
+Q: Qual destas medidas é racional?
++ A diagonal de um retângulo de lados 3 e 4
+- A diagonal de um quadrado de lado 1 | racional
+- A diagonal de um retângulo de lados 1 e 2 | racional
+- A altura de um triângulo equilátero de lado 2 | racional
+E: √(9 + 16) = √25 = 5.
+V: Qual destas medidas é racional?
++ A diagonal de um retângulo de lados 6 e 8
+- A diagonal de um quadrado de lado 2
+- A diagonal de um retângulo de lados 2 e 3
+- A altura de um triângulo equilátero de lado 4
+Q: O comprimento de uma circunferência de diâmetro 1 é π. Esse número é:
++ Irracional
+- Racional, igual a 3,14 | aproximacao
+- Racional, igual a 22/7 | aproximacao
+- Inteiro | calculo
+E: π ≈ 3,14159..., infinito e não periódico.
+V: A razão entre o comprimento e o diâmetro de qualquer circunferência é:
++ π, um número irracional
+- 3,14 exatamente
+- 22/7 exatamente
+- 3
+Q: Entre quais inteiros consecutivos está √10?
++ 3 e 4
+- 5 e 6 | calculo
+- 2 e 3 | calculo
+- 10 e 11 | calculo
+E: 3² = 9 e 4² = 16.
+V: Entre quais inteiros consecutivos está √50?
++ 7 e 8
+- 25 e 26
+- 6 e 7
+- 49 e 50
+Q: Qual é o melhor valor aproximado de √2 com duas casas decimais?
++ 1,41
+- 1,50 | aproximacao
+- 1,20 | aproximacao
+- 2,00 | pitagoras
+E: 1,41² = 1,9881 e 1,42² = 2,0164.
+V: Qual é o melhor valor aproximado de √3 com duas casas decimais?
++ 1,73
+- 1,50
+- 1,80
+- 3,00
+
+@aplicar | Aplicar: medidas na prática | O valor exato e o aproximado.
+Q: Um marceneiro precisa de uma ripa na diagonal de uma moldura quadrada de 1 m de lado. Quanto deve medir?
++ √2 m, cerca de 1,41 m
+- 2 m | pitagoras
+- 1 m | pitagoras
+- 1,5 m exatamente | aproximacao
+E: A diagonal do quadrado de lado 1.
+V: Uma ripa vai na diagonal de um portão quadrado de 2 m de lado. Quanto deve medir?
++ 2√2 m, cerca de 2,83 m
+- 4 m
+- 2 m
+- 3 m exatamente
+Q: Num campo retangular de 30 m por 40 m, quanto mede a diagonal?
++ 50 m (um número racional)
+- 70 m | pitagoras
+- √70 m | pitagoras
+- 1.200 m | calculo
+E: √(900 + 1.600) = √2.500 = 50.
+V: Num campo retangular de 60 m por 80 m, quanto mede a diagonal?
++ 100 m
+- 140 m
+- √140 m
+- 4.800 m
+Q: Uma régua só mede até milímetros. Ao medir a diagonal de um quadrado de 10 cm, que valor ela mostrará?
++ Cerca de 14,1 cm, um valor aproximado de 10√2
+- Exatamente 10√2 cm | aproximacao
+- 20 cm | pitagoras
+- 14 cm exatamente | aproximacao
+E: 10√2 ≈ 14,142...; a régua dá uma aproximação.
+V: Ao medir com régua a diagonal de um quadrado de 5 cm, que valor se lê?
++ Cerca de 7,1 cm, um valor aproximado de 5√2
+- Exatamente 5√2 cm
+- 10 cm
+- 7 cm exatamente
+
+@explicar | Explicar: incomensurável | Explique por que a diagonal de um quadrado de lado 1 não pode ser medida exatamente por uma fração dessa unidade.
+C: pitagoras | Mostra que a diagonal mede √2
+C: irracional | Diz que √2 não é fração de inteiros
+C: aproximado | Diz que qualquer medida com régua é só uma aproximação (1,41...)
+BOA: Pelo teorema de Pitágoras, a diagonal d satisfaz d² = 1² + 1² = 2, então d = √2. Não existe fração de inteiros que, elevada ao quadrado, dê exatamente 2, então √2 é irracional. Por isso, usando o lado como unidade, a diagonal não é uma fração exata dele; qualquer medida, como 1,41, é só aproximada.
+
+#TRILHA EF09MA02 | MA | 9 | Trilha: Números irracionais | Decimais infinitos e não periódicos
+FAZ: Reconhece um número irracional como real com representação decimal infinita e não periódica e estima sua localização na reta numérica.
+ERRO: periodica | Acha que dízima periódica é irracional
+ERRO: finita | Acha que um decimal longo, mas finito, é irracional
+ERRO: localizacao | Localiza errado o irracional na reta
+ERRO: calculo | Erra a conta
+NOTA: Racional: decimal finito ou periódico. Irracional: infinito e não periódico (√2, π). Para localizar √5: 2² = 4 e 3² = 9, então fica entre 2 e 3, mais perto de 2.
+
+@relembrar | Relembrar: racional ou irracional | 0,25 (finito): racional. 0,333... (periódico): racional. 1,4142135... (não periódico): irracional.
+Q: Qual destes números é irracional?
++ π
+- 0,3333... | periodica
+- 2,75 | finita
+- 22/7 | periodica
+E: π tem infinitas casas sem período.
+V: Qual destes números é irracional?
++ √7
+- 0,121212...
+- 3,125
+- 5/8
+Q: O número 0,101001000100001... (sempre um zero a mais) é:
++ Irracional, porque é infinito e não periódico
+- Racional, porque tem padrão | periodica
+- Racional, porque só tem 0 e 1 | finita
+- Inteiro | calculo
+E: Tem um padrão, mas não um bloco que se repete igual.
+V: O número 0,123456789101112... (os naturais em sequência) é:
++ Irracional
+- Racional, porque tem padrão
+- Racional, porque só tem algarismos
+- Inteiro
+Q: O número 0,272727... é:
++ Racional, igual a 3/11
+- Irracional, porque é infinito | periodica
+- Inteiro | calculo
+- Irracional, porque tem 2 e 7 | periodica
+E: Dízima periódica é racional: 27/99 = 3/11.
+V: O número 1,0555... é:
++ Racional
+- Irracional, porque é infinito
+- Inteiro
+- Irracional, porque tem muitos 5
+
+@exemplo_guiado | Exemplo guiado: localizando √5 | 2² = 4 e 3² = 9: √5 está entre 2 e 3. 2,2² = 4,84 e 2,3² = 5,29: está entre 2,2 e 2,3. √5 ≈ 2,24.
+Q: Entre quais números está √20?
++ 4 e 5
+- 10 e 11 | localizacao
+- 3 e 4 | localizacao
+- 19 e 21 | localizacao
+E: 4² = 16 e 5² = 25.
+V: Entre quais números está √40?
++ 6 e 7
+- 20 e 21
+- 5 e 6
+- 39 e 41
+Q: √8 está mais perto de qual inteiro?
++ 3
+- 2 | localizacao
+- 4 | localizacao
+- 8 | localizacao
+E: 2² = 4 e 3² = 9; 8 está bem mais perto de 9.
+V: √17 está mais perto de qual inteiro?
++ 4
+- 5
+- 3
+- 17
+Q: Qual é a ordem crescente de 1,5; √2; 1,4?
++ 1,4; √2; 1,5
+- √2; 1,4; 1,5 | localizacao
+- 1,4; 1,5; √2 | localizacao
+- 1,5; √2; 1,4 | localizacao
+E: √2 ≈ 1,414.
+V: Qual é a ordem crescente de 3,2; π; 3,1?
++ 3,1; π; 3,2
+- π; 3,1; 3,2
+- 3,1; 3,2; π
+- 3,2; π; 3,1
+
+@praticar | Praticar: classificando e localizando | Decimal finito, periódico ou nenhum dos dois?
+Q: Qual afirmação é verdadeira?
++ Todo número racional pode ser escrito como decimal finito ou periódico
+- Todo decimal infinito é irracional | periodica
+- √9 é irracional | calculo
+- π = 3,14 exatamente | finita
+E: Racionais nunca têm decimal infinito não periódico.
+V: Qual afirmação é verdadeira?
++ Um número irracional tem decimal infinito e não periódico
+- Todo número com vírgula é irracional
+- √16 é irracional
+- √2 = 1,41 exatamente
+Q: O número 3,14159 (só essas casas) é:
++ Racional, porque é um decimal finito
+- Irracional, porque é igual a π | finita
+- Irracional, porque tem muitas casas | finita
+- Inteiro | calculo
+E: 3,14159 = 314.159/100.000. É só uma aproximação de π.
+V: O número 1,41421 (só essas casas) é:
++ Racional, porque é um decimal finito
+- Irracional, porque é igual a √2
+- Irracional, porque tem muitas casas
+- Inteiro
+Q: Qual número fica entre 2 e 3 na reta?
++ √6
+- √3 | localizacao
+- √10 | localizacao
+- √1 | localizacao
+E: √4 = 2 e √9 = 3; 6 está entre 4 e 9.
+V: Qual número fica entre 5 e 6 na reta?
++ √30
+- √20
+- √40
+- √5
+Q: A soma de um racional com um irracional, como 1 + √2, é:
++ Irracional
+- Racional | periodica
+- Inteira | calculo
+- Igual a 3 | calculo
+E: Se fosse racional, √2 = (1 + √2) − 1 também seria.
+V: O produto 2 × π é:
++ Irracional
+- Racional
+- Inteiro
+- Igual a 6,28 exatamente
+
+@aplicar | Aplicar: irracionais em medidas | Estime e localize.
+Q: Uma piscina circular de raio 1 m tem contorno de 2π m. Qual é a estimativa?
++ Cerca de 6,28 m
+- Exatamente 6 m | finita
+- Cerca de 3,14 m | calculo
+- Cerca de 12,56 m | calculo
+E: 2 × 3,14 = 6,28.
+V: Uma roda de raio 0,5 m tem contorno de π m. Qual é a estimativa?
++ Cerca de 3,14 m
+- Exatamente 3 m
+- Cerca de 1,57 m
+- Cerca de 6,28 m
+Q: Um terreno quadrado tem área 50 m². O lado mede √50 m. Qual é a melhor estimativa?
++ Cerca de 7,07 m
+- 25 m | calculo
+- 7 m exatamente | finita
+- 5 m | localizacao
+E: 7² = 49 e 7,1² = 50,41.
+V: Um quadrado tem área 20 m². O lado mede √20 m. Qual é a melhor estimativa?
++ Cerca de 4,47 m
+- 10 m
+- 4 m exatamente
+- 5 m
+Q: Uma calculadora mostra √2 = 1,414213562. Esse valor é:
++ Uma aproximação, porque √2 tem infinitas casas
+- O valor exato de √2 | finita
+- Um erro da calculadora | calculo
+- Um número periódico | periodica
+E: A tela tem um número limitado de casas.
+V: Uma calculadora mostra π = 3,141592654. Esse valor é:
++ Uma aproximação, porque π tem infinitas casas
+- O valor exato de π
+- Um erro da calculadora
+- Um número periódico
+
+@explicar | Explicar: racional ou irracional | Explique a diferença entre os números 0,333... e 0,1010010001... quanto a serem racionais ou irracionais.
+C: periodico | Diz que 0,333... é periódico e igual a 1/3, então é racional
+C: nao-periodico | Diz que 0,1010010001... não tem bloco que se repete igual, então é irracional
+C: criterio | Explica o critério: decimal infinito periódico é racional; infinito não periódico é irracional
+BOA: O número 0,333... repete sempre o mesmo algarismo 3; é uma dízima periódica e vale 1/3, então é racional. Já 0,1010010001... tem um padrão, mas cada vez aparece um zero a mais, então não existe um bloco que se repete igual. Ele é infinito e não periódico, por isso é irracional.
+
+#TRILHA EF09MA03 | MA | 9 | Trilha: Cálculos com reais | Potências com expoente fracionário
+FAZ: Efetua cálculos com números reais, inclusive potências com expoentes fracionários e operações com radicais.
+ERRO: soma-radicais | Soma radicandos diferentes (√2 + √3 = √5)
+ERRO: expoente | Erra as propriedades das potências
+ERRO: simplifica | Erra ao simplificar radicais
+ERRO: calculo | Erra a conta
+NOTA: √a × √b = √(ab). √2 + √3 não é √5. Simplificar: √12 = √(4 × 3) = 2√3. Expoente fracionário: a^(m/n) = (raiz n de a)^m.
+
+@relembrar | Relembrar: propriedades | aᵐ × aⁿ = a^(m+n). aᵐ ÷ aⁿ = a^(m−n). √a × √b = √(ab). a^(1/2) = √a.
+Q: Quanto é √3 × √12?
++ 6
+- √15 | soma-radicais
+- 36 | calculo
+- 4 | calculo
+E: √36 = 6.
+V: Quanto é √2 × √8?
++ 4
+- √10
+- 16
+- 2
+Q: Qual é a forma simplificada de √18?
++ 3√2
+- 9√2 | simplifica
+- 2√3 | simplifica
+- 6√3 | simplifica
+E: √(9 × 2) = 3√2.
+V: Qual é a forma simplificada de √50?
++ 5√2
+- 25√2
+- 2√5
+- 10√5
+Q: Quanto é 2^(1/2) × 2^(1/2)?
++ 2
+- 2^(1/4) | expoente
+- 4 | expoente
+- 1 | calculo
+E: 2^(1/2 + 1/2) = 2^1 = 2.
+V: Quanto é 5^(1/3) × 5^(1/3) × 5^(1/3)?
++ 5
+- 5^(1/27)
+- 125
+- 1
+
+@exemplo_guiado | Exemplo guiado: somando radicais | √8 + √18 = 2√2 + 3√2 = 5√2. Só somamos radicais com o mesmo radicando, depois de simplificar.
+Q: Quanto é √12 + √27?
++ 5√3
+- √39 | soma-radicais
+- 13√3 | simplifica
+- 5√6 | simplifica
+E: 2√3 + 3√3 = 5√3.
+V: Quanto é √20 + √45?
++ 5√5
+- √65
+- 13√5
+- 5√10
+Q: Quanto é 3√2 + 4√2?
++ 7√2
+- 7√4 | soma-radicais
+- 12√2 | calculo
+- 14 | calculo
+E: Mesmo radicando: soma os coeficientes.
+V: Quanto é 6√3 − 2√3?
++ 4√3
+- 4√0
+- 4
+- 12√3
+Q: Quanto é 16^(3/4)?
++ 8
+- 12 | expoente
+- 4 | expoente
+- 64 | expoente
+E: Raiz quarta de 16 = 2; 2³ = 8.
+V: Quanto é 32^(2/5)?
++ 4
+- 12,8
+- 2
+- 1.024
+
+@praticar | Praticar: operando com radicais e potências | Simplifique primeiro.
+Q: Quanto é √50 − √8?
++ 3√2
+- √42 | soma-radicais
+- 7√2 | calculo
+- 5√2 | simplifica
+E: 5√2 − 2√2 = 3√2.
+V: Quanto é √75 − √12?
++ 3√3
+- √63
+- 7√3
+- 5√3
+Q: Quanto é (√5)²?
++ 5
+- 25 | expoente
+- 10 | calculo
+- √10 | expoente
+E: Elevar a raiz quadrada ao quadrado devolve o número.
+V: Quanto é (2√3)²?
++ 12
+- 6
+- 36
+- 4√3
+Q: Quanto é 8^(−1/3)?
++ 1/2
+- −2 | expoente
+- 2 | expoente
+- −8/3 | expoente
+E: 8^(1/3) = 2; expoente negativo inverte: 1/2.
+V: Quanto é 9^(−1/2)?
++ 1/3
+- −3
+- 3
+- −9/2
+Q: Racionalizando, 6/√3 é igual a:
++ 2√3
+- 6√3 | simplifica
+- √3 | calculo
+- 3√2 | simplifica
+E: 6√3 ÷ 3 = 2√3.
+V: Racionalizando, 10/√5 é igual a:
++ 2√5
+- 10√5
+- √5
+- 5√2
+
+@aplicar | Aplicar: radicais em medidas | Simplifique e calcule.
+Q: Um quadrado tem área 72 cm². Quanto mede o lado, na forma simplificada?
++ 6√2 cm
+- 36 cm | calculo
+- 8√3 cm | simplifica
+- 12√2 cm | simplifica
+E: √72 = √(36 × 2) = 6√2.
+V: Um quadrado tem área 48 cm². Quanto mede o lado, na forma simplificada?
++ 4√3 cm
+- 24 cm
+- 3√4 cm
+- 16√3 cm
+Q: Dois lados de um triângulo medem √8 cm e √32 cm. Qual é a soma desses lados?
++ 6√2 cm
+- √40 cm | soma-radicais
+- 2√10 cm | soma-radicais
+- 8√2 cm | calculo
+E: 2√2 + 4√2 = 6√2.
+V: Dois segmentos medem √27 cm e √12 cm. Qual é a soma?
++ 5√3 cm
+- √39 cm
+- 6√3 cm
+- 13√3 cm
+Q: Um cubo tem volume de 64 cm³. Qual é a aresta, usando expoente fracionário?
++ 64^(1/3) = 4 cm
+- 64^(1/2) = 8 cm | expoente
+- 64/3 ≈ 21,3 cm | expoente
+- 64^3 cm | expoente
+E: Raiz cúbica de 64.
+V: Um cubo tem volume de 216 cm³. Qual é a aresta?
++ 216^(1/3) = 6 cm
+- 216^(1/2) ≈ 14,7 cm
+- 216/3 = 72 cm
+- 216^3 cm
+
+@explicar | Explicar: soma de radicais | Explique por que √2 + √8 = 3√2, e não √10.
+C: simplifica | Simplifica √8 = 2√2
+C: soma | Soma radicais semelhantes: √2 + 2√2 = 3√2
+C: erro | Mostra que √2 + √8 ≠ √10 (por exemplo, com aproximações: 1,41 + 2,83 = 4,24 e √10 ≈ 3,16)
+BOA: Primeiro simplifico: √8 = √(4 × 2) = 2√2. Agora os dois têm o mesmo radicando: √2 + 2√2 = 3√2. Não posso somar os números de dentro da raiz: √2 + √8 ≈ 1,41 + 2,83 = 4,24, enquanto √10 ≈ 3,16. Por isso o resultado é 3√2.
+
+#TRILHA EF09MA04 | MA | 9 | Trilha: Notação científica | Números muito grandes e muito pequenos
+FAZ: Resolve e elabora problemas com números reais, inclusive em notação científica, envolvendo diferentes operações.
+ERRO: expoente-sinal | Erra o sinal do expoente (pequenos têm expoente negativo)
+ERRO: coeficiente | Deixa o coeficiente fora do intervalo de 1 a menos de 10
+ERRO: operacao | Erra as propriedades das potências nas operações
+ERRO: calculo | Erra a conta
+NOTA: Notação científica: a × 10ⁿ com 1 ≤ a < 10. Multiplicando, multiplica os coeficientes e soma os expoentes. Dividindo, divide os coeficientes e subtrai os expoentes.
+
+@relembrar | Relembrar: escrevendo | 3.400.000 = 3,4 × 10⁶. 0,00052 = 5,2 × 10⁻⁴.
+Q: Como se escreve 45.000.000 em notação científica?
++ 4,5 × 10⁷
+- 45 × 10⁶ | coeficiente
+- 4,5 × 10⁶ | calculo
+- 4,5 × 10⁻⁷ | expoente-sinal
+E: A vírgula anda 7 casas para a esquerda.
+V: Como se escreve 280.000 em notação científica?
++ 2,8 × 10⁵
+- 28 × 10⁴
+- 2,8 × 10⁴
+- 2,8 × 10⁻⁵
+Q: Como se escreve 0,0007 em notação científica?
++ 7 × 10⁻⁴
+- 7 × 10⁴ | expoente-sinal
+- 0,7 × 10⁻³ | coeficiente
+- 7 × 10⁻³ | calculo
+E: A vírgula anda 4 casas para a direita.
+V: Como se escreve 0,000035 em notação científica?
++ 3,5 × 10⁻⁵
+- 3,5 × 10⁵
+- 35 × 10⁻⁶
+- 3,5 × 10⁻⁴
+Q: Qual número é 6,02 × 10³?
++ 6.020
+- 602 | calculo
+- 60.200 | calculo
+- 0,00602 | expoente-sinal
+E: A vírgula anda 3 casas para a direita.
+V: Qual número é 1,5 × 10⁻²?
++ 0,015
+- 150
+- 0,15
+- 0,0015
+
+@exemplo_guiado | Exemplo guiado: operando | (3 × 10⁵) × (2 × 10⁴) = 6 × 10⁹. (8 × 10⁶) ÷ (2 × 10²) = 4 × 10⁴. (5 × 10³) × (4 × 10²) = 20 × 10⁵ = 2 × 10⁶.
+Q: Quanto é (2 × 10³) × (4 × 10⁵)?
++ 8 × 10⁸
+- 8 × 10¹⁵ | operacao
+- 6 × 10⁸ | calculo
+- 8 × 10² | operacao
+E: 2 × 4 = 8; 10^(3+5) = 10⁸.
+V: Quanto é (3 × 10²) × (3 × 10⁶)?
++ 9 × 10⁸
+- 9 × 10¹²
+- 6 × 10⁸
+- 9 × 10⁴
+Q: Quanto é (9 × 10⁸) ÷ (3 × 10²)?
++ 3 × 10⁶
+- 3 × 10⁴ | operacao
+- 6 × 10⁶ | calculo
+- 3 × 10¹⁰ | operacao
+E: 9 ÷ 3 = 3; 10^(8−2) = 10⁶.
+V: Quanto é (8 × 10⁹) ÷ (4 × 10³)?
++ 2 × 10⁶
+- 2 × 10³
+- 4 × 10⁶
+- 2 × 10¹²
+Q: Quanto é (6 × 10⁴) × (5 × 10³), em notação científica?
++ 3 × 10⁸
+- 30 × 10⁷ | coeficiente
+- 3 × 10⁷ | calculo
+- 11 × 10⁷ | operacao
+E: 6 × 5 = 30 = 3 × 10¹; 10¹ × 10⁷ = 10⁸.
+V: Quanto é (5 × 10²) × (8 × 10⁴), em notação científica?
++ 4 × 10⁷
+- 40 × 10⁶
+- 4 × 10⁶
+- 13 × 10⁶
+
+@praticar | Praticar: comparando e calculando | Olhe primeiro o expoente.
+Q: Qual é maior: 3 × 10⁻⁵ ou 2 × 10⁻⁴?
++ 2 × 10⁻⁴
+- 3 × 10⁻⁵ | expoente-sinal
+- São iguais | calculo
+- Não dá para comparar | operacao
+E: 2 × 10⁻⁴ = 0,0002 e 3 × 10⁻⁵ = 0,00003.
+V: Qual é maior: 7 × 10⁻⁸ ou 1 × 10⁻⁷?
++ 1 × 10⁻⁷
+- 7 × 10⁻⁸
+- São iguais
+- Não dá para comparar
+Q: Quanto é (2 × 10⁻³) × (3 × 10⁵)?
++ 6 × 10²
+- 6 × 10⁻¹⁵ | operacao
+- 6 × 10⁸ | expoente-sinal
+- 5 × 10² | calculo
+E: 10^(−3+5) = 10².
+V: Quanto é (4 × 10⁻⁶) × (2 × 10⁴)?
++ 8 × 10⁻²
+- 8 × 10⁻²⁴
+- 8 × 10¹⁰
+- 6 × 10⁻²
+Q: Quanto é (1,2 × 10⁶) + (3 × 10⁵)?
++ 1,5 × 10⁶
+- 4,2 × 10¹¹ | operacao
+- 4,2 × 10⁶ | operacao
+- 1,5 × 10⁵ | calculo
+E: 1.200.000 + 300.000 = 1.500.000.
+V: Quanto é (2,5 × 10⁴) + (5 × 10³)?
++ 3 × 10⁴
+- 7,5 × 10⁷
+- 7,5 × 10⁴
+- 3 × 10³
+Q: A massa de um grão de areia é cerca de 0,00067 g. Em notação científica:
++ 6,7 × 10⁻⁴ g
+- 6,7 × 10⁴ g | expoente-sinal
+- 67 × 10⁻⁵ g | coeficiente
+- 6,7 × 10⁻³ g | calculo
+E: A vírgula anda 4 casas.
+V: O diâmetro de um fio de cabelo é cerca de 0,00008 m. Em notação científica:
++ 8 × 10⁻⁵ m
+- 8 × 10⁵ m
+- 80 × 10⁻⁶ m
+- 8 × 10⁻⁴ m
+
+@aplicar | Aplicar: ciência em números | Opere com potências de 10.
+Q: A luz percorre cerca de 3 × 10⁵ km por segundo. Quanto percorre em 500 segundos?
++ 1,5 × 10⁸ km
+- 1,5 × 10⁷ km | calculo
+- 3,5 × 10⁷ km | operacao
+- 15 × 10⁷ km | coeficiente
+E: 3 × 10⁵ × 5 × 10² = 15 × 10⁷ = 1,5 × 10⁸.
+V: Quanto a luz percorre (3 × 10⁵ km/s) em 60 segundos?
++ 1,8 × 10⁷ km
+- 1,8 × 10⁶ km
+- 3,6 × 10⁶ km
+- 18 × 10⁶ km
+Q: A população mundial é cerca de 8 × 10⁹ e a do Brasil, 2 × 10⁸. Quantas vezes a mundial é maior?
++ 40 vezes
+- 4 vezes | operacao
+- 400 vezes | operacao
+- 6 vezes | calculo
+E: (8 ÷ 2) × 10^(9−8) = 4 × 10 = 40.
+V: Um país tem 5 × 10⁷ habitantes e uma cidade dele tem 1 × 10⁶. Quantas vezes o país é maior?
++ 50 vezes
+- 5 vezes
+- 500 vezes
+- 4 vezes
+Q: Uma bactéria mede 2 × 10⁻⁶ m. Quantas bactérias enfileiradas formam 1 cm (10⁻² m)?
++ 5.000
+- 500 | operacao
+- 50.000 | operacao
+- 2 × 10⁻⁸ | operacao
+E: 10⁻² ÷ (2 × 10⁻⁶) = 0,5 × 10⁴ = 5.000.
+V: Um vírus mede 1 × 10⁻⁷ m. Quantos vírus enfileirados formam 1 mm (10⁻³ m)?
++ 10.000
+- 1.000
+- 100.000
+- 10⁻¹⁰
+
+@explicar | Explicar: multiplicando em notação científica | Explique como calcular (4 × 10⁶) × (5 × 10⁻²) e deixar o resultado em notação científica.
+C: coeficientes | Multiplica os coeficientes: 4 × 5 = 20
+C: expoentes | Soma os expoentes: 6 + (−2) = 4
+C: ajusta | Ajusta: 20 × 10⁴ = 2 × 10⁵
+BOA: Multiplico os coeficientes: 4 × 5 = 20. Multiplico as potências de 10 somando os expoentes: 10⁶ × 10⁻² = 10⁴. Fica 20 × 10⁴. Como o coeficiente precisa estar entre 1 e 10, escrevo 20 = 2 × 10¹, e o resultado é 2 × 10⁵.
+
+#PRE EF09MA01 > EF08MA05 | 2
+#PRE EF09MA02 > EF09MA01 | 3
+#PRE EF09MA03 > EF08MA02 | 3
+#PRE EF09MA03 > EF09MA02 | 2
+#PRE EF09MA04 > EF08MA01 | 3

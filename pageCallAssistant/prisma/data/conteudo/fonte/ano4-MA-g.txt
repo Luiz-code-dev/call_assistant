@@ -1,0 +1,501 @@
+// 4º ano — Matemática (parte 7): EF04MA26, EF04MA27, EF04MA28
+
+#TRILHA EF04MA26 | MA | 4 | Trilha: Eventos mais prováveis | Qual tem mais chance?
+FAZ: Identifica, entre eventos aleatórios do cotidiano, os que têm maior chance de acontecer, reconhecendo características dos resultados mais prováveis, sem usar frações.
+ERRO: quantidade-chance | Não relaciona a quantidade de casos com a chance
+ERRO: ultimo-resultado | Acha que o resultado anterior muda a chance do próximo
+ERRO: certo-provavel | Confunde muito provável com certo
+ERRO: preferencia | Escolhe pela preferência, não pela chance
+NOTA: Faça experimentos: lance dois dados e some, tire bolinhas de saquinhos com quantidades diferentes, registre os resultados.
+
+@relembrar | Relembrar: mais casos, mais chance | Quanto mais formas um resultado tem de acontecer, maior a chance dele.
+Q: Num saquinho há 7 bolinhas vermelhas e 3 azuis. Tirando uma sem olhar, o que é mais provável?
++ Sair vermelha
+- Sair azul | quantidade-chance
+- Têm a mesma chance | quantidade-chance
+- Sair verde | certo-provavel
+E: Há mais vermelhas.
+V: Numa caixa há 2 fichas pretas e 8 brancas. O que é mais provável?
++ Sair branca
+- Sair preta
+- Têm a mesma chance
+- Sair verde
+Q: Uma moeda deu cara 4 vezes seguidas. Na próxima jogada:
++ Cara e coroa continuam com a mesma chance
+- Coroa tem mais chance | ultimo-resultado
+- Cara tem mais chance | ultimo-resultado
+- Vai dar coroa com certeza | certo-provavel
+E: A moeda não "lembra" o que saiu antes.
+V: Um dado deu 6 três vezes seguidas. Na próxima jogada, o 6:
++ Tem a mesma chance que os outros números
+- Tem menos chance
+- Tem mais chance
+- Não pode sair
+Q: Num saquinho com 9 bolinhas verdes e 1 amarela, sair verde é:
++ Muito provável, mas não certo
+- Certo | certo-provavel
+- Impossível | certo-provavel
+- Pouco provável | quantidade-chance
+E: A amarela também pode sair.
+V: Numa caixa com 19 lápis azuis e 1 vermelho, pegar azul é:
++ Muito provável, mas não certo
+- Certo
+- Impossível
+- Pouco provável
+
+@exemplo_guiado | Exemplo guiado: somando dois dados | Ao lançar dois dados e somar, a soma 7 pode sair de 6 jeitos (1+6, 2+5, 3+4, 4+3, 5+2, 6+1). A soma 2 só sai de 1 jeito (1+1). Por isso 7 é mais provável.
+Q: Lançando dois dados, qual soma é mais provável?
++ 7
+- 2 | quantidade-chance
+- 12 | quantidade-chance
+- Todas têm a mesma chance | quantidade-chance
+E: 7 tem mais formas de sair.
+V: Lançando dois dados, qual soma é menos provável?
++ 12
+- 7
+- 6
+- 8
+Q: Lançando um dado, o que é mais provável: sair número maior que 2 ou sair o 1?
++ Sair número maior que 2
+- Sair o 1 | quantidade-chance
+- A mesma chance | quantidade-chance
+- Nenhum dos dois | certo-provavel
+E: Maior que 2: 3, 4, 5, 6 (quatro casos). O 1 é só um caso.
+V: Lançando um dado, o que é mais provável: sair número ímpar ou sair o 4?
++ Sair número ímpar
+- Sair o 4
+- A mesma chance
+- Nenhum dos dois
+Q: Uma roleta tem 8 partes iguais: 5 azuis, 2 verdes e 1 amarela. Qual cor tem menos chance?
++ Amarela
+- Azul | quantidade-chance
+- Verde | quantidade-chance
+- Todas iguais | quantidade-chance
+E: Amarela tem só 1 parte.
+V: Uma roleta tem 10 partes iguais: 6 laranja, 3 roxas e 1 branca. Qual cor tem mais chance?
++ Laranja
+- Roxa
+- Branca
+- Todas iguais
+
+@praticar | Praticar: comparando chances | Conte os casos de cada resultado.
+Q: Joana gosta de azul. Num saquinho há 2 azuis e 8 rosas. Qual cor tem mais chance de sair?
++ Rosa
+- Azul, porque Joana gosta | preferencia
+- As duas iguais | quantidade-chance
+- Nenhuma | certo-provavel
+E: A chance depende das quantidades, não do gosto.
+V: Pedro torce para sair o 6 no dado. A chance do 6 é:
++ A mesma de qualquer outro número
+- Maior, porque ele torce
+- Menor, porque ele quer muito
+- Certa
+Q: Num sorteio entre 30 alunos, 18 são meninas. O mais provável é sortear:
++ Uma menina
+- Um menino | quantidade-chance
+- Têm a mesma chance | quantidade-chance
+- Um professor | certo-provavel
+E: Há mais meninas (18) que meninos (12).
+V: Num sorteio entre 25 nomes, 15 são de crianças do 4º ano e 10 do 5º. O mais provável é sortear:
++ Uma criança do 4º ano
+- Uma criança do 5º ano
+- Têm a mesma chance
+- Um professor
+Q: Qual evento é impossível?
++ Tirar 8 num dado comum
+- Tirar 6 num dado comum | certo-provavel
+- Chover amanhã | certo-provavel
+- Tirar cara numa moeda | certo-provavel
+E: O dado comum só tem de 1 a 6.
+V: Qual evento é certo?
++ Tirar um número menor que 7 num dado comum
+- Tirar 6 num dado
+- Chover amanhã
+- Tirar cara numa moeda
+Q: Uma caixa tem 5 bombons de chocolate e 5 de morango. Tiram 1 de chocolate e comem. Agora, o mais provável é sair:
++ Morango
+- Chocolate | ultimo-resultado
+- A mesma chance | quantidade-chance
+- Nenhum | certo-provavel
+E: Ficaram 4 de chocolate e 5 de morango.
+V: Um saquinho tem 6 bolinhas azuis e 6 vermelhas. Tiram 2 vermelhas e não devolvem. Agora, o mais provável é sair:
++ Azul
+- Vermelha
+- A mesma chance
+- Nenhuma
+
+@aplicar | Aplicar: chances no dia a dia | Pense nos casos possíveis.
+Q: Na rifa da festa, Ana comprou 10 números de 100. Beto comprou 3. Quem tem mais chance de ganhar?
++ Ana
+- Beto | quantidade-chance
+- Os dois iguais | quantidade-chance
+- Ninguém pode ganhar | certo-provavel
+E: Ana tem mais números no sorteio.
+V: No bingo, Lia tem 2 cartelas e Rui tem 5. Quem tem mais chance de ganhar?
++ Rui
+- Lia
+- Os dois iguais
+- Ninguém
+Q: Numa cidade choveu em 25 dos 30 dias de abril. Para um dia de abril do ano que vem, é mais provável:
++ Chover
+- Não chover | quantidade-chance
+- Nevar | certo-provavel
+- Chover com certeza | certo-provavel
+E: A chuva foi bem mais frequente, mas não é certa.
+V: Numa escola, 20 dos 24 dias do mês teve suco de laranja no lanche. Num dia qualquer do mês, é mais provável:
++ Ter suco de laranja
+- Não ter suco de laranja
+- Ter refrigerante
+- Ter suco de laranja com certeza
+Q: Num jogo, ganha quem tirar par no dado. Outro jogo: ganha quem tirar 6. Em qual jogo é mais fácil ganhar?
++ No jogo do par
+- No jogo do 6 | quantidade-chance
+- Iguais | quantidade-chance
+- Nenhum | certo-provavel
+E: Par: 2, 4 ou 6 (três casos). Seis: só um caso.
+V: Num jogo, ganha quem tirar número menor que 5. Noutro, quem tirar 1. Em qual é mais fácil ganhar?
++ No do menor que 5
+- No do 1
+- Iguais
+- Nenhum
+
+@explicar | Explicar: soma de dois dados | Explique por que, ao lançar dois dados, a soma 7 tem mais chance de sair que a soma 2.
+C: casos-7 | Mostra que 7 pode sair de vários jeitos (1+6, 2+5, 3+4...)
+C: casos-2 | Mostra que 2 só sai de um jeito (1+1)
+C: conclusao | Conclui que mais jeitos de sair significa mais chance
+BOA: A soma 7 pode sair de 6 jeitos: 1+6, 2+5, 3+4, 4+3, 5+2 e 6+1. A soma 2 só sai de um jeito: 1+1. Como o 7 tem muito mais jeitos de acontecer, ele tem mais chance.
+
+#TRILHA EF04MA27 | MA | 4 | Trilha: Analisando tabelas e gráficos | O que os dados contam
+FAZ: Analisa dados em tabelas simples ou de dupla entrada e em gráficos de colunas ou pictóricos de diferentes áreas, e escreve uma síntese da análise.
+ERRO: legenda-pictorico | Esquece que cada figura do pictórico vale mais de uma unidade
+ERRO: linha-coluna | Lê o valor na linha ou na coluna errada
+ERRO: conclusao | Tira conclusão que os dados não mostram
+ERRO: calculo | Erra a conta ao comparar ou somar
+NOTA: Leia gráficos de jornais e livros de Ciências e Geografia. Peça uma frase-resumo do gráfico ("O gráfico mostra que...").
+
+@relembrar | Relembrar: gráfico pictórico | No pictórico, cada figura vale um número dito na legenda. Se cada livro desenhado vale 5 livros, 3 desenhos são 15 livros.
+Q: Num pictórico, cada carinha vale 10 alunos. Há 4 carinhas. Quantos alunos são?
++ 40
+- 4 | legenda-pictorico
+- 14 | legenda-pictorico
+- 10 | legenda-pictorico
+E: 4 × 10 = 40.
+V: Num pictórico, cada árvore vale 5 árvores plantadas. Há 6 desenhos. Quantas árvores foram plantadas?
++ 30
+- 6
+- 11
+- 5
+Q: Num pictórico, cada bola vale 2 bolas. Há 3 bolas inteiras e meia bola. Quantas bolas são?
++ 7
+- 3 | legenda-pictorico
+- 4 | legenda-pictorico
+- 8 | calculo
+E: 3 × 2 = 6, e meia figura vale 1. Total: 7.
+V: Num pictórico, cada copo vale 4 copos. Há 2 copos inteiros e meio copo. Quantos copos são?
++ 10
+- 2
+- 3
+- 12
+Q: Uma tabela de dupla entrada mostra "Leitura por turma": 4º A: meninos 12, meninas 15. 4º B: meninos 10, meninas 13. Quantas meninas do 4º B leem?
++ 13
+- 10 | linha-coluna
+- 15 | linha-coluna
+- 23 | calculo
+E: Linha do 4º B, coluna das meninas: 13.
+V: Na mesma tabela, quantos meninos do 4º A leem?
++ 12
+- 15
+- 10
+- 27
+
+@exemplo_guiado | Exemplo guiado: escrevendo a síntese | Gráfico "Vacinas aplicadas no posto": janeiro 120, fevereiro 150, março 200. Síntese: "A vacinação aumentou a cada mês; em março foram aplicadas 80 vacinas a mais que em janeiro."
+Q: No gráfico das vacinas, quantas vacinas foram aplicadas nos três meses?
++ 470
+- 200 | calculo
+- 350 | calculo
+- 370 | calculo
+E: 120 + 150 + 200 = 470.
+V: No gráfico das vacinas, quantas foram aplicadas em janeiro e fevereiro juntos?
++ 270
+- 150
+- 320
+- 30
+Q: Qual frase resume bem o gráfico das vacinas?
++ A vacinação aumentou de janeiro a março
+- A vacinação diminuiu | conclusao
+- Todos da cidade se vacinaram | conclusao
+- As vacinas acabaram em março | conclusao
+E: Os números sobem mês a mês.
+V: Qual frase NÃO pode ser concluída do gráfico das vacinas?
++ Toda a cidade já se vacinou
+- Março teve mais vacinas que fevereiro
+- Fevereiro teve mais que janeiro
+- Houve aumento de janeiro para março
+Q: Quantas vacinas a mais foram aplicadas em março do que em fevereiro?
++ 50
+- 350 | calculo
+- 80 | linha-coluna
+- 200 | linha-coluna
+E: 200 − 150 = 50.
+V: Quantas vacinas a mais em fevereiro do que em janeiro?
++ 30
+- 270
+- 50
+- 150
+
+@praticar | Praticar: analisando | Tabela "Lixo reciclado na escola (kg)": papel 45, plástico 30, metal 12, vidro 18.
+Q: Qual material foi mais reciclado?
++ Papel
+- Plástico | linha-coluna
+- Vidro | linha-coluna
+- Metal | linha-coluna
+E: Papel: 45 kg.
+V: Qual material foi menos reciclado?
++ Metal
+- Papel
+- Plástico
+- Vidro
+Q: Quantos quilos foram reciclados ao todo?
++ 105 kg
+- 45 kg | calculo
+- 95 kg | calculo
+- 4 kg | linha-coluna
+E: 45 + 30 + 12 + 18 = 105.
+V: Quantos quilos de plástico e vidro juntos?
++ 48 kg
+- 30 kg
+- 42 kg
+- 18 kg
+Q: Quantos quilos de papel a mais que de plástico?
++ 15 kg
+- 75 kg | calculo
+- 30 kg | linha-coluna
+- 45 kg | linha-coluna
+E: 45 − 30 = 15.
+V: Quantos quilos de vidro a mais que de metal?
++ 6 kg
+- 30 kg
+- 12 kg
+- 18 kg
+Q: Qual afirmação os dados permitem?
++ A escola reciclou mais papel que vidro
+- A escola não usa metal | conclusao
+- O vidro é o material mais perigoso | conclusao
+- No ano que vem vão reciclar mais | conclusao
+E: Os dados mostram as quantidades recicladas.
+V: Qual afirmação NÃO pode ser feita com os dados?
++ O plástico é mais poluente que o papel
+- Reciclaram mais plástico que metal
+- Papel foi o mais reciclado
+- Metal foi o menos reciclado
+
+@aplicar | Aplicar: dados de outras matérias | Pictórico "Árvores plantadas pelos alunos" (cada árvore desenhada = 10 árvores): 4º A 5 desenhos, 4º B 3 desenhos e meio, 4º C 4 desenhos.
+Q: Quantas árvores o 4º A plantou?
++ 50
+- 5 | legenda-pictorico
+- 15 | legenda-pictorico
+- 10 | legenda-pictorico
+E: 5 × 10 = 50.
+V: Quantas árvores o 4º C plantou?
++ 40
+- 4
+- 14
+- 10
+Q: Quantas árvores o 4º B plantou?
++ 35
+- 3 | legenda-pictorico
+- 30 | legenda-pictorico
+- 4 | legenda-pictorico
+E: 3 × 10 = 30; meia árvore = 5. Total: 35.
+V: Se o 4º D tivesse 2 desenhos e meio, quantas árvores teria plantado?
++ 25
+- 2
+- 20
+- 3
+Q: Quantas árvores as três turmas plantaram juntas?
++ 125
+- 12 | legenda-pictorico
+- 120 | calculo
+- 115 | calculo
+E: 50 + 35 + 40 = 125.
+V: Quantas árvores o 4º A plantou a mais que o 4º B?
++ 15
+- 85
+- 2
+- 20
+
+@explicar | Explicar: resumo do gráfico | Num gráfico de colunas "Frutas vendidas na cantina": banana 40, maçã 25, laranja 35. Escreva uma síntese com pelo menos duas informações e uma comparação com conta.
+C: maior | Diz qual foi a mais vendida
+C: comparacao | Faz uma comparação com conta (por exemplo, 40 − 25 = 15)
+C: limite | Não inventa informação que o gráfico não traz
+BOA: O gráfico mostra que a banana foi a fruta mais vendida, com 40 unidades, e a maçã foi a menos vendida, com 25. Foram vendidas 15 bananas a mais que maçãs (40 − 25 = 15). Ao todo, a cantina vendeu 100 frutas.
+
+#TRILHA EF04MA28 | MA | 4 | Trilha: Pesquisa com dados numéricos | Organizando a pesquisa
+FAZ: Realiza pesquisas com variáveis categóricas e numéricas e organiza os dados em tabelas e gráficos de colunas simples ou agrupadas, com ou sem planilhas.
+ERRO: tipo-variavel | Confunde dados de categorias (cor preferida) com números (idade, altura)
+ERRO: agrupada | Não sabe ler ou montar o gráfico de colunas agrupadas
+ERRO: contagem | Erra a contagem ou o total
+ERRO: escala | Usa escala errada no eixo do gráfico
+NOTA: Faça uma pesquisa com a turma sobre idade e esporte preferido, separando meninos e meninas. Monte a tabela e o gráfico agrupado em planilha.
+
+@relembrar | Relembrar: tipos de dados | Alguns dados são categorias (cor, fruta, esporte). Outros são números (idade, altura, quantidade de irmãos).
+Q: "Quantos irmãos você tem?" gera dados:
++ Numéricos
+- De categorias | tipo-variavel
+- Sem resposta | tipo-variavel
+- De cores | tipo-variavel
+E: A resposta é um número.
+V: "Qual é a sua cor preferida?" gera dados:
++ De categorias
+- Numéricos
+- Sem resposta
+- De idades
+Q: Qual pergunta gera dados numéricos?
++ Quantos livros você leu este mês?
+- Qual é o seu esporte preferido? | tipo-variavel
+- Qual é a sua comida preferida? | tipo-variavel
+- Você prefere praia ou campo? | tipo-variavel
+E: A resposta é uma quantidade.
+V: Qual pergunta gera dados de categorias?
++ Qual é o seu animal preferido?
+- Quantos anos você tem?
+- Quanto você mede?
+- Quantos irmãos você tem?
+Q: Num gráfico de colunas agrupadas, para cada categoria aparecem:
++ Duas ou mais colunas, uma para cada grupo (por exemplo, meninos e meninas)
+- Uma coluna só | agrupada
+- Nenhuma coluna | agrupada
+- Uma pizza | agrupada
+E: As colunas agrupadas permitem comparar grupos.
+V: Para comparar o esporte preferido de meninos e de meninas no mesmo gráfico, usamos:
++ Colunas agrupadas
+- Uma coluna só por esporte
+- Uma lista de nomes
+- Uma figura só
+
+@exemplo_guiado | Exemplo guiado: da pesquisa à tabela | Pesquisa "Esporte preferido": futebol: meninos 8, meninas 5; vôlei: meninos 3, meninas 7; natação: meninos 2, meninas 4. Total: 29 alunos.
+Q: Quantos alunos preferem vôlei?
++ 10
+- 7 | agrupada
+- 3 | agrupada
+- 4 | contagem
+E: 3 + 7 = 10.
+V: Quantos alunos preferem futebol?
++ 13
+- 8
+- 5
+- 3
+Q: Quantas meninas responderam à pesquisa?
++ 16
+- 13 | contagem
+- 7 | agrupada
+- 29 | contagem
+E: 5 + 7 + 4 = 16.
+V: Quantos meninos responderam à pesquisa?
++ 13
+- 16
+- 8
+- 29
+Q: Em qual esporte as meninas superam os meninos por mais votos?
++ Vôlei
+- Futebol | agrupada
+- Natação | agrupada
+- Em nenhum | agrupada
+E: Vôlei: 7 − 3 = 4. Natação: 4 − 2 = 2. No futebol os meninos têm mais.
+V: Em qual esporte os meninos superam as meninas?
++ Futebol
+- Vôlei
+- Natação
+- Em nenhum
+
+@praticar | Praticar: organizando dados numéricos | Idades da turma: 9, 10, 9, 9, 10, 11, 9, 10, 9, 10.
+Q: Quantos alunos têm 9 anos?
++ 5
+- 4 | contagem
+- 6 | contagem
+- 9 | contagem
+E: Contando os 9: são 5.
+V: Quantos alunos têm 10 anos?
++ 4
+- 5
+- 3
+- 10
+Q: Quantos alunos responderam?
++ 10
+- 9 | contagem
+- 11 | contagem
+- 3 | tipo-variavel
+E: São 10 respostas.
+V: Quantas idades diferentes apareceram?
++ 3
+- 10
+- 2
+- 11
+Q: Num gráfico de colunas das idades, a coluna mais alta é a de:
++ 9 anos
+- 10 anos | contagem
+- 11 anos | contagem
+- Todas iguais | escala
+E: 9 anos tem 5 alunos, o maior número.
+V: Num gráfico de colunas das idades, a coluna mais baixa é a de:
++ 11 anos
+- 9 anos
+- 10 anos
+- Todas iguais
+Q: Num gráfico, o eixo vai de 0 a 20, de 10 em 10. Uma coluna chega bem no meio entre o 10 e o 20. Qual é o valor?
++ 15
+- 10 | escala
+- 20 | escala
+- 2 | escala
+E: O meio entre 10 e 20 é 15.
+V: O eixo vai de 0 a 40, de 10 em 10. Uma coluna chega bem no meio entre 20 e 30. Qual é o valor?
++ 25
+- 20
+- 30
+- 2
+
+@aplicar | Aplicar: pesquisa na planilha | Planeje e analise.
+Q: Para pesquisar a altura dos colegas, qual registro é adequado?
++ Uma tabela com o nome e a altura em centímetros
+- Uma lista de cores preferidas | tipo-variavel
+- Um desenho de cada colega | tipo-variavel
+- Uma tabela só com os nomes | contagem
+E: Altura é dado numérico: anotamos o número com a unidade.
+V: Para pesquisar quantos irmãos os colegas têm, qual registro é adequado?
++ Uma tabela com o nome e a quantidade de irmãos
+- Uma lista de animais preferidos
+- Um desenho da família de cada um
+- Uma tabela só com os nomes
+Q: Numa planilha, a coluna A tem as turmas e as colunas B e C os meninos e as meninas. Que gráfico mostra bem os dois grupos de cada turma?
++ Colunas agrupadas
+- Uma coluna só por turma | agrupada
+- Um gráfico de uma linha só | agrupada
+- Nenhum gráfico | agrupada
+E: Agrupadas: duas colunas lado a lado para cada turma.
+V: Para comparar as vendas de manhã e de tarde em cada dia, qual gráfico é bom?
++ Colunas agrupadas
+- Uma coluna só por dia
+- Um desenho
+- Nenhum
+Q: Uma pesquisa com 32 alunos teve: 12 gostam de ler, 9 de desenhar e o resto de jogar bola. Quantos gostam de jogar bola?
++ 11
+- 21 | contagem
+- 32 | contagem
+- 3 | contagem
+E: 12 + 9 = 21; 32 − 21 = 11.
+V: Uma pesquisa com 28 alunos teve: 10 preferem praia, 7 campo e o resto cidade. Quantos preferem cidade?
++ 11
+- 17
+- 28
+- 3
+
+@explicar | Explicar: planejando uma pesquisa | Explique como você faria uma pesquisa para comparar a fruta preferida dos meninos e das meninas da turma e como mostraria o resultado.
+C: pergunta | Faz uma pergunta com opções de frutas
+C: tabela | Organiza numa tabela com meninos e meninas separados
+C: grafico | Usa colunas agrupadas, com legenda
+BOA: Pergunto a cada colega qual é a fruta preferida, dando opções. Anoto numa tabela com uma coluna para meninos e outra para meninas. Depois faço um gráfico de colunas agrupadas: para cada fruta, uma coluna dos meninos e uma das meninas, com legenda.
+
+#PRE EF04MA26 > EF03MA25 | 3
+#PRE EF04MA27 > EF03MA27 | 3
+#PRE EF04MA28 > EF03MA28 | 3
+#PRE EF04MA28 > EF04MA27 | 2

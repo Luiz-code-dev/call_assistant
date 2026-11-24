@@ -100,7 +100,12 @@ function parse(arq, texto) {
         if (!etapa || etapa.step === "explicar") erro(arq, n, "Q fora de uma etapa de quiz");
         q = { q: v, certa: null, erradas: [], e: "", v: null }; etapa.qs.push(q); alvo = "q";
       }
-      else if (k === "E") q.e = v;
+      else if (k === "E") {
+        // A explicação é da questão e vem antes do V; depois dele, sobrescreveria a explicação
+        if (alvo === "v") erro(arq, n, "E depois da variante: a explicação vem antes do V");
+        if (q.e) erro(arq, n, "explicação repetida na mesma questão");
+        q.e = v;
+      }
       else if (k === "V") { q.v = { q: v, certa: null, erradas: [] }; alvo = "v"; }
       else if (k === "C") { const [code, description] = partes(v); trilha.explicar.criterios.push({ code, description }); }
       else if (k === "BOA") trilha.explicar.boa = v;

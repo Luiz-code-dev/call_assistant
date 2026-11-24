@@ -1,0 +1,668 @@
+// 4º ano — Matemática (parte 2): EF04MA01, EF04MA02, EF04MA04, EF04MA05
+
+#TRILHA EF04MA01 | MA | 4 | Trilha: Números até a dezena de milhar | Lendo números grandes
+FAZ: Lê, escreve e ordena números naturais até a ordem das dezenas de milhar.
+ERRO: le-por-partes | Lê os algarismos separados, sem formar o número
+ERRO: zero-esquecido | Esquece o zero de uma ordem vazia
+ERRO: compara-pelo-inicio | Compara só o primeiro algarismo, mesmo com quantidades diferentes de algarismos
+ERRO: ponto-separador | Não usa o ponto para separar a classe dos milhares
+NOTA: Use o quadro de ordens com classes (milhares e unidades simples). Leia números de placas, preços de carros e populações de bairros.
+
+@relembrar | Relembrar: classe dos milhares | Nos números grandes, o ponto separa a classe dos milhares: 23.405 lê-se "vinte e três mil, quatrocentos e cinco".
+Q: Como se lê 15.230?
++ Quinze mil, duzentos e trinta
+- Um, cinco, dois, três, zero | le-por-partes
+- Cento e cinquenta e dois mil e trinta | ponto-separador
+- Quinze mil e vinte e três | zero-esquecido
+E: 15 mil e 230.
+V: Como se lê 42.108?
++ Quarenta e dois mil, cento e oito
+- Quatro, dois, um, zero, oito
+- Quatrocentos e vinte e um mil e oito
+- Quarenta e dois mil e dezoito
+Q: Como se escreve "trinta mil e quarenta"?
++ 30.040
+- 30.400 | zero-esquecido
+- 3.040 | zero-esquecido
+- 300.040 | ponto-separador
+E: 30 mil e 40: 30.040.
+V: Como se escreve "doze mil e cinco"?
++ 12.005
+- 12.050
+- 1.205
+- 120.005
+Q: No número 58.317, qual algarismo está na dezena de milhar?
++ 5
+- 8 | ponto-separador
+- 3 | ponto-separador
+- 7 | ponto-separador
+E: Da esquerda: 5 dezenas de milhar, 8 unidades de milhar, 3 centenas, 1 dezena, 7 unidades.
+V: No número 64.902, qual algarismo está na unidade de milhar?
++ 4
+- 6
+- 9
+- 2
+
+@exemplo_guiado | Exemplo guiado: comparando números grandes | Compare primeiro a quantidade de algarismos. Se for igual, compare da esquerda para a direita: 45.210 é maior que 45.120 porque, na centena, 2 é maior que 1.
+Q: Qual é maior: 9.876 ou 10.234?
++ 10.234
+- 9.876 | compara-pelo-inicio
+- São iguais | compara-pelo-inicio
+- Não dá para comparar | le-por-partes
+E: 10.234 tem 5 algarismos; 9.876 tem 4.
+V: Qual é maior: 8.999 ou 11.000?
++ 11.000
+- 8.999
+- São iguais
+- Não dá para comparar
+Q: Qual é maior: 37.452 ou 37.524?
++ 37.524
+- 37.452 | compara-pelo-inicio
+- São iguais | compara-pelo-inicio
+- Não dá para saber | le-por-partes
+E: Iguais até o 37; na centena, 5 é maior que 4.
+V: Qual é maior: 61.083 ou 61.038?
++ 61.083
+- 61.038
+- São iguais
+- Não dá para saber
+Q: Qual é a ordem do menor para o maior: 20.100, 2.010, 21.000?
++ 2.010, 20.100, 21.000
+- 21.000, 20.100, 2.010 | compara-pelo-inicio
+- 20.100, 2.010, 21.000 | compara-pelo-inicio
+- 2.010, 21.000, 20.100 | compara-pelo-inicio
+E: 2.010 tem 4 algarismos. Entre 20.100 e 21.000, este é maior.
+V: Qual é a ordem do menor para o maior: 50.500, 5.050, 55.000?
++ 5.050, 50.500, 55.000
+- 55.000, 50.500, 5.050
+- 50.500, 5.050, 55.000
+- 5.050, 55.000, 50.500
+
+@praticar | Praticar: ler, escrever e ordenar | Use o quadro de ordens.
+Q: Qual número tem 7 dezenas de milhar, 0 unidades de milhar, 4 centenas, 0 dezenas e 9 unidades?
++ 70.409
+- 7.409 | zero-esquecido
+- 74.090 | zero-esquecido
+- 704.09 | ponto-separador
+E: 70.000 + 400 + 9 = 70.409.
+V: Qual número tem 3 dezenas de milhar, 5 unidades de milhar, 0 centenas, 2 dezenas e 0 unidades?
++ 35.020
+- 3.520
+- 35.200
+- 350.20
+Q: Qual número vem logo depois de 39.999?
++ 40.000
+- 39.1000 | ponto-separador
+- 30.000 | compara-pelo-inicio
+- 49.999 | compara-pelo-inicio
+E: 39.999 + 1 = 40.000.
+V: Qual número vem logo antes de 60.000?
++ 59.999
+- 60.001
+- 50.999
+- 69.999
+Q: Qual é o maior número de 5 algarismos?
++ 99.999
+- 10.000 | compara-pelo-inicio
+- 9.999 | compara-pelo-inicio
+- 100.000 | compara-pelo-inicio
+E: Todos os algarismos são o maior possível: 9.
+V: Qual é o menor número de 5 algarismos?
++ 10.000
+- 99.999
+- 1.000
+- 00.001
+Q: Com os algarismos 3, 8, 1, 6 e 0, sem repetir, qual é o maior número que se forma?
++ 86.310
+- 38.160 | compara-pelo-inicio
+- 10.368 | compara-pelo-inicio
+- 86.301 | compara-pelo-inicio
+E: Os maiores algarismos vão na frente: 8, 6, 3, 1, 0.
+V: Com os algarismos 2, 9, 4, 7 e 5, sem repetir, qual é o maior número que se forma?
++ 97.542
+- 29.475
+- 24.579
+- 97.524
+
+@aplicar | Aplicar: números grandes no dia a dia | Leia com atenção.
+Q: Um estádio recebeu 48.350 torcedores no sábado e 48.530 no domingo. Em que dia foi mais gente?
++ Domingo
+- Sábado | compara-pelo-inicio
+- Foi igual | compara-pelo-inicio
+- Não dá para saber | le-por-partes
+E: Na centena, 5 é maior que 3.
+V: Uma cidade tinha 25.640 habitantes num ano e 25.460 no outro. Em que ano havia mais gente?
++ No primeiro
+- No segundo
+- Foi igual
+- Não dá para saber
+Q: O preço de um carro é "trinta e dois mil e oitocentos reais". Como se escreve?
++ 32.800 reais
+- 3.280 reais | zero-esquecido
+- 320.800 reais | ponto-separador
+- 32.008 reais | zero-esquecido
+E: 32 mil e 800: 32.800.
+V: O preço de uma moto é "quatorze mil e quinhentos reais". Como se escreve?
++ 14.500 reais
+- 1.450 reais
+- 140.500 reais
+- 14.005 reais
+Q: Três escolas arrecadaram 12.400, 9.850 e 12.040 tampinhas. Qual arrecadou mais?
++ A de 12.400
+- A de 12.040 | compara-pelo-inicio
+- A de 9.850 | compara-pelo-inicio
+- Todas iguais | le-por-partes
+E: 12.400 e 12.040 têm 5 algarismos; na centena, 4 é maior que 0.
+V: Três turmas juntaram 8.700, 10.070 e 10.700 pontos. Qual juntou mais?
++ A de 10.700
+- A de 10.070
+- A de 8.700
+- Todas iguais
+
+@explicar | Explicar: comparando números grandes | Explique como você descobre qual é maior: 54.098 ou 54.890.
+C: algarismos | Diz que os dois têm 5 algarismos
+C: compara-esquerda | Compara da esquerda para a direita até achar diferença
+C: conclusao | Conclui que 54.890 é maior porque, na centena, 8 é maior que 0
+BOA: Os dois têm 5 algarismos. Comparo da esquerda: 5 e 5, 4 e 4. Na centena, um tem 0 e o outro tem 8. Como 8 é maior que 0, 54.890 é o maior.
+
+#TRILHA EF04MA02 | MA | 4 | Trilha: Decomposição com potências de dez | Mil, cem, dez e um
+FAZ: Mostra, por composição e decomposição, que todo número natural pode ser escrito com adições e multiplicações por 10, 100, 1.000 e 10.000.
+ERRO: junta-algarismos | Escreve os valores lado a lado em vez de somar
+ERRO: potencia-errada | Multiplica pela potência de dez errada (por 100 em vez de 1.000)
+ERRO: zero-esquecido | Esquece uma ordem vazia
+ERRO: soma-algarismos | Soma os algarismos em vez de compor o número
+NOTA: Use o quadro de ordens e escreva: 3 × 1.000 + 4 × 100 + 2 × 10 + 5 × 1. Mostre a relação com o dinheiro (notas de 1.000, 100, 10 e moedas de 1).
+
+@relembrar | Relembrar: multiplicar por 10, 100 e 1.000 | Multiplicar por 10 acrescenta um zero; por 100, dois zeros; por 1.000, três zeros.
+Q: Quanto é 7 × 1.000?
++ 7.000
+- 700 | potencia-errada
+- 70.000 | potencia-errada
+- 1.007 | junta-algarismos
+E: 7 vezes mil: 7.000.
+V: Quanto é 4 × 100?
++ 400
+- 40
+- 4.000
+- 104
+Q: Quanto é 3 × 10.000?
++ 30.000
+- 3.000 | potencia-errada
+- 300.000 | potencia-errada
+- 10.003 | junta-algarismos
+E: 3 dezenas de milhar: 30.000.
+V: Quanto é 8 × 10.000?
++ 80.000
+- 8.000
+- 800.000
+- 10.008
+Q: Quanto é 6 × 10?
++ 60
+- 600 | potencia-errada
+- 16 | junta-algarismos
+- 6 | potencia-errada
+E: 6 dezenas: 60.
+V: Quanto é 9 × 10?
++ 90
+- 900
+- 19
+- 9
+
+@exemplo_guiado | Exemplo guiado: escrevendo com potências de dez | 4.352 = 4 × 1.000 + 3 × 100 + 5 × 10 + 2 × 1.
+Q: Qual número é 2 × 1.000 + 7 × 100 + 4 × 10 + 1 × 1?
++ 2.741
+- 14 | soma-algarismos
+- 2.000700401 | junta-algarismos
+- 27.041 | potencia-errada
+E: 2.000 + 700 + 40 + 1 = 2.741.
+V: Qual número é 5 × 1.000 + 1 × 100 + 9 × 10 + 3 × 1?
++ 5.193
+- 18
+- 5.000100903
+- 51.093
+Q: Qual é a decomposição de 6.084?
++ 6 × 1.000 + 8 × 10 + 4 × 1
+- 6 × 1.000 + 8 × 100 + 4 × 1 | zero-esquecido
+- 6 × 100 + 8 × 10 + 4 × 1 | potencia-errada
+- 6 + 0 + 8 + 4 | soma-algarismos
+E: Não há centenas: 6 mil, 8 dezenas e 4 unidades.
+V: Qual é a decomposição de 3.705?
++ 3 × 1.000 + 7 × 100 + 5 × 1
+- 3 × 1.000 + 7 × 10 + 5 × 1
+- 3 × 100 + 7 × 10 + 5 × 1
+- 3 + 7 + 0 + 5
+Q: Qual número é 1 × 10.000 + 2 × 1.000 + 3 × 10?
++ 12.030
+- 12.300 | zero-esquecido
+- 1.230 | zero-esquecido
+- 6 | soma-algarismos
+E: 10.000 + 2.000 + 30 = 12.030.
+V: Qual número é 4 × 10.000 + 5 × 100 + 6 × 1?
++ 40.506
+- 45.006
+- 4.506
+- 15
+
+@praticar | Praticar: compondo e decompondo | Cuide das ordens vazias.
+Q: Qual é a decomposição de 25.310?
++ 2 × 10.000 + 5 × 1.000 + 3 × 100 + 1 × 10
+- 2 × 1.000 + 5 × 100 + 3 × 10 + 1 × 1 | potencia-errada
+- 2 + 5 + 3 + 1 + 0 | soma-algarismos
+- 25 × 1.000 + 31 × 100 | potencia-errada
+E: 20.000 + 5.000 + 300 + 10.
+V: Qual é a decomposição de 41.205?
++ 4 × 10.000 + 1 × 1.000 + 2 × 100 + 5 × 1
+- 4 × 1.000 + 1 × 100 + 2 × 10 + 5 × 1
+- 4 + 1 + 2 + 0 + 5
+- 41 × 1.000 + 25 × 10
+Q: Quanto é 9 × 1.000 + 9 × 1?
++ 9.009
+- 9.900 | zero-esquecido
+- 99 | zero-esquecido
+- 18 | soma-algarismos
+E: 9.000 + 9 = 9.009.
+V: Quanto é 7 × 1.000 + 7 × 10?
++ 7.070
+- 7.700
+- 77
+- 14
+Q: Quantas centenas há, ao todo, em 4.500?
++ 45
+- 5 | potencia-errada
+- 4 | potencia-errada
+- 450 | potencia-errada
+E: 4.500 = 45 × 100.
+V: Quantas dezenas há, ao todo, em 3.200?
++ 320
+- 2
+- 32
+- 3.200
+Q: Qual número é 3 × 10.000 + 15 × 100?
++ 31.500
+- 30.150 | potencia-errada
+- 3.015 | junta-algarismos
+- 18 | soma-algarismos
+E: 30.000 + 1.500 = 31.500.
+V: Qual número é 2 × 10.000 + 12 × 100?
++ 21.200
+- 20.120
+- 2.012
+- 14
+
+@aplicar | Aplicar: dinheiro e quantidades | Use as potências de dez.
+Q: Um caixa tem 3 maços de 1.000 reais, 4 maços de 100 reais e 7 notas de 10 reais. Quanto há?
++ 3.470 reais
+- 3.407 reais | zero-esquecido
+- 14 reais | soma-algarismos
+- 34.070 reais | potencia-errada
+E: 3.000 + 400 + 70 = 3.470.
+V: Um cofre tem 5 maços de 1.000 reais, 2 maços de 100 reais e 3 notas de 10 reais. Quanto há?
++ 5.230 reais
+- 5.203 reais
+- 10 reais
+- 52.030 reais
+Q: Uma fábrica embala parafusos em caixas de 1.000, pacotes de 100 e saquinhos de 10. Para 2.350 parafusos, qual embalagem dá certo?
++ 2 caixas, 3 pacotes e 5 saquinhos
+- 2 caixas, 35 pacotes e 0 saquinhos | potencia-errada
+- 23 caixas e 5 saquinhos | potencia-errada
+- 10 caixas | soma-algarismos
+E: 2.000 + 300 + 50 = 2.350.
+V: Para 4.120 parafusos, qual embalagem dá certo?
++ 4 caixas, 1 pacote e 2 saquinhos
+- 4 caixas, 12 pacotes e 0 saquinhos
+- 41 caixas e 2 saquinhos
+- 7 caixas
+Q: Uma loja vendeu 1 × 10.000 + 6 × 1.000 + 8 × 1 cadernos no ano. Quantos foram?
++ 16.008
+- 16.800 | zero-esquecido
+- 1.608 | zero-esquecido
+- 15 | soma-algarismos
+E: 10.000 + 6.000 + 8 = 16.008.
+V: Uma escola recebeu 2 × 10.000 + 3 × 100 + 4 × 10 livros. Quantos foram?
++ 20.340
+- 23.040
+- 2.340
+- 9
+
+@explicar | Explicar: decomposição | Explique como escrever 7.208 usando multiplicações por 1.000, 100, 10 e 1.
+C: ordens | Identifica 7 milhares, 2 centenas, 0 dezenas e 8 unidades
+C: escrita | Escreve 7 × 1.000 + 2 × 100 + 8 × 1 (ou com 0 × 10)
+C: confere | Mostra que a soma dá 7.208
+BOA: 7.208 tem 7 milhares, 2 centenas, nenhuma dezena e 8 unidades. Então 7.208 = 7 × 1.000 + 2 × 100 + 0 × 10 + 8 × 1. Conferindo: 7.000 + 200 + 8 = 7.208.
+
+#TRILHA EF04MA04 | MA | 4 | Trilha: Operações inversas no cálculo | Uma conta confere a outra
+FAZ: Usa as relações entre adição e subtração e entre multiplicação e divisão para ampliar estratégias de cálculo e conferir resultados.
+ERRO: inversa-errada | Usa a operação errada para conferir (confere divisão com adição)
+ERRO: ordem-dos-termos | Troca a ordem dos termos na subtração ou na divisão
+ERRO: calculo | Erra o cálculo
+ERRO: nao-relaciona | Não percebe que 6 × 7 = 42 também diz que 42 ÷ 7 = 6
+NOTA: Monte famílias de fatos: 8 + 5 = 13, 5 + 8 = 13, 13 − 5 = 8, 13 − 8 = 5. Faça o mesmo com multiplicação e divisão.
+
+@relembrar | Relembrar: famílias de fatos | Se 9 + 4 = 13, então 13 − 4 = 9 e 13 − 9 = 4. Se 3 × 8 = 24, então 24 ÷ 8 = 3 e 24 ÷ 3 = 8.
+Q: Se 15 + 7 = 22, quanto é 22 − 7?
++ 15
+- 29 | inversa-errada
+- 7 | ordem-dos-termos
+- 22 | nao-relaciona
+E: A subtração desfaz a adição: 22 − 7 = 15.
+V: Se 18 + 6 = 24, quanto é 24 − 6?
++ 18
+- 30
+- 6
+- 24
+Q: Se 6 × 9 = 54, quanto é 54 ÷ 9?
++ 6
+- 45 | inversa-errada
+- 9 | ordem-dos-termos
+- 63 | inversa-errada
+E: A divisão desfaz a multiplicação: 54 ÷ 9 = 6.
+V: Se 7 × 8 = 56, quanto é 56 ÷ 8?
++ 7
+- 48
+- 8
+- 64
+Q: Qual conta confere que 72 ÷ 8 = 9?
++ 9 × 8 = 72
+- 72 + 8 = 80 | inversa-errada
+- 72 − 8 = 64 | inversa-errada
+- 9 + 8 = 17 | inversa-errada
+E: A multiplicação confere a divisão.
+V: Qual conta confere que 45 − 18 = 27?
++ 27 + 18 = 45
+- 45 + 18 = 63
+- 27 × 18
+- 45 ÷ 18
+
+@exemplo_guiado | Exemplo guiado: usando a inversa para calcular | Para achar 63 ÷ 7, pense: que número vezes 7 dá 63? 9 × 7 = 63, então 63 ÷ 7 = 9.
+Q: Quanto é 48 ÷ 6?
++ 8
+- 42 | inversa-errada
+- 7 | calculo
+- 54 | inversa-errada
+E: 8 × 6 = 48, então 48 ÷ 6 = 8.
+V: Quanto é 36 ÷ 4?
++ 9
+- 32
+- 8
+- 40
+Q: Que número somado a 38 dá 100?
++ 62
+- 138 | inversa-errada
+- 72 | calculo
+- 38 | nao-relaciona
+E: 100 − 38 = 62.
+V: Que número somado a 45 dá 100?
++ 55
+- 145
+- 65
+- 45
+Q: Ana fez 125 − 47 = 78. Como ela confere?
++ 78 + 47 = 125
+- 125 + 47 = 172 | inversa-errada
+- 78 − 47 = 31 | inversa-errada
+- 47 − 78 | ordem-dos-termos
+E: Somando o resultado com o que foi tirado, volta ao número inicial.
+V: Rui fez 210 − 85 = 125. Como ele confere?
++ 125 + 85 = 210
+- 210 + 85 = 295
+- 125 − 85 = 40
+- 85 − 125
+
+@praticar | Praticar: calcular e conferir | Use a operação inversa.
+Q: Qual número multiplicado por 5 dá 85?
++ 17
+- 80 | inversa-errada
+- 90 | inversa-errada
+- 15 | calculo
+E: 85 ÷ 5 = 17.
+V: Qual número multiplicado por 4 dá 92?
++ 23
+- 88
+- 96
+- 22
+Q: Qual número, menos 25, dá 60?
++ 85
+- 35 | inversa-errada
+- 25 | ordem-dos-termos
+- 75 | calculo
+E: 60 + 25 = 85.
+V: Qual número, menos 38, dá 50?
++ 88
+- 12
+- 38
+- 78
+Q: Se 12 × 15 = 180, quanto é 180 ÷ 12?
++ 15
+- 168 | inversa-errada
+- 12 | ordem-dos-termos
+- 192 | inversa-errada
+E: A divisão desfaz a multiplicação.
+V: Se 14 × 6 = 84, quanto é 84 ÷ 14?
++ 6
+- 70
+- 14
+- 98
+Q: Qual das contas está ERRADA? Use a inversa para conferir.
++ 56 ÷ 7 = 9
+- 48 ÷ 8 = 6 | nao-relaciona
+- 9 × 6 = 54 | calculo
+- 81 − 27 = 54 | calculo
+E: 9 × 7 = 63, não 56. Então 56 ÷ 7 = 9 está errada. As outras conferem.
+V: Qual das contas está ERRADA? Use a inversa para conferir.
++ 42 ÷ 6 = 8
+- 63 ÷ 9 = 7
+- 8 × 7 = 56
+- 90 − 35 = 55
+
+@aplicar | Aplicar: problemas | Pense na conta que desfaz.
+Q: Lia pensou num número, multiplicou por 6 e deu 78. Em que número pensou?
++ 13
+- 72 | inversa-errada
+- 84 | inversa-errada
+- 12 | calculo
+E: 78 ÷ 6 = 13.
+V: Davi pensou num número, multiplicou por 7 e deu 91. Em que número pensou?
++ 13
+- 84
+- 98
+- 14
+Q: Depois de gastar 37 reais, Rui ficou com 58. Quanto ele tinha?
++ 95 reais
+- 21 reais | inversa-errada
+- 85 reais | calculo
+- 58 reais | nao-relaciona
+E: 58 + 37 = 95.
+V: Depois de gastar 26 reais, Bia ficou com 49. Quanto ela tinha?
++ 75 reais
+- 23 reais
+- 65 reais
+- 49 reais
+Q: Uma professora repartiu 96 lápis igualmente entre 8 mesas. Para conferir que cada mesa ganhou 12, qual conta ela faz?
++ 12 × 8 = 96
+- 96 + 8 = 104 | inversa-errada
+- 96 − 12 = 84 | inversa-errada
+- 12 + 8 = 20 | inversa-errada
+E: A multiplicação confere a divisão.
+V: Um pai repartiu 84 reais igualmente entre 4 filhos. Para conferir que cada um ganhou 21, qual conta ele faz?
++ 21 × 4 = 84
+- 84 + 4 = 88
+- 84 − 21 = 63
+- 21 + 4 = 25
+
+@explicar | Explicar: conferindo a divisão | Explique como você pode conferir se 144 ÷ 12 = 12 está certo.
+C: inversa | Diz que usa a multiplicação para conferir
+C: conta | Faz 12 × 12
+C: conclusao | Mostra que dá 144, então está certo
+BOA: Para conferir uma divisão, eu faço a multiplicação. 12 × 12 = 144. Como voltou ao 144, a divisão está certa.
+
+#TRILHA EF04MA05 | MA | 4 | Trilha: Propriedades das operações | Atalhos para calcular
+FAZ: Usa as propriedades comutativa, associativa e distributiva da adição e da multiplicação para criar estratégias de cálculo mental.
+ERRO: subtracao-comutativa | Acha que na subtração e na divisão a ordem pode ser trocada
+ERRO: distributiva-incompleta | Na distributiva, multiplica só uma das partes
+ERRO: calculo | Erra o cálculo
+ERRO: agrupamento | Agrupa números de forma que não facilita a conta
+NOTA: Explore arrumações retangulares: 3 × 5 e 5 × 3 têm o mesmo total. Para 7 × 12, mostre 7 × 10 + 7 × 2.
+
+@relembrar | Relembrar: a ordem não muda (na adição e na multiplicação) | 4 + 9 = 9 + 4 e 3 × 7 = 7 × 3. Mas 9 − 4 não é igual a 4 − 9.
+Q: Qual destas é verdadeira?
++ 6 × 8 = 8 × 6
+- 8 − 6 = 6 − 8 | subtracao-comutativa
+- 8 ÷ 2 = 2 ÷ 8 | subtracao-comutativa
+- 6 × 8 = 6 + 8 | calculo
+E: Na multiplicação, trocar a ordem não muda o resultado.
+V: Qual destas é verdadeira?
++ 15 + 27 = 27 + 15
+- 27 − 15 = 15 − 27
+- 20 ÷ 5 = 5 ÷ 20
+- 15 + 27 = 15 × 27
+Q: Para calcular 5 + 18 + 5 de cabeça, o que ajuda?
++ Juntar 5 + 5 = 10 primeiro
+- Fazer 18 − 5 | agrupamento
+- Multiplicar 5 × 18 | calculo
+- Não há atalho | agrupamento
+E: 5 + 5 = 10 e 10 + 18 = 28.
+V: Para calcular 7 + 26 + 3 de cabeça, o que ajuda?
++ Juntar 7 + 3 = 10 primeiro
+- Fazer 26 − 7
+- Multiplicar 7 × 3
+- Não há atalho
+Q: Quanto é 2 × 9 × 5?
++ 90
+- 16 | calculo
+- 45 | agrupamento
+- 18 | agrupamento
+E: 2 × 5 = 10; 10 × 9 = 90.
+V: Quanto é 5 × 7 × 2?
++ 70
+- 14
+- 35
+- 10
+
+@exemplo_guiado | Exemplo guiado: a distributiva | 6 × 14 = 6 × 10 + 6 × 4 = 60 + 24 = 84. Separamos o 14 em 10 + 4 e multiplicamos as duas partes.
+Q: Quanto é 4 × 13, usando 4 × 10 + 4 × 3?
++ 52
+- 43 | distributiva-incompleta
+- 40 | distributiva-incompleta
+- 17 | calculo
+E: 40 + 12 = 52.
+V: Quanto é 3 × 16, usando 3 × 10 + 3 × 6?
++ 48
+- 36
+- 30
+- 19
+Q: Qual é um jeito correto de calcular 7 × 25?
++ 7 × 20 + 7 × 5
+- 7 × 20 + 5 | distributiva-incompleta
+- 7 + 20 + 5 | calculo
+- 7 × 2 + 7 × 5 | agrupamento
+E: 25 = 20 + 5; multiplicamos 7 pelas duas partes.
+V: Qual é um jeito correto de calcular 8 × 32?
++ 8 × 30 + 8 × 2
+- 8 × 30 + 2
+- 8 + 30 + 2
+- 8 × 3 + 8 × 2
+Q: Quanto é 9 × 11?
++ 99
+- 91 | distributiva-incompleta
+- 90 | distributiva-incompleta
+- 20 | calculo
+E: 9 × 10 + 9 × 1 = 90 + 9 = 99.
+V: Quanto é 6 × 11?
++ 66
+- 61
+- 60
+- 17
+
+@praticar | Praticar: escolhendo o atalho | Use as propriedades para facilitar.
+Q: Quanto é 25 × 4 × 7?
++ 700
+- 175 | agrupamento
+- 36 | calculo
+- 100 | agrupamento
+E: 25 × 4 = 100; 100 × 7 = 700.
+V: Quanto é 50 × 2 × 9?
++ 900
+- 450
+- 61
+- 100
+Q: Quanto é 5 × 18?
++ 90
+- 58 | distributiva-incompleta
+- 23 | calculo
+- 80 | calculo
+E: 5 × 10 + 5 × 8 = 50 + 40 = 90.
+V: Quanto é 4 × 17?
++ 68
+- 47
+- 21
+- 64
+Q: Qual afirmação é verdadeira?
++ 3 × (4 + 5) = 3 × 4 + 3 × 5
+- 3 × (4 + 5) = 3 × 4 + 5 | distributiva-incompleta
+- 20 − 8 = 8 − 20 | subtracao-comutativa
+- 3 × (4 + 5) = 3 + 4 + 5 | calculo
+E: As duas formas dão 27.
+V: Qual afirmação é verdadeira?
++ 2 × (10 + 6) = 2 × 10 + 2 × 6
+- 2 × (10 + 6) = 2 × 10 + 6
+- 30 ÷ 6 = 6 ÷ 30
+- 2 × (10 + 6) = 2 + 10 + 6
+Q: Quanto é 38 + 49 + 2 + 1?
++ 90
+- 89 | calculo
+- 80 | agrupamento
+- 91 | calculo
+E: 38 + 2 = 40; 49 + 1 = 50; 40 + 50 = 90.
+V: Quanto é 27 + 18 + 3 + 2?
++ 50
+- 49
+- 40
+- 51
+
+@aplicar | Aplicar: compras e arrumações | Use o atalho certo.
+Q: Um ingresso custa 12 reais. Quanto custam 5 ingressos?
++ 60 reais
+- 52 reais | distributiva-incompleta
+- 17 reais | calculo
+- 50 reais | distributiva-incompleta
+E: 5 × 10 + 5 × 2 = 50 + 10 = 60.
+V: Uma revista custa 13 reais. Quanto custam 4 revistas?
++ 52 reais
+- 43 reais
+- 17 reais
+- 40 reais
+Q: Numa sala há 4 fileiras de 6 cadeiras. Em outra há 6 fileiras de 4 cadeiras. Qual sala tem mais cadeiras?
++ As duas têm o mesmo número
+- A primeira | subtracao-comutativa
+- A segunda | subtracao-comutativa
+- Não dá para saber | calculo
+E: 4 × 6 = 6 × 4 = 24.
+V: Uma caixa tem 3 fileiras de 8 bombons. Outra tem 8 fileiras de 3. Qual tem mais bombons?
++ As duas têm o mesmo número
+- A primeira
+- A segunda
+- Não dá para saber
+Q: Três amigos compraram cada um 2 pacotes com 5 figurinhas. Quantas figurinhas compraram juntos?
++ 30
+- 10 | agrupamento
+- 15 | agrupamento
+- 11 | calculo
+E: 3 × 2 × 5 = 3 × 10 = 30.
+V: Quatro crianças compraram cada uma 5 pacotes com 2 balas. Quantas balas compraram juntas?
++ 40
+- 10
+- 20
+- 11
+
+@explicar | Explicar: um atalho para multiplicar | Explique como calcular 6 × 23 de cabeça, separando o 23 em partes.
+C: separa | Separa 23 em 20 + 3
+C: multiplica-partes | Faz 6 × 20 = 120 e 6 × 3 = 18
+C: junta | Soma e chega a 138
+BOA: Eu separo o 23 em 20 + 3. Faço 6 × 20 = 120 e 6 × 3 = 18. Depois somo: 120 + 18 = 138.
+
+#PRE EF04MA01 > EF03MA01 | 3
+#PRE EF04MA02 > EF04MA01 | 3
+#PRE EF04MA02 > EF03MA02 | 2
+#PRE EF04MA04 > EF03MA08 | 2
+#PRE EF04MA05 > EF04MA06 | 2
+#PRE EF04MA05 > EF03MA03 | 2

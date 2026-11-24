@@ -1,0 +1,668 @@
+// 7º ano — Matemática (parte 6): EF07MA25, EF07MA26, EF07MA27, EF07MA28
+
+#TRILHA EF07MA25 | MA | 7 | Trilha: Rigidez do triângulo | Por que as estruturas usam triângulos
+FAZ: Reconhece a rigidez geométrica dos triângulos e suas aplicações em telhados, estruturas metálicas e artes.
+ERRO: quadrilatero-rigido | Acha que quadriláteros também são rígidos
+ERRO: confunde-rigidez | Confunde rigidez com resistência do material
+ERRO: diagonal | Não percebe que a diagonal transforma o quadrilátero em triângulos
+ERRO: exemplo | Não reconhece triângulos em estruturas reais
+NOTA: Monte um quadrado e um triângulo com canudos e alfinetes nos cantos. Empurre: o quadrado vira losango; o triângulo não se mexe. Depois coloque uma diagonal no quadrado.
+
+@relembrar | Relembrar: o que é rigidez | Um triângulo com lados fixos tem só uma forma possível: não deforma. Um quadrilátero com lados fixos pode "amassar" e mudar de forma.
+Q: Montando um quadrado com 4 varetas presas por pinos nos cantos e empurrando um canto, o que acontece?
++ Ele se deforma e pode virar um losango
+- Ele não se mexe | quadrilatero-rigido
+- Ele vira um triângulo | diagonal
+- As varetas aumentam de tamanho | confunde-rigidez
+E: Os ângulos mudam, mesmo com os lados iguais.
+V: Montando um retângulo com 4 varetas presas por pinos nos cantos e empurrando, o que acontece?
++ Ele se deforma e vira um paralelogramo
+- Ele não se mexe
+- Ele vira um triângulo
+- As varetas aumentam de tamanho
+Q: Montando um triângulo com 3 varetas presas por pinos nos cantos e empurrando, o que acontece?
++ Ele não se deforma
+- Ele vira um quadrado | diagonal
+- Ele se deforma e vira outro triângulo | quadrilatero-rigido
+- Ele quebra sempre | confunde-rigidez
+E: Com os três lados fixos, os ângulos também ficam fixos.
+V: Por que o triângulo de varetas não se deforma?
++ Porque três lados fixos determinam um único triângulo
+- Porque as varetas são mais fortes
+- Porque tem menos pinos
+- Porque é menor que o quadrado
+Q: Qual é a forma mais usada em estruturas de telhados e pontes metálicas para dar firmeza?
++ Triângulo
+- Quadrado | quadrilatero-rigido
+- Círculo | exemplo
+- Pentágono | quadrilatero-rigido
+E: A rigidez do triângulo evita que a estrutura deforme.
+V: Nas torres de transmissão de energia, as barras formam muitos:
++ Triângulos
+- Quadrados sem diagonais
+- Círculos
+- Hexágonos
+
+@exemplo_guiado | Exemplo guiado: a diagonal salva o portão | Um portão retangular de madeira começa a "cair". O carpinteiro prega uma tábua na diagonal: o retângulo vira dois triângulos e fica firme.
+Q: Por que uma tábua na diagonal deixa um portão retangular firme?
++ Porque divide o retângulo em dois triângulos, que são rígidos
+- Porque deixa o portão mais pesado | confunde-rigidez
+- Porque a madeira fica mais grossa | confunde-rigidez
+- Porque o portão vira um quadrado | diagonal
+E: Os triângulos não deformam.
+V: Por que uma prateleira com uma barra inclinada ligando a parede e a ponta fica firme?
++ Porque a barra forma um triângulo com a parede e a prateleira
+- Porque deixa a prateleira mais pesada
+- Porque a barra é de metal
+- Porque a prateleira vira um quadrado
+Q: Num pentágono de varetas, qual o menor número de diagonais para que ele fique rígido?
++ 2
+- 1 | diagonal
+- 5 | diagonal
+- 0 | quadrilatero-rigido
+E: Com 2 diagonais saindo do mesmo vértice, o pentágono fica dividido em 3 triângulos.
+V: Num hexágono de varetas, qual o menor número de diagonais para que ele fique rígido?
++ 3
+- 2
+- 6
+- 0
+Q: Num quadrado de varetas, quantas diagonais são necessárias para que ele fique rígido?
++ 1
+- 2 | diagonal
+- 4 | diagonal
+- 0 | quadrilatero-rigido
+E: Uma diagonal já divide o quadrado em 2 triângulos.
+V: Num retângulo de varetas, quantas diagonais são necessárias para que ele fique rígido?
++ 1
+- 2
+- 4
+- 0
+
+@praticar | Praticar: rígido ou não? | Procure os triângulos.
+Q: Qual destas figuras de varetas é rígida?
++ Um quadrado com uma diagonal
+- Um quadrado sem diagonais | quadrilatero-rigido
+- Um losango sem diagonais | quadrilatero-rigido
+- Um pentágono sem diagonais | quadrilatero-rigido
+E: A diagonal forma dois triângulos.
+V: Qual destas figuras de varetas NÃO é rígida?
++ Um retângulo sem diagonais
+- Um triângulo
+- Um quadrado com uma diagonal
+- Um pentágono dividido em 3 triângulos
+Q: A rigidez do triângulo depende de quê?
++ Da forma: três lados fixos determinam os ângulos
+- Do material: só funciona com metal | confunde-rigidez
+- Do tamanho: só funciona se for grande | confunde-rigidez
+- Da cor das varetas | confunde-rigidez
+E: É uma propriedade geométrica, vale para qualquer material.
+V: Um triângulo de palitos de sorvete e outro de barras de aço:
++ Os dois são rígidos quanto à forma
+- Só o de aço é rígido
+- Só o de palitos é rígido
+- Nenhum é rígido
+Q: Onde aparece a rigidez do triângulo?
++ Nas tesouras de madeira dos telhados
+- Nas rodas de bicicleta, por serem redondas | exemplo
+- Numa bola de futebol | exemplo
+- Numa folha de papel dobrada ao meio | exemplo
+E: As tesouras do telhado são formadas por triângulos.
+V: Onde aparece a rigidez do triângulo?
++ No quadro de uma bicicleta
+- Numa moeda
+- Num pneu
+- Numa bola de gude
+Q: Por que um banco de 3 pernas não balança em chão irregular, mas um de 4 pernas pode balançar?
++ Três pontos sempre formam um plano (um triângulo de apoio)
+- Porque 3 pernas são mais fortes | confunde-rigidez
+- Porque o banco de 3 pernas é mais leve | confunde-rigidez
+- Porque 4 pernas formam um triângulo | diagonal
+E: As pontas de 3 pernas sempre tocam o chão juntas.
+V: Por que um tripé de câmera fica firme em terreno irregular?
++ Porque três pontos de apoio sempre se ajustam ao chão
+- Porque é feito de metal
+- Porque a câmera é leve
+- Porque tem 4 pernas
+
+@aplicar | Aplicar: engenharia e arte | Os triângulos estão em toda parte.
+Q: Um portão de ferro começou a entortar. Qual é a melhor solução usando geometria?
++ Soldar uma barra na diagonal
+- Pintar o portão | confunde-rigidez
+- Aumentar a altura do portão | confunde-rigidez
+- Trocar por um portão redondo | exemplo
+E: A diagonal cria triângulos rígidos.
+V: Uma estante de madeira balança para os lados. Qual é a melhor solução usando geometria?
++ Pregar uma ripa na diagonal, atrás da estante
+- Colocar mais livros
+- Pintar a estante
+- Cortar uma prateleira
+Q: Uma ponte tem a estrutura formada por triângulos encaixados. Qual é a vantagem?
++ A estrutura não se deforma com o peso
+- Fica mais bonita apenas | exemplo
+- Gasta menos tinta | confunde-rigidez
+- Fica mais leve que qualquer outra | confunde-rigidez
+E: Cada triângulo mantém sua forma.
+V: Um guindaste tem o braço formado por triângulos de metal. Qual é a vantagem?
++ O braço não se deforma ao levantar peso
+- Fica mais colorido
+- Gasta menos parafusos
+- Fica mais curto
+Q: Um artista quer fazer uma escultura de varetas que não balance. Qual formato ele deve usar nas partes?
++ Triângulos
+- Quadrados sem diagonais | quadrilatero-rigido
+- Hexágonos sem diagonais | quadrilatero-rigido
+- Pentágonos sem diagonais | quadrilatero-rigido
+E: Só o triângulo é rígido por si só.
+V: Para construir uma cúpula geodésica firme, as faces costumam ser:
++ Triângulos
+- Quadrados
+- Círculos
+- Hexágonos sem diagonais
+
+@explicar | Explicar: rigidez | Explique por que um quadrado de varetas deforma e um triângulo de varetas não.
+C: quadrado | Diz que no quadrado os ângulos podem mudar mesmo com os lados iguais
+C: triangulo | Diz que no triângulo os três lados fixos determinam os ângulos
+C: aplicacao | Dá um exemplo de uso (telhado, portão com diagonal, ponte)
+BOA: No quadrado de varetas, os lados continuam do mesmo tamanho, mas os ângulos podem mudar, e ele vira um losango. No triângulo, quando os três lados estão fixos, só existe uma forma possível, então os ângulos não mudam. Por isso usamos triângulos em telhados, pontes e portões com uma barra na diagonal.
+
+#TRILHA EF07MA26 | MA | 7 | Trilha: Algoritmo do triângulo | Construindo com régua e compasso
+FAZ: Descreve, por escrito e por fluxograma, um algoritmo para construir um triângulo conhecidas as medidas dos três lados.
+ERRO: ordem | Coloca os passos fora de ordem
+ERRO: abertura | Usa a abertura errada do compasso
+ERRO: sem-verificar | Não verifica a condição de existência antes de construir
+ERRO: passo-faltando | Esquece um passo necessário
+NOTA: Faça a construção junto com os alunos, falando cada passo, e depois escrevam o algoritmo. Teste o algoritmo com medidas que não formam triângulo.
+
+@relembrar | Relembrar: os passos | Lados 5, 4 e 3 cm. 1) Trace o segmento AB de 5 cm. 2) Compasso com 4 cm, ponta em A, trace um arco. 3) Compasso com 3 cm, ponta em B, trace outro arco. 4) O cruzamento é C. 5) Ligue A a C e B a C.
+Q: Qual é o primeiro passo para construir um triângulo de lados 6, 5 e 4 cm?
++ Traçar um segmento com uma das medidas, por exemplo 6 cm
+- Traçar um arco com raio 5 cm | ordem
+- Ligar os três vértices | ordem
+- Medir os ângulos | passo-faltando
+E: Primeiro, a base.
+V: Qual é o último passo da construção de um triângulo com régua e compasso?
++ Ligar o ponto de cruzamento dos arcos às pontas do segmento
+- Traçar o segmento da base
+- Abrir o compasso
+- Traçar o primeiro arco
+Q: Com a base AB de 6 cm, para que o lado AC tenha 5 cm, que abertura usar no compasso com a ponta em A?
++ 5 cm
+- 6 cm | abertura
+- 4 cm | abertura
+- 11 cm | abertura
+E: O arco com centro em A e raio 5 cm marca os pontos a 5 cm de A.
+V: Com a base AB de 8 cm, para que o lado BC tenha 6 cm, que abertura usar com a ponta em B?
++ 6 cm
+- 8 cm
+- 2 cm
+- 14 cm
+Q: Por que os arcos se cruzam no terceiro vértice?
++ Porque esse ponto está ao mesmo tempo à distância certa de A e de B
+- Porque os arcos têm o mesmo raio | abertura
+- Porque é o ponto mais alto do desenho | passo-faltando
+- Por acaso | passo-faltando
+E: Cada arco é o lugar dos pontos a uma distância fixa de um vértice.
+V: O que representa cada arco traçado na construção?
++ Os pontos que ficam a uma distância fixa de um vértice
+- O lado do triângulo pronto
+- A altura do triângulo
+- O ângulo do triângulo
+
+@exemplo_guiado | Exemplo guiado: fluxograma | Início → Leia a, b, c → "O maior lado é menor que a soma dos outros dois?" Não: "Não existe triângulo" → Fim. Sim: trace o segmento a → arco de raio b em uma ponta → arco de raio c na outra → marque o cruzamento → ligue → Fim.
+Q: Por que o fluxograma começa verificando a condição de existência?
++ Porque, se não for satisfeita, os arcos não se cruzam
+- Porque é bonito começar com uma pergunta | sem-verificar
+- Porque o compasso precisa ser testado | passo-faltando
+- Não precisa verificar | sem-verificar
+E: Com lados 2, 3 e 8, os arcos não se encontram.
+V: Seguindo o fluxograma com lados 3, 4 e 9, qual é a saída?
++ "Não existe triângulo"
+- Um triângulo de lados 3, 4 e 9
+- Um triângulo de lados 3, 4 e 7
+- Um quadrado
+Q: No fluxograma, que símbolo deve conter a pergunta sobre a condição de existência?
++ Losango (decisão)
+- Retângulo (ação) | passo-faltando
+- Oval (início/fim) | ordem
+- Nenhum | sem-verificar
+E: É uma pergunta com resposta sim ou não.
+V: No fluxograma, que símbolo deve conter "trace um arco de raio b"?
++ Retângulo (ação)
+- Losango (decisão)
+- Oval (início/fim)
+- Nenhum
+Q: Com lados 5, 5 e 5, o algoritmo constrói qual triângulo?
++ Equilátero
+- Isósceles não equilátero | abertura
+- Escaleno | abertura
+- Retângulo | abertura
+E: Três lados iguais.
+V: Com lados 6, 6 e 4, o algoritmo constrói qual triângulo?
++ Isósceles
+- Equilátero
+- Escaleno
+- Não existe
+
+@praticar | Praticar: seguindo o algoritmo | Confira cada passo.
+Q: Ordene os passos: (I) traçar arco de raio 4 com ponta em A; (II) traçar AB = 7; (III) ligar C a A e a B; (IV) traçar arco de raio 5 com ponta em B.
++ II, I, IV, III
+- I, II, III, IV | ordem
+- II, III, I, IV | ordem
+- III, II, I, IV | ordem
+E: Base, os dois arcos, depois ligar.
+V: Ordene: (I) ligar os vértices; (II) traçar a base de 9 cm; (III) arco de raio 6 em uma ponta; (IV) arco de raio 5 na outra ponta.
++ II, III, IV, I
+- I, II, III, IV
+- II, I, III, IV
+- III, IV, II, I
+Q: Um aluno traçou AB = 6 e os arcos de raios 2 e 3 não se cruzaram. Qual foi o problema?
++ As medidas 6, 2 e 3 não formam triângulo
+- Ele usou o compasso errado | abertura
+- Ele devia traçar os arcos com raio 6 | abertura
+- Faltou apagar a base | passo-faltando
+E: 6 > 2 + 3.
+V: Uma aluna traçou AB = 10 e os arcos de raios 4 e 5 não se cruzaram. Qual foi o problema?
++ As medidas 10, 4 e 5 não formam triângulo
+- Ela usou o compasso errado
+- Devia traçar os arcos com raio 10
+- Faltou apagar a base
+Q: Os dois arcos se cruzam em dois pontos, um acima e outro abaixo da base. O que isso significa?
++ Há dois triângulos iguais, espelhados em relação à base; qualquer um serve
+- Há erro na construção | passo-faltando
+- Os lados estão errados | sem-verificar
+- É preciso usar os dois pontos ao mesmo tempo | ordem
+E: Os dois triângulos têm os mesmos lados.
+V: Ao construir, você escolheu o cruzamento de baixo, e seu colega o de cima. Os triângulos são:
++ Iguais (congruentes), só em posições espelhadas
+- Diferentes, um maior que o outro
+- Um certo e outro errado
+- Impossíveis de comparar
+Q: Para construir um triângulo de lados 4, 4 e 4 cm, quantas aberturas diferentes do compasso são necessárias?
++ Uma (4 cm)
+- Duas | abertura
+- Três | abertura
+- Nenhuma | passo-faltando
+E: Todos os lados são iguais.
+V: Para construir um triângulo de lados 5, 5 e 3 cm, usando 3 cm como base, quantas aberturas diferentes do compasso são necessárias para os arcos?
++ Uma (5 cm)
+- Duas
+- Três
+- Nenhuma
+
+@aplicar | Aplicar: o algoritmo em uso | Pense antes de desenhar.
+Q: Um marceneiro quer cortar uma peça triangular de lados 30, 40 e 50 cm. O algoritmo diz que é possível?
++ Sim, porque 50 é menor que 30 + 40
+- Não, porque 50 é o maior | sem-verificar
+- Não, porque os lados são diferentes | sem-verificar
+- Só se for 50, 50 e 50 | abertura
+E: 50 < 70.
+V: Um serralheiro quer uma peça triangular de lados 20, 30 e 60 cm. O algoritmo diz que é possível?
++ Não, porque 60 é maior que 20 + 30
+- Sim, porque 60 é o maior
+- Sim, porque os lados são diferentes
+- Só se for 60, 60 e 60
+Q: Num programa de geometria, um aluno quer usar o algoritmo. Qual ferramenta substitui o compasso?
++ A ferramenta de circunferência com centro e raio
+- A ferramenta de reta | passo-faltando
+- A ferramenta de ângulo | passo-faltando
+- A borracha | passo-faltando
+E: O arco é parte de uma circunferência.
+V: No papel, o que substitui a ferramenta "circunferência com centro e raio" do programa?
++ O compasso
+- A régua
+- O transferidor
+- O esquadro
+Q: Que informação NÃO é necessária para esse algoritmo?
++ As medidas dos ângulos
+- A medida dos três lados | passo-faltando
+- Um segmento como base | passo-faltando
+- O compasso | passo-faltando
+E: Com os três lados, os ângulos já ficam determinados.
+V: Quantas medidas de lado são necessárias para esse algoritmo?
++ 3
+- 2
+- 1
+- 4
+
+@explicar | Explicar: escrevendo o algoritmo | Escreva os passos para construir um triângulo de lados 7, 5 e 4 cm com régua e compasso.
+C: verifica | Verifica que 7 < 5 + 4
+C: passos | Descreve base, os dois arcos com as aberturas certas e o cruzamento
+C: final | Liga o ponto de cruzamento às pontas da base
+BOA: Primeiro confiro que 7 é menor que 5 + 4 = 9, então o triângulo existe. Traço AB com 7 cm. Abro o compasso em 5 cm, ponho a ponta em A e traço um arco. Abro em 4 cm, ponho a ponta em B e traço outro arco. Onde os arcos se cruzam marco C. Ligo C a A e C a B.
+
+#TRILHA EF07MA27 | MA | 7 | Trilha: Ângulos de polígonos regulares | Mosaicos e ladrilhos
+FAZ: Calcula medidas de ângulos internos de polígonos regulares sem fórmula pronta e relaciona ângulos internos e externos, especialmente em mosaicos e ladrilhamentos.
+ERRO: soma-triangulos | Erra a quantidade de triângulos em que o polígono se divide
+ERRO: interno-externo | Confunde ângulo interno com externo
+ERRO: mosaico | Não percebe que os ângulos em volta de um ponto devem somar 360°
+ERRO: calculo | Erra a conta
+NOTA: Divida o polígono em triângulos a partir de um vértice: n lados dão (n − 2) triângulos. Monte mosaicos com peças de papel.
+
+@relembrar | Relembrar: dividindo em triângulos | Um quadrilátero se divide em 2 triângulos: 2 × 180° = 360°. Um pentágono, em 3: 540°. Um hexágono, em 4: 720°.
+Q: Em quantos triângulos um hexágono se divide, traçando as diagonais de um só vértice?
++ 4
+- 6 | soma-triangulos
+- 3 | soma-triangulos
+- 5 | soma-triangulos
+E: n − 2 = 6 − 2 = 4.
+V: Em quantos triângulos um octógono se divide, traçando as diagonais de um só vértice?
++ 6
+- 8
+- 5
+- 7
+Q: Qual é a soma dos ângulos internos de um pentágono?
++ 540°
+- 900° | soma-triangulos
+- 360° | soma-triangulos
+- 720° | soma-triangulos
+E: 3 triângulos × 180° = 540°.
+V: Qual é a soma dos ângulos internos de um hexágono?
++ 720°
+- 1.080°
+- 540°
+- 360°
+Q: Quanto mede cada ângulo interno de um quadrado?
++ 90°
+- 360° | calculo
+- 45° | interno-externo
+- 180° | calculo
+E: 360° ÷ 4 = 90°.
+V: Quanto mede cada ângulo interno de um triângulo equilátero?
++ 60°
+- 180°
+- 120°
+- 90°
+
+@exemplo_guiado | Exemplo guiado: hexágono regular | Soma: 4 × 180° = 720°. Cada ângulo interno: 720° ÷ 6 = 120°. Cada ângulo externo: 180° − 120° = 60°. A soma dos externos: 6 × 60° = 360°.
+Q: Quanto mede cada ângulo interno de um pentágono regular?
++ 108°
+- 72° | interno-externo
+- 540° | calculo
+- 90° | calculo
+E: 540° ÷ 5 = 108°.
+V: Quanto mede cada ângulo interno de um octógono regular?
++ 135°
+- 45°
+- 1.080°
+- 120°
+Q: Quanto mede cada ângulo externo de um pentágono regular?
++ 72°
+- 108° | interno-externo
+- 252° | calculo
+- 60° | calculo
+E: 180° − 108° = 72°. Ou 360° ÷ 5 = 72°.
+V: Quanto mede cada ângulo externo de um octógono regular?
++ 45°
+- 135°
+- 225°
+- 60°
+Q: Quanto vale a soma dos ângulos externos de qualquer polígono convexo?
++ 360°
+- 180° | interno-externo
+- Depende do número de lados | interno-externo
+- 540° | calculo
+E: Dando uma volta completa no polígono, giramos 360°.
+V: A soma dos ângulos externos de um decágono regular é:
++ 360°
+- 1.440°
+- 180°
+- 36°
+
+@praticar | Praticar: calculando ângulos | Use triângulos e a volta completa.
+Q: Quanto mede cada ângulo interno de um decágono regular (10 lados)?
++ 144°
+- 36° | interno-externo
+- 160° | calculo
+- 180° | calculo
+E: Externo: 360° ÷ 10 = 36°. Interno: 180° − 36° = 144°.
+V: Quanto mede cada ângulo interno de um dodecágono regular (12 lados)?
++ 150°
+- 30°
+- 160°
+- 120°
+Q: Um polígono regular tem ângulo externo de 40°. Quantos lados ele tem?
++ 9
+- 40 | calculo
+- 4 | calculo
+- 7 | calculo
+E: 360° ÷ 40° = 9.
+V: Um polígono regular tem ângulo externo de 24°. Quantos lados ele tem?
++ 15
+- 24
+- 12
+- 9
+Q: Um polígono regular tem ângulo interno de 140°. Quantos lados ele tem?
++ 9
+- 14 | interno-externo
+- 7 | calculo
+- 10 | calculo
+E: Externo: 180° − 140° = 40°; 360° ÷ 40° = 9.
+V: Um polígono regular tem ângulo interno de 156°. Quantos lados ele tem?
++ 15
+- 12
+- 24
+- 10
+Q: Qual é a soma dos ângulos internos de um heptágono?
++ 900°
+- 1.260° | soma-triangulos
+- 720° | soma-triangulos
+- 630° | calculo
+E: 5 triângulos × 180° = 900°.
+V: Qual é a soma dos ângulos internos de um eneágono (9 lados)?
++ 1.260°
+- 1.620°
+- 1.080°
+- 810°
+
+@aplicar | Aplicar: mosaicos | Em volta de um ponto, os ângulos somam 360°.
+Q: Por que hexágonos regulares cobrem o chão sem deixar buracos?
++ Porque 3 ângulos de 120° somam 360°
+- Porque têm 6 lados | mosaico
+- Porque 6 ângulos de 60° somam 360° | interno-externo
+- Porque são grandes | mosaico
+E: Três hexágonos se encontram em cada vértice.
+V: Por que quadrados cobrem o chão sem deixar buracos?
++ Porque 4 ângulos de 90° somam 360°
+- Porque têm 4 lados
+- Porque 2 ângulos de 180° somam 360°
+- Porque são pequenos
+Q: Pentágonos regulares sozinhos cobrem um piso sem buracos?
++ Não, porque 360° não é múltiplo de 108°
+- Sim, 3 pentágonos se encaixam | mosaico
+- Sim, 4 pentágonos se encaixam | mosaico
+- Sim, como qualquer polígono regular | mosaico
+E: 3 × 108° = 324° (sobra) e 4 × 108° = 432° (passa).
+V: Octógonos regulares sozinhos cobrem um piso sem buracos?
++ Não, porque 360° não é múltiplo de 135°
+- Sim, 3 octógonos se encaixam
+- Sim, 2 octógonos se encaixam
+- Sim, como qualquer polígono regular
+Q: Num mosaico, em um ponto se encontram 2 octógonos regulares e 1 quadrado. Verifique a soma dos ângulos.
++ 135° + 135° + 90° = 360°, o mosaico fecha
+- 135° + 135° + 90° = 300°, sobra espaço | calculo
+- 45° + 45° + 90° = 180°, sobra espaço | interno-externo
+- 135° + 135° + 90° = 400°, as peças sobrepõem | calculo
+E: A soma dá exatamente 360°.
+V: Num mosaico, em um ponto se encontram 1 hexágono regular, 2 quadrados e 1 triângulo equilátero. Verifique a soma.
++ 120° + 90° + 90° + 60° = 360°, o mosaico fecha
+- 120° + 90° + 90° + 60° = 300°, sobra espaço
+- 60° + 90° + 90° + 60° = 300°, sobra espaço
+- 120° + 90° + 90° + 60° = 400°, as peças sobrepõem
+
+@explicar | Explicar: ângulo do hexágono | Explique como descobrir quanto mede cada ângulo interno de um hexágono regular sem usar fórmula pronta.
+C: triangulos | Divide o hexágono em 4 triângulos a partir de um vértice
+C: soma | Calcula a soma: 4 × 180° = 720°
+C: divide | Divide por 6: 120°
+BOA: A partir de um vértice, traço as diagonais e o hexágono fica dividido em 4 triângulos. Cada triângulo tem 180°, então a soma dos ângulos internos é 4 × 180° = 720°. Como o hexágono é regular, os 6 ângulos são iguais: 720° ÷ 6 = 120°.
+
+#TRILHA EF07MA28 | MA | 7 | Trilha: Algoritmo do polígono regular | Quadrado e triângulo equilátero
+FAZ: Descreve, por escrito e por fluxograma, um algoritmo para construir um polígono regular, como o quadrado e o triângulo equilátero, conhecida a medida do lado.
+ERRO: ordem | Coloca os passos fora de ordem
+ERRO: angulo | Usa o ângulo errado (por exemplo 60° no quadrado)
+ERRO: lado-diferente | Usa medidas diferentes para os lados
+ERRO: repeticao | Repete os passos um número errado de vezes
+NOTA: Programe o "passeio da tartaruga": ande L, gire o ângulo externo, repita n vezes. Para o quadrado: ande 5, gire 90°, 4 vezes.
+
+@relembrar | Relembrar: andar e girar | Para desenhar um quadrado de lado 5: repita 4 vezes {ande 5; gire 90°}. Para um triângulo equilátero de lado 5: repita 3 vezes {ande 5; gire 120°}.
+Q: Para desenhar um quadrado andando e girando, qual é o giro em cada canto?
++ 90°
+- 60° | angulo
+- 120° | angulo
+- 45° | angulo
+E: O ângulo externo do quadrado é 90°.
+V: Para desenhar um hexágono regular andando e girando, qual é o giro em cada canto?
++ 60°
+- 120°
+- 90°
+- 30°
+Q: Para desenhar um triângulo equilátero andando e girando, qual é o giro em cada canto?
++ 120°
+- 60° | angulo
+- 90° | angulo
+- 180° | angulo
+E: Giro = ângulo externo = 180° − 60° = 120°.
+V: Para desenhar um pentágono regular andando e girando, qual é o giro em cada canto?
++ 72°
+- 108°
+- 90°
+- 60°
+Q: Quantas vezes se repete "ande L; gire" para um pentágono regular?
++ 5
+- 4 | repeticao
+- 6 | repeticao
+- 3 | repeticao
+E: Uma vez para cada lado.
+V: Quantas vezes se repete "ande L; gire" para um octógono regular?
++ 8
+- 6
+- 7
+- 4
+
+@exemplo_guiado | Exemplo guiado: quadrado com régua e esquadro | 1) Trace AB com a medida do lado. 2) Com o esquadro, trace perpendiculares em A e em B. 3) Marque D e C nas perpendiculares, com a mesma medida. 4) Ligue C e D.
+Q: Na construção do quadrado com régua e esquadro, para que serve o esquadro?
++ Para traçar ângulos retos nos vértices
+- Para medir o lado | angulo
+- Para traçar arcos | angulo
+- Para apagar | ordem
+E: O quadrado tem 4 ângulos retos.
+V: Na construção do quadrado, que ângulo deve haver entre AB e AD?
++ 90°
+- 60°
+- 45°
+- 120°
+Q: Para construir um triângulo equilátero de lado 6 cm com régua e compasso, qual abertura do compasso usar nos dois arcos?
++ 6 cm
+- 3 cm | lado-diferente
+- 12 cm | lado-diferente
+- 6 cm num arco e 3 cm no outro | lado-diferente
+E: Todos os lados medem 6 cm.
+V: Para construir um triângulo equilátero de lado 8 cm, qual abertura do compasso usar nos dois arcos?
++ 8 cm
+- 4 cm
+- 16 cm
+- 8 cm num arco e 4 cm no outro
+Q: Um algoritmo diz: repita 6 vezes {ande 4; gire 60°}. Que figura ele desenha?
++ Hexágono regular de lado 4
+- Triângulo equilátero de lado 4 | repeticao
+- Quadrado de lado 6 | lado-diferente
+- Hexágono de lado 6 | lado-diferente
+E: 6 lados de 4, girando 60° (externo do hexágono).
+V: Um algoritmo diz: repita 3 vezes {ande 7; gire 120°}. Que figura ele desenha?
++ Triângulo equilátero de lado 7
+- Hexágono regular de lado 7
+- Quadrado de lado 3
+- Triângulo de lado 3
+
+@praticar | Praticar: corrigindo algoritmos | Encontre o erro.
+Q: Um aluno escreveu: repita 4 vezes {ande 5; gire 60°}. O que acontece?
++ A figura não fecha, porque o giro do quadrado deveria ser 90°
+- Desenha um quadrado | angulo
+- Desenha um triângulo equilátero | angulo
+- Desenha um hexágono | repeticao
+E: 4 × 60° = 240°, não completa a volta de 360°.
+V: Uma aluna escreveu: repita 3 vezes {ande 5; gire 60°}. O que acontece?
++ A figura não fecha, porque o giro do triângulo deveria ser 120°
+- Desenha um triângulo equilátero
+- Desenha um quadrado
+- Desenha um hexágono
+Q: Ordene os passos do quadrado: (I) ligar C e D; (II) traçar AB; (III) traçar perpendiculares em A e B; (IV) marcar C e D com a medida do lado.
++ II, III, IV, I
+- I, II, III, IV | ordem
+- III, II, IV, I | ordem
+- II, IV, III, I | ordem
+E: Base, perpendiculares, marcar, ligar.
+V: Ordene os passos do triângulo equilátero: (I) ligar C a A e B; (II) arco de raio L em B; (III) traçar AB = L; (IV) arco de raio L em A.
++ III, IV, II, I
+- I, II, III, IV
+- IV, III, II, I
+- III, I, II, IV
+Q: Num algoritmo "ande e gire", por que a soma de todos os giros é 360°?
++ Porque o desenho dá uma volta completa e termina olhando na mesma direção do início
+- Porque todo polígono tem 360 lados | repeticao
+- Porque é a soma dos ângulos internos | angulo
+- Por acaso | angulo
+E: A soma dos ângulos externos é 360°.
+V: No algoritmo do pentágono regular, 5 giros de 72° somam:
++ 360°
+- 540°
+- 180°
+- 72°
+Q: Qual algoritmo desenha um quadrado de lado 3?
++ Repita 4 vezes {ande 3; gire 90°}
+- Repita 3 vezes {ande 4; gire 90°} | repeticao
+- Repita 4 vezes {ande 3; gire 60°} | angulo
+- Repita 4 vezes {ande 3; gire 45°} | angulo
+E: 4 lados de 3, giro de 90°.
+V: Qual algoritmo desenha um triângulo equilátero de lado 9?
++ Repita 3 vezes {ande 9; gire 120°}
+- Repita 9 vezes {ande 3; gire 120°}
+- Repita 3 vezes {ande 9; gire 60°}
+- Repita 3 vezes {ande 9; gire 90°}
+
+@aplicar | Aplicar: programando figuras | Pense no giro e nas repetições.
+Q: Um robô de chão deve desenhar um octógono regular de lado 20 cm. Qual é o algoritmo?
++ Repita 8 vezes {ande 20; gire 45°}
+- Repita 8 vezes {ande 20; gire 135°} | angulo
+- Repita 6 vezes {ande 20; gire 45°} | repeticao
+- Repita 8 vezes {ande 45; gire 20°} | ordem
+E: 360° ÷ 8 = 45°.
+V: Um robô deve desenhar um decágono regular de lado 10 cm. Qual é o algoritmo?
++ Repita 10 vezes {ande 10; gire 36°}
+- Repita 10 vezes {ande 10; gire 144°}
+- Repita 8 vezes {ande 10; gire 36°}
+- Repita 10 vezes {ande 36; gire 10°}
+Q: Um algoritmo desenha um polígono regular girando 30° em cada canto. Quantos lados ele tem?
++ 12
+- 30 | repeticao
+- 6 | angulo
+- 10 | angulo
+E: 360° ÷ 30° = 12.
+V: Um algoritmo desenha um polígono regular girando 20° em cada canto. Quantos lados ele tem?
++ 18
+- 20
+- 9
+- 16
+Q: Para desenhar um quadrado de perímetro 24 cm, qual deve ser o "ande"?
++ 6 cm
+- 24 cm | lado-diferente
+- 4 cm | lado-diferente
+- 12 cm | lado-diferente
+E: 24 ÷ 4 = 6.
+V: Para desenhar um triângulo equilátero de perímetro 27 cm, qual deve ser o "ande"?
++ 9 cm
+- 27 cm
+- 3 cm
+- 13,5 cm
+
+@explicar | Explicar: o algoritmo do quadrado | Escreva um algoritmo para construir um quadrado de lado 5 cm e explique por que ele funciona.
+C: passos | Escreve os passos (base, ângulos retos, mesma medida, ligar) ou o "ande e gire"
+C: angulo | Justifica o ângulo de 90° (ou o giro de 90°)
+C: lados | Garante que os 4 lados medem 5 cm
+BOA: Repito 4 vezes: ando 5 cm e giro 90°. Funciona porque o quadrado tem 4 lados iguais, todos de 5 cm, e ângulos retos. A cada canto giro 90°, e 4 giros de 90° dão 360°, então termino no ponto de partida e o desenho fecha.
+
+#PRE EF07MA25 > EF07MA24 | 3
+#PRE EF07MA26 > EF07MA24 | 3
+#PRE EF07MA26 > EF07MA07 | 2
+#PRE EF07MA27 > EF07MA24 | 3
+#PRE EF07MA28 > EF07MA27 | 3
+#PRE EF07MA28 > EF07MA26 | 2

@@ -1,0 +1,668 @@
+// 7º ano — Matemática (parte 1): EF07MA01, EF07MA03, EF07MA05, EF07MA06
+
+#TRILHA EF07MA01 | MA | 7 | Trilha: Múltiplos e divisores em problemas | MMC e MDC sem decorar
+FAZ: Resolve e elabora problemas com múltiplos e divisores, incluindo mínimo múltiplo comum e máximo divisor comum, por estratégias próprias, como listas e esquemas.
+ERRO: troca-mmc-mdc | Usa o MDC quando o problema pede o MMC, ou o contrário
+ERRO: multiplica | Multiplica os números em vez de procurar o menor múltiplo comum
+ERRO: lista-incompleta | Esquece um múltiplo ou divisor na lista
+ERRO: calculo | Erra a conta
+NOTA: Peça sempre a lista: múltiplos de 6: 6, 12, 18, 24... Problemas de "encontrar de novo" pedem MMC; problemas de "dividir em partes iguais, o maior possível" pedem MDC.
+
+@relembrar | Relembrar: múltiplos e divisores | Múltiplos de 4: 4, 8, 12, 16, 20... Divisores de 12: 1, 2, 3, 4, 6, 12.
+Q: Qual é o menor múltiplo comum de 4 e 6 (diferente de zero)?
++ 12
+- 24 | multiplica
+- 2 | troca-mmc-mdc
+- 10 | calculo
+E: Múltiplos de 4: 4, 8, 12. Múltiplos de 6: 6, 12. O primeiro em comum é 12.
+V: Qual é o menor múltiplo comum de 6 e 8 (diferente de zero)?
++ 24
+- 48
+- 2
+- 14
+Q: Qual é o maior divisor comum de 18 e 24?
++ 6
+- 3 | lista-incompleta
+- 72 | troca-mmc-mdc
+- 2 | lista-incompleta
+E: Divisores de 18: 1, 2, 3, 6, 9, 18. Divisores de 24: 1, 2, 3, 4, 6, 8, 12, 24. O maior em comum é 6.
+V: Qual é o maior divisor comum de 20 e 30?
++ 10
+- 5
+- 60
+- 2
+Q: Quais são todos os divisores de 16?
++ 1, 2, 4, 8 e 16
+- 2, 4 e 8 | lista-incompleta
+- 1, 2, 4 e 8 | lista-incompleta
+- 16, 32, 48 e 64 | troca-mmc-mdc
+E: 16 = 1 × 16 = 2 × 8 = 4 × 4.
+V: Quais são todos os divisores de 15?
++ 1, 3, 5 e 15
+- 3 e 5
+- 1, 3 e 5
+- 15, 30, 45 e 60
+
+@exemplo_guiado | Exemplo guiado: quando se encontram de novo | Dois ônibus saem juntos às 7h. Um passa a cada 10 min e o outro a cada 15 min. Múltiplos de 10: 10, 20, 30. De 15: 15, 30. Encontram-se de novo depois de 30 min, às 7h30.
+Q: Duas luzes piscam juntas. Uma pisca a cada 6 s e a outra a cada 9 s. Depois de quantos segundos piscam juntas de novo?
++ 18 s
+- 54 s | multiplica
+- 3 s | troca-mmc-mdc
+- 15 s | calculo
+E: Múltiplos de 6: 6, 12, 18. Múltiplos de 9: 9, 18. MMC = 18.
+V: Duas luzes piscam juntas. Uma pisca a cada 4 s e a outra a cada 10 s. Depois de quantos segundos piscam juntas de novo?
++ 20 s
+- 40 s
+- 2 s
+- 14 s
+Q: Ana vai ao clube a cada 4 dias e Bia, a cada 5 dias. Hoje foram juntas. Daqui a quantos dias se encontram de novo no clube?
++ 20
+- 9 | calculo
+- 1 | troca-mmc-mdc
+- 10 | lista-incompleta
+E: 4 e 5 não têm divisor comum além de 1. O primeiro múltiplo comum é 20.
+V: Caio treina a cada 3 dias e Davi, a cada 8 dias. Hoje treinaram juntos. Daqui a quantos dias treinam juntos de novo?
++ 24
+- 11
+- 1
+- 12
+Q: Um médico pediu um remédio a cada 8 horas e outro a cada 12 horas. Se foram tomados juntos às 6h, a que horas serão tomados juntos de novo?
++ Às 6h do dia seguinte
+- Às 14h | lista-incompleta
+- Às 18h | lista-incompleta
+- Às 10h | troca-mmc-mdc
+E: MMC de 8 e 12 é 24. Depois de 24 horas: às 6h do dia seguinte.
+V: Um remédio é tomado a cada 6 horas e outro a cada 8 horas. Se foram tomados juntos às 8h, a que horas serão tomados juntos de novo?
++ Às 8h do dia seguinte
+- Às 14h
+- Às 16h
+- Às 10h
+
+@praticar | Praticar: dividindo em partes iguais | O maior tamanho possível pede o MDC.
+Q: Uma professora tem 24 lápis e 36 borrachas e quer montar kits iguais, com o maior número de kits possível, sem sobrar nada. Quantos kits?
++ 12
+- 6 | lista-incompleta
+- 72 | troca-mmc-mdc
+- 60 | calculo
+E: MDC de 24 e 36 é 12. Cada kit: 2 lápis e 3 borrachas.
+V: Um mercado tem 30 maçãs e 45 laranjas e quer montar cestas iguais, com o maior número de cestas possível, sem sobrar nada. Quantas cestas?
++ 15
+- 5
+- 90
+- 75
+Q: Duas fitas, de 40 cm e 60 cm, serão cortadas em pedaços iguais, do maior tamanho possível, sem sobra. Qual é o tamanho de cada pedaço?
++ 20 cm
+- 10 cm | lista-incompleta
+- 120 cm | troca-mmc-mdc
+- 100 cm | calculo
+E: MDC de 40 e 60 é 20.
+V: Duas cordas, de 48 m e 72 m, serão cortadas em pedaços iguais, do maior tamanho possível, sem sobra. Qual é o tamanho de cada pedaço?
++ 24 m
+- 12 m
+- 144 m
+- 120 m
+Q: Qual é o MMC de 5 e 7?
++ 35
+- 12 | calculo
+- 1 | troca-mmc-mdc
+- 70 | calculo
+E: 5 e 7 não têm divisores comuns além de 1, então o MMC é 5 × 7 = 35.
+V: Qual é o MMC de 3 e 11?
++ 33
+- 14
+- 1
+- 66
+Q: Qual é o MMC de 12 e 18?
++ 36
+- 216 | multiplica
+- 6 | troca-mmc-mdc
+- 72 | lista-incompleta
+E: Múltiplos de 18: 18, 36. 36 também é múltiplo de 12.
+V: Qual é o MMC de 10 e 25?
++ 50
+- 250
+- 5
+- 100
+
+@aplicar | Aplicar: MMC ou MDC? | Primeiro decida o que o problema pede.
+Q: Num quarteirão, uma rua tem postes a cada 15 m e árvores a cada 20 m, ambos começando no mesmo ponto. A cada quantos metros um poste coincide com uma árvore?
++ 60 m
+- 300 m | multiplica
+- 5 m | troca-mmc-mdc
+- 35 m | calculo
+E: MMC de 15 e 20 é 60.
+V: Numa pista, há bandeiras a cada 12 m e cones a cada 16 m, começando no mesmo ponto. A cada quantos metros uma bandeira coincide com um cone?
++ 48 m
+- 192 m
+- 4 m
+- 28 m
+Q: Um piso de 120 cm × 80 cm será coberto com placas quadradas iguais, as maiores possíveis, sem cortes. Qual o lado da placa?
++ 40 cm
+- 20 cm | lista-incompleta
+- 240 cm | troca-mmc-mdc
+- 10 cm | lista-incompleta
+E: MDC de 120 e 80 é 40.
+V: Uma parede de 90 cm × 150 cm será coberta com azulejos quadrados iguais, os maiores possíveis, sem cortes. Qual o lado do azulejo?
++ 30 cm
+- 15 cm
+- 450 cm
+- 10 cm
+Q: Qual situação é resolvida com o MDC?
++ Dividir 18 rosas e 30 cravos em buquês iguais, o maior número possível
+- Descobrir quando dois relógios tocam juntos de novo | troca-mmc-mdc
+- Saber quando duas pessoas se encontram de novo num ciclo | troca-mmc-mdc
+- Calcular quanto custam 3 rosas | calculo
+E: Dividir em partes iguais, o maior possível: MDC.
+V: Qual situação é resolvida com o MMC?
++ Descobrir quando dois ônibus com horários diferentes saem juntos de novo
+- Dividir 20 balas e 30 pirulitos em saquinhos iguais, o maior número possível
+- Cortar duas fitas em pedaços iguais, os maiores possíveis
+- Calcular quanto custam 4 balas
+
+@explicar | Explicar: MMC na vida | Explique como descobrir quando dois amigos que vão à biblioteca a cada 6 e a cada 10 dias se encontram de novo lá.
+C: identifica | Diz que o problema pede um múltiplo comum (MMC)
+C: lista | Lista os múltiplos de 6 e de 10
+C: resultado | Chega a 30 dias
+BOA: Eles se encontram quando o número de dias for múltiplo de 6 e de 10 ao mesmo tempo. Múltiplos de 6: 6, 12, 18, 24, 30. Múltiplos de 10: 10, 20, 30. O primeiro em comum é 30. Eles se encontram de novo daqui a 30 dias.
+
+#TRILHA EF07MA03 | MA | 7 | Trilha: Números inteiros | Reta numérica, comparação, adição e subtração
+FAZ: Compara e ordena números inteiros, associa-os a pontos da reta numérica e os usa em situações de adição e subtração.
+ERRO: compara-modulo | Acha que −8 é maior que −3 porque 8 é maior que 3
+ERRO: sinal | Erra o sinal do resultado
+ERRO: ignora-sinal | Ignora o sinal e opera como se fossem positivos
+ERRO: subtrai-negativo | Erra ao subtrair um número negativo
+ERRO: calculo | Erra a conta
+NOTA: Use termômetro, saldo bancário e andares de prédio (garagem no −1). Na reta, quanto mais à direita, maior o número.
+
+@relembrar | Relembrar: a reta dos inteiros | Na reta: ... −3, −2, −1, 0, 1, 2, 3 ... Quanto mais à direita, maior. Por isso −2 é maior que −5.
+Q: Qual é maior: −3 ou −8?
++ −3
+- −8 | compara-modulo
+- São iguais | ignora-sinal
+- Não dá para comparar | compara-modulo
+E: Na reta, −3 fica à direita de −8.
+V: Qual é maior: −10 ou −4?
++ −4
+- −10
+- São iguais
+- Não dá para comparar
+Q: Qual é a ordem crescente de 2, −5, 0, −1?
++ −5, −1, 0, 2
+- −1, −5, 0, 2 | compara-modulo
+- 0, −1, 2, −5 | ignora-sinal
+- 2, 0, −1, −5 | sinal
+E: Do mais à esquerda para o mais à direita na reta.
+V: Qual é a ordem crescente de −7, 3, −2, 1?
++ −7, −2, 1, 3
+- −2, −7, 1, 3
+- 1, −2, 3, −7
+- 3, 1, −2, −7
+Q: Às 6h fazia −2 °C. Às 12h a temperatura subiu 7 °C. Qual era a temperatura ao meio-dia?
++ 5 °C
+- 9 °C | ignora-sinal
+- −9 °C | sinal
+- −5 °C | sinal
+E: −2 + 7 = 5.
+V: À noite fazia −4 °C. De manhã a temperatura subiu 10 °C. Qual era a temperatura de manhã?
++ 6 °C
+- 14 °C
+- −14 °C
+- −6 °C
+
+@exemplo_guiado | Exemplo guiado: somando inteiros | Sinais iguais: soma e mantém o sinal: (−3) + (−4) = −7. Sinais diferentes: subtrai e fica o sinal do maior em valor absoluto: (−9) + 5 = −4.
+Q: Quanto é (−6) + (−5)?
++ −11
+- 11 | sinal
+- −1 | ignora-sinal
+- 1 | sinal
+E: Sinais iguais: 6 + 5 = 11, mantém o −.
+V: Quanto é (−8) + (−7)?
++ −15
+- 15
+- −1
+- 1
+Q: Quanto é (−12) + 5?
++ −7
+- 7 | sinal
+- −17 | ignora-sinal
+- 17 | ignora-sinal
+E: Sinais diferentes: 12 − 5 = 7; o maior em valor absoluto é negativo.
+V: Quanto é 4 + (−15)?
++ −11
+- 11
+- −19
+- 19
+Q: Quanto é 3 − (−4)?
++ 7
+- −1 | subtrai-negativo
+- −7 | sinal
+- 1 | subtrai-negativo
+E: Subtrair −4 é o mesmo que somar 4: 3 + 4 = 7.
+V: Quanto é 5 − (−6)?
++ 11
+- −1
+- −11
+- 1
+
+@praticar | Praticar: operando com inteiros | Pense na reta numérica.
+Q: Quanto é (−5) − 3?
++ −8
+- −2 | sinal
+- 8 | sinal
+- 2 | subtrai-negativo
+E: Partindo de −5, andar 3 para a esquerda: −8.
+V: Quanto é (−9) − 6?
++ −15
+- −3
+- 15
+- 3
+Q: Quanto é (−2) − (−10)?
++ 8
+- −12 | subtrai-negativo
+- −8 | sinal
+- 12 | subtrai-negativo
+E: −2 + 10 = 8.
+V: Quanto é (−7) − (−3)?
++ −4
+- −10
+- 4
+- 10
+Q: Qual é a distância, na reta, entre −4 e 3?
++ 7
+- 1 | ignora-sinal
+- −1 | sinal
+- −7 | sinal
+E: De −4 até 0 são 4; de 0 até 3 são 3. Total: 7.
+V: Qual é a distância, na reta, entre −6 e 2?
++ 8
+- 4
+- −4
+- −8
+Q: Qual número fica exatamente no meio entre −6 e 2 na reta?
++ −2
+- 2 | sinal
+- −4 | calculo
+- 4 | ignora-sinal
+E: A distância é 8; a metade é 4. −6 + 4 = −2.
+V: Qual número fica exatamente no meio entre −10 e 4 na reta?
++ −3
+- 3
+- −7
+- 7
+
+@aplicar | Aplicar: inteiros no dia a dia | Associe cada situação a um sinal.
+Q: Rui tinha saldo de R$ 50 e gastou R$ 80 no cartão de débito com limite. Qual é o saldo agora?
++ −R$ 30
+- R$ 30 | sinal
+- R$ 130 | ignora-sinal
+- −R$ 130 | sinal
+E: 50 − 80 = −30.
+V: Lia tinha saldo de R$ 20 e pagou uma conta de R$ 65 com o cheque especial. Qual é o saldo agora?
++ −R$ 45
+- R$ 45
+- R$ 85
+- −R$ 85
+Q: Um elevador está no 3º andar e desce 5 andares. Em qual andar para? (térreo = 0)
++ −2 (2º subsolo)
+- 2 | sinal
+- 8 | ignora-sinal
+- −8 | sinal
+E: 3 − 5 = −2.
+V: Um elevador está no −1 (subsolo) e sobe 6 andares. Em qual andar para?
++ 5
+- −5
+- 7
+- −7
+Q: Arquimedes nasceu em 287 a.C. e morreu em 212 a.C. Com quantos anos ele morreu, aproximadamente?
++ 75 anos
+- 499 anos | ignora-sinal
+- −75 anos | sinal
+- 212 anos | ignora-sinal
+E: Usando −287 e −212: −212 − (−287) = 75.
+V: Uma cidade antiga foi fundada em 120 a.C. e abandonada em 40 a.C. Por quantos anos ela existiu?
++ 80 anos
+- 160 anos
+- −80 anos
+- 40 anos
+
+@explicar | Explicar: comparando negativos | Explique por que −2 é maior que −9.
+C: reta | Usa a reta numérica: −2 fica à direita de −9
+C: contexto | Dá um exemplo, como temperatura ou dívida
+C: conclui | Conclui que, entre negativos, o de menor valor absoluto é o maior
+BOA: Na reta numérica, −2 fica mais à direita que −9, e quanto mais à direita, maior o número. Pensando em temperatura, −2 °C é menos frio que −9 °C. Por isso −2 é maior que −9.
+
+#TRILHA EF07MA05 | MA | 7 | Trilha: Diferentes caminhos | Um problema, vários algoritmos
+FAZ: Resolve um mesmo problema usando diferentes algoritmos e estratégias, e compara os caminhos.
+ERRO: so-um-caminho | Acha que só existe um jeito certo de resolver
+ERRO: decomposicao | Erra ao decompor os números
+ERRO: compensacao | Erra a compensação (soma ou tira do lugar errado)
+ERRO: calculo | Erra a conta
+NOTA: Mostre a mesma conta feita de três jeitos: algoritmo usual, decomposição e compensação. Pergunte qual foi mais rápido para cada um.
+
+@relembrar | Relembrar: decompor e compensar | 48 × 5 pode ser 48 × 10 ÷ 2 = 240. Também 40 × 5 + 8 × 5 = 200 + 40 = 240.
+Q: Qual destes caminhos calcula corretamente 25 × 16?
++ 25 × 4 × 4 = 100 × 4 = 400
+- 25 × 10 + 6 = 256 | decomposicao
+- 25 × 16 = 25 + 16 = 41 | calculo
+- 20 × 16 + 5 = 325 | decomposicao
+E: 16 = 4 × 4 e 25 × 4 = 100.
+V: Qual destes caminhos calcula corretamente 25 × 12?
++ 25 × 4 × 3 = 100 × 3 = 300
+- 25 × 10 + 2 = 252
+- 25 + 12 = 37
+- 20 × 12 + 5 = 245
+Q: Para calcular 99 + 47, uma estratégia é:
++ 100 + 47 − 1 = 146
+- 100 + 47 + 1 = 148 | compensacao
+- 99 + 40 = 139 | decomposicao
+- 90 + 40 = 130 | decomposicao
+E: Somo 1 ao 99 para virar 100 e depois tiro 1.
+V: Para calcular 198 + 35, uma estratégia é:
++ 200 + 35 − 2 = 233
+- 200 + 35 + 2 = 237
+- 198 + 30 = 228
+- 190 + 30 = 220
+Q: Dois alunos resolveram 72 ÷ 4 de jeitos diferentes e acharam 18. O que isso mostra?
++ Caminhos diferentes podem levar ao mesmo resultado correto
+- Um dos dois copiou | so-um-caminho
+- Só o algoritmo da chave é válido | so-um-caminho
+- O resultado deve estar errado | so-um-caminho
+E: 72 ÷ 4 = 72 ÷ 2 ÷ 2 = 36 ÷ 2 = 18; ou (40 + 32) ÷ 4 = 10 + 8 = 18.
+V: Duas alunas calcularam 15 × 6 de jeitos diferentes e acharam 90. O que isso mostra?
++ Caminhos diferentes podem levar ao mesmo resultado correto
+- Uma das duas copiou
+- Só a conta armada é válida
+- O resultado deve estar errado
+
+@exemplo_guiado | Exemplo guiado: três caminhos | 302 − 178. Usual: 124. Compensação: 302 − 178 = 304 − 180 = 124. Completando: de 178 até 200 faltam 22; de 200 até 302, 102; 22 + 102 = 124.
+Q: Para calcular 503 − 298, qual compensação está correta?
++ 505 − 300 = 205
+- 503 − 300 = 203 | compensacao
+- 501 − 300 = 201 | compensacao
+- 500 − 300 = 200 | compensacao
+E: Somando 2 nos dois números, a diferença não muda: 505 − 300 = 205.
+V: Para calcular 402 − 197, qual compensação está correta?
++ 405 − 200 = 205
+- 402 − 200 = 202
+- 399 − 200 = 199
+- 400 − 200 = 200
+Q: Para calcular 34 × 21 por decomposição, qual conta está correta?
++ 34 × 20 + 34 × 1 = 680 + 34 = 714
+- 34 × 20 + 1 = 681 | decomposicao
+- 30 × 20 + 4 × 1 = 604 | decomposicao
+- 34 × 2 + 34 × 1 = 102 | decomposicao
+E: 21 = 20 + 1, e multiplicamos 34 pelas duas partes.
+V: Para calcular 23 × 31 por decomposição, qual conta está correta?
++ 23 × 30 + 23 × 1 = 690 + 23 = 713
+- 23 × 30 + 1 = 691
+- 20 × 30 + 3 × 1 = 603
+- 23 × 3 + 23 × 1 = 92
+Q: Para calcular 360 ÷ 15, qual caminho está correto?
++ 360 ÷ 5 ÷ 3 = 72 ÷ 3 = 24
+- 360 ÷ 10 + 5 = 41 | decomposicao
+- 360 ÷ 10 ÷ 5 = 7,2 | decomposicao
+- 360 − 15 = 345 | calculo
+E: 15 = 5 × 3; dividir por 15 é dividir por 5 e depois por 3.
+V: Para calcular 480 ÷ 12, qual caminho está correto?
++ 480 ÷ 4 ÷ 3 = 120 ÷ 3 = 40
+- 480 ÷ 10 + 2 = 50
+- 480 ÷ 10 ÷ 2 = 24
+- 480 − 12 = 468
+
+@praticar | Praticar: escolhendo o caminho | Verifique se a estratégia mantém o resultado.
+Q: Qual é um jeito correto de calcular 50 × 38?
++ 100 × 38 ÷ 2 = 1.900
+- 50 × 40 − 2 = 1.998 | compensacao
+- 50 × 30 + 8 = 1.508 | decomposicao
+- 5 × 38 = 190 | calculo
+E: 50 é a metade de 100: 3.800 ÷ 2 = 1.900.
+V: Qual é um jeito correto de calcular 50 × 46?
++ 100 × 46 ÷ 2 = 2.300
+- 50 × 50 − 4 = 2.496
+- 50 × 40 + 6 = 2.006
+- 5 × 46 = 230
+Q: Qual é um jeito correto de calcular 19 × 7?
++ 20 × 7 − 7 = 133
+- 20 × 7 − 1 = 139 | compensacao
+- 20 × 7 + 7 = 147 | compensacao
+- 10 × 7 + 9 = 79 | decomposicao
+E: 19 × 7 = (20 − 1) × 7 = 140 − 7.
+V: Qual é um jeito correto de calcular 29 × 6?
++ 30 × 6 − 6 = 174
+- 30 × 6 − 1 = 179
+- 30 × 6 + 6 = 186
+- 20 × 6 + 9 = 129
+Q: Qual estratégia NÃO dá o resultado de 64 ÷ 8?
++ 64 ÷ 4 + 4 = 20
+- 64 ÷ 2 ÷ 2 ÷ 2 = 8 | so-um-caminho
+- Pensar em 8 × ? = 64 | so-um-caminho
+- (40 + 24) ÷ 8 = 5 + 3 = 8 | so-um-caminho
+E: Dividir por 8 não é dividir por 4 e somar 4.
+V: Qual estratégia NÃO dá o resultado de 81 ÷ 9?
++ 81 ÷ 3 + 3 = 30
+- 81 ÷ 3 ÷ 3 = 9
+- Pensar em 9 × ? = 81
+- (45 + 36) ÷ 9 = 5 + 4 = 9
+Q: Para conferir 156 + 287 = 443, qual operação ajuda?
++ 443 − 287 = 156
+- 443 + 287 | calculo
+- 156 × 287 | calculo
+- 443 ÷ 156 | calculo
+E: A subtração desfaz a adição.
+V: Para conferir 23 × 14 = 322, qual operação ajuda?
++ 322 ÷ 14 = 23
+- 322 − 14
+- 322 + 23
+- 23 + 14
+
+@aplicar | Aplicar: compras e contas | Escolha o caminho mais esperto.
+Q: Um ingresso custa R$ 49. Quanto custam 6 ingressos? Qual caminho está correto?
++ 50 × 6 − 6 = 294
+- 50 × 6 − 1 = 299 | compensacao
+- 49 + 6 = 55 | calculo
+- 40 × 6 + 9 = 249 | decomposicao
+E: 49 × 6 = (50 − 1) × 6 = 300 − 6 = 294.
+V: Um livro custa R$ 39. Quanto custam 5 livros? Qual caminho está correto?
++ 40 × 5 − 5 = 195
+- 40 × 5 − 1 = 199
+- 39 + 5 = 44
+- 30 × 5 + 9 = 159
+Q: Uma conta deu R$ 1.000 − R$ 637. Qual é o troco, calculando por completar?
++ R$ 363
+- R$ 473 | compensacao
+- R$ 463 | calculo
+- R$ 373 | calculo
+E: 637 + 3 = 640; + 60 = 700; + 300 = 1.000. Total: 3 + 60 + 300 = 363.
+V: Uma conta deu R$ 500 − R$ 278. Qual é o troco, calculando por completar?
++ R$ 222
+- R$ 232
+- R$ 322
+- R$ 212
+Q: 4 amigos dividiram uma conta de R$ 236. Quanto cada um pagou?
++ R$ 59
+- R$ 54 | decomposicao
+- R$ 69 | calculo
+- R$ 232 | calculo
+E: 236 ÷ 2 = 118; 118 ÷ 2 = 59.
+V: 4 amigos dividiram uma conta de R$ 316. Quanto cada um pagou?
++ R$ 79
+- R$ 74
+- R$ 89
+- R$ 312
+
+@explicar | Explicar: dois caminhos | Mostre dois jeitos diferentes de calcular 98 × 5.
+C: caminho1 | Mostra um caminho (por exemplo 100 × 5 − 2 × 5)
+C: caminho2 | Mostra outro caminho (por exemplo 98 × 10 ÷ 2)
+C: resultado | Chega a 490 nos dois
+BOA: Primeiro jeito: 98 é 100 − 2, então 100 × 5 − 2 × 5 = 500 − 10 = 490. Segundo jeito: multiplicar por 5 é multiplicar por 10 e dividir por 2: 980 ÷ 2 = 490. Os dois caminhos dão 490.
+
+#TRILHA EF07MA06 | MA | 7 | Trilha: Problemas de mesma estrutura | O mesmo procedimento serve
+FAZ: Reconhece que problemas com a mesma estrutura podem ser resolvidos pelos mesmos procedimentos, mesmo com contextos e números diferentes.
+ERRO: contexto | Acha que contextos diferentes exigem contas diferentes
+ERRO: estrutura | Não identifica a estrutura comum (partes-todo, comparação, proporção)
+ERRO: operacao | Escolhe a operação errada
+ERRO: calculo | Erra a conta
+NOTA: Agrupe problemas parecidos e peça aos alunos para "tirar o contexto": o que se sabe, o que se quer, que conta liga os dois.
+
+@relembrar | Relembrar: a estrutura | "Tenho 30 e gastei 12" e "Havia 30 alunos e saíram 12" têm a mesma estrutura: todo menos parte. Conta: 30 − 12.
+Q: Qual problema tem a mesma estrutura de "Uma caixa tem 6 ovos. Quantos ovos há em 8 caixas?"?
++ Um pacote tem 5 balas. Quantas balas há em 9 pacotes?
+- Comprei 8 ovos e quebrei 6. Quantos sobraram? | estrutura
+- Tinha 6 reais e ganhei 8. Quanto tenho? | estrutura
+- Dividi 8 balas para 6 crianças. Quanto cada uma ganhou? | estrutura
+E: Os dois são "grupos iguais": multiplicação.
+V: Qual problema tem a mesma estrutura de "Um ônibus leva 40 pessoas. Quantas levam 3 ônibus?"?
++ Uma estante tem 25 livros. Quantos livros há em 4 estantes?
+- Havia 40 pessoas e desceram 3. Quantas ficaram?
+- Tinha 40 figurinhas e ganhei 3. Quantas tenho?
+- Dividi 40 balas para 3 crianças. Quanto cada uma ganhou?
+Q: "João tem 15 anos e Maria tem 9. Quantos anos João tem a mais?" Que conta resolve?
++ 15 − 9
+- 15 + 9 | operacao
+- 15 × 9 | operacao
+- 15 ÷ 9 | operacao
+E: Comparação: diferença entre as quantidades.
+V: "Um prédio tem 32 andares e outro tem 18. Quantos andares o primeiro tem a mais?" Que conta resolve?
++ 32 − 18
+- 32 + 18
+- 32 × 18
+- 32 ÷ 18
+Q: Os problemas "Dividir 48 lápis em 6 estojos iguais" e "Repartir 48 reais entre 6 pessoas igualmente" são resolvidos:
++ Pela mesma conta: 48 ÷ 6
+- Por contas diferentes, porque um é de lápis e outro de dinheiro | contexto
+- Um por divisão e o outro por subtração | estrutura
+- Um por divisão e o outro por multiplicação | estrutura
+E: Mesma estrutura: repartir igualmente.
+V: Os problemas "Distribuir 35 livros em 5 prateleiras iguais" e "Repartir 35 balas entre 5 crianças igualmente" são resolvidos:
++ Pela mesma conta: 35 ÷ 5
+- Por contas diferentes, porque um é de livros e outro de balas
+- Um por divisão e o outro por subtração
+- Um por divisão e o outro por multiplicação
+
+@exemplo_guiado | Exemplo guiado: tirando o contexto | "Um carro faz 12 km por litro. Quantos litros para 180 km?" e "Uma máquina faz 12 peças por hora. Quantas horas para 180 peças?" Estrutura: total ÷ quantidade por unidade. Conta: 180 ÷ 12 = 15.
+Q: "Uma torneira enche 8 litros por minuto. Quantos minutos para encher 96 litros?" Que conta resolve?
++ 96 ÷ 8 = 12
+- 96 × 8 = 768 | operacao
+- 96 − 8 = 88 | operacao
+- 96 + 8 = 104 | operacao
+E: Mesma estrutura do carro: total ÷ quantidade por unidade.
+V: "Uma impressora imprime 15 páginas por minuto. Quantos minutos para 225 páginas?" Que conta resolve?
++ 225 ÷ 15 = 15
+- 225 × 15
+- 225 − 15
+- 225 + 15
+Q: "Ana tinha alguns reais, gastou 23 e ficou com 41." e "Um ônibus tinha passageiros, desceram 23 e ficaram 41." Que conta resolve os dois?
++ 41 + 23 = 64
+- 41 − 23 = 18 | operacao
+- 41 × 23 | operacao
+- Contas diferentes para cada um | contexto
+E: Nos dois, o valor inicial é o que sobrou mais o que saiu.
+V: "Rui tinha figurinhas, deu 17 e ficou com 38." e "Uma loja tinha camisetas, vendeu 17 e ficou com 38." Que conta resolve os dois?
++ 38 + 17 = 55
+- 38 − 17 = 21
+- 38 × 17
+- Contas diferentes para cada um
+Q: Qual destes problemas NÃO tem a mesma estrutura dos outros?
++ Tenho 20 reais e ganhei 5. Quanto tenho?
+- 5 cadernos custam 20 reais. Quanto custa 1? | estrutura
+- 20 alunos em 5 grupos iguais. Quantos por grupo? | estrutura
+- 20 litros em 5 garrafas iguais. Quanto em cada? | estrutura
+E: Os outros três são divisão em partes iguais; este é adição.
+V: Qual destes problemas NÃO tem a mesma estrutura dos outros?
++ Havia 30 pássaros e voaram 6. Quantos ficaram?
+- 6 caixas com 30 lápis cada. Quantos lápis?
+- 6 ônibus com 30 alunos cada. Quantos alunos?
+- 6 pacotes com 30 balas cada. Quantas balas?
+
+@praticar | Praticar: agrupando problemas | Encontre o procedimento comum.
+Q: Problemas de proporção como "3 kg custam 12 reais; quanto custam 5 kg?" podem ser resolvidos sempre por:
++ Achar o valor de 1 unidade e multiplicar
+- Somar os números do enunciado | operacao
+- Subtrair o menor do maior | operacao
+- Um procedimento diferente para cada produto | contexto
+E: 12 ÷ 3 = 4 por kg; 5 × 4 = 20.
+V: Problemas como "4 horas de trabalho rendem 60 reais; quanto rendem 7 horas?" podem ser resolvidos sempre por:
++ Achar o valor de 1 unidade e multiplicar
+- Somar os números do enunciado
+- Subtrair o menor do maior
+- Um procedimento diferente para cada trabalho
+Q: "Um terreno de 20 m por 15 m" e "Uma sala de 6 m por 4 m": que procedimento calcula a área dos dois?
++ Multiplicar comprimento por largura
+- Somar os quatro lados | estrutura
+- Somar comprimento e largura | operacao
+- Usar procedimentos diferentes | contexto
+E: Mesma estrutura: retângulo. Área = comprimento × largura.
+V: "Uma quadra de 28 m por 15 m" e "Um tapete de 3 m por 2 m": que procedimento calcula a área dos dois?
++ Multiplicar comprimento por largura
+- Somar os quatro lados
+- Somar comprimento e largura
+- Usar procedimentos diferentes
+Q: Usando o mesmo procedimento: "6 pães custam 9 reais; quanto custam 10 pães?"
++ 15 reais
+- 13 reais | operacao
+- 90 reais | operacao
+- 60 reais | calculo
+E: 1 pão = 1,50; 10 × 1,50 = 15.
+V: Usando o mesmo procedimento: "4 sucos custam 10 reais; quanto custam 6 sucos?"
++ 15 reais
+- 12 reais
+- 60 reais
+- 24 reais
+Q: Qual é o procedimento comum para "aumentar 10% de 200" e "aumentar 10% de 50"?
++ Calcular 10% do valor e somar ao valor
+- Somar 10 ao valor | operacao
+- Multiplicar o valor por 10 | operacao
+- Usar contas diferentes | contexto
+E: 200 + 20 = 220; 50 + 5 = 55.
+V: Qual é o procedimento comum para "dar 20% de desconto em 100" e "dar 20% de desconto em 40"?
++ Calcular 20% do valor e subtrair do valor
+- Subtrair 20 do valor
+- Dividir o valor por 20
+- Usar contas diferentes
+
+@aplicar | Aplicar: mesma estrutura, contexto novo | Use o procedimento que já conhece.
+Q: Num jogo, Lia fez 1.250 pontos e Rui, 980. Que conta descobre quantos pontos Lia fez a mais, e qual o resultado?
++ 1.250 − 980 = 270
+- 1.250 + 980 = 2.230 | operacao
+- 1.250 − 980 = 370 | calculo
+- 1.250 ÷ 980 | operacao
+E: Comparação: diferença.
+V: Uma cidade tem 3.400 habitantes e outra, 2.750. Quantos a primeira tem a mais?
++ 650
+- 6.150
+- 750
+- 1.350
+Q: Um tanque de 1.200 litros esvazia 40 litros por minuto. Em quantos minutos esvazia?
++ 30
+- 48.000 | operacao
+- 1.160 | operacao
+- 300 | calculo
+E: Mesma estrutura do carro e da torneira: 1.200 ÷ 40 = 30.
+V: Uma fábrica precisa produzir 1.500 peças, fazendo 50 por hora. Em quantas horas termina?
++ 30
+- 75.000
+- 1.450
+- 300
+Q: "Em 3 dias, 2 torneiras gastam 120 L." O que é preciso perceber antes de resolver problemas assim?
++ Quais grandezas aumentam ou diminuem juntas e como se relacionam
+- Que todo problema com 3 números é de soma | estrutura
+- Que basta multiplicar todos os números | operacao
+- Que cada problema precisa de uma regra nova | contexto
+E: Reconhecer a estrutura vem antes da conta.
+V: Ao ler um problema novo, qual é o primeiro passo para reaproveitar um procedimento conhecido?
++ Identificar o que se sabe, o que se quer e como se relacionam
+- Somar todos os números
+- Procurar a palavra "mais" ou "menos"
+- Inventar uma regra nova
+
+@explicar | Explicar: a mesma estrutura | Explique por que "um carro faz 10 km por litro; quantos litros para 250 km?" e "uma pessoa lê 10 páginas por dia; quantos dias para 250 páginas?" se resolvem do mesmo jeito.
+C: estrutura | Diz que nos dois há um total e uma quantidade por unidade
+C: conta | Diz que a conta é 250 ÷ 10
+C: resultado | Chega a 25 nos dois
+BOA: Nos dois problemas há um total (250 km ou 250 páginas) e quanto se faz em cada unidade (10 por litro ou 10 por dia). A pergunta é quantas unidades são necessárias, então a conta é a mesma: 250 ÷ 10 = 25. São 25 litros num caso e 25 dias no outro.
+
+#PRE EF07MA01 > EF06MA05 | 3
+#PRE EF07MA01 > EF06MA06 | 3
+#PRE EF07MA03 > EF06MA01 | 2
+#PRE EF07MA05 > EF06MA03 | 2
+#PRE EF07MA06 > EF07MA05 | 2

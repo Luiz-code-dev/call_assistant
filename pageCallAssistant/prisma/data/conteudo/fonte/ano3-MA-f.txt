@@ -1,0 +1,666 @@
+// 3º ano — Matemática (parte 6): EF03MA21, EF03MA22, EF03MA23, EF03MA24
+
+#TRILHA EF03MA21 | MA | 3 | Trilha: Comparando áreas | Qual ocupa mais espaço?
+FAZ: Compara áreas de faces de objetos, de figuras planas e de desenhos, visualmente ou por superposição, e contando quadradinhos iguais.
+ERRO: perimetro-area | Confunde o contorno com a área
+ERRO: so-comprimento | Compara só pelo lado mais comprido
+ERRO: conta-quadradinhos | Conta errado os quadradinhos
+ERRO: forma-igual-area | Acha que formas diferentes não podem ter a mesma área
+NOTA: Cubra figuras com quadradinhos de papel iguais e conte. Sobreponha folhas para comparar. Mostre que um retângulo comprido e fino pode ter área menor que um quadrado.
+
+@relembrar | Relembrar: área é a superfície | Área é o tamanho da superfície de uma figura, o espaço que ela cobre.
+Q: Para comparar a área de duas folhas, o que podemos fazer?
++ Colocar uma em cima da outra e ver qual sobra
+- Medir só o lado mais comprido | so-comprimento
+- Contar os cantos | conta-quadradinhos
+- Medir o contorno com barbante | perimetro-area
+E: Sobrepondo, a que sobra tem área maior.
+V: Para comparar a área de duas toalhas, o que podemos fazer?
++ Colocar uma em cima da outra e ver qual sobra
+- Medir só o lado mais comprido
+- Contar os cantos
+- Pesar com a mão
+Q: Uma figura é coberta por 12 quadradinhos e outra por 9 quadradinhos iguais. Qual tem área maior?
++ A de 12 quadradinhos
+- A de 9 quadradinhos | conta-quadradinhos
+- As duas iguais | forma-igual-area
+- Não dá para saber | perimetro-area
+E: Mais quadradinhos iguais, mais área.
+V: Uma figura é coberta por 7 quadradinhos e outra por 10 quadradinhos iguais. Qual tem área maior?
++ A de 10 quadradinhos
+- A de 7 quadradinhos
+- As duas iguais
+- Não dá para saber
+Q: Área é:
++ O espaço que a figura cobre
+- O contorno da figura | perimetro-area
+- O lado mais comprido | so-comprimento
+- A quantidade de cantos | conta-quadradinhos
+E: Área é a superfície, o "dentro" da figura.
+V: Para pintar uma parede, o que importa medir?
++ A área da parede
+- Só a altura
+- Só o contorno
+- Os cantos
+
+@exemplo_guiado | Exemplo guiado: contando quadradinhos | Um retângulo de 4 quadradinhos de comprimento por 3 de altura tem 3 fileiras de 4: 12 quadradinhos de área.
+Q: Um retângulo tem 5 quadradinhos de comprimento e 2 de altura. Quantos quadradinhos tem sua área?
++ 10
+- 7 | perimetro-area
+- 14 | perimetro-area
+- 5 | so-comprimento
+E: 2 fileiras de 5: 10 quadradinhos.
+V: Um retângulo tem 6 quadradinhos de comprimento e 2 de altura. Quantos quadradinhos tem sua área?
++ 12
+- 8
+- 16
+- 6
+Q: Um quadrado tem 3 quadradinhos de lado. Quantos quadradinhos tem sua área?
++ 9
+- 12 | perimetro-area
+- 6 | conta-quadradinhos
+- 3 | so-comprimento
+E: 3 fileiras de 3: 9 quadradinhos.
+V: Um quadrado tem 5 quadradinhos de lado. Quantos quadradinhos tem sua área?
++ 25
+- 20
+- 10
+- 5
+Q: Figura A: 6 quadradinhos em fila. Figura B: 2 fileiras de 3 quadradinhos. Como são as áreas?
++ Iguais, as duas têm 6 quadradinhos
+- A é maior, porque é mais comprida | so-comprimento
+- B é maior, porque é mais alta | so-comprimento
+- Não dá para comparar figuras diferentes | forma-igual-area
+E: Formas diferentes podem ter a mesma área.
+V: Figura A: 8 quadradinhos em fila. Figura B: 2 fileiras de 4 quadradinhos. Como são as áreas?
++ Iguais, as duas têm 8 quadradinhos
+- A é maior, porque é mais comprida
+- B é maior, porque é mais alta
+- Não dá para comparar figuras diferentes
+
+@praticar | Praticar: qual cobre mais? | Conte os quadradinhos de cada figura.
+Q: Qual tem área maior: um retângulo 4 por 2 ou um quadrado 3 por 3?
++ O quadrado 3 por 3
+- O retângulo 4 por 2, porque tem o lado maior | so-comprimento
+- São iguais | conta-quadradinhos
+- Não dá para saber | forma-igual-area
+E: 4 × 2 = 8 e 3 × 3 = 9. O quadrado tem mais.
+V: Qual tem área maior: um retângulo 6 por 1 ou um quadrado 3 por 3?
++ O quadrado 3 por 3
+- O retângulo 6 por 1
+- São iguais
+- Não dá para saber
+Q: Uma figura em forma de L tem 3 quadradinhos em pé e 2 deitados embaixo, sem repetir nenhum. Qual é a área?
++ 5 quadradinhos
+- 6 quadradinhos | conta-quadradinhos
+- 3 quadradinhos | so-comprimento
+- 10 quadradinhos | perimetro-area
+E: 3 + 2 = 5 quadradinhos.
+V: Uma figura em forma de T tem 3 quadradinhos em cima e 2 embaixo, no meio. Qual é a área?
++ 5 quadradinhos
+- 6 quadradinhos
+- 3 quadradinhos
+- 10 quadradinhos
+Q: Duas figuras têm áreas de 12 quadradinhos cada, mas formas diferentes. Elas:
++ Ocupam o mesmo espaço
+- Não podem ter a mesma área | forma-igual-area
+- Têm o mesmo contorno, com certeza | perimetro-area
+- São congruentes | forma-igual-area
+E: Área igual não quer dizer forma igual.
+V: Um retângulo 2 por 8 e um quadrado 4 por 4:
++ Ocupam o mesmo espaço, 16 quadradinhos
+- Não podem ter a mesma área
+- Têm o mesmo contorno, com certeza
+- São congruentes
+Q: Para cobrir um tampo de 4 quadradinhos por 4, quantos azulejos quadrados iguais aos quadradinhos são necessários?
++ 16
+- 8 | conta-quadradinhos
+- 4 | so-comprimento
+- 12 | perimetro-area
+E: 4 fileiras de 4: 16.
+V: Para cobrir um piso de 5 quadradinhos por 3, quantos azulejos iguais aos quadradinhos são necessários?
++ 15
+- 8
+- 5
+- 16
+
+@aplicar | Aplicar: áreas no dia a dia | Pense no espaço coberto.
+Q: Lia quer forrar a capa do caderno. Ela precisa saber:
++ A área da capa
+- Só o comprimento da capa | so-comprimento
+- Só o contorno da capa | perimetro-area
+- O número de páginas | conta-quadradinhos
+E: Forrar é cobrir a superfície: área.
+V: Rui quer pintar o tampo da mesa. Ele precisa saber:
++ A área do tampo
+- Só o comprimento do tampo
+- Só o contorno do tampo
+- A altura da mesa
+Q: Um tapete cobre 20 lajotas do chão. Outro cobre 18 lajotas iguais. Qual tapete é maior em área?
++ O que cobre 20 lajotas
+- O que cobre 18 lajotas | conta-quadradinhos
+- Os dois iguais | forma-igual-area
+- Depende da cor | so-comprimento
+E: Cobre mais lajotas, tem mais área.
+V: Uma toalha cobre 24 quadradinhos da mesa e outra, 30. Qual toalha é maior em área?
++ A que cobre 30
+- A que cobre 24
+- As duas iguais
+- Depende da cor
+Q: Num jardim, o canteiro A tem 3 por 4 metros e o B tem 2 por 6 metros. Qual tem mais espaço para plantar?
++ Têm o mesmo espaço
+- O B, porque é mais comprido | so-comprimento
+- O A, porque é mais largo | so-comprimento
+- Não dá para comparar | forma-igual-area
+E: 3 × 4 = 12 e 2 × 6 = 12.
+V: Uma horta A tem 2 por 5 metros e uma horta B tem 1 por 10 metros. Qual tem mais espaço?
++ Têm o mesmo espaço
+- A B, porque é mais comprida
+- A A, porque é mais larga
+- Não dá para comparar
+
+@explicar | Explicar: comparando áreas | Explique como descobrir qual de duas figuras desenhadas na malha quadriculada tem a maior área.
+C: unidade | Diz que conta os quadradinhos de dentro de cada figura
+C: compara | Diz que a que tiver mais quadradinhos tem área maior
+C: forma | Comenta que formas diferentes podem ter a mesma área
+BOA: Eu conto quantos quadradinhos cada figura cobre por dentro. A que tiver mais quadradinhos tem a maior área. Se tiverem o mesmo número, as áreas são iguais, mesmo que as formas sejam diferentes.
+
+#TRILHA EF03MA22 | MA | 3 | Trilha: Início, término e duração | Quanto tempo durou?
+FAZ: Lê e registra horários de início e término de uma atividade em relógios analógicos e digitais e calcula sua duração.
+ERRO: subtrai-errado | Erra a conta da duração
+ERRO: hora-minuto | Confunde horas com minutos
+ERRO: passa-da-hora | Erra quando a atividade passa de uma hora para outra
+ERRO: ponteiros | Troca o ponteiro das horas com o dos minutos
+NOTA: Use um relógio de ponteiros de papel. Faça a linha do tempo da rotina do aluno com horário de início e fim.
+
+@relembrar | Relembrar: hora e minuto | 1 hora tem 60 minutos. Meia hora tem 30 minutos.
+Q: Quantos minutos tem 1 hora?
++ 60
+- 100 | hora-minuto
+- 30 | hora-minuto
+- 24 | hora-minuto
+E: 1 hora = 60 minutos.
+V: Quantos minutos tem meia hora?
++ 30
+- 50
+- 60
+- 15
+Q: Uma aula começou às 8h e terminou às 9h. Quanto durou?
++ 1 hora
+- 9 horas | subtrai-errado
+- 17 horas | subtrai-errado
+- 30 minutos | hora-minuto
+E: De 8h a 9h passa 1 hora.
+V: Um passeio começou às 2h da tarde e terminou às 5h da tarde. Quanto durou?
++ 3 horas
+- 5 horas
+- 7 horas
+- 30 minutos
+Q: No relógio digital aparece 07:30. Que horas são?
++ Sete e meia
+- Sete e três | hora-minuto
+- Trinta para as sete | ponteiros
+- Três e sete | ponteiros
+E: 07:30 é 7 horas e 30 minutos.
+V: No relógio digital aparece 10:15. Que horas são?
++ Dez e quinze
+- Dez e um
+- Quinze para as dez
+- Uma e dez
+
+@exemplo_guiado | Exemplo guiado: calculando a duração | O filme começou às 3h10 e terminou às 4h40. De 3h10 até 4h10 é 1 hora; de 4h10 até 4h40 são 30 minutos. Duração: 1 hora e 30 minutos.
+Q: O recreio começou às 9h45 e terminou às 10h05. Quanto durou?
++ 20 minutos
+- 40 minutos | passa-da-hora
+- 1 hora e 40 minutos | passa-da-hora
+- 60 minutos | subtrai-errado
+E: De 9h45 até 10h são 15 minutos; mais 5 minutos: 20 minutos.
+V: O lanche começou às 3h50 e terminou às 4h10. Quanto durou?
++ 20 minutos
+- 40 minutos
+- 1 hora e 40 minutos
+- 60 minutos
+Q: Um jogo começou às 4h e durou 1 hora e meia. A que horas terminou?
++ 5h30
+- 5h | hora-minuto
+- 4h30 | hora-minuto
+- 6h30 | subtrai-errado
+E: 4h + 1h = 5h; + 30 minutos = 5h30.
+V: Uma festa começou às 6h e durou 2 horas e meia. A que horas terminou?
++ 8h30
+- 8h
+- 6h30
+- 9h30
+Q: Ana começou a ler às 7h20 e parou às 7h50. Quanto tempo leu?
++ 30 minutos
+- 70 minutos | subtrai-errado
+- 1 hora | hora-minuto
+- 50 minutos | subtrai-errado
+E: 50 − 20 = 30 minutos.
+V: Davi começou a desenhar às 2h15 e parou às 2h40. Quanto tempo desenhou?
++ 25 minutos
+- 55 minutos
+- 1 hora
+- 40 minutos
+
+@praticar | Praticar: duração das atividades | Conte as horas cheias e depois os minutos.
+Q: A aula de música vai das 10h às 11h30. Quanto dura?
++ 1 hora e 30 minutos
+- 1 hora e 3 minutos | hora-minuto
+- 30 minutos | subtrai-errado
+- 21 horas | subtrai-errado
+E: De 10h a 11h, 1 hora; de 11h a 11h30, 30 minutos.
+V: O treino vai das 3h às 4h45. Quanto dura?
++ 1 hora e 45 minutos
+- 1 hora e 4 minutos
+- 45 minutos
+- 7 horas
+Q: A escola abre às 7h e a aula começa 15 minutos depois. A que horas começa a aula?
++ 7h15
+- 7h50 | hora-minuto
+- 8h15 | subtrai-errado
+- 6h45 | subtrai-errado
+E: 7h + 15 minutos = 7h15.
+V: O ônibus chega às 6h30 e sai 10 minutos depois. A que horas sai?
++ 6h40
+- 7h30
+- 6h20
+- 6h31
+Q: No relógio de ponteiros, o ponteiro pequeno está no 3 e o grande no 12. Que horas são?
++ 3 horas
+- 12h15 | ponteiros
+- 12h03 | ponteiros
+- 3h12 | ponteiros
+E: O ponteiro pequeno marca as horas; o grande no 12 marca hora cheia.
+V: No relógio de ponteiros, o ponteiro pequeno está no 8 e o grande no 12. Que horas são?
++ 8 horas
+- 12h40
+- 12h08
+- 8h12
+Q: Um bolo deve ficar 40 minutos no forno. Entrou às 5h30. A que horas deve sair?
++ 6h10
+- 5h70 | passa-da-hora
+- 5h10 | subtrai-errado
+- 6h40 | subtrai-errado
+E: 5h30 + 30 minutos = 6h; + 10 minutos = 6h10.
+V: Um pão deve assar 45 minutos. Entrou às 4h30. A que horas deve sair?
++ 5h15
+- 4h75
+- 4h15
+- 5h45
+
+@aplicar | Aplicar: a rotina | Use início, fim e duração.
+Q: Lucas dormiu às 9h da noite e acordou às 7h da manhã. Quantas horas dormiu?
++ 10 horas
+- 2 horas | subtrai-errado
+- 16 horas | subtrai-errado
+- 12 horas | passa-da-hora
+E: Das 9h da noite à meia-noite são 3 horas; da meia-noite às 7h, mais 7. Total: 10 horas.
+V: Bia dormiu às 8h da noite e acordou às 6h da manhã. Quantas horas dormiu?
++ 10 horas
+- 2 horas
+- 14 horas
+- 12 horas
+Q: O filme tem 1 hora e 50 minutos. Começa às 2h. A que horas termina?
++ 3h50
+- 3h05 | hora-minuto
+- 2h50 | subtrai-errado
+- 4h50 | subtrai-errado
+E: 2h + 1h = 3h; + 50 minutos = 3h50.
+V: A peça de teatro tem 1 hora e 20 minutos. Começa às 7h. A que horas termina?
++ 8h20
+- 8h02
+- 7h20
+- 9h20
+Q: A consulta era às 10h30 e a mãe chegou às 10h15. Quanto tempo antes ela chegou?
++ 15 minutos
+- 45 minutos | subtrai-errado
+- 1 hora e 15 minutos | passa-da-hora
+- 30 minutos | subtrai-errado
+E: 30 − 15 = 15 minutos antes.
+V: O ônibus sai às 7h40 e Rui chegou às 7h25. Quanto tempo antes ele chegou?
++ 15 minutos
+- 65 minutos
+- 1 hora e 15 minutos
+- 25 minutos
+
+@explicar | Explicar: calculando a duração | Explique como você descobre quanto tempo dura um passeio que começa às 8h20 e termina às 10h05.
+C: horas-cheias | Conta a hora cheia de 8h20 até 9h20
+C: minutos | Conta os minutos que faltam com cuidado ao passar da hora
+C: resultado | Chega a 1 hora e 45 minutos
+BOA: De 8h20 até 9h20 passa 1 hora. De 9h20 até 10h são 40 minutos. De 10h até 10h05, mais 5 minutos. Então o passeio durou 1 hora e 45 minutos.
+
+#TRILHA EF03MA23 | MA | 3 | Trilha: Lendo as horas | Relógio de ponteiros e digital
+FAZ: Lê horas em relógios digitais e analógicos e reconhece que 1 hora tem 60 minutos e 1 minuto tem 60 segundos.
+ERRO: ponteiros | Troca o ponteiro das horas com o dos minutos
+ERRO: conta-de-5 | Não conta os minutos de 5 em 5 nos números do relógio
+ERRO: hora-anterior | Lê a hora errada quando o ponteiro pequeno está entre dois números
+ERRO: segundos | Confunde minutos e segundos
+NOTA: Monte um relógio de papel com ponteiros. Treine contar de 5 em 5 nos números: o 1 vale 5 minutos, o 2 vale 10, o 3 vale 15.
+
+@relembrar | Relembrar: os ponteiros | No relógio de ponteiros, o pequeno marca as horas e o grande marca os minutos. Cada número vale 5 minutos para o ponteiro grande.
+Q: Quando o ponteiro grande está no 6, quantos minutos marca?
++ 30
+- 6 | conta-de-5
+- 60 | conta-de-5
+- 15 | conta-de-5
+E: 6 × 5 = 30 minutos.
+V: Quando o ponteiro grande está no 3, quantos minutos marca?
++ 15
+- 3
+- 30
+- 45
+Q: Quantos segundos tem 1 minuto?
++ 60
+- 100 | segundos
+- 30 | segundos
+- 10 | segundos
+E: 1 minuto = 60 segundos.
+V: Quantos segundos tem meio minuto?
++ 30
+- 50
+- 60
+- 15
+Q: Qual ponteiro marca as horas?
++ O pequeno
+- O grande | ponteiros
+- O fino dos segundos | segundos
+- Nenhum | ponteiros
+E: O ponteiro pequeno anda devagar e marca as horas.
+V: Qual ponteiro marca os minutos?
++ O grande
+- O pequeno
+- O dos segundos
+- Nenhum
+
+@exemplo_guiado | Exemplo guiado: lendo o relógio | Ponteiro pequeno entre o 4 e o 5, ponteiro grande no 9: já passou das 4 e o grande marca 45 minutos. São 4h45.
+Q: Ponteiro pequeno entre o 2 e o 3, ponteiro grande no 6. Que horas são?
++ 2h30
+- 3h30 | hora-anterior
+- 6h10 | ponteiros
+- 2h06 | conta-de-5
+E: Passou das 2; o grande no 6 marca 30 minutos.
+V: Ponteiro pequeno entre o 7 e o 8, ponteiro grande no 6. Que horas são?
++ 7h30
+- 8h30
+- 6h35
+- 7h06
+Q: Ponteiro pequeno no 11 e ponteiro grande no 12. Que horas são?
++ 11 horas
+- 12h55 | ponteiros
+- 11h12 | conta-de-5
+- 12 horas | hora-anterior
+E: O grande no 12 marca hora cheia; o pequeno no 11: 11 horas.
+V: Ponteiro pequeno no 4 e ponteiro grande no 12. Que horas são?
++ 4 horas
+- 12h20
+- 4h12
+- 12 horas
+Q: No relógio digital aparece 05:45. No relógio de ponteiros, onde fica o ponteiro grande?
++ No 9
+- No 5 | ponteiros
+- No 45 | conta-de-5
+- No 4 | conta-de-5
+E: 45 minutos: 45 ÷ 5 = 9.
+V: No relógio digital aparece 08:20. No relógio de ponteiros, onde fica o ponteiro grande?
++ No 4
+- No 8
+- No 20
+- No 2
+
+@praticar | Praticar: que horas são? | Primeiro a hora, depois os minutos.
+Q: Ponteiro pequeno entre o 9 e o 10, ponteiro grande no 3. Que horas são?
++ 9h15
+- 10h15 | hora-anterior
+- 3h45 | ponteiros
+- 9h03 | conta-de-5
+E: Passou das 9; o grande no 3 marca 15 minutos.
+V: Ponteiro pequeno entre o 1 e o 2, ponteiro grande no 3. Que horas são?
++ 1h15
+- 2h15
+- 3h05
+- 1h03
+Q: Ponteiro pequeno entre o 6 e o 7, ponteiro grande no 10. Que horas são?
++ 6h50
+- 7h50 | hora-anterior
+- 10h30 | ponteiros
+- 6h10 | conta-de-5
+E: Passou das 6; o grande no 10 marca 50 minutos.
+V: Ponteiro pequeno entre o 3 e o 4, ponteiro grande no 8. Que horas são?
++ 3h40
+- 4h40
+- 8h15
+- 3h08
+Q: Qual horário digital mostra "meio-dia e meia"?
++ 12:30
+- 00:30 | hora-anterior
+- 12:03 | conta-de-5
+- 06:00 | ponteiros
+E: Meio-dia é 12:00; e meia: 12:30.
+V: Qual horário digital mostra "uma e quinze"?
++ 01:15
+- 01:03
+- 03:01
+- 15:01
+Q: Uma corrida durou 90 segundos. Quanto é isso?
++ 1 minuto e 30 segundos
+- 9 minutos | segundos
+- 1 hora e meia | segundos
+- 90 minutos | segundos
+E: 60 segundos = 1 minuto; sobram 30 segundos.
+V: Um vídeo durou 120 segundos. Quanto é isso?
++ 2 minutos
+- 12 minutos
+- 2 horas
+- 120 minutos
+
+@aplicar | Aplicar: horários da rotina | Leia o relógio e responda.
+Q: A aula começa às 7h30. O relógio mostra o ponteiro pequeno entre o 7 e o 8 e o grande no 4. A aula já começou?
++ Não, são 7h20 e faltam 10 minutos
+- Sim, são 8h20 | hora-anterior
+- Sim, são 4h35 | ponteiros
+- Não, são 7h04 | conta-de-5
+E: O grande no 4 marca 20 minutos: 7h20.
+V: O lanche é às 10h. O relógio mostra o ponteiro pequeno entre o 9 e o 10 e o grande no 9. Já é hora do lanche?
++ Não, são 9h45 e faltam 15 minutos
+- Sim, são 10h45
+- Sim, são 9h50
+- Não, são 9h09
+Q: O relógio digital mostra 16:00. Como dizemos essa hora?
++ Quatro horas da tarde
+- Seis horas da tarde | hora-anterior
+- Dezesseis minutos | segundos
+- Quatro horas da manhã | hora-anterior
+E: 16 horas é 4 horas da tarde (16 − 12 = 4).
+V: O relógio digital mostra 20:00. Como dizemos essa hora?
++ Oito horas da noite
+- Dez horas da noite
+- Vinte minutos
+- Oito horas da manhã
+Q: Lia demorou 2 minutos para escovar os dentes. Quantos segundos são?
++ 120
+- 20 | segundos
+- 200 | segundos
+- 60 | segundos
+E: 2 × 60 = 120 segundos.
+V: Rui demorou 3 minutos para arrumar a mochila. Quantos segundos são?
++ 180
+- 30
+- 300
+- 60
+
+@explicar | Explicar: lendo o relógio de ponteiros | Explique como você lê as horas num relógio de ponteiros quando o ponteiro pequeno está entre o 5 e o 6 e o grande está no 8.
+C: hora | Diz que a hora é 5, pois o pequeno passou do 5
+C: minutos | Conta de 5 em 5 até o 8 e chega a 40 minutos
+C: resultado | Diz que são 5h40
+BOA: O ponteiro pequeno passou do 5 e ainda não chegou no 6, então a hora é 5. O ponteiro grande está no 8; contando de 5 em 5 até o 8 dá 40 minutos. São 5h40.
+
+#TRILHA EF03MA24 | MA | 3 | Trilha: Dinheiro: comparar e trocar | Compras, trocos e trocas
+FAZ: Resolve e elabora problemas de comparação e equivalência de valores do sistema monetário brasileiro (cédulas e moedas) em situações de compra, venda e troca.
+ERRO: conta-cedulas | Conta a quantidade de cédulas em vez do valor
+ERRO: centavos | Erra a relação entre reais e centavos
+ERRO: troco | Erra o cálculo do troco
+ERRO: equivalencia | Não reconhece que valores iguais podem ser formados de jeitos diferentes
+NOTA: Use dinheirinho de papel e monte uma lojinha na sala. Peça para o aluno pagar o mesmo valor de jeitos diferentes.
+
+@relembrar | Relembrar: real e centavo | 1 real = 100 centavos. Temos cédulas de 2, 5, 10, 20, 50, 100 e 200 reais e moedas de 5, 10, 25 e 50 centavos e de 1 real.
+Q: Quantos centavos tem 1 real?
++ 100
+- 10 | centavos
+- 50 | centavos
+- 1.000 | centavos
+E: 1 real = 100 centavos.
+V: Quantas moedas de 50 centavos formam 1 real?
++ 2
+- 5
+- 50
+- 10
+Q: Quanto valem 3 cédulas de 10 reais?
++ 30 reais
+- 3 reais | conta-cedulas
+- 13 reais | conta-cedulas
+- 10 reais | conta-cedulas
+E: 10 + 10 + 10 = 30 reais.
+V: Quanto valem 4 cédulas de 5 reais?
++ 20 reais
+- 4 reais
+- 9 reais
+- 5 reais
+Q: Qual vale mais: 1 cédula de 20 reais ou 3 cédulas de 5 reais?
++ 1 cédula de 20 reais
+- 3 cédulas de 5 reais | conta-cedulas
+- Valem o mesmo | equivalencia
+- Não dá para saber | conta-cedulas
+E: 3 × 5 = 15, que é menos que 20.
+V: Qual vale mais: 1 cédula de 50 reais ou 4 cédulas de 10 reais?
++ 1 cédula de 50 reais
+- 4 cédulas de 10 reais
+- Valem o mesmo
+- Não dá para saber
+
+@exemplo_guiado | Exemplo guiado: trocos | Um lanche custa 7 reais e paguei com 10. Troco: 10 − 7 = 3 reais.
+Q: Um caderno custa 12 reais. Paguei com 20. Qual é o troco?
++ 8 reais
+- 32 reais | troco
+- 12 reais | troco
+- 18 reais | troco
+E: 20 − 12 = 8 reais.
+V: Um livro custa 35 reais. Paguei com 50. Qual é o troco?
++ 15 reais
+- 85 reais
+- 35 reais
+- 25 reais
+Q: Qual destas formas dá 20 reais?
++ 2 cédulas de 10
+- 2 cédulas de 5 | equivalencia
+- 10 moedas de 1 real | equivalencia
+- 4 cédulas de 2 | equivalencia
+E: 10 + 10 = 20 reais.
+V: Qual destas formas dá 50 reais?
++ 2 cédulas de 20 e 1 de 10
+- 5 cédulas de 5
+- 2 cédulas de 20
+- 10 cédulas de 2
+Q: Uma bala custa 50 centavos. Quanto custam 4 balas?
++ 2 reais
+- 4 reais | centavos
+- 200 reais | centavos
+- 54 centavos | centavos
+E: 4 × 50 centavos = 200 centavos = 2 reais.
+V: Um chiclete custa 25 centavos. Quanto custam 4 chicletes?
++ 1 real
+- 4 reais
+- 100 reais
+- 29 centavos
+
+@praticar | Praticar: comparando preços | Pense no valor, não na quantidade de notas.
+Q: Uma bola custa 28 reais e uma boneca custa 35 reais. Quanto a boneca custa a mais?
++ 7 reais
+- 63 reais | troco
+- 13 reais | troco
+- 3 reais | troco
+E: 35 − 28 = 7 reais.
+V: Um carrinho custa 19 reais e um jogo custa 45 reais. Quanto o jogo custa a mais?
++ 26 reais
+- 64 reais
+- 34 reais
+- 16 reais
+Q: Bia tem 1 cédula de 20, 1 de 5 e 2 moedas de 1 real. Quanto ela tem?
++ 27 reais
+- 4 reais | conta-cedulas
+- 26 reais | conta-cedulas
+- 25 reais | conta-cedulas
+E: 20 + 5 + 1 + 1 = 27 reais.
+V: Rui tem 1 cédula de 50, 2 de 10 e 1 moeda de 1 real. Quanto ele tem?
++ 71 reais
+- 4 reais
+- 61 reais
+- 70 reais
+Q: Quantas cédulas de 2 reais trocam por 1 cédula de 10?
++ 5
+- 2 | equivalencia
+- 10 | equivalencia
+- 8 | equivalencia
+E: 5 × 2 = 10.
+V: Quantas cédulas de 5 reais trocam por 1 cédula de 20?
++ 4
+- 5
+- 20
+- 15
+Q: Uma fruta custa 1 real e 50 centavos. Quanto custam 2 frutas?
++ 3 reais
+- 4 reais | centavos
+- 2 reais e 50 centavos | centavos
+- 1 real e 100 centavos | centavos
+E: 1,50 + 1,50 = 3,00 reais.
+V: Um pão custa 75 centavos. Quanto custam 2 pães?
++ 1 real e 50 centavos
+- 1 real e 75 centavos
+- 150 reais
+- 2 reais
+
+@aplicar | Aplicar: na lojinha | Faça as contas de compra e troco.
+Q: Lia comprou um suco de 4 reais e um sanduíche de 9 reais. Pagou com 20 reais. Quanto recebeu de troco?
++ 7 reais
+- 13 reais | troco
+- 33 reais | troco
+- 11 reais | troco
+E: 4 + 9 = 13. 20 − 13 = 7 reais.
+V: Davi comprou um lápis de 3 reais e uma borracha de 2 reais. Pagou com 10 reais. Quanto recebeu de troco?
++ 5 reais
+- 15 reais
+- 8 reais
+- 7 reais
+Q: Ana quer um brinquedo de 45 reais. Ela tem 2 cédulas de 20. Quanto falta?
++ 5 reais
+- 25 reais | conta-cedulas
+- 43 reais | conta-cedulas
+- 85 reais | troco
+E: 2 × 20 = 40. 45 − 40 = 5 reais.
+V: Caio quer um jogo de 60 reais. Ele tem 5 cédulas de 10. Quanto falta?
++ 10 reais
+- 55 reais
+- 50 reais
+- 110 reais
+Q: Na feira, 3 limões custam 1 real. Quanto custam 12 limões?
++ 4 reais
+- 12 reais | conta-cedulas
+- 3 reais | equivalencia
+- 36 reais | equivalencia
+E: 12 limões são 4 grupos de 3: 4 reais.
+V: Na feira, 2 bananas custam 1 real. Quanto custam 10 bananas?
++ 5 reais
+- 10 reais
+- 2 reais
+- 20 reais
+
+@explicar | Explicar: pagando de jeitos diferentes | Mostre dois jeitos diferentes de pagar 35 reais com cédulas e explique por que os dois dão o mesmo valor.
+C: jeito-1 | Mostra uma combinação correta (por exemplo, 20 + 10 + 5)
+C: jeito-2 | Mostra outra combinação correta (por exemplo, 10 + 10 + 10 + 5)
+C: justifica | Explica que as duas somas dão 35
+BOA: Posso pagar com uma cédula de 20, uma de 10 e uma de 5: 20 + 10 + 5 = 35. Ou com três cédulas de 10 e uma de 5: 10 + 10 + 10 + 5 = 35. Os dois jeitos somam 35 reais.
+
+#PRE EF03MA21 > EF03MA15 | 2
+#PRE EF03MA22 > EF03MA23 | 3
+#PRE EF03MA24 > EF03MA06 | 2
+#PRE EF03MA24 > EF03MA05 | 2

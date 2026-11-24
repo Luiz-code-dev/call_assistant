@@ -1,0 +1,666 @@
+// 8º ano — Matemática (parte 1): EF08MA02, EF08MA03, EF08MA04, EF08MA05
+
+#TRILHA EF08MA02 | MA | 8 | Trilha: Potência e raiz | Raiz como expoente fracionário
+FAZ: Resolve e elabora problemas usando a relação entre potenciação e radiciação, representando uma raiz como potência de expoente fracionário.
+ERRO: inverte-fracao | Inverte a fração do expoente (escreve 2/1 em vez de 1/2)
+ERRO: multiplica-base | Multiplica a base pelo expoente
+ERRO: raiz-errada | Calcula a raiz errada (quadrada no lugar de cúbica)
+ERRO: calculo | Erra a conta
+NOTA: Mostre que √9 = 3 e 9^(1/2) = 3. A ideia: (9^(1/2))² = 9^1 = 9. Use exemplos com raízes exatas antes de calcular.
+
+@relembrar | Relembrar: raiz é potência | √a = a^(1/2). ∛a = a^(1/3). Exemplo: 25^(1/2) = √25 = 5. 8^(1/3) = ∛8 = 2.
+Q: Quanto é 16^(1/2)?
++ 4
+- 8 | multiplica-base
+- 256 | inverte-fracao
+- 2 | raiz-errada
+E: 16^(1/2) = √16 = 4.
+V: Quanto é 49^(1/2)?
++ 7
+- 24,5
+- 2.401
+- 3
+Q: Quanto é 27^(1/3)?
++ 3
+- 9 | multiplica-base
+- 5,2 | raiz-errada
+- 19.683 | inverte-fracao
+E: 27^(1/3) = ∛27 = 3, porque 3 × 3 × 3 = 27.
+V: Quanto é 64^(1/3)?
++ 4
+- 21,3
+- 8
+- 262.144
+Q: Como escrever √7 na forma de potência?
++ 7^(1/2)
+- 7^2 | inverte-fracao
+- 7^(1/7) | raiz-errada
+- 2^7 | inverte-fracao
+E: A raiz quadrada corresponde ao expoente 1/2.
+V: Como escrever ∛5 na forma de potência?
++ 5^(1/3)
+- 5^3
+- 5^(1/5)
+- 3^5
+
+@exemplo_guiado | Exemplo guiado: expoente m/n | 8^(2/3) = (∛8)² = 2² = 4. Primeiro a raiz (denominador), depois a potência (numerador).
+Q: Quanto é 8^(2/3)?
++ 4
+- 16/3 | multiplica-base
+- 2 | calculo
+- 64 | inverte-fracao
+E: ∛8 = 2; 2² = 4.
+V: Quanto é 27^(2/3)?
++ 9
+- 18
+- 3
+- 729
+Q: Quanto é 4^(3/2)?
++ 8
+- 6 | multiplica-base
+- 2 | calculo
+- 64 | inverte-fracao
+E: √4 = 2; 2³ = 8.
+V: Quanto é 9^(3/2)?
++ 27
+- 13,5
+- 3
+- 729
+Q: Como escrever ∛(x²) como potência?
++ x^(2/3)
+- x^(3/2) | inverte-fracao
+- x^6 | multiplica-base
+- x^5 | calculo
+E: Índice da raiz no denominador, expoente no numerador.
+V: Como escrever √(a³) como potência?
++ a^(3/2)
+- a^(2/3)
+- a^6
+- a^5
+
+@praticar | Praticar: convertendo e calculando | Denominador = índice da raiz.
+Q: Quanto é 100^(1/2)?
++ 10
+- 50 | multiplica-base
+- 10.000 | inverte-fracao
+- 4,6 | raiz-errada
+E: √100 = 10.
+V: Quanto é 1.000^(1/3)?
++ 10
+- 333,3
+- 1.000.000.000
+- 31,6
+Q: Quanto é 32^(1/5)?
++ 2
+- 6,4 | multiplica-base
+- 5,7 | raiz-errada
+- 4 | calculo
+E: 2^5 = 32, então a raiz quinta de 32 é 2.
+V: Quanto é 81^(1/4)?
++ 3
+- 20,25
+- 9
+- 4
+Q: Quanto é 16^(3/4)?
++ 8
+- 12 | multiplica-base
+- 2 | calculo
+- 4 | raiz-errada
+E: Raiz quarta de 16 = 2; 2³ = 8.
+V: Quanto é 25^(3/2)?
++ 125
+- 37,5
+- 5
+- 15.625
+Q: Qual é o lado de um quadrado de área 144 cm², escrito como potência e calculado?
++ 144^(1/2) = 12 cm
+- 144^2 = 20.736 cm | inverte-fracao
+- 144/2 = 72 cm | multiplica-base
+- 144^(1/3) ≈ 5,2 cm | raiz-errada
+E: Lado = √144 = 12.
+V: Qual é a aresta de um cubo de volume 125 cm³, escrita como potência e calculada?
++ 125^(1/3) = 5 cm
+- 125^3 cm
+- 125/3 ≈ 41,7 cm
+- 125^(1/2) ≈ 11,2 cm
+
+@aplicar | Aplicar: raízes em problemas | Use a potência fracionária.
+Q: Uma caixa cúbica tem volume de 1.000 L (1 m³). Qual é a medida da aresta?
++ 1 m
+- 10 m | raiz-errada
+- 333 m | multiplica-base
+- 100 m | raiz-errada
+E: 1^(1/3) = 1.
+V: Uma caixa cúbica tem volume de 8 m³. Qual é a medida da aresta?
++ 2 m
+- 2,8 m
+- 2,67 m
+- 4 m
+Q: Um terreno quadrado tem 400 m². Quanto mede o lado?
++ 20 m
+- 200 m | multiplica-base
+- 100 m | calculo
+- 7,4 m | raiz-errada
+E: 400^(1/2) = 20.
+V: Uma sala quadrada tem 36 m². Quanto mede o lado?
++ 6 m
+- 18 m
+- 9 m
+- 3,3 m
+Q: Qual expressão é igual a √2 × √2?
++ 2^(1/2) × 2^(1/2) = 2^1 = 2
+- 2^(1/4) | calculo
+- 4 | calculo
+- 2^(1/2 × 1/2) | multiplica-base
+E: Somando os expoentes: 1/2 + 1/2 = 1.
+V: Qual expressão é igual a ∛5 × ∛5 × ∛5?
++ 5^(1/3 + 1/3 + 1/3) = 5
+- 5^(1/9)
+- 15
+- 125
+
+@explicar | Explicar: por que √a = a^(1/2) | Explique por que faz sentido escrever √9 como 9^(1/2).
+C: propriedade | Usa a propriedade de multiplicar potências de mesma base (soma dos expoentes)
+C: quadrado | Mostra que 9^(1/2) × 9^(1/2) = 9^1 = 9
+C: conclui | Conclui que 9^(1/2) é o número que, ao quadrado, dá 9: 3
+BOA: Quando multiplico potências de mesma base, somo os expoentes. Então 9^(1/2) × 9^(1/2) = 9^(1/2 + 1/2) = 9^1 = 9. Isso quer dizer que 9^(1/2) é o número que, multiplicado por ele mesmo, dá 9. Esse número é 3, que é exatamente √9.
+
+#TRILHA EF08MA03 | MA | 8 | Trilha: Princípio multiplicativo | Contando sem listar tudo
+FAZ: Resolve e elabora problemas de contagem cuja resolução envolva o princípio multiplicativo.
+ERRO: soma | Soma as possibilidades em vez de multiplicar
+ERRO: repeticao | Não considera se os elementos podem ou não se repetir
+ERRO: ordem | Não percebe se a ordem importa
+ERRO: calculo | Erra a conta
+NOTA: Peça para desenhar as "casas" da escolha (_ _ _) e escrever quantas opções há em cada uma antes de multiplicar.
+
+@relembrar | Relembrar: casas de escolha | Uma senha de 3 algarismos (0 a 9), podendo repetir: 10 × 10 × 10 = 1.000. Sem repetir: 10 × 9 × 8 = 720.
+Q: Quantas placas com 2 letras (26 letras) seguidas de 1 algarismo existem, podendo repetir letras?
++ 6.760
+- 62 | soma
+- 6.500 | repeticao
+- 676 | calculo
+E: 26 × 26 × 10 = 6.760.
+V: Quantos códigos com 1 letra (26) seguida de 2 algarismos (0 a 9) existem, podendo repetir algarismos?
++ 2.600
+- 46
+- 2.340
+- 260
+Q: Quantos números de 3 algarismos distintos podem ser formados com 1, 2, 3, 4 e 5?
++ 60
+- 125 | repeticao
+- 15 | soma
+- 10 | ordem
+E: 5 × 4 × 3 = 60.
+V: Quantos números de 2 algarismos distintos podem ser formados com 1, 2, 3, 4, 5 e 6?
++ 30
+- 36
+- 12
+- 15
+Q: De quantas formas 5 pessoas podem se sentar em 5 cadeiras em fila?
++ 120
+- 25 | soma
+- 3.125 | repeticao
+- 15 | soma
+E: 5 × 4 × 3 × 2 × 1 = 120.
+V: De quantas formas 4 livros diferentes podem ser arrumados numa prateleira?
++ 24
+- 16
+- 256
+- 10
+
+@exemplo_guiado | Exemplo guiado: com restrição | Números de 3 algarismos (100 a 999) pares: centena 9 opções (1 a 9), dezena 10, unidade 5 (0, 2, 4, 6, 8). Total: 9 × 10 × 5 = 450.
+Q: Quantos números de 3 algarismos (100 a 999) terminam em 5?
++ 90
+- 100 | calculo
+- 81 | repeticao
+- 45 | calculo
+E: 9 × 10 × 1 = 90.
+V: Quantos números de 3 algarismos (100 a 999) começam com 7?
++ 100
+- 90
+- 81
+- 10
+Q: Uma senha de 4 dígitos (0 a 9) não pode ter dígitos repetidos. Quantas senhas existem?
++ 5.040
+- 10.000 | repeticao
+- 40 | soma
+- 3.024 | calculo
+E: 10 × 9 × 8 × 7 = 5.040.
+V: Uma senha de 3 dígitos (0 a 9) não pode ter dígitos repetidos. Quantas senhas existem?
++ 720
+- 1.000
+- 30
+- 504
+Q: Num campeonato com 8 times, de quantas formas podem ficar o 1º, o 2º e o 3º lugares?
++ 336
+- 512 | repeticao
+- 24 | soma
+- 56 | ordem
+E: 8 × 7 × 6 = 336.
+V: Numa corrida com 6 atletas, de quantas formas podem ficar o 1º e o 2º lugares?
++ 30
+- 36
+- 12
+- 15
+
+@praticar | Praticar: contando | Desenhe as casas e preencha.
+Q: Um restaurante tem 4 entradas, 6 pratos e 3 sobremesas. Quantos menus (1 de cada) existem?
++ 72
+- 13 | soma
+- 24 | calculo
+- 36 | calculo
+E: 4 × 6 × 3 = 72.
+V: Uma lanchonete tem 3 pães, 5 recheios e 4 molhos. Quantos lanches (1 de cada) existem?
++ 60
+- 12
+- 20
+- 15
+Q: Quantos anagramas tem a palavra AMOR?
++ 24
+- 4 | soma
+- 256 | repeticao
+- 16 | calculo
+E: 4 letras distintas: 4 × 3 × 2 × 1 = 24.
+V: Quantos anagramas tem a palavra LIVRO?
++ 120
+- 5
+- 3.125
+- 25
+Q: Uma bandeira de 3 faixas deve ser pintada com 5 cores, sem repetir cores. De quantas formas?
++ 60
+- 125 | repeticao
+- 15 | soma
+- 10 | ordem
+E: 5 × 4 × 3 = 60.
+V: Uma bandeira de 3 faixas deve ser pintada com 4 cores, sem repetir cores. De quantas formas?
++ 24
+- 64
+- 12
+- 4
+Q: Uma bandeira de 3 faixas com 5 cores, em que faixas vizinhas não podem ter a mesma cor (mas a 1ª e a 3ª podem). De quantas formas?
++ 80
+- 60 | repeticao
+- 125 | repeticao
+- 15 | soma
+E: 5 × 4 × 4 = 80.
+V: Uma bandeira de 3 faixas com 4 cores, faixas vizinhas com cores diferentes (1ª e 3ª podem repetir). De quantas formas?
++ 36
+- 24
+- 64
+- 12
+
+@aplicar | Aplicar: contagem na vida | Pense em restrições e repetições.
+Q: Um cadeado tem 4 rodas com os dígitos de 0 a 9. Quantas combinações existem?
++ 10.000
+- 40 | soma
+- 5.040 | repeticao
+- 1.000 | calculo
+E: 10 × 10 × 10 × 10.
+V: Um cofre tem 3 rodas com os dígitos de 0 a 9. Quantas combinações existem?
++ 1.000
+- 30
+- 720
+- 100
+Q: Uma turma de 30 alunos vai escolher presidente e vice (pessoas diferentes). Quantas chapas são possíveis?
++ 870
+- 900 | repeticao
+- 59 | soma
+- 435 | ordem
+E: 30 × 29 = 870.
+V: Um clube de 20 sócios vai escolher presidente e tesoureiro (pessoas diferentes). Quantas formas existem?
++ 380
+- 400
+- 39
+- 190
+Q: Uma loja vende camisetas em 3 tamanhos, 5 cores e 2 modelos. Quantos tipos diferentes de camiseta?
++ 30
+- 10 | soma
+- 15 | calculo
+- 60 | calculo
+E: 3 × 5 × 2 = 30.
+V: Um tênis vem em 8 tamanhos, 4 cores e 2 materiais. Quantos tipos diferentes?
++ 64
+- 14
+- 32
+- 128
+
+@explicar | Explicar: princípio multiplicativo | Explique por que há 6 formas de ordenar 3 livros numa prateleira.
+C: casas | Diz que há 3 posições a preencher
+C: opcoes | Diz que há 3 opções para a 1ª, 2 para a 2ª e 1 para a 3ª
+C: multiplica | Multiplica: 3 × 2 × 1 = 6
+BOA: Para a primeira posição posso escolher qualquer um dos 3 livros. Escolhido o primeiro, sobram 2 para a segunda posição, e depois só 1 para a última. Para cada escolha da primeira há 2 da segunda, então multiplico: 3 × 2 × 1 = 6 formas.
+
+#TRILHA EF08MA04 | MA | 8 | Trilha: Porcentagens | Aumentos, descontos e tecnologia
+FAZ: Resolve e elabora problemas envolvendo cálculo de porcentagens, incluindo aumentos e descontos sucessivos, com uso de tecnologias digitais.
+ERRO: soma-percentuais | Soma porcentagens sucessivas (10% + 10% = 20%)
+ERRO: base-errada | Calcula a porcentagem sobre a base errada
+ERRO: fator | Erra o fator multiplicativo (1,2 para aumento de 20%; 0,8 para desconto de 20%)
+ERRO: calculo | Erra a conta
+NOTA: Use o fator: aumento de 15% → × 1,15; desconto de 15% → × 0,85. Na calculadora ou planilha, multiplique pelos fatores em sequência.
+
+@relembrar | Relembrar: fator multiplicativo | Aumento de 20%: valor × 1,20. Desconto de 20%: valor × 0,80. 30% de 250 = 0,30 × 250 = 75.
+Q: Quanto é 15% de 240?
++ 36
+- 16 | calculo
+- 3,6 | calculo
+- 225 | base-errada
+E: 0,15 × 240 = 36.
+V: Quanto é 35% de 180?
++ 63
+- 6,3
+- 145
+- 51
+Q: Um produto de R$ 80 teve aumento de 25%. Qual é o novo preço?
++ R$ 100
+- R$ 105 | calculo
+- R$ 20 | base-errada
+- R$ 60 | fator
+E: 80 × 1,25 = 100.
+V: Um produto de R$ 120 teve aumento de 15%. Qual é o novo preço?
++ R$ 138
+- R$ 135
+- R$ 18
+- R$ 102
+Q: Um produto de R$ 150 tem desconto de 30%. Qual é o preço final?
++ R$ 105
+- R$ 45 | base-errada
+- R$ 120 | calculo
+- R$ 195 | fator
+E: 150 × 0,70 = 105.
+V: Um produto de R$ 260 tem desconto de 15%. Qual é o preço final?
++ R$ 221
+- R$ 39
+- R$ 245
+- R$ 299
+
+@exemplo_guiado | Exemplo guiado: sucessivos | Aumento de 10% e depois mais 10%: 100 × 1,1 × 1,1 = 121. O aumento total foi de 21%, e não de 20%.
+Q: Um preço de R$ 200 teve dois aumentos seguidos de 10%. Qual é o preço final?
++ R$ 242
+- R$ 240 | soma-percentuais
+- R$ 220 | calculo
+- R$ 244 | calculo
+E: 200 × 1,1 = 220; 220 × 1,1 = 242.
+V: Um preço de R$ 500 teve dois aumentos seguidos de 20%. Qual é o preço final?
++ R$ 720
+- R$ 700
+- R$ 600
+- R$ 740
+Q: Um produto aumentou 20% e depois teve desconto de 20%. Em relação ao preço inicial:
++ Ficou 4% mais barato
+- Voltou ao preço inicial | soma-percentuais
+- Ficou 4% mais caro | base-errada
+- Ficou 40% mais barato | soma-percentuais
+E: 1,2 × 0,8 = 0,96: 96% do inicial.
+V: Um produto teve desconto de 10% e depois aumento de 10%. Em relação ao preço inicial:
++ Ficou 1% mais barato
+- Voltou ao preço inicial
+- Ficou 1% mais caro
+- Ficou 20% mais barato
+Q: Um preço passou de R$ 80 para R$ 92. Qual foi o aumento percentual?
++ 15%
+- 12% | base-errada
+- 13% | base-errada
+- 87% | calculo
+E: Aumento: 12; 12 ÷ 80 = 0,15.
+V: Um preço passou de R$ 50 para R$ 58. Qual foi o aumento percentual?
++ 16%
+- 8%
+- 13,8%
+- 86%
+
+@praticar | Praticar: calculando | Use o fator e a base certa.
+Q: Depois de um desconto de 25%, um tênis custa R$ 150. Qual era o preço original?
++ R$ 200
+- R$ 187,50 | base-errada
+- R$ 175 | base-errada
+- R$ 112,50 | fator
+E: Preço × 0,75 = 150; preço = 150 ÷ 0,75 = 200.
+V: Depois de um desconto de 20%, uma blusa custa R$ 64. Qual era o preço original?
++ R$ 80
+- R$ 76,80
+- R$ 84
+- R$ 51,20
+Q: Um salário de R$ 2.000 teve aumento de 8%. Qual é o novo salário?
++ R$ 2.160
+- R$ 2.008 | calculo
+- R$ 2.800 | calculo
+- R$ 160 | base-errada
+E: 2.000 × 1,08 = 2.160.
+V: Um aluguel de R$ 1.500 teve aumento de 6%. Qual é o novo valor?
++ R$ 1.590
+- R$ 1.506
+- R$ 2.400
+- R$ 90
+Q: Uma cidade tinha 50.000 habitantes e cresceu 4% ao ano por 2 anos. Quantos habitantes tem agora?
++ 54.080
+- 54.000 | soma-percentuais
+- 52.000 | calculo
+- 4.080 | base-errada
+E: 50.000 × 1,04 × 1,04 = 54.080.
+V: Uma loja vendia 1.000 peças e as vendas cresceram 5% ao ano por 2 anos. Quantas vende agora?
++ 1.102,5 (cerca de 1.103)
+- 1.100
+- 1.050
+- 102,5
+Q: Numa planilha, o preço está em A1. Qual fórmula dá o preço com 12% de desconto?
++ =A1*0,88
+- =A1*0,12 | base-errada
+- =A1-12 | fator
+- =A1*1,12 | fator
+E: Desconto de 12% → fator 0,88.
+V: Numa planilha, o preço está em B2. Qual fórmula dá o preço com aumento de 7%?
++ =B2*1,07
+- =B2*0,07
+- =B2+7
+- =B2*0,93
+
+@aplicar | Aplicar: porcentagem no dia a dia | Atenção a sucessivos e à base.
+Q: Uma loja diz "40% + 10% de desconto" (um sobre o outro). Qual é o desconto total sobre R$ 100?
++ 46%
+- 50% | soma-percentuais
+- 4% | calculo
+- 44% | calculo
+E: 100 × 0,6 × 0,9 = 54; desconto de 46.
+V: Uma loja dá "30% + 20% de desconto" (um sobre o outro). Qual é o desconto total sobre R$ 100?
++ 44%
+- 50%
+- 6%
+- 56%
+Q: Numa conta de restaurante de R$ 120, a taxa de serviço é de 10%. Quanto se paga ao todo?
++ R$ 132
+- R$ 130 | calculo
+- R$ 12 | base-errada
+- R$ 108 | fator
+E: 120 × 1,10 = 132.
+V: Numa conta de R$ 85, a taxa de serviço é de 10%. Quanto se paga ao todo?
++ R$ 93,50
+- R$ 95
+- R$ 8,50
+- R$ 76,50
+Q: Uma escola tinha 800 alunos e passou a ter 680. Qual foi a redução percentual?
++ 15%
+- 120% | calculo
+- 17,6% | base-errada
+- 85% | fator
+E: Redução: 120; 120 ÷ 800 = 0,15.
+V: Um time tinha 40 sócios e passou a ter 34. Qual foi a redução percentual?
++ 15%
+- 6%
+- 17,6%
+- 85%
+
+@explicar | Explicar: aumentos sucessivos | Explique por que dois aumentos seguidos de 10% não dão 20% de aumento total.
+C: fator | Usa o fator 1,1 duas vezes
+C: base | Diz que o segundo aumento é calculado sobre o valor já aumentado
+C: resultado | Mostra que 1,1 × 1,1 = 1,21, ou seja, 21%
+BOA: O primeiro aumento de 10% leva 100 para 110. O segundo aumento de 10% é calculado sobre 110, e não sobre 100, então soma 11 e chega a 121. Multiplicando os fatores, 1,1 × 1,1 = 1,21. O aumento total é de 21%, um pouco mais que 20%.
+
+#TRILHA EF08MA05 | MA | 8 | Trilha: Dízimas periódicas | Encontrando a fração geratriz
+FAZ: Reconhece e usa procedimentos para obter a fração geratriz de uma dízima periódica.
+ERRO: periodo | Identifica errado o período da dízima
+ERRO: denominador | Usa 10 ou 100 no denominador em vez de 9 ou 99
+ERRO: parte-inteira | Esquece a parte inteira
+ERRO: calculo | Erra a conta
+NOTA: Use o método: x = 0,444...; 10x = 4,444...; 10x − x = 4; x = 4/9. Confira dividindo na calculadora.
+
+@relembrar | Relembrar: período | Em 0,333... o período é 3. Em 0,272727... o período é 27. Período de 1 algarismo: denominador 9. De 2 algarismos: 99.
+Q: Qual é o período de 0,151515...?
++ 15
+- 1 | periodo
+- 151 | periodo
+- 5 | periodo
+E: O bloco que se repete é 15.
+V: Qual é o período de 0,363636...?
++ 36
+- 3
+- 363
+- 6
+Q: Qual é a fração geratriz de 0,555...?
++ 5/9
+- 5/10 | denominador
+- 1/2 | denominador
+- 55/100 | denominador
+E: Período de 1 algarismo: 5/9.
+V: Qual é a fração geratriz de 0,777...?
++ 7/9
+- 7/10
+- 3/4
+- 77/100
+Q: Qual é a fração geratriz de 0,121212...?
++ 12/99 = 4/33
+- 12/100 | denominador
+- 12/9 | periodo
+- 1/12 | calculo
+E: Período de 2 algarismos: 12/99, que simplifica para 4/33.
+V: Qual é a fração geratriz de 0,454545...?
++ 45/99 = 5/11
+- 45/100
+- 45/9
+- 1/45
+
+@exemplo_guiado | Exemplo guiado: o método | x = 0,2727... → 100x = 27,2727... → 100x − x = 27 → 99x = 27 → x = 27/99 = 3/11.
+Q: Usando o método, qual é a fração geratriz de 0,8181...?
++ 9/11
+- 81/100 | denominador
+- 8/9 | periodo
+- 81/9 | periodo
+E: 99x = 81; x = 81/99 = 9/11.
+V: Usando o método, qual é a fração geratriz de 0,0909...?
++ 1/11
+- 9/100
+- 9/90
+- 1/9
+Q: Qual é a fração geratriz de 1,333...?
++ 4/3
+- 1/3 | parte-inteira
+- 13/9 | calculo
+- 133/100 | denominador
+E: 1 + 3/9 = 1 + 1/3 = 4/3.
+V: Qual é a fração geratriz de 2,666...?
++ 8/3
+- 2/3
+- 26/9
+- 266/100
+Q: Para encontrar a geratriz de x = 0,444..., por que multiplicamos por 10?
++ Para que, ao subtrair x, a parte que se repete se cancele
+- Porque toda conta usa 10 | denominador
+- Para tirar a vírgula de qualquer número | periodo
+- Por acaso | calculo
+E: 10x = 4,444... e x = 0,444...; a diferença é 4.
+V: Para encontrar a geratriz de x = 0,3636..., por que multiplicamos por 100?
++ Porque o período tem 2 algarismos, e assim a parte repetida se cancela
+- Porque toda conta usa 100
+- Para deixar o número maior
+- Por acaso
+
+@praticar | Praticar: geratrizes | Identifique o período e aplique o método.
+Q: Qual é a fração geratriz de 0,999...?
++ 9/9 = 1
+- 9/10 | denominador
+- 99/100 | denominador
+- Não existe | periodo
+E: 10x − x = 9; x = 1. Então 0,999... = 1.
+V: Qual é a fração geratriz de 0,333...?
++ 1/3
+- 3/10
+- 33/100
+- Não existe
+Q: Qual é a fração geratriz de 3,1515...?
++ 312/99 = 104/33
+- 315/99 | calculo
+- 15/99 | parte-inteira
+- 3,15/99 | calculo
+E: 3 + 15/99 = 297/99 + 15/99 = 312/99 = 104/33.
+V: Qual é a fração geratriz de 1,2727...?
++ 126/99 = 14/11
+- 127/99
+- 27/99
+- 1,27/99
+Q: Qual dízima é gerada por 2/9?
++ 0,222...
+- 0,2 | denominador
+- 0,292929... | periodo
+- 0,0222... | calculo
+E: 2 ÷ 9 = 0,222...
+V: Qual dízima é gerada por 7/99?
++ 0,070707...
+- 0,777...
+- 0,07
+- 0,7
+Q: Qual é a fração geratriz de 0,1666... (só o 6 se repete)?
++ 1/6
+- 16/99 | periodo
+- 166/1.000 | denominador
+- 1/16 | calculo
+E: 10x = 1,666...; 100x = 16,666...; 90x = 15; x = 15/90 = 1/6.
+V: Qual é a fração geratriz de 0,8333... (só o 3 se repete)?
++ 5/6
+- 83/99
+- 833/1.000
+- 8/3
+
+@aplicar | Aplicar: dízimas em contas | A fração ajuda a calcular com exatidão.
+Q: Quanto é 0,333... + 0,666...?
++ 1
+- 0,999 | calculo
+- 0,9 | denominador
+- 1,1 | calculo
+E: 1/3 + 2/3 = 1.
+V: Quanto é 0,111... + 0,888...?
++ 1
+- 0,999
+- 0,9
+- 1,1
+Q: Quanto é 3 × 0,333...?
++ 1
+- 0,999 | calculo
+- 0,9 | denominador
+- 3,333... | calculo
+E: 3 × 1/3 = 1.
+V: Quanto é 9 × 0,111...?
++ 1
+- 0,999
+- 0,9
+- 9,111...
+Q: Um número decimal tem representação 0,4545... Esse número é racional?
++ Sim, porque pode ser escrito como 5/11
+- Não, porque tem infinitas casas | periodo
+- Não, porque não é inteiro | periodo
+- Só se arredondar | denominador
+E: Toda dízima periódica é racional.
+V: O número 0,121212... é racional?
++ Sim, porque pode ser escrito como 4/33
+- Não, porque tem infinitas casas
+- Não, porque não é inteiro
+- Só se arredondar
+
+@explicar | Explicar: o método | Explique como encontrar a fração geratriz de 0,3636...
+C: equacao | Escreve x = 0,3636... e 100x = 36,3636...
+C: subtrai | Subtrai: 99x = 36
+C: fracao | Chega a 36/99 = 4/11
+BOA: Chamo x = 0,3636... O período tem 2 algarismos, então multiplico por 100: 100x = 36,3636... Subtraindo, a parte que se repete some: 100x − x = 36, ou seja, 99x = 36. Então x = 36/99, que simplificado dá 4/11.
+
+#PRE EF08MA02 > EF08MA01 | 3
+#PRE EF08MA03 > EF07MA01 | 1
+#PRE EF08MA04 > EF07MA17 | 2
+#PRE EF08MA05 > EF07MA10 | 3

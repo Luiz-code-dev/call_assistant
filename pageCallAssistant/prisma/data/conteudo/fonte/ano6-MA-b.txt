@@ -1,0 +1,668 @@
+// 6º ano — Matemática (parte 2): EF06MA05, EF06MA06, EF06MA07, EF06MA08
+
+#TRILHA EF06MA05 | MA | 6 | Trilha: Primos, compostos e divisibilidade | Múltiplo, divisor e fator
+FAZ: Classifica números naturais em primos e compostos, usa os termos "é múltiplo de", "é divisor de", "é fator de" e estabelece critérios de divisibilidade por 2, 3, 4, 5, 6, 8, 9, 10, 100 e 1.000.
+ERRO: um-primo | Acha que 1 é primo
+ERRO: impar-primo | Acha que todo ímpar é primo
+ERRO: criterio | Aplica errado um critério de divisibilidade
+ERRO: inverte | Troca "múltiplo de" por "divisor de"
+NOTA: Primo tem exatamente dois divisores: 1 e ele mesmo. Critérios: por 3, a soma dos algarismos é múltiplo de 3; por 4, os dois últimos algarismos formam múltiplo de 4; por 9, a soma dos algarismos é múltiplo de 9.
+
+@relembrar | Relembrar: primos | Primos até 30: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29. O 1 não é primo (tem só um divisor). O 9 não é primo (divisores 1, 3, 9).
+Q: Qual destes números é primo?
++ 17
+- 1 | um-primo
+- 21 | impar-primo
+- 27 | impar-primo
+E: 17 só é divisível por 1 e por 17.
+V: Qual destes números é primo?
++ 23
+- 1
+- 15
+- 33
+Q: O número 51 é primo ou composto?
++ Composto, porque 51 = 3 × 17
+- Primo, porque é ímpar | impar-primo
+- Primo, porque termina em 1 | impar-primo
+- Nem primo nem composto | um-primo
+E: 5 + 1 = 6, múltiplo de 3.
+V: O número 91 é primo ou composto?
++ Composto, porque 91 = 7 × 13
+- Primo, porque é ímpar
+- Primo, porque termina em 1
+- Nem primo nem composto
+Q: Qual afirmação é correta?
++ 36 é múltiplo de 4 e 4 é divisor de 36
+- 4 é múltiplo de 36 | inverte
+- 36 é divisor de 4 | inverte
+- 36 não é múltiplo de 4 | criterio
+E: 36 = 4 × 9.
+V: Qual afirmação é correta?
++ 45 é múltiplo de 9 e 9 é divisor de 45
+- 9 é múltiplo de 45
+- 45 é divisor de 9
+- 45 não é múltiplo de 9
+
+@exemplo_guiado | Exemplo guiado: critérios | 4.716: par (divisível por 2); soma 4 + 7 + 1 + 6 = 18 (divisível por 3 e por 9); termina em 16 (divisível por 4); par e divisível por 3 (divisível por 6).
+Q: O número 2.835 é divisível por 9?
++ Sim, porque 2 + 8 + 3 + 5 = 18
+- Não, porque é ímpar | criterio
+- Não, porque não termina em 9 | criterio
+- Sim, porque termina em 5 | criterio
+E: A soma dos algarismos é múltiplo de 9.
+V: O número 5.274 é divisível por 9?
++ Sim, porque 5 + 2 + 7 + 4 = 18
+- Não, porque é par
+- Não, porque não termina em 9
+- Sim, porque termina em 4
+Q: O número 1.326 é divisível por 6?
++ Sim, é par e 1 + 3 + 2 + 6 = 12 é múltiplo de 3
+- Não, porque não termina em 6 | criterio
+- Só por 2 | criterio
+- Só por 3 | criterio
+E: Divisível por 6 = por 2 e por 3.
+V: O número 2.514 é divisível por 6?
++ Sim, é par e 2 + 5 + 1 + 4 = 12 é múltiplo de 3
+- Não, porque não termina em 6
+- Só por 2
+- Só por 3
+Q: O número 3.528 é divisível por 4?
++ Sim, porque 28 é múltiplo de 4
+- Não, porque termina em 8 | criterio
+- Só se for divisível por 8 | criterio
+- Não, porque é par | criterio
+E: Os dois últimos algarismos formam 28 = 4 × 7.
+V: O número 7.430 é divisível por 4?
++ Não, porque 30 não é múltiplo de 4
+- Sim, porque é par
+- Sim, porque termina em 0
+- Sim, porque 7 + 4 + 3 + 0 = 14
+
+@praticar | Praticar: classificando | Use os critérios.
+Q: Qual é o único número primo par?
++ 2
+- 4 | impar-primo
+- 0 | um-primo
+- Não existe | impar-primo
+E: Todos os outros pares têm o 2 como divisor.
+V: Quantos números primos há entre 10 e 20?
++ 4 (11, 13, 17, 19)
+- 5
+- 3
+- 6
+Q: Por quais números 120 é divisível, entre 2, 3, 5 e 9?
++ 2, 3 e 5
+- Só 2 e 5 | criterio
+- 2, 3, 5 e 9 | criterio
+- Só 2 | criterio
+E: Par; soma 3 (por 3); termina em 0 (por 5); soma 3 não é múltiplo de 9.
+V: Por quais números 270 é divisível, entre 2, 3, 5 e 9?
++ 2, 3, 5 e 9
+- Só 2 e 5
+- 2, 3 e 5
+- Só 2
+Q: Qual é a decomposição de 60 em fatores primos?
++ 2 × 2 × 3 × 5
+- 6 × 10 | criterio
+- 2 × 30 | criterio
+- 4 × 15 | criterio
+E: Todos os fatores devem ser primos.
+V: Qual é a decomposição de 84 em fatores primos?
++ 2 × 2 × 3 × 7
+- 4 × 21
+- 2 × 42
+- 7 × 12
+Q: Qual algarismo pode ocupar o lugar de ▢ para que 4▢2 seja divisível por 3?
++ 0, 3, 6 ou 9
+- Só 3 | criterio
+- 1, 4 ou 7 | criterio
+- Qualquer um | criterio
+E: 4 + ▢ + 2 = 6 + ▢ deve ser múltiplo de 3.
+V: Qual algarismo pode ocupar ▢ para que 7▢5 seja divisível por 9?
++ 6
+- 0
+- 3
+- 9
+
+@aplicar | Aplicar: divisibilidade na vida | Agrupar sem sobras.
+Q: Uma professora quer formar grupos iguais com 84 alunos, sem sobrar ninguém. Qual tamanho de grupo NÃO serve?
++ 5
+- 4 | criterio
+- 6 | criterio
+- 7 | criterio
+E: 84 não termina em 0 nem 5.
+V: Com 96 alunos, qual tamanho de grupo NÃO serve?
++ 5
+- 4
+- 6
+- 8
+Q: Um ano é bissexto, em geral, quando é divisível por 4. O ano 2028 é bissexto?
++ Sim, porque 28 é múltiplo de 4
+- Não, porque termina em 8 | criterio
+- Não, porque 2 + 0 + 2 + 8 = 12 | criterio
+- Sim, porque é par | criterio
+E: Critério do 4: os dois últimos algarismos.
+V: O ano 2030 é divisível por 4?
++ Não, porque 30 não é múltiplo de 4
+- Sim, porque é par
+- Sim, porque termina em 0
+- Sim, porque 2 + 0 + 3 + 0 = 5
+Q: Uma loja quer embalar 1.000 canetas em caixas iguais de 8. Sobra alguma?
++ Não, porque 1.000 é divisível por 8 (os três últimos algarismos, 000, são múltiplo de 8)
+- Sim, sobram 2 | criterio
+- Sim, sobram 4 | criterio
+- Não dá para saber | criterio
+E: 1.000 ÷ 8 = 125.
+V: Uma loja quer embalar 1.020 balas em pacotes de 8. Sobra alguma?
++ Sim, sobram 4
+- Não
+- Sim, sobram 2
+- Sim, sobram 6
+
+@explicar | Explicar: primo ou não | Explique por que 1 não é primo e 2 é primo.
+C: definicao | Diz que primo tem exatamente dois divisores
+C: um | Diz que 1 tem só um divisor (ele mesmo)
+C: dois | Diz que 2 tem dois divisores: 1 e 2
+BOA: Um número primo tem exatamente dois divisores: o 1 e ele mesmo. O número 1 só tem um divisor, que é o próprio 1, então não é primo. O número 2 tem dois divisores, 1 e 2, então é primo. É o único primo par.
+
+#TRILHA EF06MA06 | MA | 6 | Trilha: Problemas com múltiplos e divisores | Quando se encontram e como repartir
+FAZ: Resolve e elabora problemas que envolvem as ideias de múltiplo e de divisor.
+ERRO: troca | Usa divisor quando o problema pede múltiplo, ou o contrário
+ERRO: multiplica | Multiplica os números em vez de achar o menor múltiplo comum
+ERRO: lista | Esquece algum múltiplo ou divisor na lista
+ERRO: calculo | Erra a conta
+NOTA: "De quanto em quanto tempo se encontram?" pede múltiplos comuns. "Repartir em grupos iguais, o maior possível" pede divisores comuns. Liste e compare.
+
+@relembrar | Relembrar: listas | Múltiplos de 6: 6, 12, 18, 24, 30... Divisores de 18: 1, 2, 3, 6, 9, 18.
+Q: Quais são os divisores de 20?
++ 1, 2, 4, 5, 10 e 20
+- 2, 4, 5 e 10 | lista
+- 20, 40, 60 e 80 | troca
+- 1, 2, 5 e 10 | lista
+E: 20 = 1 × 20 = 2 × 10 = 4 × 5.
+V: Quais são os divisores de 18?
++ 1, 2, 3, 6, 9 e 18
+- 2, 3, 6 e 9
+- 18, 36, 54 e 72
+- 1, 2, 3 e 9
+Q: Quais são os cinco primeiros múltiplos de 7 (sem o zero)?
++ 7, 14, 21, 28 e 35
+- 1 e 7 | troca
+- 7, 17, 27, 37 e 47 | calculo
+- 7, 14, 28, 56 e 112 | calculo
+E: 7 × 1, 7 × 2, ... 7 × 5.
+V: Quais são os cinco primeiros múltiplos de 9 (sem o zero)?
++ 9, 18, 27, 36 e 45
+- 1, 3 e 9
+- 9, 19, 29, 39 e 49
+- 9, 18, 36, 72 e 144
+Q: Qual é o menor múltiplo comum de 4 e 10, diferente de zero?
++ 20
+- 40 | multiplica
+- 2 | troca
+- 14 | calculo
+E: Múltiplos de 10: 10, 20. 20 é múltiplo de 4.
+V: Qual é o menor múltiplo comum de 6 e 9, diferente de zero?
++ 18
+- 54
+- 3
+- 15
+
+@exemplo_guiado | Exemplo guiado: encontros | Dois sinos tocam juntos ao meio-dia. Um toca a cada 15 min e o outro a cada 20 min. Múltiplos de 20: 20, 40, 60. 60 é múltiplo de 15. Tocam juntos de novo às 13h.
+Q: Dois ônibus saem juntos às 6h. Um sai a cada 12 min e o outro a cada 18 min. Quando saem juntos de novo?
++ Às 6h36
+- Às 9h36 | multiplica
+- Às 6h06 | troca
+- Às 6h30 | calculo
+E: MMC de 12 e 18 = 36 min.
+V: Dois faróis piscam juntos. Um a cada 8 s e outro a cada 12 s. Depois de quantos segundos piscam juntos de novo?
++ 24 s
+- 96 s
+- 4 s
+- 20 s
+Q: Um dentista atende Ana a cada 6 meses e Bia a cada 4 meses. Elas foram juntas em janeiro. Quando vão juntas de novo?
++ Em janeiro do ano seguinte (12 meses depois)
+- 24 meses depois | multiplica
+- 2 meses depois | troca
+- 10 meses depois | calculo
+E: MMC de 6 e 4 = 12.
+V: Caio vai ao clube a cada 3 dias e Davi a cada 5 dias. Hoje foram juntos. Daqui a quantos dias vão juntos de novo?
++ 15
+- 8
+- 1
+- 30
+Q: Uma professora tem 24 lápis e 32 borrachas. Quer fazer kits iguais, o maior número possível, sem sobrar. Quantos kits?
++ 8
+- 4 | lista
+- 96 | troca
+- 56 | calculo
+E: Divisores comuns de 24 e 32: 1, 2, 4, 8. O maior é 8.
+V: Um mercado tem 18 maçãs e 30 peras para fazer cestas iguais, o maior número possível. Quantas cestas?
++ 6
+- 3
+- 90
+- 48
+
+@praticar | Praticar: múltiplo ou divisor? | Decida antes de calcular.
+Q: Duas fitas de 45 cm e 60 cm serão cortadas em pedaços iguais, do maior tamanho possível, sem sobra. Qual é o tamanho?
++ 15 cm
+- 5 cm | lista
+- 180 cm | troca
+- 105 cm | calculo
+E: Maior divisor comum de 45 e 60 = 15.
+V: Duas cordas de 36 m e 48 m serão cortadas em pedaços iguais, os maiores possíveis. Qual é o tamanho?
++ 12 m
+- 6 m
+- 144 m
+- 84 m
+Q: Quantos números entre 1 e 50 são múltiplos de 6?
++ 8
+- 6 | lista
+- 9 | calculo
+- 50 | calculo
+E: 6, 12, 18, 24, 30, 36, 42, 48.
+V: Quantos números entre 1 e 100 são múltiplos de 15?
++ 6
+- 7
+- 5
+- 15
+Q: O número 48 é divisível por quantos números naturais?
++ 10
+- 8 | lista
+- 6 | lista
+- 48 | calculo
+E: 1, 2, 3, 4, 6, 8, 12, 16, 24, 48.
+V: O número 36 é divisível por quantos números naturais?
++ 9
+- 7
+- 6
+- 36
+Q: Qual situação pede um múltiplo comum?
++ Saber quando dois remédios com horários diferentes coincidem de novo
+- Repartir doces em saquinhos iguais | troca
+- Cortar fitas em pedaços iguais | troca
+- Dividir alunos em grupos iguais | troca
+E: Encontros periódicos: múltiplos.
+V: Qual situação pede um divisor comum?
++ Repartir 20 bananas e 30 laranjas em cestas iguais, o maior número possível
+- Saber quando dois ônibus saem juntos
+- Saber quando duas luzes piscam juntas
+- Saber quando dois amigos se encontram
+
+@aplicar | Aplicar: problemas do cotidiano | Liste e compare.
+Q: Numa festa, há 40 salgados e 24 doces para pratos iguais, o maior número possível de pratos. Quantos salgados por prato?
++ 5
+- 8 | troca
+- 3 | troca
+- 40 | calculo
+E: Maior divisor comum: 8 pratos. 40 ÷ 8 = 5 salgados (e 3 doces).
+V: Na mesma festa (40 salgados, 24 doces, 8 pratos), quantos doces por prato?
++ 3
+- 5
+- 8
+- 24
+Q: Um pisca-pisca vermelho acende a cada 4 s, um azul a cada 6 s e um verde a cada 10 s. Acenderam juntos agora. Daqui a quanto tempo acendem juntos de novo?
++ 60 s
+- 240 s | multiplica
+- 2 s | troca
+- 20 s | lista
+E: MMC de 4, 6 e 10 = 60.
+V: Três alarmes tocam a cada 2, 3 e 5 minutos. Tocaram juntos agora. Quando tocam juntos de novo?
++ Daqui a 30 minutos
+- Daqui a 10 minutos
+- Daqui a 1 minuto
+- Daqui a 15 minutos
+Q: Um terreno de 72 m por 48 m será dividido em lotes quadrados iguais, os maiores possíveis. Qual é o lado de cada lote?
++ 24 m
+- 12 m | lista
+- 144 m | troca
+- 120 m | calculo
+E: Maior divisor comum de 72 e 48 = 24.
+V: Uma parede de 60 cm por 84 cm será coberta com azulejos quadrados iguais, os maiores possíveis. Qual é o lado?
++ 12 cm
+- 6 cm
+- 420 cm
+- 144 cm
+
+@explicar | Explicar: múltiplo ou divisor | Explique como resolver: "Duas luzes piscam a cada 6 s e a cada 8 s. Depois de quanto tempo piscam juntas?"
+C: identifica | Diz que é um problema de múltiplo comum
+C: lista | Lista múltiplos de 6 e de 8
+C: resultado | Chega a 24 s
+BOA: As luzes piscam juntas num tempo que é múltiplo de 6 e de 8 ao mesmo tempo. Múltiplos de 6: 6, 12, 18, 24. Múltiplos de 8: 8, 16, 24. O primeiro em comum é 24. Elas piscam juntas depois de 24 segundos.
+
+#TRILHA EF06MA07 | MA | 6 | Trilha: Frações | Parte do inteiro, divisão e equivalência
+FAZ: Compreende, compara e ordena frações associadas a partes de inteiros e ao resultado de divisão, identificando frações equivalentes.
+ERRO: maior-denominador | Acha que a fração com denominador maior é maior
+ERRO: inverte | Inverte numerador e denominador
+ERRO: equivalente | Não reconhece frações equivalentes
+ERRO: calculo | Erra a conta
+NOTA: Numerador: quantas partes tomamos. Denominador: em quantas partes iguais o inteiro foi dividido. Equivalentes: multiplicar ou dividir numerador e denominador pelo mesmo número.
+
+@relembrar | Relembrar: as partes | Uma pizza em 8 pedaços iguais, comi 3: comi 3/8. Dividir 3 pizzas entre 4 pessoas: cada uma recebe 3/4.
+Q: Uma barra foi dividida em 5 partes iguais e foram pintadas 2. Que fração está pintada?
++ 2/5
+- 5/2 | inverte
+- 2/3 | calculo
+- 3/5 | calculo
+E: 2 partes de 5.
+V: Um bolo foi cortado em 12 pedaços iguais e foram comidos 7. Que fração foi comida?
++ 7/12
+- 12/7
+- 7/5
+- 5/12
+Q: Dividindo 2 chocolates igualmente entre 3 crianças, quanto cada uma recebe?
++ 2/3 de chocolate
+- 3/2 de chocolate | inverte
+- 1/3 de chocolate | calculo
+- 1 chocolate | calculo
+E: 2 ÷ 3 = 2/3.
+V: Dividindo 3 pizzas igualmente entre 5 pessoas, quanto cada uma recebe?
++ 3/5 de pizza
+- 5/3 de pizza
+- 1/5 de pizza
+- 1 pizza
+Q: Qual fração é equivalente a 3/4?
++ 9/12
+- 4/3 | inverte
+- 6/12 | equivalente
+- 3/8 | equivalente
+E: 3 × 3 = 9 e 4 × 3 = 12.
+V: Qual fração é equivalente a 2/5?
++ 8/20
+- 5/2
+- 4/20
+- 2/10
+
+@exemplo_guiado | Exemplo guiado: comparando | 2/3 e 3/5: denominador comum 15. 2/3 = 10/15 e 3/5 = 9/15. Então 2/3 > 3/5.
+Q: Qual é maior: 1/6 ou 1/4?
++ 1/4
+- 1/6 | maior-denominador
+- São iguais | equivalente
+- Não dá para comparar | calculo
+E: Dividindo em 4 partes, cada parte é maior que em 6.
+V: Qual é maior: 1/9 ou 1/5?
++ 1/5
+- 1/9
+- São iguais
+- Não dá para comparar
+Q: Qual é maior: 3/4 ou 5/8?
++ 3/4
+- 5/8 | maior-denominador
+- São iguais | equivalente
+- Não dá para comparar | calculo
+E: 3/4 = 6/8, que é maior que 5/8.
+V: Qual é maior: 2/3 ou 5/9?
++ 2/3
+- 5/9
+- São iguais
+- Não dá para comparar
+Q: Qual é a forma simplificada de 18/24?
++ 3/4
+- 9/12 é a mais simples | equivalente
+- 6/8 é a mais simples | equivalente
+- 2/3 | calculo
+E: Dividindo por 6: 3/4.
+V: Qual é a forma simplificada de 20/30?
++ 2/3
+- 10/15
+- 4/6
+- 3/4
+
+@praticar | Praticar: ordenando frações | Use denominador comum.
+Q: Qual é a ordem crescente de 1/2, 1/3 e 3/4?
++ 1/3, 1/2, 3/4
+- 3/4, 1/2, 1/3 | maior-denominador
+- 1/2, 1/3, 3/4 | maior-denominador
+- 1/3, 3/4, 1/2 | calculo
+E: Com denominador 12: 4/12, 6/12, 9/12.
+V: Qual é a ordem crescente de 2/3, 1/2 e 5/6?
++ 1/2, 2/3, 5/6
+- 5/6, 2/3, 1/2
+- 2/3, 1/2, 5/6
+- 1/2, 5/6, 2/3
+Q: Qual fração representa um número maior que 1?
++ 7/5
+- 5/7 | inverte
+- 3/8 | calculo
+- 4/4 | calculo
+E: Numerador maior que o denominador.
+V: Qual fração é igual a 1?
++ 6/6
+- 1/6
+- 6/1
+- 5/6
+Q: Quantos quartos há em 2 inteiros?
++ 8
+- 4 | calculo
+- 2 | calculo
+- 6 | calculo
+E: Cada inteiro tem 4 quartos: 2 × 4 = 8.
+V: Quantos terços há em 3 inteiros?
++ 9
+- 3
+- 6
+- 1
+Q: Qual fração NÃO é equivalente a 1/2?
++ 3/5
+- 2/4 | equivalente
+- 5/10 | equivalente
+- 6/12 | equivalente
+E: 3/5 = 0,6; as outras são 0,5.
+V: Qual fração NÃO é equivalente a 2/3?
++ 3/4
+- 4/6
+- 6/9
+- 8/12
+
+@aplicar | Aplicar: frações no dia a dia | Compare e simplifique.
+Q: Rui comeu 3/8 de uma pizza e Lia comeu 1/4 da mesma pizza. Quem comeu mais?
++ Rui
+- Lia | maior-denominador
+- Comeram igual | equivalente
+- Não dá para saber | calculo
+E: 1/4 = 2/8; 3/8 > 2/8.
+V: Ana leu 2/5 de um livro e Bia leu 1/2 do mesmo livro. Quem leu mais?
++ Bia
+- Ana
+- Leram igual
+- Não dá para saber
+Q: Numa turma de 30 alunos, 18 são meninas. Que fração da turma são meninas, simplificada?
++ 3/5
+- 18/30 é a mais simples | equivalente
+- 5/3 | inverte
+- 2/3 | calculo
+E: 18/30 = 3/5.
+V: Num grupo de 24 pessoas, 16 usam óculos. Que fração, simplificada, usa óculos?
++ 2/3
+- 16/24
+- 3/2
+- 3/4
+Q: Uma receita usa 3/4 de xícara de leite e outra usa 2/3. Qual usa mais leite?
++ A de 3/4
+- A de 2/3 | maior-denominador
+- Usam igual | equivalente
+- Não dá para saber | calculo
+E: 3/4 = 9/12 e 2/3 = 8/12.
+V: Um suco leva 4/5 de litro de água e outro 3/4. Qual leva mais água?
++ O de 4/5
+- O de 3/4
+- Levam igual
+- Não dá para saber
+
+@explicar | Explicar: frações equivalentes | Explique por que 2/3 e 4/6 representam a mesma quantidade.
+C: desenho | Usa um desenho ou exemplo: uma barra em 3 partes e outra em 6
+C: multiplica | Mostra que multiplicar numerador e denominador por 2 não muda o valor
+C: conclui | Conclui que as duas frações ocupam a mesma parte do inteiro
+BOA: Divido uma barra em 3 partes iguais e pinto 2: tenho 2/3. Se corto cada parte ao meio, a barra fica com 6 partes e a parte pintada passa a ter 4: 4/6. A região pintada é a mesma. Multiplicar numerador e denominador pelo mesmo número só muda o tamanho das partes, não a quantidade.
+
+#TRILHA EF06MA08 | MA | 6 | Trilha: Frações e decimais | Duas formas do mesmo número
+FAZ: Reconhece que racionais positivos podem ser escritos na forma fracionária e decimal, passa de uma para outra e os relaciona a pontos da reta numérica.
+ERRO: conversao | Erra a conversão entre fração e decimal
+ERRO: virgula | Coloca a vírgula no lugar errado
+ERRO: reta | Localiza o número no lugar errado da reta
+ERRO: calculo | Erra a divisão
+NOTA: Fração para decimal: divida o numerador pelo denominador (3/4 = 3 ÷ 4 = 0,75). Decimal para fração: 0,35 = 35/100 = 7/20.
+
+@relembrar | Relembrar: convertendo | 1/2 = 0,5. 1/4 = 0,25. 3/4 = 0,75. 1/5 = 0,2. 1/10 = 0,1. 0,6 = 6/10 = 3/5.
+Q: Qual decimal é igual a 3/5?
++ 0,6
+- 0,35 | conversao
+- 3,5 | virgula
+- 0,53 | conversao
+E: 3 ÷ 5 = 0,6.
+V: Qual decimal é igual a 7/10?
++ 0,7
+- 0,07
+- 7,1
+- 1,7
+Q: Qual fração é igual a 0,25?
++ 1/4
+- 25/10 | virgula
+- 2/5 | conversao
+- 1/25 | conversao
+E: 0,25 = 25/100 = 1/4.
+V: Qual fração é igual a 0,4?
++ 2/5
+- 4/100
+- 1/4
+- 4/1
+Q: Qual decimal é igual a 9/100?
++ 0,09
+- 0,9 | virgula
+- 9,0 | virgula
+- 0,009 | virgula
+E: Centésimos: duas casas.
+V: Qual decimal é igual a 45/1.000?
++ 0,045
+- 0,45
+- 4,5
+- 0,0045
+
+@exemplo_guiado | Exemplo guiado: na reta | 3/4 = 0,75 fica entre 0,7 e 0,8. 1,5 = 3/2 fica no meio entre 1 e 2. 2/5 = 0,4 fica entre 0 e 1, um pouco antes do meio.
+Q: Entre quais números fica 7/4 na reta?
++ 1 e 2
+- 0 e 1 | reta
+- 7 e 8 | reta
+- 4 e 5 | reta
+E: 7/4 = 1,75.
+V: Entre quais números fica 9/5 na reta?
++ 1 e 2
+- 0 e 1
+- 9 e 10
+- 5 e 6
+Q: Qual número fica mais perto de 1 na reta: 0,9 ou 5/4?
++ 0,9 (distância 0,1; 5/4 está a 0,25)
+- 5/4 | reta
+- Os dois à mesma distância | calculo
+- Não dá para saber | conversao
+E: 5/4 = 1,25.
+V: Qual fica mais perto de 2: 1,8 ou 9/4?
++ 1,8 (distância 0,2; 9/4 está a 0,25)
+- 9/4
+- Os dois à mesma distância
+- Não dá para saber
+Q: Qual é a forma decimal de 1/8?
++ 0,125
+- 0,18 | conversao
+- 1,8 | virgula
+- 0,8 | conversao
+E: 1 ÷ 8 = 0,125.
+V: Qual é a forma decimal de 3/8?
++ 0,375
+- 0,38
+- 3,8
+- 0,83
+
+@praticar | Praticar: duas formas | Converta e compare.
+Q: Qual é maior: 0,7 ou 3/4?
++ 3/4
+- 0,7 | conversao
+- São iguais | conversao
+- Não dá para comparar | calculo
+E: 3/4 = 0,75 > 0,7.
+V: Qual é maior: 0,55 ou 1/2?
++ 0,55
+- 1/2
+- São iguais
+- Não dá para comparar
+Q: Qual é a forma decimal de 2 e 1/2?
++ 2,5
+- 2,12 | conversao
+- 21,2 | virgula
+- 0,25 | virgula
+E: 2 + 0,5 = 2,5.
+V: Qual é a forma decimal de 3 e 1/4?
++ 3,25
+- 3,14
+- 31,4
+- 0,325
+Q: Qual fração é igual a 1,2?
++ 6/5
+- 1/2 | conversao
+- 12/100 | virgula
+- 2/1 | conversao
+E: 1,2 = 12/10 = 6/5.
+V: Qual fração é igual a 2,5?
++ 5/2
+- 2/5
+- 25/100
+- 1/25
+Q: Qual é a ordem crescente de 0,3; 1/4; 2/5?
++ 1/4; 0,3; 2/5
+- 0,3; 1/4; 2/5 | conversao
+- 2/5; 0,3; 1/4 | reta
+- 1/4; 2/5; 0,3 | conversao
+E: 0,25; 0,3; 0,4.
+V: Qual é a ordem crescente de 0,6; 1/2; 3/4?
++ 1/2; 0,6; 3/4
+- 0,6; 1/2; 3/4
+- 3/4; 0,6; 1/2
+- 1/2; 3/4; 0,6
+
+@aplicar | Aplicar: frações e decimais na vida | Dinheiro, medidas e notas.
+Q: Uma garrafa tem 3/4 de litro. Quantos litros em decimal?
++ 0,75 L
+- 0,34 L | conversao
+- 3,4 L | virgula
+- 7,5 L | virgula
+E: 3 ÷ 4 = 0,75.
+V: Um pacote tem 1/4 de quilo. Quantos quilos em decimal?
++ 0,25 kg
+- 0,14 kg
+- 1,4 kg
+- 2,5 kg
+Q: Um aluno acertou 17 de 20 questões. Qual é o acerto em decimal?
++ 0,85
+- 0,17 | conversao
+- 1,7 | virgula
+- 0,2 | calculo
+E: 17/20 = 85/100 = 0,85.
+V: Uma aluna acertou 9 de 25 questões. Qual é o acerto em decimal?
++ 0,36
+- 0,09
+- 0,925
+- 3,6
+Q: Uma fita mede 1,5 m. Quantos meios metros ela tem?
++ 3
+- 1,5 | conversao
+- 15 | virgula
+- 2 | calculo
+E: 1,5 = 3/2, ou seja, 3 meios.
+V: Uma corda mede 2,25 m. Quantos quartos de metro ela tem?
++ 9
+- 2,25
+- 225
+- 4
+
+@explicar | Explicar: da fração ao decimal | Explique como transformar 3/8 em decimal e onde ele fica na reta numérica.
+C: divide | Divide 3 por 8
+C: resultado | Chega a 0,375
+C: reta | Localiza entre 0,3 e 0,4 (entre 0 e 1, antes do meio)
+BOA: Uma fração é uma divisão, então faço 3 ÷ 8. Como 3 é menor que 8, coloco 0 e vírgula: 30 ÷ 8 = 3, sobra 6; 60 ÷ 8 = 7, sobra 4; 40 ÷ 8 = 5. Resultado: 0,375. Na reta, fica entre 0 e 1, entre 0,3 e 0,4, um pouco antes do meio.
+
+#PRE EF06MA05 > EF05MA08 | 2
+#PRE EF06MA06 > EF06MA05 | 3
+#PRE EF06MA07 > EF05MA03 | 3
+#PRE EF06MA07 > EF05MA04 | 3
+#PRE EF06MA08 > EF06MA07 | 3
+#PRE EF06MA08 > EF06MA01 | 2

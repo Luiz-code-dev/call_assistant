@@ -1,0 +1,667 @@
+// 8º ano — Matemática (parte 5): EF08MA21, EF08MA22, EF08MA23, EF08MA24
+
+#TRILHA EF08MA21 | MA | 8 | Trilha: Volume de recipientes | Blocos retangulares
+FAZ: Resolve e elabora problemas de cálculo do volume de recipientes com formato de bloco retangular.
+ERRO: area | Calcula só a área da base
+ERRO: unidade | Mistura unidades sem converter
+ERRO: altura-agua | Usa a altura do recipiente quando a pergunta é sobre a altura da água
+ERRO: calculo | Erra a conta
+NOTA: Volume = área da base × altura. Para saber quanto a água sobe, divida o volume colocado pela área da base.
+
+@relembrar | Relembrar: base × altura | Uma caixa de base 30 cm × 20 cm e altura 10 cm: base = 600 cm²; volume = 6.000 cm³ = 6 L.
+Q: Uma caixa tem base de 40 cm × 30 cm e altura de 50 cm. Qual é o volume?
++ 60.000 cm³
+- 1.200 cm³ | area
+- 120 cm³ | calculo
+- 6.000 cm³ | calculo
+E: 40 × 30 × 50 = 60.000.
+V: Uma caixa tem base de 25 cm × 20 cm e altura de 30 cm. Qual é o volume?
++ 15.000 cm³
+- 500 cm³
+- 75 cm³
+- 1.500 cm³
+Q: Um contêiner tem 6 m × 2,5 m × 2,5 m. Qual é o volume?
++ 37,5 m³
+- 15 m³ | area
+- 11 m³ | calculo
+- 375 m³ | calculo
+E: 6 × 2,5 × 2,5 = 37,5.
+V: Um baú tem 2 m × 1,5 m × 1,2 m. Qual é o volume?
++ 3,6 m³
+- 3 m³
+- 4,7 m³
+- 36 m³
+Q: Uma caixa tem 1 m × 50 cm × 40 cm. Qual é o volume em m³?
++ 0,2 m³
+- 2.000 m³ | unidade
+- 0,5 m³ | area
+- 20 m³ | unidade
+E: 1 × 0,5 × 0,4 = 0,2.
+V: Uma caixa tem 2 m × 30 cm × 50 cm. Qual é o volume em m³?
++ 0,3 m³
+- 3.000 m³
+- 0,6 m³
+- 30 m³
+
+@exemplo_guiado | Exemplo guiado: quanto a água sobe | Aquário de base 50 cm × 40 cm. Colocando 10 L (10.000 cm³), a água sobe 10.000 ÷ 2.000 = 5 cm.
+Q: Num aquário de base 40 cm × 25 cm, colocam-se 20 L de água. Que altura a água atinge?
++ 20 cm
+- 2 cm | unidade
+- 200 cm | unidade
+- 1.000 cm | area
+E: 20.000 cm³ ÷ 1.000 cm² = 20 cm.
+V: Num aquário de base 50 cm × 20 cm, colocam-se 15 L de água. Que altura a água atinge?
++ 15 cm
+- 1,5 cm
+- 150 cm
+- 1.000 cm
+Q: Uma piscina de 10 m × 5 m tem água até 1,2 m de altura. Quantos litros de água há?
++ 60.000 L
+- 60 L | unidade
+- 600 L | unidade
+- 50 L | area
+E: 10 × 5 × 1,2 = 60 m³ = 60.000 L.
+V: Uma piscina de 8 m × 4 m tem água até 1,5 m. Quantos litros de água há?
++ 48.000 L
+- 48 L
+- 480 L
+- 32 L
+Q: Uma pedra colocada num aquário de base 30 cm × 20 cm faz a água subir 2 cm. Qual é o volume da pedra?
++ 1.200 cm³
+- 600 cm³ | area
+- 52 cm³ | calculo
+- 120 cm³ | calculo
+E: 30 × 20 × 2 = 1.200.
+V: Um objeto colocado num tanque de base 40 cm × 25 cm faz a água subir 3 cm. Qual é o volume do objeto?
++ 3.000 cm³
+- 1.000 cm³
+- 68 cm³
+- 300 cm³
+
+@praticar | Praticar: volume e altura | Volume = base × altura.
+Q: Um reservatório de base 2 m × 3 m precisa guardar 12 m³. Qual deve ser a altura?
++ 2 m
+- 6 m | area
+- 7 m | calculo
+- 72 m | calculo
+E: 12 ÷ 6 = 2.
+V: Um reservatório de base 4 m × 2,5 m precisa guardar 20 m³. Qual deve ser a altura?
++ 2 m
+- 10 m
+- 13,5 m
+- 200 m
+Q: Uma caixa d'água de 1,5 m × 1 m × 1 m está com água até a metade. Quantos litros faltam para encher?
++ 750 L
+- 1.500 L | altura-agua
+- 75 L | unidade
+- 150 L | unidade
+E: Volume total: 1,5 m³ = 1.500 L. Falta a metade: 750 L.
+V: Um tanque de 2 m × 1 m × 1 m está com água até 1/4 da altura. Quantos litros faltam para encher?
++ 1.500 L
+- 2.000 L
+- 500 L
+- 150 L
+Q: Se dobrarmos as três medidas de uma caixa, o volume:
++ Fica 8 vezes maior
+- Dobra | area
+- Fica 4 vezes maior | area
+- Fica 6 vezes maior | calculo
+E: 2 × 2 × 2 = 8.
+V: Se dobrarmos só a altura de uma caixa, mantendo a base, o volume:
++ Dobra
+- Fica 8 vezes maior
+- Fica 4 vezes maior
+- Fica igual
+Q: Uma caixa de 60 cm × 40 cm × 30 cm será enchida com cubos de 10 cm de aresta. Quantos cubos cabem?
++ 72
+- 24 | area
+- 720 | calculo
+- 13 | calculo
+E: 6 × 4 × 3 = 72 cubos.
+V: Uma caixa de 50 cm × 30 cm × 20 cm será enchida com cubos de 10 cm. Quantos cubos cabem?
++ 30
+- 15
+- 300
+- 10
+
+@aplicar | Aplicar: recipientes reais | Base, altura e conversões.
+Q: Uma caixa d'água de 1.000 L tem base de 1 m × 1 m. Qual é a altura?
++ 1 m
+- 10 m | unidade
+- 0,1 m | unidade
+- 1.000 m | unidade
+E: 1.000 L = 1 m³; 1 ÷ 1 = 1 m.
+V: Uma caixa d'água de 500 L tem base de 1 m × 0,5 m. Qual é a altura?
++ 1 m
+- 10 m
+- 0,1 m
+- 500 m
+Q: Um caminhão com caçamba de 5 m × 2 m × 1 m vai levar 60 m³ de terra. Quantas viagens?
++ 6
+- 12 | area
+- 60 | calculo
+- 10 | calculo
+E: Cada viagem: 10 m³. 60 ÷ 10 = 6.
+V: Uma caçamba de 4 m × 2 m × 1,5 m vai levar 48 m³ de entulho. Quantas viagens?
++ 4
+- 6
+- 48
+- 8
+Q: Uma geladeira tem interior de 60 cm × 50 cm × 150 cm. Qual é a capacidade em litros?
++ 450 L
+- 4.500 L | unidade
+- 45 L | unidade
+- 3.000 L | area
+E: 450.000 cm³ = 450 L.
+V: Um freezer tem interior de 50 cm × 40 cm × 80 cm. Qual é a capacidade em litros?
++ 160 L
+- 1.600 L
+- 16 L
+- 2.000 L
+
+@explicar | Explicar: subida da água | Explique como descobrir o volume de uma pedra colocando-a num aquário de base 40 cm × 30 cm.
+C: medir | Diz que se mede quanto a água subiu
+C: volume | Diz que o volume da pedra é base × subida
+C: exemplo | Dá um exemplo (subiu 2 cm: 40 × 30 × 2 = 2.400 cm³)
+BOA: Coloco a pedra no aquário e meço quanto o nível da água subiu. A água que subiu ocupa o espaço da pedra, então o volume da pedra é a área da base vezes a subida. Se subiu 2 cm: 40 × 30 × 2 = 2.400 cm³, ou 2,4 litros.
+
+#TRILHA EF08MA22 | MA | 8 | Trilha: Espaço amostral | Probabilidades que somam 1
+FAZ: Calcula a probabilidade de eventos construindo o espaço amostral com o princípio multiplicativo e reconhece que a soma das probabilidades de todos os elementos é 1.
+ERRO: espaco-incompleto | Esquece elementos do espaço amostral
+ERRO: ordem | Não conta (1, 2) e (2, 1) como resultados diferentes
+ERRO: soma-diferente | Não percebe que as probabilidades somam 1
+ERRO: calculo | Erra a conta
+NOTA: Monte a tabela de dupla entrada para dois dados (36 resultados). Verifique que as probabilidades de todas as somas, juntas, dão 36/36 = 1.
+
+@relembrar | Relembrar: espaço amostral | Lançar duas moedas: {CC, CK, KC, KK}, 4 resultados (2 × 2). Probabilidade de cada um: 1/4. Soma: 4 × 1/4 = 1.
+Q: Quantos resultados tem o espaço amostral de lançar dois dados?
++ 36
+- 12 | espaco-incompleto
+- 11 | espaco-incompleto
+- 21 | ordem
+E: 6 × 6 = 36.
+V: Quantos resultados tem o espaço amostral de lançar um dado e uma moeda?
++ 12
+- 8
+- 6
+- 7
+Q: Lançando duas moedas, qual é a probabilidade de sair pelo menos uma cara?
++ 3/4
+- 1/2 | espaco-incompleto
+- 2/3 | ordem
+- 1/4 | calculo
+E: CC, CK, KC: 3 de 4.
+V: Lançando duas moedas, qual é a probabilidade de não sair nenhuma cara?
++ 1/4
+- 1/2
+- 1/3
+- 3/4
+Q: Num experimento, P(A) = 0,3 e P(B) = 0,5, e só existem os resultados A, B e C. Quanto é P(C)?
++ 0,2
+- 0,8 | soma-diferente
+- 0,5 | soma-diferente
+- 1 | soma-diferente
+E: 1 − 0,3 − 0,5 = 0,2.
+V: Num sorteio só existem as cores azul, verde e branco. P(azul) = 0,45 e P(verde) = 0,35. Quanto é P(branco)?
++ 0,2
+- 0,8
+- 0,35
+- 1
+
+@exemplo_guiado | Exemplo guiado: soma de dois dados | Soma 7 acontece em (1,6), (2,5), (3,4), (4,3), (5,2), (6,1): 6 de 36 = 1/6. Soma 2 só em (1,1): 1/36. Somando as probabilidades de todas as somas (2 a 12), o total é 36/36 = 1.
+Q: Lançando dois dados, qual é a probabilidade de a soma ser 10?
++ 3/36
+- 1/36 | ordem
+- 2/36 | ordem
+- 1/11 | espaco-incompleto
+E: (4,6), (5,5), (6,4).
+V: Lançando dois dados, qual é a probabilidade de a soma ser 4?
++ 3/36
+- 1/36
+- 2/36
+- 1/11
+Q: Lançando dois dados, qual é a probabilidade de sair o mesmo número nos dois?
++ 6/36 = 1/6
+- 1/36 | espaco-incompleto
+- 1/6 de 1/6 | calculo
+- 12/36 | calculo
+E: (1,1), (2,2), ..., (6,6): 6 resultados.
+V: Lançando dois dados, qual é a probabilidade de os números serem diferentes?
++ 30/36 = 5/6
+- 1/6
+- 35/36
+- 1/2
+Q: Lançando dois dados, qual é a probabilidade de a soma ser 13?
++ 0
+- 1/36 | espaco-incompleto
+- 1/13 | espaco-incompleto
+- 1/12 | calculo
+E: A soma máxima é 12: evento impossível.
+V: Lançando dois dados, qual é a probabilidade de a soma ser menor que 13?
++ 1
+- 35/36
+- 12/13
+- 1/2
+
+@praticar | Praticar: montando espaços amostrais | Multiplique e liste.
+Q: Uma senha tem 1 letra (A ou B) e 1 algarismo (1, 2 ou 3). Qual é a probabilidade de a senha sorteada ser A3?
++ 1/6
+- 1/5 | espaco-incompleto
+- 1/2 | espaco-incompleto
+- 1/3 | espaco-incompleto
+E: 2 × 3 = 6 senhas possíveis.
+V: Um código tem 1 cor (vermelho, azul) e 1 número (1 a 4). Qual é a probabilidade de sortear "azul 2"?
++ 1/8
+- 1/6
+- 1/2
+- 1/4
+Q: Lançando três moedas, qual é a probabilidade de saírem exatamente duas caras?
++ 3/8
+- 1/4 | espaco-incompleto
+- 1/3 | ordem
+- 2/3 | calculo
+E: CCK, CKC, KCC: 3 de 8.
+V: Lançando três moedas, qual é a probabilidade de saírem três coroas?
++ 1/8
+- 1/4
+- 1/3
+- 3/8
+Q: Uma família tem 3 filhos. Qual é a probabilidade de serem todos do mesmo sexo (supondo chances iguais)?
++ 2/8 = 1/4
+- 1/8 | espaco-incompleto
+- 1/2 | calculo
+- 2/3 | ordem
+E: MMM ou FFF: 2 de 8.
+V: Uma família tem 2 filhos. Qual é a probabilidade de serem um menino e uma menina (em qualquer ordem)?
++ 2/4 = 1/2
+- 1/4
+- 1/3
+- 3/4
+Q: Num jogo, P(ganhar) = 0,35 e P(empatar) = 0,25. Qual é P(perder)?
++ 0,4
+- 0,6 | soma-diferente
+- 0,65 | soma-diferente
+- 0,1 | calculo
+E: 1 − 0,35 − 0,25 = 0,4.
+V: Num jogo, P(ganhar) = 0,5 e P(empatar) = 0,2. Qual é P(perder)?
++ 0,3
+- 0,7
+- 0,5
+- 0,2
+
+@aplicar | Aplicar: probabilidade em jogos | Construa o espaço amostral.
+Q: Num jogo, ganha quem tirar soma maior que 9 em dois dados. Qual é a probabilidade de ganhar?
++ 6/36 = 1/6
+- 3/36 | espaco-incompleto
+- 3/11 | espaco-incompleto
+- 9/36 | calculo
+E: Soma 10: 3; soma 11: 2; soma 12: 1. Total: 6.
+V: Ganha quem tirar soma menor que 4 em dois dados. Qual é a probabilidade?
++ 3/36 = 1/12
+- 2/36
+- 2/11
+- 4/36
+Q: Uma roleta tem 3 setores iguais (azul, verde, amarelo) e é girada 2 vezes. Qual é a probabilidade de sair azul nas duas?
++ 1/9
+- 1/3 | espaco-incompleto
+- 2/3 | calculo
+- 1/6 | espaco-incompleto
+E: 3 × 3 = 9 resultados; só 1 é azul-azul.
+V: A mesma roleta é girada 2 vezes. Qual é a probabilidade de as duas cores serem iguais?
++ 3/9 = 1/3
+- 1/9
+- 1/3 de 1/3
+- 2/3
+Q: Num cardápio com 2 entradas, 3 pratos e 2 sobremesas, sorteia-se um menu. Qual é a probabilidade de sair um menu específico?
++ 1/12
+- 1/7 | espaco-incompleto
+- 1/3 | espaco-incompleto
+- 1/6 | espaco-incompleto
+E: 2 × 3 × 2 = 12 menus.
+V: Com 3 camisas, 2 calças e 2 tênis, sorteia-se uma roupa. Qual é a probabilidade de sair uma combinação específica?
++ 1/12
+- 1/7
+- 1/3
+- 1/6
+
+@explicar | Explicar: soma igual a 1 | Explique por que, ao lançar dois dados, a soma das probabilidades de todas as somas possíveis (2 a 12) é igual a 1.
+C: espaco | Diz que o espaço amostral tem 36 resultados igualmente prováveis
+C: particao | Diz que cada resultado tem exatamente uma soma
+C: conclui | Conclui que, somando todas, dá 36/36 = 1
+BOA: Lançando dois dados, há 36 resultados, todos com a mesma chance. Cada resultado tem exatamente uma soma, de 2 a 12. Quando junto as probabilidades de todas as somas, estou contando cada um dos 36 resultados uma vez só. Por isso o total é 36/36 = 1: com certeza sai alguma soma.
+
+#TRILHA EF08MA23 | MA | 8 | Trilha: Escolhendo o gráfico | Qual gráfico combina com os dados?
+FAZ: Avalia a adequação de diferentes tipos de gráficos para representar um conjunto de dados de uma pesquisa.
+ERRO: setores-errado | Usa setores para dados que não são partes de um todo
+ERRO: linhas-errado | Usa linhas para categorias sem ordem no tempo
+ERRO: escala | Não percebe uma escala inadequada
+ERRO: calculo | Erra a leitura ou o cálculo
+NOTA: Colunas: comparar categorias. Linhas: evolução no tempo. Setores: partes de um todo (100%). Histograma: frequências de classes de uma variável contínua.
+
+@relembrar | Relembrar: cada gráfico tem seu uso | Colunas comparam quantidades. Linhas mostram variação ao longo do tempo. Setores mostram partes de um todo.
+Q: Para mostrar a variação da temperatura ao longo dos meses do ano, qual gráfico é melhor?
++ Linhas
+- Setores | setores-errado
+- Pictórico sem escala | escala
+- Nenhum | linhas-errado
+E: Evolução no tempo.
+V: Para mostrar a evolução do preço da gasolina nos últimos 12 meses, qual gráfico é melhor?
++ Linhas
+- Setores
+- Pictórico sem escala
+- Nenhum
+Q: Para comparar o número de alunos de 5 escolas, qual gráfico é melhor?
++ Colunas
+- Linhas | linhas-errado
+- Setores, sem o total | setores-errado
+- Nenhum | calculo
+E: Comparar categorias.
+V: Para comparar a população de 4 cidades, qual gráfico é melhor?
++ Colunas
+- Linhas
+- Setores, sem o total
+- Nenhum
+Q: Para mostrar como o orçamento de uma família se divide entre moradia, alimentação, transporte e lazer, qual gráfico é melhor?
++ Setores
+- Linhas | linhas-errado
+- Histograma | setores-errado
+- Nenhum | calculo
+E: Partes de um todo.
+V: Para mostrar a porcentagem de votos de cada candidato numa eleição de turma, qual gráfico é melhor?
++ Setores ou colunas
+- Linhas
+- Histograma
+- Nenhum
+
+@exemplo_guiado | Exemplo guiado: avaliando gráficos | Uma pesquisa sobre "esporte preferido" com respostas múltiplas soma 140%. Um gráfico de setores seria enganoso. O de colunas é adequado.
+Q: Um gráfico de colunas mostra vendas de 100 e 110, mas o eixo vertical começa em 95. O que acontece?
++ A diferença parece muito maior do que é
+- O gráfico fica mais preciso | escala
+- Nada muda | escala
+- As vendas ficam iguais | calculo
+E: Cortar o eixo exagera diferenças.
+V: Um gráfico mostra 50 e 52 com eixo começando em 49. A primeira coluna fica com 1 unidade de altura e a segunda com 3. O que isso causa?
++ Parece que a segunda é três vezes maior, mas a diferença é pequena
+- Mostra corretamente que a segunda é o triplo
+- Nada muda
+- As colunas ficam iguais
+Q: Para dados como "nota de 0 a 10 dos 200 alunos", agrupados em faixas (0–2, 2–4...), qual gráfico é mais adequado?
++ Histograma
+- Setores | setores-errado
+- Linhas ligando as faixas como se fosse tempo | linhas-errado
+- Pictórico sem escala | escala
+E: Histograma representa frequências de classes de uma variável contínua.
+V: Para as alturas de 150 pessoas agrupadas em faixas de 10 cm, qual gráfico é mais adequado?
++ Histograma
+- Setores
+- Linhas como se fosse tempo
+- Pictórico sem escala
+Q: Uma pesquisa sobre "cor preferida" com 5 cores e uma resposta por pessoa pode usar:
++ Colunas ou setores
+- Só linhas | linhas-errado
+- Histograma | setores-errado
+- Nenhum gráfico | calculo
+E: Categorias que formam um todo de 100%.
+V: Uma pesquisa sobre "time preferido", com uma resposta por pessoa, pode usar:
++ Colunas ou setores
+- Só linhas
+- Histograma
+- Nenhum gráfico
+
+@praticar | Praticar: certo ou errado? | Avalie cada escolha.
+Q: Um jornal usou gráfico de linhas para comparar a população de 5 países. Qual é o problema?
++ Os países não têm ordem no tempo; as linhas sugerem uma evolução que não existe
+- Nenhum | linhas-errado
+- Deveria usar setores sem total | setores-errado
+- Falta usar mais cores | escala
+E: Colunas seriam adequadas.
+V: Uma revista usou gráfico de linhas para comparar o preço de 4 marcas de arroz. Qual é o problema?
++ As marcas não têm ordem no tempo; as linhas sugerem evolução
+- Nenhum
+- Deveria usar setores sem total
+- Falta usar mais cores
+Q: Um gráfico de setores mostra 3 fatias: 50%, 30% e 30%. Qual é o problema?
++ A soma é 110%
+- Nenhum | setores-errado
+- As fatias deveriam ter cores iguais | escala
+- Deveria haver mais fatias | calculo
+E: Setores precisam somar 100%.
+V: Um gráfico de setores mostra 4 fatias: 25%, 25%, 25% e 20%. Qual é o problema?
++ A soma é 95%
+- Nenhum
+- As fatias são iguais demais
+- Deveria haver menos fatias
+Q: Num gráfico pictórico, cada carrinho vale 100 carros. Há 3 carrinhos e meio. Quantos carros representa?
++ 350
+- 3,5 | escala
+- 300 | calculo
+- 400 | calculo
+E: 3,5 × 100.
+V: Num gráfico pictórico, cada livro vale 50 livros. Há 4 livros e meio. Quantos livros representa?
++ 225
+- 4,5
+- 200
+- 250
+Q: Para mostrar ao mesmo tempo a evolução das vendas de duas lojas ao longo do ano, o melhor é:
++ Gráfico de linhas com duas linhas, uma para cada loja
+- Dois gráficos de setores | setores-errado
+- Um único histograma | setores-errado
+- Uma tabela sem gráfico | calculo
+E: Duas séries no tempo: linhas.
+V: Para comparar as notas de meninos e meninas em 4 matérias, o melhor é:
++ Gráfico de colunas agrupadas
+- Gráfico de setores
+- Gráfico de linhas como se fosse tempo
+- Histograma
+
+@aplicar | Aplicar: escolhendo para comunicar | Pense no que o leitor precisa ver.
+Q: Uma escola quer mostrar aos responsáveis como a frequência dos alunos mudou de fevereiro a novembro. Qual gráfico?
++ Linhas, com os meses no eixo horizontal
+- Setores | setores-errado
+- Pictórico sem escala | escala
+- Histograma | setores-errado
+E: Mudança ao longo do tempo.
+V: Uma prefeitura quer mostrar o número de casos de dengue semana a semana. Qual gráfico?
++ Linhas, com as semanas no eixo horizontal
+- Setores
+- Pictórico sem escala
+- Histograma
+Q: Uma empresa quer mostrar que 60% dos clientes estão satisfeitos, 30% neutros e 10% insatisfeitos. Qual gráfico?
++ Setores
+- Linhas | linhas-errado
+- Histograma | setores-errado
+- Nenhum | calculo
+E: Partes de um todo de 100%.
+V: Um clube quer mostrar que 45% dos sócios são adultos, 35% jovens e 20% crianças. Qual gráfico?
++ Setores
+- Linhas
+- Histograma
+- Nenhum
+Q: Um aluno fez um gráfico de colunas sem título e sem nomes nos eixos. O que falta?
++ Título, rótulos dos eixos e, se houver, legenda e fonte
+- Mais cores | escala
+- Mais colunas | calculo
+- Nada | escala
+E: Sem isso, o leitor não sabe o que está vendo.
+V: Um gráfico de linhas não diz de onde vieram os dados. O que falta?
++ A fonte dos dados
+- Mais linhas
+- Mais cores
+- Nada
+
+@explicar | Explicar: escolher o gráfico | Explique qual gráfico você usaria para mostrar o número de alunos de cada turma da escola e por que não usaria um gráfico de linhas.
+C: escolha | Escolhe o gráfico de colunas
+C: motivo | Explica que colunas comparam categorias
+C: linhas | Explica que linhas sugerem evolução no tempo, que não existe entre turmas
+BOA: Usaria um gráfico de colunas, com uma coluna para cada turma, porque ele serve para comparar quantidades de categorias diferentes. Não usaria linhas, porque as linhas ligam pontos como se houvesse uma sequência no tempo, e as turmas não são uma evolução uma da outra.
+
+#TRILHA EF08MA24 | MA | 8 | Trilha: Classes de frequência | Organizando dados contínuos
+FAZ: Classifica as frequências de uma variável contínua em classes, resumindo os dados para a tomada de decisões.
+ERRO: limite | Coloca um valor na classe errada nos limites (ex.: 150 em 140 ⊢ 150)
+ERRO: amplitude-classe | Calcula errado a amplitude da classe
+ERRO: frequencia | Conta errado as frequências
+ERRO: calculo | Erra a conta
+NOTA: Use a notação 150 ⊢ 160: inclui 150 e não inclui 160. Todas as classes devem ter a mesma amplitude. Some as frequências e confira o total.
+
+@relembrar | Relembrar: classes | Alturas em classes de 10 cm: 140 ⊢ 150, 150 ⊢ 160, 160 ⊢ 170. Quem mede 150 cm fica na classe 150 ⊢ 160.
+Q: Na classe 160 ⊢ 170, quais valores estão incluídos?
++ De 160 até menos de 170
+- De 161 até 170 | limite
+- De 160 até 170, inclusive | limite
+- Só 160 e 170 | limite
+E: O símbolo ⊢ inclui o da esquerda e exclui o da direita.
+V: Na classe 20 ⊢ 30, o valor 30 está incluído?
++ Não, 30 fica na próxima classe
+- Sim, é o limite
+- Sim, sempre
+- Depende do dado
+Q: Uma pessoa mede 170 cm. Em qual classe ela fica?
++ 170 ⊢ 180
+- 160 ⊢ 170 | limite
+- Nas duas | limite
+- Em nenhuma | limite
+E: 170 é incluído na classe que começa em 170.
+V: Um aluno pesa 50 kg. Em qual classe ele fica?
++ 50 ⊢ 60
+- 40 ⊢ 50
+- Nas duas
+- Em nenhuma
+Q: Qual é a amplitude da classe 35 ⊢ 40?
++ 5
+- 40 | amplitude-classe
+- 75 | amplitude-classe
+- 35 | amplitude-classe
+E: 40 − 35 = 5.
+V: Qual é a amplitude da classe 120 ⊢ 135?
++ 15
+- 135
+- 255
+- 120
+
+@exemplo_guiado | Exemplo guiado: montando a tabela | Tempos (min) de 10 alunos para ir à escola: 5, 8, 12, 15, 7, 22, 18, 10, 9, 25. Classes: 0 ⊢ 10: 5, 8, 7, 9 (4). 10 ⊢ 20: 12, 15, 18, 10 (4). 20 ⊢ 30: 22, 25 (2). Total: 10.
+Q: Na tabela do exemplo, quantos alunos levam de 10 a menos de 20 minutos?
++ 4
+- 3 | limite
+- 5 | frequencia
+- 2 | frequencia
+E: 12, 15, 18 e 10 (o 10 entra nessa classe).
+V: Na tabela do exemplo, quantos alunos levam menos de 10 minutos?
++ 4
+- 5
+- 3
+- 6
+Q: Idades: 12, 13, 13, 14, 15, 15, 15, 16. Na classe 14 ⊢ 16, quantas pessoas há?
++ 4
+- 5 | limite
+- 3 | frequencia
+- 2 | frequencia
+E: 14, 15, 15, 15. O 16 fica fora.
+V: Idades: 10, 11, 11, 12, 12, 13, 14, 14. Na classe 12 ⊢ 14, quantas pessoas há?
++ 3
+- 5
+- 2
+- 4
+Q: Uma tabela tem as classes 0 ⊢ 5 (6), 5 ⊢ 10 (9), 10 ⊢ 15 (5). Qual é o total de dados?
++ 20
+- 15 | frequencia
+- 3 | frequencia
+- 30 | calculo
+E: 6 + 9 + 5 = 20.
+V: Uma tabela tem as classes 0 ⊢ 4 (3), 4 ⊢ 8 (7), 8 ⊢ 12 (10), 12 ⊢ 16 (5). Qual é o total?
++ 25
+- 4
+- 16
+- 20
+
+@praticar | Praticar: classes e decisões | Organize e interprete.
+Q: Uma tabela de salários tem as classes 1.000 ⊢ 2.000 (40%), 2.000 ⊢ 3.000 (35%), 3.000 ⊢ 4.000 (25%). Que porcentagem ganha menos de 3.000?
++ 75%
+- 35% | frequencia
+- 40% | frequencia
+- 60% | calculo
+E: 40% + 35%.
+V: Notas em classes: 0 ⊢ 5 (20%), 5 ⊢ 7 (30%), 7 ⊢ 10 (50%). Que porcentagem tirou 5 ou mais?
++ 80%
+- 30%
+- 50%
+- 20%
+Q: Dados de 0 a 60 serão agrupados em 6 classes de mesma amplitude. Qual é a amplitude de cada classe?
++ 10
+- 6 | amplitude-classe
+- 60 | amplitude-classe
+- 66 | amplitude-classe
+E: 60 ÷ 6 = 10.
+V: Dados de 100 a 200 serão agrupados em 5 classes de mesma amplitude. Qual é a amplitude de cada classe?
++ 20
+- 5
+- 100
+- 40
+Q: Por que agrupar dados contínuos em classes?
++ Para resumir muitos valores diferentes e ver como se distribuem
+- Para esconder os dados | frequencia
+- Porque é obrigatório | frequencia
+- Para mudar os valores | limite
+E: Com classes, fica fácil ver onde os dados se concentram.
+V: Com 500 medidas de altura todas diferentes, o que ajuda a enxergar o padrão?
++ Agrupar em classes e fazer um histograma
+- Listar as 500 medidas em ordem aleatória
+- Calcular só o maior valor
+- Fazer um gráfico de setores com 500 fatias
+Q: Num histograma de classes de 10 em 10, a coluna mais alta é 30 ⊢ 40. O que isso significa?
++ A maior quantidade de dados está entre 30 e menos de 40
+- Todos os dados são 30 | limite
+- O maior valor é 40 | limite
+- Há 30 dados | frequencia
+E: A classe com maior frequência.
+V: Num histograma, a coluna mais baixa é 80 ⊢ 90. O que isso significa?
++ Poucos dados estão entre 80 e menos de 90
+- Nenhum dado é maior que 80
+- O menor valor é 80
+- Há 80 dados
+
+@aplicar | Aplicar: classes para decidir | Use a tabela para tomar decisões.
+Q: Um posto de saúde agrupou os pesos de bebês: 2 ⊢ 3 kg (12), 3 ⊢ 4 kg (30), 4 ⊢ 5 kg (8). Quantos bebês pesam menos de 3 kg?
++ 12
+- 42 | frequencia
+- 30 | frequencia
+- 8 | frequencia
+E: Só a classe 2 ⊢ 3.
+V: Nos mesmos dados, quantos bebês pesam 3 kg ou mais?
++ 38
+- 30
+- 50
+- 8
+Q: Uma loja agrupou o valor das compras (em reais): 0 ⊢ 50 (120), 50 ⊢ 100 (60), 100 ⊢ 200 (20). Em qual faixa está a maioria das compras?
++ 0 ⊢ 50, com 120 das 200 compras
+- 50 ⊢ 100 | frequencia
+- 100 ⊢ 200 | limite
+- Todas as faixas têm a mesma quantidade | frequencia
+E: 120 é mais da metade de 200.
+V: Nos mesmos dados, qual porcentagem das compras é de R$ 50 ou mais?
++ 40%
+- 60%
+- 10%
+- 30%
+Q: Uma cidade agrupou as temperaturas máximas de 30 dias: 20 ⊢ 25 (5), 25 ⊢ 30 (15), 30 ⊢ 35 (10). Em quantos dias fez 30 °C ou mais?
++ 10
+- 25 | frequencia
+- 15 | limite
+- 5 | frequencia
+E: Só a classe 30 ⊢ 35.
+V: Nos mesmos dados, em quantos dias a máxima foi menor que 30 °C?
++ 20
+- 15
+- 5
+- 10
+
+@explicar | Explicar: montando classes | Explique como organizar as alturas de 40 alunos (de 140 cm a 179 cm) em classes.
+C: amplitude | Escolhe classes de mesma amplitude (por exemplo 10 cm: 140 ⊢ 150, 150 ⊢ 160...)
+C: limite | Explica a regra do limite (⊢ inclui o da esquerda)
+C: contagem | Conta quantos alunos há em cada classe e confere o total 40
+BOA: Os dados vão de 140 a 179, então uso 4 classes de 10 cm: 140 ⊢ 150, 150 ⊢ 160, 160 ⊢ 170 e 170 ⊢ 180. Quem mede exatamente 150 entra na segunda classe, porque o símbolo inclui o número da esquerda e não o da direita. Conto quantos alunos há em cada classe e confiro se a soma dá 40.
+
+#PRE EF08MA21 > EF08MA20 | 3
+#PRE EF08MA22 > EF08MA03 | 3
+#PRE EF08MA22 > EF07MA34 | 2
+#PRE EF08MA23 > EF07MA37 | 3
+#PRE EF08MA24 > EF07MA36 | 2

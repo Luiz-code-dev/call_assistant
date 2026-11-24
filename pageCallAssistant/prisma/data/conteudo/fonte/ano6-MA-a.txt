@@ -1,0 +1,668 @@
+// 6º ano — Matemática (parte 1): EF06MA01, EF06MA02, EF06MA03, EF06MA04
+// Reescrita completa: as trilhas anteriores tinham só 2 questões e títulos fora da BNCC.
+
+#TRILHA EF06MA01 | MA | 6 | Trilha: Naturais e decimais na reta | Comparar, ordenar, ler e escrever
+FAZ: Compara, ordena, lê e escreve números naturais e racionais com representação decimal finita, usando a reta numérica.
+ERRO: casas | Acha que o decimal com mais casas é o maior
+ERRO: leitura | Lê ou escreve o número de forma errada
+ERRO: reta | Localiza o número no lugar errado da reta
+ERRO: calculo | Erra a comparação
+NOTA: Para comparar decimais, iguale as casas: 0,5 = 0,50 > 0,45. Na reta, divida cada unidade em 10 partes (décimos).
+
+@relembrar | Relembrar: comparar decimais | 2,7 e 2,65: com duas casas, 2,70 e 2,65. Como 70 > 65, 2,7 é maior.
+Q: Qual é maior: 3,8 ou 3,75?
++ 3,8
+- 3,75 | casas
+- São iguais | casas
+- Não dá para comparar | calculo
+E: 3,80 > 3,75.
+V: Qual é maior: 5,4 ou 5,39?
++ 5,4
+- 5,39
+- São iguais
+- Não dá para comparar
+Q: Como se lê 12,05?
++ Doze inteiros e cinco centésimos
+- Doze inteiros e cinco décimos | leitura
+- Doze inteiros e cinquenta centésimos | leitura
+- Cento e vinte e cinco | leitura
+E: O 5 está na casa dos centésimos.
+V: Como se lê 7,3?
++ Sete inteiros e três décimos
+- Sete inteiros e três centésimos
+- Setenta e três
+- Sete inteiros e trinta milésimos
+Q: Qual é a ordem crescente de 0,6; 0,06; 0,66?
++ 0,06; 0,6; 0,66
+- 0,6; 0,06; 0,66 | casas
+- 0,66; 0,6; 0,06 | reta
+- 0,06; 0,66; 0,6 | casas
+E: Com duas casas: 0,06; 0,60; 0,66.
+V: Qual é a ordem crescente de 1,2; 1,02; 1,22?
++ 1,02; 1,2; 1,22
+- 1,2; 1,02; 1,22
+- 1,22; 1,2; 1,02
+- 1,02; 1,22; 1,2
+
+@exemplo_guiado | Exemplo guiado: na reta | Entre 2 e 3, dividindo em 10 partes, temos 2,1; 2,2; ...; 2,9. O número 2,5 fica no meio.
+Q: Entre quais naturais fica 7,4?
++ 7 e 8
+- 4 e 5 | reta
+- 6 e 7 | reta
+- 70 e 80 | leitura
+E: 7 < 7,4 < 8.
+V: Entre quais naturais fica 15,9?
++ 15 e 16
+- 9 e 10
+- 14 e 15
+- 150 e 160
+Q: Qual número está no meio entre 4 e 5 na reta?
++ 4,5
+- 4,05 | casas
+- 4,1 | reta
+- 45 | leitura
+E: A metade do caminho de 4 a 5.
+V: Qual número está no meio entre 0 e 1 na reta?
++ 0,5
+- 0,05
+- 0,1
+- 5
+Q: Como se escreve "três inteiros e quarenta e dois centésimos"?
++ 3,42
+- 3,042 | leitura
+- 342 | leitura
+- 3,4 | leitura
+E: 42 centésimos: duas casas depois da vírgula.
+V: Como se escreve "dez inteiros e oito décimos"?
++ 10,8
+- 10,08
+- 108
+- 1,08
+
+@praticar | Praticar: ordenando | Iguale as casas.
+Q: Qual é o menor: 0,3; 0,25; 0,205; 0,31?
++ 0,205
+- 0,25 | casas
+- 0,3 | casas
+- 0,31 | casas
+E: Com três casas: 0,300; 0,250; 0,205; 0,310.
+V: Qual é o maior: 1,5; 1,45; 1,505; 1,49?
++ 1,505
+- 1,5
+- 1,49
+- 1,45
+Q: Qual número é maior que 2,5 e menor que 2,6?
++ 2,55
+- 2,05 | casas
+- 2,65 | reta
+- 25,5 | leitura
+E: 2,50 < 2,55 < 2,60.
+V: Qual número é maior que 0,7 e menor que 0,8?
++ 0,75
+- 0,075
+- 0,85
+- 7,5
+Q: Qual é o maior número natural menor que 9,99?
++ 9
+- 10 | reta
+- 99 | leitura
+- 9,9 | calculo
+E: 9 < 9,99 < 10.
+V: Qual é o menor número natural maior que 4,01?
++ 5
+- 4
+- 41
+- 4,1
+Q: Qual igualdade está correta?
++ 0,5 = 0,50
+- 0,5 = 0,05 | casas
+- 0,5 = 5 | leitura
+- 0,50 = 0,005 | casas
+E: Zeros à direita da última casa decimal não mudam o valor.
+V: Qual igualdade está correta?
++ 1,20 = 1,2
+- 1,2 = 1,02
+- 1,2 = 12
+- 1,20 = 1,002
+
+@aplicar | Aplicar: decimais no dia a dia | Preços, alturas e tempos.
+Q: Três alunos mediram 1,48 m, 1,5 m e 1,45 m. Quem é o mais alto?
++ O de 1,5 m
+- O de 1,48 m | casas
+- O de 1,45 m | casas
+- Todos iguais | calculo
+E: 1,50 > 1,48 > 1,45.
+V: Três atletas saltaram 3,9 m, 3,85 m e 3,09 m. Quem saltou mais?
++ O de 3,9 m
+- O de 3,85 m
+- O de 3,09 m
+- Todos iguais
+Q: Um produto custa R$ 12,90 e outro R$ 12,09. Qual é mais caro?
++ O de R$ 12,90
+- O de R$ 12,09 | casas
+- Custam igual | leitura
+- Não dá para saber | calculo
+E: 90 centavos é mais que 9 centavos.
+V: Um lanche custa R$ 8,50 e outro R$ 8,05. Qual é mais barato?
++ O de R$ 8,05
+- O de R$ 8,50
+- Custam igual
+- Não dá para saber
+Q: Numa corrida, os tempos foram 12,3 s, 12,03 s e 12,33 s. Quem foi mais rápido?
++ O de 12,03 s
+- O de 12,33 s | casas
+- O de 12,3 s | casas
+- Todos iguais | calculo
+E: O menor tempo é o mais rápido: 12,03.
+V: Os tempos foram 9,8 s, 9,08 s e 9,88 s. Quem foi mais rápido?
++ O de 9,08 s
+- O de 9,88 s
+- O de 9,8 s
+- Todos iguais
+
+@explicar | Explicar: comparando decimais | Explique por que 0,7 é maior que 0,65, mesmo tendo menos algarismos.
+C: casas | Iguala as casas: 0,70 e 0,65
+C: compara | Compara 70 e 65 centésimos
+C: conclui | Conclui que a quantidade de algarismos não decide o tamanho
+BOA: Escrevo os dois com duas casas: 0,7 = 0,70. Agora comparo 70 centésimos com 65 centésimos: 70 é maior. A quantidade de algarismos depois da vírgula não decide qual é maior; o que importa é o valor de cada casa.
+
+#TRILHA EF06MA02 | MA | 6 | Trilha: Sistema de numeração decimal | Base 10, posição e zero
+FAZ: Reconhece o sistema de numeração decimal, compara-o com outros sistemas (como o romano) e sistematiza suas características: base 10, valor posicional e função do zero.
+ERRO: posicional | Não reconhece o valor do algarismo pela posição
+ERRO: zero | Não entende o zero como marcador de posição vazia
+ERRO: romano | Erra a leitura ou escrita em números romanos
+ERRO: calculo | Erra a decomposição
+NOTA: No sistema decimal, 10 unidades formam 1 dezena, 10 dezenas formam 1 centena... No romano, não há zero e o valor não depende só da posição.
+
+@relembrar | Relembrar: valor posicional | Em 4.372, o 3 vale 300 (centenas). Em 3.472, o 3 vale 3.000 (unidades de milhar).
+Q: Em 58.204, qual é o valor do algarismo 8?
++ 8.000
+- 8 | posicional
+- 800 | posicional
+- 80.000 | posicional
+E: O 8 está na casa das unidades de milhar.
+V: Em 73.615, qual é o valor do algarismo 3?
++ 3.000
+- 3
+- 300
+- 30.000
+Q: Qual é a função do zero em 405?
++ Indicar que não há dezenas
+- Não tem função | zero
+- Valer 10 | zero
+- Indicar o fim do número | zero
+E: Sem o zero, 405 viraria 45.
+V: Qual é a diferença entre 37 e 307?
++ No 307, o zero mostra que não há dezenas e o 3 passa a valer 300
+- Nenhuma, o zero não vale nada
+- 307 tem uma dezena a mais
+- 37 tem um zero escondido
+Q: Quanto vale XIV em números romanos?
++ 14
+- 16 | romano
+- 4 | romano
+- 1.014 | romano
+E: X = 10; IV = 4.
+V: Quanto vale XXIX em números romanos?
++ 29
+- 31
+- 21
+- 19
+
+@exemplo_guiado | Exemplo guiado: decompondo | 6.083 = 6 × 1.000 + 0 × 100 + 8 × 10 + 3 = 6.000 + 80 + 3. No romano, 6.083 seria MMMMMMLXXXIII, sem zero e com muitos símbolos.
+Q: Qual é a decomposição de 9.507?
++ 9 × 1.000 + 5 × 100 + 0 × 10 + 7
+- 9 × 1.000 + 5 × 10 + 7 | zero
+- 9 + 5 + 0 + 7 | posicional
+- 95 × 100 + 7 × 10 | calculo
+E: 9.000 + 500 + 0 + 7.
+V: Qual é a decomposição de 4.060?
++ 4 × 1.000 + 0 × 100 + 6 × 10 + 0
+- 4 × 1.000 + 6 × 100
+- 4 + 0 + 6 + 0
+- 40 × 100 + 6
+Q: Quantas dezenas há em 3.450?
++ 345
+- 5 | posicional
+- 45 | posicional
+- 34 | posicional
+E: 3.450 ÷ 10 = 345 dezenas.
+V: Quantas centenas há em 7.800?
++ 78
+- 8
+- 780
+- 7
+Q: Como se escreve 1.999 em números romanos?
++ MCMXCIX
+- MDCCCCLXXXXVIIII | romano
+- IMM | romano
+- MCMXCVIIII | romano
+E: M = 1.000; CM = 900; XC = 90; IX = 9.
+V: Como se escreve 2.024 em números romanos?
++ MMXXIV
+- MMXXIIII
+- MMXXVI
+- MMXIV
+
+@praticar | Praticar: comparando sistemas | Base, posição e zero.
+Q: Qual característica é do sistema decimal e NÃO do romano?
++ Ter o zero e valor posicional
+- Usar letras | romano
+- Não ter zero | zero
+- Somar símbolos repetidos | romano
+E: No decimal, a posição muda o valor; o zero marca casas vazias.
+V: Por que o sistema decimal é chamado de "base 10"?
++ Porque cada 10 unidades de uma ordem formam 1 unidade da ordem seguinte
+- Porque só vai até 10
+- Porque tem 10 letras
+- Porque todo número termina em 0
+Q: Quanto é 10 centenas?
++ 1.000
+- 100 | posicional
+- 110 | calculo
+- 10.000 | posicional
+E: 10 × 100 = 1.000.
+V: Quanto é 10 unidades de milhar?
++ 10.000
+- 1.000
+- 1.010
+- 100.000
+Q: Qual é o maior número de 4 algarismos diferentes que se pode formar com 0, 3, 7 e 9?
++ 9.730
+- 9.703 | posicional
+- 3.079 | posicional
+- 973 | zero
+E: Os maiores algarismos nas maiores ordens: 9, 7, 3, 0.
+V: Qual é o menor número de 4 algarismos diferentes que se pode formar com 0, 2, 5 e 8?
++ 2.058
+- 0.258
+- 2.085
+- 258
+Q: Quanto vale MMCDL em números romanos?
++ 2.450
+- 2.550 | romano
+- 2.650 | romano
+- 1.450 | romano
+E: MM = 2.000; CD = 400; L = 50.
+V: Quanto vale MDCCLX?
++ 1.760
+- 1.560
+- 1.740
+- 2.760
+
+@aplicar | Aplicar: números no dia a dia | Posição e leitura.
+Q: Um capítulo de livro está numerado como "Capítulo XLVIII". Qual é o número?
++ 48
+- 68 | romano
+- 52 | romano
+- 42 | romano
+E: XL = 40; VIII = 8.
+V: Um relógio mostra o número romano IX. Que hora indica?
++ 9
+- 11
+- 4
+- 6
+Q: Num cheque, o valor 1.050 foi escrito por extenso. Qual é a forma correta?
++ Mil e cinquenta
+- Mil e quinhentos | zero
+- Cento e cinco | posicional
+- Dez mil e cinquenta | posicional
+E: 1.050 = 1.000 + 50.
+V: Como se escreve por extenso 30.008?
++ Trinta mil e oito
+- Três mil e oito
+- Trinta mil e oitenta
+- Trezentos e oito
+Q: Uma cidade tem 120.506 habitantes. Qual é o algarismo das unidades de milhar?
++ 0
+- 2 | posicional
+- 5 | posicional
+- 6 | posicional
+E: 1 (centena de milhar), 2 (dezena de milhar), 0 (unidade de milhar).
+V: Um estádio tem 78.392 lugares. Qual é o algarismo das centenas?
++ 3
+- 8
+- 9
+- 7
+
+@explicar | Explicar: o papel do zero | Explique por que o zero é tão importante no sistema decimal, comparando 52, 502 e 520.
+C: posicao | Diz que o valor do algarismo depende da posição
+C: zero | Diz que o zero marca uma posição vazia
+C: exemplo | Mostra que em 502 o 5 vale 500 e em 520 o 2 vale 20
+BOA: No sistema decimal, o valor de cada algarismo depende da posição. Em 52, o 5 vale 50. Em 502, o zero mostra que não há dezenas, e o 5 passa a valer 500. Em 520, o zero mostra que não há unidades, e o 2 vale 20. Sem o zero, não daria para diferenciar esses números.
+
+#TRILHA EF06MA03 | MA | 6 | Trilha: Cálculos com naturais | Mental, escrito, exato ou aproximado
+FAZ: Resolve e elabora problemas com cálculos de números naturais, mentais ou escritos, exatos ou aproximados, com estratégias variadas, com e sem calculadora.
+ERRO: reserva | Erra o "vai um" ou o empréstimo
+ERRO: operacao | Escolhe a operação errada para o problema
+ERRO: estimativa | Não usa estimativa para conferir o resultado
+ERRO: calculo | Erra a conta
+NOTA: Antes de calcular, estime: 398 × 5 ≈ 400 × 5 = 2.000. Depois, confira se o resultado exato está perto da estimativa.
+
+@relembrar | Relembrar: estratégias | 199 + 457 = 200 + 457 − 1 = 656. 25 × 36 = 25 × 4 × 9 = 900. 840 ÷ 4 = 840 ÷ 2 ÷ 2 = 210.
+Q: Quanto é 2.358 + 1.647?
++ 4.005
+- 3.905 | reserva
+- 3.995 | reserva
+- 4.015 | calculo
+E: 2.358 + 1.647 = 4.005.
+V: Quanto é 3.476 + 2.589?
++ 6.065
+- 5.965
+- 6.055
+- 6.165
+Q: Quanto é 5.003 − 1.476?
++ 3.527
+- 4.473 | reserva
+- 3.627 | reserva
+- 3.537 | calculo
+E: 5.003 − 1.476 = 3.527.
+V: Quanto é 7.002 − 2.385?
++ 4.617
+- 5.383
+- 4.717
+- 4.627
+Q: Qual é a melhor estimativa para 487 × 6?
++ Cerca de 3.000
+- Cerca de 300 | estimativa
+- Cerca de 30.000 | estimativa
+- Cerca de 500 | estimativa
+E: 500 × 6 = 3.000.
+V: Qual é a melhor estimativa para 712 × 4?
++ Cerca de 2.800
+- Cerca de 280
+- Cerca de 28.000
+- Cerca de 700
+
+@exemplo_guiado | Exemplo guiado: escolher a estratégia | 48 × 25: mentalmente, 48 × 100 ÷ 4 = 4.800 ÷ 4 = 1.200. 1.236 ÷ 6: pelo algoritmo, 206. Na calculadora: confira se 206 × 6 = 1.236.
+Q: Quanto é 36 × 25, usando 25 = 100 ÷ 4?
++ 900
+- 3.600 | calculo
+- 925 | operacao
+- 144 | calculo
+E: 36 × 100 ÷ 4 = 3.600 ÷ 4 = 900.
+V: Quanto é 64 × 25?
++ 1.600
+- 6.400
+- 1.625
+- 256
+Q: Quanto é 1.548 ÷ 6?
++ 258
+- 248 | calculo
+- 25,8 | calculo
+- 9.288 | operacao
+E: 1.548 ÷ 6 = 258; confira: 258 × 6 = 1.548.
+V: Quanto é 2.184 ÷ 8?
++ 273
+- 263
+- 283
+- 17.472
+Q: Na calculadora, um aluno digitou 345 × 12 e obteve 41.400. Como perceber que errou?
++ Estimando: 345 × 12 ≈ 350 × 10 = 3.500, muito menor que 41.400
+- Não há como perceber | estimativa
+- Refazendo na calculadora sem pensar | estimativa
+- Somando 345 + 12 | operacao
+E: O resultado correto é 4.140.
+V: Uma aluna calculou 52 × 19 e obteve 9.880. Como perceber que errou?
++ Estimando: 50 × 20 = 1.000, muito menor que 9.880
+- Não há como perceber
+- Somando 52 + 19
+- Refazendo sem pensar
+
+@praticar | Praticar: problemas com naturais | Escolha a operação e confira.
+Q: Uma escola tem 1.248 alunos em 32 turmas iguais. Quantos alunos por turma?
++ 39
+- 40 | estimativa
+- 1.216 | operacao
+- 38 | calculo
+E: 1.248 ÷ 32 = 39.
+V: Um teatro tem 1.350 lugares em 45 fileiras iguais. Quantos lugares por fileira?
++ 30
+- 31
+- 1.305
+- 29
+Q: Um ônibus faz 4 viagens por dia, levando 47 passageiros em cada uma. Quantos passageiros em 6 dias?
++ 1.128
+- 188 | operacao
+- 282 | operacao
+- 1.028 | calculo
+E: 4 × 47 = 188 por dia; 188 × 6 = 1.128.
+V: Uma fábrica produz 125 peças por hora, 8 horas por dia. Quantas peças em 5 dias?
++ 5.000
+- 1.000
+- 625
+- 4.000
+Q: Ana tinha R$ 1.500, gastou R$ 487 e depois recebeu R$ 260. Quanto tem agora?
++ R$ 1.273
+- R$ 753 | operacao
+- R$ 2.247 | operacao
+- R$ 1.373 | calculo
+E: 1.500 − 487 = 1.013; 1.013 + 260 = 1.273.
+V: Rui tinha R$ 2.000, gastou R$ 635 e recebeu R$ 150. Quanto tem agora?
++ R$ 1.515
+- R$ 1.215
+- R$ 2.785
+- R$ 1.615
+Q: Qual é o resultado de 18 + 6 × 4?
++ 42
+- 96 | operacao
+- 28 | calculo
+- 48 | calculo
+E: Primeiro a multiplicação: 6 × 4 = 24; depois 18 + 24.
+V: Qual é o resultado de 50 − 30 ÷ 5?
++ 44
+- 4
+- 25
+- 10
+
+@aplicar | Aplicar: cálculos na vida | Estime antes, confira depois.
+Q: Uma família quer comprar uma TV de R$ 2.340 em 6 parcelas iguais sem juros. Qual é cada parcela?
++ R$ 390
+- R$ 400 | estimativa
+- R$ 2.334 | operacao
+- R$ 380 | calculo
+E: 2.340 ÷ 6 = 390.
+V: Uma bicicleta de R$ 1.080 será paga em 9 parcelas iguais. Qual é cada parcela?
++ R$ 120
+- R$ 110
+- R$ 1.071
+- R$ 130
+Q: Um estádio tem 38.500 lugares. Num jogo, 29.847 pessoas foram. Quantos lugares ficaram vazios, aproximadamente?
++ Cerca de 8.650
+- Cerca de 68.000 | operacao
+- Cerca de 1.000 | estimativa
+- Cerca de 18.000 | calculo
+E: 38.500 − 29.847 = 8.653.
+V: Um show tinha 12.000 ingressos e vendeu 9.375. Quantos sobraram, aproximadamente?
++ Cerca de 2.600
+- Cerca de 21.000
+- Cerca de 260
+- Cerca de 3.600
+Q: Uma caixa leva 24 latas. Quantas caixas são necessárias para 500 latas?
++ 21 caixas
+- 20 caixas | calculo
+- 20,8 caixas | operacao
+- 476 caixas | operacao
+E: 500 ÷ 24 = 20 e sobram 20 latas, que precisam de mais 1 caixa.
+V: Um ônibus leva 45 alunos. Quantos ônibus para 200 alunos?
++ 5
+- 4
+- 4,4
+- 155
+
+@explicar | Explicar: estimar e conferir | Explique como você pode conferir, sem refazer a conta, se 398 × 7 = 2.786 está certo.
+C: estima | Estima: 400 × 7 = 2.800
+C: compara | Compara 2.786 com 2.800 e vê que está próximo
+C: ajusta | Confirma: 400 × 7 − 2 × 7 = 2.800 − 14 = 2.786
+BOA: Primeiro estimo: 398 é quase 400, e 400 × 7 = 2.800. O resultado 2.786 está perto. Para confirmar, penso que 398 é 400 − 2: 2.800 − 2 × 7 = 2.800 − 14 = 2.786. Está certo.
+
+#TRILHA EF06MA04 | MA | 6 | Trilha: Algoritmos e fluxogramas | Passo a passo para resolver
+FAZ: Constrói algoritmo em linguagem natural e o representa por fluxograma para resolver um problema simples, como verificar se um número natural é par.
+ERRO: ordem | Coloca os passos fora de ordem
+ERRO: decisao | Não usa decisão quando o caminho depende de uma condição
+ERRO: simbolo | Confunde os símbolos do fluxograma
+ERRO: passo-faltando | Esquece um passo necessário
+NOTA: Algoritmo: uma sequência finita de passos claros. Fluxograma: oval (início e fim), retângulo (ação), losango (pergunta sim/não), setas (ordem).
+
+@relembrar | Relembrar: é par? | Algoritmo: 1) Leia o número. 2) Divida por 2. 3) Se o resto for 0, diga "par"; se não, diga "ímpar". 4) Fim.
+Q: No algoritmo "é par?", qual passo exige uma decisão?
++ Verificar se o resto da divisão por 2 é zero
+- Ler o número | decisao
+- Dividir por 2 | decisao
+- Terminar | decisao
+E: A resposta muda conforme o resto.
+V: Num algoritmo "é múltiplo de 3?", qual passo exige uma decisão?
++ Verificar se o resto da divisão por 3 é zero
+- Ler o número
+- Dividir por 3
+- Terminar
+Q: Num fluxograma, qual símbolo indica uma ação, como "divida por 2"?
++ Retângulo
+- Losango | simbolo
+- Oval | simbolo
+- Círculo vazio | simbolo
+E: Ações ficam em retângulos.
+V: Num fluxograma, qual símbolo indica uma pergunta com sim ou não?
++ Losango
+- Retângulo
+- Oval
+- Seta
+Q: Seguindo o algoritmo "é par?" para o número 37, qual é a saída?
++ Ímpar
+- Par | decisao
+- 18 | passo-faltando
+- 1 | passo-faltando
+E: 37 ÷ 2 = 18, resto 1: ímpar.
+V: Seguindo o algoritmo "é par?" para 128, qual é a saída?
++ Par
+- Ímpar
+- 64
+- 0
+
+@exemplo_guiado | Exemplo guiado: o fluxograma do "é par?" | Início → Leia N → Calcule o resto de N ÷ 2 → Losango "resto = 0?" → Sim: mostre "par" → Fim. Não: mostre "ímpar" → Fim.
+Q: Quantas saídas tem o losango "resto = 0?"?
++ Duas: sim e não
+- Uma | decisao
+- Três | simbolo
+- Nenhuma | simbolo
+E: Toda decisão tem o caminho do sim e o do não.
+V: Depois de mostrar "par" ou "ímpar", o fluxograma vai para:
++ O fim
+- O início de novo, sempre
+- Outro losango obrigatório
+- Lugar nenhum
+Q: Qual é a ordem correta dos passos?
++ Ler N, calcular o resto, perguntar se é zero, mostrar a resposta
+- Mostrar a resposta, ler N, calcular o resto | ordem
+- Calcular o resto, ler N, mostrar a resposta | ordem
+- Perguntar se é zero, ler N, mostrar a resposta | ordem
+E: Primeiro os dados, depois o cálculo, depois a decisão.
+V: Num algoritmo para saber se um número é maior que 100, qual é a ordem?
++ Ler o número, perguntar se é maior que 100, mostrar a resposta
+- Mostrar a resposta, ler o número, perguntar
+- Perguntar, mostrar, ler o número
+- Ler o número e terminar
+Q: Um aluno escreveu: "Leia N. Mostre par." O que falta?
++ O cálculo do resto e a decisão
+- Nada | passo-faltando
+- Mais uma leitura | passo-faltando
+- Uma multiplicação por 2 | passo-faltando
+E: Sem a decisão, a saída seria sempre "par".
+V: Uma aluna escreveu: "Leia N. Divida por 2. Fim." O que falta?
++ A decisão sobre o resto e a resposta
+- Nada
+- Mais uma divisão
+- Uma soma
+
+@praticar | Praticar: montando algoritmos | Passos claros e completos.
+Q: Num algoritmo para saber se N é múltiplo de 5, qual pergunta vai no losango?
++ "O resto de N ÷ 5 é zero?"
+- "N é par?" | decisao
+- "N é maior que 5?" | decisao
+- "N termina em 2?" | decisao
+E: Múltiplo de 5 tem resto zero na divisão por 5.
+V: Num algoritmo para saber se N é múltiplo de 10, qual pergunta vai no losango?
++ "O resto de N ÷ 10 é zero?"
+- "N é par?"
+- "N é maior que 10?"
+- "N termina em 5?"
+Q: Um algoritmo: "Leia a idade. Se idade ≥ 16, mostre 'pode votar'; senão, mostre 'não pode votar'." Para idade 15, a saída é:
++ Não pode votar
+- Pode votar | decisao
+- 15 | passo-faltando
+- 16 | passo-faltando
+E: 15 não é maior ou igual a 16.
+V: No mesmo algoritmo, para idade 16, a saída é:
++ Pode votar
+- Não pode votar
+- 16
+- 15
+Q: Um algoritmo dobra o número lido e soma 3. Para 12, a saída é:
++ 27
+- 30 | ordem
+- 15 | passo-faltando
+- 24 | passo-faltando
+E: 12 × 2 = 24; 24 + 3 = 27.
+V: Um algoritmo soma 3 ao número e depois dobra. Para 12, a saída é:
++ 30
+- 27
+- 15
+- 24
+Q: Para que serve um algoritmo?
++ Para descrever passos claros que resolvem um problema
+- Para desenhar figuras bonitas | simbolo
+- Para substituir a matemática | passo-faltando
+- Só para computadores | simbolo
+E: Receitas e manuais também são algoritmos.
+V: Qual destes é um exemplo de algoritmo do dia a dia?
++ Uma receita de bolo com passos numerados
+- Uma foto
+- Uma música
+- Um desenho livre
+
+@aplicar | Aplicar: algoritmos na vida | Decisões e passos.
+Q: Uma lanchonete dá desconto se a compra passar de R$ 50. Qual algoritmo descreve isso?
++ Leia o valor; se for maior que 50, aplique o desconto; mostre o total
+- Leia o valor; aplique o desconto sempre; mostre | decisao
+- Mostre o total; leia o valor | ordem
+- Aplique o desconto; fim | passo-faltando
+E: A decisão depende do valor.
+V: Um cinema dá meia-entrada para estudantes. Qual algoritmo descreve isso?
++ Pergunte se é estudante; se sim, cobre metade; se não, cobre inteira
+- Cobre metade de todos
+- Cobre inteira e depois pergunte
+- Pergunte a idade e termine
+Q: Um semáforo: "Se a luz é verde, siga; se é amarela, atenção; se é vermelha, pare." Quantas decisões o fluxograma precisa, no mínimo?
++ 2
+- 1 | decisao
+- 3 | decisao
+- 0 | decisao
+E: "É verde?" Se não, "é amarela?"; se não, é vermelha.
+V: Para classificar uma nota em "aprovado" (≥ 6) ou "reprovado", quantas decisões o fluxograma precisa?
++ 1
+- 2
+- 3
+- 0
+Q: Um algoritmo conta de 1 até 5 mostrando cada número. Qual é a saída?
++ 1, 2, 3, 4, 5
+- 1, 2, 3, 4 | passo-faltando
+- 5 | passo-faltando
+- 0, 1, 2, 3, 4, 5 | ordem
+E: Começa em 1 e termina em 5.
+V: Um algoritmo mostra os números pares de 2 até 10. Qual é a saída?
++ 2, 4, 6, 8, 10
+- 2, 4, 6, 8
+- 1, 2, 3, 4, 5
+- 10
+
+@explicar | Explicar: o algoritmo do par | Escreva um algoritmo, em linguagem natural, que diga se um número natural é par ou ímpar, e explique a decisão que ele faz.
+C: passos | Lista os passos em ordem: ler, dividir por 2, verificar o resto, mostrar
+C: decisao | Explica que a decisão é sobre o resto ser zero
+C: exemplo | Testa com um exemplo
+BOA: 1) Leio o número N. 2) Divido N por 2 e olho o resto. 3) Se o resto for zero, mostro "par"; se for 1, mostro "ímpar". 4) Fim. A decisão é sobre o resto: só os pares dão resto zero. Testando com 14: resto 0, então é par. Com 9: resto 1, então é ímpar.
+
+#PRE EF06MA01 > EF05MA02 | 3
+#PRE EF06MA02 > EF05MA01 | 2
+#PRE EF06MA03 > EF05MA07 | 3
+#PRE EF06MA03 > EF05MA08 | 3
+#PRE EF06MA04 > EF06MA03 | 1

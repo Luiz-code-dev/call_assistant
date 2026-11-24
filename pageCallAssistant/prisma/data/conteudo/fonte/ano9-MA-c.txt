@@ -1,0 +1,669 @@
+// 9º ano — Matemática (parte 3): EF09MA12, EF09MA13, EF09MA15, EF09MA16
+
+#TRILHA EF09MA12 | MA | 9 | Trilha: Semelhança de triângulos | Condições necessárias e suficientes
+FAZ: Reconhece as condições necessárias e suficientes para que dois triângulos sejam semelhantes.
+ERRO: um-par | Conclui semelhança com só um par de ângulos iguais
+ERRO: soma-lados | Soma um valor aos lados em vez de multiplicar
+ERRO: correspondencia | Erra a correspondência entre lados homólogos
+ERRO: calculo | Erra a conta
+NOTA: Casos: AA (dois ângulos iguais), LAL (dois lados proporcionais e o ângulo entre eles igual), LLL (três lados proporcionais). Semelhantes têm ângulos iguais e lados proporcionais.
+
+@relembrar | Relembrar: semelhança | Triângulos de lados 3, 4, 5 e 6, 8, 10 são semelhantes: razão 2. Os ângulos são iguais.
+Q: Os triângulos de lados 2, 3, 4 e 6, 9, 12 são semelhantes?
++ Sim, os lados são proporcionais (razão 3)
+- Não, os lados são diferentes | soma-lados
+- Sim, porque os dois têm 3 lados | um-par
+- Não, porque um é maior | soma-lados
+E: 6/2 = 9/3 = 12/4 = 3.
+V: Os triângulos de lados 5, 6, 8 e 10, 12, 16 são semelhantes?
++ Sim, razão 2
+- Não, os lados são diferentes
+- Sim, porque têm 3 lados
+- Não, porque um é maior
+Q: Os triângulos de lados 3, 4, 5 e 5, 6, 7 são semelhantes?
++ Não, os lados aumentaram 2, mas não na mesma razão
+- Sim, cada lado aumentou 2 | soma-lados
+- Sim, porque são triângulos | um-par
+- Sim, razão 2 | calculo
+E: 5/3 ≠ 6/4 ≠ 7/5.
+V: Os triângulos de lados 4, 6, 8 e 6, 8, 10 são semelhantes?
++ Não, os lados não são proporcionais
+- Sim, cada lado aumentou 2
+- Sim, porque são triângulos
+- Sim, razão 2
+Q: Dois triângulos têm dois ângulos iguais: 40° e 75°. Eles são semelhantes?
++ Sim, pelo caso AA
+- Não, faltam os lados | um-par
+- Só se forem do mesmo tamanho | correspondencia
+- Não dá para saber | um-par
+E: Se dois ângulos são iguais, o terceiro também é (soma 180°).
+V: Dois triângulos têm ângulos de 30° e 90°. Eles são semelhantes?
++ Sim, pelo caso AA
+- Não, faltam os lados
+- Só se forem do mesmo tamanho
+- Não dá para saber
+
+@exemplo_guiado | Exemplo guiado: calculando um lado | ABC ~ DEF com AB = 4, BC = 6, DE = 10. Razão: 10/4 = 2,5. Então EF = 6 × 2,5 = 15.
+Q: ABC ~ DEF, com AB = 6, AC = 9 e DE = 4. Quanto mede DF?
++ 6
+- 7 | soma-lados
+- 13,5 | correspondencia
+- 2,7 | calculo
+E: Razão DE/AB = 4/6 = 2/3. DF = 9 × 2/3 = 6.
+V: ABC ~ DEF, com AB = 5, BC = 8 e DE = 15. Quanto mede EF?
++ 24
+- 18
+- 2,7
+- 40
+Q: Dois triângulos têm um ângulo de 50° entre lados 3 e 5 no primeiro e entre lados 6 e 10 no segundo. São semelhantes?
++ Sim, pelo caso LAL (razão 2 e ângulo igual)
+- Não, faltam informações | um-par
+- Sim, pelo caso AA | um-par
+- Não, porque os lados são diferentes | soma-lados
+E: 6/3 = 10/5 = 2 e o ângulo entre eles é igual.
+V: Lados 4 e 7 com ângulo de 60° entre eles; lados 12 e 21 com 60° entre eles. São semelhantes?
++ Sim, pelo caso LAL
+- Não, faltam informações
+- Sim, pelo caso AA
+- Não, porque os lados são diferentes
+Q: Só saber que dois triângulos têm um ângulo igual garante semelhança?
++ Não, é preciso pelo menos dois ângulos iguais (ou outro caso)
+- Sim, um ângulo basta | um-par
+- Sim, se o ângulo for reto | um-par
+- Sim, sempre | um-par
+E: Um par de ângulos não basta.
+V: Dois triângulos retângulos são sempre semelhantes?
++ Não, é preciso que outro ângulo agudo também seja igual
+- Sim, sempre
+- Sim, porque o ângulo reto basta
+- Só se forem isósceles
+
+@praticar | Praticar: semelhança em ação | Escreva a razão primeiro.
+Q: Um triângulo tem perímetro 24 e é semelhante a outro com razão 1,5. Qual é o perímetro do maior?
++ 36
+- 25,5 | soma-lados
+- 16 | calculo
+- 54 | calculo
+E: Os perímetros seguem a mesma razão: 24 × 1,5 = 36.
+V: Um triângulo de perímetro 30 é semelhante a outro com razão 2/3. Qual é o perímetro do menor?
++ 20
+- 45
+- 29,3
+- 10
+Q: Numa figura, a reta DE é paralela ao lado BC do triângulo ABC, com D em AB e E em AC. Por que ADE ~ ABC?
++ Pelo caso AA: ângulo A comum e ângulos correspondentes iguais
+- Porque têm o mesmo tamanho | soma-lados
+- Pelo caso LLL sem medidas | correspondencia
+- Não são semelhantes | um-par
+E: A paralela cria ângulos correspondentes iguais.
+V: Com DE ∥ BC, AD = 3, AB = 9 e BC = 12. Quanto mede DE?
++ 4
+- 6
+- 36
+- 9
+Q: As razões de semelhança entre áreas: se os lados de dois triângulos semelhantes estão na razão 3, as áreas estão na razão:
++ 9
+- 3 | soma-lados
+- 6 | calculo
+- 27 | calculo
+E: Área cresce com o quadrado da razão.
+V: Se os lados estão na razão 2, as áreas estão na razão:
++ 4
+- 2
+- 8
+- 6
+Q: Qual NÃO é condição suficiente para semelhança?
++ Um par de lados proporcionais
+- Dois ângulos iguais | um-par
+- Três lados proporcionais | um-par
+- Dois lados proporcionais e o ângulo entre eles igual | um-par
+E: Um par de lados não determina a forma.
+V: Qual é condição suficiente para semelhança?
++ Três lados proporcionais
+- Um ângulo igual
+- Um par de lados proporcionais
+- Mesmo perímetro
+
+@aplicar | Aplicar: medindo o que não se alcança | Sombras e mapas.
+Q: Um poste faz sombra de 6 m, enquanto uma pessoa de 1,6 m faz sombra de 2 m, no mesmo instante. Qual é a altura do poste?
++ 4,8 m
+- 7,5 m | correspondencia
+- 5,6 m | soma-lados
+- 3,2 m | calculo
+E: 1,6/2 = h/6; h = 4,8.
+V: Um prédio faz sombra de 15 m; uma vara de 2 m faz sombra de 1,5 m. Qual é a altura do prédio?
++ 20 m
+- 11,25 m
+- 15,5 m
+- 22,5 m
+Q: Para medir a largura de um rio, montou-se dois triângulos semelhantes com razão 1:10. O triângulo pequeno tem lado correspondente de 4,5 m. Qual é a largura do rio?
++ 45 m
+- 14,5 m | soma-lados
+- 0,45 m | calculo
+- 450 m | calculo
+E: 4,5 × 10 = 45.
+V: Num esquema semelhante com razão 1:20, o lado medido é 3,5 m. Qual é a distância real?
++ 70 m
+- 23,5 m
+- 0,175 m
+- 700 m
+Q: Uma foto de 10 cm × 15 cm foi ampliada de modo semelhante para largura de 30 cm. Qual é a altura?
++ 45 cm
+- 35 cm | soma-lados
+- 20 cm | correspondencia
+- 22,5 cm | calculo
+E: Razão 3: 15 × 3 = 45.
+V: Uma foto de 9 cm × 12 cm foi ampliada de modo semelhante para largura de 27 cm. Qual é a altura?
++ 36 cm
+- 30 cm
+- 15 cm
+- 24 cm
+
+@explicar | Explicar: o caso AA | Explique por que basta conhecer dois ângulos iguais para garantir que dois triângulos são semelhantes.
+C: terceiro | Diz que o terceiro ângulo também fica igual (soma 180°)
+C: forma | Diz que ângulos iguais determinam a mesma forma
+C: proporcao | Conclui que os lados ficam proporcionais
+BOA: Se dois triângulos têm dois ângulos iguais, o terceiro ângulo também é igual, porque em todo triângulo a soma é 180°. Com os três ângulos iguais, os triângulos têm a mesma forma, só podendo mudar o tamanho. Por isso os lados correspondentes são proporcionais e os triângulos são semelhantes.
+
+#TRILHA EF09MA13 | MA | 9 | Trilha: Teorema de Pitágoras | Relações métricas no triângulo retângulo
+FAZ: Demonstra relações métricas do triângulo retângulo, entre elas o teorema de Pitágoras, inclusive usando semelhança de triângulos.
+ERRO: hipotenusa | Coloca a hipotenusa no lugar de um cateto
+ERRO: soma-lados | Soma os catetos em vez de somar os quadrados
+ERRO: raiz | Esquece de tirar a raiz quadrada no final
+ERRO: calculo | Erra a conta
+NOTA: a² = b² + c², onde a é a hipotenusa (oposta ao ângulo reto). Outras relações: b² = a × m, c² = a × n, h² = m × n, a × h = b × c.
+
+@relembrar | Relembrar: Pitágoras | Catetos 3 e 4: hipotenusa² = 9 + 16 = 25; hipotenusa = 5.
+Q: Os catetos de um triângulo retângulo medem 6 e 8. Quanto mede a hipotenusa?
++ 10
+- 14 | soma-lados
+- 100 | raiz
+- 48 | calculo
+E: 36 + 64 = 100; √100 = 10.
+V: Os catetos medem 5 e 12. Quanto mede a hipotenusa?
++ 13
+- 17
+- 169
+- 60
+Q: A hipotenusa mede 15 e um cateto mede 9. Quanto mede o outro cateto?
++ 12
+- 6 | soma-lados
+- 17,5 | hipotenusa
+- 144 | raiz
+E: 225 − 81 = 144; √144 = 12.
+V: A hipotenusa mede 25 e um cateto mede 7. Quanto mede o outro cateto?
++ 24
+- 18
+- 26
+- 576
+Q: Qual lado é a hipotenusa num triângulo retângulo?
++ O lado oposto ao ângulo reto, que é o maior
+- Qualquer lado | hipotenusa
+- O menor lado | hipotenusa
+- Um dos lados que formam o ângulo reto | hipotenusa
+E: A hipotenusa fica em frente ao ângulo de 90°.
+V: Num triângulo retângulo de lados 8, 15 e 17, qual é a hipotenusa?
++ 17
+- 8
+- 15
+- 23
+
+@exemplo_guiado | Exemplo guiado: a prova por semelhança | Triângulo ABC, reto em A, com altura AH. Os triângulos HBA e ABC são semelhantes (AA): AB² = BC × BH. Da mesma forma, AC² = BC × CH. Somando: AB² + AC² = BC × (BH + CH) = BC².
+Q: Na prova, por que o triângulo HBA é semelhante a ABC?
++ Têm o ângulo B comum e um ângulo reto cada (caso AA)
+- Têm os lados iguais | hipotenusa
+- Têm o mesmo tamanho | calculo
+- Não são semelhantes | soma-lados
+E: Dois ângulos iguais bastam.
+V: Na prova, BH + CH é igual a:
++ BC, a hipotenusa
+- AB
+- AC
+- AH
+Q: Num triângulo retângulo, a hipotenusa mede 10 e a projeção de um cateto sobre ela mede 3,6. Quanto mede esse cateto?
++ 6
+- 36 | raiz
+- 13,6 | soma-lados
+- 6,4 | calculo
+E: b² = a × m = 10 × 3,6 = 36; b = 6.
+V: A hipotenusa mede 25 e a projeção de um cateto mede 9. Quanto mede esse cateto?
++ 15
+- 225
+- 34
+- 16
+Q: As projeções dos catetos sobre a hipotenusa medem 4 e 9. Quanto mede a altura relativa à hipotenusa?
++ 6
+- 36 | raiz
+- 13 | soma-lados
+- 6,5 | calculo
+E: h² = m × n = 36; h = 6.
+V: As projeções medem 2 e 8. Quanto mede a altura relativa à hipotenusa?
++ 4
+- 16
+- 10
+- 5
+
+@praticar | Praticar: usando Pitágoras | Identifique a hipotenusa.
+Q: Qual é a diagonal de um retângulo de 9 cm por 12 cm?
++ 15 cm
+- 21 cm | soma-lados
+- 225 cm | raiz
+- 108 cm | calculo
+E: 81 + 144 = 225; √225 = 15.
+V: Qual é a diagonal de um retângulo de 8 cm por 15 cm?
++ 17 cm
+- 23 cm
+- 289 cm
+- 120 cm
+Q: Os lados 7, 24 e 25 formam um triângulo retângulo?
++ Sim, 49 + 576 = 625
+- Não, 7 + 24 ≠ 25 | soma-lados
+- Sim, porque 25 é o maior | hipotenusa
+- Não dá para saber | calculo
+E: 7² + 24² = 25².
+V: Os lados 5, 7 e 9 formam um triângulo retângulo?
++ Não, 25 + 49 = 74, e 9² = 81
+- Sim, porque 9 é o maior
+- Sim, 5 + 7 > 9
+- Não dá para saber
+Q: Um triângulo retângulo tem catetos 6 e 8 e hipotenusa 10. Quanto mede a altura relativa à hipotenusa?
++ 4,8
+- 5 | calculo
+- 7 | soma-lados
+- 48 | raiz
+E: a × h = b × c: 10h = 48; h = 4,8.
+V: Catetos 9 e 12, hipotenusa 15. Quanto mede a altura relativa à hipotenusa?
++ 7,2
+- 7,5
+- 10,5
+- 108
+Q: A altura de um triângulo equilátero de lado 2 mede:
++ √3
+- 1 | hipotenusa
+- 3 | raiz
+- 2 | calculo
+E: h² + 1² = 2²; h² = 3; h = √3.
+V: A altura de um triângulo equilátero de lado 6 mede:
++ 3√3
+- 3
+- 27
+- 6
+
+@aplicar | Aplicar: Pitágoras no mundo | Desenhe o triângulo retângulo.
+Q: Uma escada de 5 m está apoiada num muro, com o pé a 3 m da parede. A que altura ela toca o muro?
++ 4 m
+- 2 m | soma-lados
+- 8 m | soma-lados
+- 16 m | raiz
+E: 25 − 9 = 16; √16 = 4.
+V: Uma escada de 10 m tem o pé a 6 m da parede. A que altura toca o muro?
++ 8 m
+- 4 m
+- 16 m
+- 64 m
+Q: Uma TV de 50 polegadas (diagonal) tem largura de 40 polegadas. Qual é a altura?
++ 30 polegadas
+- 10 polegadas | soma-lados
+- 900 polegadas | raiz
+- 64 polegadas | hipotenusa
+E: 2.500 − 1.600 = 900; √900 = 30.
+V: Uma tela de 25 polegadas tem largura de 20 polegadas. Qual é a altura?
++ 15 polegadas
+- 5 polegadas
+- 225 polegadas
+- 32 polegadas
+Q: Um barco sai do porto e anda 12 km para o norte e depois 9 km para o leste. A que distância está do porto?
++ 15 km
+- 21 km | soma-lados
+- 225 km | raiz
+- 3 km | calculo
+E: 144 + 81 = 225; √225 = 15.
+V: Uma pessoa anda 8 km para o sul e 6 km para o oeste. A que distância está do ponto de partida?
++ 10 km
+- 14 km
+- 100 km
+- 2 km
+
+@explicar | Explicar: Pitágoras na prática | Explique como descobrir a altura que uma escada de 13 m alcança num muro, com o pé a 5 m da parede.
+C: triangulo | Identifica o triângulo retângulo: escada é a hipotenusa
+C: equacao | Escreve 13² = 5² + h²
+C: resultado | Calcula h² = 144 e h = 12 m
+BOA: A escada, o chão e o muro formam um triângulo retângulo, e a escada é a hipotenusa, porque fica em frente ao ângulo reto entre o chão e o muro. Pelo teorema de Pitágoras, 13² = 5² + h², ou seja, 169 = 25 + h². Então h² = 144 e h = 12. A escada alcança 12 m de altura.
+
+#TRILHA EF09MA15 | MA | 9 | Trilha: Construindo polígonos regulares | Algoritmo com régua, compasso e software
+FAZ: Descreve, por escrito e por fluxograma, um algoritmo para construir um polígono regular de lado conhecido, com régua e compasso ou software.
+ERRO: angulo | Usa o ângulo errado (interno no lugar do externo, ou o contrário)
+ERRO: lado | Usa medidas de lado diferentes
+ERRO: ordem | Coloca os passos fora de ordem
+ERRO: calculo | Erra a conta do ângulo
+NOTA: Com lado L conhecido: trace o lado, construa o ângulo interno no vértice, marque L, repita. Ângulo interno de n lados: 180° − 360°/n. No software, use a ferramenta "polígono regular" e compare.
+
+@relembrar | Relembrar: ângulo interno | Triângulo: 60°. Quadrado: 90°. Pentágono: 108°. Hexágono: 120°. Octógono: 135°.
+Q: Qual é o ângulo interno de um pentágono regular?
++ 108°
+- 72° | angulo
+- 120° | calculo
+- 540° | calculo
+E: 180° − 360°/5 = 180° − 72° = 108°.
+V: Qual é o ângulo interno de um octógono regular?
++ 135°
+- 45°
+- 120°
+- 1.080°
+Q: Para construir um quadrado de lado 5 cm, em cada vértice o ângulo entre os lados deve ser:
++ 90°
+- 60° | angulo
+- 45° | angulo
+- 120° | angulo
+E: Ângulo interno do quadrado.
+V: Para construir um hexágono regular de lado 3 cm, em cada vértice o ângulo entre os lados deve ser:
++ 120°
+- 60°
+- 90°
+- 135°
+Q: Num algoritmo de construção, todos os lados devem ter:
++ A mesma medida L
+- Medidas diferentes | lado
+- Medidas que dobram a cada lado | lado
+- A medida do ângulo | lado
+E: Polígono regular: lados e ângulos iguais.
+V: Num polígono regular, os ângulos internos são:
++ Todos iguais
+- Todos diferentes
+- Iguais aos lados
+- Sempre de 90°
+
+@exemplo_guiado | Exemplo guiado: triângulo equilátero com compasso | 1) Trace AB com medida L. 2) Compasso com abertura L, ponta em A: arco. 3) Mesma abertura, ponta em B: arco. 4) O cruzamento é C. 5) Ligue A, B e C.
+Q: Na construção do triângulo equilátero, por que o compasso tem sempre abertura L?
++ Porque os três lados devem medir L
+- Para formar um ângulo de 90° | angulo
+- Porque o compasso não muda | ordem
+- Para que os arcos não se cruzem | ordem
+E: AC = BC = AB = L.
+V: Se a abertura do compasso fosse diferente de L num dos arcos, o triângulo seria:
++ Isósceles ou escaleno, mas não equilátero
+- Equilátero do mesmo jeito
+- Um quadrado
+- Impossível
+Q: Para construir um quadrado de lado L com régua e compasso, que construção garante o ângulo reto?
++ A perpendicular, feita como na mediatriz
+- A bissetriz de 60° | angulo
+- Um arco qualquer | ordem
+- O triângulo equilátero | angulo
+E: A perpendicular forma 90°.
+V: Para construir um hexágono regular com compasso, que propriedade se usa?
++ O lado do hexágono é igual ao raio da circunferência
+- O lado é o dobro do raio
+- O ângulo interno é 60°
+- O hexágono tem 4 lados
+Q: Num fluxograma para um polígono regular de n lados, o laço "trace o lado e gire" deve se repetir:
++ n vezes
+- n − 1 vezes, sempre | calculo
+- 2n vezes | calculo
+- 360 vezes | calculo
+E: Um lado em cada repetição.
+V: No fluxograma de um octógono regular, quantas vezes o laço "trace o lado e gire" é repetido?
++ 8
+- 7
+- 16
+- 360
+
+@praticar | Praticar: ângulos e passos | Calcule e organize.
+Q: Num algoritmo "ande L e gire", qual é o giro para um pentágono regular?
++ 72° (ângulo externo)
+- 108° | angulo
+- 60° | calculo
+- 540° | calculo
+E: 360° ÷ 5 = 72°.
+V: Qual é o giro para um decágono regular?
++ 36°
+- 144°
+- 30°
+- 1.440°
+Q: Qual é o ângulo interno de um polígono regular de 12 lados?
++ 150°
+- 30° | angulo
+- 120° | calculo
+- 180° | calculo
+E: 180° − 360°/12 = 180° − 30° = 150°.
+V: Qual é o ângulo interno de um polígono regular de 9 lados?
++ 140°
+- 40°
+- 135°
+- 160°
+Q: Ordene o algoritmo do quadrado: (I) traçar perpendiculares em A e B; (II) traçar AB = L; (III) marcar C e D a L de B e de A; (IV) ligar C e D.
++ II, I, III, IV
+- I, II, III, IV | ordem
+- II, III, I, IV | ordem
+- IV, III, II, I | ordem
+E: Base, perpendiculares, marcar, ligar.
+V: Ordene o algoritmo do hexágono: (I) ligar os 6 pontos; (II) traçar circunferência de raio L; (III) marcar 6 pontos com compasso de abertura L; (IV) marcar um ponto inicial.
++ II, IV, III, I
+- I, II, III, IV
+- IV, II, III, I
+- II, III, IV, I
+Q: Num software, qual informação a ferramenta "polígono regular" pede além de dois pontos?
++ O número de vértices
+- A cor | ordem
+- O ângulo de 360° | angulo
+- O perímetro de outro polígono | lado
+E: Com dois vértices e o número de lados, o polígono fica determinado.
+V: Num software, você clica em dois pontos a 4 cm e escolhe 6 vértices. O que aparece?
++ Um hexágono regular de lado 4 cm
+- Um quadrado de lado 6 cm
+- Um hexágono de lado 6 cm
+- Um triângulo de lado 4 cm
+
+@aplicar | Aplicar: construções com propósito | Logotipos, mosaicos e placas.
+Q: Uma placa de PARE é um octógono regular de lado 25 cm. No algoritmo, qual giro usar a cada lado?
++ 45°
+- 135° | angulo
+- 25° | lado
+- 90° | calculo
+E: 360° ÷ 8.
+V: Uma mesa tem forma de hexágono regular de lado 50 cm. No algoritmo "ande e gire", qual giro usar?
++ 60°
+- 120°
+- 50°
+- 90°
+Q: O perímetro de um pentágono regular construído com lado 7 cm é:
++ 35 cm
+- 12 cm | calculo
+- 49 cm | calculo
+- 28 cm | calculo
+E: 5 × 7 = 35.
+V: O perímetro de um octógono regular de lado 4 cm é:
++ 32 cm
+- 12 cm
+- 16 cm
+- 28 cm
+Q: Por que um algoritmo de construção precisa garantir lados e ângulos iguais?
++ Porque só com os dois o polígono é regular
+- Basta lados iguais | lado
+- Basta ângulos iguais | angulo
+- Não precisa de nenhum | ordem
+E: O losango tem lados iguais e não é regular; o retângulo tem ângulos iguais e não é regular.
+V: Um losango com lados iguais e ângulos de 60° e 120° é regular?
++ Não, os ângulos não são todos iguais
+- Sim, os lados são iguais
+- Sim, sempre
+- Só se for grande
+
+@explicar | Explicar: algoritmo do quadrado | Escreva um algoritmo para construir um quadrado de lado 6 cm com régua e compasso.
+C: base | Traça AB com 6 cm
+C: perpendicular | Constrói as perpendiculares em A e em B
+C: fecha | Marca C e D a 6 cm e liga C a D
+BOA: Traço o segmento AB com 6 cm. Em A, construo uma perpendicular a AB (como na mediatriz). Faço o mesmo em B. Com o compasso aberto em 6 cm, marco D na perpendicular de A e C na perpendicular de B. Ligo C a D. Os quatro lados medem 6 cm e os ângulos são retos.
+
+#TRILHA EF09MA16 | MA | 9 | Trilha: Ponto médio e distância | No plano cartesiano
+FAZ: Determina o ponto médio de um segmento e a distância entre dois pontos no plano cartesiano, sem fórmulas prontas, e usa isso para calcular perímetros e áreas.
+ERRO: soma-coordenadas | Soma as coordenadas em vez de calcular a média
+ERRO: distancia-direta | Soma as diferenças em x e em y em vez de usar Pitágoras
+ERRO: sinal | Erra a diferença quando há coordenadas negativas
+ERRO: calculo | Erra a conta
+NOTA: Ponto médio: a média dos x e a média dos y. Distância: desenhe o triângulo retângulo com catetos Δx e Δy e use Pitágoras.
+
+@relembrar | Relembrar: média das coordenadas | A(2, 4) e B(6, 8): ponto médio ((2 + 6)/2, (4 + 8)/2) = (4, 6). Distância: Δx = 4, Δy = 4; d = √(16 + 16) = 4√2.
+Q: Qual é o ponto médio de A(2, 6) e B(8, 10)?
++ (5, 8)
+- (10, 16) | soma-coordenadas
+- (3, 2) | calculo
+- (6, 4) | sinal
+E: ((2 + 8)/2, (6 + 10)/2).
+V: Qual é o ponto médio de A(1, 3) e B(7, 9)?
++ (4, 6)
+- (8, 12)
+- (3, 3)
+- (6, 6)
+Q: Qual é a distância entre A(1, 2) e B(4, 6)?
++ 5
+- 7 | distancia-direta
+- 25 | calculo
+- √7 | distancia-direta
+E: Δx = 3, Δy = 4; √(9 + 16) = 5.
+V: Qual é a distância entre A(0, 0) e B(5, 12)?
++ 13
+- 17
+- 169
+- √17
+Q: Qual é a distância entre A(2, 3) e B(9, 3)?
++ 7
+- 11 | soma-coordenadas
+- 5,5 | soma-coordenadas
+- √7 | calculo
+E: Mesma altura: 9 − 2 = 7.
+V: Qual é a distância entre A(4, −1) e B(4, 6)?
++ 7
+- 5
+- 2,5
+- √7
+
+@exemplo_guiado | Exemplo guiado: com coordenadas negativas | A(−2, 1) e B(4, 9). Ponto médio: ((−2 + 4)/2, (1 + 9)/2) = (1, 5). Δx = 4 − (−2) = 6; Δy = 8; d = √(36 + 64) = 10.
+Q: Qual é a distância entre A(−1, −2) e B(2, 2)?
++ 5
+- 7 | distancia-direta
+- √5 | sinal
+- 1 | sinal
+E: Δx = 3, Δy = 4; √25 = 5.
+V: Qual é a distância entre A(−3, 1) e B(3, 9)?
++ 10
+- 14
+- 8
+- √28
+Q: Qual é o ponto médio de A(−4, 2) e B(6, −8)?
++ (1, −3)
+- (2, −6) | soma-coordenadas
+- (5, −5) | sinal
+- (−5, 5) | sinal
+E: ((−4 + 6)/2, (2 − 8)/2) = (1, −3).
+V: Qual é o ponto médio de A(−6, −2) e B(2, 8)?
++ (−2, 3)
+- (−4, 6)
+- (4, 5)
+- (2, −3)
+Q: M(3, 5) é o ponto médio de AB, com A(1, 2). Quais são as coordenadas de B?
++ (5, 8)
+- (2, 3,5) | soma-coordenadas
+- (4, 7) | calculo
+- (2, 3) | calculo
+E: 3 = (1 + x)/2 → x = 5; 5 = (2 + y)/2 → y = 8.
+V: M(4, 1) é o ponto médio de AB, com A(2, −3). Quais são as coordenadas de B?
++ (6, 5)
+- (3, −1)
+- (6, 4)
+- (2, 4)
+
+@praticar | Praticar: perímetros e áreas no plano | Use distância e Pitágoras.
+Q: Qual é o perímetro do triângulo de vértices (0, 0), (6, 0) e (0, 8)?
++ 24
+- 14 | distancia-direta
+- 48 | calculo
+- 28 | distancia-direta
+E: Lados 6, 8 e √(36 + 64) = 10. Total 24.
+V: Qual é o perímetro do triângulo de vértices (0, 0), (5, 0) e (0, 12)?
++ 30
+- 17
+- 60
+- 34
+Q: Qual é a área do retângulo de vértices (1, 1), (7, 1), (7, 5) e (1, 5)?
++ 24
+- 20 | distancia-direta
+- 12 | calculo
+- 35 | soma-coordenadas
+E: Base 6, altura 4.
+V: Qual é a área do retângulo de vértices (−2, 0), (4, 0), (4, 3) e (−2, 3)?
++ 18
+- 12
+- 9
+- 6
+Q: Qual é a área do triângulo de vértices (0, 0), (8, 0) e (3, 5)?
++ 20
+- 40 | calculo
+- 16 | distancia-direta
+- 13 | soma-coordenadas
+E: Base 8 (no eixo x), altura 5: (8 × 5) ÷ 2.
+V: Qual é a área do triângulo de vértices (1, 1), (7, 1) e (4, 6)?
++ 15
+- 30
+- 11
+- 18
+Q: O quadrilátero de vértices (0, 0), (4, 3), (1, 7) e (−3, 4) tem todos os lados iguais a 5. Que figura pode ser?
++ Um losango (e, se os ângulos forem retos, um quadrado)
+- Um trapézio sempre | calculo
+- Um triângulo | calculo
+- Um retângulo comum | calculo
+E: Lados: √(16 + 9) = 5, √(9 + 16) = 5, √(16 + 9) = 5, √(9 + 16) = 5.
+V: Um quadrilátero tem os quatro lados medindo 5 e os quatro ângulos retos. Que figura é?
++ Um quadrado
+- Um losango não quadrado
+- Um retângulo não quadrado
+- Um trapézio
+
+@aplicar | Aplicar: mapas e plantas | Cada quadradinho é uma unidade.
+Q: Num mapa quadriculado (1 quadradinho = 1 km), a escola está em (2, 3) e a praça em (8, 11). Qual é a distância em linha reta?
++ 10 km
+- 14 km | distancia-direta
+- 100 km | calculo
+- 7 km | soma-coordenadas
+E: Δx = 6, Δy = 8; √100 = 10.
+V: A casa está em (1, 1) e o mercado em (4, 5). Qual é a distância em linha reta (1 unidade = 1 km)?
++ 5 km
+- 7 km
+- 25 km
+- 3,5 km
+Q: Dois amigos estão em A(1, 9) e B(7, 1). Onde fica o ponto de encontro a meio caminho?
++ (4, 5)
+- (8, 10) | soma-coordenadas
+- (6, 8) | sinal
+- (3, 4) | calculo
+E: ((1 + 7)/2, (9 + 1)/2).
+V: Duas cidades estão em C(−3, 2) e D(5, 6). Onde fica o ponto a meio caminho?
++ (1, 4)
+- (2, 8)
+- (8, 4)
+- (4, 2)
+Q: Num jogo, um personagem vai de (0, 0) a (9, 12) em linha reta. Quantas unidades ele anda?
++ 15
+- 21 | distancia-direta
+- 225 | calculo
+- 10,5 | soma-coordenadas
+E: √(81 + 144) = √225 = 15.
+V: Um drone vai de (2, 2) a (14, 7) em linha reta. Quantas unidades ele voa?
++ 13
+- 17
+- 169
+- 8,5
+
+@explicar | Explicar: distância sem fórmula | Explique como calcular a distância entre A(1, 2) e B(7, 10) no plano cartesiano.
+C: triangulo | Monta um triângulo retângulo com catetos horizontal e vertical
+C: catetos | Calcula os catetos: 7 − 1 = 6 e 10 − 2 = 8
+C: pitagoras | Usa Pitágoras: √(36 + 64) = 10
+BOA: Ligo A a B e desenho um triângulo retângulo com um cateto horizontal e um vertical. O horizontal mede 7 − 1 = 6 e o vertical mede 10 − 2 = 8. A distância AB é a hipotenusa: AB² = 6² + 8² = 36 + 64 = 100, então AB = 10.
+
+#PRE EF09MA12 > EF08MA14 | 2
+#PRE EF09MA12 > EF07MA24 | 2
+#PRE EF09MA13 > EF09MA12 | 3
+#PRE EF09MA15 > EF08MA16 | 3
+#PRE EF09MA15 > EF07MA28 | 2
+#PRE EF09MA16 > EF09MA13 | 3
+#PRE EF09MA16 > EF07MA20 | 2

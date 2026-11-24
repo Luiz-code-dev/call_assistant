@@ -1,0 +1,667 @@
+// 4º ano — Matemática (parte 6): EF04MA22, EF04MA23, EF04MA24, EF04MA25
+
+#TRILHA EF04MA22 | MA | 4 | Trilha: Horas, minutos e segundos | Medindo o tempo
+FAZ: Lê e registra medidas e intervalos de tempo em horas, minutos e segundos em situações do cotidiano, como início, término e duração de tarefas.
+ERRO: base-cem | Faz contas de tempo como se 1 hora tivesse 100 minutos
+ERRO: passa-da-hora | Erra o cálculo quando passa de uma hora para outra
+ERRO: hora-minuto | Confunde horas, minutos e segundos
+ERRO: duracao-inicio | Confunde a duração com o horário de término
+NOTA: Faça a agenda do dia com horários de início e fim. Use cronômetro para medir tarefas curtas em segundos.
+
+@relembrar | Relembrar: 60 em 60 | 1 hora = 60 minutos. 1 minuto = 60 segundos. Meia hora = 30 minutos. Um quarto de hora = 15 minutos.
+Q: Quantos minutos tem 2 horas?
++ 120
+- 200 | base-cem
+- 60 | hora-minuto
+- 102 | base-cem
+E: 2 × 60 = 120.
+V: Quantos minutos tem 3 horas?
++ 180
+- 300
+- 60
+- 103
+Q: Quantos segundos tem 2 minutos?
++ 120
+- 200 | base-cem
+- 60 | hora-minuto
+- 20 | base-cem
+E: 2 × 60 = 120.
+V: Quantos segundos tem 5 minutos?
++ 300
+- 500
+- 60
+- 50
+Q: Um quarto de hora tem:
++ 15 minutos
+- 25 minutos | base-cem
+- 30 minutos | hora-minuto
+- 4 minutos | hora-minuto
+E: 60 ÷ 4 = 15.
+V: Três quartos de hora têm:
++ 45 minutos
+- 75 minutos
+- 30 minutos
+- 34 minutos
+
+@exemplo_guiado | Exemplo guiado: somando tempo | 2h45 + 30 minutos: 45 + 30 = 75 minutos = 1 hora e 15 minutos. Então fica 3h15.
+Q: Uma tarefa começou às 9h50 e durou 25 minutos. A que horas terminou?
++ 10h15
+- 9h75 | base-cem
+- 10h75 | base-cem
+- 9h15 | passa-da-hora
+E: 50 + 25 = 75 minutos = 1h15. 9h + 1h15 = 10h15.
+V: Uma aula começou às 7h40 e durou 50 minutos. A que horas terminou?
++ 8h30
+- 7h90
+- 8h90
+- 7h30
+Q: Quanto tempo passa das 8h35 às 9h10?
++ 35 minutos
+- 75 minutos | base-cem
+- 25 minutos | passa-da-hora
+- 1 hora e 35 minutos | duracao-inicio
+E: De 8h35 a 9h: 25 minutos. De 9h a 9h10: 10 minutos. Total: 35.
+V: Quanto tempo passa das 4h40 às 5h05?
++ 25 minutos
+- 65 minutos
+- 35 minutos
+- 1 hora e 25 minutos
+Q: 90 minutos são quanto em horas?
++ 1 hora e 30 minutos
+- 9 horas | hora-minuto
+- 1 hora e 90 minutos | base-cem
+- 90 horas | hora-minuto
+E: 60 minutos = 1 hora; sobram 30.
+V: 150 minutos são quanto em horas?
++ 2 horas e 30 minutos
+- 15 horas
+- 1 hora e 50 minutos
+- 150 horas
+
+@praticar | Praticar: intervalos de tempo | Lembre que a hora tem 60 minutos.
+Q: Um jogo de futebol tem dois tempos de 45 minutos. Quanto dura, sem o intervalo?
++ 1 hora e 30 minutos
+- 1 hora e 45 minutos | hora-minuto
+- 90 horas | hora-minuto
+- 45 minutos | duracao-inicio
+E: 45 + 45 = 90 minutos = 1h30.
+V: Um filme tem duas partes de 50 minutos. Quanto dura ao todo?
++ 1 hora e 40 minutos
+- 1 hora e 50 minutos
+- 100 horas
+- 50 minutos
+Q: Uma corrida durou 1 minuto e 25 segundos. Quantos segundos são?
++ 85
+- 125 | base-cem
+- 25 | hora-minuto
+- 60 | hora-minuto
+E: 60 + 25 = 85.
+V: Um vídeo durou 2 minutos e 10 segundos. Quantos segundos são?
++ 130
+- 210
+- 10
+- 120
+Q: O mercado abre às 8h e fecha às 20h. Quantas horas fica aberto?
++ 12 horas
+- 28 horas | duracao-inicio
+- 8 horas | duracao-inicio
+- 10 horas | passa-da-hora
+E: 20 − 8 = 12.
+V: A biblioteca abre às 9h e fecha às 17h. Quantas horas fica aberta?
++ 8 horas
+- 26 horas
+- 9 horas
+- 7 horas
+Q: Uma viagem começou às 22h e terminou às 3h do dia seguinte. Quanto durou?
++ 5 horas
+- 19 horas | passa-da-hora
+- 25 horas | duracao-inicio
+- 3 horas | duracao-inicio
+E: Das 22h à meia-noite: 2 horas. Da meia-noite às 3h: 3 horas. Total: 5.
+V: Um plantão começou às 19h e terminou às 7h do dia seguinte. Quanto durou?
++ 12 horas
+- 26 horas
+- 7 horas
+- 14 horas
+
+@aplicar | Aplicar: a agenda do dia | Calcule início, fim e duração.
+Q: Bia estuda das 14h20 às 15h05. Quanto tempo estuda?
++ 45 minutos
+- 85 minutos | base-cem
+- 1 hora e 45 minutos | duracao-inicio
+- 35 minutos | passa-da-hora
+E: Até 15h: 40 minutos; mais 5: 45 minutos.
+V: Rui treina das 16h35 às 17h20. Quanto tempo treina?
++ 45 minutos
+- 85 minutos
+- 1 hora e 45 minutos
+- 35 minutos
+Q: Um bolo precisa de 1 hora e 15 minutos de forno. Entrou às 10h50. A que horas sai?
++ 12h05
+- 11h65 | base-cem
+- 11h05 | passa-da-hora
+- 12h15 | duracao-inicio
+E: 10h50 + 1h = 11h50; + 15 minutos = 12h05.
+V: Um pão precisa de 1 hora e 20 minutos para crescer. Começou às 8h45. A que horas termina?
++ 10h05
+- 9h65
+- 9h05
+- 10h20
+Q: Uma maratona foi completada em 2 horas, 10 minutos e 30 segundos. Quantos minutos inteiros completos são?
++ 130 minutos
+- 210 minutos | base-cem
+- 70 minutos | hora-minuto
+- 1.030 minutos | base-cem
+E: 2 horas = 120 minutos; + 10 = 130 (e mais 30 segundos).
+V: Um passeio durou 1 hora e 45 minutos. Quantos minutos são?
++ 105 minutos
+- 145 minutos
+- 60 minutos
+- 145 segundos
+
+@explicar | Explicar: passando da hora | Explique como calcular a que horas termina uma atividade que começa às 3h40 e dura 35 minutos.
+C: soma-minutos | Soma os minutos: 40 + 35 = 75
+C: converte | Transforma 75 minutos em 1 hora e 15 minutos
+C: resultado | Chega a 4h15
+BOA: Somo os minutos: 40 + 35 = 75 minutos. Como 1 hora tem 60 minutos, 75 minutos são 1 hora e 15 minutos. Então 3h + 1h15 = 4h15.
+
+#TRILHA EF04MA23 | MA | 4 | Trilha: Temperatura | Graus Celsius
+FAZ: Reconhece temperatura como grandeza, usa o grau Celsius e compara temperaturas de diferentes lugares, inclusive em discussões sobre aquecimento global.
+ERRO: termometro | Lê errado a escala do termômetro
+ERRO: compara | Compara temperaturas de forma errada (acha que 15 °C é mais quente que 25 °C)
+ERRO: variacao | Erra o cálculo da diferença entre temperaturas
+ERRO: grandeza | Confunde temperatura com outra grandeza
+NOTA: Use um termômetro de verdade e a previsão do tempo de várias cidades. Discuta o calor no Nordeste e o frio no Sul.
+
+@relembrar | Relembrar: o termômetro | A temperatura indica se está quente ou frio. Medimos com o termômetro, em graus Celsius (°C). A água congela a 0 °C e ferve a 100 °C.
+Q: Qual instrumento mede temperatura?
++ Termômetro
+- Régua | grandeza
+- Balança | grandeza
+- Relógio | grandeza
+E: O termômetro mede a temperatura.
+V: Em que unidade medimos a temperatura no Brasil?
++ Grau Celsius
+- Metro
+- Quilograma
+- Litro
+Q: Qual temperatura é mais quente?
++ 32 °C
+- 23 °C | compara
+- 12 °C | compara
+- 3 °C | compara
+E: Quanto maior o número, mais quente.
+V: Qual temperatura é mais fria?
++ 8 °C
+- 18 °C
+- 28 °C
+- 38 °C
+Q: A água congela a:
++ 0 °C
+- 100 °C | termometro
+- 37 °C | termometro
+- 10 °C | termometro
+E: A 0 °C a água vira gelo.
+V: A água ferve a:
++ 100 °C
+- 0 °C
+- 37 °C
+- 50 °C
+
+@exemplo_guiado | Exemplo guiado: comparando e calculando | De manhã fazia 21 °C e à tarde, 29 °C. A temperatura subiu 29 − 21 = 8 graus.
+Q: De manhã fazia 18 °C e à tarde 26 °C. Quantos graus subiu?
++ 8 graus
+- 44 graus | variacao
+- 26 graus | variacao
+- 7 graus | variacao
+E: 26 − 18 = 8.
+V: De manhã fazia 15 °C e à tarde 24 °C. Quantos graus subiu?
++ 9 graus
+- 39 graus
+- 24 graus
+- 8 graus
+Q: Salvador estava com 30 °C e Curitiba com 14 °C. Quantos graus Salvador estava mais quente?
++ 16 graus
+- 44 graus | variacao
+- 14 graus | variacao
+- 26 graus | variacao
+E: 30 − 14 = 16.
+V: Manaus estava com 33 °C e Porto Alegre com 17 °C. Quantos graus Manaus estava mais quente?
++ 16 graus
+- 50 graus
+- 17 graus
+- 26 graus
+Q: A temperatura normal do corpo humano é cerca de:
++ 36 °C
+- 3 °C | termometro
+- 100 °C | termometro
+- 60 °C | termometro
+E: Entre 36 °C e 37 °C. Acima de 37,8 °C já é febre.
+V: Uma pessoa com 39 °C de temperatura está:
++ Com febre
+- Com frio
+- Normal
+- Congelando
+
+@praticar | Praticar: lendo temperaturas | Compare com atenção.
+Q: Qual é a ordem do mais frio para o mais quente: 25 °C, 9 °C, 31 °C, 16 °C?
++ 9, 16, 25, 31
+- 31, 25, 16, 9 | compara
+- 9, 25, 16, 31 | compara
+- 16, 9, 25, 31 | compara
+E: Do menor para o maior número.
+V: Qual é a ordem do mais frio para o mais quente: 27 °C, 11 °C, 20 °C, 35 °C?
++ 11, 20, 27, 35
+- 35, 27, 20, 11
+- 11, 27, 20, 35
+- 20, 11, 27, 35
+Q: Uma cidade tinha 12 °C às 6h e esquentou 3 graus por hora até as 10h. Quanto marcava às 10h?
++ 24 °C
+- 15 °C | variacao
+- 21 °C | variacao
+- 36 °C | variacao
+E: De 6h a 10h são 4 horas: 4 × 3 = 12 graus. 12 + 12 = 24.
+V: Uma cidade tinha 20 °C às 14h e esfriou 2 graus por hora até as 18h. Quanto marcava às 18h?
++ 12 °C
+- 18 °C
+- 14 °C
+- 28 °C
+Q: Num termômetro, a marca vai de 2 em 2 graus. O líquido está 3 marcas acima de 20 °C. Qual é a temperatura?
++ 26 °C
+- 23 °C | termometro
+- 21 °C | termometro
+- 32 °C | termometro
+E: 3 marcas de 2 graus = 6 graus. 20 + 6 = 26.
+V: As marcas vão de 5 em 5 graus. O líquido está 2 marcas acima de 15 °C. Qual é a temperatura?
++ 25 °C
+- 17 °C
+- 16 °C
+- 35 °C
+Q: Qual frase está certa?
++ 40 °C é um dia muito quente
+- 40 °C é um dia frio | compara
+- 40 °C é a temperatura do gelo | termometro
+- 40 °C mede o tamanho do dia | grandeza
+E: 40 °C é calor forte.
+V: Qual frase está certa?
++ 5 °C é um dia muito frio
+- 5 °C é um dia quente
+- 5 °C é a temperatura da água fervendo
+- 5 °C mede a distância
+
+@aplicar | Aplicar: o clima e o planeta | Use as temperaturas para pensar.
+Q: Numa cidade, a máxima de um dia foi 34 °C e a mínima, 22 °C. Qual foi a variação?
++ 12 graus
+- 56 graus | variacao
+- 22 graus | variacao
+- 34 graus | variacao
+E: 34 − 22 = 12.
+V: A máxima foi 29 °C e a mínima, 18 °C. Qual foi a variação?
++ 11 graus
+- 47 graus
+- 18 graus
+- 29 graus
+Q: Cientistas dizem que a temperatura média do planeta está subindo. O que isso quer dizer?
++ Que, em média, o planeta está ficando mais quente
+- Que todos os dias vão ser iguais | compara
+- Que o planeta está esfriando | compara
+- Que os termômetros quebraram | termometro
+E: Aquecimento global é a subida da temperatura média.
+V: Se a temperatura média de uma cidade subiu de 24 °C para 26 °C em muitos anos, a cidade:
++ Ficou mais quente, em média
+- Ficou mais fria
+- Não mudou
+- Ficou mais alta
+Q: No inverno, Gramado marcou 3 °C e Salvador, 24 °C. Quantos graus Gramado estava mais fria?
++ 21 graus
+- 27 graus | variacao
+- 3 graus | variacao
+- 24 graus | variacao
+E: 24 − 3 = 21.
+V: Num dia, Petrópolis marcou 9 °C e Fortaleza, 30 °C. Quantos graus Petrópolis estava mais fria?
++ 21 graus
+- 39 graus
+- 9 graus
+- 30 graus
+
+@explicar | Explicar: comparando cidades | Explique como descobrir quantos graus uma cidade com 31 °C está mais quente que outra com 18 °C.
+C: compara | Diz que 31 °C é mais quente que 18 °C
+C: subtrai | Faz 31 − 18
+C: resultado | Chega a 13 graus
+BOA: 31 °C é mais quente porque o número é maior. Para saber quanto, subtraio: 31 − 18 = 13. A primeira cidade está 13 graus mais quente.
+
+#TRILHA EF04MA24 | MA | 4 | Trilha: Registrando temperaturas | Máximas, mínimas e gráficos
+FAZ: Registra as temperaturas máxima e mínima diárias e organiza gráficos de colunas com as variações, inclusive em planilhas eletrônicas.
+ERRO: maxima-minima | Troca a máxima com a mínima
+ERRO: le-grafico | Lê errado a altura da coluna
+ERRO: variacao | Erra a diferença entre máxima e mínima
+ERRO: registro | Anota os dados na ordem ou no lugar errado
+NOTA: Durante uma semana, anote máxima e mínima (do jornal ou da previsão no celular). Monte o gráfico de colunas duplas no papel ou numa planilha.
+
+@relembrar | Relembrar: máxima e mínima | A máxima é a maior temperatura do dia. A mínima é a menor. A variação é a diferença entre elas.
+Q: Num dia, as temperaturas foram 19 °C, 27 °C, 23 °C e 21 °C. Qual foi a máxima?
++ 27 °C
+- 19 °C | maxima-minima
+- 23 °C | maxima-minima
+- 21 °C | maxima-minima
+E: A maior: 27 °C.
+V: Num dia, as temperaturas foram 16 °C, 22 °C, 14 °C e 20 °C. Qual foi a mínima?
++ 14 °C
+- 22 °C
+- 16 °C
+- 20 °C
+Q: Máxima 30 °C e mínima 21 °C. Qual foi a variação?
++ 9 graus
+- 51 graus | variacao
+- 21 graus | variacao
+- 11 graus | variacao
+E: 30 − 21 = 9.
+V: Máxima 25 °C e mínima 17 °C. Qual foi a variação?
++ 8 graus
+- 42 graus
+- 17 graus
+- 12 graus
+Q: Num gráfico de colunas das temperaturas, a coluna mais alta mostra:
++ A temperatura mais quente
+- A temperatura mais fria | le-grafico
+- O dia mais longo | registro
+- A chuva | registro
+E: Quanto mais alta a coluna, maior a temperatura.
+V: Num gráfico de colunas das temperaturas mínimas, a coluna mais baixa mostra:
++ A noite mais fria
+- A noite mais quente
+- O dia mais longo
+- A chuva
+
+@exemplo_guiado | Exemplo guiado: tabela da semana | Segunda: máx 28, mín 19. Terça: máx 30, mín 20. Quarta: máx 26, mín 18. A maior variação foi na terça: 30 − 20 = 10.
+Q: Na tabela, qual dia teve a maior máxima?
++ Terça
+- Segunda | maxima-minima
+- Quarta | maxima-minima
+- Todos iguais | le-grafico
+E: Terça: 30 °C.
+V: Na tabela, qual dia teve a menor mínima?
++ Quarta
+- Segunda
+- Terça
+- Todos iguais
+Q: Qual foi a variação na quarta-feira?
++ 8 graus
+- 44 graus | variacao
+- 10 graus | registro
+- 18 graus | variacao
+E: 26 − 18 = 8.
+V: Qual foi a variação na segunda-feira?
++ 9 graus
+- 47 graus
+- 10 graus
+- 19 graus
+Q: Num gráfico de colunas duplas, cada dia tem duas colunas. O que cada uma mostra?
++ Uma a máxima e outra a mínima
+- As duas mostram a máxima | maxima-minima
+- Uma mostra o dia e outra a noite inteira | registro
+- Uma a chuva e outra o vento | registro
+E: A legenda diz qual coluna é a máxima e qual é a mínima.
+V: Para ler um gráfico de colunas duplas, o que ajuda a saber qual coluna é qual?
++ A legenda
+- A cor do fundo
+- O tamanho da folha
+- O nome de quem fez
+
+@praticar | Praticar: lendo o registro | Tabela da semana: quinta máx 27, mín 21; sexta máx 31, mín 22; sábado máx 33, mín 24.
+Q: Em que dia fez mais calor?
++ Sábado
+- Sexta | le-grafico
+- Quinta | le-grafico
+- Todos iguais | le-grafico
+E: Sábado teve a maior máxima: 33 °C.
+V: Em que dia fez a noite mais fria?
++ Quinta
+- Sexta
+- Sábado
+- Todos iguais
+Q: Qual foi a variação no sábado?
++ 9 graus
+- 57 graus | variacao
+- 24 graus | variacao
+- 11 graus | variacao
+E: 33 − 24 = 9.
+V: Qual foi a variação na sexta?
++ 9 graus
+- 53 graus
+- 22 graus
+- 10 graus
+Q: De quinta para sábado, quanto a máxima subiu?
++ 6 graus
+- 60 graus | variacao
+- 3 graus | variacao
+- 33 graus | variacao
+E: 33 − 27 = 6.
+V: De quinta para sábado, quanto a mínima subiu?
++ 3 graus
+- 45 graus
+- 6 graus
+- 24 graus
+Q: Lia anotou na tabela a mínima de 31 °C e a máxima de 22 °C para a sexta. O que está errado?
++ Ela trocou a máxima com a mínima
+- Nada | maxima-minima
+- A variação | variacao
+- O dia | registro
+E: A máxima não pode ser menor que a mínima.
+V: Rui anotou mínima 28 °C e máxima 20 °C. O que está errado?
++ Ele trocou a máxima com a mínima
+- Nada
+- A variação
+- O dia
+
+@aplicar | Aplicar: a planilha do clima | Organize e interprete.
+Q: Numa planilha, a coluna A tem os dias, a B as máximas e a C as mínimas. Onde fica a mínima de terça (2ª linha de dados)?
++ Na coluna C, linha da terça
+- Na coluna B, linha da terça | maxima-minima
+- Na coluna A | registro
+- Em qualquer célula | registro
+E: Cada informação tem sua coluna.
+V: Na mesma planilha, onde fica a máxima de segunda?
++ Na coluna B, linha da segunda
+- Na coluna C, linha da segunda
+- Na coluna A
+- Em qualquer célula
+Q: Numa semana, as máximas foram 28, 29, 31, 30 e 32. Qual é a maior diferença entre duas máximas?
++ 4 graus
+- 32 graus | variacao
+- 3 graus | variacao
+- 1 grau | variacao
+E: Maior (32) menos menor (28) = 4.
+V: As mínimas foram 18, 20, 17, 21 e 19. Qual é a maior diferença entre duas mínimas?
++ 4 graus
+- 21 graus
+- 3 graus
+- 1 grau
+Q: Para mostrar a máxima e a mínima de cada dia da semana, qual gráfico é melhor?
++ Gráfico de colunas duplas
+- Um desenho do sol | registro
+- Uma lista de nomes | registro
+- Um gráfico de uma coluna só para a semana | le-grafico
+E: Colunas duplas mostram as duas temperaturas lado a lado em cada dia.
+V: Para mostrar só a máxima de cada dia da semana, qual gráfico é melhor?
++ Gráfico de colunas simples
+- Um desenho da nuvem
+- Uma lista de nomes
+- Um gráfico de setores com cores
+
+@explicar | Explicar: registrando o clima | Explique como você organizaria as temperaturas máxima e mínima de 5 dias numa tabela e num gráfico.
+C: tabela | Monta tabela com dia, máxima e mínima
+C: grafico | Faz gráfico de colunas duplas com legenda
+C: leitura | Diz como achar o dia mais quente e a maior variação
+BOA: Faço uma tabela com três colunas: dia, máxima e mínima. Depois desenho um gráfico com duas colunas para cada dia, uma para a máxima e outra para a mínima, com legenda. O dia mais quente é o da coluna de máxima mais alta, e a maior variação é onde as duas colunas ficam mais distantes.
+
+#TRILHA EF04MA25 | MA | 4 | Trilha: Compras, troco e desconto | Consumo consciente
+FAZ: Resolve e elabora problemas de compra e venda com formas de pagamento, usando troco e desconto, e reflete sobre consumo consciente.
+ERRO: troco | Erra o cálculo do troco
+ERRO: desconto | Soma o desconto em vez de subtrair
+ERRO: parcelas | Erra o total de compras parceladas
+ERRO: centavos | Erra contas com reais e centavos
+NOTA: Use folhetos de mercado. Compare preço à vista e parcelado. Converse sobre comprar só o necessário.
+
+@relembrar | Relembrar: troco e desconto | Troco = valor pago − preço. Desconto é quanto o preço diminui: preço − desconto = valor a pagar.
+Q: Uma camiseta custa 45 reais. Paguei com 100. Qual é o troco?
++ 55 reais
+- 145 reais | troco
+- 45 reais | troco
+- 65 reais | troco
+E: 100 − 45 = 55.
+V: Um tênis custa 87 reais. Paguei com 100. Qual é o troco?
++ 13 reais
+- 187 reais
+- 87 reais
+- 23 reais
+Q: Um brinquedo custava 60 reais e teve 15 reais de desconto. Quanto ficou?
++ 45 reais
+- 75 reais | desconto
+- 15 reais | desconto
+- 50 reais | desconto
+E: 60 − 15 = 45.
+V: Um livro custava 48 reais e teve 8 reais de desconto. Quanto ficou?
++ 40 reais
+- 56 reais
+- 8 reais
+- 38 reais
+Q: Quanto é 2 reais e 50 centavos mais 1 real e 75 centavos?
++ 4 reais e 25 centavos
+- 3 reais e 125 centavos | centavos
+- 3 reais e 25 centavos | centavos
+- 4 reais e 125 centavos | centavos
+E: 50 + 75 = 125 centavos = 1 real e 25 centavos. 2 + 1 + 1 = 4 reais e 25 centavos.
+V: Quanto é 1 real e 60 centavos mais 2 reais e 80 centavos?
++ 4 reais e 40 centavos
+- 3 reais e 140 centavos
+- 3 reais e 40 centavos
+- 4 reais e 140 centavos
+
+@exemplo_guiado | Exemplo guiado: à vista ou parcelado | Uma TV custa 900 reais à vista ou 10 parcelas de 99 reais. Parcelado: 10 × 99 = 990 reais, 90 a mais.
+Q: Uma bicicleta custa 400 reais à vista ou 5 parcelas de 90 reais. Quanto custa parcelado?
++ 450 reais
+- 400 reais | parcelas
+- 95 reais | parcelas
+- 490 reais | parcelas
+E: 5 × 90 = 450.
+V: Um celular custa 600 reais à vista ou 4 parcelas de 165 reais. Quanto custa parcelado?
++ 660 reais
+- 600 reais
+- 169 reais
+- 640 reais
+Q: Na bicicleta, quanto se paga a mais no parcelado?
++ 50 reais
+- 450 reais | parcelas
+- 90 reais | parcelas
+- 10 reais | parcelas
+E: 450 − 400 = 50.
+V: No celular, quanto se paga a mais no parcelado?
++ 60 reais
+- 660 reais
+- 165 reais
+- 40 reais
+Q: Um caderno de 12 reais tem desconto de metade do preço. Quanto se paga?
++ 6 reais
+- 24 reais | desconto
+- 12 reais | desconto
+- 2 reais | desconto
+E: Metade de 12 é 6.
+V: Uma mochila de 80 reais tem desconto de um quarto do preço. Quanto se paga?
++ 60 reais
+- 100 reais
+- 20 reais
+- 76 reais
+
+@praticar | Praticar: na loja | Faça as contas com cuidado.
+Q: Lia comprou 3 cadernos de 8 reais e pagou com 50. Qual foi o troco?
++ 26 reais
+- 24 reais | troco
+- 42 reais | troco
+- 74 reais | troco
+E: 3 × 8 = 24; 50 − 24 = 26.
+V: Davi comprou 4 canetas de 3 reais e pagou com 20. Qual foi o troco?
++ 8 reais
+- 12 reais
+- 17 reais
+- 32 reais
+Q: Um par de sapatos custa 120 reais. Pagando à vista há 20 reais de desconto. Quanto se paga à vista?
++ 100 reais
+- 140 reais | desconto
+- 20 reais | desconto
+- 120 reais | desconto
+E: 120 − 20 = 100.
+V: Um jogo custa 150 reais. À vista há 30 reais de desconto. Quanto se paga à vista?
++ 120 reais
+- 180 reais
+- 30 reais
+- 150 reais
+Q: Quanto custam 3 picolés de 2 reais e 50 centavos?
++ 7 reais e 50 centavos
+- 6 reais e 150 centavos | centavos
+- 6 reais e 50 centavos | centavos
+- 5 reais e 50 centavos | centavos
+E: 3 × 2,50: 6 reais e 150 centavos = 7 reais e 50 centavos.
+V: Quanto custam 4 pães de 1 real e 25 centavos?
++ 5 reais
+- 4 reais e 100 centavos
+- 4 reais e 25 centavos
+- 6 reais
+Q: Uma geladeira custa 12 parcelas de 150 reais. Qual é o preço total?
++ 1.800 reais
+- 162 reais | parcelas
+- 150 reais | parcelas
+- 1.500 reais | parcelas
+E: 12 × 150 = 1.800.
+V: Um sofá custa 8 parcelas de 125 reais. Qual é o preço total?
++ 1.000 reais
+- 133 reais
+- 125 reais
+- 800 reais
+
+@aplicar | Aplicar: consumo consciente | Pense antes de comprar.
+Q: Mercado A: arroz de 5 kg por 25 reais. Mercado B: 2 pacotes de 5 kg por 44 reais. Quanto custa cada pacote no B?
++ 22 reais, mais barato que no A
+- 44 reais | parcelas
+- 25 reais, igual ao A | troco
+- 19 reais | troco
+E: 44 ÷ 2 = 22 reais por pacote.
+V: Loja A: sabonete por 3 reais. Loja B: 4 sabonetes por 10 reais. Quanto custa cada sabonete na B?
++ 2 reais e 50 centavos, mais barato que na A
+- 10 reais
+- 3 reais, igual à A
+- 4 reais
+Q: Bia tem 30 reais. Quer um livro de 22 reais e um lanche de 9 reais. O dinheiro dá?
++ Não, falta 1 real
+- Sim, sobram 8 reais | troco
+- Sim, sobra 1 real | troco
+- Não, faltam 9 reais | troco
+E: 22 + 9 = 31. 31 − 30 = 1 real faltando.
+V: Rui tem 50 reais. Quer um boné de 35 reais e um chaveiro de 12 reais. O dinheiro dá?
++ Sim, sobram 3 reais
+- Não, faltam 3 reais
+- Sim, sobram 15 reais
+- Não, faltam 12 reais
+Q: Um brinquedo custa 80 reais. Esperando a promoção, terá 25 reais de desconto. Quanto Ana economiza esperando?
++ 25 reais
+- 55 reais | desconto
+- 105 reais | desconto
+- 80 reais | desconto
+E: A economia é o próprio desconto: 25 reais.
+V: Uma blusa custa 70 reais e na promoção terá 18 reais de desconto. Quanto economiza esperando?
++ 18 reais
+- 52 reais
+- 88 reais
+- 70 reais
+
+@explicar | Explicar: à vista ou a prazo? | Uma bicicleta custa 500 reais à vista ou 6 parcelas de 95 reais. Explique qual opção é mais barata e quanto a mais se paga na outra.
+C: parcelado | Calcula 6 × 95 = 570
+C: compara | Compara 570 com 500
+C: conclusao | Diz que à vista é mais barato e que parcelado custa 70 reais a mais
+BOA: Parcelado, o total é 6 × 95 = 570 reais. À vista são 500 reais. Então à vista é mais barato, e no parcelado se paga 570 − 500 = 70 reais a mais.
+
+#PRE EF04MA22 > EF03MA22 | 3
+#PRE EF04MA23 > EF04MA06 | 1
+#PRE EF04MA24 > EF04MA23 | 3
+#PRE EF04MA24 > EF03MA27 | 2
+#PRE EF04MA25 > EF03MA24 | 3
