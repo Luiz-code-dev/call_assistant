@@ -1888,6 +1888,3621 @@
   "status": "APPROVED"
  },
  {
+  "skillCode": "EF05ER01",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 5,
+  "version": 1,
+  "title": "Trilha: Acontecimentos sagrados e memória",
+  "tituloAluno": "Festas que lembram e ensinam",
+  "activities": [
+   {
+    "id": "PK2-EF05ER01-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: festas e acontecimentos",
+    "prompt": "O que cada uma lembra.",
+    "estMinutes": 4,
+    "audioScript": "O que cada uma lembra. Pergunta 1. O que o Pessach, a Páscoa judaica, lembra? A: A libertação dos hebreus da escravidão no Egito; B: O nascimento de Jesus; C: A revelação do Alcorão; D: A iluminação de Buda. Pergunta 2. O que o Ramadã lembra? A: O nascimento de Buda; B: O início da revelação do Alcorão ao profeta Muhammad; C: A ressurreição de Jesus; D: A festa de Iemanjá. Pergunta 3. Por quantas noites as velas são acesas no Hanucá? A: Uma; B: Três; C: Oito; D: Quarenta. Pergunta 4. O Diwali, festa das luzes, pertence a qual tradição? A: Cristã; B: Judaica; C: Islâmica; D: Hindu. Pergunta 5. Em que data acontece a festa de Iemanjá em Salvador? A: 2 de fevereiro; B: 25 de dezembro; C: 20 de novembro; D: 7 de setembro. Pergunta 6. Por que as celebrações se repetem todos os anos? A: Por acaso; B: Para preservar a memória dos acontecimentos e ensinar às novas gerações; C: Para esquecer o passado; D: Só para comer.",
+    "questions": [
+     {
+      "question": "O que o Pessach, a Páscoa judaica, lembra?",
+      "options": [
+       {
+        "text": "A libertação dos hebreus da escravidão no Egito"
+       },
+       {
+        "text": "O nascimento de Jesus",
+        "misconceptionCode": "acontecimento"
+       },
+       {
+        "text": "A revelação do Alcorão",
+        "misconceptionCode": "acontecimento"
+       },
+       {
+        "text": "A iluminação de Buda",
+        "misconceptionCode": "acontecimento"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Pessach.",
+      "variants": [
+       {
+        "question": "O que a Páscoa cristã lembra?",
+        "options": [
+         {
+          "text": "A libertação do Egito",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "A vitória da luz no Diwali",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "A ressurreição de Jesus"
+         },
+         {
+          "text": "O Kuarup",
+          "misconceptionCode": "acontecimento"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que o Pessach, a Páscoa judaica, lembra?",
+        "options": [
+         {
+          "text": "A iluminação de Buda",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "A libertação dos hebreus da escravidão no Egito"
+         },
+         {
+          "text": "A revelação do Alcorão",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "O nascimento de Jesus",
+          "misconceptionCode": "acontecimento"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O que o Ramadã lembra?",
+      "options": [
+       {
+        "text": "O nascimento de Buda",
+        "misconceptionCode": "acontecimento"
+       },
+       {
+        "text": "O início da revelação do Alcorão ao profeta Muhammad"
+       },
+       {
+        "text": "A ressurreição de Jesus",
+        "misconceptionCode": "acontecimento"
+       },
+       {
+        "text": "A festa de Iemanjá",
+        "misconceptionCode": "acontecimento"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Ramadã.",
+      "variants": [
+       {
+        "question": "O que os muçulmanos praticam durante o Ramadã?",
+        "options": [
+         {
+          "text": "Jejum de uma semana inteira sem parar",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "Festa com velas por oito noites",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "Banhos de mar",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "Jejum do amanhecer ao pôr do sol"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que o Ramadã lembra?",
+        "options": [
+         {
+          "text": "A festa de Iemanjá",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "A ressurreição de Jesus",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "O início da revelação do Alcorão ao profeta Muhammad"
+         },
+         {
+          "text": "O nascimento de Buda",
+          "misconceptionCode": "acontecimento"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Por quantas noites as velas são acesas no Hanucá?",
+      "options": [
+       {
+        "text": "Uma",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Três",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Oito"
+       },
+       {
+        "text": "Quarenta",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Hanucá.",
+      "variants": [
+       {
+        "question": "De que tradição é o Hanucá?",
+        "options": [
+         {
+          "text": "Judaica"
+         },
+         {
+          "text": "Hindu",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Budista",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Islâmica",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Por quantas noites as velas são acesas no Hanucá?",
+        "options": [
+         {
+          "text": "Quarenta",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Três",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Uma",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Oito"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O Diwali, festa das luzes, pertence a qual tradição?",
+      "options": [
+       {
+        "text": "Cristã",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Judaica",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Islâmica",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Hindu"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Diwali.",
+      "variants": [
+       {
+        "question": "O que o Diwali celebra?",
+        "options": [
+         {
+          "text": "A libertação do Egito",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "A vitória da luz sobre as trevas"
+         },
+         {
+          "text": "O nascimento de Jesus",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "A revelação do Alcorão",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O Diwali, festa das luzes, pertence a qual tradição?",
+        "options": [
+         {
+          "text": "Hindu"
+         },
+         {
+          "text": "Islâmica",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Judaica",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Cristã",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Em que data acontece a festa de Iemanjá em Salvador?",
+      "options": [
+       {
+        "text": "2 de fevereiro"
+       },
+       {
+        "text": "25 de dezembro",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "20 de novembro",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "7 de setembro",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Iemanjá.",
+      "variants": [
+       {
+        "question": "O Kuarup é uma cerimônia de quais povos?",
+        "options": [
+         {
+          "text": "Hebreus",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Hindus",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Povos do Alto Xingu"
+         },
+         {
+          "text": "Budistas tibetanos",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Em que data acontece a festa de Iemanjá em Salvador?",
+        "options": [
+         {
+          "text": "7 de setembro",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "2 de fevereiro"
+         },
+         {
+          "text": "20 de novembro",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "25 de dezembro",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Por que as celebrações se repetem todos os anos?",
+      "options": [
+       {
+        "text": "Por acaso",
+        "misconceptionCode": "memoria"
+       },
+       {
+        "text": "Para preservar a memória dos acontecimentos e ensinar às novas gerações"
+       },
+       {
+        "text": "Para esquecer o passado",
+        "misconceptionCode": "memoria"
+       },
+       {
+        "text": "Só para comer",
+        "misconceptionCode": "memoria"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Memória.",
+      "variants": [
+       {
+        "question": "O que o Vesak lembra para os budistas?",
+        "options": [
+         {
+          "text": "A ressurreição de Jesus",
+          "misconceptionCode": "memoria"
+         },
+         {
+          "text": "A libertação do Egito",
+          "misconceptionCode": "memoria"
+         },
+         {
+          "text": "O Kuarup",
+          "misconceptionCode": "memoria"
+         },
+         {
+          "text": "O nascimento, a iluminação e a morte de Buda"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Por que as celebrações se repetem todos os anos?",
+        "options": [
+         {
+          "text": "Só para comer",
+          "misconceptionCode": "memoria"
+         },
+         {
+          "text": "Para esquecer o passado",
+          "misconceptionCode": "memoria"
+         },
+         {
+          "text": "Para preservar a memória dos acontecimentos e ensinar às novas gerações"
+         },
+         {
+          "text": "Por acaso",
+          "misconceptionCode": "memoria"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05ER01-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o calendário das festas da turma",
+    "prompt": "A turma montou um calendário com festas das famílias. Samuel: \"No Pessach, comemos pão sem fermento, a matzá, porque os hebreus saíram do Egito com pressa e o pão não teve tempo de crescer.\" Maria: \"No Natal, montamos o presépio com Maria, José e o menino Jesus.\" Yusuf: \"No fim do Ramadã celebramos o Eid, com uma grande refeição em família.\" Priya: \"No Diwali, acendemos lamparinas em casa.\" Iara: \"Em 2 de fevereiro, minha família leva flores para Iemanjá.\"",
+    "estMinutes": 4,
+    "audioScript": "A turma montou um calendário com festas das famílias. Samuel: \"No Pessach, comemos pão sem fermento, a matzá, porque os hebreus saíram do Egito com pressa e o pão não teve tempo de crescer.\" Maria: \"No Natal, montamos o presépio com Maria, José e o menino Jesus.\" Yusuf: \"No fim do Ramadã celebramos o Eid, com uma grande refeição em família.\" Priya: \"No Diwali, acendemos lamparinas em casa.\" Iara: \"Em 2 de fevereiro, minha família leva flores para Iemanjá.\" Pergunta 1. Por que, segundo Samuel, se come pão sem fermento no Pessach? A: Porque o fermento é caro; B: Por acaso; C: Para lembrar que os hebreus saíram do Egito com pressa; D: Porque é a comida do Natal. Pergunta 2. O presépio de Maria lembra qual acontecimento? A: A ressurreição; B: A saída do Egito; C: A revelação do Alcorão; D: O nascimento de Jesus. Pergunta 3. Que festa marca o fim do Ramadã, segundo Yusuf? A: O Eid; B: O Diwali; C: O Hanucá; D: O Kuarup. Pergunta 4. Que objeto Priya usa no Diwali? A: Matzá; B: Lamparinas acesas; C: Presépio; D: Flores para Iemanjá. Pergunta 5. O que o calendário da turma mostra? A: Só uma tradição tem festas; B: As festas não têm significado; C: Muitas tradições preservam sua memória com festas, alimentos e símbolos; D: Todas as festas lembram o mesmo fato.",
+    "questions": [
+     {
+      "question": "Por que, segundo Samuel, se come pão sem fermento no Pessach?",
+      "options": [
+       {
+        "text": "Porque o fermento é caro",
+        "misconceptionCode": "memoria"
+       },
+       {
+        "text": "Por acaso",
+        "misconceptionCode": "memoria"
+       },
+       {
+        "text": "Para lembrar que os hebreus saíram do Egito com pressa"
+       },
+       {
+        "text": "Porque é a comida do Natal",
+        "misconceptionCode": "memoria"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Memória no alimento.",
+      "variants": [
+       {
+        "question": "Como se chama esse pão sem fermento?",
+        "options": [
+         {
+          "text": "Matzá"
+         },
+         {
+          "text": "Panetone",
+          "misconceptionCode": "memoria"
+         },
+         {
+          "text": "Pão de queijo",
+          "misconceptionCode": "memoria"
+         },
+         {
+          "text": "Acarajé",
+          "misconceptionCode": "memoria"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Por que, segundo Samuel, se come pão sem fermento no Pessach?",
+        "options": [
+         {
+          "text": "Porque é a comida do Natal",
+          "misconceptionCode": "memoria"
+         },
+         {
+          "text": "Por acaso",
+          "misconceptionCode": "memoria"
+         },
+         {
+          "text": "Porque o fermento é caro",
+          "misconceptionCode": "memoria"
+         },
+         {
+          "text": "Para lembrar que os hebreus saíram do Egito com pressa"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O presépio de Maria lembra qual acontecimento?",
+      "options": [
+       {
+        "text": "A ressurreição",
+        "misconceptionCode": "acontecimento"
+       },
+       {
+        "text": "A saída do Egito",
+        "misconceptionCode": "acontecimento"
+       },
+       {
+        "text": "A revelação do Alcorão",
+        "misconceptionCode": "acontecimento"
+       },
+       {
+        "text": "O nascimento de Jesus"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Natal.",
+      "variants": [
+       {
+        "question": "De que tradição é o Natal?",
+        "options": [
+         {
+          "text": "Judaica",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "Cristã"
+         },
+         {
+          "text": "Islâmica",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "Hindu",
+          "misconceptionCode": "acontecimento"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O presépio de Maria lembra qual acontecimento?",
+        "options": [
+         {
+          "text": "O nascimento de Jesus"
+         },
+         {
+          "text": "A revelação do Alcorão",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "A saída do Egito",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "A ressurreição",
+          "misconceptionCode": "acontecimento"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Que festa marca o fim do Ramadã, segundo Yusuf?",
+      "options": [
+       {
+        "text": "O Eid"
+       },
+       {
+        "text": "O Diwali",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "O Hanucá",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "O Kuarup",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Eid.",
+      "variants": [
+       {
+        "question": "Como a família de Yusuf celebra o Eid?",
+        "options": [
+         {
+          "text": "Com jejum",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Com velas por oito noites",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Com uma grande refeição em família"
+         },
+         {
+          "text": "Com flores no mar",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Que festa marca o fim do Ramadã, segundo Yusuf?",
+        "options": [
+         {
+          "text": "O Kuarup",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O Eid"
+         },
+         {
+          "text": "O Hanucá",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O Diwali",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Que objeto Priya usa no Diwali?",
+      "options": [
+       {
+        "text": "Matzá",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Lamparinas acesas"
+       },
+       {
+        "text": "Presépio",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Flores para Iemanjá",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Luz.",
+      "variants": [
+       {
+        "question": "Que relação há entre as lamparinas e o significado do Diwali?",
+        "options": [
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Servem só para enfeitar",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Lembram o Egito",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "A luz simboliza a vitória sobre as trevas"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Que objeto Priya usa no Diwali?",
+        "options": [
+         {
+          "text": "Flores para Iemanjá",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Presépio",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Lamparinas acesas"
+         },
+         {
+          "text": "Matzá",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O que o calendário da turma mostra?",
+      "options": [
+       {
+        "text": "Só uma tradição tem festas",
+        "misconceptionCode": "memoria"
+       },
+       {
+        "text": "As festas não têm significado",
+        "misconceptionCode": "memoria"
+       },
+       {
+        "text": "Muitas tradições preservam sua memória com festas, alimentos e símbolos"
+       },
+       {
+        "text": "Todas as festas lembram o mesmo fato",
+        "misconceptionCode": "acontecimento"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Conclusão.",
+      "variants": [
+       {
+        "question": "Quantas tradições aparecem no calendário?",
+        "options": [
+         {
+          "text": "Cinco"
+         },
+         {
+          "text": "Duas",
+          "misconceptionCode": "memoria"
+         },
+         {
+          "text": "Três",
+          "misconceptionCode": "memoria"
+         },
+         {
+          "text": "Quatro",
+          "misconceptionCode": "acontecimento"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que o calendário da turma mostra?",
+        "options": [
+         {
+          "text": "Todas as festas lembram o mesmo fato",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "As festas não têm significado",
+          "misconceptionCode": "memoria"
+         },
+         {
+          "text": "Só uma tradição tem festas",
+          "misconceptionCode": "memoria"
+         },
+         {
+          "text": "Muitas tradições preservam sua memória com festas, alimentos e símbolos"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05ER01-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: associar e respeitar",
+    "prompt": "Celebrações.",
+    "estMinutes": 5,
+    "audioScript": "Celebrações. Pergunta 1. Uma família acende uma vela a mais em cada noite, até completar oito. Que festa é essa? A: Diwali; B: Natal; C: Ramadã; D: Hanucá. Pergunta 2. Um colega não come durante o dia porque está no Ramadã. Qual atitude é respeitosa? A: Respeitar e não oferecer comida de forma insistente; B: Zombar; C: Comer na frente dele provocando; D: Obrigá-lo a comer. Pergunta 3. Por que uma comunidade do Xingu realiza o Kuarup? A: Para comemorar o Natal; B: Para homenagear seus mortos ilustres e manter viva a memória deles; C: Para lembrar o Egito; D: Por nenhum motivo. Pergunta 4. Por que conhecer festas de outras tradições é importante? A: Para debochar; B: Para escolher a melhor; C: Para respeitar a diversidade e entender o que é sagrado para os outros; D: Não é importante.",
+    "questions": [
+     {
+      "question": "Uma família acende uma vela a mais em cada noite, até completar oito. Que festa é essa?",
+      "options": [
+       {
+        "text": "Diwali",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Natal",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Ramadã",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Hanucá"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Hanucá.",
+      "variants": [
+       {
+        "question": "Que objeto segura as velas do Hanucá?",
+        "options": [
+         {
+          "text": "Um presépio",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Um candelabro chamado hanukiá"
+         },
+         {
+          "text": "Uma lamparina de barro do Diwali",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Um barco",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Uma família acende uma vela a mais em cada noite, até completar oito. Que festa é essa?",
+        "options": [
+         {
+          "text": "Hanucá"
+         },
+         {
+          "text": "Ramadã",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Natal",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Diwali",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Um colega não come durante o dia porque está no Ramadã. Qual atitude é respeitosa?",
+      "options": [
+       {
+        "text": "Respeitar e não oferecer comida de forma insistente"
+       },
+       {
+        "text": "Zombar",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Comer na frente dele provocando",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Obrigá-lo a comer",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Respeito.",
+      "variants": [
+       {
+        "question": "Como a escola pode acolher esse colega?",
+        "options": [
+         {
+          "text": "Ignorar",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Proibir a prática",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Conversar com a família e respeitar sua prática"
+         },
+         {
+          "text": "Fazer piadas",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um colega não come durante o dia porque está no Ramadã. Qual atitude é respeitosa?",
+        "options": [
+         {
+          "text": "Obrigá-lo a comer",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Respeitar e não oferecer comida de forma insistente"
+         },
+         {
+          "text": "Comer na frente dele provocando",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Zombar",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Por que uma comunidade do Xingu realiza o Kuarup?",
+      "options": [
+       {
+        "text": "Para comemorar o Natal",
+        "misconceptionCode": "acontecimento"
+       },
+       {
+        "text": "Para homenagear seus mortos ilustres e manter viva a memória deles"
+       },
+       {
+        "text": "Para lembrar o Egito",
+        "misconceptionCode": "acontecimento"
+       },
+       {
+        "text": "Por nenhum motivo",
+        "misconceptionCode": "acontecimento"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Kuarup.",
+      "variants": [
+       {
+        "question": "O Kuarup é transmitido de geração em geração. Isso mostra que ele:",
+        "options": [
+         {
+          "text": "Não tem importância",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "É uma festa sem significado",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "É uma festa recente de outro país",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "Preserva a memória e a identidade do povo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Por que uma comunidade do Xingu realiza o Kuarup?",
+        "options": [
+         {
+          "text": "Por nenhum motivo",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "Para lembrar o Egito",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "Para homenagear seus mortos ilustres e manter viva a memória deles"
+         },
+         {
+          "text": "Para comemorar o Natal",
+          "misconceptionCode": "acontecimento"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Por que conhecer festas de outras tradições é importante?",
+      "options": [
+       {
+        "text": "Para debochar",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Para escolher a melhor",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Para respeitar a diversidade e entender o que é sagrado para os outros"
+       },
+       {
+        "text": "Não é importante",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Respeito.",
+      "variants": [
+       {
+        "question": "Qual atitude é adequada ao visitar uma celebração de outra tradição?",
+        "options": [
+         {
+          "text": "Observar com respeito e seguir as orientações do lugar"
+         },
+         {
+          "text": "Tirar fotos sem pedir",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Interromper",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Rir",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Por que conhecer festas de outras tradições é importante?",
+        "options": [
+         {
+          "text": "Não é importante",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Para escolher a melhor",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Para debochar",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Para respeitar a diversidade e entender o que é sagrado para os outros"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05ER01-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: a mostra das festas sagradas",
+    "prompt": "Pesquisar e apresentar.",
+    "estMinutes": 4,
+    "audioScript": "Pesquisar e apresentar. Pergunta 1. A turma vai montar uma mostra. Que informações colocar em cada festa? A: Só o nome; B: Só a data; C: Nada; D: Nome, tradição, acontecimento lembrado e símbolos ou alimentos. Pergunta 2. Como garantir respeito na mostra? A: Apresentar cada festa com o significado que tem para quem a celebra, sem dizer que uma é melhor; B: Comparar dizendo qual é a melhor; C: Fazer piadas; D: Mostrar só uma tradição. Pergunta 3. Que frase resume a mostra? A: \"Só uma festa tem valor.\"; B: \"As festas sagradas preservam a memória dos povos e merecem respeito.\"; C: \"Festas não lembram nada.\"; D: \"Todas as festas são iguais.\".",
+    "questions": [
+     {
+      "question": "A turma vai montar uma mostra. Que informações colocar em cada festa?",
+      "options": [
+       {
+        "text": "Só o nome",
+        "misconceptionCode": "acontecimento"
+       },
+       {
+        "text": "Só a data",
+        "misconceptionCode": "acontecimento"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "acontecimento"
+       },
+       {
+        "text": "Nome, tradição, acontecimento lembrado e símbolos ou alimentos"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Informações.",
+      "variants": [
+       {
+        "question": "Na ficha do Pessach, que símbolo colocar?",
+        "options": [
+         {
+          "text": "A lamparina",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "A matzá"
+         },
+         {
+          "text": "O presépio",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "As flores para Iemanjá",
+          "misconceptionCode": "acontecimento"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A turma vai montar uma mostra. Que informações colocar em cada festa?",
+        "options": [
+         {
+          "text": "Nome, tradição, acontecimento lembrado e símbolos ou alimentos"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "Só a data",
+          "misconceptionCode": "acontecimento"
+         },
+         {
+          "text": "Só o nome",
+          "misconceptionCode": "acontecimento"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Como garantir respeito na mostra?",
+      "options": [
+       {
+        "text": "Apresentar cada festa com o significado que tem para quem a celebra, sem dizer que uma é melhor"
+       },
+       {
+        "text": "Comparar dizendo qual é a melhor",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Fazer piadas",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Mostrar só uma tradição",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Respeito.",
+      "variants": [
+       {
+        "question": "Quem pode ajudar a explicar as festas?",
+        "options": [
+         {
+          "text": "Ninguém",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Pessoas que debocham",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Famílias e representantes das próprias tradições"
+         },
+         {
+          "text": "Propagandas",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Como garantir respeito na mostra?",
+        "options": [
+         {
+          "text": "Mostrar só uma tradição",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Apresentar cada festa com o significado que tem para quem a celebra, sem dizer que uma é melhor"
+         },
+         {
+          "text": "Fazer piadas",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Comparar dizendo qual é a melhor",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Que frase resume a mostra?",
+      "options": [
+       {
+        "text": "\"Só uma festa tem valor.\"",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "\"As festas sagradas preservam a memória dos povos e merecem respeito.\""
+       },
+       {
+        "text": "\"Festas não lembram nada.\"",
+        "misconceptionCode": "memoria"
+       },
+       {
+        "text": "\"Todas as festas são iguais.\"",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Síntese.",
+      "variants": [
+       {
+        "question": "Por que incluir festas indígenas e afro-brasileiras?",
+        "options": [
+         {
+          "text": "Para completar espaço",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Não é preciso",
+          "misconceptionCode": "memoria"
+         },
+         {
+          "text": "Para criticar",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Porque fazem parte da diversidade religiosa do Brasil"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Que frase resume a mostra?",
+        "options": [
+         {
+          "text": "\"Todas as festas são iguais.\"",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "\"Festas não lembram nada.\"",
+          "misconceptionCode": "memoria"
+         },
+         {
+          "text": "\"As festas sagradas preservam a memória dos povos e merecem respeito.\""
+         },
+         {
+          "text": "\"Só uma festa tem valor.\"",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05ER01-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: acontecimentos sagrados e memória",
+    "prompt": "Explique como as celebrações preservam a memória de acontecimentos sagrados.",
+    "estMinutes": 6,
+    "audioScript": "Explique como as celebrações preservam a memória de acontecimentos sagrados.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "acontecimento-tradicao",
+       "description": "Associa celebrações a acontecimentos e tradições"
+      },
+      {
+       "code": "memoria",
+       "description": "Explica como as festas preservam a memória"
+      },
+      {
+       "code": "respeito",
+       "description": "Valoriza e respeita as diferentes celebrações"
+      }
+     ],
+     "exemploBoaResposta": "Muitas tradições lembram acontecimentos sagrados com festas que se repetem a cada ano. No Pessach, os judeus comem matzá para lembrar a saída apressada do Egito; no Hanucá, acendem velas por oito noites. Os cristãos lembram o nascimento de Jesus no Natal e sua ressurreição na Páscoa. Os muçulmanos jejuam no Ramadã, que lembra a revelação do Alcorão, e celebram o Eid. Os hindus acendem lamparinas no Diwali; os budistas celebram o Vesak; muitos devotos de Iemanjá levam flores em 2 de fevereiro; os povos do Alto Xingu fazem o Kuarup. Essas festas preservam a memória e merecem respeito."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF05ER03",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 5,
+  "version": 1,
+  "title": "Trilha: Mitos de criação",
+  "tituloAluno": "Como as tradições explicam a origem do mundo",
+  "activities": [
+   {
+    "id": "PK2-EF05ER03-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: narrativas de origem",
+    "prompt": "O que são os mitos.",
+    "estMinutes": 4,
+    "audioScript": "O que são os mitos. Pergunta 1. O que é um mito de criação? A: Uma notícia de jornal; B: Uma receita; C: Uma narrativa sagrada que explica a origem do mundo e dos seres; D: Uma regra de jogo. Pergunta 2. Em qual livro sagrado para judeus e cristãos está a narrativa da criação em seis dias? A: Alcorão; B: Vedas; C: Livro dos Mortos egípcio; D: Gênesis. Pergunta 3. Na tradição iorubá, quem Olodumare encarrega de criar a Terra? A: Oxalá; B: Zeus; C: Brahma; D: Nhanderu. Pergunta 4. Qual divindade cria o mundo na tradição Guarani? A: Gaia; B: Nhanderu; C: Brahma; D: Oxalá. Pergunta 5. Na Grécia antiga, o que existia no início, segundo o mito? A: Um shopping; B: O Gênesis; C: O Caos; D: Nhanderu. Pergunta 6. Qual é uma função dos mitos de criação? A: Vender produtos; B: Marcar gols; C: Nenhuma; D: Explicar origens e ensinar valores ao povo.",
+    "questions": [
+     {
+      "question": "O que é um mito de criação?",
+      "options": [
+       {
+        "text": "Uma notícia de jornal",
+        "misconceptionCode": "conceito"
+       },
+       {
+        "text": "Uma receita",
+        "misconceptionCode": "conceito"
+       },
+       {
+        "text": "Uma narrativa sagrada que explica a origem do mundo e dos seres"
+       },
+       {
+        "text": "Uma regra de jogo",
+        "misconceptionCode": "conceito"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Mito de criação.",
+      "variants": [
+       {
+        "question": "Um mito é uma mentira?",
+        "options": [
+         {
+          "text": "Não, é uma narrativa que expressa o que um povo considera sagrado"
+         },
+         {
+          "text": "Sim, sempre",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Sim, se for antigo",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Sim, se for de outro povo",
+          "misconceptionCode": "conceito"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que é um mito de criação?",
+        "options": [
+         {
+          "text": "Uma regra de jogo",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Uma receita",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Uma notícia de jornal",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Uma narrativa sagrada que explica a origem do mundo e dos seres"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Em qual livro sagrado para judeus e cristãos está a narrativa da criação em seis dias?",
+      "options": [
+       {
+        "text": "Alcorão",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Vedas",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Livro dos Mortos egípcio",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Gênesis"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Gênesis.",
+      "variants": [
+       {
+        "question": "Segundo o Gênesis, o que Deus faz no sétimo dia?",
+        "options": [
+         {
+          "text": "Cria a Lua",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Descansa"
+         },
+         {
+          "text": "Cria os peixes",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Cria o Sol",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Em qual livro sagrado para judeus e cristãos está a narrativa da criação em seis dias?",
+        "options": [
+         {
+          "text": "Gênesis"
+         },
+         {
+          "text": "Livro dos Mortos egípcio",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Vedas",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Alcorão",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Na tradição iorubá, quem Olodumare encarrega de criar a Terra?",
+      "options": [
+       {
+        "text": "Oxalá"
+       },
+       {
+        "text": "Zeus",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Brahma",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Nhanderu",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Oxalá.",
+      "variants": [
+       {
+        "question": "Que religião brasileira foi influenciada pela tradição iorubá?",
+        "options": [
+         {
+          "text": "O budismo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O hinduísmo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O candomblé"
+         },
+         {
+          "text": "O judaísmo",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Na tradição iorubá, quem Olodumare encarrega de criar a Terra?",
+        "options": [
+         {
+          "text": "Nhanderu",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Oxalá"
+         },
+         {
+          "text": "Brahma",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Zeus",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual divindade cria o mundo na tradição Guarani?",
+      "options": [
+       {
+        "text": "Gaia",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Nhanderu"
+       },
+       {
+        "text": "Brahma",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Oxalá",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Nhanderu.",
+      "variants": [
+       {
+        "question": "No hinduísmo, qual é a divindade criadora?",
+        "options": [
+         {
+          "text": "Zeus",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Nhanderu",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Oxalá",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Brahma"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual divindade cria o mundo na tradição Guarani?",
+        "options": [
+         {
+          "text": "Oxalá",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Brahma",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Nhanderu"
+         },
+         {
+          "text": "Gaia",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Na Grécia antiga, o que existia no início, segundo o mito?",
+      "options": [
+       {
+        "text": "Um shopping",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "O Gênesis",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "O Caos"
+       },
+       {
+        "text": "Nhanderu",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Caos.",
+      "variants": [
+       {
+        "question": "Quem surgiu do Caos, segundo o mito grego?",
+        "options": [
+         {
+          "text": "Gaia, a Terra"
+         },
+         {
+          "text": "Oxalá",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Brahma",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Nhanderu",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Na Grécia antiga, o que existia no início, segundo o mito?",
+        "options": [
+         {
+          "text": "Nhanderu",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O Gênesis",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Um shopping",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O Caos"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual é uma função dos mitos de criação?",
+      "options": [
+       {
+        "text": "Vender produtos",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "Marcar gols",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "Nenhuma",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "Explicar origens e ensinar valores ao povo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Função.",
+      "variants": [
+       {
+        "question": "Que valor o Gênesis transmite sobre a natureza?",
+        "options": [
+         {
+          "text": "A natureza não importa",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "O ser humano deve cuidar da criação"
+         },
+         {
+          "text": "Pode-se destruir tudo",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "funcao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual é uma função dos mitos de criação?",
+        "options": [
+         {
+          "text": "Explicar origens e ensinar valores ao povo"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Marcar gols",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Vender produtos",
+          "misconceptionCode": "funcao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05ER03-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: a roda de mitos",
+    "prompt": "Na roda de conversa, cada aluno resumiu um mito. Davi: \"No Gênesis, Deus criou a luz, o céu, a terra, as plantas, os astros, os animais e os seres humanos, e descansou no sétimo dia.\" Odara: \"Minha avó conta que Oxalá desceu do céu numa corrente, jogou terra sobre as águas e uma galinha espalhou a terra, formando o mundo.\" Jaci: \"Nhanderu criou a Terra e deixou ensinamentos para os Guarani viverem bem com a floresta.\" A professora perguntou: \"O que essas narrativas ensinam?\"",
+    "estMinutes": 4,
+    "audioScript": "Na roda de conversa, cada aluno resumiu um mito. Davi: \"No Gênesis, Deus criou a luz, o céu, a terra, as plantas, os astros, os animais e os seres humanos, e descansou no sétimo dia.\" Odara: \"Minha avó conta que Oxalá desceu do céu numa corrente, jogou terra sobre as águas e uma galinha espalhou a terra, formando o mundo.\" Jaci: \"Nhanderu criou a Terra e deixou ensinamentos para os Guarani viverem bem com a floresta.\" A professora perguntou: \"O que essas narrativas ensinam?\" Pergunta 1. Que tradição aparece na fala de Davi? A: Judaico-cristã, no Gênesis; B: Iorubá; C: Guarani; D: Grega. Pergunta 2. Como o mundo se formou na narrativa contada por Odara? A: Deus criou em seis dias; B: Oxalá jogou terra sobre as águas e uma galinha a espalhou; C: Surgiu do Caos; D: Brahma criou tudo. Pergunta 3. Que mensagem a narrativa de Jaci transmite? A: Destruir a floresta; B: Nenhuma; C: Viver bem e em harmonia com a floresta; D: Que a floresta não importa. Pergunta 4. O que as três narrativas têm em comum? A: São todas iguais; B: Não ensinam nada; C: São da mesma tradição; D: Explicam a origem do mundo e transmitem valores sagrados para seus povos.",
+    "questions": [
+     {
+      "question": "Que tradição aparece na fala de Davi?",
+      "options": [
+       {
+        "text": "Judaico-cristã, no Gênesis"
+       },
+       {
+        "text": "Iorubá",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Guarani",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Grega",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Gênesis.",
+      "variants": [
+       {
+        "question": "Em quantos dias, segundo Davi, Deus criou o mundo antes de descansar?",
+        "options": [
+         {
+          "text": "Um",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Sete sem descanso",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Seis"
+         },
+         {
+          "text": "Dez",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Que tradição aparece na fala de Davi?",
+        "options": [
+         {
+          "text": "Grega",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Judaico-cristã, no Gênesis"
+         },
+         {
+          "text": "Guarani",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Iorubá",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Como o mundo se formou na narrativa contada por Odara?",
+      "options": [
+       {
+        "text": "Deus criou em seis dias",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Oxalá jogou terra sobre as águas e uma galinha a espalhou"
+       },
+       {
+        "text": "Surgiu do Caos",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Brahma criou tudo",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Mito iorubá.",
+      "variants": [
+       {
+        "question": "Como Odara aprendeu o mito?",
+        "options": [
+         {
+          "text": "Num jornal",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Num jogo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Numa propaganda",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Pela tradição oral, com a avó"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Como o mundo se formou na narrativa contada por Odara?",
+        "options": [
+         {
+          "text": "Brahma criou tudo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Surgiu do Caos",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Oxalá jogou terra sobre as águas e uma galinha a espalhou"
+         },
+         {
+          "text": "Deus criou em seis dias",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Que mensagem a narrativa de Jaci transmite?",
+      "options": [
+       {
+        "text": "Destruir a floresta",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "Nenhuma",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "Viver bem e em harmonia com a floresta"
+       },
+       {
+        "text": "Que a floresta não importa",
+        "misconceptionCode": "funcao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Mensagem.",
+      "variants": [
+       {
+        "question": "Quem é o criador na narrativa de Jaci?",
+        "options": [
+         {
+          "text": "Nhanderu"
+         },
+         {
+          "text": "Oxalá",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Zeus",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Brahma",
+          "misconceptionCode": "funcao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que mensagem a narrativa de Jaci transmite?",
+        "options": [
+         {
+          "text": "Que a floresta não importa",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Destruir a floresta",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Viver bem e em harmonia com a floresta"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que as três narrativas têm em comum?",
+      "options": [
+       {
+        "text": "São todas iguais",
+        "misconceptionCode": "conceito"
+       },
+       {
+        "text": "Não ensinam nada",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "São da mesma tradição",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Explicam a origem do mundo e transmitem valores sagrados para seus povos"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Em comum.",
+      "variants": [
+       {
+        "question": "Como a turma deve tratar as diferentes narrativas?",
+        "options": [
+         {
+          "text": "Dizendo qual é a verdadeira",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Com respeito, valorizando o sentido de cada uma"
+         },
+         {
+          "text": "Debochando",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Ignorando",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que as três narrativas têm em comum?",
+        "options": [
+         {
+          "text": "Explicam a origem do mundo e transmitem valores sagrados para seus povos"
+         },
+         {
+          "text": "São da mesma tradição",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Não ensinam nada",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "São todas iguais",
+          "misconceptionCode": "conceito"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05ER03-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: funções e mensagens",
+    "prompt": "Interpretar mitos.",
+    "estMinutes": 5,
+    "audioScript": "Interpretar mitos. Pergunta 1. Muitos mitos explicam por que existe a morte. Que função isso cumpre? A: Ajudar as pessoas a compreender e aceitar o fim da vida; B: Assustar sem motivo; C: Nenhuma; D: Vender remédios. Pergunta 2. Um mito indígena conta que um povo nasceu de um rio. O que isso revela sobre esse povo? A: Que o rio não importa; B: A importância do rio para sua vida e identidade; C: Que o povo não conhece rios; D: Nada. Pergunta 3. Um colega diz: \"Mito de criação é mentira inventada.\" Como responder com respeito? A: \"Concordo, é tudo mentira.\"; B: \"Só o mito da minha religião é verdadeiro e os outros são bobagem.\"; C: \"Os mitos são narrativas sagradas que expressam crenças e valores de cada povo.\"; D: \"Não vale a pena estudar.\". Pergunta 4. Que valor o mito de Oxalá pode transmitir? A: A destruição; B: Nenhum; C: A preguiça; D: A importância da criação e da colaboração para formar o mundo.",
+    "questions": [
+     {
+      "question": "Muitos mitos explicam por que existe a morte. Que função isso cumpre?",
+      "options": [
+       {
+        "text": "Ajudar as pessoas a compreender e aceitar o fim da vida"
+       },
+       {
+        "text": "Assustar sem motivo",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "Nenhuma",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "Vender remédios",
+        "misconceptionCode": "funcao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Vida e morte.",
+      "variants": [
+       {
+        "question": "Que outro tema os mitos de criação costumam abordar?",
+        "options": [
+         {
+          "text": "O preço das coisas",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "As regras do futebol",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "A origem dos seres humanos"
+         },
+         {
+          "text": "O trânsito",
+          "misconceptionCode": "funcao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Muitos mitos explicam por que existe a morte. Que função isso cumpre?",
+        "options": [
+         {
+          "text": "Vender remédios",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Ajudar as pessoas a compreender e aceitar o fim da vida"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Assustar sem motivo",
+          "misconceptionCode": "funcao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um mito indígena conta que um povo nasceu de um rio. O que isso revela sobre esse povo?",
+      "options": [
+       {
+        "text": "Que o rio não importa",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "A importância do rio para sua vida e identidade"
+       },
+       {
+        "text": "Que o povo não conhece rios",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "funcao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Identidade.",
+      "variants": [
+       {
+        "question": "Que relação esse mito sugere entre o povo e a natureza?",
+        "options": [
+         {
+          "text": "De destruição",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "De indiferença",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Uma relação de respeito e pertencimento"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um mito indígena conta que um povo nasceu de um rio. O que isso revela sobre esse povo?",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Que o povo não conhece rios",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "A importância do rio para sua vida e identidade"
+         },
+         {
+          "text": "Que o rio não importa",
+          "misconceptionCode": "funcao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um colega diz: \"Mito de criação é mentira inventada.\" Como responder com respeito?",
+      "options": [
+       {
+        "text": "\"Concordo, é tudo mentira.\"",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "\"Só o mito da minha religião é verdadeiro e os outros são bobagem.\"",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "\"Os mitos são narrativas sagradas que expressam crenças e valores de cada povo.\""
+       },
+       {
+        "text": "\"Não vale a pena estudar.\"",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Respeito.",
+      "variants": [
+       {
+        "question": "A ciência e os mitos tratam a origem do mundo:",
+        "options": [
+         {
+          "text": "De formas diferentes: a ciência investiga com evidências; os mitos expressam sentidos sagrados"
+         },
+         {
+          "text": "Exatamente da mesma forma",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Nenhum dos dois fala disso",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Os mitos são experimentos de laboratório",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um colega diz: \"Mito de criação é mentira inventada.\" Como responder com respeito?",
+        "options": [
+         {
+          "text": "\"Não vale a pena estudar.\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"Só o mito da minha religião é verdadeiro e os outros são bobagem.\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"Concordo, é tudo mentira.\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"Os mitos são narrativas sagradas que expressam crenças e valores de cada povo.\""
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Que valor o mito de Oxalá pode transmitir?",
+      "options": [
+       {
+        "text": "A destruição",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "Nenhum",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "A preguiça",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "A importância da criação e da colaboração para formar o mundo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Valor.",
+      "variants": [
+       {
+        "question": "Em que lugar o mito de Oxalá costuma ser transmitido?",
+        "options": [
+         {
+          "text": "Em aeroportos",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Nos terreiros e nas famílias, pela tradição oral"
+         },
+         {
+          "text": "Em lojas",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Em jogos de futebol",
+          "misconceptionCode": "funcao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Que valor o mito de Oxalá pode transmitir?",
+        "options": [
+         {
+          "text": "A importância da criação e da colaboração para formar o mundo"
+         },
+         {
+          "text": "A preguiça",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "A destruição",
+          "misconceptionCode": "funcao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05ER03-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: o livro dos mitos da turma",
+    "prompt": "Registrar com respeito.",
+    "estMinutes": 4,
+    "audioScript": "Registrar com respeito. Pergunta 1. A turma vai produzir um livro com mitos de criação. Como coletar as narrativas? A: Pesquisar em fontes confiáveis e ouvir famílias e representantes das tradições; B: Inventar narrativas e atribuí-las a povos; C: Copiar textos sem dizer a origem; D: Não pesquisar. Pergunta 2. Que estrutura usar para cada mito? A: Só uma ilustração; B: Povo ou tradição, resumo da narrativa e mensagem ou ensinamento; C: Só o título; D: Uma crítica ao mito. Pergunta 3. Que frase pode abrir o livro? A: \"Só um povo sabe a verdade.\"; B: \"Mitos são bobagens.\"; C: \"Cada povo conta a origem do mundo do seu jeito, e todas essas histórias merecem respeito.\"; D: \"Todos os mitos são iguais.\".",
+    "questions": [
+     {
+      "question": "A turma vai produzir um livro com mitos de criação. Como coletar as narrativas?",
+      "options": [
+       {
+        "text": "Pesquisar em fontes confiáveis e ouvir famílias e representantes das tradições"
+       },
+       {
+        "text": "Inventar narrativas e atribuí-las a povos",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Copiar textos sem dizer a origem",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Não pesquisar",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Coleta.",
+      "variants": [
+       {
+        "question": "Por que indicar a origem de cada mito?",
+        "options": [
+         {
+          "text": "Para enfeitar",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Não é preciso",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Para respeitar e reconhecer o povo que o transmite"
+         },
+         {
+          "text": "Para esconder",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A turma vai produzir um livro com mitos de criação. Como coletar as narrativas?",
+        "options": [
+         {
+          "text": "Não pesquisar",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Pesquisar em fontes confiáveis e ouvir famílias e representantes das tradições"
+         },
+         {
+          "text": "Copiar textos sem dizer a origem",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Inventar narrativas e atribuí-las a povos",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Que estrutura usar para cada mito?",
+      "options": [
+       {
+        "text": "Só uma ilustração",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "Povo ou tradição, resumo da narrativa e mensagem ou ensinamento"
+       },
+       {
+        "text": "Só o título",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "Uma crítica ao mito",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Estrutura.",
+      "variants": [
+       {
+        "question": "Que ensinamento colocar no mito Guarani de Nhanderu?",
+        "options": [
+         {
+          "text": "Destruir a floresta",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Comprar mais",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Viver bem com a floresta"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Que estrutura usar para cada mito?",
+        "options": [
+         {
+          "text": "Uma crítica ao mito",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Só o título",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Povo ou tradição, resumo da narrativa e mensagem ou ensinamento"
+         },
+         {
+          "text": "Só uma ilustração",
+          "misconceptionCode": "funcao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Que frase pode abrir o livro?",
+      "options": [
+       {
+        "text": "\"Só um povo sabe a verdade.\"",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "\"Mitos são bobagens.\"",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "\"Cada povo conta a origem do mundo do seu jeito, e todas essas histórias merecem respeito.\""
+       },
+       {
+        "text": "\"Todos os mitos são iguais.\"",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Abertura.",
+      "variants": [
+       {
+        "question": "Por que incluir mitos de várias tradições?",
+        "options": [
+         {
+          "text": "Para mostrar a diversidade de formas de pensar o sagrado"
+         },
+         {
+          "text": "Para escolher o vencedor",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Para debochar",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Não há motivo",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que frase pode abrir o livro?",
+        "options": [
+         {
+          "text": "\"Todos os mitos são iguais.\"",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "\"Mitos são bobagens.\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"Só um povo sabe a verdade.\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"Cada povo conta a origem do mundo do seu jeito, e todas essas histórias merecem respeito.\""
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05ER03-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: mitos de criação",
+    "prompt": "Explique as funções e mensagens dos mitos de criação, com exemplos.",
+    "estMinutes": 6,
+    "audioScript": "Explique as funções e mensagens dos mitos de criação, com exemplos.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "conceito",
+       "description": "Explica o que é um mito de criação"
+      },
+      {
+       "code": "tradicao",
+       "description": "Associa narrativas às tradições"
+      },
+      {
+       "code": "funcao-respeito",
+       "description": "Reconhece funções e mensagens e trata os mitos com respeito"
+      }
+     ],
+     "exemploBoaResposta": "Mitos de criação são narrativas sagradas que explicam a origem do mundo, da natureza, dos seres humanos, da vida e da morte, transmitindo valores. No Gênesis, sagrado para judeus e cristãos, Deus cria o mundo em seis dias e descansa no sétimo, e o ser humano deve cuidar da criação. Na tradição iorubá, Oxalá forma a Terra jogando terra sobre as águas. Entre os Guarani, Nhanderu cria o mundo e ensina a viver bem com a floresta. No hinduísmo, Brahma é o criador; na Grécia antiga, do Caos surgiu Gaia. Os mitos não são mentiras: expressam o que cada povo considera sagrado e merecem respeito."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF05ER05",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 5,
+  "version": 1,
+  "title": "Trilha: A tradição oral",
+  "tituloAluno": "Indígenas, afro-brasileiros, ciganos e outros povos",
+  "activities": [
+   {
+    "id": "PK2-EF05ER05-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: saberes que passam pela fala",
+    "prompt": "Tradição oral.",
+    "estMinutes": 4,
+    "audioScript": "Tradição oral. Pergunta 1. O que é tradição oral? A: A transmissão de saberes, histórias e rituais pela fala, de geração em geração; B: Ler livros em silêncio; C: Escrever cartas; D: Assistir à televisão. Pergunta 2. Quem são os griôs? A: Pilotos de avião; B: Guardiões das histórias e genealogias na África Ocidental; C: Jogadores de futebol; D: Vendedores de loja. Pergunta 3. Nos terreiros, quem costuma ensinar as cantigas e histórias dos orixás? A: Turistas; B: Pessoas sem ligação com o terreiro; C: Mães e pais de santo; D: Ninguém. Pergunta 4. Quais são os principais grupos ciganos no Brasil? A: Tupi, Guarani e Kaingang; B: Iorubá, banto e jeje; C: Incas, maias e astecas; D: Calon, rom e sinti. Pergunta 5. A tradição oral tem menos valor que a escrita? A: Não, é uma forma legítima e rica de preservar a memória; B: Sim, sempre; C: Sim, porque não está em livros; D: Sim, porque é antiga.",
+    "questions": [
+     {
+      "question": "O que é tradição oral?",
+      "options": [
+       {
+        "text": "A transmissão de saberes, histórias e rituais pela fala, de geração em geração"
+       },
+       {
+        "text": "Ler livros em silêncio",
+        "misconceptionCode": "conceito"
+       },
+       {
+        "text": "Escrever cartas",
+        "misconceptionCode": "conceito"
+       },
+       {
+        "text": "Assistir à televisão",
+        "misconceptionCode": "conceito"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Tradição oral.",
+      "variants": [
+       {
+        "question": "Qual destes é um exemplo de tradição oral?",
+        "options": [
+         {
+          "text": "Um manual de instruções impresso",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Uma placa de trânsito",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Uma avó que ensina cantigas aos netos"
+         },
+         {
+          "text": "Um aplicativo de mapas",
+          "misconceptionCode": "conceito"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que é tradição oral?",
+        "options": [
+         {
+          "text": "Assistir à televisão",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "A transmissão de saberes, histórias e rituais pela fala, de geração em geração"
+         },
+         {
+          "text": "Escrever cartas",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Ler livros em silêncio",
+          "misconceptionCode": "conceito"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quem são os griôs?",
+      "options": [
+       {
+        "text": "Pilotos de avião",
+        "misconceptionCode": "guardioes"
+       },
+       {
+        "text": "Guardiões das histórias e genealogias na África Ocidental"
+       },
+       {
+        "text": "Jogadores de futebol",
+        "misconceptionCode": "guardioes"
+       },
+       {
+        "text": "Vendedores de loja",
+        "misconceptionCode": "guardioes"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Griôs.",
+      "variants": [
+       {
+        "question": "Em que região da África os griôs são tradicionais?",
+        "options": [
+         {
+          "text": "Polo Sul",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "América do Sul",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Oceania",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "África Ocidental"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quem são os griôs?",
+        "options": [
+         {
+          "text": "Vendedores de loja",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Jogadores de futebol",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Guardiões das histórias e genealogias na África Ocidental"
+         },
+         {
+          "text": "Pilotos de avião",
+          "misconceptionCode": "guardioes"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Nos terreiros, quem costuma ensinar as cantigas e histórias dos orixás?",
+      "options": [
+       {
+        "text": "Turistas",
+        "misconceptionCode": "guardioes"
+       },
+       {
+        "text": "Pessoas sem ligação com o terreiro",
+        "misconceptionCode": "guardioes"
+       },
+       {
+        "text": "Mães e pais de santo"
+       },
+       {
+        "text": "Ninguém",
+        "misconceptionCode": "guardioes"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Terreiros.",
+      "variants": [
+       {
+        "question": "Entre povos indígenas, quem costuma transmitir mitos e conhecimentos sobre plantas?",
+        "options": [
+         {
+          "text": "Anciãos e pajés"
+         },
+         {
+          "text": "Apenas os bebês",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Ninguém",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Empresas",
+          "misconceptionCode": "guardioes"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Nos terreiros, quem costuma ensinar as cantigas e histórias dos orixás?",
+        "options": [
+         {
+          "text": "Ninguém",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Pessoas sem ligação com o terreiro",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Turistas",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Mães e pais de santo"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quais são os principais grupos ciganos no Brasil?",
+      "options": [
+       {
+        "text": "Tupi, Guarani e Kaingang",
+        "misconceptionCode": "povos"
+       },
+       {
+        "text": "Iorubá, banto e jeje",
+        "misconceptionCode": "povos"
+       },
+       {
+        "text": "Incas, maias e astecas",
+        "misconceptionCode": "povos"
+       },
+       {
+        "text": "Calon, rom e sinti"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Povos ciganos.",
+      "variants": [
+       {
+        "question": "Qual é o Dia Nacional do Cigano?",
+        "options": [
+         {
+          "text": "20 de novembro",
+          "misconceptionCode": "povos"
+         },
+         {
+          "text": "24 de maio"
+         },
+         {
+          "text": "19 de abril",
+          "misconceptionCode": "povos"
+         },
+         {
+          "text": "2 de fevereiro",
+          "misconceptionCode": "povos"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quais são os principais grupos ciganos no Brasil?",
+        "options": [
+         {
+          "text": "Calon, rom e sinti"
+         },
+         {
+          "text": "Incas, maias e astecas",
+          "misconceptionCode": "povos"
+         },
+         {
+          "text": "Iorubá, banto e jeje",
+          "misconceptionCode": "povos"
+         },
+         {
+          "text": "Tupi, Guarani e Kaingang",
+          "misconceptionCode": "povos"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "A tradição oral tem menos valor que a escrita?",
+      "options": [
+       {
+        "text": "Não, é uma forma legítima e rica de preservar a memória"
+       },
+       {
+        "text": "Sim, sempre",
+        "misconceptionCode": "valor"
+       },
+       {
+        "text": "Sim, porque não está em livros",
+        "misconceptionCode": "valor"
+       },
+       {
+        "text": "Sim, porque é antiga",
+        "misconceptionCode": "valor"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Valor.",
+      "variants": [
+       {
+        "question": "Que santa é de devoção de muitos ciganos?",
+        "options": [
+         {
+          "text": "Santa Bárbara apenas",
+          "misconceptionCode": "valor"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "valor"
+         },
+         {
+          "text": "Santa Sara Kali"
+         },
+         {
+          "text": "Santa Luzia apenas",
+          "misconceptionCode": "valor"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A tradição oral tem menos valor que a escrita?",
+        "options": [
+         {
+          "text": "Sim, porque é antiga",
+          "misconceptionCode": "valor"
+         },
+         {
+          "text": "Não, é uma forma legítima e rica de preservar a memória"
+         },
+         {
+          "text": "Sim, porque não está em livros",
+          "misconceptionCode": "valor"
+         },
+         {
+          "text": "Sim, sempre",
+          "misconceptionCode": "valor"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05ER05-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: três vozes, três tradições",
+    "prompt": "A turma recebeu três convidados. Seu Raimundo, ancião indígena: \"Aprendi com meu avô os cantos para pedir boa colheita; canto para meus netos na roda, à noite.\" Mãe Lúcia, ialorixá: \"No terreiro, as crianças aprendem as cantigas de cada orixá ouvindo os mais velhos; nada disso está num livro.\" Dona Esmeralda, cigana calon: \"Nossa língua, nossas histórias e nossas festas passam de mãe para filha, de pai para filho, conversando e vivendo juntos.\"",
+    "estMinutes": 4,
+    "audioScript": "A turma recebeu três convidados. Seu Raimundo, ancião indígena: \"Aprendi com meu avô os cantos para pedir boa colheita; canto para meus netos na roda, à noite.\" Mãe Lúcia, ialorixá: \"No terreiro, as crianças aprendem as cantigas de cada orixá ouvindo os mais velhos; nada disso está num livro.\" Dona Esmeralda, cigana calon: \"Nossa língua, nossas histórias e nossas festas passam de mãe para filha, de pai para filho, conversando e vivendo juntos.\" Pergunta 1. Como Seu Raimundo aprendeu os cantos? A: Num livro; B: Com o avô, pela tradição oral; C: Na televisão; D: Num aplicativo. Pergunta 2. Segundo Mãe Lúcia, como as crianças aprendem as cantigas dos orixás? A: Lendo um manual; B: Num curso on-line obrigatório; C: Ouvindo os mais velhos no terreiro; D: Sozinhas, sem ninguém. Pergunta 3. O que Dona Esmeralda transmite pela oralidade? A: Receitas de outro país; B: Notícias de jornal; C: Nada; D: A língua, as histórias e as festas de seu povo. Pergunta 4. O que os três relatos mostram em comum? A: Os saberes sagrados e culturais são passados pela fala e pela convivência entre gerações; B: Ninguém aprende nada; C: Só a escrita guarda saberes; D: As tradições são iguais.",
+    "questions": [
+     {
+      "question": "Como Seu Raimundo aprendeu os cantos?",
+      "options": [
+       {
+        "text": "Num livro",
+        "misconceptionCode": "conceito"
+       },
+       {
+        "text": "Com o avô, pela tradição oral"
+       },
+       {
+        "text": "Na televisão",
+        "misconceptionCode": "conceito"
+       },
+       {
+        "text": "Num aplicativo",
+        "misconceptionCode": "conceito"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Oralidade.",
+      "variants": [
+       {
+        "question": "Para que servem os cantos de Seu Raimundo?",
+        "options": [
+         {
+          "text": "Para vender produtos",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Para jogar futebol",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Para nada",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Para pedir boa colheita"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Como Seu Raimundo aprendeu os cantos?",
+        "options": [
+         {
+          "text": "Num aplicativo",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Na televisão",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Com o avô, pela tradição oral"
+         },
+         {
+          "text": "Num livro",
+          "misconceptionCode": "conceito"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Segundo Mãe Lúcia, como as crianças aprendem as cantigas dos orixás?",
+      "options": [
+       {
+        "text": "Lendo um manual",
+        "misconceptionCode": "guardioes"
+       },
+       {
+        "text": "Num curso on-line obrigatório",
+        "misconceptionCode": "guardioes"
+       },
+       {
+        "text": "Ouvindo os mais velhos no terreiro"
+       },
+       {
+        "text": "Sozinhas, sem ninguém",
+        "misconceptionCode": "guardioes"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Terreiro.",
+      "variants": [
+       {
+        "question": "Que título religioso Mãe Lúcia tem?",
+        "options": [
+         {
+          "text": "Ialorixá (mãe de santo)"
+         },
+         {
+          "text": "Pajé",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Griô",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Cacique",
+          "misconceptionCode": "guardioes"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Segundo Mãe Lúcia, como as crianças aprendem as cantigas dos orixás?",
+        "options": [
+         {
+          "text": "Sozinhas, sem ninguém",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Num curso on-line obrigatório",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Lendo um manual",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Ouvindo os mais velhos no terreiro"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que Dona Esmeralda transmite pela oralidade?",
+      "options": [
+       {
+        "text": "Receitas de outro país",
+        "misconceptionCode": "povos"
+       },
+       {
+        "text": "Notícias de jornal",
+        "misconceptionCode": "povos"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "povos"
+       },
+       {
+        "text": "A língua, as histórias e as festas de seu povo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Tradição cigana.",
+      "variants": [
+       {
+        "question": "A que grupo cigano Dona Esmeralda pertence?",
+        "options": [
+         {
+          "text": "Guarani",
+          "misconceptionCode": "povos"
+         },
+         {
+          "text": "Calon"
+         },
+         {
+          "text": "Iorubá",
+          "misconceptionCode": "povos"
+         },
+         {
+          "text": "Inca",
+          "misconceptionCode": "povos"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que Dona Esmeralda transmite pela oralidade?",
+        "options": [
+         {
+          "text": "A língua, as histórias e as festas de seu povo"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "povos"
+         },
+         {
+          "text": "Notícias de jornal",
+          "misconceptionCode": "povos"
+         },
+         {
+          "text": "Receitas de outro país",
+          "misconceptionCode": "povos"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O que os três relatos mostram em comum?",
+      "options": [
+       {
+        "text": "Os saberes sagrados e culturais são passados pela fala e pela convivência entre gerações"
+       },
+       {
+        "text": "Ninguém aprende nada",
+        "misconceptionCode": "conceito"
+       },
+       {
+        "text": "Só a escrita guarda saberes",
+        "misconceptionCode": "valor"
+       },
+       {
+        "text": "As tradições são iguais",
+        "misconceptionCode": "povos"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Conclusão.",
+      "variants": [
+       {
+        "question": "Por que a convivência é importante na tradição oral?",
+        "options": [
+         {
+          "text": "Não é importante",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Porque tudo está escrito",
+          "misconceptionCode": "valor"
+         },
+         {
+          "text": "Porque os saberes são aprendidos ouvindo, vendo e participando"
+         },
+         {
+          "text": "Porque é proibido conversar",
+          "misconceptionCode": "povos"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que os três relatos mostram em comum?",
+        "options": [
+         {
+          "text": "As tradições são iguais",
+          "misconceptionCode": "povos"
+         },
+         {
+          "text": "Os saberes sagrados e culturais são passados pela fala e pela convivência entre gerações"
+         },
+         {
+          "text": "Só a escrita guarda saberes",
+          "misconceptionCode": "valor"
+         },
+         {
+          "text": "Ninguém aprende nada",
+          "misconceptionCode": "conceito"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05ER05-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: reconhecer a tradição oral",
+    "prompt": "Exemplos.",
+    "estMinutes": 5,
+    "audioScript": "Exemplos. Pergunta 1. Na roda de capoeira, os versos das cantigas são aprendidos: A: Apenas em provas escritas; B: De boca em boca, ouvindo os mestres e os mais velhos; C: Em livros obrigatórios; D: Nunca são aprendidos. Pergunta 2. Um conhecimento sobre plantas medicinais passado por uma avó indígena à neta é um exemplo de: A: Propaganda; B: Notícia falsa; C: Tradição oral; D: Lei escrita. Pergunta 3. Por que a perda dos anciãos pode ameaçar uma tradição oral? A: Não ameaça; B: Porque os livros acabam; C: Porque os jovens não falam; D: Porque eles guardam saberes que podem não ter sido transmitidos. Pergunta 4. Um colega diz que os ciganos \"não têm cultura\". Como responder? A: \"Os povos ciganos têm língua, histórias, músicas, festas e regras próprias, transmitidas oralmente.\"; B: \"Concordo.\"; C: \"Só quem escreve tem cultura.\"; D: \"Não quero saber.\".",
+    "questions": [
+     {
+      "question": "Na roda de capoeira, os versos das cantigas são aprendidos:",
+      "options": [
+       {
+        "text": "Apenas em provas escritas",
+        "misconceptionCode": "conceito"
+       },
+       {
+        "text": "De boca em boca, ouvindo os mestres e os mais velhos"
+       },
+       {
+        "text": "Em livros obrigatórios",
+        "misconceptionCode": "conceito"
+       },
+       {
+        "text": "Nunca são aprendidos",
+        "misconceptionCode": "conceito"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Capoeira.",
+      "variants": [
+       {
+        "question": "Que outra manifestação afro-brasileira transmite versos oralmente?",
+        "options": [
+         {
+          "text": "O xadrez",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "A natação",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "O balé clássico",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "O jongo ou o samba de roda"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Na roda de capoeira, os versos das cantigas são aprendidos:",
+        "options": [
+         {
+          "text": "Nunca são aprendidos",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Em livros obrigatórios",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "De boca em boca, ouvindo os mestres e os mais velhos"
+         },
+         {
+          "text": "Apenas em provas escritas",
+          "misconceptionCode": "conceito"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um conhecimento sobre plantas medicinais passado por uma avó indígena à neta é um exemplo de:",
+      "options": [
+       {
+        "text": "Propaganda",
+        "misconceptionCode": "conceito"
+       },
+       {
+        "text": "Notícia falsa",
+        "misconceptionCode": "conceito"
+       },
+       {
+        "text": "Tradição oral"
+       },
+       {
+        "text": "Lei escrita",
+        "misconceptionCode": "conceito"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Saberes da natureza.",
+      "variants": [
+       {
+        "question": "Por que esse conhecimento deve ser valorizado?",
+        "options": [
+         {
+          "text": "Porque guarda séculos de experiência com a natureza"
+         },
+         {
+          "text": "Porque é moda",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Não deve",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Porque é escrito",
+          "misconceptionCode": "conceito"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um conhecimento sobre plantas medicinais passado por uma avó indígena à neta é um exemplo de:",
+        "options": [
+         {
+          "text": "Lei escrita",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Notícia falsa",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Propaganda",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Tradição oral"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Por que a perda dos anciãos pode ameaçar uma tradição oral?",
+      "options": [
+       {
+        "text": "Não ameaça",
+        "misconceptionCode": "guardioes"
+       },
+       {
+        "text": "Porque os livros acabam",
+        "misconceptionCode": "guardioes"
+       },
+       {
+        "text": "Porque os jovens não falam",
+        "misconceptionCode": "guardioes"
+       },
+       {
+        "text": "Porque eles guardam saberes que podem não ter sido transmitidos"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Risco.",
+      "variants": [
+       {
+        "question": "Como ajudar a preservar a tradição oral, com autorização da comunidade?",
+        "options": [
+         {
+          "text": "Esquecendo",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Gravando e registrando relatos, e incentivando os jovens a aprender com os mais velhos"
+         },
+         {
+          "text": "Proibindo",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Ignorando os anciãos",
+          "misconceptionCode": "guardioes"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Por que a perda dos anciãos pode ameaçar uma tradição oral?",
+        "options": [
+         {
+          "text": "Porque eles guardam saberes que podem não ter sido transmitidos"
+         },
+         {
+          "text": "Porque os jovens não falam",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Porque os livros acabam",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Não ameaça",
+          "misconceptionCode": "guardioes"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Um colega diz que os ciganos \"não têm cultura\". Como responder?",
+      "options": [
+       {
+        "text": "\"Os povos ciganos têm língua, histórias, músicas, festas e regras próprias, transmitidas oralmente.\""
+       },
+       {
+        "text": "\"Concordo.\"",
+        "misconceptionCode": "valor"
+       },
+       {
+        "text": "\"Só quem escreve tem cultura.\"",
+        "misconceptionCode": "valor"
+       },
+       {
+        "text": "\"Não quero saber.\"",
+        "misconceptionCode": "valor"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Combater preconceito.",
+      "variants": [
+       {
+        "question": "Que data celebra os povos ciganos no Brasil?",
+        "options": [
+         {
+          "text": "2 de fevereiro",
+          "misconceptionCode": "valor"
+         },
+         {
+          "text": "25 de dezembro",
+          "misconceptionCode": "valor"
+         },
+         {
+          "text": "24 de maio"
+         },
+         {
+          "text": "7 de setembro",
+          "misconceptionCode": "valor"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um colega diz que os ciganos \"não têm cultura\". Como responder?",
+        "options": [
+         {
+          "text": "\"Não quero saber.\"",
+          "misconceptionCode": "valor"
+         },
+         {
+          "text": "\"Os povos ciganos têm língua, histórias, músicas, festas e regras próprias, transmitidas oralmente.\""
+         },
+         {
+          "text": "\"Só quem escreve tem cultura.\"",
+          "misconceptionCode": "valor"
+         },
+         {
+          "text": "\"Concordo.\"",
+          "misconceptionCode": "valor"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05ER05-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: o projeto \"Vozes da comunidade\"",
+    "prompt": "Registrar com respeito.",
+    "estMinutes": 4,
+    "audioScript": "Registrar com respeito. Pergunta 1. A turma vai registrar histórias orais da comunidade. Qual é o primeiro cuidado? A: Gravar escondido; B: Pedir autorização às pessoas e respeitar o que for sagrado e não puder ser divulgado; C: Publicar sem perguntar; D: Inventar histórias. Pergunta 2. Como organizar o registro? A: Só o resumo sem dizer quem contou; B: Só a opinião da turma; C: Nome de quem contou (com autorização), povo ou tradição, data e resumo da história; D: Nada. Pergunta 3. Que conclusão o projeto pode apresentar? A: \"Só os livros guardam a memória.\"; B: \"A tradição oral está errada.\"; C: \"Só um povo tem tradição oral.\"; D: \"Indígenas, afro-brasileiros, ciganos e muitos outros guardam sua memória pela fala, e isso é patrimônio de todos.\".",
+    "questions": [
+     {
+      "question": "A turma vai registrar histórias orais da comunidade. Qual é o primeiro cuidado?",
+      "options": [
+       {
+        "text": "Gravar escondido",
+        "misconceptionCode": "valor"
+       },
+       {
+        "text": "Pedir autorização às pessoas e respeitar o que for sagrado e não puder ser divulgado"
+       },
+       {
+        "text": "Publicar sem perguntar",
+        "misconceptionCode": "valor"
+       },
+       {
+        "text": "Inventar histórias",
+        "misconceptionCode": "valor"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Autorização.",
+      "variants": [
+       {
+        "question": "Por que alguns saberes sagrados não devem ser divulgados?",
+        "options": [
+         {
+          "text": "Porque são falsos",
+          "misconceptionCode": "valor"
+         },
+         {
+          "text": "Porque são feios",
+          "misconceptionCode": "valor"
+         },
+         {
+          "text": "Não há motivo",
+          "misconceptionCode": "valor"
+         },
+         {
+          "text": "Porque a comunidade pode considerá-los reservados aos seus membros"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A turma vai registrar histórias orais da comunidade. Qual é o primeiro cuidado?",
+        "options": [
+         {
+          "text": "Inventar histórias",
+          "misconceptionCode": "valor"
+         },
+         {
+          "text": "Publicar sem perguntar",
+          "misconceptionCode": "valor"
+         },
+         {
+          "text": "Pedir autorização às pessoas e respeitar o que for sagrado e não puder ser divulgado"
+         },
+         {
+          "text": "Gravar escondido",
+          "misconceptionCode": "valor"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Como organizar o registro?",
+      "options": [
+       {
+        "text": "Só o resumo sem dizer quem contou",
+        "misconceptionCode": "guardioes"
+       },
+       {
+        "text": "Só a opinião da turma",
+        "misconceptionCode": "guardioes"
+       },
+       {
+        "text": "Nome de quem contou (com autorização), povo ou tradição, data e resumo da história"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "guardioes"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Organização.",
+      "variants": [
+       {
+        "question": "Por que registrar quem contou a história?",
+        "options": [
+         {
+          "text": "Para reconhecer e valorizar o guardião do saber"
+         },
+         {
+          "text": "Para expor a pessoa sem permissão",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Não é preciso",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Para criticar",
+          "misconceptionCode": "guardioes"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Como organizar o registro?",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Só a opinião da turma",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Só o resumo sem dizer quem contou",
+          "misconceptionCode": "guardioes"
+         },
+         {
+          "text": "Nome de quem contou (com autorização), povo ou tradição, data e resumo da história"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Que conclusão o projeto pode apresentar?",
+      "options": [
+       {
+        "text": "\"Só os livros guardam a memória.\"",
+        "misconceptionCode": "valor"
+       },
+       {
+        "text": "\"A tradição oral está errada.\"",
+        "misconceptionCode": "valor"
+       },
+       {
+        "text": "\"Só um povo tem tradição oral.\"",
+        "misconceptionCode": "povos"
+       },
+       {
+        "text": "\"Indígenas, afro-brasileiros, ciganos e muitos outros guardam sua memória pela fala, e isso é patrimônio de todos.\""
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Conclusão.",
+      "variants": [
+       {
+        "question": "Como devolver o trabalho à comunidade?",
+        "options": [
+         {
+          "text": "Guardar só para a turma",
+          "misconceptionCode": "valor"
+         },
+         {
+          "text": "Apresentar o resultado aos entrevistados e entregar uma cópia a eles"
+         },
+         {
+          "text": "Vender as histórias",
+          "misconceptionCode": "valor"
+         },
+         {
+          "text": "Apagar",
+          "misconceptionCode": "povos"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Que conclusão o projeto pode apresentar?",
+        "options": [
+         {
+          "text": "\"Indígenas, afro-brasileiros, ciganos e muitos outros guardam sua memória pela fala, e isso é patrimônio de todos.\""
+         },
+         {
+          "text": "\"Só um povo tem tradição oral.\"",
+          "misconceptionCode": "povos"
+         },
+         {
+          "text": "\"A tradição oral está errada.\"",
+          "misconceptionCode": "valor"
+         },
+         {
+          "text": "\"Só os livros guardam a memória.\"",
+          "misconceptionCode": "valor"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF05ER05-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: a tradição oral",
+    "prompt": "Explique a tradição oral em diferentes povos e por que valorizá-la.",
+    "estMinutes": 6,
+    "audioScript": "Explique a tradição oral em diferentes povos e por que valorizá-la.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "conceito",
+       "description": "Explica o que é tradição oral"
+      },
+      {
+       "code": "guardioes-povos",
+       "description": "Cita guardiões e povos que transmitem saberes oralmente"
+      },
+      {
+       "code": "valor",
+       "description": "Explica o valor da tradição oral e o respeito"
+      }
+     ],
+     "exemploBoaResposta": "Tradição oral é a transmissão de saberes, histórias, cantos, rezas e valores pela fala, de geração em geração. Entre povos indígenas, anciãos e pajés ensinam mitos, cantos e saberes sobre plantas, como Seu Raimundo com os cantos da colheita. Na matriz africana, os griôs guardam histórias, e nos terreiros mães e pais de santo ensinam as cantigas dos orixás; na capoeira e no jongo, os versos passam de boca em boca. Os povos ciganos, como os calon, transmitem língua, histórias e festas na convivência. A tradição oral é uma forma legítima de preservar a memória e deve ser valorizada e registrada com autorização."
+    }
+   }
+  ]
+ },
+ {
   "skillCode": "EF05ER06",
   "subjectCode": "ER",
   "subjectName": "Ensino Religioso",

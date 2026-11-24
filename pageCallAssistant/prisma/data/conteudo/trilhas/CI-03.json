@@ -1,5 +1,6575 @@
 [
  {
+  "skillCode": "EF03CI02",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: O caminho da luz",
+  "tituloAluno": "Transparente, opaco e espelho",
+  "activities": [
+   {
+    "id": "PK2-EF03CI02-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: a luz ao nosso redor",
+    "prompt": "De onde vem e por onde passa.",
+    "estMinutes": 4,
+    "audioScript": "De onde vem e por onde passa. Pergunta 1. Qual destes objetos deixa a luz passar e nos deixa ver através dele? A: O vidro da janela; B: A parede; C: A porta de madeira; D: O prato de louça. Pergunta 2. O que acontece quando colocamos a mão na frente de uma lanterna acesa? A: A luz atravessa a mão inteira; B: Aparece a sombra da mão; C: A mão fica transparente; D: A lanterna apaga. Pergunta 3. O que acontece com a luz quando ela bate num espelho? A: Ela some; B: Ela atravessa o espelho; C: Ela volta, e por isso vemos nossa imagem; D: Ela vira sombra. Pergunta 4. O arco-íris aparece quando a luz do Sol passa por: A: Uma parede; B: Uma folha de papel; C: Uma pedra; D: Gotas de água no ar.",
+    "questions": [
+     {
+      "question": "Qual destes objetos deixa a luz passar e nos deixa ver através dele?",
+      "options": [
+       {
+        "text": "O vidro da janela"
+       },
+       {
+        "text": "A parede",
+        "misconceptionCode": "transparente"
+       },
+       {
+        "text": "A porta de madeira",
+        "misconceptionCode": "transparente"
+       },
+       {
+        "text": "O prato de louça",
+        "misconceptionCode": "transparente"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "O vidro é transparente.",
+      "variants": [
+       {
+        "question": "Qual destes objetos é transparente?",
+        "options": [
+         {
+          "text": "Uma caixa de papelão",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "Um tijolo",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "Um copo de vidro com água limpa"
+         },
+         {
+          "text": "Uma tampa de panela de metal",
+          "misconceptionCode": "transparente"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual destes objetos deixa a luz passar e nos deixa ver através dele?",
+        "options": [
+         {
+          "text": "O prato de louça",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "O vidro da janela"
+         },
+         {
+          "text": "A porta de madeira",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "A parede",
+          "misconceptionCode": "transparente"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O que acontece quando colocamos a mão na frente de uma lanterna acesa?",
+      "options": [
+       {
+        "text": "A luz atravessa a mão inteira",
+        "misconceptionCode": "opaco-sombra"
+       },
+       {
+        "text": "Aparece a sombra da mão"
+       },
+       {
+        "text": "A mão fica transparente",
+        "misconceptionCode": "opaco-sombra"
+       },
+       {
+        "text": "A lanterna apaga",
+        "misconceptionCode": "opaco-sombra"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "A mão é opaca e bloqueia a luz.",
+      "variants": [
+       {
+        "question": "Por que a parede forma sombra quando o sol bate nela?",
+        "options": [
+         {
+          "text": "Porque a parede é transparente",
+          "misconceptionCode": "opaco-sombra"
+         },
+         {
+          "text": "Porque a parede tem luz própria",
+          "misconceptionCode": "opaco-sombra"
+         },
+         {
+          "text": "Porque a parede reflete toda a luz como um espelho",
+          "misconceptionCode": "opaco-sombra"
+         },
+         {
+          "text": "Porque a parede é opaca e não deixa a luz passar"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que acontece quando colocamos a mão na frente de uma lanterna acesa?",
+        "options": [
+         {
+          "text": "A lanterna apaga",
+          "misconceptionCode": "opaco-sombra"
+         },
+         {
+          "text": "A mão fica transparente",
+          "misconceptionCode": "opaco-sombra"
+         },
+         {
+          "text": "Aparece a sombra da mão"
+         },
+         {
+          "text": "A luz atravessa a mão inteira",
+          "misconceptionCode": "opaco-sombra"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O que acontece com a luz quando ela bate num espelho?",
+      "options": [
+       {
+        "text": "Ela some",
+        "misconceptionCode": "espelho"
+       },
+       {
+        "text": "Ela atravessa o espelho",
+        "misconceptionCode": "espelho"
+       },
+       {
+        "text": "Ela volta, e por isso vemos nossa imagem"
+       },
+       {
+        "text": "Ela vira sombra",
+        "misconceptionCode": "espelho"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O espelho reflete a luz.",
+      "variants": [
+       {
+        "question": "Para que serve o espelho retrovisor do carro?",
+        "options": [
+         {
+          "text": "Para o motorista ver o que está atrás, pela luz refletida"
+         },
+         {
+          "text": "Para deixar a luz passar",
+          "misconceptionCode": "espelho"
+         },
+         {
+          "text": "Para fazer sombra",
+          "misconceptionCode": "espelho"
+         },
+         {
+          "text": "Para enfeitar",
+          "misconceptionCode": "espelho"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que acontece com a luz quando ela bate num espelho?",
+        "options": [
+         {
+          "text": "Ela vira sombra",
+          "misconceptionCode": "espelho"
+         },
+         {
+          "text": "Ela atravessa o espelho",
+          "misconceptionCode": "espelho"
+         },
+         {
+          "text": "Ela some",
+          "misconceptionCode": "espelho"
+         },
+         {
+          "text": "Ela volta, e por isso vemos nossa imagem"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O arco-íris aparece quando a luz do Sol passa por:",
+      "options": [
+       {
+        "text": "Uma parede",
+        "misconceptionCode": "prisma"
+       },
+       {
+        "text": "Uma folha de papel",
+        "misconceptionCode": "prisma"
+       },
+       {
+        "text": "Uma pedra",
+        "misconceptionCode": "prisma"
+       },
+       {
+        "text": "Gotas de água no ar"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A água separa a luz em cores.",
+      "variants": [
+       {
+        "question": "Que objeto de vidro separa a luz branca em várias cores?",
+        "options": [
+         {
+          "text": "O tijolo",
+          "misconceptionCode": "prisma"
+         },
+         {
+          "text": "O prisma"
+         },
+         {
+          "text": "A madeira",
+          "misconceptionCode": "prisma"
+         },
+         {
+          "text": "O prato de louça",
+          "misconceptionCode": "prisma"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O arco-íris aparece quando a luz do Sol passa por:",
+        "options": [
+         {
+          "text": "Gotas de água no ar"
+         },
+         {
+          "text": "Uma pedra",
+          "misconceptionCode": "prisma"
+         },
+         {
+          "text": "Uma folha de papel",
+          "misconceptionCode": "prisma"
+         },
+         {
+          "text": "Uma parede",
+          "misconceptionCode": "prisma"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI02-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: a turma testa a lanterna",
+    "prompt": "A professora apagou a luz da sala e acendeu uma lanterna. A turma colocou na frente da luz, um de cada vez: um copo de vidro com água, um papel-manteiga, um prato e um espelho. Anotaram o que viram.",
+    "estMinutes": 4,
+    "audioScript": "A professora apagou a luz da sala e acendeu uma lanterna. A turma colocou na frente da luz, um de cada vez: um copo de vidro com água, um papel-manteiga, um prato e um espelho. Anotaram o que viram. Pergunta 1. O que a turma viu com o copo de vidro com água? A: A luz atravessou o copo; B: A luz parou totalmente no copo; C: O copo fez uma sombra escura igual à do prato; D: A luz voltou toda para a lanterna. Pergunta 2. O que a turma viu com o prato? A: A luz atravessando o prato; B: Uma sombra atrás do prato; C: Cores do arco-íris; D: Nada mudou. Pergunta 3. O que a turma viu quando apontou a lanterna para o espelho? A: A luz atravessou o espelho; B: A luz sumiu; C: A luz bateu no espelho e foi iluminar outro lugar da sala; D: O espelho fez sombra escura. Pergunta 4. Que cuidado a turma deve ter no experimento? A: Olhar direto para o Sol; B: Apontar a luz forte nos olhos; C: Quebrar o espelho para ver dentro; D: Nunca apontar a lanterna ou o reflexo do espelho para os olhos dos colegas.",
+    "questions": [
+     {
+      "question": "O que a turma viu com o copo de vidro com água?",
+      "options": [
+       {
+        "text": "A luz atravessou o copo"
+       },
+       {
+        "text": "A luz parou totalmente no copo",
+        "misconceptionCode": "transparente"
+       },
+       {
+        "text": "O copo fez uma sombra escura igual à do prato",
+        "misconceptionCode": "transparente"
+       },
+       {
+        "text": "A luz voltou toda para a lanterna",
+        "misconceptionCode": "transparente"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Vidro e água limpa são transparentes.",
+      "variants": [
+       {
+        "question": "E com o papel-manteiga?",
+        "options": [
+         {
+          "text": "A luz passou toda e dava para ver tudo",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "A luz não passou nada",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "Passou só um pouco de luz, e não dava para ver nítido através dele"
+         },
+         {
+          "text": "A luz voltou como num espelho",
+          "misconceptionCode": "transparente"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que a turma viu com o copo de vidro com água?",
+        "options": [
+         {
+          "text": "A luz voltou toda para a lanterna",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "A luz atravessou o copo"
+         },
+         {
+          "text": "O copo fez uma sombra escura igual à do prato",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "A luz parou totalmente no copo",
+          "misconceptionCode": "transparente"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O que a turma viu com o prato?",
+      "options": [
+       {
+        "text": "A luz atravessando o prato",
+        "misconceptionCode": "opaco-sombra"
+       },
+       {
+        "text": "Uma sombra atrás do prato"
+       },
+       {
+        "text": "Cores do arco-íris",
+        "misconceptionCode": "opaco-sombra"
+       },
+       {
+        "text": "Nada mudou",
+        "misconceptionCode": "opaco-sombra"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "O prato é opaco.",
+      "variants": [
+       {
+        "question": "Como se chama um objeto que não deixa a luz passar?",
+        "options": [
+         {
+          "text": "Transparente",
+          "misconceptionCode": "opaco-sombra"
+         },
+         {
+          "text": "Translúcido",
+          "misconceptionCode": "opaco-sombra"
+         },
+         {
+          "text": "Brilhante",
+          "misconceptionCode": "opaco-sombra"
+         },
+         {
+          "text": "Opaco"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que a turma viu com o prato?",
+        "options": [
+         {
+          "text": "Nada mudou",
+          "misconceptionCode": "opaco-sombra"
+         },
+         {
+          "text": "Cores do arco-íris",
+          "misconceptionCode": "opaco-sombra"
+         },
+         {
+          "text": "Uma sombra atrás do prato"
+         },
+         {
+          "text": "A luz atravessando o prato",
+          "misconceptionCode": "opaco-sombra"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O que a turma viu quando apontou a lanterna para o espelho?",
+      "options": [
+       {
+        "text": "A luz atravessou o espelho",
+        "misconceptionCode": "espelho"
+       },
+       {
+        "text": "A luz sumiu",
+        "misconceptionCode": "espelho"
+       },
+       {
+        "text": "A luz bateu no espelho e foi iluminar outro lugar da sala"
+       },
+       {
+        "text": "O espelho fez sombra escura",
+        "misconceptionCode": "espelho"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Reflexão.",
+      "variants": [
+       {
+        "question": "Que outro objeto da casa também reflete bem a luz?",
+        "options": [
+         {
+          "text": "Uma panela de metal bem lisa e brilhante"
+         },
+         {
+          "text": "Um pano de chão",
+          "misconceptionCode": "espelho"
+         },
+         {
+          "text": "Um pedaço de pão",
+          "misconceptionCode": "espelho"
+         },
+         {
+          "text": "Uma almofada",
+          "misconceptionCode": "espelho"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que a turma viu quando apontou a lanterna para o espelho?",
+        "options": [
+         {
+          "text": "O espelho fez sombra escura",
+          "misconceptionCode": "espelho"
+         },
+         {
+          "text": "A luz sumiu",
+          "misconceptionCode": "espelho"
+         },
+         {
+          "text": "A luz atravessou o espelho",
+          "misconceptionCode": "espelho"
+         },
+         {
+          "text": "A luz bateu no espelho e foi iluminar outro lugar da sala"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Que cuidado a turma deve ter no experimento?",
+      "options": [
+       {
+        "text": "Olhar direto para o Sol",
+        "misconceptionCode": "espelho"
+       },
+       {
+        "text": "Apontar a luz forte nos olhos",
+        "misconceptionCode": "espelho"
+       },
+       {
+        "text": "Quebrar o espelho para ver dentro",
+        "misconceptionCode": "espelho"
+       },
+       {
+        "text": "Nunca apontar a lanterna ou o reflexo do espelho para os olhos dos colegas"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Proteger os olhos.",
+      "variants": [
+       {
+        "question": "Por que não se deve olhar diretamente para o Sol?",
+        "options": [
+         {
+          "text": "Porque o Sol é frio",
+          "misconceptionCode": "espelho"
+         },
+         {
+          "text": "Porque a luz forte pode machucar os olhos"
+         },
+         {
+          "text": "Porque o Sol é pequeno",
+          "misconceptionCode": "espelho"
+         },
+         {
+          "text": "Porque não faz diferença",
+          "misconceptionCode": "espelho"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Que cuidado a turma deve ter no experimento?",
+        "options": [
+         {
+          "text": "Nunca apontar a lanterna ou o reflexo do espelho para os olhos dos colegas"
+         },
+         {
+          "text": "Quebrar o espelho para ver dentro",
+          "misconceptionCode": "espelho"
+         },
+         {
+          "text": "Apontar a luz forte nos olhos",
+          "misconceptionCode": "espelho"
+         },
+         {
+          "text": "Olhar direto para o Sol",
+          "misconceptionCode": "espelho"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI02-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: classificar objetos",
+    "prompt": "Transparente, translúcido ou opaco.",
+    "estMinutes": 5,
+    "audioScript": "Transparente, translúcido ou opaco. Pergunta 1. Como se classifica uma folha de papel-manteiga? A: Translúcida: passa um pouco de luz, mas não vemos com clareza; B: Transparente; C: Opaca; D: Espelho. Pergunta 2. Na hora do recreio, ao meio-dia, a sombra da criança está: A: Muito comprida; B: Bem curtinha, embaixo dela; C: Transparente; D: Colorida. Pergunta 3. Por que conseguimos ver os peixes num aquário de vidro? A: Porque o vidro é opaco; B: Porque os peixes fazem sombra; C: Porque o vidro e a água limpa deixam a luz passar; D: Porque o vidro reflete toda a luz. Pergunta 4. Ao colocar um copo com água no sol, apareceu uma faixa colorida na mesa. O que aconteceu? A: O copo pintou a mesa; B: A mesa fez sombra; C: O sol ficou colorido; D: A água separou a luz do Sol em cores.",
+    "questions": [
+     {
+      "question": "Como se classifica uma folha de papel-manteiga?",
+      "options": [
+       {
+        "text": "Translúcida: passa um pouco de luz, mas não vemos com clareza"
+       },
+       {
+        "text": "Transparente",
+        "misconceptionCode": "transparente"
+       },
+       {
+        "text": "Opaca",
+        "misconceptionCode": "transparente"
+       },
+       {
+        "text": "Espelho",
+        "misconceptionCode": "transparente"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Translúcido.",
+      "variants": [
+       {
+        "question": "Qual objeto também é translúcido?",
+        "options": [
+         {
+          "text": "Uma janela de vidro limpo",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "Uma parede de tijolo",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "Um vidro jateado do banheiro"
+         },
+         {
+          "text": "Uma porta de madeira",
+          "misconceptionCode": "transparente"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Como se classifica uma folha de papel-manteiga?",
+        "options": [
+         {
+          "text": "Espelho",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "Translúcida: passa um pouco de luz, mas não vemos com clareza"
+         },
+         {
+          "text": "Opaca",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "Transparente",
+          "misconceptionCode": "transparente"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Na hora do recreio, ao meio-dia, a sombra da criança está:",
+      "options": [
+       {
+        "text": "Muito comprida",
+        "misconceptionCode": "opaco-sombra"
+       },
+       {
+        "text": "Bem curtinha, embaixo dela"
+       },
+       {
+        "text": "Transparente",
+        "misconceptionCode": "opaco-sombra"
+       },
+       {
+        "text": "Colorida",
+        "misconceptionCode": "opaco-sombra"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Sol alto, sombra curta.",
+      "variants": [
+       {
+        "question": "No fim da tarde, como fica a sombra?",
+        "options": [
+         {
+          "text": "Some de vez",
+          "misconceptionCode": "opaco-sombra"
+         },
+         {
+          "text": "Fica colorida",
+          "misconceptionCode": "opaco-sombra"
+         },
+         {
+          "text": "Fica embaixo dos pés",
+          "misconceptionCode": "opaco-sombra"
+         },
+         {
+          "text": "Mais comprida"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Na hora do recreio, ao meio-dia, a sombra da criança está:",
+        "options": [
+         {
+          "text": "Colorida",
+          "misconceptionCode": "opaco-sombra"
+         },
+         {
+          "text": "Transparente",
+          "misconceptionCode": "opaco-sombra"
+         },
+         {
+          "text": "Bem curtinha, embaixo dela"
+         },
+         {
+          "text": "Muito comprida",
+          "misconceptionCode": "opaco-sombra"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Por que conseguimos ver os peixes num aquário de vidro?",
+      "options": [
+       {
+        "text": "Porque o vidro é opaco",
+        "misconceptionCode": "transparente"
+       },
+       {
+        "text": "Porque os peixes fazem sombra",
+        "misconceptionCode": "transparente"
+       },
+       {
+        "text": "Porque o vidro e a água limpa deixam a luz passar"
+       },
+       {
+        "text": "Porque o vidro reflete toda a luz",
+        "misconceptionCode": "transparente"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Transparência.",
+      "variants": [
+       {
+        "question": "Se a água do aquário ficar muito suja, o que acontece?",
+        "options": [
+         {
+          "text": "Fica difícil ver os peixes, porque passa menos luz"
+         },
+         {
+          "text": "Os peixes ficam mais visíveis",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "O vidro vira espelho",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "Nada muda",
+          "misconceptionCode": "transparente"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Por que conseguimos ver os peixes num aquário de vidro?",
+        "options": [
+         {
+          "text": "Porque o vidro reflete toda a luz",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "Porque os peixes fazem sombra",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "Porque o vidro é opaco",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "Porque o vidro e a água limpa deixam a luz passar"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Ao colocar um copo com água no sol, apareceu uma faixa colorida na mesa. O que aconteceu?",
+      "options": [
+       {
+        "text": "O copo pintou a mesa",
+        "misconceptionCode": "prisma"
+       },
+       {
+        "text": "A mesa fez sombra",
+        "misconceptionCode": "prisma"
+       },
+       {
+        "text": "O sol ficou colorido",
+        "misconceptionCode": "prisma"
+       },
+       {
+        "text": "A água separou a luz do Sol em cores"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Separação da luz.",
+      "variants": [
+       {
+        "question": "Que fenômeno da natureza acontece do mesmo jeito?",
+        "options": [
+         {
+          "text": "O trovão",
+          "misconceptionCode": "prisma"
+         },
+         {
+          "text": "O arco-íris"
+         },
+         {
+          "text": "O vento",
+          "misconceptionCode": "prisma"
+         },
+         {
+          "text": "A neblina",
+          "misconceptionCode": "prisma"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Ao colocar um copo com água no sol, apareceu uma faixa colorida na mesa. O que aconteceu?",
+        "options": [
+         {
+          "text": "A água separou a luz do Sol em cores"
+         },
+         {
+          "text": "O sol ficou colorido",
+          "misconceptionCode": "prisma"
+         },
+         {
+          "text": "A mesa fez sombra",
+          "misconceptionCode": "prisma"
+         },
+         {
+          "text": "O copo pintou a mesa",
+          "misconceptionCode": "prisma"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI02-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: a luz no dia a dia",
+    "prompt": "Escolher materiais.",
+    "estMinutes": 4,
+    "audioScript": "Escolher materiais. Pergunta 1. Para a sala de aula ficar bem iluminada pela luz do sol, a janela deve ser de: A: Vidro transparente; B: Madeira; C: Tijolo; D: Metal. Pergunta 2. No teatro de sombras, o que usamos para fazer os personagens? A: Folhas de plástico transparente; B: Figuras de papelão, que são opacas; C: Espelhos; D: Copos de água. Pergunta 3. O dentista usa um espelho pequeno durante a consulta. Para quê? A: Para fazer sombra na boca; B: Para a luz atravessar os dentes; C: Para ver partes dos dentes que estão escondidas, usando a luz refletida; D: Para separar a luz em cores.",
+    "questions": [
+     {
+      "question": "Para a sala de aula ficar bem iluminada pela luz do sol, a janela deve ser de:",
+      "options": [
+       {
+        "text": "Vidro transparente"
+       },
+       {
+        "text": "Madeira",
+        "misconceptionCode": "transparente"
+       },
+       {
+        "text": "Tijolo",
+        "misconceptionCode": "transparente"
+       },
+       {
+        "text": "Metal",
+        "misconceptionCode": "transparente"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "A luz precisa passar.",
+      "variants": [
+       {
+        "question": "Para escurecer o quarto e dormir de dia, qual cortina é melhor?",
+        "options": [
+         {
+          "text": "Uma cortina de plástico transparente",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "Uma cortina de tule bem fina",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "Uma cortina grossa e opaca"
+         },
+         {
+          "text": "Nenhuma cortina",
+          "misconceptionCode": "transparente"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Para a sala de aula ficar bem iluminada pela luz do sol, a janela deve ser de:",
+        "options": [
+         {
+          "text": "Metal",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "Vidro transparente"
+         },
+         {
+          "text": "Tijolo",
+          "misconceptionCode": "transparente"
+         },
+         {
+          "text": "Madeira",
+          "misconceptionCode": "transparente"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "No teatro de sombras, o que usamos para fazer os personagens?",
+      "options": [
+       {
+        "text": "Folhas de plástico transparente",
+        "misconceptionCode": "opaco-sombra"
+       },
+       {
+        "text": "Figuras de papelão, que são opacas"
+       },
+       {
+        "text": "Espelhos",
+        "misconceptionCode": "opaco-sombra"
+       },
+       {
+        "text": "Copos de água",
+        "misconceptionCode": "opaco-sombra"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Opaco forma sombra.",
+      "variants": [
+       {
+        "question": "O que mais é preciso para fazer o teatro de sombras?",
+        "options": [
+         {
+          "text": "Nenhuma luz",
+          "misconceptionCode": "opaco-sombra"
+         },
+         {
+          "text": "Muita água",
+          "misconceptionCode": "opaco-sombra"
+         },
+         {
+          "text": "Um prisma",
+          "misconceptionCode": "opaco-sombra"
+         },
+         {
+          "text": "Uma luz atrás das figuras e uma tela na frente"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "No teatro de sombras, o que usamos para fazer os personagens?",
+        "options": [
+         {
+          "text": "Copos de água",
+          "misconceptionCode": "opaco-sombra"
+         },
+         {
+          "text": "Espelhos",
+          "misconceptionCode": "opaco-sombra"
+         },
+         {
+          "text": "Figuras de papelão, que são opacas"
+         },
+         {
+          "text": "Folhas de plástico transparente",
+          "misconceptionCode": "opaco-sombra"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O dentista usa um espelho pequeno durante a consulta. Para quê?",
+      "options": [
+       {
+        "text": "Para fazer sombra na boca",
+        "misconceptionCode": "espelho"
+       },
+       {
+        "text": "Para a luz atravessar os dentes",
+        "misconceptionCode": "espelho"
+       },
+       {
+        "text": "Para ver partes dos dentes que estão escondidas, usando a luz refletida"
+       },
+       {
+        "text": "Para separar a luz em cores",
+        "misconceptionCode": "espelho"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Reflexão útil.",
+      "variants": [
+       {
+        "question": "Onde mais usamos espelhos para ver o que não está na frente?",
+        "options": [
+         {
+          "text": "Nas curvas perigosas das ruas e garagens"
+         },
+         {
+          "text": "Dentro da geladeira fechada",
+          "misconceptionCode": "espelho"
+         },
+         {
+          "text": "Embaixo da terra",
+          "misconceptionCode": "espelho"
+         },
+         {
+          "text": "Dentro de uma caixa fechada",
+          "misconceptionCode": "espelho"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O dentista usa um espelho pequeno durante a consulta. Para quê?",
+        "options": [
+         {
+          "text": "Para separar a luz em cores",
+          "misconceptionCode": "espelho"
+         },
+         {
+          "text": "Para a luz atravessar os dentes",
+          "misconceptionCode": "espelho"
+         },
+         {
+          "text": "Para fazer sombra na boca",
+          "misconceptionCode": "espelho"
+         },
+         {
+          "text": "Para ver partes dos dentes que estão escondidas, usando a luz refletida"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI02-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: o caminho da luz",
+    "prompt": "Explique o que acontece com a luz quando ela encontra objetos transparentes, opacos e espelhos.",
+    "estMinutes": 6,
+    "audioScript": "Explique o que acontece com a luz quando ela encontra objetos transparentes, opacos e espelhos.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "transparente",
+       "description": "Explica que a luz atravessa objetos transparentes e passa um pouco pelos translúcidos"
+      },
+      {
+       "code": "opaco",
+       "description": "Explica que objetos opacos bloqueiam a luz e formam sombra"
+      },
+      {
+       "code": "reflexao-cores",
+       "description": "Explica a reflexão no espelho e a separação da luz em cores na água ou no prisma"
+      }
+     ],
+     "exemploBoaResposta": "Quando a luz encontra um objeto transparente, como o vidro ou a água limpa, ela atravessa, e conseguimos ver do outro lado. No papel-manteiga, que é translúcido, passa só um pouco de luz. Quando encontra um objeto opaco, como um prato ou nossa mão, a luz não passa e se forma uma sombra. No espelho, a luz bate e volta, e por isso vemos nossa imagem. Na água e no prisma, a luz branca se separa em cores, como no arco-íris. Nunca devemos apontar luz forte para os olhos."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF03CI03",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: Cuidar dos olhos e dos ouvidos",
+  "tituloAluno": "Luz e som na medida certa",
+  "activities": [
+   {
+    "id": "PK2-EF03CI03-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: olhos e ouvidos",
+    "prompt": "Sentidos preciosos.",
+    "estMinutes": 4,
+    "audioScript": "Sentidos preciosos. Pergunta 1. Qual hábito ajuda a cuidar da audição? A: Usar o fone no volume máximo todos os dias; B: Usar o fone de ouvido com volume baixo; C: Ficar colado na caixa de som do show; D: Colocar o palito dentro do ouvido. Pergunta 2. Qual lugar é melhor para ler um livro? A: Um quarto escuro; B: Debaixo do cobertor sem luz; C: Um lugar bem iluminado; D: Dentro do carro à noite sem luz. Pergunta 3. O que é um bom hábito ao usar celular ou tablet? A: Encostar a tela no nariz; B: Usar o dia inteiro sem parar; C: Usar no escuro até tarde da noite; D: Fazer pausas e manter a tela longe do rosto. Pergunta 4. Por que não devemos colocar cotonete ou palito dentro do ouvido? A: Porque podem machucar o ouvido por dentro; B: Porque limpam demais; C: Porque ajudam a ouvir melhor; D: Porque não faz diferença.",
+    "questions": [
+     {
+      "question": "Qual hábito ajuda a cuidar da audição?",
+      "options": [
+       {
+        "text": "Usar o fone no volume máximo todos os dias",
+        "misconceptionCode": "som-alto"
+       },
+       {
+        "text": "Usar o fone de ouvido com volume baixo"
+       },
+       {
+        "text": "Ficar colado na caixa de som do show",
+        "misconceptionCode": "som-alto"
+       },
+       {
+        "text": "Colocar o palito dentro do ouvido",
+        "misconceptionCode": "protecao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Volume moderado.",
+      "variants": [
+       {
+        "question": "O que pode acontecer se ouvirmos som muito alto por muito tempo?",
+        "options": [
+         {
+          "text": "A audição fica mais forte",
+          "misconceptionCode": "som-alto"
+         },
+         {
+          "text": "Nada acontece",
+          "misconceptionCode": "som-alto"
+         },
+         {
+          "text": "Os olhos melhoram",
+          "misconceptionCode": "protecao"
+         },
+         {
+          "text": "A audição pode ser prejudicada"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual hábito ajuda a cuidar da audição?",
+        "options": [
+         {
+          "text": "Colocar o palito dentro do ouvido",
+          "misconceptionCode": "protecao"
+         },
+         {
+          "text": "Ficar colado na caixa de som do show",
+          "misconceptionCode": "som-alto"
+         },
+         {
+          "text": "Usar o fone de ouvido com volume baixo"
+         },
+         {
+          "text": "Usar o fone no volume máximo todos os dias",
+          "misconceptionCode": "som-alto"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual lugar é melhor para ler um livro?",
+      "options": [
+       {
+        "text": "Um quarto escuro",
+        "misconceptionCode": "luz"
+       },
+       {
+        "text": "Debaixo do cobertor sem luz",
+        "misconceptionCode": "luz"
+       },
+       {
+        "text": "Um lugar bem iluminado"
+       },
+       {
+        "text": "Dentro do carro à noite sem luz",
+        "misconceptionCode": "luz"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Boa iluminação.",
+      "variants": [
+       {
+        "question": "O que acontece quando lemos com pouca luz por muito tempo?",
+        "options": [
+         {
+          "text": "Os olhos se cansam"
+         },
+         {
+          "text": "Os olhos descansam",
+          "misconceptionCode": "luz"
+         },
+         {
+          "text": "Lemos mais rápido",
+          "misconceptionCode": "luz"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "luz"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual lugar é melhor para ler um livro?",
+        "options": [
+         {
+          "text": "Dentro do carro à noite sem luz",
+          "misconceptionCode": "luz"
+         },
+         {
+          "text": "Debaixo do cobertor sem luz",
+          "misconceptionCode": "luz"
+         },
+         {
+          "text": "Um quarto escuro",
+          "misconceptionCode": "luz"
+         },
+         {
+          "text": "Um lugar bem iluminado"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que é um bom hábito ao usar celular ou tablet?",
+      "options": [
+       {
+        "text": "Encostar a tela no nariz",
+        "misconceptionCode": "telas"
+       },
+       {
+        "text": "Usar o dia inteiro sem parar",
+        "misconceptionCode": "telas"
+       },
+       {
+        "text": "Usar no escuro até tarde da noite",
+        "misconceptionCode": "telas"
+       },
+       {
+        "text": "Fazer pausas e manter a tela longe do rosto"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Cuidado com telas.",
+      "variants": [
+       {
+        "question": "Durante as pausas da tela, o que é bom fazer?",
+        "options": [
+         {
+          "text": "Olhar para outra tela",
+          "misconceptionCode": "telas"
+         },
+         {
+          "text": "Olhar para longe, pela janela, e piscar"
+         },
+         {
+          "text": "Fechar os olhos com força e esfregá-los",
+          "misconceptionCode": "telas"
+         },
+         {
+          "text": "Apertar os olhos com as mãos sujas",
+          "misconceptionCode": "telas"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que é um bom hábito ao usar celular ou tablet?",
+        "options": [
+         {
+          "text": "Fazer pausas e manter a tela longe do rosto"
+         },
+         {
+          "text": "Usar no escuro até tarde da noite",
+          "misconceptionCode": "telas"
+         },
+         {
+          "text": "Usar o dia inteiro sem parar",
+          "misconceptionCode": "telas"
+         },
+         {
+          "text": "Encostar a tela no nariz",
+          "misconceptionCode": "telas"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Por que não devemos colocar cotonete ou palito dentro do ouvido?",
+      "options": [
+       {
+        "text": "Porque podem machucar o ouvido por dentro"
+       },
+       {
+        "text": "Porque limpam demais",
+        "misconceptionCode": "protecao"
+       },
+       {
+        "text": "Porque ajudam a ouvir melhor",
+        "misconceptionCode": "protecao"
+       },
+       {
+        "text": "Porque não faz diferença",
+        "misconceptionCode": "protecao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Proteção.",
+      "variants": [
+       {
+        "question": "Se o ouvido doer, o que a criança deve fazer?",
+        "options": [
+         {
+          "text": "Colocar um palito no ouvido",
+          "misconceptionCode": "protecao"
+         },
+         {
+          "text": "Ouvir música bem alta",
+          "misconceptionCode": "protecao"
+         },
+         {
+          "text": "Avisar um adulto, que pode levá-la ao médico"
+         },
+         {
+          "text": "Não contar para ninguém",
+          "misconceptionCode": "protecao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Por que não devemos colocar cotonete ou palito dentro do ouvido?",
+        "options": [
+         {
+          "text": "Porque não faz diferença",
+          "misconceptionCode": "protecao"
+         },
+         {
+          "text": "Porque podem machucar o ouvido por dentro"
+         },
+         {
+          "text": "Porque ajudam a ouvir melhor",
+          "misconceptionCode": "protecao"
+         },
+         {
+          "text": "Porque limpam demais",
+          "misconceptionCode": "protecao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI03-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: um dia de Léo",
+    "prompt": "De manhã, Léo foi à escola e sentou no fundo da sala; teve dificuldade para ler a lousa. No recreio, ficou perto da caixa de som da festa. À tarde, jogou no tablet por três horas seguidas. À noite, leu um gibi com a luz apagada, usando só a luz do corredor.",
+    "estMinutes": 4,
+    "audioScript": "De manhã, Léo foi à escola e sentou no fundo da sala; teve dificuldade para ler a lousa. No recreio, ficou perto da caixa de som da festa. À tarde, jogou no tablet por três horas seguidas. À noite, leu um gibi com a luz apagada, usando só a luz do corredor. Pergunta 1. Que atitude de Léo pode estar ligada a um problema de visão? A: Ir à escola; B: A dificuldade para ler a lousa; C: Sentar na cadeira; D: Gostar de gibi. Pergunta 2. Que hábito de Léo pode prejudicar a audição? A: Ler o gibi; B: Ir à escola; C: Ficar perto da caixa de som da festa; D: Jogar no tablet. Pergunta 3. O que está inadequado no uso do tablet? A: Usar o tablet com a tela longe; B: Fazer pausas; C: Olhar pela janela; D: Jogar três horas seguidas, sem pausas. Pergunta 4. O que Léo pode mudar na leitura da noite? A: Acender uma luz boa para ler; B: Ler no escuro total; C: Ler com a lanterna apontada para os olhos; D: Ler com os olhos fechados.",
+    "questions": [
+     {
+      "question": "Que atitude de Léo pode estar ligada a um problema de visão?",
+      "options": [
+       {
+        "text": "Ir à escola",
+        "misconceptionCode": "luz"
+       },
+       {
+        "text": "A dificuldade para ler a lousa"
+       },
+       {
+        "text": "Sentar na cadeira",
+        "misconceptionCode": "luz"
+       },
+       {
+        "text": "Gostar de gibi",
+        "misconceptionCode": "luz"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Sinal de alerta.",
+      "variants": [
+       {
+        "question": "O que Léo deve fazer sobre a dificuldade com a lousa?",
+        "options": [
+         {
+          "text": "Esconder de todos",
+          "misconceptionCode": "luz"
+         },
+         {
+          "text": "Apertar os olhos com força todo dia",
+          "misconceptionCode": "luz"
+         },
+         {
+          "text": "Parar de ir à escola",
+          "misconceptionCode": "luz"
+         },
+         {
+          "text": "Contar para a família e a professora, para ir a uma consulta com o médico dos olhos"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Que atitude de Léo pode estar ligada a um problema de visão?",
+        "options": [
+         {
+          "text": "Gostar de gibi",
+          "misconceptionCode": "luz"
+         },
+         {
+          "text": "Sentar na cadeira",
+          "misconceptionCode": "luz"
+         },
+         {
+          "text": "A dificuldade para ler a lousa"
+         },
+         {
+          "text": "Ir à escola",
+          "misconceptionCode": "luz"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Que hábito de Léo pode prejudicar a audição?",
+      "options": [
+       {
+        "text": "Ler o gibi",
+        "misconceptionCode": "som-alto"
+       },
+       {
+        "text": "Ir à escola",
+        "misconceptionCode": "som-alto"
+       },
+       {
+        "text": "Ficar perto da caixa de som da festa"
+       },
+       {
+        "text": "Jogar no tablet",
+        "misconceptionCode": "som-alto"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Som muito alto.",
+      "variants": [
+       {
+        "question": "O que Léo poderia fazer na festa?",
+        "options": [
+         {
+          "text": "Ficar mais longe da caixa de som"
+         },
+         {
+          "text": "Encostar a orelha na caixa",
+          "misconceptionCode": "som-alto"
+         },
+         {
+          "text": "Aumentar o volume",
+          "misconceptionCode": "som-alto"
+         },
+         {
+          "text": "Gritar perto dos colegas",
+          "misconceptionCode": "som-alto"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que hábito de Léo pode prejudicar a audição?",
+        "options": [
+         {
+          "text": "Jogar no tablet",
+          "misconceptionCode": "som-alto"
+         },
+         {
+          "text": "Ir à escola",
+          "misconceptionCode": "som-alto"
+         },
+         {
+          "text": "Ler o gibi",
+          "misconceptionCode": "som-alto"
+         },
+         {
+          "text": "Ficar perto da caixa de som da festa"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que está inadequado no uso do tablet?",
+      "options": [
+       {
+        "text": "Usar o tablet com a tela longe",
+        "misconceptionCode": "telas"
+       },
+       {
+        "text": "Fazer pausas",
+        "misconceptionCode": "telas"
+       },
+       {
+        "text": "Olhar pela janela",
+        "misconceptionCode": "telas"
+       },
+       {
+        "text": "Jogar três horas seguidas, sem pausas"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Tempo de tela.",
+      "variants": [
+       {
+        "question": "Que mudança ajudaria Léo?",
+        "options": [
+         {
+          "text": "Jogar mais horas",
+          "misconceptionCode": "telas"
+         },
+         {
+          "text": "Fazer pausas e combinar com a família um tempo menor de tela"
+         },
+         {
+          "text": "Jogar no escuro",
+          "misconceptionCode": "telas"
+         },
+         {
+          "text": "Encostar a tela no rosto",
+          "misconceptionCode": "telas"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que está inadequado no uso do tablet?",
+        "options": [
+         {
+          "text": "Jogar três horas seguidas, sem pausas"
+         },
+         {
+          "text": "Olhar pela janela",
+          "misconceptionCode": "telas"
+         },
+         {
+          "text": "Fazer pausas",
+          "misconceptionCode": "telas"
+         },
+         {
+          "text": "Usar o tablet com a tela longe",
+          "misconceptionCode": "telas"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O que Léo pode mudar na leitura da noite?",
+      "options": [
+       {
+        "text": "Acender uma luz boa para ler"
+       },
+       {
+        "text": "Ler no escuro total",
+        "misconceptionCode": "luz"
+       },
+       {
+        "text": "Ler com a lanterna apontada para os olhos",
+        "misconceptionCode": "luz"
+       },
+       {
+        "text": "Ler com os olhos fechados",
+        "misconceptionCode": "luz"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Iluminação.",
+      "variants": [
+       {
+        "question": "Por que a luz boa ajuda na leitura?",
+        "options": [
+         {
+          "text": "Porque o gibi fica mais curto",
+          "misconceptionCode": "luz"
+         },
+         {
+          "text": "Porque a luz faz barulho",
+          "misconceptionCode": "luz"
+         },
+         {
+          "text": "Porque os olhos não precisam fazer tanto esforço"
+         },
+         {
+          "text": "Porque não ajuda",
+          "misconceptionCode": "luz"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que Léo pode mudar na leitura da noite?",
+        "options": [
+         {
+          "text": "Ler com os olhos fechados",
+          "misconceptionCode": "luz"
+         },
+         {
+          "text": "Acender uma luz boa para ler"
+         },
+         {
+          "text": "Ler com a lanterna apontada para os olhos",
+          "misconceptionCode": "luz"
+         },
+         {
+          "text": "Ler no escuro total",
+          "misconceptionCode": "luz"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI03-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: escolher hábitos",
+    "prompt": "Proteger os sentidos.",
+    "estMinutes": 5,
+    "audioScript": "Proteger os sentidos. Pergunta 1. Na rua, um vizinho está usando uma máquina de cortar grama muito barulhenta. O que ele deveria usar? A: Óculos escuros; B: Protetor de ouvido; C: Luvas apenas; D: Chapéu apenas. Pergunta 2. Num dia de sol forte na praia, como proteger os olhos? A: Olhar diretamente para o Sol; B: Ficar sem proteção ao meio-dia; C: Usar boné ou chapéu e óculos de sol de boa qualidade e não olhar para o Sol; D: Esfregar os olhos com areia. Pergunta 3. A professora fala baixo e a turma faz barulho. Que atitude ajuda todos a ouvir? A: Gritar mais alto; B: Bater nas mesas; C: Ligar música alta; D: Fazer silêncio quando alguém está falando. Pergunta 4. Ao assistir TV, qual é a melhor posição? A: Sentado a uma boa distância da tela; B: Com o nariz encostado na tela; C: Deitado no escuro bem perto; D: De costas para a TV.",
+    "questions": [
+     {
+      "question": "Na rua, um vizinho está usando uma máquina de cortar grama muito barulhenta. O que ele deveria usar?",
+      "options": [
+       {
+        "text": "Óculos escuros",
+        "misconceptionCode": "som-alto"
+       },
+       {
+        "text": "Protetor de ouvido"
+       },
+       {
+        "text": "Luvas apenas",
+        "misconceptionCode": "som-alto"
+       },
+       {
+        "text": "Chapéu apenas",
+        "misconceptionCode": "som-alto"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Proteção auditiva.",
+      "variants": [
+       {
+        "question": "Que profissional também usa protetor de ouvido no trabalho?",
+        "options": [
+         {
+          "text": "Quem trabalha numa biblioteca silenciosa",
+          "misconceptionCode": "som-alto"
+         },
+         {
+          "text": "Quem lê livros",
+          "misconceptionCode": "som-alto"
+         },
+         {
+          "text": "Quem pinta quadros em casa",
+          "misconceptionCode": "som-alto"
+         },
+         {
+          "text": "Quem trabalha com britadeira em obras"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Na rua, um vizinho está usando uma máquina de cortar grama muito barulhenta. O que ele deveria usar?",
+        "options": [
+         {
+          "text": "Chapéu apenas",
+          "misconceptionCode": "som-alto"
+         },
+         {
+          "text": "Luvas apenas",
+          "misconceptionCode": "som-alto"
+         },
+         {
+          "text": "Protetor de ouvido"
+         },
+         {
+          "text": "Óculos escuros",
+          "misconceptionCode": "som-alto"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Num dia de sol forte na praia, como proteger os olhos?",
+      "options": [
+       {
+        "text": "Olhar diretamente para o Sol",
+        "misconceptionCode": "protecao"
+       },
+       {
+        "text": "Ficar sem proteção ao meio-dia",
+        "misconceptionCode": "protecao"
+       },
+       {
+        "text": "Usar boné ou chapéu e óculos de sol de boa qualidade e não olhar para o Sol"
+       },
+       {
+        "text": "Esfregar os olhos com areia",
+        "misconceptionCode": "protecao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Proteção.",
+      "variants": [
+       {
+        "question": "Por que os óculos de sol devem ser de boa qualidade?",
+        "options": [
+         {
+          "text": "Porque precisam proteger os olhos da luz forte do Sol"
+         },
+         {
+          "text": "Porque são enfeite",
+          "misconceptionCode": "protecao"
+         },
+         {
+          "text": "Porque escurecem a praia",
+          "misconceptionCode": "protecao"
+         },
+         {
+          "text": "Não precisam",
+          "misconceptionCode": "protecao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Num dia de sol forte na praia, como proteger os olhos?",
+        "options": [
+         {
+          "text": "Esfregar os olhos com areia",
+          "misconceptionCode": "protecao"
+         },
+         {
+          "text": "Ficar sem proteção ao meio-dia",
+          "misconceptionCode": "protecao"
+         },
+         {
+          "text": "Olhar diretamente para o Sol",
+          "misconceptionCode": "protecao"
+         },
+         {
+          "text": "Usar boné ou chapéu e óculos de sol de boa qualidade e não olhar para o Sol"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "A professora fala baixo e a turma faz barulho. Que atitude ajuda todos a ouvir?",
+      "options": [
+       {
+        "text": "Gritar mais alto",
+        "misconceptionCode": "som-alto"
+       },
+       {
+        "text": "Bater nas mesas",
+        "misconceptionCode": "som-alto"
+       },
+       {
+        "text": "Ligar música alta",
+        "misconceptionCode": "som-alto"
+       },
+       {
+        "text": "Fazer silêncio quando alguém está falando"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Ambiente com menos ruído.",
+      "variants": [
+       {
+        "question": "Por que uma sala muito barulhenta cansa?",
+        "options": [
+         {
+          "text": "Porque é mais divertida",
+          "misconceptionCode": "som-alto"
+         },
+         {
+          "text": "Porque fica difícil ouvir e prestar atenção"
+         },
+         {
+          "text": "Porque descansa os ouvidos",
+          "misconceptionCode": "som-alto"
+         },
+         {
+          "text": "Não cansa",
+          "misconceptionCode": "som-alto"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A professora fala baixo e a turma faz barulho. Que atitude ajuda todos a ouvir?",
+        "options": [
+         {
+          "text": "Fazer silêncio quando alguém está falando"
+         },
+         {
+          "text": "Ligar música alta",
+          "misconceptionCode": "som-alto"
+         },
+         {
+          "text": "Bater nas mesas",
+          "misconceptionCode": "som-alto"
+         },
+         {
+          "text": "Gritar mais alto",
+          "misconceptionCode": "som-alto"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Ao assistir TV, qual é a melhor posição?",
+      "options": [
+       {
+        "text": "Sentado a uma boa distância da tela"
+       },
+       {
+        "text": "Com o nariz encostado na tela",
+        "misconceptionCode": "telas"
+       },
+       {
+        "text": "Deitado no escuro bem perto",
+        "misconceptionCode": "telas"
+       },
+       {
+        "text": "De costas para a TV",
+        "misconceptionCode": "telas"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Distância.",
+      "variants": [
+       {
+        "question": "Que outra atitude ajuda os olhos ao assistir TV?",
+        "options": [
+         {
+          "text": "Assistir no escuro total",
+          "misconceptionCode": "telas"
+         },
+         {
+          "text": "Assistir piscando pouco de propósito",
+          "misconceptionCode": "telas"
+         },
+         {
+          "text": "Deixar o ambiente com alguma luz acesa"
+         },
+         {
+          "text": "Assistir colado na tela",
+          "misconceptionCode": "telas"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Ao assistir TV, qual é a melhor posição?",
+        "options": [
+         {
+          "text": "De costas para a TV",
+          "misconceptionCode": "telas"
+         },
+         {
+          "text": "Sentado a uma boa distância da tela"
+         },
+         {
+          "text": "Deitado no escuro bem perto",
+          "misconceptionCode": "telas"
+         },
+         {
+          "text": "Com o nariz encostado na tela",
+          "misconceptionCode": "telas"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI03-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: campanha da turma",
+    "prompt": "Cuidar de olhos e ouvidos.",
+    "estMinutes": 4,
+    "audioScript": "Cuidar de olhos e ouvidos. Pergunta 1. A turma vai fazer um cartaz sobre saúde dos ouvidos. Qual frase combina? A: \"Quanto mais alto, melhor!\"; B: \"Fone no volume baixo: seus ouvidos agradecem!\"; C: \"Use palito para limpar o ouvido!\"; D: \"Barulho não faz mal!\". Pergunta 2. Que dica sobre os olhos a turma pode colocar no cartaz? A: \"Olhe para o Sol para ficar forte.\"; B: \"Leia no escuro.\"; C: \"Leia com boa luz e faça pausas nas telas.\"; D: \"Encoste o rosto na tela.\". Pergunta 3. Na sala de aula, como deixar o ambiente bom para olhos e ouvidos? A: Luzes apagadas e música alta; B: Cortinas fechadas o dia todo e gritos; C: Nenhuma mudança; D: Janelas abertas para a luz do dia, lâmpadas funcionando e combinados de silêncio.",
+    "questions": [
+     {
+      "question": "A turma vai fazer um cartaz sobre saúde dos ouvidos. Qual frase combina?",
+      "options": [
+       {
+        "text": "\"Quanto mais alto, melhor!\"",
+        "misconceptionCode": "som-alto"
+       },
+       {
+        "text": "\"Fone no volume baixo: seus ouvidos agradecem!\""
+       },
+       {
+        "text": "\"Use palito para limpar o ouvido!\"",
+        "misconceptionCode": "protecao"
+       },
+       {
+        "text": "\"Barulho não faz mal!\"",
+        "misconceptionCode": "som-alto"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Mensagem correta.",
+      "variants": [
+       {
+        "question": "Que desenho combina com esse cartaz?",
+        "options": [
+         {
+          "text": "Uma caixa de som explodindo de alto",
+          "misconceptionCode": "som-alto"
+         },
+         {
+          "text": "Um palito dentro da orelha",
+          "misconceptionCode": "protecao"
+         },
+         {
+          "text": "Um sol com óculos",
+          "misconceptionCode": "som-alto"
+         },
+         {
+          "text": "Uma criança usando fone com o volume baixinho"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A turma vai fazer um cartaz sobre saúde dos ouvidos. Qual frase combina?",
+        "options": [
+         {
+          "text": "\"Barulho não faz mal!\"",
+          "misconceptionCode": "som-alto"
+         },
+         {
+          "text": "\"Use palito para limpar o ouvido!\"",
+          "misconceptionCode": "protecao"
+         },
+         {
+          "text": "\"Fone no volume baixo: seus ouvidos agradecem!\""
+         },
+         {
+          "text": "\"Quanto mais alto, melhor!\"",
+          "misconceptionCode": "som-alto"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Que dica sobre os olhos a turma pode colocar no cartaz?",
+      "options": [
+       {
+        "text": "\"Olhe para o Sol para ficar forte.\"",
+        "misconceptionCode": "protecao"
+       },
+       {
+        "text": "\"Leia no escuro.\"",
+        "misconceptionCode": "luz"
+       },
+       {
+        "text": "\"Leia com boa luz e faça pausas nas telas.\""
+       },
+       {
+        "text": "\"Encoste o rosto na tela.\"",
+        "misconceptionCode": "telas"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Hábitos de cuidado.",
+      "variants": [
+       {
+        "question": "Que sinal deve fazer a criança avisar um adulto?",
+        "options": [
+         {
+          "text": "Ver a lousa embaçada"
+         },
+         {
+          "text": "Gostar de ler",
+          "misconceptionCode": "protecao"
+         },
+         {
+          "text": "Ter vontade de brincar",
+          "misconceptionCode": "luz"
+         },
+         {
+          "text": "Sentir fome",
+          "misconceptionCode": "telas"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que dica sobre os olhos a turma pode colocar no cartaz?",
+        "options": [
+         {
+          "text": "\"Encoste o rosto na tela.\"",
+          "misconceptionCode": "telas"
+         },
+         {
+          "text": "\"Leia no escuro.\"",
+          "misconceptionCode": "luz"
+         },
+         {
+          "text": "\"Olhe para o Sol para ficar forte.\"",
+          "misconceptionCode": "protecao"
+         },
+         {
+          "text": "\"Leia com boa luz e faça pausas nas telas.\""
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Na sala de aula, como deixar o ambiente bom para olhos e ouvidos?",
+      "options": [
+       {
+        "text": "Luzes apagadas e música alta",
+        "misconceptionCode": "luz"
+       },
+       {
+        "text": "Cortinas fechadas o dia todo e gritos",
+        "misconceptionCode": "luz"
+       },
+       {
+        "text": "Nenhuma mudança",
+        "misconceptionCode": "luz"
+       },
+       {
+        "text": "Janelas abertas para a luz do dia, lâmpadas funcionando e combinados de silêncio"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Ambiente adequado.",
+      "variants": [
+       {
+        "question": "Quem pode ajudar a consertar uma lâmpada queimada na sala?",
+        "options": [
+         {
+          "text": "Os alunos subindo nas mesas",
+          "misconceptionCode": "luz"
+         },
+         {
+          "text": "A direção ou os funcionários da escola, avisados pela professora"
+         },
+         {
+          "text": "Ninguém",
+          "misconceptionCode": "luz"
+         },
+         {
+          "text": "Um colega com uma vassoura",
+          "misconceptionCode": "luz"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Na sala de aula, como deixar o ambiente bom para olhos e ouvidos?",
+        "options": [
+         {
+          "text": "Janelas abertas para a luz do dia, lâmpadas funcionando e combinados de silêncio"
+         },
+         {
+          "text": "Nenhuma mudança",
+          "misconceptionCode": "luz"
+         },
+         {
+          "text": "Cortinas fechadas o dia todo e gritos",
+          "misconceptionCode": "luz"
+         },
+         {
+          "text": "Luzes apagadas e música alta",
+          "misconceptionCode": "luz"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI03-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: saúde dos olhos e ouvidos",
+    "prompt": "Explique hábitos que protegem a visão e a audição.",
+    "estMinutes": 6,
+    "audioScript": "Explique hábitos que protegem a visão e a audição.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "audicao",
+       "description": "Explica cuidados com a audição (volume baixo, distância de sons altos, protetor, nada dentro do ouvido)"
+      },
+      {
+       "code": "visao",
+       "description": "Explica cuidados com a visão (boa luz, pausas nas telas, distância, não olhar o Sol)"
+      },
+      {
+       "code": "alerta",
+       "description": "Explica quando avisar um adulto e procurar o médico"
+      }
+     ],
+     "exemploBoaResposta": "Para cuidar dos ouvidos, uso o fone com volume baixo, fico longe de caixas de som muito altas, uso protetor em lugares muito barulhentos e não coloco nada dentro do ouvido. Para cuidar dos olhos, leio com boa iluminação, faço pausas e fico longe das telas, olho para longe para descansar e nunca olho diretamente para o Sol. Se eu não enxergar bem a lousa, sentir dor de ouvido ou ouvir um zumbido, aviso um adulto para ir ao médico."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF03CI05",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: Como os animais mudam ao crescer",
+  "tituloAluno": "Do nascimento à vida adulta",
+  "activities": [
+   {
+    "id": "PK2-EF03CI05-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: crescer e mudar",
+    "prompt": "Todos os animais se desenvolvem.",
+    "estMinutes": 4,
+    "audioScript": "Todos os animais se desenvolvem. Pergunta 1. Como nasce o filhote de cachorro? A: Como um ovo que vira lagarta; B: Como um girino; C: Igualzinho a um gato; D: Parecido com o cachorro adulto, mas pequeno. Pergunta 2. Qual é a ordem das fases da borboleta? A: Ovo, lagarta, pupa (crisálida), borboleta; B: Borboleta, ovo, lagarta, pupa; C: Lagarta, borboleta, ovo, pupa; D: Pupa, ovo, borboleta, lagarta. Pergunta 3. Onde vive o girino, filhote do sapo? A: Só no deserto; B: Na água; C: Dentro da terra; D: Nas nuvens. Pergunta 4. Qual é a ordem das fases da vida humana? A: Criança, bebê, idoso, adulto; B: Adulto, bebê, criança, idoso; C: Bebê, criança, adolescente, adulto, idoso; D: Idoso, adolescente, bebê.",
+    "questions": [
+     {
+      "question": "Como nasce o filhote de cachorro?",
+      "options": [
+       {
+        "text": "Como um ovo que vira lagarta",
+        "misconceptionCode": "semelhanca"
+       },
+       {
+        "text": "Como um girino",
+        "misconceptionCode": "semelhanca"
+       },
+       {
+        "text": "Igualzinho a um gato",
+        "misconceptionCode": "semelhanca"
+       },
+       {
+        "text": "Parecido com o cachorro adulto, mas pequeno"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Nasce parecido e cresce.",
+      "variants": [
+       {
+        "question": "Qual animal nasce parecido com o adulto?",
+        "options": [
+         {
+          "text": "A borboleta",
+          "misconceptionCode": "semelhanca"
+         },
+         {
+          "text": "O gato"
+         },
+         {
+          "text": "O sapo",
+          "misconceptionCode": "semelhanca"
+         },
+         {
+          "text": "O mosquito",
+          "misconceptionCode": "semelhanca"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Como nasce o filhote de cachorro?",
+        "options": [
+         {
+          "text": "Parecido com o cachorro adulto, mas pequeno"
+         },
+         {
+          "text": "Igualzinho a um gato",
+          "misconceptionCode": "semelhanca"
+         },
+         {
+          "text": "Como um girino",
+          "misconceptionCode": "semelhanca"
+         },
+         {
+          "text": "Como um ovo que vira lagarta",
+          "misconceptionCode": "semelhanca"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Qual é a ordem das fases da borboleta?",
+      "options": [
+       {
+        "text": "Ovo, lagarta, pupa (crisálida), borboleta"
+       },
+       {
+        "text": "Borboleta, ovo, lagarta, pupa",
+        "misconceptionCode": "sequencia"
+       },
+       {
+        "text": "Lagarta, borboleta, ovo, pupa",
+        "misconceptionCode": "sequencia"
+       },
+       {
+        "text": "Pupa, ovo, borboleta, lagarta",
+        "misconceptionCode": "sequencia"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Metamorfose.",
+      "variants": [
+       {
+        "question": "Em que fase a borboleta come muitas folhas e cresce bastante?",
+        "options": [
+         {
+          "text": "Ovo",
+          "misconceptionCode": "sequencia"
+         },
+         {
+          "text": "Pupa",
+          "misconceptionCode": "sequencia"
+         },
+         {
+          "text": "Lagarta"
+         },
+         {
+          "text": "Adulta, só voando",
+          "misconceptionCode": "sequencia"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual é a ordem das fases da borboleta?",
+        "options": [
+         {
+          "text": "Pupa, ovo, borboleta, lagarta",
+          "misconceptionCode": "sequencia"
+         },
+         {
+          "text": "Ovo, lagarta, pupa (crisálida), borboleta"
+         },
+         {
+          "text": "Lagarta, borboleta, ovo, pupa",
+          "misconceptionCode": "sequencia"
+         },
+         {
+          "text": "Borboleta, ovo, lagarta, pupa",
+          "misconceptionCode": "sequencia"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Onde vive o girino, filhote do sapo?",
+      "options": [
+       {
+        "text": "Só no deserto",
+        "misconceptionCode": "metamorfose"
+       },
+       {
+        "text": "Na água"
+       },
+       {
+        "text": "Dentro da terra",
+        "misconceptionCode": "metamorfose"
+       },
+       {
+        "text": "Nas nuvens",
+        "misconceptionCode": "metamorfose"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Girino aquático.",
+      "variants": [
+       {
+        "question": "O que o girino tem que o sapo adulto não tem?",
+        "options": [
+         {
+          "text": "Quatro patas fortes para pular",
+          "misconceptionCode": "metamorfose"
+         },
+         {
+          "text": "Asas",
+          "misconceptionCode": "metamorfose"
+         },
+         {
+          "text": "Penas",
+          "misconceptionCode": "metamorfose"
+         },
+         {
+          "text": "Uma cauda para nadar"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Onde vive o girino, filhote do sapo?",
+        "options": [
+         {
+          "text": "Nas nuvens",
+          "misconceptionCode": "metamorfose"
+         },
+         {
+          "text": "Dentro da terra",
+          "misconceptionCode": "metamorfose"
+         },
+         {
+          "text": "Na água"
+         },
+         {
+          "text": "Só no deserto",
+          "misconceptionCode": "metamorfose"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual é a ordem das fases da vida humana?",
+      "options": [
+       {
+        "text": "Criança, bebê, idoso, adulto",
+        "misconceptionCode": "humano"
+       },
+       {
+        "text": "Adulto, bebê, criança, idoso",
+        "misconceptionCode": "humano"
+       },
+       {
+        "text": "Bebê, criança, adolescente, adulto, idoso"
+       },
+       {
+        "text": "Idoso, adolescente, bebê",
+        "misconceptionCode": "humano"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Ciclo de vida humano.",
+      "variants": [
+       {
+        "question": "Em qual fase a pessoa aprende a andar e a falar?",
+        "options": [
+         {
+          "text": "Quando é bebê e começa a ser criança"
+         },
+         {
+          "text": "Quando é idosa",
+          "misconceptionCode": "humano"
+         },
+         {
+          "text": "Quando é adulta",
+          "misconceptionCode": "humano"
+         },
+         {
+          "text": "Nunca",
+          "misconceptionCode": "humano"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual é a ordem das fases da vida humana?",
+        "options": [
+         {
+          "text": "Idoso, adolescente, bebê",
+          "misconceptionCode": "humano"
+         },
+         {
+          "text": "Adulto, bebê, criança, idoso",
+          "misconceptionCode": "humano"
+         },
+         {
+          "text": "Criança, bebê, idoso, adulto",
+          "misconceptionCode": "humano"
+         },
+         {
+          "text": "Bebê, criança, adolescente, adulto, idoso"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI05-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o diário do girino",
+    "prompt": "A turma observou um aquário com girinos durante seis semanas. Semana 1: girinos pequenos, com cauda, nadando. Semana 3: surgiram as patas de trás. Semana 5: surgiram as patas da frente e a cauda ficou menor. Semana 6: pequenos sapos começaram a sair da água para uma pedra.",
+    "estMinutes": 4,
+    "audioScript": "A turma observou um aquário com girinos durante seis semanas. Semana 1: girinos pequenos, com cauda, nadando. Semana 3: surgiram as patas de trás. Semana 5: surgiram as patas da frente e a cauda ficou menor. Semana 6: pequenos sapos começaram a sair da água para uma pedra. Pergunta 1. O que apareceu primeiro nos girinos? A: As patas da frente; B: As asas; C: As penas; D: As patas de trás. Pergunta 2. O que aconteceu com a cauda? A: Foi diminuindo; B: Ficou maior; C: Virou uma asa; D: Não mudou. Pergunta 3. Por que os pequenos sapos subiram na pedra? A: Porque estavam com frio na pedra; B: Porque o sapo adulto também vive fora da água; C: Porque viraram peixes; D: Porque viraram borboletas. Pergunta 4. O desenvolvimento do sapo é parecido com o de qual animal? A: Do cachorro, que nasce parecido com o adulto; B: Do gato; C: Da borboleta, que também passa por metamorfose; D: Do ser humano.",
+    "questions": [
+     {
+      "question": "O que apareceu primeiro nos girinos?",
+      "options": [
+       {
+        "text": "As patas da frente",
+        "misconceptionCode": "sequencia"
+       },
+       {
+        "text": "As asas",
+        "misconceptionCode": "sequencia"
+       },
+       {
+        "text": "As penas",
+        "misconceptionCode": "sequencia"
+       },
+       {
+        "text": "As patas de trás"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Sequência observada.",
+      "variants": [
+       {
+        "question": "Em que semana surgiram as patas da frente?",
+        "options": [
+         {
+          "text": "Semana 1",
+          "misconceptionCode": "sequencia"
+         },
+         {
+          "text": "Semana 5"
+         },
+         {
+          "text": "Semana 3",
+          "misconceptionCode": "sequencia"
+         },
+         {
+          "text": "Semana 6",
+          "misconceptionCode": "sequencia"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que apareceu primeiro nos girinos?",
+        "options": [
+         {
+          "text": "As patas de trás"
+         },
+         {
+          "text": "As penas",
+          "misconceptionCode": "sequencia"
+         },
+         {
+          "text": "As asas",
+          "misconceptionCode": "sequencia"
+         },
+         {
+          "text": "As patas da frente",
+          "misconceptionCode": "sequencia"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O que aconteceu com a cauda?",
+      "options": [
+       {
+        "text": "Foi diminuindo"
+       },
+       {
+        "text": "Ficou maior",
+        "misconceptionCode": "metamorfose"
+       },
+       {
+        "text": "Virou uma asa",
+        "misconceptionCode": "metamorfose"
+       },
+       {
+        "text": "Não mudou",
+        "misconceptionCode": "metamorfose"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Transformação.",
+      "variants": [
+       {
+        "question": "Quantas semanas se passaram entre o aparecimento das patas de trás e o das patas da frente?",
+        "options": [
+         {
+          "text": "1 semana",
+          "misconceptionCode": "metamorfose"
+         },
+         {
+          "text": "3 semanas",
+          "misconceptionCode": "metamorfose"
+         },
+         {
+          "text": "2 semanas"
+         },
+         {
+          "text": "5 semanas",
+          "misconceptionCode": "metamorfose"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que aconteceu com a cauda?",
+        "options": [
+         {
+          "text": "Não mudou",
+          "misconceptionCode": "metamorfose"
+         },
+         {
+          "text": "Foi diminuindo"
+         },
+         {
+          "text": "Virou uma asa",
+          "misconceptionCode": "metamorfose"
+         },
+         {
+          "text": "Ficou maior",
+          "misconceptionCode": "metamorfose"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Por que os pequenos sapos subiram na pedra?",
+      "options": [
+       {
+        "text": "Porque estavam com frio na pedra",
+        "misconceptionCode": "metamorfose"
+       },
+       {
+        "text": "Porque o sapo adulto também vive fora da água"
+       },
+       {
+        "text": "Porque viraram peixes",
+        "misconceptionCode": "metamorfose"
+       },
+       {
+        "text": "Porque viraram borboletas",
+        "misconceptionCode": "metamorfose"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Mudança de ambiente.",
+      "variants": [
+       {
+        "question": "Como se chama essa grande transformação do girino até o sapo?",
+        "options": [
+         {
+          "text": "Fotossíntese",
+          "misconceptionCode": "metamorfose"
+         },
+         {
+          "text": "Evaporação",
+          "misconceptionCode": "metamorfose"
+         },
+         {
+          "text": "Reflexão",
+          "misconceptionCode": "metamorfose"
+         },
+         {
+          "text": "Metamorfose"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Por que os pequenos sapos subiram na pedra?",
+        "options": [
+         {
+          "text": "Porque viraram borboletas",
+          "misconceptionCode": "metamorfose"
+         },
+         {
+          "text": "Porque viraram peixes",
+          "misconceptionCode": "metamorfose"
+         },
+         {
+          "text": "Porque o sapo adulto também vive fora da água"
+         },
+         {
+          "text": "Porque estavam com frio na pedra",
+          "misconceptionCode": "metamorfose"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O desenvolvimento do sapo é parecido com o de qual animal?",
+      "options": [
+       {
+        "text": "Do cachorro, que nasce parecido com o adulto",
+        "misconceptionCode": "semelhanca"
+       },
+       {
+        "text": "Do gato",
+        "misconceptionCode": "semelhanca"
+       },
+       {
+        "text": "Da borboleta, que também passa por metamorfose"
+       },
+       {
+        "text": "Do ser humano",
+        "misconceptionCode": "semelhanca"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Comparação.",
+      "variants": [
+       {
+        "question": "E o desenvolvimento do cachorro é parecido com o de qual animal?",
+        "options": [
+         {
+          "text": "Do ser humano, que nasce parecido com o adulto e cresce"
+         },
+         {
+          "text": "Da borboleta",
+          "misconceptionCode": "semelhanca"
+         },
+         {
+          "text": "Do sapo",
+          "misconceptionCode": "semelhanca"
+         },
+         {
+          "text": "Do mosquito",
+          "misconceptionCode": "semelhanca"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O desenvolvimento do sapo é parecido com o de qual animal?",
+        "options": [
+         {
+          "text": "Do ser humano",
+          "misconceptionCode": "semelhanca"
+         },
+         {
+          "text": "Do gato",
+          "misconceptionCode": "semelhanca"
+         },
+         {
+          "text": "Do cachorro, que nasce parecido com o adulto",
+          "misconceptionCode": "semelhanca"
+         },
+         {
+          "text": "Da borboleta, que também passa por metamorfose"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI05-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: comparar desenvolvimentos",
+    "prompt": "Terra e água.",
+    "estMinutes": 5,
+    "audioScript": "Terra e água. Pergunta 1. Como nasce um pintinho? A: Nasce como lagarta; B: Nasce como girino; C: Nasce de uma semente; D: Sai de um ovo. Pergunta 2. Qual animal aquático nasce parecido com o adulto, só que menor? A: O filhote de baleia; B: O girino; C: A lagarta; D: A pupa. Pergunta 3. Qual mudança acontece com os seres humanos ao crescer? A: Nascem asas; B: O corpo aumenta de tamanho, os dentes de leite caem e nascem os permanentes; C: Surge uma cauda; D: O corpo fica transparente. Pergunta 4. Qual animal tem a fase de pupa? A: O cachorro; B: A galinha; C: A borboleta; D: O ser humano.",
+    "questions": [
+     {
+      "question": "Como nasce um pintinho?",
+      "options": [
+       {
+        "text": "Nasce como lagarta",
+        "misconceptionCode": "sequencia"
+       },
+       {
+        "text": "Nasce como girino",
+        "misconceptionCode": "sequencia"
+       },
+       {
+        "text": "Nasce de uma semente",
+        "misconceptionCode": "sequencia"
+       },
+       {
+        "text": "Sai de um ovo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Aves nascem de ovos.",
+      "variants": [
+       {
+        "question": "O que o pintinho tem no corpo ao nascer?",
+        "options": [
+         {
+          "text": "Escamas de peixe",
+          "misconceptionCode": "sequencia"
+         },
+         {
+          "text": "Penugem macia, que depois dá lugar às penas"
+         },
+         {
+          "text": "Cauda de girino",
+          "misconceptionCode": "sequencia"
+         },
+         {
+          "text": "Antenas",
+          "misconceptionCode": "sequencia"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Como nasce um pintinho?",
+        "options": [
+         {
+          "text": "Sai de um ovo"
+         },
+         {
+          "text": "Nasce de uma semente",
+          "misconceptionCode": "sequencia"
+         },
+         {
+          "text": "Nasce como girino",
+          "misconceptionCode": "sequencia"
+         },
+         {
+          "text": "Nasce como lagarta",
+          "misconceptionCode": "sequencia"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Qual animal aquático nasce parecido com o adulto, só que menor?",
+      "options": [
+       {
+        "text": "O filhote de baleia"
+       },
+       {
+        "text": "O girino",
+        "misconceptionCode": "semelhanca"
+       },
+       {
+        "text": "A lagarta",
+        "misconceptionCode": "semelhanca"
+       },
+       {
+        "text": "A pupa",
+        "misconceptionCode": "semelhanca"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Mamífero aquático.",
+      "variants": [
+       {
+        "question": "Como o filhote de baleia se alimenta nos primeiros meses?",
+        "options": [
+         {
+          "text": "Comendo folhas",
+          "misconceptionCode": "semelhanca"
+         },
+         {
+          "text": "Comendo insetos voando",
+          "misconceptionCode": "semelhanca"
+         },
+         {
+          "text": "Mamando o leite da mãe"
+         },
+         {
+          "text": "Fazendo fotossíntese",
+          "misconceptionCode": "semelhanca"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual animal aquático nasce parecido com o adulto, só que menor?",
+        "options": [
+         {
+          "text": "A pupa",
+          "misconceptionCode": "semelhanca"
+         },
+         {
+          "text": "O filhote de baleia"
+         },
+         {
+          "text": "A lagarta",
+          "misconceptionCode": "semelhanca"
+         },
+         {
+          "text": "O girino",
+          "misconceptionCode": "semelhanca"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual mudança acontece com os seres humanos ao crescer?",
+      "options": [
+       {
+        "text": "Nascem asas",
+        "misconceptionCode": "humano"
+       },
+       {
+        "text": "O corpo aumenta de tamanho, os dentes de leite caem e nascem os permanentes"
+       },
+       {
+        "text": "Surge uma cauda",
+        "misconceptionCode": "humano"
+       },
+       {
+        "text": "O corpo fica transparente",
+        "misconceptionCode": "humano"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Mudanças humanas.",
+      "variants": [
+       {
+        "question": "Em que fase os dentes de leite costumam cair?",
+        "options": [
+         {
+          "text": "Quando bebê recém-nascido",
+          "misconceptionCode": "humano"
+         },
+         {
+          "text": "Só na velhice",
+          "misconceptionCode": "humano"
+         },
+         {
+          "text": "Nunca caem",
+          "misconceptionCode": "humano"
+         },
+         {
+          "text": "Na infância"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual mudança acontece com os seres humanos ao crescer?",
+        "options": [
+         {
+          "text": "O corpo fica transparente",
+          "misconceptionCode": "humano"
+         },
+         {
+          "text": "Surge uma cauda",
+          "misconceptionCode": "humano"
+         },
+         {
+          "text": "O corpo aumenta de tamanho, os dentes de leite caem e nascem os permanentes"
+         },
+         {
+          "text": "Nascem asas",
+          "misconceptionCode": "humano"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual animal tem a fase de pupa?",
+      "options": [
+       {
+        "text": "O cachorro",
+        "misconceptionCode": "metamorfose"
+       },
+       {
+        "text": "A galinha",
+        "misconceptionCode": "metamorfose"
+       },
+       {
+        "text": "A borboleta"
+       },
+       {
+        "text": "O ser humano",
+        "misconceptionCode": "metamorfose"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Metamorfose completa.",
+      "variants": [
+       {
+        "question": "O que acontece dentro da pupa?",
+        "options": [
+         {
+          "text": "A lagarta se transforma em borboleta"
+         },
+         {
+          "text": "O ovo vira pintinho",
+          "misconceptionCode": "metamorfose"
+         },
+         {
+          "text": "O girino vira peixe",
+          "misconceptionCode": "metamorfose"
+         },
+         {
+          "text": "Nada acontece",
+          "misconceptionCode": "metamorfose"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual animal tem a fase de pupa?",
+        "options": [
+         {
+          "text": "O ser humano",
+          "misconceptionCode": "metamorfose"
+         },
+         {
+          "text": "A galinha",
+          "misconceptionCode": "metamorfose"
+         },
+         {
+          "text": "O cachorro",
+          "misconceptionCode": "metamorfose"
+         },
+         {
+          "text": "A borboleta"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI05-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: linha do tempo da vida",
+    "prompt": "Comunicar o que aprendemos.",
+    "estMinutes": 4,
+    "audioScript": "Comunicar o que aprendemos. Pergunta 1. A turma vai montar um cartaz sobre a vida da borboleta. Qual sequência de desenhos é correta? A: Borboleta → pupa → ovo → lagarta; B: Lagarta → ovo → borboleta → pupa; C: Ovo → borboleta → lagarta → pupa; D: Ovo na folha → lagarta comendo → pupa pendurada → borboleta voando. Pergunta 2. Para uma linha do tempo da própria vida, que fotos a criança pode usar? A: Fotos de quando era bebê, quando começou a andar e de agora; B: Fotos de outra pessoa; C: Fotos de animais; D: Nenhuma foto. Pergunta 3. Um colega diz: \"Todo filhote nasce igual aos pais, só que pequeno.\" Como responder? A: Ele está certo, todos nascem iguais; B: Nem todos: o sapo e a borboleta passam por grandes transformações; C: Nenhum animal muda; D: Só os humanos mudam.",
+    "questions": [
+     {
+      "question": "A turma vai montar um cartaz sobre a vida da borboleta. Qual sequência de desenhos é correta?",
+      "options": [
+       {
+        "text": "Borboleta → pupa → ovo → lagarta",
+        "misconceptionCode": "sequencia"
+       },
+       {
+        "text": "Lagarta → ovo → borboleta → pupa",
+        "misconceptionCode": "sequencia"
+       },
+       {
+        "text": "Ovo → borboleta → lagarta → pupa",
+        "misconceptionCode": "sequencia"
+       },
+       {
+        "text": "Ovo na folha → lagarta comendo → pupa pendurada → borboleta voando"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Sequência correta.",
+      "variants": [
+       {
+        "question": "Que legenda combina com a pupa?",
+        "options": [
+         {
+          "text": "\"Aqui a borboleta voa.\"",
+          "misconceptionCode": "sequencia"
+         },
+         {
+          "text": "\"Aqui dentro, a lagarta se transforma.\""
+         },
+         {
+          "text": "\"Aqui o ovo é colocado.\"",
+          "misconceptionCode": "sequencia"
+         },
+         {
+          "text": "\"Aqui a lagarta come folhas.\"",
+          "misconceptionCode": "sequencia"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A turma vai montar um cartaz sobre a vida da borboleta. Qual sequência de desenhos é correta?",
+        "options": [
+         {
+          "text": "Ovo na folha → lagarta comendo → pupa pendurada → borboleta voando"
+         },
+         {
+          "text": "Ovo → borboleta → lagarta → pupa",
+          "misconceptionCode": "sequencia"
+         },
+         {
+          "text": "Lagarta → ovo → borboleta → pupa",
+          "misconceptionCode": "sequencia"
+         },
+         {
+          "text": "Borboleta → pupa → ovo → lagarta",
+          "misconceptionCode": "sequencia"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Para uma linha do tempo da própria vida, que fotos a criança pode usar?",
+      "options": [
+       {
+        "text": "Fotos de quando era bebê, quando começou a andar e de agora"
+       },
+       {
+        "text": "Fotos de outra pessoa",
+        "misconceptionCode": "humano"
+       },
+       {
+        "text": "Fotos de animais",
+        "misconceptionCode": "humano"
+       },
+       {
+        "text": "Nenhuma foto",
+        "misconceptionCode": "humano"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Fases da própria vida.",
+      "variants": [
+       {
+        "question": "Que mudança a criança pode registrar entre a foto de bebê e a de agora?",
+        "options": [
+         {
+          "text": "Ficou com asas",
+          "misconceptionCode": "humano"
+         },
+         {
+          "text": "Virou adulta de repente",
+          "misconceptionCode": "humano"
+         },
+         {
+          "text": "Cresceu, aprendeu a andar, falar e ler"
+         },
+         {
+          "text": "Não mudou nada",
+          "misconceptionCode": "humano"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Para uma linha do tempo da própria vida, que fotos a criança pode usar?",
+        "options": [
+         {
+          "text": "Nenhuma foto",
+          "misconceptionCode": "humano"
+         },
+         {
+          "text": "Fotos de quando era bebê, quando começou a andar e de agora"
+         },
+         {
+          "text": "Fotos de animais",
+          "misconceptionCode": "humano"
+         },
+         {
+          "text": "Fotos de outra pessoa",
+          "misconceptionCode": "humano"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um colega diz: \"Todo filhote nasce igual aos pais, só que pequeno.\" Como responder?",
+      "options": [
+       {
+        "text": "Ele está certo, todos nascem iguais",
+        "misconceptionCode": "semelhanca"
+       },
+       {
+        "text": "Nem todos: o sapo e a borboleta passam por grandes transformações"
+       },
+       {
+        "text": "Nenhum animal muda",
+        "misconceptionCode": "semelhanca"
+       },
+       {
+        "text": "Só os humanos mudam",
+        "misconceptionCode": "semelhanca"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Corrigir com exemplo.",
+      "variants": [
+       {
+        "question": "Que exemplo mostra que o colega está certo para alguns animais?",
+        "options": [
+         {
+          "text": "O girino",
+          "misconceptionCode": "semelhanca"
+         },
+         {
+          "text": "A lagarta",
+          "misconceptionCode": "semelhanca"
+         },
+         {
+          "text": "A pupa",
+          "misconceptionCode": "semelhanca"
+         },
+         {
+          "text": "O gatinho, que nasce parecido com o gato adulto"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um colega diz: \"Todo filhote nasce igual aos pais, só que pequeno.\" Como responder?",
+        "options": [
+         {
+          "text": "Só os humanos mudam",
+          "misconceptionCode": "semelhanca"
+         },
+         {
+          "text": "Nenhum animal muda",
+          "misconceptionCode": "semelhanca"
+         },
+         {
+          "text": "Nem todos: o sapo e a borboleta passam por grandes transformações"
+         },
+         {
+          "text": "Ele está certo, todos nascem iguais",
+          "misconceptionCode": "semelhanca"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI05-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: o desenvolvimento dos animais",
+    "prompt": "Explique como os animais mudam desde o nascimento, dando exemplos.",
+    "estMinutes": 6,
+    "audioScript": "Explique como os animais mudam desde o nascimento, dando exemplos.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "semelhantes",
+       "description": "Explica animais que nascem parecidos com os adultos e crescem (cachorro, ser humano)"
+      },
+      {
+       "code": "metamorfose",
+       "description": "Explica a metamorfose do sapo ou da borboleta, com as fases em ordem"
+      },
+      {
+       "code": "humano",
+       "description": "Explica as fases da vida humana"
+      }
+     ],
+     "exemploBoaResposta": "Alguns animais nascem parecidos com os adultos e vão crescendo, como o cachorro, o gato e o ser humano, que passa por bebê, criança, adolescente, adulto e idoso. Outros passam por grandes transformações, chamadas de metamorfose. O sapo nasce do ovo como girino, que vive na água e tem cauda; depois surgem as patas de trás, as da frente, a cauda diminui e ele vira sapo, que vive também na terra. A borboleta passa por ovo, lagarta, pupa e borboleta."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF03CI06",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: Agrupar animais",
+  "tituloAluno": "Penas, pelos, escamas, antenas e patas",
+  "activities": [
+   {
+    "id": "PK2-EF03CI06-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: o que observamos nos animais",
+    "prompt": "Cobertura, bico, patas, antenas.",
+    "estMinutes": 4,
+    "audioScript": "Cobertura, bico, patas, antenas. Pergunta 1. Qual animal tem o corpo coberto de penas? A: A galinha; B: O cachorro; C: O peixe; D: A cobra. Pergunta 2. Qual animal tem o corpo coberto de escamas? A: O gato; B: O peixe; C: O papagaio; D: O cavalo. Pergunta 3. Quantas patas tem uma formiga? A: Quatro; B: Oito; C: Seis; D: Duas. Pergunta 4. Qual animal tem antenas? A: O gato; B: A galinha; C: O peixe; D: A borboleta. Pergunta 5. Qual grupo foi formado por um critério só? A: Galinha, pato e papagaio: todos têm penas; B: Galinha, gato e peixe: são bonitos; C: Pato, formiga e vaca: vivem na fazenda; D: Peixe, cobra e coelho: são de cores diferentes.",
+    "questions": [
+     {
+      "question": "Qual animal tem o corpo coberto de penas?",
+      "options": [
+       {
+        "text": "A galinha"
+       },
+       {
+        "text": "O cachorro",
+        "misconceptionCode": "cobertura"
+       },
+       {
+        "text": "O peixe",
+        "misconceptionCode": "cobertura"
+       },
+       {
+        "text": "A cobra",
+        "misconceptionCode": "cobertura"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Aves têm penas.",
+      "variants": [
+       {
+        "question": "Qual animal tem o corpo coberto de pelos?",
+        "options": [
+         {
+          "text": "O pato",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "A sardinha",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "O coelho"
+         },
+         {
+          "text": "O lagarto",
+          "misconceptionCode": "cobertura"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual animal tem o corpo coberto de penas?",
+        "options": [
+         {
+          "text": "A cobra",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "A galinha"
+         },
+         {
+          "text": "O peixe",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "O cachorro",
+          "misconceptionCode": "cobertura"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual animal tem o corpo coberto de escamas?",
+      "options": [
+       {
+        "text": "O gato",
+        "misconceptionCode": "cobertura"
+       },
+       {
+        "text": "O peixe"
+       },
+       {
+        "text": "O papagaio",
+        "misconceptionCode": "cobertura"
+       },
+       {
+        "text": "O cavalo",
+        "misconceptionCode": "cobertura"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Escamas.",
+      "variants": [
+       {
+        "question": "Que outro animal também tem escamas?",
+        "options": [
+         {
+          "text": "O cachorro",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "A galinha",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "O macaco",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "A cobra"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual animal tem o corpo coberto de escamas?",
+        "options": [
+         {
+          "text": "O cavalo",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "O papagaio",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "O peixe"
+         },
+         {
+          "text": "O gato",
+          "misconceptionCode": "cobertura"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Quantas patas tem uma formiga?",
+      "options": [
+       {
+        "text": "Quatro",
+        "misconceptionCode": "patas"
+       },
+       {
+        "text": "Oito",
+        "misconceptionCode": "patas"
+       },
+       {
+        "text": "Seis"
+       },
+       {
+        "text": "Duas",
+        "misconceptionCode": "patas"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Insetos têm seis patas.",
+      "variants": [
+       {
+        "question": "Quantas patas tem uma aranha?",
+        "options": [
+         {
+          "text": "Oito"
+         },
+         {
+          "text": "Seis",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "Quatro",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "Duas",
+          "misconceptionCode": "patas"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quantas patas tem uma formiga?",
+        "options": [
+         {
+          "text": "Duas",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "Oito",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "Quatro",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "Seis"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual animal tem antenas?",
+      "options": [
+       {
+        "text": "O gato",
+        "misconceptionCode": "criterio"
+       },
+       {
+        "text": "A galinha",
+        "misconceptionCode": "criterio"
+       },
+       {
+        "text": "O peixe",
+        "misconceptionCode": "criterio"
+       },
+       {
+        "text": "A borboleta"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Antenas.",
+      "variants": [
+       {
+        "question": "Qual animal tem bico?",
+        "options": [
+         {
+          "text": "O cachorro",
+          "misconceptionCode": "criterio"
+         },
+         {
+          "text": "O pato"
+         },
+         {
+          "text": "A cobra",
+          "misconceptionCode": "criterio"
+         },
+         {
+          "text": "A formiga",
+          "misconceptionCode": "criterio"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual animal tem antenas?",
+        "options": [
+         {
+          "text": "A borboleta"
+         },
+         {
+          "text": "O peixe",
+          "misconceptionCode": "criterio"
+         },
+         {
+          "text": "A galinha",
+          "misconceptionCode": "criterio"
+         },
+         {
+          "text": "O gato",
+          "misconceptionCode": "criterio"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Qual grupo foi formado por um critério só?",
+      "options": [
+       {
+        "text": "Galinha, pato e papagaio: todos têm penas"
+       },
+       {
+        "text": "Galinha, gato e peixe: são bonitos",
+        "misconceptionCode": "aparencia"
+       },
+       {
+        "text": "Pato, formiga e vaca: vivem na fazenda",
+        "misconceptionCode": "aparencia"
+       },
+       {
+        "text": "Peixe, cobra e coelho: são de cores diferentes",
+        "misconceptionCode": "aparencia"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Critério claro.",
+      "variants": [
+       {
+        "question": "Qual critério NÃO é uma característica do corpo do animal?",
+        "options": [
+         {
+          "text": "Ter penas",
+          "misconceptionCode": "aparencia"
+         },
+         {
+          "text": "Ter antenas",
+          "misconceptionCode": "aparencia"
+         },
+         {
+          "text": "O lugar onde ele foi visto"
+         },
+         {
+          "text": "Ter oito patas",
+          "misconceptionCode": "aparencia"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual grupo foi formado por um critério só?",
+        "options": [
+         {
+          "text": "Peixe, cobra e coelho: são de cores diferentes",
+          "misconceptionCode": "aparencia"
+         },
+         {
+          "text": "Galinha, pato e papagaio: todos têm penas"
+         },
+         {
+          "text": "Pato, formiga e vaca: vivem na fazenda",
+          "misconceptionCode": "aparencia"
+         },
+         {
+          "text": "Galinha, gato e peixe: são bonitos",
+          "misconceptionCode": "aparencia"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI06-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: cartas de animais",
+    "prompt": "A turma recebeu cartas com fotos: gato, cachorro, galinha, pato, peixe, cobra, formiga, borboleta, aranha e sapo. A professora pediu: \"Separem os animais pela cobertura do corpo.\"",
+    "estMinutes": 4,
+    "audioScript": "A turma recebeu cartas com fotos: gato, cachorro, galinha, pato, peixe, cobra, formiga, borboleta, aranha e sapo. A professora pediu: \"Separem os animais pela cobertura do corpo.\" Pergunta 1. Quais animais ficam no grupo das penas? A: Gato e cachorro; B: Galinha e pato; C: Peixe e cobra; D: Formiga e aranha. Pergunta 2. Quais ficam no grupo das escamas? A: Gato e pato; B: Sapo e formiga; C: Peixe e cobra; D: Aranha e galinha. Pergunta 3. Depois, a professora pediu: \"Agora, separem pelo número de patas.\" Quais animais têm seis patas? A: Aranha e formiga; B: Gato e cachorro; C: Galinha e pato; D: Formiga e borboleta. Pergunta 4. Em que grupo de patas fica a aranha? A: No grupo das oito patas, sozinha entre essas cartas; B: No grupo das seis patas; C: No grupo das duas patas; D: No grupo sem patas. Pergunta 5. Um colega colocou o gato e a borboleta juntos \"porque são bonitos\". Qual é o problema? A: Nenhum problema; B: \"Bonito\" não é uma característica do corpo que todos possam observar do mesmo jeito; C: Gato e borboleta têm penas; D: Os dois têm oito patas.",
+    "questions": [
+     {
+      "question": "Quais animais ficam no grupo das penas?",
+      "options": [
+       {
+        "text": "Gato e cachorro",
+        "misconceptionCode": "cobertura"
+       },
+       {
+        "text": "Galinha e pato"
+       },
+       {
+        "text": "Peixe e cobra",
+        "misconceptionCode": "cobertura"
+       },
+       {
+        "text": "Formiga e aranha",
+        "misconceptionCode": "cobertura"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Penas.",
+      "variants": [
+       {
+        "question": "Quais ficam no grupo dos pelos?",
+        "options": [
+         {
+          "text": "Galinha e pato",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Peixe e cobra",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Sapo e borboleta",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Gato e cachorro"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quais animais ficam no grupo das penas?",
+        "options": [
+         {
+          "text": "Formiga e aranha",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Peixe e cobra",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Galinha e pato"
+         },
+         {
+          "text": "Gato e cachorro",
+          "misconceptionCode": "cobertura"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Quais ficam no grupo das escamas?",
+      "options": [
+       {
+        "text": "Gato e pato",
+        "misconceptionCode": "cobertura"
+       },
+       {
+        "text": "Sapo e formiga",
+        "misconceptionCode": "cobertura"
+       },
+       {
+        "text": "Peixe e cobra"
+       },
+       {
+        "text": "Aranha e galinha",
+        "misconceptionCode": "cobertura"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Escamas.",
+      "variants": [
+       {
+        "question": "Como é a pele do sapo?",
+        "options": [
+         {
+          "text": "Lisa e úmida, sem pelos, penas ou escamas"
+         },
+         {
+          "text": "Coberta de penas",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Coberta de pelos grossos",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Coberta de escamas duras",
+          "misconceptionCode": "cobertura"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quais ficam no grupo das escamas?",
+        "options": [
+         {
+          "text": "Aranha e galinha",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Sapo e formiga",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Gato e pato",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Peixe e cobra"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Depois, a professora pediu: \"Agora, separem pelo número de patas.\" Quais animais têm seis patas?",
+      "options": [
+       {
+        "text": "Aranha e formiga",
+        "misconceptionCode": "patas"
+       },
+       {
+        "text": "Gato e cachorro",
+        "misconceptionCode": "patas"
+       },
+       {
+        "text": "Galinha e pato",
+        "misconceptionCode": "patas"
+       },
+       {
+        "text": "Formiga e borboleta"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Insetos.",
+      "variants": [
+       {
+        "question": "Quantas patas têm juntos um gato e uma galinha?",
+        "options": [
+         {
+          "text": "Quatro",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "Seis"
+         },
+         {
+          "text": "Oito",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "Dez",
+          "misconceptionCode": "patas"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Depois, a professora pediu: \"Agora, separem pelo número de patas.\" Quais animais têm seis patas?",
+        "options": [
+         {
+          "text": "Formiga e borboleta"
+         },
+         {
+          "text": "Galinha e pato",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "Gato e cachorro",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "Aranha e formiga",
+          "misconceptionCode": "patas"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Em que grupo de patas fica a aranha?",
+      "options": [
+       {
+        "text": "No grupo das oito patas, sozinha entre essas cartas"
+       },
+       {
+        "text": "No grupo das seis patas",
+        "misconceptionCode": "patas"
+       },
+       {
+        "text": "No grupo das duas patas",
+        "misconceptionCode": "patas"
+       },
+       {
+        "text": "No grupo sem patas",
+        "misconceptionCode": "patas"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Aranha não é inseto.",
+      "variants": [
+       {
+        "question": "Quais animais das cartas não têm patas?",
+        "options": [
+         {
+          "text": "O gato e o pato",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "A formiga e a aranha",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "O peixe e a cobra"
+         },
+         {
+          "text": "O sapo e a galinha",
+          "misconceptionCode": "patas"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Em que grupo de patas fica a aranha?",
+        "options": [
+         {
+          "text": "No grupo sem patas",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "No grupo das oito patas, sozinha entre essas cartas"
+         },
+         {
+          "text": "No grupo das duas patas",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "No grupo das seis patas",
+          "misconceptionCode": "patas"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um colega colocou o gato e a borboleta juntos \"porque são bonitos\". Qual é o problema?",
+      "options": [
+       {
+        "text": "Nenhum problema",
+        "misconceptionCode": "aparencia"
+       },
+       {
+        "text": "\"Bonito\" não é uma característica do corpo que todos possam observar do mesmo jeito"
+       },
+       {
+        "text": "Gato e borboleta têm penas",
+        "misconceptionCode": "cobertura"
+       },
+       {
+        "text": "Os dois têm oito patas",
+        "misconceptionCode": "patas"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Critério observável.",
+      "variants": [
+       {
+        "question": "Que critério poderia reunir o gato e a borboleta?",
+        "options": [
+         {
+          "text": "Os dois têm penas",
+          "misconceptionCode": "aparencia"
+         },
+         {
+          "text": "Os dois têm escamas",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Os dois têm bico",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "Nenhuma das características estudadas: um tem pelos e quatro patas; a outra tem antenas e seis patas"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um colega colocou o gato e a borboleta juntos \"porque são bonitos\". Qual é o problema?",
+        "options": [
+         {
+          "text": "Os dois têm oito patas",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "Gato e borboleta têm penas",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "\"Bonito\" não é uma característica do corpo que todos possam observar do mesmo jeito"
+         },
+         {
+          "text": "Nenhum problema",
+          "misconceptionCode": "aparencia"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI06-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: formar e conferir grupos",
+    "prompt": "Um critério por vez.",
+    "estMinutes": 5,
+    "audioScript": "Um critério por vez. Pergunta 1. Qual animal NÃO pertence ao grupo \"têm penas\"? A: O pombo; B: A coruja; C: O morcego; D: O beija-flor. Pergunta 2. Qual animal NÃO pertence ao grupo \"têm seis patas\"? A: A abelha; B: O besouro; C: A joaninha; D: A aranha. Pergunta 3. Qual animal tem garras? A: A onça; B: A minhoca; C: O peixe; D: A borboleta. Pergunta 4. A baleia vive no mar, como o peixe. Ela tem escamas? A: Sim, como todos os animais do mar; B: Não; a baleia tem pele lisa e alguns pelos, e é mamífero; C: Sim, e tem penas; D: Sim, e tem antenas.",
+    "questions": [
+     {
+      "question": "Qual animal NÃO pertence ao grupo \"têm penas\"?",
+      "options": [
+       {
+        "text": "O pombo",
+        "misconceptionCode": "cobertura"
+       },
+       {
+        "text": "A coruja",
+        "misconceptionCode": "cobertura"
+       },
+       {
+        "text": "O morcego"
+       },
+       {
+        "text": "O beija-flor",
+        "misconceptionCode": "cobertura"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Morcego tem pelos e voa, mas não tem penas.",
+      "variants": [
+       {
+        "question": "O morcego voa. Ele tem:",
+        "options": [
+         {
+          "text": "Pelos"
+         },
+         {
+          "text": "Penas",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Escamas",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Antenas",
+          "misconceptionCode": "cobertura"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual animal NÃO pertence ao grupo \"têm penas\"?",
+        "options": [
+         {
+          "text": "O beija-flor",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "A coruja",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "O pombo",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "O morcego"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual animal NÃO pertence ao grupo \"têm seis patas\"?",
+      "options": [
+       {
+        "text": "A abelha",
+        "misconceptionCode": "patas"
+       },
+       {
+        "text": "O besouro",
+        "misconceptionCode": "patas"
+       },
+       {
+        "text": "A joaninha",
+        "misconceptionCode": "patas"
+       },
+       {
+        "text": "A aranha"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "A aranha tem oito.",
+      "variants": [
+       {
+        "question": "Qual destes animais é um inseto, com seis patas e antenas?",
+        "options": [
+         {
+          "text": "A aranha",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "O gafanhoto"
+         },
+         {
+          "text": "O caracol",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "A minhoca",
+          "misconceptionCode": "patas"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual animal NÃO pertence ao grupo \"têm seis patas\"?",
+        "options": [
+         {
+          "text": "A aranha"
+         },
+         {
+          "text": "A joaninha",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "O besouro",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "A abelha",
+          "misconceptionCode": "patas"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Qual animal tem garras?",
+      "options": [
+       {
+        "text": "A onça"
+       },
+       {
+        "text": "A minhoca",
+        "misconceptionCode": "criterio"
+       },
+       {
+        "text": "O peixe",
+        "misconceptionCode": "criterio"
+       },
+       {
+        "text": "A borboleta",
+        "misconceptionCode": "criterio"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Garras.",
+      "variants": [
+       {
+        "question": "Para que as garras servem à coruja?",
+        "options": [
+         {
+          "text": "Para nadar",
+          "misconceptionCode": "criterio"
+         },
+         {
+          "text": "Para respirar",
+          "misconceptionCode": "criterio"
+         },
+         {
+          "text": "Para segurar as presas"
+         },
+         {
+          "text": "Para fazer sombra",
+          "misconceptionCode": "criterio"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual animal tem garras?",
+        "options": [
+         {
+          "text": "A borboleta",
+          "misconceptionCode": "criterio"
+         },
+         {
+          "text": "A onça"
+         },
+         {
+          "text": "O peixe",
+          "misconceptionCode": "criterio"
+         },
+         {
+          "text": "A minhoca",
+          "misconceptionCode": "criterio"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "A baleia vive no mar, como o peixe. Ela tem escamas?",
+      "options": [
+       {
+        "text": "Sim, como todos os animais do mar",
+        "misconceptionCode": "aparencia"
+       },
+       {
+        "text": "Não; a baleia tem pele lisa e alguns pelos, e é mamífero"
+       },
+       {
+        "text": "Sim, e tem penas",
+        "misconceptionCode": "cobertura"
+       },
+       {
+        "text": "Sim, e tem antenas",
+        "misconceptionCode": "cobertura"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Morar na água não define a cobertura.",
+      "variants": [
+       {
+        "question": "O que esse exemplo mostra?",
+        "options": [
+         {
+          "text": "Que todos os animais do mar são peixes",
+          "misconceptionCode": "aparencia"
+         },
+         {
+          "text": "Que baleias têm penas",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Que não dá para agrupar animais",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Que o lugar onde o animal vive não é o mesmo que suas características do corpo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A baleia vive no mar, como o peixe. Ela tem escamas?",
+        "options": [
+         {
+          "text": "Sim, e tem antenas",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Sim, e tem penas",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Não; a baleia tem pele lisa e alguns pelos, e é mamífero"
+         },
+         {
+          "text": "Sim, como todos os animais do mar",
+          "misconceptionCode": "aparencia"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI06-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: o mural dos animais",
+    "prompt": "Organizar e explicar.",
+    "estMinutes": 4,
+    "audioScript": "Organizar e explicar. Pergunta 1. A turma vai montar um mural com três colunas: penas, pelos e escamas. Onde colocar o jacaré? A: Na coluna das penas; B: Na coluna dos pelos; C: Na coluna das escamas; D: Fora do mural. Pergunta 2. Que título combina com um grupo formado por formiga, abelha e borboleta? A: \"Animais bonitos\"; B: \"Animais grandes\"; C: \"Animais com penas\"; D: \"Animais com seis patas e antenas\". Pergunta 3. No jardim da escola, a turma encontrou um animal com oito patas e sem antenas. Em que grupo ele fica? A: Com as aranhas; B: Com os insetos; C: Com as aves; D: Com os peixes.",
+    "questions": [
+     {
+      "question": "A turma vai montar um mural com três colunas: penas, pelos e escamas. Onde colocar o jacaré?",
+      "options": [
+       {
+        "text": "Na coluna das penas",
+        "misconceptionCode": "cobertura"
+       },
+       {
+        "text": "Na coluna dos pelos",
+        "misconceptionCode": "cobertura"
+       },
+       {
+        "text": "Na coluna das escamas"
+       },
+       {
+        "text": "Fora do mural",
+        "misconceptionCode": "cobertura"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Réptil com escamas.",
+      "variants": [
+       {
+        "question": "Onde colocar a ovelha?",
+        "options": [
+         {
+          "text": "Na coluna dos pelos"
+         },
+         {
+          "text": "Na coluna das penas",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Na coluna das escamas",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Na coluna das antenas",
+          "misconceptionCode": "cobertura"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A turma vai montar um mural com três colunas: penas, pelos e escamas. Onde colocar o jacaré?",
+        "options": [
+         {
+          "text": "Fora do mural",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Na coluna dos pelos",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Na coluna das penas",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "Na coluna das escamas"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Que título combina com um grupo formado por formiga, abelha e borboleta?",
+      "options": [
+       {
+        "text": "\"Animais bonitos\"",
+        "misconceptionCode": "aparencia"
+       },
+       {
+        "text": "\"Animais grandes\"",
+        "misconceptionCode": "aparencia"
+       },
+       {
+        "text": "\"Animais com penas\"",
+        "misconceptionCode": "cobertura"
+       },
+       {
+        "text": "\"Animais com seis patas e antenas\""
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Título pelo critério.",
+      "variants": [
+       {
+        "question": "Que animal poderia entrar nesse grupo?",
+        "options": [
+         {
+          "text": "A aranha",
+          "misconceptionCode": "aparencia"
+         },
+         {
+          "text": "A mosca"
+         },
+         {
+          "text": "O caramujo",
+          "misconceptionCode": "aparencia"
+         },
+         {
+          "text": "O gato",
+          "misconceptionCode": "cobertura"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Que título combina com um grupo formado por formiga, abelha e borboleta?",
+        "options": [
+         {
+          "text": "\"Animais com seis patas e antenas\""
+         },
+         {
+          "text": "\"Animais com penas\"",
+          "misconceptionCode": "cobertura"
+         },
+         {
+          "text": "\"Animais grandes\"",
+          "misconceptionCode": "aparencia"
+         },
+         {
+          "text": "\"Animais bonitos\"",
+          "misconceptionCode": "aparencia"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "No jardim da escola, a turma encontrou um animal com oito patas e sem antenas. Em que grupo ele fica?",
+      "options": [
+       {
+        "text": "Com as aranhas"
+       },
+       {
+        "text": "Com os insetos",
+        "misconceptionCode": "patas"
+       },
+       {
+        "text": "Com as aves",
+        "misconceptionCode": "patas"
+       },
+       {
+        "text": "Com os peixes",
+        "misconceptionCode": "patas"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Oito patas.",
+      "variants": [
+       {
+        "question": "Que cuidado ter ao observar esse animal?",
+        "options": [
+         {
+          "text": "Pegar com a mão",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "Colocar no bolso",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "Olhar sem tocar e chamar um adulto"
+         },
+         {
+          "text": "Pisar nele",
+          "misconceptionCode": "patas"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "No jardim da escola, a turma encontrou um animal com oito patas e sem antenas. Em que grupo ele fica?",
+        "options": [
+         {
+          "text": "Com os peixes",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "Com as aranhas"
+         },
+         {
+          "text": "Com as aves",
+          "misconceptionCode": "patas"
+         },
+         {
+          "text": "Com os insetos",
+          "misconceptionCode": "patas"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI06-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: agrupar animais",
+    "prompt": "Explique como agrupar animais por características externas, com exemplos.",
+    "estMinutes": 6,
+    "audioScript": "Explique como agrupar animais por características externas, com exemplos.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "cobertura",
+       "description": "Explica grupos por cobertura do corpo (penas, pelos, escamas) com exemplos"
+      },
+      {
+       "code": "patas-antenas",
+       "description": "Explica grupos por número de patas, antenas, bico ou garras"
+      },
+      {
+       "code": "criterio",
+       "description": "Explica a importância de usar um critério observável de cada vez"
+      }
+     ],
+     "exemploBoaResposta": "Para agrupar animais, escolho uma característica do corpo que dá para observar e uso uma de cada vez. Pela cobertura do corpo: a galinha e o pato têm penas; o gato e o cachorro têm pelos; o peixe e a cobra têm escamas. Pelo número de patas: a formiga e a borboleta têm seis e antenas; a aranha tem oito; o gato tem quatro; a galinha tem duas. Também posso agrupar por bico ou garras. Não uso critérios como \"bonito\" ou \"onde vive\", porque a baleia vive no mar, mas não tem escamas."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF03CI08",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: O que vemos no céu",
+  "tituloAluno": "Dia, noite, Sol, Lua, estrelas e planetas",
+  "activities": [
+   {
+    "id": "PK2-EF03CI08-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: o céu do dia e da noite",
+    "prompt": "O que aparece e quando.",
+    "estMinutes": 4,
+    "audioScript": "O que aparece e quando. Pergunta 1. Em que período vemos o Sol no céu? A: Só à meia-noite; B: Nunca; C: Durante o dia; D: Só quando chove. Pergunta 2. A Lua só aparece à noite? A: Sim, nunca aparece de dia; B: Sim, e só no inverno; C: Não, ela nunca aparece; D: Não; muitas vezes ela também pode ser vista durante o dia. Pergunta 3. Por que não vemos as estrelas durante o dia? A: Porque a luz do Sol é muito forte e ofusca o brilho delas; B: Porque elas apagam; C: Porque elas caem; D: Porque elas viram nuvens. Pergunta 4. A \"estrela-d'alva\", que brilha perto do amanhecer, é na verdade: A: Uma estrela de verdade; B: O planeta Vênus; C: A Lua; D: Um avião.",
+    "questions": [
+     {
+      "question": "Em que período vemos o Sol no céu?",
+      "options": [
+       {
+        "text": "Só à meia-noite",
+        "misconceptionCode": "sol"
+       },
+       {
+        "text": "Nunca",
+        "misconceptionCode": "sol"
+       },
+       {
+        "text": "Durante o dia"
+       },
+       {
+        "text": "Só quando chove",
+        "misconceptionCode": "sol"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Sol de dia.",
+      "variants": [
+       {
+        "question": "O Sol é:",
+        "options": [
+         {
+          "text": "Uma estrela"
+         },
+         {
+          "text": "Um planeta",
+          "misconceptionCode": "sol"
+         },
+         {
+          "text": "Uma lua",
+          "misconceptionCode": "sol"
+         },
+         {
+          "text": "Uma nuvem",
+          "misconceptionCode": "sol"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Em que período vemos o Sol no céu?",
+        "options": [
+         {
+          "text": "Só quando chove",
+          "misconceptionCode": "sol"
+         },
+         {
+          "text": "Nunca",
+          "misconceptionCode": "sol"
+         },
+         {
+          "text": "Só à meia-noite",
+          "misconceptionCode": "sol"
+         },
+         {
+          "text": "Durante o dia"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "A Lua só aparece à noite?",
+      "options": [
+       {
+        "text": "Sim, nunca aparece de dia",
+        "misconceptionCode": "lua"
+       },
+       {
+        "text": "Sim, e só no inverno",
+        "misconceptionCode": "lua"
+       },
+       {
+        "text": "Não, ela nunca aparece",
+        "misconceptionCode": "lua"
+       },
+       {
+        "text": "Não; muitas vezes ela também pode ser vista durante o dia"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Lua de dia também.",
+      "variants": [
+       {
+        "question": "Onde estão as estrelas durante o dia?",
+        "options": [
+         {
+          "text": "Somem do universo",
+          "misconceptionCode": "lua"
+         },
+         {
+          "text": "Continuam no céu, mas a luz do Sol não nos deixa vê-las"
+         },
+         {
+          "text": "Vão dormir",
+          "misconceptionCode": "lua"
+         },
+         {
+          "text": "Ficam atrás da Lua",
+          "misconceptionCode": "lua"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A Lua só aparece à noite?",
+        "options": [
+         {
+          "text": "Não; muitas vezes ela também pode ser vista durante o dia"
+         },
+         {
+          "text": "Não, ela nunca aparece",
+          "misconceptionCode": "lua"
+         },
+         {
+          "text": "Sim, e só no inverno",
+          "misconceptionCode": "lua"
+         },
+         {
+          "text": "Sim, nunca aparece de dia",
+          "misconceptionCode": "lua"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Por que não vemos as estrelas durante o dia?",
+      "options": [
+       {
+        "text": "Porque a luz do Sol é muito forte e ofusca o brilho delas"
+       },
+       {
+        "text": "Porque elas apagam",
+        "misconceptionCode": "estrelas"
+       },
+       {
+        "text": "Porque elas caem",
+        "misconceptionCode": "estrelas"
+       },
+       {
+        "text": "Porque elas viram nuvens",
+        "misconceptionCode": "estrelas"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Ofuscamento.",
+      "variants": [
+       {
+        "question": "Quando é mais fácil ver muitas estrelas?",
+        "options": [
+         {
+          "text": "Ao meio-dia",
+          "misconceptionCode": "estrelas"
+         },
+         {
+          "text": "Num dia nublado",
+          "misconceptionCode": "estrelas"
+         },
+         {
+          "text": "À noite, num lugar escuro e sem nuvens"
+         },
+         {
+          "text": "Perto de luzes muito fortes",
+          "misconceptionCode": "estrelas"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Por que não vemos as estrelas durante o dia?",
+        "options": [
+         {
+          "text": "Porque elas viram nuvens",
+          "misconceptionCode": "estrelas"
+         },
+         {
+          "text": "Porque a luz do Sol é muito forte e ofusca o brilho delas"
+         },
+         {
+          "text": "Porque elas caem",
+          "misconceptionCode": "estrelas"
+         },
+         {
+          "text": "Porque elas apagam",
+          "misconceptionCode": "estrelas"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "A \"estrela-d'alva\", que brilha perto do amanhecer, é na verdade:",
+      "options": [
+       {
+        "text": "Uma estrela de verdade",
+        "misconceptionCode": "planetas"
+       },
+       {
+        "text": "O planeta Vênus"
+       },
+       {
+        "text": "A Lua",
+        "misconceptionCode": "planetas"
+       },
+       {
+        "text": "Um avião",
+        "misconceptionCode": "planetas"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Vênus.",
+      "variants": [
+       {
+        "question": "É possível ver alguns planetas sem telescópio?",
+        "options": [
+         {
+          "text": "Não, nunca",
+          "misconceptionCode": "planetas"
+         },
+         {
+          "text": "Só com microscópio",
+          "misconceptionCode": "planetas"
+         },
+         {
+          "text": "Só de dia ao meio-dia",
+          "misconceptionCode": "planetas"
+         },
+         {
+          "text": "Sim, alguns, como Vênus e Júpiter, parecem estrelas bem brilhantes"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A \"estrela-d'alva\", que brilha perto do amanhecer, é na verdade:",
+        "options": [
+         {
+          "text": "Um avião",
+          "misconceptionCode": "planetas"
+         },
+         {
+          "text": "A Lua",
+          "misconceptionCode": "planetas"
+         },
+         {
+          "text": "O planeta Vênus"
+         },
+         {
+          "text": "Uma estrela de verdade",
+          "misconceptionCode": "planetas"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI08-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o diário do céu da turma",
+    "prompt": "Durante uma semana, a turma registrou o céu em três horários. Às 7h da manhã: o Sol nascendo, e a Lua clarinha ainda visível do lado oposto. Às 12h: o Sol alto, nenhuma estrela. Às 19h: céu escuro, várias estrelas, a Lua e um ponto muito brilhante perto do horizonte que não piscava.",
+    "estMinutes": 4,
+    "audioScript": "Durante uma semana, a turma registrou o céu em três horários. Às 7h da manhã: o Sol nascendo, e a Lua clarinha ainda visível do lado oposto. Às 12h: o Sol alto, nenhuma estrela. Às 19h: céu escuro, várias estrelas, a Lua e um ponto muito brilhante perto do horizonte que não piscava. Pergunta 1. Em qual horário a turma viu o Sol e a Lua ao mesmo tempo? A: Às 12h; B: Às 19h; C: Às 7h da manhã; D: Nunca. Pergunta 2. Por que às 12h não apareciam estrelas? A: Porque as estrelas foram embora; B: Porque as estrelas apagam ao meio-dia; C: Porque as estrelas viram o Sol; D: Porque a luz forte do Sol ofusca as estrelas. Pergunta 3. O ponto muito brilhante que não piscava pode ser: A: Um planeta; B: Uma nuvem; C: O Sol; D: Um arco-íris. Pergunta 4. Que cuidado a turma teve ao registrar o Sol? A: Olhou fixamente com binóculos; B: Não olhou diretamente para ele; C: Olhou por muito tempo sem proteção; D: Apontou um espelho para os olhos.",
+    "questions": [
+     {
+      "question": "Em qual horário a turma viu o Sol e a Lua ao mesmo tempo?",
+      "options": [
+       {
+        "text": "Às 12h",
+        "misconceptionCode": "lua"
+       },
+       {
+        "text": "Às 19h",
+        "misconceptionCode": "lua"
+       },
+       {
+        "text": "Às 7h da manhã"
+       },
+       {
+        "text": "Nunca",
+        "misconceptionCode": "lua"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Lua visível de dia.",
+      "variants": [
+       {
+        "question": "O que esse registro mostra sobre a Lua?",
+        "options": [
+         {
+          "text": "Que ela pode ser vista de dia"
+         },
+         {
+          "text": "Que ela só aparece à noite",
+          "misconceptionCode": "lua"
+         },
+         {
+          "text": "Que ela é o Sol",
+          "misconceptionCode": "lua"
+         },
+         {
+          "text": "Que ela some para sempre",
+          "misconceptionCode": "lua"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Em qual horário a turma viu o Sol e a Lua ao mesmo tempo?",
+        "options": [
+         {
+          "text": "Nunca",
+          "misconceptionCode": "lua"
+         },
+         {
+          "text": "Às 19h",
+          "misconceptionCode": "lua"
+         },
+         {
+          "text": "Às 12h",
+          "misconceptionCode": "lua"
+         },
+         {
+          "text": "Às 7h da manhã"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Por que às 12h não apareciam estrelas?",
+      "options": [
+       {
+        "text": "Porque as estrelas foram embora",
+        "misconceptionCode": "estrelas"
+       },
+       {
+        "text": "Porque as estrelas apagam ao meio-dia",
+        "misconceptionCode": "estrelas"
+       },
+       {
+        "text": "Porque as estrelas viram o Sol",
+        "misconceptionCode": "estrelas"
+       },
+       {
+        "text": "Porque a luz forte do Sol ofusca as estrelas"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Ofuscamento.",
+      "variants": [
+       {
+        "question": "Quantos horas se passaram entre o registro das 7h e o das 19h?",
+        "options": [
+         {
+          "text": "7 horas",
+          "misconceptionCode": "estrelas"
+         },
+         {
+          "text": "12 horas"
+         },
+         {
+          "text": "19 horas",
+          "misconceptionCode": "estrelas"
+         },
+         {
+          "text": "10 horas",
+          "misconceptionCode": "estrelas"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Por que às 12h não apareciam estrelas?",
+        "options": [
+         {
+          "text": "Porque a luz forte do Sol ofusca as estrelas"
+         },
+         {
+          "text": "Porque as estrelas viram o Sol",
+          "misconceptionCode": "estrelas"
+         },
+         {
+          "text": "Porque as estrelas apagam ao meio-dia",
+          "misconceptionCode": "estrelas"
+         },
+         {
+          "text": "Porque as estrelas foram embora",
+          "misconceptionCode": "estrelas"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O ponto muito brilhante que não piscava pode ser:",
+      "options": [
+       {
+        "text": "Um planeta"
+       },
+       {
+        "text": "Uma nuvem",
+        "misconceptionCode": "planetas"
+       },
+       {
+        "text": "O Sol",
+        "misconceptionCode": "planetas"
+       },
+       {
+        "text": "Um arco-íris",
+        "misconceptionCode": "planetas"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Planetas costumam brilhar sem piscar.",
+      "variants": [
+       {
+        "question": "Que planeta é visto muitas vezes perto do horizonte ao anoitecer?",
+        "options": [
+         {
+          "text": "Netuno",
+          "misconceptionCode": "planetas"
+         },
+         {
+          "text": "Plutão",
+          "misconceptionCode": "planetas"
+         },
+         {
+          "text": "Vênus"
+         },
+         {
+          "text": "Urano",
+          "misconceptionCode": "planetas"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O ponto muito brilhante que não piscava pode ser:",
+        "options": [
+         {
+          "text": "Um arco-íris",
+          "misconceptionCode": "planetas"
+         },
+         {
+          "text": "Um planeta"
+         },
+         {
+          "text": "O Sol",
+          "misconceptionCode": "planetas"
+         },
+         {
+          "text": "Uma nuvem",
+          "misconceptionCode": "planetas"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Que cuidado a turma teve ao registrar o Sol?",
+      "options": [
+       {
+        "text": "Olhou fixamente com binóculos",
+        "misconceptionCode": "sol"
+       },
+       {
+        "text": "Não olhou diretamente para ele"
+       },
+       {
+        "text": "Olhou por muito tempo sem proteção",
+        "misconceptionCode": "sol"
+       },
+       {
+        "text": "Apontou um espelho para os olhos",
+        "misconceptionCode": "sol"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Segurança.",
+      "variants": [
+       {
+        "question": "Como registrar a posição do Sol sem olhar para ele?",
+        "options": [
+         {
+          "text": "Olhar fixamente",
+          "misconceptionCode": "sol"
+         },
+         {
+          "text": "Usar uma lupa apontada para o olho",
+          "misconceptionCode": "sol"
+         },
+         {
+          "text": "Não é possível",
+          "misconceptionCode": "sol"
+         },
+         {
+          "text": "Observar a sombra de um objeto e desenhar a posição aproximada"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Que cuidado a turma teve ao registrar o Sol?",
+        "options": [
+         {
+          "text": "Apontou um espelho para os olhos",
+          "misconceptionCode": "sol"
+         },
+         {
+          "text": "Olhou por muito tempo sem proteção",
+          "misconceptionCode": "sol"
+         },
+         {
+          "text": "Não olhou diretamente para ele"
+         },
+         {
+          "text": "Olhou fixamente com binóculos",
+          "misconceptionCode": "sol"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI08-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: dia ou noite?",
+    "prompt": "Registrar o céu.",
+    "estMinutes": 5,
+    "audioScript": "Registrar o céu. Pergunta 1. Qual astro vemos só durante o dia? A: A Lua; B: Vênus; C: O Sol; D: Todas as estrelas. Pergunta 2. Uma criança diz: \"De dia não existem estrelas.\" Como corrigir? A: Ela está certa; B: As estrelas só existem no verão; C: As estrelas caem de dia; D: As estrelas existem de dia, mas não conseguimos vê-las por causa da luz do Sol. Pergunta 3. Por que numa cidade grande vemos menos estrelas à noite? A: Porque as luzes da cidade ofuscam o céu; B: Porque as estrelas não gostam de cidade; C: Porque há menos estrelas sobre as cidades; D: Porque a Lua esconde todas. Pergunta 4. Num registro, a turma escreveu: \"Hoje à noite não vimos a Lua.\" Isso significa que a Lua sumiu? A: Sim, sumiu para sempre; B: Não; a Lua pode não estar visível naquele horário ou estar coberta por nuvens; C: Sim, virou estrela; D: Sim, caiu.",
+    "questions": [
+     {
+      "question": "Qual astro vemos só durante o dia?",
+      "options": [
+       {
+        "text": "A Lua",
+        "misconceptionCode": "sol"
+       },
+       {
+        "text": "Vênus",
+        "misconceptionCode": "sol"
+       },
+       {
+        "text": "O Sol"
+       },
+       {
+        "text": "Todas as estrelas",
+        "misconceptionCode": "sol"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "O Sol.",
+      "variants": [
+       {
+        "question": "Qual astro pode aparecer tanto de dia quanto à noite?",
+        "options": [
+         {
+          "text": "A Lua"
+         },
+         {
+          "text": "O Sol à meia-noite",
+          "misconceptionCode": "sol"
+         },
+         {
+          "text": "Todas as estrelas ao meio-dia",
+          "misconceptionCode": "sol"
+         },
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "sol"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual astro vemos só durante o dia?",
+        "options": [
+         {
+          "text": "Todas as estrelas",
+          "misconceptionCode": "sol"
+         },
+         {
+          "text": "Vênus",
+          "misconceptionCode": "sol"
+         },
+         {
+          "text": "A Lua",
+          "misconceptionCode": "sol"
+         },
+         {
+          "text": "O Sol"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Uma criança diz: \"De dia não existem estrelas.\" Como corrigir?",
+      "options": [
+       {
+        "text": "Ela está certa",
+        "misconceptionCode": "estrelas"
+       },
+       {
+        "text": "As estrelas só existem no verão",
+        "misconceptionCode": "estrelas"
+       },
+       {
+        "text": "As estrelas caem de dia",
+        "misconceptionCode": "estrelas"
+       },
+       {
+        "text": "As estrelas existem de dia, mas não conseguimos vê-las por causa da luz do Sol"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Correção.",
+      "variants": [
+       {
+        "question": "Que exemplo mostra que existe uma estrela visível de dia?",
+        "options": [
+         {
+          "text": "A Lua",
+          "misconceptionCode": "estrelas"
+         },
+         {
+          "text": "O próprio Sol, que é uma estrela"
+         },
+         {
+          "text": "As nuvens",
+          "misconceptionCode": "estrelas"
+         },
+         {
+          "text": "O avião",
+          "misconceptionCode": "estrelas"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Uma criança diz: \"De dia não existem estrelas.\" Como corrigir?",
+        "options": [
+         {
+          "text": "As estrelas existem de dia, mas não conseguimos vê-las por causa da luz do Sol"
+         },
+         {
+          "text": "As estrelas caem de dia",
+          "misconceptionCode": "estrelas"
+         },
+         {
+          "text": "As estrelas só existem no verão",
+          "misconceptionCode": "estrelas"
+         },
+         {
+          "text": "Ela está certa",
+          "misconceptionCode": "estrelas"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Por que numa cidade grande vemos menos estrelas à noite?",
+      "options": [
+       {
+        "text": "Porque as luzes da cidade ofuscam o céu"
+       },
+       {
+        "text": "Porque as estrelas não gostam de cidade",
+        "misconceptionCode": "estrelas"
+       },
+       {
+        "text": "Porque há menos estrelas sobre as cidades",
+        "misconceptionCode": "estrelas"
+       },
+       {
+        "text": "Porque a Lua esconde todas",
+        "misconceptionCode": "estrelas"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Poluição luminosa.",
+      "variants": [
+       {
+        "question": "Onde é mais fácil ver muitas estrelas?",
+        "options": [
+         {
+          "text": "Embaixo de um poste aceso",
+          "misconceptionCode": "estrelas"
+         },
+         {
+          "text": "Num shopping",
+          "misconceptionCode": "estrelas"
+         },
+         {
+          "text": "No campo, longe das luzes, numa noite sem nuvens"
+         },
+         {
+          "text": "Ao meio-dia na praia",
+          "misconceptionCode": "estrelas"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Por que numa cidade grande vemos menos estrelas à noite?",
+        "options": [
+         {
+          "text": "Porque a Lua esconde todas",
+          "misconceptionCode": "estrelas"
+         },
+         {
+          "text": "Porque as luzes da cidade ofuscam o céu"
+         },
+         {
+          "text": "Porque há menos estrelas sobre as cidades",
+          "misconceptionCode": "estrelas"
+         },
+         {
+          "text": "Porque as estrelas não gostam de cidade",
+          "misconceptionCode": "estrelas"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Num registro, a turma escreveu: \"Hoje à noite não vimos a Lua.\" Isso significa que a Lua sumiu?",
+      "options": [
+       {
+        "text": "Sim, sumiu para sempre",
+        "misconceptionCode": "lua"
+       },
+       {
+        "text": "Não; a Lua pode não estar visível naquele horário ou estar coberta por nuvens"
+       },
+       {
+        "text": "Sim, virou estrela",
+        "misconceptionCode": "lua"
+       },
+       {
+        "text": "Sim, caiu",
+        "misconceptionCode": "lua"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Visibilidade varia.",
+      "variants": [
+       {
+        "question": "O que pode esconder a Lua e as estrelas numa noite?",
+        "options": [
+         {
+          "text": "O vento",
+          "misconceptionCode": "lua"
+         },
+         {
+          "text": "O barulho",
+          "misconceptionCode": "lua"
+         },
+         {
+          "text": "As sombras",
+          "misconceptionCode": "lua"
+         },
+         {
+          "text": "Nuvens"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Num registro, a turma escreveu: \"Hoje à noite não vimos a Lua.\" Isso significa que a Lua sumiu?",
+        "options": [
+         {
+          "text": "Sim, caiu",
+          "misconceptionCode": "lua"
+         },
+         {
+          "text": "Sim, virou estrela",
+          "misconceptionCode": "lua"
+         },
+         {
+          "text": "Não; a Lua pode não estar visível naquele horário ou estar coberta por nuvens"
+         },
+         {
+          "text": "Sim, sumiu para sempre",
+          "misconceptionCode": "lua"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI08-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: o calendário do céu",
+    "prompt": "Observar e comunicar.",
+    "estMinutes": 4,
+    "audioScript": "Observar e comunicar. Pergunta 1. A turma vai fazer um quadro \"O que vimos no céu\". Qual linha está correta? A: Manhã: muitas estrelas; Noite: Sol; B: Manhã: nada; Noite: Sol e nuvens apenas; C: Manhã: Sol (às vezes a Lua); Noite: Lua, estrelas e às vezes planetas; D: Manhã: Vênus ao meio-dia; Noite: Sol. Pergunta 2. Para observar o céu à noite em casa, qual é a atitude mais segura? A: Sair sozinho para a rua à noite; B: Subir no telhado sozinho; C: Olhar o Sol à noite; D: Observar acompanhado de um adulto, de um lugar seguro. Pergunta 3. Um colega diz que a estrela-d'alva é uma estrela. O que a turma pode responder? A: Que ela parece uma estrela, mas é o planeta Vênus; B: Que ele está certo; C: Que é a Lua; D: Que é o Sol.",
+    "questions": [
+     {
+      "question": "A turma vai fazer um quadro \"O que vimos no céu\". Qual linha está correta?",
+      "options": [
+       {
+        "text": "Manhã: muitas estrelas; Noite: Sol",
+        "misconceptionCode": "sol"
+       },
+       {
+        "text": "Manhã: nada; Noite: Sol e nuvens apenas",
+        "misconceptionCode": "sol"
+       },
+       {
+        "text": "Manhã: Sol (às vezes a Lua); Noite: Lua, estrelas e às vezes planetas"
+       },
+       {
+        "text": "Manhã: Vênus ao meio-dia; Noite: Sol",
+        "misconceptionCode": "planetas"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Registro correto.",
+      "variants": [
+       {
+        "question": "Em que coluna colocar Vênus visto às 18h30, logo após o pôr do sol?",
+        "options": [
+         {
+          "text": "Anoitecer"
+         },
+         {
+          "text": "Meio-dia",
+          "misconceptionCode": "sol"
+         },
+         {
+          "text": "Madrugada sem céu",
+          "misconceptionCode": "sol"
+         },
+         {
+          "text": "Em nenhuma",
+          "misconceptionCode": "planetas"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A turma vai fazer um quadro \"O que vimos no céu\". Qual linha está correta?",
+        "options": [
+         {
+          "text": "Manhã: Vênus ao meio-dia; Noite: Sol",
+          "misconceptionCode": "planetas"
+         },
+         {
+          "text": "Manhã: nada; Noite: Sol e nuvens apenas",
+          "misconceptionCode": "sol"
+         },
+         {
+          "text": "Manhã: muitas estrelas; Noite: Sol",
+          "misconceptionCode": "sol"
+         },
+         {
+          "text": "Manhã: Sol (às vezes a Lua); Noite: Lua, estrelas e às vezes planetas"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Para observar o céu à noite em casa, qual é a atitude mais segura?",
+      "options": [
+       {
+        "text": "Sair sozinho para a rua à noite",
+        "misconceptionCode": "lua"
+       },
+       {
+        "text": "Subir no telhado sozinho",
+        "misconceptionCode": "lua"
+       },
+       {
+        "text": "Olhar o Sol à noite",
+        "misconceptionCode": "sol"
+       },
+       {
+        "text": "Observar acompanhado de um adulto, de um lugar seguro"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Segurança.",
+      "variants": [
+       {
+        "question": "Que material ajuda a registrar as observações?",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "lua"
+         },
+         {
+          "text": "Um caderno com data, horário e desenho do que foi visto"
+         },
+         {
+          "text": "Uma bola",
+          "misconceptionCode": "lua"
+         },
+         {
+          "text": "Um espelho apontado para o rosto",
+          "misconceptionCode": "sol"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Para observar o céu à noite em casa, qual é a atitude mais segura?",
+        "options": [
+         {
+          "text": "Observar acompanhado de um adulto, de um lugar seguro"
+         },
+         {
+          "text": "Olhar o Sol à noite",
+          "misconceptionCode": "sol"
+         },
+         {
+          "text": "Subir no telhado sozinho",
+          "misconceptionCode": "lua"
+         },
+         {
+          "text": "Sair sozinho para a rua à noite",
+          "misconceptionCode": "lua"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Um colega diz que a estrela-d'alva é uma estrela. O que a turma pode responder?",
+      "options": [
+       {
+        "text": "Que ela parece uma estrela, mas é o planeta Vênus"
+       },
+       {
+        "text": "Que ele está certo",
+        "misconceptionCode": "planetas"
+       },
+       {
+        "text": "Que é a Lua",
+        "misconceptionCode": "planetas"
+       },
+       {
+        "text": "Que é o Sol",
+        "misconceptionCode": "planetas"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Correção.",
+      "variants": [
+       {
+        "question": "Como diferenciar, de modo simples, um planeta de uma estrela no céu?",
+        "options": [
+         {
+          "text": "Planetas são quadrados",
+          "misconceptionCode": "planetas"
+         },
+         {
+          "text": "Estrelas são verdes",
+          "misconceptionCode": "planetas"
+         },
+         {
+          "text": "Planetas costumam brilhar sem piscar; estrelas costumam piscar"
+         },
+         {
+          "text": "Não há nenhuma diferença perceptível",
+          "misconceptionCode": "planetas"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um colega diz que a estrela-d'alva é uma estrela. O que a turma pode responder?",
+        "options": [
+         {
+          "text": "Que é o Sol",
+          "misconceptionCode": "planetas"
+         },
+         {
+          "text": "Que ela parece uma estrela, mas é o planeta Vênus"
+         },
+         {
+          "text": "Que é a Lua",
+          "misconceptionCode": "planetas"
+         },
+         {
+          "text": "Que ele está certo",
+          "misconceptionCode": "planetas"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI08-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: o céu de dia e de noite",
+    "prompt": "Explique quando podemos ver o Sol, a Lua, as estrelas e os planetas.",
+    "estMinutes": 6,
+    "audioScript": "Explique quando podemos ver o Sol, a Lua, as estrelas e os planetas.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "sol-estrelas",
+       "description": "Explica que o Sol é uma estrela visível de dia e por que não vemos as outras estrelas de dia"
+      },
+      {
+       "code": "lua",
+       "description": "Explica que a Lua pode ser vista de noite e também de dia"
+      },
+      {
+       "code": "planetas",
+       "description": "Explica que alguns planetas, como Vênus, podem ser vistos a olho nu"
+      }
+     ],
+     "exemploBoaResposta": "Durante o dia, vemos o Sol, que é uma estrela. As outras estrelas continuam no céu, mas não as vemos porque a luz do Sol é muito forte. À noite, num lugar escuro e sem nuvens, vemos muitas estrelas. A Lua aparece à noite e, muitas vezes, também de dia, como a turma viu às 7h da manhã. Alguns planetas, como Vênus, podem ser vistos sem telescópio, brilhando sem piscar perto do amanhecer ou do anoitecer; por isso Vênus é chamado de \"estrela-d'alva\". Nunca olhamos diretamente para o Sol."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF03CI10",
+  "subjectCode": "CI",
+  "subjectName": "Ciências",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: Os usos do solo",
+  "tituloAluno": "Plantar, criar, construir e extrair",
+  "activities": [
+   {
+    "id": "PK2-EF03CI10-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: o solo é vida",
+    "prompt": "Para que serve o solo.",
+    "estMinutes": 4,
+    "audioScript": "Para que serve o solo. Pergunta 1. Para que o agricultor usa o solo? A: Para guardar o lixo; B: Para nada; C: Para fazer nuvens; D: Para plantar alimentos. Pergunta 2. Que material é retirado do solo para fazer tijolos e vasos? A: A argila; B: O plástico; C: O vidro pronto; D: O papel. Pergunta 3. Por que o solo é importante para a vida? A: Porque não serve para nada; B: Porque sustenta as plantas, que alimentam pessoas e animais; C: Porque só serve para pisar; D: Porque é sempre sujo. Pergunta 4. Qual atitude cuida do solo? A: Fazer queimadas; B: Jogar óleo na terra; C: Não jogar lixo no chão e plantar árvores; D: Arrancar todas as plantas.",
+    "questions": [
+     {
+      "question": "Para que o agricultor usa o solo?",
+      "options": [
+       {
+        "text": "Para guardar o lixo",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Para nada",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Para fazer nuvens",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Para plantar alimentos"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Agricultura.",
+      "variants": [
+       {
+        "question": "Qual alimento cresce plantado no solo?",
+        "options": [
+         {
+          "text": "O sal do mar",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "A mandioca"
+         },
+         {
+          "text": "O peixe",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "O leite",
+          "misconceptionCode": "usos"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Para que o agricultor usa o solo?",
+        "options": [
+         {
+          "text": "Para plantar alimentos"
+         },
+         {
+          "text": "Para fazer nuvens",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Para nada",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Para guardar o lixo",
+          "misconceptionCode": "usos"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Que material é retirado do solo para fazer tijolos e vasos?",
+      "options": [
+       {
+        "text": "A argila"
+       },
+       {
+        "text": "O plástico",
+        "misconceptionCode": "extracao"
+       },
+       {
+        "text": "O vidro pronto",
+        "misconceptionCode": "extracao"
+       },
+       {
+        "text": "O papel",
+        "misconceptionCode": "extracao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Extração.",
+      "variants": [
+       {
+        "question": "Que material retirado do solo é usado na construção de casas?",
+        "options": [
+         {
+          "text": "A lã",
+          "misconceptionCode": "extracao"
+         },
+         {
+          "text": "O algodão já costurado",
+          "misconceptionCode": "extracao"
+         },
+         {
+          "text": "A areia"
+         },
+         {
+          "text": "O leite",
+          "misconceptionCode": "extracao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Que material é retirado do solo para fazer tijolos e vasos?",
+        "options": [
+         {
+          "text": "O papel",
+          "misconceptionCode": "extracao"
+         },
+         {
+          "text": "A argila"
+         },
+         {
+          "text": "O vidro pronto",
+          "misconceptionCode": "extracao"
+         },
+         {
+          "text": "O plástico",
+          "misconceptionCode": "extracao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Por que o solo é importante para a vida?",
+      "options": [
+       {
+        "text": "Porque não serve para nada",
+        "misconceptionCode": "importancia"
+       },
+       {
+        "text": "Porque sustenta as plantas, que alimentam pessoas e animais"
+       },
+       {
+        "text": "Porque só serve para pisar",
+        "misconceptionCode": "importancia"
+       },
+       {
+        "text": "Porque é sempre sujo",
+        "misconceptionCode": "importancia"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Base da alimentação.",
+      "variants": [
+       {
+        "question": "Que animal vive dentro do solo e ajuda a deixá-lo fofo?",
+        "options": [
+         {
+          "text": "O peixe",
+          "misconceptionCode": "importancia"
+         },
+         {
+          "text": "O pássaro",
+          "misconceptionCode": "importancia"
+         },
+         {
+          "text": "A baleia",
+          "misconceptionCode": "importancia"
+         },
+         {
+          "text": "A minhoca"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Por que o solo é importante para a vida?",
+        "options": [
+         {
+          "text": "Porque é sempre sujo",
+          "misconceptionCode": "importancia"
+         },
+         {
+          "text": "Porque só serve para pisar",
+          "misconceptionCode": "importancia"
+         },
+         {
+          "text": "Porque sustenta as plantas, que alimentam pessoas e animais"
+         },
+         {
+          "text": "Porque não serve para nada",
+          "misconceptionCode": "importancia"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual atitude cuida do solo?",
+      "options": [
+       {
+        "text": "Fazer queimadas",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "Jogar óleo na terra",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "Não jogar lixo no chão e plantar árvores"
+       },
+       {
+        "text": "Arrancar todas as plantas",
+        "misconceptionCode": "cuidado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Cuidado.",
+      "variants": [
+       {
+        "question": "O que acontece com o solo sem plantas quando chove forte?",
+        "options": [
+         {
+          "text": "A água leva a terra embora (erosão)"
+         },
+         {
+          "text": "O solo fica mais forte",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Nada acontece",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "O solo vira pedra",
+          "misconceptionCode": "cuidado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual atitude cuida do solo?",
+        "options": [
+         {
+          "text": "Arrancar todas as plantas",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Jogar óleo na terra",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Fazer queimadas",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Não jogar lixo no chão e plantar árvores"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI10-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o mapa do município",
+    "prompt": "A turma olhou uma foto aérea de um município fictício e marcou: (A) áreas verdes em quadrados, com plantação de milho e feijão; (B) um pasto com vacas; (C) um buraco grande de onde caminhões retiram areia; (D) o bairro com casas e ruas; (E) uma mata perto do rio.",
+    "estMinutes": 4,
+    "audioScript": "A turma olhou uma foto aérea de um município fictício e marcou: (A) áreas verdes em quadrados, com plantação de milho e feijão; (B) um pasto com vacas; (C) um buraco grande de onde caminhões retiram areia; (D) o bairro com casas e ruas; (E) uma mata perto do rio. Pergunta 1. Que uso do solo aparece na área A? A: Extração de areia; B: Construção de casas; C: Preservação; D: Agricultura. Pergunta 2. Que uso aparece na área C? A: Extração de materiais (areia); B: Agricultura; C: Pastagem; D: Mata preservada. Pergunta 3. Por que a mata perto do rio (E) é importante? A: Porque não serve para nada; B: Porque protege o solo e a água do rio, evitando que a terra seja levada para dentro dele; C: Porque atrapalha o rio; D: Porque deveria virar estacionamento. Pergunta 4. Que problema pode haver no buraco de extração de areia, se não houver cuidado? A: Nenhum; B: O buraco vira plantação sozinho; C: O solo fica sem proteção e pode ocorrer erosão e acúmulo de água parada; D: Nasce uma floresta no mesmo dia.",
+    "questions": [
+     {
+      "question": "Que uso do solo aparece na área A?",
+      "options": [
+       {
+        "text": "Extração de areia",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Construção de casas",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Preservação",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Agricultura"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Plantação.",
+      "variants": [
+       {
+        "question": "Que uso aparece na área B?",
+        "options": [
+         {
+          "text": "Extração de minério",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Criação de animais (pastagem)"
+         },
+         {
+          "text": "Plantação de milho",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Moradia",
+          "misconceptionCode": "usos"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Que uso do solo aparece na área A?",
+        "options": [
+         {
+          "text": "Agricultura"
+         },
+         {
+          "text": "Preservação",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Construção de casas",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Extração de areia",
+          "misconceptionCode": "usos"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Que uso aparece na área C?",
+      "options": [
+       {
+        "text": "Extração de materiais (areia)"
+       },
+       {
+        "text": "Agricultura",
+        "misconceptionCode": "extracao"
+       },
+       {
+        "text": "Pastagem",
+        "misconceptionCode": "extracao"
+       },
+       {
+        "text": "Mata preservada",
+        "misconceptionCode": "extracao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Extração.",
+      "variants": [
+       {
+        "question": "Para que a areia retirada pode ser usada?",
+        "options": [
+         {
+          "text": "Para fazer leite",
+          "misconceptionCode": "extracao"
+         },
+         {
+          "text": "Para alimentar as vacas",
+          "misconceptionCode": "extracao"
+         },
+         {
+          "text": "Na construção de casas e calçadas"
+         },
+         {
+          "text": "Para fazer roupas",
+          "misconceptionCode": "extracao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Que uso aparece na área C?",
+        "options": [
+         {
+          "text": "Mata preservada",
+          "misconceptionCode": "extracao"
+         },
+         {
+          "text": "Extração de materiais (areia)"
+         },
+         {
+          "text": "Pastagem",
+          "misconceptionCode": "extracao"
+         },
+         {
+          "text": "Agricultura",
+          "misconceptionCode": "extracao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Por que a mata perto do rio (E) é importante?",
+      "options": [
+       {
+        "text": "Porque não serve para nada",
+        "misconceptionCode": "importancia"
+       },
+       {
+        "text": "Porque protege o solo e a água do rio, evitando que a terra seja levada para dentro dele"
+       },
+       {
+        "text": "Porque atrapalha o rio",
+        "misconceptionCode": "importancia"
+       },
+       {
+        "text": "Porque deveria virar estacionamento",
+        "misconceptionCode": "importancia"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Preservação.",
+      "variants": [
+       {
+        "question": "O que pode acontecer se a mata do rio for derrubada?",
+        "options": [
+         {
+          "text": "O rio fica mais limpo",
+          "misconceptionCode": "importancia"
+         },
+         {
+          "text": "Nada acontece",
+          "misconceptionCode": "importancia"
+         },
+         {
+          "text": "O rio vira mar",
+          "misconceptionCode": "importancia"
+         },
+         {
+          "text": "A terra das margens pode desmoronar e sujar o rio"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Por que a mata perto do rio (E) é importante?",
+        "options": [
+         {
+          "text": "Porque deveria virar estacionamento",
+          "misconceptionCode": "importancia"
+         },
+         {
+          "text": "Porque atrapalha o rio",
+          "misconceptionCode": "importancia"
+         },
+         {
+          "text": "Porque protege o solo e a água do rio, evitando que a terra seja levada para dentro dele"
+         },
+         {
+          "text": "Porque não serve para nada",
+          "misconceptionCode": "importancia"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Que problema pode haver no buraco de extração de areia, se não houver cuidado?",
+      "options": [
+       {
+        "text": "Nenhum",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "O buraco vira plantação sozinho",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "O solo fica sem proteção e pode ocorrer erosão e acúmulo de água parada"
+       },
+       {
+        "text": "Nasce uma floresta no mesmo dia",
+        "misconceptionCode": "cuidado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Impactos.",
+      "variants": [
+       {
+        "question": "Quem deve cuidar para que a extração não prejudique o ambiente?",
+        "options": [
+         {
+          "text": "As empresas, seguindo as regras, e a fiscalização dos governos"
+         },
+         {
+          "text": "Ninguém",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Só as crianças",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Só as vacas",
+          "misconceptionCode": "cuidado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que problema pode haver no buraco de extração de areia, se não houver cuidado?",
+        "options": [
+         {
+          "text": "Nasce uma floresta no mesmo dia",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "O buraco vira plantação sozinho",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "O solo fica sem proteção e pode ocorrer erosão e acúmulo de água parada"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI10-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: usos e cuidados",
+    "prompt": "Relacionar.",
+    "estMinutes": 5,
+    "audioScript": "Relacionar. Pergunta 1. Qual destes objetos foi feito com material retirado do solo? A: Uma camiseta de algodão; B: Um copo de leite; C: Um livro de papel; D: Um vaso de barro. Pergunta 2. Na horta da escola, o que ajuda a deixar o solo mais rico? A: Colocar adubo feito com restos de frutas e verduras (compostagem); B: Jogar plástico na terra; C: Colocar sal na terra; D: Jogar óleo de cozinha. Pergunta 3. Uma família mora numa casa construída sobre o solo. Que uso do solo é esse? A: Agricultura; B: Moradia (construção); C: Extração de minério; D: Pastagem. Pergunta 4. Por que queimadas prejudicam o solo? A: Porque deixam o solo mais rico sempre; B: Porque não mudam nada; C: Porque matam plantas e seres vivos do solo e o deixam desprotegido; D: Porque fazem chover.",
+    "questions": [
+     {
+      "question": "Qual destes objetos foi feito com material retirado do solo?",
+      "options": [
+       {
+        "text": "Uma camiseta de algodão",
+        "misconceptionCode": "extracao"
+       },
+       {
+        "text": "Um copo de leite",
+        "misconceptionCode": "extracao"
+       },
+       {
+        "text": "Um livro de papel",
+        "misconceptionCode": "extracao"
+       },
+       {
+        "text": "Um vaso de barro"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Barro = argila.",
+      "variants": [
+       {
+        "question": "O ferro usado em panelas e portões vem de:",
+        "options": [
+         {
+          "text": "Folhas de árvores",
+          "misconceptionCode": "extracao"
+         },
+         {
+          "text": "Minérios retirados do solo"
+         },
+         {
+          "text": "Leite de vaca",
+          "misconceptionCode": "extracao"
+         },
+         {
+          "text": "Água da chuva",
+          "misconceptionCode": "extracao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual destes objetos foi feito com material retirado do solo?",
+        "options": [
+         {
+          "text": "Um vaso de barro"
+         },
+         {
+          "text": "Um livro de papel",
+          "misconceptionCode": "extracao"
+         },
+         {
+          "text": "Um copo de leite",
+          "misconceptionCode": "extracao"
+         },
+         {
+          "text": "Uma camiseta de algodão",
+          "misconceptionCode": "extracao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Na horta da escola, o que ajuda a deixar o solo mais rico?",
+      "options": [
+       {
+        "text": "Colocar adubo feito com restos de frutas e verduras (compostagem)"
+       },
+       {
+        "text": "Jogar plástico na terra",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "Colocar sal na terra",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "Jogar óleo de cozinha",
+        "misconceptionCode": "cuidado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Compostagem.",
+      "variants": [
+       {
+        "question": "Que restos podem ir para a compostagem?",
+        "options": [
+         {
+          "text": "Pilhas",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Garrafas de plástico",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Cascas de frutas e de legumes"
+         },
+         {
+          "text": "Latas de tinta",
+          "misconceptionCode": "cuidado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Na horta da escola, o que ajuda a deixar o solo mais rico?",
+        "options": [
+         {
+          "text": "Jogar óleo de cozinha",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Colocar adubo feito com restos de frutas e verduras (compostagem)"
+         },
+         {
+          "text": "Colocar sal na terra",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Jogar plástico na terra",
+          "misconceptionCode": "cuidado"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Uma família mora numa casa construída sobre o solo. Que uso do solo é esse?",
+      "options": [
+       {
+        "text": "Agricultura",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Moradia (construção)"
+       },
+       {
+        "text": "Extração de minério",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Pastagem",
+        "misconceptionCode": "usos"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Construção.",
+      "variants": [
+       {
+        "question": "Que outro uso é parecido, ligado a construções?",
+        "options": [
+         {
+          "text": "Plantação de feijão",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Pasto de vacas",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Mata preservada",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Estradas e ruas"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Uma família mora numa casa construída sobre o solo. Que uso do solo é esse?",
+        "options": [
+         {
+          "text": "Pastagem",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Extração de minério",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Moradia (construção)"
+         },
+         {
+          "text": "Agricultura",
+          "misconceptionCode": "usos"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Por que queimadas prejudicam o solo?",
+      "options": [
+       {
+        "text": "Porque deixam o solo mais rico sempre",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "Porque não mudam nada",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "Porque matam plantas e seres vivos do solo e o deixam desprotegido"
+       },
+       {
+        "text": "Porque fazem chover",
+        "misconceptionCode": "cuidado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Prejuízo.",
+      "variants": [
+       {
+        "question": "Que seres vivos do solo podem morrer numa queimada?",
+        "options": [
+         {
+          "text": "Minhocas, formigas e outros pequenos animais"
+         },
+         {
+          "text": "Peixes do mar",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Baleias",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Nuvens",
+          "misconceptionCode": "cuidado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Por que queimadas prejudicam o solo?",
+        "options": [
+         {
+          "text": "Porque fazem chover",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Porque não mudam nada",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Porque deixam o solo mais rico sempre",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Porque matam plantas e seres vivos do solo e o deixam desprotegido"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI10-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: cuidar do solo na escola",
+    "prompt": "Ações da turma.",
+    "estMinutes": 4,
+    "audioScript": "Ações da turma. Pergunta 1. A turma quer cuidar do solo do jardim da escola. Qual plano é adequado? A: Cobrir o jardim com cimento; B: Jogar o lixo no jardim; C: Arrancar todas as plantas; D: Recolher o lixo, plantar mudas e fazer uma composteira. Pergunta 2. Num cartaz sobre a importância do solo, qual frase está correta? A: \"Do solo vêm muitos dos nossos alimentos.\"; B: \"O solo não serve para nada.\"; C: \"Podemos jogar lixo no solo.\"; D: \"O solo é só sujeira.\". Pergunta 3. Quantos usos do solo diferentes a turma viu no mapa do município (plantação, pasto, extração, moradia e mata)? A: Três; B: Cinco; C: Dois; D: Sete.",
+    "questions": [
+     {
+      "question": "A turma quer cuidar do solo do jardim da escola. Qual plano é adequado?",
+      "options": [
+       {
+        "text": "Cobrir o jardim com cimento",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "Jogar o lixo no jardim",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "Arrancar todas as plantas",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "Recolher o lixo, plantar mudas e fazer uma composteira"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Plano de cuidado.",
+      "variants": [
+       {
+        "question": "Por que plantar mudas ajuda o solo?",
+        "options": [
+         {
+          "text": "Porque as mudas fazem barulho",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "As raízes seguram a terra e as plantas protegem da chuva forte"
+         },
+         {
+          "text": "Porque o solo fica mais pesado",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Não ajuda",
+          "misconceptionCode": "cuidado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A turma quer cuidar do solo do jardim da escola. Qual plano é adequado?",
+        "options": [
+         {
+          "text": "Recolher o lixo, plantar mudas e fazer uma composteira"
+         },
+         {
+          "text": "Arrancar todas as plantas",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Jogar o lixo no jardim",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Cobrir o jardim com cimento",
+          "misconceptionCode": "cuidado"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Num cartaz sobre a importância do solo, qual frase está correta?",
+      "options": [
+       {
+        "text": "\"Do solo vêm muitos dos nossos alimentos.\""
+       },
+       {
+        "text": "\"O solo não serve para nada.\"",
+        "misconceptionCode": "importancia"
+       },
+       {
+        "text": "\"Podemos jogar lixo no solo.\"",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "\"O solo é só sujeira.\"",
+        "misconceptionCode": "importancia"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Mensagem correta.",
+      "variants": [
+       {
+        "question": "Que desenho combina com esse cartaz?",
+        "options": [
+         {
+          "text": "Um monte de lixo",
+          "misconceptionCode": "importancia"
+         },
+         {
+          "text": "Uma queimada",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Uma horta com alfaces, cenouras e uma minhoca na terra"
+         },
+         {
+          "text": "Um carro",
+          "misconceptionCode": "importancia"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Num cartaz sobre a importância do solo, qual frase está correta?",
+        "options": [
+         {
+          "text": "\"O solo é só sujeira.\"",
+          "misconceptionCode": "importancia"
+         },
+         {
+          "text": "\"Do solo vêm muitos dos nossos alimentos.\""
+         },
+         {
+          "text": "\"Podemos jogar lixo no solo.\"",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "\"O solo não serve para nada.\"",
+          "misconceptionCode": "importancia"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quantos usos do solo diferentes a turma viu no mapa do município (plantação, pasto, extração, moradia e mata)?",
+      "options": [
+       {
+        "text": "Três",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Cinco"
+       },
+       {
+        "text": "Dois",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Sete",
+        "misconceptionCode": "usos"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Contagem.",
+      "variants": [
+       {
+        "question": "Qual desses usos é de preservação?",
+        "options": [
+         {
+          "text": "O pasto",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "O buraco de areia",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "O bairro",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "A mata perto do rio"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quantos usos do solo diferentes a turma viu no mapa do município (plantação, pasto, extração, moradia e mata)?",
+        "options": [
+         {
+          "text": "Sete",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Dois",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Cinco"
+         },
+         {
+          "text": "Três",
+          "misconceptionCode": "usos"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03CI10-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: os usos do solo",
+    "prompt": "Explique os diferentes usos do solo e por que ele é importante para a vida.",
+    "estMinutes": 6,
+    "audioScript": "Explique os diferentes usos do solo e por que ele é importante para a vida.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "usos",
+       "description": "Cita pelo menos três usos do solo (agricultura, criação, construção, extração, preservação)"
+      },
+      {
+       "code": "importancia",
+       "description": "Explica a importância do solo para as plantas, a alimentação e os seres vivos"
+      },
+      {
+       "code": "cuidado",
+       "description": "Explica atitudes de cuidado com o solo"
+      }
+     ],
+     "exemploBoaResposta": "O solo é usado de muitas formas: na agricultura, para plantar alimentos como milho, feijão e mandioca; em pastos, para criar animais; na construção de casas e estradas; e na extração de materiais, como argila para tijolos e vasos, areia e minérios como o ferro. Ele é importante para a vida porque sustenta as plantas que nos alimentam, guarda água e abriga seres vivos como as minhocas. Para cuidar do solo, não jogamos lixo, evitamos queimadas, plantamos árvores e fazemos compostagem."
+    }
+   }
+  ]
+ },
+ {
   "skillCode": "EF03CI01",
   "subjectCode": "CI",
   "subjectName": "Ciências",
