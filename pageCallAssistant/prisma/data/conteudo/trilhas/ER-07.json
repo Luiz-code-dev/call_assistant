@@ -1,5 +1,4891 @@
 [
  {
+  "skillCode": "EF07ER02",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 7,
+  "version": 1,
+  "title": "Trilha: Espiritualidade nos momentos difíceis",
+  "tituloAluno": "Práticas diante de doenças, acidentes e do clima",
+  "activities": [
+   {
+    "id": "PK2-EF07ER02-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: práticas e situações",
+    "prompt": "O que as pessoas fazem.",
+    "estMinutes": 4,
+    "audioScript": "O que as pessoas fazem. Pergunta 1. Qual é um exemplo de prática de espiritualidade diante de uma doença? A: Ridicularizar quem reza; B: Proibir visitas a hospitais; C: Ignorar o doente; D: Oração por quem está doente. Pergunta 2. Em tempos de seca no sertão, que prática é tradicional em comunidades católicas? A: Procissões pedindo chuva; B: Festas para pedir seca; C: Nenhuma prática; D: Rituais de inverno com neve. Pergunta 3. Em que tradição a unção dos enfermos é um sacramento? A: Budismo; B: Catolicismo; C: Candomblé; D: Hinduísmo. Pergunta 4. Quem conduz rituais de cura em muitos povos indígenas? A: O prefeito; B: O padre; C: O pajé; D: O monge budista. Pergunta 5. O que é o benzimento na religiosidade popular brasileira? A: Um exame médico; B: Uma vacina; C: Um esporte; D: Prática com rezas e, às vezes, ramos, feita por benzedeiras e benzedores.",
+    "questions": [
+     {
+      "question": "Qual é um exemplo de prática de espiritualidade diante de uma doença?",
+      "options": [
+       {
+        "text": "Ridicularizar quem reza",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Proibir visitas a hospitais",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Ignorar o doente",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Oração por quem está doente"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Oração.",
+      "variants": [
+       {
+        "question": "O que é um ex-voto?",
+        "options": [
+         {
+          "text": "Um tipo de voto em eleição",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Um objeto deixado num santuário em agradecimento por uma graça"
+         },
+         {
+          "text": "Um remédio",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Um documento de identidade",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual é um exemplo de prática de espiritualidade diante de uma doença?",
+        "options": [
+         {
+          "text": "Oração por quem está doente"
+         },
+         {
+          "text": "Ignorar o doente",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Proibir visitas a hospitais",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Ridicularizar quem reza",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Em tempos de seca no sertão, que prática é tradicional em comunidades católicas?",
+      "options": [
+       {
+        "text": "Procissões pedindo chuva"
+       },
+       {
+        "text": "Festas para pedir seca",
+        "misconceptionCode": "situacao"
+       },
+       {
+        "text": "Nenhuma prática",
+        "misconceptionCode": "situacao"
+       },
+       {
+        "text": "Rituais de inverno com neve",
+        "misconceptionCode": "situacao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Procissão.",
+      "variants": [
+       {
+        "question": "Que situação costuma motivar promessas e romarias?",
+        "options": [
+         {
+          "text": "Perder o ônibus",
+          "misconceptionCode": "situacao"
+         },
+         {
+          "text": "Escolher a roupa",
+          "misconceptionCode": "situacao"
+         },
+         {
+          "text": "Pedido ou agradecimento por cura, proteção ou conquista"
+         },
+         {
+          "text": "Ganhar um jogo de videogame",
+          "misconceptionCode": "situacao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Em tempos de seca no sertão, que prática é tradicional em comunidades católicas?",
+        "options": [
+         {
+          "text": "Rituais de inverno com neve",
+          "misconceptionCode": "situacao"
+         },
+         {
+          "text": "Procissões pedindo chuva"
+         },
+         {
+          "text": "Nenhuma prática",
+          "misconceptionCode": "situacao"
+         },
+         {
+          "text": "Festas para pedir seca",
+          "misconceptionCode": "situacao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Em que tradição a unção dos enfermos é um sacramento?",
+      "options": [
+       {
+        "text": "Budismo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Catolicismo"
+       },
+       {
+        "text": "Candomblé",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Hinduísmo",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Catolicismo.",
+      "variants": [
+       {
+        "question": "Em que tradições a meditação e os mantras são práticas comuns?",
+        "options": [
+         {
+          "text": "Só no catolicismo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Em nenhuma tradição",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Só em esportes",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Budismo e hinduísmo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Em que tradição a unção dos enfermos é um sacramento?",
+        "options": [
+         {
+          "text": "Hinduísmo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Candomblé",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Catolicismo"
+         },
+         {
+          "text": "Budismo",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Quem conduz rituais de cura em muitos povos indígenas?",
+      "options": [
+       {
+        "text": "O prefeito",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "O padre",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "O pajé"
+       },
+       {
+        "text": "O monge budista",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Pajé.",
+      "variants": [
+       {
+        "question": "Em que religiões de matriz africana há oferendas e rituais em momentos de dificuldade?",
+        "options": [
+         {
+          "text": "Candomblé e umbanda"
+         },
+         {
+          "text": "Budismo e xintoísmo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Islamismo e judaísmo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quem conduz rituais de cura em muitos povos indígenas?",
+        "options": [
+         {
+          "text": "O monge budista",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O padre",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O prefeito",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O pajé"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que é o benzimento na religiosidade popular brasileira?",
+      "options": [
+       {
+        "text": "Um exame médico",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Uma vacina",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Um esporte",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Prática com rezas e, às vezes, ramos, feita por benzedeiras e benzedores"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Benzimento.",
+      "variants": [
+       {
+        "question": "Como agir diante da prática espiritual de um colega?",
+        "options": [
+         {
+          "text": "Rindo",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Com respeito, mesmo que eu não a pratique"
+         },
+         {
+          "text": "Debochando nas redes sociais",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Obrigando a pessoa a parar",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que é o benzimento na religiosidade popular brasileira?",
+        "options": [
+         {
+          "text": "Prática com rezas e, às vezes, ramos, feita por benzedeiras e benzedores"
+         },
+         {
+          "text": "Um esporte",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Uma vacina",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Um exame médico",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07ER02-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: a enchente em Rio das Garças",
+    "prompt": "Uma enchente atingiu o bairro fictício de Rio das Garças. A defesa civil retirou as famílias. Na escola que virou abrigo, dona Lúcia, católica, organizou um terço; seu Jorge, evangélico, fez uma oração com o grupo da igreja; mãe Iara, do candomblé, fez um ritual pedindo proteção para as famílias; Kenji, budista, meditou com os filhos; e Paula, que não tem religião, organizou a doação de roupas, dizendo que a solidariedade era o que lhe dava força. Todos ajudaram na limpeza.",
+    "estMinutes": 4,
+    "audioScript": "Uma enchente atingiu o bairro fictício de Rio das Garças. A defesa civil retirou as famílias. Na escola que virou abrigo, dona Lúcia, católica, organizou um terço; seu Jorge, evangélico, fez uma oração com o grupo da igreja; mãe Iara, do candomblé, fez um ritual pedindo proteção para as famílias; Kenji, budista, meditou com os filhos; e Paula, que não tem religião, organizou a doação de roupas, dizendo que a solidariedade era o que lhe dava força. Todos ajudaram na limpeza. Pergunta 1. Que prática dona Lúcia organizou? A: O terço, uma oração católica; B: Uma meditação budista; C: Um ritual do candomblé; D: Uma doação sem religião. Pergunta 2. Que situação motivou as práticas? A: Uma festa de aniversário; B: Uma enchente que atingiu o bairro; C: Um campeonato; D: Uma viagem de férias. Pergunta 3. O que a atitude de Paula mostra? A: Que só quem tem religião ajuda; B: Que Paula desrespeitou os outros; C: Que pessoas sem religião também encontram formas de apoio e sentido, como a solidariedade; D: Que ela não ajudou. Pergunta 4. O que a convivência no abrigo mostra? A: Disputa entre religiões; B: Proibição das práticas; C: Que só uma prática era permitida; D: Diferentes práticas convivendo com respeito, ao lado da ajuda concreta.",
+    "questions": [
+     {
+      "question": "Que prática dona Lúcia organizou?",
+      "options": [
+       {
+        "text": "O terço, uma oração católica"
+       },
+       {
+        "text": "Uma meditação budista",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Um ritual do candomblé",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Uma doação sem religião",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Terço.",
+      "variants": [
+       {
+        "question": "Que prática Kenji realizou?",
+        "options": [
+         {
+          "text": "Terço",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Ritual do candomblé",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Meditação"
+         },
+         {
+          "text": "Procissão",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Que prática dona Lúcia organizou?",
+        "options": [
+         {
+          "text": "Uma doação sem religião",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O terço, uma oração católica"
+         },
+         {
+          "text": "Um ritual do candomblé",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Uma meditação budista",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Que situação motivou as práticas?",
+      "options": [
+       {
+        "text": "Uma festa de aniversário",
+        "misconceptionCode": "situacao"
+       },
+       {
+        "text": "Uma enchente que atingiu o bairro"
+       },
+       {
+        "text": "Um campeonato",
+        "misconceptionCode": "situacao"
+       },
+       {
+        "text": "Uma viagem de férias",
+        "misconceptionCode": "situacao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Situação.",
+      "variants": [
+       {
+        "question": "Quem retirou as famílias das áreas alagadas?",
+        "options": [
+         {
+          "text": "Ninguém",
+          "misconceptionCode": "situacao"
+         },
+         {
+          "text": "Os turistas",
+          "misconceptionCode": "situacao"
+         },
+         {
+          "text": "Um time de futebol",
+          "misconceptionCode": "situacao"
+         },
+         {
+          "text": "A defesa civil"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Que situação motivou as práticas?",
+        "options": [
+         {
+          "text": "Uma viagem de férias",
+          "misconceptionCode": "situacao"
+         },
+         {
+          "text": "Um campeonato",
+          "misconceptionCode": "situacao"
+         },
+         {
+          "text": "Uma enchente que atingiu o bairro"
+         },
+         {
+          "text": "Uma festa de aniversário",
+          "misconceptionCode": "situacao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O que a atitude de Paula mostra?",
+      "options": [
+       {
+        "text": "Que só quem tem religião ajuda",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Que Paula desrespeitou os outros",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Que pessoas sem religião também encontram formas de apoio e sentido, como a solidariedade"
+       },
+       {
+        "text": "Que ela não ajudou",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Diversidade.",
+      "variants": [
+       {
+        "question": "Qual é a tradição de mãe Iara?",
+        "options": [
+         {
+          "text": "Candomblé"
+         },
+         {
+          "text": "Budismo",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Catolicismo",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Evangélica",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que a atitude de Paula mostra?",
+        "options": [
+         {
+          "text": "Que ela não ajudou",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Que Paula desrespeitou os outros",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Que só quem tem religião ajuda",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Que pessoas sem religião também encontram formas de apoio e sentido, como a solidariedade"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que a convivência no abrigo mostra?",
+      "options": [
+       {
+        "text": "Disputa entre religiões",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Proibição das práticas",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Que só uma prática era permitida",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Diferentes práticas convivendo com respeito, ao lado da ajuda concreta"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Convivência.",
+      "variants": [
+       {
+        "question": "O que todos fizeram juntos, além das práticas?",
+        "options": [
+         {
+          "text": "Brigaram",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Ajudaram na limpeza"
+         },
+         {
+          "text": "Foram embora",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que a convivência no abrigo mostra?",
+        "options": [
+         {
+          "text": "Diferentes práticas convivendo com respeito, ao lado da ajuda concreta"
+         },
+         {
+          "text": "Que só uma prática era permitida",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Proibição das práticas",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Disputa entre religiões",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07ER02-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: reconhecer práticas",
+    "prompt": "Situações.",
+    "estMinutes": 5,
+    "audioScript": "Situações. Pergunta 1. Depois de sobreviver a um acidente, uma pessoa leva uma réplica de cera de uma perna a um santuário. Que prática é essa? A: Ex-voto, em agradecimento; B: Benzimento; C: Meditação; D: Jejum. Pergunta 2. Uma família muçulmana com um parente doente intensifica as orações diárias e lê o Alcorão. O que isso mostra? A: Uma prática do budismo; B: Uma prática de espiritualidade diante da doença, na tradição islâmica; C: Uma prática do candomblé; D: Falta de cuidado com o doente. Pergunta 3. Qual afirmação é respeitosa e correta? A: Todas as religiões fazem procissões pela chuva; B: Só uma prática é verdadeira e as outras devem ser proibidas; C: Cada tradição tem suas próprias práticas, e todas merecem respeito; D: Quem medita não pode ajudar ninguém. Pergunta 4. Uma pessoa doente faz orações e também segue o tratamento médico. Como entender isso? A: A oração obriga a abandonar o médico; B: O médico proíbe a oração; C: Não há relação possível; D: As práticas espirituais podem trazer conforto e convivem com o cuidado médico.",
+    "questions": [
+     {
+      "question": "Depois de sobreviver a um acidente, uma pessoa leva uma réplica de cera de uma perna a um santuário. Que prática é essa?",
+      "options": [
+       {
+        "text": "Ex-voto, em agradecimento"
+       },
+       {
+        "text": "Benzimento",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Meditação",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Jejum",
+        "misconceptionCode": "pratica"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Ex-voto.",
+      "variants": [
+       {
+        "question": "Em que situação a pessoa fez essa prática?",
+        "options": [
+         {
+          "text": "Antes de uma festa",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Numa partida de futebol",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Depois de um acidente"
+         },
+         {
+          "text": "Num aniversário",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Depois de sobreviver a um acidente, uma pessoa leva uma réplica de cera de uma perna a um santuário. Que prática é essa?",
+        "options": [
+         {
+          "text": "Jejum",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Ex-voto, em agradecimento"
+         },
+         {
+          "text": "Meditação",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Benzimento",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Uma família muçulmana com um parente doente intensifica as orações diárias e lê o Alcorão. O que isso mostra?",
+      "options": [
+       {
+        "text": "Uma prática do budismo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Uma prática de espiritualidade diante da doença, na tradição islâmica"
+       },
+       {
+        "text": "Uma prática do candomblé",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Falta de cuidado com o doente",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Islã.",
+      "variants": [
+       {
+        "question": "Qual é o livro sagrado do islamismo?",
+        "options": [
+         {
+          "text": "Torá",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Vedas",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Tripitaka",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Alcorão"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Uma família muçulmana com um parente doente intensifica as orações diárias e lê o Alcorão. O que isso mostra?",
+        "options": [
+         {
+          "text": "Falta de cuidado com o doente",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Uma prática do candomblé",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Uma prática de espiritualidade diante da doença, na tradição islâmica"
+         },
+         {
+          "text": "Uma prática do budismo",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual afirmação é respeitosa e correta?",
+      "options": [
+       {
+        "text": "Todas as religiões fazem procissões pela chuva",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Só uma prática é verdadeira e as outras devem ser proibidas",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Cada tradição tem suas próprias práticas, e todas merecem respeito"
+       },
+       {
+        "text": "Quem medita não pode ajudar ninguém",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Respeito.",
+      "variants": [
+       {
+        "question": "O que a liberdade de crença garante?",
+        "options": [
+         {
+          "text": "O direito de cada pessoa praticar ou não uma religião"
+         },
+         {
+          "text": "A obrigação de todos seguirem a mesma religião",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "A proibição de práticas espirituais",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual afirmação é respeitosa e correta?",
+        "options": [
+         {
+          "text": "Quem medita não pode ajudar ninguém",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Só uma prática é verdadeira e as outras devem ser proibidas",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Todas as religiões fazem procissões pela chuva",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Cada tradição tem suas próprias práticas, e todas merecem respeito"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Uma pessoa doente faz orações e também segue o tratamento médico. Como entender isso?",
+      "options": [
+       {
+        "text": "A oração obriga a abandonar o médico",
+        "misconceptionCode": "situacao"
+       },
+       {
+        "text": "O médico proíbe a oração",
+        "misconceptionCode": "situacao"
+       },
+       {
+        "text": "Não há relação possível",
+        "misconceptionCode": "situacao"
+       },
+       {
+        "text": "As práticas espirituais podem trazer conforto e convivem com o cuidado médico"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Convivência.",
+      "variants": [
+       {
+        "question": "Que palavra descreve o que muitas pessoas buscam nas práticas espirituais em momentos difíceis?",
+        "options": [
+         {
+          "text": "Deboche",
+          "misconceptionCode": "situacao"
+         },
+         {
+          "text": "Conforto"
+         },
+         {
+          "text": "Competição",
+          "misconceptionCode": "situacao"
+         },
+         {
+          "text": "Indiferença",
+          "misconceptionCode": "situacao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Uma pessoa doente faz orações e também segue o tratamento médico. Como entender isso?",
+        "options": [
+         {
+          "text": "As práticas espirituais podem trazer conforto e convivem com o cuidado médico"
+         },
+         {
+          "text": "Não há relação possível",
+          "misconceptionCode": "situacao"
+         },
+         {
+          "text": "O médico proíbe a oração",
+          "misconceptionCode": "situacao"
+         },
+         {
+          "text": "A oração obriga a abandonar o médico",
+          "misconceptionCode": "situacao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07ER02-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: o mural das práticas",
+    "prompt": "Pesquisar com respeito.",
+    "estMinutes": 4,
+    "audioScript": "Pesquisar com respeito. Pergunta 1. A turma vai entrevistar familiares sobre práticas em momentos difíceis. Que pergunta é respeitosa? A: Que práticas ou atitudes ajudaram você a enfrentar um momento difícil, se quiser contar?; B: Por que você acredita nessa bobagem?; C: Qual religião é a errada?; D: Você é obrigado a me contar sua religião. Pergunta 2. Como organizar o mural? A: Colocando só a tradição da maioria; B: Por situação (doença, acidente, clima) e por tradição, com respeito às diferentes crenças e à ausência de crença; C: Com comentários de deboche; D: Sem informar de onde vem cada prática. Pergunta 3. Que conclusão a turma pode tirar? A: \"Só uma tradição tem práticas espirituais.\"; B: \"As práticas espirituais devem ser ridicularizadas.\"; C: \"Em momentos difíceis, pessoas de diferentes tradições usam práticas de espiritualidade, que merecem respeito e convivem com outros cuidados.\"; D: \"Ninguém busca conforto em momentos difíceis.\".",
+    "questions": [
+     {
+      "question": "A turma vai entrevistar familiares sobre práticas em momentos difíceis. Que pergunta é respeitosa?",
+      "options": [
+       {
+        "text": "Que práticas ou atitudes ajudaram você a enfrentar um momento difícil, se quiser contar?"
+       },
+       {
+        "text": "Por que você acredita nessa bobagem?",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Qual religião é a errada?",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Você é obrigado a me contar sua religião",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Pergunta.",
+      "variants": [
+       {
+        "question": "O que fazer se o entrevistado não quiser falar sobre religião?",
+        "options": [
+         {
+          "text": "Insistir até ele falar",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Contar para todos",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Respeitar a decisão"
+         },
+         {
+          "text": "Rir",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A turma vai entrevistar familiares sobre práticas em momentos difíceis. Que pergunta é respeitosa?",
+        "options": [
+         {
+          "text": "Você é obrigado a me contar sua religião",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Que práticas ou atitudes ajudaram você a enfrentar um momento difícil, se quiser contar?"
+         },
+         {
+          "text": "Qual religião é a errada?",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Por que você acredita nessa bobagem?",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Como organizar o mural?",
+      "options": [
+       {
+        "text": "Colocando só a tradição da maioria",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Por situação (doença, acidente, clima) e por tradição, com respeito às diferentes crenças e à ausência de crença"
+       },
+       {
+        "text": "Com comentários de deboche",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Sem informar de onde vem cada prática",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Mural.",
+      "variants": [
+       {
+        "question": "Que cuidado ter com as fotos do mural?",
+        "options": [
+         {
+          "text": "Publicar tudo sem perguntar",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Usar fotos de desconhecidos",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Fotografar rituais escondido",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Pedir autorização e não expor pessoas sem consentimento"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Como organizar o mural?",
+        "options": [
+         {
+          "text": "Sem informar de onde vem cada prática",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Com comentários de deboche",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Por situação (doença, acidente, clima) e por tradição, com respeito às diferentes crenças e à ausência de crença"
+         },
+         {
+          "text": "Colocando só a tradição da maioria",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Que conclusão a turma pode tirar?",
+      "options": [
+       {
+        "text": "\"Só uma tradição tem práticas espirituais.\"",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "\"As práticas espirituais devem ser ridicularizadas.\"",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "\"Em momentos difíceis, pessoas de diferentes tradições usam práticas de espiritualidade, que merecem respeito e convivem com outros cuidados.\""
+       },
+       {
+        "text": "\"Ninguém busca conforto em momentos difíceis.\"",
+        "misconceptionCode": "pratica"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Conclusão.",
+      "variants": [
+       {
+        "question": "Que valor aparece em todas as situações do abrigo?",
+        "options": [
+         {
+          "text": "Solidariedade"
+         },
+         {
+          "text": "Indiferença",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Competição",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Deboche",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que conclusão a turma pode tirar?",
+        "options": [
+         {
+          "text": "\"Ninguém busca conforto em momentos difíceis.\"",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "\"As práticas espirituais devem ser ridicularizadas.\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"Só uma tradição tem práticas espirituais.\"",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "\"Em momentos difíceis, pessoas de diferentes tradições usam práticas de espiritualidade, que merecem respeito e convivem com outros cuidados.\""
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07ER02-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: espiritualidade nos momentos difíceis",
+    "prompt": "Explique que práticas de espiritualidade as pessoas usam em situações difíceis.",
+    "estMinutes": 6,
+    "audioScript": "Explique que práticas de espiritualidade as pessoas usam em situações difíceis.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "pratica-situacao",
+       "description": "Identifica práticas e as situações em que são usadas"
+      },
+      {
+       "code": "tradicao",
+       "description": "Relaciona as práticas às suas tradições sem generalizar"
+      },
+      {
+       "code": "respeito",
+       "description": "Demonstra respeito à diversidade de práticas e à ausência de crença"
+      }
+     ],
+     "exemploBoaResposta": "Em doenças, acidentes e fenômenos climáticos, muitas pessoas recorrem a práticas de espiritualidade que trazem conforto e esperança: orações e correntes de oração, promessas, romarias e ex-votos, benzimentos, unção dos enfermos no catolicismo, procissões pela chuva no sertão, oferendas e rituais no candomblé e na umbanda, rituais de cura com pajés, meditação e mantras no budismo e no hinduísmo. No abrigo de Rio das Garças, dona Lúcia rezou o terço, seu Jorge orou com sua igreja, mãe Iara fez um ritual, Kenji meditou e Paula, sem religião, encontrou força na solidariedade. Essas práticas convivem com o cuidado médico e merecem respeito."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF07ER04",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 7,
+  "version": 1,
+  "title": "Trilha: Líderes religiosos e a sociedade",
+  "tituloAluno": "Contribuições que marcaram a história",
+  "activities": [
+   {
+    "id": "PK2-EF07ER04-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: quem foi quem",
+    "prompt": "Líderes e contribuições.",
+    "estMinutes": 4,
+    "audioScript": "Líderes e contribuições. Pergunta 1. Quem foi Irmã Dulce? A: Pastor batista que lutou pelos direitos civis nos Estados Unidos; B: Freira católica de Salvador que dedicou a vida aos pobres e doentes; C: Líder do budismo tibetano; D: Ialorixá do candomblé. Pergunta 2. Que contribuição está ligada a Zilda Arns? A: A luta contra o apartheid; B: A independência da Índia; C: A fundação da Pastoral da Criança, que ajudou a reduzir a mortalidade infantil; D: A tradução da Bíblia para o alemão. Pergunta 3. Que líder religioso liderou a luta não violenta pelos direitos civis nos Estados Unidos? A: Dom Hélder Câmara; B: Dalai Lama; C: Chico Xavier; D: Martin Luther King Jr., pastor batista. Pergunta 4. Contra o que lutou o arcebispo anglicano Desmond Tutu? A: O apartheid, regime de segregação racial na África do Sul; B: A poluição dos rios na Ásia; C: A seca no sertão brasileiro; D: A camada de ozônio. Pergunta 5. Quem foi Mãe Menininha do Gantois? A: Freira católica; B: Ialorixá de Salvador, referência na preservação e no respeito ao candomblé; C: Monja budista; D: Pastora batista. Pergunta 6. Que tradição o Dalai Lama lidera? A: O hinduísmo; B: O islamismo; C: O budismo tibetano; D: O espiritismo.",
+    "questions": [
+     {
+      "question": "Quem foi Irmã Dulce?",
+      "options": [
+       {
+        "text": "Pastor batista que lutou pelos direitos civis nos Estados Unidos",
+        "misconceptionCode": "lider"
+       },
+       {
+        "text": "Freira católica de Salvador que dedicou a vida aos pobres e doentes"
+       },
+       {
+        "text": "Líder do budismo tibetano",
+        "misconceptionCode": "lider"
+       },
+       {
+        "text": "Ialorixá do candomblé",
+        "misconceptionCode": "lider"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Irmã Dulce.",
+      "variants": [
+       {
+        "question": "Com que nome Irmã Dulce foi canonizada em 2019?",
+        "options": [
+         {
+          "text": "Santa Clara",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Santa Rita",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Santa Bárbara",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Santa Dulce dos Pobres"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quem foi Irmã Dulce?",
+        "options": [
+         {
+          "text": "Ialorixá do candomblé",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Líder do budismo tibetano",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Freira católica de Salvador que dedicou a vida aos pobres e doentes"
+         },
+         {
+          "text": "Pastor batista que lutou pelos direitos civis nos Estados Unidos",
+          "misconceptionCode": "lider"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Que contribuição está ligada a Zilda Arns?",
+      "options": [
+       {
+        "text": "A luta contra o apartheid",
+        "misconceptionCode": "contribuicao"
+       },
+       {
+        "text": "A independência da Índia",
+        "misconceptionCode": "contribuicao"
+       },
+       {
+        "text": "A fundação da Pastoral da Criança, que ajudou a reduzir a mortalidade infantil"
+       },
+       {
+        "text": "A tradução da Bíblia para o alemão",
+        "misconceptionCode": "contribuicao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Pastoral da Criança.",
+      "variants": [
+       {
+        "question": "Em que ano foi fundada a Pastoral da Criança?",
+        "options": [
+         {
+          "text": "1983"
+         },
+         {
+          "text": "1883",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "2013",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "1953",
+          "misconceptionCode": "contribuicao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que contribuição está ligada a Zilda Arns?",
+        "options": [
+         {
+          "text": "A tradução da Bíblia para o alemão",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "A independência da Índia",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "A luta contra o apartheid",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "A fundação da Pastoral da Criança, que ajudou a reduzir a mortalidade infantil"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Que líder religioso liderou a luta não violenta pelos direitos civis nos Estados Unidos?",
+      "options": [
+       {
+        "text": "Dom Hélder Câmara",
+        "misconceptionCode": "lider"
+       },
+       {
+        "text": "Dalai Lama",
+        "misconceptionCode": "lider"
+       },
+       {
+        "text": "Chico Xavier",
+        "misconceptionCode": "lider"
+       },
+       {
+        "text": "Martin Luther King Jr., pastor batista"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "King.",
+      "variants": [
+       {
+        "question": "Em que ano Martin Luther King Jr. recebeu o Nobel da Paz?",
+        "options": [
+         {
+          "text": "1984",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "1964"
+         },
+         {
+          "text": "1989",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "2019",
+          "misconceptionCode": "lider"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Que líder religioso liderou a luta não violenta pelos direitos civis nos Estados Unidos?",
+        "options": [
+         {
+          "text": "Martin Luther King Jr., pastor batista"
+         },
+         {
+          "text": "Chico Xavier",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Dalai Lama",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Dom Hélder Câmara",
+          "misconceptionCode": "lider"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Contra o que lutou o arcebispo anglicano Desmond Tutu?",
+      "options": [
+       {
+        "text": "O apartheid, regime de segregação racial na África do Sul"
+       },
+       {
+        "text": "A poluição dos rios na Ásia",
+        "misconceptionCode": "contribuicao"
+       },
+       {
+        "text": "A seca no sertão brasileiro",
+        "misconceptionCode": "contribuicao"
+       },
+       {
+        "text": "A camada de ozônio",
+        "misconceptionCode": "contribuicao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Apartheid.",
+      "variants": [
+       {
+        "question": "De que país era Desmond Tutu?",
+        "options": [
+         {
+          "text": "Brasil",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "Índia",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "África do Sul"
+         },
+         {
+          "text": "Estados Unidos",
+          "misconceptionCode": "contribuicao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Contra o que lutou o arcebispo anglicano Desmond Tutu?",
+        "options": [
+         {
+          "text": "A camada de ozônio",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "O apartheid, regime de segregação racial na África do Sul"
+         },
+         {
+          "text": "A seca no sertão brasileiro",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "A poluição dos rios na Ásia",
+          "misconceptionCode": "contribuicao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quem foi Mãe Menininha do Gantois?",
+      "options": [
+       {
+        "text": "Freira católica",
+        "misconceptionCode": "lider"
+       },
+       {
+        "text": "Ialorixá de Salvador, referência na preservação e no respeito ao candomblé"
+       },
+       {
+        "text": "Monja budista",
+        "misconceptionCode": "lider"
+       },
+       {
+        "text": "Pastora batista",
+        "misconceptionCode": "lider"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Ialorixá.",
+      "variants": [
+       {
+        "question": "O que é uma ialorixá?",
+        "options": [
+         {
+          "text": "Uma freira",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Uma monja budista",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Uma rabina",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Sacerdotisa que lidera um terreiro de candomblé"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quem foi Mãe Menininha do Gantois?",
+        "options": [
+         {
+          "text": "Pastora batista",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Monja budista",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Ialorixá de Salvador, referência na preservação e no respeito ao candomblé"
+         },
+         {
+          "text": "Freira católica",
+          "misconceptionCode": "lider"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Que tradição o Dalai Lama lidera?",
+      "options": [
+       {
+        "text": "O hinduísmo",
+        "misconceptionCode": "lider"
+       },
+       {
+        "text": "O islamismo",
+        "misconceptionCode": "lider"
+       },
+       {
+        "text": "O budismo tibetano"
+       },
+       {
+        "text": "O espiritismo",
+        "misconceptionCode": "lider"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Budismo tibetano.",
+      "variants": [
+       {
+        "question": "Qual era a tradição de Chico Xavier?",
+        "options": [
+         {
+          "text": "Espiritismo"
+         },
+         {
+          "text": "Budismo",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Candomblé",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Anglicanismo",
+          "misconceptionCode": "lider"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que tradição o Dalai Lama lidera?",
+        "options": [
+         {
+          "text": "O espiritismo",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "O islamismo",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "O hinduísmo",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "O budismo tibetano"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07ER04-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: a galeria da turma",
+    "prompt": "A turma montou uma galeria com cartões. Cartão 1: Irmã Dulce, católica, Salvador, século XX, atendimento a pobres e doentes. Cartão 2: Martin Luther King Jr., batista, Estados Unidos, anos 1950 e 1960, direitos civis. Cartão 3: Desmond Tutu, anglicano, África do Sul, luta contra o apartheid. Cartão 4: Mãe Menininha do Gantois, candomblé, Salvador, preservação do candomblé. Cartão 5: Dalai Lama, budismo tibetano, não violência. A professora pediu que cada cartão tivesse tradição, lugar, época e contribuição.",
+    "estMinutes": 4,
+    "audioScript": "A turma montou uma galeria com cartões. Cartão 1: Irmã Dulce, católica, Salvador, século XX, atendimento a pobres e doentes. Cartão 2: Martin Luther King Jr., batista, Estados Unidos, anos 1950 e 1960, direitos civis. Cartão 3: Desmond Tutu, anglicano, África do Sul, luta contra o apartheid. Cartão 4: Mãe Menininha do Gantois, candomblé, Salvador, preservação do candomblé. Cartão 5: Dalai Lama, budismo tibetano, não violência. A professora pediu que cada cartão tivesse tradição, lugar, época e contribuição. Pergunta 1. Que líderes da galeria são de Salvador? A: Desmond Tutu e Dalai Lama; B: Martin Luther King Jr. e Desmond Tutu; C: Nenhum; D: Irmã Dulce e Mãe Menininha do Gantois. Pergunta 2. Por que a galeria tem líderes de várias tradições? A: Para mostrar que pessoas de diferentes tradições contribuíram para a sociedade; B: Porque só uma tradição importa; C: Por acaso; D: Para comparar qual é a melhor. Pergunta 3. Qual é a contribuição comum a King e Tutu? A: Fundação de hospitais em Salvador; B: Luta não violenta contra a discriminação racial; C: Preservação do candomblé; D: Tradução de livros sagrados. Pergunta 4. Que cartão a turma poderia acrescentar sobre uma líder brasileira da área da saúde? A: Dalai Lama, Tibete; B: Desmond Tutu, África do Sul; C: Zilda Arns, católica, Pastoral da Criança; D: Martin Luther King Jr., Estados Unidos.",
+    "questions": [
+     {
+      "question": "Que líderes da galeria são de Salvador?",
+      "options": [
+       {
+        "text": "Desmond Tutu e Dalai Lama",
+        "misconceptionCode": "contexto"
+       },
+       {
+        "text": "Martin Luther King Jr. e Desmond Tutu",
+        "misconceptionCode": "contexto"
+       },
+       {
+        "text": "Nenhum",
+        "misconceptionCode": "contexto"
+       },
+       {
+        "text": "Irmã Dulce e Mãe Menininha do Gantois"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Salvador.",
+      "variants": [
+       {
+        "question": "Quantos cartões a galeria tem?",
+        "options": [
+         {
+          "text": "Três",
+          "misconceptionCode": "contexto"
+         },
+         {
+          "text": "Cinco"
+         },
+         {
+          "text": "Quatro",
+          "misconceptionCode": "contexto"
+         },
+         {
+          "text": "Seis",
+          "misconceptionCode": "contexto"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Que líderes da galeria são de Salvador?",
+        "options": [
+         {
+          "text": "Irmã Dulce e Mãe Menininha do Gantois"
+         },
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "contexto"
+         },
+         {
+          "text": "Martin Luther King Jr. e Desmond Tutu",
+          "misconceptionCode": "contexto"
+         },
+         {
+          "text": "Desmond Tutu e Dalai Lama",
+          "misconceptionCode": "contexto"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Por que a galeria tem líderes de várias tradições?",
+      "options": [
+       {
+        "text": "Para mostrar que pessoas de diferentes tradições contribuíram para a sociedade"
+       },
+       {
+        "text": "Porque só uma tradição importa",
+        "misconceptionCode": "diversidade"
+       },
+       {
+        "text": "Por acaso",
+        "misconceptionCode": "diversidade"
+       },
+       {
+        "text": "Para comparar qual é a melhor",
+        "misconceptionCode": "diversidade"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Diversidade.",
+      "variants": [
+       {
+        "question": "Que informação a professora pediu em cada cartão?",
+        "options": [
+         {
+          "text": "Só o nome",
+          "misconceptionCode": "diversidade"
+         },
+         {
+          "text": "Só a foto",
+          "misconceptionCode": "diversidade"
+         },
+         {
+          "text": "Tradição, lugar, época e contribuição"
+         },
+         {
+          "text": "Só a idade",
+          "misconceptionCode": "diversidade"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Por que a galeria tem líderes de várias tradições?",
+        "options": [
+         {
+          "text": "Para comparar qual é a melhor",
+          "misconceptionCode": "diversidade"
+         },
+         {
+          "text": "Para mostrar que pessoas de diferentes tradições contribuíram para a sociedade"
+         },
+         {
+          "text": "Por acaso",
+          "misconceptionCode": "diversidade"
+         },
+         {
+          "text": "Porque só uma tradição importa",
+          "misconceptionCode": "diversidade"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual é a contribuição comum a King e Tutu?",
+      "options": [
+       {
+        "text": "Fundação de hospitais em Salvador",
+        "misconceptionCode": "contribuicao"
+       },
+       {
+        "text": "Luta não violenta contra a discriminação racial"
+       },
+       {
+        "text": "Preservação do candomblé",
+        "misconceptionCode": "contribuicao"
+       },
+       {
+        "text": "Tradução de livros sagrados",
+        "misconceptionCode": "contribuicao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Igualdade.",
+      "variants": [
+       {
+        "question": "Em que época atuou Martin Luther King Jr., segundo o cartão?",
+        "options": [
+         {
+          "text": "Século XVI",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "Anos 2010",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "Antiguidade",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "Anos 1950 e 1960"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual é a contribuição comum a King e Tutu?",
+        "options": [
+         {
+          "text": "Tradução de livros sagrados",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "Preservação do candomblé",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "Luta não violenta contra a discriminação racial"
+         },
+         {
+          "text": "Fundação de hospitais em Salvador",
+          "misconceptionCode": "contribuicao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Que cartão a turma poderia acrescentar sobre uma líder brasileira da área da saúde?",
+      "options": [
+       {
+        "text": "Dalai Lama, Tibete",
+        "misconceptionCode": "contexto"
+       },
+       {
+        "text": "Desmond Tutu, África do Sul",
+        "misconceptionCode": "contexto"
+       },
+       {
+        "text": "Zilda Arns, católica, Pastoral da Criança"
+       },
+       {
+        "text": "Martin Luther King Jr., Estados Unidos",
+        "misconceptionCode": "contexto"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Zilda Arns.",
+      "variants": [
+       {
+        "question": "Qual é a contribuição destacada no cartão de Irmã Dulce?",
+        "options": [
+         {
+          "text": "Atendimento a pobres e doentes"
+         },
+         {
+          "text": "Luta contra o apartheid",
+          "misconceptionCode": "contexto"
+         },
+         {
+          "text": "Direitos civis nos Estados Unidos",
+          "misconceptionCode": "contexto"
+         },
+         {
+          "text": "Não violência no Tibete",
+          "misconceptionCode": "contexto"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que cartão a turma poderia acrescentar sobre uma líder brasileira da área da saúde?",
+        "options": [
+         {
+          "text": "Martin Luther King Jr., Estados Unidos",
+          "misconceptionCode": "contexto"
+         },
+         {
+          "text": "Desmond Tutu, África do Sul",
+          "misconceptionCode": "contexto"
+         },
+         {
+          "text": "Dalai Lama, Tibete",
+          "misconceptionCode": "contexto"
+         },
+         {
+          "text": "Zilda Arns, católica, Pastoral da Criança"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07ER04-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: relacionar líder, tradição e contribuição",
+    "prompt": "Associações.",
+    "estMinutes": 5,
+    "audioScript": "Associações. Pergunta 1. Que líder brasileiro, arcebispo de Olinda e Recife, atuou na defesa dos pobres e dos direitos humanos? A: Chico Xavier; B: Desmond Tutu; C: Martin Luther King Jr.; D: Dom Hélder Câmara. Pergunta 2. Chico Xavier destinava a renda de seus livros a quê? A: Obras de caridade; B: Construção de estádios; C: Campanhas eleitorais; D: Viagens de luxo. Pergunta 3. Qual associação está correta? A: Dalai Lama, católico, Brasil, Pastoral da Criança; B: Desmond Tutu, anglicano, África do Sul, contra o apartheid; C: Irmã Dulce, budista, Tibete, não violência; D: Mãe Menininha, batista, Estados Unidos, direitos civis. Pergunta 4. Um colega disse: \"Só líderes de uma religião fizeram coisas importantes.\" Que resposta dar? A: Ele está certo; B: Nenhum líder religioso contribuiu; C: Líderes de várias tradições, como católicos, batistas, anglicanos, budistas, espíritas e do candomblé, contribuíram para a sociedade; D: Só os líderes estrangeiros contribuíram. Pergunta 5. O que há em comum entre Irmã Dulce e Zilda Arns? A: Lutaram contra o apartheid; B: Lideraram o budismo; C: Viveram nos Estados Unidos; D: Atuaram no cuidado com a saúde de pessoas pobres no Brasil.",
+    "questions": [
+     {
+      "question": "Que líder brasileiro, arcebispo de Olinda e Recife, atuou na defesa dos pobres e dos direitos humanos?",
+      "options": [
+       {
+        "text": "Chico Xavier",
+        "misconceptionCode": "lider"
+       },
+       {
+        "text": "Desmond Tutu",
+        "misconceptionCode": "lider"
+       },
+       {
+        "text": "Martin Luther King Jr.",
+        "misconceptionCode": "lider"
+       },
+       {
+        "text": "Dom Hélder Câmara"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Dom Hélder.",
+      "variants": [
+       {
+        "question": "Em que estado fica a cidade de Olinda?",
+        "options": [
+         {
+          "text": "Bahia",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Pernambuco"
+         },
+         {
+          "text": "Minas Gerais",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "São Paulo",
+          "misconceptionCode": "lider"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Que líder brasileiro, arcebispo de Olinda e Recife, atuou na defesa dos pobres e dos direitos humanos?",
+        "options": [
+         {
+          "text": "Dom Hélder Câmara"
+         },
+         {
+          "text": "Martin Luther King Jr.",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Desmond Tutu",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Chico Xavier",
+          "misconceptionCode": "lider"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Chico Xavier destinava a renda de seus livros a quê?",
+      "options": [
+       {
+        "text": "Obras de caridade"
+       },
+       {
+        "text": "Construção de estádios",
+        "misconceptionCode": "contribuicao"
+       },
+       {
+        "text": "Campanhas eleitorais",
+        "misconceptionCode": "contribuicao"
+       },
+       {
+        "text": "Viagens de luxo",
+        "misconceptionCode": "contribuicao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Caridade.",
+      "variants": [
+       {
+        "question": "Em que estado viveu Chico Xavier?",
+        "options": [
+         {
+          "text": "Pernambuco",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "Rio Grande do Sul",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "Minas Gerais"
+         },
+         {
+          "text": "Amazonas",
+          "misconceptionCode": "contribuicao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Chico Xavier destinava a renda de seus livros a quê?",
+        "options": [
+         {
+          "text": "Viagens de luxo",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "Obras de caridade"
+         },
+         {
+          "text": "Campanhas eleitorais",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "Construção de estádios",
+          "misconceptionCode": "contribuicao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual associação está correta?",
+      "options": [
+       {
+        "text": "Dalai Lama, católico, Brasil, Pastoral da Criança",
+        "misconceptionCode": "lider"
+       },
+       {
+        "text": "Desmond Tutu, anglicano, África do Sul, contra o apartheid"
+       },
+       {
+        "text": "Irmã Dulce, budista, Tibete, não violência",
+        "misconceptionCode": "lider"
+       },
+       {
+        "text": "Mãe Menininha, batista, Estados Unidos, direitos civis",
+        "misconceptionCode": "lider"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Associação.",
+      "variants": [
+       {
+        "question": "Qual associação está correta?",
+        "options": [
+         {
+          "text": "Zilda Arns, budista, Índia, independência",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Zilda Arns, espírita, Japão, tecnologia",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Zilda Arns, anglicana, África do Sul, apartheid",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Zilda Arns, católica, Brasil, redução da mortalidade infantil"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual associação está correta?",
+        "options": [
+         {
+          "text": "Mãe Menininha, batista, Estados Unidos, direitos civis",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Irmã Dulce, budista, Tibete, não violência",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Desmond Tutu, anglicano, África do Sul, contra o apartheid"
+         },
+         {
+          "text": "Dalai Lama, católico, Brasil, Pastoral da Criança",
+          "misconceptionCode": "lider"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um colega disse: \"Só líderes de uma religião fizeram coisas importantes.\" Que resposta dar?",
+      "options": [
+       {
+        "text": "Ele está certo",
+        "misconceptionCode": "diversidade"
+       },
+       {
+        "text": "Nenhum líder religioso contribuiu",
+        "misconceptionCode": "diversidade"
+       },
+       {
+        "text": "Líderes de várias tradições, como católicos, batistas, anglicanos, budistas, espíritas e do candomblé, contribuíram para a sociedade"
+       },
+       {
+        "text": "Só os líderes estrangeiros contribuíram",
+        "misconceptionCode": "diversidade"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Diversidade.",
+      "variants": [
+       {
+        "question": "Que prêmio King, Tutu e o Dalai Lama receberam?",
+        "options": [
+         {
+          "text": "Nobel da Paz"
+         },
+         {
+          "text": "Copa do Mundo",
+          "misconceptionCode": "diversidade"
+         },
+         {
+          "text": "Oscar",
+          "misconceptionCode": "diversidade"
+         },
+         {
+          "text": "Medalha olímpica",
+          "misconceptionCode": "diversidade"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um colega disse: \"Só líderes de uma religião fizeram coisas importantes.\" Que resposta dar?",
+        "options": [
+         {
+          "text": "Só os líderes estrangeiros contribuíram",
+          "misconceptionCode": "diversidade"
+         },
+         {
+          "text": "Nenhum líder religioso contribuiu",
+          "misconceptionCode": "diversidade"
+         },
+         {
+          "text": "Ele está certo",
+          "misconceptionCode": "diversidade"
+         },
+         {
+          "text": "Líderes de várias tradições, como católicos, batistas, anglicanos, budistas, espíritas e do candomblé, contribuíram para a sociedade"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que há em comum entre Irmã Dulce e Zilda Arns?",
+      "options": [
+       {
+        "text": "Lutaram contra o apartheid",
+        "misconceptionCode": "contribuicao"
+       },
+       {
+        "text": "Lideraram o budismo",
+        "misconceptionCode": "lider"
+       },
+       {
+        "text": "Viveram nos Estados Unidos",
+        "misconceptionCode": "contexto"
+       },
+       {
+        "text": "Atuaram no cuidado com a saúde de pessoas pobres no Brasil"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Saúde.",
+      "variants": [
+       {
+        "question": "Que tipo de ação Irmã Dulce fundou?",
+        "options": [
+         {
+          "text": "Um banco",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "Obras sociais e um hospital"
+         },
+         {
+          "text": "Um clube de futebol",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Uma empresa de tecnologia",
+          "misconceptionCode": "contexto"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que há em comum entre Irmã Dulce e Zilda Arns?",
+        "options": [
+         {
+          "text": "Atuaram no cuidado com a saúde de pessoas pobres no Brasil"
+         },
+         {
+          "text": "Viveram nos Estados Unidos",
+          "misconceptionCode": "contexto"
+         },
+         {
+          "text": "Lideraram o budismo",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Lutaram contra o apartheid",
+          "misconceptionCode": "contribuicao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07ER04-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: o líder da minha cidade",
+    "prompt": "Pesquisa local.",
+    "estMinutes": 4,
+    "audioScript": "Pesquisa local. Pergunta 1. A turma vai pesquisar líderes religiosos da própria cidade com ação social. Que critério é adequado? A: Pessoas de qualquer tradição com contribuição comprovada à comunidade; B: Só líderes da religião da maioria; C: Pessoas famosas sem nenhuma ação social; D: Ninguém. Pergunta 2. Como apresentar o líder pesquisado? A: Só com elogios exagerados sem fatos; B: Com tradição, lugar, época e a contribuição, de forma respeitosa; C: Comparando para dizer qual religião é melhor; D: Sem dizer o que a pessoa fez. Pergunta 3. Que conclusão a turma pode tirar? A: \"Só uma tradição teve líderes importantes.\"; B: \"Líderes religiosos nunca contribuíram para a sociedade.\"; C: \"Líderes de diferentes tradições religiosas contribuíram para a sociedade com ações de saúde, justiça, paz e preservação cultural.\"; D: \"Todos esses líderes viveram na mesma época e lugar.\".",
+    "questions": [
+     {
+      "question": "A turma vai pesquisar líderes religiosos da própria cidade com ação social. Que critério é adequado?",
+      "options": [
+       {
+        "text": "Pessoas de qualquer tradição com contribuição comprovada à comunidade"
+       },
+       {
+        "text": "Só líderes da religião da maioria",
+        "misconceptionCode": "diversidade"
+       },
+       {
+        "text": "Pessoas famosas sem nenhuma ação social",
+        "misconceptionCode": "contribuicao"
+       },
+       {
+        "text": "Ninguém",
+        "misconceptionCode": "lider"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Critério.",
+      "variants": [
+       {
+        "question": "Que fonte ajuda a comprovar a contribuição?",
+        "options": [
+         {
+          "text": "Boatos",
+          "misconceptionCode": "diversidade"
+         },
+         {
+          "text": "Correntes de mensagens",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "Registros da comunidade, notícias e depoimentos de quem foi atendido"
+         },
+         {
+          "text": "Imaginação",
+          "misconceptionCode": "lider"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A turma vai pesquisar líderes religiosos da própria cidade com ação social. Que critério é adequado?",
+        "options": [
+         {
+          "text": "Ninguém",
+          "misconceptionCode": "lider"
+         },
+         {
+          "text": "Pessoas de qualquer tradição com contribuição comprovada à comunidade"
+         },
+         {
+          "text": "Pessoas famosas sem nenhuma ação social",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "Só líderes da religião da maioria",
+          "misconceptionCode": "diversidade"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Como apresentar o líder pesquisado?",
+      "options": [
+       {
+        "text": "Só com elogios exagerados sem fatos",
+        "misconceptionCode": "contexto"
+       },
+       {
+        "text": "Com tradição, lugar, época e a contribuição, de forma respeitosa"
+       },
+       {
+        "text": "Comparando para dizer qual religião é melhor",
+        "misconceptionCode": "diversidade"
+       },
+       {
+        "text": "Sem dizer o que a pessoa fez",
+        "misconceptionCode": "contribuicao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Apresentação.",
+      "variants": [
+       {
+        "question": "Por que conhecer esses líderes é importante?",
+        "options": [
+         {
+          "text": "Para escolher uma religião obrigatória",
+          "misconceptionCode": "contexto"
+         },
+         {
+          "text": "Para debochar",
+          "misconceptionCode": "diversidade"
+         },
+         {
+          "text": "Não é importante",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "Para valorizar ações que melhoram a sociedade"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Como apresentar o líder pesquisado?",
+        "options": [
+         {
+          "text": "Sem dizer o que a pessoa fez",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "Comparando para dizer qual religião é melhor",
+          "misconceptionCode": "diversidade"
+         },
+         {
+          "text": "Com tradição, lugar, época e a contribuição, de forma respeitosa"
+         },
+         {
+          "text": "Só com elogios exagerados sem fatos",
+          "misconceptionCode": "contexto"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Que conclusão a turma pode tirar?",
+      "options": [
+       {
+        "text": "\"Só uma tradição teve líderes importantes.\"",
+        "misconceptionCode": "diversidade"
+       },
+       {
+        "text": "\"Líderes religiosos nunca contribuíram para a sociedade.\"",
+        "misconceptionCode": "contribuicao"
+       },
+       {
+        "text": "\"Líderes de diferentes tradições religiosas contribuíram para a sociedade com ações de saúde, justiça, paz e preservação cultural.\""
+       },
+       {
+        "text": "\"Todos esses líderes viveram na mesma época e lugar.\"",
+        "misconceptionCode": "contexto"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Conclusão.",
+      "variants": [
+       {
+        "question": "Que valor une muitas dessas contribuições?",
+        "options": [
+         {
+          "text": "Dignidade humana"
+         },
+         {
+          "text": "Competição",
+          "misconceptionCode": "diversidade"
+         },
+         {
+          "text": "Indiferença",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "Vingança",
+          "misconceptionCode": "contexto"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que conclusão a turma pode tirar?",
+        "options": [
+         {
+          "text": "\"Todos esses líderes viveram na mesma época e lugar.\"",
+          "misconceptionCode": "contexto"
+         },
+         {
+          "text": "\"Líderes religiosos nunca contribuíram para a sociedade.\"",
+          "misconceptionCode": "contribuicao"
+         },
+         {
+          "text": "\"Só uma tradição teve líderes importantes.\"",
+          "misconceptionCode": "diversidade"
+         },
+         {
+          "text": "\"Líderes de diferentes tradições religiosas contribuíram para a sociedade com ações de saúde, justiça, paz e preservação cultural.\""
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07ER04-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: líderes religiosos e a sociedade",
+    "prompt": "Dê exemplos de líderes religiosos que contribuíram para a sociedade.",
+    "estMinutes": 6,
+    "audioScript": "Dê exemplos de líderes religiosos que contribuíram para a sociedade.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "lider-contexto",
+       "description": "Identifica líderes, suas tradições, lugar e época"
+      },
+      {
+       "code": "contribuicao",
+       "description": "Relaciona cada líder à sua contribuição"
+      },
+      {
+       "code": "diversidade",
+       "description": "Mostra exemplos de diferentes tradições"
+      }
+     ],
+     "exemploBoaResposta": "Líderes de várias tradições contribuíram para a sociedade. Irmã Dulce, freira católica de Salvador, cuidou de pobres e doentes e foi canonizada em 2019. Zilda Arns fundou em 1983 a Pastoral da Criança, que ajudou a reduzir a mortalidade infantil. Dom Hélder Câmara, arcebispo de Olinda e Recife, defendeu os pobres e os direitos humanos. Martin Luther King Jr., pastor batista, liderou a luta não violenta pelos direitos civis nos Estados Unidos; Desmond Tutu, arcebispo anglicano, lutou contra o apartheid na África do Sul; o Dalai Lama, do budismo tibetano, defende a não violência. Chico Xavier, espírita, destinou a renda de seus livros à caridade, e Mãe Menininha do Gantois foi referência na preservação do candomblé."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF07ER06",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 7,
+  "version": 1,
+  "title": "Trilha: Princípios éticos nas tradições",
+  "tituloAluno": "Valores que orientam a conduta",
+  "activities": [
+   {
+    "id": "PK2-EF07ER06-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: princípios e tradições",
+    "prompt": "Identificar.",
+    "estMinutes": 4,
+    "audioScript": "Identificar. Pergunta 1. O que diz a regra de ouro, presente em várias tradições? A: Fazer só o que é bom para si; B: Vencer a qualquer custo; C: Ignorar quem precisa; D: Tratar os outros como gostaríamos de ser tratados. Pergunta 2. O que significa ahimsa? A: Não violência contra todos os seres vivos; B: Caridade obrigatória; C: Jejum de um mês; D: Peregrinação. Pergunta 3. O que é o zakat no islamismo? A: Uma festa de colheita; B: Contribuição obrigatória aos necessitados, um dos cinco pilares; C: Uma oração da manhã; D: Uma dança. Pergunta 4. O que expressa a filosofia africana Ubuntu? A: Cada um por si; B: A competição acima de tudo; C: \"Eu sou porque nós somos\": a pessoa se realiza na comunidade; D: O isolamento. Pergunta 5. Pessoas sem religião podem ter princípios éticos? A: Não, só religiosos têm ética; B: Só se mudarem de ideia; C: Ética não existe; D: Sim; o humanismo secular, por exemplo, baseia a ética na razão e na dignidade humana. Pergunta 6. Como um princípio ético pode influenciar uma prática social? A: A caridade e a solidariedade motivam campanhas de doação e voluntariado; B: Princípios não influenciam nada; C: Princípios só servem para discutir; D: A regra de ouro incentiva a vingança.",
+    "questions": [
+     {
+      "question": "O que diz a regra de ouro, presente em várias tradições?",
+      "options": [
+       {
+        "text": "Fazer só o que é bom para si",
+        "misconceptionCode": "principio"
+       },
+       {
+        "text": "Vencer a qualquer custo",
+        "misconceptionCode": "principio"
+       },
+       {
+        "text": "Ignorar quem precisa",
+        "misconceptionCode": "principio"
+       },
+       {
+        "text": "Tratar os outros como gostaríamos de ser tratados"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Regra de ouro.",
+      "variants": [
+       {
+        "question": "Em quais tradições aparece a regra de ouro, com palavras diferentes?",
+        "options": [
+         {
+          "text": "Em nenhuma",
+          "misconceptionCode": "principio"
+         },
+         {
+          "text": "Confucionismo, judaísmo e cristianismo, entre outras"
+         },
+         {
+          "text": "Só no confucionismo",
+          "misconceptionCode": "principio"
+         },
+         {
+          "text": "Só em leis de trânsito",
+          "misconceptionCode": "principio"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que diz a regra de ouro, presente em várias tradições?",
+        "options": [
+         {
+          "text": "Tratar os outros como gostaríamos de ser tratados"
+         },
+         {
+          "text": "Ignorar quem precisa",
+          "misconceptionCode": "principio"
+         },
+         {
+          "text": "Vencer a qualquer custo",
+          "misconceptionCode": "principio"
+         },
+         {
+          "text": "Fazer só o que é bom para si",
+          "misconceptionCode": "principio"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O que significa ahimsa?",
+      "options": [
+       {
+        "text": "Não violência contra todos os seres vivos"
+       },
+       {
+        "text": "Caridade obrigatória",
+        "misconceptionCode": "principio"
+       },
+       {
+        "text": "Jejum de um mês",
+        "misconceptionCode": "principio"
+       },
+       {
+        "text": "Peregrinação",
+        "misconceptionCode": "principio"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Ahimsa.",
+      "variants": [
+       {
+        "question": "Em que tradições a ahimsa é central?",
+        "options": [
+         {
+          "text": "Só no islamismo",
+          "misconceptionCode": "principio"
+         },
+         {
+          "text": "Só no candomblé",
+          "misconceptionCode": "principio"
+         },
+         {
+          "text": "Hinduísmo, budismo e jainismo"
+         },
+         {
+          "text": "Em nenhuma",
+          "misconceptionCode": "principio"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que significa ahimsa?",
+        "options": [
+         {
+          "text": "Peregrinação",
+          "misconceptionCode": "principio"
+         },
+         {
+          "text": "Não violência contra todos os seres vivos"
+         },
+         {
+          "text": "Jejum de um mês",
+          "misconceptionCode": "principio"
+         },
+         {
+          "text": "Caridade obrigatória",
+          "misconceptionCode": "principio"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O que é o zakat no islamismo?",
+      "options": [
+       {
+        "text": "Uma festa de colheita",
+        "misconceptionCode": "origem"
+       },
+       {
+        "text": "Contribuição obrigatória aos necessitados, um dos cinco pilares"
+       },
+       {
+        "text": "Uma oração da manhã",
+        "misconceptionCode": "origem"
+       },
+       {
+        "text": "Uma dança",
+        "misconceptionCode": "origem"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Zakat.",
+      "variants": [
+       {
+        "question": "O que é a tsedacá no judaísmo?",
+        "options": [
+         {
+          "text": "Uma refeição festiva",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Um instrumento musical",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Uma vestimenta",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Princípio que une justiça e ajuda aos necessitados"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que é o zakat no islamismo?",
+        "options": [
+         {
+          "text": "Uma dança",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Uma oração da manhã",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Contribuição obrigatória aos necessitados, um dos cinco pilares"
+         },
+         {
+          "text": "Uma festa de colheita",
+          "misconceptionCode": "origem"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O que expressa a filosofia africana Ubuntu?",
+      "options": [
+       {
+        "text": "Cada um por si",
+        "misconceptionCode": "origem"
+       },
+       {
+        "text": "A competição acima de tudo",
+        "misconceptionCode": "origem"
+       },
+       {
+        "text": "\"Eu sou porque nós somos\": a pessoa se realiza na comunidade"
+       },
+       {
+        "text": "O isolamento",
+        "misconceptionCode": "origem"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Ubuntu.",
+      "variants": [
+       {
+        "question": "O que defende a ideia de bem viver de povos indígenas andinos?",
+        "options": [
+         {
+          "text": "Viver em harmonia com a natureza e a comunidade"
+         },
+         {
+          "text": "Acumular o máximo de bens",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Explorar a natureza sem limite",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Viver isolado",
+          "misconceptionCode": "origem"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que expressa a filosofia africana Ubuntu?",
+        "options": [
+         {
+          "text": "O isolamento",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "A competição acima de tudo",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Cada um por si",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "\"Eu sou porque nós somos\": a pessoa se realiza na comunidade"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Pessoas sem religião podem ter princípios éticos?",
+      "options": [
+       {
+        "text": "Não, só religiosos têm ética",
+        "misconceptionCode": "secular"
+       },
+       {
+        "text": "Só se mudarem de ideia",
+        "misconceptionCode": "secular"
+       },
+       {
+        "text": "Ética não existe",
+        "misconceptionCode": "secular"
+       },
+       {
+        "text": "Sim; o humanismo secular, por exemplo, baseia a ética na razão e na dignidade humana"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Ética secular.",
+      "variants": [
+       {
+        "question": "Em que se baseia o humanismo secular?",
+        "options": [
+         {
+          "text": "Em textos sagrados",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Na razão e na dignidade humana"
+         },
+         {
+          "text": "No acaso",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Na força",
+          "misconceptionCode": "secular"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Pessoas sem religião podem ter princípios éticos?",
+        "options": [
+         {
+          "text": "Sim; o humanismo secular, por exemplo, baseia a ética na razão e na dignidade humana"
+         },
+         {
+          "text": "Ética não existe",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Só se mudarem de ideia",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Não, só religiosos têm ética",
+          "misconceptionCode": "secular"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Como um princípio ético pode influenciar uma prática social?",
+      "options": [
+       {
+        "text": "A caridade e a solidariedade motivam campanhas de doação e voluntariado"
+       },
+       {
+        "text": "Princípios não influenciam nada",
+        "misconceptionCode": "conduta"
+       },
+       {
+        "text": "Princípios só servem para discutir",
+        "misconceptionCode": "conduta"
+       },
+       {
+        "text": "A regra de ouro incentiva a vingança",
+        "misconceptionCode": "conduta"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Prática social.",
+      "variants": [
+       {
+        "question": "Que conduta pessoal combina com a regra de ouro?",
+        "options": [
+         {
+          "text": "Espalhar boatos",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "Debochar dos outros",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "Não espalhar boatos sobre um colega, como não gostaria que fizessem comigo"
+         },
+         {
+          "text": "Ignorar quem pede ajuda",
+          "misconceptionCode": "conduta"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Como um princípio ético pode influenciar uma prática social?",
+        "options": [
+         {
+          "text": "A regra de ouro incentiva a vingança",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "A caridade e a solidariedade motivam campanhas de doação e voluntariado"
+         },
+         {
+          "text": "Princípios só servem para discutir",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "Princípios não influenciam nada",
+          "misconceptionCode": "conduta"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07ER06-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: a campanha da escola",
+    "prompt": "A escola de Vila Nova organizou uma campanha de alimentos. Yasmin, muçulmana, lembrou do zakat. Davi, judeu, falou da tsedacá. Ana, católica, citou a caridade cristã. Arjun, de família hindu, explicou a ahimsa e sugeriu doar alimentos sem desperdício. Thiago, que não tem religião, disse que ajudava porque acredita na dignidade de todas as pessoas. Amara, cuja família valoriza a cultura africana, falou do Ubuntu. Juntos, arrecadaram 300 kg de alimentos.",
+    "estMinutes": 4,
+    "audioScript": "A escola de Vila Nova organizou uma campanha de alimentos. Yasmin, muçulmana, lembrou do zakat. Davi, judeu, falou da tsedacá. Ana, católica, citou a caridade cristã. Arjun, de família hindu, explicou a ahimsa e sugeriu doar alimentos sem desperdício. Thiago, que não tem religião, disse que ajudava porque acredita na dignidade de todas as pessoas. Amara, cuja família valoriza a cultura africana, falou do Ubuntu. Juntos, arrecadaram 300 kg de alimentos. Pergunta 1. Que princípio Yasmin lembrou? A: Ahimsa; B: Zakat; C: Tsedacá; D: Ubuntu. Pergunta 2. Qual foi o motivo de Thiago para participar? A: O zakat; B: A ahimsa; C: A crença na dignidade de todas as pessoas, sem referência religiosa; D: Ele não participou. Pergunta 3. O que a campanha mostra sobre os princípios éticos? A: Que só uma tradição ajuda os outros; B: Que princípios dividem as pessoas; C: Que ética não influencia atitudes; D: Que princípios de diferentes tradições e filosofias podem levar à mesma prática solidária. Pergunta 4. Como Arjun relacionou a ahimsa à campanha? A: Sugerindo doar alimentos sem desperdício, cuidando de todos os seres; B: Sugerindo não participar; C: Defendendo a competição entre turmas; D: Falando de vingança.",
+    "questions": [
+     {
+      "question": "Que princípio Yasmin lembrou?",
+      "options": [
+       {
+        "text": "Ahimsa",
+        "misconceptionCode": "origem"
+       },
+       {
+        "text": "Zakat"
+       },
+       {
+        "text": "Tsedacá",
+        "misconceptionCode": "origem"
+       },
+       {
+        "text": "Ubuntu",
+        "misconceptionCode": "origem"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Islã.",
+      "variants": [
+       {
+        "question": "Que princípio Davi citou?",
+        "options": [
+         {
+          "text": "Zakat",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Ahimsa",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Bem viver",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Tsedacá"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Que princípio Yasmin lembrou?",
+        "options": [
+         {
+          "text": "Ubuntu",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Tsedacá",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Zakat"
+         },
+         {
+          "text": "Ahimsa",
+          "misconceptionCode": "origem"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual foi o motivo de Thiago para participar?",
+      "options": [
+       {
+        "text": "O zakat",
+        "misconceptionCode": "secular"
+       },
+       {
+        "text": "A ahimsa",
+        "misconceptionCode": "secular"
+       },
+       {
+        "text": "A crença na dignidade de todas as pessoas, sem referência religiosa"
+       },
+       {
+        "text": "Ele não participou",
+        "misconceptionCode": "secular"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Ética secular.",
+      "variants": [
+       {
+        "question": "Quantos quilos de alimentos foram arrecadados?",
+        "options": [
+         {
+          "text": "300 kg"
+         },
+         {
+          "text": "30 kg",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "3.000 kg",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "130 kg",
+          "misconceptionCode": "secular"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual foi o motivo de Thiago para participar?",
+        "options": [
+         {
+          "text": "Ele não participou",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "A ahimsa",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "O zakat",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "A crença na dignidade de todas as pessoas, sem referência religiosa"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que a campanha mostra sobre os princípios éticos?",
+      "options": [
+       {
+        "text": "Que só uma tradição ajuda os outros",
+        "misconceptionCode": "principio"
+       },
+       {
+        "text": "Que princípios dividem as pessoas",
+        "misconceptionCode": "conduta"
+       },
+       {
+        "text": "Que ética não influencia atitudes",
+        "misconceptionCode": "conduta"
+       },
+       {
+        "text": "Que princípios de diferentes tradições e filosofias podem levar à mesma prática solidária"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Encontro.",
+      "variants": [
+       {
+        "question": "Que princípio Amara citou?",
+        "options": [
+         {
+          "text": "Zakat",
+          "misconceptionCode": "principio"
+         },
+         {
+          "text": "Ubuntu"
+         },
+         {
+          "text": "Tsedacá",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "Caridade cristã",
+          "misconceptionCode": "conduta"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que a campanha mostra sobre os princípios éticos?",
+        "options": [
+         {
+          "text": "Que princípios de diferentes tradições e filosofias podem levar à mesma prática solidária"
+         },
+         {
+          "text": "Que ética não influencia atitudes",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "Que princípios dividem as pessoas",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "Que só uma tradição ajuda os outros",
+          "misconceptionCode": "principio"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Como Arjun relacionou a ahimsa à campanha?",
+      "options": [
+       {
+        "text": "Sugerindo doar alimentos sem desperdício, cuidando de todos os seres"
+       },
+       {
+        "text": "Sugerindo não participar",
+        "misconceptionCode": "conduta"
+       },
+       {
+        "text": "Defendendo a competição entre turmas",
+        "misconceptionCode": "conduta"
+       },
+       {
+        "text": "Falando de vingança",
+        "misconceptionCode": "conduta"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Ahimsa.",
+      "variants": [
+       {
+        "question": "Qual princípio Ana citou?",
+        "options": [
+         {
+          "text": "Ahimsa",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "Ubuntu",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "Caridade cristã"
+         },
+         {
+          "text": "Zakat",
+          "misconceptionCode": "conduta"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Como Arjun relacionou a ahimsa à campanha?",
+        "options": [
+         {
+          "text": "Falando de vingança",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "Sugerindo doar alimentos sem desperdício, cuidando de todos os seres"
+         },
+         {
+          "text": "Defendendo a competição entre turmas",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "Sugerindo não participar",
+          "misconceptionCode": "conduta"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07ER06-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: princípios e condutas",
+    "prompt": "Situações.",
+    "estMinutes": 5,
+    "audioScript": "Situações. Pergunta 1. Um aluno vê um colega sendo excluído do grupo. Que conduta combina com a regra de ouro? A: Rir junto com os outros; B: Convidar o colega para participar; C: Fingir que não viu; D: Excluir também. Pergunta 2. Uma comunidade organiza mutirões para cuidar da praça e de quem mora sozinho. Que princípio aparece? A: Individualismo; B: Acúmulo de bens; C: Ubuntu, a valorização da comunidade; D: Isolamento. Pergunta 3. Qual afirmação é correta? A: Só a minha tradição tem princípios éticos; B: Princípios éticos são todos iguais nas palavras; C: Princípios éticos não influenciam a sociedade; D: Princípios éticos aparecem em tradições religiosas e em filosofias de vida sem religião. Pergunta 4. Que prática social se relaciona com o zakat e a tsedacá? A: Ajuda organizada aos necessitados; B: Proibição de doações; C: Festas sem relação com os outros; D: Competições esportivas.",
+    "questions": [
+     {
+      "question": "Um aluno vê um colega sendo excluído do grupo. Que conduta combina com a regra de ouro?",
+      "options": [
+       {
+        "text": "Rir junto com os outros",
+        "misconceptionCode": "conduta"
+       },
+       {
+        "text": "Convidar o colega para participar"
+       },
+       {
+        "text": "Fingir que não viu",
+        "misconceptionCode": "conduta"
+       },
+       {
+        "text": "Excluir também",
+        "misconceptionCode": "conduta"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Regra de ouro.",
+      "variants": [
+       {
+        "question": "Que princípio orienta a resolução de conflitos sem agressão?",
+        "options": [
+         {
+          "text": "Vingança",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "Competição a qualquer custo",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "Indiferença",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "Não violência"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um aluno vê um colega sendo excluído do grupo. Que conduta combina com a regra de ouro?",
+        "options": [
+         {
+          "text": "Excluir também",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "Fingir que não viu",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "Convidar o colega para participar"
+         },
+         {
+          "text": "Rir junto com os outros",
+          "misconceptionCode": "conduta"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Uma comunidade organiza mutirões para cuidar da praça e de quem mora sozinho. Que princípio aparece?",
+      "options": [
+       {
+        "text": "Individualismo",
+        "misconceptionCode": "principio"
+       },
+       {
+        "text": "Acúmulo de bens",
+        "misconceptionCode": "principio"
+       },
+       {
+        "text": "Ubuntu, a valorização da comunidade"
+       },
+       {
+        "text": "Isolamento",
+        "misconceptionCode": "principio"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Comunidade.",
+      "variants": [
+       {
+        "question": "Qual princípio ético pode inspirar o cuidado com rios e florestas?",
+        "options": [
+         {
+          "text": "Bem viver"
+         },
+         {
+          "text": "Exploração sem limite",
+          "misconceptionCode": "principio"
+         },
+         {
+          "text": "Desperdício",
+          "misconceptionCode": "principio"
+         },
+         {
+          "text": "Indiferença",
+          "misconceptionCode": "principio"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Uma comunidade organiza mutirões para cuidar da praça e de quem mora sozinho. Que princípio aparece?",
+        "options": [
+         {
+          "text": "Isolamento",
+          "misconceptionCode": "principio"
+         },
+         {
+          "text": "Acúmulo de bens",
+          "misconceptionCode": "principio"
+         },
+         {
+          "text": "Individualismo",
+          "misconceptionCode": "principio"
+         },
+         {
+          "text": "Ubuntu, a valorização da comunidade"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual afirmação é correta?",
+      "options": [
+       {
+        "text": "Só a minha tradição tem princípios éticos",
+        "misconceptionCode": "secular"
+       },
+       {
+        "text": "Princípios éticos são todos iguais nas palavras",
+        "misconceptionCode": "origem"
+       },
+       {
+        "text": "Princípios éticos não influenciam a sociedade",
+        "misconceptionCode": "conduta"
+       },
+       {
+        "text": "Princípios éticos aparecem em tradições religiosas e em filosofias de vida sem religião"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Diversidade ética.",
+      "variants": [
+       {
+        "question": "Por que conhecer princípios de outras tradições ajuda na convivência?",
+        "options": [
+         {
+          "text": "Porque obriga a mudar de religião",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Porque mostra valores em comum e ajuda a respeitar as diferenças"
+         },
+         {
+          "text": "Não ajuda",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Para escolher a melhor",
+          "misconceptionCode": "conduta"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual afirmação é correta?",
+        "options": [
+         {
+          "text": "Princípios éticos aparecem em tradições religiosas e em filosofias de vida sem religião"
+         },
+         {
+          "text": "Princípios éticos não influenciam a sociedade",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "Princípios éticos são todos iguais nas palavras",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Só a minha tradição tem princípios éticos",
+          "misconceptionCode": "secular"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Que prática social se relaciona com o zakat e a tsedacá?",
+      "options": [
+       {
+        "text": "Ajuda organizada aos necessitados"
+       },
+       {
+        "text": "Proibição de doações",
+        "misconceptionCode": "conduta"
+       },
+       {
+        "text": "Festas sem relação com os outros",
+        "misconceptionCode": "conduta"
+       },
+       {
+        "text": "Competições esportivas",
+        "misconceptionCode": "conduta"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Ajuda.",
+      "variants": [
+       {
+        "question": "Que ação da escola de Vila Nova expressa esses princípios?",
+        "options": [
+         {
+          "text": "O campeonato de futebol",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "A prova de matemática",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "A campanha de alimentos"
+         },
+         {
+          "text": "O recreio",
+          "misconceptionCode": "conduta"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Que prática social se relaciona com o zakat e a tsedacá?",
+        "options": [
+         {
+          "text": "Competições esportivas",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "Ajuda organizada aos necessitados"
+         },
+         {
+          "text": "Festas sem relação com os outros",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "Proibição de doações",
+          "misconceptionCode": "conduta"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07ER06-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: o código de convivência da turma",
+    "prompt": "Construir juntos.",
+    "estMinutes": 4,
+    "audioScript": "Construir juntos. Pergunta 1. A turma vai criar um código de convivência inspirado em princípios éticos. Qual item está adequado? A: \"Vence quem grita mais.\"; B: \"Trate os colegas como você gostaria de ser tratado.\"; C: \"Quem é diferente não pode participar.\"; D: \"Cada um por si.\". Pergunta 2. Como garantir que o código respeite todos, inclusive quem não tem religião? A: Usar só textos de uma religião; B: Excluir quem não tem religião; C: Usar princípios compartilhados, como dignidade, respeito e solidariedade, sem impor uma crença; D: Proibir que se fale de valores. Pergunta 3. Que conclusão a turma pode tirar? A: \"Só pessoas religiosas são éticas.\"; B: \"Princípios éticos não mudam atitudes.\"; C: \"A regra de ouro existe só numa tradição.\"; D: \"Tradições religiosas e filosofias de vida têm princípios éticos, como a regra de ouro, a não violência e a solidariedade, que orientam condutas e práticas sociais.\".",
+    "questions": [
+     {
+      "question": "A turma vai criar um código de convivência inspirado em princípios éticos. Qual item está adequado?",
+      "options": [
+       {
+        "text": "\"Vence quem grita mais.\"",
+        "misconceptionCode": "principio"
+       },
+       {
+        "text": "\"Trate os colegas como você gostaria de ser tratado.\""
+       },
+       {
+        "text": "\"Quem é diferente não pode participar.\"",
+        "misconceptionCode": "conduta"
+       },
+       {
+        "text": "\"Cada um por si.\"",
+        "misconceptionCode": "principio"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Código.",
+      "variants": [
+       {
+        "question": "Que item expressa a não violência?",
+        "options": [
+         {
+          "text": "\"Revide sempre.\"",
+          "misconceptionCode": "principio"
+         },
+         {
+          "text": "\"Ignore quem está triste.\"",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "\"Exclua quem discorda.\"",
+          "misconceptionCode": "principio"
+         },
+         {
+          "text": "\"Resolva conflitos conversando, sem agressões.\""
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A turma vai criar um código de convivência inspirado em princípios éticos. Qual item está adequado?",
+        "options": [
+         {
+          "text": "\"Cada um por si.\"",
+          "misconceptionCode": "principio"
+         },
+         {
+          "text": "\"Quem é diferente não pode participar.\"",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "\"Trate os colegas como você gostaria de ser tratado.\""
+         },
+         {
+          "text": "\"Vence quem grita mais.\"",
+          "misconceptionCode": "principio"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Como garantir que o código respeite todos, inclusive quem não tem religião?",
+      "options": [
+       {
+        "text": "Usar só textos de uma religião",
+        "misconceptionCode": "secular"
+       },
+       {
+        "text": "Excluir quem não tem religião",
+        "misconceptionCode": "secular"
+       },
+       {
+        "text": "Usar princípios compartilhados, como dignidade, respeito e solidariedade, sem impor uma crença"
+       },
+       {
+        "text": "Proibir que se fale de valores",
+        "misconceptionCode": "secular"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Inclusão.",
+      "variants": [
+       {
+        "question": "Que valor o código pode destacar a partir do Ubuntu?",
+        "options": [
+         {
+          "text": "Cooperação: cada um cresce com o grupo"
+         },
+         {
+          "text": "Isolamento",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Competição desleal",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Vingança",
+          "misconceptionCode": "secular"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Como garantir que o código respeite todos, inclusive quem não tem religião?",
+        "options": [
+         {
+          "text": "Proibir que se fale de valores",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Excluir quem não tem religião",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Usar só textos de uma religião",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Usar princípios compartilhados, como dignidade, respeito e solidariedade, sem impor uma crença"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Que conclusão a turma pode tirar?",
+      "options": [
+       {
+        "text": "\"Só pessoas religiosas são éticas.\"",
+        "misconceptionCode": "secular"
+       },
+       {
+        "text": "\"Princípios éticos não mudam atitudes.\"",
+        "misconceptionCode": "conduta"
+       },
+       {
+        "text": "\"A regra de ouro existe só numa tradição.\"",
+        "misconceptionCode": "origem"
+       },
+       {
+        "text": "\"Tradições religiosas e filosofias de vida têm princípios éticos, como a regra de ouro, a não violência e a solidariedade, que orientam condutas e práticas sociais.\""
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Conclusão.",
+      "variants": [
+       {
+        "question": "Onde podemos aplicar esses princípios no dia a dia?",
+        "options": [
+         {
+          "text": "Em nenhum lugar",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Na escola, em casa, nas redes sociais e na comunidade"
+         },
+         {
+          "text": "Só em templos",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "Só em provas",
+          "misconceptionCode": "origem"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Que conclusão a turma pode tirar?",
+        "options": [
+         {
+          "text": "\"Tradições religiosas e filosofias de vida têm princípios éticos, como a regra de ouro, a não violência e a solidariedade, que orientam condutas e práticas sociais.\""
+         },
+         {
+          "text": "\"A regra de ouro existe só numa tradição.\"",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "\"Princípios éticos não mudam atitudes.\"",
+          "misconceptionCode": "conduta"
+         },
+         {
+          "text": "\"Só pessoas religiosas são éticas.\"",
+          "misconceptionCode": "secular"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07ER06-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: princípios éticos nas tradições",
+    "prompt": "Explique princípios éticos de diferentes tradições e como influenciam a conduta.",
+    "estMinutes": 6,
+    "audioScript": "Explique princípios éticos de diferentes tradições e como influenciam a conduta.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "principio-origem",
+       "description": "Identifica princípios éticos e suas tradições"
+      },
+      {
+       "code": "conduta",
+       "description": "Relaciona os princípios a condutas pessoais e práticas sociais"
+      },
+      {
+       "code": "secular",
+       "description": "Reconhece princípios éticos também em filosofias de vida sem religião"
+      }
+     ],
+     "exemploBoaResposta": "A regra de ouro, tratar os outros como gostaríamos de ser tratados, aparece no confucionismo, no judaísmo e no cristianismo. A ahimsa, não violência, é central no hinduísmo, no budismo e no jainismo. O zakat, no islamismo, e a tsedacá, no judaísmo, orientam a ajuda aos necessitados. O Ubuntu africano diz \"eu sou porque nós somos\", e o bem viver andino defende a harmonia com a natureza. O humanismo secular baseia a ética na razão e na dignidade humana. Esses princípios influenciam condutas, como não excluir colegas, e práticas sociais, como a campanha de alimentos de Vila Nova, em que pessoas de diferentes tradições e sem religião arrecadaram 300 kg juntas."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF07ER07",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 7,
+  "version": 1,
+  "title": "Trilha: Lideranças e direitos humanos",
+  "tituloAluno": "Religiosos e não religiosos na mesma luta",
+  "activities": [
+   {
+    "id": "PK2-EF07ER07-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: direitos e lideranças",
+    "prompt": "Conceitos.",
+    "estMinutes": 4,
+    "audioScript": "Conceitos. Pergunta 1. O que são direitos humanos? A: Direitos de todas as pessoas, sem distinção, como vida, liberdade, igualdade e educação; B: Direitos só de quem tem dinheiro; C: Direitos só de uma religião; D: Regras de um jogo. Pergunta 2. Quem presidiu a comissão que redigiu a Declaração Universal? A: Malala Yousafzai; B: Eleanor Roosevelt; C: Nelson Mandela; D: Irmã Dulce. Pergunta 3. Qual liderança religiosa brasileira denunciou torturas durante a ditadura militar? A: Nelson Mandela; B: Eleanor Roosevelt; C: Dom Paulo Evaristo Arns, cardeal de São Paulo; D: Malala Yousafzai. Pergunta 4. Que liderança secular lutou contra o apartheid e foi o primeiro presidente negro da África do Sul? A: Desmond Tutu; B: Martin Luther King Jr.; C: Dom Hélder Câmara; D: Nelson Mandela. Pergunta 5. Que direito Malala Yousafzai defende? A: O direito das meninas à educação; B: O direito de dirigir carros; C: O direito ao lazer em parques de diversão; D: Nenhum. Pergunta 6. Que liderança religiosa participou da Comissão da Verdade e Reconciliação na África do Sul? A: Malala Yousafzai; B: Desmond Tutu; C: Eleanor Roosevelt; D: Nelson Mandela, como arcebispo.",
+    "questions": [
+     {
+      "question": "O que são direitos humanos?",
+      "options": [
+       {
+        "text": "Direitos de todas as pessoas, sem distinção, como vida, liberdade, igualdade e educação"
+       },
+       {
+        "text": "Direitos só de quem tem dinheiro",
+        "misconceptionCode": "direitos"
+       },
+       {
+        "text": "Direitos só de uma religião",
+        "misconceptionCode": "direitos"
+       },
+       {
+        "text": "Regras de um jogo",
+        "misconceptionCode": "direitos"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Direitos humanos.",
+      "variants": [
+       {
+        "question": "Em que ano a ONU aprovou a Declaração Universal dos Direitos Humanos?",
+        "options": [
+         {
+          "text": "1888",
+          "misconceptionCode": "direitos"
+         },
+         {
+          "text": "1988",
+          "misconceptionCode": "direitos"
+         },
+         {
+          "text": "1948"
+         },
+         {
+          "text": "2008",
+          "misconceptionCode": "direitos"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que são direitos humanos?",
+        "options": [
+         {
+          "text": "Regras de um jogo",
+          "misconceptionCode": "direitos"
+         },
+         {
+          "text": "Direitos de todas as pessoas, sem distinção, como vida, liberdade, igualdade e educação"
+         },
+         {
+          "text": "Direitos só de uma religião",
+          "misconceptionCode": "direitos"
+         },
+         {
+          "text": "Direitos só de quem tem dinheiro",
+          "misconceptionCode": "direitos"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quem presidiu a comissão que redigiu a Declaração Universal?",
+      "options": [
+       {
+        "text": "Malala Yousafzai",
+        "misconceptionCode": "secular"
+       },
+       {
+        "text": "Eleanor Roosevelt"
+       },
+       {
+        "text": "Nelson Mandela",
+        "misconceptionCode": "secular"
+       },
+       {
+        "text": "Irmã Dulce",
+        "misconceptionCode": "secular"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Eleanor Roosevelt.",
+      "variants": [
+       {
+        "question": "Que organização aprovou a Declaração Universal dos Direitos Humanos?",
+        "options": [
+         {
+          "text": "FIFA",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Um clube",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Uma empresa",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "ONU"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quem presidiu a comissão que redigiu a Declaração Universal?",
+        "options": [
+         {
+          "text": "Irmã Dulce",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Nelson Mandela",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Eleanor Roosevelt"
+         },
+         {
+          "text": "Malala Yousafzai",
+          "misconceptionCode": "secular"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual liderança religiosa brasileira denunciou torturas durante a ditadura militar?",
+      "options": [
+       {
+        "text": "Nelson Mandela",
+        "misconceptionCode": "religiosa"
+       },
+       {
+        "text": "Eleanor Roosevelt",
+        "misconceptionCode": "religiosa"
+       },
+       {
+        "text": "Dom Paulo Evaristo Arns, cardeal de São Paulo"
+       },
+       {
+        "text": "Malala Yousafzai",
+        "misconceptionCode": "religiosa"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Dom Paulo.",
+      "variants": [
+       {
+        "question": "Com quem Dom Paulo coordenou o projeto \"Brasil: Nunca Mais\"?",
+        "options": [
+         {
+          "text": "Com o pastor presbiteriano Jaime Wright"
+         },
+         {
+          "text": "Com o Dalai Lama",
+          "misconceptionCode": "religiosa"
+         },
+         {
+          "text": "Com Martin Luther King Jr.",
+          "misconceptionCode": "religiosa"
+         },
+         {
+          "text": "Com Eleanor Roosevelt",
+          "misconceptionCode": "religiosa"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual liderança religiosa brasileira denunciou torturas durante a ditadura militar?",
+        "options": [
+         {
+          "text": "Malala Yousafzai",
+          "misconceptionCode": "religiosa"
+         },
+         {
+          "text": "Eleanor Roosevelt",
+          "misconceptionCode": "religiosa"
+         },
+         {
+          "text": "Nelson Mandela",
+          "misconceptionCode": "religiosa"
+         },
+         {
+          "text": "Dom Paulo Evaristo Arns, cardeal de São Paulo"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Que liderança secular lutou contra o apartheid e foi o primeiro presidente negro da África do Sul?",
+      "options": [
+       {
+        "text": "Desmond Tutu",
+        "misconceptionCode": "secular"
+       },
+       {
+        "text": "Martin Luther King Jr.",
+        "misconceptionCode": "secular"
+       },
+       {
+        "text": "Dom Hélder Câmara",
+        "misconceptionCode": "secular"
+       },
+       {
+        "text": "Nelson Mandela"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Mandela.",
+      "variants": [
+       {
+        "question": "Em que ano Mandela se tornou presidente?",
+        "options": [
+         {
+          "text": "1948",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "1994"
+         },
+         {
+          "text": "1964",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "2014",
+          "misconceptionCode": "secular"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Que liderança secular lutou contra o apartheid e foi o primeiro presidente negro da África do Sul?",
+        "options": [
+         {
+          "text": "Nelson Mandela"
+         },
+         {
+          "text": "Dom Hélder Câmara",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Martin Luther King Jr.",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Desmond Tutu",
+          "misconceptionCode": "secular"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Que direito Malala Yousafzai defende?",
+      "options": [
+       {
+        "text": "O direito das meninas à educação"
+       },
+       {
+        "text": "O direito de dirigir carros",
+        "misconceptionCode": "acao"
+       },
+       {
+        "text": "O direito ao lazer em parques de diversão",
+        "misconceptionCode": "acao"
+       },
+       {
+        "text": "Nenhum",
+        "misconceptionCode": "acao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Educação.",
+      "variants": [
+       {
+        "question": "Em que ano Malala recebeu o Nobel da Paz?",
+        "options": [
+         {
+          "text": "1984",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "1964",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "2014"
+         },
+         {
+          "text": "1994",
+          "misconceptionCode": "acao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Que direito Malala Yousafzai defende?",
+        "options": [
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "O direito das meninas à educação"
+         },
+         {
+          "text": "O direito ao lazer em parques de diversão",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "O direito de dirigir carros",
+          "misconceptionCode": "acao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Que liderança religiosa participou da Comissão da Verdade e Reconciliação na África do Sul?",
+      "options": [
+       {
+        "text": "Malala Yousafzai",
+        "misconceptionCode": "religiosa"
+       },
+       {
+        "text": "Desmond Tutu"
+       },
+       {
+        "text": "Eleanor Roosevelt",
+        "misconceptionCode": "religiosa"
+       },
+       {
+        "text": "Nelson Mandela, como arcebispo",
+        "misconceptionCode": "religiosa"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Tutu.",
+      "variants": [
+       {
+        "question": "Qual era a tradição de Desmond Tutu?",
+        "options": [
+         {
+          "text": "Budista",
+          "misconceptionCode": "religiosa"
+         },
+         {
+          "text": "Islâmica",
+          "misconceptionCode": "religiosa"
+         },
+         {
+          "text": "Hindu",
+          "misconceptionCode": "religiosa"
+         },
+         {
+          "text": "Anglicana"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Que liderança religiosa participou da Comissão da Verdade e Reconciliação na África do Sul?",
+        "options": [
+         {
+          "text": "Nelson Mandela, como arcebispo",
+          "misconceptionCode": "religiosa"
+         },
+         {
+          "text": "Eleanor Roosevelt",
+          "misconceptionCode": "religiosa"
+         },
+         {
+          "text": "Desmond Tutu"
+         },
+         {
+          "text": "Malala Yousafzai",
+          "misconceptionCode": "religiosa"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07ER07-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: duas lideranças, uma causa",
+    "prompt": "A turma estudou a África do Sul. Desmond Tutu, arcebispo anglicano, pregava a não violência e denunciava o apartheid em celebrações e entrevistas. Nelson Mandela, líder político, passou 27 anos preso e, ao ser libertado em 1990, negociou o fim do regime. Em 1994, foi eleito presidente. Depois, Tutu presidiu a Comissão da Verdade e Reconciliação, que ouviu vítimas e responsáveis pelas violações.",
+    "estMinutes": 4,
+    "audioScript": "A turma estudou a África do Sul. Desmond Tutu, arcebispo anglicano, pregava a não violência e denunciava o apartheid em celebrações e entrevistas. Nelson Mandela, líder político, passou 27 anos preso e, ao ser libertado em 1990, negociou o fim do regime. Em 1994, foi eleito presidente. Depois, Tutu presidiu a Comissão da Verdade e Reconciliação, que ouviu vítimas e responsáveis pelas violações. Pergunta 1. Qual das duas lideranças era religiosa? A: Nelson Mandela; B: As duas; C: Desmond Tutu; D: Nenhuma. Pergunta 2. Quantos anos Mandela passou preso? A: 7 anos; B: 17 anos; C: 37 anos; D: 27 anos. Pergunta 3. Que ação concreta a Comissão da Verdade e Reconciliação realizou? A: Ouviu vítimas e responsáveis pelas violações; B: Proibiu as pessoas de falar; C: Criou novas leis de segregação; D: Não fez nada. Pergunta 4. O que o exemplo mostra? A: Que só religiosos defendem direitos; B: Que lideranças religiosas e seculares podem atuar juntas pelos direitos humanos; C: Que só políticos defendem direitos; D: Que eles eram inimigos.",
+    "questions": [
+     {
+      "question": "Qual das duas lideranças era religiosa?",
+      "options": [
+       {
+        "text": "Nelson Mandela",
+        "misconceptionCode": "religiosa"
+       },
+       {
+        "text": "As duas",
+        "misconceptionCode": "religiosa"
+       },
+       {
+        "text": "Desmond Tutu"
+       },
+       {
+        "text": "Nenhuma",
+        "misconceptionCode": "religiosa"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Tutu.",
+      "variants": [
+       {
+        "question": "Qual das duas era secular (política)?",
+        "options": [
+         {
+          "text": "Nelson Mandela"
+         },
+         {
+          "text": "Desmond Tutu",
+          "misconceptionCode": "religiosa"
+         },
+         {
+          "text": "As duas",
+          "misconceptionCode": "religiosa"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "religiosa"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual das duas lideranças era religiosa?",
+        "options": [
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "religiosa"
+         },
+         {
+          "text": "As duas",
+          "misconceptionCode": "religiosa"
+         },
+         {
+          "text": "Nelson Mandela",
+          "misconceptionCode": "religiosa"
+         },
+         {
+          "text": "Desmond Tutu"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Quantos anos Mandela passou preso?",
+      "options": [
+       {
+        "text": "7 anos",
+        "misconceptionCode": "acao"
+       },
+       {
+        "text": "17 anos",
+        "misconceptionCode": "acao"
+       },
+       {
+        "text": "37 anos",
+        "misconceptionCode": "acao"
+       },
+       {
+        "text": "27 anos"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "27 anos.",
+      "variants": [
+       {
+        "question": "Em que ano Mandela foi libertado?",
+        "options": [
+         {
+          "text": "1994",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "1990"
+         },
+         {
+          "text": "1984",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "1948",
+          "misconceptionCode": "acao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quantos anos Mandela passou preso?",
+        "options": [
+         {
+          "text": "27 anos"
+         },
+         {
+          "text": "37 anos",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "17 anos",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "7 anos",
+          "misconceptionCode": "acao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Que ação concreta a Comissão da Verdade e Reconciliação realizou?",
+      "options": [
+       {
+        "text": "Ouviu vítimas e responsáveis pelas violações"
+       },
+       {
+        "text": "Proibiu as pessoas de falar",
+        "misconceptionCode": "acao"
+       },
+       {
+        "text": "Criou novas leis de segregação",
+        "misconceptionCode": "acao"
+       },
+       {
+        "text": "Não fez nada",
+        "misconceptionCode": "acao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Ação.",
+      "variants": [
+       {
+        "question": "Quanto tempo passou entre a libertação de Mandela e sua eleição?",
+        "options": [
+         {
+          "text": "1 ano",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "10 anos",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "4 anos"
+         },
+         {
+          "text": "27 anos",
+          "misconceptionCode": "acao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Que ação concreta a Comissão da Verdade e Reconciliação realizou?",
+        "options": [
+         {
+          "text": "Não fez nada",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "Ouviu vítimas e responsáveis pelas violações"
+         },
+         {
+          "text": "Criou novas leis de segregação",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "Proibiu as pessoas de falar",
+          "misconceptionCode": "acao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O que o exemplo mostra?",
+      "options": [
+       {
+        "text": "Que só religiosos defendem direitos",
+        "misconceptionCode": "secular"
+       },
+       {
+        "text": "Que lideranças religiosas e seculares podem atuar juntas pelos direitos humanos"
+       },
+       {
+        "text": "Que só políticos defendem direitos",
+        "misconceptionCode": "religiosa"
+       },
+       {
+        "text": "Que eles eram inimigos",
+        "misconceptionCode": "acao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Juntos.",
+      "variants": [
+       {
+        "question": "Contra o que as duas lideranças lutaram?",
+        "options": [
+         {
+          "text": "A educação",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "A paz",
+          "misconceptionCode": "religiosa"
+         },
+         {
+          "text": "A democracia",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "O apartheid"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que o exemplo mostra?",
+        "options": [
+         {
+          "text": "Que eles eram inimigos",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "Que só políticos defendem direitos",
+          "misconceptionCode": "religiosa"
+         },
+         {
+          "text": "Que lideranças religiosas e seculares podem atuar juntas pelos direitos humanos"
+         },
+         {
+          "text": "Que só religiosos defendem direitos",
+          "misconceptionCode": "secular"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07ER07-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: identificar papéis",
+    "prompt": "Situações.",
+    "estMinutes": 5,
+    "audioScript": "Situações. Pergunta 1. Qual liderança é secular? A: Dom Paulo Evaristo Arns; B: Martin Luther King Jr.; C: Eleanor Roosevelt; D: Desmond Tutu. Pergunta 2. Que ação concreta de defesa dos direitos humanos aparece no projeto \"Brasil: Nunca Mais\"? A: Esconder documentos; B: Apoiar a tortura; C: Organizar festas; D: Reunir e divulgar documentos sobre violações para que não se repetissem. Pergunta 3. Malala foi atacada por defender a educação de meninas e continuou sua luta. Que lição isso traz? A: A defesa dos direitos humanos pode exigir coragem, e todos podem contribuir, inclusive jovens; B: Jovens não podem defender direitos; C: Educação não é um direito; D: Só adultos religiosos defendem direitos. Pergunta 4. Que artigo da Declaração Universal tem relação direta com o Ensino Religioso? A: O que garante o direito a férias remuneradas; B: O que garante a liberdade de pensamento, consciência e religião; C: O que trata da nacionalidade; D: Nenhum. Pergunta 5. Zilda Arns, ao fundar a Pastoral da Criança, promoveu que direito? A: O direito de voto; B: O direito à aposentadoria; C: O direito das crianças à saúde e à vida; D: O direito de dirigir.",
+    "questions": [
+     {
+      "question": "Qual liderança é secular?",
+      "options": [
+       {
+        "text": "Dom Paulo Evaristo Arns",
+        "misconceptionCode": "secular"
+       },
+       {
+        "text": "Martin Luther King Jr.",
+        "misconceptionCode": "secular"
+       },
+       {
+        "text": "Eleanor Roosevelt"
+       },
+       {
+        "text": "Desmond Tutu",
+        "misconceptionCode": "secular"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Secular.",
+      "variants": [
+       {
+        "question": "Qual liderança é religiosa?",
+        "options": [
+         {
+          "text": "Martin Luther King Jr."
+         },
+         {
+          "text": "Nelson Mandela",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Eleanor Roosevelt",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Malala, como chefe de Estado",
+          "misconceptionCode": "secular"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual liderança é secular?",
+        "options": [
+         {
+          "text": "Desmond Tutu",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Martin Luther King Jr.",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Dom Paulo Evaristo Arns",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "Eleanor Roosevelt"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Que ação concreta de defesa dos direitos humanos aparece no projeto \"Brasil: Nunca Mais\"?",
+      "options": [
+       {
+        "text": "Esconder documentos",
+        "misconceptionCode": "acao"
+       },
+       {
+        "text": "Apoiar a tortura",
+        "misconceptionCode": "acao"
+       },
+       {
+        "text": "Organizar festas",
+        "misconceptionCode": "acao"
+       },
+       {
+        "text": "Reunir e divulgar documentos sobre violações para que não se repetissem"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Documentar.",
+      "variants": [
+       {
+        "question": "O que significa \"Nunca Mais\" no nome do projeto?",
+        "options": [
+         {
+          "text": "Que o projeto nunca terminou",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "O desejo de que as violações não se repitam"
+         },
+         {
+          "text": "Que ninguém leu",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "Que era proibido",
+          "misconceptionCode": "acao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Que ação concreta de defesa dos direitos humanos aparece no projeto \"Brasil: Nunca Mais\"?",
+        "options": [
+         {
+          "text": "Reunir e divulgar documentos sobre violações para que não se repetissem"
+         },
+         {
+          "text": "Organizar festas",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "Apoiar a tortura",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "Esconder documentos",
+          "misconceptionCode": "acao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Malala foi atacada por defender a educação de meninas e continuou sua luta. Que lição isso traz?",
+      "options": [
+       {
+        "text": "A defesa dos direitos humanos pode exigir coragem, e todos podem contribuir, inclusive jovens"
+       },
+       {
+        "text": "Jovens não podem defender direitos",
+        "misconceptionCode": "acao"
+       },
+       {
+        "text": "Educação não é um direito",
+        "misconceptionCode": "direitos"
+       },
+       {
+        "text": "Só adultos religiosos defendem direitos",
+        "misconceptionCode": "secular"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Coragem.",
+      "variants": [
+       {
+        "question": "Qual era a idade de Malala ao receber o Nobel, sendo a pessoa mais jovem a recebê-lo?",
+        "options": [
+         {
+          "text": "27 anos",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "37 anos",
+          "misconceptionCode": "direitos"
+         },
+         {
+          "text": "17 anos"
+         },
+         {
+          "text": "7 anos",
+          "misconceptionCode": "secular"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Malala foi atacada por defender a educação de meninas e continuou sua luta. Que lição isso traz?",
+        "options": [
+         {
+          "text": "Só adultos religiosos defendem direitos",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "A defesa dos direitos humanos pode exigir coragem, e todos podem contribuir, inclusive jovens"
+         },
+         {
+          "text": "Educação não é um direito",
+          "misconceptionCode": "direitos"
+         },
+         {
+          "text": "Jovens não podem defender direitos",
+          "misconceptionCode": "acao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Que artigo da Declaração Universal tem relação direta com o Ensino Religioso?",
+      "options": [
+       {
+        "text": "O que garante o direito a férias remuneradas",
+        "misconceptionCode": "direitos"
+       },
+       {
+        "text": "O que garante a liberdade de pensamento, consciência e religião"
+       },
+       {
+        "text": "O que trata da nacionalidade",
+        "misconceptionCode": "direitos"
+       },
+       {
+        "text": "Nenhum",
+        "misconceptionCode": "direitos"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Liberdade de crença.",
+      "variants": [
+       {
+        "question": "Que direito protege quem não tem religião?",
+        "options": [
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "direitos"
+         },
+         {
+          "text": "Só o direito à saúde",
+          "misconceptionCode": "direitos"
+         },
+         {
+          "text": "O direito de propriedade",
+          "misconceptionCode": "direitos"
+         },
+         {
+          "text": "A liberdade de consciência e de crença"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Que artigo da Declaração Universal tem relação direta com o Ensino Religioso?",
+        "options": [
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "direitos"
+         },
+         {
+          "text": "O que trata da nacionalidade",
+          "misconceptionCode": "direitos"
+         },
+         {
+          "text": "O que garante a liberdade de pensamento, consciência e religião"
+         },
+         {
+          "text": "O que garante o direito a férias remuneradas",
+          "misconceptionCode": "direitos"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Zilda Arns, ao fundar a Pastoral da Criança, promoveu que direito?",
+      "options": [
+       {
+        "text": "O direito de voto",
+        "misconceptionCode": "acao"
+       },
+       {
+        "text": "O direito à aposentadoria",
+        "misconceptionCode": "acao"
+       },
+       {
+        "text": "O direito das crianças à saúde e à vida"
+       },
+       {
+        "text": "O direito de dirigir",
+        "misconceptionCode": "acao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Saúde.",
+      "variants": [
+       {
+        "question": "Que tipo de liderança Zilda Arns representa?",
+        "options": [
+         {
+          "text": "Liderança religiosa (católica)"
+         },
+         {
+          "text": "Liderança secular de chefe de Estado",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "Liderança militar",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "Liderança esportiva",
+          "misconceptionCode": "acao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Zilda Arns, ao fundar a Pastoral da Criança, promoveu que direito?",
+        "options": [
+         {
+          "text": "O direito de dirigir",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "O direito à aposentadoria",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "O direito de voto",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "O direito das crianças à saúde e à vida"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07ER07-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: o júri dos direitos",
+    "prompt": "Debate da turma.",
+    "estMinutes": 4,
+    "audioScript": "Debate da turma. Pergunta 1. A turma vai debater: \"Qual é o papel das lideranças na defesa dos direitos humanos?\". Qual argumento é bem fundamentado? A: \"Só lideranças religiosas importam.\"; B: \"Só lideranças seculares importam.\"; C: \"Ninguém precisa defender os direitos humanos.\"; D: \"Lideranças religiosas e seculares denunciam violações, educam e mobilizam a sociedade, como Tutu, Mandela, Dom Paulo e Malala.\". Pergunta 2. Como os estudantes podem promover os direitos humanos na escola? A: Combatendo o bullying e a discriminação e respeitando a liberdade de crença de todos; B: Excluindo quem é diferente; C: Debochando de religiões; D: Ignorando injustiças. Pergunta 3. Que conclusão a turma pode tirar? A: \"Direitos humanos valem só para alguns.\"; B: \"Lideranças religiosas e seculares, muitas vezes juntas, defendem e promovem os direitos humanos com ações concretas.\"; C: \"Só religiosos defendem direitos humanos.\"; D: \"Liderar é só discursar, sem agir.\".",
+    "questions": [
+     {
+      "question": "A turma vai debater: \"Qual é o papel das lideranças na defesa dos direitos humanos?\". Qual argumento é bem fundamentado?",
+      "options": [
+       {
+        "text": "\"Só lideranças religiosas importam.\"",
+        "misconceptionCode": "secular"
+       },
+       {
+        "text": "\"Só lideranças seculares importam.\"",
+        "misconceptionCode": "religiosa"
+       },
+       {
+        "text": "\"Ninguém precisa defender os direitos humanos.\"",
+        "misconceptionCode": "direitos"
+       },
+       {
+        "text": "\"Lideranças religiosas e seculares denunciam violações, educam e mobilizam a sociedade, como Tutu, Mandela, Dom Paulo e Malala.\""
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Argumento.",
+      "variants": [
+       {
+        "question": "Que fonte é adequada para o debate?",
+        "options": [
+         {
+          "text": "Boatos",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "O texto da Declaração Universal dos Direitos Humanos"
+         },
+         {
+          "text": "Memes sem fonte",
+          "misconceptionCode": "religiosa"
+         },
+         {
+          "text": "Opiniões sem argumentos",
+          "misconceptionCode": "direitos"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A turma vai debater: \"Qual é o papel das lideranças na defesa dos direitos humanos?\". Qual argumento é bem fundamentado?",
+        "options": [
+         {
+          "text": "\"Lideranças religiosas e seculares denunciam violações, educam e mobilizam a sociedade, como Tutu, Mandela, Dom Paulo e Malala.\""
+         },
+         {
+          "text": "\"Ninguém precisa defender os direitos humanos.\"",
+          "misconceptionCode": "direitos"
+         },
+         {
+          "text": "\"Só lideranças seculares importam.\"",
+          "misconceptionCode": "religiosa"
+         },
+         {
+          "text": "\"Só lideranças religiosas importam.\"",
+          "misconceptionCode": "secular"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Como os estudantes podem promover os direitos humanos na escola?",
+      "options": [
+       {
+        "text": "Combatendo o bullying e a discriminação e respeitando a liberdade de crença de todos"
+       },
+       {
+        "text": "Excluindo quem é diferente",
+        "misconceptionCode": "acao"
+       },
+       {
+        "text": "Debochando de religiões",
+        "misconceptionCode": "acao"
+       },
+       {
+        "text": "Ignorando injustiças",
+        "misconceptionCode": "acao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Ação na escola.",
+      "variants": [
+       {
+        "question": "Que atitude promove a igualdade na turma?",
+        "options": [
+         {
+          "text": "Formar grupos que excluem",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "Debochar de sotaques",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "Incluir todos nas atividades"
+         },
+         {
+          "text": "Ignorar quem pede ajuda",
+          "misconceptionCode": "acao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Como os estudantes podem promover os direitos humanos na escola?",
+        "options": [
+         {
+          "text": "Ignorando injustiças",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "Combatendo o bullying e a discriminação e respeitando a liberdade de crença de todos"
+         },
+         {
+          "text": "Debochando de religiões",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "Excluindo quem é diferente",
+          "misconceptionCode": "acao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Que conclusão a turma pode tirar?",
+      "options": [
+       {
+        "text": "\"Direitos humanos valem só para alguns.\"",
+        "misconceptionCode": "direitos"
+       },
+       {
+        "text": "\"Lideranças religiosas e seculares, muitas vezes juntas, defendem e promovem os direitos humanos com ações concretas.\""
+       },
+       {
+        "text": "\"Só religiosos defendem direitos humanos.\"",
+        "misconceptionCode": "secular"
+       },
+       {
+        "text": "\"Liderar é só discursar, sem agir.\"",
+        "misconceptionCode": "acao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Conclusão.",
+      "variants": [
+       {
+        "question": "Qual é o documento de 1948 que é base dos direitos humanos?",
+        "options": [
+         {
+          "text": "A Lei Áurea",
+          "misconceptionCode": "direitos"
+         },
+         {
+          "text": "O Tratado de Tordesilhas",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "A Carta de Caminha",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "A Declaração Universal dos Direitos Humanos"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Que conclusão a turma pode tirar?",
+        "options": [
+         {
+          "text": "\"Liderar é só discursar, sem agir.\"",
+          "misconceptionCode": "acao"
+         },
+         {
+          "text": "\"Só religiosos defendem direitos humanos.\"",
+          "misconceptionCode": "secular"
+         },
+         {
+          "text": "\"Lideranças religiosas e seculares, muitas vezes juntas, defendem e promovem os direitos humanos com ações concretas.\""
+         },
+         {
+          "text": "\"Direitos humanos valem só para alguns.\"",
+          "misconceptionCode": "direitos"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF07ER07-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: lideranças e direitos humanos",
+    "prompt": "Explique o papel de lideranças religiosas e seculares na defesa dos direitos humanos.",
+    "estMinutes": 6,
+    "audioScript": "Explique o papel de lideranças religiosas e seculares na defesa dos direitos humanos.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "direitos",
+       "description": "Explica os direitos humanos e a Declaração de 1948"
+      },
+      {
+       "code": "religiosa-secular",
+       "description": "Identifica lideranças religiosas e seculares"
+      },
+      {
+       "code": "acao",
+       "description": "Relaciona as lideranças a ações concretas"
+      }
+     ],
+     "exemploBoaResposta": "Direitos humanos são direitos de todas as pessoas, como vida, liberdade, igualdade, educação e liberdade de crença, reunidos em 1948 na Declaração Universal da ONU, cuja comissão foi presidida por Eleanor Roosevelt. Lideranças religiosas e seculares os defendem: Martin Luther King Jr. lutou pelos direitos civis; Desmond Tutu, anglicano, combateu o apartheid e presidiu a Comissão da Verdade e Reconciliação, enquanto Nelson Mandela, liderança política, negociou o fim do regime; Dom Paulo Evaristo Arns e o pastor Jaime Wright documentaram violações no \"Brasil: Nunca Mais\"; Malala defende a educação das meninas. Eles denunciam, educam e mobilizam, muitas vezes juntos."
+    }
+   }
+  ]
+ },
+ {
   "skillCode": "EF07ER01",
   "subjectCode": "ER",
   "subjectName": "Ensino Religioso",

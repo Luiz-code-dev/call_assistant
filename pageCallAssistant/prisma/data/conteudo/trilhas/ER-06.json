@@ -1888,6 +1888,3621 @@
   "status": "APPROVED"
  },
  {
+  "skillCode": "EF06ER04",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 6,
+  "version": 1,
+  "title": "Trilha: Usos dos textos sagrados",
+  "tituloAluno": "Ler, recitar, cantar e guardar",
+  "activities": [
+   {
+    "id": "PK2-EF06ER04-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: livros sagrados e usos",
+    "prompt": "Muitas formas de usar.",
+    "estMinutes": 4,
+    "audioScript": "Muitas formas de usar. Pergunta 1. Qual é o livro sagrado do islamismo? A: O Alcorão; B: A Torá; C: Os Vedas; D: O Tripitaka. Pergunta 2. Como se chama quem memoriza o Alcorão inteiro? A: Rabino; B: Hafiz; C: Pajé; D: Monge. Pergunta 3. Por que a Torá é lida com um ponteiro chamado yad? A: Para escrever nela; B: Por acaso; C: Para não tocar o texto com os dedos, por respeito e cuidado; D: Para apagar letras. Pergunta 4. Os Vedas são textos sagrados de qual tradição? A: Budismo; B: Judaísmo; C: Islamismo; D: Hinduísmo. Pergunta 5. Cantar salmos e mantras é que tipo de uso dos textos? A: Canto; B: Desprezo; C: Esquecimento; D: Comércio. Pergunta 6. Como muitas tradições indígenas e de matriz africana transmitem o sagrado? A: Só por livros impressos; B: Principalmente pela tradição oral; C: Não transmitem; D: Só pela internet.",
+    "questions": [
+     {
+      "question": "Qual é o livro sagrado do islamismo?",
+      "options": [
+       {
+        "text": "O Alcorão"
+       },
+       {
+        "text": "A Torá",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Os Vedas",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "O Tripitaka",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Alcorão.",
+      "variants": [
+       {
+        "question": "Qual é o livro sagrado do cristianismo?",
+        "options": [
+         {
+          "text": "O Alcorão",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O Guru Granth Sahib",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "A Bíblia"
+         },
+         {
+          "text": "O Bhagavad Gita",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual é o livro sagrado do islamismo?",
+        "options": [
+         {
+          "text": "O Tripitaka",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O Alcorão"
+         },
+         {
+          "text": "Os Vedas",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "A Torá",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Como se chama quem memoriza o Alcorão inteiro?",
+      "options": [
+       {
+        "text": "Rabino",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Hafiz"
+       },
+       {
+        "text": "Pajé",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Monge",
+        "misconceptionCode": "usos"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Hafiz.",
+      "variants": [
+       {
+        "question": "Que forma de uso o hafiz pratica?",
+        "options": [
+         {
+          "text": "Só leitura silenciosa sem memorizar",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Pintura do texto",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Nenhum uso",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Recitação de memória"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Como se chama quem memoriza o Alcorão inteiro?",
+        "options": [
+         {
+          "text": "Monge",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Pajé",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Hafiz"
+         },
+         {
+          "text": "Rabino",
+          "misconceptionCode": "usos"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Por que a Torá é lida com um ponteiro chamado yad?",
+      "options": [
+       {
+        "text": "Para escrever nela",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "Por acaso",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "Para não tocar o texto com os dedos, por respeito e cuidado"
+       },
+       {
+        "text": "Para apagar letras",
+        "misconceptionCode": "cuidado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Yad.",
+      "variants": [
+       {
+        "question": "Como a Torá é escrita na sinagoga?",
+        "options": [
+         {
+          "text": "À mão, em rolos de pergaminho"
+         },
+         {
+          "text": "Impressa em revistas",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Digitada em celular apenas",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Em placas de argila",
+          "misconceptionCode": "cuidado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Por que a Torá é lida com um ponteiro chamado yad?",
+        "options": [
+         {
+          "text": "Para apagar letras",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Por acaso",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Para escrever nela",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Para não tocar o texto com os dedos, por respeito e cuidado"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Os Vedas são textos sagrados de qual tradição?",
+      "options": [
+       {
+        "text": "Budismo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Judaísmo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Islamismo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Hinduísmo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Vedas.",
+      "variants": [
+       {
+        "question": "O Guru Granth Sahib é o livro sagrado de qual tradição?",
+        "options": [
+         {
+          "text": "Cristianismo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Siquismo"
+         },
+         {
+          "text": "Islamismo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Judaísmo",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Os Vedas são textos sagrados de qual tradição?",
+        "options": [
+         {
+          "text": "Hinduísmo"
+         },
+         {
+          "text": "Islamismo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Judaísmo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Budismo",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Cantar salmos e mantras é que tipo de uso dos textos?",
+      "options": [
+       {
+        "text": "Canto"
+       },
+       {
+        "text": "Desprezo",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Esquecimento",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Comércio",
+        "misconceptionCode": "usos"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Canto.",
+      "variants": [
+       {
+        "question": "Ler um trecho da Bíblia em voz alta na missa ou no culto é:",
+        "options": [
+         {
+          "text": "Meditação silenciosa individual",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Recitação de memória do Alcorão",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Leitura pública em celebração"
+         },
+         {
+          "text": "Nenhum uso",
+          "misconceptionCode": "usos"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Cantar salmos e mantras é que tipo de uso dos textos?",
+        "options": [
+         {
+          "text": "Comércio",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Canto"
+         },
+         {
+          "text": "Esquecimento",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Desprezo",
+          "misconceptionCode": "usos"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Como muitas tradições indígenas e de matriz africana transmitem o sagrado?",
+      "options": [
+       {
+        "text": "Só por livros impressos",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Principalmente pela tradição oral"
+       },
+       {
+        "text": "Não transmitem",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Só pela internet",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Oralidade.",
+      "variants": [
+       {
+        "question": "Qual atitude é respeitosa com o livro sagrado de outra tradição?",
+        "options": [
+         {
+          "text": "Rasgá-lo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Fazer piadas",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Jogá-lo no chão",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Manuseá-lo com cuidado e respeitar as orientações da tradição"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Como muitas tradições indígenas e de matriz africana transmitem o sagrado?",
+        "options": [
+         {
+          "text": "Só pela internet",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Não transmitem",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Principalmente pela tradição oral"
+         },
+         {
+          "text": "Só por livros impressos",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER04-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: uma semana, muitos usos",
+    "prompt": "A turma conversou sobre como as famílias usam os textos sagrados. Miguel: \"Na missa de domingo, ouvimos leituras da Bíblia e o padre explica.\" Fátima: \"Meu irmão estuda para memorizar o Alcorão; ele recita todos os dias.\" Ravi: \"Minha avó canta versos da Bhagavad Gita pela manhã.\" Ana: \"No culto, cantamos salmos e lemos a Bíblia em grupo.\" Rebeca: \"Na sinagoga, a Torá é tirada da arca com muito cuidado e lida com o yad.\"",
+    "estMinutes": 4,
+    "audioScript": "A turma conversou sobre como as famílias usam os textos sagrados. Miguel: \"Na missa de domingo, ouvimos leituras da Bíblia e o padre explica.\" Fátima: \"Meu irmão estuda para memorizar o Alcorão; ele recita todos os dias.\" Ravi: \"Minha avó canta versos da Bhagavad Gita pela manhã.\" Ana: \"No culto, cantamos salmos e lemos a Bíblia em grupo.\" Rebeca: \"Na sinagoga, a Torá é tirada da arca com muito cuidado e lida com o yad.\" Pergunta 1. Que uso aparece na fala de Fátima? A: Canto de salmos; B: Leitura com yad; C: Recitação de memória; D: Nenhum. Pergunta 2. Que uso aparece na fala de Ravi? A: Leitura com ponteiro; B: Explicação do padre; C: Nenhum; D: Canto de versos sagrados. Pergunta 3. Que cuidado aparece na fala de Rebeca? A: Tirar a Torá da arca com cuidado e lê-la com o yad; B: Rasgar páginas; C: Deixar o livro no chão; D: Nenhum. Pergunta 4. O que as falas mostram em comum? A: Todos usam os textos do mesmo jeito; B: Os textos sagrados são usados de muitas maneiras: leitura, recitação, canto, estudo; C: Ninguém usa textos; D: Só uma tradição tem textos.",
+    "questions": [
+     {
+      "question": "Que uso aparece na fala de Fátima?",
+      "options": [
+       {
+        "text": "Canto de salmos",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Leitura com yad",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Recitação de memória"
+       },
+       {
+        "text": "Nenhum",
+        "misconceptionCode": "usos"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Recitação.",
+      "variants": [
+       {
+        "question": "De que tradição é o irmão de Fátima?",
+        "options": [
+         {
+          "text": "Islâmica"
+         },
+         {
+          "text": "Judaica",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Hindu",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Cristã",
+          "misconceptionCode": "usos"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que uso aparece na fala de Fátima?",
+        "options": [
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Leitura com yad",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Canto de salmos",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Recitação de memória"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Que uso aparece na fala de Ravi?",
+      "options": [
+       {
+        "text": "Leitura com ponteiro",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Explicação do padre",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Nenhum",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Canto de versos sagrados"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Canto.",
+      "variants": [
+       {
+        "question": "De que tradição é a Bhagavad Gita?",
+        "options": [
+         {
+          "text": "Islamismo",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Hinduísmo"
+         },
+         {
+          "text": "Judaísmo",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Budismo",
+          "misconceptionCode": "usos"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Que uso aparece na fala de Ravi?",
+        "options": [
+         {
+          "text": "Canto de versos sagrados"
+         },
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Explicação do padre",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Leitura com ponteiro",
+          "misconceptionCode": "usos"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Que cuidado aparece na fala de Rebeca?",
+      "options": [
+       {
+        "text": "Tirar a Torá da arca com cuidado e lê-la com o yad"
+       },
+       {
+        "text": "Rasgar páginas",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "Deixar o livro no chão",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "Nenhum",
+        "misconceptionCode": "cuidado"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Cuidado.",
+      "variants": [
+       {
+        "question": "Onde a Torá é guardada na sinagoga?",
+        "options": [
+         {
+          "text": "No chão",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Na mochila",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Na arca"
+         },
+         {
+          "text": "Na geladeira",
+          "misconceptionCode": "cuidado"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Que cuidado aparece na fala de Rebeca?",
+        "options": [
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Tirar a Torá da arca com cuidado e lê-la com o yad"
+         },
+         {
+          "text": "Deixar o livro no chão",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Rasgar páginas",
+          "misconceptionCode": "cuidado"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O que as falas mostram em comum?",
+      "options": [
+       {
+        "text": "Todos usam os textos do mesmo jeito",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Os textos sagrados são usados de muitas maneiras: leitura, recitação, canto, estudo"
+       },
+       {
+        "text": "Ninguém usa textos",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Só uma tradição tem textos",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Diversidade de usos.",
+      "variants": [
+       {
+        "question": "Que fala mostra explicação do texto por um líder religioso?",
+        "options": [
+         {
+          "text": "A de Fátima",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "A de Ravi",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "A de Rebeca",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "A de Miguel, em que o padre explica"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que as falas mostram em comum?",
+        "options": [
+         {
+          "text": "Só uma tradição tem textos",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Ninguém usa textos",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Os textos sagrados são usados de muitas maneiras: leitura, recitação, canto, estudo"
+         },
+         {
+          "text": "Todos usam os textos do mesmo jeito",
+          "misconceptionCode": "usos"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER04-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: associar usos e tradições",
+    "prompt": "Respeito.",
+    "estMinutes": 5,
+    "audioScript": "Respeito. Pergunta 1. Muitos muçulmanos lavam partes do corpo antes de tocar o Alcorão. Como se chama essa lavagem ritual? A: Batismo; B: Shivá; C: Ablução; D: Bar Mitzvá. Pergunta 2. Monges budistas recitam trechos de textos em grupo, com ritmo. Que uso é esse? A: Leitura silenciosa individual; B: Desprezo; C: Comércio; D: Recitação coletiva. Pergunta 3. Um grupo cristão se reúne toda semana para ler e discutir trechos da Bíblia. Que uso é esse? A: Estudo em grupo; B: Recitação de mantras; C: Leitura com yad; D: Nenhum. Pergunta 4. Um colega diz que só os textos de sua religião merecem cuidado. Como responder? A: \"Concordo.\"; B: \"Cada tradição tem seus textos sagrados, e todos merecem respeito.\"; C: \"Os outros textos podem ser desrespeitados.\"; D: \"Textos não importam.\".",
+    "questions": [
+     {
+      "question": "Muitos muçulmanos lavam partes do corpo antes de tocar o Alcorão. Como se chama essa lavagem ritual?",
+      "options": [
+       {
+        "text": "Batismo",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "Shivá",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "Ablução"
+       },
+       {
+        "text": "Bar Mitzvá",
+        "misconceptionCode": "cuidado"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Ablução.",
+      "variants": [
+       {
+        "question": "O que essa prática expressa?",
+        "options": [
+         {
+          "text": "Respeito e preparação para o contato com o sagrado"
+         },
+         {
+          "text": "Pressa",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Desrespeito",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "cuidado"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Muitos muçulmanos lavam partes do corpo antes de tocar o Alcorão. Como se chama essa lavagem ritual?",
+        "options": [
+         {
+          "text": "Bar Mitzvá",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Shivá",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Batismo",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Ablução"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Monges budistas recitam trechos de textos em grupo, com ritmo. Que uso é esse?",
+      "options": [
+       {
+        "text": "Leitura silenciosa individual",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Desprezo",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Comércio",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Recitação coletiva"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Recitação.",
+      "variants": [
+       {
+        "question": "Que coleção de textos é importante no budismo?",
+        "options": [
+         {
+          "text": "O Alcorão",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "O Tripitaka"
+         },
+         {
+          "text": "A Torá",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Os Vedas",
+          "misconceptionCode": "usos"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Monges budistas recitam trechos de textos em grupo, com ritmo. Que uso é esse?",
+        "options": [
+         {
+          "text": "Recitação coletiva"
+         },
+         {
+          "text": "Comércio",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Desprezo",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Leitura silenciosa individual",
+          "misconceptionCode": "usos"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Um grupo cristão se reúne toda semana para ler e discutir trechos da Bíblia. Que uso é esse?",
+      "options": [
+       {
+        "text": "Estudo em grupo"
+       },
+       {
+        "text": "Recitação de mantras",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Leitura com yad",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Nenhum",
+        "misconceptionCode": "usos"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Estudo.",
+      "variants": [
+       {
+        "question": "Que tradição usa a recitação de mantras?",
+        "options": [
+         {
+          "text": "Islamismo exclusivamente",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Judaísmo exclusivamente",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Hinduísmo e budismo"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "usos"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um grupo cristão se reúne toda semana para ler e discutir trechos da Bíblia. Que uso é esse?",
+        "options": [
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Estudo em grupo"
+         },
+         {
+          "text": "Leitura com yad",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Recitação de mantras",
+          "misconceptionCode": "usos"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um colega diz que só os textos de sua religião merecem cuidado. Como responder?",
+      "options": [
+       {
+        "text": "\"Concordo.\"",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "\"Cada tradição tem seus textos sagrados, e todos merecem respeito.\""
+       },
+       {
+        "text": "\"Os outros textos podem ser desrespeitados.\"",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "\"Textos não importam.\"",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Respeito.",
+      "variants": [
+       {
+        "question": "Por que conhecer os usos de outros textos ajuda na convivência?",
+        "options": [
+         {
+          "text": "Não ajuda",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Para criticar",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Para mudar de religião obrigatoriamente",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Porque entendemos o que é importante para o outro e evitamos desrespeitos"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um colega diz que só os textos de sua religião merecem cuidado. Como responder?",
+        "options": [
+         {
+          "text": "\"Textos não importam.\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"Os outros textos podem ser desrespeitados.\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"Cada tradição tem seus textos sagrados, e todos merecem respeito.\""
+         },
+         {
+          "text": "\"Concordo.\"",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER04-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: a mostra \"Livros sagrados e seus usos\"",
+    "prompt": "Pesquisar e apresentar.",
+    "estMinutes": 4,
+    "audioScript": "Pesquisar e apresentar. Pergunta 1. A turma vai montar uma mostra. Que informações colocar para cada livro? A: Só o preço; B: Só a cor da capa; C: Nome, tradição, idioma original e formas de uso e cuidado; D: Nada. Pergunta 2. Como expor os livros com respeito? A: No chão; B: Sem cuidado; C: Como objetos de piada; D: Em lugar limpo e elevado, seguindo orientações das tradições e evitando manuseio inadequado. Pergunta 3. Que frase pode abrir a mostra? A: \"Ler, recitar, cantar e estudar: cada tradição tem seu jeito de viver seus textos sagrados.\"; B: \"Só um livro tem valor.\"; C: \"Textos sagrados são todos iguais.\"; D: \"Ninguém usa mais esses textos.\".",
+    "questions": [
+     {
+      "question": "A turma vai montar uma mostra. Que informações colocar para cada livro?",
+      "options": [
+       {
+        "text": "Só o preço",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Só a cor da capa",
+        "misconceptionCode": "usos"
+       },
+       {
+        "text": "Nome, tradição, idioma original e formas de uso e cuidado"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "usos"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Informações.",
+      "variants": [
+       {
+        "question": "Em que idioma o Alcorão foi originalmente recitado e escrito?",
+        "options": [
+         {
+          "text": "Árabe"
+         },
+         {
+          "text": "Latim",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Japonês",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Inglês",
+          "misconceptionCode": "usos"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A turma vai montar uma mostra. Que informações colocar para cada livro?",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Só a cor da capa",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Só o preço",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "Nome, tradição, idioma original e formas de uso e cuidado"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Como expor os livros com respeito?",
+      "options": [
+       {
+        "text": "No chão",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "Sem cuidado",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "Como objetos de piada",
+        "misconceptionCode": "cuidado"
+       },
+       {
+        "text": "Em lugar limpo e elevado, seguindo orientações das tradições e evitando manuseio inadequado"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Exposição.",
+      "variants": [
+       {
+        "question": "Quem pode orientar a turma sobre esses cuidados?",
+        "options": [
+         {
+          "text": "Ninguém",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Representantes das próprias tradições"
+         },
+         {
+          "text": "Pessoas que desrespeitam",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Propagandas",
+          "misconceptionCode": "cuidado"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Como expor os livros com respeito?",
+        "options": [
+         {
+          "text": "Em lugar limpo e elevado, seguindo orientações das tradições e evitando manuseio inadequado"
+         },
+         {
+          "text": "Como objetos de piada",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "Sem cuidado",
+          "misconceptionCode": "cuidado"
+         },
+         {
+          "text": "No chão",
+          "misconceptionCode": "cuidado"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Que frase pode abrir a mostra?",
+      "options": [
+       {
+        "text": "\"Ler, recitar, cantar e estudar: cada tradição tem seu jeito de viver seus textos sagrados.\""
+       },
+       {
+        "text": "\"Só um livro tem valor.\"",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "\"Textos sagrados são todos iguais.\"",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "\"Ninguém usa mais esses textos.\"",
+        "misconceptionCode": "usos"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Abertura.",
+      "variants": [
+       {
+        "question": "Por que incluir tradições orais na mostra?",
+        "options": [
+         {
+          "text": "Para criticá-las",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Não é preciso",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Porque também transmitem o sagrado, pela fala"
+         },
+         {
+          "text": "Porque têm livros",
+          "misconceptionCode": "usos"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Que frase pode abrir a mostra?",
+        "options": [
+         {
+          "text": "\"Ninguém usa mais esses textos.\"",
+          "misconceptionCode": "usos"
+         },
+         {
+          "text": "\"Ler, recitar, cantar e estudar: cada tradição tem seu jeito de viver seus textos sagrados.\""
+         },
+         {
+          "text": "\"Textos sagrados são todos iguais.\"",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "\"Só um livro tem valor.\"",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER04-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: usos dos textos sagrados",
+    "prompt": "Explique as diferentes formas de uso dos textos sagrados.",
+    "estMinutes": 6,
+    "audioScript": "Explique as diferentes formas de uso dos textos sagrados.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "tradicao",
+       "description": "Associa textos às tradições"
+      },
+      {
+       "code": "usos",
+       "description": "Cita formas de uso (leitura, recitação, canto, estudo, meditação)"
+      },
+      {
+       "code": "cuidado-respeito",
+       "description": "Explica cuidados com os textos e o respeito"
+      }
+     ],
+     "exemploBoaResposta": "As tradições usam seus textos sagrados de muitas formas. A Bíblia é lida em missas e cultos e estudada em grupos; a Torá é lida na sinagoga com o yad, para não ser tocada com os dedos, e guardada na arca; muitos muçulmanos memorizam e recitam o Alcorão, e quem o sabe inteiro é chamado de hafiz; hindus cantam versos da Bhagavad Gita e recitam mantras; monges budistas recitam textos do Tripitaka; o Guru Granth Sahib, do siquismo, fica em lugar de honra. Tradições indígenas e de matriz africana transmitem o sagrado pela fala. Todos esses textos e práticas merecem respeito."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF06ER05",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 6,
+  "version": 1,
+  "title": "Trilha: Interpretar e viver os textos",
+  "tituloAluno": "Do estudo à prática",
+  "activities": [
+   {
+    "id": "PK2-EF06ER05-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: estudar e interpretar",
+    "prompt": "Os textos na vida.",
+    "estMinutes": 4,
+    "audioScript": "Os textos na vida. Pergunta 1. O que significa interpretar um texto religioso? A: Copiar sem pensar; B: Buscar compreender seu sentido e como aplicá-lo à vida; C: Rasgar o texto; D: Ignorar o texto. Pergunta 2. Como se chama, no judaísmo, a instituição dedicada ao estudo da Torá e do Talmude? A: Madraça; B: Catequese; C: Yeshivá; D: Mosteiro budista. Pergunta 3. O que é o zakat no islamismo? A: Uma festa de aniversário; B: Um jejum de um dia; C: Uma oração apenas; D: Uma contribuição obrigatória aos necessitados, um dos pilares da fé. Pergunta 4. O que é ahimsa? A: O princípio da não violência e do respeito à vida; B: Um livro sagrado; C: Uma festa; D: Um templo. Pergunta 5. Como o ensinamento do shabat é vivido por muitos judeus? A: Trabalhando mais nesse dia; B: Com um dia semanal de descanso, oração e convívio familiar; C: Sem nenhuma mudança; D: Jejum de um mês. Pergunta 6. Qual atitude é respeitosa diante de interpretações diferentes? A: Ofender quem pensa diferente; B: Proibir outras interpretações; C: Dialogar e respeitar, mesmo discordando; D: Ignorar todos.",
+    "questions": [
+     {
+      "question": "O que significa interpretar um texto religioso?",
+      "options": [
+       {
+        "text": "Copiar sem pensar",
+        "misconceptionCode": "interpretacao"
+       },
+       {
+        "text": "Buscar compreender seu sentido e como aplicá-lo à vida"
+       },
+       {
+        "text": "Rasgar o texto",
+        "misconceptionCode": "interpretacao"
+       },
+       {
+        "text": "Ignorar o texto",
+        "misconceptionCode": "interpretacao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Interpretação.",
+      "variants": [
+       {
+        "question": "Uma mesma passagem pode ter interpretações diferentes?",
+        "options": [
+         {
+          "text": "Não, nunca",
+          "misconceptionCode": "interpretacao"
+         },
+         {
+          "text": "Só se o texto for falso",
+          "misconceptionCode": "interpretacao"
+         },
+         {
+          "text": "Só para quem não estuda",
+          "misconceptionCode": "interpretacao"
+         },
+         {
+          "text": "Sim, entre tradições e dentro de uma mesma tradição"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que significa interpretar um texto religioso?",
+        "options": [
+         {
+          "text": "Ignorar o texto",
+          "misconceptionCode": "interpretacao"
+         },
+         {
+          "text": "Rasgar o texto",
+          "misconceptionCode": "interpretacao"
+         },
+         {
+          "text": "Buscar compreender seu sentido e como aplicá-lo à vida"
+         },
+         {
+          "text": "Copiar sem pensar",
+          "misconceptionCode": "interpretacao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Como se chama, no judaísmo, a instituição dedicada ao estudo da Torá e do Talmude?",
+      "options": [
+       {
+        "text": "Madraça",
+        "misconceptionCode": "estudo"
+       },
+       {
+        "text": "Catequese",
+        "misconceptionCode": "estudo"
+       },
+       {
+        "text": "Yeshivá"
+       },
+       {
+        "text": "Mosteiro budista",
+        "misconceptionCode": "estudo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Yeshivá.",
+      "variants": [
+       {
+        "question": "Como se chama a escola islâmica de estudo do Alcorão?",
+        "options": [
+         {
+          "text": "Madraça"
+         },
+         {
+          "text": "Yeshivá",
+          "misconceptionCode": "estudo"
+         },
+         {
+          "text": "Catequese",
+          "misconceptionCode": "estudo"
+         },
+         {
+          "text": "Ashram",
+          "misconceptionCode": "estudo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Como se chama, no judaísmo, a instituição dedicada ao estudo da Torá e do Talmude?",
+        "options": [
+         {
+          "text": "Mosteiro budista",
+          "misconceptionCode": "estudo"
+         },
+         {
+          "text": "Catequese",
+          "misconceptionCode": "estudo"
+         },
+         {
+          "text": "Madraça",
+          "misconceptionCode": "estudo"
+         },
+         {
+          "text": "Yeshivá"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que é o zakat no islamismo?",
+      "options": [
+       {
+        "text": "Uma festa de aniversário",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Um jejum de um dia",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Uma oração apenas",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Uma contribuição obrigatória aos necessitados, um dos pilares da fé"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Zakat.",
+      "variants": [
+       {
+        "question": "Que prática judaica de caridade tem relação com a justiça?",
+        "options": [
+         {
+          "text": "Ramadã",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Tsedacá"
+         },
+         {
+          "text": "Ahimsa",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Catequese",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que é o zakat no islamismo?",
+        "options": [
+         {
+          "text": "Uma contribuição obrigatória aos necessitados, um dos pilares da fé"
+         },
+         {
+          "text": "Uma oração apenas",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Um jejum de um dia",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Uma festa de aniversário",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O que é ahimsa?",
+      "options": [
+       {
+        "text": "O princípio da não violência e do respeito à vida"
+       },
+       {
+        "text": "Um livro sagrado",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Uma festa",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Um templo",
+        "misconceptionCode": "pratica"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Ahimsa.",
+      "variants": [
+       {
+        "question": "Em que tradições o ahimsa é importante?",
+        "options": [
+         {
+          "text": "Só no islamismo",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Só no judaísmo",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Hinduísmo, budismo e jainismo"
+         },
+         {
+          "text": "Em nenhuma",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que é ahimsa?",
+        "options": [
+         {
+          "text": "Um templo",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "O princípio da não violência e do respeito à vida"
+         },
+         {
+          "text": "Uma festa",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Um livro sagrado",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Como o ensinamento do shabat é vivido por muitos judeus?",
+      "options": [
+       {
+        "text": "Trabalhando mais nesse dia",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Com um dia semanal de descanso, oração e convívio familiar"
+       },
+       {
+        "text": "Sem nenhuma mudança",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Jejum de um mês",
+        "misconceptionCode": "pratica"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Shabat.",
+      "variants": [
+       {
+        "question": "Que parábola cristã ensina a ajudar o próximo, mesmo um desconhecido?",
+        "options": [
+         {
+          "text": "A história de Hanucá",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "O Ramadã",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "O Diwali",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "A parábola do bom samaritano"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Como o ensinamento do shabat é vivido por muitos judeus?",
+        "options": [
+         {
+          "text": "Jejum de um mês",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Sem nenhuma mudança",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Com um dia semanal de descanso, oração e convívio familiar"
+         },
+         {
+          "text": "Trabalhando mais nesse dia",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual atitude é respeitosa diante de interpretações diferentes?",
+      "options": [
+       {
+        "text": "Ofender quem pensa diferente",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Proibir outras interpretações",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Dialogar e respeitar, mesmo discordando"
+       },
+       {
+        "text": "Ignorar todos",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Respeito.",
+      "variants": [
+       {
+        "question": "O que favorece o diálogo entre tradições?",
+        "options": [
+         {
+          "text": "Conhecer os ensinamentos dos outros com respeito"
+         },
+         {
+          "text": "Debochar",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Isolar-se",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Desconfiar de tudo",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual atitude é respeitosa diante de interpretações diferentes?",
+        "options": [
+         {
+          "text": "Ignorar todos",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Proibir outras interpretações",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Ofender quem pensa diferente",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Dialogar e respeitar, mesmo discordando"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER05-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: a campanha do agasalho",
+    "prompt": "Numa cidade, um grupo de jovens de uma igreja leu a parábola do bom samaritano e decidiu organizar uma campanha do agasalho. Uma família muçulmana do bairro contribuiu como parte do zakat. Uma comunidade judaica doou cobertores, falando em tsedacá. Um grupo budista ajudou na distribuição, lembrando o ensinamento da compaixão. Na reunião, uma jovem perguntou: \"Por que tantas tradições diferentes se juntaram?\"",
+    "estMinutes": 4,
+    "audioScript": "Numa cidade, um grupo de jovens de uma igreja leu a parábola do bom samaritano e decidiu organizar uma campanha do agasalho. Uma família muçulmana do bairro contribuiu como parte do zakat. Uma comunidade judaica doou cobertores, falando em tsedacá. Um grupo budista ajudou na distribuição, lembrando o ensinamento da compaixão. Na reunião, uma jovem perguntou: \"Por que tantas tradições diferentes se juntaram?\" Pergunta 1. Que ensinamento motivou os jovens da igreja? A: O ahimsa; B: O shabat; C: O zakat; D: A parábola do bom samaritano, que ensina a ajudar o próximo. Pergunta 2. Como a família muçulmana relacionou a doação à sua fé? A: Como parte do zakat, a contribuição aos necessitados; B: Como parte do shabat; C: Como parte da tsedacá; D: Sem relação. Pergunta 3. Que ensinamento budista aparece? A: O jejum do Ramadã; B: A compaixão; C: O shabat; D: A ablução. Pergunta 4. Que resposta explica a pergunta da jovem? A: Porque todas as religiões são iguais em tudo; B: Por acaso; C: Diferentes tradições, ao interpretar seus textos, chegaram a ensinamentos parecidos sobre ajudar quem precisa; D: Porque foram obrigadas.",
+    "questions": [
+     {
+      "question": "Que ensinamento motivou os jovens da igreja?",
+      "options": [
+       {
+        "text": "O ahimsa",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "O shabat",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "O zakat",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "A parábola do bom samaritano, que ensina a ajudar o próximo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Bom samaritano.",
+      "variants": [
+       {
+        "question": "Que tradição usa a parábola do bom samaritano?",
+        "options": [
+         {
+          "text": "Judaica",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Cristã"
+         },
+         {
+          "text": "Islâmica",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Budista",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Que ensinamento motivou os jovens da igreja?",
+        "options": [
+         {
+          "text": "A parábola do bom samaritano, que ensina a ajudar o próximo"
+         },
+         {
+          "text": "O zakat",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "O shabat",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "O ahimsa",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Como a família muçulmana relacionou a doação à sua fé?",
+      "options": [
+       {
+        "text": "Como parte do zakat, a contribuição aos necessitados"
+       },
+       {
+        "text": "Como parte do shabat",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Como parte da tsedacá",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Sem relação",
+        "misconceptionCode": "pratica"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Zakat.",
+      "variants": [
+       {
+        "question": "Como a comunidade judaica chamou sua doação?",
+        "options": [
+         {
+          "text": "Zakat",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Ahimsa",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Tsedacá"
+         },
+         {
+          "text": "Catequese",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Como a família muçulmana relacionou a doação à sua fé?",
+        "options": [
+         {
+          "text": "Sem relação",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Como parte do zakat, a contribuição aos necessitados"
+         },
+         {
+          "text": "Como parte da tsedacá",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Como parte do shabat",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Que ensinamento budista aparece?",
+      "options": [
+       {
+        "text": "O jejum do Ramadã",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "A compaixão"
+       },
+       {
+        "text": "O shabat",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "A ablução",
+        "misconceptionCode": "pratica"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Compaixão.",
+      "variants": [
+       {
+        "question": "Quantas tradições participaram da campanha?",
+        "options": [
+         {
+          "text": "Uma",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Duas",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Três",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Quatro"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Que ensinamento budista aparece?",
+        "options": [
+         {
+          "text": "A ablução",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "O shabat",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "A compaixão"
+         },
+         {
+          "text": "O jejum do Ramadã",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Que resposta explica a pergunta da jovem?",
+      "options": [
+       {
+        "text": "Porque todas as religiões são iguais em tudo",
+        "misconceptionCode": "interpretacao"
+       },
+       {
+        "text": "Por acaso",
+        "misconceptionCode": "interpretacao"
+       },
+       {
+        "text": "Diferentes tradições, ao interpretar seus textos, chegaram a ensinamentos parecidos sobre ajudar quem precisa"
+       },
+       {
+        "text": "Porque foram obrigadas",
+        "misconceptionCode": "interpretacao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Valores comuns.",
+      "variants": [
+       {
+        "question": "O que o exemplo mostra sobre a interpretação dos textos?",
+        "options": [
+         {
+          "text": "Que ela pode levar a ações concretas na comunidade"
+         },
+         {
+          "text": "Que não influencia a vida",
+          "misconceptionCode": "interpretacao"
+         },
+         {
+          "text": "Que só gera conflitos",
+          "misconceptionCode": "interpretacao"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "interpretacao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que resposta explica a pergunta da jovem?",
+        "options": [
+         {
+          "text": "Porque foram obrigadas",
+          "misconceptionCode": "interpretacao"
+         },
+         {
+          "text": "Por acaso",
+          "misconceptionCode": "interpretacao"
+         },
+         {
+          "text": "Porque todas as religiões são iguais em tudo",
+          "misconceptionCode": "interpretacao"
+         },
+         {
+          "text": "Diferentes tradições, ao interpretar seus textos, chegaram a ensinamentos parecidos sobre ajudar quem precisa"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER05-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: do texto à vida",
+    "prompt": "Relacionar.",
+    "estMinutes": 5,
+    "audioScript": "Relacionar. Pergunta 1. Um jovem hindu evita machucar animais e prefere uma alimentação vegetariana. Que ensinamento ele vive? A: Zakat; B: Shabat; C: Tsedacá; D: Ahimsa, a não violência. Pergunta 2. Duas igrejas cristãs interpretam de formas diferentes o mesmo trecho da Bíblia. O que isso mostra? A: Que há diferentes interpretações dentro de uma mesma tradição; B: Que uma delas não é cristã; C: Que a Bíblia não pode ser lida; D: Que interpretar é proibido. Pergunta 3. Na catequese, crianças estudam a Bíblia com orientação. Que espaço de estudo é esse? A: Uma madraça; B: Um espaço de formação religiosa cristã; C: Uma yeshivá; D: Um mosteiro hindu. Pergunta 4. Uma pessoa sem religião também pratica a solidariedade. O que isso mostra? A: Que só religiosos ajudam; B: Que solidariedade é proibida sem religião; C: Que valores como a solidariedade podem ser vividos por pessoas de diferentes crenças ou sem crença; D: Nada.",
+    "questions": [
+     {
+      "question": "Um jovem hindu evita machucar animais e prefere uma alimentação vegetariana. Que ensinamento ele vive?",
+      "options": [
+       {
+        "text": "Zakat",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Shabat",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Tsedacá",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Ahimsa, a não violência"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Ahimsa.",
+      "variants": [
+       {
+        "question": "Que outra tradição valoriza o ahimsa?",
+        "options": [
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Budismo"
+         },
+         {
+          "text": "Só o cristianismo",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Só o islamismo",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um jovem hindu evita machucar animais e prefere uma alimentação vegetariana. Que ensinamento ele vive?",
+        "options": [
+         {
+          "text": "Ahimsa, a não violência"
+         },
+         {
+          "text": "Tsedacá",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Shabat",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Zakat",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Duas igrejas cristãs interpretam de formas diferentes o mesmo trecho da Bíblia. O que isso mostra?",
+      "options": [
+       {
+        "text": "Que há diferentes interpretações dentro de uma mesma tradição"
+       },
+       {
+        "text": "Que uma delas não é cristã",
+        "misconceptionCode": "interpretacao"
+       },
+       {
+        "text": "Que a Bíblia não pode ser lida",
+        "misconceptionCode": "interpretacao"
+       },
+       {
+        "text": "Que interpretar é proibido",
+        "misconceptionCode": "interpretacao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Diversidade interna.",
+      "variants": [
+       {
+        "question": "Como lidar com essas diferenças?",
+        "options": [
+         {
+          "text": "Com brigas",
+          "misconceptionCode": "interpretacao"
+         },
+         {
+          "text": "Com proibições",
+          "misconceptionCode": "interpretacao"
+         },
+         {
+          "text": "Com diálogo e respeito"
+         },
+         {
+          "text": "Com deboche",
+          "misconceptionCode": "interpretacao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Duas igrejas cristãs interpretam de formas diferentes o mesmo trecho da Bíblia. O que isso mostra?",
+        "options": [
+         {
+          "text": "Que interpretar é proibido",
+          "misconceptionCode": "interpretacao"
+         },
+         {
+          "text": "Que há diferentes interpretações dentro de uma mesma tradição"
+         },
+         {
+          "text": "Que a Bíblia não pode ser lida",
+          "misconceptionCode": "interpretacao"
+         },
+         {
+          "text": "Que uma delas não é cristã",
+          "misconceptionCode": "interpretacao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Na catequese, crianças estudam a Bíblia com orientação. Que espaço de estudo é esse?",
+      "options": [
+       {
+        "text": "Uma madraça",
+        "misconceptionCode": "estudo"
+       },
+       {
+        "text": "Um espaço de formação religiosa cristã"
+       },
+       {
+        "text": "Uma yeshivá",
+        "misconceptionCode": "estudo"
+       },
+       {
+        "text": "Um mosteiro hindu",
+        "misconceptionCode": "estudo"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Catequese.",
+      "variants": [
+       {
+        "question": "Por que o estudo orientado é valorizado nas tradições?",
+        "options": [
+         {
+          "text": "Porque é obrigatório para todos os brasileiros",
+          "misconceptionCode": "estudo"
+         },
+         {
+          "text": "Não é valorizado",
+          "misconceptionCode": "estudo"
+         },
+         {
+          "text": "Para decorar sem entender",
+          "misconceptionCode": "estudo"
+         },
+         {
+          "text": "Porque ajuda a compreender os textos e aplicá-los com responsabilidade"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Na catequese, crianças estudam a Bíblia com orientação. Que espaço de estudo é esse?",
+        "options": [
+         {
+          "text": "Um mosteiro hindu",
+          "misconceptionCode": "estudo"
+         },
+         {
+          "text": "Uma yeshivá",
+          "misconceptionCode": "estudo"
+         },
+         {
+          "text": "Um espaço de formação religiosa cristã"
+         },
+         {
+          "text": "Uma madraça",
+          "misconceptionCode": "estudo"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Uma pessoa sem religião também pratica a solidariedade. O que isso mostra?",
+      "options": [
+       {
+        "text": "Que só religiosos ajudam",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Que solidariedade é proibida sem religião",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Que valores como a solidariedade podem ser vividos por pessoas de diferentes crenças ou sem crença"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Valores compartilhados.",
+      "variants": [
+       {
+        "question": "Como tratar essa pessoa?",
+        "options": [
+         {
+          "text": "Com o mesmo respeito"
+         },
+         {
+          "text": "Com desconfiança",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Com exclusão",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Com deboche",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Uma pessoa sem religião também pratica a solidariedade. O que isso mostra?",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Que solidariedade é proibida sem religião",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Que só religiosos ajudam",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Que valores como a solidariedade podem ser vividos por pessoas de diferentes crenças ou sem crença"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER05-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: o mural dos valores",
+    "prompt": "Conhecer e respeitar.",
+    "estMinutes": 4,
+    "audioScript": "Conhecer e respeitar. Pergunta 1. A turma vai fazer um mural \"Textos que viram ações\". Que exemplo colocar? A: Uma propaganda; B: Um jogo; C: Uma notícia falsa; D: O zakat islâmico e a ajuda aos necessitados. Pergunta 2. Como apresentar diferentes interpretações no mural? A: Mostrar que existem e explicar com respeito, sem dizer qual é a certa; B: Escolher a única correta; C: Criticar as outras; D: Esconder as diferenças. Pergunta 3. Que conclusão o mural pode trazer? A: \"Os textos não influenciam a vida.\"; B: \"O estudo e a interpretação dos textos inspiram práticas como a solidariedade, o descanso e a não violência.\"; C: \"Só uma tradição pratica o bem.\"; D: \"Interpretar é perigoso.\".",
+    "questions": [
+     {
+      "question": "A turma vai fazer um mural \"Textos que viram ações\". Que exemplo colocar?",
+      "options": [
+       {
+        "text": "Uma propaganda",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Um jogo",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "Uma notícia falsa",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "O zakat islâmico e a ajuda aos necessitados"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Exemplo.",
+      "variants": [
+       {
+        "question": "Que exemplo judaico colocar?",
+        "options": [
+         {
+          "text": "O Ramadã",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "O shabat e a tsedacá"
+         },
+         {
+          "text": "O Diwali",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "O Kuarup",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A turma vai fazer um mural \"Textos que viram ações\". Que exemplo colocar?",
+        "options": [
+         {
+          "text": "O zakat islâmico e a ajuda aos necessitados"
+         },
+         {
+          "text": "Uma notícia falsa",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Um jogo",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Uma propaganda",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Como apresentar diferentes interpretações no mural?",
+      "options": [
+       {
+        "text": "Mostrar que existem e explicar com respeito, sem dizer qual é a certa"
+       },
+       {
+        "text": "Escolher a única correta",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Criticar as outras",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Esconder as diferenças",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Apresentação.",
+      "variants": [
+       {
+        "question": "Por que não dizer qual interpretação é a certa?",
+        "options": [
+         {
+          "text": "Porque nenhuma existe",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Porque todas são erradas",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Porque a escola respeita a diversidade e a liberdade de crença"
+         },
+         {
+          "text": "Por preguiça",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Como apresentar diferentes interpretações no mural?",
+        "options": [
+         {
+          "text": "Esconder as diferenças",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Mostrar que existem e explicar com respeito, sem dizer qual é a certa"
+         },
+         {
+          "text": "Criticar as outras",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Escolher a única correta",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Que conclusão o mural pode trazer?",
+      "options": [
+       {
+        "text": "\"Os textos não influenciam a vida.\"",
+        "misconceptionCode": "pratica"
+       },
+       {
+        "text": "\"O estudo e a interpretação dos textos inspiram práticas como a solidariedade, o descanso e a não violência.\""
+       },
+       {
+        "text": "\"Só uma tradição pratica o bem.\"",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "\"Interpretar é perigoso.\"",
+        "misconceptionCode": "interpretacao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Conclusão.",
+      "variants": [
+       {
+        "question": "Que atitude a turma pode tomar a partir do mural?",
+        "options": [
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "pratica"
+         },
+         {
+          "text": "Criticar tradições",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Separar alunos por religião",
+          "misconceptionCode": "interpretacao"
+         },
+         {
+          "text": "Organizar uma ação solidária respeitando todas as crenças"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Que conclusão o mural pode trazer?",
+        "options": [
+         {
+          "text": "\"Interpretar é perigoso.\"",
+          "misconceptionCode": "interpretacao"
+         },
+         {
+          "text": "\"Só uma tradição pratica o bem.\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"O estudo e a interpretação dos textos inspiram práticas como a solidariedade, o descanso e a não violência.\""
+         },
+         {
+          "text": "\"Os textos não influenciam a vida.\"",
+          "misconceptionCode": "pratica"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER05-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: interpretar e viver os textos",
+    "prompt": "Discuta como o estudo e a interpretação dos textos influenciam a vida dos fiéis.",
+    "estMinutes": 6,
+    "audioScript": "Discuta como o estudo e a interpretação dos textos influenciam a vida dos fiéis.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "interpretacao-estudo",
+       "description": "Explica interpretação e espaços de estudo"
+      },
+      {
+       "code": "pratica",
+       "description": "Relaciona ensinamentos a práticas"
+      },
+      {
+       "code": "respeito",
+       "description": "Respeita interpretações diferentes"
+      }
+     ],
+     "exemploBoaResposta": "Os textos religiosos são estudados e interpretados, e isso orienta a vida dos fiéis. Há espaços de estudo como a catequese e as escolas bíblicas, as yeshivás judaicas, as madraças islâmicas e os mosteiros budistas. Os ensinamentos viram práticas: a parábola do bom samaritano inspira cristãos a ajudar o próximo; o zakat islâmico e a tsedacá judaica levam a doações aos necessitados; o shabat traz um dia de descanso; o ahimsa leva hindus e budistas à não violência. Na campanha do agasalho, várias tradições agiram juntas. Há interpretações diferentes, inclusive dentro de uma mesma tradição, e o diálogo e o respeito são essenciais."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF06ER06",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 6,
+  "version": 1,
+  "title": "Trilha: Mitos, ritos, símbolos e textos",
+  "tituloAluno": "Os pilares das tradições",
+  "activities": [
+   {
+    "id": "PK2-EF06ER06-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: quatro pilares",
+    "prompt": "Mito, rito, símbolo e texto.",
+    "estMinutes": 4,
+    "audioScript": "Mito, rito, símbolo e texto. Pergunta 1. O que é um rito? A: Um livro; B: Um desenho apenas; C: Uma ação ritual repetida, como uma oração, uma festa ou uma peregrinação; D: Uma lenda sem ação. Pergunta 2. O que é um símbolo religioso? A: Uma festa; B: Um texto longo; C: Uma narrativa; D: Um sinal que representa algo sagrado. Pergunta 3. O que é um mito, no sentido religioso? A: Uma narrativa sagrada que explica origens e sentidos; B: Uma mentira; C: Uma receita; D: Uma regra de trânsito. Pergunta 4. Qual símbolo está associado ao islamismo? A: A cruz; B: A lua crescente; C: O om; D: A menorá. Pergunta 5. Uma tradição sem textos escritos pode ter estrutura religiosa? A: Não, nunca; B: Só se tiver livros; C: Sim, com mitos, ritos e símbolos transmitidos oralmente; D: Só se for nova. Pergunta 6. Qual atitude é respeitosa com símbolos de outras tradições? A: Rabiscá-los; B: Usá-los como fantasia para zombar; C: Destruí-los; D: Não usá-los para piadas nem destruí-los.",
+    "questions": [
+     {
+      "question": "O que é um rito?",
+      "options": [
+       {
+        "text": "Um livro",
+        "misconceptionCode": "elementos"
+       },
+       {
+        "text": "Um desenho apenas",
+        "misconceptionCode": "elementos"
+       },
+       {
+        "text": "Uma ação ritual repetida, como uma oração, uma festa ou uma peregrinação"
+       },
+       {
+        "text": "Uma lenda sem ação",
+        "misconceptionCode": "elementos"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Rito.",
+      "variants": [
+       {
+        "question": "Qual destes é um rito?",
+        "options": [
+         {
+          "text": "O batismo"
+         },
+         {
+          "text": "A cruz",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "A Bíblia",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "O mito da criação",
+          "misconceptionCode": "elementos"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que é um rito?",
+        "options": [
+         {
+          "text": "Uma lenda sem ação",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Um desenho apenas",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Um livro",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Uma ação ritual repetida, como uma oração, uma festa ou uma peregrinação"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que é um símbolo religioso?",
+      "options": [
+       {
+        "text": "Uma festa",
+        "misconceptionCode": "elementos"
+       },
+       {
+        "text": "Um texto longo",
+        "misconceptionCode": "elementos"
+       },
+       {
+        "text": "Uma narrativa",
+        "misconceptionCode": "elementos"
+       },
+       {
+        "text": "Um sinal que representa algo sagrado"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Símbolo.",
+      "variants": [
+       {
+        "question": "Qual símbolo é associado ao budismo?",
+        "options": [
+         {
+          "text": "A menorá",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "A roda do dharma"
+         },
+         {
+          "text": "A cruz",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "A lua crescente",
+          "misconceptionCode": "elementos"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que é um símbolo religioso?",
+        "options": [
+         {
+          "text": "Um sinal que representa algo sagrado"
+         },
+         {
+          "text": "Uma narrativa",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Um texto longo",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Uma festa",
+          "misconceptionCode": "elementos"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O que é um mito, no sentido religioso?",
+      "options": [
+       {
+        "text": "Uma narrativa sagrada que explica origens e sentidos"
+       },
+       {
+        "text": "Uma mentira",
+        "misconceptionCode": "elementos"
+       },
+       {
+        "text": "Uma receita",
+        "misconceptionCode": "elementos"
+       },
+       {
+        "text": "Uma regra de trânsito",
+        "misconceptionCode": "elementos"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Mito.",
+      "variants": [
+       {
+        "question": "Qual é um exemplo de mito religioso?",
+        "options": [
+         {
+          "text": "Um jornal",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Uma bula de remédio",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "A narrativa da criação de uma tradição"
+         },
+         {
+          "text": "Um placar de jogo",
+          "misconceptionCode": "elementos"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que é um mito, no sentido religioso?",
+        "options": [
+         {
+          "text": "Uma regra de trânsito",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Uma narrativa sagrada que explica origens e sentidos"
+         },
+         {
+          "text": "Uma receita",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Uma mentira",
+          "misconceptionCode": "elementos"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual símbolo está associado ao islamismo?",
+      "options": [
+       {
+        "text": "A cruz",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "A lua crescente"
+       },
+       {
+        "text": "O om",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "A menorá",
+        "misconceptionCode": "funcao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Lua crescente.",
+      "variants": [
+       {
+        "question": "Qual símbolo sagrado é usado no hinduísmo?",
+        "options": [
+         {
+          "text": "A estrela de Davi",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "A lua crescente",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "A roda do dharma",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "O om"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual símbolo está associado ao islamismo?",
+        "options": [
+         {
+          "text": "A menorá",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "O om",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "A lua crescente"
+         },
+         {
+          "text": "A cruz",
+          "misconceptionCode": "funcao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Uma tradição sem textos escritos pode ter estrutura religiosa?",
+      "options": [
+       {
+        "text": "Não, nunca",
+        "misconceptionCode": "articulacao"
+       },
+       {
+        "text": "Só se tiver livros",
+        "misconceptionCode": "articulacao"
+       },
+       {
+        "text": "Sim, com mitos, ritos e símbolos transmitidos oralmente"
+       },
+       {
+        "text": "Só se for nova",
+        "misconceptionCode": "articulacao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Tradições orais.",
+      "variants": [
+       {
+        "question": "Que instrumento é símbolo sagrado em muitos povos indígenas?",
+        "options": [
+         {
+          "text": "O maracá"
+         },
+         {
+          "text": "O piano",
+          "misconceptionCode": "articulacao"
+         },
+         {
+          "text": "O violino",
+          "misconceptionCode": "articulacao"
+         },
+         {
+          "text": "A guitarra elétrica",
+          "misconceptionCode": "articulacao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Uma tradição sem textos escritos pode ter estrutura religiosa?",
+        "options": [
+         {
+          "text": "Só se for nova",
+          "misconceptionCode": "articulacao"
+         },
+         {
+          "text": "Só se tiver livros",
+          "misconceptionCode": "articulacao"
+         },
+         {
+          "text": "Não, nunca",
+          "misconceptionCode": "articulacao"
+         },
+         {
+          "text": "Sim, com mitos, ritos e símbolos transmitidos oralmente"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual atitude é respeitosa com símbolos de outras tradições?",
+      "options": [
+       {
+        "text": "Rabiscá-los",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Usá-los como fantasia para zombar",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Destruí-los",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Não usá-los para piadas nem destruí-los"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Respeito.",
+      "variants": [
+       {
+        "question": "Por que os símbolos merecem respeito?",
+        "options": [
+         {
+          "text": "Porque são bonitos apenas",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Porque representam o que é sagrado para outras pessoas"
+         },
+         {
+          "text": "Não merecem",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Porque são caros",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual atitude é respeitosa com símbolos de outras tradições?",
+        "options": [
+         {
+          "text": "Não usá-los para piadas nem destruí-los"
+         },
+         {
+          "text": "Destruí-los",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Usá-los como fantasia para zombar",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Rabiscá-los",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER06-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o Pessach como exemplo",
+    "prompt": "A professora usou o Pessach para mostrar os quatro elementos. Narrativa: a saída dos hebreus da escravidão no Egito, guiados por Moisés. Texto: essa narrativa está no livro do Êxodo, parte da Torá. Rito: a refeição do Seder, com leituras, perguntas das crianças e cantos, repetida todos os anos. Símbolos: a matzá (pão sem fermento, lembrando a pressa da saída) e as ervas amargas (lembrando a amargura da escravidão).",
+    "estMinutes": 4,
+    "audioScript": "A professora usou o Pessach para mostrar os quatro elementos. Narrativa: a saída dos hebreus da escravidão no Egito, guiados por Moisés. Texto: essa narrativa está no livro do Êxodo, parte da Torá. Rito: a refeição do Seder, com leituras, perguntas das crianças e cantos, repetida todos os anos. Símbolos: a matzá (pão sem fermento, lembrando a pressa da saída) e as ervas amargas (lembrando a amargura da escravidão). Pergunta 1. Qual é a narrativa sagrada do Pessach? A: A saída dos hebreus da escravidão no Egito; B: O nascimento de Jesus; C: A revelação do Alcorão; D: A iluminação de Buda. Pergunta 2. Em que texto está essa narrativa? A: No Alcorão; B: No livro do Êxodo, na Torá; C: Nos Vedas; D: No Tripitaka. Pergunta 3. O que as ervas amargas simbolizam? A: A alegria da colheita; B: A pressa da saída; C: A amargura da escravidão; D: Nada. Pergunta 4. O que o exemplo mostra sobre os quatro elementos? A: São separados e sem relação; B: Só um elemento importa; C: Só existem no judaísmo; D: Eles se articulam e se reforçam numa mesma tradição.",
+    "questions": [
+     {
+      "question": "Qual é a narrativa sagrada do Pessach?",
+      "options": [
+       {
+        "text": "A saída dos hebreus da escravidão no Egito"
+       },
+       {
+        "text": "O nascimento de Jesus",
+        "misconceptionCode": "elementos"
+       },
+       {
+        "text": "A revelação do Alcorão",
+        "misconceptionCode": "elementos"
+       },
+       {
+        "text": "A iluminação de Buda",
+        "misconceptionCode": "elementos"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Narrativa.",
+      "variants": [
+       {
+        "question": "Quem guiou os hebreus, segundo a narrativa?",
+        "options": [
+         {
+          "text": "Abraão",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Maomé",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Moisés"
+         },
+         {
+          "text": "Buda",
+          "misconceptionCode": "elementos"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual é a narrativa sagrada do Pessach?",
+        "options": [
+         {
+          "text": "A iluminação de Buda",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "A saída dos hebreus da escravidão no Egito"
+         },
+         {
+          "text": "A revelação do Alcorão",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "O nascimento de Jesus",
+          "misconceptionCode": "elementos"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Em que texto está essa narrativa?",
+      "options": [
+       {
+        "text": "No Alcorão",
+        "misconceptionCode": "elementos"
+       },
+       {
+        "text": "No livro do Êxodo, na Torá"
+       },
+       {
+        "text": "Nos Vedas",
+        "misconceptionCode": "elementos"
+       },
+       {
+        "text": "No Tripitaka",
+        "misconceptionCode": "elementos"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Texto.",
+      "variants": [
+       {
+        "question": "Qual é o rito do Pessach?",
+        "options": [
+         {
+          "text": "O batismo",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "O jejum do Ramadã",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "A peregrinação a Meca",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "A refeição do Seder"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Em que texto está essa narrativa?",
+        "options": [
+         {
+          "text": "No Tripitaka",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Nos Vedas",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "No livro do Êxodo, na Torá"
+         },
+         {
+          "text": "No Alcorão",
+          "misconceptionCode": "elementos"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O que as ervas amargas simbolizam?",
+      "options": [
+       {
+        "text": "A alegria da colheita",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "A pressa da saída",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "A amargura da escravidão"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "funcao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Símbolo.",
+      "variants": [
+       {
+        "question": "O que a matzá simboliza?",
+        "options": [
+         {
+          "text": "A pressa da saída do Egito"
+         },
+         {
+          "text": "A amargura",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "A riqueza",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "O inverno",
+          "misconceptionCode": "funcao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que as ervas amargas simbolizam?",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "A pressa da saída",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "A alegria da colheita",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "A amargura da escravidão"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que o exemplo mostra sobre os quatro elementos?",
+      "options": [
+       {
+        "text": "São separados e sem relação",
+        "misconceptionCode": "articulacao"
+       },
+       {
+        "text": "Só um elemento importa",
+        "misconceptionCode": "articulacao"
+       },
+       {
+        "text": "Só existem no judaísmo",
+        "misconceptionCode": "articulacao"
+       },
+       {
+        "text": "Eles se articulam e se reforçam numa mesma tradição"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Articulação.",
+      "variants": [
+       {
+        "question": "Por que as crianças fazem perguntas no Seder?",
+        "options": [
+         {
+          "text": "Por acaso",
+          "misconceptionCode": "articulacao"
+         },
+         {
+          "text": "Para que a memória seja transmitida às novas gerações"
+         },
+         {
+          "text": "Para atrapalhar",
+          "misconceptionCode": "articulacao"
+         },
+         {
+          "text": "Para terminar logo",
+          "misconceptionCode": "articulacao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que o exemplo mostra sobre os quatro elementos?",
+        "options": [
+         {
+          "text": "Eles se articulam e se reforçam numa mesma tradição"
+         },
+         {
+          "text": "Só existem no judaísmo",
+          "misconceptionCode": "articulacao"
+         },
+         {
+          "text": "Só um elemento importa",
+          "misconceptionCode": "articulacao"
+         },
+         {
+          "text": "São separados e sem relação",
+          "misconceptionCode": "articulacao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER06-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: identificar elementos",
+    "prompt": "Outras tradições.",
+    "estMinutes": 5,
+    "audioScript": "Outras tradições. Pergunta 1. Na Páscoa cristã, a narrativa da ressurreição de Jesus está nos Evangelhos. Qual é o texto? A: Os Evangelhos, na Bíblia; B: O Alcorão; C: A Torá; D: Os Vedas. Pergunta 2. A peregrinação a Meca, chamada Hajj, é um: A: Símbolo do budismo; B: Rito do islamismo; C: Texto do hinduísmo; D: Mito do judaísmo. Pergunta 3. Num terreiro, cada orixá tem cores, ferramentas e cantigas próprias. Que elementos são esses? A: Textos escritos apenas; B: Nenhum elemento; C: Símbolos e ritos; D: Mitos sem ritos. Pergunta 4. Por que os ritos se repetem? A: Por falta de criatividade; B: Por acaso; C: Para cansar; D: Para renovar a memória e fortalecer a identidade do grupo.",
+    "questions": [
+     {
+      "question": "Na Páscoa cristã, a narrativa da ressurreição de Jesus está nos Evangelhos. Qual é o texto?",
+      "options": [
+       {
+        "text": "Os Evangelhos, na Bíblia"
+       },
+       {
+        "text": "O Alcorão",
+        "misconceptionCode": "elementos"
+       },
+       {
+        "text": "A Torá",
+        "misconceptionCode": "elementos"
+       },
+       {
+        "text": "Os Vedas",
+        "misconceptionCode": "elementos"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Texto.",
+      "variants": [
+       {
+        "question": "Que símbolo cristão está ligado à morte e à ressurreição de Jesus?",
+        "options": [
+         {
+          "text": "A menorá",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "A lua crescente",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "A cruz"
+         },
+         {
+          "text": "O om",
+          "misconceptionCode": "elementos"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Na Páscoa cristã, a narrativa da ressurreição de Jesus está nos Evangelhos. Qual é o texto?",
+        "options": [
+         {
+          "text": "Os Vedas",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Os Evangelhos, na Bíblia"
+         },
+         {
+          "text": "A Torá",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "O Alcorão",
+          "misconceptionCode": "elementos"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "A peregrinação a Meca, chamada Hajj, é um:",
+      "options": [
+       {
+        "text": "Símbolo do budismo",
+        "misconceptionCode": "elementos"
+       },
+       {
+        "text": "Rito do islamismo"
+       },
+       {
+        "text": "Texto do hinduísmo",
+        "misconceptionCode": "elementos"
+       },
+       {
+        "text": "Mito do judaísmo",
+        "misconceptionCode": "elementos"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Hajj.",
+      "variants": [
+       {
+        "question": "O Hajj é obrigatório, uma vez na vida, para muçulmanos que:",
+        "options": [
+         {
+          "text": "Sejam crianças pequenas",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Não tenham condições",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Morem em Meca apenas",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Tenham condições de saúde e financeiras"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A peregrinação a Meca, chamada Hajj, é um:",
+        "options": [
+         {
+          "text": "Mito do judaísmo",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Texto do hinduísmo",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Rito do islamismo"
+         },
+         {
+          "text": "Símbolo do budismo",
+          "misconceptionCode": "elementos"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Num terreiro, cada orixá tem cores, ferramentas e cantigas próprias. Que elementos são esses?",
+      "options": [
+       {
+        "text": "Textos escritos apenas",
+        "misconceptionCode": "elementos"
+       },
+       {
+        "text": "Nenhum elemento",
+        "misconceptionCode": "elementos"
+       },
+       {
+        "text": "Símbolos e ritos"
+       },
+       {
+        "text": "Mitos sem ritos",
+        "misconceptionCode": "elementos"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Matriz africana.",
+      "variants": [
+       {
+        "question": "E as histórias dos orixás contadas pelos mais velhos são:",
+        "options": [
+         {
+          "text": "Mitos transmitidos oralmente"
+         },
+         {
+          "text": "Textos impressos obrigatórios",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Símbolos",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Leis",
+          "misconceptionCode": "elementos"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Num terreiro, cada orixá tem cores, ferramentas e cantigas próprias. Que elementos são esses?",
+        "options": [
+         {
+          "text": "Mitos sem ritos",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Nenhum elemento",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Textos escritos apenas",
+          "misconceptionCode": "elementos"
+         },
+         {
+          "text": "Símbolos e ritos"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Por que os ritos se repetem?",
+      "options": [
+       {
+        "text": "Por falta de criatividade",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "Por acaso",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "Para cansar",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "Para renovar a memória e fortalecer a identidade do grupo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Função dos ritos.",
+      "variants": [
+       {
+        "question": "Qual é a função dos textos sagrados?",
+        "options": [
+         {
+          "text": "Enfeitar estantes",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Registrar e transmitir ensinamentos e narrativas"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Substituir os ritos sempre",
+          "misconceptionCode": "funcao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Por que os ritos se repetem?",
+        "options": [
+         {
+          "text": "Para renovar a memória e fortalecer a identidade do grupo"
+         },
+         {
+          "text": "Para cansar",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Por acaso",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Por falta de criatividade",
+          "misconceptionCode": "funcao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER06-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: o quadro comparativo",
+    "prompt": "Organizar tradições.",
+    "estMinutes": 4,
+    "audioScript": "Organizar tradições. Pergunta 1. A turma vai fazer um quadro com as colunas mito, rito, símbolo e texto. O que colocar na linha do islamismo? A: Revelação a Muhammad; oração diária e Hajj; lua crescente; Alcorão; B: Saída do Egito; Seder; matzá; Torá; C: Nascimento de Buda; Vesak; roda; Tripitaka; D: Nada. Pergunta 2. Como preencher a coluna texto para uma tradição oral indígena? A: Inventar um livro; B: Indicar que os ensinamentos são transmitidos oralmente, sem texto escrito; C: Deixar de incluir a tradição; D: Dizer que não tem estrutura. Pergunta 3. Que conclusão o quadro permite? A: Todas as tradições são iguais; B: Só os textos importam; C: Mitos, ritos, símbolos e textos estruturam as tradições, de formas diferentes em cada uma; D: Os símbolos não têm função.",
+    "questions": [
+     {
+      "question": "A turma vai fazer um quadro com as colunas mito, rito, símbolo e texto. O que colocar na linha do islamismo?",
+      "options": [
+       {
+        "text": "Revelação a Muhammad; oração diária e Hajj; lua crescente; Alcorão"
+       },
+       {
+        "text": "Saída do Egito; Seder; matzá; Torá",
+        "misconceptionCode": "articulacao"
+       },
+       {
+        "text": "Nascimento de Buda; Vesak; roda; Tripitaka",
+        "misconceptionCode": "articulacao"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "articulacao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Islamismo.",
+      "variants": [
+       {
+        "question": "O que colocar na linha do budismo, na coluna símbolo?",
+        "options": [
+         {
+          "text": "A cruz",
+          "misconceptionCode": "articulacao"
+         },
+         {
+          "text": "A menorá",
+          "misconceptionCode": "articulacao"
+         },
+         {
+          "text": "A roda do dharma"
+         },
+         {
+          "text": "A lua crescente",
+          "misconceptionCode": "articulacao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A turma vai fazer um quadro com as colunas mito, rito, símbolo e texto. O que colocar na linha do islamismo?",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "articulacao"
+         },
+         {
+          "text": "Revelação a Muhammad; oração diária e Hajj; lua crescente; Alcorão"
+         },
+         {
+          "text": "Nascimento de Buda; Vesak; roda; Tripitaka",
+          "misconceptionCode": "articulacao"
+         },
+         {
+          "text": "Saída do Egito; Seder; matzá; Torá",
+          "misconceptionCode": "articulacao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Como preencher a coluna texto para uma tradição oral indígena?",
+      "options": [
+       {
+        "text": "Inventar um livro",
+        "misconceptionCode": "articulacao"
+       },
+       {
+        "text": "Indicar que os ensinamentos são transmitidos oralmente, sem texto escrito"
+       },
+       {
+        "text": "Deixar de incluir a tradição",
+        "misconceptionCode": "articulacao"
+       },
+       {
+        "text": "Dizer que não tem estrutura",
+        "misconceptionCode": "articulacao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Tradição oral.",
+      "variants": [
+       {
+        "question": "Por que é importante incluir tradições orais no quadro?",
+        "options": [
+         {
+          "text": "Para criticá-las",
+          "misconceptionCode": "articulacao"
+         },
+         {
+          "text": "Não é importante",
+          "misconceptionCode": "articulacao"
+         },
+         {
+          "text": "Para completar espaço",
+          "misconceptionCode": "articulacao"
+         },
+         {
+          "text": "Para mostrar que a ausência de texto escrito não diminui sua importância"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Como preencher a coluna texto para uma tradição oral indígena?",
+        "options": [
+         {
+          "text": "Dizer que não tem estrutura",
+          "misconceptionCode": "articulacao"
+         },
+         {
+          "text": "Deixar de incluir a tradição",
+          "misconceptionCode": "articulacao"
+         },
+         {
+          "text": "Indicar que os ensinamentos são transmitidos oralmente, sem texto escrito"
+         },
+         {
+          "text": "Inventar um livro",
+          "misconceptionCode": "articulacao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Que conclusão o quadro permite?",
+      "options": [
+       {
+        "text": "Todas as tradições são iguais",
+        "misconceptionCode": "articulacao"
+       },
+       {
+        "text": "Só os textos importam",
+        "misconceptionCode": "funcao"
+       },
+       {
+        "text": "Mitos, ritos, símbolos e textos estruturam as tradições, de formas diferentes em cada uma"
+       },
+       {
+        "text": "Os símbolos não têm função",
+        "misconceptionCode": "funcao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Conclusão.",
+      "variants": [
+       {
+        "question": "Que atitude o quadro deve promover?",
+        "options": [
+         {
+          "text": "Respeito à diversidade religiosa"
+         },
+         {
+          "text": "Comparação para escolher a melhor",
+          "misconceptionCode": "articulacao"
+         },
+         {
+          "text": "Deboche",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Indiferença",
+          "misconceptionCode": "funcao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que conclusão o quadro permite?",
+        "options": [
+         {
+          "text": "Os símbolos não têm função",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Só os textos importam",
+          "misconceptionCode": "funcao"
+         },
+         {
+          "text": "Todas as tradições são iguais",
+          "misconceptionCode": "articulacao"
+         },
+         {
+          "text": "Mitos, ritos, símbolos e textos estruturam as tradições, de formas diferentes em cada uma"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF06ER06-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: mitos, ritos, símbolos e textos",
+    "prompt": "Explique a importância desses elementos na estrutura das tradições.",
+    "estMinutes": 6,
+    "audioScript": "Explique a importância desses elementos na estrutura das tradições.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "elementos",
+       "description": "Define mito, rito, símbolo e texto com exemplos"
+      },
+      {
+       "code": "funcao-articulacao",
+       "description": "Explica a função e a articulação dos elementos"
+      },
+      {
+       "code": "respeito",
+       "description": "Respeita os elementos das diferentes tradições"
+      }
+     ],
+     "exemploBoaResposta": "As tradições religiosas se estruturam com mitos, narrativas sagradas sobre origens e sentidos; ritos, ações repetidas como orações, festas e peregrinações; símbolos, sinais do sagrado como a cruz, a estrela de Davi, a lua crescente, a roda do dharma e o om; e textos, como a Bíblia, a Torá, o Alcorão e os Vedas. Eles se articulam: no Pessach, a narrativa da saída do Egito está no Êxodo, é vivida no rito do Seder e lembrada por símbolos como a matzá e as ervas amargas. Tradições orais, indígenas e de matriz africana se estruturam com mitos, ritos e símbolos transmitidos pela fala. Todos merecem respeito."
+    }
+   }
+  ]
+ },
+ {
   "skillCode": "EF06ER02",
   "subjectCode": "ER",
   "subjectName": "Ensino Religioso",
