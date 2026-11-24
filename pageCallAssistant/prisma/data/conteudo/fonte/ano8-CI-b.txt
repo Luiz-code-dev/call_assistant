@@ -1,0 +1,908 @@
+// 8º ano — Ciências (parte B): EF08CI03, EF08CI04, EF08CI05, EF08CI06
+
+#TRILHA EF08CI03 | CI | 8 | Trilha: Para onde vai a energia elétrica | Transformações nos aparelhos da casa
+FAZ: Classifica equipamentos elétricos residenciais (chuveiro, ferro, lâmpadas, TV, rádio, geladeira etc.) de acordo com o tipo de transformação de energia (da energia elétrica para a térmica, luminosa, sonora e mecânica, por exemplo).
+ERRO: termica | Não reconhece aparelhos que transformam energia elétrica principalmente em térmica (chuveiro, ferro, forno elétrico)
+ERRO: mecanica | Não reconhece aparelhos que transformam energia elétrica em mecânica, ou de movimento (ventilador, liquidificador, máquina de lavar)
+ERRO: luz-som | Não reconhece transformações em energia luminosa e sonora (lâmpada, TV, rádio, caixa de som)
+ERRO: perda | Não percebe que parte da energia se transforma em formas não desejadas, como calor
+NOTA: Os aparelhos elétricos transformam a energia elétrica em outras formas. Energia térmica (calor): chuveiro elétrico, ferro de passar, forno elétrico, secador de cabelo (também mecânica, pelo motor do ventilador), torradeira, sanduicheira. Energia mecânica (movimento): ventilador, liquidificador, batedeira, máquina de lavar, aspirador de pó; a geladeira usa um motor (compressor) para fazer circular o gás que retira calor do interior. Energia luminosa: lâmpadas. Energia sonora: rádio, caixa de som, campainha. Muitos aparelhos fazem mais de uma transformação: a TV produz luz e som; o secador, calor e movimento. Nenhum aparelho transforma toda a energia na forma desejada: parte vira calor não aproveitado (a lâmpada incandescente esquenta muito e ilumina pouco; a lâmpada LED esquenta pouco). Quanto maior a parte transformada na forma desejada, maior a eficiência do aparelho.
+
+@relembrar | Relembrar: tipos de transformação | Aparelhos e energia.
+Q: Em que forma de energia o chuveiro elétrico transforma principalmente a energia elétrica?
++ Térmica
+- Mecânica | termica
+- Sonora | termica
+- Luminosa | termica
+E: Calor.
+V: Em que forma de energia o ferro de passar transforma principalmente a energia elétrica?
++ Térmica
+- Sonora
+- Luminosa
+- Mecânica
+Q: Em que forma de energia o ventilador transforma principalmente a energia elétrica?
++ Mecânica (movimento)
+- Térmica | mecanica
+- Luminosa | mecanica
+- Sonora | mecanica
+E: Movimento.
+V: Que aparelho transforma energia elétrica principalmente em movimento?
++ Liquidificador
+- Torradeira
+- Lâmpada
+- Rádio
+Q: Em que formas de energia a TV transforma a energia elétrica?
++ Luminosa e sonora
+- Só térmica | luz-som
+- Só mecânica | luz-som
+- Nenhuma | luz-som
+E: Luz e som.
+V: Que aparelho transforma energia elétrica principalmente em som?
++ Caixa de som
+- Chuveiro
+- Ventilador
+- Ferro de passar
+Q: Que aparelho faz duas transformações principais, em calor e em movimento?
++ Secador de cabelo
+- Lâmpada LED | mecanica
+- Rádio | mecanica
+- Torradeira | mecanica
+E: Secador.
+V: Para que serve o motor (compressor) da geladeira?
++ Fazer circular o gás que retira calor do interior
+- Produzir som
+- Produzir luz
+- Aquecer os alimentos
+Q: Por que a lâmpada incandescente é pouco eficiente?
++ Porque transforma grande parte da energia em calor, e não em luz
+- Porque produz muito som | perda
+- Porque gira muito rápido | perda
+- Porque não usa energia | perda
+E: Perda em calor.
+V: Por que a lâmpada LED é mais eficiente?
++ Porque transforma mais energia em luz e esquenta pouco
+- Porque esquenta mais
+- Porque não ilumina
+- Porque faz barulho
+Q: O que significa um aparelho ser eficiente?
++ Transformar grande parte da energia na forma desejada
+- Gastar mais energia sem motivo | perda
+- Esquentar sempre | perda
+- Ser maior | perda
+E: Eficiência.
+V: Num liquidificador, que forma de energia aparece como perda?
++ Calor e som do motor
+- Movimento das lâminas
+- Luz das lâminas
+- Nenhuma
+
+@exemplo_guiado | Exemplo guiado: o inventário da casa de Bruno | Bruno listou os aparelhos de casa e classificou: chuveiro (térmica); geladeira (mecânica no compressor, para retirar calor); lâmpadas LED (luminosa); TV (luminosa e sonora); ventilador (mecânica); ferro (térmica); rádio (sonora); secador (térmica e mecânica). Ele notou que o carregador do celular e a TV ficam mornos quando ligados.
+Q: Quantos aparelhos Bruno classificou com transformação térmica como principal ou uma das principais?
++ Três: chuveiro, ferro e secador
+- Um | termica
+- Cinco | termica
+- Nenhum | termica
+E: Térmica.
+V: Que aparelho da lista é só sonoro?
++ Rádio
+- TV
+- Ventilador
+- Ferro
+Q: Por que Bruno colocou a geladeira como mecânica?
++ Porque o compressor é um motor que faz o gás circular para retirar calor
+- Porque a geladeira produz luz | mecanica
+- Porque a geladeira esquenta os alimentos | mecanica
+- Porque toca música | mecanica
+E: Compressor.
+V: Que aparelhos da lista produzem luz?
++ Lâmpadas LED e TV
+- Rádio e ferro
+- Ventilador e chuveiro
+- Geladeira e secador
+Q: Por que o carregador e a TV ficam mornos?
++ Porque parte da energia elétrica se transforma em calor não desejado
+- Porque são aquecedores | perda
+- Porque estão quebrados sempre | perda
+- Porque produzem frio | perda
+E: Perda.
+V: O calor do carregador é uma energia:
++ Não aproveitada
+- Principal
+- Sonora
+- Mecânica
+Q: Que aparelho da lista faz duas transformações desejadas?
++ TV (luz e som) ou secador (calor e movimento)
+- Rádio | luz-som
+- Ferro | luz-som
+- Lâmpada | luz-som
+E: Duas transformações.
+V: Que aparelho da lista é o melhor exemplo de energia mecânica?
++ Ventilador
+- Rádio
+- Lâmpada
+- Ferro
+Q: Que conclusão Bruno pode tirar?
++ Cada aparelho transforma energia elétrica em formas diferentes, e sempre há alguma perda em calor
+- Todos os aparelhos fazem a mesma transformação | mecanica
+- Nenhum aparelho perde energia | perda
+- Só o chuveiro usa energia | termica
+E: Conclusão.
+V: Que forma de energia todos os aparelhos usam na entrada?
++ Elétrica
+- Química
+- Nuclear
+- Eólica
+
+@praticar | Praticar: classificar aparelhos | Transformações.
+Q: Classifique a máquina de lavar roupa.
++ Mecânica (motor que gira o tambor)
+- Luminosa | mecanica
+- Sonora | mecanica
+- Só térmica | mecanica
+E: Motor.
+V: Classifique a torradeira.
++ Térmica
+- Mecânica
+- Sonora
+- Luminosa
+Q: Classifique a campainha elétrica.
++ Sonora
+- Térmica | luz-som
+- Luminosa | luz-som
+- Mecânica apenas | luz-som
+E: Som.
+V: Classifique o aspirador de pó.
++ Mecânica
+- Luminosa
+- Sonora apenas
+- Térmica apenas
+Q: Uma lâmpada consome 10 W e transforma 4 W em luz. Para onde vão os outros 6 W?
++ Principalmente para calor
+- Para som | perda
+- Desaparecem | perda
+- Voltam para a tomada | perda
+E: Conservação.
+V: Qual lâmpada é mais eficiente: a que transforma 40% em luz ou a que transforma 10%?
++ A que transforma 40%
+- A que transforma 10%
+- São iguais
+- Nenhuma
+Q: Que aparelho transforma energia elétrica em térmica para cozinhar?
++ Forno elétrico
+- Ventilador | termica
+- Rádio | termica
+- Lâmpada LED | termica
+E: Forno.
+V: Que aparelho transforma energia elétrica em mecânica na cozinha?
++ Batedeira
+- Forno elétrico
+- Torradeira
+- Sanduicheira
+
+@aplicar | Aplicar: o quadro da casa | Organizar e avaliar.
+Q: A turma vai montar um quadro com os aparelhos de casa. Que colunas usar?
++ Aparelho, energia de entrada, energia desejada e energia perdida
+- Só o nome do aparelho | perda
+- Só a cor | perda
+- Só a marca | perda
+E: Quadro.
+V: Que linha está correta?
++ Ventilador — elétrica — mecânica — calor e som
+- Ventilador — elétrica — luminosa — som
+- Ventilador — térmica — elétrica — luz
+- Ventilador — sonora — térmica — movimento
+Q: Ao comparar aparelhos, o que indica que vale a pena trocar uma lâmpada?
++ A nova transforma mais energia em luz e menos em calor
+- A nova esquenta mais | perda
+- A nova faz barulho | perda
+- A nova é de outra cor | perda
+E: Eficiência.
+V: Que troca aumenta a eficiência da iluminação?
++ Trocar lâmpadas incandescentes por LED
+- Trocar LED por incandescente
+- Deixar as luzes acesas
+- Usar mais lâmpadas
+Q: Que conclusão a turma pode tirar?
++ "Os aparelhos transformam energia elétrica em térmica, mecânica, luminosa ou sonora, e os mais eficientes perdem menos energia em calor."
+- "Todos os aparelhos produzem só calor." | termica
+- "A energia some dentro dos aparelhos." | perda
+- "Lâmpadas produzem movimento." | luz-som
+E: Conclusão.
+V: Que forma de energia o chuveiro precisa produzir?
++ Térmica, para aquecer a água
+- Sonora
+- Luminosa
+- Mecânica
+
+@explicar | Explicar: para onde vai a energia elétrica | Explique como os aparelhos transformam a energia elétrica.
+C: termica-mecanica | Classifica aparelhos que produzem calor ou movimento
+C: luz-som | Classifica aparelhos que produzem luz ou som
+C: perda | Explica as perdas e a eficiência
+BOA: Os aparelhos transformam energia elétrica em outras formas: em térmica, o chuveiro, o ferro, o forno e a torradeira; em mecânica, o ventilador, o liquidificador e a máquina de lavar; a geladeira usa um motor para retirar calor; em luminosa, as lâmpadas; em sonora, o rádio e a campainha; a TV faz luz e som, e o secador, calor e movimento. Nenhum aparelho transforma toda a energia na forma desejada: parte vira calor, como no carregador e na TV de Bruno, que ficam mornos. A lâmpada LED é mais eficiente que a incandescente porque transforma mais energia em luz e menos em calor.
+
+#TRILHA EF08CI04 | CI | 8 | Trilha: Calcular o consumo | Potência, tempo e a conta de luz
+FAZ: Calcula o consumo de eletrodomésticos a partir dos dados de potência (descritos no próprio equipamento) e tempo médio de uso para avaliar o impacto de cada equipamento no consumo doméstico mensal.
+ERRO: unidade | Confunde potência (W, kW) e energia consumida (Wh, kWh)
+ERRO: conversao | Erra a conversão de W para kW ou de minutos para horas
+ERRO: calculo | Erra o cálculo E = P × t ou esquece de multiplicar pelos dias do mês
+ERRO: impacto | Não compara os aparelhos para avaliar qual pesa mais na conta
+NOTA: Potência é a quantidade de energia que um aparelho usa por unidade de tempo; vem escrita no aparelho ou na embalagem, em watts (W). 1 kW = 1.000 W. Energia consumida = potência × tempo de uso: E = P × t. Se P está em kW e t em horas, a energia sai em quilowatts-hora (kWh), a unidade da conta de luz. Exemplo: chuveiro de 5.500 W = 5,5 kW, usado 30 minutos (0,5 h) por dia: 5,5 × 0,5 = 2,75 kWh por dia; em 30 dias, 2,75 × 30 = 82,5 kWh. Lâmpada LED de 10 W = 0,01 kW, ligada 5 h por dia: 0,01 × 5 = 0,05 kWh por dia; em 30 dias, 1,5 kWh. Aparelhos de alta potência usados por muito tempo têm maior impacto. Para saber o custo, multiplica-se o consumo pelo preço do kWh cobrado pela distribuidora.
+
+@relembrar | Relembrar: potência e energia | Unidades e fórmula.
+Q: Em que unidade aparece a potência de um aparelho?
++ Watt (W)
+- Quilowatt-hora (kWh) | unidade
+- Litro | unidade
+- Metro | unidade
+E: Watt.
+V: Em que unidade a conta de luz registra o consumo?
++ Quilowatt-hora (kWh)
+- Watt
+- Volt
+- Grau Celsius
+Q: Quantos watts tem 1 kW?
++ 1.000 W
+- 100 W | conversao
+- 10 W | conversao
+- 1.000.000 W | conversao
+E: Quilo = mil.
+V: Quanto é 2.200 W em kW?
++ 2,2 kW
+- 22 kW
+- 0,22 kW
+- 220 kW
+Q: Quanto é 30 minutos em horas?
++ 0,5 h
+- 30 h | conversao
+- 0,3 h | conversao
+- 3 h | conversao
+E: Metade.
+V: Quanto é 15 minutos em horas?
++ 0,25 h
+- 0,15 h
+- 1,5 h
+- 15 h
+Q: Qual é a fórmula do consumo de energia?
++ E = P × t
+- E = P + t | calculo
+- E = P ÷ t | calculo
+- E = t ÷ P | calculo
+E: Fórmula.
+V: Um aparelho de 1 kW ligado por 3 h consome:
++ 3 kWh
+- 1 kWh
+- 0,33 kWh
+- 4 kWh
+Q: Um chuveiro de 5,5 kW é usado 0,5 h por dia. Quanto consome por dia?
++ 2,75 kWh
+- 11 kWh | calculo
+- 5 kWh | calculo
+- 0,275 kWh | calculo
+E: 5,5 × 0,5.
+V: E em 30 dias?
++ 82,5 kWh
+- 2,75 kWh
+- 165 kWh
+- 30 kWh
+Q: Por que uma lâmpada LED quase não pesa na conta?
++ Porque tem potência baixa, e o consumo é potência vezes tempo
+- Porque não usa energia | impacto
+- Porque fica sempre desligada | impacto
+- Porque gera energia | impacto
+E: Baixa potência.
+V: Que dois fatores determinam o impacto de um aparelho na conta?
++ Potência e tempo de uso
+- Cor e tamanho
+- Marca e preço da loja
+- Peso e altura
+
+@exemplo_guiado | Exemplo guiado: a planilha da família de Ana | Ana calculou o consumo mensal (30 dias): chuveiro 5.000 W, 40 min por dia; geladeira, que a etiqueta indica 30 kWh por mês; TV 100 W, 4 h por dia; 6 lâmpadas LED de 10 W, 5 h por dia cada; ferro 1.000 W, 4 h por mês no total. Preço do kWh: R$ 0,80.
+Q: Quanto consome o chuveiro por mês?
++ 100 kWh
+- 200 kWh | calculo
+- 5.000 kWh | calculo
+- 3,3 kWh | calculo
+E: 5 × (40/60) × 30 = 100.
+V: Quanto consome a TV por mês?
++ 12 kWh
+- 400 kWh
+- 1,2 kWh
+- 120 kWh
+Q: Quanto consomem as 6 lâmpadas juntas por mês?
++ 9 kWh
+- 1,5 kWh | calculo
+- 60 kWh | calculo
+- 90 kWh | calculo
+E: 6 × 0,01 × 5 × 30 = 9.
+V: Quanto consome o ferro por mês?
++ 4 kWh
+- 1.000 kWh
+- 40 kWh
+- 0,4 kWh
+Q: Qual é o consumo total mensal dos aparelhos?
++ 155 kWh
+- 145 kWh | calculo
+- 125 kWh | calculo
+- 255 kWh | calculo
+E: 100 + 30 + 12 + 9 + 4.
+V: Qual é o custo mensal desse consumo?
++ R$ 124,00
+- R$ 155,00
+- R$ 80,00
+- R$ 193,75
+Q: Que aparelho tem o maior impacto na conta?
++ O chuveiro
+- As lâmpadas | impacto
+- A TV | impacto
+- O ferro | impacto
+E: Chuveiro.
+V: Que porcentagem aproximada do consumo total é do chuveiro?
++ Cerca de 65%
+- Cerca de 10%
+- Cerca de 25%
+- Cerca de 90%
+Q: Se o banho cair de 40 para 20 minutos por dia, quanto a família economiza por mês?
++ 50 kWh, ou R$ 40,00
+- 20 kWh, ou R$ 16,00 | calculo
+- 100 kWh, ou R$ 80,00 | calculo
+- Nada | impacto
+E: Metade do consumo do chuveiro.
+V: Por que o consumo da geladeira já veio pronto em kWh por mês?
++ Porque a etiqueta de eficiência informa o consumo mensal estimado
+- Porque a geladeira não tem potência
+- Por acaso
+- Porque não consome energia
+
+@praticar | Praticar: calcular e comparar | Aparelhos.
+Q: Um computador de 200 W fica ligado 5 h por dia. Quanto consome em 30 dias?
++ 30 kWh
+- 1.000 kWh | conversao
+- 3 kWh | conversao
+- 300 kWh | conversao
+E: 0,2 × 5 × 30.
+V: Um ventilador de 100 W fica ligado 8 h por dia. Quanto consome em 30 dias?
++ 24 kWh
+- 800 kWh
+- 2,4 kWh
+- 240 kWh
+Q: Um micro-ondas de 1.200 W é usado 10 minutos por dia. Quanto consome em 30 dias?
++ 6 kWh
+- 360 kWh | conversao
+- 12 kWh | conversao
+- 0,6 kWh | conversao
+E: 1,2 × (1/6) × 30.
+V: Um secador de 2.000 W é usado 15 minutos por dia. Quanto consome em 30 dias?
++ 15 kWh
+- 30 kWh
+- 1,5 kWh
+- 900 kWh
+Q: Uma lâmpada incandescente de 60 W e uma LED de 9 W ficam ligadas 5 h por dia. Quanto a LED economiza em 30 dias?
++ 7,65 kWh
+- 51 kWh | calculo
+- 1,35 kWh | calculo
+- 9 kWh | calculo
+E: (0,060 - 0,009) × 5 × 30.
+V: Quanto a incandescente consome em 30 dias?
++ 9 kWh
+- 1,35 kWh
+- 60 kWh
+- 0,9 kWh
+Q: Por que não se deve confundir 5.000 W com 5.000 kWh?
++ Porque W mede potência e kWh mede energia consumida ao longo do tempo
+- Porque são a mesma coisa | unidade
+- Porque kWh mede tensão | unidade
+- Porque W mede tempo | unidade
+E: Unidades.
+V: O que significa 1 kWh?
++ A energia consumida por um aparelho de 1 kW durante 1 hora
+- 1.000 watts
+- 1 hora de luz
+- 1 volt
+Q: Um aparelho de baixa potência ligado o tempo todo pode pesar na conta?
++ Sim, porque o tempo de uso também multiplica o consumo
+- Não, nunca | impacto
+- Só se for grande | impacto
+- Só se for velho | impacto
+E: Tempo.
+V: Um roteador de 10 W ligado 24 h por dia consome quanto em 30 dias?
++ 7,2 kWh
+- 0,24 kWh
+- 72 kWh
+- 10 kWh
+
+@aplicar | Aplicar: a auditoria de energia da casa | Avaliar o impacto.
+Q: Você vai fazer a auditoria de energia da sua casa. Quais passos seguir?
++ Listar aparelhos, ler a potência, estimar o tempo de uso, calcular E = P × t por mês e comparar
+- Olhar só a cor dos aparelhos | calculo
+- Somar as potências sem considerar o tempo | calculo
+- Chutar os valores | calculo
+E: Passos.
+V: Onde encontrar a potência de um aparelho?
++ Na etiqueta do aparelho ou na embalagem
+- Na conta de água
+- No calendário
+- Na previsão do tempo
+Q: Depois de calcular, que estratégia reduz mais a conta?
++ Reduzir o uso dos aparelhos de maior consumo, como o chuveiro
+- Desligar só uma lâmpada LED | impacto
+- Trocar a cor das paredes | impacto
+- Usar mais o chuveiro | impacto
+E: Prioridade.
+V: Como conferir se a auditoria está próxima da realidade?
++ Comparar o total calculado com o consumo em kWh da conta de luz
+- Não conferir
+- Comparar com a conta de água
+- Perguntar a um vizinho
+Q: Que conclusão a turma pode tirar?
++ "O consumo é potência vezes tempo; aparelhos de alta potência usados por muito tempo têm maior impacto na conta."
+- "Só a potência importa." | impacto
+- "Watt e quilowatt-hora são a mesma coisa." | unidade
+- "Minutos podem ser usados direto na fórmula em horas." | conversao
+E: Conclusão.
+V: Que aparelho costuma ter grande impacto nas casas com chuveiro elétrico?
++ O chuveiro
+- A lâmpada LED
+- O carregador de celular
+- O rádio-relógio
+
+@explicar | Explicar: calcular o consumo | Explique como calcular o consumo de energia dos eletrodomésticos.
+C: unidade-conversao | Diferencia potência e energia e faz as conversões
+C: calculo | Calcula o consumo mensal com E = P × t
+C: impacto | Compara aparelhos e avalia o impacto na conta
+BOA: A potência, em watts, vem no aparelho; 1 kW = 1.000 W. O consumo é E = P × t: com a potência em kW e o tempo em horas, o resultado sai em kWh, a unidade da conta. Na casa de Ana, o chuveiro de 5 kW usado 40 minutos por dia consome 5 × (40 ÷ 60) × 30 = 100 kWh por mês; a TV de 100 W por 4 h, 12 kWh; as 6 lâmpadas LED, 9 kWh. Com a geladeira e o ferro, o total foi 155 kWh, ou R$ 124,00 a R$ 0,80 o kWh. O chuveiro tinha o maior impacto: reduzir o banho pela metade economizaria 50 kWh por mês.
+
+#TRILHA EF08CI05 | CI | 8 | Trilha: Usar bem a energia | Ações coletivas na escola e na comunidade
+FAZ: Propõe ações coletivas para otimizar o uso de energia elétrica em sua escola e/ou comunidade, com base na seleção de equipamentos segundo critérios de sustentabilidade (consumo de energia e eficiência energética) e hábitos de consumo responsável.
+ERRO: etiqueta | Não usa a etiqueta de eficiência energética (classes, consumo em kWh) para escolher equipamentos
+ERRO: habito | Não identifica hábitos de consumo responsável (apagar luzes, tirar da tomada, aproveitar luz natural)
+ERRO: coletivo | Propõe só ações individuais, sem organização coletiva, metas e acompanhamento
+ERRO: criterio | Escolhe equipamentos só pelo preço, sem considerar consumo e vida útil
+NOTA: No Brasil, muitos eletrodomésticos têm a Etiqueta Nacional de Conservação de Energia (ENCE), do Inmetro, que classifica a eficiência em faixas, da mais eficiente (A) à menos eficiente, e informa o consumo estimado em kWh por mês. O selo Procel identifica os equipamentos mais eficientes da categoria. Critérios de sustentabilidade: menor consumo, maior eficiência, vida útil longa, possibilidade de conserto e descarte correto. Um aparelho mais caro e mais eficiente pode compensar ao longo do tempo pela economia na conta. Hábitos responsáveis: apagar luzes em ambientes vazios, aproveitar a luz e a ventilação naturais, não deixar a geladeira aberta, desligar aparelhos em vez de deixá-los em espera (stand-by), juntar roupas para passar de uma vez, banhos mais curtos. Ações coletivas exigem diagnóstico (quanto se consome e onde), metas, divisão de tarefas, campanhas de conscientização, acompanhamento pela conta de luz e divulgação dos resultados.
+
+@relembrar | Relembrar: eficiência e hábitos | Critérios.
+Q: Para que serve a Etiqueta Nacional de Conservação de Energia?
++ Informar a classe de eficiência e o consumo estimado do aparelho
+- Informar a cor do aparelho | etiqueta
+- Informar o preço da loja | etiqueta
+- Informar o peso | etiqueta
+E: Etiqueta.
+V: Que classe da etiqueta indica o aparelho mais eficiente?
++ A
+- E
+- Z
+- 0
+Q: O que o selo Procel indica?
++ Os equipamentos mais eficientes da sua categoria
+- O aparelho mais barato | etiqueta
+- O aparelho mais pesado | etiqueta
+- O aparelho mais antigo | etiqueta
+E: Procel.
+V: Que órgão é responsável pela etiqueta?
++ Inmetro
+- IBGE
+- ICMBio
+- Embrapa
+Q: Qual é um hábito de consumo responsável?
++ Apagar a luz ao sair de um ambiente vazio
+- Deixar a geladeira aberta | habito
+- Deixar a TV ligada sem ninguém | habito
+- Passar uma peça de roupa de cada vez todos os dias | habito
+E: Hábito.
+V: Por que juntar roupas para passar de uma vez?
++ Porque o ferro gasta energia para aquecer cada vez que é ligado
+- Porque o ferro esfria as roupas
+- Por acaso
+- Porque o ferro não gasta energia
+Q: O que é o modo de espera (stand-by)?
++ Quando o aparelho parece desligado, mas continua consumindo um pouco de energia
+- Quando o aparelho está quebrado | habito
+- Quando o aparelho gera energia | habito
+- Quando o aparelho está sem tomada | habito
+E: Stand-by.
+V: Como evitar o consumo em stand-by?
++ Desligar o aparelho da tomada ou usar um filtro de linha com botão
+- Deixar sempre na tomada
+- Aumentar o volume
+- Comprar mais aparelhos
+Q: Qual critério de sustentabilidade é importante na escolha de um equipamento?
++ Menor consumo e maior eficiência
+- Apenas o menor preço | criterio
+- Apenas a cor | criterio
+- Apenas o tamanho | criterio
+E: Critério.
+V: Por que um aparelho mais caro e eficiente pode compensar?
++ Porque gasta menos energia ao longo dos anos
+- Porque dura menos
+- Porque gasta mais
+- Nunca compensa
+Q: O que diferencia uma ação coletiva de uma ação individual?
++ A ação coletiva envolve um grupo, com metas, tarefas e acompanhamento
+- A ação coletiva é feita por uma pessoa sozinha | coletivo
+- Não há diferença | coletivo
+- A ação coletiva não tem metas | coletivo
+E: Coletivo.
+V: Como acompanhar o resultado de uma campanha de economia na escola?
++ Comparando o consumo em kWh nas contas de luz antes e depois
+- Perguntando a cor favorita de cada um
+- Não acompanhando
+- Olhando o calendário
+
+@exemplo_guiado | Exemplo guiado: a campanha da escola de Rio das Garças | A turma fez um diagnóstico: a escola consumia 3.000 kWh por mês; 40 lâmpadas fluorescentes ficavam acesas mesmo com sol forte; computadores do laboratório ficavam em stand-by à noite; a geladeira da cantina era antiga, sem etiqueta. Propostas: trocar as lâmpadas por LED de forma gradual, criar "fiscais da luz" em cada sala, desligar os computadores da tomada ao fim do dia e pedir à direção a troca da geladeira por uma classe A. Meta: reduzir 10% em três meses. Resultado depois de três meses: 2.640 kWh por mês.
+Q: Qual era a meta da campanha?
++ Reduzir 10% em três meses
+- Reduzir 50% em um dia | coletivo
+- Aumentar o consumo | coletivo
+- Não havia meta | coletivo
+E: Meta.
+V: Quanto seria o consumo com 10% de redução?
++ 2.700 kWh
+- 2.640 kWh
+- 300 kWh
+- 2.900 kWh
+Q: A meta foi atingida?
++ Sim, e superada: a redução foi de 360 kWh, ou 12%
+- Não, o consumo aumentou | coletivo
+- Não, a redução foi de 5% | coletivo
+- Não dá para saber | coletivo
+E: 360 ÷ 3.000 = 12%.
+V: Quantos kWh foram economizados por mês?
++ 360 kWh
+- 300 kWh
+- 2.640 kWh
+- 36 kWh
+Q: Que hábito a campanha mudou nas salas?
++ Apagar as luzes quando a luz natural é suficiente, com os "fiscais da luz"
+- Deixar as luzes sempre acesas | habito
+- Abrir a geladeira mais vezes | habito
+- Ligar mais computadores | habito
+E: Hábito.
+V: Que ação reduziu o consumo em stand-by?
++ Desligar os computadores da tomada ao fim do dia
+- Deixar os computadores ligados à noite
+- Comprar mais computadores
+- Aumentar o brilho das telas
+Q: Por que trocar a geladeira por uma classe A?
++ Porque consome menos energia que a antiga, sem etiqueta
+- Porque é mais bonita | criterio
+- Porque é sempre mais barata na loja | criterio
+- Porque gasta mais | etiqueta
+E: Eficiência.
+V: Quantas lâmpadas fluorescentes havia?
++ 40
+- 4
+- 400
+- 14
+Q: O que torna essa ação coletiva?
++ Diagnóstico, metas, divisão de tarefas entre turmas e direção, e acompanhamento pelas contas
+- Uma pessoa apagou uma luz uma vez | coletivo
+- Ninguém participou | coletivo
+- Não houve acompanhamento | coletivo
+E: Coletiva.
+V: Quem a turma precisou envolver para trocar a geladeira?
++ A direção da escola
+- Ninguém
+- Só os alunos do 1º ano
+- Uma loja de brinquedos
+
+@praticar | Praticar: escolher e propor | Situações.
+Q: Duas geladeiras: A consome 25 kWh/mês e custa R$ 3.000; B consome 45 kWh/mês e custa R$ 2.700. Com o kWh a R$ 0,80, em quantos meses a economia da A paga a diferença de preço?
++ Cerca de 19 meses
+- 1 mês | criterio
+- 100 meses | criterio
+- Nunca | criterio
+E: Economia de 20 kWh × R$ 0,80 = R$ 16 por mês; 300 ÷ 16 ≈ 19.
+V: Quanto a geladeira A economiza por mês em reais?
++ R$ 16,00
+- R$ 20,00
+- R$ 300,00
+- R$ 8,00
+Q: Uma comunidade quer economizar energia na iluminação da praça. Qual proposta é sustentável?
++ Trocar as lâmpadas por LED e instalar sensores ou temporizadores
+- Deixar as luzes acesas de dia | habito
+- Usar lâmpadas incandescentes novas | criterio
+- Aumentar o número de postes sem planejamento | criterio
+E: Proposta.
+V: Para que serve um sensor de presença?
++ Acender a luz só quando há alguém no ambiente
+- Deixar a luz sempre acesa
+- Medir a temperatura
+- Tocar música
+Q: Na escola, as salas ficam quentes e os ventiladores ficam ligados com janelas fechadas. Que hábito melhora a situação?
++ Abrir as janelas para a ventilação natural e ligar os ventiladores só quando necessário
+- Fechar mais as janelas | habito
+- Ligar todos os aparelhos ao mesmo tempo | habito
+- Deixar ventiladores ligados em salas vazias | habito
+E: Ventilação natural.
+V: Que recurso natural pode reduzir o uso de lâmpadas durante o dia?
++ A luz do Sol
+- A chuva
+- O vento
+- A Lua
+Q: Uma família quer comprar um ar-condicionado. Qual critério ajuda a reduzir o impacto na conta?
++ Escolher um modelo com boa classe de eficiência e usá-lo com portas e janelas fechadas e temperatura moderada
+- Escolher só pelo menor preço | criterio
+- Usar com as janelas abertas | habito
+- Regular na temperatura mais baixa possível sempre | habito
+E: Critério e hábito.
+V: Por que regular o ar-condicionado em temperatura moderada economiza energia?
++ Porque o aparelho trabalha menos para resfriar
+- Porque gasta mais
+- Porque desliga sozinho
+- Não economiza
+
+@aplicar | Aplicar: o plano de energia da escola | Propor ações coletivas.
+Q: A turma vai apresentar à direção um plano de uso eficiente de energia. Que estrutura usar?
++ Diagnóstico, metas, ações (equipamentos e hábitos), responsáveis, cronograma e acompanhamento
+- Só uma lista de reclamações | coletivo
+- Só "economizem energia" | coletivo
+- Só a compra de aparelhos caros sem diagnóstico | criterio
+E: Plano.
+V: Que dado deve estar no diagnóstico?
++ O consumo mensal em kWh e onde ele é maior
+- O nome dos professores
+- A cor das salas
+- O cardápio da cantina
+Q: Como envolver toda a comunidade escolar?
++ Campanha com cartazes, fiscais por sala e divulgação mensal dos resultados
+- Não contar a ninguém | coletivo
+- Punir quem esquecer a luz acesa | coletivo
+- Fazer só uma reunião e esquecer | coletivo
+E: Envolvimento.
+V: Por que divulgar os resultados?
++ Para motivar e mostrar que as ações funcionam
+- Para envergonhar alguém
+- Não é necessário
+- Para esconder o consumo
+Q: Que conclusão a turma pode tirar?
++ "Escolher equipamentos eficientes, mudar hábitos e organizar ações coletivas com metas e acompanhamento reduz o consumo de energia."
+- "Só o preço importa na escolha de aparelhos." | criterio
+- "Uma ação isolada sem metas resolve tudo." | coletivo
+- "Stand-by não consome energia." | habito
+E: Conclusão.
+V: Além de economizar dinheiro, que benefício o uso eficiente traz?
++ Reduz a necessidade de geração e os impactos ambientais
+- Aumenta a poluição
+- Nenhum
+- Aumenta o consumo
+
+@explicar | Explicar: usar bem a energia | Explique como propor ações coletivas para usar melhor a energia elétrica.
+C: etiqueta-criterio | Seleciona equipamentos por eficiência e consumo
+C: habito | Identifica hábitos de consumo responsável
+C: coletivo | Organiza ações coletivas com metas e acompanhamento
+BOA: Para escolher equipamentos, uso a etiqueta do Inmetro, que vai da classe A, mais eficiente, às menos eficientes, e informa o consumo em kWh; o selo Procel indica os melhores da categoria. Um aparelho mais eficiente pode custar mais, mas compensar: a geladeira que economiza 20 kWh por mês paga a diferença em cerca de 19 meses. Hábitos responsáveis: apagar luzes, aproveitar a luz e a ventilação naturais, desligar aparelhos do stand-by. Na escola de Rio das Garças, a turma fez diagnóstico, definiu a meta de 10%, criou fiscais da luz, desligou os computadores à noite e propôs LED e geladeira classe A: o consumo caiu de 3.000 para 2.640 kWh, 12% a menos.
+
+#TRILHA EF08CI06 | CI | 8 | Trilha: Usinas de energia elétrica | Como a eletricidade é gerada e chega até nós
+FAZ: Discute e avalia usinas de geração de energia elétrica (termelétricas, hidrelétricas, eólicas etc.), suas semelhanças e diferenças, seus impactos socioambientais, e como essa energia chega e é usada em sua cidade, comunidade, casa ou escola.
+ERRO: funcionamento | Não explica que a maioria das usinas gira uma turbina ligada a um gerador
+ERRO: tipo | Confunde os tipos de usina e suas fontes (água, vento, Sol, combustíveis, urânio)
+ERRO: impacto | Não avalia os impactos socioambientais de cada tipo
+ERRO: transmissao | Não explica o caminho da energia (transmissão em alta tensão, subestações, transformadores, distribuição, medidor)
+NOTA: Na maioria das usinas, algo faz girar uma turbina ligada a um gerador, que transforma energia mecânica em elétrica. Hidrelétrica: a água represada desce e gira a turbina; é a principal fonte de eletricidade do Brasil (exemplos: Itaipu, no rio Paraná, compartilhada com o Paraguai; Belo Monte, no rio Xingu); renovável e com baixa emissão na operação, mas o reservatório alaga florestas e terras, desloca comunidades (ribeirinhos, indígenas) e altera rios e peixes. Termelétrica: queima carvão, gás natural, óleo ou biomassa (como bagaço de cana) para ferver água; o vapor gira a turbina; pode ser ligada quando necessário, mas a queima de combustíveis fósseis emite gases de efeito estufa e poluentes. Termonuclear: usa a fissão do urânio para gerar calor (no Brasil, as usinas de Angra dos Reis, RJ); não emite gás carbônico na geração, mas produz rejeitos radioativos e exige muita segurança. Eólica: o vento gira as pás; renovável, crescente sobretudo no Nordeste; impactos: ruído, paisagem, aves e ocupação de terras. Solar fotovoltaica: painéis transformam diretamente a luz em eletricidade, sem turbina; renovável; depende do Sol e exige descarte adequado dos painéis. Caminho até a casa: a usina eleva a tensão em subestações; linhas de transmissão de alta tensão levam a energia por longas distâncias (o que reduz perdas); subestações e transformadores nos postes reduzem a tensão; a rede de distribuição chega às casas (127 V ou 220 V, conforme a região), passando pelo medidor, que registra o consumo em kWh.
+
+@relembrar | Relembrar: tipos de usina | Funcionamento.
+Q: O que a maioria das usinas faz para gerar eletricidade?
++ Gira uma turbina ligada a um gerador
+- Produz eletricidade sem nenhum movimento, sempre | funcionamento
+- Guarda eletricidade em caixas | funcionamento
+- Retira eletricidade do ar parado | funcionamento
+E: Turbina e gerador.
+V: Que tipo de usina transforma a luz diretamente em eletricidade, sem turbina?
++ Solar fotovoltaica
+- Hidrelétrica
+- Termelétrica
+- Eólica
+Q: Qual é a principal fonte de eletricidade do Brasil?
++ Hidrelétrica
+- Nuclear | tipo
+- Carvão mineral | tipo
+- Óleo diesel | tipo
+E: Hidrelétrica.
+V: Em que rio fica a usina de Itaipu?
++ Paraná
+- Amazonas
+- São Francisco
+- Tietê
+Q: O que move a turbina numa termelétrica?
++ O vapor produzido pela queima de combustíveis
+- O vento | tipo
+- A queda de água represada | tipo
+- A luz do Sol diretamente | tipo
+E: Vapor.
+V: Que combustível renovável pode ser usado em termelétricas?
++ Bagaço de cana (biomassa)
+- Carvão mineral
+- Óleo combustível
+- Gás natural
+Q: Onde ficam as usinas nucleares brasileiras?
++ Em Angra dos Reis, no Rio de Janeiro
+- Em Itaipu, no Paraná | tipo
+- Em Belo Monte, no Pará | tipo
+- No Pantanal | tipo
+E: Angra.
+V: Que material é usado como combustível nas usinas nucleares?
++ Urânio
+- Carvão
+- Bagaço
+- Água
+Q: Qual é um impacto socioambiental das grandes hidrelétricas?
++ Alagamento de florestas e deslocamento de comunidades ribeirinhas e indígenas
+- Emissão de rejeitos radioativos | impacto
+- Queima de carvão | impacto
+- Nenhum impacto | impacto
+E: Reservatório.
+V: Qual é o principal impacto das termelétricas a combustíveis fósseis?
++ Emissão de gases de efeito estufa e poluentes
+- Alagamento de florestas
+- Ruído das pás
+- Rejeitos de painéis
+Q: Por que a energia é transmitida em alta tensão por longas distâncias?
++ Para reduzir as perdas no caminho
+- Para aumentar as perdas | transmissao
+- Para a energia chegar mais quente | transmissao
+- Por acaso | transmissao
+E: Alta tensão.
+V: O que os transformadores dos postes fazem?
++ Reduzem a tensão para uso nas casas
+- Aumentam a tensão para as casas
+- Geram energia
+- Medem o consumo
+Q: Que aparelho registra o consumo de energia da casa?
++ O medidor de energia
+- O transformador do poste | transmissao
+- A turbina | transmissao
+- O disjuntor | transmissao
+E: Medidor.
+V: Em que unidade o medidor registra o consumo?
++ kWh
+- Volt
+- Metro
+- Litro
+
+@exemplo_guiado | Exemplo guiado: o caminho da energia até a escola | A turma desenhou o caminho da energia da escola de Vila Nova: uma hidrelétrica a 400 km gera energia; uma subestação eleva a tensão; linhas de transmissão de alta tensão atravessam campos e cidades; uma subestação perto de Vila Nova reduz a tensão; a rede de distribuição percorre as ruas; um transformador no poste em frente à escola reduz ainda mais a tensão; a energia passa pelo medidor e chega às lâmpadas e computadores. Num dia de pouca chuva, a turma leu que uma termelétrica a gás foi acionada para complementar a geração.
+Q: Onde a energia da escola é gerada?
++ Numa hidrelétrica a 400 km
+- No poste da rua | transmissao
+- Dentro da escola | transmissao
+- No medidor | transmissao
+E: Usina distante.
+V: Qual é a distância entre a usina e a escola?
++ 400 km
+- 40 km
+- 4 km
+- 4.000 km
+Q: Para que serve a subestação perto da usina?
++ Elevar a tensão para a transmissão
+- Reduzir a tensão para uso doméstico | transmissao
+- Medir o consumo da escola | transmissao
+- Gerar eletricidade | transmissao
+E: Elevar.
+V: O que acontece na subestação perto de Vila Nova?
++ A tensão é reduzida
+- A tensão é elevada
+- A energia é armazenada
+- A energia vira água
+Q: Por que uma termelétrica foi acionada num período de pouca chuva?
++ Porque os reservatórios das hidrelétricas ficam mais baixos, e a termelétrica pode ser ligada quando necessário
+- Porque a termelétrica depende da chuva | tipo
+- Porque a hidrelétrica não precisa de água | tipo
+- Por acaso | tipo
+E: Complementar.
+V: Que combustível usa a termelétrica do exemplo?
++ Gás natural
+- Urânio
+- Vento
+- Bagaço de cana
+Q: Que impacto a termelétrica acionada traz?
++ Emissão de gases de efeito estufa pela queima do gás
+- Nenhum | impacto
+- Alagamento de florestas | impacto
+- Rejeitos radioativos | impacto
+E: Emissões.
+V: Que elemento fica no poste em frente à escola?
++ Um transformador
+- Uma turbina
+- Uma represa
+- Uma pá eólica
+Q: Qual é o último elemento antes das lâmpadas da escola?
++ O medidor e a instalação interna
+- A usina | transmissao
+- A linha de alta tensão | transmissao
+- A subestação da usina | transmissao
+E: Medidor.
+V: Que tipo de usina é a principal fonte da escola?
++ Hidrelétrica
+- Nuclear
+- Solar
+- Eólica
+
+@praticar | Praticar: comparar usinas | Avaliar.
+Q: Qual semelhança há entre hidrelétricas, termelétricas e eólicas?
++ Todas usam uma turbina ligada a um gerador
+- Todas queimam combustíveis | funcionamento
+- Todas dependem do Sol diretamente | funcionamento
+- Nenhuma semelhança | funcionamento
+E: Semelhança.
+V: Qual diferença há entre a eólica e a termelétrica a carvão?
++ A eólica usa o vento, renovável; a termelétrica a carvão queima combustível fóssil
+- As duas queimam carvão
+- As duas usam o vento
+- Não há diferença
+Q: Qual é um impacto dos parques eólicos?
++ Ruído, mudança na paisagem e risco para aves
+- Emissão de muito gás carbônico na operação | impacto
+- Rejeitos radioativos | impacto
+- Alagamento de grandes florestas | impacto
+E: Eólica.
+V: Em que região do Brasil a energia eólica cresceu muito?
++ Nordeste
+- Sul, só nas serras com neve
+- Amazônia central
+- Pantanal
+Q: Qual é um desafio das usinas nucleares?
++ Guardar com segurança os rejeitos radioativos
+- Emitir muito gás carbônico | impacto
+- Depender do vento | impacto
+- Alagar florestas | impacto
+E: Nuclear.
+V: Por que a energia solar fotovoltaica varia ao longo do dia?
++ Porque depende da luz do Sol
+- Porque depende do vento
+- Porque depende da chuva
+- Não varia
+Q: Uma comunidade quer instalar painéis solares no telhado da escola. Que análise é completa?
++ Gera energia limpa no próprio local, reduz a conta, mas depende do Sol e exige investimento e descarte correto dos painéis no futuro
+- Não tem nenhuma limitação | impacto
+- Polui como o carvão | impacto
+- Precisa de uma represa | tipo
+E: Avaliação.
+V: Que vantagem tem gerar energia perto de onde ela é usada?
++ Menos perdas na transmissão
+- Mais perdas
+- Precisa de mais linhas de alta tensão
+- Nenhuma
+
+@aplicar | Aplicar: o debate das usinas | Avaliar alternativas.
+Q: A turma vai debater: "Que usina construir para atender o crescimento de Rio das Garças?". Qual argumento é mais completo?
++ Comparar disponibilidade de recursos locais (vento, Sol, rios), custos, impactos socioambientais e a necessidade de geração contínua
+- Escolher a usina mais famosa | impacto
+- Escolher sem ouvir a comunidade | impacto
+- Escolher só pelo menor custo inicial | impacto
+E: Argumento.
+V: Quem deve ser ouvido antes de construir uma usina?
++ As comunidades afetadas
+- Ninguém
+- Só a empresa
+- Só turistas
+Q: Por que combinar várias fontes de energia é uma boa estratégia?
++ Porque uma compensa a outra quando há pouca chuva, pouco vento ou pouco Sol
+- Porque gasta mais | tipo
+- Porque é obrigatório usar só uma | tipo
+- Não é uma boa estratégia | tipo
+E: Matriz diversificada.
+V: Como se chama o conjunto de fontes usadas para gerar eletricidade num país?
++ Matriz elétrica
+- Rede de esgoto
+- Bacia hidrográfica
+- Relevo
+Q: Que conclusão a turma pode tirar?
++ "As usinas geram eletricidade de formas diferentes, cada uma com vantagens e impactos; a energia chega até nós por transmissão em alta tensão e distribuição."
+- "Todas as usinas são iguais e sem impactos." | impacto
+- "A energia sai da tomada sem vir de lugar nenhum." | transmissao
+- "Hidrelétricas não têm impactos." | impacto
+E: Conclusão.
+V: Que atitude individual ajuda a reduzir a necessidade de novas usinas?
++ Usar a energia de forma eficiente
+- Deixar tudo ligado
+- Comprar aparelhos menos eficientes
+- Nenhuma
+
+@explicar | Explicar: usinas de energia elétrica | Explique como as usinas geram eletricidade, seus impactos e como a energia chega até nós.
+C: funcionamento-tipo | Explica o funcionamento e os tipos de usina
+C: impacto | Avalia impactos socioambientais
+C: transmissao | Explica o caminho da energia até a casa
+BOA: Na maioria das usinas, algo gira uma turbina ligada a um gerador: a água represada na hidrelétrica, principal fonte do Brasil, como Itaipu; o vapor da queima de combustíveis na termelétrica; o calor do urânio na nuclear de Angra; o vento na eólica. A solar fotovoltaica transforma a luz diretamente. Cada uma tem impactos: reservatórios alagam terras e deslocam comunidades; combustíveis fósseis emitem gases; a nuclear gera rejeitos; a eólica traz ruído e risco a aves. A energia da escola de Vila Nova vem de uma hidrelétrica a 400 km: sobe de tensão, viaja por linhas de alta tensão, desce em subestações e transformadores e passa pelo medidor.
+
+#PRE EF08CI03 > EF08CI01 | 3
+#PRE EF08CI04 > EF08CI03 | 3
+#PRE EF08CI05 > EF08CI04 | 3
+#PRE EF08CI06 > EF08CI01 | 3
